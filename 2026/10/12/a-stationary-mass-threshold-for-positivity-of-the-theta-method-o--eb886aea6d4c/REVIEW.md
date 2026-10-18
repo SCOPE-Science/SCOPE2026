@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is analytic for every integer \(n\ge3\), every positive real rate vector, every \(\theta\in[0,1]\), and every positive stepsize. Cyclic factorization gives a strictly positive resolvent and exact diagonal \(F_j(a)=(1-q_j)/(1-\prod_kq_k)\). A product inequality proves that each diagonal decreases strictly to its stationary mass. Hence one and only one finite cutoff occurs below \(\theta_c=1-\pi_{\min}\), with none at or above it. The second-order reciprocal-step expansion proves the nonzero critical divergence coefficient. Exact rational matrix checks reconstruct the step independently for thousands of finite instances; no infinite conclusion relies on the finite checks.
+PASS
 
-## Originality — PASS, with specific residual risks
+For n>=3 and positive cyclic rates, (I-aQ)^(-1) factors through the cyclic weighted shift ED_q, with q_j=a lambda_j/(1+a lambda_j), P=product q_j<1. The inverse is strictly entrywise positive and its jj entry is F_j=(1-q_j)/(1-P). The theta step is (R_a-(1-theta)I)/theta; column sums remain one and only its diagonal may turn negative. The derivative a d log(F_j)/da = -q_j+P/(1-P)*sum_k(1-q_k) is strictly negative via product vs sum on all other states; F_j goes 1 down to pi_j=s_j/S strictly from above. Thus the fastest-rate coordinate gives exactly one crossing for theta<1-pi_min, no crossing for theta>=1-pi_min. At theta=0 the bound is h<=1/lambda_max; theta=1 is positive. The expansion F*=pi_min+K/a+O(a^-2) proves the unique cutoff divergence (theta_c-theta)h_c->K/theta_c. Independent exact SymPy rational inversions for four different cyclic rate lists and multiple rational steps verify diagonal formula, off-diagonal positivity and stochastic sums but do not replace the limit proof.
 
-The closest fully inspected classical primary source is Z. Horváth, “On the positivity step size threshold of Runge–Kutta methods,” DOI 10.1016/j.apnum.2004.08.026 (available online 27 October 2004). Its universal positive-IVP step restrictions and invariant-positive-set construction do not specify directed cycle resolvent diagonals, arbitrary heterogeneous rates, or a threshold expressed by the smallest stationary mass. The 2023 full text by Higueras and Roldán uses a symmetric Dirichlet heat-grid generator and different dimension-dependent positivity polynomials. The complete 2016 arXiv study by Horváth, Song, and Terlaky addresses general set invariance rather than this exact family. Published results for the two-stage Padé map and a filtered Crank–Nicolson map solve different operator problems, and the existing two-state \(\theta\) and resolvent tests do not imply the rate-cycle scalar cutoff or its critical scaling without the new cycle calculation.
+## originality
 
-The search is not a proof that no equivalent result exists. Older general positivity and Markov-chain numerics may contain an unlocated special-case formula; arbitrary-generator extension and independence are not asserted.
+PASS
 
-## Value — PASS
+The Cayley identity, resolvent positivity and known reversible-chain Crank-Nicolson diagonal criteria are prior mathematics. The primary issue here is a nonreversible heterogeneous directed n-cycle for arbitrary theta in [0,1], and an exact all-rate stationary-mass threshold with unique finite cutoff and divergence constant; the inspected prior theorem for reversible chains does not imply the nonreversible strict monotonicity or general-theta parameter crossing.
 
-Probability preservation is a fundamental design constraint when integrating Markov master equations. The theorem resolves the entire positive-rate directed-cycle family in every dimension at every stepsize, replacing a conservative fastest-rate restriction by the sharp stationary-mass threshold. The nontrivial boundary \(\theta_c\), unique crossing below it, and exact critical blowup distinguish genuinely unconditionally stochastic discretizations from merely stable ones. Heterogeneous jump rates matter: the threshold depends on the stationary distribution while the first finite-step failure occurs exactly at fastest-rate states.
+## value
 
-## Independent validation status
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact unconditional-stochasticity frontier depending only on the least stationary mass gives a sharp, usable positivity criterion for a natural nonreversible continuous-time Markov test family. The heterogeneous cutoff and its divergence are not cosmetic epsilon improvements; they distinguish probability preservation from ordinary scalar stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:56:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and positive cyclic rates, (I-aQ)^(-1) factors through the cyclic weighted shift ED_q, with q_j=a lambda_j/(1+a lambda_j), P=product q_j<1. The inverse is strictly entrywise positive and its jj entry is F_j=(1-q_j)/(1-P). The theta step is (R_a-(1-theta)I)/theta; column sums remain one and only its diagonal may turn negative. The derivative a d log(F_j)/da = -q_j+P/(1-P)*sum_k(1-q_k) is strictly negative via product vs sum on all other states; F_j goes 1 down to pi_j=s_j/S strictly from above. Thus the fastest-rate coordinate gives exactly one crossing for theta<1-pi_min, no crossing for theta>=1-pi_min. At theta=0 the bound is h<=1/lambda_max; theta=1 is positive. The expansion F*=pi_min+K/a+O(a^-2) proves the unique cutoff divergence (theta_c-theta)h_c->K/theta_c. Independent exact SymPy rational inversions for four different cyclic rate lists and multiple rational steps verify diagonal formula, off-diagonal positivity and stochastic sums but do not replace the limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General RK positivity-radius papers give universal sufficient or problem-class bounds, not an arbitrary fixed-generator exact all-step criterion. The reversible-chain spectral theorem excludes nonreversible one-way n-cycles for n>=3."
+        ],
+        "reasoning": "Possible broader/stronger coverage: General RK positivity-radius papers give universal sufficient or problem-class bounds, not an arbitrary fixed-generator exact all-step criterion. The reversible-chain spectral theorem excludes nonreversible one-way n-cycles for n>=3.",
+        "searches": [
+          "Directed heterogeneous cyclic Markov generator theta method positivity stationary distribution threshold one minus minimum stationary mass all step sizes",
+          "Runge Kutta theta method irreducible Markov cycle resolvent stationary mass all steps",
+          "Horváth positivity step size threshold Runge Kutta theta schemes",
+          "Resultary 2026-10-04 reversible-chain resolvent RESULT.md",
+          "Z. Horváth, Applied Numerical Mathematics 53 (2005) 341-356, doi:10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-04 reversible-chain resolvent RESULT.md",
+        "Z. Horváth, Applied Numerical Mathematics 53 (2005) 341-356, doi:10.1016/j.apnum.2004.08.026",
+        "Horváth–Song–Terlaky, arXiv:1607.01106",
+        "Higueras–Roldán, arXiv:2301.01066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior general identity C=2R-I one can infer only the CN diagonal test. Strict monotonicity for the irreversible shift, the min stationary-mass formula for arbitrary theta, and sharp blow-up require the new cyclic factorization and asymptotics."
+        ],
+        "reasoning": "Claim-versus-prior logical implication: From the prior general identity C=2R-I one can infer only the CN diagonal test. Strict monotonicity for the irreversible shift, the min stationary-mass formula for arbitrary theta, and sharp blow-up require the new cyclic factorization and asymptotics.",
+        "searches": [
+          "Directed heterogeneous cyclic Markov generator theta method positivity stationary distribution threshold one minus minimum stationary mass all step sizes",
+          "Runge Kutta theta method irreducible Markov cycle resolvent stationary mass all steps",
+          "Horváth positivity step size threshold Runge Kutta theta schemes",
+          "Resultary 2026-10-04 reversible-chain resolvent RESULT.md",
+          "Z. Horváth, Applied Numerical Mathematics 53 (2005) 341-356, doi:10.1016/j.apnum.2004.08.026",
+          "Horváth–Song–Terlaky, arXiv:1607.01106",
+          "Higueras–Roldán, arXiv:2301.01066"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theta/Cayley/resolvent diagonal criterion is equivalent algebraically to F_j>=1-theta; the existing 2026 reversible-chain theorem gives the theta=1/2 diagonal-resolvent test for any generator but does not supply this cycle-specific scalar closed form and all-theta crossing."
+        ],
+        "reasoning": "Equivalent and alias comparison: The theta/Cayley/resolvent diagonal criterion is equivalent algebraically to F_j>=1-theta; the existing 2026 reversible-chain theorem gives the theta=1/2 diagonal-resolvent test for any generator but does not supply this cycle-specific scalar closed form and all-theta crossing.",
+        "searches": [
+          "Directed heterogeneous cyclic Markov generator theta method positivity stationary distribution threshold one minus minimum stationary mass all step sizes",
+          "Runge Kutta theta method irreducible Markov cycle resolvent stationary mass all steps",
+          "Horváth positivity step size threshold Runge Kutta theta schemes",
+          "Resultary 2026-10-04 reversible-chain resolvent RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No computed table or finite state enumeration supplied as an exact all-rate classification; Resultary search returned the reversible-chain resolvent paper and different Padé/heat-generator questions."
+        ],
+        "reasoning": "Exact table/database risk assessed: No computed table or finite state enumeration supplied as an exact all-rate classification; Resultary search returned the reversible-chain resolvent paper and different Padé/heat-generator questions.",
+        "searches": [
+          "Directed heterogeneous cyclic Markov generator theta method positivity stationary distribution threshold one minus minimum stationary mass all step sizes",
+          "Resultary 2026-10-04 reversible-chain resolvent RESULT.md",
+          "Z. Horváth, Applied Numerical Mathematics 53 (2005) 341-356, doi:10.1016/j.apnum.2004.08.026",
+          "Horváth–Song–Terlaky, arXiv:1607.01106",
+          "Higueras–Roldán, arXiv:2301.01066"
+        ]
+      },
+      "rationale": "The Cayley identity, resolvent positivity and known reversible-chain Crank-Nicolson diagonal criteria are prior mathematics. The primary issue here is a nonreversible heterogeneous directed n-cycle for arbitrary theta in [0,1], and an exact all-rate stationary-mass threshold with unique finite cutoff and divergence constant; the inspected prior theorem for reversible chains does not imply the nonreversible strict monotonicity or general-theta parameter crossing.",
+      "residual_risks": [
+        "Classical stochastic-matrix Cayley-transform or fixed-generator SSP literature could contain an equivalent directed-cycle calculation under another name.",
+        "Numerical checks sampled only rational rates and steps; the claimed real-parameter theorem rests on its algebraic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_IDENTITY_NOT_COVERING_NEW_FULL_CLAIM",
+          "evidence": [
+            "C_h=2R_(h/2)-I established for any Markov Q; strict diagonal monotonicity and spectral enclosure explicitly assume reversibility; n>=3 unconditional CN obstruction is more general but only theta=1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Entire RESULT.md: finding, assumptions, proof, examples, relationship to prior work, limitations",
+          "method": "Read complete public primary result via GitHub repository read action",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Closest same-operator, same diagonal resolvent criterion"
+        },
+        {
+          "assessment": "SOURCE_CLAIM_VERIFIED_IN_SCOPE",
+          "evidence": [
+            "Cyclic factorization, scalar monotonicity, critical expansion inspected; no general Markov generator extension."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/a-stationary-mass-threshold-for-positivity-of-the-theta-method-o--eb886aea6d4c/RESULT.md",
+          "material_read": "Entire frozen RESULT.md and pinned METADATA.json/AUDIT.json/SLOGAN.txt",
+          "method": "GitHub fetch_file pinned to frozen commit, inspect mathematical content and decoded formulas",
+          "title": "A stationary-mass threshold for positivity of the theta method on heterogeneous directed cycles",
+          "trigger": "Actual source proof and stated prior comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact unconditional-stochasticity frontier depending only on the least stationary mass gives a sharp, usable positivity criterion for a natural nonreversible continuous-time Markov test family. The heterogeneous cutoff and its divergence are not cosmetic epsilon improvements; they distinguish probability preservation from ordinary scalar stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical stochastic-matrix Cayley-transform or fixed-generator SSP literature could contain an equivalent directed-cycle calculation under another name.",
+    "Numerical checks sampled only rational rates and steps; the claimed real-parameter theorem rests on its algebraic proof."
+  ],
+  "schema_version": 1
+}
