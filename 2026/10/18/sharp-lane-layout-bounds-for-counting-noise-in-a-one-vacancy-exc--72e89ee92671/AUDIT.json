@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For one vacancy the lane coordinate is an autonomous symmetric continuous-time cycle walk, and longitudinal successes form a conditionally Poisson count. Its long-time variance is the Poisson term plus twice the finite Markov-chain integrated rate covariance. The cycle Poisson equation is solved explicitly by centered prefix sums, with normalization fixed by zero total gradient. Balanced two-valued rates give an integer-height bridge. Parity forces the sharp variance minimum 1/4; the upper bound is equivalent to minimizing a strictly concave sum of pairwise cycle-resistance terms over the integer cyclic-gap simplex. Strict concavity places every minimizer at a contiguous-block vertex. Exactly 18 rational complete-state generator and Poisson-equation checks and 4704 exhaustive finite pattern comparisons passed. These are consistency checks, not the infinite proof. The claim requires strictly positive rates and fixed finite cylinder before long-time limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ishiguro and Sato (2024), arXiv:2403.01934 and DOI 10.1103/PhysRevResearch.6.033030, full accessible text Sections III and IV develops multidimensional stationary measures and heterogeneous-lane mean currents, not total-hop second cumulants or layout rearrangement.",
+        "Ezaki and Nishinari (2011) exact stationary law and mean current, in the complete author-uploaded manuscript; sections III and IV concern equilibrium weights and average currents.",
+        "No dominating published all-layout second-cumulant theorem was identified in targeted searches; this negative search is not proof of absence."
+      ],
+      "reasoning": "A more general stationary-measure theorem cannot determine temporal second cumulants without generator information. A general MMPP covariance formula, even when combined with stationary weights, does not itself settle strict global arrangement extrema or equality. An unpublished or uninspected sharp rearrangement theorem might nevertheless subsume part of the result.",
+      "searches": [
+        "Exact steady states in the asymmetric simple exclusion process beyond one dimension 2024",
+        "heterogeneous multilane totally asymmetric exclusion process on torus exact stationary measure and lane switching currents finite ring",
+        "two-valued reaction rates on cycle circle Laplacian Green function rearrangement energy extremal consecutive versus alternating labels"
+      ]
+    },
+    "checked_sources": [
+      "Ezaki and Nishinari, Physical Review E 84, 061141 (2011), DOI 10.1103/PhysRevE.84.061141, journal record and author-uploaded full text.",
+      "Asanjarani and Nazarathy, ANZIAM Journal 64 (2022), DOI 10.1017/S1446181122000013, author-uploaded full text.",
+      "Ishiguro and Sato, Physical Review Research 6, 033030 (2024), arXiv:2403.01934, full open-access article and bibliographic record.",
+      "Chair, arXiv:1401.5628, accessible abstract on effective resistance of nearest-plus-next-nearest cycle, not the same generator or observable."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ezaki and Nishinari author full manuscript equations (1)-(3), (18)-(20) derive stationary weights and mean current.",
+        "Asanjarani and Nazarathy (2022) establishes the general concept of count overdispersion for MMPP; no universal cyclic-binomial sharp upper/lower arrangement theorem is reported in the inspected discussion.",
+        "The exact optimization in this finding additionally uses strict concavity in cyclic gaps and an integer-parity equality argument."
+      ],
+      "reasoning": "The relevant prior results are genuine inputs, but neither an assertion of mean-current invariance nor general MMPP overdispersion logically specifies the variance coefficient after every lane permutation, or identifies its unique alternating and contiguous-block extremizers. The full cycle-lattice optimization and explicit coefficients require additional arguments. Coverage by a separate general rearrangement theorem remains an acknowledged risk.",
+      "searches": [
+        "Exact solution of a heterogeneous multilane asymmetric simple exclusion process section III IV variance",
+        "STATIONARY MARKOVIAN ARRIVAL PROCESSES results and open problems count dispersion MMPP",
+        "cycles asymptotic variance alternating clustered rates Markov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asanjarani and Nazarathy (2022), DOI 10.1017/S1446181122000013: Section 2 defines MMPP/Cox counts, and the study treats general second-order count statistics; no specialization to cyclic layout extrema was found in the inspected full text.",
+        "Ezaki and Nishinari (2011), DOI 10.1103/PhysRevE.84.061141: Section II rates and Section III stationary factorization in the inspected complete author-uploaded version."
+      ],
+      "reasoning": "The one-vacancy count is an MMPP and hence a known class; the new theorem does not claim the MMPP variance representation is original. Identifying the full exclusion-sector reduction and evaluating/extremizing the resulting cycle Green energy over all binary lane placements is not stated by these sources.",
+      "searches": [
+        "Markov-modulated Poisson on a cyclic lane chain: layout permutation optimizes Fano factor, alternating minimizes, contiguous block maximizes",
+        "multi-lane exclusion one vacancy exact diffusion noise heterogeneous lanes",
+        "circulant Markov modulated poisson asymptotic variance arrangement clustered alternating extremes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ezaki and Nishinari author-uploaded manuscript shows numerical mean-current diagrams, not an exact noise lookup table.",
+        "Chair (2014), arXiv:1401.5628, concerns effective resistance on a cycle with next-nearest edges, not binary-placement noise tables."
+      ],
+      "reasoning": "The searched primary material did not yield an exact table with the present general analytic coefficient and all-size extrema. The proof covers infinitely many lane counts; finite checks through 14 lanes were not substituted for historical table searches.",
+      "searches": [
+        "exclusion torus one vacancy varying longitudinal hopping rates four lanes tracer diffusion lane ordering",
+        "multi-lane TASEP current fluctuations lane ordering periodic",
+        "cycle graph effective resistance subsets contiguous minimize total resistance"
+      ]
+    },
+    "rationale": "The identified source model and its uniform/factorized stationarity and current are published. General Markov-modulated Poisson count-variance machinery and cycle Green functions are prior methods. The inspected full texts do not state the exact arbitrary-profile finite-cylinder prefix formula together with the sharp global binary lane-ordering extrema and equality rigidity. The gap is motivated by stationary-order invariance versus temporal noise dependence, rather than a restatement of generic overdispersion. Equivalent older spectral rearrangement and queueing coverage is a residual risk requiring independent bibliographic check.",
+    "residual_risks": [
+      "Older queueing and Markov-modulated Poisson literature might contain the same sharp binary permutation extremum even if not indexed under exclusion terminology.",
+      "A general discrete rearrangement theorem for the cycle Green energy might imply the upper bound and equality without this stochastic application.",
+      "The original 2011 publisher-version full text was not directly inspected, although the complete 2015 author manuscript of the work and the 2011 journal publication record were inspected.",
+      "Independent bibliographic audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS foundational process definition, factorized stationary distribution, mean current; inspected text does not state long-time count-variance layout extrema.",
+        "evidence": [
+          "Section II longitudinal rate p_i and lateral rate chi_i; Section III equations (1)-(3) exact stationary factorization; Section IV equations (18)-(20) mean currents; journal DOI 10.1103/PhysRevE.84.061141 dated 2011-12-27."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/221804723_Exact_solution_of_a_heterogeneous_multilane_asymmetric_simple_exclusion_process",
+        "material_read": "Author-uploaded complete 2015 manuscript corresponding to the 2011 journal work: model Section II, stationary construction Section III, mean currents Section IV, summary and references; separately checked 2011 journal publication record.",
+        "method": "Full readable HTML transcription of author-uploaded manuscript, with equations and surrounding sections inspected.",
+        "title": "Exact solution of a heterogeneous multi-lane asymmetric simple exclusion process",
+        "trigger": "Same stochastic cylinder, independent rates for clockwise hops and lateral moves, exact stationary law and mean current."
+      },
+      {
+        "assessment": "COVERS generic MMPP count metrics and overdispersion; not a cyclic-layout extremal statement.",
+        "evidence": [
+          "Section 1 equation (1.1) defines limiting index of dispersion; Section 2 identifies MMPP as Cox processes; Section 3 addresses generic overdispersion, hazard and renewal-time properties; DOI 10.1017/S1446181122000013."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/358783811_STATIONARY_MARKOVIAN_ARRIVAL_PROCESSES_RESULTS_AND_OPEN_PROBLEMS",
+        "material_read": "Complete author-uploaded 2022 manuscript: introduction, MMPP definitions, second-order count statistics and main results, references.",
+        "method": "Full readable HTML transcription of author-uploaded manuscript with equations.",
+        "title": "Stationary Markovian arrival processes: Results and open problems",
+        "trigger": "Potentially dominating general Cox/Markov-modulated Poisson count-noise analysis."
+      },
+      {
+        "assessment": "COVERS general multidimensional stationary laws and mean current for heterogeneous lanes. The full inspected article does not evaluate time-integrated total longitudinal hop-count variance or sharp layout extrema.",
+        "evidence": [
+          "Section III equation (12) constructs the stationary measure; Section IV equations (16)-(18) and Fig. 3 analyze heterogeneous fast/slow lane mean current; the conclusion concerns stationary distributions and current."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.01934",
+        "material_read": "Full open-access article: Section III steady-state construction, Section IV heterogeneous fast/slow lanes and mean current, conclusion, bibliographic details.",
+        "method": "Readable author-uploaded HTML full text of open-access journal article, with arXiv and journal record cross-check.",
+        "title": "Exact steady states in the asymmetric simple exclusion process beyond one dimension",
+        "trigger": "Later broad multidimensional exact exclusion-process treatment potentially dominating stationary claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72e89ee9-2671-48d6-a20e-3415d3b85f7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The observable is a physical integrated transport-activity count, and the exact all-arrangement envelope distinguishes temporal fluctuations from invariant equal-time probabilities and average throughput. The combinatorial optimization is genuinely all-size: alternating and clustered configurations are the unique extrema among exponentially many speed placements, with a sharp excess-noise ratio (m²+2)/3. It gives a finite high-density benchmark for lane-placement effects, with the source model, invariant mean and assumptions explicit. The distinction has relevance to inference from stationary densities and design of dynamically heterogeneous channels. No thermodynamic claim is made.",
+    "status": "PASS"
+  }
+}
