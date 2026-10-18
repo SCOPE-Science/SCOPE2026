@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-The exact theorem and its analytic proof appear in `RESULT.md`. In a Python environment with the versions specified by `requirements.txt`, run:
+# Independent mathematical audit
 
-```
-python verify_symbolic.py
-python verify.py
-```
+## correctness
 
-The symbolic check is formulated entirely in exact SymPy algebra. It constructs the two fermionic jump operators with the Jordan–Wigner parity string, computes the Lindblad adjoint on the five-observable invariant sector for symbolic \(J\), \(\gamma_1\), and \(\gamma_2\), checks the Majorana definition of fermionic partial time reversal and its characteristic polynomial, and confirms preservation of the quadratic \(r=z_1z_2+w_1w_2\) relation. The actual execution returned:
+PASS
 
-```
-VERIFY_SYMBOLIC_OK exact adjoint closure, twist spectrum, Wick invariance
-```
+Independent exact Lindblad adjoint closure gives two damped (z_j,w_j) blocks and r=z1 z2+w1 w2. Majorana partial time reversal yields Hermitian 2x2 spectral blocks with radicands (1+r)^2+(w1-w2)^2 and (1-r)^2+(w1+w2)^2; their squared difference reduces to 4z1z2 and establishes leading singular degeneracy exactly at a one-site parity zero. Matrix-exponential solution provides the cos/cosh zero equations and first-root arccos/arccosh expression, with exceptional point s=1 handled continuously. Independently constructed all 16 Liouvillian basis columns and expm-evolved a Fock projector at gamma1=.3,gamma2=2.3,J=1 and t=0,.2,.5,.9, reproducing all five analytic coefficients within 6e-16. Inspected separate symbolic Pauli/twist verifier. The classification concerns spectral degeneracy, not negativity positivity or generic multi-site states.
 
-The matrix check constructs the full \(16\times16\) Liouvillian and exponentiates it on each of the four occupation-projector initial conditions. It separately evaluates the closed state formula, performs fermionic partial time reversal from the complete ordered Majorana basis, compares all four twisted eigenvalues to the analytic spectrum, tests predicted leading-singular-value inequalities, checks the exact finite crossing times, and directly verifies degeneracy at the first clock. Actual execution returned:
+## originality
 
-```
-VERIFY_OK 1521 direct matrix/Lindblad/singular-spectrum checks
-```
+PASS
 
-Test instances include zero rates, a common positive balanced rate, opposite signs of site-rate contrast, both regimes separated by \(|\gamma_2-\gamma_1|=4J\), exact critical contrast, and two different positive coherent couplings. There are no external data dependencies.
+This is best-of-knowledge a sharp spatial rate-contrast classification rather than merely the known Gaussian parity equivalence. The closest 2026 same-model article could not be read fully in this execution, so implicit overlap remains a serious residual risk.
 
-The scripts are finite and symbolic corroborations. The proof of infinitely many oscillatory roots, the exclusion of finite lower-rate roots above threshold, the spectral-gap equivalence, and strict clock monotonicity comes from the all-parameter equations in `RESULT.md`, not from extrapolating sampled cases. No independent external audit or certification has been performed.
+## value
+
+PASS
+
+The contrast threshold changes whether individual parity clocks are finite while the earliest negativity-spectrum clock remains finite and accelerates monotonically. This gives a sharp physically motivated dynamical boundary within a natural, exactly solvable open-fermion model not captured by uniform-rate arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

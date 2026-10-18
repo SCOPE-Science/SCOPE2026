@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:43:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 124db2712d85ce3becd8c635042c5e289c4c8c6e",
+        "verify_symbolic.py d01281d785964a02e484e46c064929698b99ff2b",
+        "verify.py f8c0af3f422d40a6b367e44fadd20e02dc22aa06",
+        "independent_checks_1529.py Kitaev block"
+      ],
+      "rationale": "Independent exact Lindblad adjoint closure gives two damped (z_j,w_j) blocks and r=z1 z2+w1 w2. Majorana partial time reversal yields Hermitian 2x2 spectral blocks with radicands (1+r)^2+(w1-w2)^2 and (1-r)^2+(w1+w2)^2; their squared difference reduces to 4z1z2 and establishes leading singular degeneracy exactly at a one-site parity zero. Matrix-exponential solution provides the cos/cosh zero equations and first-root arccos/arccosh expression, with exceptional point s=1 handled continuously. Independently constructed all 16 Liouvillian basis columns and expm-evolved a Fock projector at gamma1=.3,gamma2=2.3,J=1 and t=0,.2,.5,.9, reproducing all five analytic coefficients within 6e-16. Inspected separate symbolic Pauli/twist verifier. The classification concerns spectral degeneracy, not negativity positivity or generic multi-site states.",
+      "residual_risks": [
+        "Numerical test checks only a finite sample; general result rests on analytic Pauli and block identities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chowdhary et al. abstract explicitly says uniform balanced loss and gain preserve crossings for any quadratic Hamiltonian",
+          "With gamma_1 != gamma_2 the generator does not have that uniform damping premise",
+          "Older PT-symmetric/entanglement crossing models differ"
+        ],
+        "reasoning": "Published broad Gaussian criterion predicts when a crossing occurs given the state, but does not directly entail the unequal-site rate root times without a new exact dynamical solution. Strong dephasing suppression in the reference is not the same channel.",
+        "searches": [
+          "Kitaev two site balanced gain and loss unequal site rates entanglement spectrum twisted negativity crossing clocks",
+          "Chowdhary, Chirame, Haas, Jha, Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains, arXiv:2610.03889v1",
+          "Sayyad Yu Grushin Sieberer 2011.10601",
+          "Starchl Sieberer 2304.01836"
+        ]
+      },
+      "checked_sources": [
+        "Chowdhary, Chirame, Haas, Jha, Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains, arXiv:2610.03889v1",
+        "arXiv:2011.10601",
+        "arXiv:2304.01836",
+        "Resultary Kitaev two site balanced gain and loss unequal site rates entanglement spectrum twisted negativity crossing clocks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chowdhary uniform gain/loss result sets gamma1=gamma2",
+          "Current claim at delta=0 returns pi/(4J) but at nonzero delta earliest root strictly decreases; lower-rate site loses finite root for |delta|>=4J",
+          "The 2026 abstract also addresses imbalanced gain versus loss, distinct from sitewise-balanced spatially unequal rates"
+        ],
+        "reasoning": "The general parity criterion is credited; it does not compute these asymmetric local-rate trajectories. A direct primary full-text claim could still cover the dimer as a specialization, so priority uncertainty is material but absent decisive contrary evidence.",
+        "searches": [
+          "Chowdhary, Chirame, Haas, Jha, Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains, arXiv:2610.03889v1",
+          "arXiv:2011.10601",
+          "arXiv:2304.01836"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chowdhary et al. describe general Gaussian parity-sector criterion",
+          "This package explicitly diagonalizes the 4x4 twisted R_A state and compares both block norms"
+        ],
+        "reasoning": "The parity equivalence is published and not claimed as new. The quantified first roots as functions of site-rate contrast are different from the common-rate invariance result.",
+        "searches": [
+          "Kitaev two site balanced gain and loss unequal site rates entanglement spectrum twisted negativity crossing clocks",
+          "Gaussian parity sectors single-site gap closure leading twisted negativity spectrum",
+          "fermionic partial time reversal two site balanced Lindblad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching complete two-site rate-contrast law among returned published results",
+          "The exact critical contrast |gamma2-gamma1|=4J is verified by the 2x2 discriminant"
+        ],
+        "reasoning": "The claimed parameter continuum and uniqueness of finite roots are not a lookup table. No matching exact prior table was located, but source full text could not be inspected.",
+        "searches": [
+          "Resultary semantic search: Kitaev two site balanced gain and loss unequal site rates entanglement spectrum twisted negativity crossing clocks",
+          "two site Kitaev damping rate contrast arccos arccosh entanglement clocks"
+        ]
+      },
+      "rationale": "This is best-of-knowledge a sharp spatial rate-contrast classification rather than merely the known Gaussian parity equivalence. The closest 2026 same-model article could not be read fully in this execution, so implicit overlap remains a serious residual risk.",
+      "residual_risks": [
+        "The full text of most relevant arXiv:2610.03889v1 was inaccessible; Oxford authorized institutional service replied vpn_disconnected, job 36db540c9701c965a3efa10c4d964bed. Its appendices may already include the two-site specialization.",
+        "Fermionic partial time reversal conventions matter; equivalence only for the explicitly stated convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract proves Gaussian criterion and uniform common-rate invariance; spatially unequal site-balanced rates require further comparison",
+          "evidence": [
+            "arXiv:2610.03889 abstract says uniform balanced loss/gain leaves crossings unchanged for any quadratic H; our hypotheses spatially unequal"
+          ],
+          "identifier_or_url": "Chowdhary, Chirame, Haas, Jha, Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains, arXiv:2610.03889v1",
+          "material_read": "Complete indexed abstract only; arXiv full HTML/PDF unavailable through retrieval; an authorized institutional attempt returned vpn_disconnected; no full-body NOT_COVERING assertion",
+          "method": "arXiv abstract + attempted full text; authorized access remained blocked",
+          "title": "Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains",
+          "trigger": "Same Hamiltonian class, spectrum and dissipators"
+        },
+        {
+          "assessment": "Different setting; full-text inapplicability cannot be certified",
+          "evidence": [
+            "Published title/abstract describe topology-driven criticalities"
+          ],
+          "identifier_or_url": "arXiv:2011.10601",
+          "material_read": "Public abstract only, not full text",
+          "method": "arXiv abstract",
+          "title": "Entanglement Spectrum Crossings Reveal non-Hermitian Dynamical Topology",
+          "trigger": "general dynamically induced entanglement clock"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chowdhary, Chirame, Haas, Jha, Exact Temporal Criticalities of Entanglement and Negativity in Gaussian and Non-Gaussian Dissipative Kitaev Chains, arXiv:2610.03889v1",
+        "RESULT.md",
+        "independent_checks_1529.py"
+      ],
+      "rationale": "The contrast threshold changes whether individual parity clocks are finite while the earliest negativity-spectrum clock remains finite and accelerates monotonically. This gives a sharp physically motivated dynamical boundary within a natural, exactly solvable open-fermion model not captured by uniform-rate arguments.",
+      "residual_risks": [
+        "No full multi-site theorem, no guarantee of surviving physical entanglement at spectral crossings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the H=-J X1X2 two-mode Kitaev dimer under sitewise-balanced (but unequal across sites) fermionic gain/loss and occupation-product initialization, the largest two twisted-negativity singular levels meet iff z1 z2=0. The first finite crossing is [arccos(s)/sqrt(1-s^2),1,arccosh(s)/sqrt(s^2-1)]/(2J) for s=|gamma2-gamma1|/(4J) in the three respective regimes; above s>=1 only the higher-rate site closes at finite time.",
+  "limitations": [
+    "Two modes, compact-point zero-chemical-potential Hamiltonian and occupation-product initial state only.",
+    "Primary same-paper full-text access limitation, vpn_disconnected; not grounds for automatic O failure but material priority risk."
+  ],
+  "schema_version": 1
+}
