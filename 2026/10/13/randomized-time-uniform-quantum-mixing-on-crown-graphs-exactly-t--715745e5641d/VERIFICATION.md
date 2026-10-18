@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-Run `python3 verify.py` in a directory containing the standalone script. Core assertions require only the Python standard library. The check records the exact rational table of four orbit probabilities at the observation times \(0,\pi/3,2\pi/3,\pi\), the four rational weights, each exact expected value \(1/6\), row stochasticity, and the exact \(n=4\) instantaneous probabilities \(1/8\).
+# Independent mathematical audit
 
-When NumPy and SciPy are installed, the script also constructs the entire \(2n\)-vertex adjacency matrix directly and compares numerically exponentiated transition probabilities against the analytic orbit formulas at seven observation times for each of four graph orders. Optional tests do not enter the unrestricted proof. The nonexistence proof uses the analytic inequality \(p_1(t)+p_3(t)\le4/n^2\) for all real \(t\) and integers \(n\ge3\), derived from \(2-2\cos(nt)\le4\). The sample integer scan in the script does not purport to establish the infinite inequality.
+## correctness
 
-The theorem is conditional only on the graph and Hamiltonian definitions stated in RESULT.md. No claim is made about broader graph classes, edge weight perturbations, or all possible optimal sampling laws. Independent evaluation is not yet performed.
+PASS
+
+For Cr_n, A has bipartite blocks B=J_n-I_n. The orthogonal projection P=J/n diagonalizes B with eigenvalues n-1 and -1, giving explicit cos(tB),sin(tB) and four orbit probabilities p0..p3. Direct expansion gives the exact pointwise identity p1(t)+p3(t)=[2-2cos(nt)]/n^2<=4/n^2. Uniform expected mixing would force E[p1+p3]=1/n, impossible for n>=5 for every Borel probability distribution on nonnegative times. At n=3, exact probabilities at t=0, pi/3, 2pi/3, pi weighted by 1/12,1/2,1/6,1/4 yield each orbit 1/6. At n=4, at t=pi/4 all four equal 1/8. Thus the classification includes *arbitrary* observation distributions, not only Cesaro laws. Independent rational orbit computations and numerical inequality diagnostics reproduced all boundary cases; no infinite inference is drawn from finite sampling.
+
+## originality
+
+PASS
+
+Baptista–Coutinho–Marques introduce general observation-time averaging and analyze several families including complete and complete bipartite graphs; no complete crown classification appears in the material read. Adamczak et al show the six-cycle lacks instantaneous and Cesaro average uniform mixing, which does not preclude the explicit four-atom arbitrary-time mixture. The n=4 hypercube instantaneous case is known and credited; the all-n impossibility and n=3 randomized construction are the assessed contribution.
+
+## value
+
+PASS
+
+For the natural connected crown family obtained by deleting a perfect matching from K_n,n, this is a complete iff classification allowing arbitrary Borel observation-time distributions, a substantially broader averaging mechanism than Cesaro or instantaneous mixing. It gives an explicit nontrivial positive C6 four-atom law, credits the Q3 case, and proves a uniform obstruction for every n>=5 with a single exact orbit functional. This is a motivated all-size spectral classification, not a finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

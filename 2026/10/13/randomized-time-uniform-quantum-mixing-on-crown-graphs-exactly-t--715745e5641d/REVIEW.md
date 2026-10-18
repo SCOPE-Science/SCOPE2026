@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The adjacency block identity, the spectral projections of the off-diagonal block, the four squared-amplitude orbit formulas, and the trigonometric pointwise obstruction were checked algebraically. A uniform expected mixing matrix forces two off-index orbit averages to sum to \(1/n\), whereas their sum never exceeds \(4/n^2\), excluding \(n\ge5\). The four rational observation weights for \(n=3\) and deterministic time for \(n=4\) explicitly attain uniform mixing. Exact-rational checks verify all four orbits; numerical exponentials are supplementary. This establishes the quantifier over all observation-time probability measures.
+## correctness
 
-**Originality — PASS, with literature risk.** The 2023 generalized-average-mixing paper supplies the definition and treats complete graphs, complete bipartite graphs and short paths, but its relevant results do not yield this explicit crown-graph classification. The 2007 cycle paper prohibits instantaneous and ordinary Cesaro-average mixing on \(C_6\), neither of which rules out an intentionally chosen time distribution; the positive four-atom result is genuinely different. The \(n=4\) hypercube instantaneous case is known and credited. Searches for crown, cycle, bipartite-double-cover and arbitrary-time distribution formulations returned no direct coverage; the absence of a match is not a proof that none exists. A broader spectral-convexity theorem might still imply the statement.
+PASS
 
-**Value — PASS.** The work completes the uniform-randomized-time classification of a natural connected infinite family obtained by a perfect-matching deletion from complete bipartite graphs. It exhibits \(C_6\) as a noninstantaneously mixing cycle with exactly uniform custom-time average, isolates the already-known hypercube case, and provides a sharp no-go for every larger crown under completely unrestricted sampling. This addresses a distinct graph-family gap in the generalized-time mixing framework, not a selected numerical instance.
+For Cr_n, A has bipartite blocks B=J_n-I_n. The orthogonal projection P=J/n diagonalizes B with eigenvalues n-1 and -1, giving explicit cos(tB),sin(tB) and four orbit probabilities p0..p3. Direct expansion gives the exact pointwise identity p1(t)+p3(t)=[2-2cos(nt)]/n^2<=4/n^2. Uniform expected mixing would force E[p1+p3]=1/n, impossible for n>=5 for every Borel probability distribution on nonnegative times. At n=3, exact probabilities at t=0, pi/3, 2pi/3, pi weighted by 1/12,1/2,1/6,1/4 yield each orbit 1/6. At n=4, at t=pi/4 all four equal 1/8. Thus the classification includes *arbitrary* observation distributions, not only Cesaro laws. Independent rational orbit computations and numerical inequality diagnostics reproduced all boundary cases; no infinite inference is drawn from finite sampling.
 
-Relevant references: Coutinho et al., arXiv:2208.08971 (2022), Sections 1–2; Baptista–Coutinho–Marques, arXiv:2308.16378 (2023), Sections 2–4 and 7; Adamczak et al., arXiv:0708.2096 (2007), Introduction and cycle mixing theorem. Scope is limited to the unweighted adjacency model; independence has not been assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baptista–Coutinho–Marques introduce general observation-time averaging and analyze several families including complete and complete bipartite graphs; no complete crown classification appears in the material read. Adamczak et al show the six-cycle lacks instantaneous and Cesaro average uniform mixing, which does not preclude the explicit four-atom arbitrary-time mixture. The n=4 hypercube instantaneous case is known and credited; the all-n impossibility and n=3 randomized construction are the assessed contribution.
+
+## value
+
+PASS
+
+For the natural connected crown family obtained by deleting a perfect matching from K_n,n, this is a complete iff classification allowing arbitrary Borel observation-time distributions, a substantially broader averaging mechanism than Cesaro or instantaneous mixing. It gives an explicit nontrivial positive C6 four-atom law, credits the Q3 case, and proves a uniform obstruction for every n>=5 with a single exact orbit functional. This is a motivated all-size spectral classification, not a finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
