@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:46:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-region-noise-budget-phase-diagram-for-ghz-phase-metrolog--89d8d9b0282b/RESULT.md",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/6d0607b73dc24af90b81c8f70f61609aa2b2ecbc",
+        "/mnt/data/scope09_20261018_1229/source/independent_checks.py"
+      ],
+      "rationale": "After damping only the 2x2 GHZ corner block carries a phase-dependent coherence sqrt(Q)/2; the SLD formula yields F=2n^2Q/(1+Q+R). For two coordinates of fixed sum s and product t, Q=C(1-s+t), R=Dt and d[(1+Dt)/(C(1-s+t))]/dt=[D(1-s)-1]/[C(1-s+t)^2]<0 throughout the interior, so equalization strictly raises F and yields the Schur-concavity/global extrema. At S<1 concentration (S,0,..,0) minimizes to 2n^2(1-S)/(2-S); S>=1 allows p_i=1 and zero QFI. The uniform F equals n at the unique monotone root; expansion follows from log and exponentially small (S/n)^n. Independent random pair-smoothing tests (30,000) and source block derivation agree; finite checks corroborate but do not prove arbitrary n.",
+      "residual_risks": [
+        "Ideal F=n shot-noise benchmark does not optimize realistic equally noisy local probes; mathematical total-loss sum need not model physical constraints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma et al., Phys Rev A 84, 022302, Eqs.24–27"
+        ],
+        "reasoning": "The homogeneous QFI and log(n) SQL crossing are covered by Ma et al. 2011; the new contribution is all heterogeneous allocations at fixed sum and worst/best-case cutoffs.",
+        "searches": [
+          "Resultary: inhomogeneous amplitude damping GHZ quantum Fisher Schur concavity total loss budget majorization optimal distribution",
+          "arXiv:2407.21701 Sec.4.5 Eq.51",
+          "Phys. Rev. A 84 022302 2011 Eq.24–27",
+          "arXiv:2605.20765 distributed quantum sensing"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.21701",
+        "https://doi.org/10.1103/PhysRevA.84.022302",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-region-noise-budget-phase-diagram-for-ghz-phase-metrolog--89d8d9b0282b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bugalho Sec.4.5; two-coordinate derivative from pinned proof"
+        ],
+        "reasoning": "General quantum-metrology optimization results and the ideal noiseless threshold do not imply uniqueness of uniform optimality and concentrated worst case under fixed sum of individual damping probabilities.",
+        "searches": [
+          "Resultary: inhomogeneous amplitude damping GHZ quantum Fisher Schur concavity total loss budget majorization optimal distribution",
+          "arXiv:2407.21701 Sec.4.5 Eq.51",
+          "Phys. Rev. A 84 022302 2011 Eq.24–27",
+          "arXiv:2605.20765 distributed quantum sensing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bugalho et al. arXiv:2407.21701 Sec.4.5 Eq.(51)"
+        ],
+        "reasoning": "Previously known inhomogeneous damped GHZ block yields the raw QFI input, but not the fixed-sum Schur ordering or two extremal envelopes in the inspected statement.",
+        "searches": [
+          "Resultary: inhomogeneous amplitude damping GHZ quantum Fisher Schur concavity total loss budget majorization optimal distribution",
+          "arXiv:2407.21701 Sec.4.5 Eq.51",
+          "Phys. Rev. A 84 022302 2011 Eq.24–27",
+          "arXiv:2605.20765 distributed quantum sensing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bugalho Eq.51; Ma et al. homogeneous formulas"
+        ],
+        "reasoning": "The formula F=2n²Q/(1+Q+R) is substantially implied by the existing noisy-GHZ matrix and is NOT claimed new; no fixed-sum majorization table was found in inspected primaries.",
+        "searches": [
+          "Resultary: inhomogeneous amplitude damping GHZ quantum Fisher Schur concavity total loss budget majorization optimal distribution",
+          "arXiv:2407.21701 Sec.4.5 Eq.51",
+          "Phys. Rev. A 84 022302 2011 Eq.24–27",
+          "arXiv:2605.20765 distributed quantum sensing"
+        ]
+      },
+      "rationale": "The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. General quantum-metrology optimization results and the ideal noiseless threshold do not imply uniqueness of uniform optimality and concentrated worst case under fixed sum of individual damping probabilities.",
+      "residual_risks": [
+        "Bugalho et al. already supply the full heterogeneous matrix: an implicit or separately published majorization deduction could cover this claim.",
+        "Ideal F=n shot-noise benchmark does not optimize realistic equally noisy local probes; mathematical total-loss sum need not model physical constraints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inhomogeneous phase-sensitive matrix and formula framework are PRIOR; no fixed-sum sharp allocation phase diagram stated in inspected section",
+          "evidence": "Eq.(51) explicit heterogeneous GHZ block",
+          "identifier_or_url": "https://arxiv.org/abs/2407.21701",
+          "material_read": "Full preprint, especially Sec. 4.5 Eq.(51), visually inspected around page 29 (zero-index 28)",
+          "method": "arXiv full-text PDF and screenshot",
+          "title": "Private and Robust States for Distributed Quantum Sensing",
+          "trigger": "Same heterogeneous damped GHZ density matrix and QFI"
+        },
+        {
+          "assessment": "Homogeneous loss behavior is prior; does not itself imply heterogeneous fixed-budget order",
+          "evidence": "Existing homogeneous QFI and asymptotic crossover",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.84.022302",
+          "material_read": "Relevant stated Eqs.(24)–(27) and bibliographic scope; full-text reading not independently substantiated",
+          "method": "public source descriptions and source review",
+          "title": "Quantum Fisher information of the GHZ state in decoherence channels",
+          "trigger": "Homogeneous amplitude damping and SQL threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.21701",
+        "https://doi.org/10.1103/PhysRevA.84.022302",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-region-noise-budget-phase-diagram-for-ghz-phase-metrolog--89d8d9b0282b/RESULT.md"
+      ],
+      "rationale": "The theorem gives an exact allocation design principle for unequal channel losses and distinguishes guaranteed, allocation-dependent and impossible ideal-SQL violations under a fixed aggregate noise budget. Both sharp extrema and thresholds are mathematically motivated despite the idealized resource accounting.",
+      "residual_risks": [
+        "Ideal F=n shot-noise benchmark does not optimize realistic equally noisy local probes; mathematical total-loss sum need not model physical constraints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed GHZ_n, n>=2, independent heterogeneous zero-temperature amplitude damping BEFORE common J_z phase encoding and fixed total probability S, exact QFI F=2n^2Q/(1+Q+R) is Schur-concave; unique uniform maximizer, concentrated minimizer below S=1, and zero above S=1 yield sharp all/some/none regions for beating ideal noiseless-separable SQL F=n with the stated two thresholds and asymptotic.",
+  "limitations": [
+    "Bugalho et al. already supply the full heterogeneous matrix: an implicit or separately published majorization deduction could cover this claim.",
+    "Ideal F=n shot-noise benchmark does not optimize realistic equally noisy local probes; mathematical total-loss sum need not model physical constraints.",
+    "The scientific assessment is completed but publication is not ready; no independence or external certification is invented."
+  ],
+  "schema_version": 1
+}

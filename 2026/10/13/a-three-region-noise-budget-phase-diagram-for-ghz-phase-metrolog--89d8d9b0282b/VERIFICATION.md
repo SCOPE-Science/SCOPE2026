@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The main proof is fully analytic. The replay program `verify.py` requires NumPy, as stated in `requirements.txt`. Invoke `python3 verify.py` from the extracted file directory.
+## correctness
 
-The reference program computes the amplitude-damped density matrix using a *different* route from the closed-form block formula: it applies each qubit's two Kraus matrices to the full GHZ density matrix, diagonalizes the result, and evaluates the spectral symmetric-logarithmic-derivative QFI. The program tested 48 random instances for register sizes two through five, checked 1,200 random two-coordinate averaging inequalities for register sizes two through thirteen, compared 2,750 vectors against both exact envelopes, tested uniqueness/bracketing of the ideal-SQL threshold for 38 system sizes, and tested the asymptotic expansion at six sizes. The actual successful replay printed:
+PASS
 
-`VERIFY_OK 4042 direct_density_QFI 48 majorization 1200 extrema 2750 threshold 38 asymptotics 6`
+After damping only the 2x2 GHZ corner block carries a phase-dependent coherence sqrt(Q)/2; the SLD formula yields F=2n^2Q/(1+Q+R). For two coordinates of fixed sum s and product t, Q=C(1-s+t), R=Dt and d[(1+Dt)/(C(1-s+t))]/dt=[D(1-s)-1]/[C(1-s+t)^2]<0 throughout the interior, so equalization strictly raises F and yields the Schur-concavity/global extrema. At S<1 concentration (S,0,..,0) minimizes to 2n^2(1-S)/(2-S); S>=1 allows p_i=1 and zero QFI. The uniform F equals n at the unique monotone root; expansion follows from log and exponentially small (S/n)^n. Independent random pair-smoothing tests (30,000) and source block derivation agree; finite checks corroborate but do not prove arbitrary n.
 
-The experiments are numerical consistency checks with finite precision; they do not certify the all-size proof, global literature priority, realistic measurement achievability, or physical optimization under a different resource constraint. In particular, the \(F=n\) benchmark is the ideal product-probe standard quantum limit, not the optimum of a noisy local-sensor protocol. Independent external audit was not performed.
+## originality
+
+PASS
+
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. General quantum-metrology optimization results and the ideal noiseless threshold do not imply uniqueness of uniform optimality and concentrated worst case under fixed sum of individual damping probabilities.
+
+## value
+
+PASS
+
+The theorem gives an exact allocation design principle for unequal channel losses and distinguishes guaranteed, allocation-dependent and impossible ideal-SQL violations under a fixed aggregate noise budget. Both sharp extrema and thresholds are mathematically motivated despite the idealized resource accounting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
