@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, every length-n factor has a 1, and opposite starting parities have ones in opposite local parity classes. Fixed-parity factor equalities decimate to length floor(n/2) or ceil(n/2) factors. Monotonicity R(m+1)>=R(m) gives R(n)=2R(floor(n/2)), and the earlier repeat position scales identically. Direct bases R(1)=2,Q(1)=0; R(2)=3,Q(2)=2; R(3)=4,Q(3)=0 complete the proof for every n. The executed independent byte-exact checker covered all n<=256 and eighteen large lengths through 8192.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicholson–Rampersad Theorem 6 explicitly covers Thue–Morse, and its nondyadic steps differ from the proposed period-doubling law",
+        "The paper discusses Fibonacci and Tribonacci but no period-doubling theorem",
+        "A367184 does not give all-n first occurrence threshold"
+      ],
+      "reasoning": "The known all-length Thue–Morse law concerns a different fixed point and cannot be transferred by symbol renaming; their run profiles differ. A dyadic or globally optimized result does not dominate the arbitrary-length prefix-specific theorem.",
+      "searches": [
+        "arxiv:1507.08206 full-text Theorems 6,10,16",
+        "published-finding corpus search: Initial non-repetitive complexity of period doubling infinite word 0->01 1->00 at powers of two first repeated factors",
+        "OEIS:A367184"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.08206 (accessible full-text HTML)",
+      "OEIS:A096268 (definition and recurrence)",
+      "OEIS:A366462 (global maximum distinct-factor windows)",
+      "OEIS:A367184 (dyadic prefix maximum)",
+      "published-finding corpus published finding SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 (summary only)",
+      "Accessible first and second private ledger parts, recoverable claim texts only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published period-doubling attractor summary gives a small set hitting all factor types, not pairwise uniqueness of early windows",
+        "Nicholson–Rampersad Theorem 6 yields a different nondyadic complexity formula for Thue–Morse",
+        "Known dyadic prefix attainment plus global window values does not imply first repeat at 2^(k+1) for every nondyadic factor length nor the earlier index zero"
+      ],
+      "reasoning": "No inspected earlier statement asserts or logically forces both branches of the all-length period-doubling prefix-collision law with its matching partner. The result is not presented as novel solely at dyadic lengths; its new content is the complete function, paired collision positions, and limiting oscillation.",
+      "searches": [
+        "published-finding corpus published-record semantic search for initial period-doubling repeat",
+        "published-finding corpus finding SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+        "arxiv:1507.08206",
+        "OEIS:A366462 and A367184"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A366462 maximizes a repeated-factor-free interval over all shifts; its value at n=3 permits length 7, whereas the prefix has only length 6 before repetition",
+        "A367184 identifies dyadic prefix attainment but gives no arbitrary-n prefix collision index or earlier partner",
+        "The all-length pair (R(n),Q(n)) is not stated in inspected entries"
+      ],
+      "reasoning": "Maximum unique-window length and earliest prefix collision are distinct invariants: one optimizes the initial position; the other fixes it at zero. Dyadic cases partly overlap and are acknowledged, while the two nondyadic bands and partner law are not equivalent to the reported maximum values.",
+      "searches": [
+        "Initial non-repetitive complexity of period doubling infinite word 0->01 1->00 at powers of two first repeated factors",
+        "period-doubling word 0 to 01 1 to 00 initial nonrepetitive complexity exactly 2 3 4 6 6 8 8 first occurrence repetition",
+        "OEIS:A366462",
+        "OEIS:A367184"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A366462 tabulates global longest distinct-factor windows and provides a Walnut predicate for a fixed length",
+        "A367184 tabulates optimal starting indices and notes dyadic prefix optimality, but its n=3 case starts at index 1",
+        "Both entries contain finite tables, not an all-length explicit R(n) and Q(n) theorem"
+      ],
+      "reasoning": "The known tables can corroborate isolated cases and contain related dyadic information; they do not report the claimed full prefix function or first-repetition partner. No exact matching table or stronger table-level claim was located in the searches.",
+      "searches": [
+        "https://oeis.org/A366462",
+        "https://oeis.org/A367184",
+        "web: site:oeis.org \"initial nonrepetitive\" \"period doubling\"",
+        "web: \"2, 3, 4, 6, 6, 8, 8, 12\" \"period doubling\""
+      ]
+    },
+    "rationale": "Full-text prior invariant paper addresses Thue-Morse, Fibonacci and Tribonacci, not this word. OEIS A366462/A367184 substantially cover the global and dyadic issues, which are expressly acknowledged, but do not supply the all-length initial-prefix collision pair law. published-finding corpus searches and accessible historical claims found no equivalent or dominating statement; inaccessible and unindexed equivalents remain risks.",
+    "residual_risks": [
+      "An equivalent unpublished/unindexed exact all-length formula could exist outside the searched corpus.",
+      "Only the published summary, not full text, of the period-doubling greedy string-attractor item was accessible; its reported conclusion concerns another invariant.",
+      "OEIS contains finite tables and dyadic maximal-prefix information that partially overlap the theorem; the exact all-length prefix profile was not asserted in inspected entries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: explicit formulas concern Thue-Morse, Fibonacci and Tribonacci; no period-doubling assertion in the full text",
+        "evidence": [
+          "Introduction section and explicit sequence list",
+          "Theorem 6 for the Thue-Morse word differs at nondyadic lengths",
+          "Text search for period-doubling returned no occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.08206",
+        "material_read": "Accessible full-text arXiv HTML, introduction, named complexity sections, theorem statements, and targeted search across the complete document",
+        "method": "Read full arXiv HTML and search for period-doubling; inspected Theorems 6, 10, 16",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Foundational treatment of the exact invariant"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: global maximum window lengths do not determine the first prefix repeat for nondyadic n",
+        "evidence": [
+          "Global definition optimizes over starting position",
+          "At n=3, longest window length 7, whereas prefix first collision R(3)=4 gives a uniquely covered prefix word of length 6",
+          "Finite table and fixed-input Walnut code do not assert the all-n formula"
+        ],
+        "identifier_or_url": "https://oeis.org/A366462",
+        "material_read": "Complete database entry, definition, numerical entries, comments and Walnut predicates",
+        "method": "Read the full accessible OEIS entry and compare extremization domains",
+        "title": "OEIS A366462: longest distinct-factor window of the period-doubling word",
+        "trigger": "Plausibly dominating non-repetitive complexity invariant and existing table"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: dyadic prefix attainment is stated; nondyadic first-repeat formula and earlier collision partner are not",
+        "evidence": [
+          "Comment states a(2^m)=0",
+          "The n=3 example starts at index 1, rather than the prefix",
+          "The entry does not give the arbitrary-n first prefix collision index"
+        ],
+        "identifier_or_url": "https://oeis.org/A367184",
+        "material_read": "Complete database entry, definition, comments, examples, and Walnut code",
+        "method": "Read entire OEIS entry and compare logical implications",
+        "title": "OEIS A367184: first maximum-length window start",
+        "trigger": "Possible exact overlap at dyadic factors"
+      },
+      {
+        "assessment": "FOUNDATIONAL: defines the word but does not classify first collision indices",
+        "evidence": [
+          "Morphism 0->01,1->00, date 22 June 2004",
+          "Valuation formula and parity recursion"
+        ],
+        "identifier_or_url": "https://oeis.org/A096268",
+        "material_read": "Definition, substitution, valuation identities, examples, entry chronology",
+        "method": "Read OEIS full entry sections on definition and recurrence",
+        "title": "OEIS A096268: period-doubling sequence",
+        "trigger": "Sequence identity, normalization, earliest public source date"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT; attracts every factor at chosen positions but does not by itself fix the first duplicate among prefixes; full-text access limitation recorded",
+        "evidence": [
+          "Published summary claims greedy attractor support at dyadic-minus-one positions",
+          "No initial first-repeat function in the accessible summary"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+        "material_read": "Published abstract and short finding summary; linked full text was not accessible",
+        "method": "Semantic published-record search and attempted direct page access",
+        "title": "Exact greedy string attractor of the period-doubling word",
+        "trigger": "Published result on the same sequence and early factor coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90457170-3715-4168-a98a-c17e4e92b6a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result completely determines a named early-factor-collision invariant, including both collision indices at every factor length, for a canonical automatic word. The two naturally arising dyadic subintervals and sharp liminf/limsup 1 and 3/2 are substantive recurrence structure not implied by factor counts. The decimation argument explains the first-collision phenomenon and contrasts with an explicitly different Thue-Morse law.",
+    "status": "PASS"
+  }
+}
