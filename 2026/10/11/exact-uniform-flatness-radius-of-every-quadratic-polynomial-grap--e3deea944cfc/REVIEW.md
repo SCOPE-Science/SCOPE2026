@@ -1,55 +1,21 @@
-# Review of Exact uniform-flatness radius of every quadratic polynomial graph
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Completing the square and applying an ambient translation reduces every genuine quadratic to
-\[
-F(z)=(z,Az^2),
-\qquad
-A=|a|.
-\]
-For any two distinct graph points, projection of their chord onto the normal line has the exact magnitude
-\[
-A|w-z|^2/\sqrt{1+4A^2|z|^2}.
-\]
-If they are simultaneous nearest points of one ambient point at distance
-\[
-r,
-\]
-the equal-distance identity forces
-\[
-r\ge1/(2A).
-\]
-Thus no double nearest projection occurs below that radius.
+PASS
 
-Sharpness is global rather than only infinitesimal: points
-\[
-(0,v),
-\qquad
-v>1/(2A),
-\]
-have exactly two symmetric nearest graph points. Their common distance tends to
-\[
-1/(2A)
-\]
-from above. This proves equality for the reach, not merely a curvature upper bound.
+Translations in domain and vertical coordinate remove the linear/constant terms without changing ambient Euclidean distances; a vertical unitary phase makes p(z)=A z² with A=|a|. For F(z)=(z,Az²), the Hermitian normal vector (−2Āz,1) gives exact normal chord projection A|w−z|²/sqrt(1+4A²|z|²). If one ambient y has two distinct nearest points F(z),F(w) at distance r, normal orthogonality and equal squared distances imply ||F(w)−F(z)||²≤2r ||P_{N_z}(F(w)−F(z))||, hence r≥ sqrt(1+4A²|z|²)(1+A²|w+z|²)/(2A)≥1/(2A). Proper closedness ensures minimizers; for y_v=(0,v), v>1/(2A), minimizing u+(Au−v)² over u=|z|² gives u_v=(2Av−1)/(2A²)>0 and exactly two global symmetric phases ±sqrt(u_v), with distance sqrt((4Av−1)/(4A²))→1/(2A). Thus reach=1/(2A); affine a=0 is a closed complex affine plane with global metric projection and infinite reach. Independently simplified normal-projection and sharpness identities exactly.
 
-## Originality
+## originality
 
-PASS with a stated access risk. The recent lead theorem establishes uniform flatness for every one-variable polynomial graph, but its accessible abstract and preview give no exact tube radius. Searches using the exact article title, quadratic-graph aliases, reach, tubular radius, nearest-point projection, and the candidate constant found no implication-equivalent statement.
+PASS
 
-The older Bargmann--Fock literature defines uniform flatness by a tubular-neighborhood condition and uses it as a hypothesis for interpolation and sampling. General reach literature supplies framework and computational methods, not the displayed exact formula for the complete complex quadratic family.
+A direct comparison with the complete eleven-page strongest plausible same-object paper now establishes that Wang–Zhang Theorem1.1 proves the existence of some positive uniform tubular radius for every polynomial graph, using Lemma2.1 and a contraction proof in §2, but neither states nor computes the sharp reach of the quadratic family. Its other sections prove density and interpolation, not the metric cut locus. The exact global 1/(2|a|) sharp bound is not a corollary of its unspecified epsilon and requires the explicit two-nearest-point geometry. Earlier incomplete-primary-text risk was resolved by full authorized reading; residual risk from older reach literature remains.
 
-The lead article's full text was inaccessible during this review. That source remains a named residual risk; the PASS assessment rests on the absence of a covering statement in its accessible material and in targeted source-specific searches, not on a whole-document noncoverage claim.
+## value
 
-## Value
+PASS
 
-PASS. The recent theorem makes polynomial graphs a new natural uniformly flat class in Bargmann--Fock interpolation theory, but its qualitative existence statement does not quantify the geometric margin.
+Sharp tubular-neighborhood scale is a natural quantitative invariant driving interpolation geometry and numerical projection stability. Giving a complete classification for all degree≤2 graphs, including affine infinite reach and an explicit global medial-axis obstruction, fills a concrete sharpness gap left by a genuinely broad but qualitative recent theorem; exact natural geometric data do not require a new downstream interpolation theorem to be useful.
 
-Degree two is the first nonlinear case, and reach is the canonical exact invariant measuring the largest collision-free nearest-point tube. The formula
-\[
-1/(2|a|)
-\]
-is a complete classification for that degree, separates the genuinely nonlinear coefficient from irrelevant lower-order terms, and gives a sharp benchmark for quantitative extensions of the new polynomial-graph theory.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

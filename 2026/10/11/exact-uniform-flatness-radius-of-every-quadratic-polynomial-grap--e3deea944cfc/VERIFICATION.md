@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,140 +19,24 @@
 }
 ---
 
-For
-\[
-p(z)=az^2+bz+c
-\]
-with
-\[
-a\ne0,
-\]
-an ambient translation and a unitary rotation reduce the graph to
-\[
-F(z)=(z,Az^2),
-\qquad
-A=|a|.
-\]
+# Independent mathematical audit
 
-For distinct
-\[
-z,w,
-\]
-the chord is
-\[
-\Delta
-=
-(w-z)
-\left(
-1,A(w+z)
-\right).
-\]
-The tangent vector at
-\[
-z
-\]
-is
-\[
-(1,2Az),
-\]
-and
-\[
-(-2A\bar z,1)
-\]
-is an exact Hermitian normal vector. Therefore
-\[
-\left|
-P_{N_z}\Delta
-\right|
-=
-\frac{
-A|w-z|^2
-}{
-\sqrt{1+4A^2|z|^2}
-}.
-\]
+## correctness
 
-If an ambient point has
-\[
-F(z)
-\]
-and
-\[
-F(w)
-\]
-as two nearest points at distance
-\[
-r,
-\]
-orthogonality of the nearest-point displacement and equality of squared distances imply
-\[
-\|\Delta\|^2
-\le
-2r
-\left|
-P_{N_z}\Delta
-\right|.
-\]
-Substitution yields
-\[
-r
-\ge
-\frac{
-\sqrt{1+4A^2|z|^2}
-\left(
-1+A^2|w+z|^2
-\right)
-}{
-2A
-}
-\ge
-\frac1{2A}.
-\]
-Hence nearest-point projection is unique at every smaller distance.
+PASS
 
-For sharpness, use
-\[
-y_v=(0,v),
-\qquad
-v>\frac1{2A}.
-\]
-After angular minimization, squared distance to the graph is minimized by
-\[
-u+(Au-v)^2,
-\qquad
-u=|z|^2.
-\]
-Its unique positive radial minimizer is
-\[
-u_v
-=
-\frac{2Av-1}{2A^2}.
-\]
-The two phases
-\[
-z=\pm\sqrt{u_v}
-\]
-give distinct global nearest points, at common distance
-\[
-r_v
-=
-\sqrt{
-\frac{4Av-1}{4A^2}
-}.
-\]
-As
-\[
-v\downarrow1/(2A),
-\]
-\[
-r_v\downarrow1/(2A).
-\]
-Thus the lower uniqueness radius is sharp.
+Translations in domain and vertical coordinate remove the linear/constant terms without changing ambient Euclidean distances; a vertical unitary phase makes p(z)=A z² with A=|a|. For F(z)=(z,Az²), the Hermitian normal vector (−2Āz,1) gives exact normal chord projection A|w−z|²/sqrt(1+4A²|z|²). If one ambient y has two distinct nearest points F(z),F(w) at distance r, normal orthogonality and equal squared distances imply ||F(w)−F(z)||²≤2r ||P_{N_z}(F(w)−F(z))||, hence r≥ sqrt(1+4A²|z|²)(1+A²|w+z|²)/(2A)≥1/(2A). Proper closedness ensures minimizers; for y_v=(0,v), v>1/(2A), minimizing u+(Au−v)² over u=|z|² gives u_v=(2Av−1)/(2A²)>0 and exactly two global symmetric phases ±sqrt(u_v), with distance sqrt((4Av−1)/(4A²))→1/(2A). Thus reach=1/(2A); affine a=0 is a closed complex affine plane with global metric projection and infinite reach. Independently simplified normal-projection and sharpness identities exactly.
 
-The affine case
-\[
-a=0
-\]
-is an affine complex line and has global orthogonal projection, hence infinite reach.
+## originality
 
-All proof steps are exact. No numerical sampling or finite experiment establishes any continuum assertion.
+PASS
+
+A direct comparison with the complete eleven-page strongest plausible same-object paper now establishes that Wang–Zhang Theorem1.1 proves the existence of some positive uniform tubular radius for every polynomial graph, using Lemma2.1 and a contraction proof in §2, but neither states nor computes the sharp reach of the quadratic family. Its other sections prove density and interpolation, not the metric cut locus. The exact global 1/(2|a|) sharp bound is not a corollary of its unspecified epsilon and requires the explicit two-nearest-point geometry. Earlier incomplete-primary-text risk was resolved by full authorized reading; residual risk from older reach literature remains.
+
+## value
+
+PASS
+
+Sharp tubular-neighborhood scale is a natural quantitative invariant driving interpolation geometry and numerical projection stability. Giving a complete classification for all degree≤2 graphs, including affine infinite reach and an explicit global medial-axis obstruction, fills a concrete sharpness gap left by a genuinely broad but qualitative recent theorem; exact natural geometric data do not require a new downstream interpolation theorem to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
