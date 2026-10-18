@@ -1,12 +1,21 @@
-# Scientific review: quantitative three-edge cumulant positivity
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized rational transform in Wästlund (2026, equations (36)–(38)) has a defect \(t^2/P_J(t)\) whose coefficients are dominated uniformly in the rectangular dimensions. The comparison logarithm has coefficients no larger than \(1/(2p)\), proved by an explicit recurrence valid at every order. Three matched pole-zero pairs leave at least one unpaired pole contribution \(1/p\) to the comparison cumulant series. Subtraction proves the stated positive bound for all \(p\geq1\), with no asymptotic restrictions. All endpoints \(m,n=3\) are covered. The standalone checker passes 11,500 exact checks, including independent normalization and mean tests; finite tests are not the universal proof.
+## correctness
 
-## Originality — PASS
-The primary source, Wästlund (arXiv:2602.07563v1), explicitly asks in Conjecture 10 for positive cumulants and proves only the zero-free property for three-edge matching in Proposition 15. A zero-free disk does not imply coefficientwise positivity of the logarithm. Alm and Sorkin (2002) supply earlier Laplace transforms and variance calculations, but their full text remained inaccessible; their accessible abstract does not state the all-order positivity theorem. The 2026 central limit theorem of Mordant is about a different limit and edge distribution. Targeted literature and published-record searches did not reveal an equivalent result. Residual priority risk is recorded in `AUDIT.json`, not concealed.
+PASS
 
-## Value — PASS
-This establishes the entire first nontrivial cardinality case of a motivated published conjecture: all rectangular dimensions and all cumulant orders simultaneously, with an explicit lower bound. The first nonreal numerator zeros occur in the three-matching regime, so mere real-rootedness arguments no longer work. No claim is made for matchings of four or more edges, nor for arbitrary edge-cost distributions.
+The source rational MGF is F=[(P_J(t)-t²)/P_J(0)]/[Q(t)/Q(0)] with P_J=(mn-2t)((m-1)n-t)(m(n-1)-t) and Q=(mn-3t)((m-1)n-2t)(m(n-1)-2t)((m-2)n-t)((m-1)(n-1)-t)(m(n-2)-t). At R=mn/3, split logF=log J+log(1-h), h=t²/P_J. Coefficientwise 0<=h(Rz)<=h*(z)=z²/[36(1-2z/3)(1-z/2)²], with a_p=(2/3)^p-(p+3)/(3*2^p)>=0, p a_p<=1/3, sum a_p=1/3. From c_p=p[z^p](-log(1-h*)), c_p=p a_p+sum_(k=2)^(p-2) a_k c_(p-k), induction gives c_p<=1/2. Three J numerator poles-zero pairings contribute nonnegatively and the remaining simple pole at R contributes 1/p, thus p[z^p]logJ(Rz)>=1. Defect <=1/2, implying p[z^p]logF(Rz)>=1/2, hence full lower bound for ALL p,m,n. Independent exact rational coefficient tests for 5 size pairs and orders<=50 confirmed the bound; no finite experiment used to prove infinite claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Wastlund (2026) explicit three-edge MGF, Janson comparison and Conjecture 10 positive cumulants supply the exact analytic problem. Source Proposition15 zero-free disk is weaker than all-sign coefficient positivity; follow-up paper extends zero-free at k=4 but not all cumulant positivity. The source MGF is not claimed as original. Wastlund full primary manuscript could not be read this run because open-access text unavailable and authorized Oxford returned vpn_disconnected; original full statement coverage risk explicitly retained. Alm--Sorkin 2002 full paper inaccessible, possibly relevant to exact distributions. Best-of-knowledge O passes subject to these named gaps and the source excerpts actually read.
+
+## value
+
+PASS
+
+A dimension-uniform all-orders inequality resolves an explicit open conjecture at the first nontrivial matching size three, not merely finite cumulant positivity. Strict quantitative bound can inform probabilistic shape and absolute-cumulant comparisons. Scope intentionally excludes larger matching size and optimality of lower constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
