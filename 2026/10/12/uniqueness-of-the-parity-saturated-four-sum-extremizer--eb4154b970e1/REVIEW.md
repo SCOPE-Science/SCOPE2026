@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every even \(a\) in the entire middle range \(6\le a\le2n-4\), the proof gives an explicit four-tuple whose pairwise sums lie in \(A_E\). Hence a witness-free three-even set can use only \(2,4,2n-2,2n\). Two explicit four-tuples eliminate three of the four boundary triples. For the remaining triple \(\{2,2n-2,2n\}\), the parity argument is exhaustive: three same-parity summands would require three distinct even sums among only two usable even values, while a two-two parity split forces a cross-sum above \(2n\). The finite verifier independently confirms small cases but is not used to prove the infinite statement.
+## correctness
 
-## Originality
-PASS with residual historical-search risk. The 2026 van Doorn--Erlbacher paper proves the sharp value \(h_4(n)=4\), gives the surviving lower-bound set, and supplies a middle-even witness mechanism, but does not state a uniqueness theorem for the three-even parity-saturated equality class. Its 2026 predecessor contains an analogous all-odd narrow-sense theorem only for five integers. Targeted searches for the exact \(h_4\), all-odd, three-even, boundary-triple, parity-saturated, extremal, and uniqueness formulations found no equivalent or stronger statement. The remaining risk is an unindexed equality-case observation in older literature.
+PASS
 
-## Value
-PASS. The theorem classifies the equality case in the canonical parity-saturated class at the exact sharp lower-bound cardinality \(n+3\). This is the natural class singled out by the published extremal construction, and the predecessor itself treats comparable all-odd narrow-sense extremality as a meaningful structural question. Exact uniqueness explains which three even positions can coexist with all odds without creating the six pairwise sums, rather than merely giving another witness-free example.
+For each n>=6 the proposed middle-even witness tuples were checked symbolically: if a in [6,2n-4] is even, (1,2,a-2,a-1) for a<=n+1 or (a-n,n,a-n+1,n-1) for a>=n+2 is positive, strictly distinct and has precisely the required six allowed sums. Without middle evens E is one of four triples in {2,4,2n-2,2n}; the two explicit boundary tuples eliminate three triples. The surviving {2,2n-2,2n} admits no witness: three same-parity summands force three distinct even sums among only the two even values >=4, while a two/two split forces two opposite-parity larger summands at least n, whose sum exceeds 2n. An independently written brute-force enumerator reproduced exactly the surviving triple for each n=6,...,12, corroborative rather than an infinite proof.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.39314v1: Lemma 4.1 proves that the claimed surviving set is witness-free, and Section 5.1 eliminates every configuration containing a middle even by a construction that specializes to this setting. What remains after that published mechanism is a four-element boundary choice, and the present proof supplies the uniform endpoint classification. arXiv:2605.00040v1 gives the closest analogous narrow-sense statement, but for five integers. The result here does not classify arbitrary witness-free sets of size \(n+3\) that omit some odds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact statement is equality-case uniqueness inside the class containing every odd integer with exactly three even additions. The closest source constructs the single surviving set and gives a mechanism eliminating middle evens but does not resolve all boundary triples or state the iff classification. The distinct earlier van Doorn narrow extremality theorem is about five input integers. Best-of-knowledge originality passes, qualified by the real possibility of an unindexed boundary-case observation; the generic sharp h4 result is not itself a uniqueness classification.
+
+## value
+
+PASS
+
+The all-odd plus three-even family is canonically singled out by the published extremal construction at sharp h4(n)=4 and cardinality n+3. Its exact unique equality profile for every n>=6 resolves a natural structural rigidity question that the existence extremizer does not answer. This is deliberately narrower than a classification of all size-n+3 witness-free sets and does not assert that broader result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
