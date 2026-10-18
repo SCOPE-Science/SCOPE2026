@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,85 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Set
-\[
-K=\frac12I_{\mathbb R^2},
-\qquad
-K^\dagger=2I_{\mathbb R^2}.
-\]
-For both source families use
-\[
-\Lambda_{i1}=P_{\operatorname{span}\{e_1\}},
-\qquad
-\Lambda_{i2}=P_{\operatorname{span}\{e_2\}},
-\]
-with unit weights and full fusion subspaces.
+# Independent mathematical audit
 
-Every full weave contains one copy of each coordinate projection, so
-\[
-E(f)=|f_1|^2+|f_2|^2=\|f\|^2.
-\]
-Since
-\[
-\|K^*f\|^2=\frac14\|f\|^2,
-\]
-the constants \(A=B=3\) are valid:
-\[
-3\|K^*f\|^2
-=
-\frac34\|f\|^2
-\le
-E(f)
-\le
-3\|f\|^2.
-\]
+## correctness
 
-For deletion set \(I=\{1\}\),
-\[
-C=
-\sum_{i=1}^{2}\|\Lambda_{i1}\|^2
-=
-2.
-\]
-The printed condition is satisfied because
-\[
-2<3\cdot4=12.
-\]
-The printed lower bound would be
-\[
-A-C=1.
-\]
+PASS
 
-After deletion, the energy is
-\[
-E_{\mathrm{del}}(f)=|f_2|^2.
-\]
-At \(f=e_1\),
-\[
-E_{\mathrm{del}}(e_1)=0,
-\qquad
-\|K^*e_1\|^2=\frac14,
-\]
-so no positive \(K\)-lower bound exists.
+Two identical source families in \(\mathbb R^2\) use \(K=I/2\), analysis operators \(P_{e_1},P_{e_2}\), unit weights and full fusion subspaces. Every undeleted weave has exact energy \(\|f\|^2\); \(A=B=3\) are legitimate, though not optimal, bounds because \(3\|K^*f\|^2=3\|f\|^2/4\le\|f\|^2\le3\|f\|^2\). Deleting index one costs \(C=2\), and \(\|K^\dagger\|^2=4\), so the printed condition \(2<12\) holds and incorrectly predicts lower constant one. The deleted weave is only \(P_{e_2}\) and vanishes at \(e_1\) while \(\|K^*e_1\|^2=1/4\). Fresh rational matrix arithmetic checked these identities. For the corrected theorem extend any deleted partition to all indices and subtract at most \(C\|f\|^2\); for \(f\in R(K)\), the closed-range estimate \(\|f\|\le\|K^\dagger\|\|K^*f\|\) gives the stated sufficient constant. The source proof itself contains this corrected factor in its last estimate.
 
-For the corrected estimate, extend a partition of the retained indices to the full index set. The removed contribution is at most
-\[
-C\|f\|^2
-\le
-C\|K^\dagger\|^2\|K^*f\|^2.
-\]
-Subtracting from the full lower frame inequality yields
-\[
-E_{\mathrm{del}}(f)
-\ge
-\left(A-C\|K^\dagger\|^2\right)\|K^*f\|^2.
-\]
-Hence
-\[
-C\|K^\dagger\|^2<A
-\]
-is a sufficient deletion condition.
+## originality
 
-The primary theorem and its proof were inspected directly in the publisher PDF and as page images. The counterexample is exact; no numerical approximation is used.
+PASS
+
+The original 2021 full theorem and proof explicitly disagree: the hypothesis places \(\|K^\dagger\|^2\) on the right and advertises \(A-C\), but the proof produces \(A-C\|K^\dagger\|^2\). The new finite example proves the printed conclusion genuinely fails, rather than only pointing out an algebraic typo. Other fusion-frame deletion work assumes geometrically orthogonal removed subspaces or studies excess rather than this reciprocal stability threshold; no exact prior erratum was located in accessible indexed searching.
+
+## value
+
+PASS
+
+A published stability theorem permits a stated sufficient condition that can falsely guarantee preservation of a positive lower frame bound; the explicit deletion destroys the frame. The scale-correct replacement and simple finite witness provide a motivated substantive correction relevant to perturbation/deletion applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

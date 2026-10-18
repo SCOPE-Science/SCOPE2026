@@ -1,31 +1,21 @@
-# Review
-## Correctness
-PASS. The example uses
-\[
-K=\frac12I,\qquad K^\dagger=2I,
-\]
-and two identical two-channel source families whose full weaving energy is exactly \(\|f\|^2\). The valid bounds \(A=B=3\) satisfy the full woven inequalities. The source's deletion constant is \(C=2\), so its hypothesis \(C<A\|K^\dagger\|^2\) holds. After deleting the first channel, the remaining energy vanishes at \(e_1\), contradicting any positive \(K\)-lower bound.
+# Independent mathematical audit
 
-The corrected estimate follows from
-\[
-\|f\|^2\le\|K^\dagger\|^2\|K^*f\|^2
-\]
-on \(R(K)\) and yields the lower constant
-\[
-A-C\|K^\dagger\|^2.
-\]
+## correctness
 
-## Originality
-PASS. The exact theorem, reciprocal-threshold aliases, deletion/removal formulations, Moore--Penrose scaling, earlier \(K\)-\(g\)-fusion removal literature, and later woven-\(K\)-frame excess literature were compared.
+PASS
 
-The closest earlier removal theorem uses orthogonality to \(R(K)\), while later excess work addresses a different invariant. No checked indexed source states the scaled two-dimensional counterexample or the reciprocal correction.
+Two identical source families in \(\mathbb R^2\) use \(K=I/2\), analysis operators \(P_{e_1},P_{e_2}\), unit weights and full fusion subspaces. Every undeleted weave has exact energy \(\|f\|^2\); \(A=B=3\) are legitimate, though not optimal, bounds because \(3\|K^*f\|^2=3\|f\|^2/4\le\|f\|^2\le3\|f\|^2\). Deleting index one costs \(C=2\), and \(\|K^\dagger\|^2=4\), so the printed condition \(2<12\) holds and incorrectly predicts lower constant one. The deleted weave is only \(P_{e_2}\) and vanishes at \(e_1\) while \(\|K^*e_1\|^2=1/4\). Fresh rational matrix arithmetic checked these identities. For the corrected theorem extend any deleted partition to all indices and subtract at most \(C\|f\|^2\); for \(f\in R(K)\), the closed-range estimate \(\|f\|\le\|K^\dagger\|\|K^*f\|\) gives the stated sufficient constant. The source proof itself contains this corrected factor in its last estimate.
 
-## Value
-PASS. The source theorem is a deletion-stability criterion. Its printed condition can approve removal of an essential channel and thereby destroy the entire \(K\)-lower bound. The corrected scaling is therefore substantive for robustness and redundancy claims.
+## originality
 
-## Closest literature and limitations
-Huang--Yang prove a geometrically different removal theorem under orthogonality assumptions. Agheshteh Moghaddam--Arefijamaal study excess of woven \(K\)-frames rather than this numerical deletion threshold.
+PASS
 
-The corrected \(C\)-condition is sufficient rather than necessary, because \(C\) may overestimate the deleted energy of a specific weaving.
+The original 2021 full theorem and proof explicitly disagree: the hypothesis places \(\|K^\dagger\|^2\) on the right and advertises \(A-C\), but the proof produces \(A-C\|K^\dagger\|^2\). The new finite example proves the printed conclusion genuinely fails, rather than only pointing out an algebraic typo. Other fusion-frame deletion work assumes geometrically orthogonal removed subspaces or studies excess rather than this reciprocal stability threshold; no exact prior erratum was located in accessible indexed searching.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A published stability theorem permits a stated sufficient condition that can falsely guarantee preservation of a positive lower frame bound; the explicit deletion destroys the frame. The scale-correct replacement and simple finite witness provide a motivated substantive correction relevant to perturbation/deletion applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
