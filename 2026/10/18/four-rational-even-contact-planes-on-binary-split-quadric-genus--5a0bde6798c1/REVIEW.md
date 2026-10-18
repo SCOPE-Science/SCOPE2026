@@ -1,0 +1,11 @@
+# Review of the four-even-contact-plane extremum
+
+**Correctness — PASS.** Fifteen canonical hyperplanes exhaust \(\mathbf P^3(\mathbf F_2)^\vee\); their six smooth and nine reducible quadric sections have explicit necessary-and-sufficient even-divisor conditions. All 65,535 forms are tested. Of 1,011 forms with more than four even-contact planes, every one has an explicit singular point over \(\mathbf F_2\) or \(\mathbf F_4\). Of 8,400 with four, 8,340 are similarly singular, and the remaining 60 have unit Jacobian ideals on each affine chart. The latter are exactly three automorphism orbits, and exact cubic factorization recovers the three multiplicity profiles. Residual risk is implementation error; readable source, actual replay, and two algebraically different singularity checks limit this risk.
+
+**Originality — PASS, qualified.** Xarles' 2020 full genus-four curve census gives model and point-count tables, not the even-contact hyperplane counts. The characteristic-zero real-tritangent analysis of Kulkarni and collaborators is inapplicable to \(\mathbf F_2\). A separate narrower arithmetic count of **proper** three-point tritangents does not give the three nonreduced-contact extremal strata. Actual published-record and research-index queries did not reveal an equivalent or stronger classification. An unindexed predecessor remains a priority uncertainty; a negative search is not a worldwide uniqueness certificate.
+
+**Value — PASS.** Rational even-contact hyperplanes represent natural canonical theta-type contact data. The new bound is sharp and distinguishes three geometric extremal types by their number of genuinely sextuple-osculating planes, a property not captured by the proper-tritangent restriction. The smallest six-curve orbit has three sextuple contacts and a fourth plane tangent twice at all three contact points. This is a complete, naturally motivated finite-field classification, not a relabeling of curves or a parameter substitution.
+
+Scientific limits: characteristic two, the split quadric, exactly \((3,3)\), and the inclusive even-contact definition. Independent priority and code audit remain open.
+
+Self-review: passed. Independent audit: not yet performed.
