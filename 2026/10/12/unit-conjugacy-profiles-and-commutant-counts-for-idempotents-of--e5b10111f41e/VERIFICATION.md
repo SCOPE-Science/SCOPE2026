@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of unit-conjugacy profiles and centralizer formulas
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter. No external packages or external files are required.
+## correctness
 
-Observed output from the extracted standalone source:
-```
-n 2 magma_monoid_order 16 idempotents 7 unit_orbits 4 unit_group 4 centralizer_samples 7 VERIFY_OK
-n 3 magma_monoid_order 19683 idempotents 706 unit_orbits 31 unit_group 288 centralizer_samples 31 VERIFY_OK
-```
-The program enumerates all equivariant endomaps and literally composes them. For \(n=2\) it checks the centralizer formula on every idempotent. For \(n=3\) it checks it for one idempotent from each of all 31 unit-conjugacy classes; centralizer cardinality is conjugacy-invariant, so this checks all classes. It also constructs every unit conjugate and compares the resulting orbits to the profile partition, and verifies predicted orbit sizes and that the orbit partition exhausts all idempotents.
+PASS
 
-Separate direct enumeration of all binary-operation multiplication tables and the literal product defining the magma monoid returned 7 and 706 idempotents at \(n=2\) and \(n=3\) respectively. The finite enumerations are not an all-n proof. The all-n proof in RESULT.md establishes the retraction classification, signed-permutation stabilizer count and fiberwise commuting-map construction.
+The map from binary operations to flip-equivariant maps X²→X² reverses composition but preserves idempotence/conjugacy/commutation. Idempotents are precisely equivariant retractions. Fixed and free flip orbits give profile constraints d+sum b_i=n, a+sum c_i+sum h_j=N, d>=1. Units form S_n×(C2 wr S_N), order n!2^N N!; matching rooted fibers prove orbit-transitivity and stabilizers with b_i!2^{c_i}c_i!, 2h_j! and identical-cluster permutation factors. Commutation with retraction e is exactly g(image e) subset image e plus g(y) in fiber over g(e(y)), yielding the stated block products using B=1+b,H=1+b+2c,L=1+h. Empty-product cases including n=1 are consistent. An independent literal equivariant-map enumeration for n=2 found all 16 maps, 7 idempotents, 4 unit orbits, and commutant counts [6,6,8,8,8,8,16]; n=3 global count 706 and 31 orbits are supporting independent/package tests, not all-n proofs.
 
-No external or independent audit has been performed. Historical novelty cannot be certified by database or literature searches.
+## originality
+
+PASS
+
+Known magma-monoid work defines the monoid and counts/idempotents/units, but individual root-fiber unit-conjugacy orbit sizes and full-monoid commutant cardinalities are not the same as total counts. Read Baiduk–Kozerenko 2026 arXiv HTML and López-Permouth 2026 open-access article: relevant idempotent classifications/counts but no theorem stating the exact joint orbit and full-monoid commutant formulas. Ruiz-Medina 2025 counts equivariant maps and units, not equivariant retraction orbit profiles. Best-of-knowledge PASS; a different formulation in older finite equivariant-map literature remains a stated originality risk.
+
+## value
+
+PASS
+
+A natural, recently studied transformation monoid has thousands of operations and hundreds of idempotents already for n=3. Complete unit-conjugacy classification and explicit orbit/centralizer sizes are intrinsic, reusable structural invariants; they distinguish many idempotents of the same image cardinality and give more than known aggregate totals. The theorem covers every finite n>=1 without a conjectural downstream result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

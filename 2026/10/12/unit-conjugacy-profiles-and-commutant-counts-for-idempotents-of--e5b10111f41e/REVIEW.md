@@ -1,15 +1,21 @@
-# Review: unit-conjugacy and commutants of magma-monoid idempotents
+# Independent mathematical audit
 
-## Correctness — PASS
-The correspondence with flip-equivariant maps is a bijection and reverses the binary-operation monoid multiplication. An idempotent equivariant map is exactly an equivariant retraction. The two orbit populations and their fiber assignments yield necessary and sufficient profile constraints; the signed permutation unit group acts transitively on each profile. Orbit-stabilizer then proves the orbit formula, and a direct factor-by-factor description of arbitrary commuting maps proves the commutant formula. The proof covers all finite nonempty sets, including \(n=1\) and all empty-multiset cases. The standalone enumeration checks \(n=2\) and \(n=3\), with all unit conjugacy orbits and explicit full-monoid commutants; finite checking is supporting evidence only.
+## correctness
 
-## Originality — PASS, with identified risk
-Primary literature already contains the binary-operation monoid, its unit group, its idempotent characterization, and overall idempotent enumerations. These earlier conclusions are credited. The inspected complete López-Permouth (2026) article does not give unit-conjugacy classes, their orbit sizes, or centralizer sizes of individual idempotents. The inspected complete Ruiz-Medina (2025) article gives total equivariant-map and unit counts, not the asserted retraction-fiber refinements. The 2022 and Baiduk–Kozerenko (2026) accessible previews discuss structural results and totals without asserting these formulas. The especially relevant 2026 full text was unavailable despite bounded arXiv/open-access and authorized-access attempts, leaving a real historical-overlap risk rather than proof of absence.
+PASS
 
-## Value — PASS
-The problem concerns the symmetry and commuting behavior of an entire natural family of idempotents in a recently studied finite semigroup. The profile classification is complete for all degrees; its quantitative formulas separate idempotents with identical rank but different fiber structures. For three underlying elements there are already \(31\) distinct unit-conjugacy classes among \(706\) idempotents, illustrating why overall counts do not answer the refined structural question. A complete classification of natural semigroup orbits and centralizers is substantive even without a downstream theorem.
+The map from binary operations to flip-equivariant maps X²→X² reverses composition but preserves idempotence/conjugacy/commutation. Idempotents are precisely equivariant retractions. Fixed and free flip orbits give profile constraints d+sum b_i=n, a+sum c_i+sum h_j=N, d>=1. Units form S_n×(C2 wr S_N), order n!2^N N!; matching rooted fibers prove orbit-transitivity and stabilizers with b_i!2^{c_i}c_i!, 2h_j! and identical-cluster permutation factors. Commutation with retraction e is exactly g(image e) subset image e plus g(y) in fiber over g(e(y)), yielding the stated block products using B=1+b,H=1+b+2c,L=1+h. Empty-product cases including n=1 are consistent. An independent literal equivariant-map enumeration for n=2 found all 16 maps, 7 idempotents, 4 unit orbits, and commutant counts [6,6,8,8,8,8,16]; n=3 global count 706 and 31 orbits are supporting independent/package tests, not all-n proofs.
 
-## Scientific limits
-The result applies only to unit-conjugacy of idempotents and to commuting partners in the entire magma monoid. The finite verifier does not certify all \(n\). Inaccessible recent full text and possible alternative descriptions of equivariant-retraction conjugacy remain residual originality risks. No independent audit or certification of priority has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known magma-monoid work defines the monoid and counts/idempotents/units, but individual root-fiber unit-conjugacy orbit sizes and full-monoid commutant cardinalities are not the same as total counts. Read Baiduk–Kozerenko 2026 arXiv HTML and López-Permouth 2026 open-access article: relevant idempotent classifications/counts but no theorem stating the exact joint orbit and full-monoid commutant formulas. Ruiz-Medina 2025 counts equivariant maps and units, not equivariant retraction orbit profiles. Best-of-knowledge PASS; a different formulation in older finite equivariant-map literature remains a stated originality risk.
+
+## value
+
+PASS
+
+A natural, recently studied transformation monoid has thousands of operations and hundreds of idempotents already for n=3. Complete unit-conjugacy classification and explicit orbit/centralizer sizes are intrinsic, reusable structural invariants; they distinguish many idempotents of the same image cardinality and give more than known aggregate totals. The theorem covers every finite n>=1 without a conjectural downstream result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
