@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The exact-image/surjection bijection applies to every square-zero endomorphism. Noncyclic images are forced into the unique subgroup of each admissible rank-two type; all cyclic subgroups are partitioned without overlap into order one, order two, and larger-order cases. The homomorphism difference identity and intersection computation supply the only nontrivial counting steps. For every \(p\) and \(b\ge2\), the piecewise spectrum sums algebraically to the claimed parity-dependent count. The standalone brute-force code separately checks complete image-type histograms in eighteen finite cases.
+
+**Originality: PASS, with literature risk.** The published endomorphism-coordinate description, classical subgroup enumeration, and Hall-polynomial machinery are background, not claimed. The compared source on Hall polynomials supplies a generic subgroup/quotient counting algorithm, while its inspected principal statements do not give the closed image-type spectrum for square-zero operators on the mixed-exponent group \(C_{p^2}\oplus C_{p^b}\). Work on nilpotent endomorphisms of finite-field vector spaces treats a different object. The shorter-exponent group \(C_p\oplus C_{p^b}\) is a distinct known computation, whose cyclic-image conclusion fails here. Specific closed formulas possibly embedded in other Hall-polynomial literature remain an originality risk; an absence of search hits is not treated as proof of novelty.
+
+**Value: PASS.** Complete image-type multiplicities are natural invariants of the endomorphism monoid and of differential structures on the underlying finite abelian group. This is the first two-generator mixed-exponent family permitting noncyclic images, and the boundary coefficients record meaningful exponent thresholds. The result includes a sharp noncyclic-image cutoff and a nontrivial parity law throughout an infinite family; it is not solely a small numerical improvement.
+
+**Scope and limitations.** Counts are for labeled endomorphisms, not their automorphism orbits. The source comparisons focus on the general coordinate description, Hall-polynomial counting framework, and accessible image-spectrum searches, not an exhaustive survey of all possible equivalent publications. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
