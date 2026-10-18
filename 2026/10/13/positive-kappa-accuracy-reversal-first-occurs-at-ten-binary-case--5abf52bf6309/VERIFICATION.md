@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,92 +18,25 @@
   "schema_version": 1
 }
 ---
-For a binary reference table with
-\[
-P+Q=N,
-\]
-\[
-TP=x,
-\qquad
-FN=P-x,
-\qquad
-TN=y,
-\qquad
-FP=Q-y,
-\]
-the verifier computes
-\[
-A=\frac{x+y}{N}
-\]
-and Cohen's kappa in two exact forms.
 
-The direct form is
-\[
-\kappa=\frac{p_o-p_e}{1-p_e},
-\]
-where
-\[
-p_o=A
-\]
-and
-\[
-p_e=\frac{PM+Q(N-M)}{N^2},
-\qquad
-M=x+Q-y.
-\]
+# Independent mathematical audit
 
-The independently simplified form is
-\[
-\kappa
-=
-\frac{2(Qx+Py-PQ)}{P(N-M)+QM}.
-\]
-The two are asserted equal for every enumerated table.
+## correctness
 
-After quotienting positive/negative class exchange by restricting
-\[
-P\le Q,
-\]
-the numbers of admissible positive-kappa tables for
-\[
-N=4,5,6,7,8,9,10
-\]
-are
-\[
-0,1,2,5,9,13,22,
-\]
-and the corresponding strict accuracy-kappa reversal counts are
-\[
-0,0,0,0,0,0,1.
-\]
+PASS
 
-The unique first pair is
-\[
-(1,2,5,2)
-\]
-versus
-\[
-(2,1,3,4),
-\]
-with metric pairs
-\[
-\left(\frac35,\frac1{21}\right)
-\]
-and
-\[
-\left(\frac12,\frac2{27}\right).
-\]
+For P reference positives, Q=N-P negatives, x=TP, y=TN, M=x+Q-y predicted positives, exact simplification yields kappa=2(Qx+Py-PQ)/[P(N-M)+QM], with positive denominator. Independent rational enumeration of all 4<=N<=10, 2<=P<=floor(N/2), 1<=x<P,1<=y<Q filters kappa>0 and compares every within-P pair: normalized admissible counts (0,1,2,5,9,13,22) and reversal counts (0,0,0,0,0,0,1). Unique N=10 witness is A(X)=3/5,kappa(X)=1/21 and A(Y)=1/2,kappa(Y)=2/27. For any N>=10, X_N=(1,2,N-5,2), Y_N=(2,1,N-7,4) have accuracies (N-4)/N>(N-5)/N and kappas (N-9)/(3(N-3))<4(N-9)/(9(N-4)), by 12(N-3)>9(N-4) iff 3N>0. Infinite family algebraic proof distinct from finite enumeration.
 
-The replay also checks the persistent family through
-\[
-N=500.
-\]
-Its validity for every \(N\ge10\) is proved symbolically in `RESULT.md`.
+## originality
 
-Run:
+PASS
 
-`python3 verify_accuracy_kappa_minimal_reversal.py`
+Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
+
+The first nondegenerate positive-agreement sample size at which two familiar assessment statistics impose opposing strict classifier rankings is a motivated exact finite boundary, with unique normal-form witness and an infinite continuation family. The restrictions isolate genuine rather than negative-kappa or empty-cell reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

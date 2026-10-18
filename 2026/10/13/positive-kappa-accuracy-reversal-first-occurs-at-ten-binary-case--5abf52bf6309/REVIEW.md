@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The binary kappa formula is derived directly from Cohen's definition and independently reduced to an exact rational expression. The finite domain is explicit and exhaustive: fixed \(N\), fixed reference-positive count \(P\), every cell positive, and \(\kappa>0\). Complete exact enumeration gives no reversal through \(N=9\) and one class-label-normalized reversal at \(N=10\). The displayed infinite family has closed formulas whose inequality reduces to \(3N>0\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the cutoff depends on the stated positivity restrictions; removing them permits smaller but more degenerate discrepancies.
+PASS
 
-## Originality
-**PASS.** Cohen's original paper owns the chance-corrected agreement formula, and Cicchetti–Feinstein directly analyze high-agreement/low-kappa paradoxes caused by marginal imbalance. Those sources establish the qualitative phenomenon, not the sharp nondegenerate finite boundary under fixed prevalence. Searches by aliases, exact tables, positive-kappa language, smallest-sample language, and ranking-reversal language did not locate the ten-case classification or the persistent family.
+For P reference positives, Q=N-P negatives, x=TP, y=TN, M=x+Q-y predicted positives, exact simplification yields kappa=2(Qx+Py-PQ)/[P(N-M)+QM], with positive denominator. Independent rational enumeration of all 4<=N<=10, 2<=P<=floor(N/2), 1<=x<P,1<=y<Q filters kappa>0 and compares every within-P pair: normalized admissible counts (0,1,2,5,9,13,22) and reversal counts (0,0,0,0,0,0,1). Unique N=10 witness is A(X)=3/5,kappa(X)=1/21 and A(Y)=1/2,kappa(Y)=2/27. For any N>=10, X_N=(1,2,N-5,2), Y_N=(2,1,N-7,4) have accuracies (N-4)/N>(N-5)/N and kappas (N-9)/(3(N-3))<4(N-9)/(9(N-4)), by 12(N-3)>9(N-4) iff 3N>0. Infinite family algebraic proof distinct from finite enumeration.
 
-Risk: the arithmetic is elementary enough that an unindexed teaching example or software test could contain the same pair. Search failure is not proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** Raw accuracy and Cohen's kappa are both routinely reported in diagnostic and observer-agreement settings, and the literature explicitly warns that their marginal sensitivity can change interpretation. The result isolates the smallest all-positive, above-chance case in which that difference changes an actual comparative ranking, rather than merely changing a numerical value. The family shows that the effect persists at every larger sample size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.
+
+## value
+
+PASS
+
+The first nondegenerate positive-agreement sample size at which two familiar assessment statistics impose opposing strict classifier rankings is a motivated exact finite boundary, with unique normal-form witness and an infinite continuation family. The restrictions isolate genuine rather than negative-kappa or empty-cell reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

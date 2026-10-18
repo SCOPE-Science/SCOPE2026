@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:48:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/positive-kappa-accuracy-reversal-first-occurs-at-ten-binary-case--5abf52bf6309/RESULT.md",
+        "Source blob b151f346bf4de5dbec0bcc3a5c1550363bc77e86",
+        "Exact frozen Git tree/RESULT.md/standard-library verifier hashes inspected.",
+        "Independent exact Fraction re-enumeration: normalized counts 0,1,2,5,9,13,22 and reversal counts 0,0,0,0,0,0,1.",
+        "Explicit all-N algebra rechecked, rather than extrapolated from test through N=500."
+      ],
+      "rationale": "For P reference positives, Q=N-P negatives, x=TP, y=TN, M=x+Q-y predicted positives, exact simplification yields kappa=2(Qx+Py-PQ)/[P(N-M)+QM], with positive denominator. Independent rational enumeration of all 4<=N<=10, 2<=P<=floor(N/2), 1<=x<P,1<=y<Q filters kappa>0 and compares every within-P pair: normalized admissible counts (0,1,2,5,9,13,22) and reversal counts (0,0,0,0,0,0,1). Unique N=10 witness is A(X)=3/5,kappa(X)=1/21 and A(Y)=1/2,kappa(Y)=2/27. For any N>=10, X_N=(1,2,N-5,2), Y_N=(2,1,N-7,4) have accuracies (N-4)/N>(N-5)/N and kappas (N-9)/(3(N-3))<4(N-9)/(9(N-4)), by 12(N-3)>9(N-4) iff 3N>0. Infinite family algebraic proof distinct from finite enumeration.",
+      "residual_risks": [
+        "The theorem fixes the same reference prevalence and permits different predicted prevalence; changing this restriction changes the minimal N.",
+        "Both kappas must be strictly positive and all confusion cells nonzero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier agreement literature explains the role of marginal imbalance and positive-versus-negative agreement.",
+          "Neither abstract/accessible theorem evidence supplied a universal all-positive-cell lower bound N>=10 or uniqueness."
+        ],
+        "reasoning": "General formulas predict that rank reversals are possible but alone do not imply a sharp small-sample cutoff; no stronger covering theorem was located.",
+        "searches": [
+          "doi:10.1177/001316446002000104, Cohen 1960",
+          "doi:10.1016/0895-4356(90)90159-M, Cicchetti–Feinstein 1990"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1177/001316446002000104",
+        "DOI:10.1016/0895-4356(90)90159-M",
+        "SCOPE frozen RESULT.md and exact verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kappa formula and prevalence dependence predate the new claim.",
+          "The new theorem excludes every admissible smaller N and all other N=10 pairs under a fixed equivalence action."
+        ],
+        "reasoning": "Neither a general definition nor a qualitative paradox implies exclusion for N<=9 and uniqueness for N=10; those are additional finite, exhaustive constraints.",
+        "searches": [
+          "Cohen 1960 definition of kappa",
+          "Cicchetti–Feinstein 1990 paradoxes",
+          "Resultary search of exact N=10 witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen 1960 defines chance-corrected categorical agreement; observed agreement with a fixed reference equals accuracy.",
+          "No Resultary hit in the actual 12-result query gave a first N=10 fixed-prevalence, all-cell-positive, positive-kappa result."
+        ],
+        "reasoning": "Binary inter-rater agreement and diagnostic accuracy with a fixed gold standard are the same 2x2-table mathematics; qualitative kappa paradox literature gives the mechanism, not this exact filtered enumeration.",
+        "searches": [
+          "Resultary search: Smallest positive Cohen kappa reversed accuracy rankings binary confusion matrices all cells positive fixed reference prevalence sample size ten",
+          "web query: positive Cohen kappa agreement accuracy rank reversal minimum binary sample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite normalized positive-kappa counts through N=10 and the unique N=10 pair were computed independently from all integer tables.",
+          "No directly checked exact table or software fixture contains the 1/21-versus-2/27 witness."
+        ],
+        "reasoning": "Independently produced exact enumeration is not, by itself, proof that no earlier table exists; an unindexed worksheet remains a risk.",
+        "searches": [
+          "Resultary search: Smallest positive Cohen kappa reversed accuracy rankings binary confusion matrices all cells positive fixed reference prevalence sample size ten",
+          "web query: Cohen kappa 1/21 2/27 confusion matrix"
+        ]
+      },
+      "rationale": "Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.",
+      "residual_risks": [
+        "Unindexed training examples, software fixtures, or published finite tables may contain the same N=10 witness.",
+        "Primary 1960 and 1990 complete articles were not independently obtained in this run, so whole-paper noncoverage is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definition and qualitative marginal dependence; complete-document noncoverage not claimed",
+          "evidence": "Kappa measures observed-minus-expected agreement divided by maximal beyond-chance agreement.",
+          "identifier_or_url": "DOI:10.1177/001316446002000104",
+          "material_read": "Public publisher article metadata, restricted landing and displayed abstract/intro snippets; complete PDF paywalled, not read in this audit",
+          "method": "Direct publisher HTML/PDF landing inspection",
+          "title": "A Coefficient of Agreement for Nominal Scales",
+          "trigger": "Foundational definition and comparison with raw agreement"
+        },
+        {
+          "assessment": "Explains paradox mechanism; exact N=10 finite boundary not established from accessible material",
+          "evidence": "Discusses discrepancy between high agreement and low kappa under imbalanced marginals.",
+          "identifier_or_url": "DOI:10.1016/0895-4356(90)90159-M",
+          "material_read": "Public abstract and bibliographic material; no full text independently obtained in this audit",
+          "method": "PubMed/publisher abstract comparison",
+          "title": "High Agreement but Low Kappa: II. Resolving the Paradoxes",
+          "trigger": "Same binary prevalence/kappa paradox mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1177/001316446002000104",
+        "DOI:10.1016/0895-4356(90)90159-M",
+        "SCOPE frozen RESULT.md and exact verifier"
+      ],
+      "rationale": "The first nondegenerate positive-agreement sample size at which two familiar assessment statistics impose opposing strict classifier rankings is a motivated exact finite boundary, with unique normal-form witness and an infinite continuation family. The restrictions isolate genuine rather than negative-kappa or empty-cell reversals.",
+      "residual_risks": [
+        "N=10 is a diagnostic arithmetic threshold, not a claim that ten observations are enough for reliable inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary fixed-reference confusion tables with all four cells positive and both kappas positive, the first strict ranking reversal between raw accuracy and Cohen kappa occurs at N=10; unique up to class exchange at P=3,Q=7, X=(1,2,5,2), Y=(2,1,3,4), and an all-N family exists for every N>=10.",
+  "limitations": [
+    "The theorem fixes the same reference prevalence and permits different predicted prevalence; changing this restriction changes the minimal N.",
+    "Both kappas must be strictly positive and all confusion cells nonzero.",
+    "N=10 is a diagnostic arithmetic threshold, not a claim that ten observations are enough for reliable inference.",
+    "Unindexed training examples, software fixtures, or published finite tables may contain the same N=10 witness.",
+    "Primary 1960 and 1990 complete articles were not independently obtained in this run, so whole-paper noncoverage is not claimed."
+  ],
+  "schema_version": 1
+}
