@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The proof enumerates every possible geodesic type (within A, within B, present cross edge, missing cross edge). Its necessary/sufficient predicate is proved directly and each named set contributes once through multinomial category counts. Sharp \\(\\mu=a+b-2\\) and its equality count follow by exhausting the exactly two omitted vertices. An independent BFS graph test compared all coefficients on 40 profiles (49,984 subsets), with 210 additional symbolic finite parameter checks. This finite corroboration is not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.01851 Theorem 14 gives a complete coefficient formula for \\(K_{m,n}\\) (\\(t=0\\)) but no deleted edges.",
+        "arXiv:2509.22571 covers wheels and other graph classes but its displayed family results contain no matching-deleted biclique theorem.",
+        "Published published-finding corpus result 2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df covers complete multipartite graphs, not \\(\\(K_{a,b}\\)-M_t\\) for \\(t\\ge1\\)."
+      ],
+      "reasoning": "The target graphs with \\(t\\ge1\\) and \\(a,b\\ge3\\) are not complete multipartite: nonadjacency is not transitive, as each deleted cross-pair coexists with same-side nonadjacencies. General exponential enumeration algorithms for arbitrary graphs do not imply this closed five-parameter formula or a sharp optimizer classification. Published complete-multipartite extremal results apply to \\(t=0\\) but not the new family.",
+      "searches": [
+        "Full cardinality distribution and polynomial of mutual visibility sets in bipartite graph with a matching removed, geodesic obstruction classified by intersection occupancies",
+        "Complete bipartite graph minus a nonperfect matching mutual visibility polynomial generalizes complete bipartite and crown cases",
+        "web: visibility polynomial complete bipartite graph minus matching",
+        "arXiv:2507.01851 Theorem 14",
+        "arXiv:2509.22571 section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.02722 (Theorem 4.9)",
+      "arXiv:2412.03066 (Definition 3.1 and Proposition 3.2)",
+      "arXiv:2507.01851 (Theorem 14)",
+      "arXiv:2509.22571 (introduction/Section 3 checked)",
+      "OEIS:A390404 (2026 perfect-matching crown polynomial)",
+      "published-finding corpus 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+      "published-finding corpus 2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+      "published-finding corpus 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 theorem establishes only the numerical maximum for the undeleted \\(K_{a,b}\\).",
+        "The 2024 and 2025 polynomial theorems count ordinary complete-bipartite mutual-visibility sets without any missing matching edges.",
+        "OEIS A390404 is the opposite boundary \\(t=a=b\\) and does not classify \\(1\\le t<\\min\\{a,b\\}\\).",
+        "Published published-finding corpus record 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb counts clique/stable-set disjointness rather than mutual-visibility geodesics."
+      ],
+      "reasoning": "Neither a minimum/maximum value at \\(t=0\\) nor a crown-graph polynomial at \\(t=a=b\\) implies the all-coefficient answer for strictly intermediate t, where one or more untouched vertices create additional clean shortest paths. The new obstruction predicate depends on five occupancies, including selection overlap of deleted pairs; no inspected statement entails it or its exact leading coefficient. The underlying graph can coincide in other papers but the quantified claim does not.",
+      "searches": [
+        "Mutual visibility sets and visibility polynomial of complete bipartite graphs with a non-spanning matching removed, K_{a,b}-M_t; exact enumeration and characterization",
+        "Exact number of maximum mutual visibility sets in complete bipartite graph K_{a,b} after deleting t independent edges, leading coefficient (a-t)(b-t)+indicator t=1",
+        "Full cardinality distribution and polynomial of mutual visibility sets in bipartite graph with a matching removed, geodesic obstruction classified by intersection occupancies",
+        "arXiv:2105.02722 Theorem 4.9",
+        "arXiv:2412.03066 Proposition 3.2",
+        "arXiv:2507.01851 Theorem 14",
+        "OEIS:A390404"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2105.02722 Theorem 4.9 deals with \\(K_{a,b}\\) before edge deletion.",
+        "arXiv:2412.03066 Proposition 3.2 gives the balanced complete bipartite case, not partial matching deletion.",
+        "OEIS A390404 gives the distinct full perfect-matching-deleted crown case, whose extremal degree is different from this theorem."
+      ],
+      "reasoning": "Equivalent terminology includes mutual-visibility set, visibility polynomial, bipartite graph minus a matching, crown graph, and the tensor product \\(K_2\\times K_n\\). The search and comparison yielded no exact three-parameter classification for \\(1\\le t<\\min\\{a,b\\}\\). The crown formula is a boundary case, not a formula for arbitrary untouched vertices. An absence of hits is not a proof of novelty.",
+      "searches": [
+        "Mutual visibility sets and visibility polynomial of complete bipartite graphs with a non-spanning matching removed, K_{a,b}-M_t; exact enumeration and characterization",
+        "Exact visibility polynomial of crown graphs, cocktail bipartite graphs, bipartite almost complete graphs, matching deleted bicliques",
+        "Geodesic mutual-visibility number and all mutually visible vertex subsets of bipartite graphs minus a matching",
+        "web: crown graph mutual visibility number",
+        "web: crown graphs mutual-visibility sets polynomial",
+        "web: mutual visibility polynomial matching deleted complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A390404 includes a complete crown-graph visibility polynomial for \\(t=a=b\\), indexed in January 2026.",
+        "The published-finding corpus geodesic-subpath record has the same matching-deleted biclique graph family but studies a different path-count invariant, not mutual-visibility subsets."
+      ],
+      "reasoning": "The exact crown polynomial and count are credited as pre-existing; the claimed result expressly excludes the spanning matching boundary. No covering partial-deletion coefficient table was found in the checked mathematical database results. Database partition and negative search results cannot establish uniqueness.",
+      "searches": [
+        "OEIS:A390404",
+        "web: crown graph mutual visibility number 2n-3",
+        "Exact visibility polynomial of crown graphs, cocktail bipartite graphs, bipartite almost complete graphs, matching deleted bicliques",
+        "published-finding corpus: 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+      ]
+    },
+    "rationale": "Six actual mathematical-record searches, web queries and inspection of highly relevant arXiv primary passages isolate previously known undeleted complete-bipartite and full-crown boundary results. None states or implies the all-coefficient five-parameter non-spanning matching classification. The result is not certified unique and a few plausible full public record pages were inaccessible.",
+    "residual_risks": [
+      "Mathematical-record search is not an exhaustive uniqueness certificate.",
+      "Several nearby public records were available only by title and summary because opening their full source failed.",
+      "The 2026 crown polynomial covers \\(t=a=b\\) and must not be represented as new; intermediate t is different.",
+      "Equivalent unpublished or unindexed all-coefficient classifications remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the partial-matching-deletion enumerator; covered \\(t=0\\) numerical extremum",
+        "evidence": "Theorem 4.9 states mu(\\(K_{m,n}\\))=m+n-2 for m,n>=3 and does not delete a matching.",
+        "identifier_or_url": "https://arxiv.org/pdf/2105.02722",
+        "material_read": "Title, abstract, preliminaries, Section 4.4 and Theorem 4.9 (PDF pages 1, 19-20)",
+        "method": "Public open-access PDF textual extraction with a visual page inspection",
+        "title": "Mutual Visibility in Graphs",
+        "trigger": "Defines the invariant and establishes the undeleted bipartite extremal number"
+      },
+      {
+        "assessment": "NOT_COVERING the partial-matching deletion; covers balanced \\(K_{n,n}\\)",
+        "evidence": "Proposition 3.2 lists visibility polynomials for \\(K_{n,n}\\), not \\(\\(K_{a,b}\\)-M_t\\).",
+        "identifier_or_url": "https://arxiv.org/pdf/2412.03066",
+        "material_read": "Section 3, Definition 3.1, Proposition 3.2 and its proof (PDF pages 6-8)",
+        "method": "Public open-access PDF textual extraction plus visual inspection of page 8",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Introduces the counting polynomial; most directly related polynomial result"
+      },
+      {
+        "assessment": "NOT_COVERING the missing-matching family; covers arbitrary undeleted \\(K_{m,n}\\)",
+        "evidence": "Theorem 14 computes coefficients of V(\\(K_{m,n}\\)), which is the \\(t=0\\) case.",
+        "identifier_or_url": "https://arxiv.org/pdf/2507.01851",
+        "material_read": "Introduction and Section 4, Lemmas 11-12, Theorems 13-14 and their proof (PDF pages 1, 6-8)",
+        "method": "Public open-access PDF textual extraction plus visual inspection of page 7",
+        "title": "On the Visibility Polynomial of Graphs",
+        "trigger": "Closest general full-biclique all-coefficient theorem"
+      },
+      {
+        "assessment": "NO_OBSERVED_COVERAGE; residual risk from portions not closely read",
+        "evidence": "Displayed main family in Section 3 includes wheels, helms, and further graph constructions rather than matching-deleted bicliques.",
+        "identifier_or_url": "https://arxiv.org/pdf/2509.22571",
+        "material_read": "Abstract, introduction, Section 3 definitions and the wheel proof; searchable full document checked for complete bipartite, crown and matching",
+        "method": "Public open-access PDF textual extraction, text searches and visual page 3 inspection",
+        "title": "Visibility Polynomial of Some Graph Classes",
+        "trigger": "Plausible later all-coefficient paper"
+      },
+      {
+        "assessment": "COVERS the excluded full-matching boundary, not the present non-spanning matching family",
+        "evidence": "The comment dated January 12 2026 displays V(\\(K_{n,n}\\)-M_n), where t=n; here \\(t<\\min\\{a,b\\}\\).",
+        "identifier_or_url": "https://oeis.org/A390404",
+        "material_read": "Complete webpage title, comments, formula, provenance and linked crown-polynomial note",
+        "method": "Public mathematical sequence database page textual inspection",
+        "title": "Number of mutual-visibility sets in the n-crown graph",
+        "trigger": "Decisive nearby exact database formula for full matching deletion"
+      },
+      {
+        "assessment": "Record concerns counts of geodesic subpaths, not visibility sets; complete source comparison unavailable",
+        "evidence": "Summary gives t(ab-2a-2b+3-t) for change in a geodesic subpath number.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+        "material_read": "published-finding corpus search record title and summary; full source page access unsuccessful",
+        "method": "Mathematical-record semantic result, attempted source page opening",
+        "title": "Geodesic subpath numbers of bicliques with a deleted matching",
+        "trigger": "Same graph parameters in published mathematical result"
+      },
+      {
+        "assessment": "Record describes complete multipartite graphs; matching-deleted bicliques with \\(t\\ge1\\) are not of that type",
+        "evidence": "Summary discusses coefficientwise extremizers among complete multipartite graph classes.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+        "material_read": "published-finding corpus search record title and summary; full source page access unsuccessful",
+        "method": "Mathematical-record semantic result, attempted source page opening",
+        "title": "Coefficientwise extremals for visibility polynomials of complete multipartite graphs",
+        "trigger": "Same polynomial, overlapping base family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc0f670d-80fc-4572-bf10-bac13218f986",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph family is a natural matching-edge perturbation interpolating between classical complete bipartite graphs and crown graphs. Every coefficient of a natural geodesic-visibility counting invariant is determined by a structural orbit-type test, with a polynomial-size exact computation, sharp optimizer count, and coefficientwise monotonicity particular to matching deletion. The known \\(t=0\\) and \\(t=a=b\\) formulas do not mechanically imply the intermediate three-parameter result. This offers reusable structural information, not just an arbitrary finite test or a tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
