@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For any rooted subtree the three states A (root selected), B (root omitted but child-selected domination), and C (root omitted and waiting for external parent) form an exact exhaustive partition. The displayed child-combination recurrences prove by simultaneous induction the strict cost gaps and all minimizing state counts for each height residue. The global root cannot take C, giving the exact level-set classification and formulas, including the h=0 and h=1 boundaries. Independently implemented enumeration verifies every minimum subset for 313 small-tree instances; a separate dynamic program verifies all 363 degree profiles through height 5 and 425 irregular instances through height 6 (1,101 instances total). Infinite scope comes from induction, not these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.03485 Theorem 14 computes minimum-set counts for any tree by a generic DP, but does not establish the formula or exact optimizer class.",
+        "Livingston–Stout (1994), PDF pp. 1–2 and 10, discusses complete fixed-t-ary trees and possible enumeration algorithms; no nonuniform degree-independent theorem appears.",
+        "Petr–Portier–Versteegen, arXiv:2206.13182, give extremal general-forest count bounds and strong-support observations rather than the claimed equality classification."
+      ],
+      "reasoning": "Generality of an algorithm is not an already stated closed solution of every special family. The explicit equality cases and root-only multiplicity are not consequences of the displayed numerical general upper bound; the known binary theorem only covers a proper subclass. The present proof provides substantive cost-gap rigidity beyond invoking a black-box DP.",
+      "searches": [
+        "dominion number counting optimal dominating sets perfect nonuniform branching trees height modulo 3 arbitrary branching",
+        "Allagan Gray Sawyer Morgan dominion binary tree generalization complete arbitrary branching minimum dominating sets",
+        "\"Constant time computation of minimum dominating sets\" Livingston Stout 1994 pdf",
+        "\"On the number of minimum dominating sets and total dominating sets in forests\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.03485 (first posted 2026-01-07, accessible full text)",
+      "arXiv:2206.13182 / DOI:10.1002/jgt.23107 (accessible original article)",
+      "Livingston and Stout, Congressus Numerantium 105 (1994) 116–128, accessible primary full PDF",
+      "Published published-finding corpus 2026/9/20/SCOPE-minimum-order-k-stepwise-irregular-trees--5c6b81126a3c (different invariant)",
+      "Published published-finding corpus 2026/9/20/SCOPE-sharp-paired-total-domination-gap-in-trees--3f4b1c8daebf (paired/total gap, different invariant)",
+      "Published published-finding corpus 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77 (super domination, different class)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.03485 Theorem 10: period-three number on uniform complete binary trees.",
+        "arXiv:2601.03485 Theorem 14: linear-time exact count on arbitrary trees, with no explicit formula for this class.",
+        "1994 paper: fixed-arity constant-time algorithm and counting extensions discussed; nonuniform branching not in an explicit counted class.",
+        "2024 JGT 106:976–993: global forest upper bound on number of minima, without these equality cases."
+      ],
+      "reasoning": "Theorem 10 is a proper special case of the new claim, not a dominating theorem. Theorem 14 implies computability of the quantity but not its claimed formula or all minimizers without the independent induction. The 1994 framework similarly discusses possible algorithms, not this explicit result. The forest maximum bound is a broad inequality that neither determines these counts nor implies their structure.",
+      "searches": [
+        "Allagan Gray Sawyer Morgan dominion binary tree generalization complete arbitrary branching minimum dominating sets",
+        "all leaves same depth at least two children each internal vertex minimum dominating sets exactly levels h-1 h-4 optimizer root child count",
+        "\"Four Dominion Growth Regimes in Trees\" \"05C\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full arXiv text arXiv:2601.03485 Theorem 10 concerns complete binary trees, not nonuniform branching.",
+        "Public published-finding corpus nearest hit 2026/9/20/SCOPE-minimum-order-k-stepwise-irregular-trees--5c6b81126a3c concerns degree-irregular tree order, not minimum dominating sets."
+      ],
+      "reasoning": "Equivalent language includes dominion, number of gamma-sets, exact optimizer classes, full-depth bushy rooted trees, perfect-branching tree with variable arity, and period-three level packing. None of the inspected outputs supplies the same conclusion for arbitrary vertex-dependent branching.",
+      "searches": [
+        "minimum dominating sets of rooted leveled trees with at least two children every internal vertex and all leaves at equal depth; period 3 unique except root degree plus one",
+        "all leaves same depth at least two children each internal vertex minimum dominating sets exactly levels h-1 h-4 optimizer root child count",
+        "\"minimum dominating sets\" \"full rooted trees\" \"leaves at same depth\" branching",
+        "\"dominion\" \"levelled trees\" \"branching\" \"three\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2601.03485 Table 2 explicitly lists only binary-tree period-three dominion, along with several pendant-path families.",
+        "No matching exact irregular-tree sequence or optimiser table appeared in the inspected targeted mathematical records."
+      ],
+      "reasoning": "A table for a fixed binary or k-ary profile, or algorithmically generated finite values, does not specify optimizer sets for all irregular branching profiles. Absence from search is not proof of uniqueness, hence residual risk remains.",
+      "searches": [
+        "periodic three-level optimum domination number layered trees root children choice all last-but-one level",
+        "bushy rooted trees domination number dominion multiplicity height divisible by three irregular branching children",
+        "\"number of minimum dominating sets\" \"complete binary tree\" \"ternary\"",
+        "\"complete k-ary trees\" \"number of minimum dominating sets\""
+      ]
+    },
+    "rationale": "The inspected recent motivating source proves the regular complete-binary-tree case and a general tree DP, but not the complete structural classification across nonuniform full-depth trees. The inspected 1994 predecessor discusses fixed-arity algorithms and potential counting extensions, not this degree-independent optimizer family. General forest cardinality bounds likewise do not imply this equality classification. The closest published mathematical record hits concern different parameters or classes. Priority is best-knowledge only, with identified residual literature risks.",
+    "residual_risks": [
+      "A specialized older work might give a nonuniform full-depth tree optimizer classification under another name not found by searches.",
+      "Published generic tree dynamic programs can generate these values but were not found to state the formula and complete optimizer structure explicitly.",
+      "No independent priority determination or expert audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BINARY_SUBCASE_AND_GENERAL_ALGORITHM_NOT_COVERING_IRREGULAR_CLOSED_CLASSIFICATION",
+        "evidence": [
+          "Theorem 10 explicitly defines all levels of size 2^i and proves a binary result.",
+          "Theorem 14 provides a general three-state DP but does not evaluate the nonuniform bushy class.",
+          "Table 2 lists binary-tree period-three behavior only."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.03485",
+        "material_read": "Accessible full HTML sections 1–5 including Theorems 10, 11, 14 and Tables 1–2",
+        "method": "Section-by-section full-text inspection and implication comparison",
+        "title": "Four Dominion Growth Regimes in Trees: Forcing, Fibonacci Enumeration, Periodicity, and Stability",
+        "trigger": "Same invariant, recent explicit complete binary tree periodicity, and general tree count DP"
+      },
+      {
+        "assessment": "GENERAL_UPPER_BOUNDS_NOT_EXACT_OPTIMIZER_CLASSIFICATION",
+        "evidence": [
+          "The work optimizes the number of minimum dominating sets over forests at fixed domination number.",
+          "Strong support vertices are known forced vertices, credited as background; the full-height congruence and optimizer enumeration are not stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13182",
+        "material_read": "Open full journal HTML: introduction, main theorems, support-vertex definitions, proofs of forest extremal bound and extremal constructions",
+        "method": "Primary text inspection through open journal version and arXiv abstract",
+        "title": "On the number of minimum dominating sets and total dominating sets in forests",
+        "trigger": "Broader forest enumeration theorem and strong-support structural lemmas"
+      },
+      {
+        "assessment": "FIXED_ARITY_ALGORITHMIC_FRAMEWORK_NOT_EXPLICIT_NONUNIFORM_THEOREM",
+        "evidence": [
+          "Abstract/main text develop finite-state methods for G×P(n), including fixed-arity complete trees.",
+          "Conclusion discusses possible counting adaptations rather than stating the present explicit degree-irregular optimizer family."
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/constant-time-computation-of-minimum-dominating-sets-1nhrh45h4b.pdf",
+        "material_read": "All 11 pages of available text, with visual inspection of pages 1 and 10",
+        "method": "Full primary PDF text search and visual verification of abstract and conclusion",
+        "title": "Constant Time Computation of Minimum Dominating Sets",
+        "trigger": "Early method mentioning complete t-ary trees and all minimum dominating sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b9f5bc9-1ac4-4c67-b0fd-8923315a5a6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 result identifies surprisingly bounded multiplicity for complete binary trees. The new finding proves the stronger, degree-profile invariant fact for *every* full-depth rooted tree with at least two children at every internal node, even with arbitrary vertex-level irregularity; all optimum sets are exactly classified. It provides closed formulas for the minimum and the entire minimizing family without running the general DP. The root-only alternative (one root or one root child) at heights divisible by three is a meaningful rigidity mechanism and informs solution diversity in hierarchical monitoring placements. It is not merely a renamed fixed-arity specialization.",
+    "status": "PASS"
+  }
+}
