@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The four eigenspaces have respective eigenvalues 0, (rs+1)b, b, b+sa and dimensions 1,1,r-1,r(s-1). Their exact projector diagonals yield two resolvent return functions. Since 2(I+hL/2)^(-1)-I has positive off-diagonals and each diagonal resolvent decreases strictly to 1/(rs+1), the smallest diagonal root determines the sharp horizon. The hub root is 2/[(rs-1)b]; at that root the leaf minus one half has sign exactly opposite to [(r(s-2)+1)(a/b)-r(rs-1)]. Both asymptotic regimes follow from rescaling this same positive unique root. Exact rational direct inversion checked at small parameter sets with 1,290 assertion groups; no finite evidence is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Previously recorded general bounded-edge theta-method result gives universal lower bound 2/[w(N-2)] for theta=1/2 and equality with an all-w hub; at a<=b this recovers one subcase of the hub threshold",
+        "Previously recorded generator-wide theta-method result gives an abstract sharp diagonal-root test for any weighted graph, but no windmill-specific analytic phase boundary",
+        "Schatz–Thomée–Wahlbin 2010: fully discrete parabolic theta methods in finite-element geometries, rather than arbitrary hub-and-clique graph resolvents"
+      ],
+      "reasoning": "The strongest prior graph-wide theorem *does cover* the hub-threshold subcase a<=b because the hub is adjacent at the maximum edge conductance. It does not cover the extended flat region 1<a/b<=Xi or the leaf-controlled side: there w=a>b and the hub is not a saturated maximum-weight vertex. The global resolvent law indeed covers the exact positivity criterion conceptually for any graph, but has not already supplied the conductance-dependent closed switching boundary, edge-type contrast, and the distinct exponents; the claim deliberately excludes any general criterion as new.",
+      "searches": [
+        "published-finding corpus: theta method positivity horizon vertex-transitive vs nonvertex-transitive join of r complete graphs sharp ratio",
+        "web: On positivity and maximum-norm contractivity in time stepping methods for parabolic equations Schatz Thomée Wahlbin 2010"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.02825v1 full text relevant sections",
+      "arxiv:2301.01066v1 full text relevant sections",
+      "DOI 10.2478/cmam-2010-0025 abstract/opening text (not exhaustive)",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a indexed claim only",
+      "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac indexed claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the present graph the general diagonal-resolvent condition reduces to two vertex-orbit diagonal functions, but deriving their coefficients uses a four-subspace orthogonal decomposition and exact projectors",
+        "The older worst-case saturation result supplies the new hub value only when a<=b; the new phase transition extends to a/b>1",
+        "Higueras–Roldán 2023 treats a tridiagonal Dirichlet heat-grid matrix; the methods and domain differ"
+      ],
+      "reasoning": "The new statement is a nontrivial explicit specialization of a known general positivity criterion, not an independent new universal theorem. If a prior work gave the full weighted-windmill projector formula together with its exact dominance comparison, it would cover the present main phase law; none inspected did. The expansion at a/b→infinity additionally resolves a singular structural boundary at s=2. No claim of absolute literature exhaustiveness is made.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson positivity graph Laplacian resolvent diagonal nonnegative exact timestep apex blade transition",
+        "published-finding corpus: positivity horizon Crank Nicolson generalized windmill K_1 join rK_s clique spokes weighted two conductances",
+        "arXiv 2301.01066v1, sections 1-3 and theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a: the general Markov resolvent diagonal >=1/2 characterization, with no displayed generalized-windmill projector values or conductance switch",
+        "arXiv:2301.01066v1, Theorem 1: a tridiagonal heat-grid positivity boundary defined by a hyperbolic equation, not the hub-and-clique graph",
+        "Previously recorded general theta-method and graph-resolvent theorem statements were compared at the level of their exact mathematical implications"
+      ],
+      "reasoning": "For any Markov generator, the prior resolvent principle yields a necessary-and-sufficient scalar-diagonal test once the resolvent is known; this is explicitly pre-existing. The present result adds an exact, geometry-dependent switching inequality after full spectral projector evaluation, the maximal hub interval beyond saturated hub edges, strict leaf-regime conductance monotonicity, and two distinct singular exponents. Neither generic statement specifies these algebraic conclusions or a table implying them. That added specialization requires calculation, rather than merely relabelling the generic criterion.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson positivity graph Laplacian resolvent diagonal nonnegative exact timestep apex blade transition",
+        "published-finding corpus: positivity horizon Crank Nicolson generalized windmill K_1 join rK_s clique spokes weighted two conductances",
+        "web: \"windmill graphs\" \"Crank-Nicolson\" nonnegative",
+        "web: Crank Nicolson positivity weighted graph Laplacian diagonal inverse M matrix exact timestep graph friendship windmill"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac: filtered CN positivity on one-dimensional lattices, not this graph or the ordinary completed CN matrix",
+        "No matching table or exact parameter law appeared in the queried indexed results; this is a search observation, not exhaustive mathematical proof of absence"
+      ],
+      "reasoning": "The found heat-grid threshold tables and prior general criterion do not tabulate the two-parameter windmill family; one-dimensional lattices are not generalized windmills and filtered CN is a different method. No exact published database/table is claimed to have been exhaustively checked.",
+      "searches": [
+        "published-finding corpus: friendship windmill graph rational resolvent diagonal positivity threshold phase transition a/b r(2r-1)",
+        "published-finding corpus: diagonals of resolvent of graph Laplacian on friendship graphs",
+        "web: \"friendship graph\" \"Crank Nicolson\" positivity threshold",
+        "web: \"On preservation of positivity in some finite element methods for the heat equation\" arxiv 2015"
+      ]
+    },
+    "rationale": "Prior generic positivity-resolvent tests and graph-wide theta bounds are fully credited. The pre-existing graph-wide bound explains the a<=b saturated-hub portion, but not the extended constant-horizon range at a>b, the exact crossover, the strict leaf-side behavior, or the different a^{-1/2} and a^{-1} singular exponents. published-finding corpus, accessible local research claim statements and indexed primary literature were compared by implication; no equivalent graph-specific classification was established. The listed inaccessible/unindexed literature is an explicit residual risk.",
+    "residual_risks": [
+      "An inaccessible full published general resolvent-return record may include more specialized graph examples than its indexed summary; its general criterion is already credited as prior.",
+      "Unindexed papers on weighted generalized windmills, graph-resolvent diagonal formulas, or positivity under the theta method may have derived an equivalent exact phase boundary.",
+      "The 2010 paper was not read in full; its stated scope is a different spatial discretization, but an unexpected appendix is not ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_SCOPE",
+        "evidence": "It uses fractional diffusion and piecewise linear finite elements; its stated fully discrete method is backward-Euler convolution quadrature, not the graph-windmill completed Crank–Nicolson kernel.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+        "material_read": "Publicly readable arXiv full-text HTML; abstract, introduction, comparison to earlier 2008-2015 positivity works, and descriptions of fully discrete methods in sections 3-4",
+        "method": "Read indexed original arXiv document, not only a search snippet",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Archive-era documented mathematical motivation for positivity of fully discretized diffusion and boundary/threshold issues"
+      },
+      {
+        "assessment": "DIFFERENT_SCOPE",
+        "evidence": "Theorem 1 gives positivity of a Dirichlet one-dimensional tridiagonal heat-grid amplification matrix; the manuscript contains no generalized-windmill or graph-laplacian calculation.",
+        "identifier_or_url": "https://arxiv.org/html/2301.01066v1",
+        "material_read": "Original HTML sections 1-3, Theorem 1 and its explicit hyperbolic root equation; inspected descriptions of the proof sections and scope; searched full-text graph terminology",
+        "method": "Read public arXiv HTML full text in original",
+        "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+        "trigger": "Highly relevant source that solves an exact CN positivity cutoff"
+      },
+      {
+        "assessment": "NOT_RESOLVED_FULLY",
+        "evidence": "Its stated spatial discretization concerns heat-equation finite elements and 1D Padé examples, not named generalized windmills. Uninspected appendices are a stated residual risk.",
+        "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+        "material_read": "Original title/abstract, public opening pages exposed in an author-supplied full-text listing, and its scope as corroborated by a 2015 primary paper",
+        "method": "Read public bibliographic and opening material; no exhaustive full-paper page-by-page check",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Early theta-method and parabolic positivity work repeatedly cited by later primary articles"
+      },
+      {
+        "assessment": "GENERIC_PRIOR_COVERAGE_ONLY",
+        "evidence": "The summary states CN positivity iff every return resolvent diagonal is at least one half. It does not state the explicit windmill critical ratio or the two strong-blade scaling laws; lack of accessible complete text is a risk.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Published research index title and substantive result summary; full linked GitHub record was not accessible by the public reader",
+        "method": "Read actual indexed research record, attempted linked record and recorded access limit; also compared against available independent recoverable detailed general theta-method prior claim",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Closest published generic implication: resolvent diagonal criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80f0af25-f0b8-464a-ba11-d934179e3c4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-parameter crossover identifies the timestep-limiting vertex orbit on a natural hub-and-community graph for every blade count and clique size, including conductance ratios far outside ordinary saturated-hub bounds. The triangular-versus-larger-blade scaling exponent change is a mathematically motivated singular boundary with practical step-selection meaning. This is not an arbitrary finite table or unmotivated small numerical improvement.",
+    "status": "PASS"
+  }
+}
