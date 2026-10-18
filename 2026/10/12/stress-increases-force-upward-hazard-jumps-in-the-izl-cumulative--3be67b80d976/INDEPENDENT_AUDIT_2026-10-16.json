@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:47:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact quantile equation p=(1+x/(2b))e^(−x), b=1+α>1, x=α/Qp(α)>0. Differentiating yields x_b=−x/[b(2b+x−1)]. The logarithmic derivative of quantile hazard is −N/[b(b−1)(2b+x−1)^2], N=4b³+4b²x−2b²+bx²−2b−2x+1. Independent SymPy algebra confirms this identity and N(1,x)=(x+1)^2, ∂_bN(1,x)=x²+8x+6, ∂²_bN=24b+8x−4>0, proving strict sign for all parameters. Equal CDF means equal survival so density shares hazard-jump sign. Numeric before/after hazards at (α1,α2,p)=(1.5,0.7,0.4) are about 0.46481 and 1.11772, corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distribution paper concerns an upside-down-bathtub hazard in age and a separate quantile formula.",
+          "General step-stress CEM matches survivor probabilities, without a family-uniform sign."
+        ],
+        "reasoning": "Neither the agewise hazard shape nor generic CEM implies monotonicity along quantiles as α varies.",
+        "searches": [
+          "web: inverted Z Lindley hazard quantile Lambert W age monotonicity",
+          "doi:10.3390/math14091566",
+          "doi:10.1002/wics.1571"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.20261256",
+        "doi:10.3390/math14091566",
+        "doi:10.1002/wics.1571",
+        "Resultary semantic IZL fixed quantile"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 AIMS source establishes closed-form equivalent time and CEM likelihood.",
+          "The original distribution theorem characterizes hazard as a function of t, not H_p as a function of α."
+        ],
+        "reasoning": "Neither cited statement implies the quantified strict derivative without the new rational-positivity calculation.",
+        "searches": [
+          "doi:10.3934/math.20261256",
+          "doi:10.3390/math14091566",
+          "Resultary: IZL inverted Z Lindley step stress hazard fixed quantile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semantic search results concerned other quantile/hazard families, no matching IZL law.",
+          "Parent paper abstract supplies CEM matching by equivalent times; equality of CDF at switch is stated as model mechanism."
+        ],
+        "reasoning": "The equivalent-age formula alone is not a sign comparison of composite hazard H_p(α); chain differentiation is essential.",
+        "searches": [
+          "Resultary semantic: IZL inverted Z Lindley step stress hazard fixed quantile",
+          "web: 10.3934/math.20261256 fixed-quantile hazard jump parameter ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The initiating paper includes a representative numerical design/figure, not a cited all-p boundary classification in accessible text.",
+          "The original package’s derived numerical example agrees with independent substitution into hazard formula."
+        ],
+        "reasoning": "An example of the jump is compatible with but weaker than the all-parameter ordering theorem.",
+        "searches": [
+          "web: 10.3934/math.20261256 Figure 1 α1=1.5 α2=0.7",
+          "Resultary query: inverted Z-Lindley step-stress hazard jump"
+        ]
+      },
+      "rationale": "The parent step-stress reference introduces CDF-equivalent age and the jump formula; published source abstracts emphasize likelihood and estimation, not the uniform fixed-quantile parameter derivative. The earlier IZL distribution result gives agewise shape and Lambert-W quantiles separately. Best-of-knowledge PASS, recognizing a dynamic publisher page did not expose the full primary body in this run.",
+      "residual_risks": [
+        "Dynamic primary publisher page did not expose the complete mathematical body for this run; another proof or corrigendum might contain the same sign law.",
+        "Fixed-quantile comparison does not imply fixed-age hazard ordering or an empirical stress-to-parameter law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related source: CEM equivalence and numerical jump; no all-parameter sign theorem identifiable in accessible material; full-document noncoverage not asserted.",
+          "evidence": "Publisher abstract: explicit step-stress CEM with equivalent times and quantile inversion, rather than sign-order theorem.",
+          "identifier_or_url": "doi:10.3934/math.20261256",
+          "material_read": "Official 2026 publisher article title, date, full extended abstract, references and CEM/Lambert-W description; dynamic HTML did not expose Proposition 2 full text in this run. Frozen package quotes its Proposition 2 and Figure 1.",
+          "method": "Direct official publisher page and claim-level comparison against actual source package.",
+          "title": "Inference for a step-stress model under the inverted Z-Lindley distribution with progressive Type-II censoring",
+          "trigger": "Same IZL step-stress model and equivalent-age construction"
+        },
+        {
+          "assessment": "Agewise hazard unimodality and quantile formula are logically distinct from H_p parameter monotonicity.",
+          "evidence": "Frozen package states agewise upside-down-bathtub theorem; independent chain calculation proves required parameter ordering.",
+          "identifier_or_url": "doi:10.3390/math14091566",
+          "material_read": "Bibliographic and cited theorem descriptions in frozen source package, along with publisher metadata, not an independently complete full-text extraction during this run.",
+          "method": "Comparison of agewise hazard-shape claim and quantile-composition derivative.",
+          "title": "A New One-Parameter Model Supports an Upside-Down Bathtub Failure Rate",
+          "trigger": "Parent IZL distribution and hazard shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2026 step-stress CEM explicitly interprets α1>α2 as higher stress but its displayed boundary difference has no inherent sign from continuity alone; this all-α, all-p theorem supplies the missing physical-direction guarantee despite the agewise upside-down-bathtub hazard. It is a motivated exact model-specific monotonicity law, not a generic scaling or a finite plot.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the inverted Z–Lindley law F(t;α)=(1+α/[2(1+α)t])exp(−α/t), every α>0 and p∈(0,1) satisfy d/dα h(F^−1(p;α);α)<0; the cumulative-exposure switch preserves p, so decreasing α strictly raises hazard and density at the switch; increasing α reverses the sign and equality gives continuity. This is a matched-CDF statement, not a same-age hazard comparison.",
+  "limitations": [
+    "Specific to α>0, p in (0,1), IZL and CDF-matched stress switches; no whole-trajectory comparison.",
+    "Priority remains best-of-knowledge where full parent PDF inaccessible."
+  ],
+  "schema_version": 1
+}

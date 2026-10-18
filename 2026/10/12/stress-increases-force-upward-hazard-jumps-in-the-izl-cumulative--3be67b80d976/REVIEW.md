@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. At a fixed cumulative probability \(p\), the substitution \(b=1+\alpha\) and \(x=\alpha/Q_p(\alpha)\) gives an exact implicit equation for \(x\) and an exact rational expression for the quantile hazard. Its logarithmic derivative is strictly negative because the remaining numerator is positive for every \(b>1\) and \(x>0\). At a cumulative-exposure boundary the survival probabilities agree, so density and hazard jumps have the same sign. The packaged checker independently verifies the derivative and the source's numerical example.
+## correctness
 
-## Originality
-PASS. The primary step-stress paper states the jump difference and illustrates one jump, but does not prove its sign for all admissible parameters and change times. The parent IZL paper proves age-wise hazard unimodality and derives a quantile formula, not monotonicity of the hazard evaluated at a fixed quantile. Five focused published-result searches and current/prior comparison checks found no covering statement.
+PASS
 
-Residual risk remains that a very recent unindexed result may independently contain the same fixed-quantile theorem.
+Reconstructed exact quantile equation p=(1+x/(2b))e^(−x), b=1+α>1, x=α/Qp(α)>0. Differentiating yields x_b=−x/[b(2b+x−1)]. The logarithmic derivative of quantile hazard is −N/[b(b−1)(2b+x−1)^2], N=4b³+4b²x−2b²+bx²−2b−2x+1. Independent SymPy algebra confirms this identity and N(1,x)=(x+1)^2, ∂_bN(1,x)=x²+8x+6, ∂²_bN=24b+8x−4>0, proving strict sign for all parameters. Equal CDF means equal survival so density shares hazard-jump sign. Numeric before/after hazards at (α1,α2,p)=(1.5,0.7,0.4) are about 0.46481 and 1.11772, corroborative only.
 
-## Value
-PASS. The step-stress model encodes a raised stress through \(\alpha_1>\alpha_2\) and interprets the boundary rate change as a signature of the harsher stage. The theorem proves that interpretation globally despite the parent hazard being non-monotone in age, and completely classifies the jump direction in multi-step extensions. This is a structural property of the accelerated-life model rather than a numerical observation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parent step-stress reference introduces CDF-equivalent age and the jump formula; published source abstracts emphasize likelihood and estimation, not the uniform fixed-quantile parameter derivative. The earlier IZL distribution result gives agewise shape and Lambert-W quantiles separately. Best-of-knowledge PASS, recognizing a dynamic publisher page did not expose the full primary body in this run.
+
+## value
+
+PASS
+
+The 2026 step-stress CEM explicitly interprets α1>α2 as higher stress but its displayed boundary difference has no inherent sign from continuity alone; this all-α, all-p theorem supplies the missing physical-direction guarantee despite the agewise upside-down-bathtub hazard. It is a motivated exact model-specific monotonicity law, not a generic scaling or a finite plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
