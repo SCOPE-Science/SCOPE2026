@@ -1,11 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the fixed positive-parameter hypotheses, the published sector-uniform asymptotic has matching algebraic and oscillatory powers. The normalized expansion, exact gamma ratio, and simple model roots are directly reconstructed. A global periodic lower bound away from the model roots gives zero exclusion, Rouché provides one simple zero per model disk, and Taylor expansion verifies the first shift. Reflection and elementary gamma inequalities provide exact examples of both regimes. The statement excludes merged model roots and makes no claim about bounded exceptional zeros.
+## correctness
 
-**Originality — PASS.** The closest full source, Cho–Chung–Park (2025), supplies the asymptotic and treats strict off-critical regimes as well as some special real-zero regions. Its results do not state or logically classify all sufficiently large complex zeros for every positive parameter triple on the balanced plane. The 2024 Lommel literature addresses specializations, not the full balanced-plane exhaustion and height formula. Targeted mathematical-source and published-record comparisons found no direct preceding statement; this is evidence only, not proof of universal novelty. A potentially unindexed equivalent derivation remains a risk.
+PASS
 
-**Value — PASS.** Equality of algebraic and oscillatory powers is a natural unresolved boundary between the strict regimes of Proposition 5.1. The result gives a phase transition and a complete cofinite zero geometry with location, simplicity, and density, not merely a numerical example or restatement of sign oscillation. It delineates where zeros become ultimately real versus ultimately nonreal without implying global real-rootedness.
+On b+c=3a+1/2 with positive a,b,c and neither b-a nor c-a a nonpositive integer, the published sector-uniform asymptotic has exactly matching z^(-2a) powers. After nonzero normalization, G(z)=R+cos(z-πa)+(d/2z)sin(z-πa)+O((1+exp|Im z|)/|z|²) on the closed right half-plane away from a compact disk. For |R|≠1, the model roots form two separated simple 2π-periodic strings. Away from fixed disjoint root disks the model has a uniform lower bound c exp|Im z| (from periodicity on bounded-height strips and exponential growth at large height); the error is smaller for sufficiently large |z|. Rouché on each far-right disk counts exactly one zero, hence simple; no other large right-half-plane zeros occur. A simple-root Taylor expansion yields d/(2w)+O(n^-2). Real coefficients and one root per conjugation-invariant disk give the real-tail case |R|<1; disks disjoint from the real axis yield off-axis height arcosh|R| for |R|>1. Evenness handles the left side; bounded zeros and |R|=1 are excluded. Independently recomputed d=-3/16 at (a,b,c)=(1/4,1/8,9/8); finite parameter probes are not the infinite proof.
 
-**Scientific limits.** \(|R|=1\), the finite exceptional zeros, and general Laguerre–Pólya membership remain open to this argument.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The leading asymptotic and some a=1 global real-zero regimes are explicitly preexisting. The claim is the additional exhaustive complex zero-location theorem on the equal-exponent boundary, with first shift, multiplicities, limiting heights, and real-zero counting for all allowed positive triples. Source eq. (2.1) contains no zero-by-zero global Rouché exhaustion; Prop. 5.1 treats different strict regions, and Theorem 7.1 is a special a=1 global-Laguerre–Pólya result. No dominating all-parameter critical-plane theorem was found in targeted searches. Best-of-knowledge only; the source asymptotic makes the derived claim comparatively close to prior work.
+
+## value
+
+PASS
+
+The balanced plane is a natural transition where the algebraic and oscillatory terms have equal asymptotic weight. Explicit gamma-amplitude threshold |R|=1 separates ultimately real and nonreal zero strings, including a complete cofinite location and counting law. It resolves a meaningful critical boundary not just a parameter substitution or finite check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
