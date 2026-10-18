@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For each pair X of ground vertices, total domination is equivalent to no two-vertex transversal of the selected ground edges. On four selected edges a triangle either forces a two-cover or yields an induced star without a perfect matching. Otherwise the four-edge graph is bipartite, so Koenig vertex-cover/matching duality yields a three-edge matching. Conversely such a matching plus any fourth edge is paired dominating. The three support types have independently counted 180/315/105 labeled realizations per selected six/seven/eight ground vertices. One-edge matching replacements produce shared reconfiguration states and two-edge matching flips produce adjacent states; elementary support changes and perfect-matching flips connect all three-matchings. The two standalone finite checkers recompute four-subset feasibility through order ten and reconfiguration connectivity through order nine, but the proofs cover all n>=6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2312.15464v1 Theorem 5 gives the minimum total domination number and asserts its minimum sets are cliques in the large-ground-set regime.",
+        "arXiv:2308.15603v2 gives scalar and incidence results for ordinary and k-tuple domination on the same Kneser graphs."
+      ],
+      "reasoning": "A three-member disjoint family of ground edges has ordinary and total domination properties, but a paired dominating set must have even size and an induced perfect matching. The cited more-general scalar invariant statements neither count paired four-element supersets nor imply the connectedness of their token-jumping graph.",
+      "searches": [
+        "https://arxiv.org/html/2312.15464v1",
+        "https://arxiv.org/html/2308.15603v2",
+        "Paired domination number and minimum paired dominating set counts of Kneser graph KG(n,2), four selected 2-subsets and matchings."
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.15603",
+      "https://arxiv.org/html/2308.15603v2",
+      "https://arxiv.org/abs/2312.15464",
+      "https://arxiv.org/html/2312.15464v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2312.15464v1 Theorem 5 provides n>=6 total domination number 3 for K(n,2), with minimum total-dominating triples represented by three disjoint ground edges.",
+        "The result proved here shows every four-vertex paired dominator contains one such triple via the triangle-free/Koenig argument and gives connectedness by explicit matching transformations."
+      ],
+      "reasoning": "Prior minimum total domination is a lower benchmark and source of candidate three-matchings, not the assertion that all four-element paired dominating sets must contain one; the latter needs a separate four-edge structural argument. Neither an optimal-count formula nor connectivity follows from scalar optimality or from the published theorem as stated.",
+      "searches": [
+        "Paired domination number and minimum paired dominating set counts of Kneser graph KG(n,2), four selected 2-subsets and matchings.",
+        "Reconfiguration graph of minimum paired dominating sets of the two-subset Kneser graph K(n,2), token jumping connected and 4-set census with 3-matching support.",
+        "\"paired domination\" \"reconfiguration\" \"Kneser\"",
+        "\"minimum paired dominating\" \"Kneser\" count matchings",
+        "https://arxiv.org/html/2312.15464v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Selected vertices of KG(n,2) correspond to ground edges; total domination is equivalent to a ground-edge vertex-cover number at least three.",
+        "arXiv:2308.15603v2, section 4, describes k-tuple domination through occurrence counts, with no induced perfect matching or token-jumping theorem."
+      ],
+      "reasoning": "The cover/matching equivalence is explicitly analyzed, not assumed distinctive from total domination. It produces additional paired-configuration and reconfiguration requirements absent from the inspected minimum-domination and incidence descriptions.",
+      "searches": [
+        "Paired domination number and minimum paired dominating set counts of Kneser graph KG(n,2), four selected 2-subsets and matchings.",
+        "Every 4-vertex paired dominating set of the Kneser graph K(n,2) is four edges containing three pairwise disjoint edges, exactly 180 binomial(n,6)+315 binomial(n,7)+105 binomial(n,8).",
+        "\"paired domination\" \"Kneser graph\" \"K(n,2)\"",
+        "\"paired domination\" \"Kneser\" matching triple",
+        "https://arxiv.org/html/2308.15603v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full arXiv:2308.15603v2 Appendix B is a table of k-tuple domination numbers, not counts of paired minimum sets.",
+        "Searches of available mathematical research records yielded results on paired domination in chain graphs, complete multipartite graphs, and other graph families, not this exact Kneser census."
+      ],
+      "reasoning": "The target sequence at orders 6..10, namely 180, 1575, 7665, 27405, 80325, and the three ground-support orbit contributions were checked against relevant queried titles and theorem descriptions; no covering exact table was found. The finite counts alone are not novelty evidence.",
+      "searches": [
+        "Every 4-vertex paired dominating set of the Kneser graph K(n,2) is four edges containing three pairwise disjoint edges, exactly 180 binomial(n,6)+315 binomial(n,7)+105 binomial(n,8).",
+        "Domination of Kneser graph K(n,2) by 4 edges, counting perfect matchings of induced disjointness graph and 4-edge forests.",
+        "Reconfiguration graph of minimum paired dominating sets of the two-subset Kneser graph K(n,2), token jumping connected and 4-set census with 3-matching support.",
+        "https://arxiv.org/html/2308.15603v2#appendix-b-table-for-gamma-times-k-left-n-2-right"
+      ]
+    },
+    "rationale": "Primary full-text examination of the two relevant Kneser-domination papers confirms that their minimum ordinary, tuple and total domination theorems do not determine the present four-element paired-minimum counts, the multiplicities of induced perfect matchings or one-token reconfiguration connectivity. Dedicated database searches for the exact family, three-matching characterization, and mobility found no matching published record. Known three-edge-matching total-dominating sets are acknowledged as prior context, not claimed as new. The new matched four-set census and connected configuration-space theorem are separately proved.",
+    "residual_risks": [
+      "An unindexed or inaccessible work might already contain an equivalent paired-domination census or reconfiguration proof.",
+      "The prior total-domination structure supplies a close starting point; part of the enumeration can be obtained using straightforward finite matching-type counting, but reconfiguration connectivity and the full paired classification require the supplied structural arguments.",
+      "The n=5 boundary is outside the theorem; finite verification is not a substitute for its general proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for paired-minimum census/reconfiguration",
+        "evidence": "Theorem 1 and section 4 concern domination and k-tuple domination; Appendix B tabulates k-tuple numbers, not paired min sets.",
+        "identifier_or_url": "https://arxiv.org/html/2308.15603v2",
+        "material_read": "Complete open-access paper available and examined at its introduction, general Kneser-domination theorem, K(n,2) occurrence-characterization section and Appendix B, with searches for paired/perfect matching",
+        "method": "Direct arXiv HTML full text and PDF first page",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Same Kneser graph K(n,2) and small dominating configurations"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE of scalar total domination and its minimum triples, NOT_COVERING of paired count and mobility",
+        "evidence": "Theorem 5: when n>=r(k+r), gamma_{t x k}=k+r and all minima are cliques; with r=2,k=1 this is gamma_t=3 and the three disjoint 2-set supports. Perfect matching of four selected vertices and reconfiguration are not addressed.",
+        "identifier_or_url": "https://arxiv.org/html/2312.15464v1",
+        "material_read": "Complete arXiv HTML paper, abstract, definitions, theorems 4-5 and subsequent implications examined",
+        "method": "Read OA HTML and check match-related terminology and theorem statements",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Possible stronger total domination theorem subsuming the paired statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b5e65d1-4585-4211-92e2-59e226fbe6a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paired matching condition refines the previously studied total-domination condition on a canonical highly symmetric family. The theorem gives all optimal solutions, exact support-orbit multiplicities, their induced perfect-matching multiplicities, and a constructive connectivity theorem showing the solution space has no token-jumping obstruction at any ground-set size n>=6. These are precise natural invariants unavailable from the known scalar total-domination result, and may inform exchange-based placement and optimal-set enumeration.",
+    "status": "PASS"
+  }
+}
