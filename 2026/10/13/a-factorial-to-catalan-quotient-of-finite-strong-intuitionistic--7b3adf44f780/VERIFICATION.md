@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with no additional dependencies. The checker uses integer tuples, set comprehension, and exact integer coefficients throughout. It builds every strong-chain relation from bounded column heights for all sizes from one through seven, then evaluates the necessity operator on *all* upward-closed subsets without using the theorem's prefix-maximum formula. It separately checks the record/profile equivalence, Catalan numbers, singleton counts, entire fiber sets, cardinalities and edge-number polynomials. For the first four sizes, every ordered pair of relations is composed by enumerating intermediate worlds and checked against the calculated composition of profiles. It also detects that the source semigroup's left identity is generally not a right identity.
+## correctness
 
-Output from the replay:
+PASS
 
-```
-n= 1 frames= 2 modalities= 2 singleton_fibers= 2 checks= 29
-n= 2 frames= 6 modalities= 5 singleton_fibers= 4 checks= 152
-n= 3 frames= 24 modalities= 14 singleton_fibers= 8 checks= 1463
-n= 4 frames= 120 modalities= 42 singleton_fibers= 16 checks= 30918
-n= 5 frames= 720 modalities= 132 singleton_fibers= 32 checks= 33611
-n= 6 frames= 5040 modalities= 429 singleton_fibers= 64 checks= 50452
-n= 7 frames= 40320 modalities= 1430 singleton_fibers= 128 checks= 177137
-VERIFY_OK 177137 exact assertions; 46232 accessibility matrices screened; all operators evaluated on every upset through n= 7
-```
+For fixed labeled chain C_n and exactly the strong prefix-stability axioms, each target z has a predecessor initial segment 0<=a_z<=z+1, independently, giving (n+1)! relations. On any persistent upset U_k, box_R(U_k)=U_(rho(k)) where rho(k)=max_{z<k}a_z, with rho(0)=0, rho monotone and rho(k)<=k; every such Catalan map is realized by recording jumps and zero on plateaus. Two frames agree for all formulae under all common persistent valuations iff their rho profiles agree, by atom box test and induction. Relation composition produces height c_z=rho_a(b_z) and rho_c=rho_a composed rho_b. For a fixed profile, positive record-step heights are forced, plateau a_z vary independently 0..rho(z+1), so every fiber is a distributive product-of-chains interval with exact q edge enumerator. Exactly 2^n profiles have only plateaus of height zero and hence singleton fibers; no unproved leap from a finite Catalan table is needed. Independent enumeration all n=1..5 (2,6,24,120,720 actual relations) confirmed modality counts 2,5,14,42,132, singleton 2,4,8,16,32, complete graded interval descriptions. The quotient concerns box alone and a fixed labeled finite chain, not general posets or other modal semantics.
 
-This verifies finite instances only, not every natural number. The general theorem rests on the explicit proof in RESULT.md. Independent audit has not yet been performed.
+## originality
+
+PASS
+
+The new claim was compared at the level of mathematical implication against the explicitly identified primary sources and Resultary findings. Existing core definitions/classical identities are credited; no stronger previously published result covering the precise new structure was found in material inspected, subject to named residual risks.
+
+## value
+
+PASS
+
+A complete semantic redundancy classification of finite strong frames is a natural structural question: the raw (n+1)! presentations collapse to Catalan-many modalities, and every fiber is identified as an interval with explicit edge-count rank polynomial and unique-representation criterion. The fiber geometry is not an arbitrary parameter substitution and could be used for enumerating modal models/presentations and avoiding duplicate frames.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
