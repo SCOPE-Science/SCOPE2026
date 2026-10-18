@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For every even \\(M\\ge4\\), matchings give edge occurrence probabilities \\(1/(M-1)\\) and disjoint-edge joint probabilities \\(1/((M-1)(M-3))\\); these yield exactly the displayed nested-cut covariance. The sequential exposure is Markov with closing probability \\(h/(M-k)\\). Centered linear innovations have positive variances and yield an exact tridiagonal inverse and product determinant. For the Gaussian limit, the scaled martingale \\(U_{M,k}=M^{3/2}(H_k-\\mathbb EH_k)/((M-k)(M-k-1))\\) has vanishing bounded jumps on compact time intervals and quadratic variation tending to \\(2t^2/(1-t)^2\\). Reversal and Doob bounds handle the endpoint. The full result is analytic; 450 exact small-instance checks passed using the included script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "H. Acan, arXiv:1501.01489v1 (7 January 2015), Sections 2 and 6, https://arxiv.org/pdf/1501.01489",
+        "M. Berkooz, P. Narayan, J. Simón, JHEP 08 (2018) 192, Section 3.1, DOI: 10.1007/JHEP08(2018)192"
+      ],
+      "reasoning": "Acan determines asymptotic degree of one chord conditioned on its length, which is not the joint scan-cut process. Berkooz et al. give the unconditioned open/close transfer recursion and weighted partition functions, permitting in-principle recovery of finite moments, but do not state the evaluated inverse covariance or limiting process; the latter requires a separate scaling argument.",
+      "searches": [
+        "random perfect matching number of crossing edges cut process Gaussian limit open chords process covariance",
+        "random pair partition scanning process number open pairs asymptotic Gaussian",
+        "uniform random perfect matching chord length and crossing degree conditional distribution"
+      ]
+    },
+    "checked_sources": [
+      "H. Acan, arXiv:1501.01489v1 (7 January 2015), Sections 2 and 6, https://arxiv.org/pdf/1501.01489",
+      "M. Berkooz, P. Narayan, J. Simón, JHEP 08 (2018) 192, Section 3.1, DOI: 10.1007/JHEP08(2018)192"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "H. Acan, arXiv:1501.01489v1 (7 January 2015), Sections 2 and 6, https://arxiv.org/pdf/1501.01489",
+        "M. Berkooz, P. Narayan, J. Simón, JHEP 08 (2018) 192, Section 3.1, DOI: 10.1007/JHEP08(2018)192"
+      ],
+      "reasoning": "The new claim has indices over every prefix pair, a closed inverse-covariance quadratic form and determinant, and a path-space Gaussian CLT. Neither Acan fixed-chord distribution nor the spin-glass weighted partition-function evaluation gives these as quoted corollaries. The general open-chord recursion does encode the combinatorial input and is fully credited; extracting the closed covariance and limit is the new calculation. A stronger yet undiscovered process-level theorem would subsume this work.",
+      "searches": [
+        "Uniform random chord diagram fixed chord endpoint separation conditional distribution crossing degree factorial moments and variance length",
+        "Random chord diagrams vertex degree conditional chord length crossings distribution covariance",
+        "Brownian limit of open chord profile in random pairings covariance min squared max complement squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Acan, arXiv:1501.01489v1 (7 January 2015), Sections 2 and 6, https://arxiv.org/pdf/1501.01489",
+        "M. Berkooz, P. Narayan, J. Simón, JHEP 08 (2018) 192, Section 3.1, DOI: 10.1007/JHEP08(2018)192"
+      ],
+      "reasoning": "The equivalent objects are the number of arcs intersecting the vertical scan line, number of pairs cut by a prefix, and height of a matching diagram. Source comparisons identify related constructions but not the evaluated two-time kernel together with the pinned functional Gaussian limit.",
+      "searches": [
+        "random chord diagram height process open chords Gaussian fluctuation functional central limit process",
+        "random matching scanning open pairs Brownian bridge parabola fluctuations",
+        "uniform random fixed point free involution arc diagram height process functional central limit theorem Gaussian bridge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational enumeration at 4, 6, 8, 10, 12 sites independently confirms the claimed formulas; see verify.py.",
+        "H. Acan, arXiv:1501.01489v1 (7 January 2015), Sections 2 and 6, https://arxiv.org/pdf/1501.01489"
+      ],
+      "reasoning": "No matching table or indexed statement supplying the complete formula was identified. Acan publishes only fixed-chord degree moments and a limit law; an exact source table for the same prefix-cut covariance was not found. Absence of such a result in search is not proof of priority.",
+      "searches": [
+        "Uniform perfect matching open chords along scan cut size process exact covariance min max precision tridiagonal",
+        "Uniform matching chord diagram height or Dyck path open arcs gaussian process",
+        "Matching prefix cut size trajectory exact covariance kernel rank full inverse tridiagonal determinant"
+      ]
+    },
+    "rationale": "Compared the exact same uniform pairing object and its open-chord scan under multiple aliases. The 2015 Acan analysis treats degree and length of a specified chord and growth by insertion of complete chords; it gives no two-time prefix-cut kernel or full-process Gaussian fluctuation theorem. The 2018 open-chord transfer recurrence is broader enumerative machinery but does not evaluate this finite Green kernel and precision determinant or prove the stated functional central limit theorem. Accessible earlier claims concern shorter cyclic spans, crossing counts, and regular-color matching, not the prefix boundary profile. Generic recurrence machinery and potential older random pairing fluctuation literature are explicit priority risks; the evaluated structural claim is not judged covered by the sources actually inspected.",
+    "residual_risks": [
+      "Open-chord transfer matrices or standard matching height limit theorems may imply part or all of the evaluated result implicitly.",
+      "Text searches do not establish historical uniqueness; further independent full-literature priority review is warranted.",
+      "The later spin-glass work encodes all chord-history counts in principle, although the exact evaluated claims were not located in its relevant mathematical development."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not directly covering. The paper computes length-conditioned chord degree and considers whole-chord growth, neither the full prefix-cut covariance nor functional scan fluctuation profile.",
+        "evidence": [
+          "Acan arXiv:1501.01489v1 pages 1, 4-7 and 19-20; equation (2.1), (2.2), Theorem 2.1, Section 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Full PDF available; abstract, introduction, Section 2 through its complete degree limit proof, Section 6 model description and paper contents, primary MSC declaration (60C05).",
+        "method": "Inspected PDF mathematical statements, displayed formulas, sections and rendered page for formula validation.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Closest same-model probabilistic study, with explicit chord-degree distribution and scan-related terminology."
+      },
+      {
+        "assessment": "Underlying open/close encoding is established, but the evaluated unweighted two-time covariance and scaling-limit theorem were not stated in material inspected. Potential implicit combinatorial coverage is acknowledged.",
+        "evidence": [
+          "Berkooz et al. (2018), Section 3.1, equations (3.9)-(3.15), pages 11-14."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/JHEP08(2018)192",
+        "material_read": "Open full-length PDF, contents and Section 3.1 equations (3.9)-(3.15), discussion of weighted chord histories and sections 4-6 objectives; not all detailed spin-glass calculations.",
+        "method": "Inspected PDF text and page image for chord-history recursion and surrounding assumptions.",
+        "title": "Chord diagrams, exact correlators in spin glasses and black hole bulk reconstruction",
+        "trigger": "Open-chord history transfer matrix is a plausible more general enumeration covering the present model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1361e886-32a1-42ce-be02-0f8c32022e26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete process of open chords is a canonical scan statistic of random matchings. Its covariance kernel controls every weighted boundary statistic; the evaluated tridiagonal precision and determinant expose the finite second-order structure, while the nonstandard pinned time-changed Brownian limit describes genuine macroscopic fluctuations. The resulting aggregate chord-span central limit theorem illustrates a natural global use. These are not arbitrary substitutions or merely a known fixed-chord moment recomputation.",
+    "status": "PASS"
+  }
+}
