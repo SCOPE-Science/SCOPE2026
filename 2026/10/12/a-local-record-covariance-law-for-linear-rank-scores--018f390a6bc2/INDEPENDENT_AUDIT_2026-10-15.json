@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:12:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob c7368b50b73583bbdd091d45badce04b7dd06f85",
+        "Frozen checker.py blob b3d099022aef3e1ed9c1cbce7a6874915cb19d40",
+        "Independent brute uniform permutations through n=7 in /mnt/data/audit05_independent_math.py",
+        "Gnedin arXiv:math/0611538"
+      ],
+      "rationale": "Under U_i=1, the first i values form a uniform i-subset, Pi(i) is its maximum with mean i(n+1)/(i+1), earlier coordinate means i(n+1)/(2(i+1)), and later coordinate means (n+1)/2. Multiplication by P(U_i=1)=1/i yields the exact stated arbitrary-real-weight covariance. D=2 sum_j j^2-2 sum_j j Pi(j) gives both Spearman covariance and conditional means. Summing positions produces harmonic Q covariance; classical independent-record law and Var(R)=1/(n-1) yield the exact correlation ~3/sqrt(n log n). Independently brute-enumerated all permutations n=2..7 and 27 (n,i) identities with a nontrivial signed quadratic weight vector; exact Fraction equality in all cases.",
+      "residual_risks": [
+        "All random permutations uniform and complete/no ties; arbitrary real deterministic w, n>=2. No probabilistic independence between records and ranks inferred from covariance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general coherent permutation record theory supplies the marginal record process.",
+          "Metric-asymptotic theory controls different global metric correlations and has a distinct record map."
+        ],
+        "reasoning": "Marginal record independence or unrelated metric correlations do not logically determine Cov(U_i,L_w) for every position and signed weight.",
+        "searches": [
+          "uniform random permutation left-to-right maxima upper records covariance Spearman rho squared rank displacement linear rank score",
+          "Gnedin coherent random permutations with record statistics",
+          "Jiang asymptotic correlations of metrics symmetric group"
+        ]
+      },
+      "checked_sources": [
+        "Gnedin arXiv:math/0611538",
+        "Jiang arXiv:1110.0807",
+        "Resultary published semantic results for permutation rank/order dependencies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gnedin establishes record marginals and coherent process law.",
+          "Jiang record map is bijective cycle-to-one-line mapping, not left-to-right records."
+        ],
+        "reasoning": "It takes a new conditional subset maximum calculation to connect the two objects and obtain exact position-dependent covariance; prior marginal theorems alone do not imply this identity.",
+        "searches": [
+          "uniform random permutation left-to-right maxima upper records covariance Spearman rho squared rank displacement linear rank score",
+          "Gnedin initial rank representation Spearman",
+          "Jiang record map symmetric group metrics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin describes upper record statistics and independent initial ranks.",
+          "Jiang develops pairwise metric correlations on the symmetric group, not upper-record position indicators."
+        ],
+        "reasoning": "Aliases searched include left-to-right maxima, record indicator, initial rank, Spearman rho, squared displacement, and arbitrary linear score; results do not state the same joint statistic.",
+        "searches": [
+          "uniform random permutation left-to-right maxima upper records covariance Spearman rho squared rank displacement linear rank score",
+          "upper records Spearman rho covariance left to right maxima",
+          "random permutation record and weighted sum ranks covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact table jointly counts upper-record positions against weighted rank sums.",
+          "Frozen package exhaustive checker covers small n only and is not an outside prior table."
+        ],
+        "reasoning": "The general closed form in all n and arbitrary weights is not implied by a small permutation census.",
+        "searches": [
+          "uniform random permutation left-to-right maxima upper records covariance Spearman rho squared rank displacement linear rank score",
+          "permutation upper record Spearman covariance table",
+          "OEIS records Spearman correlation"
+        ]
+      },
+      "rationale": "The classical independent upper-record process and the literature on Spearman metric correlations were compared by exact statistic definitions. Gnedin does not supply joint local record–linear-rank covariance; Jiang’s “record map” is a cycle/one-line correspondence, not these indicator variables. Published semantic hits concerned distinct ordinal/inversion dependencies. Best-of-knowledge formula is not known to be covered by a stronger theorem, with substantial elementary-identity overlap risk.",
+      "residual_risks": [
+        "The conditional-subset proof is short; an equivalent old record-statistic identity may occur unindexed.",
+        "The covariances describe uniform permutations without ties only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RECORD_MARGINALS_NOT_JOINT_COVARIANCE",
+          "evidence": "Uniform left-to-right record indicators follow classical initial-rank representation, but no linear rank-score covariance formula is stated in inspected sections.",
+          "identifier_or_url": "arXiv:math/0611538",
+          "material_read": "Open primary PDF record definitions, uniform process and initial-rank statements, relevant pages read",
+          "method": "OA PDF text and targeted page-image inspection",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Closest published upper-record process theory"
+        },
+        {
+          "assessment": "DIFFERENT_RECORD_MAP",
+          "evidence": "“Record map” concerns cycles to one-line notation rather than random upper records U_i; not an implication of the local covariance law.",
+          "identifier_or_url": "arXiv:1110.0807",
+          "material_read": "Open primary PDF Spearman metric section and record-map discussion",
+          "method": "OA PDF text, focused full section inspection",
+          "title": "Asymptotic correlations of metrics on the symmetric groups",
+          "trigger": "Could dominate Spearman correlation formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gnedin record theory",
+        "Jiang Spearman metric literature"
+      ],
+      "rationale": "Arbitrary deterministic linear rank scores provide a natural complete local record-covariance law; its Spearman specialization identifies position-dependent record effects, exact conditional Spearman biases and the global 3/sqrt(n log n) decay. A future researcher working with record-conditioned nonparametric rank statistics could need these precise dependencies. Elementary proof does not itself make the motivated general formula merely an arbitrary exercise.",
+      "residual_risks": [
+        "Standard permutation-null assumptions; other permutation distributions not addressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform random permutations only; no ties, no independence claim for U_i and R_n.",
+    "Unindexed elementary precursor may cover the exact conditional formula."
+  ]
+}

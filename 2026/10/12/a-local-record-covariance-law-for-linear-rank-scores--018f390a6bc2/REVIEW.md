@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Conditioning on an upper record makes the prefix values a uniform subset with the final prefix coordinate equal to its maximum. Exact subset expectations determine the shift of every coordinate mean, and therefore the covariance with an arbitrary deterministic linear rank score. The Spearman and record-count formulas follow by affine reduction and summation. Exhaustive exact permutation replay and a separate finite-sum check agree with the analytic formulas.
+# Independent mathematical audit
 
-## Originality
-PASS, with historical-literature risk. The closest complete record-statistics source develops upper records but contains no Spearman or squared-displacement coupling. The closest complete Spearman-metric source uses a cycle-based construction called a record map, not upper records, and contains no record-count covariance. Targeted searches and comparisons with previously checked record and Spearman findings did not locate an implication covering the arbitrary-weight law.
+## correctness
 
-## Value
-PASS. Upper records are a canonical sequential summary of a random ordering, and linear rank scores are a broad statistical class. The general covariance formula identifies an exact prefix-weight mechanism. Its Spearman corollary quantifies the local effect of a record at every position and shows that total record count and global rank displacement retain a precise correlation of order \(1/\sqrt{n\log n}\).
+PASS
 
-## Closest literature and limitations
-The closest sources separately cover record processes and Spearman-family metrics. The theorem assumes a uniform permutation and makes no independence claim. Older literature under left-to-right maximum terminology may contain an equivalent elementary identity.
+Under U_i=1, the first i values form a uniform i-subset, Pi(i) is its maximum with mean i(n+1)/(i+1), earlier coordinate means i(n+1)/(2(i+1)), and later coordinate means (n+1)/2. Multiplication by P(U_i=1)=1/i yields the exact stated arbitrary-real-weight covariance. D=2 sum_j j^2-2 sum_j j Pi(j) gives both Spearman covariance and conditional means. Summing positions produces harmonic Q covariance; classical independent-record law and Var(R)=1/(n-1) yield the exact correlation ~3/sqrt(n log n). Independently brute-enumerated all permutations n=2..7 and 27 (n,i) identities with a nontrivial signed quadratic weight vector; exact Fraction equality in all cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical independent upper-record process and the literature on Spearman metric correlations were compared by exact statistic definitions. Gnedin does not supply joint local record–linear-rank covariance; Jiang’s “record map” is a cycle/one-line correspondence, not these indicator variables. Published semantic hits concerned distinct ordinal/inversion dependencies. Best-of-knowledge formula is not known to be covered by a stronger theorem, with substantial elementary-identity overlap risk.
+
+## value
+
+PASS
+
+Arbitrary deterministic linear rank scores provide a natural complete local record-covariance law; its Spearman specialization identifies position-dependent record effects, exact conditional Spearman biases and the global 3/sqrt(n log n) decay. A future researcher working with record-conditioned nonparametric rank statistics could need these precise dependencies. Elementary proof does not itself make the motivated general formula merely an arbitrary exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
