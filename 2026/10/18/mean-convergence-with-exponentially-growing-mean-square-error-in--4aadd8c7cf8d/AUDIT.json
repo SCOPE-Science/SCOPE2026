@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs update matrices from Algorithm 2, gives explicit rational W>0,H>0 with Lyapunov factor 13/10; exact R>0 with deterministic mean Lyapunov equation; Q>0 with stochastic Lyapunov equation at eta=1/2; and rigorous augmented-to-iterate running-maximum bounds. Finite verifier certifies all identities, which imply infinite-time conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "EControl main convergence theorem is sufficient small-stepsize analysis, not a theorem ruling out the presented moderate step. Classic error feedback source record differs in stored-gradient state and eta."
+      ],
+      "reasoning": "No inspected broader result gives the specific first-vs-second-moment or moderated feedback statements. Generic danger of eta=1 is already acknowledged and is not claimed novel.",
+      "searches": [
+        "EF21 2021 random gradient skip Bernoulli compressor stale gradient scalar quadratic exact mean square stability geometric waiting times 2p/(2-p)",
+        "error feedback 21 compressed gradient Bernoulli refresh exact convergence threshold scalar quadratic renewal multiplier",
+        "EControl Yuan Gao Islamov Stich Bernoulli dropout one worker scalar quadratic eta 1 versus eta delta default initialization mean-square divergence stepsize",
+        "arXiv:2311.05645v1",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "2026/10/4/SCOPE-exact-worker-count-mean-square-stability-frontier-for-scalar-ef2--345138951ae0"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2311.05645v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-worker-count-mean-square-stability-frontier-for-scalar-ef2--345138951ae0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Algorithm 2 matches the recursion; its Appendix C is a different construction. The EF21/DIANA/MARINA recursions differ and do not force the displayed rational inequalities."
+      ],
+      "reasoning": "A source statement that eta=1 can diverge in another setting does not imply the candidate all-state subeigenmatrix, mean stability under source-standard initialization, or eta=1/2 recovery. The candidate does not claim general inevitability of full-feedback divergence.",
+      "searches": [
+        "EControl Yuan Gao Islamov Stich Bernoulli dropout one worker scalar quadratic eta 1 versus eta delta default initialization mean-square divergence stepsize",
+        "EControl error-compensation parameter eta equals one random binary compressor mean stable mean square unstable Lyapunov certificate",
+        "2023 EControl algorithm counterexample eta=1 h0=gradient Bernoulli compressor variance instability eta=1/2",
+        "arXiv:2311.05645v1",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "2026/10/4/SCOPE-exact-worker-count-mean-square-stability-frontier-for-scalar-ef2--345138951ae0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.05645v1 Algorithm 2, Appendix C: different initialization and deterministic compressor"
+      ],
+      "reasoning": "The compressed stochastic state is a 3×3 switched system; paper source Appendix C gives a deterministic 3D divergent example but no expectation-moment split under standard initialization.",
+      "searches": [
+        "EControl exact mean-square divergence Bernoulli half-dropout default gradient initialization feedback parameter eta",
+        "EControl scalar quadratic full feedback half dropout mean converge variance diverge",
+        "arXiv:2311.05645v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The EControl primary appendix experiment uses h0=0/deterministic Top-1; published-finding corpus closely matching IDs concern different algorithms."
+      ],
+      "reasoning": "No searched exact table or primary example with x0=h0=1, half-dropout, gamma=1/10 and both eta settings.",
+      "searches": [
+        "EControl exact mean-square divergence Bernoulli half-dropout default gradient initialization feedback parameter eta",
+        "EControl scalar quadratic full feedback half dropout mean converge variance diverge",
+        "arXiv:2311.05645v1 Appendix C"
+      ]
+    },
+    "rationale": "Full algorithm and Appendix C inspected, published-finding corpus source/claim/alias queries completed, closest mathematical implications compared against EControl, classic error feedback, EF21, DIANA and MARINA. The narrowly stated standard-initialization half-dropout first/second-moment separation with a same-step strict stabilization result was not covered by examined statements. Source already discusses other eta=1 instability; an unindexed equivalent remains a residual risk.",
+    "residual_risks": [
+      "EControl source explicitly already recognizes eta=1 instability on another example, limiting novelty to exact separation and standard initialization.",
+      "Unindexed equivalent Markov-switching/Lyapunov calculations could exist; absence in searches is not novelty proof.",
+      "Only the full EControl source text was materially read; nearby published-finding corpus findings compared from their indexed mathematical summaries, not represented as full-text inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm exactly matches specialized equations; paper notes full feedback can be unstable for different starting h and deterministic Top-1, but does not display this half-dropout mean/second-moment contrast",
+        "evidence": [
+          "arXiv:2311.05645v1 Algorithm 2 and Appendix C, first published 2023-11-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.05645v1",
+        "material_read": "arXiv primary full HTML Algorithm 2, theorem and assumptions, related-work sections, Appendix C eta=1 experiments with stored-gradient initialization",
+        "method": "Read original article text, reconstruct three state recursions and compare exact hypotheses/parameter implications",
+        "title": "EControl: Fast Distributed Optimization with Compression and Error Control",
+        "trigger": "Identical algorithm and prior Appendix C divergence evidence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4aadd8c7-cf8d-4dd2-a5a4-724d938d6371",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-moment/second-moment blind spot for source-standard initialized, noise-free EControl pinpoints a safety/diagnostic limitation overlooked by deterministic or expected-iterate analyses. An exactly verified feedback setting restores stability at unchanged step, a motivated direct method comparison rather than a generic instability exercise.",
+    "status": "PASS"
+  }
+}
