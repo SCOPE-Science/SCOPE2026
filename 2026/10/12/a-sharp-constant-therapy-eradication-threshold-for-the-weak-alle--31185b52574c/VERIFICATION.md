@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the threshold from the treated weak-Allee scalar equation.
 
-It verifies
-\[
-\phi'(x)
-=
-\frac{Kc-x^2-2cx}{K(x+c)^2},
-\]
-the critical density
-\[
-x_*=\sqrt{c(K+c)}-c,
-\]
-and
-\[
-\phi(x_*)
-=
-\frac{(\sqrt{K+c}-\sqrt c)^2}{K}.
-\]
+# Independent mathematical audit
 
-It verifies the positive-equilibrium polynomial
-\[
-r x^2-K(r-g)x+gKc=0
-\]
-and the exact root formula below threshold.
+## correctness
 
-For
-\[
-K=2,\qquad c=1,\qquad r=\frac3{25},
-\]
-it checks
-\[
-g_c=r(2-\sqrt3).
-\]
-At
-\[
-g=\frac1{25},
-\]
-one has \(g_c<g<r\) and no positive equilibrium. At
-\[
-g=\frac1{50},
-\]
-the positive equilibria are
-\[
-\frac{5-\sqrt{13}}6
-\quad\text{and}\quad
-\frac{5+\sqrt{13}}6.
-\]
+PASS
 
-The universal classification is analytic; the exact examples are only replay checks.
+For xdot=x[r(1-x/K)x/(x+c)-g] with r,K,c,g>0, the per-capita untreatened growth r phi(x) is maximized at x*=sqrt[c(K+c)]-c, since phi'(x)=(Kc-2cx-x^2)/(K(x+c)^2). Its maximum is (sqrt(K+c)-sqrt(c))^2/K. Hence global asymptotic attraction to zero for all x>=0 holds iff g>gc=r(sqrt(K+c)-sqrt(c))^2/K; at equality x* is a positive equilibrium, below equality exactly two positive roots with lower unstable and upper locally attracting. Independently derived quadratic equilibrium discriminant and checked K=2,c=1,r=3/25 gives gc=r(2-sqrt3) and same root regimes. Strict positivity and long-term constant-treatment qualifier are necessary.
+
+## originality
+
+PASS
+
+Inspected original Delitala–Ferraro full paper, weak-Allee model and treatment destruction term, and source sufficient g>r conclusion. Maximizing the model-specific per-capita growth gives a strictly smaller sharp gc and complete bistable phase portrait, not contained in the sufficient statement as an exact result. Elementary general population dynamics makes the reduction straightforward; searches for this exact model, closed-form root and correction did not find published equivalent. Another cancer Allee paper treats a different migration/proliferation mechanism. Best-of-knowledge PASS with overlap risk.
+
+## value
+
+PASS
+
+For the precise published weak-Allee treatment ODE, the exact threshold gc/r=2-sqrt3 when c=K/2 is far below the conservative g>r sufficient condition. It resolves the entire equilibrium topology and critical non-eradication boundary, a motivated quantitative model correction (not a medical dosing rule).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

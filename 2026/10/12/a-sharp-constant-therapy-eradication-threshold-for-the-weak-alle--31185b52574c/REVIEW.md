@@ -1,33 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source equation with constant treatment is a scalar autonomous ODE. Exact maximization of
-\[
-\left(1-\frac{x}{K}\right)\frac{x}{x+c}
-\]
-gives the unique maximizer
-\[
-x_*=\sqrt{c(K+c)}-c
-\]
-and maximum
-\[
-\frac{(\sqrt{K+c}-\sqrt c)^2}{K}.
-\]
-The resulting sign partition proves global convergence to zero exactly for \(g>g_c\), a positive critical equilibrium at equality, and two positive equilibria below threshold. The bundled checker replays the algebra independently.
+PASS
 
-## Originality
+For xdot=x[r(1-x/K)x/(x+c)-g] with r,K,c,g>0, the per-capita untreatened growth r phi(x) is maximized at x*=sqrt[c(K+c)]-c, since phi'(x)=(Kc-2cx-x^2)/(K(x+c)^2). Its maximum is (sqrt(K+c)-sqrt(c))^2/K. Hence global asymptotic attraction to zero for all x>=0 holds iff g>gc=r(sqrt(K+c)-sqrt(c))^2/K; at equality x* is a positive equilibrium, below equality exactly two positive roots with lower unstable and upper locally attracting. Independently derived quadratic equilibrium discriminant and checked K=2,c=1,r=3/25 gives gc=r(2-sqrt3) and same root regimes. Strict positivity and long-term constant-treatment qualifier are necessary.
 
-PASS. Maximum-per-capita-growth threshold reasoning is standard and is not claimed as new. The accepted contribution is the exact source-specific closed form, complete phase classification, and quantitative sharpening of the published \(g>r\) sufficient condition. Exact source, formula, threshold-alias, correction, and prior-ledger searches found no equivalent published source-specific statement.
+## originality
 
-## Value
+PASS
 
-PASS. The exact threshold is the least sustained constant treatment strength that globally attracts the deterministic single-clone model to zero. At the source's displayed \(c=K/2\), it is \(r(2-\sqrt3)\), only about \(26.8\%\) of \(r\), so the sharpening materially changes the model's treatment-intensity interpretation.
+Inspected original Delitala–Ferraro full paper, weak-Allee model and treatment destruction term, and source sufficient g>r conclusion. Maximizing the model-specific per-capita growth gives a strictly smaller sharp gc and complete bistable phase portrait, not contained in the sufficient statement as an exact result. Elementary general population dynamics makes the reduction straightforward; searches for this exact model, closed-form root and correction did not find published equivalent. Another cancer Allee paper treats a different migration/proliferation mechanism. Best-of-knowledge PASS with overlap risk.
 
-## Closest literature and limitations
+## value
 
-Earlier tumor-Allee work establishes that density-dependent cooperation can determine tumor persistence or extinction, but in different stochastic/spatial models. It does not supply this scalar treatment threshold.
+PASS
 
-The result assumes constant continued treatment, does not solve a finite-duration optimal-control problem, and is not a clinical dosing recommendation.
+For the precise published weak-Allee treatment ODE, the exact threshold gc/r=2-sqrt3 when c=K/2 is far below the conservative g>r sufficient condition. It resolves the entire equilibrium topology and critical non-eradication boundary, a motivated quantitative model correction (not a medical dosing rule).
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
