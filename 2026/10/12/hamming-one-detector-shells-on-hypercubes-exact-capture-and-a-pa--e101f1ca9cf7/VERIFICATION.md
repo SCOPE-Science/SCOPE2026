@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-## Reproduction
-Install Python packages listed in `requirements.txt`, then execute `python verify.py`. The script constructs real symmetric adjacency operators of dimensions \(2^n\) for \(2\le n\le7\), diagonalizes them, and forms the captured projector by singular-value decomposition of the detector restrictions in each eigenspace. It checks the analytical Hamming-distance formula against the full projector at all \(252\) sites; it also checks the bright-space dimensions for six hypercubes and the rank effects of origin and antipodal-shell detectors in ten further tests.
+# Independent mathematical audit
 
-Observed standard output ends with:
+## correctness
 
-`VERIFY_OK_shell_probabilities=252_dimensions=6_auxiliary=10`
+PASS
 
-The numerical eigenvalue tolerance is \(10^{-8}\), and the probability tolerance is \(5\cdot10^{-9}\). Actual runtime versions used for this check were Python 3, NumPy 2.3.5 and SciPy 1.17.0. This does not certify every dimension or every rate choice. Exact generality rests on the Walsh-rank, invariant-layer, and strictly dissipative spectral arguments in `RESULT.md`.
+For all n>=2 and positive sitewise absorption rates, finite-dimensional dissipativity makes the bright Krylov span exactly the absorbed subspace. Independently reconstructing the Walsh eigenmode detector ranks gives 1 at k=0,n, n for interior k except n-1 at central k=n/2 when n is even. The invariant layer-affine space E has dimension n^2-n+2 and its even-dimensional missing normalized radial Krawtchouk vector q accounts for the parity term and both detector-addition consequences. Independent exact/numeric projector checks on n=2,3,4,5 reproduce dimensions 3,8,13,22 and sitewise formulas with errors below 1e-14. Finite tests corroborate, not prove, the all-n result.
 
-## Mathematical and scope checks
-Walsh ranks are \(1\) at the two extreme energies, \(n\) at interior energies except for the single central even-dimensional energy, where the rank is \(n-1\). Layerwise affine functions have exactly \(n\) degrees of freedom at each interior Hamming weight and one degree at each endpoint; the missing even-dimensional direction is normalized using Walsh orthogonality. The resulting projector has positive diagonal in the unit interval in all tested cases, and its trace matches the captured rank. Increasing all losses at the antipodal shell does not alter this projector; adding the origin restores only the even-dimensional central mode. The argument is restricted to the stated idealized model and infinite-time survival, not pointwise convergence of protected density matrices.
+## originality
+
+PASS
+
+The general bright/dark spectral projection method predates this record; all-neighbor Hamming-shell Walsh rank, parity-corrected vertex capture and antipodal/origin detector comparison are a more specific unsupplied classification. Discrete-time coined-walk odd-n numerical analogy has different evolution and detector geometry. Best-of-knowledge, no encompassing previously published theorem located.
+
+## value
+
+PASS
+
+Exact detector-placement performance and parity-protected modes in a natural hypercube quantum transport model are a motivated structural classification with useful sitewise values, not just generic Krylov reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
