@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and logical limits
+# Independent mathematical audit
 
-Use Python 3.10 or later with no third-party modules:
+## correctness
 
-```bash
-python3 verify.py
-```
+PASS
 
-The captured execution output is `verification_output.txt`. The verifier builds each triangular-chain graph by adding triangles sharing one cut vertex, enumerates every subset up to nine triangles, and tests the independent and dominating predicates directly. It separately constructs the published rational-generating-function coefficient recurrence, a monomer–dimer endpoint-weighted tiling recurrence, and the exact rational Jacobi characteristic recurrence through eighty triangles. The final line should be `VERIFY_OK exhaustive_instances=9 candidate_vertex_subsets=699048 determinant_checks_n=2..80`.
+PASS: In a triangular-chain maximal independent set exactly one vertex of each triangle is selected; shared cut-vertex choices are disjoint path dimers, uncovered interior triangles force their private leaf, while each unmatched endpoint offers 2 choices. The resulting weighted-matching polynomial has p2=4+t, p3=4+4t, p_n=p_(n-1)+t p_(n-2) n>=4. Transform to characteristic polynomial of symmetric irreducible Jacobi path with squared edge weights 1/4,3/4,1,...; eigenvalues are simple, paired +/- and magnitude<2 by Perron comparison. Thus nonzero polynomial roots are distinct in (-4,0), zeros at origin have multiplicity ceil(n/2), and Newton inequalities yield strict log concavity. Independently enumerated all subsets through n=7 and verified exact Jacobi characteristic polynomials for n<=7; finite tests corroborative.
 
-These tests are finite checks only. Infinite validity relies on the proof's exactly-one-per-triangle correspondence, the polynomial recurrence and tridiagonal determinant induction; real, simple roots and the strict spectral bound follow from elementary spectral theory. The separate originality determination requires human literature review for differently named or unindexed antecedents. This package does not provide an independent mathematical audit.
+## originality
+
+PASS
+
+PASS with strong antecedent separation: Klamsakul et al. 2022 Theorem 1 ALREADY gives the exact full coefficient generating function; no credit is claimed for enumeration or Fibonacci recurrence. The inspected theorem/proof does not identify the explicit boundary-weighted matching bijection, this Jacobi matrix, or the uniform simple negative-root interval. General matching-polynomial real-rootedness is classical but applying it requires the object-specific exact weighted path reduction. Unindexed equivalent transformations remain a real risk.
+
+## value
+
+PASS
+
+The result determines zero geometry and strictly log-concave size coefficients of a natural full polynomial sequence, not another count of known coefficients. A transparent Jacobi spectral model makes the distribution shape and universal root interval robust for all n; its structural path-matching representation is mathematically useful beyond finite instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

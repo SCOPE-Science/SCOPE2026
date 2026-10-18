@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In a triangular-chain maximal independent set exactly one vertex of each triangle is selected; shared cut-vertex choices are disjoint path dimers, uncovered interior triangles force their private leaf, while each unmatched endpoint offers 2 choices. The resulting weighted-matching polynomial has p2=4+t, p3=4+4t, p_n=p_(n-1)+t p_(n-2) n>=4. Transform to characteristic polynomial of symmetric irreducible Jacobi path with squared edge weights 1/4,3/4,1,...; eigenvalues are simple, paired +/- and magnitude<2 by Perron comparison. Thus nonzero polynomial roots are distinct in (-4,0), zeros at origin have multiplicity ceil(n/2), and Newton inequalities yield strict log concavity. Independently enumerated all subsets through n=7 and verified exact Jacobi characteristic polynomials for n<=7; finite tests corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General real-rootedness of matching polynomials implies roots once object-specific reduction is proved; original cactus theorem supplies enumeration only."
+        ],
+        "reasoning": "Known general theory supplies root machinery but not the particular cactus identity or strict root interval as a prior concrete application.",
+        "searches": [
+          "arXiv:2202.11294 Theorems 1-5",
+          "classical weighted matching real-rootedness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.11294 73-page PDF theorem and proof",
+        "arXiv:1910.05272 metadata",
+        "Resultary graph polynomial real-rootedness/matching search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generating function implies same coefficients but no explicit all-n real-rootedness assertion in inspected text."
+        ],
+        "reasoning": "A one-variable algebraic manipulation plus nontrivial matching/Jacobi identification develops extra structural conclusion, though elementary recurrence techniques are a genuine priority risk.",
+        "searches": [
+          "arXiv:2202.11294 Section 3 proof of Theorem 1",
+          "arXiv:1910.05272 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "New graph polynomial is a boundary-weighted path matching polynomial; the previous bivariate generating function already determines its coefficients."
+        ],
+        "reasoning": "Looked for equivalently presented real-rootedness through matching, orthogonal polynomials or Jacobi recurrence.",
+        "searches": [
+          "triangular cactus maximal independent set real-rooted Jacobi tridiagonal weighted matching roots",
+          "arXiv:2202.11294 Theorem 1",
+          "Heilmann-Lieb weighted matching polynomial roots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original gives full bivariate GF and coefficient counts; those are mathematically covered."
+        ],
+        "reasoning": "Novelty confined to spectral factorization, simple root interval and resulting Newton property.",
+        "searches": [
+          "arXiv:2202.11294 Theorem 1 Table 1",
+          "triangular cactus maximal independent set real-rooted Jacobi tridiagonal weighted matching roots",
+          "Published Resultary semantic findings search, 2026-10-17"
+        ]
+      },
+      "rationale": "PASS with strong antecedent separation: Klamsakul et al. 2022 Theorem 1 ALREADY gives the exact full coefficient generating function; no credit is claimed for enumeration or Fibonacci recurrence. The inspected theorem/proof does not identify the explicit boundary-weighted matching bijection, this Jacobi matrix, or the uniform simple negative-root interval. General matching-polynomial real-rootedness is classical but applying it requires the object-specific exact weighted path reduction. Unindexed equivalent transformations remain a real risk.",
+      "residual_risks": [
+        "General matching-polynomial or Chebyshev polynomial antecedent may implicitly include the entire root property; priority is qualified.",
+        "The known GF determines all coefficients; no novelty credit for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the entire coefficient enumerator; no Jacobi-path representation or all-n simple negative-root statement identified in the inspected material",
+          "evidence": "Theorem 1 gives T(u,y)=(1+2uy+u²y²)/(1-uy-u²y). Candidate separates structural weighted-matching bijection and simple-root interval consequence as new; coefficient counts are already known.",
+          "identifier_or_url": "arXiv:2202.11294v1, https://arxiv.org/pdf/2202.11294",
+          "material_read": "Theorem 1, PDF p3, and proof through pp15-18, plus neighboring theorems and explicit bivariate generating function; scanned matching/spectral terminology",
+          "method": "Original 73-page PDF text and rendered pages",
+          "title": "Maximal Independent Sets in Polygonal Cacti",
+          "trigger": "Exact same triangular-cactus cardinality counting problem"
+        },
+        {
+          "assessment": "Partial antecedent for scalar Fibonacci-type total count only; no full-document noncoverage conclusion",
+          "evidence": "Same graph chain total number and size information noted in Klamsakul et al.; do not claim stronger noncoverage without complete full text.",
+          "identifier_or_url": "arXiv:1910.05272",
+          "material_read": "ArXiv bibliographic abstract and source secondary discussion, not independently read full body in this run",
+          "method": "ArXiv metadata inspection",
+          "title": "Counting independent dominating sets in linear polymers",
+          "trigger": "Earlier same-graph scalar enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result determines zero geometry and strictly log-concave size coefficients of a natural full polynomial sequence, not another count of known coefficients. A transparent Jacobi spectral model makes the distribution shape and universal root interval robust for all n; its structural path-matching representation is mathematically useful beyond finite instances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2202.11294 73-page PDF theorem and proof",
+    "arXiv:1910.05272 metadata",
+    "Resultary graph polynomial real-rootedness/matching search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Linear cactus only; n=1 excluded from Jacobi factorization; finite verification n<=7, unrestricted proof via recurrence."
+  ],
+  "residual_risks": [
+    "General matching-polynomial or Chebyshev polynomial antecedent may implicitly include the entire root property; priority is qualified.",
+    "The known GF determines all coefficients; no novelty credit for them."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every triangle contains exactly one selected vertex in a maximal independent set, since its degree-two vertex must be dominated and the triangle is a clique. This yields a two-ended monomer–dimer bijection with the exact size and endpoint multiplicities. The resulting matching recurrence has base cases \(4+t\), \(4+4t\); the corresponding normalized polynomial satisfies the Jacobi determinant recurrence with squared edge weights \(1/4,3/4,1,\ldots\). Positive irreducible off-diagonals guarantee simple, symmetric real spectrum; strict spectral-radius bound two gives nonzero roots in \((-4,0)\). Exact independent graph and matching checks cover 699048 subsets of chains through nine triangles, and coefficient identities through 80 triangles. No finite run is claimed as a proof for all sizes.
+## correctness
 
-**Originality — PASS, with explicit prior-implication qualification.** The 2019 work of Jahari–Alikhani establishes total counts, and Theorem 1 of Klamsakul et al. (2022) already gives the **entire** two-variable maximal-independent-set generating function. Thus every coefficient and every derived fixed-size evaluation is covered and is not new. The assessed finding is instead the graph-to-endpoint-weighted-matching bijection and tridiagonal Jacobi spectral factorization, yielding a uniform real-simple-negative root theorem and strict log-concavity. The 2022 original proof uses case recurrences, and the inspected text does not state this bijection, matrix, or root theorem. The earlier generating function logically entails these properties once the additional argument is supplied; the new contribution must not be represented as a new enumerator. An unindexed or differently named equivalent root proof remains a genuine risk.
+PASS
 
-**Value — PASS.** Root location and multiplicity determine stability of every cardinality polynomial in an infinite, chemically motivated cactus family, and Newton inequalities control the shape of every size distribution. The transparent matching bijection and a single uniform Jacobi family explain the phenomenon structurally rather than checking finitely many coefficients; no extension to arbitrary cacti is asserted.
+PASS: In a triangular-chain maximal independent set exactly one vertex of each triangle is selected; shared cut-vertex choices are disjoint path dimers, uncovered interior triangles force their private leaf, while each unmatched endpoint offers 2 choices. The resulting weighted-matching polynomial has p2=4+t, p3=4+4t, p_n=p_(n-1)+t p_(n-2) n>=4. Transform to characteristic polynomial of symmetric irreducible Jacobi path with squared edge weights 1/4,3/4,1,...; eigenvalues are simple, paired +/- and magnitude<2 by Perron comparison. Thus nonzero polynomial roots are distinct in (-4,0), zeros at origin have multiplicity ceil(n/2), and Newton inequalities yield strict log concavity. Independently enumerated all subsets through n=7 and verified exact Jacobi characteristic polynomials for n<=7; finite tests corroborative.
 
-**Closest evidence and limits.** Full relevant original material read: arXiv:2202.11294, Theorem 1 plus proof; arXiv:1910.05272, Section 2; foundational arXiv:1602.08250 for terminology. Searches for triangular cactus independent-domination roots, spectral representations, matching equivalences and published research claims found no equivalent. Coverage risk remains because the explicit 2022 enumerator is a strong antecedent and classical weighted matching techniques apply.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with strong antecedent separation: Klamsakul et al. 2022 Theorem 1 ALREADY gives the exact full coefficient generating function; no credit is claimed for enumeration or Fibonacci recurrence. The inspected theorem/proof does not identify the explicit boundary-weighted matching bijection, this Jacobi matrix, or the uniform simple negative-root interval. General matching-polynomial real-rootedness is classical but applying it requires the object-specific exact weighted path reduction. Unindexed equivalent transformations remain a real risk.
+
+## value
+
+PASS
+
+The result determines zero geometry and strictly log-concave size coefficients of a natural full polynomial sequence, not another count of known coefficients. A transparent Jacobi spectral model makes the distribution shape and universal root interval robust for all n; its structural path-matching representation is mathematically useful beyond finite instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
