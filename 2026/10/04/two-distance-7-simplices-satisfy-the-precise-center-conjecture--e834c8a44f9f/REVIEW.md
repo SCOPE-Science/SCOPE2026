@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof cleanly reduces the geometric hypothesis to equiareality using Edmonds' vertex-uniform center lemma, encodes two edge lengths by a regular graph on eight vertices, exhausts the regular-graph types up to complement, and eliminates every non-vertex-transitive type with exact Cayley--Menger determinant factorizations. The only nontrivial roots left by equiareality either give \(t=1\), contrary to two distinct lengths, or make facet determinants vanish, contrary to nondegeneracy. The bundled exact verifier independently replays the finite graph census and determinant identities.
+## correctness
 
-## Originality
-PASS with residual literature risk. Edmonds (2009) proves the strong center conjecture only through dimension \(6\) and leaves higher dimensions open. Prieto-Martínez (2023) proves a different analogue and explicitly states that the original continuous and strong conjectures remain open. Searches for the combinations “two edge lengths,” “two-distance,” “vertex-uniform,” “equiareal,” “dimension 7,” and “equifacetal” found no theorem with the same hypotheses and conclusion. No inspected result implies the dimension-\(7\) two-distance statement. An unindexed historical special case remains possible and is recorded as a residual risk.
+PASS
 
-## Value
-PASS. Dimension \(7\) is the first dimension beyond Edmonds' proved range, and the two-distance subclass is intrinsic rather than an arbitrary numerical slice: vertex-uniformity turns it into the complete family of regular two-colorings of the edges of \(K_8\). The theorem therefore removes an entire natural combinatorial stratum from the open precise center conjecture and identifies exactly why every nontransitive coloring fails.
+PASS: Normalize two squared lengths to (t,1), t>0 and t!=1. Vertex-uniform edge coloring is a regular graph on eight vertices; color swap reduces degree to k<=3. Independently checked graph representatives and cubic automorphism group sizes (1152,16,4,12,48,16; orbit sizes 35,2520,10080,3360,840,2520). Source exhaustive graph verifier read and its 3507 degree-two and 19355 cubic graph generation audited. All four non-vertex-transitive patterns excluded by exact Cayley–Menger facet differences 16*t*(t-1)^3*(t²-3t+1), -16*t^3*(t-1)^3, -16*t*(t-1)^4, 16*(t-1)^3*(t²-3t+1). Independent symbolic interpolation from all seven 6-simplex vertices reproduces the four factorized identities. At t²-3t+1=0 all corresponding facet determinants vanish; nondegenerate simplex impossible. These polynomial identities hold identically (degree at most six, checked seven evaluations), not numeric t sampling. Edmonds centroid=incenter iff equiareal for vertex-uniform and equifacetal iff vertex transitive completes proof. k0/1 automatic. The all-one-length regular case treated separately.
 
-Closest literature and limitations are stated in `RESULT.md` and `AUDIT.json`. The theorem does not address three-or-more-distance simplices or the unrestricted conjecture.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: Edmonds 2009 proves the conjecture below dimension 7 and supplies equivalences but leaves the first open dimension unproved; its Theorem/sections inspected in original 14-page primary full PDF. Prieto-Martinez 2023 proves analogue for a non-continuous equivariant center notion, not the fixed Euclidean centroid/incenter. No complete two-edge-distance, dimension-seven excluded-color-graph classification found, and no stronger implication from the inspected works.
+
+## value
+
+PASS
+
+PASS: A substantial exact restricted result in the FIRST open simplex dimension for an explicitly posed center conjecture. Exhaustive graph classification plus genuine facet-area polynomial obstruction resolves a geometrically natural two-distance stratum, rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
