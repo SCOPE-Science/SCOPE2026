@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:10:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md 4f5f08964e823112dc7e6e12d2e984988a4b1810",
+        "Pinned verify_dp.py blob 9d11b9c547696bb4be92a607175bb4ef04cf4e76",
+        "Earlier W(q,q,p) general proof https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114"
+      ],
+      "rationale": "For n>=3, Frobenius nonrepresentability for return lengths n-1,n forces the shortest reset target 1 and length n^2-3n+3. Starting at n-1 and n-2 respectively forces a at positions j(n-1) and b at 1+jn; shrinking cyclic target intervals prove all other choices independently reset. At n=2 the unique one-letter reset is a. Independent subset-image DP checks n=2..7 exact shortest lengths/counts (1,1,4,64,4096,1048576), confirming binomial coefficients. The infinite claim follows from the proof and earlier equivalent general theorem, not these finite tests.",
+      "residual_risks": [
+        "Finite DP is only a regression; no use as an all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary W(q,q,p) full coprime family contains n=q,p=n-1 as an actual subclass",
+          "Original Gusev-Pribavkina threshold is broader in length alone but not central comparison"
+        ],
+        "reasoning": "The 2026 published W(q,q,p) shortest-word multiplicity theorem strictly dominates the submitted fixed p=q-1 case in parameter domain; its proof gives the structural mandatory/free schedule needed to derive the binomial weight polynomial. Strong prior coverage defeats best-of-knowledge novelty.",
+        "searches": [
+          "Resultary semantic query: shortest synchronizing reset words Wielandt automaton W_n all minimal words count binomial",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+          "arXiv:1403.3992"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+        "https://arxiv.org/abs/1403.3992"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier formula L=pq-2p+1 with p=n-1 becomes L=n^2-3n+3",
+          "Published reverse-preimage proof fixes q-1 a updates and p-1 b protections and lets each remaining letter choose independently"
+        ],
+        "reasoning": "For p=n-1 and q=n, the earlier all-shortest-word description yields forward mandatory a at j(n-1) and b at 1+jn, hence the submitted polynomial z^(n-1)(1+z)^((n-2)(n-3)). Therefore the main result follows directly, not merely an adjacent threshold or matching numeral.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+          "arXiv:1403.3992"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier W(q,q,p) theorem for coprime 2<=p<q counts 2^((p-1)(q-3)) shortest words and explicitly forces q-1 shortcut letters and p-1 protective letters",
+          "Specialization p=q-1, q=n gives forced shortcut n-1, forced ordinary n-2 and free (n-2)(n-3)"
+        ],
+        "reasoning": "Under the state rotation sending prior exceptional state 0 to current final state n-1, the p=q-1 case is the identical two-letter automaton. Reverse-preimage forced positions translate to the current forward mandatory letters, so not only the count but the full positionwise iff language is earlier work.",
+        "searches": [
+          "Resultary semantic query: shortest synchronizing reset words Wielandt automaton W_n all minimal words count binomial",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier W7 article gives exactly z^6(1+z)^20 for the same relabeled seven-state automaton",
+          "General W(q,q,p) theorem gives the all-n multiplicities, not just a finite table"
+        ],
+        "reasoning": "The seven-state exact polynomial is explicitly tabulated in a prior published finding. Its lone finite case would not cover the all-n result, but the simultaneous published general theorem does.",
+        "searches": [
+          "Resultary semantic query: shortest synchronizing reset words Wielandt automaton W_n all minimal words count binomial",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49"
+        ]
+      },
+      "rationale": "The prior published all-coprime W(q,q,p) theorem includes exactly the p=q-1 automaton and establishes every forced/free position by reverse-preimage dynamics. This implies the complete submitted iff language and its binomial a-letter polynomial; a separate prior n=7 article prints the identical special polynomial. Correctness survives, originality does not.",
+      "residual_risks": [
+        "No originality remains after a published, strictly more general exact structural theorem; relabeling or extra certificates would not create novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERS AND IMPLIES THE SUBMITTED ALL-n RESULT",
+          "evidence": "p=q-1 specialization and state rotation; forced steps imply all mandatory positions and the binomial weight distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+          "material_read": "Entire Git-pinned RESULT.md including definition, reverse-preimage schedule, forced letters, proof and general formula",
+          "method": "Full source file read through authorized read-only GitHub access at Resultary/2026; blob bea521e0e744d6a28d164da7523b4cb8e896d89d",
+          "title": "Exact multiplicity of shortest reset words in the Wielandt-type family",
+          "trigger": "Same automaton in larger coprime q,p family and an exact shortest-word count"
+        },
+        {
+          "assessment": "Already establishes the exact n=7 polynomial",
+          "evidence": "P(z)=z^6(1+z)^20 in the pre-existing seven-state theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+          "material_read": "Complete earlier RESULT.md including exhaustive BFS certificate argument",
+          "method": "Read prior Git source blob 73d249b9a460ff342c50c203382300e0ce7dd996",
+          "title": "Shortest-reset multiplicity of the seven-state Wielandt automaton W7",
+          "trigger": "Identical finite W7 and exact polynomial"
+        },
+        {
+          "assessment": "Original 2014 threshold by itself would not cover enumerator; superseding 2026 published Resultary paper does.",
+          "evidence": "Specific known W(q,q,p) scope and threshold results",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.3992",
+          "material_read": "Primary theorem and automaton definitions plus reset-threshold arguments in rendered arXiv PDF",
+          "method": "Full-text primary search and rendered inspection",
+          "title": "Reset thresholds of automata with two cycle lengths",
+          "trigger": "Historical source for parent W(q,q,p) construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+        "https://arxiv.org/abs/1403.3992"
+      ],
+      "rationale": "A full family-wide shortest-language and weight-distribution classification would ordinarily be structurally valuable. Here those exact constraints and multiplicities are already implied by a more general published theorem, leaving only parameter substitution and a re-expression of known compulsory positions, not an independent new mathematical gap.",
+      "residual_risks": [
+        "No separate genuinely new valuable theorem is established by the submitted package."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Original all-n language proof is correct but covered by earlier published general family theorem.",
+    "No independent research contribution remains under exact novelty and value bar."
+  ]
+}
