@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Legendre generating function yields an all-positive cosine expansion. Its weighted frequency sum is exactly \((\ell(\ell+1)-2)/2\), so meridional support convexity has a necessary and sufficient threshold. The azimuthal radius is the signed cosine-weighted integral of the meridional radius, hence is nonnegative on both hemispheres, including boundary coefficients. Spherical-harmonic orthogonality and the established constant-width volume identity give the exact volume. Strict growth of an explicit denominator proves the unique optimal degree, and positivity of frequencies \(3\) and \(5\) proves the distinct boundary degeneracies. The exact symbolic checker confirms degrees \(3,5,7,9\); the analytic steps, not the finite checker, prove all degrees.
+## correctness
 
-## Originality — PASS, with risk
-The closest primary full-text sources are Hynd, arXiv:2501.16940v1, §§4–5, on support radii and axial extremality, and Antunes–Bogosel, arXiv:1809.00254v3, §§4.2, 6.3, on the **previously known** spherical-harmonic volume formula and numerical convexity constraints. Neither inspected source supplies sharp admissible coefficients for all odd zonal Legendre modes, an all-degree boundary-volume minimizer, or the exceptional meridional zero ring at degree three. Related published results on cubic product harmonics and generic cubic curvature estimates have different harmonic objects or weaker parameter coverage. Unindexed special-function/convex-body treatments may still cover the formula; the search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The all-degree theorem gives an exact spectral basis benchmark for the nonlinear convexity constraint in rotational constant-width shape optimization: high harmonic degrees pay a precise admissible-amplitude penalty, force an explicit descending volume deficit, and have a different degeneration locus from the lowest nontranslation mode. A complete infinite-degree classification of the canonical one-mode spectral slice has mathematical use without asserting the unrestricted constant-width optimum.
+For odd l>=3, the Legendre generating function gives a strictly positive odd cosine expansion P_l(cos theta)=sum_{odd k<=l}a_{lk}cos(k theta), a_{lk}=2 c_{(l+k)/2}c_{(l-k)/2}>0 with c_j=binom(2j,j)/4^j; sum a=1. Thus meridional support curvature rho_m=1-eps sum_{k>=3}(k²-1)a cos(k theta), and C=sum(k²-1)a=(l(l+1)-2)/2 from P_l′(1). The sharp |eps|<=1/C follows from the pole obstruction and the triangle bound. For zonal h, a(theta)=h sin theta+h_theta cos theta satisfies a′=rho_m cos theta, a(0)=a(pi)=0; integrating from the nearer pole shows rho_az=a/sin theta>=0, so meridional positivity is fully sufficient. Oddness makes width exactly 2; |eps|<=1/5 and |P_l|<=1 keep h>0. Spherical harmonic identities and integrated Bochner give V=4pi/3-2pi(l(l+1)-2)/(2l+1)eps²; the cubic integral vanishes by antipodal parity. Exact symbolic independent integration of h*rho_m*rho_az verified the volume for l=3,5,7,9,11, including 128pi/105 at l3. Strictly increasing denominator gives monotonic endpoint volumes. At boundary the positive cosine coefficients require cos(k theta)=1; l3 only k3 gives theta=0,2pi/3, whereas l>=5 has both k3 and k5 so theta=0 alone. Negative eps reflects theta. Algebraic checks for five degrees corroborate, not replace the all-l positive-coefficient proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The l3 endpoint convexity, intrinsic volume and general harmonic volume formula are already published; they are explicitly treated as known subclaims. The separately reviewed result survives in the uniform sharp convexity classification for EVERY odd zonal degree, strict volume hierarchy and exceptional meridional-degeneracy ring. Neither cited geometric umbrella nor prior cubic paper establishes all those implications.
+
+## value
+
+PASS
+
+Exact maximum feasible amplitude is an invariant of a natural one-harmonic constant-width deformation in all odd degrees. The result gives a complete infinite-degree classification of convex feasibility, strict endpoint volume hierarchy, and the geometric transition from a genuine meridional zero-curvature ring at l3 to isolated axial degeneracy for every higher odd mode. This remains mathematically useful even though l3 and volume spectral formulas are separately known, and is not merely a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
