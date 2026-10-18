@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every dimension and time, the stopped-Poisson transition kernel differentiates to p_{k-1}-p_k, and row/column sign telescoping gives the exact norms. The infinity time optimizer follows piecewise t p_k monotonicity and Stirling. The unique maximum of t F is certified analytically by a strictly decreasing ratio F/(t p_{n-1}); the alternative columns have O(sqrt(n)) time-weighted bounds. Stirling at n-c sqrt(n log n) and a geometric Poisson tail prove both the optimizer location and sharp L1 boundary layer. A standalone checker independently compared finite matrix exponentials to both formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0910.0859v1 treats asymptotic decay of T(t)A^{-1} under resolvent hypotheses, not the finite Q_n T_n(t) sharp supremum.",
+        "arXiv:1304.4346v1 concerns irreducible birth–death mixing, while Q_n has an absorbing state and is reducible.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce covers maximal regularity for diagonal generators with geometrically spaced eigenvalues."
+      ],
+      "reasoning": "Generic spectral/resolvent/mixing estimates and diagonal maximal-regularity results are neither exact for the nonnormal stopped chain nor logically strong enough to give the separate sqrt(n) and n-sqrt(n log n) constants. Prior work on general semigroup asymptotics is acknowledged as context.",
+      "searches": [
+        "published-finding corpus: Markov semigroups with spectrum {0,-1} nonnormal Jordan blocks positive contractions endpoint time derivative constant diverges sqrt dimension",
+        "arXiv:0910.0859v1 sections 1–4 on resolvent/orbit decay and general Banach semigroups",
+        "arXiv:1304.4346v1 introductory assumptions and spectral-gap/mixing theorems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0910.0859v1 — full HTML relevant statements",
+      "arXiv:1102.1620v1 — accessible full article",
+      "arXiv:1304.4346v1 — full HTML relevant sections",
+      "USF absorption paper — abstract only (full-text comparison unresolved)",
+      "published-finding corpus ranked searches on exact endpoint semigroup norms, stopped Poisson, absorbing chains, Jordan equivalence and logarithmic optimizer",
+      "Scientific comparisons with finite cyclic and Boolean-cube semigroups, focusing on the absence of a terminal absorbing column"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 concerns SSP-SDIRK discrete-step positivity, not exact continuous-time norms.",
+        "Compared statements for cyclic shifts concern wraparound Fourier kernels and have no absorbing terminal column.",
+        "Symmetric Boolean-cube heat semigroups have a product kernel and no stopped-Poisson absorbing mass."
+      ],
+      "reasoning": "The candidate is not a renamed special case: absorbing boundary creates a terminal column whose derivative is an entire Poisson lower tail, generating a different optimization and scale. Neither cycle nor hypercube generator admits this specific terminal-column term. Previously tabulated Poisson identities do not by themselves settle the combined operator claim.",
+      "searches": [
+        "published-finding corpus: Absorbing pure birth Markov chain finite linear path Poisson semigroup generator exact L infinity derivative norm, sup time t scaling square root n",
+        "published-finding corpus: positive pure-birth semigroup endpoint l1 linfty norm derivative stopped Poisson asymmetric growth",
+        "published-finding corpus: Poisson shift truncated unilateral Jordan block semigroup t times generator norm endpoint asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1102.1620v1: fractional linear birth–death distributions and subordination, with no finite absorbed endpoint derivative norm in the inspected text.",
+        "published-finding corpus closest: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab computes rational-approximation step positivity, not exact derivative endpoint norms."
+      ],
+      "reasoning": "Poisson mode identities alone account for the row-norm formula, but not the distinct terminal-column contribution, its exact time optimization, or the sqrt(n log n) location. Exact absorption and counting measure matter. The rational-approximation positivity result cannot imply a sharp continuous-time derivative norm.",
+      "searches": [
+        "published-finding corpus: Poisson shift truncated unilateral Jordan block semigroup t times generator norm endpoint asymptotics",
+        "published-finding corpus: pure birth chain stopped Poisson distribution total variation time derivative and semigroup analyticity norm",
+        "Web: \"pure birth\" \"time derivative\" \"total variation\" \"Poisson\" operator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No entry in the inspected ranked published-finding corpus responses states the paired time-weighted endpoint norms and L1 logarithmic localization.",
+        "Classical Poisson mass tables supply p_k(t), not the statement about operator norms and their exact global time optimization."
+      ],
+      "reasoning": "A numerical or probabilistic table for the Poisson distribution would imply the kernel inputs but not, on its own, the maximum column variation and nontrivial n-dependent optimum. No matching complete theorem or database entry was identified; absence of a match is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: sharp l1 norm t generator e^(tQ) finite pure birth absorbing stopped Poisson chain critical maximizing time n minus sqrt(n log n)",
+        "published-finding corpus: Total variation sensitivity of capped Poisson laws stopped at n time derivative maximum is 2 Poisson mass at mode; analyticity constants",
+        "Web: \"Poisson\" \"absorbing\" \"operator norm\" \"semigroup\" derivative"
+      ]
+    },
+    "rationale": "Exact paired endpoint constants and the asymptotically unique L1 optimizer shifted by sqrt(n log n) are not implied by the inspected historical semigroup-decay, fractional birth–death, or irreducible mixing statements; existing published mathematical-record entries on pure-birth numerical positivity or diagonal spectral spacing address different functionals. Standard Poisson laws are excluded from the novelty claim. Historical priority remains uncertain.",
+    "residual_risks": [
+      "A historical theorem might use phase-type/Erlang distributions, total variation of a stopped Poisson law, or upper-triangular semigroup wording rather than the searched phrases.",
+      "The historical absorption-process paper was only readable at abstract level; full-text overlap remains unresolved.",
+      "Independent bibliographic and mathematical audits have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not supply exact endpoint derivative norms or optimized constants for finite stopped pure-birth Markov chains.",
+        "evidence": "Theorems 1.1–1.2 concern T(t) A^{-1}, resolvent growth and long-time orbit decay rather than the norm of t Q_n e^{tQ_n}.",
+        "identifier_or_url": "arXiv:0910.0859v1; https://arxiv.org/html/0910.0859v1",
+        "material_read": "Full HTML navigation and relevant introduction, statements, sections 2–4; polynomial orbit decay and resolvent sharpness.",
+        "method": "Direct full-text HTML reading and within-document searches for finite Jordan and Poisson mechanisms.",
+        "title": "Optimal polynomial decay of functions and operator semigroups",
+        "trigger": "Classical functional-analytic semigroup results and eligible primary MSC 47D06"
+      },
+      {
+        "assessment": "Studies fractional linear population rates and state laws, not time-optimized endpoint operator derivatives on a stopped finite uniform-rate chain.",
+        "evidence": "Equations (1)–(16) in Section 1 concern p_k^nu, fractional dynamics, subordination and extinction probabilities.",
+        "identifier_or_url": "arXiv:1102.1620v1; https://arxiv.org/abs/1102.1620",
+        "material_read": "Accessible full-text article, introduction, fractional difference equations, probability-generating functions and state distributions.",
+        "method": "Read textual HTML material and examined definitions and main probability formulas.",
+        "title": "On a fractional linear birth–death process",
+        "trigger": "Closest probabilistic primary topic (pure-birth and absorption/state probabilities)"
+      },
+      {
+        "assessment": "Irreducible birth–death mixing and spectral-gap results do not imply this exact reducible pure-birth time-derivative endpoint norm claim.",
+        "evidence": "The paper formulates birth–death mixing and spectral gaps for irreducible chains, in contrast with an absorbing upper-triangular Q_n.",
+        "identifier_or_url": "arXiv:1304.4346v1; https://arxiv.org/html/1304.4346v1",
+        "material_read": "Full accessible HTML navigation; assumptions, introductory statements and mixing-time/spectral-gap theorems.",
+        "method": "Read full-paper HTML, focusing on assumed irreducibility and norm/functionals of theorems.",
+        "title": "On the mixing time and spectral gap for birth and death chains",
+        "trigger": "Potentially stronger general result on finite birth–death generators"
+      },
+      {
+        "assessment": "No negative full-text coverage judgment is made. Possible overlap remains as explicit priority risk.",
+        "evidence": "Abstract describes absorbed birth–death spectral measures and transition distributions, not a demonstrated endpoint semigroup norm theorem.",
+        "identifier_or_url": "https://digitalcommons.usf.edu/mth_facpub/30/",
+        "material_read": "Landing-page abstract only; full article inaccessible through the attempted available routes.",
+        "method": "Read abstract and attempted open-access full-text paths.",
+        "title": "Birth and Death Processes with Absorption",
+        "trigger": "Plausible historical absorption-process literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "575bbda7-9fbc-4e18-bb2d-a4cc47635e47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The norm of a time derivative is a natural sharp analyticity/smoothing stability invariant for finite positive semigroups. This explicit absorbing family has the same two spectral points in every dimension and uniformly bounded generator matrix entries, yet its sharp l-infinity constant grows only as sqrt(n), while its l1 constant grows nearly linearly; the latter has a nontrivial optimized moderate-deviation shift sqrt(n log n). This is a structural limitation of predicting endpoint sensitivity from spectral location or from row contraction, not an arbitrary finite-table recomputation.",
+    "status": "PASS"
+  }
+}
