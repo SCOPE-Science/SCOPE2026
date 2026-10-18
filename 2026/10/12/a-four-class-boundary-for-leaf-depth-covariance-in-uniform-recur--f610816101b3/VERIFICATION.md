@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`python3 CHECK.py` independently enumerated all parent-choice sequences for sizes \(2\le n\le9\), calculated exact rational covariance coefficient vectors, and matched those against the finite product formula. It also checked the parity identity and the generating-polynomial derivative at \(z=1\); 58 exact coefficient/identity cases passed. Fourier reconstruction for sizes \(2\le n\le9\), moduli \(2\le q\le9\), and all residue classes passed 352 comparisons with numerical tolerance \(10^{-9}\).
+## correctness
 
-The proof of the infinite assertions is analytic: the conditioning recurrence, its solved product, fixed-root Gamma asymptotics, and phase-subsequence argument are explicitly supplied in RESULT.md. Finite checker passes are not infinite proofs, and no independent review is claimed.
+PASS
+
+Directly reconstructed the conditional parent-choice recurrences for a_n=E F_n(z), b_n=E G_n(z), and C_n=Cov(L_n,F_n(z)); the shared chosen-parent term is crucial. Solving C_{n+1}=[1+(z-1)/n]C_n+z(1-z)a_n/[2n(1+z)] with C_2=0 gives the exact polynomial (including removable z=-1). Fourier inversion isolates the dominant conjugate roots omega and bar omega; Gamma ratio yields constant omega(1-omega)/(2 Gamma(2+omega)); beta=sin(2pi/q)>0 permits opposite phase subsequences. Independent enumeration of all parent choices for n=2..7 reproduced every rational polynomial coefficient, and the source checker was inspected rather than trusted as a proof. Finite enumeration does not prove all n or log-periodic asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the source-specific exact leaf-count/depth-profile mixed covariance is distinct from Janson’s unmarked depth-congruence fluctuation matrices and from separate marginal-degree statistics; a related published result gives root-degree/leaf covariance, which does not imply covariance with depth residue counts. The leading modulation boundary q=4 is not the Janson q=6 variance boundary. Historical generalized mixed-moment work might contain an equivalent identity and is retained as a risk.
+
+## value
+
+PASS
+
+The leaf count and depth-residue profile are canonical terminal and geometric statistics of recursive trees. Their joint covariance phase boundary differs from the known variance boundary and supplies exact finite-n cross-moments and all-residue oscillation phases. The result is a motivated structural joint statistic rather than just a path-length derivative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

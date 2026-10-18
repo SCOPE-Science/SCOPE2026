@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:43:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed the conditional parent-choice recurrences for a_n=E F_n(z), b_n=E G_n(z), and C_n=Cov(L_n,F_n(z)); the shared chosen-parent term is crucial. Solving C_{n+1}=[1+(z-1)/n]C_n+z(1-z)a_n/[2n(1+z)] with C_2=0 gives the exact polynomial (including removable z=-1). Fourier inversion isolates the dominant conjugate roots omega and bar omega; Gamma ratio yields constant omega(1-omega)/(2 Gamma(2+omega)); beta=sin(2pi/q)>0 permits opposite phase subsequences. Independent enumeration of all parent choices for n=2..7 reproduced every rational polynomial coefficient, and the source checker was inspected rather than trusted as a proof. Finite enumeration does not prove all n or log-periodic asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson (2005), arXiv:math/0509471, Theorem 2.1 gives modulus-six variance boundary, not leaf/profile mixed moments.",
+          "Van der Hofstad et al. (2002) title/abstract concern level-level covariance.",
+          "Janson, Asymptotic Degree Distribution in Random Recursive Trees (2004/2005) concerns degree counts including leaf marginals."
+        ],
+        "reasoning": "A result on all level-level covariances does not determine leaf-level joint covariance because two trees can share a depth profile but differ in leaves. Degree marginals similarly do not determine joint depth-degree covariance. Higher general moment formulae remain a live historical risk.",
+        "searches": [
+          "Uniform recursive trees covariance leaves depth congruence classes modulo q generating function cross covariance logarithmic oscillations",
+          "doi:10.1002/rsa.10030",
+          "doi:10.1002/rsa.20046"
+        ]
+      },
+      "checked_sources": [
+        "Janson arXiv:math/0509471 (full PDF, Theorem 2.1, §3, §6)",
+        "van der Hofstad et al., doi:10.1002/rsa.10030 (abstract)",
+        "Janson, doi:10.1002/rsa.20046 (abstract)",
+        "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Janson full arXiv:math/0509471 Theorem 2.1 and Eqs. (2.2)-(2.13) describe depth-congruence vectors, not L_n.",
+          "Mixed covariance conditioning includes G_n(z)=sum over leaves z^{depth}, absent from the unmarked urn profile equations.",
+          "Resultary root-degree/leaf covariance concerns D_n, not F_n(omega)."
+        ],
+        "reasoning": "The prior marginal/depth fluctuation statements cannot be specialized to leaf/profile covariance without adding a joint leaf marking and its increment recurrence. Their variance threshold does not imply q=4 cross-covariance classification.",
+        "searches": [
+          "Uniform recursive trees covariance leaves depth congruence classes modulo q generating function cross covariance logarithmic oscillations",
+          "van der Hofstad Hooghiemstra Van Mieghem 2002 random recursive trees covariance levels"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson, Congruence Properties of Depths in Some Random Trees, arXiv:math/0509471, Theorem 2.1 and Remarks 2.2-2.6: unmarked depth-class fluctuations.",
+          "The degree/path-length scalar covariance is only a derivative at z=1; the full polynomial is recovered by Fourier transform, not vice versa."
+        ],
+        "reasoning": "Generating polynomial covariance and fixed-residue mixed covariances are Fourier-equivalent forms of this finding. Unlike Janson’s Fourier depth-profile law, these include the leaf indicator, and one scalar specialization does not imply all roots of unity.",
+        "searches": [
+          "Uniform recursive trees covariance leaves depth congruence classes modulo q generating function cross covariance logarithmic oscillations",
+          "leaf count random recursive tree depth path length covariance",
+          "arxiv:math/0509471v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Janson full-text covariance matrices are for depth-class counts against one another, not with total leaves.",
+          "Resultary result 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f is for root degree and total leaves, a different statistic."
+        ],
+        "reasoning": "No inspected exact published table gives C_n(z) with the leaf statistic. Finite n checks here generate new coefficient data rather than certify absence of a known table.",
+        "searches": [
+          "Uniform recursive trees covariance leaves depth congruence classes modulo q generating function cross covariance logarithmic oscillations",
+          "recursive tree leaf count covariance profile generating function roots of unity log periodic oscillations modulus 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the source-specific exact leaf-count/depth-profile mixed covariance is distinct from Janson’s unmarked depth-congruence fluctuation matrices and from separate marginal-degree statistics; a related published result gives root-degree/leaf covariance, which does not imply covariance with depth residue counts. The leading modulation boundary q=4 is not the Janson q=6 variance boundary. Historical generalized mixed-moment work might contain an equivalent identity and is retained as a risk.",
+      "residual_risks": [
+        "Complete 2002 level-covariance and 2004 degree-profile papers not inspected; a general mixed-moment proposition could implicitly subsume the theorem.",
+        "Priority under alternative leaf-marked branching-process generating-function terminology not exhaustively resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems give depth-profile marginal and same-profile covariances, not the mixed leaf count statistic.",
+          "evidence": "Theorem 2.1, formulas (2.2)-(2.13) and §3: profile variance phase boundary at modulus six.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0509471",
+          "material_read": "Full 23-page arXiv paper: introduction, Theorem 2.1, Remarks 2.2-2.6, cyclic urn proofs and Fourier statements; mathematical pages examined via parsed full-text and a PDF screenshot.",
+          "method": "direct arXiv PDF full-text reading",
+          "title": "Congruence Properties of Depths in Some Random Trees",
+          "trigger": "Same uniform recursive tree and residue parameters"
+        },
+        {
+          "assessment": "Not certified non-covering on full text; potential implicit mixed formula kept as risk.",
+          "evidence": "Abstract specifically describes covariance between level sizes.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.10030",
+          "material_read": "Article abstract and metadata only; attempted lawfully hosted full PDF could not be opened.",
+          "method": "publisher abstract and lawful-OA retrieval attempt",
+          "title": "On the Covariance of the Level Sizes in Random Recursive Trees",
+          "trigger": "Potential stronger level-profile covariance coverage"
+        },
+        {
+          "assessment": "Does not itself establish the joint depth-residue covariance; full-text implicit coverage remains uncertain.",
+          "evidence": "Degree profile and marginal leaf-count study.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+          "material_read": "Abstract, title, and bibliographic metadata; full article not read.",
+          "method": "public abstract",
+          "title": "Asymptotic Degree Distribution in Random Recursive Trees",
+          "trigger": "Leaf count may occur as outdegree-zero marginal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leaf count and depth-residue profile are canonical terminal and geometric statistics of recursive trees. Their joint covariance phase boundary differs from the known variance boundary and supplies exact finite-n cross-moments and all-residue oscillation phases. The result is a motivated structural joint statistic rather than just a path-length derivative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform random recursive trees, Cov(L_n,F_n(z))=(n-2)z(1-z)/4 product_{j=3}^{n-1}(j-1+z)/j. For each fixed depth modulus q>=3, leaf/depth-residue cross-covariances have nonzero log-periodic conjugate-root leading terms with amplitude n^{cos(2pi/q)}, giving vanishing q=3, bounded nonconvergent q=4, and subsequentially growing q>=5; all residue covariances change sign infinitely often.",
+  "limitations": [
+    "Fixed q only; no uniformity in q growing with n or joint limit theorem.",
+    "Numerical/finite enumeration is supporting evidence only."
+  ],
+  "schema_version": 1
+}
