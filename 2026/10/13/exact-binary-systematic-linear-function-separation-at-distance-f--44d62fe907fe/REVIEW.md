@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof handles every binary linear function, including zero columns, repeated images, and functions with nontrivial kernels. Single-position differences force parity row weight at least three; two-position differences with distinct nonzero images force pairwise distance at least two. The fixed-coordinate hypercube matching excludes exactly \(r\) adjacent pairs, giving a sharp bound. Odd-weight parity labels realize every allowed number of image types, and an exhaustive case analysis over input differences of weights one, two and three verifies separation four. `verify.py` independently checks 84 small functions and four full-projective families. Computation supports, but does not replace, the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The primary full text explicitly states that exact systematic linear redundancy at prescribed separation four is left open (Ho, arXiv:2608.29389v1, Remark 5.13), while its proved distance-three formula has a different projective threshold. Classical extended Hamming codes already determine the identity-function special case and are credited. The additional result that *every* binary linear function is classified by its distinct nonzero function-column count is not present in the inspected primary source or discovered published comparisons. The 1990 parity-check literature may contain an implicit equivalent; the full article was unavailable, so that residual risk is disclosed.
+PASS
 
-## Value — PASS
-This settles the complete binary case at the first prescribed separation beyond the classification in Ho's paper, replacing an apparently complicated triple-row constraint by a sharp constructive invariant of the protected function. It applies with arbitrary kernel, zero columns, and multiplicities and quantifies the redundancy cost of protecting a function rather than the whole message. It is a natural all-function exact classification rather than an arbitrary finite example or mere reproduction of the extended-Hamming special case.
+Weight-one differences with nonzero f-image force associated parity rows of weight>=3; weight-two differences with distinct nonzero images force parity-row pair distance>=2. Fix one parity coordinate: hypercube matching pairs by its toggle have 2^(r-1) pairs, of which exactly r (prefix weights 0 or 1) have both endpoints weight<=2, hence <=2^(r-1)-r selected rows; this lower bound is sharp by assigning distinct odd-weight rows of weight>=3. For x with wt<=3 and f(x)!=0, 1,2,3 selected nonzero rows give nonzero parity in the necessary cases (three odd-weight rows have odd XOR; two distinct labels do not cancel). For larger x, systematic weight >=4. The proof treats zero/repeated images and empty function. Independent small-dimensional exhaustive parity testing found no violation; finite cases complement the uniform algebraic proof.
 
-## Scope and limitations
-Only binary fields, linear systematic encoders and prescribed separation four are established. Neither nonbinary nor nonlinear analogues are asserted, and an earlier equivalent in uninspected UEP literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ho explicitly addresses systematic linear separation and solves distances <=3, with distance-four listed as later work according to the inspected abstract/published summary; the all-binary ν(f) invariant extends the classical extended Hamming identity-function case. The older Clark–Dunning–Rogers set-function/parity-check work is an unresolved priority risk because its full text could not be inspected; access alone does not justify scientific rejection.
+
+## value
+
+PASS
+
+This determines an entire natural binary systematic function-correction problem at the first separation beyond earlier studied distances, including functions with kernels, zeros and repeated nonzero image columns. The ν invariant is an unexpectedly complete reduction from a global family of protected-message constraints to one discrete count; the tight matching construction is independently useful for systematic code design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
