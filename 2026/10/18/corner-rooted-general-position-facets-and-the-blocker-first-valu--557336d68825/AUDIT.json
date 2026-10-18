@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Manhattan geodesic betweenness yields the strict-incomparability and excluded-axis criterion for corner triples. Count antitone diagonals of subrectangles minus crossing-axis pairs. Any four-set through a corner would have three pairwise incomparable points, whose middle in coordinate order is geodesically between the extremes. Explicit witnesses extend every other corner pair; the only maximal pairs are both neighbors and the antipodal corner. The canonical bipartite neighbor reply proves Builder-first two, and a corner Blocker opening caps the primed game at three. Every starting vertex embeds in an isometric 2x3 grid partitioned into two explicit general-position triples, proving primed lower three outside the four-cycle. A BFS-distance exhaustive verifier checks 18 grids (20,504 exact minimax states and 72 rooted classifications). The unrestricted proof does not depend on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.19949, Corollary 2.4 covers the Builder-first equality as a special case of all connected bipartite graphs.",
+        "arXiv:2310.19949, Theorem 3.2 classifies graphs with primed value two, not value three.",
+        "DOI:10.1007/s40840-026-02083-9 treats mutual-visibility rather than general-position games; equality of legal-set families is asserted there only for geodetic graphs."
+      ],
+      "reasoning": "Exclude the entire Builder-first value-two statement from novelty. Complete rectangular grids are nongeodetic, so mutual-visibility game bounds cannot be substituted for the geodesic general-position game. Earlier general-position graph-product results determine nonstrategic maxima, not the sharp optimal Blocker-opening upper bound.",
+      "searches": [
+        "Rectangular grid P_m square P_n: Builder Blocker general-position game Blocker-start value 3 for all m,n at least 2 except 2x2; corner triples and maximal pairs",
+        "General position Builder Blocker game Cartesian product of paths grid three moves",
+        "\"general position\" \"Builder-Blocker\" \"Cartesian product\" paths",
+        "\"general position games\" \"grid graphs\" builder blocker"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.19949",
+      "arxiv:2401.05696",
+      "arxiv:2501.19385",
+      "doi:10.1007/s40840-026-02083-9",
+      "doi:10.1007/s00009-023-02416-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.19949, Corollary 2.4 directly entails only the first-mover value two; Lemma 3.1 can exclude a Blocker-first value of two when no universally terminal opening exists. Neither supplies a winning three-move upper strategy on all grids.",
+        "arXiv:2401.05696, Section 3 supplies feasible-set enumeration, not the game minimax recursion or corner maximality characterization.",
+        "arXiv:2501.19385, Section 5 explicitly discusses grid avoidance games separately from the Builder–Blocker optimization game."
+      ],
+      "reasoning": "The new strongest implication is a uniform corner-opening Blocker strategy bounding play by three and a complete count of all corner-rooted maximal sets. This has independent content beyond the known lower bound of three, global general-position number up to four, and Builder-first bipartite theorem.",
+      "searches": [
+        "Rectangular grid P_m square P_n: Builder Blocker general-position game Blocker-start value 3 for all m,n at least 2 except 2x2; corner triples and maximal pairs",
+        "Geodesic general position corner-rooted maximal sets on Cartesian products of paths monotone triples, cardinality C(m,2)C(n,2)-(m-1)(n-1)",
+        "General position Builder Blocker game Cartesian product of paths grid three moves",
+        "\"gp_g\" \"grid\" \"Blocker\" \"general position\"",
+        "\"gp_g'\" \"P_m\" \"P_n\" Cartesian \"general position\" game"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.19949, Lemma 3.1 and Theorem 3.2 characterize only the value-two boundary; no grid value-three theorem.",
+        "2024 general-position polynomial of Cartesian grids: arXiv:2401.05696, Corollary 3.4 and Theorem 3.5, supplies total counts but not rooted maximal sets or game strategies.",
+        "Relevant research-record matches concern other game conventions or distinct graph families, e.g. 2026/10/4/SCOPE-a-parity-correction-for-general-position-games-on-complete-multi--591b95c04ca3 (last-move game)."
+      ],
+      "reasoning": "The exact primed minimax value and rooted maximal-set profile cannot be reconstructed simply by renaming the general-position size polynomial; an optimal adversarial strategy must be shown. The published value-two criterion provides a lower bound of three but no upper bound for nontrivial grids.",
+      "searches": [
+        "Rectangular grid P_m square P_n: Builder Blocker general-position game Blocker-start value 3 for all m,n at least 2 except 2x2; corner triples and maximal pairs",
+        "Geodesic general position corner-rooted maximal sets on Cartesian products of paths monotone triples, cardinality C(m,2)C(n,2)-(m-1)(n-1)",
+        "General position Builder Blocker game Cartesian product of paths grid three moves",
+        "\"Builder-Blocker\" \"grid\" \"general position\" game",
+        "\"Blocker-game general position\" \"grid\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2401.05696, Theorem 3.5 tabulates unrooted numbers of all feasible sets by size, not maximal sets through one specified corner.",
+        "Research-record search returned nearest related but noncovering id 2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a (connected visibility on high-girth Cartesian products) and 2026/10/4/SCOPE-mobile-general-position-of-l-k-1-1-n--7ab330553509 (robot mobility on a different product)."
+      ],
+      "reasoning": "An exact table of global size counts does not give the position-restricted maximal-pair and maximal-triple census; the proof supplies new exact rooted data. A global table of game values for path grids was not found in checked sources; nonfindability does not prove absolute uniqueness.",
+      "searches": [
+        "Geodesic general position corner-rooted maximal sets on Cartesian products of paths monotone triples, cardinality C(m,2)C(n,2)-(m-1)(n-1)",
+        "\"general position polynomials\" \"grid\" Theorem 3.5",
+        "\"Builder-Blocker\" \"grids\" graph general position"
+      ]
+    },
+    "rationale": "The 2023 founding paper proves the Builder-first bipartite value but does not give Blocker-first values for rectangular Cartesian grids; it explicitly requests new families of Blocker-first value three. The 2024 full grid general-position polynomial counts all feasible configurations without determining corner-rooted inclusion-maximal sets or adversarial optimal lengths. The 2025 survey distinguishes avoidance/achievement from minimax games. The 2026 mutual-visibility paper concerns a different game on nongeodetic grids. Actual research-record searches for aliases and implication-dominating results found no covering theorem, and 102 accessible own historical claims were checked for duplication. Residual unindexed priority risk remains.",
+    "residual_risks": [
+      "No bibliographic search can rule out all unindexed or independently published equivalent results.",
+      "The construction may be an unstated consequence of other graph-game strategy arguments; no exact covering statement was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers connected bipartite Builder-first value two and Blocker-first value-two characterization; does not cover the primed grid value three or corner-rooted maximal-set count. Problem 5.7 motivates value-three classifications.",
+        "evidence": [
+          "Corollary 2.4",
+          "Lemma 3.1",
+          "Theorem 3.2",
+          "Problem 5.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.19949",
+        "material_read": "Complete accessible arXiv HTML: abstract, definitions, Sections 2-5, main classification, the closing open problems",
+        "method": "Read actual arXiv full text and searched grid/Cartesian product and value-three sections",
+        "title": "Builder-Blocker General Position Games",
+        "trigger": "Exact same rules and names of the game invariants"
+      },
+      {
+        "assessment": "Provides the complete unrooted polynomial; no Builder–Blocker game rule or corner-rooted inclusion-maximal census. Strong antecedent counts explicitly excluded from novelty.",
+        "evidence": [
+          "Section 3, Corollary 3.4",
+          "Section 3, Theorem 3.5"
+        ],
+        "identifier_or_url": "https://oro.open.ac.uk/95325/7/95325_VoR.pdf",
+        "material_read": "Introduction and Section 3, particularly pp. 6-8, Corollary 3.4 and Theorem 3.5; additional accessible sections for context",
+        "method": "Inspected institutional open-access PDF text and corresponding open-access article description",
+        "title": "General Position Polynomials",
+        "trigger": "Same grid objects, all feasible general-position set counts"
+      },
+      {
+        "assessment": "Grid avoidance-game winner is a different last-move objective; no rectangular-grid Builder–Blocker minimax formula found.",
+        "evidence": [
+          "Section 5, grid avoidance-game Theorem 5.50",
+          "Builder–Blocker games discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.19385",
+        "material_read": "Games discussion including achievement/avoidance grid results and Builder–Blocker subsection",
+        "method": "Inspected accessible survey text on types of games and exact reported families",
+        "title": "The General Position Problem: A Survey",
+        "trigger": "Latest general-position literature synthesis and games on grids"
+      },
+      {
+        "assessment": "Deals with mutual visibility, which is not identical to geodesic general position on nongeodetic rectangular grids; does not imply the present primed game classification.",
+        "evidence": [
+          "Proposition 2.5 restricts equivalence to geodetic graphs",
+          "Section 5, Problem 5.3 concerns mutual-visibility grids"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40840-026-02083-9",
+        "material_read": "Open-access HTML, Sections 2-5 including Proposition 2.5, Hamming graph and Cartesian grid discussion",
+        "method": "Compared exact feasible-set definition and scope of asserted correspondence to general-position games",
+        "title": "Builder-Blocker Mutual-Visibility Game",
+        "trigger": "Similar adversarial terminology and explicit Cartesian-grid discussion"
+      },
+      {
+        "assessment": "Deals with products of two cycles and hypercubes, not rectangular grids under adversarial Builder–Blocker optimization.",
+        "evidence": [
+          "Abstract and introduction identify products of cycles and hypercubes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00009-023-02416-z",
+        "material_read": "Open-access abstract, introduction, article scope and stated principal Cartesian product families",
+        "method": "Compared graph factors and stated invariants",
+        "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+        "trigger": "Plausible Cartesian-product general-position title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "557336d6-8825-41eb-b42b-9c6728cf211d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete infinite family of nontrivial path-grid Cartesian products has exact two-player game values with a sharp 2x2 exception, answering a natural instance of the published request to classify Blocker-first value-three graphs (arXiv:2310.19949, Problem 5.7). The proof additionally gives the full size-specific corner-rooted maximal configuration count, not present in the published unrooted grid polynomial. The question is canonical and strategically motivated; not an arbitrary finite slice or a trivial relabeling.",
+    "status": "PASS"
+  }
+}
