@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The precise immediate-child, unlabelled, finite tree semantics yield exactly 16 depth-three types. The local distinct-child weighted demand inequality sums over each nonroot vertex exactly once, giving n >= sum_v h(t(v)) + lambda_beta(root). The 16 potentials are nonnegative and total 44. Root type >=4 forces root weight >=3, so n>=47 for every tree. A standalone checker verifies a 47-vertex rooted arborescence, its 16 calculated types and the equality certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bolander and Burigana (2024), Definitions 3.10, Theorems 4.4, 5.6 and Section 6, https://arxiv.org/pdf/2405.00480",
+        "Papacchini and Schmidt (2011), introduction and Sections 2–4, https://www.csc.liv.ac.uk/~papacchf/papers/PapacchiniSchmidt11a.pdf"
+      ],
+      "reasoning": "A world-minimal pointed k-bisimulation contraction only preserves the selected root theory and permits edge sharing; it does not require depth-k type coverage at every vertex nor enforce tree edges. Inclusion-minimal Herbrand interpretations under an input theory concern a different order relation and need not be cardinality-minimal. No theorem in these texts implies the value 47 for the present constrained saturation problem.",
+      "searches": [
+        "47 vertex minimum universal modal type tree 3-bisimilarity unlabelled rooted trees no atoms",
+        "Finite modal K tree model all pointed depth-k theories simultaneously minimal size 16 types",
+        "Better Bounded Bisimulation Contractions world edge minimal rooted k contraction tree graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.entcs.2011.10.013",
+      "https://www.csc.liv.ac.uk/~papacchf/papers/PapacchiniSchmidt11a.pdf",
+      "arxiv:2405.00480",
+      "https://arxiv.org/pdf/2405.00480",
+      "https://research.lancaster-university.uk/en/publications/a-tableau-calculus-for-minimal-modal-model-generation/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Papacchini and Schmidt 2011 pp. 1–7 define minimization by subset inclusion of modal Herbrand interpretations and provide completeness for tableau generation of such models.",
+        "Bolander and Burigana 2024 theorem 5.6 minimizes a pointed model under depth-k bisimulation and even their tree examples in section 6 use depth labels and two modal relations."
+      ],
+      "reasoning": "Neither prior conclusion implies the tree-only universal-coverage assertion: preserving one pointed k-theory does not preserve all depth-k theories of all states, and unrestricted directed sharing can reduce the state count to 16. The current proof constrains immediate-child arborescences and certifies a different invariant by child-demand weights.",
+      "searches": [
+        "\"A Tableau Calculus for Minimal Modal Model Generation\" pdf \"Papacchini\" \"Schmidt\" 2011",
+        "\"modal\" \"type\" \"depth\" \"rooted tree\" minimal size universal representative",
+        "unlabelled rooted trees \"bisimulation\" \"universal\" minimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Modal depth-three theories coincide with three-round bisimulation types in finite transition systems; arXiv:2405.00480, Section 2",
+        "The 16 code classes and modal characteristic formula induction in the current result give the equivalence between formula types, bisimulation types and child-set codes."
+      ],
+      "reasoning": "All these formulations designate the same type-complete tree minimum. Claim-specific searches found works on pointed-model minimization, tree orbit enumeration and bisimulation rather than a 47-node simultaneous-coverage theorem.",
+      "searches": [
+        "The minimum rooted finite directed tree realizing all sixteen modal-depth-three bisimulation types is exactly forty-seven vertices",
+        "Bisimulation type complete rooted finite tree covering every depth-three modal theory sharp vertex number 47",
+        "modal logic universal tree realization all depth k bisimulation types size smallest tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 47-node type-complete rooted-tree table was identified among retrieved published search results; this is a bounded negative search observation, not a priority proof.",
+        "The present 16-entry weighted-potential table and explicit 47-node certificate are supplied and reproducible."
+      ],
+      "reasoning": "Queries used both numeric and descriptive aliases. The retrieved result-index items concerned meet-trees, general modal contractions and unrelated minimal tree parameters, none of whose accessible claims gave an exact all-16-classes minimum. Unindexed tables remain possible.",
+      "searches": [
+        "\"47\" \"modal\" \"bisimulation\" \"tree\" \"types\"",
+        "\"47\" \"16\" \"modal\" \"trees\" bisimulation",
+        "Modal depth 3 zero atom Kripke tree sixteen bisimulation types minimum nodes tree universal witnesses"
+      ]
+    },
+    "rationale": "The 47-vertex universal-depth-three-type tree optimum and nonnegative weighted child-demand lower bound are not entailed by the examined minimum-Herbrand-interpretation or minimum-pointed-contraction theorems. Primary full texts and claim-specific published-result and web searches show no exact competing theorem or dominating small-model table. This does not establish priority beyond available evidence.",
+    "residual_risks": [
+      "An unindexed or unpublished exact finite-state modal-type saturation census might contain the 47-vertex cutoff.",
+      "Primary sources outside the inspected modal-model and bounded-bisimulation literature may establish a stronger universal-tree minimum theorem.",
+      "The absence of a matching indexed title or number is not proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different scientific invariant: inclusion-minimal Herbrand models for a supplied clause set, without a 16-type all-vertex tree-cardinality theorem.",
+        "evidence": [
+          "Section 1 explicitly distinguishes domain minimum from Herbrand minimum",
+          "Section 2 defines minimality by inclusion of positive interpretation atoms",
+          "Section 3 soundness/completeness addresses minimal Herbrand tableau models"
+        ],
+        "identifier_or_url": "doi:10.1016/j.entcs.2011.10.013; https://www.csc.liv.ac.uk/~papacchf/papers/PapacchiniSchmidt11a.pdf",
+        "material_read": "Author-hosted 27-page full-text PDF: introduction, semantic/minimality definitions in Section 2, generation/completeness Sections 3–4, final discussion; author slides also consulted",
+        "method": "Read text and inspected original PDF views; compared minimality preorder and type-coverage quantifiers",
+        "title": "A Tableau Calculus for Minimal Modal Model Generation",
+        "trigger": "Directly plausible predecessor on minimum modal model sizes"
+      },
+      {
+        "assessment": "Strong related method but no theorem with the same domain or implication of 47; assumes a given pointed model and minimises within general Kripke frames.",
+        "evidence": [
+          "Theorem 4.4 world-minimal pointed contraction",
+          "Theorem 5.6 world/edge minimal contraction",
+          "Section 6 uses labelled two-relation binary-tree examples for exponential succinctness"
+        ],
+        "identifier_or_url": "arxiv:2405.00480; https://arxiv.org/pdf/2405.00480",
+        "material_read": "Public 16-page preprint: abstract, introduction, definitions and examples, main world/edge minimality statements and proofs, Section 6 tree construction",
+        "method": "Inspected full PDF text and multiple page images; contrasted rooted k-contraction requirements with all-vertex simultaneous coverage on a single tree",
+        "title": "Better Bounded Bisimulation Contractions",
+        "trigger": "Potential broader bounded-bisimulation state-minimization theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dda455b7-5ffa-41fa-8027-9884a12c936c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural complete finite saturation problem: the least rooted immediate-child tree representing all modal depth-three observational classes. It measures the cost of forbidding shared descendants, compared with the 16-vertex DAG construction; its exact 47 barrier is supported by an explicit structural potential lower bound, not an arbitrary computation. There is no claimed or needed general theorem for other modal depths.",
+    "status": "PASS"
+  }
+}
