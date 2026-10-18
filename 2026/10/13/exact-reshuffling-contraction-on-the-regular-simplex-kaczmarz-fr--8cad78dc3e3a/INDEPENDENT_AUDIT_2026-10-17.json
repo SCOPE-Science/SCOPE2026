@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the regular simplex n+1 unit rows in R^n (n>=1), permutation invariance makes E[T_pi^T T_pi] scalar on the irreducible n-dimensional standard representation. Its scalar is Tr(T^T T)/n for one fixed order. Removing successive simplex projections evolves inner products by (1+1/n); summing the exact lost squared norms yields c_n=-1/n+1/n^3 sum_{ell=0}^{n-1}(n-ell)(1+1/n)^(2ell), equivalent to the rational closed form in RESULT.md. Independent exact Fraction calculations enumerating all (n+1)! permutations for n=1..4 reproduced the entire averaged Gram matrices and c_n. Fresh independent epoch permutation plus conditional scalarity gives c_n^k, while tight-frame isotropy yields with-replacement factor (1-1/n)^(n+1); c_n~(e^2-7)/(4n). Enumeration is finite corroboration; trace recurrence and representation argument prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie arXiv:2410.01140 Thm3.2 gives contraction bounds for general reshuffling; Remark3.5 treats orthogonal rows.",
+          "Strohmer–Vershynin math/0702226 estimates randomized Kaczmarz with-replacement speed via scaled condition numbers."
+        ],
+        "reasoning": "General convergence inequalities and orthogonal special cases cannot directly yield this simplex-specific finite exact c_n or the O(1/n) versus e^-1 contrast; the latter includes a lower-dimensional redundant row.",
+        "searches": [
+          "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+          "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+          "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+          "arXiv:math/0702226"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git tree c62fb490de12a9fe9d6968cffe5d441ebbdce628: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+        "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+        "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+        "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+        "arXiv:math/0702226"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strohmer–Vershynin sampled iteration gives d_n after n+1 draws, but cannot replace dependent without-replacement product by d_n.",
+          "Han–Xie convergence theorem allows general matrices and yields inequalities rather than equality for this constrained family."
+        ],
+        "reasoning": "The claim is not a corollary of these quoted broad estimates without doing the new symmetry/trace calculation.",
+        "searches": [
+          "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+          "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+          "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+          "arXiv:math/0702226"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform random row sampling has exact conditional contraction 1-1/n via tight frame, different from fresh reshuffling without replacement.",
+          "Arbitrary equiangular tight frame bounds do not automatically fix the order-dependent product trace for n+1 simplex rows."
+        ],
+        "reasoning": "Compared row-action normalization, without-replacement epoch, reuse of one fixed permutation, and independent sampling. Only fresh reshuffle of all n+1 rows leads to the exact scalar here; the general randomized Kaczmarz result is not the same operator product.",
+        "searches": [
+          "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+          "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+          "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+          "arXiv:math/0702226"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches returned regular-simplex geometric and general random matrix results but no exact reshuffling simplex Kaczmarz contraction table.",
+          "Source arithmetic-geometric sum gives concrete fractions n=1 0, n=2 1/32, n=3 58/2187, n=4 5673/262144; independently enumerated."
+        ],
+        "reasoning": "No matching exact database entry located. This is insufficient to prove priority; an older numerical linear algebra benchmarking appendix might contain equivalent formulas.",
+        "searches": [
+          "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+          "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+          "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+          "arXiv:math/0702226"
+        ]
+      },
+      "rationale": "Exact all-dimensional scalar reshuffle contraction and sharp contrast to with-replacement on the canonical n+1-row simplex frame are not stated in the inspected general randomized Kaczmarz convergence theorems, which bound arbitrary frames. The symmetry method may be implicitly known in equiangular tight-frame analyses; best-of-knowledge originality carries that risk.",
+      "residual_risks": [
+        "Equivalent regular-simplex frame analysis may be buried in older numerical linear algebra or cyclic projection work.",
+        "Full source references include a Zenodo DOI not independently downloaded; no not-covering claim is made about it.",
+        "The exact finite permutation check covers n<=4, while infinite n relies on standard representation symmetry and trace induction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected statements do not evaluate exact regular-simplex n+1 row epoch contraction",
+          "evidence": "Theorem 3.2 bounds general matrices; an orthogonal-row case is not a centered regular simplex.",
+          "identifier_or_url": "arXiv:2410.01140",
+          "material_read": "Theorem 3.2 and Remark 3.5 on general contraction and orthogonal-row case in the primary PDF",
+          "method": "Public arXiv PDF text and rendered theorem pages",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "Direct prior paper on exactly the reshuffling algorithm"
+        },
+        {
+          "assessment": "Provides with-replacement framework and convergence rate, not the displayed reshuffle scalar in read portion",
+          "evidence": "Independent sampling conditional contraction is derived here directly from tight-frame isotropy.",
+          "identifier_or_url": "arXiv:math/0702226",
+          "material_read": "Abstract and primary theorem characterization; no full-document noncoverage claim",
+          "method": "Public primary preprint and theorem reference",
+          "title": "A Randomized Kaczmarz Algorithm with Exponential Convergence",
+          "trigger": "Foundational randomized Kaczmarz rate and sampling comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact second-moment contraction on a maximally symmetric overdetermined frame explains a large algorithmic gap between reshuffling and independent row sampling on equal per-epoch work. The O(1/n) versus e^-1 transition is a substantive benchmark for convergence theory, not a routine substitution into a general rate bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git tree c62fb490de12a9fe9d6968cffe5d441ebbdce628: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+    "Resultary semantic: random reshuffling randomized Kaczmarz regular simplex frame exact contraction permutation expected squared error",
+    "Resultary semantic: randomized Kaczmarz equiangular simplex complete n+1 rows reshuffling exact contraction e^2-7 over 4n",
+    "arXiv:2410.01140 Theorem 3.2 and Remark 3.5",
+    "arXiv:math/0702226"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent regular-simplex frame analysis may be buried in older numerical linear algebra or cyclic projection work.",
+    "Full source references include a Zenodo DOI not independently downloaded; no not-covering claim is made about it.",
+    "The exact finite permutation check covers n<=4, while infinite n relies on standard representation symmetry and trace induction."
+  ],
+  "residual_risks": [
+    "Equivalent regular-simplex frame analysis may be buried in older numerical linear algebra or cyclic projection work.",
+    "Full source references include a Zenodo DOI not independently downloaded; no not-covering claim is made about it.",
+    "The exact finite permutation check covers n<=4, while infinite n relies on standard representation symmetry and trace induction."
+  ],
+  "schema_version": 1
+}
