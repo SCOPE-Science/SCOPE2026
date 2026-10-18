@@ -1,11 +1,21 @@
-# Scientific review: sharp reentrant mean-square stability
+# Independent mathematical audit
 
-**Correctness — PASS.** For each independently sampled exact exponential, the two nilpotent shear formulas are explicit. Averaging the resulting squared-norm Gram matrices gives the scalar multiplier \(e^{-4ah}(1+2b^2h^2)\) *for every initial direction*, so iterated conditional expectation proves the all-time statement. The expected propagator is a scalar times a rotation, producing the separate mean-vector formula. One scalar function \(F(z)=\log(1+z^2/2)/z\) has a unique maximum, as proved by an exactly signed derivative. This yields the unique shear/damping threshold and all stable, neutral, and unstable cases. The accompanying standard-library verifier ran 192 exact rational word-enumeration identities and critical-constant diagnostics; finite tests are not presented as an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Veldman–Zuazua [1] supply the defining unbiased random time-split mechanism but analyze finite-horizon consistency under dissipativity (or quasi-dissipativity with growing bounds), not this global grid-step phase diagram. Ogura–Martin [2] already give general switched-system spectral/Lyapunov mean-stability criteria; that general fact is not new, but it has not been found to explicitly evaluate the sharp scalar transition and reentrant instability for the particular damped-shear exponential split. The closely related randomized MPC [3] and abstract operator splitting [4] treat different algorithms and stability/error targets. Search comparisons included exact aliases, broader spectral coverage, reentrant-step language, and published historical findings, with no equivalent located. An identical explicit evaluation in unindexed switched-system literature remains a residual risk; independent originality review has not occurred.
+PASS
 
-**Value — PASS.** Long-time mean-square stability is a natural issue in using random generator subsets to simulate a contracting rotation. A complete exact threshold shows that individual Hurwitz stability does not suffice, gives a stable–unstable–stable step-size sequence, and distinguishes decay of the mean state from growth of its expected energy. The ratio \(b/a\) and step \(h\) are intrinsic nondimensional parameters, not an arbitrary finite slice. The result is restricted to a two-dimensional homogeneous zero-input model with equally likely exact generator exponentials; it does not establish pathwise instability, general splitting-stability bounds, large-step accuracy, or closed-loop MPC outcomes.
+For A1=−aI+bE12 and A2=−aI−bE21, exact exp(2hAi) is a damped triangular shear. Directly (M1^T M1+M2^T M2)/2=exp(−4ah)(1+2b²h²)I and (E M)^T(E M)=exp(−4ah)(1+b²h²)I. Independent symbolic matrix multiplication verified the undamped identities. Conditioning at each iid step gives the exact all-k mean-square and mean norm laws, not a finite-time extrapolation. The derivative of F(z)=log(1+z²/2)/z reduces to g(s)=2s/(1+s)−log(1+s), whose derivative (1−s)/(1+s)^2 proves a unique positive maximum at s_*>1. The three regimes beta<,=,>beta* give all-step stable, one neutral, or exactly two crossings with a reentrant unstable band. Checks include b=0 and a=1,b=4,h=1/4 yielding q=3/e and m=2/e.
 
-**Sources.** [1] D. W. M. Veldman and E. Zuazua, *A framework for randomized time-splitting in linear-quadratic optimal control*, arXiv:2109.13798v1 (2021). [2] M. Ogura and C. F. Martin, *On the Mean Stability of a Class of Switched Linear Systems*, arXiv:1409.6032 (2014). [3] D. W. M. Veldman, A. Borkowski and E. Zuazua, *Stability and Convergence of a Randomized Model Predictive Control Strategy*, arXiv:2211.05463 (2022). [4] M. Eisenmann and T. Stillfjord, *A randomized operator splitting scheme inspired by stochastic optimization methods*, arXiv:2210.05375 (2022).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original randomized exponential generator selection and generic mean-square stability tests are known. The claim is the exact two-shear scalar energy law and global nonmonotonic phase diagram over all positive grid steps, not a new general Lyapunov criterion; the originating finite-horizon convergence theory does not imply this long-time sharp regime without specialized computation.
+
+## value
+
+PASS
+
+Identifies an exact, sharp and genuinely counterintuitive reentrant stability boundary for a natural two-generator randomized splitting: coarser steps can be mean-square stable when intermediate steps are unstable, and mean and mean-square can move in opposite directions. Provides a diagnostic model for separating convergence from approximation accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

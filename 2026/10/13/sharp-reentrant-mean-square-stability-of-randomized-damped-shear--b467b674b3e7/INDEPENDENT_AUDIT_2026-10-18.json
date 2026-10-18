@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:17:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A1=−aI+bE12 and A2=−aI−bE21, exact exp(2hAi) is a damped triangular shear. Directly (M1^T M1+M2^T M2)/2=exp(−4ah)(1+2b²h²)I and (E M)^T(E M)=exp(−4ah)(1+b²h²)I. Independent symbolic matrix multiplication verified the undamped identities. Conditioning at each iid step gives the exact all-k mean-square and mean norm laws, not a finite-time extrapolation. The derivative of F(z)=log(1+z²/2)/z reduces to g(s)=2s/(1+s)−log(1+s), whose derivative (1−s)/(1+s)^2 proves a unique positive maximum at s_*>1. The three regimes beta<,=,>beta* give all-step stable, one neutral, or exactly two crossings with a reentrant unstable band. Checks include b=0 and a=1,b=4,h=1/4 yielding q=3/e and m=2/e.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ogura–Martin supplies broad Lyapunov mean-square stability criteria, not the specialized transcendental threshold",
+          "Veldman–Zuazua uses dissipativity assumptions or finite-horizon error bounds"
+        ],
+        "reasoning": "General Lyapunov criteria could decide stability for a fixed step after inserting matrices but do not state the continuous parameter phase geometry. The observed instability lies beyond component dissipativity b<=2a, so it does not contradict the source theorem.",
+        "searches": [
+          "arXiv:1409.6032 Ogura Martin mean stability random matrix products",
+          "Veldman Zuazua Numerische Mathematik 151 (2022)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.13798",
+        "arXiv:1409.6032",
+        "Resultary randomized-time-splitting semantic results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct conditional-energy identity gives q(h)=e^(−4ah)(1+2b²h²)",
+          "Finite-horizon error bounds do not imply q(h)<1 for every fixed h, while generic Lyapunov tests do not immediately establish the unique global beta* and reentrance"
+        ],
+        "reasoning": "The mathematical step requiring the submitted work is isolating the scalar multiplier and proving the unimodality of log(1+z²/2)/z, not deducing a standard fixed-matrix inequality.",
+        "searches": [
+          "arXiv:2109.13798 Remark 9 and Example 1",
+          "arXiv:1409.6032 mean-square Lyapunov"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Veldman–Zuazua Example 1 selects an inverse-probability weighted generator in exactly the same type of splitting"
+        ],
+        "reasoning": "The model agrees at the level of iid sampled exponentials; a finite-horizon approximation theorem is not equivalent to an exact infinite-horizon mean-square spectral multiplier and two-crossing stability classification.",
+        "searches": [
+          "Resultary:randomized time splitting damped shear planar rotation exact mean square stability reentrant step size threshold",
+          "arXiv:2109.13798 Example 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched Resultary for exact damped shear and reentrant stability; related shear p-contractivity hits concern a different matrix-norm problem"
+        ],
+        "reasoning": "No exact critical beta=3.514699 and two-step crossing table in the inspected results; non-discovery is not a novelty certificate.",
+        "searches": [
+          "Resultary:randomized damped shear mean square stable unstable step reentry beta threshold"
+        ]
+      },
+      "rationale": "The original randomized exponential generator selection and generic mean-square stability tests are known. The claim is the exact two-shear scalar energy law and global nonmonotonic phase diagram over all positive grid steps, not a new general Lyapunov criterion; the originating finite-horizon convergence theory does not imply this long-time sharp regime without specialized computation.",
+      "residual_risks": [
+        "A general random-product mean-square stability reference could include the same special family under alternate coordinates.",
+        "No almost-sure stability or approximation-error claim is established; very coarse stable steps can approximate the original dynamics poorly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes the source method and bounded-horizon convergence, not the claimed exact two-shear reentrant fixed-step phase classification",
+          "evidence": "Example 1, Assumption 1, Remark 9 and main finite-horizon estimates",
+          "identifier_or_url": "arXiv:2109.13798 / DOI:10.1007/s00211-022-01290-3",
+          "material_read": "Full publisher open HTML article including Example 1, assumptions, finite-horizon error results and nondissipative remarks",
+          "method": "Lawful Springer article full text",
+          "title": "Veldman and Zuazua, A framework for randomized time-splitting in linear-quadratic optimal control",
+          "trigger": "Original inverse-probability randomized exact propagator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies an exact, sharp and genuinely counterintuitive reentrant stability boundary for a natural two-generator randomized splitting: coarser steps can be mean-square stable when intermediate steps are unstable, and mean and mean-square can move in opposite directions. Provides a diagnostic model for separating convergence from approximation accuracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly 2D homogeneous damped-shear pair, equal iid choices with factor-two correction and exact propagators; no arbitrary splits, pathwise exponents, or control feedback claims."
+  ]
+}
