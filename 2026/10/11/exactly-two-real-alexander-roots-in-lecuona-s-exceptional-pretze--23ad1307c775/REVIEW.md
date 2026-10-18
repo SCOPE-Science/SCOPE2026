@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact Alexander-polynomial formula for \(P_a\) and reconstructs both variable changes. On the positive real axis, the Cayley transform reduces the question to one uniform coefficient inequality. On the negative real axis, the hyperbolic substitution reduces the zero equation to a product of two positive increasing factors equal to \(1\); that product is strictly increasing, so exactly one root lies below \(-1\). Reciprocity supplies exactly one root in \((-1,0)\), and the positive-axis inequality excludes all positive roots. The derivative of the increasing product is positive at the crossing, so both roots are simple.
+## correctness
 
-## Originality
-PASS. The recent primary source proves a Fox--Milnor nonfactorization theorem for this family and gives the exact polynomial and transformed expressions, but it does not classify the polynomial's real zeros. Exact-family, exact-polynomial, and real-root searches found no equivalent uniform result. The closest published comparison located is the separate pretzel knot \(P(-2,3,7)\), whose polynomial is known to have two negative real roots; that isolated example does not imply the present parameterized theorem. The main residual risk is an unindexed older remark about this exact family.
+PASS
 
-## Value
-PASS. The Alexander polynomial is the central invariant in the recent resolution of the exceptional pretzel family. Determining its complete real-zero set is a natural structural question rather than a cosmetic reformulation: the theorem gives a uniform exact count, signs, reciprocity, and simplicity, and it separates real-root geometry from the stronger Fox--Milnor obstruction used for sliceness.
+For odd a≥3 set m=(a+1)/2≥2; the representative polynomial is monic reciprocal degree 2a. On t=(1+u)/(1-u)>0, |u|<1, Saurabh’s exact Cayley transform gives D_m(u)=E_m(u)^2-u²(1−u²)^(2m−2)(u²+4m²−1). Since E_m(u)>=1+m(2m−1)u² and (1+A r)^2>=4A r>4m²r for m≥2, D_m>0 on all positive t. On t=−e^(2v), the exact hyperbolic reduction is [sinh(2mv)/sinh(v)]²−1−4m²cosh²v. For v>0 the difference between 2Σ_{j=1}^m cosh((2j−1)v) and 2m cosh v is strictly increasing from zero, while the sum is positive increasing, so exactly one simple root appears below −1. Reciprocity gives the unique simple partner in (−1,0), and Δ(−1)=−1 excludes the middle. Infinite-family argument uses strict inequalities, not finite samples.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published residual-family theorem DOES COVER exactly-two-negative-simple-reciprocal roots when m≥3 is odd; no priority claimed for that portion. Its statement does not apply to even m, and it does not rule out positive real roots. Saurabh’s full paper provides polynomial, Cayley transformation and a positivity lemma for an auxiliary Q in odd-m case; it does not classify all real Alexander roots for all odd a. The present all-m>=2 real-axis classification is therefore a strictly broader complete statement, albeit an algebraically straightforward extension of the prior negative-axis proof.
+
+## value
+
+PASS
+
+Alexander real-root counts are natural topological polynomial invariants for the entire exceptional three-strand pretzel family. Completing the real-axis spectrum for every odd a≥3, including the previously omitted even m and explicitly excluding all positive roots, is a precise, potentially reusable family-wide classification beyond residual odd-m negative-root asymptotics. It does not claim a new sliceness obstruction or progress on nonreal root distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
