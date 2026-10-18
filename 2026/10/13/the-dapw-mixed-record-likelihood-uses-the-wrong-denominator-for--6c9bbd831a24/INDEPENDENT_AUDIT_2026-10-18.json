@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:21:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary 2026 DAPW paper Section 3.3 Eq. (14) was read directly from the freely accessible full paper text, and has lower-record factor p(L_i)/F(L_{i−1}); Eq. (15) correctly has upper factor p(U_i)/(1−F(U_{i−1})). For strict lower records, the waiting draw is the first future X<ℓ, so conditional value j<ℓ has probability p(j)/Pr(X<ℓ)=p(j)/F(ℓ−1), not denominator F(ℓ). This is a normalization defect, not a convention change: the published factors sum to F(ℓ−1)/F(ℓ)<1 if p(ℓ)>0. Correct conditional record likelihood is p(L_1)∏_{i>=2} p(L_i)/F(L_{i−1}−1), and ratio of published to correct likelihood is product F(L_{i−1}−1)/F(L_{i−1}). Independently evaluated distribution from source PMF/CDF with high-precision decimal for α=2, θ=1/2, β=1, observed records 2>1>0: source ≈0.029669639318996232, corrected ≈0.059739036479455242, ratio ≈0.496654132163646. Admissible initial records have F(previous−1)>0; the discrete record stopping-plan issue is outside the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical strict-record law already states corrected conditional probabilities.",
+          "The 2026 DAPW paper prints a contrary denominator."
+        ],
+        "reasoning": "A prior universal strict-record formula mathematically implies the correction when applied to the DAPW model; however it does not itself report the 2026 paper’s mistake, parameter-dependent correction factor or distinct upper-record status. Novelty credit is restricted to diagnosing a published model, not the probability identity.",
+        "searches": [
+          "strict discrete lower record distributions conditional p/F(ell−1)",
+          "Elkalzah DAPW 2026 Eq14 Eq15"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2026263",
+        "https://doi.org/10.1111/j.2517-6161.1952.tb00115.x",
+        "https://doi.org/10.1016/j.spl.2004.11.001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq14 written as p(L_i)/F(L_{i−1}), Eq15 as p(U_i)/(1−F(U_{i−1})).",
+          "Classical conditional probability rules out Eq14 for strict records; the paper’s own upper Eq15 reinforces the strict convention. Any previously known record likelihood implies the proper formula, but no verified earlier paper-specific correction was found."
+        ],
+        "reasoning": "Classical strict-record theory supplies the general normalization law; the specific source Eq14 contradicts it, and an independent paper-specific correction was not identified.",
+        "searches": [
+          "Elkalzah 2026 Sec3.3 Equations 14 15",
+          "Chandler 1952 record theory strict"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elkalzah et al. 2026 Sec 3.3 Eq14 divides by F(L_{i−1}).",
+          "Strict next record event is {X<L_{i−1}} with mass F(L_{i−1}−1)."
+        ],
+        "reasoning": "The abstract conditional transition law is classical, but matching it to exactly the source’s integer-valued Eq14 yields the paper-specific off-by-one correction.",
+        "searches": [
+          "discrete alpha power Weibull DAPW mixed lower record likelihood F(L-1) denominator correction",
+          "DAPW Eq 14 lower records denominator F",
+          "strict discrete lower record next value conditional distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent high-precision numeric example ratio 0.496654132163646; no located corrigendum."
+        ],
+        "reasoning": "This is not a tabular recomputation: exact source equation is inconsistent with normalization, and the numerical value illustrates nontrivial magnitude. An unnoticed recent erratum remains possible.",
+        "searches": [
+          "DAPW mixed records Eq14 erratum corrigendum 2026",
+          "discrete alpha power Weibull DAPW mixed lower record likelihood F(L-1) denominator correction"
+        ]
+      },
+      "rationale": "The off-by-one strict discrete record normalization is classical probability and receives no novelty credit as an abstract theorem. The assessed new result is specifically identifying and exactly correcting the printed lower-record equation in Elkalzah et al. 2026 and quantifying parameter-dependent likelihood distortion, while distinguishing the correctly normalized upper records. Full primary paper Section 3.3 Eq14/15 was materially examined (including the source’s explicit assumption of discrete iid strength observations). Focused queries for the DOI, formula and corrigenda and Resultary semantic records found no earlier documented same-paper correction. The 2026 paper’s other truncation issue is independent.",
+      "residual_risks": [
+        "A published correction or comment on Eq(14) may be unindexed.",
+        "If the source actually intended weak rather than strict records, a different likelihood model would need explicit definition; paper presents ordinary recursively defined records.",
+        "Numerical experiment code was not inspected; no statement is made that reported tables implemented Eq14."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary Eq14 includes F at preceding integer lower record rather than Pr(X<ℓ); upper Eq15 uses 1−F(U) correctly. No printed corrigendum identified.",
+          "evidence": "Section 3.3, Eq(14) and Eq(15), March 2026.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026263",
+          "material_read": "Complete primary paper reproduced as text, especially Section 3.3 lines on iid discrete strength, mixed likelihood Eq13, lower Eq14 and upper Eq15, and the downstream inference references",
+          "method": "web full-text reading via public ResearchGate author-distributed manuscript",
+          "title": "Classical and Bayesian estimation of stress–strength reliability under the discrete Alpha-power Weibull distribution with incomplete and record data",
+          "trigger": "Exact 2026 DAPW source with proposed mixed-record equation"
+        },
+        {
+          "assessment": "Strict lower record event X<current minimum is classical; not presented as invented.",
+          "evidence": "Ordinary strict record definition, distinct from weak ties.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1952.tb00115.x",
+          "material_read": "Bibliographic record and standard strict-record definition; full original not retrieved in run",
+          "method": "web search and mathematical reconstruction",
+          "title": "The Distribution and Frequency of Record Values",
+          "trigger": "Classical definition of strict records"
+        },
+        {
+          "assessment": "Not used to claim DAPW correction; notes convention risk if source intended weak records despite described strict setup.",
+          "evidence": "Discrete strict and weak record conventions.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2004.11.001",
+          "material_read": "Published bibliographic abstract and known distinction, complete full text not retrieved",
+          "method": "web search",
+          "title": "kth records from discrete distributions",
+          "trigger": "Discrete record/tie conventions that could undermine the criticism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit correction of a named, published likelihood used for inferential procedures is scientifically consequential even though the conditional-probability derivation is elementary: wrong parameter-dependent denominators alter maximum-likelihood and Bayesian inference. Restricting to the printed strict-lower-record component avoids unsupported assertions about numerical simulations or all DAPW models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3934/math.2026263",
+    "https://doi.org/10.1111/j.2517-6161.1952.tb00115.x",
+    "https://doi.org/10.1016/j.spl.2004.11.001",
+    "Frozen RESULT.md Git blob 7cccabcce1053f64ff3648f7bd338488d7bfe2f6",
+    "Frozen record Git tree 4434f4a2e6ab6185fb2e48f7b54beccb2e2c61b3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Corrects printed strict-lower-record likelihood only; does not independently reconstruct mixed-record simulation tables or record stopping design.",
+    "The proof assumes an observed admissible strictly descending sequence and positive F at each required lower truncation."
+  ],
+  "residual_risks": [
+    "A published correction or comment on Eq(14) may be unindexed.",
+    "If the source actually intended weak rather than strict records, a different likelihood model would need explicit definition; paper presents ordinary recursively defined records.",
+    "Numerical experiment code was not inspected; no statement is made that reported tables implemented Eq14."
+  ],
+  "schema_version": 1
+}
