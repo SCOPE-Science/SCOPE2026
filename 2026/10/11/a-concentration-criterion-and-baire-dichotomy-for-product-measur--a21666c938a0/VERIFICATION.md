@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Analytic verification
-The derivation is self-contained. To check the first reduction, let a compatible product metric be given. Uniform continuity of finitely many coordinate projections and uniform finite-coordinate control prove both requisite containments between shifted Bowen balls and uniform coordinate boxes, with radii chosen independently of their centers.
+# Independent mathematical audit
 
-For any \(0<r<1\), a finite radius-\(r\) cover of \([0,1]\) gives a universal positive lower bound on every maximal concentration \(q_j(r)\); hence the logarithmic-product equivalence used in the proof is valid even for singular or atomic marginal laws. Maxima are attained by upper semicontinuity of centered closed interval mass. The weak-upper-semicontinuity of the maximizing interval probability is verified using convergent maximizing centers and Portmanteau on expanded closed intervals.
+## correctness
 
-For the dense-exception family, summability of \((\varepsilon_j)\) ensures positivity of the tail product, and shrinking \((\rho_j)\) ensures that every fixed radius contains the high-weight interval on all but finitely many coordinates. All exceptional factors remain strictly positive because every marginal has full support. This proves non-expansivity at **every** candidate scale, not merely at one tested radius.
+PASS
 
-There are no numerical computations, inferred exhaustive finite enumerations, or independent theorem prover certificates. The proof does not cover dependent laws. The comparison with a subsequently posted same-system paper is limited by incomplete access to that paper's full text.
+PASS: For every compatible metric on the compact bilateral product, uniform coordinate boxes sandwich two-sided Bowen balls with uniform radii. Independence and attained maxima give sup_x μ(C_r(x))=∏_j q_j(r). Finite radius-r covering gives uniform q_j≥1/N_r, so the product vanishes iff ∑_j(1−q_j(r)) diverges. Portmanteau with moving closed intervals proves q upper semicontinuous in ν; the fixed-r=1/4 divergence locus is a dense G_delta. The summably contaminated, shrinking-interval tail has strictly positive box mass at every radius and every marginal has full support and no atoms. No stationarity assumption or finite-to-infinite extrapolation.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge: Lacerda (2026) independently proves Hilbert-cube-shift expansivity for Lebesgue and equicontinuous Oxtoby–Ulam product marginals and an ambient dense G_delta; his full ten-page paper does not characterize arbitrary independent, nonstationary products by the necessary-and-sufficient concentration-deficit series or prove density of full-support nonatomic nonexpansive product families. Earlier flow and ambient-measure complexity work is distinct.
+
+## value
+
+PASS
+
+PASS: Exact necessary-and-sufficient concentration criterion for all independent nonstationary products, plus generic/exceptional density dichotomy within a naturally parameterized compact space. The full-support nonatomic counterfamily shows regularity of single marginals cannot decide expansivity; useful structural classification, not a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
