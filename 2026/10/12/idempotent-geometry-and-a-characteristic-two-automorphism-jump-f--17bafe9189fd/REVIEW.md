@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete multiplication table in `RESULT.md` gives the intrinsic right annihilator and both field-characteristic normal forms. Checking the quotient action and the stabilizer of the multiplication defect proves **necessity and sufficiency** for all automorphisms. Separate augmentation and coefficient calculations prove all idempotent families. Direct exhaustive checks for fields of orders two, three, and five reproduce all idempotent and automorphism counts; the order-four field computation verifies all proposed automorphisms but does not independently enumerate the full general-linear group. Proof is universal; finite tests are supporting checks.
+PASS
 
-## Originality — PASS
+The product on a_i is a_i a_j=a_(2j-i mod 4). In the characteristic-free basis p=a0, q=a1, u=a0−a2, v=a1−a3, J=span(u,v) is the intrinsic right annihilator and the two-dimensional quotient is the left-zero algebra with augmentation. Solving x²=x via parity masses E,O yields zero plus three affine idempotent lines in characteristic ≠2 and zero plus two disjoint affine planes in characteristic 2. For odd characteristic, the two distinct right characters on J prevent shears and force the quotient action to identity or swap, with independent scalings of u,v: Aut=(K×)²⋊C2. In characteristic two, the multiplication-defect equations restrict quotient and J maps to simultaneous swap/identity but admit every additive shear Hom(K²,K²), so Aut=(K⁴,+)⋊C2, with transitivity on nonzero idempotents. Independent direct exhaustive multiplication tests over F2 and F3 reproduce nonzero idempotent/automorphism pairs (8,32),(7,8); general result is algebraic, not finite extrapolation.
 
-Bardakov–Passi–Singh, *Zero-divisors and idempotents in quandle rings*, Proposition 4.4 and Theorem 6.4, obtain integral idempotents and the integral group of order eight. Elhamdadi–Nunez–Singh–Swain classify covering idempotents under hypotheses not satisfied by the quotient \(R_4\to R_2\). Sangare–Ta's 2026 Theorem 4.15 gives an injection, not a full group description, and excludes characteristic two; their Problem 4.14 highlights the even-half-order gap. The present characterization identifies the exact arbitrary-field group and the characteristic-two unipotent automorphisms. A 2025 monograph Corollary 13.42 may already describe parts of the idempotent locus; its full text could not be read, and independent novelty is **not** claimed for integral idempotents or possibly covered formulas. Database search cannot exclude undiscovered equivalents.
+## originality
 
-## Value — PASS
+PASS
 
-The result fills the smallest genuinely even-half-order quandle algebra automorphism case and establishes a structural characteristic transition rather than a single finite numerical count. Its complete groups, idempotent geometry, and orbits are reproducible, natural invariants with distinct odd- and even-characteristic behavior.
+The exact full arbitrary-field automorphism groups, especially the characteristic-two four-parameter additive subgroup and idempotent orbit action, survive prior integral and even-order partial results. Known Z[R4] idempotents and D8 automorphisms are explicitly prior, not claimed new. A relevant monograph was not accessible in full and may partially cover field idempotent formulas; the group-theoretic novelty is still supported by a direct comparison to the latest full relevant theorem.
 
-## Scientific limitations
+## value
 
-Only field-valued automorphism groups and idempotent sets are classified. No group-scheme claim is made. The partially inaccessible 2025 monograph remains the principal originality risk for an idempotent subclaim; no independent verification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest even-half-order dihedral quandle ring exhibits a genuine four-dimensional unipotent automorphism jump in characteristic two, tied to a geometric dimension jump of the idempotent locus. The exact two groups, orbit transitivity and finite-field cardinalities fill a structurally motivated missing case rather than a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
