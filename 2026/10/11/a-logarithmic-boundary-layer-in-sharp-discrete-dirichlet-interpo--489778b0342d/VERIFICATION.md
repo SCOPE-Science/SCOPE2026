@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python check_halfline.py` with Python 3, NumPy, SciPy, and SymPy. The script checks the exact one-site algebra, computes the unique scalar optimizer for ten positive sites by bracketed root finding, checks discrete quadratic forms of reflected geometric extremizers after long finite truncation, performs 960 random finite-vector inequality tests, and evaluates the large-distance normalization at five sites. It reports `PASS 1007 checks`.
+## correctness
 
-Independent analytic ingredients in `RESULT.md` are: the strictly positive resolvent reproducing bound, the image-kernel formula for the half-line Dirichlet Laplacian, uniqueness of the scalar maximum, the stationarity identity matching the actual energy ratio, and the asymptotic expansion of the stationarity equation. No finite calculation verifies the claim for every sequence or for arbitrarily large sites; those are mathematical consequences of the proof. Numerical optimizations are corroborative only.
+PASS
+
+The positive Dirichlet Laplacian has an explicitly reconstructible Green diagonal \(G_m(t)=(1-r^{2m})/\sqrt{t(t+4)}\), with \(t=(1-r)^2/r\). The resolvent Cauchy–Schwarz bound yields \(K_m\le\sup_t2\sqrt t G_m(t)\); at the unique maximum of this function, differentiating \(G_m\) gives \(\|Dg_t\|_2^2=t\|g_t\|_2^2\), so the upper bound is attained and equality vectors are exactly multiples of \(g_t\). The logarithmic derivative is a product of strictly decreasing positive terms, giving unique \(r_m\) and strict site monotonicity. With \(a_m=-m\log r_m\), the critical equation is \(e^{2a_m}-1=4m\coth(a_m/(2m))\); it gives \(a_m=\log m-\frac12\log\log m+\frac12\log8+o(1)\). Expanding \(K_m=(1-e^{-2a_m})\operatorname{sech}(a_m/(2m))\) yields the stated logarithmic deficit. The actual check_halfline.py uses monotone root finding, finite extremizers and random checks; its code was inspected, not used as an infinite proof.
+
+## originality
+
+PASS
+
+Ilyin–Laptev–Zelik give the whole-lattice sharp constant one and the Green-resolvent optimization method; neither that constant nor its nonattainment controls a fixed site at finite distance from a Dirichlet boundary. The known half-line Jacobi resolvent supplies the kernel but not the optimization, unique all-site extremizers, or logarithmic boundary-layer asymptotic. No checked primary text supplies the exact \(K_m\) profile or the coefficient \(1/8\) and three-term expansion, though the prior-results search service was unavailable.
+
+## value
+
+PASS
+
+Optimal interpolation constants at specified distances from a Dirichlet boundary and their distinct logarithmic approach to the whole-lattice constant are natural analytic invariants. The complete equality cases and sharp leading/three-term deficit are useful boundary-layer information not supplied by the general resolvent method alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment: sharp discrete Dirichlet boundary layer
+# Independent mathematical audit
 
-**Correctness — PASS.** The Dirichlet resolvent Cauchy–Schwarz inequality supplies a universal upper bound at any node, and the reflection formula yields its exact scalar maximization. The logarithmic derivative has a unique zero, and the stationary Green vector has exactly the energy-to-mass ratio required to attain the multiplicative bound. The boundary asymptotic comes from the exact equation for the optimizer and a controlled hyperbolic-function expansion. The extracted standalone checker produced 1007 successful numerical/symbolic corroborations; it was not used as a replacement for the infinite-dimensional proof.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The precise full-line inequality and Green-function variational method of Ilyin–Laptev–Zelik (arXiv:1407.0675) are prior. The Jacobi half-line resolvent kernel is available explicitly in Krejčiřík–Laptev–Štampach (arXiv:2111.08265), and Liao (arXiv:1406.1984) treats a different Hardy-summation inequality. Consequently neither the general method nor the kernel is claimed new. The separately optimized nodewise constants, strict monotonicity, equality classification, and especially the three-term logarithmic boundary deficit are not stated in these inspected works. Semantic record searches for aliases and parameter-equivalent formulations did not identify an equivalent published conclusion, although search incompleteness and older discrete interpolation literature leave residual risk.
+PASS
 
-**Value — PASS.** This computes the full natural boundary-distance profile of a sharp Hilbert-sequence interpolation invariant, resolving both equality at each finite node and how the exact best constants approach the translation-invariant lattice limit. The \((\log m)^2/m^2\) rate, including its logarithmic correction, measures a genuine discrete boundary effect rather than an arbitrary finite cutoff or routine numeric table.
+The positive Dirichlet Laplacian has an explicitly reconstructible Green diagonal \(G_m(t)=(1-r^{2m})/\sqrt{t(t+4)}\), with \(t=(1-r)^2/r\). The resolvent Cauchy–Schwarz bound yields \(K_m\le\sup_t2\sqrt t G_m(t)\); at the unique maximum of this function, differentiating \(G_m\) gives \(\|Dg_t\|_2^2=t\|g_t\|_2^2\), so the upper bound is attained and equality vectors are exactly multiples of \(g_t\). The logarithmic derivative is a product of strictly decreasing positive terms, giving unique \(r_m\) and strict site monotonicity. With \(a_m=-m\log r_m\), the critical equation is \(e^{2a_m}-1=4m\coth(a_m/(2m))\); it gives \(a_m=\log m-\frac12\log\log m+\frac12\log8+o(1)\). Expanding \(K_m=(1-e^{-2a_m})\operatorname{sech}(a_m/(2m))\) yields the stated logarithmic deficit. The actual check_halfline.py uses monotone root finding, finite extremizers and random checks; its code was inspected, not used as an infinite proof.
 
-The result is confined to one-dimensional homogeneous nearest-neighbor Dirichlet energy, and the asymptotic proof is analytic. Independent mathematical examination is still required for publication-level confirmation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ilyin–Laptev–Zelik give the whole-lattice sharp constant one and the Green-resolvent optimization method; neither that constant nor its nonattainment controls a fixed site at finite distance from a Dirichlet boundary. The known half-line Jacobi resolvent supplies the kernel but not the optimization, unique all-site extremizers, or logarithmic boundary-layer asymptotic. No checked primary text supplies the exact \(K_m\) profile or the coefficient \(1/8\) and three-term expansion, though the prior-results search service was unavailable.
+
+## value
+
+PASS
+
+Optimal interpolation constants at specified distances from a Dirichlet boundary and their distinct logarithmic approach to the whole-lattice constant are natural analytic invariants. The complete equality cases and sharp leading/three-term deficit are useful boundary-layer information not supplied by the general resolvent method alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

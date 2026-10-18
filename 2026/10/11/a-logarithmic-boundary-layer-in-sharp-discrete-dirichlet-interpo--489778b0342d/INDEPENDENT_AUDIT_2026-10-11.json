@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T15:42:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob dca8febbfd62e876ecbe834ae3af0d2c9a606126",
+        "assigned check_halfline.py blob d8ffd388f9cd92c33657cc781e50f8b8b4ef4e74",
+        "Ilyin–Laptev–Zelik, arXiv:1407.0675",
+        "Krejčiřík–Laptev–Štampach, arXiv:2111.08265"
+      ],
+      "rationale": "The positive Dirichlet Laplacian has an explicitly reconstructible Green diagonal \\(G_m(t)=(1-r^{2m})/\\sqrt{t(t+4)}\\), with \\(t=(1-r)^2/r\\). The resolvent Cauchy–Schwarz bound yields \\(K_m\\le\\sup_t2\\sqrt t G_m(t)\\); at the unique maximum of this function, differentiating \\(G_m\\) gives \\(\\|Dg_t\\|_2^2=t\\|g_t\\|_2^2\\), so the upper bound is attained and equality vectors are exactly multiples of \\(g_t\\). The logarithmic derivative is a product of strictly decreasing positive terms, giving unique \\(r_m\\) and strict site monotonicity. With \\(a_m=-m\\log r_m\\), the critical equation is \\(e^{2a_m}-1=4m\\coth(a_m/(2m))\\); it gives \\(a_m=\\log m-\\frac12\\log\\log m+\\frac12\\log8+o(1)\\). Expanding \\(K_m=(1-e^{-2a_m})\\operatorname{sech}(a_m/(2m))\\) yields the stated logarithmic deficit. The actual check_halfline.py uses monotone root finding, finite extremizers and random checks; its code was inspected, not used as an infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Whole-line sharp constant equals one and does not have a nonzero extremizer.",
+          "Half-line resolvent identity determines \\(G_m(t)\\), not the optimum of \\(2\\sqrt t G_m(t)\\) with site-dependent maximizing parameter."
+        ],
+        "reasoning": "The stronger operator-theoretic results supply essential tools but not this exact sitewise sharp optimization and asymptotics.",
+        "searches": [
+          "Ilyin–Laptev–Zelik, arXiv:1407.0675",
+          "Krejčiřík–Laptev–Štampach, arXiv:2111.08265"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.0675",
+        "arXiv:2111.08265",
+        "arXiv:1406.1984"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel alone cannot give the unique maximizer or the delicate \\((\\log m)^2/m^2\\) deficit without a site-dependent stationary analysis."
+        ],
+        "reasoning": "The source formulas permit deriving but do not already state or mechanically specialize to the full optimized boundary profile without the additional asymptotic argument.",
+        "searches": [
+          "Ilyin et al. Green variational inequality",
+          "Krejčiřík et al. half-line resolvent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general resolvent-reproducing method is in Ilyin et al.",
+          "The half-line Green kernel in Jacobi form is known."
+        ],
+        "reasoning": "Compare both original discrete Sobolev interpolation and fixed-site Green diagonal maximization, rather than only the wording of the boundary-layer formula.",
+        "searches": [
+          "Web: Dirichlet half-line lattice sharp discrete pointwise interpolation at vertex logarithmic boundary",
+          "arXiv:1407.0675 full-lattice sharp inequality",
+          "arXiv:2111.08265 half-line Jacobi Green",
+          "Resultary search attempt for sharp halfline boundary Green [search_internal_error]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known sharp coefficient one is a bulk result, not a table of \\(K_m\\).",
+          "Numerical sample values in the assigned package are internally consistent with the analytic formula."
+        ],
+        "reasoning": "The exact first-site constant and all-site coefficient are not obtained from a checked published numerical table.",
+        "searches": [
+          "Ilyin et al. first pages and full-text search for half-line/Dirichlet",
+          "search for exact 1/8 logarithmic boundary interpolation constants"
+        ]
+      },
+      "rationale": "Ilyin–Laptev–Zelik give the whole-lattice sharp constant one and the Green-resolvent optimization method; neither that constant nor its nonattainment controls a fixed site at finite distance from a Dirichlet boundary. The known half-line Jacobi resolvent supplies the kernel but not the optimization, unique all-site extremizers, or logarithmic boundary-layer asymptotic. No checked primary text supplies the exact \\(K_m\\) profile or the coefficient \\(1/8\\) and three-term expansion, though the prior-results search service was unavailable.",
+      "residual_risks": [
+        "A historically unindexed boundary interpolation result could contain the same site-dependent optimum.",
+        "Resultary temporarily unavailable and cannot support a negative originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "WHOLE_LINE_TOOL_NOT_HALF_LINE_SHARP_PROFILE",
+          "evidence": "The source treats discrete point evaluation and bulk sharp constants, not the fixed-boundary-distance \\(K_m\\) formula.",
+          "identifier_or_url": "arXiv:1407.0675",
+          "material_read": "Primary full 40-page PDF accessed; introduction and relevant whole-lattice interpolation theorem and Green-function method examined, with full-text searches for Dirichlet/half-line terms.",
+          "method": "Open-access primary PDF reading",
+          "title": "Sharp interpolation inequalities for discrete operators and applications",
+          "trigger": "Sharp whole-lattice interpolation and foundational Green method"
+        },
+        {
+          "assessment": "KERNEL_ANTECEDENT_NOT_OPTIMIZED_CONSTANTS",
+          "evidence": "The known Jacobi half-line resolvent does not itself report the sharp interpolation boundary deficit.",
+          "identifier_or_url": "arXiv:2111.08265",
+          "material_read": "Primary abstract and exposed half-line Dirichlet resolvent scope, not a verified complete proof-by-proof reading of this paper.",
+          "method": "Open-access record and matching kernel comparison",
+          "title": "Spectral enclosures and stability for non-self-adjoint discrete Schrödinger operators on the half-line",
+          "trigger": "Half-line resolvent kernel may dominate the present Green calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ilyin–Laptev–Zelik 2015",
+        "Krejčiřík–Laptev–Štampach 2022"
+      ],
+      "rationale": "Optimal interpolation constants at specified distances from a Dirichlet boundary and their distinct logarithmic approach to the whole-lattice constant are natural analytic invariants. The complete equality cases and sharp leading/three-term deficit are useful boundary-layer information not supplied by the general resolvent method alone.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Dirichlet half-line sequences \\(u_0=0\\), the optimal interpolation constant at site \\(m\\ge1\\) in \\(\\lvert u_m\\rvert^2\\le K_m\\|u\\|_2\\|Du\\|_2\\) is \\(K_m=\\frac{2\\sqrt{r_m}}{1+r_m}(1-r_m^{2m})\\), where \\(r_m\\) is the unique root in \\((0,1)\\) of \\((1-r)(1-r^{2m})=4mr^{2m}(1+r)\\). All extremizers are scalar multiples of the Dirichlet resolvent vector. The constants increase strictly from \\(K_1=4/(3\\sqrt3)\\) to 1 and \\(8m^2(1-K_m)=(\\log m)^2-(\\log m)\\log\\log m+(1+\\log8)\\log m+o(\\log m)\\).",
+  "limitations": [
+    "The inequality is for real square-summable sequences on the homogeneous discrete half-line with a Dirichlet endpoint, not a continuum Sobolev theorem.",
+    "The numerical script checks finite indices and truncations only; the all-site and boundary asymptotic proof uses the resolvent and analytic maximization."
+  ],
+  "schema_version": 1
+}
