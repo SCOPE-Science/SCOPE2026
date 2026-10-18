@@ -1,17 +1,21 @@
-# Scientific review: A thin toroidal grid has scale-two Rips type \(S^1\vee\bigvee^nS^3\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives all-n distance classification: each extra face has one unique distance-two same-row endpoint pair and up to three middle-column vertices. Toggle the central middle vertex after strictly larger subsets: exactly 4 collapses per one of 4n endpoint pairs; freeness is proved and finite exact coface checks corroborate. Consecutive-column complexes are 4-cross-polytope boundaries, pairwise overlaps are full tetrahedra in a single cycle and triple overlaps are empty. Homotopy pushouts yield one S1 and n S3. All combinatorial cases use n>=7. Predicted f vector follows inclusion-exclusion. The 18 complete finite replays and 12 exact field homology checks do not replace the uniform proof.
+## correctness
 
-## Originality — PASS (qualified)
-Full text of the closest 2025 torus-grid study gives square C_m x C_m theorems; its Section 6 cross-polytope local fact is credited but neither its symmetric statements nor its known tables imply the thin rectangular cyclic assembly. The 2025 infinite-integer-lattice paper lacks finite periodic factors and cannot imply the homotopy circle. Targeted text/index searches, equivalence/parameter searches, and prior mathematical findings revealed no statement covering C4 x Cn at r=2 uniformly; non-indexed coverage risk remains.
+PASS
 
-The closest research is Adams et al. (arXiv:2502.07134; square grids and local cross-polytopes), followed by Gupta et al. (arXiv:2511.04238; infinite lattices). Related finite metric-graph findings on other graphs do not imply the target C4-by-n theorem. Equivalent research outside inspected sources remains a risk.
+For C4□Cn with n≥7 the shortest graph distance is d_n+d_4. A clique not contained in adjacent columns must contain two same-row vertices in columns j−1 and j+1 of distance exactly two; every additional vertex is one of three center-column rows r−1,r,r+1. The endpoint pair B_(j,r) is unique for each outside face because no second distance-two pair fits. For each B, the four lower faces B∪T (T⊆{(j,r−1),(j,r+1)}) paired with addition of (j,r), processed in decreasing |T|, are genuinely free and remove all 32n non-slab faces in 16n simplicial collapse steps. Each remaining consecutive-column slab has eight vertices and four mutually disjoint forbidden cross edges, hence the boundary of a 4-cross-polytope, a triangulated S³. Adjacent slabs intersect in full four-vertex tetrahedra, all other and triple intersections empty. Cyclic gluing along these contractible intersections adds n S³ summands and a single S¹. Inclusion-exclusion for slabs gives faces (4n,18n,28n,15n), plus outside binomial counts gives full (4n,22n,40n,27n,4n). The separate independent Python enumeration verified every free pair and face count for n=7,8,9 and the source verifier handles n=7..24; finite checks only corroborate the all-n combinatorial proof.
 
-## Value — PASS
-This supplies an exact integral homotopy type for a natural infinite graph family at the first nontrivial Rips threshold. The exceptional thin width four replaces the square-grid small-scale torus pattern by an essential circle together with a number of 3-spheres growing linearly with cycle length. A constructive 16n elementary-collapse proof and complete face vector explain the dimension jump; the result is more than known cross-polytope recognition or finite rank recomputation.
+## originality
 
-## Limitations
-Only inclusive threshold two on C4-by-Cn for n at least seven is established. The finite computations are independent of the written construction but are not universal quantification, and priority beyond the inspected literature is not guaranteed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The closest torus-grid source treats primarily square C_n□C_n instances and describes the same local cross-polytope mechanism; the lattice source concerns nonperiodic infinite integer grids. The present finite asymmetric thin C4□Cn family has a cyclic S¹ factor and exactly n three-spheres after a uniform exact finite collapse, neither implied by square-grid or infinite-lattice formulas. Both relevant primary articles were read in accessible full text. Resultary could not complete the current search; equivalent independent rectangular grid work remains a bounded risk.
+
+## value
+
+PASS
+
+This is a full homotopy classification of a natural, infinite family of finite toroidal graph Rips complexes, with integral homology, exact face counts and an explicit certified elementary-collapse scheme. The width-four asymmetry and n≥7 boundary are geometrically motivated; the n sphere multiplicity and essential cycle are independently useful in metric topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
