@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the block operator to a continuous \(2\times2\) matrix field over the spectrum of \(|A^*|\). The global norm is the fibrewise maximum established in the focal source. Equality for a norming vector is possible exactly on the spectral subspace supported by the maximizing set \(\Omega\), and the converse follows from the measurable top singular subspace of the finite-dimensional fibres. The explicit non-atomic example is verified directly from \(\|M_t\|=\sqrt{t^2+\varphi(t)^2}\).
+## correctness
 
-## Originality
-PASS. The focal full text proves eigenvalue sufficiency and singleton necessity but does not state a spectral-projection criterion; in-document searches found no spectral-projection or non-atomic formulation. Five semantic searches of the published findings database found no covering result. The closest additional block-matrix source, arXiv:2507.11148v1, concerns absolute norm/minimum attainment rather than this ordinary norm-attainment problem.
+PASS
 
-## Value
-PASS. The result gives the natural complete criterion suggested by the focal paper's maximizing set \(\Omega\). It unifies atomic and non-atomic maximizers and identifies a real phenomenon absent from the singleton theory: the block matrix can attain its norm even though \(A\) itself does not.
+For continuous nonnegative φ≥φ(0), the cited polar-reduction lemma identifies ordinary norm attainment with the decomposable 2-by-2 field M_t over B=|A*|. In its spectral integral a norming vector must have support on Ω={t:||M_t||=L}; if E_B(Ω)=0, positive deficiency L²−||M_t||² on its whole support forbids equality. If projection nonzero, a measurable top eigenspace section of M_t*M_t (matrix dimension two) on a nonzero E_B(Ω) subspace gives equality. This proves iff including non-atomic maximizer sets. Independently checked the example: for t≤r, sqrt(t²+φ(t)²)=t/r, for r≤t≤1 equals one; L²[0,1] multiplication A has no eigenvalue 1 but E_A([r,1])≠0. No finite experiment substitutes for the spectral theorem.
 
-## Closest literature and limitations
-The closest source is arXiv:2605.25283v1, whose Remark 3.1 defines \(\Omega\), Lemma 3.4 handles singleton necessity, Lemma 3.5 gives eigenvalue sufficiency, and Theorem 3.6 obtains an iff result by forcing \(\Omega\) to be a singleton. arXiv:2507.11148v1 concerns the stronger AN/AM classes. The main residual originality risk is an older equivalent theorem phrased for decomposable operators or matrix-valued multiplication operators.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original Wu–Ling–Xu paper proves singleton-maximizer necessity and point-spectrum sufficiency (Lemmas 3.4–3.5), not the non-singleton spectral-mass equivalence; the constructed purely continuous spectral band distinguishes them. A general decomposable-operator norm-attainment lemma is a plausible semantic precursor, but no actual stronger covering theorem was established in inspected primary sources; originality is explicitly best-of-knowledge.
+
+## value
+
+PASS
+
+This is a naturally missing sharp iff condition in a named recent operator-matrix problem; it establishes when an entire spectral plateau yields norm attainment even without an eigenvalue or norming vector for A. Unlike trivial norm arithmetic it resolves the focal paper’s restricted maximizing-set hypothesis and supplies a motivated counterexample to extending the singleton picture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
