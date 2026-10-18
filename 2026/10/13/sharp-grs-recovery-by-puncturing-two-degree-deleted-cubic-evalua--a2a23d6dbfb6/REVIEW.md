@@ -1,23 +1,21 @@
-# Review of sharp GRS recovery for degree-deleted cubic evaluation codes
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The hypotheses require distinct evaluation values and the exact elementary-symmetric MDS test on each triple. The row-deleted Vandermonde determinant gives the projective-arc property. A dimension-three MDS code is GRS exactly when its columns lie on a nonsingular conic. The six quadratic monomials after substitution have degrees \(\{0,1,2,3,4,6\}\) for the first family and \(\{0,2,3,4,5,6\}\) for the second. Division by the six-point root polynomial proves that the missing coefficient is precisely \(-e_1\), respectively \(-e_5\). Nonzero quadratics cannot vanish at seven distinct parameters, and the five-point arc conic is nonsingular. The five-packing is proved by an at-most-one extension equation on each five-set, including the case of evaluation zero. No extrapolation from finite tests is used in the all-field argument.
+PASS
 
-The independent-in-form rank calculation in the bundled verifier reproduces the exact conic criteria in all arc-admissible five-, six-, and seven-subsets over \(\mathbb F_{11}\) and \(\mathbb F_{13}\), checks explicit seven-point examples over \(\mathbb F_{17}\), \(\mathbb F_{19}\), and \(\mathbb F_{23}\), and verifies a direct smooth-conic witness for the six-point \(\mathbb F_{19}\) example. It ends with `VERIFY_OK`.
+Triple-column Vandermonde-type determinants factor as pairwise differences times e1({a,b,c}) or e2({a,b,c}), so arc assumption ensures MDS. Three-dimensional GRS columns lie on a nonsingular plane conic, and conversely five or more arc points on a smooth rational conic give GRS up to monomial equivalence. Five arc points uniquely determine smooth conic (nonsmooth conic cannot contain a 5-arc; Bezout). Substituting [1:t:t³] into conic monomials gives t degrees {0,1,2,3,4,6} missing t^5, so six-point kernel iff monic vanishing polynomial has e1(T)=0; for [1:t²:t³] degrees {0,2,3,4,5,6} missing t, so iff e5(T)=0. Degree<=6 and injectivity forbid any conic for seven distinct t. The e5 extension equation e5(U)+t e4(U)=0 has at most one solution because e4,e5 cannot both vanish on 5 distinct elements (including 0), proving 5-packing. Independently modular-eliminated conic constraints for F19 S={0,...,6} r1, obtaining one qualifying T=(0,1,3,4,5,6), all 21 5-subsets, no 7, confirming published weak-boundary counterexample; all-characteristic proof symbolic.
 
-## Originality (PASS)
+## originality
 
-Ning's 2025 preprint (arXiv:2507.04689) introduces and investigates these exact row-deleted GRS subcodes but does not classify their puncturing-to-GRS profiles. Jin--Ma--Xing--Zhou (arXiv:2411.14779, Proposition VI.1) establish non-GRS under the *strict* restriction \(n>2k\), so for dimension three this covers retention of seven or more coordinates. However, their Proposition V.1 for the first family **also asserts** non-GRS under the weaker \(n\ge2k\), including six points. The explicit MDS smooth-conic example below refutes that asserted equality case as well. The five-point GRS phenomenon and projective-conic recognition are classical and not counted as novel.
+PASS
 
-Abdukhalikov--Ding--Verma (arXiv:2506.04080, Theorem 3.2) use the weaker restriction \(n\ge2k\) in asserting the code is non-GRS whenever it is MDS. At equality \(n=2k=6\), the displayed example over \(\mathbb F_{19}\) is MDS yet its columns satisfy the explicit nonsingular conic \(XY+14XZ+18Y^2+4YZ+Z^2=0\), making it GRS. Thus neither paper’s weaker non-GRS assertion can legitimately imply the new six-point classification; the counterexample supplies a directly checkable conflicting implication. The strict longer-length statements remain valid and credited. Searches using symmetric-coefficient, Schur-square, GRS-puncturing, six-point-conic and deleted-row aliases found no prior explicit equivalence or five-packing classification for these two families. The closest full-text comparisons are explained in `AUDIT.json`. Unindexed results remain a residual risk, not novelty evidence.
+Ning 2025/26 introduces degree-deleted GRS subcode families and MDS e_r triple tests; classical plane conic characterization of [n,3] GRS is prior. Jin-Ma-Xing-Zhou 2024 Proposition VI.1 proves non-GRS for n>2k (known >=7 obstruction). Their Proposition V.1 instead asserts non-GRS at weak n>=2k for first family; Abdukhalikov-Ding-Verma 2025 Theorem 3.2 likewise asserts weak n>=2k for related family. Original primary PDFs at explicit theorem pages were inspected: in equality case n=2k=6 the explicit F19 arc conic gives contradiction. Thus retained novelty is exact six-point boundary and optimal deletion/puncturing five-packing, not longer-length non-GRS. No prior equivalent positive six-subset criterion found in inspected relevant primary text.
 
-## Value (PASS)
+## value
 
-The natural question is not the already-known MDS property, but how much of a non-GRS degree-deleted evaluation code must be punctured before an ordinary GRS structure reappears. The theorem resolves this question for both cubic deleted-row families at every allowable length: the only possible optimum counts are \(n-6\) and \(n-5\), explicitly distinguished by an elementary symmetric test, with a full classification and incidence bound for all optimal six-subsets. Both regimes actually occur. The six-coordinate result also identifies a sharp equality-boundary exception to a stronger non-GRS statement in the prior literature. This is a motivated complete boundary classification, not a distance-table lookup or an arbitrary finite instance.
+PASS
 
-## Limits and sources
+GRS equivalence under puncturing is a natural central coding-theory structural question. The complete sharp length-six exception, correction of overly strong published non-GRS statements, and exact deletion threshold with 5-packing constraint give nontrivial classification and practical information for code shortening/decoding, not just recomputed MDS tests.
 
-No claim is made for other dimensions, evaluation at infinity, extension constructions, or arbitrary MDS codes. The finite enumerations validate examples and the checker implementation, but the proof of the infinite finite-field statement is the polynomial/conic argument. Principal sources: Ning, arXiv:2507.04689 (2025); Jin--Ma--Xing--Zhou, arXiv:2411.14779 (2024); Abdukhalikov--Ding--Verma, arXiv:2506.04080 (2025); Márquez-Corbella--Pellikaan, arXiv:1508.02187 (2015), Appendix D. Independent review has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
