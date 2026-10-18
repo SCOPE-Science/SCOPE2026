@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T12:20:06.610329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected frozen RESULT.md SHA 4779918cb6fbf978d8239d4f445e00972b32ce0b and verify.py SHA bd2831ec18767ad478e1279b3d7d20642f63a9ed. For n≥2, Fourier inverse of −i sgn(k)(1−|k|/n), with DC/Nyquist zero, is Q_n(r)=2Σ_{k=1}^{n−1}(1−k/n) sin(πkr/n). Finite geometric derivative gives [sin t−n^-1 sin(nt)]/(1−cos t). Critical grid t=πr/n kills sin(nt); Q= cot(πr/2n) except original sine-sum zero at r=0,n. Normalized circulant row L1 mass and sign-vector/point-mass witnesses prove both endpoint ℓ¹/ℓ∞ norms C_n=(1/n)Σ_{r=1}^{n−1}cot(πr/2n). Partition even and odd terms in C_(2n) to derive 2C_(2n)−C_n=(1/n)Σ_{j=0}^{n−1}cot((2j+1)π/(4n))=untapered cyclic Hilbert L_(4n). Subtract (2/πx) singularity from cot(πx/2) and apply Euler–Maclaurin with H_(n−1) to yield (2/π)log n+(2/π)(γ+log(2/π))−π/(36n²)+O(n^-4). Separately recomputed exact cot sum vs direct multiplier for representative n and high-precision n² residual near −π/36; numerical tests corroborate, not prove, infinite claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous conjugate Fejér formula includes every real t and therefore strictly dominates discrete pointwise kernel collapse. Slides also study sampled conjugate means and logarithmic divergence."
+        ],
+        "reasoning": "General continuous formula does not itself explicitly give sharp endpoint norm on Z_(2n) with exact parity bridge and finite-size coefficient; applying absolute-row-sum equality plus parity splitting and Euler–Maclaurin supplies the additional claimed sequence classification. Strong partial coverage retained, not concealed.",
+        "searches": [
+          "Resultary search: conjugate Fejer finite Nyquist cyclic Fourier multiplier endpoint operator norm exact cotangent [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Boche–Pohl 2015 slides p24,p32",
+          "Gold–Oppenheim–Rader 1969"
+        ]
+      },
+      "checked_sources": [
+        "2015 Dortmund slides https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+        "DOI:10.4418/2010.65.2.3",
+        "Gold–Oppenheim–Rader (1969), primary PDF pages 5–6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjugate Fejér kernel from Boche specializes to Q_n; 2C_(2n)−C_n is the odd-index cot sum, identical to untapered Hilbert L_(4n). Riemann-sum Euler–Maclaurin yields correction −π/(36n²)."
+        ],
+        "reasoning": "Kernel subclaim is a direct prior corollary and was excluded from standalone novelty. Final combined claim has additional exact operator-norm and arithmetic/asymptotic facts not stated in the inspected primary prior; derivations are checked, but older discrete Lebesgue-constant work could cover them.",
+        "searches": [
+          "Resultary search: conjugate Fejer finite Nyquist cyclic Fourier multiplier endpoint operator norm exact cotangent [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Boche–Pohl 2015 pp24,32",
+          "Gold–Oppenheim–Rader 1969",
+          "SCOPE assigned cyclic Hilbert RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published continuous conjugate Fejér kernel has the identical oscillatory-corrected cotangent form; sampling at t=πr/n exactly suppresses sin(nt), giving the claimed discrete Q_n(r)=cot(πr/(2n)) outside 0,n."
+        ],
+        "reasoning": "Critical grid kernel collapse itself IS an immediate specialization of prior full-kernel identity and does not qualify as originality. The separate finite endpoint operator constant sequence, two-scale bridge and n^-2 asymptotics are not explicitly covered in inspected source sections.",
+        "searches": [
+          "Resultary search: conjugate Fejer finite Nyquist cyclic Fourier multiplier endpoint operator norm exact cotangent [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Boche–Pohl 2015 slides p24,p32",
+          "Krasniqi DOI:10.4418/2010.65.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior sources provide exact kernel as function of t, and broad growth estimates; no inspected source gives sharp C_n=(1/n)Σ_{r=1}^{n−1}cot(πr/(2n)), the 2C_(2n)−C_n equality or −π/36 coefficient."
+        ],
+        "reasoning": "A table of pointwise continuous kernels covers the Q_n identity, but not by itself the sharp all-n endpoint sequence and exact second-order finite-size correction.",
+        "searches": [
+          "Resultary search: conjugate Fejer finite Nyquist cyclic Fourier multiplier endpoint operator norm exact cotangent [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Boche–Pohl 2015 p24,p32",
+          "Krasniqi 2011"
+        ]
+      },
+      "rationale": "Boche–Pohl 2015 already has stronger continuous conjugate Fejér kernel, so its exact pointwise cotangent collapse at the Nyquist grid is a direct published corollary, NOT novel by itself. After explicitly excluding that covered component, best-of-knowledge extra contribution is the *sharp finite cyclic endpoint norm sequence*, its exact dyadic relation to the untapered Hilbert norm, and explicit n^-2 correction. These are not explicitly proved in the inspected primary slides/papers; the overlap is serious and equivalent prior summation remains a substantial risk. Failed Resultary conveys no absence conclusion.",
+      "residual_risks": [
+        "Published continuous kernel already forces Q_n samples; a specialist may regard the endpoint ℓ¹ norm as an elementary convolution corollary, reducing incremental novelty.",
+        "Full Krasniqi 2011 body not read, and older discrete Lebesgue-constant literature could contain norm/asymptotics.",
+        "Resultary searches incomplete due temporary search_internal_error; no negative search inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPORTANT SAME KERNEL: continuous conjugate Fejér formula gives cot(t/2) minus oscillatory sin(n t) correction, whose critical 2n grid kills correction. This covers kernel-collapse component as a direct special case; inspected slides discuss sampling and logarithmic growth but do not give displayed exact C_n, 2C_(2n)-C_n bridge or N^-2 coefficient.",
+          "evidence": "Slide p24 formula (n sin t−sin nt)/(n(1−cos t)), after matching multipliers/normalization; p32 sampled kernel estimates.",
+          "identifier_or_url": "2015 Dortmund slides https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+          "material_read": "Full publicly available slide PDF: specifically inspected page 24 rendered continuous conjugate Fejér kernel formula and page 32 sampled-kernel norm/divergence setup. Other uninspected pages are not asserted noncovering.",
+          "method": "Lawful PDF page-text and page-image inspection",
+          "title": "On the Strong Divergence of Hilbert Transform Approximations and a Problem of Ul’yanov — Boche and Pohl",
+          "trigger": "Same conjugate Fejér kernel and sampled Hilbert transform; potential stronger coverage"
+        },
+        {
+          "assessment": "Identifies standard conjugate Fejér kernel; does not in inspected material evaluate exact finite critical-grid endpoint norm. Full body access is residual risk.",
+          "evidence": "2011 journal classification 42A20 and Cesàro averages of conjugate kernels.",
+          "identifier_or_url": "DOI:10.4418/2010.65.2.3",
+          "material_read": "Primary public article abstract/bibliographic publication 2011-03-11 and conjugate-kernel context; complete proof text not obtained.",
+          "method": "Public journal primary article entry and available abstract",
+          "title": "On L1-Convergence of Rees–Stanojević’s Sums With Coefficients From The Class K — X. Z. Krasniqi",
+          "trigger": "Prior conjugate Fejér/Cesàro kernel formula and summability"
+        },
+        {
+          "assessment": "The untapered kernel is prior; the exact identity tying the tapered endpoint norm sequence to the untapered norm is not stated in inspected material.",
+          "evidence": "Finite cotangent response Eq.(17)–(18), with normalization separated.",
+          "identifier_or_url": "Gold–Oppenheim–Rader (1969), primary PDF pages 5–6",
+          "material_read": "Read pages 5–6 of primary article as above; finite Hilbert sign phase kernel present.",
+          "method": "Lawful primary PDF page inspection",
+          "title": "Theory and Implementation of the Discrete Hilbert Transform — Gold, Oppenheim and Rader",
+          "trigger": "Linkage of untapered discrete endpoint norm to Fejér two-scale sum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Critical-grid first-Cesàro Hilbert regularization is a natural finite Fourier stability problem. A sharp all-n endpoint amplification law, exact comparison to unsmoothed transform and finite-size correction are potentially useful precise invariants. The value rests on the *operator norm classification and two-scale comparison*, not on the pre-existing cotangent kernel identity or mere computational reproducibility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2015 Dortmund slides https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+    "DOI:10.4418/2010.65.2.3",
+    "Gold–Oppenheim–Rader (1969), primary PDF pages 5–6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥2, exactly 2n samples, first Cesàro taper only, endpoints p=1,∞ only.",
+    "No claim that the continuous conjugate Fejér kernel itself is new; Boche–Pohl already supplies stronger full-t identity."
+  ],
+  "residual_risks": [
+    "Published continuous kernel already forces Q_n samples; a specialist may regard the endpoint ℓ¹ norm as an elementary convolution corollary, reducing incremental novelty.",
+    "Full Krasniqi 2011 body not read, and older discrete Lebesgue-constant literature could contain norm/asymptotics.",
+    "Resultary searches incomplete due temporary search_internal_error; no negative search inference."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "IMPORTANT SAME KERNEL: continuous conjugate Fejér formula gives cot(t/2) minus oscillatory sin(n t) correction, whose critical 2n grid kills correction. This covers kernel-collapse component as a direct special case; inspected slides discuss sampling and logarithmic growth but do not give displayed exact C_n, 2C_(2n)-C_n bridge or N^-2 coefficient.",
+      "evidence": "Slide p24 formula (n sin t−sin nt)/(n(1−cos t)), after matching multipliers/normalization; p32 sampled kernel estimates.",
+      "identifier_or_url": "2015 Dortmund slides https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+      "material_read": "Full publicly available slide PDF: specifically inspected page 24 rendered continuous conjugate Fejér kernel formula and page 32 sampled-kernel norm/divergence setup. Other uninspected pages are not asserted noncovering.",
+      "method": "Lawful PDF page-text and page-image inspection",
+      "title": "On the Strong Divergence of Hilbert Transform Approximations and a Problem of Ul’yanov — Boche and Pohl",
+      "trigger": "Same conjugate Fejér kernel and sampled Hilbert transform; potential stronger coverage"
+    },
+    {
+      "assessment": "Identifies standard conjugate Fejér kernel; does not in inspected material evaluate exact finite critical-grid endpoint norm. Full body access is residual risk.",
+      "evidence": "2011 journal classification 42A20 and Cesàro averages of conjugate kernels.",
+      "identifier_or_url": "DOI:10.4418/2010.65.2.3",
+      "material_read": "Primary public article abstract/bibliographic publication 2011-03-11 and conjugate-kernel context; complete proof text not obtained.",
+      "method": "Public journal primary article entry and available abstract",
+      "title": "On L1-Convergence of Rees–Stanojević’s Sums With Coefficients From The Class K — X. Z. Krasniqi",
+      "trigger": "Prior conjugate Fejér/Cesàro kernel formula and summability"
+    },
+    {
+      "assessment": "The untapered kernel is prior; the exact identity tying the tapered endpoint norm sequence to the untapered norm is not stated in inspected material.",
+      "evidence": "Finite cotangent response Eq.(17)–(18), with normalization separated.",
+      "identifier_or_url": "Gold–Oppenheim–Rader (1969), primary PDF pages 5–6",
+      "material_read": "Read pages 5–6 of primary article as above; finite Hilbert sign phase kernel present.",
+      "method": "Lawful primary PDF page inspection",
+      "title": "Theory and Implementation of the Discrete Hilbert Transform — Gold, Oppenheim and Rader",
+      "trigger": "Linkage of untapered discrete endpoint norm to Fejér two-scale sum"
+    }
+  ]
+}
