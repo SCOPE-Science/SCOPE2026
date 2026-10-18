@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The complete two-round Ehrenfeucht--Fraïssé invariant is the set of pointed atomic-pair profiles, yielding the exact local signature from the predecessor colour, vertex colour, successor colour, and non-neighbour colours. A linear-word state retaining capped colour counts, first/last two letters, and length-three factor support has exact append transitions. Exhaustive closure produces 758 states, 48 cyclic signatures, and shortest-representative multiplicities 4, 6, 6, 9, 10, 9, 4 for lengths 3 through 9. The second program enumerates all binary words through length 15 using direct atomic-pair profiles, obtains the same spectrum, and verifies that the brute-generated 758-state set is closed under both append transitions. The all-size assertion follows from that closure and the proof of the state invariant, not merely the finite input-size bound. Both programs were executed and their outputs checked from the packaged files.
+
+## Originality — PASS, subject to stated priority risk
+Brown--Hoshino (2007) classify uncoloured undirected cycles under finite-round first-order equivalence, not two-coloured directed cycles. Weis--Immerman (2009), especially their Section 5, treat linear words equipped with order and successor, not cycles with cyclic wraparound and no order. Two published finite-model-theoretic comparisons concern directed paths and a one-red linear-order family, neither of which implies the 48-class cyclic quotient. Searches for binary cyclic words, two-round theories, successor-only coloured cycles, and exact representative cutoffs did not locate a direct classification. This is evidence of a gap, not proof that no earlier calculation exists. An unindexed specialised result or a derived but unreported corollary remains a priority risk.
+
+## Value — PASS
+Quantifier-rank spectra and optimal small representatives are natural invariants in finite model theory. The theorem gives the complete observational quotient of a basic class of finite cyclic relational structures, replaces potentially unbounded cycles by a provably sufficient nine-vertex test set, and gives an explicit signature and a finite closure certificate. It is not an arbitrary parameter slice, a restatement of the two-round game, or a previously tabulated graph-count recomputation: the exact 48-class spectrum and sharp cutoff require the realizability closure. Generalization to more colours or ranks is not established or claimed.
+
+## Limitations and closest literature
+The result does not concern quantifier ranks above two, cycles with additional relations, or stronger logics. Primary material inspected: Brown--Hoshino's abstract and Section 4 (the uncoloured cycle threshold), and Weis--Immerman's Sections 2 and 5 (game correspondence and ordered-successor rankers). The published finite-model-theory comparisons were read at their stated results and scopes. Remaining risk is incomplete priority coverage, not a discovered implication covering this exact claim.
+
+Self-review: passed. Independent audit: not yet performed.
