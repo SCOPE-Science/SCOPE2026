@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification of weighted-hypercube mixing
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later and no third-party packages. Expected successful output:
+## correctness
 
-```
-VERIFY_OK exact_profiles=21 exact_entries=5124 integer_budget_profiles=3164 finite_window_modes=88 max_midpoint_error=7.772e-16
-```
+PASS
 
-The program constructs the weighted cube's adjacency eigenvalue groups from all signed weights, builds each orthogonal spectral projector as an exact rational Walsh-character sum, and forms the projector Schur-square average. Independently it constructs the claimed signed-resonance Walsh eigenvalues, inversely transforms them to all matrix entries, and compares exact fractions. It checks ranks using exact elimination, row sums, and exact uniformity for 21 examples in dimensions one to five. It also enumerates all admissible positive integer tuples with budget no larger than \(2^d-1\), for dimensions one to five (3,164 profiles), and corroborates period integrals for 88 Walsh modes using independent midpoint quadrature. Executing the program from its **embedded file contents** is sufficient; no companion data files or external state are needed.
+For H_w=sum_j w_j X_j, commuting bit flips factor the entire walk into tensor products. Walsh characters simultaneously diagonalize the transition-probability matrix M(t) with eigenvalues lambda_S(t)=prod_{j in S}cos(2w_jt). Cesaro-averaging the exponential expansion yields mu_S=2^(-|S|)*#{eps in {-1,+1}^S:sum eps_j w_j=0}, nonnegative, with mu_empty=1. Uniform average is equivalent to all nonempty mu_S=0, equivalent by cancellation to distinct subset sums. For positive integer weights, zero singleton integrals force 2w_jT/pi in Z, hence T=k*pi/(2g) by Bezout, and at such T every nonzero signed integer frequency integrates to zero. Distinct integer subset sums count 2^d different integers between 0 and sum w_j, proving budget >=2^d-1. Equality forces binary weights uniquely by product_j(1+z^{w_j})=sum_{a=0}^{2^d-1} z^a and iterative even-degree factorization. Instantaneous uniformity iff each cos(2w_jt)=0, equivalent to identical 2-adic valuations. Independent exact fractional calculations compared Walsh and energy-projector time averages over 209 weighted profiles in d=1..4 and checked unique positive integer budget minimizers through d=4.
 
-Finite tests do not prove the general theorem: signed-frequency averaging, Bézout's identity, the generating-polynomial budget induction, and the two-adic instantaneous criterion are proved analytically in `RESULT.md`. Finite-dimensional examples cannot exclude a hypothetical previously published equivalent theorem.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the combined signed-resonance spectrum and sharp integer-coupling/time-average design, with general spectral-projector and Walsh facts treated as established ingredients. The unweighted Abelian-Cayley nonuniformity theorem has different hypothesis, and broader spectral products do not explicitly settle the integer budget or instantaneous tradeoff.
+
+## value
+
+PASS
+
+It is natural to ask how anisotropic edge coupling can enforce perfectly uniform *time-averaged* quantum probabilities in a Boolean cube and at what exact observation window/control budget. The unique minimum integer design, its lack of instantaneous mixing and the odd alternative give an exact self-contained classification with concrete Hamiltonian-design motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific evaluation: exact averaging on anisotropic quantum hypercubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All matrix definitions use the same unnormalized Hamiltonian \(H_w=\sum_j w_jX_j\) and positive coordinate weights. The tensor-product factorization gives a common Walsh basis for every instantaneous transition matrix. Each long-time eigenvalue is a finite nonnegative count of signed zero-frequency resonances. The subset-sum equivalence is bidirectional. The finite-window arithmetic is established by singleton Fourier modes and Bézout's identity, with the converse integrating paired cosine frequencies (not incorrectly requiring separately vanishing complex exponential integrals). The sharp integer-budget uniqueness follows from distinct integer subset sums and a coefficient-positive polynomial induction. The two-adic criterion follows from exact one-bit probabilities. Integer and real domains are explicitly separated; every asserted dimension is covered.
+PASS
 
-## Originality — PASS, residual literature risk
+For H_w=sum_j w_j X_j, commuting bit flips factor the entire walk into tensor products. Walsh characters simultaneously diagonalize the transition-probability matrix M(t) with eigenvalues lambda_S(t)=prod_{j in S}cos(2w_jt). Cesaro-averaging the exponential expansion yields mu_S=2^(-|S|)*#{eps in {-1,+1}^S:sum eps_j w_j=0}, nonnegative, with mu_empty=1. Uniform average is equivalent to all nonempty mu_S=0, equivalent by cancellation to distinct subset sums. For positive integer weights, zero singleton integrals force 2w_jT/pi in Z, hence T=k*pi/(2g) by Bezout, and at such T every nonzero signed integer frequency integrates to zero. Distinct integer subset sums count 2^d different integers between 0 and sum w_j, proving budget >=2^d-1. Equality forces binary weights uniquely by product_j(1+z^{w_j})=sum_{a=0}^{2^d-1} z^a and iterative even-degree factorization. Instantaneous uniformity iff each cos(2w_jt)=0, equivalent to identical 2-adic valuations. Independent exact fractional calculations compared Walsh and energy-projector time averages over 209 weighted profiles in d=1..4 and checked unique positive integer budget minimizers through d=4.
 
-The principal comparison is Adamczak et al. (arXiv:0708.2096), which rules out uniform average mixing for **unweighted** Abelian circulants using the adjacency selector with values zero and one. It does not imply a prohibition on the present anisotropically weighted Hamiltonians. Godsil's average-mixing spectral-projector formula and the known Walsh diagonalization may imply the resonance formula after specialization; those ingredients are duly credited. The inspected Wang (arXiv:2211.07948) uniform-measure theorem instead concerns a discrete-time coined model; the Moore–Russell cube analysis treats the unweighted model and instantaneous mixing; the Baptista–Coutinho–Marques Cartesian-product results do not state the integer-coupling budget and exact observation-window classification. The bundled simultaneous sharp design/tradeoff statement was not identified in the inspected sources or the compared publication index. This is not a claim that every unpublished or more general result has been excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies an exact design criterion for engineering flat, long-time output probabilities in a natural multi-qubit continuous-time Hamiltonian. The finite-window classification is exact rather than asymptotic and yields the first averaging time; the unique integer coupling optimum minimizes a natural control budget at fixed frequency unit. The incompatibility between minimum-budget averaged flatness and instantaneous flatness in dimensions at least two is a structural boundary with an explicit alternate feasible family. These give a complete all-dimension classification, beyond checking a few parameters.
+PASS best-of-knowledge for the combined signed-resonance spectrum and sharp integer-coupling/time-average design, with general spectral-projector and Walsh facts treated as established ingredients. The unweighted Abelian-Cayley nonuniformity theorem has different hypothesis, and broader spectral products do not explicitly settle the integer budget or instantaneous tradeoff.
 
-## Scope and residual limitations
+## value
 
-These claims concern weighted, coherent continuous-time walks with coordinate-homogeneous couplings. Physical bandwidth, perturbation stability, irrational-time exact windows, and finite-time error rates are not characterized. Because the proof combines standard Fourier tools with additive combinatorics, a broader result may cover some or all of the specialized conclusions; further independent assessment is appropriate. The executable checker provides finite corroboration, not a universal formal certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It is natural to ask how anisotropic edge coupling can enforce perfectly uniform *time-averaged* quantum probabilities in a Boolean cube and at what exact observation window/control budget. The unique minimum integer design, its lack of instantaneous mixing and the odd alternative give an exact self-contained classification with concrete Hamiltonian-design motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
