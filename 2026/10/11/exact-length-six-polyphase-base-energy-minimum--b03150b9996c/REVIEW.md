@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof normalizes the two endpoint phases by genuine invariances, expands the base energy exactly, and reduces the problem to a two-angle trigonometric inequality. Four corner coefficients are represented by explicit sums of two squares after tangent half-angle substitution. A dot-product identity plus Cauchy--Schwarz proves the precise coupling bound needed for the final arithmetic--geometric mean estimate. Continuity covers the half-angle poles. The sixth-root witness has all five sidelobes of unit modulus, establishing sharpness.
+## correctness
 
-## Originality
-PASS. The 1965 generalized-Barker paper gives the length-six sixth-root witness and finite-alphabet Barker information, not a global minimum of the sum of squared sidelobes over arbitrary phases. The 2005 polyphase paper reports base energy 5.000 at length six but explicitly presents its low-energy table as the product of stochastic/local optimization with statistical evidence for globality rather than an analytic global proof. Searches using base-energy, fourth-norm, merit-factor, integrated-sidelobe, generalized-Barker, and degree-five-unimodular aliases found no statement implying the present theorem. The closest internal comparison is a prior local Hessian computation at the Barker witness; local strict minimality does not imply the global lower bound.
+PASS
 
-## Value
-PASS. Base energy, merit factor, and the fourth norm are standard natural invariants of unimodular sequences. Length six is the first classical sextic generalized-Barker case and has a long-standing tabulated base-energy value. Replacing statistical global evidence by a short exact analytic certificate is a meaningful finite extremal result, not a recomputation of the table.
+For six arbitrary continuous unimodular phases, common-phase and linear-phase invariance normalize endpoints, giving two interior mirror-pair parametrizations. The exact expansion E=5+4F and four corner coefficients p_i is checked independently. Exact symbolic expansion of the package's four bivariate identities 2D p_i=||z_i||^2 and z1·z4−z2·z3=−4DB returned zero as polynomial identities; 200 random phase samples also agreed with E=5+4F (consistency only). Cauchy–Schwarz yields sqrt(p1p4)+sqrt(p2p3)>=2|B|, and a valid AM-GM decomposition proves F>=0 for all real phases, including tangent-half-angle poles by continuity. Independent exact sixth-root ring calculation gives |C_1|²=...=|C_5|²=1, E=5, L4^4=36+2E=46 and MF=18/5. This is a universal proof, not a finite search.
 
-## Closest literature and limitations
-Golomb--Scholtz supplies the sharp witness; Borwein--Ferguson supplies the numerical value and its explicitly statistical status; Borwein--Mossinghoff supplies the standard fourth-norm/autocorrelation formulation. No equality-orbit classification is asserted. An older differently indexed polyphase proof remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the 1965 generalized Barker sequence establishes a sextic-root witness/peak sidelobes, not the global sum-of-squared sidelobe optimum for arbitrary continuous phases. The complete Borwein–Ferguson 2005 paper lists E=5.000 for n=6 but expressly describes stochastic local optimization and statistical confidence, not a certificate of a universal minimum. A distinct published length-five result does not imply the length-six lower bound; other six-mode Fourier-support papers concern different support sets. Targeted aliases/radar/merit searches found no full continuous global proof; a search failure alone is not taken as novelty proof.
+
+## value
+
+PASS
+
+PASS: length six is a natural first case beyond the classical length-five continuous-phase extremum, with an actual challenging nonconvex full phase-torus global optimization problem; converting the longstanding stochastic energy 5.000 table entry to an exact global theorem is a motivated finite invariant for radar/polyphase code research. The bound gives a sharp fourth-norm and merit-factor cutoff, not just a code witness or code check. Equality classification is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
