@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The source's reduction from pure two-periodic boundary laws on \(I\) to nonfixed positive solutions of \(f(f(u))=u\) was checked in both the preprint and the later journal text. The proof differentiates the exact source map, factors the derivative, and treats the three parameter regimes \(\theta<1\), \(\theta=1\), and \(\theta>1\). In the decreasing regime the exact identity \(NQ-2u(\theta^2-1)P=R\), with every coefficient of \(R\) positive, yields \(-1<g'<0\); the mean value theorem then excludes every genuine two-cycle. No finite experiment is used as an infinite proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The primary 2023 preprint leaves the global period-two exclusion as Conjecture 1 after a computer study of a discriminant region, and the inspected 2025 journal full text still states the same conjecture. Targeted searches by source identifier, exact conjecture wording, model aliases, period-two terminology, and the logarithmic-contraction formulation located no covering proof. The closest predecessor treats the nearest-neighbor model without the one-level competing coupling; the external-field periodic model has a different Hamiltonian.
+## correctness
 
-## Value
-PASS. This closes an explicitly named conjecture in a current model, removes the source's dependence on a numerical emptiness check, and replaces it by a short structural mechanism valid on the full positive two-parameter domain. The result is naturally scoped to the invariant branch used in the conjecture and does not claim more.
+PASS
 
-## Closest literature and limitations
-The decisive comparison is the 2025 journal version of the same work, which still records the complete absence of two-periodic Gibbs measures on \(I\) as a conjecture. The 2015 nearest-neighbor SOS classification and the 2022 external-field periodic-SOS paper concern different Hamiltonians. A weakly indexed independent proof under different variables remains a residual literature risk. Scientifically, the result says nothing about period-two states outside \(I\) or about higher periods.
+For N(u),Q(u)>0 from source equation, f′(u)=−2(θ²−1)P(u)/Q(u)² with all-positive P. If θ<1, f increasing prohibits a 2-cycle; if θ=1, f≡1. If θ>1, let g(x)=log f(exp x). The exact polynomial identity NQ−2u(θ²−1)P=R has 16 positive monomials, giving −1<g′(x)<0 all x. Independently expanded and verified this polynomial identity symbolically as zero with SymPy for indeterminates u,θ,θ1, and verified all R coefficients positive. Any distinct x,y with y=g(x), x=g(y) would by MVT give 1=−g′(ξ), contradiction. Hence all positive parameters covered; claim is only the source invariant set v=1 and only 2-cycles.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The statement is equivalent to a conjecture in the originating work, not a known equivalent theorem. Prior conditional no-cycle region B≥0 is strictly narrower.
+
+## value
+
+PASS
+
+The same-model 2023 source explicitly states the global absence of genuine two-periodic boundary laws on its invariant branch as Conjecture 1, after proving only a restricted discriminant-parameter case. A simple structural strict logarithmic contraction closes precisely that open parameter range and removes reliance on a numerical discriminant search. This is a substantive resolution of a specific natural statistical-mechanics question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
