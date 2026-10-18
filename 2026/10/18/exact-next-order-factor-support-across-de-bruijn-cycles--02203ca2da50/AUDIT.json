@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A length-(n+1) word fixes two distinct consecutive n-arcs unless constant. Contracting the pair preserves vertex balance. H minus the intermediate vertex is weakly connected because a lower-order de Bruijn cycle supplies a Hamilton cycle on H vertices, leaving a spanning path after deletion. The contracted H is connected except when q=2, the intermediate vertex is constant, and the prescribed incoming and outgoing arcs are its two nonloops. Euler expansion proves the converse. Every boundary q=2,n=2 is included. The finite checker verified all 1,175 candidate inputs and independent binary full-cycle cases. These computations are verification only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada–Gabrić full HTML sections 1–4 establishes generation of arbitrary Euler circuits, not criteria for required consecutive arc pairs.",
+        "Moreno 2005 abstract characterizes permitted subsets of length-n arc labels, whereas the new property constrains a transition between two distinct arcs while requiring every arc.",
+        "Dayhoff 1984 full material unavailable; potential dominating transition-prescription theorem remains an identified risk."
+      ],
+      "reasoning": "Euler-tour existence and uniform enumeration do not imply a specified transition can occur, since the binary forbidden pairs are counterexamples. A general theorem guaranteeing prescribed transitions under precise connectivity hypotheses could imply this result after a new graph-specific characterization; no covering source was confirmed.",
+      "searches": [
+        "web: de Bruijn sequences of order n arbitrary length n+1 prescribed substring Euler circuit",
+        "Moreno, DOI:10.1016/j.ipl.2005.05.028",
+        "Dayhoff, DOI:10.1016/0012-365X(84)90048-7"
+      ]
+    },
+    "checked_sources": [
+      "Sawada–Gabrić arXiv:2510.16545 full accessible HTML",
+      "Nellore–Ward CPM 2022 presentation text, pages 6–10 and 23–29",
+      "Moreno 2005 abstract, DOI:10.1016/j.ipl.2005.05.028",
+      "Dayhoff 1984 bibliographic metadata only",
+      "Indexed scientific literature on specified Euler transitions and next-order substring occurrences",
+      "Known results involving de Bruijn constructions for unrelated string invariants and constrained cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Random generation produces arbitrary Euler tours but does not determine whether the support of the prescribed ordered transition is empty.",
+        "The 2022 slide states that any fixed de Bruijn cycle has zero or one occurrence of a next-order word; it does not enumerate words present in at least one such cycle.",
+        "The small binary exceptional transitions are excluded by the isolated constant vertex in the contracted graph, a distinction not captured by general de Bruijn existence."
+      ],
+      "reasoning": "Neither the necessary zero-or-one occupancy property nor uniform cycle sampling states a positive-support test. Conversely, if a stronger published transition-prescription theorem is found, this result could be implied as a special case; that possibility is a residual risk.",
+      "searches": [
+        "arXiv:2510.16545 full HTML sections 1–4",
+        "arXiv:2108.07759 presentation, p.7",
+        "web: prescribed (n+1)-word occurrence in de Bruijn sequences of order n characterization cyclic factors transitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Previously indexed symbol-pair coding results address read-distance or reconstruction invariants rather than prescribed consecutive arc pairs of de Bruijn tours.",
+        "Nellore–Ward CPM 2022 slides p.7 display length-four factors inside one binary order-three cycle, and do not state the universal union theorem."
+      ],
+      "reasoning": "Equivalent claims include positivity of the probability that a random Euler tour uses the prescribed ordered arc pair, and the existence of an Euler circuit respecting a prescribed transition. Checked these formulations against identifiable sources; no precise q-dependent support statement found. Negative search results are not proof of novelty.",
+      "searches": [
+        "For binary de Bruijn cycles order n the union of all length n+1 cyclic factors excludes exactly 0^(n+1), 1^(n+1), 0 1^(n-1) 0, 1 0^(n-1) 1; for q≥3 only constant factors excluded",
+        "Universal (n+1)-factor spectrum over all de Bruijn sequences; prescribed adjacent two n-grams Euler tour transitions",
+        "web: de Bruijn sequences substring length n+1 impossible 0110 1001"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nellore–Ward CPM 2022 slides p.7 list ins and outs for one order-three cycle; not a union across all cycles.",
+        "Published orientable and constrained-cycle classifications have different permitted window sets and do not enumerate the unrestricted next-order support."
+      ],
+      "reasoning": "A specific q=2,n=3 table can support an example but does not imply the complete classification for all q,n. No indexed exact support table or formula was located.",
+      "searches": [
+        "web: next-order de Bruijn substrings length four table 0110 1001",
+        "web: de Bruijn sequences substring length n+1 impossible 0110 1001"
+      ]
+    },
+    "rationale": "Comparison of full accessible recent de Bruijn-cycle sampling paper (arXiv:2510.16545), the 2022 next-order-factor presentation, Moreno 2005 abstract, title/metadata of Dayhoff 1984 identified no theorem characterizing every attainable consecutive arc pair across q,n. The new result determines support, not the well-known existence, enumeration, or construction of de Bruijn cycles. Full Dayhoff article was inaccessible, so originality is qualified by explicit residual risk.",
+    "residual_risks": [
+      "Dayhoff (1984) full text inaccessible; it may contain a stronger prescription theorem yielding this classification.",
+      "Moreno (2005) full text inaccessible beyond abstract; cannot rule out an equivalent intermediate lemma.",
+      "Unindexed or differently named literature on prescribed Euler transitions may dominate this theorem.",
+      "Negative search results and partition ownership do not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No formula or characterization of support for length-(n+1) factors; random tour generation is related but weaker.",
+        "evidence": [
+          "The introduction defines all Euler tours via directed graph arborescences, and states focus on random generation (sections 1–4).",
+          "The cited algorithm samples cycles, without computing allowed consecutive-arc transitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+        "material_read": "Accessible full arXiv HTML article, introduction, Euler tour preliminaries, random generation algorithm, application sections and references",
+        "method": "Read text and compare theorem statements, algorithm inputs and implications",
+        "title": "Random generation of universal cycles and de Bruijn sequences",
+        "trigger": "Fresh primary paper about uniformly random de Bruijn cycles"
+      },
+      {
+        "assessment": "Describes one-cycle next-order factor occupancy and more general near-balanced constructions, not the union across all order-n de Bruijn cycles.",
+        "evidence": [
+          "Page 7 lists eight present and eight missing length-four strings in the fixed cycle 00010111; page 8 says the count is zero or one in a fixed cycle."
+        ],
+        "identifier_or_url": "https://www.stringology.org/event/CPM2022/assets/slides/16136.pdf",
+        "material_read": "Extracted presentation text, particularly slides/pages 6–10 and 23–29; images not independently inspected",
+        "method": "Read available slide text and factor tables",
+        "title": "Arbitrary-length analogs to de Bruijn sequences",
+        "trigger": "Direct discussion of factors longer than the de Bruijn span"
+      },
+      {
+        "assessment": "Addresses selection of allowed length-n arc sets, not explicitly the next-order factor-support criterion. Full-text limitation remains.",
+        "evidence": [
+          "Abstract characterizes de Bruijn sequences for subsets of length-n words and forbidden-factor languages."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ipl.2005.05.028",
+        "material_read": "Public abstract and bibliographic record only; complete text not obtained",
+        "method": "Compare publicly described questions and object types",
+        "title": "De Bruijn sequences and De Bruijn graphs for a general language",
+        "trigger": "Potential more general graph theorem for constrained word sets"
+      },
+      {
+        "assessment": "Unable to exclude an equivalent or stronger earlier theorem based on title alone; explicitly retained as residual originality risk.",
+        "evidence": [
+          "Judith E. Dayhoff, Discrete Mathematics 50 (1984), 193–219."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(84)90048-7",
+        "material_read": "Bibliographic title, year, journal, pages; complete text not obtained",
+        "method": "Search for public full text and compare available title-level scope",
+        "title": "Independently prescriable sets of n-letter words",
+        "trigger": "Plausible prior theory of prescribed words and interactions in cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02203ca2-da50-4b66-a4f8-42828afc06eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact complete support of next-order word distribution is an intrinsic invariant for uniformly sampled de Bruijn cycles. The theorem settles it for the entire infinite q,n family, identifies a genuine binary-only exceptional obstruction, and constructively characterizes which motifs can be enforced. Exact support is not automatic from de Bruijn cycle existence, count, or random generation; no arbitrary parameter slice was introduced.",
+    "status": "PASS"
+  }
+}
