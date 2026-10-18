@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The unitary map x_n→r^((n−1)/2)x_n gives exactly A_t=D(I−tS)^−1. For each polynomial P, the finite-band singular counting limit is obtained by finite geometric blocks, rank-B circulant perturbations, and two cutoffs; discarded head has rank O(delta/lambda), tail has norm O(lambda/M). Singular-value comparisons and Darboux sums give lambda N(lambda;DP(S))→mean|P|. The geometric series truncation has error E_B with s_n(E_B)≤t^(B+1)/((1−t)n); Ky-Fan counting inequalities and B→∞ give lambda N(lambda;A_t)→mean|(1−te^{i theta})^−1|. Monotone inversion establishes n s_n→c>0. Schatten, logarithmic mean, and strict c>1 follow. Numerical code independently corroborates finite sections only. The proof does not need or assume numerical convergence implies an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Widom (1989), https://doi.org/10.4171/ZAA/350: original Theorem I and introduction concern singular values of finite Toeplitz sections T_N(f), without a decaying position diagonal D=diag(1/n).",
+        "The finite-band block comparison in RESULT.md combines finite Toeplitz distributions with a nonstationary position scale and derives the infinite compact-operator counting coefficient.",
+        "No located general theorem was inspected that explicitly includes the exact infinite one-sided diagonal-times-Toeplitz law; an older general discrete pseudodifferential Weyl theorem could cover it."
+      ],
+      "reasoning": "Classical finite Toeplitz distribution is an ingredient, not a verbatim covering implication: the infinite compact D T operator has asymptotically small singular numbers, whereas each finite Toeplitz block has order-one singular values. The transfer across varying 1/n scales is supplied and proved. Broader singular-Weyl frameworks remain the principal bibliographic risk.",
+      "searches": [
+        "Asymptotic singular value distribution of diagonal-times-Toeplitz compact operators and Szego Widom formula",
+        "Toeplitz diagonal product diag(1/n) times inverse shift I-rS singular value Weyl law average absolute symbol",
+        "singular value asymptotics products diagonal Toeplitz 1/n Cesàro operator geometric weighted ell2",
+        "Birman Solomyak singular value asymptotic Toeplitz pseudodifferential discrete diag weights n inverse"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1090/S0002-9939-1982-0671204-7",
+      "https://doi.org/10.4153/CMB-1984-064-5",
+      "https://doi.org/10.1017/S1446788715000221",
+      "https://doi.org/10.4171/ZAA/350",
+      "https://www.researchgate.net/publication/283161699_SPECTRUM_AND_COMPACTNESS_OF_THE_CESARO_OPERATOR_ON_WEIGHTED_SPACES",
+      "https://riunet.upv.es/entities/publication/acf22a50-6759-4b81-b012-80e52a6f4714",
+      "https://arxiv.org/abs/2305.04805"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rhaly 1982 Theorem 4 (https://doi.org/10.1090/S0002-9939-1982-0671204-7): qualitative compactness and exact point spectrum only.",
+        "Rhaly 1984 Theorem 1 (https://doi.org/10.4153/CMB-1984-064-5): exact sum of squared singular values, insufficient to derive the asymptotic coefficient.",
+        "Albanese–Bonet–Ricker 2015 (https://doi.org/10.1017/S1446788715000221): norm bounds, compactness and spectral properties in weighted spaces, without a located singular-number Weyl law.",
+        "Widom 1989 (https://doi.org/10.4171/ZAA/350): finite Toeplitz spectral-distribution premise, used after an original localization and rank/error control argument."
+      ],
+      "reasoning": "None of these inspected results logically fixes lim n s_n. The novel theorem gives one asymptotic for every parameter 0<t<1 and the independent consequence of a logarithmic trace constant strictly larger than the known eigenvalue coefficient. The 2015 text extraction was imperfect, so this comparison retains an explicit source-access caveat.",
+      "searches": [
+        "Rhaly 1982 generalized Cesaro operator A_alpha spectral singular asymptotics weighted Cesaro geometric weight",
+        "Asymptotic singular value distribution of diagonal-times-Toeplitz compact operators and Szego Widom formula",
+        "Dixmier trace or Weyl law for compact weighted Cesaro operator with exponentially decaying sequence weight; singular values asymptotic weak trace class",
+        "generalized Cesaro operator C_t Schatten classes singular values asymptotic t 0 1 ell2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rhaly (1982), https://doi.org/10.1090/S0002-9939-1982-0671204-7: pp.405–409 define exactly the compact matrix with entries t^(i-j)/(i+1), and prove spectrum {1/n}∪{0}, not singular-value asymptotics.",
+        "Rhaly (1984), https://doi.org/10.4153/CMB-1984-064-5: Theorem 1 gives its Hilbert–Schmidt norm, not asymptotics of ordered singular values.",
+        "Albanese–Bonet–Ricker (2015), https://doi.org/10.1017/S1446788715000221: weighted ℓ_p Cesàro is conjugate to this generalized matrix in the geometric case."
+      ],
+      "reasoning": "The conjugacy identifies an exact pre-existing operator under an alias; the present novelty claim is NOT its construction, compactness, eigenvalues, or Hilbert–Schmidt membership. Its exact singular-counting coefficient is a different invariant. No inspected earlier statement equals or implies the asymptotic directly.",
+      "searches": [
+        "H C Rhaly generalized Cesàro matrices compact Hilbert Schmidt singular-value sequence 1/n asymptotic weak Schatten and logarithmic trace",
+        "Rhaly 1982 generalized Cesaro operator A_alpha spectral singular asymptotics weighted Cesaro geometric weight",
+        "generalized Cesaro operator C_t Schatten classes singular values asymptotic t 0 1 ell2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rhaly (1982) tabulates its point spectrum, not singular values; for nonzero t, nonnormality separates these.",
+        "mathematical-record returned unrelated Cesàro Mellin trace-class defects and factorized-kernel weak trace laws as closest records, but no record with this operator and coefficient.",
+        "Numerically, 100 s_100 is about 1.044055178391 for t=0.4, vs the exact eigenvalue coefficient 1, corroborating that the spectral table does not settle the singular asymptotic."
+      ],
+      "reasoning": "The eigenvalue list 1/n and Hilbert–Schmidt squared sum cannot determine the coefficient of the ordered singular-number asymptotic. No exact singular-number table was located; this is a documented search result, not a mathematical proof that none exists.",
+      "searches": [
+        "H C Rhaly generalized Cesàro matrices compact Hilbert Schmidt singular-value sequence 1/n asymptotic weak Schatten and logarithmic trace",
+        "Singular values asymptotic c(q)/n for compact Cesaro averaging operator on geometrically weighted ell2 with weight r^n and Toeplitz symbol 1/(1-sqrt(r) z)",
+        "Dixmier trace or Weyl law for compact weighted Cesaro operator with exponentially decaying sequence weight; singular values asymptotic weak trace class",
+        "n s_n Cesàro operator generalized"
+      ]
+    },
+    "rationale": "Exact same-object Rhaly 1982/1984 primary papers, the 2015 weighted-space article, and finite Toeplitz singular-distribution theory were compared at statement/implication level. They provide compactness, eigenvalues, Hilbert–Schmidt norm, weighted norm/spectral analyses or finite Toeplitz distribution but no located direct infinite geometric-weight singular asymptotic. The transfer to an infinite compact operator with 1/n diagonal is established rather than assumed. The main remaining originality risk is equivalence to a general discrete pseudodifferential Weyl theorem or material obscured in the inaccessible typeset source.",
+    "residual_risks": [
+      "Earlier general singular-number Weyl theorems for half-line discrete pseudodifferential or diagonal-times-Toeplitz operators might subsume this concrete coefficient without mentioning Cesàro.",
+      "The full typeset 2015 weighted-space article was not available by the tried authorized PDF channels; material text extraction is partly garbled and could hide a relevant formula.",
+      "No negative database search establishes global mathematical novelty; unpublished overlapping work is inaccessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers boundedness, eigenvalues, eigenspaces, compactness and subnormality; does not give a singular-number Weyl coefficient.",
+        "evidence": [
+          "p.405 definition of A_lambda matrix",
+          "p.407 Theorem 2 simple eigenvalues 1/n",
+          "p.408 Theorem 4 compactness"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1982-0671204-7",
+        "material_read": "Entire 5-page article, including pp.405–409 definition and Theorems 1–4; pages 405, 407–409 visually inspected and remaining pages textual extraction.",
+        "method": "Authorized publicly readable article PDF, scientific-text inspection and page images.",
+        "title": "Discrete generalized Cesàro operators",
+        "trigger": "The matrix is exactly the operator under an older generalized Cesàro alias; strongest same-object antecedent."
+      },
+      {
+        "assessment": "Hilbert–Schmidt norm equals an explicit convergent sum, but its theorem statements do not fix the pointwise n*s_n asymptotic.",
+        "evidence": [
+          "p.417 Theorem 1 exact Hilbert–Schmidt norm",
+          "p.418 Toeplitz symbol and operator continuity"
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1984-064-5",
+        "material_read": "Six-page article pp.417–422, concentrating on Theorem 1 and operator/Toeplitz representation; pages 417, 418, 422 visually inspected and all page text available.",
+        "method": "Authorized publicly readable publisher PDF, mathematical-text extraction and inspected screenshots.",
+        "title": "Generalized Cesàro Matrices",
+        "trigger": "Identical matrix family, full quantitative Hilbert–Schmidt norm is especially relevant to singular numbers."
+      },
+      {
+        "assessment": "Explicit material describes compactness, norm and spectrum, and no matching singular-number asymptotic was identified; this is not a whole-document certification of absence because rendered formulas were garbled.",
+        "evidence": [
+          "https://www.researchgate.net/publication/283161699_SPECTRUM_AND_COMPACTNESS_OF_THE_CESARO_OPERATOR_ON_WEIGHTED_SPACES",
+          "p=2 geometric weight worked example at extracted text around lines 472–703",
+          "published online 19 August 2015"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S1446788715000221",
+        "material_read": "Substantial author-provided full-text extraction including weight-space unitary representation, p=2 geometric example, and norm/compactness sections; mathematical glyphs were imperfect.",
+        "method": "Author-posted ResearchGate article full-text view and publisher article metadata, plus lawful university-repository attempt. Publisher PDF and repository final download unavailable; authorized institutional access returned disconnected status.",
+        "title": "Spectrum and compactness of the Cesàro operator on weighted ℓ_p spaces",
+        "trigger": "Source for geometric weighted Hilbert-space Cesàro averaging and eligible original research date."
+      },
+      {
+        "assessment": "Provides general finite Toeplitz singular-value distribution but no diagonal 1/n infinite compact operator Weyl law.",
+        "evidence": [
+          "https://ems.press/content/serial-article-files/34508?nt=1",
+          "p.221 equation (2) averaged singular-value distribution",
+          "p.222 Theorem I refinement"
+        ],
+        "identifier_or_url": "https://doi.org/10.4171/ZAA/350",
+        "material_read": "Original 9-page publisher PDF, especially introduction and Theorem I (pp.221–222) giving singular-value distributions of finite Toeplitz sections.",
+        "method": "Publicly downloadable publisher PDF; read theorem, hypotheses and relation to Avram–Parter.",
+        "title": "On the singular values of Toeplitz matrices",
+        "trigger": "Strongest primary theorem plausibly implying the finite block distribution used by the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e15dd64b-478c-4d49-aa20-738d694d4386",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The generalized Cesàro family is a longstanding natural compact nonnormal operator family studied since 1982; sharp ordered-singular asymptotics were not among the inspected invariants. One exact function c(r) classifies its first-order approximation-number profile for every 0<r<1, determines the sharp weak-trace-class/Dixmier logarithmic coefficient and entire Schatten threshold, and quantifies a strict gap from the known eigenvalue coefficient 1. This is structural asymptotic information, not an arbitrary finite slice or a restatement of compactness. The proof also isolates a reusable finite-band localization argument.",
+    "status": "PASS"
+  }
+}
