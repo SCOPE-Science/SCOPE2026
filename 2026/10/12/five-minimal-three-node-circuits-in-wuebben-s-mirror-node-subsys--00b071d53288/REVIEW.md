@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact verifier reconstructs the \(26\) polar vertices and \(26\) unit-square node rows from the \(22\) vertices printed in Wuebben's Theorem 6.1. It first reproduces the published rank \(18\) and the two published coloops. It then checks all supports of sizes \(1\), \(2\), and \(3\): all rows are nonzero, every pair is independent, and exactly five of the \(2600\) triples have rank \(2\). Therefore the girth is \(3\), the five displayed supports are the complete list of minimum circuits, and the displayed \(\{\pm1\}\) relations are verified by direct integer addition.
+## correctness
 
-## Originality
-**PASS.** The initiating paper and its ancillary row-reduction script report rank and coloop data but do not enumerate minimum-support dependencies. The broader conifold-relation manuscript inspected for implication coverage develops integral relation lattices and examples but does not state this five-circuit classification. Exact-source, minimum-support, circuit, conifold-relation, and equivalent matroid searches found no covering statement. Rank and coloop data alone do not imply circuit girth or the circuit count.
+PASS
 
-## Value
-**PASS.** Minimum-support circuits identify the smallest collections of nodes participating in the same global linear relation, precisely the local-to-global structure for which the initiating matrix is introduced. The later conifold-relation framework further motivates this invariant by identifying relation lattices with exceptional-curve and mirror vanishing-sphere relations in its scope. The exact result—support \(3\), exactly five primitive circuits—is a natural complete finite classification, not a selected numerical sample.
+Independent reconstruction from the 22 integer vertices printed in Wuebben Theorem 6.1 first identified 26 polar facet normals by a convex-hull triangulation and exact primitive normals. An independent 4-combination ordering of the input vertices recovered the author-package polar indexing. Polar has 22 facets and 68 two-faces, including exactly 26 four-vertex squares; each square gives a unique diagonal equality and a 26-coordinate row with four ±1 entries. An independent Gram-minor test found all 325 pairs independent and exactly five of the 2600 three-row supports dependent. It matched ALL original one-based row triples (7,8,22),(12,14,20),(13,14,23),(17,18,25),(19,20,26) and exact matrix rank 18. Three-way Gram determinants and exact row addition/primitive sign relations certify girth 3; complete finite enumeration is itself the proof. Initial differently ordered polar normals produced a relabeling of the same five circuits; canonical package ordering resolved the discrepancy and should not be confused with new science.
 
-The result does not classify larger circuits and does not assert that any three-node relation alone produces a smoothing of the mixed-singularity threefold.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wuebben original full author LaTeX Remark on node subsystem gives rank 18, exactly two coloops and no full-support relation, not minimal circuit girth or the five exact triple supports. The finite minimal-circuit census does not follow from rank and coloop count alone. Resultary semantic search found matroid material on other examples, not this exact node matrix. Best-of-knowledge original for minimum circuits; later conifold-relation source could contain overlap but inspected primary statement has no such list.
+
+## value
+
+PASS
+
+For the established 26-node relation matrix governing local-to-global obstructions, minimum matroid circuits identify the smallest support of global linear dependencies. Complete five-circuit classification is a natural structural invariant independent of the source rank and coloop statements. The result carefully DOES NOT infer smoothability: four additional del Pezzo-cone singularities and two coloop nodes constrain global smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
