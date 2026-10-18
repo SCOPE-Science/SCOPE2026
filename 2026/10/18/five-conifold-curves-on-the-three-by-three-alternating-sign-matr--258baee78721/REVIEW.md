@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The seven stated integral vertices are exactly the six permutation matrices and the single nonpermutation alternating sign matrix in size three. The explicit integral change of coordinates has determinant \(-1\) and maps them bijectively to the stable-set indicator vectors of the four-cycle. The eight displayed facets satisfy the vertex inequalities, have affine dimension three, and are exhaustive by Striker's facet formula, arXiv:0705.0998, Theorem 3.3. Enumerating all facet intersections gives the complete face vector \((7,17,18,8)\). Primitive normal-ray counts and all maximal-minor gcds identify precisely five maximal nonsmooth edge cones and no independent nonsmooth vertices. At each of those five edges, the four-ray primitive relation is a unit-square relation and every triple is lattice saturated, giving the transverse determinantal node \(ab-cd=0\) over every algebraically closed field. The companion standard-library checker rederives these finite facts without floating-point arithmetic and prints `VERIFY_OK`. The orbit-cone correspondence proves the reduced singular support and the curve incidence. This is a proof for one fully specified finite polytope; no extrapolation to larger matrix sizes is made.
+
+## Originality — PASS, qualified
+
+The core object, its integral vertices, facets, and general face-lattice characterization are established in Striker's arXiv:0705.0998, and integral dilations and size-three enumerations are established in Behrend--Knight's arXiv:0708.2522. Mészáros--Morales--Striker's arXiv:1510.03357 studies selected ASM-polytope faces as order and flow polytopes. Examination of relevant full-text portions of these sources did not locate an integral ASM-to-\(C_4\) stable-set identification or a complete classification of the normal-fan toric singular curves and their transverse node germs. The Birkhoff size-three normal-fan variety is different: its parent polytope has six vertices and nine facets, versus seven and eight here, so its singular-orbit classification does not imply this one. The exact \(C_4\) equivalence is explicitly recognized and prevents claiming any independent novelty for facts that follow from a covering graph-polytope result. Targeted searches for such a covering classification did not locate one, but the absence of a search hit is not proof that none exists.
+
+## Mathematical value — PASS
+
+The size-three case is the first non-Birkhoff alternating-sign-matrix polytope and the first natural normal-fan toric model in this family. Its integral identification with the four-cycle stable-set polytope connects two combinatorial constructions, while the five-curve tree and uniform conifold transversals identify the complete singular geometry of that model. The result is a natural complete classification of a geometrically motivated example, rather than an arbitrary face or an enumerative reformulation of the known vertex/facet tables. It provides a concrete structural baseline for studying larger alternating-sign-matrix toric varieties. No statement about their behavior is asserted.
+
+## Closest literature and limitations
+
+Closest primary texts: Striker, *The Alternating Sign Matrix Polytope* (arXiv:0705.0998, 2007); Behrend--Knight, *Higher Spin Alternating Sign Matrices* (arXiv:0708.2522, 2007); Mészáros--Morales--Striker, *On Flow Polytopes, Order Polytopes, and Certain Faces of the Alternating Sign Matrix Polytope* (arXiv:1510.03357, 2015). Residual originality risk includes an unlocated existing equivalence or singularity classification for the four-cycle stable-set polytope. The theorem treats reduced singular support and generic transverse germs, not Jacobian nilpotents or completed local rings at the two triple points. Independent review is absent.
+
+Self-review: passed. Independent audit: not yet performed.
