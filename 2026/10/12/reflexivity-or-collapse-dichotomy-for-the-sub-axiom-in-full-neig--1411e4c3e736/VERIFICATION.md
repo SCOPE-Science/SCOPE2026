@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The finite verifier `verify_sub_dichotomy.py` implements the full three-modal semantic clauses directly on every valuation and product world. Its input sets are every principal normal filter on a labeled finite carrier, including improper filters. It compares direct sub validity to the global T/T-or-improper/improper prediction. Complete rows checked:
+## correctness
 
-| Carrier sizes | Frame pairs | Valid sub pairs | T/T pairs | Improper/improper pairs |
-| --- | ---: | ---: | ---: | ---: |
-| \((1,1)\) | 4 | 2 | 1 | 1 |
-| \((1,2)\) | 32 | 5 | 4 | 1 |
-| \((2,2)\) | 256 | 17 | 16 | 1 |
-| \((2,3)\) | 8192 | 257 | 256 | 1 |
+PASS
 
-Reproduce with `python verify_sub_dichotomy.py`; the run terminates with `VERIFY_OK` and no assertion failures. A code-free proof covers arbitrary infinite and finite factors: improper/proper separation by the empty valuation, nonreflexivity separation by rectangle witnesses, propagation across coordinate pairs, and counting of finite principal generators. No extrapolation from finite tests is used.
+Pointwise normal filters: mixed improper/proper falsified by A=empty; proper non-T filter has U excluding designated point, and truth set U×V makes the opposite slice-box false; T/T rectangles witness both slices; both improper always witness empty. Nonempty carriers propagate local type by cross-pair. Finite filters have unique generators, giving count. Independent all-valuation enumeration (1,1),(1,2),(2,2),(2,3) gives 2,5,17,257 valid among 4,32,256,8192. Infinite case comes from pointwise proof, not enumeration.
 
-An external independent audit has not been performed; no third-party certification is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge strict addition is the all-factor necessity and the improper-collapse exception; the 2026 source has T-product sufficiency and a D-frame non-T counterexample, not this fixed-pair iff or labeled census. An earlier unindexed correspondence remains possible.
+
+## value
+
+PASS
+
+The global factor-pair necessity is a natural sharp frame correspondence for a studied three-modal interaction; the improper exception and labeled enumeration are structurally informative, not a vacuous rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

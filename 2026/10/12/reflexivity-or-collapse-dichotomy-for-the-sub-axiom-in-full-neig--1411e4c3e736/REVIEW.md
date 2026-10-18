@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source semantics is reconstructed with three distinct modalities. Pointwise validity of the sub interaction law splits into two necessary and sufficient cases: both proper, locally reflexive filters or both improper filters. The empty valuation excludes mixed status, while the rectangle valuation detects any proper but nonreflexive filter. Comparing every coordinate to one base point lifts the dichotomy globally, for any nonempty carrier sizes. The exact labeled finite census follows from finite filter generators. The standalone exhaustive verifier checks every valuation for carrier sizes up to \((2,3)\), but the unrestricted result depends on the symbolic argument.
+PASS
 
-## Originality
+Pointwise normal filters: mixed improper/proper falsified by A=empty; proper non-T filter has U excluding designated point, and truth set U×V makes the opposite slice-box false; T/T rectangles witness both slices; both improper always witness empty. Nonempty carriers propagate local type by cross-pair. Finite filters have unique generators, giving count. Independent all-valuation enumeration (1,1),(1,2),(2,2),(2,3) gives 2,5,17,257 valid among 4,32,256,8192. Infinite case comes from pointwise proof, not enumeration.
 
-**PASS, with residual historical risk.** Aghamov, Kudinov, Nguyen and Piribauer (2026, doi:10.4204/EPTCS.447.1, arXiv:2606.31852) introduce these full products, prove validity under T factors, and give a non-T D counterexample. The inspected source does not establish an exact necessity theorem for arbitrary normal-factor pairs or the finite labeled census. Kudinov (2018, arXiv:1609.03232) studies a related bimodal product, rather than the third product modality. Searches for equivalent formulas, implication coverage, and enumeration found no dominating result, but equivalent older terminology cannot be excluded without wider historical review.
+## originality
 
-## Value
+PASS
 
-**PASS.** The paper motivating the question focuses on the semantic boundary between T and D factors. The new classification replaces a sufficient condition and a counterexample with a sharp necessary-and-sufficient structural theorem even for infinite factors. The lone exceptional nonserial stratum changes an exact natural finite-frame count by one; the resulting explicit density quantifies how restrictive the law is.
+Best-of-knowledge strict addition is the all-factor necessity and the improper-collapse exception; the 2026 source has T-product sufficiency and a D-frame non-T counterexample, not this fixed-pair iff or labeled census. An earlier unindexed correspondence remains possible.
 
-## Limitations
+## value
 
-Normal filters must be upward closed and intersection closed; no claim is made for unrestricted monotone neighborhoods. The finite census uses labeled factors. Small exhaustive computations corroborate but do not prove the infinite result. Older equivalents remain a plausible residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global factor-pair necessity is a natural sharp frame correspondence for a studied three-modal interaction; the improper exception and labeled enumeration are structurally informative, not a vacuous rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
