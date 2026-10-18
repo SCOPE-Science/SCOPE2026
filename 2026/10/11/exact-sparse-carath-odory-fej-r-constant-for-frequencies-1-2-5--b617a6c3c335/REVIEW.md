@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper certificate is a positive convex combination of two point evaluations and exactly cancels both unconstrained higher coefficients. Attainment is established by an explicit factorization on \([-1,1]\); the remaining quadratic is positive because its leading coefficient is positive and its discriminant is strictly negative. The equality conditions give a nonsingular linear system, so the coefficient triple is unique.
+## correctness
 
-## Originality
-PASS. Targeted published-finding corpus searches for the support \(\{{1,2,5\}}\), positive-definite aliases, and sharp first-coefficient formulations found no matching statement. The primary framework paper was inspected at the definitions, general reductions, previous-work discussion, and target-support full-text searches. The closest exact sparse records concern \(\{{1,2,4\}}\) and \(\{{1,3,4\}}\), which are incomparable supports and do not imply this constant. Current and prior own ledgers were also checked with no overlap. Residual risk remains that an older calculation is indexed under different classical notation.
+PASS
 
-## Value
-PASS. The invariant is a standard sparse Carathéodory–Fejér/positive-definite support extremum, and the result identifies both its exact cyclotomic value and its unique extremizer. The two-contact seventh-root certificate is structural and gives a reusable benchmark for sparse support extremal problems; the claim is not a finite sampling artifact or a full-degree textbook value.
+Two-point positive dual evaluation at π and 5π/7 cancels both higher harmonics and gives a≤1+2cos(3π/7). The displayed unique candidate factors after x=cosθ as (x+1)(x+cos(2π/7))²Q(x). Exact reduction by 8d³−4d²−4d+1=0 and independent symbolic expansion verify the factorization and bound identity. For 0<d<223/1000, Q has positive leading coefficient and strictly negative discriminant; rational Taylor bounds ensure this globally, not a numerical scan. Optimality contacts at π and 5π/7 plus derivative at the interior angle uniquely solve a,b,c.
 
-## Closest literature and limitations
-Krenedits–Révész (arXiv:1304.0071v1) define the general \(\mathcal M(\Omega)\) problem and reduce positive-definite point-value questions to it, but the inspected text does not evaluate \(\Omega=\{{1,2,5\}}\). Kolountzakis–Révész (arXiv:math/0312218) provides the broader Turán framework. The accepted claim is restricted to the continuous real-even support \(\{{0,\pm1,\pm2,\pm5\}}\) and does not cover cyclic sampling or a general three-frequency family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the precise real-even continuous-circle support {1,2,5} exact optimal first-harmonic coefficient 1+2 cos(3π/7) with unique optimizer. The primary general support papers and explicit exact families were compared statement-wise; general definitions/duality and adjacent nonnested supports do not supply this formula. This is not a novelty proof from failed searches: Resultary unavailable; hidden exact sparse polynomial literature remains a residual risk.
+
+## value
+
+PASS
+
+Sparse Carathéodory–Fejér coefficient extrema are canonical invariants of frequency support and positive-definite Fourier sequences. For {1,2,5}, Seventh-root contact resonance produces a sharp dual cancellation for these nonconsecutive higher harmonics; the exact optimum and unique primal certificate are mathematically nontrivial support-specific data. The exact optimizing value, a globally certified feasible extremizer and uniqueness are precise reusable mathematical benchmarks; no paper-sized downstream theorem is required for this motivated exact fact. It is not a routine evaluation of a full consecutive Fourier support problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
