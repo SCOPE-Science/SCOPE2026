@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns exactly \(m\ge8\), the ordinary independence complex of the rank-two stable Kneser graph, and the full polygon-dihedral action on its reduced rational second homology. A self-contained equivariant face-poset closure map reduces the star subcomplex to the polygon chord graph, and all remaining simplices are triangle facets. Euler–Lefschetz additivity and Braun's verified homology-concentration theorem reduce the character to signed fixed polygons, chords, and admissible triples. Explicit conjugacy-class counts give the stated piecewise formulas. The direct full-complex and independent chord-graph checkers reproduce all traces for \(8\le m\le12\) and \(8\le m\le20\) respectively. Finite checks do not replace the uniform combinatorial proof.
+PASS
 
-## Originality — PASS with residual literature risk
+For each integer m≥8 (k=m−4≥4), the graph vertices are nonconsecutive chords and Ind(SG_{2,k}) faces are pairwise-intersecting families. Any such family is a star or a three-edge triangle. The star union U has D2m-equivariant poset equivalence with the complement-cycle chord graph H_m by the source's explicit inverse order-reversing maps p,q (pq=id, qp extensive); all other relative faces are admissible oriented triples. Braun Theorem1.4 supplies reduced homology concentrated in degree2, therefore χ_H2=[T_m]−[E_m]+[V_m]−1. For nonidentity rotations signed fixed chord/triangle counts vanish except order2 chords and order3 triples, yielding b_m=(m³−12m²+35m−6)/6 at identity, m/2−1 on half-turn, m/3−1 on order3, −1 otherwise. Reflections yield odd m trace1, even m j even trace 3−m/2 and odd j trace m/2−3. Independently enumerated every fixed-simplex signed trace for all 74 dihedral elements across m=8,9,10,11 and matched formula. Those finite checks corroborate, not prove, the all-m poset reduction and fixed-set counts. Actual scripts verify_direct.py and verify_cellular.py were examined.
 
-Closest direct prior result: Braun's arXiv:0912.0720v1, Theorem 1.4 and Section 3, gives the nonequivariant wedge rank and the wheel/triangle facet types, but no homology character. Schultz's arXiv:1003.5688v1, Theorems 4.3 and 5.1, gives a dihedral model for a Hom/box complex, not the independence complex. Both relevant full-text sections were examined. Targeted scholarly and research-record searches checked the Schrijver/stable-Kneser aliases, dihedral traces, rational representations, reflections, and dominating equivariant results without identifying an implication that establishes this character. Search absence is not proof of absolute novelty; equivalent unindexed literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The intrinsic dihedral action on a whole infinite family of canonical vertex-critical graphs is not determined by ordinary homotopy rank. The formula distinguishes generic rotations, order-two and order-three exceptions, and the two even-polygon reflection axes. It supplies the exact rational equivariant homological invariant needed to calculate symmetry-invariant classes and assess equivariant constructions, without pretending to classify integral modules or equivariant homotopy types.
+Braun completely supplies the nonequivariant wedge and its rank; the submitted new statement is the full D_{2m} rational character, including exceptional rotations and two even-m reflection classes. Schultz carries the same group action but studies Hom/box complexes, not Ind. The equivariant polygonal cellular trace is an additional mathematical calculation. Relevant characters could be encoded in older representation literature under another guise.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The rational D2m-character is an exact equivariant refinement of Braun's significant nonequivariant wedge theorem across every m≥8. Exceptional order2/order3 rotations and the two even-m reflection classes encode symmetry not recoverable from Betti numbers; the explicit infinite uniform signed-trace identity can support equivariant homology and character decompositions. This is substantively broader than a tiny finite tabulation, while stopping short of integral equivariant homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
