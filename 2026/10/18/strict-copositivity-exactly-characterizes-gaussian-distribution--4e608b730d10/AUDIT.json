@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A PSD covariance factor B supplies finite row vectors. Their convex-hull distance squared is precisely the simplex covariance minimum. Orthogonal projection gives a unit vector with every loading at least sqrt(m); this is valid even when Sigma is singular. Conditioning on orthogonal Gaussian residuals leaves all coordinate transforms increasing in the same independent scalar normal, implying nonnegative conditional pair covariances. An explicit Hermite-series computation controls each conditional-mean variance by the square of the residual correlation; hence conditional variance is at least (a_i^2/Sigma_ii) times marginal variance. Total variance yields beta >= m/max diag. A nonnegative null vector, when m=0, makes the monotone linear sum zero with positive denominator. The ancillary verifier checks exact examples and finite forms; no infinite claim relies on numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sei 2021, Appendix E.2, Lemma 17 obtains positivity by the minimum correlation-matrix eigenvalue, which vanishes for every singular covariance and does not establish the conjectured extension.",
+        "The present covariance example is rank two in dimension four, with four negative pairwise covariances, beyond full-rank sufficiency and restricted negative-edge patterns."
+      ],
+      "reasoning": "The published full-rank sufficient criterion is strictly weaker than the claimed iff classification; it cannot imply positivity for the displayed singular Gram matrix. Matrix copositivity alone contains no nonlinear transformed-sum conditional-variance inequality.",
+      "searches": [
+        "strict copositivity positive semidefinite Gram covariance equivalence to common positive Gaussian latent direction for monotone transforms sum variance",
+        "rank-deficient Gaussian copula copositivity nonlinear monotone transform sum variance lower bound",
+        "Gaussian positive latent factor covariance kernel orthant separation copositive functional inequality",
+        "Sei Gaussian copositive distributions singular covariance strictly copositive Conjecture 4 Gaussian common positive factor monotone marginal transformations variance coercivity",
+        "Gaussian copula covariance positive orthant monotone functions variance sum lower bound singular",
+        "source:doi:10.1007/s41884-021-00051-9, Appendix E.2"
+      ]
+    },
+    "checked_sources": [
+      "T. Sei, DOI 10.1007/s41884-021-00051-9 (2021 open-access article; substantive sections and appendix read).",
+      "J.-B. Hiriart-Urruty and A. Seeger, DOI 10.1137/090750391 (publisher abstract and metadata).",
+      "Published mathematical-record semantic searches using the literal queries documented in the four named comparison checks.",
+      "Prior scientific claims and stable IDs from the available current and preceding private ledgers, used solely for overlap detection."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sei 2021 Theorem 4 converts distribution copositivity into existence of a Stein-type transformation but does not prove the conjectured Gaussian premise for singular covariance.",
+        "Sei 2021 Appendix E.2 lower bound by the correlation matrix smallest eigenvalue is zero for the displayed rank-two covariance, while the present theorem proves a positive lower bound of one tenth."
+      ],
+      "reasoning": "The original conjecture and full-rank theorem do not imply the new all-singular result. The matrix survey concerns its matrix-side criterion, not positivity of the nonlinear function-space quotient. Restricted-pattern cases would not dominate the unrestricted all-dimensional statement.",
+      "searches": [
+        "Sei 2021 Conjecture 4 copositivity of Gaussian distributions with singular strictly copositive covariance proof via positive latent normal factor and residual noise",
+        "strict copositivity positive semidefinite Gram covariance equivalence to common positive Gaussian latent direction for monotone transforms sum variance",
+        "sharp nonlinear monotone coercivity of degenerate Gaussian vectors: beta positivity equivalent to no nonnegative covariance null vector",
+        "Sei Conjecture 4 Gaussian distribution is copositive if covariance strictly copositive proof",
+        "source:doi:10.1007/s41884-021-00051-9, Sections 4 and 7, Appendix E.2",
+        "source:doi:10.1137/090750391 (publisher abstract)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sei 2021, Section 7, Conjecture 4: singular strictly copositive Gaussian implication is stated as a conjecture, DOI 10.1007/s41884-021-00051-9.",
+        "Sei 2021, Lemma 15, identifies the nondecreasing centered-coordinate function infimum with the admissible-transformation definition; this is an exact equivalence, not a different problem."
+      ],
+      "reasoning": "The claimed characterization refers to exactly the same functional and matrix condition as the primary conjecture. Searches for distribution-copositivity, monotone Gaussian coercivity and common-factor aliases produced no earlier theorem covering arbitrary singular covariance. An absence of search hits alone is not proof of novelty.",
+      "searches": [
+        "Sei 2021 Conjecture 4 copositivity of Gaussian distributions with singular strictly copositive covariance proof via positive latent normal factor and residual noise",
+        "Sei Conjecture 4 Gaussian distribution is copositive if covariance strictly copositive proof",
+        "\"copositive distribution\" \"conjecture\" \"Gaussian\" proved",
+        "\"coordinate-wise transformation\" \"Conjecture 4\" Gaussian proof",
+        "Gaussian vectors copositivity singular covariance positive orthant nullspace monotone transformations Stein-type identity",
+        "source:doi:10.1007/s41884-021-00051-9, Section 7 Conjecture 4 and Appendix E.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The requested output is an all-dimensional equivalence and an infinite-function-class variance inequality, not a finite table entry.",
+        "The accessible Hiriart-Urruty–Seeger 2010 abstract describes matrix-copositivity geometry; it does not present a Gaussian distribution-copositivity classification."
+      ],
+      "reasoning": "Neither exact-statement nor table-oriented searches identified a source with the same iff criterion or its covariance-simplex lower bound. The proof is not recomputation of a known finite dataset; the indexed literature is non-exhaustive.",
+      "searches": [
+        "Sei 2021 Conjecture 4 copositivity of Gaussian distributions with singular strictly copositive covariance proof via positive latent normal factor and residual noise",
+        "sharp nonlinear monotone coercivity of degenerate Gaussian vectors: beta positivity equivalent to no nonnegative covariance null vector",
+        "Sei Conjecture 4 Gaussian distribution is copositive if covariance strictly copositive proof",
+        "\"Gaussian\" \"strictly copositive\" \"distribution\" transform",
+        "Sei 2021 conjecture 4 Gaussian copositive covariance solved",
+        "source:doi:10.1137/090750391 (abstract and scope)"
+      ]
+    },
+    "rationale": "A 2021 open-access primary article explicitly states the same Gaussian strict-copositivity implication as Conjecture 4 and proves only the nonsingular-covariance case. The present proof handles every singular rank and gives a new quantitative simplex certificate by common-factor separation plus Gaussian Hermite contraction. Semantically searched published research and inspected earlier related claims do not entail this unrestricted result; literature priority is not independently certified.",
+    "residual_risks": [
+      "The published-record index and web discovery are incomplete; an equivalent later result under other terminology may exist.",
+      "The matrix-copositivity survey was read only at abstract level, although it predates the motivating probabilistic conjecture and is not a plausible direct statement of its resolution.",
+      "The explicit covariance-only lower bound is not proved optimal and is not represented as an exact formula for the nonlinear functional.",
+      "Independent priority review and independent correctness audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The open-access article has full-rank Gaussian sufficiency and states, rather than proves, the singular extension as Conjecture 4.",
+        "evidence": [
+          "Equation (8) defines beta by centered coordinate transformations.",
+          "Lemma 15 identifies the general nondecreasing L² representation.",
+          "Appendix E.2 Lemma 17 uses the smallest eigenvalue of the correlation matrix.",
+          "Section 7 Conjecture 4 explicitly asks for strict covariance-copositivity to imply Gaussian distribution-copositivity."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41884-021-00051-9",
+        "material_read": "Open-access full HTML: Sections 1, 2, 4 and 7, Appendix E.1 and E.2 including Equation (8), Lemma 15, Lemma 17 and discussion of the unproven Conjecture 4.",
+        "method": "Read the published open-access HTML mathematical statements and proofs, not merely title, abstract or download metadata.",
+        "title": "Coordinate-wise transformation of probability distributions to achieve a Stein-type identity",
+        "trigger": "Directly states the motivating Gaussian copositivity Conjecture 4 and defines the same nonlinear functional."
+      },
+      {
+        "assessment": "Describes matrix copositivity, not the random-vector monotone-function variance functional; limited inspection prevents a full-document noncoverage claim.",
+        "evidence": [
+          "Abstract emphasizes variational geometry of copositive matrix cones.",
+          "Primary MSC classes are matrix algebra and optimization rather than probability distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/090750391",
+        "material_read": "Publisher abstract, listed mathematical subject classifications, scope and bibliographic metadata only; full text not claimed inspected.",
+        "method": "Publisher abstract and bibliographic inspection.",
+        "title": "A variational approach to copositive matrices",
+        "trigger": "Potential broader published treatment of the covariance copositivity condition and equivalent simplex criteria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e608b73-0d10-4528-8101-e3457da51382",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves an explicitly posed Gaussian distribution-copositivity conjecture for all finite-dimensional singular covariance matrices, yields a computable nontrivial covariance-only coercivity certificate, and exhibits a singular covariance with a non-matching four-edge negative-correlation graph. Its proof combines convex geometry, conditional covariance order and Gaussian Hermite contraction, addressing a motivated structural gap rather than an arbitrary finite calculation. It does not claim sharpness of the bound or general non-Gaussian extensions.",
+    "status": "PASS"
+  }
+}
