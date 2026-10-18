@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:40:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed the two-step GMRES normal equations m1-am2+cm3=0 and m2-am3+cm4=0 for moments m_j=Σb_i²λ_i^j. Strict Cauchy–Schwarz for ≥2 active eigenvalues implies c=(m1m3-m2²)/(m2m4-m3²)>0. Pair expansions show a/c is a positive weighted average of distinct active λ_i+λ_j, hence ≥2μ, forcing every x2_i=cb_i(a/c-λ_i)≥0 if κ≤2. For κ>2 the family diag(1,κ/2,κ) with δ² less than (κ-2)^3/[κ^4+16(κ-1)^2] makes high coordinate negative. Independent exact rational example diag(1,3/2,3), b=(1,1,1/20) gives a=833/545, c=306/545, x2=(527/545,374/545,-17/2180). Two active eigenvalues terminate exactly. Analytic proof all κ; finite witness only corroborates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem applies to arbitrary SPD Stieltjes (non-diagonal inverse-positive) matrices and proves first two iterates nonnegative whenever κ≤2; diagonal SPD are a subset."
+        ],
+        "reasoning": "A stronger theorem and sharpness over the larger Stieltjes class contain the present theorem and witnesses; not merely a numerically equal threshold.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md",
+          "Resultary semantic search 2026-10-17: MINRES Stieltjes positivity threshold two"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md",
+        "https://doi.org/10.1137/15M1053827",
+        "Resultary semantic search 2026-10-17: GMRES MINRES second iterate nonnegative two"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "MINRES theorem explicitly asserts robust κ2 second-step nonnegativity for Stieltjes SPD, proves three-dimensional diagonal counterexamples for each κ>2, and derives θ as weighted pairwise λ_i+λ_j."
+        ],
+        "reasoning": "Since diagonal SPD⊂Stieltjes SPD and MINRES=GMRES as residual minimizers here, its earlier quantified theorem logically implies every clause of current diagonal GMRES claim. O and V fail.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both MINRES and symmetric GMRES solve argmin_{x∈span(b,Ab)} ||b-Ax||₂; prior Resultary theorem derives the same moment equations and the same θ weighted pair sums."
+        ],
+        "reasoning": "Algorithm labels differ, but mathematically both residual minimizers coincide for symmetric A in exact arithmetic and same x0=0. No algorithmic distinction survives on the present diagonal domain.",
+        "searches": [
+          "Resultary semantic search 2026-10-17: GMRES MINRES second iteration nonnegative diagonal SPD condition number 2 pairwise spectral sums",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md",
+          "https://doi.org/10.1137/15M1053827"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full published proof has exactly the bound δ²<(κ-2)^3/(κ^4+16(κ-1)^2) and diag(1,κ/2,κ) family, matching the current supposedly new classification."
+        ],
+        "reasoning": "The identical symbolic sharpness family, moment identity and all-κ statement are full-document scientific evidence of repetition; κ3 vs κ4 illustration is immaterial.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md",
+          "Resultary semantic search 2026-10-17: second GMRES spectral pair weighted barycenter two positivity"
+        ]
+      },
+      "rationale": "FAIL: Published Resultary paper dated 2026-10-04 “Condition two is the sharp second-iterate positivity frontier for MINRES” explicitly covers ALL SPD Stieltjes systems, hence all diagonal SPD systems, and contains the exact SAME weighted pair-sum m1m4/m1m3 moment identity, universal κ2 boundary, same diagonal sharpness family diag(1,κ/2,κ), and SAME δ² threshold. For symmetric A, unpreconditioned exact GMRES and MINRES both minimize identical residual norm over identical K2 and therefore output the identical x2. Full published primary RESULT.md inspected: direct dominating-prior implication, not title coincidence or merely shared parameter.",
+      "residual_risks": [
+        "No meaningful originality uncertainty remains after reading full earlier stronger MINRES theorem, including exact same sharpness family and bound.",
+        "GMRES/MINRES equivalence used here is for exact arithmetic, unpreconditioned residual minimization on symmetric A; outside these conditions no equivalence claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_PRIOR_VIA_MINRES_GMRES_EQUIVALENCE",
+          "evidence": "Full proof establishes θ weighted average of spectral pair sums and the same κ-dependent δ² formula for diag(1,κ/2,κ), on the broader Stieltjes SPD class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731/RESULT.md",
+          "material_read": "Entire published RESULT.md, including Finding, all assumptions, min-residual equations, pairwise-weight formula, sharpness rational bound and exact witness, prior comparison and limitations.",
+          "method": "Read-only GitHub connector full primary scientific file",
+          "title": "Condition two is the sharp second-iterate positivity frontier for MINRES",
+          "trigger": "Published semantically very close result with same κ2, same pairwise moment formula and stronger Stieltjes domain"
+        },
+        {
+          "assessment": "PRIOR_KRYLOV_POLYNOMIAL_BACKGROUND",
+          "evidence": "Exact novelty decision rests on explicitly stronger published MINRES same-claim proof, not on incomplete reading of older coefficient paper.",
+          "identifier_or_url": "https://doi.org/10.1137/15M1053827",
+          "material_read": "Available paper bibliographic description and exact classical harmonic Ritz coefficient context; complete source not claimed read.",
+          "method": "Primary article bibliographic search",
+          "title": "The Coefficients of the FOM and GMRES Residual Polynomials — G. Meurant (2017)",
+          "trigger": "Original coefficient mathematics and possible broader formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The current diagonal GMRES claim is an exact special case of a previously published stronger Stieltjes MINRES theorem via standard GMRES=MINRES residual-minimization equivalence on symmetric matrices; it adds no unproved natural invariant, new boundary, new class or materially novel computation. Exact independent verification of a different κ3 witness does not create a distinct mathematical contribution. Reject scientific claim as covered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For second exact GMRES iterate on positive diagonal SPD systems and b≥0, universal componentwise positivity holds for κ≤2, and for every κ>2 a three-eigenvalue positive-input diagonal counterexample exists, with pair-sum spectral barycenter representation.",
+  "limitations": [
+    "No meaningful originality uncertainty remains after reading full earlier stronger MINRES theorem, including exact same sharpness family and bound.",
+    "GMRES/MINRES equivalence used here is for exact arithmetic, unpreconditioned residual minimization on symmetric A; outside these conditions no equivalence claimed.",
+    "Publication status not_ready is privacy/transport only, independent of completed C/O/V decision; existing package and all broken historical ledger rows preserved."
+  ],
+  "schema_version": 1
+}
