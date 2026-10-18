@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the invariant-measure quantifiers, uses arbitrary one-coordinate test functions to obtain three conditional regressions, verifies the quadratic generator identity, and derives the fluctuation formulas from conditional orthogonality. The zero-mode-energy case is reduced to the unique bounded complete trajectory of \(\dot V=\Gamma-V\). The packaged symbolic checker returns `VERIFY_OK` for the critical algebra.
+## correctness
 
-## Originality
-PASS. Exact-title, exact-equation, stationary-moment, conditional-expectation, RMS-ratio, and time-average searches found no same-object statement implying the theorem. The foundational full-text material was inspected at statement level; its focus is fixed points, bifurcation regimes, Poincare maps, and chaotic reversals. The closest indexed exact-balance results concern different vector fields. A later fractional-order same-lineage article was available only at abstract level and is retained as a residual risk rather than treated as whole-document noncoverage.
+PASS
 
-## Value
-PASS. The quantities \(D\) and \(Q\) are the model's reversal modes, so their stationary energy ratio is intrinsically motivated. The identity
-\[
-\mu\mathbb E[Q^2]=\nu\mathbb E[D^2]
-\]
-provides a universal calibration across compact recurrent states, while the conditional regressions and exact variance defects separate deterministic projection from dynamical fluctuation. The result gives a direct consistency check for numerical or observational uses of the low-order model.
+Reconstructed the complete polynomial generator for Qdot=mu Q-VD, Ddot=-nu D+VQ, Vdot=Gamma-V+QD. Stationarity of arbitrary single-coordinate antiderivative tests gives E[VD|Q]=mu Q, E[VQ|D]=nu D, E[QD|V]=V-Gamma. The independent SymPy check verifies L((Q^2+D^2)/2)=mu Q^2-nu D^2 and all three signed residual identities. Conditional residual orthogonality yields Var(VD)-mu^2 Var(Q)=E[Qdot^2], Var(VQ)-nu^2 Var(D)=E[Ddot^2] and Var(QD)-Var(V)=E[Vdot^2]. If both Q,D energies vanish, invariance on axis Q=D=0 and bounded complete trajectories of Vdot=Gamma-V force the single atom (0,0,Gamma). Nonzero energies have RMS(D)/RMS(Q)=sqrt(mu/nu); at mu=119/1000,nu=1/10 exactly sqrt(119)/10. Compact support justifies integrations; no sampled orbit is used to prove stationarity.
 
-## Closest literature and limitations
-The original Gissinger paper supplies the exact three-mode model and its chaotic-reversal regime but does not state the located stationary-statistics theorem. The closest semantic-database results are exact-balance theorems for Rikitake, Rössler, Genesio, Rabinovich--Fabrikant, and other distinct flows. The later fractional-order geomagnetic-field paper is an access-limited residual risk because only its abstract was inspected. The result assumes compact stationary support and does not prove existence, uniqueness, or ergodicity of a chaotic invariant measure.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The same-object founding model paper and related fractional-order literature were compared on statement scope. The inspected source material establishes equations, chaotic reversals and parameter regimes, not a located all-invariant-measures conditional-regression or exact fluctuation identity. Related indexed stationary laws use different generators and do not imply this result. Priority is best-of-knowledge, not an assertion that search proves novelty.
+
+## value
+
+PASS
+
+Exact invariant-measure energy locking and orthogonal fluctuation defects constrain meaningful dipole/quadrupole dynamics at the published reversal parameters, uniformly across recurrent regimes; they offer independent consistency tests for stationary simulations. More than a single gratuitous moment calculation: the three conditional laws give structurally useful velocity-variance decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

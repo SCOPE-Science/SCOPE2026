@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `verification.py` was executed from its actual package path and returned `VERIFY_OK`.
 
-It verifies the exact generator relation
-\[
-L\left(\frac{Q^2+D^2}{2}\right)=\mu Q^2-\nu D^2,
-\]
-the residual equalities
-\[
-VD-\mu Q=-\dot Q,
-\qquad
-VQ-\nu D=\dot D,
-\qquad
-QD-(V-\Gamma)=\dot V,
-\]
-and the source-parameter ratio
-\[
-\frac{119/1000}{1/10}=\frac{119}{100}.
-\]
+# Independent mathematical audit
 
-The conditional-expectation argument is analytic and is not certified by finite sampling. No numerical trajectory is used to infer an infinite-time or all-invariant-measures statement. The literature comparison is not exhaustive; the later fractional-order article was inspected only at abstract level.
+## correctness
+
+PASS
+
+Reconstructed the complete polynomial generator for Qdot=mu Q-VD, Ddot=-nu D+VQ, Vdot=Gamma-V+QD. Stationarity of arbitrary single-coordinate antiderivative tests gives E[VD|Q]=mu Q, E[VQ|D]=nu D, E[QD|V]=V-Gamma. The independent SymPy check verifies L((Q^2+D^2)/2)=mu Q^2-nu D^2 and all three signed residual identities. Conditional residual orthogonality yields Var(VD)-mu^2 Var(Q)=E[Qdot^2], Var(VQ)-nu^2 Var(D)=E[Ddot^2] and Var(QD)-Var(V)=E[Vdot^2]. If both Q,D energies vanish, invariance on axis Q=D=0 and bounded complete trajectories of Vdot=Gamma-V force the single atom (0,0,Gamma). Nonzero energies have RMS(D)/RMS(Q)=sqrt(mu/nu); at mu=119/1000,nu=1/10 exactly sqrt(119)/10. Compact support justifies integrations; no sampled orbit is used to prove stationarity.
+
+## originality
+
+PASS
+
+The same-object founding model paper and related fractional-order literature were compared on statement scope. The inspected source material establishes equations, chaotic reversals and parameter regimes, not a located all-invariant-measures conditional-regression or exact fluctuation identity. Related indexed stationary laws use different generators and do not imply this result. Priority is best-of-knowledge, not an assertion that search proves novelty.
+
+## value
+
+PASS
+
+Exact invariant-measure energy locking and orthogonal fluctuation defects constrain meaningful dipole/quadrupole dynamics at the published reversal parameters, uniformly across recurrent regimes; they offer independent consistency tests for stationary simulations. More than a single gratuitous moment calculation: the three conditional laws give structurally useful velocity-variance decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
