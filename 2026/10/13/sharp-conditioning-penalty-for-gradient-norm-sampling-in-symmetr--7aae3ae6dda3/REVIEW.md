@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The audited claim is the universal conditional one-step progress ratio for the specific reflected-block least-squares projection algorithm, not a claim of multi-step superiority. Equations (3.1)–(3.6) of Sha–Zhang aggregate to block probabilities proportional to raw squared block gradients, including the odd central singleton. Orthogonal projection gives the exact decrease \(d_j=g_j^{\mathsf T}H_j^{-1}g_j\). Principal-submatrix spectral bounds give \(a\le w_j/d_j\le b\) for nonzero \(d_j\). A Cauchy–Schwarz step and a sharp scalar bounded-moment inequality establish the factor \(4\sqrt\kappa/(1+\sqrt\kappa)^2\), including the equal-curvature endpoint. The explicit four-column family attains equality for every prescribed \(\kappa\ge1\). The standalone checker passed 1,269 finite exact/projection diagnostics; the quantified theorem follows from the analytical proof, not test coverage. Residual risks: the theorem assumes exact coordinate minimization and full column rank; no conclusion is drawn about global runtime.
+## correctness
 
-## Originality — PASS (priority uncertainty remains)
-The closest primary source, Sha and Zhang (2024), states the probability law and analyzes convergence, including even/odd cases; it does not give the exact uniform-reflected-block progress ratio, its sharp four-column extremizer, or an arbitrarily small condition-dependent ratio. Gower, Molitor, Moorman, and Needell (2019), Section 2.4 and Theorem 11, already prove properties of probabilities proportional to the *realized sketched loss*. That stronger per-step calibration principle is acknowledged rather than claimed here: it does not establish a bound for Sha–Zhang's different raw-gradient rule. Tian, Khosoussi, Rosen, and How (2019/2021) analyze another squared-gradient block rule in Riemannian optimization, with convergence guarantees rather than the same sharp exact least-squares extremal comparison. The bounded-moment inequality is classical and is not claimed as novel. Searches of published mathematical findings and public scientific literature did not reveal the exact formulation, but absence from search results is not a proof of priority. Residual risks include equivalence under alternative block-importance terminology and older unpublished notes.
+PASS
 
-## Value — PASS
-The question is motivated by the concrete sampling law of a published least-squares solver. It quantifies the otherwise hidden mismatch between probability weight and *actual exact block progress*, and gives a sharp universal condition-number law with realized equality, an explicit rational counterexample, and an unbounded relative-loss regime. This is a meaningful algorithmic boundary rather than a numerical anomaly, renamed textbook lemma, or arbitrary data slice. It also isolates the contrast with the previously known progress-normalized sampling without claiming that known rule as new. Limits: the bound compares one step at equal block-update cost and does not establish iteration complexity, exact implementation overhead, or universal superiority of a modified method.
+For full column rank A and residual r with A^Tr!=0, reflected block j has Gram H_j=C_j^TC_j, gradient g_j=C_j^Tr, exact squared-residual reduction d_j=g_j^TH_j^{-1}g_j, raw weight w_j=||g_j||². Sha–Zhang index probabilities aggregate to block weights w_j/sum w, including odd central singleton. Uniform sampling over distinct B blocks has expected decrease sum d/B. Let eigenvalues A^TA lie in [a,b], kappa=b/a; 0<=d_j, a<=w_j/d_j<=b. Set theta_j=d_j/sum d and t_j=sqrt(w_j/d_j). Cauchy–Schwarz and the bounded-moment inequality give ratio >=4sqrt(kappa)/(1+sqrt(kappa))². Four-column diagonal A=diag(s,1,1,s), r=(-1,-sqrt(s),0,0), has d=(1,s), w=(s²,s), kappa=s², and attains equality for every s>=1. Independent exact rational witness calculations corroborate all scalar ratios but all-size proof is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sha–Zhang 2024 specifies the exact paired-column algorithm and raw-gradient sampling, but its inspected theorem concerns convergence, not the sharp ratio to uniform sampling over distinct reflected pairs. Gower–Molitor–Moorman–Needell 2019 show benefits of sampling proportional to actual sketched loss d_j, not raw w_j; their known dominance result should not be claimed as new. The scalar Kantorovich moment inequality is classical. Novelty is only the explicit sharp penalty for this specified 2024 sampling law and matching four-column witness. Related block-gradient sampling literature has different settings; possible older importance-sampling version of the bound is a material residual risk.
+
+## value
+
+PASS
+
+The gap between probability proportional to ||g_j||² and actual exact block projection decrease g_j^TH_j^-1 g_j is an important algorithmic comparison. Quantifying the worst relative one-step progress with a sharp condition-number dependent coefficient and showing arbitrarily poor performance vs uniform at large kappa produces a meaningful limitation of a published method, not merely a generic inequality table. No claim of worse total iteration count or unequal per-block computation is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

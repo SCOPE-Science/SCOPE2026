@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:07:49.536736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "git:2026/10/13/sharp-conditioning-penalty-for-gradient-norm-sampling-in-symmetr--7aae3ae6dda3/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "independent_1813_checks.py, recorded finite bounds"
+      ],
+      "rationale": "For full column rank A and residual r with A^Tr!=0, reflected block j has Gram H_j=C_j^TC_j, gradient g_j=C_j^Tr, exact squared-residual reduction d_j=g_j^TH_j^{-1}g_j, raw weight w_j=||g_j||². Sha–Zhang index probabilities aggregate to block weights w_j/sum w, including odd central singleton. Uniform sampling over distinct B blocks has expected decrease sum d/B. Let eigenvalues A^TA lie in [a,b], kappa=b/a; 0<=d_j, a<=w_j/d_j<=b. Set theta_j=d_j/sum d and t_j=sqrt(w_j/d_j). Cauchy–Schwarz and the bounded-moment inequality give ratio >=4sqrt(kappa)/(1+sqrt(kappa))². Four-column diagonal A=diag(s,1,1,s), r=(-1,-sqrt(s),0,0), has d=(1,s), w=(s²,s), kappa=s², and attains equality for every s>=1. Independent exact rational witness calculations corroborate all scalar ratios but all-size proof is analytic.",
+      "residual_risks": [
+        "The scalar bounded-moment lower bound is a classical Kantorovich inequality, not new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower 2019 proves progress-optimal adaptive sketched-loss sampling; our raw gradient law is distinct.",
+          "The bounded-moment inequality furnishes a general lower factor, but the source-specific exact block mapping and matching example are additional."
+        ],
+        "reasoning": "The known stronger sampling strategy does not mechanically bound the penalty of an altogether different raw rule unless one establishes the curvature relation, which is the central application here.",
+        "searches": [
+          "Gower Molitor Moorman Needell adaptive sketch-and-project arXiv:1909.03604",
+          "Kantorovich bounded moment inequality",
+          "Tian Khosoussi Rosen How block gradient squared sampling arXiv:1911.03721"
+        ]
+      },
+      "checked_sources": [
+        "Sha & Zhang AIMS Mathematics 9(7) (2024) 17453-17463 DOI 10.3934/math.2024848 (primary PDF inspected)",
+        "Gower et al arXiv:1909.03604 adaptive sketched-loss sampling",
+        "Tian et al arXiv:1911.03721 related block gradient sampling",
+        "Resultary exact delay distribution for randomized Gauss Seidel id 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (different quantity)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sha–Zhang establishes the raw weighting and convergent iteration, no bound relative to uniform same block solver.",
+          "Gower’s loss-weighted choice is >=uniform in expected progress but is not Sha–Zhang’s w-weighted rule."
+        ],
+        "reasoning": "The proposed sharp adverse ratio for w-weighting cannot be inferred from positive results about d-weighting; an additional curvature inequality and realized equality are needed.",
+        "searches": [
+          "Sha Zhang 2024 Equations 3.1-3.6 Algorithm 1 Theorem 1",
+          "Gower et al 2019 Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Method uses p(j)=w_j/sum w, w_j=||C_j^Tr||², block progress d_j=g_j^TH_j^-1g_j.",
+          "Proposed extremal inf ratio over full-rank systems equals 4sqrt(kappa)/(1+sqrt(kappa))²."
+        ],
+        "reasoning": "Sampling by true projected loss d is not equivalent to raw gradient sampling w, even when the two rules coincide for orthogonal/equal-curvature blocks.",
+        "searches": [
+          "Sha Zhang randomized symmetric Gauss-Seidel paired block raw gradient squared sampling",
+          "Resultary symmetric Gauss-Seidel raw gradient sampling uniform reflected pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four-column A=diag(s,1,1,s) and r=(-1,-sqrt(s),0,0) analytically achieve ratio 4s/(s+1)^2 for all s.",
+          "Primary numerical experiments assess iterations and CPU time, not worst conditional single-step ratio."
+        ],
+        "reasoning": "Finite performance tables are not prior exact universal sharpness certificates. An overlooked block-sampling analysis could still give this identity.",
+        "searches": [
+          "Resultary exact ratio 4 sqrt kappa/(1+sqrt kappa)^2 Gauss Seidel",
+          "Sha Zhang 2024 tables and numerics"
+        ]
+      },
+      "rationale": "Sha–Zhang 2024 specifies the exact paired-column algorithm and raw-gradient sampling, but its inspected theorem concerns convergence, not the sharp ratio to uniform sampling over distinct reflected pairs. Gower–Molitor–Moorman–Needell 2019 show benefits of sampling proportional to actual sketched loss d_j, not raw w_j; their known dominance result should not be claimed as new. The scalar Kantorovich moment inequality is classical. Novelty is only the explicit sharp penalty for this specified 2024 sampling law and matching four-column witness. Related block-gradient sampling literature has different settings; possible older importance-sampling version of the bound is a material residual risk.",
+      "residual_risks": [
+        "The scalar bounded-moment lower bound is a classical Kantorovich inequality, not new.",
+        "Unindexed block-importance-sampling theory may imply the same sharp factor.",
+        "Bound measures one step at equal per-block cost only; cannot infer convergence speed or wall-clock superiority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_METHOD_NOT_SHARP_RATIO",
+          "evidence": "The source defines the sampling probabilities and proves convergence, but the inspected part does not give the exact worst ratio to uniformly sampled identical blocks.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2024848",
+          "material_read": "Open-access primary 2024 PDF including Algorithm 1, Eqs (3.1)-(3.6), convergence theorem",
+          "method": "Read primary PDF and inspected reflected block rule, including page screenshot",
+          "title": "Randomized symmetric Gauss-Seidel method for solving linear least squares problems",
+          "trigger": "Identical sampled reflected blocks and gradient weighting"
+        },
+        {
+          "assessment": "DIFFERENT_PROBABILITY_MEASURE",
+          "evidence": "Adaptive probabilities proportional to the sketched loss d_j differ from gradient energy w_j; known true-progress dominance is credited.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.03604",
+          "material_read": "Available Section 2.4 and Theorem 11 description; complete PDF not freshly read this execution",
+          "method": "Compared normalized actual progress weights to raw gradient squared weights",
+          "title": "Adaptive Sketch-and-Project Methods for Solving Linear Systems",
+          "trigger": "Possible stronger progress-based sampling theory"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Riemannian pose-graph block method is not the exact reflected least-squares projection ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.03721",
+          "material_read": "Accessible description of block strategy and prior literature review; full manuscript not independently reopened",
+          "method": "Semantic comparison of objective, block updates and proposed statistic",
+          "title": "Distributed Certifiably Correct Pose-Graph Optimization",
+          "trigger": "Analogous block squared-gradient sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sha & Zhang AIMS Mathematics 9(7) (2024) 17453-17463 DOI 10.3934/math.2024848 (primary PDF inspected)",
+        "Gower et al arXiv:1909.03604 adaptive sketched-loss sampling",
+        "Tian et al arXiv:1911.03721 related block gradient sampling"
+      ],
+      "rationale": "The gap between probability proportional to ||g_j||² and actual exact block projection decrease g_j^TH_j^-1 g_j is an important algorithmic comparison. Quantifying the worst relative one-step progress with a sharp condition-number dependent coefficient and showing arbitrarily poor performance vs uniform at large kappa produces a meaningful limitation of a published method, not merely a generic inequality table. No claim of worse total iteration count or unequal per-block computation is made.",
+      "residual_risks": [
+        "Unindexed block-importance-sampling theory may imply the same sharp factor.",
+        "Bound measures one step at equal per-block cost only; cannot infer convergence speed or wall-clock superiority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The scalar bounded-moment lower bound is a classical Kantorovich inequality, not new.",
+    "Unindexed block-importance-sampling theory may imply the same sharp factor.",
+    "Bound measures one step at equal per-block cost only; cannot infer convergence speed or wall-clock superiority."
+  ],
+  "schema_version": 1
+}
