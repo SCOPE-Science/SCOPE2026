@@ -1,0 +1,182 @@
+{
+  "correctness": {
+    "rationale": "Proof checks every q=m+1, k,m>=2, all allowed labelled seed assignments. At least m-1 vertices of each blade must be seeded. If hub seeded, every remaining blade vertex forces; if unseeded, no blade moves until hub is forced, which occurs exactly when its visible seeded neighbours contain all m other hues. For fixed proper full colouring exactly m seed patterns with one blank per blade omit the same hue and fail. Multiplication by (m+1)(m!)^k counts all unique successful completions once, yields exact formula. Random probability follows weighting each labelled seed, with polynomial equality including p=1/(m+1). Standalone independent integer brute enumerated 366142 starting assignments over seven small graphs plus 36 constructive domain pairs; finite checks not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655 treats complete multipartite graphs with q equal to chromatic number.",
+        "Published 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69 treats complete bipartite graphs with three colours.",
+        "Published 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd treats graphs of maximum degree two.",
+        "arXiv:2609.17108v1 establishes the general function and computational hardness, and the complete-graph case."
+      ],
+      "reasoning": "For k,m>=2 the graph has two disjoint peripheral clique edges and no cross edges among their endpoints, yielding an induced 2K2, impossible in a complete multipartite graph. It has triangles, ruling out the bipartite theorem, and hub degree km>=4, ruling out maximum-degree-two results. A general definition or #P-hardness theorem does not imply the evaluated coefficients; Farr’s complete-graph formula only covers the k=1 boundary.",
+      "searches": [
+        "forced colouring function exact formula complete bipartite graphs probability random partial proper k colouring forced unique extension",
+        "forced coloring polynomial complete bipartite graphs cliques multipartite graphs graph forcing",
+        "chromatic forcing polynomial for clique bouquet block graphs clique sums using palette clique size plus one and seed colouring vertices",
+        "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.17108v1, full public preprint",
+      "arXiv:2406.15746v1, full public preprint",
+      "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+      "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+      "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+      "2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+      "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+      "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+      "2026/10/4/SCOPE-all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Farr paper inspected in complete accessible preprint, especially forcing definitions, probability model, complete-graph evaluation, and small graph examples.",
+        "Farr and Morgan 2024 paper proposes general polynomial representations but does not evaluate this windmill family.",
+        "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655 considers a different non-covering graph class.",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b uses a different forcing definition."
+      ],
+      "reasoning": "The claimed exact distribution and the hub pooling correction are not corollaries of any displayed prior exact formula: the only evaluated clique case is a single complete graph, while a glued family has shared colours across otherwise independent blades. The proof needs the hub-first obstruction analysis and a subtraction of the m globally coincident omitted-colour configurations; published stronger coverage was not found. Indexed summaries only were available for several adjacent results; comparison of their explicitly stated object classes and invariants is nonetheless decisive for those results, not for any uninspected hidden theorem.",
+      "searches": [
+        "The forced colouring function of a graph arXiv 2609.17108v1 complete graph examples forcing function",
+        "forced colouring polynomial for clique windmill generalized friendship graph K1 join k complete graphs; forcing completion seed threshold k(m-1); polynomial (1+x)(m+x)^k-m",
+        "forced three colouring polynomial bouquet triangles friendship graph color propagation hub",
+        "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.17108v1 defines the local forced-colouring probability in terms of a random partial assignment; the theorem also supplies its exact weighted polynomial and size enumerator.",
+        "Published indexed result 2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b calls an ordinary zero-forcing process on friendship graphs, which is a different colouring rule."
+      ],
+      "reasoning": "The theorem was compared under forced colouring/forcing chromatic number, forcing probability, partial-colouring completion, clique windmill, generalized friendship graph, and glued-clique aliases. Local forced-colouring is not ordinary blue-white zero forcing, uniquely extendible precolouring without local moves, or a domination polynomial. No equivalent exact statement was found in sources checked; absence of a search hit alone is not proof of global novelty.",
+      "searches": [
+        "forced colouring function friendship graph windmill graph fan bouquet k triangles exact polynomial Farr 2026",
+        "forced colouring polynomial for clique windmill generalized friendship graph K1 join k complete graphs; forcing completion seed threshold k(m-1); polynomial (1+x)(m+x)^k-m",
+        "exact forcing 3-colouring polynomial triangle bouquet friendship graph hub vertex colored and seed every edge",
+        "forced coloring function glued complete graphs at cut vertex full cardinality distribution polynomial 2026",
+        "forced colouring function of 1-vertex sums of cliques seed number k(q-2) 2026",
+        "\"forced colouring\" \"friendship graph\" polynomial",
+        "\"forced colouring\" \"windmill\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f evaluates a general-position polynomial on W, not a forced-colouring polynomial.",
+        "Published 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc evaluates dissociation polynomials on generalized windmills.",
+        "Published 2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b evaluates ordinary zero forcing on F_k.",
+        "Explicit complete cardinality coefficients are newly derived and computationally checked for seven parameter pairs."
+      ],
+      "reasoning": "Exact same graph objects occur in databases and related research, but the polynomials enumerated there represent different subsets or forcing rules. Neither a table of ordinary zero-forcing sets nor a dissociation or general-position polynomial yields coefficients for arbitrary named precolourings with q=m+1 colours. No complete forced-colouring table matching this claim was identified.",
+      "searches": [
+        "forced colouring function friendship graph windmill graph fan bouquet k triangles exact polynomial Farr 2026",
+        "forced colouring polynomial for clique windmill generalized friendship graph K1 join k complete graphs; forcing completion seed threshold k(m-1); polynomial (1+x)(m+x)^k-m",
+        "forced colouring function of 1-vertex sums of cliques seed number k(q-2) 2026",
+        "2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+        "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc"
+      ]
+    },
+    "rationale": "Same-algorithm primary full-text check of arXiv:2609.17108v1 and general preprint arXiv:2406.15746v1 did not show an all-parameter windmill evaluation; concrete nearby published results concern nonoverlapping graph classes or different forcing rules. Alias/parameter/domain implication searches over public mathematical records did not identify a covering formula. Unindexed exact equivalents and full-text limitations of some related public records remain residual bibliographic risks.",
+    "residual_risks": [
+      "A mathematically equivalent formula could exist in unindexed work or under a different terminology for local q-colour propagation.",
+      "Closest public indexed findings beyond the two initiating primary preprints were available as mathematical summaries only; their explicit known domains/invariants do not cover this theorem, but no assessment of unseen contents was made.",
+      "The conclusion is conditional on Farr’s local forced-colouring convention rather than an arbitrary unique-colour-extension invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_AND_GENERAL_BASELINE_ONLY; no same or stronger clique-windmill formula found in inspected full preprint.",
+        "evidence": [
+          "Public date September 15, 2026; q-colour forcing rule and independent random partial assignment.",
+          "Evaluated complete graph case and connected graphs up to four vertices do not include W_{k,m} for k,m>=2 (at least five vertices)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.17108 (arXiv:2609.17108v1)",
+        "material_read": "29-page preprint text, including definitions and probability model, Proposition on complete graphs, small connected-graph enumerations, and general complexity discussion; direct searches for windmill, friendship, cut vertex, articulation, join, clique.",
+        "method": "Open-access complete PDF text examination with individual-page visual inspection; theorem/section and search-term comparisons.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Initiating recent full-text source defining the exact forcing rule, probability and baseline formulas."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_ONLY for this specific clique-windmill enumeration.",
+        "evidence": [
+          "Proposal of forced-colouring invariant and general polynomial constructions; no exact all-k,m clique-windmill size enumerator encountered."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.15746 (arXiv:2406.15746v1)",
+        "material_read": "Accessible complete preprint text, especially forced-colouring polynomial proposal and generic encodings; title/term searches for windmill and friendship.",
+        "method": "Full-text examination of lawful open-access preprint, including original definition and general algebraic discussion.",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Earlier source and possible general domination for chromatic-forcing enumeration."
+      },
+      {
+        "assessment": "NOT_APPLICABLE_ON_EXPLICIT_DOMAIN: all W_{k,m} in claim are not complete multipartite.",
+        "evidence": [
+          "Its stated domain consists of complete multipartite graphs; W_{k,m} contains an induced 2K2 for k,m>=2."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "material_read": "Published indexed title and mathematical summary only, not the full paper.",
+        "method": "Semantic literature-record comparison of theorem parameters and graph class.",
+        "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+        "trigger": "Strongest close indexed record for chromatic-palette forcing."
+      },
+      {
+        "assessment": "NOT_APPLICABLE: graph family is bipartite and the windmill has triangles.",
+        "evidence": [
+          "Its stated domain K_{a,b} is bipartite while the windmill contains K_3."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "material_read": "Published indexed title and mathematical summary only.",
+        "method": "Comparison of statement object and palette constraints.",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Close same polynomial with one more colour than bipartite chi."
+      },
+      {
+        "assessment": "NOT_APPLICABLE: windmill hub degree km>=4.",
+        "evidence": [
+          "Hypothesis maximum degree at most two fails for every k,m>=2."
+        ],
+        "identifier_or_url": "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "material_read": "Published indexed title and mathematical summary only.",
+        "method": "Comparison of maximum-degree hypotheses and graph family.",
+        "title": "Exact forced 3-colouring polynomials at maximum degree two",
+        "trigger": "Close same forced colouring invariant on paths/cycles."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT: cannot imply cardinality of precoloured named q-colour assignments.",
+        "evidence": [
+          "Published polynomial enumerates subsets of initially blue vertices under the standard unique-white-neighbour rule."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+        "material_read": "Published indexed title and mathematical summary only.",
+        "method": "Compare ordinary zero-forcing colour-change rule with q-colour neighbourhood saturation.",
+        "title": "Zero forcing polynomial of friendship graphs",
+        "trigger": "Exactly same graph family for m=2; check stronger coverage."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANTS; not covering the claimed forced-colouring distribution.",
+        "evidence": [
+          "Both publications evaluate set-family polynomials, not q-colour partial assignments and forced colour completions."
+        ],
+        "identifier_or_url": "2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f ; 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "material_read": "Published indexed mathematical summaries only.",
+        "method": "Check which sets each named polynomial enumerates.",
+        "title": "General-position and dissociation polynomials of generalized windmills",
+        "trigger": "Same graph class W_{k,m} under possible polynomial aliases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c1051e12-0f18-4f00-b040-d0fc6cdab54f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim is a complete closed coefficient enumerator and exact random probability across the natural two-parameter generalized friendship / clique windmill family. The shared hub synchronizes colour omissions across blades, causing the essential m-term correction that a naïve product of clique formulas misses. It also yields a sharp exact minimum coloured-set size and its multiplicity on arbitrarily large clique bouquets. These are natural detailed benchmarks for the recently studied forced-colouring function, not an arbitrary small graph table or a restatement of k=1 complete graphs.",
+    "status": "PASS"
+  }
+}
