@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each nonempty proper subset of k cycle vertices with r runs, exactly k+r edges touch it; uniform edge refreshing gives the Walsh eigenvalue 1-(k+r)/n. The exact count N(n,k,r)=n/r*binom(k-1,r-1)*binom(n-k-1,r-1) follows by paired cyclic compositions. At t=floor(n log n/4+cn), w=exp(-2t/n) satisfies nw^2 -> exp(-4c). All nonisolated subsets have eigenvalue square mass bounded by exp(nw^2/(1-w))-exp(nw^2)->0. Their corresponding Bernoulli-product square mass is bounded by exp(nb^2/(1-b^2))-exp(nb^2)->0. For isolated k-subsets (k fixed), (1-2k/n)^t / (1-2/n)^(kt) ->1 and their count is asymptotic to n^k/k!, with uniform Poisson-series tails. Parseval proves L2-density comparison; log-product likelihood converges to Normal(-exp(-4c)/2,exp(-4c)) and its second moments are bounded, giving TV 2Phi(exp(-2c)/2)-1. Chi-square limit is exp(exp(-4c))-1. Exact checker successfully reconstructed 2097 finite combinatorial, distributional and spectral checks. Its finite tests are supplementary rather than the proof of the infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2103.07459 Theorem 1.7 controls mixing/entropy for arbitrary heat-bath blocks",
+        "arxiv:1708.01513 Theorems 1.1-1.2 control mixing and gap for spatial blocks",
+        "arxiv:2102.05597 establishes general cutoff sufficient conditions and broad window controls"
+      ],
+      "reasoning": "A general O(n log n) upper bound or generic cutoff criterion does not imply the constant 1/4 in front of n log n, the n-scale Gaussian TV curve, the chi-square profile, or vanishing L2 distance to a product law. The general spectral formula alone likewise needs nontrivial run multiplicities and a uniform collision-error bound not stated in those results.",
+      "searches": [
+        "Two-coordinate random scan block heat-bath on a cyclic binary spin chain at infinite temperature. Exact cutoff at quarter n log n, Gaussian TV profile, dependence from adjacent edge choice.",
+        "Random walks on Boolean hypercube where at each time an adjacent cyclic coordinate pair is resampled with independent Bernoulli bits: cutoff chi-square product-measure equivalence.",
+        "arxiv:2103.07459 Theorem 1.7",
+        "arxiv:1708.01513 Theorems 1.1,1.2",
+        "arxiv:2102.05597 main theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2002.09059",
+      "arxiv:1708.01513",
+      "arxiv:2103.07459",
+      "arxiv:2102.05597"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Collevecchio-Griffiths 2020 Theorem 3.3 implies only that these eigenvalues can be put in a general spectral sum; their Theorem 3.13 handles the exchangeable nonlocal walk.",
+        "Blanca et al. 2021 Theorem 1.7 provides an optimal-order mixing-time bound with unspecified exact window profile.",
+        "The present cyclic-run counting yields a novel strong L2 comparison of full densities, beyond the stated implications of those results."
+      ],
+      "reasoning": "A general Walsh eigenvalue identity does not provide asymptotic smallness of the higher-order Fourier mass: in this model those coefficients depend on adjacent clusters, not merely subset cardinality. The new exponential run-bound proves that all nonisolated modes contribute o(1), and fixed isolated modes match independent Bernoulli Fourier coefficients. This establishes a new explicit distributional limit rather than a restatement of published spectral or mixing bounds.",
+      "searches": [
+        "Adjacent edge block heat-bath walk on binary hypercube cycle, refresh endpoints of uniformly chosen edge with independent fair bits. Total variation cutoff at n/4 log n with Gaussian error-function profile and Fourier Walsh approximation by product measure.",
+        "Hypercube Markov chain refresh two adjacent cyclic coordinates, exactly compare chi-square Fourier spectral expansion to independent-coordinate heat bath, limiting Gaussian total variation cutoff profile.",
+        "Edge sampling on n cycle replacing two endpoints by independent unbiased bits has L2 asymptotic equivalence to product Bernoulli with bias (1-2/n)^t.",
+        "Random walks on Boolean hypercube where at each time an adjacent cyclic coordinate pair is resampled with independent Bernoulli bits: cutoff chi-square product-measure equivalence.",
+        "arxiv:2002.09059 Sections 1,3,9",
+        "arxiv:2103.07459 Theorem 1.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2002.09059, general eigenfunction expansion of arbitrary hypercube chains, in contrast to its disjoint-block example",
+        "arxiv:1708.01513, local/block heat-bath update framework"
+      ],
+      "reasoning": "The chain also describes zero-interaction Gibbs block sampling, random-scan two-coordinate resampling, or Walsh convolution on a binary cube. General spectral equivalence is already known. None of the inspected closest statements identifies an asymptotic L2 product-density equivalent for overlapping cyclic edge choices; the present proof handles the extra cyclic-run spectra.",
+      "searches": [
+        "Adjacent edge block heat-bath walk on binary hypercube cycle, refresh endpoints of uniformly chosen edge with independent fair bits. Total variation cutoff at n/4 log n with Gaussian error-function profile and Fourier Walsh approximation by product measure.",
+        "Hypercube Markov chain refresh two adjacent cyclic coordinates, exactly compare chi-square Fourier spectral expansion to independent-coordinate heat bath, limiting Gaussian total variation cutoff profile.",
+        "Two-coordinate random scan block heat-bath on a cyclic binary spin chain at infinite temperature. Exact cutoff at quarter n log n, Gaussian TV profile, dependence from adjacent edge choice.",
+        "arxiv:2002.09059 Theorem 3.3 and Example 1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite numerical table would certify the growing-dimension joint-law asymptotics",
+        "The closest explicit cutoff calculation in arxiv:2002.09059 assumes exchangeable chosen coordinate subsets instead of cyclic adjacent-edge subsets"
+      ],
+      "reasoning": "The claim concerns a family of probability distributions with an asymptotic window profile, not one tabulated finite invariant. Exact finite binary-cube checks can validate low-dimensional formulas but cannot subsume the infinite theorem. The scoped searches and full theorem comparison disclosed no known exact table or derived identity implying this profile.",
+      "searches": [
+        "Edge sampling on n cycle replacing two endpoints by independent unbiased bits has L2 asymptotic equivalence to product Bernoulli with bias (1-2/n)^t.",
+        "Gaussian total variation cutoff profile for heat bath block dynamics on a cycle with two-site nearest neighbor simultaneous refresh. Walsh Fourier coefficients depend on number of runs.",
+        "arxiv:2002.09059 Theorem 3.13"
+      ]
+    },
+    "rationale": "Specialization of the general hypercube Walsh expansion is known and not claimed as original. The new claim is the vanishing L2 comparison with a time-matched *independent product law* for overlapping edge selections, and the resulting exact Gaussian TV and chi-square profiles. Theorem 3.3 of Collevecchio-Griffiths 2020 contains spectral representation only; their Example 1.4 updates disjoint blocks, and Theorem 3.13 studies exchangeably chosen nonlocal coordinates. 2017 and 2021 block-dynamics results yield qualitative/scale mixing and entropy/spectral gap bounds, not this specialized asymptotic density comparison or exact profile. Targeted published-record searches did not expose the same implication, although absence alone proves no priority.",
+    "residual_risks": [
+      "A same-claim result could be indexed under zero-interaction block Gibbs samplers, cyclic coordinate refresh or local-support random walks. The compared original theorem statements do not settle global historical uniqueness.",
+      "The available earlier-source comparison is not an independent priority certification. General Walsh diagonalization is prior knowledge; only the strong L2 comparison and explicit profile are claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General spectral method covers the present diagonalization, but the specified cutoff theorem treats exchangeable nonlocal coordinate selection; the example block partition is disjoint. No inspected statement gives the adjacent-overlapping-edge density approximation and Gaussian profile.",
+        "evidence": [
+          "Theorem 3.3 general spectrum; Example 1.4 disjoint blocks; Theorem 3.13 exchangeable nonlocal walk"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.09059",
+        "material_read": "Introduction and Examples 1.1-1.4; Theorem 3.3 and Theorem 3.13 statements; Section 9 proof of Theorem 3.13",
+        "method": "Accessible full-text arXiv HTML, including source theorem/assumption comparisons",
+        "title": "Three steps mixing for general random walks on the hypercube at criticality",
+        "trigger": "Closest general hypercube spectral and cutoff claim"
+      },
+      {
+        "assessment": "Mixing, spectral-gap and comparisons for nonlocal blocks do not yield the particular Gaussian window or L2 product approximation.",
+        "evidence": [
+          "Theorems 1.1-1.2 and Section 5 spectral-gap arguments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.01513",
+        "material_read": "Abstract, introduction and Theorems 1.1-1.2, overview of methods in Section 1.1 and block comparison in Section 5",
+        "method": "Accessible full-text arXiv HTML",
+        "title": "Spatial Mixing and Non-local Markov chains",
+        "trigger": "Broader block heat-bath result potentially dominating exact cycle mixing claim"
+      },
+      {
+        "assessment": "Gives optimal-order mixing/entropy estimates for block dynamics, not a profile constant or the full law product comparison.",
+        "evidence": [
+          "Theorem 1.7 general block factorization and mixing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.07459",
+        "material_read": "Introduction and Theorem 1.7, principal application statements and entropy-factorization discussion",
+        "method": "Accessible full-text arXiv HTML",
+        "title": "On Mixing of Markov Chains: Coupling, Spectral Independence, and Entropy Factorization",
+        "trigger": "Theorem for arbitrary heat-bath block dynamics"
+      },
+      {
+        "assessment": "General cutoff criteria do not state the local adjacent-edge hypercube full-distribution profile. No claim that its hypotheses fail for this chain is required.",
+        "evidence": [
+          "General cutoff theorem and stated scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.05597",
+        "material_read": "Introduction, main structural cutoff criteria and bounds; discussion of geometric assumptions",
+        "method": "Accessible full-text arXiv HTML/PDF",
+        "title": "Cutoff for non-negatively curved Markov chains",
+        "trigger": "Potential broad cutoff theorem subsuming the special chain"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "830668ca-52c2-4b1c-8344-7f038b0d58ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Overlapping neighboring refresh blocks generate dependencies absent from independent product updates, so neither one-coordinate mean relaxation nor a general mixing-order theorem determines full total-variation cutoff. Proving L2 equivalence of full likelihoods is a substantive structural fact; it computes a sharp 1/4 cutoff location, n-scale Gaussian window and chi-square curve, and yields a transferable method using spatial run combinatorics. The model is a canonical random-scan two-site heat-bath sampler for a noninteracting spin system; its precise profile calibrates convergence tests. The result is not based on a tiny fixed-dimensional example, arbitrary parameter substitution or known table.",
+    "status": "PASS"
+  }
+}
