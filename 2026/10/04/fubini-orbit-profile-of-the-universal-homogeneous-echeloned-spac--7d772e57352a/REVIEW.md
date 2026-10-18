@@ -1,12 +1,21 @@
-# Review of Fubini orbit profile of the universal homogeneous echeloned space
+# Independent mathematical audit
 
-## Correctness
-PASS. On \(n\) distinct labeled points, an echeloned structure is exactly a weak order on the \(\binom n2\) unordered pairs after adjoining the forced diagonal bottom class. Universality realizes every such finite structure, and homogeneity identifies automorphism orbits exactly with induced labeled structures. Equality partitions then give the stated Stirling transform. The asymptotic is the standard Fubini asymptotic with \(m=\binom n2\). The bundled finite replay independently checks the numerical values and the weak-order count through six labeled pairs.
+## correctness
 
-## Originality
-PASS, with a residual folklore risk. The defining 2023 paper was inspected at the definition, Fraïssé-limit construction, edge-coloured-graph description, and automorphism-group sections; searches of the full text found no “orbit” enumeration and no “Fubini” occurrence. Claim-shaped web searches and semantic-index searches returned no equivalent statement. The closest indexed orbit-profile results concern random-poset, Rado-graph, bipartite-graph, and distributive-lattice structures, not echeloned spaces. OEIS A000670 supplies only the classical weak-order enumeration and asymptotic, not the model-theoretic identification.
+PASS
 
-## Value
-PASS. The automorphism group is a central object of the defining paper, and its ordered-tuple orbit profile is a standard intrinsic invariant of an oligomorphic permutation group. The formula gives the complete profile in every arity, identifies an unexpectedly direct bridge to ordered Bell numbers, quantifies the rapid orbit growth, and gives the noninjective profile without further classification. This is a natural structural invariant of a recently introduced Fraïssé limit rather than an arbitrary finite slice.
+Reconstructed the bidirectional correspondence: a labelled injective n-point induced echeloned structure consists of a weak order on m=n(n-1)/2 unordered off-diagonal pairs with a forced minimum diagonal class. Every such weak order defines an admissible finite member; universality realizes it and ultrahomogeneity makes labelled isomorphism exactly the automorphism-orbit relation. Equality partitions into k coordinate blocks contribute S(n,k)F_{k choose 2}, proving the noninjective formula. Fubini asymptotic transfers by m=binomial(n,2). The viewed verify.py gives exact recurrence and independent brute rank-surjections to m=6; general quantifier follows from the structural proof, not experiment.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge structural orbit-profile identification not found as an independently established tuple-orbit count; classical Fubini combinatorics and Fraisse homogeneity are prior ingredients, so the claim does not claim novelty for either ingredient.
+
+## value
+
+PASS
+
+All-arity orbit counts are a natural intrinsic oligomorphic-group invariant of a newly defined homogeneous structure; the explicit Fubini subsequence and full Stirling transform give a genuinely useful structural enumeration rather than an arbitrarily chosen numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
