@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The regular-differential basis and characteristic-seven coefficient formula yield a block-diagonal Cartier operator. A nonzero quadratic coefficient forces positive stable rank. For zero quadratic coefficient the two-by-two block is rank one and has zero stable rank exactly on the explicitly calculated twisted-square equation. The discriminant eliminates one of the three coarse candidates; the remaining two are smooth. The nonspecial Picard isomorphism theorem identifies precisely two geometric classes. Standalone exact arithmetic checks reproduce all coefficient identities and the \(\mathbf F_{343}\) census. The argument is independent of the finite census for geometric quantifiers.
+
+**Originality — PASS.** The earlier finite-field paper classifies the classical curve \(y^3=x^4-x\), which is the first of the two classes, and also treats the special curve \(y^3=x^4-1\). That is not the complete zero-rank Picard locus. The 2019 Picard normal-form work provides the isomorphism theorem but not the characteristic-seven arithmetic locus. The 2023 Nourozi–Rahmati Picard paper gives Cartier formulas but its broad nonvanishing statement conflicts with the explicitly computed smooth second curve. The 2022 trielliptic-strata paper addresses general geometry, not the two-class census. Published index and research-record searches for Picard \(7\)-rank-zero classes, aliases, and Cartier parameters found no statement implying this complete theorem. The 2015 publisher PDF was unavailable; an unindexed equivalent result remains possible.
+
+**Value — PASS.** The genus-three Picard locus is a natural two-dimensional arithmetic moduli problem. An exhaustive rank-zero classification by abstract geometric isomorphism is a structural finite moduli result, not a random coefficient calculation. It identifies the previously missing second class, its \(a\)-number, and the precise smooth/singular boundary; it also supplies a checkable counterexample to a published blanket Cartier-rank assertion.
+
+**Limits.** The result does not classify intermediate ranks, Newton polygons, arithmetic twists, or fields of minimal definition. The older finite-field paper could not be inspected in full PDF, though detailed article excerpts identify its restricted family scope.
+
+Self-review: passed. Independent audit: not yet performed.
