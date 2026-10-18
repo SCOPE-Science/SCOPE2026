@@ -1,11 +1,21 @@
-# Scientific review: polar-mean spectral-radius amplification
+# Independent mathematical audit
 
-**Correctness — PASS.** The spectral-radius identities come from the exact \(n\)-th powers of the periodic shifts. Weighted AM–GM establishes lower monotonicity. A strictly coordinate-convex log-product forces upper maximizers to use only the extreme allowed weights; the exact number of transition pairs on a cycle is at most \(\lfloor n/2\rfloor\). Maximally alternating patterns attain the calculated bound, and strictness classifies equality. The interpolation optimum follows from maximizing \(\lambda(1-\lambda)\). A standalone exact-rational checker tests finite instances; it is not substituted for the all-period argument.
+## correctness
 
-**Originality — PASS, with specific access risk.** Lee–Lee–Yoon's original 2014 full text gives the weighted-shift coefficient formula. Chabbabi–Curto–Mbekhta's inspected Section 4 already gives a period-two inflation example and unilateral shift spectral-radius monotonicity; these are explicitly credited. Neither result implies the exact universal contrast-constrained *upper* amplification or all-period equality classification. Das–Biswas–Nahak's 2026 publicly available abstract concerns general interpolation behavior but its unavailable full text could contain a stronger statement. Searches on exact operator parameters, alternative geometric-mean formulations, upper bound dominance, and published mathematical records found no overlapping identifiable result; this does not prove absolute priority.
+PASS
 
-**Value — PASS.** The natural scale-invariant contrast budget asks how much a polar arithmetic mean can inflate spectral radius. The sharp period-dependent constant, equality configurations and odd-period parity deficit give an exact structural answer, not a cosmetic parameter specialization. The result may inform worst-case control of periodic mean-transform iterations; such further consequences are not claimed proved.
+The polar mean weights are m_j=lambda*w_j+(1-lambda)*w_{j+1}; periodic powers T^n=(product w_j)U^n give r(T)=(product w_j)^{1/n} also for unilateral/bilateral shifts. Weighted geometric-AM inequality telescopes under multiplication for the lower ratio 1, with equality iff all weights equal for interior parameters. In logarithmic coordinates log w_j∈[0,log K], the log product is strictly convex in each coordinate for 0<lambda<1, forcing all upper maximizers to binary endpoint weights. Every a->Ka change pairs a reverse change; transition count 2k<=2floor(n/2), and exact product is Theta^k. This proves sharp extremizers and the odd-period single equal edge. Maximization in lambda of lambda(1-lambda) yields its unique midpoint in nondegenerate cases. Independent exact-rational enumeration verified transition formula and all binary maxima across 81 (n,lambda,K) families n=2..10; the proof, not finite enumeration, establishes all dimensions/real parameters.
 
-**Scientific limitations and residual risk.** Claims cover strictly positive periodic weighted shifts and spectral radius, not general operator means or nonperiodic shifts. The complete 2026 manuscript could not be read, so equivalent coverage remains possible. Independent audit has not been undertaken.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2014 Lee–Lee–Yoon source defines the polar mean transform; Chabbabi–Curto–Mbekhta 2019 (arXiv:1812.03499), Section 4 materially read in original full PDF, proves relevant monotonicity and exhibits spectral radius growth for a two-period weighted shift, not the contrast-constrained upper envelope or all equality patterns. Das–Biswas–Nahak 2026 arXiv:2608.15180 concerns lambda-interpolated means in its public abstract; the full manuscript remained inaccessible, and is a notable same-operator priority risk. Search of related Resultary claims found the identical submitted entry and related mean/weighted-shift work, not a stronger all-period quantitative formula. This is a best-of-knowledge priority comparison, not a claim that those unread pages lack it.
+
+## value
+
+PASS
+
+Weight contrast K is a natural scale-invariant condition on periodic shifts. The exact sharp inflation constant determines how badly the polar arithmetic mean may enlarge spectral radius, with a complete even/odd combinatorial equality law, unlike the already known monotonic lower bound or one 2-cycle example. This is a motivated exact extremal invariant across all finite periods; no unsupported general-operator iteration theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
