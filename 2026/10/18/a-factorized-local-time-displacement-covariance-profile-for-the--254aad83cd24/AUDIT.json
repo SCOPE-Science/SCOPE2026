@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The two independent Markov bridge segments, conditional on the signed interior value, each have the correctly normalized Pitman local-time survival tail; coupling them with two positive exponentials gives strict decreasing regression in the interior modulus. Independently, Gaussian conditional densities give E[L|B_t|]=(sqrt(t)+sqrt(1-t)-1). The two beta/trigonometric integrals, endpoint cases, t=1/2 extremum, L mean sqrt(pi/2), and Fubini for L1 weights are fully established by the proof. The extracted verify.py independently tests 10 Gaussian integrals, 6 tail integrals, 12 conditional coupling inequalities and one weighted integral; finite tests are not claimed to prove the continuum result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knight (2000) studies moments of the integrated area of reflected Brownian bridge conditional on local time; this may imply our unweighted integrated covariance, which we explicitly do not present as separately original.",
+        "Gittenberger–Louchard (2000), including its theorem on densities, treats local time indexed by spatial levels, not the covariance kernel at deterministic interior times."
+      ],
+      "reasoning": "An integrated-area theorem may dominate a single unweighted integral, but integration loses the time-resolved factorization. A local-time field over spatial levels is not the same joint statistic as fixed-time absolute bridge displacement; no implication of the entire pointwise cross-kernel was located in inspected statements. The possibility of implicit broad coverage remains.",
+      "searches": [
+        "Brownian bridge local time at zero and area under reflected Brownian bridge covariance Knight 2000",
+        "Conditional Brownian bridge local time displacement two-time moment arcsine Rayleigh distribution",
+        "Knight (2000) DOI:10.1155/S1048953300000137; area moments conditional on zero local time",
+        "Gittenberger and Louchard (2000) DOI:10.1155/S1048953300000149"
+      ]
+    },
+    "checked_sources": [
+      "Pitman TR539 1998 cover and eqs (1),(3),(11),(13), full accessible PDF",
+      "Knight (2000) DOI:10.1155/S1048953300000137 accessible article sections",
+      "Gittenberger–Louchard (2000) DOI:10.1155/S1048953300000149 full accessible PDF and Theorem 4.1",
+      "Published indexed mathematical findings: seven exact Brownian-bridge/local-time searches with nearby but different objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Pitman input gives conditional local time given an *endpoint*; Markov splitting recovers the conditional two-piece law, and a separate Gaussian occupation-density calculation establishes E[L|B_t|].",
+        "A theorem about the full covariance in t would imply the unweighted area identity by integration; a result about the single unweighted area does not imply the full time profile."
+      ],
+      "reasoning": "Pitman plus bridge Markov and Gaussian occupation density provide the premises for this quantitative deduction, but Pitman does not explicitly state the one-parameter factorized covariance. Knight could subsume the area specialization; it has been kept as a consequence and not a separate novelty assertion. The distinct central claim is the explicit all-t factorization and all-weight kernel.",
+      "searches": [
+        "Brownian bridge local time at zero covariance absolute bridge displacement at deterministic time factorization square roots",
+        "Brownian bridge local time at zero and area under reflected Brownian bridge covariance Knight 2000",
+        "Pitman 1998 eq. (3) endpoint local time",
+        "Knight 2000 integrated reflected area",
+        "Gittenberger Louchard 2000 spatial-level local-time density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman (1998) eq. (3) gives the endpoint-pinned local-time survival law; two independent segments conditional on B_t give the exact representation of L conditional on |B_t|.",
+        "In the present paper the independently integrated Gaussian occupation-density formula gives the time profile E[L|B_t|]=sqrt(t)+sqrt(1-t)-1."
+      ],
+      "reasoning": "The conditional two-exponential representation is immediately equivalent to two applications of the known endpoint law and Markov decomposition, and is not independently claimed as new. The assessed profile is a mixed local-time/interior-modulus moment indexed by t, not an endpoint local-time marginal. Published-index returned no directly equivalent claim, which is only a bounded comparison, not proof of novelty.",
+      "searches": [
+        "Brownian bridge local time at zero covariance absolute bridge displacement at deterministic time factorization square roots",
+        "Brownian bridge mixed moment occupation density and modulus at fixed time and gaussian bridge covariance",
+        "Covariance Brownian bridge zero occupation local time absolute displacement at time t factorizes negative sqrt t sqrt 1-t",
+        "Pitman (1998), The distribution of local times of a Brownian bridge, TR539, eqs (1),(3),(13)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-index hits include a boundary-charge theorem for perturbed reflected Brownian motion (2026/9/18/SCOPE-subcritical-perturbed-brownian-boundary-charge--b83c5c0d9612), not a standard bridge local-time/modulus covariance.",
+        "Source Pitman (1998) eq. (3) tabulates conditional endpoint local time but does not tabulate the requested time-indexed covariance."
+      ],
+      "reasoning": "The searches returned no table or exact covariance formula for the standard bridge at interior t. This does not establish absence from unsearched resources, and the known endpoint distribution could yield the same result by algebra.",
+      "searches": [
+        "Brownian bridge local time zero given interior point modulus sum of two exponential Rayleigh overshoot conditional stochastic order",
+        "Pointwise Brownian bridge local time abs Brownian bridge weighted area covariance kernel",
+        "Published result index: Brownian bridge local time covariance absolute displacement"
+      ]
+    },
+    "rationale": "The primary mathematical sources establish the needed classical endpoint-local-time law and integrated/spatial-level results, but no inspected statement explicitly supplies the full deterministic-time factorized local-time–modulus cross-covariance with weighted-area kernel. The potential equivalence from general joint formulas and implicit area results is expressly retained as a literature risk; original segment tails and Markov property are not attributed as new.",
+    "residual_risks": [
+      "Classical Brownian local-time handbooks or stochastic-integral identities may imply the kernel without using the same notation.",
+      "Knight (2000) likely already subsumes the integrated area covariance; it is a consequence, not a separate novelty claim.",
+      "The conditional two-piece overshoot representation directly follows from known endpoint laws and is not itself a novel conditional-survival theorem.",
+      "Neither literature completeness nor independent novelty assessment has been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the segment-tail distribution used as input and makes the conditional exponential representation a direct corollary, but no explicit full fixed-time L versus |B_t| covariance profile located.",
+        "evidence": [
+          "Eq. (3) P(L>z|B_u=x)=exp(-(z²+2|x|z)/(2u)) after scaling.",
+          "Bridge Markov decomposition plus the known input gives the conditional law, not claimed to supersede Pitman."
+        ],
+        "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+        "material_read": "Complete accessible technical report, including equations (1), (3), (11) and (13); dated cover 3 November 1998.",
+        "method": "Inspected PDF pages and parsed equations, contrasted endpoint conditioning with interior time t.",
+        "title": "The distribution of local times of a Brownian bridge",
+        "trigger": "Exact classical endpoint local-time law could directly cover the conditional segment calculation"
+      },
+      {
+        "assessment": "Global area moment coverage may imply the constant-weight integrated covariance; not shown to give the factorized pointwise kernel. Possible hidden implication remains.",
+        "evidence": [
+          "Knight (2000) addresses moments of integrated reflected bridge area conditional on zero local time."
+        ],
+        "identifier_or_url": "DOI:10.1155/S1048953300000137",
+        "material_read": "Accessible article text and relevant conditional-area formulas and introductory statements, not represented as an exhaustive review of every appendix.",
+        "method": "Compared global integrated absolute area conditional on local time versus time-local covariance with interior absolute bridge value.",
+        "title": "The moments of the area under reflected Brownian bridge conditional on its local time at zero",
+        "trigger": "A conditional-area theorem could contain or imply the integrated specialization"
+      },
+      {
+        "assessment": "Focuses on local time at varying spatial levels; no t-indexed zero-local-time and |B_t| covariance coverage identified.",
+        "evidence": [
+          "Gittenberger and Louchard (2000), Theorem 4.1 studies the local-time density for a reflecting bridge."
+        ],
+        "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/HOA/JAMSA/Volume13_2/136.pdf",
+        "material_read": "Accessible complete PDF with definitions, main formulae and Theorem 4.1 on spatial local-time density.",
+        "method": "Inspected page images and textual equations, compared spatial local-time field to fixed-time displacement dependence.",
+        "title": "On the local time density of the reflecting Brownian bridge",
+        "trigger": "Title concerns bridge local times and might include mixed moment or joint density"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "254aad83-cd24-40d5-a5e0-d83005dc8f25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem is a continuum-resolved dependence law for the canonical local-time and displacement observables of a pinned diffusion; it precisely identifies sign, factorized magnitude and unique peak time for all interior t, and resolves arbitrary deterministic nonnegative weighted-absolute-area covariance signs from one kernel. The conditional stochastic-order representation is useful to simulate and understand negative regression, not a cosmetic parameter specialization or a finite-point calculation.",
+    "status": "PASS"
+  }
+}
