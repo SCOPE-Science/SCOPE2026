@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each leading-zero group the lexicographic rotation order is exactly descending cyclic following-gap triple; its marked preceding-one rows give the complete adjacency classification even at zero gaps. The gap generating function z^4/((1-z)^2(1-z^3)) counts each six-run circular orientation, with n labeled rotations, while periodic three-equal gaps contribute n/3. The other counts follow from binomial(n,3). The independent direct and grouped implementations compared 8,854 full inputs and 8,435 further ordered gap triples; finite tests corroborate the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general clustering inequality in the 2017 RLE paper, Theorem 3.3, bounds the transformed run count using the input run count but has no exact frequency law.",
+        "The fixed-point paper, Proposition 4.2, is a subclass defined by exact equality with BWT and does not dominate a classification by run count."
+      ],
+      "reasoning": "A general inequality does not imply exact multiplicities by input length and weight. Classification of fixed points also does not determine BWT run counts for all non-fixed points.",
+      "searches": [
+        "Burrows Wheeler transform perfectly clustering word three ones classification nonminimal six runs",
+        "r-index sparse weight 3 cyclic binary necklaces sorted rotations three runs count",
+        "Measuring the clustering effect of BWT via RLE theorem 3.3",
+        "On fixed points of the Burrows-Wheeler transform three b proposition 4.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arpi.unipi.it/retrieve/e0d6c92f-b120-fcf8-e053-d805fe0aa794/MRRSV_TCS2017.pdf",
+      "https://iris.unipa.it/retrieve/e3ad8925-ffc2-da0e-e053-3705fe0a2b96/FI_2017_postprint.pdf",
+      "SRC-RR-124 (Burrows–Wheeler, May 10 1994)",
+      "DOI:10.1016/j.tcs.2017.07.015",
+      "DOI:10.3233/FI-2017-1566"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burrows–Wheeler (1994) gives the transform, not the constant-weight-three run-count distribution.",
+        "Mantaci et al. (2017 RLE) Theorem 3.3 implies a broad upper bound; the new statement supplies exact counts for every length.",
+        "Mantaci et al. (2017 fixed points) Proposition 4.2 intersects the input slice, but fixed points are neither the full two-run class nor a determination of the four/six-run distribution."
+      ],
+      "reasoning": "Only the known perfectly clustered class overlaps a proper subcase; the full exact gap-orientation theorem and both non-minimal multiplicities remain additional information not forced by the inspected statements.",
+      "searches": [
+        "Burrows Wheeler transform perfectly clustering word three ones classification nonminimal six runs",
+        "BWT run count three one word cyclic gap triplet classification",
+        "On fixed points of the Burrows-Wheeler transform three b proposition 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The RLE clustering paper defines BWT run counts in Section 2 and examines their general behavior, but gives no fixed-three-ones enumeration (Mantaci et al. 2017, Sections 2–5).",
+        "The fixed-point paper discusses three occurrences of the larger letter but imposes BWT(word)=word, which is a distinct constraint (Mantaci et al. 2017, Proposition 4.2)."
+      ],
+      "reasoning": "The cyclic-gap model is an equivalent coding of fixed-weight-three binary words. Neither inspected source converts it into the all-length three-level run spectrum. The known perfect-clustering characterization implies only the two-run subclass.",
+      "searches": [
+        "Burrows Wheeler transform circular binary words of weight three exact run distribution 2 4 6 cyclic gaps",
+        "BWT clustering binary sparse ternary ones gaps cyclic run length encoding generating function",
+        "BWT run count three one word cyclic gap triplet classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched exact fixed-weight-three run-count table or enumerator arose among the closely ranked database results; the closest published record concerned cyclic symbol-pair codes rather than BWT run statistics.",
+        "The inspected RLE primary paper gives individual examples and broad families but no table of the three-one census."
+      ],
+      "reasoning": "No located table simultaneously specifies the BWT convention, all lengths, fixed weight three and the 2/4/6 exact numbers. Negative search results do not prove absolute novelty.",
+      "searches": [
+        "Burrows Wheeler transform circular binary words of weight three exact run distribution 2 4 6 cyclic gaps",
+        "BWT clustering binary sparse ternary ones gaps cyclic run length encoding generating function",
+        "Burrows Wheeler transform BWT run spectrum binary cyclic words Hamming weight 3 three ones exact number",
+        "run length Burrows Wheeler transform sparse binary necklaces three ones"
+      ]
+    },
+    "rationale": "The inspected BWT run-count and fixed-point primary papers address closely related objects but do not give the exact three-level fixed-weight-three run census. The general 2017 inequality does not imply the explicit cyclic-gap orientation law or its class frequencies; the r=2 subcase is known via perfect clustering and is not independently asserted novel. Actual equivalence/coverage/table searches found no dominating comparison. Priority remains open to unindexed literature.",
+    "residual_risks": [
+      "An unindexed earlier explicit weight-three BWT run-distribution table might coincide.",
+      "The original 1994 report was not read in full; it is the definitional anchor, not the decisive novelty comparator.",
+      "This review is not independent peer assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General doubled-run inequality, examples and de Bruijn family; does not give fixed-weight-three exact run spectrum",
+        "evidence": [
+          "PDF pages 4–8 state definitions and Theorem 3.3; section 5 treats de Bruijn words, a different source family."
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92f-b120-fcf8-e053-d805fe0aa794/MRRSV_TCS2017.pdf",
+        "material_read": "Full 19-page open postprint, with focus on sections 2–5 and Theorem 3.3",
+        "method": "Read full available PDF text and inspected page image of page 7",
+        "title": "Measuring the clustering effect of BWT via RLE",
+        "trigger": "Highly relevant exact BWT run-count paper"
+      },
+      {
+        "assessment": "Characterizes fixed points, not all run counts; no implication covering the theorem",
+        "evidence": [
+          "Section 4 Proposition 4.2 equates the entire BWT column to the input; its detailed case calculations are not enumerations by 2/4/6 runs."
+        ],
+        "identifier_or_url": "https://iris.unipa.it/retrieve/e3ad8925-ffc2-da0e-e053-3705fe0a2b96/FI_2017_postprint.pdf",
+        "material_read": "Full 13-page open postprint, focusing on Sections 2–4, Proposition 4.2 and its gap-case proof",
+        "method": "Read searchable PDF including proof formulas for exactly three b letters",
+        "title": "On Fixed Points of the Burrows-Wheeler Transform",
+        "trigger": "Same sparse binary three-one input family could hide a stronger result"
+      },
+      {
+        "assessment": "Defines transform and 1994 publication anchor; no claim to a run-number spectrum",
+        "evidence": [
+          "SRC Research Report 124, May 10, 1994, describes lexicographically sorting all N rotations and taking the last character."
+        ],
+        "identifier_or_url": "SRC-RR-124 (Burrows–Wheeler, May 10 1994)",
+        "material_read": "Dated cover and opening transform section accessible in bibliographic full-text preview; not the complete report",
+        "method": "Inspected dated report listing and description of sorting all rotations and taking last column",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Earliest dated primary definition of cyclic BWT"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d3b901d-f839-4a2c-ac9c-c563f1051e57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Run count governs the most elementary BWT run-length encoding statistic and is relevant to compressed indexing. Weight three is the smallest natural sparse binary layer permitting three different even BWT run counts and maximal six-run separation. The theorem gives all-length sharp frequencies, structural decision criteria, and the almost-sure six-run property among uniform three-one words, substantially beyond a single small numerical example.",
+    "status": "PASS"
+  }
+}
