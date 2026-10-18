@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:08:39.733806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let s_e be the descendant count of edge e and c_s the total length of edges with s leaves. Each edge is absent from a k-tip sample with probability binom(n-s,k)/binom(n,k), so the mean formula holds and the system for k=n-j is triangular with new coefficient c_j=1. Strictly positive edge lengths make the support of c_s for s>=2 exactly the support of proper internal clade sizes. Independently enumerate every unordered rooted binary shape by its unordered pair of child shapes; counts at n=1..7 are 1,1,1,2,3,6,11, with no support collision at n<=6 and the first unique collision at seven. Independently reconstruct both height-4 ultrametric 7-tip witnesses and all 128 subsets: common spectrum (12,3,2,1,0,0), exact mean curve (0,4,51/7,351/35,433/35,101/7,114/7,18), two-tip counts (1,4,4,12) vs (2,2,5,12), and variances 128/147 vs 142/147. Grafting a new root with a single new leaf preserves positive ultrametric lengths, weighted-spectrum equality and different rooted shapes for each n>=7; this induction, not the finite enumeration alone, proves the unrestricted assertion. Only unlabeled rooted topology is recovered below seven, not edge lengths or labelings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fischer et al., Bulletin of Mathematical Biology 87:134 (2025), Section 3 clade-size metaconcepts, covers shape indices and clade-size multiset collisions but no complete rarefaction-means topology recovery cutoff."
+        ],
+        "reasoning": "General tree metaconcepts and mean/variance formulas do not dominate a topology inversion threshold for all positive branch lengths.",
+        "searches": [
+          "clade size support seven rooted binary trees phylogenetic diversity mean",
+          "Metaconcepts of Rooted Tree Balance Fischer Hamann Wicke 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/",
+        "https://link.springer.com/article/10.1007/s11538-025-01509-y",
+        "Resultary semantic read-only search for the exact corresponding theorem and implications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 work derives general rooted and unrooted mean/variance formulae, not topology reconstruction; 2025 source has a stronger multiplicity-retaining invariant but does not prove seven-tip mean discrimination/failure."
+        ],
+        "reasoning": "Submitted formulas are a new identification/nonidentification consequence of the prior mean formula plus independent sharp support enumeration and weighted clocklike counterexample, not a literal restatement of the formula.",
+        "searches": [
+          "Nipperess Matsen 2013 phylogenetic diversity rarefaction mean variance",
+          "Fischer Hamann Wicke clade size sequence nine tips 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nipperess--Matsen (2013) DOI 10.1111/2041-210X.12042 supplies the mean formula; same mean curve iff same aggregated weighted clade-size vector by elementary triangular inversion.",
+          "Fischer--Hamann--Wicke (2025) studies length-free size sequence multiset, not aggregated weighted positive lengths."
+        ],
+        "reasoning": "The expected curve equals the weighted spectrum (not the multiset). A result about injectivity of the latter cannot be transferred without tracking edge weights; no equivalent first-seven topology theorem was identified.",
+        "searches": [
+          "Resultary semantic rooted phylogenetic diversity mean rarefaction expected curve topology identifiability weighted clade size spectrum seven tip ultrametric trees counterexample",
+          "phylogenetic diversity rarefaction tree topology identifiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001190 supplies 1,1,1,2,3,6,11 shapes through n=7; independently generated all and compared supports.",
+          "No consulted public database tabulates the exact seven-tip integer-ultrametric PD mean collision plus two-tip variance gap."
+        ],
+        "reasoning": "A known table of shape counts is insufficient to imply first collision of weighted clade-size supports, which requires computing the support map and realizing positive ultrametric weights.",
+        "searches": [
+          "OEIS A001190 rooted non-plane binary tree shapes counts n 7",
+          "Resultary semantic rarefaction topology"
+        ]
+      },
+      "rationale": "Compare full-curve versus weighted clade-size spectrum, rather than confused notions of identical clade-size multiset, leaf-level labels, or phylogenetic-diversity distributions. Nipperess--Matsen already prove general rooted mean and variance rarefaction formulas. Fischer--Hamann--Wicke (2025) analyze clade-size multisets and first multiset collision at nine tips; their invariant retains multiplicities and does not impose or exclude a weighted-edge total collision at seven. Complete shape supports and integer ultrametric witness add a natural exact first-identifiability cutoff not found in inspected primary results or semantic searches. No absolute historical uniqueness is asserted.",
+      "residual_risks": [
+        "Unindexed earlier study might analyze exact weighted-clade-size support equivalence or complete rooted rarefaction invertibility; inspected sources do not establish absolute priority.",
+        "All-n argument applies to rooted strictly binary trees, one observation per tip, positive edge lengths, full exact expectations; not unrooted, nonbinary, noisy/partial curves or edge-length identifiability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION_NOT_COVERING_CUTOFF",
+          "evidence": "DOI 10.1111/2041-210X.12042 derives exact mean and variance for general phylogenetic trees under rarefaction; no sharp inverse-topology seven-tip theorem in relevant theorem/discussion.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/",
+          "material_read": "Open publisher/Wiley article and PMC full text sections on rooted expectation, variance derivation, examples, discussion; source model definitions compared to submitted full-tip uniform sampling.",
+          "method": "Lawful full-text HTML, mathematical formulas inspected",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Exact same rarefaction measure and mean/variance statistics"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_INVARIANT",
+          "evidence": "DOI 10.1007/s11538-025-01509-y discusses clade-size sequences with multiplicity and metaconcepts, not positive integer edge-length weighted spectrum of rooted PD under complete rarefaction.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-025-01509-y",
+          "material_read": "Full OA article introduction, preliminaries definitions, Section 3 clade-size sequence/metaconcepts and discussion of first multiset collision, checked relationship between multiset and support.",
+          "method": "Publisher open-access full HTML",
+          "title": "Metaconcepts of Rooted Tree Balance",
+          "trigger": "Same clade-size and tree-shape invariants; plausible stronger source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An entire exact mean rarefaction curve is a standard ecologically interpretable observable, so asking whether it reconstructs unlabeled evolutionary tree topology is natural. The first indistinguishable positive-edge ultrametric pair at exactly seven taxa is a sharp information-loss boundary; the explicit variance separation shows what extra distributional information restores. This is a substantive extremal identifiability theorem, not merely a numerically guessed tiny instance; the all-n extension adds a constructive family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed earlier study might analyze exact weighted-clade-size support equivalence or complete rooted rarefaction invertibility; inspected sources do not establish absolute priority.",
+    "All-n argument applies to rooted strictly binary trees, one observation per tip, positive edge lengths, full exact expectations; not unrooted, nonbinary, noisy/partial curves or edge-length identifiability.",
+    "Public metadata sanitation and full source-tree-object validation not completed; the scientific verdict is independent of publication transport readiness."
+  ],
+  "schema_version": 1
+}

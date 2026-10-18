@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rooted-PD mean identity is directly the established hypergeometric presence probability [1,2]. The binomial system is triangular with coefficient one for its newly introduced weighted-clade size, so an exact full curve recovers all weighted lengths. Positive edges guarantee the recoverable nontrivial support is the topology's clade-size support. Complete recursion over unordered rooted full binary shapes gives distinct supports at sizes two through six, and an explicit pair of seven-tip clocklike trees has the same weighted spectrum \((12,3,2,1,0,0)\). Direct exact-rational enumeration of 21 unordered two-tip subsets gives variances \(128/147\) and \(142/147\). The add-one-leaf graft preserves positive ultrametricity, the weighted-spectrum equality, and nonisomorphism. The standalone checker was executed successfully. No finite computation is misrepresented as an infinite-size proof.
+## correctness
 
-## Originality — PASS with bounded residual risk
-Full text of Nipperess and Matsen [1], including methods, discussion and appendix, supplies the prior mean/variance calculation but not the seven-tip topology-identification threshold. The open 2015 Nipperess chapter [2] contains the complete mean formula and discusses applications, not the first collision of full mean curves. Chao et al. [3] focus on ecological rarefaction/extrapolation and do not yield a sharp unlabeled-topology reconstruction threshold. The particularly relevant full open article of Fischer, Hamann and Wicke [4] analyzes *multiplicity-retaining* clade-size sequences and identifies their first collision at nine tips; our seven-tip pair has different clade-size multisets and only matches *weighted sums*, so [4] neither implies the theorem nor refutes it. Literature searches also covered aliases involving clade-size support, topology recovery, and ultrametric rarefaction, and the nearest mathematics database results concerned distinct invariants. A less discoverable prior exact support-equivalence classification remains a literature risk. The conclusion is not a proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Species-based phylogenetic rarefaction curves are established descriptors of phylogenetic structure. The sharp first failure of recovering tree shape from *all* mean sample-size levels tells researchers precisely what information the curve loses, even in small strictly clocklike systems. The two different two-tip PD distributions demonstrate a real mathematical consequence, not merely a relabeling or cosmetic difference. The proof includes a complete natural finite cutoff, an explicit reproducible witness, and a general all-size construction; no new general distribution theory is claimed.
+Let s_e be the descendant count of edge e and c_s the total length of edges with s leaves. Each edge is absent from a k-tip sample with probability binom(n-s,k)/binom(n,k), so the mean formula holds and the system for k=n-j is triangular with new coefficient c_j=1. Strictly positive edge lengths make the support of c_s for s>=2 exactly the support of proper internal clade sizes. Independently enumerate every unordered rooted binary shape by its unordered pair of child shapes; counts at n=1..7 are 1,1,1,2,3,6,11, with no support collision at n<=6 and the first unique collision at seven. Independently reconstruct both height-4 ultrametric 7-tip witnesses and all 128 subsets: common spectrum (12,3,2,1,0,0), exact mean curve (0,4,51/7,351/35,433/35,101/7,114/7,18), two-tip counts (1,4,4,12) vs (2,2,5,12), and variances 128/147 vs 142/147. Grafting a new root with a single new leaf preserves positive ultrametric lengths, weighted-spectrum equality and different rooted shapes for each n>=7; this induction, not the finite enumeration alone, proves the unrestricted assertion. Only unlabeled rooted topology is recovered below seven, not edge lengths or labelings.
 
-## Boundaries and closest literature
-The source-defined hypergeometric formulas and phylogenetic community applications are prior art. This result assumes positive-length full binary rooted trees and a fixed root, one distinct observed species at each tip, and a full exact mean curve at all integer depths; topology is only recovered modulo relabeling. It does not say the variance curves agree, nor that chronology, labels, or individual branch lengths are identifiable. The 2025 multiset collision at nine leaves is a *different, stronger statistic* than a support or weighted-length clade-size spectrum.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compare full-curve versus weighted clade-size spectrum, rather than confused notions of identical clade-size multiset, leaf-level labels, or phylogenetic-diversity distributions. Nipperess--Matsen already prove general rooted mean and variance rarefaction formulas. Fischer--Hamann--Wicke (2025) analyze clade-size multisets and first multiset collision at nine tips; their invariant retains multiplicities and does not impose or exclude a weighted-edge total collision at seven. Complete shape supports and integer ultrametric witness add a natural exact first-identifiability cutoff not found in inspected primary results or semantic searches. No absolute historical uniqueness is asserted.
+
+## value
+
+PASS
+
+An entire exact mean rarefaction curve is a standard ecologically interpretable observable, so asking whether it reconstructs unlabeled evolutionary tree topology is natural. The first indistinguishable positive-edge ultrametric pair at exactly seven taxa is a sharp information-loss boundary; the explicit variance separation shows what extra distributional information restores. This is a substantive extremal identifiability theorem, not merely a numerically guessed tiny instance; the all-n extension adds a constructive family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
