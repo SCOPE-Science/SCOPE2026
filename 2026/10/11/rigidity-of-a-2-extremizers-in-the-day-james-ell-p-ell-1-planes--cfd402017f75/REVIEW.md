@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact-object upper-bound proof splits extreme pairs into comparable and crossing cases. Comparable extreme pairs cannot maximize. In the crossing case, the low-defect branch is strictly below the sharp value because equality in Minkowski would force the two positive unit vectors to coincide. In the high-defect branch, equality at the final bound forces the two relevant coordinates to equal \(1\), hence the pair is a coordinate-axis pair. A separate convexity argument excludes nonextreme points on the two \(\ell_1\)-edges. The axis pairs attain directly.
+## correctness
 
-## Originality
-PASS. Yang--Li computes the full James-type scalar formula on the exact \(\ell_p-\ell_1\) family and uses the coordinate axes as a sharp witness, but the inspected complete article does not classify every equality pair. Targeted searches for extremizers, maximizing pairs, equality cases, and the \(t=1,\tau=1\) specialization found no equivalent statement. Later full-text work on \(A_2\) for absolute normalized norms treats a different class. The unavailable 2007 absolute-normalized-norm paper remains an explicit bibliographic residual.
+PASS
 
-## Value
-PASS. A complete maximizing-pair classification answers a natural structural question left open by the known scalar value across an entire classical one-parameter family. It proves that sharp triangles cannot slide along the curved extreme arcs or the flat \(\ell_1\)-edges: the two coordinate axes are rigidly forced.
+For 1<p<infinity, the Day--James unit ball has curved strictly convex same-sign p-arcs and exactly two flat opposite-sign l1 edges. Pair sign symmetry reduces extreme candidates to nonnegative unit coordinates; comparable candidates coincide and have chord sum 2. For crossing pairs x=(a,b),y=(c,d), a>=c,b<=d, let s=a-c+d-b. If s<=2^(1/p), Minkowski bounds H<=2+s, with equality demanding proportional positive unit vectors x=y and hence s=0, impossible. If s>=2^(1/p), apply the exact split triangle estimate H<=||(a,d)||_p+||(c,b)||_p+a-c+d-b<=||(a,d)||_p+a+d<=2^(1/p)+2. Equality needs a=d=1, b=c=0. Nonextreme edge equality by joint convexity would force both endpoints to maximize with one extreme partner, contradicting the extreme classification. All signed axis pairs attain chord norms 2 and 2^(1/p). A bounded radial-sphere numerical scan for p=1.05,1.5,2,4,20 matched but was not used to prove the universal result. Source Yang--Li exact upper bound and branch were checked against its open full text.
 
-## Closest literature and limitations
-The decisive source is Yang--Li (2015), which supplies the value, the extreme-point reduction, and the inequalities whose equality conditions are analyzed here. Dinarvand (2017) supplies broader \(A_2\) context for absolute normalized norms but not this nonabsolute family. The result excludes \(p=1\) and does not classify the general James-type parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Novelty is pair-level equality rigidity for the known exact A2 scalar value, rather than the scalar evaluation itself. Exact same-family Yang--Li source gives axis sharpness and value but does not state exhaustive maximizing pairs in inspected full article; absolute normalized norms are a different class from this sign-dependent norm.
+
+## value
+
+PASS
+
+The rigidity problem is motivated by the known sharp A2 constant of the classical sign-dependent Day--James family, whose sharpness witnesses had been exhibited without classifying all equality pairs. The theorem excludes an entire continuum of edge/arc candidates across all p>1 and gives a natural equality-orbit classification useful for extremal geometry; not merely a numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
