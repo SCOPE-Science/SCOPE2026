@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,133 +19,24 @@
 }
 ---
 
-Let
-\[
-c=1-2\log2,
-\]
-\[
-A_1(r)=r-(1-r)\log(1-r),
-\]
-and
-\[
-A_2(r)=r+(1-2r)\log(1-r).
-\]
-The source sharp radii solve
-\[
-r+2MA_j(r)=1+2Mc.
-\]
+# Independent mathematical audit
 
-Subtracting the two equations at common \(r\) gives
-\[
-2M\bigl(A_2(r)-A_1(r)\bigr)
-=
-2M(2-3r)\log(1-r).
-\]
-Inside \(0<r<1\), this vanishes only at
-\[
-r=\frac23.
-\]
-Substitution gives
-\[
-M_*=\frac{1}{2(\log192-1)}.
-\]
+## correctness
 
-At a root,
-\[
-\partial_M H_j
-=
-\frac{1-r}{M}
->
-0.
-\]
-For the second radius,
-\[
-\partial_r H_2
-=
-1+2M
-\left(
-\frac{r}{1-r}
--
-2\log(1-r)
-\right)
->
-0.
-\]
+PASS
 
-For the first radius, with
-\[
-\varepsilon=1-r,
-\]
-the root equation gives
-\[
-2M
-=
-\frac{\varepsilon}
-{2\log2-\varepsilon(1+\log\varepsilon)}.
-\]
-Hence
-\[
-\partial_r H_1
-=
-\frac{2\log2+\varepsilon}
-{2\log2-\varepsilon(1+\log\varepsilon)}
->
-0.
-\]
-Thus both roots are differentiable and strictly decreasing with \(M\).
+Reconstructed both exact implicit root equations from the stated Ahamed–Roy Corollaries 2.1,2.2. Their difference at equal r factors 2M(2-3r)log(1-r), vanishing in (0,1) only at r=2/3, which evaluates to the displayed M*. Root-level partial derivatives give ∂_M H_j=(1-r)/M>0, ∂_r H_2=1+2M(r/(1-r)-2log(1-r))>0, and ∂_r H_1=(2log2+ε)/(2log2-ε(1+logε))>0 for ε=1-r. Each root is therefore strictly decreasing in M. Sign at r1 pins the strict reversal: r2<r1 for M<M*, and r1<r2 for M>M*. Transformed ε-equations yield 1-r1~4(log2)M and 1-r2~2Mlog(1/M) as M↓0. Taylor series A1(r)=2r-r²/2+O(r³) and A2(r)=3r²/2+O(r³) at zero yield r1~η/(1+4M_c) and r2~η, η=1-M/M_c, M_c=1/[2(log4-1)]. Independent high-precision bisection tested 0.001,0.05,M*,0.3 and respects strict orientation; numerical samples are not used to prove uniqueness or endpoints.
 
-The source equations become, near \(M=0\),
-\[
-\varepsilon_1
-=
-2M
-\left(
-2\log2-\varepsilon_1(1+\log\varepsilon_1)
-\right),
-\]
-and
-\[
-\varepsilon_2
-=
-2M
-\left(
-2\log2-\log\varepsilon_2-\varepsilon_2+2\varepsilon_2\log\varepsilon_2
-\right).
-\]
-These imply
-\[
-\varepsilon_1\sim4(\log2)M,
-\]
-and
-\[
-\varepsilon_2\sim2M\log(1/M).
-\]
+## originality
 
-At the upper parameter endpoint,
-\[
-1+2Mc
-=
-1-\frac{M}{M_c}
-=
-\eta.
-\]
-The expansions
-\[
-A_1(r)=2r-\frac{r^2}{2}+O(r^3),
-\]
-and
-\[
-A_2(r)=\frac32r^2+O(r^3)
-\]
-give
-\[
-r_1\sim\frac{\eta}{1+4M_c},
-\qquad
-r_2\sim\eta.
-\]
+PASS
 
-The numerical value
-\[
-M_*=0.117439939755438\ldots
-\]
-and the common radius \(2/3\) were recomputed as a consistency check only. The proof of uniqueness, ordering, and asymptotics is symbolic.
+Ahamed–Roy already proves both radii sharp; that part is prior, not new. Its full accessible text gives Corollaries 2.1,2.2 and numerical table/figures but no exact one-crossing theorem and no two-sided endpoint asymptotics. Exact-equation and equivalent ln192/2/3 searches in Resultary identified only the candidate, not a prior dominating comparison. The two new claims concern comparative parameter geometry rather than single-radius sharpness. Other 2021 close-to-convex harmonic Bohr theorems use different bases/classes, so they do not imply a crossover for these exact functions.
+
+## value
+
+PASS
+
+Determining which of two already-sharp universal radius inequalities is quantitatively stronger as the same harmonic-class parameter varies is an intrinsic analytic question introduced by the generalized coefficient-basis framework. The exact unique order reversal and logarithmic-vs-linear endpoint scaling provide a natural complete parameter phase diagram. This is more than reporting numerical root tables or renaming old constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

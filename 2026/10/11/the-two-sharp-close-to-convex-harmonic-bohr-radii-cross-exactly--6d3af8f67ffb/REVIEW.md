@@ -1,56 +1,21 @@
-# Review of The two sharp close-to-convex harmonic Bohr radii cross exactly once
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source defines \(r_1(M)\) and \(r_2(M)\) as unique roots of two explicit equations. Their difference at common \(r\) factors exactly as
-\[
-2M(2-3r)\log(1-r),
-\]
-so any interior crossing must occur at \(r=2/3\). Substitution gives
-\[
-M_*=\frac{1}{2(\log192-1)}.
-\]
+PASS
 
-Root-level implicit differentiation is legitimate because the \(r\)-derivative is strictly positive at each root. For \(r_2\) this is immediate from
-\[
-A_2'(r)=\frac{r}{1-r}-2\log(1-r)>0.
-\]
-For \(r_1\), the source equation eliminates \(M\) and gives
-\[
-\partial_r H_1
-=
-\frac{2\log2+\varepsilon}
-{2\log2-\varepsilon(1+\log\varepsilon)}
->0,
-\qquad
-\varepsilon=1-r_1.
-\]
-Thus both radius functions are strictly decreasing, which converts the sign of the factored difference into the claimed global ordering.
+Reconstructed both exact implicit root equations from the stated Ahamed–Roy Corollaries 2.1,2.2. Their difference at equal r factors 2M(2-3r)log(1-r), vanishing in (0,1) only at r=2/3, which evaluates to the displayed M*. Root-level partial derivatives give ∂_M H_j=(1-r)/M>0, ∂_r H_2=1+2M(r/(1-r)-2log(1-r))>0, and ∂_r H_1=(2log2+ε)/(2log2-ε(1+logε))>0 for ε=1-r. Each root is therefore strictly decreasing in M. Sign at r1 pins the strict reversal: r2<r1 for M<M*, and r1<r2 for M>M*. Transformed ε-equations yield 1-r1~4(log2)M and 1-r2~2Mlog(1/M) as M↓0. Taylor series A1(r)=2r-r²/2+O(r³) and A2(r)=3r²/2+O(r³) at zero yield r1~η/(1+4M_c) and r2~η, η=1-M/M_c, M_c=1/[2(log4-1)]. Independent high-precision bisection tested 0.001,0.05,M*,0.3 and respects strict orientation; numerical samples are not used to prove uniqueness or endpoints.
 
-The endpoint asymptotics are obtained from exact transformed equations. The first radius has a regular linear deficit, while the second has a logarithmic implicit equation whose standard inversion gives
-\[
-1-r_2(M)\sim2M\log(1/M).
-\]
-At the upper parameter endpoint, Taylor expansion at \(r=0\) yields the stated two distinct linear constants.
+## originality
 
-## Originality
+PASS
 
-PASS. The full accessible text of arXiv:2606.29810v1 was inspected at the definition of the harmonic class, Theorem 2.1, Corollaries 2.1 and 2.2, and the proof establishing unique source roots. The paper places both sharp radii in the same section and gives numerical illustrations, but the inspected text does not state their exact comparison, a crossing theorem, the constant
-\[
-1/[2(\log192-1)],
-\]
-or the endpoint asymptotics proved here.
+Ahamed–Roy already proves both radii sharp; that part is prior, not new. Its full accessible text gives Corollaries 2.1,2.2 and numerical table/figures but no exact one-crossing theorem and no two-sided endpoint asymptotics. Exact-equation and equivalent ln192/2/3 searches in Resultary identified only the candidate, not a prior dominating comparison. The two new claims concern comparative parameter geometry rather than single-radius sharpness. Other 2021 close-to-convex harmonic Bohr theorems use different bases/classes, so they do not imply a crossover for these exact functions.
 
-Targeted published-result searches used the exact source title, the radius symbols and equations, the value \(2/3\), the constant \(\log192\), generalized-basis Bohr terminology, and parameter-monotonicity formulations. No implication-equivalent statement was located.
+## value
 
-The closest earlier papers establish sharp Bohr or Bohr--Rogosinski radii for related close-to-convex harmonic classes. They do not imply a comparative phase diagram between the two distinct 2026 basis choices.
+PASS
 
-## Value
+Determining which of two already-sharp universal radius inequalities is quantitatively stronger as the same harmonic-class parameter varies is an intrinsic analytic question introduced by the generalized coefficient-basis framework. The exact unique order reversal and logarithmic-vs-linear endpoint scaling provide a natural complete parameter phase diagram. This is more than reporting numerical root tables or renaming old constants.
 
-PASS. The source introduces generalized bases precisely to compare how different coefficient weightings alter the Bohr phenomenon. Once two sharp radius functions are available for the same harmonic class, determining which inequality has the larger admissible radius is a natural structural question.
-
-The answer is not uniform: the ordering reverses once, at an exact parameter and exact common radius. The endpoint laws further show that the reversal reflects genuinely different parameter sensitivity rather than a small numerical accident. Near \(M=0\), one deficit is linear while the other is logarithmically larger; near the critical endpoint, the two radii again have distinct leading constants.
-
-This gives a complete and reusable comparative description of the two principal examples in the source rather than another isolated numerical root.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
