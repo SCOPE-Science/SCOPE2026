@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a finite local nonfield, the zero divisors are exactly the maximal ideal. The published total-graph decomposition gives \(qK_m\) in residue characteristic \(2\) and \(K_m\dot\cup((q-1)/2)K_{m,m}\) in odd residue characteristic. The automorphism groups follow componentwise. Every clique class or bipartition class requires all but one vertex in a determining set, giving \(q(m-1)\). For distinguishing labelings, \(m\) colors fail by component exchange in characteristic \(2\) and by bipartition exchange in odd characteristic. Since \(\mathfrak m/\mathfrak m^2\) is a nonzero residue-field vector space, \(m\ge q\); this makes \(m+1\) colors sufficient in both parity cases. The packaged checker reconstructs \(\mathbb Z/4\mathbb Z\), \(\mathbb Z/8\mathbb Z\), and \(\mathbb Z/9\mathbb Z\) directly and exhaustively checks the claimed small cases.
+PASS
 
-## Originality
+In a finite local ring Z(R)=m, so adjacency is determined by opposite residue classes. Characteristic 2 gives q isolated K_m components; odd characteristic gives K_m plus (q-1)/2 disjoint K_(m,m). Nonfield implies m/m^2 is a nonzero R/m-vector space, so m>=q. Component automorphisms give both wreath decompositions; bases must fix m-1 vertices in each clique or part, yielding q(m-1). A distinguishing coloring must be injective within all twin classes: q disjoint cliques require distinct m-subsets; a bipartite K_(m,m) requires unequal injective m-color subsets on its two sides. m colors fail, while m+1 suffice because q<=m, and C(m+1,2)>=(q-1)/2. Independent graphs Z/4, Z/8, Z/9, Z/16, Z/25 gave exact component sizes and Det/D (2,3),(6,5),(6,4),(14,9),(20,6), respectively. These finite checks are not the proof.
 
-PASS. The foundational source supplies the component decomposition, and that prior structure is not claimed as new. Searches of the total-graph literature and semantic comparison records found work on connectivity, girth, Hamiltonicity, domination, paired domination, zero forcing, and related invariants, but no determining-number or distinguishing-number formulas for finite local total graphs. Searches under automorphism, base-size, distinguishing, and symmetry-breaking aliases likewise did not locate the stated theorem. The exact parity-independent collapse \(D=m+1\) uses the local-ring inequality \(m\ge q\) and is not one of the published decomposition statements.
+## originality
 
-## Value
+PASS
 
-PASS. Determining and distinguishing numbers quantify two complementary aspects of graph symmetry: pointwise bases and symmetry-breaking labelings. Finite local total graphs have radically different component types in residue characteristic \(2\) and odd characteristic, yet both parameters collapse to uniform ring-theoretic formulas. The theorem also gives the full graph automorphism group, making the symmetry profile explicit and providing a benchmark for total graphs beyond the local case.
+Anderson–Badawi already determine the total-graph coset components and Albertson–Collins define distinguishing colorings. The stand-alone complete-bipartite D(K_(m,m))=m+1 is itself known (Chen–Devillers–Morgan–Rober 2026). The retained combined result concerns the finite-local-ring family, its complete graph automorphism groups and determining and distinguishing numbers simultaneously, plus the nonfield size constraint that makes both parity branches share the threshold. No identical unified formulas found in inspected comparable statements; generic component and coloring formulas remain a serious possible implication risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determining and distinguishing numbers are standard natural graph invariants measuring vertex-fixing and coloring rigidity; finite local total graphs are a canonical graph-of-ring family. The complete infinite-family formulas and equality of the ostensibly different parity regimes provide a usable classification, not merely a few computations. The ring-theoretic m>=q eliminates otherwise nontrivial component-pattern thresholds. The derivation is elementary and may become redundant if a single published general disjoint-component theorem subsumes all parts; this is recorded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-It constructs total graphs directly from modular arithmetic for \(\mathbb Z/4\mathbb Z\), \(\mathbb Z/8\mathbb Z\), and \(\mathbb Z/9\mathbb Z\), verifies the expected component structures, enumerates every graph automorphism in those examples, and checks the predicted automorphism-group orders and determining numbers.
+## correctness
 
-For \(\mathbb Z/4\mathbb Z\), every coloring with at most two colors is tested and an explicit three-color distinguishing labeling is found.
+PASS
 
-For \(\mathbb Z/9\mathbb Z\), the verifier confirms the \(K_3\dot\cup K_{3,3}\) structure, checks the complete-bipartite three-color obstruction, and verifies a four-color witness against every automorphism.
+In a finite local ring Z(R)=m, so adjacency is determined by opposite residue classes. Characteristic 2 gives q isolated K_m components; odd characteristic gives K_m plus (q-1)/2 disjoint K_(m,m). Nonfield implies m/m^2 is a nonzero R/m-vector space, so m>=q. Component automorphisms give both wreath decompositions; bases must fix m-1 vertices in each clique or part, yielding q(m-1). A distinguishing coloring must be injective within all twin classes: q disjoint cliques require distinct m-subsets; a bipartite K_(m,m) requires unequal injective m-color subsets on its two sides. m colors fail, while m+1 suffice because q<=m, and C(m+1,2)>=(q-1)/2. Independent graphs Z/4, Z/8, Z/9, Z/16, Z/25 gave exact component sizes and Det/D (2,3),(6,5),(6,4),(14,9),(20,6), respectively. These finite checks are not the proof.
 
-Exact replay output:
+## originality
 
-```text
-Z/4Z: components OK, |Aut|=8, determining=2
-Z/8Z: components OK, |Aut|=1152, determining=6
-Z/9Z: components OK, |Aut|=432, determining=6
-Z/4Z: distinguishing=3, witness= (0, 0, 1, 2)
-Z/9Z: distinguishing=4 by exact K3,3 obstruction + verified witness
-binomial pattern capacity checks OK
-VERIFY_OK
-```
+PASS
 
-The computations test representative boundary and odd-characteristic cases. The arbitrary-ring theorem is proved symbolically from the published local total-graph decomposition, the nilpotence argument \(m\ge q\), and exact component symmetry.
+Anderson–Badawi already determine the total-graph coset components and Albertson–Collins define distinguishing colorings. The stand-alone complete-bipartite D(K_(m,m))=m+1 is itself known (Chen–Devillers–Morgan–Rober 2026). The retained combined result concerns the finite-local-ring family, its complete graph automorphism groups and determining and distinguishing numbers simultaneously, plus the nonfield size constraint that makes both parity branches share the threshold. No identical unified formulas found in inspected comparable statements; generic component and coloring formulas remain a serious possible implication risk.
+
+## value
+
+PASS
+
+Determining and distinguishing numbers are standard natural graph invariants measuring vertex-fixing and coloring rigidity; finite local total graphs are a canonical graph-of-ring family. The complete infinite-family formulas and equality of the ostensibly different parity regimes provide a usable classification, not merely a few computations. The ring-theoretic m>=q eliminates otherwise nontrivial component-pattern thresholds. The derivation is elementary and may become redundant if a single published general disjoint-component theorem subsumes all parts; this is recorded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
