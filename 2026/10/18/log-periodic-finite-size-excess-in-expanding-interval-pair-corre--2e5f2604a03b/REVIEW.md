@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Lebesgue invariance reduces the ordered-pair mean to one-lag probabilities. Direct affine-branch integration yields an exact rational expression for every lag, whose subtraction from the two-independent-points benchmark produces the stated formula. At lags below the logarithmic threshold, the normalized excess is exactly one; above it a geometrically decaying fractional-part kernel gives a uniform error bounded by the sum of \(O(r)\) and \(O((\log N)^2/N)\). Continuity, one-periodicity, and nonconstancy of the phase follow from a uniform series and its right derivative. Exact-rational checks agree on 156 branch cases and four finite-sample means.
+
+**Originality — PASS with residual risk.** The closest full-text comparison is the recent first-order interval-map pair-correlation theorem by Baker and Todd (arXiv:2606.17880), which does not supply a sharp finite-size mean expansion. Rudnick–Zaharescu (arXiv:math/9912103) studies circular rather than interval distance; the published result on *Sharp second-moment inflation for expanding circle-map pair correlations* concerns the variance of that circular statistic and explicitly distinguishes it from interval distance. Database searches for Euclidean expectation excess, boundary effects, aliases, log-periodic phases, and finite-time expanding-map correlations did not identify a result implying the present phase law. An unindexed older Euclidean calculation remains possible.
+
+**Mathematical value — PASS.** The logarithmic crossover separates deterministically related orbit pairs from effectively independent long-lag pairs. The exact scale and nonconstant lattice phase give finite-size calibration information not contained in first-order Poissonian limits or circular-distance mean identities. The distinction between interval endpoints and the torus is intrinsic to the new statistic, not a mere notation change.
+
+**Scope and risk.** Only the annealed expectation for an integer-slope interval map at fixed positive collision radius is proved; no orbitwise second-order statement or fluctuation limit follows. The full-text comparisons and database searches reduce, but cannot eliminate, the risk of an equivalent historical first-moment computation.
+
+Self-review: passed. Independent audit: not yet performed.
