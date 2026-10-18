@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:45:14.895145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write eta_i=1-epsilon u_i, u_i>=0, sum_i u_i=1. The simple 2 eigenvalue of adjacency K makes its perturbed Perron root F(epsilon,u) uniformly C^2 in u for small epsilon across the compact simplex. With J=11^T/5 and reduced resolvent R=(2I-K+J)^-1-J, exact second coefficient Q(u)=(2/5)u^T R K u=(4/25)(E(u)-N(u)), where E=sum cycle-edge products and N=sum two-step nonedge products. An exact Motzkin-Straus-type support shifting proves E<=1/4, and Q=1/25 only at the five balanced adjacent-edge vectors v=(e_i+e_{i+1})/2, because equality also requires N=0. Uniform C^2 convergence of (F-2+2epsilon/5)/epsilon^2 to Q forces every global maximizer near these isolated points. At any v, Q inactive-coordinate partial derivatives are strictly smaller than active ones; the strict inequality persists and forces the optimizer onto the corresponding edge face. Strict negative second derivative -8/25 on that face persists, and reflection symmetry forces the unique exact edge optimum to equal split. Independently reconstructed the 5x5 Q matrix with adjacent coefficients 2/25 and nonadjacent -2/25, characteristic polynomial factors for single and adjacent allocation, and sample Perron roots. Universal small-epsilon proof uses compactness and analytic eigenvalue perturbation, not sampled epsilon values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A cordon sanitaire cannot be anti-Pareto optimal, but epsilon<1 keeps every eta positive and graph irreducible.",
+          "Convexity/concavity criteria concern spectra excluded by C5 adjacency; Poghotanyan optimizes MINIMUM reproduction under inverse-M constraints."
+        ],
+        "reasoning": "Known broader theorems have inapplicable hypotheses or wrong optimization direction; none entails the unique equal-adjacent maximizer near zero cost.",
+        "searches": [
+          "optimal vaccination cycle C5 anti Pareto five groups maximize effective reproduction number small budget adjacent equal split",
+          "arXiv:2209.07381 Proposition 5.3",
+          "DOI:10.4171/JEMS/1431 Theorem 1.1",
+          "DOI:10.1007/s00285-018-1216-z Theorem 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Delmas–Dronnier–Zitt 2023 DOI:10.1007/s00285-022-01858-5 full accessible HTML §2.4",
+        "Delmas–Dronnier–Zitt arXiv:2209.07381v2 full HTML introduction and Prop.5.3",
+        "Delmas et al. DOI:10.4171/JEMS/1431 theorem hypotheses summary",
+        "Poghotanyan et al. DOI:10.1007/s00285-018-1216-z abstract/theorem summary",
+        "Resultary semantic C5 anti-Pareto query",
+        "Assigned record tree 79791e9321a2cb3886375c596cf9c1131927a3be and verify_cycle.py",
+        "Independent exact 5x5 resolvent and characteristic polynomial symbolic checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 Section 2.4 analytic theorem is minimal dose for zero reproduction, not maximum residual reproduction at low dose.",
+          "The 2022 reducibility result is silent when all groups retain susceptibility."
+        ],
+        "reasoning": "The original framework plus a numerical 12-cycle conjectural heuristic do not imply the 5-cycle exact optimizer; its leading quadratic coefficient and optimizer-persistence lemma supply genuine required deductions.",
+        "searches": [
+          "Delmas et al. 2023 Section 2.4 Proposition 2.5 and numerical anti-Pareto description",
+          "Delmas et al. 2022 arXiv:2209.07381 Proposition 5.3",
+          "Resultary C5 vaccination optimization query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers use K diag(eta) effective reproduction and anti-Pareto maximization under cost.",
+          "The matrix orientation K diag eta versus diag eta K has identical nonzero eigenvalues, so this is the same optimization model."
+        ],
+        "reasoning": "Checked model equivalence (cycle adjacency, uniform measure, exactly the same cost), not just matching terminology. Published explicit circle numerical analysis uses N=12; the exact five-cycle quadratic-phase optimizer is not provided.",
+        "searches": [
+          "optimal vaccination cycle C5 anti Pareto five groups maximize effective reproduction number small budget adjacent equal split",
+          "Delmas–Dronnier–Zitt DOI:10.1007/s00285-022-01858-5 Section 2.4",
+          "arXiv:2209.07381 Example 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical N=12 single-group-first anti-Pareto heuristic is not an exact all-strategies classification for N=5.",
+          "No table or proven threshold for this precise C5 problem located."
+        ],
+        "reasoning": "A single simulation or a parameterized line of meta-strategies cannot prove exact global maximizers; the new compact-simplex analytic perturbation addresses all strategies.",
+        "searches": [
+          "optimal vaccination cycle C5 anti Pareto five groups maximize effective reproduction number small budget adjacent equal split",
+          "Delmas et al. 2023 Section 2.4 numerical N=12 plots",
+          "Resultary 5-cycle anti-Pareto query"
+        ]
+      },
+      "rationale": "Delmas, Dronnier and Zitt (2023) introduce exactly the cycle next-generation model and anti-Pareto vaccination; their Section 2.4 gives an extinction-cost theorem and N=12 numerical Pareto/anti-Pareto heuristics, not the exact N=5 small-budget maximizer. Their 2022 cordon sanitaire theorem excludes disconnecting strategies as worst, but all candidate eta_i here stay strictly positive and connected. The separate convexity/concavity sufficient cases do not apply to the mixed-sign spectrum of C5. Thus the explicit N=5 adjacent equal-split phase is not implied by these strong prior results.",
+      "residual_risks": [
+        "The small-budget cutoff epsilon0 is proved existentially, not given numerically or shown maximal.",
+        "The original N=12 anti-Pareto plots suggest a different first strategy; this is not a contradiction because graph order changes, but broader all-cycle structure remains unexplored.",
+        "Other nonindexed small-graph optimization results could exist, but inspected same-model primary papers do not cover C5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper reports an N=12 numerical anti-Pareto one-group-first heuristic and analytically the separate minimum cost to eradicate; no exact N=5 small-epsilon theorem.",
+          "evidence": "Section 2.4: numerical anti-Pareto frontier said to seem greedily given by one group first; N=12 example and no formal proof.",
+          "identifier_or_url": "DOI:10.1007/s00285-022-01858-5; arXiv:2112.08756",
+          "material_read": "Accessible full Springer open HTML; read definitions of Pareto and anti-Pareto, Section 2.4 circle proposition and numerical discussion, especially N=12.",
+          "method": "Matched model and cost, separated analytic N>=5 extinction from numerical anti-Pareto.",
+          "title": "Optimal vaccination: various (counter) intuitive examples",
+          "trigger": "The EXACT same symmetric circle/anti-Pareto model and strongest prior threat"
+        },
+        {
+          "assessment": "Does not cover the positive-allocation C5 small-budget maximizers; its cordon assertion is inapplicable.",
+          "evidence": "Example1.1 is N=12; the central cordon theorem concerns reducibility, absent for 0<epsilon<1.",
+          "identifier_or_url": "arXiv:2209.07381v2",
+          "material_read": "Accessible full arXiv HTML with contents; read introduction Example1.1 and Proposition5.3 context, reducible/irreducible framework, and relevant definitions.",
+          "method": "Checked whether positivity of all eta invalidates the cordon hypothesis and if any exact five-cycle classification follows.",
+          "title": "Optimal vaccinations: Cordons sanitaires, reducible population and optimal rays",
+          "trigger": "Potential stronger anti-Pareto theorem for same cycle"
+        },
+        {
+          "assessment": "Minimization and incompatible hypotheses do not imply anti-Pareto optimizer.",
+          "evidence": "Theorem 4.7 treats constrained minimization, not maximization.",
+          "identifier_or_url": "DOI:10.1007/s00285-018-1216-z",
+          "material_read": "Abstract/theorem descriptions and source comparison material reviewed; full original proof not read.",
+          "method": "Compared objective direction and inverse-M-matrix sufficient conditions.",
+          "title": "Constrained minimization problems for the reproduction number in meta-population models",
+          "trigger": "General spectral optimization candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated sharp local optimization theorem for the smallest unresolved odd epidemic circle determines ALL worst vaccine allocations, not merely an example or simulated approximate strategy. The exact adjacent equal split reverses an intuitive one-group-first heuristic at N=5 and supplies a controlled spectral perturbation benchmark within the stated idealized model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the undirected five-cycle next-generation adjacency matrix, uniform exact vaccine cost epsilon/5 and eta_i in [0,1], there exists epsilon0>0 such that for every 0<epsilon<epsilon0 the only residual-transmission maximizing allocations are the five cyclic rotations of eta=(1-epsilon/2,1-epsilon/2,1,1,1). The maximum is 2-(2/5)epsilon+(1/25)epsilon^2+O(epsilon^3), strictly above the single-vertex allocation.",
+  "limitations": [
+    "Only N=5 equal groups, unit-weight undirected cycle, perfect vaccination, exact uniform cost and sufficiently small positive budget.",
+    "No numeric largest epsilon0 and no statement for medium/large budgets or nonlinear epidemiological trajectories."
+  ],
+  "schema_version": 1
+}
