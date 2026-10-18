@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:08:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing the SPD quadratic H, the expected inner position recurrence is y_j=q_h y_(j−1)+eta′ gamma x_h with q_h=1−eta′(h+gamma); its unique explicit solution and exponential average mu_K yield phi_K(h)=gamma h/(h+gamma) S_K(eta′(h+gamma)). Completing the Gaussian square gives the ideal gamma h/(h+gamma). Under eta′(M+gamma)<=1, S_K(z) strictly increases, while S_K(z)/z strictly decreases for K>=2 (each polynomial geometric sum decreases, with a genuinely j>=2 term). Thus kappa∞<kappa_K<kappa=M/mu for K>=2. K=1 gives alpha gamma eta′ H and exact raw condition number; exponential averaging forgets the initialization as K→∞, and small-eta Taylor gives kappa_K→kappa at fixed K. Independent 1,000 random recurrence/filter checks with strict comparisons passed; these are finite guards only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source ideal Gibbs mean smoothing is broader in model but computes limiting Hessian, not finite estimator filter. PAC-Bayes bound does not compare finite-K spectral condition numbers."
+        ],
+        "reasoning": "Ideal objective smoothness cannot be applied unchanged to a one-step SGD estimator, which is raw H up to scalar; the reviewed interpolation explicitly resolves this distinction.",
+        "searches": [
+          "Chaudhari et al. 2016/2017 Hessian local entropy spectral gap; Dziugaite and Roy 2018 PAC-Bayes interpretation"
+        ]
+      },
+      "checked_sources": [
+        "Chaudhari et al. arXiv:1611.01838v1/v5 Eq.7, Algorithm1, Appendix B",
+        "Dziugaite–Roy PMLR 80 (2018)",
+        "Resultary semantic finite Entropy-SGD filter query",
+        "Classical explicit affine-recursion/EMA algebra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq.7 is ideal gradient, Algorithm1 is finite-loop SGLD with exponential averaging, Appendix B a shifted-Hessian smoothness approximation."
+        ],
+        "reasoning": "Reconstructing finite stochastic-mean recurrence on SPD quadratics and proving S_K(z)/z strict decrease are necessary additional steps, not a direct statement of the cited limiting theorem.",
+        "searches": [
+          "Entropy-SGD arXiv:1611.01838 Eq.7, Algorithm1, Appendix B; PAC-Bayes PMLR80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chaudhari et al. give gradient gamma(x−E[x′]) and Algorithm1 finite loop, not the explicit K-step averaged transfer polynomial; Resultary hits other adaptive optimizers."
+        ],
+        "reasoning": "Finite iteration of a linear Gaussian recursion is related to first-order polynomial filtering, but the exact exponential average S_K and paired condition-number strictness require the source-specific coefficient calculation.",
+        "searches": [
+          "Resultary: Entropy-SGD finite inner loop quadratic local entropy spectral conditioning one step bias interpolates; polynomial filter early-stopped Langevin quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact coefficient array of Algorithm 1 is documented; no source table gives kappa_K across K."
+        ],
+        "reasoning": "The source algorithm is input data, not an exact answer for expected K-step condition-number trajectory; no numerical database supplies the unrestricted inequalities.",
+        "searches": [
+          "Algorithm 1 of Entropy-SGD, initialization x′_0=mu_0=x and alpha EMA; standard Gaussian filter transfer functions"
+        ]
+      },
+      "rationale": "The founding Entropy-SGD article defines the exact Gibbs-mean gradient, its finite SGLD inner algorithm and ideal Hessian smoothing, but does not identify this finite-K spectral filter or the sharp K=1/no-improvement and K>=2 interpolation for SPD quadratics. Dziugaite–Roy 2018 addresses PAC-Bayes generalization, not finite estimator conditioning. Similar polynomial filters are standard numerical analysis, so an unindexed prior equivalent derivation remains possible.",
+      "residual_risks": [
+        "An equivalent early-stopped SGLD quadratic filter may be present in unindexed numerical optimization notes.",
+        "Only expectation of gradient estimator, not stochastic covariance, nonquadratic learning, or outer-trajectory convergence; eta′(M+gamma)<=1 essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines model and limiting smoothing, not stated expected finite-K filter inequality",
+          "evidence": [
+            "Eq.7 ideal gamma(x−Gibbs mean); Algorithm1 x′0=mu0=x, EMA; Appendix B shifted-Hessian expression"
+          ],
+          "identifier_or_url": "arXiv:1611.01838v5 (Chaudhari et al.)",
+          "material_read": "Full source PDF parts around Eq.7, Algorithm1, Appendix B quadratic/Hessian derivation; algorithm page inspected visually",
+          "method": "Lawful arXiv PDF and page inspection",
+          "title": "Entropy-SGD: Biasing Gradient Descent Into Wide Valleys",
+          "trigger": "Identical optimization algorithm and crucial Gibbs mean"
+        },
+        {
+          "assessment": "Generalization result, no identified same finite quadratic Hessian condition-number law",
+          "evidence": [
+            "Focus on PAC-Bayes bound and data-dependent priors"
+          ],
+          "identifier_or_url": "Dziugaite–Roy, PMLR 80 (2018)",
+          "material_read": "Primary abstract, introduction and theorem themes about data-dependent PAC-Bayes priors",
+          "method": "Open PMLR publisher material",
+          "title": "Entropy-SGD optimizes the prior of a PAC-Bayes bound",
+          "trigger": "Potential deeper finite-SGLD analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The practical Entropy-SGD procedure estimates its intended smoothing with finitely many stochastic inner steps. Its actual expected conditioning on Gaussian quadratics, as a function of computational inner budget and stepsize, is a natural algorithmic invariant. Exact strict interpolation and the K=1 boundary quantify when ideal-objective smoothing has not materialized; value is limited to expected SPD quadratics and nonoscillatory steps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent early-stopped SGLD quadratic filter may be present in unindexed numerical optimization notes.",
+    "Only expectation of gradient estimator, not stochastic covariance, nonquadratic learning, or outer-trajectory convergence; eta′(M+gamma)<=1 essential."
+  ],
+  "schema_version": 1
+}
