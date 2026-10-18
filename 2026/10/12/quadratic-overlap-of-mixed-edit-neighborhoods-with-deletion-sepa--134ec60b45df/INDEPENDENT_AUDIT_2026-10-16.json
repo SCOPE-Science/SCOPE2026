@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:12:10.235279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify_mixed.cpp and verify_direct.py in source tree 7d31f90b62dc3b0443930595e61dd383b56e0129",
+        "Independent direct output sets /mnt/data/check_batch1333.py for all 4<=n<=22",
+        "Independent compiled exact matrix recurrence /mnt/data/verify_batch1333_recurrence.cpp all 16396 checks",
+        "Sala et al. arXiv:1604.03000 Section V-B exact channel definition and alternating centers"
+      ],
+      "rationale": "The explicit four residue classes n=4r+c (c=4,5,6,7) yield centers u_c0110v_c and u_c1001v_c. A shared one-deletion output would require a one-symbol shift across all four differing positions, impossible because 0110 has consecutive 11, so deletion sets are disjoint. For the mixed edit balls, the six-bit nondeterministic scanner recognizes zero-operation, substitution and a single adjacent shift; determinized pair scanner has exactly 64 states. A direct independently implemented output-set enumerator checked deletion separation and overlap floor(n²/4)+4 for n=4..22. Separately independently reconstructed compiled C++ matrix DP checked all 4099 terms in each residue class (CERTIFICATE_OK c=4,5,6,7). With X_r=P^r K_c R_c^r in dimension 64×64, Cayley–Hamilton gives a scalar recurrence of order <=4096; adding the cubic annihilator of a quadratic target gives order <=4099. Exact integer first-4099-term equality therefore proves the claimed overlap for all n>=4, not extrapolation from small cases. The 64-bit bound follows from bounded one-edit scripts from any finite-state boundary state; the verification passed without overflow evidence.",
+      "residual_risks": [
+        "Cayley-Hamilton order 4099 relies on exact pair-automaton state model accepting precisely distinct words; the source C++ and independent checks support this equivalence.",
+        "Proof concerns only exhibited family and number of distinct traces, not a global intersection maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sala Theorem 15 computes size of one circular-string mixed ball, then an uncoded distance-one pair",
+          "Other works have different single-ball or cross-type channels according to accessible abstract summaries"
+        ],
+        "reasoning": "A known maximum over all mixed balls could dominate this existence lower bound, but the inspected full Sala section only addresses the unrestricted distance-one case. No identified stronger theorem restricts to deletion-separated pairs.",
+        "searches": [
+          "Sala Gabrys Schoeny Dolecek arXiv:1604.03000 Section V-B Theorem 15",
+          "Bar-Lev Etzion Yaakobi On Levenshtein Balls with Radius One arXiv:2103.01681",
+          "Bar-Lev Sabary Gershon Yaakobi intersection insertion deletion balls 2021"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1604.03000 Section V-B full relevant text",
+        "arXiv:2001.01376 model abstract",
+        "arXiv:2103.01681 abstract",
+        "Resultary code reconstruction findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sala Section V-B treats centers one shift apart and thus sharing a one-deletion shadow, disqualifying them as two codewords for single-deletion correction",
+          "The present centers differ across 0110 versus 1001 and no one-step shift can connect them"
+        ],
+        "reasoning": "The known uncoded maximum lower bound does not yield a bound for the restricted deletion-correcting pair class. The new existence statement is a distinct channel/coding constraint and gives its exact constructed overlap.",
+        "searches": [
+          "Sala 2017 insertion deletion adversarial traces circular alternating center edit distance 2",
+          "Cai Kiah Nguyen Yaakobi Coding for Sequence Reconstruction for Single Edits arXiv:2001.01376"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sala et al. arXiv:1604.03000 Section V-B defines B_t(X)=I_t(D_t(X)), computes alternating center distance one intersection",
+          "Here D_1(x)∩D_1(z)=∅ and claimed overlap floor(n²/4)+4"
+        ],
+        "reasoning": "The same channel is recognized under radius-one fixed-length Levenshtein balls. The materially inspected prior construction is at distance one, not deletion-separated centers.",
+        "searches": [
+          "Resultary single deletion insertion composition fixed length levenshtein balls intersections deletion correcting code lower bound quadratic 0110 1001",
+          "\"I_1(D_1(x))\" \"I_1(D_1(z))\" deletion correcting pair intersection",
+          "fixed length Levenshtein distance 2 common radius 1 balls"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings concern deletion+substitution and short-block codes, not this composed-channel pair family",
+          "Independent all-n finite-state certificate computes the family exactly"
+        ],
+        "reasoning": "The claim is not a table lookup or finite census: infinitely many explicit n are certified by recurrence. Search non-match is only limited evidence of priority.",
+        "searches": [
+          "Resultary mixed edit neighborhood intersection deletion separated quadratic all block lengths",
+          "deletion insertion ball intersection 0110 1001 formula floor n squared /4"
+        ]
+      },
+      "rationale": "Sala et al. Section V-B indeed defines exactly the composed I_t(D_t) channel and gives alternating-center distance-one, uncoded lower bounds, so that direct same-model prior is explicitly credited. Here the centers have no common one-deletion shadow (distance two in fixed-length Levenshtein), and a new exact quadratic overlap holds for all n. Their Section V-B does not analyze this deletion-correcting pair in inspected full text; single edit alternatives, individual fixed-length balls, and cross insertion-vs-deletion balls are different channel models.",
+      "residual_risks": [
+        "A broader intersection theorem under fixed-length Levenshtein metrics or unindexed combinatorial lemma may cover this particular family.",
+        "An external auditor should inspect the exact scanner proof and recurrence witness before regarding certificate as independently reproducible; this run independently reconstructed both."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS channel definition and uncoded alternate construction, NOT_COVERING deletion-separated family in inspected section",
+          "evidence": "arXiv:1604.03000 Section V-B pages 11–12; alternating centers edit distance 2 at page 12",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03000",
+          "material_read": "Full Section V-B, PDF pages 11–12, Theorem 15 and alternating-center derivation, plus introduction and basic model",
+          "method": "arXiv full PDF parsed and pages visually inspected",
+          "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+          "trigger": "Precisely same composed deletion-then-insertion channel and potential prior dominance"
+        },
+        {
+          "assessment": "Single-edit alternatives rather than required composition as described in assigned RESULT.md",
+          "evidence": "arXiv:2001.01376",
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "Abstract-level channel description only, not full paper",
+          "method": "Public abstract metadata",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Related edit-reconstruction constraint"
+        },
+        {
+          "assessment": "Individual ball size, not a demonstrated same pair-intersection classification",
+          "evidence": "arXiv:2103.01681",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01681",
+          "material_read": "Abstract-level description and source discussion; full text not independently read",
+          "method": "Public bibliographic search and source comparison",
+          "title": "On Levenshtein Balls with Radius One",
+          "trigger": "Possible exact ball table for same radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sala et al. Section V-B motivated adversarial reconstruction question",
+        "Exact constructive all-n pair and deletion-separation proof"
+      ],
+      "rationale": "The distinct-trace budget under composed deletion/insertion corruption is a natural adversarial reconstruction invariant. A deletion-correcting two-codeword constraint fundamentally removes the easier alternating distance-one witness. An explicit all-length quadratic overlap and exact recurrence certificate supply a nontrivial lower bound even under that structural code condition, and are potentially relevant to trace-count limits. This is an existence bound, not claimed to be extremal.",
+      "residual_risks": [
+        "Lower bound only; no optimality among all pairs or asymptotic coding-rate theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary one-deletion followed by one-insertion composed model; exactly two codewords.",
+    "4099-term finite-state base proved by exact integer checker; no finite-only extrapolation."
+  ],
+  "schema_version": 1
+}
