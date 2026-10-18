@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The arithmetic model, its two split transversal \(A_2\) curves, and the full 96-node list follow from the exact equations and proofs in Burek [1, Sections 6–7]. The new step computes local divisor classes for a Galois-stable sum of twelve section graphs. Its exact, repeatable certificate covers all nodes, cross-checks the section equations and opposite/same-ruling criterion for every incident pair, and yields absolute local classes 2 (64 times) and 4 (32 times). The local ordinary-node reflexive algebra and Veronese construction then produce a projective smooth small crepant resolution over \(\mathbf Q\). No inference from partial sampling is used. Limit: the general local conifold class-group lemma is justified mathematically, rather than by software.
+## correctness
 
-**Originality — PASS.** Burek [1] supplies the 96-node and six-section incidence ingredients, but constructs the resolution geometrically over \(\mathbf C\) and does not establish a model over \(\mathbf Q\); its Table 1 does not give signed Galois-norm classes. Coverage of the nodes by six complex section images, even when incidence minimality is known, does not imply that a Galois-invariant Weil divisor survives cancellation of opposite local rulings. The signed local class computations and relative Proj are the new comparison-relevant content. The broader projectivity/gluing framework of Kaplan–Schedler [2] does not calculate this example. Searches for the descent statement, its conifold and divisor-class aliases, and broader coverage found no decisive prior implication. Risk: an arithmetic reformulation elsewhere might already derive the rational resolution.
+PASS
 
-**Value — PASS.** A complex projective small resolution need not descend through Galois: conjugation can exchange the two local rulings, and simultaneous projectivity can impose an additional global obstruction. An explicit rational divisor that stays non-Cartier at all 96 nodes resolves both obstacles constructively in a geometrically high-rank elliptic Calabi–Yau example. The 64/32 local class distribution is an exact intrinsic feature of the specific rational norm divisor. This is a natural arithmetic-geometric question, not a normalization or finite enumeration without structural motivation.
+The rational polynomial Weierstrass coefficients, Galois-stable base blow-ups and conjugate section cycles produce the proposed Q-defined Weil divisor. Local node ring R=Qbar[[U,V,Z,T]]/(UV-ZT) has class group Z and each section graph through the node yields one primitive ruling class, determined by whether tangent graph planes belong to same or opposite ruling. For all 96 coordinates, independently checked exactly using Gaussian-rational fractions that the certificate has 24 distinct v values, 4 t each, J(v)=0 and t^4=C(v)/(-4879). Independently re-summed every norm-weighted local class and found exactly 64 classes abs 2 and 32 abs 4, no zero, with 96/96 rows consistent. Inspected source code also tests all section identities and pairwise tangent-ruling signs; the complete recomputation was not rerun independently, so the signed incidence is conditional on the actual bundled derivation. Nonzero class makes the local reflexive algebra a Veronese of a primitive small-resolution algebra; its globally defined relative Proj is projective, smooth after geometric completion, small and crepant. Rank 12 and the exact exhaustion of complex nodes rely on Burek propositions, not merely on finite data; original full text was access-blocked.
 
-**Scope.** The theorem concerns this particular \(\mathbf Q\)-defined model and geometric Mordell–Weil rank twelve; it does not compute the arithmetic rank, classify all resolutions, or establish novelty from database silence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Sources
+Burek supplies 96 complex nodes and six section-divisor blowups to obtain a projective complex model. That does not alone imply a Q-rational projective simultaneous small resolution: Galois conjugation can exchange opposite rulings and cancel norm local classes. The signed norm-divisor histogram adds an exact arithmetic datum, compared with Kaplan--Schedler general projectivity-obstruction theory, which supplies no specific Burek computation. Because Burek primary full text was inaccessible, this is best-of-knowledge with heightened explicit risk that the primary source or overlooked arithmetic work already establishes Q-descent; no complete-paper noncoverage claim is made.
 
-[1] D. Burek, arXiv:2610.01276v1, Sections 6–7 and Appendices A–B.
+## value
 
-[2] D. Kaplan and T. Schedler, arXiv:2311.07539v4, Section 3.3.
+PASS
+
+Arithmetic descent of projective small resolutions is a nonformal geometric obstruction, and this example is a natural unusually high geometric Mordell--Weil rank elliptic Calabi--Yau. One explicit rational divisor simultaneously avoiding all 96 potential Galois-ruling obstructions is a constructive model-specific fact, whose 64/32 arithmetic local classes may be independently useful even without a generalized theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
