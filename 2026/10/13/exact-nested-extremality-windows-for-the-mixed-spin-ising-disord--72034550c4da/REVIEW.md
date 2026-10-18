@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The substitution \\(x=(\\theta+\\theta^{{-1}})/2\\) is valid for every \\(\\theta>0\\), the reduction to \\(H_k\\) is algebraic, and the derivative of \\(H_k\\) is strictly positive on \\([1,\\infty)\\). Existence, uniqueness, the sign interval, reciprocal roots, and strict nesting all follow from explicit inequalities. No finite experiment is used to establish the all-order claim.
+## correctness
 
-## Originality
-PASS. The motivating paper states this all-order narrowing as Conjecture 1 after exact treatment of \\(k=3\\), numerical treatment of \\(k=4\\), and selected-order plots. Targeted published-record searches for the source DOI, the transformed polynomial, reciprocal-root aliases, and nested extremality windows returned no covering finding. No previously published finding located in the searched corpus contained the source identifier or an implication-equivalent claim. The closest later primary paper (Qawasmeh--Mukhamedov--Akın, 2025) treats a different two-interaction \\((m,k)\\)-ary model with a two-parameter extremality inequality and does not contain the reciprocal one-parameter threshold or the strict nesting theorem.
+PASS
 
-## Value
-PASS. The source explicitly promotes the all-order interval nesting to a conjecture because only low-order algebra and plotted evidence were available. Resolving it by a short monotonicity argument supplies an exact structural description of how the certified disordered-phase extremality regime changes with tree order, rather than another numerical threshold.
+The given source expression f_k(theta)+1=k(1+theta²)^(k-1)(theta²-1)²/[2^k theta^(k+1)+(1+theta²)^(k+1)] exactly becomes 2k*x^(k-1)*(x²-1)/(1+2*x^(k+1)) for x=(theta+theta^-1)/2. Thus numerator H_k and strictly positive denominator. H_k(1)=-3, tends to infinity, H_k prime=2(k-1)x^(k-2)[(k+1)x²-k]>0 on x>=1. At root x_k, A=(k-1)x_k²-k>0 with 2x_k^(k-1)A=1. For B=k*x_k²-(k+1)=A+(x_k²-1)>A, H_(k+1)(x_k)+1=x_k B/A>1, so x_(k+1)<x_k, giving strict reciprocal endpoint nesting. Independently evaluated the rational algebraic identity exactly and computed roots k=2..11 (strictly decreasing x), without using finite data as proof. The result concerns sufficient extremality only and leaves endpoints/necessity unresolved.
 
-## Closest literature and limitations
-The 2024 journal version of the motivating paper is the closest source and contains the conjecture itself. The 2025 \\((m,k)\\)-ary follow-up is broader in geometry and interaction parameters but has a different criterion and does not imply this statement. A residual risk remains that an equivalent one-variable reduction occurs in weakly indexed literature under different notation. The result does not classify equality endpoints or close any gap between sufficient extremality and sufficient non-extremality conditions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.
+
+## value
+
+PASS
+
+The motivating source explicitly states the all-order two-root/nested-window assertion as Conjecture 1, after solving only small orders. This monotone one-variable reduction resolves a natural model-specific conjectured parameter-domain structure for every tree order, not a numerical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
