@@ -1,12 +1,21 @@
-# Review of Global Italian domination of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A doubly zero matched pair forces both side sums to be at least two, while absence of a doubly zero pair forces at least one positive unit in every matched pair. Hence weight below four is impossible for \(n\ge5\). At equality a doubly zero pair exists, forcing side sums \(2,2\); each zero on one side then forces the matched vertex on the other side to be zero. The supports align, and side sum two yields exactly the two claimed patterns. Both patterns are directly feasible in the graph and its complement. Exhaustive checks for \(n=5,6\) recover exactly the claimed minima.
+## correctness
 
-## Originality
-PASS. The initiating source defines the invariant and advertises general bounds and tree comparisons. The 2024 survey summarizes the global Roman \(\{2\}\) variant through those tree results. Targeted semantic and web searches under crown and complete-bipartite-minus-matching aliases found no exact crown theorem. A 2026 follow-up highlights cubic graphs; the claimed range is noncubic. The inaccessible initiating full text is retained as a residual risk.
+PASS
 
-## Value
-PASS. Crown graphs are a canonical regular bipartite family and their complements are complete prisms, making them natural for a graph/complement domination invariant. The result completely classifies all minima and counts them, exposing a matched-coordinate mechanism rather than only giving a scalar value.
+PASS: A global Italian labeling must satisfy both crown and complement conditions. Writing side sums X,Y and pair weights x_i,y_i, any zero a_i forces Y-y_i≥2 and X+y_i≥2; any zero b_i forces X-x_i≥2 and Y+x_i≥2. For weight ≤3, a doubly zero pair forces X,Y≥2 (impossible), while no doubly zero pair forces total weight≥n≥5. At weight4 a doubly zero pair necessarily exists and X=Y=2. Zeros must then align on matched pairs, and each side sum2 leaves only one index carrying 2 on both sides or two indices carrying 1 on both. Both types satisfy the constraints. Independent enumeration over all 3^10 ternary labelings for n=5 restricted to weight≤4 found min4 and exactly15 minima; script proof covers arbitrary n≥5 independently of this test. n=4 excluded as stated.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best knowledge): The 2018/2019 initiating source defines global Italian/global Roman-{2} domination and reports general bounds and tree equality cases in accessible material; a full-copy search failed and authorized institutional retrieval reported disconnected VPN. The 2024 survey global-Roman-{2} section likewise emphasizes trees. Published Resultary perfect Roman domination of crown graphs gives value4 and only n matched-2 minima for a different stronger zero-label condition; it neither proves all global Italian minima nor predicts extra C(n,2) paired-1 minima. Complete-multipartite Roman-{2} results do not directly cover edge-deleted K_n,n and do not require simultaneous domination of the complement. A possible covered case in inaccessible primary full text is explicitly retained.
+
+## value
+
+PASS
+
+PASS: Crown graphs and their complete-prism complements are canonical regular families for a simultaneous graph/complement Roman-{2} invariant. The answer identifies the complete equality-support mechanism and counts every optimal labeling, not just a single extremal weight, for all n≥5. This natural exact classification can serve as a benchmark for domination polynomials and global-domination comparisons despite its short proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
