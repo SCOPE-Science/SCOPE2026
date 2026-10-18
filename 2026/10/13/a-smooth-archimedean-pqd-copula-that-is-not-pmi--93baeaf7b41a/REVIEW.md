@@ -1,19 +1,21 @@
-# Scientific review: a smooth Archimedean PQD copula that is not PMI
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed generator has strictly negative first derivative, strictly positive second derivative, the required endpoint values, and a strict Archimedean inverse. The identity \(f'(t)+tf''(t)=(t-1/2)^2\) proves PQD for every point in the unit square by a double integral and monotonic inversion. The copula density is differentiated from its defining implicit equation. An independent exact-rational root/density certificate demonstrates a negative PMI reflection defect at \((1/4,1/4)\). The log-series remainder and density monotonicity are used with outward interval bounds. A separate symbolic calculation yields first variation \(-11/576\).
+PASS
 
-## Originality — PASS
+On (0,1], φ(1)=0, φ(0+)=∞, φ'<0 and φ''>0 so the bivariate strict Archimedean copula exists. For f=φ+log t, f'(t)+tf''(t)=(t-1/2)²>=0; double integration gives f(uv)-f(u)-f(v)+f(1)>=0, implying φ(uv)>=φ(u)+φ(v) and hence C(u,v)>=uv globally. Differentiating implicit generator equation gives density c(u,v)=ell(u)ell(v)k(C)/ell(C)^3, with ell=-φ' and k=φ''. The fetched verification code performs exact Fraction root brackets using a bounded log-series remainder and monotone density enclosures: -0.019002196<Δc(1/4,1/4)<-0.019002192<0. Independent high precision direct evaluation gives approximately -0.019002193959, and independent symbolic first-order defect is -11/576. Reflected-density criterion of the original paper makes the C not PMI. Analytic PQD and exact PMI sign proof are separate and unrestricted on the unit square.
 
-Fuchs and Tschimpke's arXiv:2306.09676v1, Section 2 and Conjecture 1, propose PQD/PMI equivalence specifically for Archimedean copulas; their known non-PMI examples are not counterexamples in that class. The checked source provides the definition and test, not this generator or this refutation. arXiv:2205.01914v1 concerns stronger dependence conditions (SI/MK-TP2), not PMI. Targeted searches for Archimedean PQD/non-PMI counterexamples and equivalent density-reflection formulations did not reveal a covering statement. Relevant searches of published research records found only other copula properties. Search incompleteness and possible alternate terminology remain priority risks; this is not independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The statement directly disproves a natural, explicit conjecture about the relationship between two qualitative notions of multivariate dependence. It supplies a smooth strict Archimedean witness, proves global positive quadrant dependence, and certifies failure of the stronger reflection property at a concrete interior point. The counterexample delineates the limits of transferring PMI-based concordance inequalities or model exclusions from familiar Archimedean subclasses to arbitrary PQD Archimedean copulas.
+Fuchs-Tschimpke Conjecture 1 explicitly proposes equivalence PQD↔PMI in Archimedean class; their accessible full text develops PMI reflection criterion and non-Archimedean counterexamples but does not give this Archimedean generator. Their Markov-kernel total-positivity work is stronger in other dependence directions, not a refutation here. No prior same Archimedean obstruction found in searches; later/unindexed work is a priority risk.
 
-## Limitations and evidence
+## value
 
-The converse PMI-to-PQD implication and the separate NMI conjecture are not addressed. This is a bivariate result, not an assertion of higher-dimensional complete monotonicity. The computer-assisted pointwise sign is derived using exact fractions; the universal PQD step is symbolic. The supporting manuscript's first public date is 2023-06-16 and its published article appeared later in 2024. Relevant primary literature was read in the arXiv originals; an equivalent unlocated treatment is a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit smooth strict Archimedean counterexample overturns a concrete published copula dependence conjecture, with a mathematically motivated reflection defect and a reproducible exact rational sign certificate; it is structurally informative rather than a mere parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

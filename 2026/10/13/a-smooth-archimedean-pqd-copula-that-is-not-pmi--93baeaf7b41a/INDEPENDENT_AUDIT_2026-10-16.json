@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:48:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On (0,1], φ(1)=0, φ(0+)=∞, φ'<0 and φ''>0 so the bivariate strict Archimedean copula exists. For f=φ+log t, f'(t)+tf''(t)=(t-1/2)²>=0; double integration gives f(uv)-f(u)-f(v)+f(1)>=0, implying φ(uv)>=φ(u)+φ(v) and hence C(u,v)>=uv globally. Differentiating implicit generator equation gives density c(u,v)=ell(u)ell(v)k(C)/ell(C)^3, with ell=-φ' and k=φ''. The fetched verification code performs exact Fraction root brackets using a bounded log-series remainder and monotone density enclosures: -0.019002196<Δc(1/4,1/4)<-0.019002192<0. Independent high precision direct evaluation gives approximately -0.019002193959, and independent symbolic first-order defect is -11/576. Reflected-density criterion of the original paper makes the C not PMI. Analytic PQD and exact PMI sign proof are separate and unrestricted on the unit square.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Total positivity/stochastic increase assumptions from kernel theory are stronger than PQD, and non-Archimedean copula counterexamples are not in this restricted family."
+        ],
+        "reasoning": "Known stronger positivity results do not force PQD to imply the reflected PMI inequality in arbitrary Archimedean copulas.",
+        "searches": [
+          "Fuchs-Tschimpke arXiv:2205.01914v1 Theorem 4.6",
+          "Fuchs-Tschimpke arXiv:2306.09676v1 Conjecture 1 and examples"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob aa83fa9c867f9bc4f01e6e207620fa99359813b7",
+        "verify_pqd_not_pmi.py blob f6ef7090c441cd67967d1c8859ffe2faa7190021, exact rational bound logic semantically inspected",
+        "arXiv:2306.09676v1 full primary source and key-page screenshots",
+        "arXiv:2205.01914v1 Section 4, Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive quadrant dependence follows from f'+tf''>=0, yet Δc<0; conjectured PQD⇒PMI implication is therefore false."
+        ],
+        "reasoning": "This is contrary to the published conjecture rather than a corollary; the second copula article concerns different stronger dependence conditions.",
+        "searches": [
+          "arXiv:2306.09676v1 Conjecture 1, Remark 1(2)",
+          "arXiv:2205.01914v1 Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PMI is equivalent for smooth density to Δc(u,v)>=0 on (0,1/2)^2; negative Δc at (1/4,1/4) is a mathematical counterexample."
+        ],
+        "reasoning": "Tested exact density-based PMI alias rather than treating PQD and PMI as synonyms; generator is strictly Archimedean.",
+        "searches": [
+          "Fuchs-Tschimpke arXiv:2306.09676v1 Section 2, Remark 1(2), Conjecture 1",
+          "Resultary: Fuchs Tschimpke PMI copula Archimedean counterexample conjecture PQD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper states the equivalence as open Conjecture 1 and does not display φ(t)=-log t +t/4-t²/4+t³/9-1/9 or its negative defect interval."
+        ],
+        "reasoning": "Concrete generator and rational PMI violation not found in searched literature. Priority is best knowledge rather than guaranteed.",
+        "searches": [
+          "arXiv:2306.09676v1 primary full text, Section 2",
+          "Resultary: Archimedean copula positively quadrant dependent PQD not positive measure inducing PMI counterexample"
+        ]
+      },
+      "rationale": "Fuchs-Tschimpke Conjecture 1 explicitly proposes equivalence PQD↔PMI in Archimedean class; their accessible full text develops PMI reflection criterion and non-Archimedean counterexamples but does not give this Archimedean generator. Their Markov-kernel total-positivity work is stronger in other dependence directions, not a refutation here. No prior same Archimedean obstruction found in searches; later/unindexed work is a priority risk.",
+      "residual_risks": [
+        "An equivalent Archimedean PQD/non-PMI counterexample may have appeared in later unindexed literature.",
+        "Only bivariate Archimedean and one direction of proposed equivalence are refuted, not PMI⇒PQD or all dimension analogues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms PMI density characterization and live Archimedean PQD⇔PMI conjecture",
+          "evidence": "Remark 1(2) reflected density criterion; Conjecture 1 page 8 states proposed equivalence.",
+          "identifier_or_url": "arXiv:2306.09676v1; DOI:10.1016/j.jmva.2023.105259",
+          "material_read": "Complete primary article PDF accessible; Section 2, Remark 1(2) (page 5), Conjecture 1 (page 8), examples and related results",
+          "method": "Full lawful arXiv/OA PDF text plus screenshots of key pages",
+          "title": "A novel positive dependence property and its impact on a popular class of concordance measures",
+          "trigger": "Exact conjecture and PMI test"
+        },
+        {
+          "assessment": "Stronger Markov-kernel dependence properties; no proven all-PQD⇒PMI equivalence in this class",
+          "evidence": "Theorem 4.6 concerns SI/TP properties under additional conditions.",
+          "identifier_or_url": "arXiv:2205.01914v1",
+          "material_read": "Section 4 Theorem 4.6 and relevant Archimedean statements as accessible",
+          "method": "Open-access article text",
+          "title": "Total positivity of copulas from a Markov kernel perspective",
+          "trigger": "Potential dominating stronger dependence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit smooth strict Archimedean counterexample overturns a concrete published copula dependence conjecture, with a mathematically motivated reflection defect and a reproducible exact rational sign certificate; it is structurally informative rather than a mere parameter example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The smooth strict bivariate Archimedean copula with generator φ(t)=-log t+t/4-t²/4+t³/9-1/9 is PQD everywhere but not PMI; its reflected density difference at (1/4,1/4) is negative in (-0.019002196,-0.019002192), refuting PQD⇒PMI in the Archimedean conjecture.",
+  "limitations": [
+    "The decisive finite-parameter sign uses exact rational logarithm remainder enclosures, not raw numerical approximations."
+  ],
+  "schema_version": 1
+}

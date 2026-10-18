@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the Archimedean PQD/non-PMI counterexample
+# Independent mathematical audit
 
-Run `python3 verify_pqd_not_pmi.py` in the directory containing this file. It uses no external library and reads no other file.
+## correctness
 
-The analytic proof establishes the generator's convexity and monotone inverse, with \(\varphi''(t)\ge1/2\) and \(\varphi'(t)\le-3/4\) for \(0<t\le1\). Its global PQD proof is the exact identity \(f(uv)-f(u)-f(v)=\int_u^1\int_v^1(st-1/2)^2\,dt\,ds\). These facts are not inferred from numerical sampling.
+PASS
 
-The certificate checks exact rational brackets for the implicit copula equation using the first eight terms of the nonnegative arctanh series, plus an explicit rational remainder bound. Its three root brackets are denominated by \(10^{11}\), with numerators \((6433697255,6433697257)\), \((18897106192,18897106193)\), and \((56538957970,56538957971)\). Both \(\ell=-\varphi'\) and \(k=\varphi''\) are positive and strictly decreasing, giving outward density intervals. All comparisons required to conclude
-\[
--\frac{19002196}{10^9}<c(1/4,1/4)-2c(1/4,3/4)+c(3/4,3/4)<-\frac{19002192}{10^9}
-\]
-are exact rational assertions. The code also checks the symbolic first-variation coefficient \(-11/576\). Printed decimal values are not used as proof data.
+On (0,1], φ(1)=0, φ(0+)=∞, φ'<0 and φ''>0 so the bivariate strict Archimedean copula exists. For f=φ+log t, f'(t)+tf''(t)=(t-1/2)²>=0; double integration gives f(uv)-f(u)-f(v)+f(1)>=0, implying φ(uv)>=φ(u)+φ(v) and hence C(u,v)>=uv globally. Differentiating implicit generator equation gives density c(u,v)=ell(u)ell(v)k(C)/ell(C)^3, with ell=-φ' and k=φ''. The fetched verification code performs exact Fraction root brackets using a bounded log-series remainder and monotone density enclosures: -0.019002196<Δc(1/4,1/4)<-0.019002192<0. Independent high precision direct evaluation gives approximately -0.019002193959, and independent symbolic first-order defect is -11/576. Reflected-density criterion of the original paper makes the C not PMI. Analytic PQD and exact PMI sign proof are separate and unrestricted on the unit square.
 
-Limits: the certificate certifies one pointwise density-reflection violation. The mathematical integral argument separately establishes PQD throughout the unit square. No higher-dimensional copula property, converse implication, empirical inference, or exhaustive literature priority result is certified here.
+## originality
+
+PASS
+
+Fuchs-Tschimpke Conjecture 1 explicitly proposes equivalence PQD↔PMI in Archimedean class; their accessible full text develops PMI reflection criterion and non-Archimedean counterexamples but does not give this Archimedean generator. Their Markov-kernel total-positivity work is stronger in other dependence directions, not a refutation here. No prior same Archimedean obstruction found in searches; later/unindexed work is a priority risk.
+
+## value
+
+PASS
+
+An explicit smooth strict Archimedean counterexample overturns a concrete published copula dependence conjecture, with a mathematically motivated reflection defect and a reproducible exact rational sign certificate; it is structurally informative rather than a mere parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
