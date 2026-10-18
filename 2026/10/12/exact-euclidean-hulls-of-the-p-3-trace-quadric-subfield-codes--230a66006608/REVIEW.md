@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The punctured self-orthogonality proof is exact. For \(p>3\), scalar invariance of the trace quadric kills all first and second moments, and the code length is divisible by \(p\). For \(p=3\), the complete source enumerator gives total isotropy and polarization gives pairwise orthogonality. The unpunctured source coordinate contributes exactly the rank-one bilinear form \(\operatorname{Tr}(b)\operatorname{Tr}(b')\), so its radical is precisely \(\operatorname{Tr}(b)=0\). Direct finite-field replay at \(p=3\) and \(p=7\) verifies the critical computations.
+PASS
 
-## Originality
+For p>3, F_p^× scaling of S annihilates both degree-one and degree-two moments; since |S|=p^5-p^3+p^2 is 0 in F_p, the seven-generator Gram matrix is zero. For p=3 the source complete enumerator has weights 144,153,162,225, all multiples of three; self-dot=weight mod 3 and polarization give all inner products zero. In the unpunctured code Gram(u,v)=Tr(b)Tr(b' ), and trace surjectivity gives one-dimensional Gram rank, hence hull dimension 6. The argument assumes source dimension 7; a finite check alone is not a universal proof. Independent check: The scalar-invariance Gram proof was algebraically reconstructed, and the source p=3 weight enumerator independently checked for divisibility; the source code length p=3 is 225. Frozen tree SHA rederived from actual blobs.
 
-PASS. The full primary article gives the code representations, weights, dimensions, and dual distances but contains no Section 4 self-orthogonality or Euclidean-hull statement. Exact source, parameter, length-formula, hull, and self-orthogonality searches found no same-object theorem. General recent hull literature covers other families or generic transformations and does not imply this trace-quadric result. An unindexed equivalent formulation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem supplies the complete hull structure of an infinite recent family and explains exactly why puncturing one coordinate changes hull dimension from \(6\) to \(7\). This is a structural invariant relevant to hull-sensitive constructions and is not determined by the source's general odd-prime weight distribution.
+The Liu–Liu–Yu Section 4 source enumerates weights and distances but does not state Euclidean hulls. A universal Gram-rank formula for linearized-polynomial image codes does not apply directly to this trace-quadric evaluation construction without a new Gram calculation. Exact 7/6 hull distinction remains best-of-knowledge distinct; it is an elementary but previously unrecorded structural invariant.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete Euclidean hull identifies self-orthogonality and the effect of one punctured trace coordinate in a natural published code family. Hull dimension matters for duality and quantum-code constructions; no optimal quantum parameters are asserted. The p>3 proof is short, but determining exact hulls in an infinite family is a motivated invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

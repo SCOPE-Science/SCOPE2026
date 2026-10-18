@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It constructs \(\mathbb F_{p^3}\) for \(p=3\) and \(p=7\) using an automatically selected irreducible monic cubic.
+# Independent mathematical audit
 
-For each prime it reconstructs
-\[
-S=\{(x,y):\operatorname{Tr}(x^2+y^2)=0\},
-\]
-checks
-\[
-|S|=p^5-p^3+p^2,
-\]
-and forms seven punctured generator rows: one constant row, three rows from the \(b\)-coordinate trace basis, and three from the \(c\)-coordinate trace basis.
+## correctness
 
-The script checks rank \(7\) and verifies that the punctured Euclidean Gram matrix is zero.
+PASS
 
-For \(p=3\), all \(3^7=2187\) codewords are enumerated, reproducing
-\[
-1+952z^{144}+1008z^{153}+224z^{162}+2z^{225}.
-\]
+For p>3, F_p^× scaling of S annihilates both degree-one and degree-two moments; since |S|=p^5-p^3+p^2 is 0 in F_p, the seven-generator Gram matrix is zero. For p=3 the source complete enumerator has weights 144,153,162,225, all multiples of three; self-dot=weight mod 3 and polarization give all inner products zero. In the unpunctured code Gram(u,v)=Tr(b)Tr(b' ), and trace surjectivity gives one-dimensional Gram rank, hence hull dimension 6. The argument assumes source dimension 7; a finite check alone is not a universal proof. Independent check: The scalar-invariance Gram proof was algebraically reconstructed, and the source p=3 weight enumerator independently checked for divisibility; the source code length p=3 is 225. Frozen tree SHA rederived from actual blobs.
 
-For the unpunctured code, the source first coordinate is appended. The resulting Gram matrix is checked to be exactly the outer product of the trace functional on the \(b\)-basis with itself, hence has rank \(1\) and a six-dimensional radical.
+## originality
 
-Successful replay prints `VERIFY_OK`.
+PASS
+
+The Liu–Liu–Yu Section 4 source enumerates weights and distances but does not state Euclidean hulls. A universal Gram-rank formula for linearized-polynomial image codes does not apply directly to this trace-quadric evaluation construction without a new Gram calculation. Exact 7/6 hull distinction remains best-of-knowledge distinct; it is an elementary but previously unrecorded structural invariant.
+
+## value
+
+PASS
+
+The complete Euclidean hull identifies self-orthogonality and the effect of one punctured trace coordinate in a natural published code family. Hull dimension matters for duality and quantum-code constructions; no optimal quantum parameters are asserted. The p>3 proof is short, but determining exact hulls in an infinite family is a motivated invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
