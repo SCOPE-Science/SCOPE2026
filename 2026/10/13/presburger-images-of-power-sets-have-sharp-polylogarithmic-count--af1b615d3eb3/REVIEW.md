@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-Schulz's Lemma 3.2 already contains both ingredients needed for the quantitative upgrade. On the nondegenerate part \(S_2\), equations (6) and the following count bound every exponent by \(O(\log H)\), giving at most \((5n^2\log_2(bH))^n\) image values. On the degenerate part \(S_1\), each of finitely many proper linear subspaces yields, by Schulz's own substitution, an equation for \(c\) with at most \(n-1\) exponential terms. Replacing the source's qualitative induction hypothesis by the stronger quantitative induction therefore proves \(O((\log H)^n)\). Theorem B's finite piecewise-affine reduction then preserves the exponent \(M\).
+## correctness
 
-The sharpness example is exact: when \(B>M\), a sum of \(M\) powers of \(B\) has base-\(B\) digits equal to exponent multiplicities, all strictly below \(B\), so no carrying occurs and multisets of exponents are uniquely encoded.
+PASS
 
-## Originality
-Candidate-specific semantic-database searches used the phrases “Presburger-definable image finite union sets of powers polylogarithmic counting bound log^M,” “Schulz sets of powers Presburger image O(log N)^M,” “linear combinations powers counting function polylogarithmic Presburger,” and the arXiv identifier together with “quantitative sparseness logarithmic growth.” None returned an equivalent result. Web searches using the same aliases found Schulz's zero-density theorem, the complexity of Presburger arithmetic with powers, and general Presburger counting literature, but not the stated polylogarithmic image bound.
+For an n-term rational-coefficient exponential sum, strengthen Schulz Lemma 3.2 induction from zero density to O((1+log H)^n) distinct integer values in [-H,H]. Subspace theorem partitions solutions into finitely many degenerate proper-subspace S1 and nondegenerate S2. On S1, eliminate one exponent term to get at most n-1-term sums, invoking the quantitative induction. On S2 Schulz already proves (bh)^(4n^2)>max a_i^e_i, hence at most (5n^2 log_2(bH))^n exponent tuples plus finite bounded exceptions. Finite Presburger affine pieces and finitely many choices of powers bases preserve exponent <=M. For sharpness, B>M avoids carrying, so unordered multisets of M exponents <=L inject into M-power sums <=M B^L; count exactly binomial(L+M,M)=Theta((log H)^M). Independent exact enumeration verified 42 (M,L) carry-free cases. The source subspace theorem is used as a cited lemma, not re-proved.
 
-The cumulative research ledgers were also searched for Presburger, Schulz, sets of powers, and polylogarithmic growth. The closest owned item concerns Hawthorne's NIP expansions with multiplication restricted to a power set; it does not bound Presburger images and does not imply this theorem.
+## originality
 
-The main residual risk is that the quantitative strengthening may be considered an implicit observation from Schulz's proof, since the displayed \(S_2\) estimate is already polylogarithmic and the \(S_1\) induction is short.
+PASS
 
-## Value
-The result upgrades a density-zero statement to a dimension-sensitive counting law and identifies the correct worst-case scale. This is substantially more informative than density zero: it bounds the number of values below height \(H\) by a polynomial in \(\log H\), and the matching construction shows that the exponent cannot be universally improved. The result can therefore be used wherever a quantitative rather than qualitative notion of sparsity is needed.
+Best-of-knowledge quantitative enhancement of Schulz’s qualitative Theorem B: the source explicitly proves zero natural density, not the uniform O((log H)^M) bound with optimal exponent. Although S2 logarithmic counting is printed in Lemma 3.2 and the S1 elimination is already in its proof, quantitative induction over degenerate subspaces must be strengthened for the full claim, then sharpness is separately established by a carry-free B>M lower family. A narrowly close implication risk remains, but the sharp all-dimension counting theorem and matching construction were not stated in inspected primary literature.
 
-## Closest literature and limitations
-The closest source is Schulz's paper, which proves zero natural density and contains the height/subspace decomposition used here. Schlickewei--Schmidt provide the finite-subspace theorem, and Cluckers provides the piecewise-affine Presburger decomposition. No claim is made for uniform constants in the bases, coefficients, or formula complexity, nor for preimage multiplicities.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp growth exponent M for all Presburger images of finite unions of exponential powers is a natural quantitative sparseness invariant; it refines mere density zero by orders of magnitude and cannot be lowered uniformly, as the distinct-multiset construction shows. The exact exponent can be independently useful in quantitative model-theoretic and exponential-sum arguments even if the stronger induction is close to earlier proof machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

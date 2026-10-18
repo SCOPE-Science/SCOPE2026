@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate checks.
+# Independent mathematical audit
 
-1. **Quantitative induction.** For a fixed \(n\)-term power sum, Schulz's \(S_2\) calculation gives directly
-   \[
-   |\pi(S_2)\cap[-H,H]|\le O(1)+(5n^2\log_2(bH))^n.
-   \]
-   On every one of the finitely many \(S_1\) subspaces, equations (2)--(5) of Lemma 3.2 rewrite the same output \(c\) as a fixed rational linear combination of at most \(n-1\) powers. Thus a quantitative induction hypothesis gives \(O((1+\log H)^{n-1})\) there. Finite union closes the induction.
+## correctness
 
-2. **Presburger reduction.** Schulz's proof of Theorem B invokes Presburger cell decomposition to partition a definable function into finitely many rational affine pieces. Choosing one of finitely many bases for each input coordinate reduces every image piece to the preceding power-sum case with at most \(M\) terms.
+PASS
 
-3. **Sharpness.** If \(B>M\), the sum of \(M\) powers of \(B\) has base-\(B\) digits equal to exponent multiplicities, so no carry occurs. Restricting exponents to \(0,\ldots,L\) therefore yields exactly \(\binom{L+M}{M}\) distinct sums, all at most \(MB^L\).
+For an n-term rational-coefficient exponential sum, strengthen Schulz Lemma 3.2 induction from zero density to O((1+log H)^n) distinct integer values in [-H,H]. Subspace theorem partitions solutions into finitely many degenerate proper-subspace S1 and nondegenerate S2. On S1, eliminate one exponent term to get at most n-1-term sums, invoking the quantitative induction. On S2 Schulz already proves (bh)^(4n^2)>max a_i^e_i, hence at most (5n^2 log_2(bH))^n exponent tuples plus finite bounded exceptions. Finite Presburger affine pieces and finitely many choices of powers bases preserve exponent <=M. For sharpness, B>M avoids carrying, so unordered multisets of M exponents <=L inject into M-power sums <=M B^L; count exactly binomial(L+M,M)=Theta((log H)^M). Independent exact enumeration verified 42 (M,L) carry-free cases. The source subspace theorem is used as a cited lemma, not re-proved.
 
-The bundled exact replay tests this last combinatorial identity for \(1\le M\le7\) and \(0\le L\le8\) and reports:
+## originality
 
-`VERIFY_OK 126 exact assertions`
+PASS
 
-The computational replay is a sanity check for sharpness; the upper bound is source-backed and proved symbolically above. No independent audit has been performed.
+Best-of-knowledge quantitative enhancement of Schulz’s qualitative Theorem B: the source explicitly proves zero natural density, not the uniform O((log H)^M) bound with optimal exponent. Although S2 logarithmic counting is printed in Lemma 3.2 and the S1 elimination is already in its proof, quantitative induction over degenerate subspaces must be strengthened for the full claim, then sharpness is separately established by a carry-free B>M lower family. A narrowly close implication risk remains, but the sharp all-dimension counting theorem and matching construction were not stated in inspected primary literature.
+
+## value
+
+PASS
+
+The sharp growth exponent M for all Presburger images of finite unions of exponential powers is a natural quantitative sparseness invariant; it refines mere density zero by orders of magnitude and cannot be lowered uniformly, as the distinct-multiset construction shows. The exact exponent can be independently useful in quantitative model-theoretic and exponential-sum arguments even if the stronger induction is close to earlier proof machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

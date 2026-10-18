@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:10:42.772519Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.11858",
+        "https://doi.org/10.1023/A:1001719425893",
+        "https://doi.org/10.2178/jsl/1045861509",
+        "Independent exact bounded checks in independent_1783_checks.py and independent_1783_results.txt; frozen RESULT.md Git blob"
+      ],
+      "rationale": "For an n-term rational-coefficient exponential sum, strengthen Schulz Lemma 3.2 induction from zero density to O((1+log H)^n) distinct integer values in [-H,H]. Subspace theorem partitions solutions into finitely many degenerate proper-subspace S1 and nondegenerate S2. On S1, eliminate one exponent term to get at most n-1-term sums, invoking the quantitative induction. On S2 Schulz already proves (bh)^(4n^2)>max a_i^e_i, hence at most (5n^2 log_2(bH))^n exponent tuples plus finite bounded exceptions. Finite Presburger affine pieces and finitely many choices of powers bases preserve exponent <=M. For sharpness, B>M avoids carrying, so unordered multisets of M exponents <=L inject into M-power sums <=M B^L; count exactly binomial(L+M,M)=Theta((log H)^M). Independent exact enumeration verified 42 (M,L) carry-free cases. The source subspace theorem is used as a cited lemma, not re-proved.",
+      "residual_risks": [
+        "Constants depend on fixed E, f, M and are not effective from this audit; no bounds on multiplicities or stronger fixed-f exponent.",
+        "Very close to Schulz’s quantitative nondegenerate estimate; originality decided separately from correctness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2209.11858",
+          "Schulz Theorem B ranges over all Presburger-definable f and finite unions of powers, identical class of objects but weaker zero-density conclusion.",
+          "https://doi.org/10.1023/A:1001719425893",
+          "https://doi.org/10.2178/jsl/1045861509"
+        ],
+        "reasoning": "Broader model-theoretic undefinability criteria and general exponential Diophantine finite-subspace theorems provide tools. Their published statements, as inspected, do not give this exact dimension-M counting law or sharp lower construction.",
+        "searches": [
+          "Schulz Presburger images of finite unions of powers counting polylogarithmic logarithmic growth"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.11858",
+        "https://doi.org/10.1023/A:1001719425893",
+        "https://doi.org/10.2178/jsl/1045861509",
+        "Resultary semantic query: Schulz Presburger images of finite unions of powers counting polylogarithmic logarithmic growth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2209.11858",
+          "Schulz Lemma 3.2 explicitly bounds S2 by (5n^2 log_2(bh))^n; its S1 induction is formulated only as density zero after elimination of one term.",
+          "Theorem B invokes finite piecewise-affine reduction and reports zero density."
+        ],
+        "reasoning": "The prior proof suggests the result strongly, so risk of regarding the strengthening as a routine implicit corollary is material. Nevertheless obtaining the claimed quantitative universal statement requires choosing the stronger inductive invariant for every degenerate subspace and adding matching lower-bound sharpness. Neither is printed as the theorem or immediate scalar consequence of the zero-density statement alone.",
+        "searches": [
+          "Schulz Presburger images of finite unions of powers counting polylogarithmic logarithmic growth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2209.11858",
+          "Equivalent alias: growth of distinct values of n-term S-unit/exponential sums intersected with symmetric height H; uniform polylogarithmic sparsity of Presburger-definable images.",
+          "https://doi.org/10.1023/A:1001719425893"
+        ],
+        "reasoning": "Both subspace-theorem and Presburger growth formulations were compared. The existing Lemma 3.2 establishes qualitative zero density and an S2 estimate, not a stated fully quantitative S1 induction and worst-case sharpness.",
+        "searches": [
+          "Schulz Presburger images of finite unions of powers counting polylogarithmic logarithmic growth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No fixed finite integer table can cover the general all-H, all-M counting asymptotic. Independent enumeration for 42 carry-free instances reproduced binomial(L+M,M); this is a check not historical proof.",
+          "Resultary semantic search for Presburger powers polylogarithmic growth found different logarithmic counting objects."
+        ],
+        "reasoning": "The target is a uniform asymptotic class and sharp exponent, not a single OEIS count or numerical sample.",
+        "searches": [
+          "Schulz Presburger images of finite unions of powers counting polylogarithmic logarithmic growth"
+        ]
+      },
+      "rationale": "Best-of-knowledge quantitative enhancement of Schulz’s qualitative Theorem B: the source explicitly proves zero natural density, not the uniform O((log H)^M) bound with optimal exponent. Although S2 logarithmic counting is printed in Lemma 3.2 and the S1 elimination is already in its proof, quantitative induction over degenerate subspaces must be strengthened for the full claim, then sharpness is separately established by a carry-free B>M lower family. A narrowly close implication risk remains, but the sharp all-dimension counting theorem and matching construction were not stated in inspected primary literature.",
+      "residual_risks": [
+        "The quantitative theorem follows a short refinement of Schulz’s published proof, and may be considered an implicit or routine quantitative corollary; this is a substantial priority/calibration limitation.",
+        "The exact constants are unspecified, and the method does not yield a uniform effective estimate across varying bases/formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The qualitative density-zero theorem and key proof machinery are prior. The exact uniform O((log H)^M) growth and sharpness family are not stated there; quantify the documented high direct-corollary risk",
+          "evidence": [
+            "Lemma 3.2 eqs. (5),(6), S2 count (5n^2 log_2(bh))^n; Theorem B p.7"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11858",
+          "material_read": "Read the complete relevant Lemma 3.2 proof across pp.5-7, Proposition 3.1 subspace input, Theorem B and full proof p.7, including source’s explicit S2 log^n count and S1 elimination; inspected PDF page renderings",
+          "method": "Read freely available full-text sections and surrounding arguments, including rendered PDF pages where applicable",
+          "title": "Chris Schulz, Undefinability of multiplication in Presburger arithmetic with sets of powers",
+          "trigger": "Identical domain E and Presburger f; strongest plausible theorem subsuming quantitative image counting"
+        },
+        {
+          "assessment": "Cited standard input, not represented as independently full-text noncovering",
+          "evidence": [
+            "Schulz Proposition 3.1 subspace theorem uses the stronger primary result"
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1001719425893",
+          "material_read": "Used via Schulz Proposition 3.1 citation and bibliographic context, did not obtain or read full original manuscript in this execution",
+          "method": "Read Schulz’s precise restatement and bibliographic reference; original paper not fully inspected",
+          "title": "Schlickewei and Schmidt, The Number of Solutions of Polynomial-Exponential Equations",
+          "trigger": "Exact mathematical source of finite-subspace splitting"
+        },
+        {
+          "assessment": "Supplies standard piecewise-affine input, not the sharp power-set image counting theorem",
+          "evidence": [
+            "Schulz Theorem B proof citing Cluckers Theorem 4.1"
+          ],
+          "identifier_or_url": "https://doi.org/10.2178/jsl/1045861509",
+          "material_read": "Relevant theorem as restated and applied in Schulz Theorem B proof, no standalone Cluckers PDF full-text inspection in this execution",
+          "method": "Read cited theorem application in Schulz; did not claim whole-document noncoverage of the original article",
+          "title": "Raf Cluckers, Presburger sets and p-minimal fields",
+          "trigger": "Source of piecewise affine Presburger decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.11858",
+        "https://doi.org/10.2178/jsl/1045861509"
+      ],
+      "rationale": "The sharp growth exponent M for all Presburger images of finite unions of exponential powers is a natural quantitative sparseness invariant; it refines mere density zero by orders of magnitude and cannot be lowered uniformly, as the distinct-multiset construction shows. The exact exponent can be independently useful in quantitative model-theoretic and exponential-sum arguments even if the stronger induction is close to earlier proof machinery.",
+      "residual_risks": [
+        "A specific map f may have smaller exponent; the theorem only asserts uniform optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Constants depend on fixed E, f, M and are not effective from this audit; no bounds on multiplicities or stronger fixed-f exponent.",
+    "Very close to Schulz’s quantitative nondegenerate estimate; originality decided separately from correctness.",
+    "The quantitative theorem follows a short refinement of Schulz’s published proof, and may be considered an implicit or routine quantitative corollary; this is a substantial priority/calibration limitation.",
+    "The exact constants are unspecified, and the method does not yield a uniform effective estimate across varying bases/formulas.",
+    "A specific map f may have smaller exponent; the theorem only asserts uniform optimality."
+  ],
+  "schema_version": 1
+}
