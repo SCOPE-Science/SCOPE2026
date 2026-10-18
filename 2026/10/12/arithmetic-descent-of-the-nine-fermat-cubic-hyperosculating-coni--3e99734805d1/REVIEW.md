@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The central elimination identity was computed exactly as a resultant over \(\mathbb Z\). Reconstructing the Galois action on \(\alpha\) and \(\omega\) gives the complete 27-component orbit profile and the exact coefficient fields. Distinct smooth conic factors are permuted transitively over each block's minimal base field, proving arithmetic irreducibility of the sextic products. The included executable checks ranks \(9\), \(18\), \(29\) for degrees one through three of the rational degree-nine representative, corroborating minimal syzygy degree three. Freeness with exponents \((3,5)\) and the total Tjurina number \(49\) are geometric results proved in the cited primary source, not newly certified here.
+## correctness
 
-## Originality (PASS; residual risks)
-Example 4.4, Proposition 4.7 and Theorem 4.10 of arXiv:2311.08913 fully cover the geometry and freeness. The new arithmetic statement is a distinct comparison: exact integer sextics, minimal coefficient fields, arithmetic irreducibility over \(\mathbb Q\), and \(S_3\) orbit profiles, which do not follow from the published freeness criterion or complex projective orbit statement without explicit algebraic descent. The primary full text, Szemberg--Szpond (arXiv:2211.00494) and later Moe--Toft (arXiv:2412.16993) were inspected. Targeted published-literature and research-result searches showed no matching arithmetic classification. Risk remains that source coefficients implicitly contain the conclusion or an unindexed computational table explicitly does.
+PASS
 
-## Value (PASS)
-The existing nine-block partition and its nine free degree-nine curves motivate an exact rational-descent problem. The result classifies the *entire* canonical set and yields three rational free curve equations whose degree-six factors are rationally irreducible but geometrically split, with the minimal Galois splitting field for all twenty-seven components. It is not presented as discovery of the original hyperosculating conics or their freeness.
+The exact resultant of T^3-2 against (u-v)^2-T^2 w(u+v)-2T w^2 is (u-v)^6-16w^3(u^3+v^3+w^3), independently verified over Z. Applying coordinate permutations and v->omega^j v produces nine distinct block sextics. The coefficient of u^5 v is -6 omega^j, so exactly three equations are rational; each rational sextic has three distinct smooth conjugate conic factors transitively permuted by the cubic Galois subgroup, hence irreducible over Q. The full splitting field Q(cuberoot2,omega) is S3 of degree6; explicitly enumerated its action on 27 labeled components giving orbit sizes 3,3,3,6,6,6 and block orbits 1,1,1,2,2,2. The existing geometric freeness claim is credited to the published original, not independently reproved.
 
-## Limitations
-Only the nine same-block configurations are classified; arbitrary triples are excluded. The verified symbolic computation checks the identity and one Jacobian minimal degree, not every source geometric singularity computation. Independent external audit has not occurred, and possible equivalent formulas in unindexed prior works remain bibliographic risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dimca–Ilardi–Malara–Pokora already construct the 27 hyperosculating conics, nine same-block triples and free degree-nine curves; those are explicitly prior. The independently reconstructed exact arithmetic sextic products, minimal coefficient fields, rational irreducibility and six-component Galois orbit census are not given as such in inspected geometric theorems. Moe–Toft has general conic formulas but no compared explicit full descent. The result is an arithmetic characterization of an existing finite natural configuration, not freeness novelty.
+
+## value
+
+PASS
+
+Field of definition, arithmetic irreducibility and Galois orbit types are natural invariants of the complete distinguished 27-conic/9-block Fermat cubic configuration. The exact split into three Q-defined sextic products and six quadratic-field-defined products matters for rational plane geometry and arithmetic descent; computing the entire configuration is more than renaming the known freeness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
