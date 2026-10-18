@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "primary Meng et al Examples 3.4 and 3.8 https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+        "pinned RESULT.md blob 67226c9d88858de0680b4533e775172a4d3e2856",
+        "artifacts/verify.py blob c9ef9274e8e04ba6f41df61495805ec58a7b9caa",
+        "independent finite field and RREF exhaustive program"
+      ],
+      "rationale": "The exact defining-set code C_D1 is evaluation of Tr_27/3(ax)+b on F27\\F3, with F27=F3[X]/(X³+2X+1). Verified modulus has no F3 root, the trace realization, 24 coordinates and rank-four linear message map. An independently written RREF generator enumerated exactly 40+130+40+1=211 nonzero message subspaces (one per linear subcode), computed each union of codeword supports from basis vectors and recovered N1={15:8,16:27,18:4,24:1}; N2={21:80,22:36,24:14}; N3={23:24,24:16}; N4={24:1}. These all add to the Gaussian binomial counts and have minima (15,21,23,24), matching the primary article Examples 3.4/3.8. This is exhaustive over this finite-dimensional code; no uniform family generalization inferred.",
+      "residual_risks": [
+        "Only the exact 24-coordinate affine-slice defining set; other inequivalent ternary [24,4,15] codes may have different subcode spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+          "doi:10.1109/TIT.2024.3519672"
+        ],
+        "reasoning": "More general results for modified simplex and Solomon–Stiffler families require different projective deletions; no demonstrated specialization to affine slice {(x,1):x∈F27\\F3}. Theorem 3.6 of Meng et al gives minima, not the full histogram.",
+        "searches": [
+          "ternary 24 4 15 self orthogonal trace defining set subcode support distribution Meng Liu 2026",
+          "Pan Chen Liu Liu 2025 optimal few SSW codes subcode support weight distributions Griesmer modified Solomon Stiffler",
+          "defining set codes weight hierarchy all subspaces F27 minus F3"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+        "https://doi.org/10.1109/TIT.2024.3519672",
+        "Resultary semantic query ternary 24 4 15 self orthogonal trace defining set subcode support distribution Meng Liu 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+          "Examples 3.4/3.8 and Theorem 3.6 ordinary weights and hierarchy"
+        ],
+        "reasoning": "Prior results imply N1 and the minimum support values d_r; they do not imply the N2/N3 totals at individual support sizes without additional incidence computation. The audited complete 211-subspace enumeration supplies those values.",
+        "searches": [
+          "ternary 24 4 15 self orthogonal trace defining set subcode support distribution Meng Liu 2026",
+          "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+          "Example 3.4 and Example 3.8"
+        ],
+        "reasoning": "The ordinary codeword enumerator specifies only N1 after division by q−1; the hierarchy gives only minimum support per r, not how many r-subcodes realize any support level. Distinguishing the exact trace-defined generator from parameter-equivalent codes is essential.",
+        "searches": [
+          "ternary 24 4 15 self orthogonal trace defining set subcode support distribution Meng Liu 2026",
+          "subcode support weight distribution generalized Hamming enumerator affine trace code 24 4 15 GF3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Meng et al. ordinary enumerator 1+16z^15+54z^16+8z^18+2z^24",
+          "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes"
+        ],
+        "reasoning": "The published exact parameters and generalized hierarchy agree with this code, yet their tables omit counts of 2- and 3-dimensional subcodes; same [24,4,15] parameters do not imply the count distribution.",
+        "searches": [
+          "ternary 24 4 15 self orthogonal trace defining set subcode support distribution Meng Liu 2026",
+          "[24,4,15]3 support 21 80 22 36 24 14"
+        ]
+      },
+      "rationale": "The inspected primary paper explicitly states the exact codeword enumerator and generalized Hamming hierarchy but does not enumerate subcode-support multiplicities or nonminimal support layers. Other published defining-set and Solomon–Stiffler/subcode-distribution papers may count different families; no direct implication giving these 211-subspace multiplicities for this exact F27\\F3 affine slice was found.",
+      "residual_risks": [
+        "Potential obscure equivalent-code catalog or general formula not recognized from accessible source; Pan et al publisher full text not inspected here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original fixes same code, enumerator and minima, not complete r-dimensional support multiplicities",
+          "evidence": [
+            "Example 3.4, p.8; Example 3.8 and Theorem 3.6"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+          "material_read": "Full public article text searched; construction (14),(15), Examples 3.4 and 3.8 and nearby Theorem 3.6 read",
+          "method": "Public author-posted full-text searchable manuscript",
+          "title": "The weight distributions and weight hierarchies of two classes of self-orthogonal codes",
+          "trigger": "Identical q=3,m=3,s=1,z=3 defining-set construction"
+        },
+        {
+          "assessment": "Potentially related support-count method, but distinct explicit code families; residual equivalence risk remains",
+          "evidence": [
+            "Title/abstract and cited construction scope"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2024.3519672",
+          "material_read": "Bibliographic scope/family construction described in accessible material; complete publisher text not independently read in this run",
+          "method": "Accessible indexing and cited family description",
+          "title": "Optimal Few-SSW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "Closest terminology-generalized code spectra paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/publication/400168376_The_weight_distributions_and_weight_hierarchies_of_two_classes_of_self-orthogonal_codes",
+        "exact subcode incidence enumeration"
+      ],
+      "rationale": "The exact multiplicity of each generalized-support weight, not just the minima, is a natural invariant of this highlighted optimal self-orthogonal [24,4,15] code. The 80 two-dimensional minimizers and 24 three-dimensional minimizers and all non-minimal layers are concrete inputs for code incidence, secret-sharing and equivalence questions; a complete natural 211-subcode census can be independently useful without a family-wide theorem.",
+      "residual_risks": [
+        "Narrow finite object with only 211 subspaces; no claim of a new parameter bound or a family-wide theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the exact 24-coordinate affine-slice defining set; other inequivalent ternary [24,4,15] codes may have different subcode spectra.",
+    "Potential obscure equivalent-code catalog or general formula not recognized from accessible source; Pan et al publisher full text not inspected here.",
+    "Narrow finite object with only 211 subspaces; no claim of a new parameter bound or a family-wide theorem."
+  ],
+  "schema_version": 1
+}
