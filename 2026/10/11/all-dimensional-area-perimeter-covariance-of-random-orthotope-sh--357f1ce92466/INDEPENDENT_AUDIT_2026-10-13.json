@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T02:44:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned exact RESULT.md and verify.py",
+        "symbolic gamma recurrence reconstruction",
+        "Finch arXiv:1203.2464"
+      ],
+      "rationale": "The projection is the planar zonotope with exact \\(A=\\sum_{i<j}a_ia_j|D_{ij}|\\) and \\(P=2\\sum_i a_ir_i\\). The Haar row law \\(r_i^2\\sim\\operatorname{Beta}(1,(d-2)/2)\\) and uniform conditional minor direction give \\(\\mathbb E[|D_{ij}|r_i]=\\alpha_d\\), \\(\\mathbb E|D_{ij}|=1/(d-1)\\); conditioning on a third row yields \\(\\mathbb E[|D_{ij}|r_k]=(\\pi/4)\\alpha_d\\). Expanding incidence patterns produces the joint moment and covariance. Maclaurin yields \\(e_1e_2\\ge3d/(d-2)e_3\\), with equality iff sides agree. The package proves \\(\\alpha_d>\\beta_d\\), and the key gamma-ratio recurrence for the positive coefficient was independently verified symbolically; the negative recurrence increment with positive limiting value establishes every dimension (including its separately treated \\(d=3\\) anchor). Gamma asymptotics yield the claimed exact power/constant. Direct independent gamma numerics through dimension 499 and the inspected Monte Carlo verifier are checks, not the infinite proof. Boundary \\(d=3\\) uses a valid two-frame in dimension 2.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch gives a 3D unit-cube mixed moment and reports 4D numerical data.",
+          "The 4D exact mixed shadow formula is a special case of all-d arbitrary sides, not dominating coverage.",
+          "The cube projection CLT concerns projection volume alone; adjacent Resultary hits concern only area or only perimeter second moments."
+        ],
+        "reasoning": "None provides finite-d exact joint area-perimeter covariance over all orthotope shapes plus a sharp positive normalized bound.",
+        "searches": [
+          "Finch, arXiv:1203.2464",
+          "Paouris--Pivovarov--Zinn, arXiv:1210.7012",
+          "Resultary semantic search: random orthotope projection onto two-plane joint area perimeter covariance Grassmannian gamma exact all dimensions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.2464",
+        "arXiv:1210.7012",
+        "Resultary semantic search including exact d=4 covariance, area-second and perimeter-second moment entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal projected means and a cube-specific mixed moment cannot determine the independent \\(e_1e_2\\) and \\(e_3\\) coefficients for arbitrary d.",
+          "A CLT for volume-only random projections does not imply a same-plane finite-dimensional mixed moment or universal positive covariance."
+        ],
+        "reasoning": "The main conditional moment and the nontrivial all-d gamma positivity proof are not mechanical corollaries of checked priors.",
+        "searches": [
+          "Finch 2012 full primary PDF",
+          "Paouris et al. 2012 primary abstract",
+          "Resultary semantic search: random orthotope projection onto two-plane joint area perimeter covariance Grassmannian gamma exact all dimensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Area is the sum of absolute \\(2\\times2\\) projection minors and perimeter the sum of projected generator norms.",
+          "The decisive different-index correlation is \\(\\mathbb E[|D_{ij}|r_k]=(\\pi/4)\\alpha_d\\), while equal-index correlations are \\(\\alpha_d\\)."
+        ],
+        "reasoning": "These Haar-invariant integral and zonotope formulations are equivalent to the mixed polynomial; earlier marginal formulas alone do not imply cross-incidence correlations.",
+        "searches": [
+          "Resultary semantic search: random orthotope projection onto two-plane joint area perimeter covariance Grassmannian gamma exact all dimensions",
+          "Finch arXiv:1203.2464",
+          "Resultary exact 4D orthotope mixed covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unit 3-cube yields \\(2+16/\\pi\\); the unit 4-cube yields \\(6+3\\pi/2\\), matching special checks.",
+          "The assigned Resultary exact all-dimensional entry is self; a separate entry supplies d4 only."
+        ],
+        "reasoning": "The known benchmarks are strict special cases; no identical all-d table or theorem appeared in the checked database.",
+        "searches": [
+          "Resultary semantic search: random orthotope projection onto two-plane joint area perimeter covariance Grassmannian gamma exact all dimensions",
+          "Finch four-cube E(area*perimeter) benchmark"
+        ]
+      },
+      "rationale": "The cited exact three-cube mixed moment, the four-cube numerical benchmark, the published four-dimensional orthotope special case, and the projection-volume CLT do not recover a closed formula for every positive side vector and dimension. The disjoint-index incidence moment plus uniform sharp covariance inequality are the genuine added content; one must compare the earlier 4D special result rather than mistake different numerical parameters for novelty.",
+      "residual_risks": [
+        "General integral-geometric identities in another parametrization might imply the disjoint-index moment, though targeted comparisons did not identify one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_DIMENSION_BENCHMARKS_ONLY",
+          "evidence": "Provides \\(\\mathbb E[AP]=2+16/\\pi\\) for the 3-cube and 4-cube numerical data, not the arbitrary orthotope all-dimensional coefficient/inequality.",
+          "identifier_or_url": "arXiv:1203.2464",
+          "material_read": "Full 13-page accessible original PDF including explicit 3D formula and 4D numerical discussion and appendices; visually checked relevant pages.",
+          "method": "Open-access full primary PDF text and page-image inspection",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Primary exact 3-cube mixed moment and 4-cube benchmark"
+        },
+        {
+          "assessment": "VOLUME_ONLY_NOT_JOINT_MOMENTS",
+          "evidence": "The asymptotic volume projection CLT is a different observable from same-plane area-perimeter covariance.",
+          "identifier_or_url": "arXiv:1210.7012",
+          "material_read": "Primary abstract and publicly accessible result summary; no claim of inspecting unread full appendices.",
+          "method": "Open-access primary abstract and theorem scope",
+          "title": "A Central Limit Theorem for Projections of the Cube",
+          "trigger": "Potential broader high-dimensional projection theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finch 2012",
+        "Paouris--Pivovarov--Zinn 2012",
+        "exact Haar moment reconstruction"
+      ],
+      "rationale": "The exact mixed area/perimeter moment and sign of covariance for a common random plane are natural stochastic-geometric statistics. A sharp all-shape bound with cube equality in every dimension and a nontrivial high-dimensional coefficient establishes new structural control, not merely a re-expression of the known cube benchmarks.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(d\\ge3\\) and every strictly positive orthotope side vector, the area \\(A\\) and perimeter \\(P\\) of the same uniformly random projected two-plane shadow have \\(\\mathbb E[AP]=2\\alpha_d(e_1e_2-3(1-\\pi/4)e_3)\\) and \\(\\operatorname{Cov}(A,P)=2[(\\alpha_d-\\beta_d)e_1e_2-3(1-\\pi/4)\\alpha_d e_3]\\), with the sharp positive inequality \\(\\operatorname{Cov}(A,P)\\ge c_de_3>0\\) and equality exactly for equal side lengths, and \\(c_d\\sim(3/2)\\sqrt{2/\\pi}(16-5\\pi)d^{-5/2}\\).",
+  "limitations": [
+    "Euclidean axis-aligned orthotopes and Haar-distributed common two-plane only.",
+    "No claim about arbitrary parallelotopes, higher joint moments or pointwise area/perimeter correlation."
+  ],
+  "schema_version": 1
+}

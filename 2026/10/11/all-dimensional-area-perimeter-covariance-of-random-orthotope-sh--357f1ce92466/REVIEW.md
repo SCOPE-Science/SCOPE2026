@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The planar zonotope determinant formula reduces the mixed moment to two Grassmannian incidence expectations. Conditional uniformity on the residual sphere proves \(\mathbb E[|D_{ij}|r_i]=\alpha_d\); conditioning on a disjoint coordinate gives \(\mathbb E[|D_{ij}|r_k]=(\pi/4)\alpha_d\). Exact symmetric-polynomial summation yields the stated expectation and covariance. Maclaurin's sharp elementary-symmetric inequality and a positive gamma-ratio recurrence prove the nonzero sharp \(c_d\), with equality only when all side lengths agree. The package's finite simulation is supplementary, not an all-dimension proof.
+## correctness
 
-## Originality — PASS, with limited historical confidence
-The closest inspected source is Finch (arXiv:1203.2464v1), which computes the three-dimensional unit-cube mixed moment and treats dimension four numerically. The second inspected source (Paouris–Pivovarov–Zinn, arXiv:1210.7012v1) concerns a volume-only central limit theorem. Neither inspected primary text states or implies the same-plane arbitrary-orthotope formula, its positive covariance in every dimension, or its sharp equality classification. Related published database hits concern different invariants of cubes, projections, or parallelotopes. Residual risk: an equivalent mixed integral-geometric identity from older literature might not have surfaced.
+PASS
 
-## Value — PASS
-The natural question is whether area and perimeter of one random 2D projection are correlated, and whether the sign depends on the ambient dimension or aspect ratio. The exact formula settles this simultaneously for every orthotope, while the sharp normalization by \(e_3\), cube rigidity and dimensional decay give an optimal structural bound. The disjoint-incidence lemma and gamma-ratio positivity argument are substantive extensions beyond known low-dimensional examples.
+The projection is the planar zonotope with exact \(A=\sum_{i<j}a_ia_j|D_{ij}|\) and \(P=2\sum_i a_ir_i\). The Haar row law \(r_i^2\sim\operatorname{Beta}(1,(d-2)/2)\) and uniform conditional minor direction give \(\mathbb E[|D_{ij}|r_i]=\alpha_d\), \(\mathbb E|D_{ij}|=1/(d-1)\); conditioning on a third row yields \(\mathbb E[|D_{ij}|r_k]=(\pi/4)\alpha_d\). Expanding incidence patterns produces the joint moment and covariance. Maclaurin yields \(e_1e_2\ge3d/(d-2)e_3\), with equality iff sides agree. The package proves \(\alpha_d>\beta_d\), and the key gamma-ratio recurrence for the positive coefficient was independently verified symbolically; the negative recurrence increment with positive limiting value establishes every dimension (including its separately treated \(d=3\) anchor). Gamma asymptotics yield the claimed exact power/constant. Direct independent gamma numerics through dimension 499 and the inspected Monte Carlo verifier are checks, not the infinite proof. Boundary \(d=3\) uses a valid two-frame in dimension 2.
 
-## Scientific limits and sources
-The result does not cover nonorthogonal parallelotopes or the joint distribution. Sources: Finch, *Planar Projections and Second Intrinsic Volume* (arXiv:1203.2464v1), and Paouris–Pivovarov–Zinn, *A Central Limit Theorem for Projections of the Cube* (arXiv:1210.7012v1). An independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The cited exact three-cube mixed moment, the four-cube numerical benchmark, the published four-dimensional orthotope special case, and the projection-volume CLT do not recover a closed formula for every positive side vector and dimension. The disjoint-index incidence moment plus uniform sharp covariance inequality are the genuine added content; one must compare the earlier 4D special result rather than mistake different numerical parameters for novelty.
+
+## value
+
+PASS
+
+The exact mixed area/perimeter moment and sign of covariance for a common random plane are natural stochastic-geometric statistics. A sharp all-shape bound with cube equality in every dimension and a nontrivial high-dimensional coefficient establishes new structural control, not merely a re-expression of the known cube benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
