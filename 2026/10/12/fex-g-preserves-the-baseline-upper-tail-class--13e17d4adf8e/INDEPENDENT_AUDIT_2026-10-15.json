@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the exact survival map Φ(s)=(exp(s^(1−s))−1)/(e−1) by algebraic subtraction of the source CDF. Expansion s^(1−s)=s−s²log s+O(s³log²s), then exp(t) gives s−s²log s+s²/2+O(s³log²s). The normalized hazard ratio equals (1−s−s log s)t exp(t)/(exp(t)−1), tending to 1 under the positive-density condition. Two-sided constant tail bounds imply equivalence of every positive nonnegative moment threshold; regular variation and Pareto quantile scaling follow by tail inversion. Independent numeric checks at s=0.1, 0.01, 10^−4, 10^−6 confirm limits and controlled residual order; these samples do not prove the endpoint theorem. The limiting scale 1/(e−1) is NOT an all-baseline equality at finite x.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic theorem that any monotone φ with φ(s)~cs preserves tail index is standard; here φ(s) for the special 2026 model has explicit c=1/(e−1) and nonanalytic second-order term."
+        ],
+        "reasoning": "Generic smooth-map asymptotic transfer is conceptually broader and covers the later corollaries conditional on computing φ. It does not itself report this precise FEx-G model result or second-order coefficient; the new content is model-specific structural identification, not a new general transfer theorem.",
+        "searches": [
+          "tail equivalence CDF generator T-X families regularly varying survival",
+          "Alzaatreh Lee Famoye generating T-X distributions using quantiles 2014"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/fex-g-preserves-the-baseline-upper-tail-class--13e17d4adf8e/RESULT.md",
+        "https://doi.org/10.3934/math.2026571",
+        "https://doi.org/10.1186/2195-5832-1-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eldemery 2026 special bounded Kumaraswamy hazard h∼b/(1−t) is consistent with h_F/h_G→1 there; it does not prove this for every absolutely continuous baseline. The 2025 same-name FEx-G uses a distinct multi-baseline transformation as distinguished in the assigned package."
+        ],
+        "reasoning": "The special-case endpoint and generic T-X framework fail to logically imply the complete 2026-model quantitative formula without the current evaluation; conversely, the regular-variation corollary is a direct consequence of the newly evaluated φ, not a separate independent discovery.",
+        "searches": [
+          "Eldemery Almongy Mahfouz FEx-Kumaraswamy hazard t~b/(1−t)",
+          "novel flexible exponential G 2025 Al Abbasi Elbatal Afify"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eldemery et al (2026) Eq defining the FEx-G CDF; its finite-range hazard models; assigned exact Φ(s) identity and −s² log s expansion"
+        ],
+        "reasoning": "The natural equivalence is asymptotic linearity of the survival transformation at zero. The primary text explicitly defines the transformation but inspected general results do not state the all-baseline asymptotic constant, full hazard ratio, moment-threshold statement, or logarithmic correction.",
+        "searches": [
+          "Resultary: FEx-G parsimonious exponential G tail hazard survival equivalence",
+          "\"FEx-G\" \"hazard\" \"tail\" 2026 DOI 10.3934/math.2026571"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary matches centered on different probability families, including Beta(1,b), generalized equilibrium transforms, and endpoint anti-concentration; no direct model-specific lookup table found."
+        ],
+        "reasoning": "No discrete database governs this continuum asymptotic; exact family tables of fitted submodels would not by themselves imply a baseline-uniform endpoint law. Search nonmatches are not positive novelty proof.",
+        "searches": [
+          "FEx G cumulative distribution hazard table moment thresholds Pareto",
+          "published Resultary tail families FEx-G"
+        ]
+      },
+      "rationale": "The source defines FEx-G and computes specialized hazard forms, with a bounded Kumaraswamy endpoint behavior, but the inspected primary sections do not state the general baseline-uniform survival correction and positive-moment equivalence. Established T-X distribution generation is a framework rather than an implication with this specific sharp constant and log correction. Best-of-knowledge original as an explicit FEx-G structural limitation; a possible unnoticed universal generator corollary remains a priority risk.",
+      "residual_risks": [
+        "A source using another name for the same 2026 generator may have computed its endpoint equivalence already.",
+        "The regular variation and moment corollaries follow from standard positive-constant tail-equivalence principles, so novelty rests on the explicit model uniform Φ and expansion, not on these general transfer facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_NONCOVERAGE_IN_INSPECTED_MATERIAL: The inspected portions give the defining CDF and finite/special hazard forms, not the all-baseline survival expansion. Do not assert unread full-document absence.",
+          "evidence": "CDF formula with p=e/(e−1); special Kumaraswamy h(t)∼b/(1−t).",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026571",
+          "material_read": "Full 2026 journal PDF, inspected early defining sections, density/hazard formulas, bounded Kumaraswamy application and its endpoint discussion (PDF pp 1–4, 16–23, 38–40).",
+          "method": "Direct comparison of CDF and source asymptotics with assigned theorem.",
+          "title": "A unified parsimonious exponential-G family for modeling real-world data: theory and statistical inference",
+          "trigger": "Exact named distribution and definition of the transformation"
+        },
+        {
+          "assessment": "Framework can subsume composition, not evidence of the computed model-specific second-order tail coefficient.",
+          "evidence": "General T-X generator approach only.",
+          "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-2",
+          "material_read": "Primary bibliographic statement and framework-level relevance, not full paper.",
+          "method": "Logical general-framework comparison, no whole-document exclusion.",
+          "title": "On generating T-X family of distributions using quantile functions",
+          "trigger": "Potential general composition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact parameter-free transform was introduced to change distributional shape. The baseline-uniform upper-tail preservation theorem, quantitative second-order logarithmic correction, and hazard/moment/extreme-quantile invariants answer a motivated structural constraint of that natural model family; this is more than relabeling an arbitrary isolated number. The core proof is short and uses standard tail-equivalence facts, so no claim of a new regular variation theorem is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Baseline must be proper with right-endpoint survival tending to zero; hazards require absolute continuity and positive density.",
+    "Moment threshold equivalence is asserted for nonnegative unbounded supports; exact Pareto quantile-ratio formula is supported, general slow variation requires proper inverse-tail hypotheses."
+  ]
+}
