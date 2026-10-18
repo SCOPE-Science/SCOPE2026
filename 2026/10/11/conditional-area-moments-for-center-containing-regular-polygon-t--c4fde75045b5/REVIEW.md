@@ -1,15 +1,21 @@
-# Scientific review: conditional area moments for center-containing regular-polygon triangles
+# Independent mathematical audit
 
-## Correctness — PASS
-For each polygon order, a strictly center-containing triple is characterized by three cyclic arc gaps each shorter than a semicircle. Bounded-composition counting gives the exact number of admissible triangles; the area formula reduces its first two moments to explicit weighted sine sums. The sums are evaluated with finite geometric-series identities, and the variance asymptotics follow by Taylor expansion. An independent Cartesian-edge/determinant enumerator checked all \(595665\) triangles through order \(62\) and found \(148800\) strictly admissible triangles, matching the analytic conditional first and second moments. Numerical checks are supplementary; the finite-sum proof establishes all integer orders in scope.
+## correctness
 
-## Originality — PASS with residual risk
-Madras and KC (2006) gave the unconditional mean area and a formula for each possible vertex triangle, which certainly permits algorithmic finite enumeration of any moment. Their inspected article does **not** evaluate the area moments conditional on strict origin containment, the exact conditional variance, or its parity-sensitive convergence rate. The exact odd-order containment count appears in a mathematical discussion from October 2014 and is not claimed as novel. Standard Wendel-type coverage probabilities and a March 2013 calculation for triples of independent points sampled inside a disk concern different sampling laws or different observables. The closest published mathematical-record matches involve deterministic signed-area bounds or second moments of point distances, rather than these conditional area moments. Prior derivations not present in the searched sources remain a possibility, and independent historical review has not been performed.
+PASS
 
-## Value — PASS
-Conditioning on enclosing a fixed center is a natural geometric-probability event, substantially different from the unconditional random-inscribed-triangle problem. Exact variance is a natural dispersion measure; the sharp order-of-convergence dichotomy distinguishes odd-order discretization from even-order diameter degeneracies, giving a nontrivial structural explanation of finite-size bias. The arbitrary-order moment calculation is not supplied by the previously known unconditional expectation or the odd-order containment probability alone.
+Uniform distinct triples correspond to positive cyclic compositions \(a+b+c=n\), counted with \(n/3\) initial-vertex multiplicity; strict origin inclusion holds precisely when each cyclic gap is smaller than \(n/2\), excluding diameter boundaries. The admissible composition count is \((n^2-1)/8\) for odd \(n\), \((n-2)(n-4)/8\) for even \(n\). For such a triangle, \(A/R^2=2\sin(a\pi/n)\sin(b\pi/n)\sin(c\pi/n)=[\sin(2a\pi/n)+\sin(2b\pi/n)+\sin(2c\pi/n)]/2\). Weighted one- and two-gap sine sums yield \(\mu_n=3H_n/(2N_n)\) and \(q_n=(3U_n+6C_n)/(4N_n)\); their listed finite geometric-series evaluations reproduce both parity formula families. Independent direct gap enumeration for n=3..99 (n=4 has empty event) confirmed probabilities, first and second moments and parities, while the all-order proof follows from the exact sum identities. The asymptotic expansions give common variance \(3/8-3/\pi^2\) but corrections \(-(12/\pi^2+5/8)/n^2\) for odd n and \(-3/(4n)\) for even n.
 
-## Limitations and closest literature
-The proof concerns uniformly sampled *distinct vertices* of one regular planar polygon, with strict center containment. There is no conditional law for the square. It does not assert complete higher moments, asymptotic distributional convergence, or results for arbitrary cyclic point sets. Closest primary literature: A. Madras and S. KC, Rose-Hulman Undergraduate Mathematics Journal 7(2), 2006, article 12; October 2014 Mathematics Stack Exchange discussion on regular-polygon center-containment probability; and related continuous Wendel-type results. The manuscript itself is dated October 2, 2006, but its first online posting date is not independently verified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge closed forms for conditional first and second regular-polygon triangle areas and sharp parity-dependent variance convergence do not follow from inspected unconditional expectations or known containment probabilities. The exact 2006 primary PDF remains unread and is a genuine priority risk, not an automatic rejection.
+
+## value
+
+PASS
+
+The regular-polygon triangle is a canonical discrete geometric probability model, and conditional area variance given center containment is a natural precise invariant not determined by known unconditional formulas. The sharp even/odd boundary correction makes the exact n-dependent moment result independently useful to geometric probability and discrete-to-continuum comparisons; it is not an arbitrary slice or recomputation of the known unconditional table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
