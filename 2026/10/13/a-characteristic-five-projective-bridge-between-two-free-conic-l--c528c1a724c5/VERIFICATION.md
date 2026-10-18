@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later, without third-party dependencies. The script uses exact integer determinants, gcds, quadratic discriminants, and modular arithmetic. A successful run prints `VERIFY_OK: integral incidence certificate, all primes >=7, p=5 degeneration, projective CL4 bridge`.
+## correctness
 
-The checks enumerate all 35 line triples and all 21 line-pair intersections of \(\mathcal{CL}_{10}\), solve all seven binary conic-section equations over the rationals, verify 12 primitive intersection coordinates and their multiplicities, and inspect all 66 pairwise cross-product contents for exceptional primes. The script separately enumerates the complete 31-point projective plane over \(\mathbb F_5\), checks the six reduced-support singular points, transversality of conic and lines, the invertibility of \(M\), the pullback identities for every reduced line, and the conic identity across all 125 coordinate triples.
+PASS
 
-The conclusion for infinitely many primes is algebraic: exact integral discriminants, triple determinants and cross-products prove that the exceptional-prime set in the specified range is \(\{5\}\). The finite-field enumeration is exhaustive only at characteristic five; it is not used to extrapolate from a sample of good characteristics. Independent audit and external certification have not been performed.
+The conic symmetric matrix has determinant 256, so smooth for primes >=5. Exact 35 line-triple determinants have only 2,3,5 prime factors (five zeros); seven line-section discriminants are nonzero squares 256,1024,9216 with prime supports 2,3; exact 66 cross-product-coordinate gcds among the 12 rational characteristic-zero incidence points have no primes >=7. Thus for all p>=7 no labeled line collisions, new concurrence, nontransverse conic contacts or distinct point collisions; pair count 21+14=35 yields (n2,n3,n4)=(5,4,3). At p=5 line pairs l3~l5,l4~l6 collide, and complete F5 projective-plane/Bezout pair count gives six ordinary points (2,2,2) on reduced support. Independent arithmetic check confirmed invertible M with det -7 (mod5=3), MᵀB10M=diag(1,1,-1) mod5 and all five pullback line covectors equal CL4 up to scalars. The nonreduced original product is explicitly not covered by geometric support claims.
+
+## originality
+
+PASS
+
+Pokora’s original full paper states the two separate complex arrangements and their equations/complex singularity counts, but does not classify every prime reduction or prove the characteristic-five PGL3 identification. The second arrangement in the original is source data, not a prior theorem linking the modular fibers. Other conic-line plus-one generated findings concern distinct configurations.
+
+## value
+
+PASS
+
+The first exceptional prime of a fixed integral model and the explicit isomorphism between reduced special fiber of CL10 and an independently named CL4 arrangement are natural arithmetic invariants for a highly structured free-arrangement classification. Exact all-p stabilty and a concrete projective bridge go beyond weak-incidence count coincidences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

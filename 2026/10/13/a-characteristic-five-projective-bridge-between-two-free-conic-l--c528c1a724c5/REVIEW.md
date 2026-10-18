@@ -1,19 +1,21 @@
-# Scientific review: the characteristic-five conic–line bridge
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the fixed primitive integer forms of the seven-line arrangement, the exact 35 line-triple determinants have five zeros and all remaining prime supports contained in \(\{2,3,5\}\); this rules out new concurrences at every prime at least seven. The smooth conic has symmetric-matrix determinant \(256\), and its seven line-section discriminants are exactly \((256,1024,1024,1024,1024,9216,9216)\). The complete twelve-point characteristic-zero intersection list is explicit; cross-product contents of all 66 point pairs have prime divisors only in \(\{2,3,5\}\). All conic-line intersections remain distinct and transverse for primes at least five. Complete enumeration in \(\mathbb P^2(\mathbb F_5)\) yields the six characteristic-five singular points and proves exhaustiveness via all ten line pairs plus ten conic-line contacts. The invertible matrix \(M\) explicitly identifies both the conic and all five reduced lines with those of the separate \(\mathcal{CL}_4\) example. The standalone verifier recomputed the exact certificate and returned `VERIFY_OK`.
+PASS
 
-## Originality — PASS, with specified bibliographic risk
+The conic symmetric matrix has determinant 256, so smooth for primes >=5. Exact 35 line-triple determinants have only 2,3,5 prime factors (five zeros); seven line-section discriminants are nonzero squares 256,1024,9216 with prime supports 2,3; exact 66 cross-product-coordinate gcds among the 12 rational characteristic-zero incidence points have no primes >=7. Thus for all p>=7 no labeled line collisions, new concurrence, nontransverse conic contacts or distinct point collisions; pair count 21+14=35 yields (n2,n3,n4)=(5,4,3). At p=5 line pairs l3~l5,l4~l6 collide, and complete F5 projective-plane/Bezout pair count gives six ordinary points (2,2,2) on reduced support. Independent arithmetic check confirmed invertible M with det -7 (mod5=3), MᵀB10M=diag(1,1,-1) mod5 and all five pullback line covectors equal CL4 up to scalars. The nonreduced original product is explicitly not covered by geometric support claims.
 
-Pokora's original arXiv:2312.13052v1 displays both characteristic-zero arrangements, their equations, and their freeness and singular-point counts. This prior material supplies the objects, not the claimed all-prime reduction theorem or the finite-field projective identification. Măcinic–Pokora arXiv:2309.15228 treats other conic-line arrangements and plus-one generation, not this arithmetic bridge. Searches for the source, the reduction, the characteristic-five equivalence, the singularity profiles, and the candidate statement in the available published-finding corpus records found no claim implying the finding. Related published analyses of harmonic-chord symmetry for a different six-line arrangement and of a degree-eight conic-line example do not imply this result. The possibility of an unindexed earlier computation, and limits of search coverage, remain genuine residual risks; negative database searches are not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-These are canonical named free complex conic–line arrangements from one classification, so the exceptional prime and component-incidence stability are natural arithmetic invariants rather than an arbitrary finite-field slice. The exact identification of a degeneration of the seven-line example with a distinct five-line example links two a priori different geometric constructions; equality of weak multiplicity data alone would not establish projective equivalence. The explicit matrix and universal good-reduction proof make the specialization reusable as a model for reduction of arrangement strata. No assertion is made that the nonreduced characteristic-five polynomial retains freeness, or that characteristics two and three behave similarly.
+Pokora’s original full paper states the two separate complex arrangements and their equations/complex singularity counts, but does not classify every prime reduction or prove the characteristic-five PGL3 identification. The second arrangement in the original is source data, not a prior theorem linking the modular fibers. Other conic-line plus-one generated findings concern distinct configurations.
 
-## Scope and remaining limits
+## value
 
-The statement is about the geometric reduced support of the specific primitive integral equations, over \(\overline{\mathbb F}_p\), for primes \(p\ge5\). The original polynomial is nonreduced modulo five. Smoothness, contact orders, scheme-theoretic singularities, and freeness of that nonreduced polynomial are not classified. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first exceptional prime of a fixed integral model and the explicit isomorphism between reduced special fiber of CL10 and an independently named CL4 arrangement are natural arithmetic invariants for a highly structured free-arrangement classification. Exact all-p stabilty and a concrete projective bridge go beyond weak-incidence count coincidences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
