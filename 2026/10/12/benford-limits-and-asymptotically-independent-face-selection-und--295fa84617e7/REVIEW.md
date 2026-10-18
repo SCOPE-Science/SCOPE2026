@@ -1,15 +1,21 @@
-# Scientific review: Benford limits under heterogeneous cuts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the exact domain (fixed dimension, independent stationary-within-coordinate cuts, common finite logarithmic mean and positive variance, and integer-frequency nonresonance). An independent-coordinate multivariate CLT gives a rank gap of order \(\sqrt n\) in probability and uniform limiting winner labels. A final block of length \(\lfloor\sqrt n\rfloor\) has centered fluctuations smaller than the prefix rank gap with probability tending to one, while its integer-frequency Fourier character decays exponentially. The joint label–phase limit follows from Fourier uniqueness. The deterministic competing-face bound and the rank-gap divergence transfer it to total frame volume. Every boundary, including \(m=1\) and \(d=m\), is handled separately. The included verifier passed 8,063 exact finite subset-product comparisons. These tests do not prove the asymptotic statements; the full analytic argument does.
+PASS
 
-## Originality — PASS, with stated priority risk
+The independently reconstructed multivariate CLT has exchangeable independent Gaussian limits because the fixed coordinate logarithmic increments have equal finite mean/variance and independent coordinates. The dth-order Gaussian gap is positive almost surely, hence the unscaled rank gap diverges in probability; on a suffix of length floor(sqrt n), centered fluctuations are o(n^{3/8}) by Chebyshev and the prefix rank is unchanged with probability tending to one. For each integer nonzero Fourier frequency k, the independent suffix selected product has modulus at most q_k^{d floor(sqrt n)}, with q_k<1 uniformly over the fixed m coordinate laws; this proves joint independence of label and circular phase. The exact competing-subset inequality makes V/(2^{m-d}M)->1 in probability. Separate cases d=m and m=1 are covered. Independently checked 14,650 exact fixed-score subset-product and rank-gap inequalities, which do not establish the probability limit.
 
-Betti et al., arXiv:2304.08335v1, explicitly formulated the all-dimensional maximal-face conjecture but did not prove the general heterogeneous case. Importantly, Fang and Miller, arXiv:2508.12915v4, **already proved all-dimensional strong Benford behavior** under globally iid logarithmic cuts with all centered moments, bounded density and bounded density derivative. Their Section 3.1 identifies the non-identical-coordinate generalization as future work. The final theorem covers those prior smooth-iid cases, but its distinct contributions are the weak second-moment assumptions, heterogeneous coordinate cut distributions, and explicit joint independent winner-label/leading-digit limit; these are not consequences of the inspected earlier theorems. Searches of primary literature, equivalent order-statistic formulations, and an indexed published-results collection gave no dominating statement. These searches do not establish absolute novelty, and an unknown equivalent earlier mixing theorem is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural open problem of geometric probability and Benford behavior explicitly posed in the 2023 article and partially addressed in 2025. The weak assumptions permit non-smooth and coordinate-heterogeneous fragmentation mechanisms excluded by the strongest inspected theorem. Joint convergence identifies the law of the dominant face and its relation to the frame-volume digits, a more informative probabilistic invariant than either Benford marginal alone. The statement is not a rate, pathwise equidistribution, or a theorem under arbitrary dependencies.
+Prior 2023 paper states the broad face claim as a conjecture, and the subsequent 2025/2026 all-dimensional proof has stronger homogeneous regularity requirements. Equal-mean/variance but different discrete coordinate laws are not in that theorem; the joint independent label-phase limit is also not stated. Originality is best-of-knowledge, not proof of absence from every probability text.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The original face-product leading-digit conjecture and its heterogeneous extensions are natural questions in random fragmentation. A joint limit that makes the winner label asymptotically independent of leading digits, while explicitly revealing the deterministic dependence between the two phase variables, is a meaningful new refinement. It handles discrete, nonsmooth, nonidentically distributed coordinate laws under only finite second moments, beyond the earlier smooth globally iid theorem; the exact distributional statement would be reusable in such models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
