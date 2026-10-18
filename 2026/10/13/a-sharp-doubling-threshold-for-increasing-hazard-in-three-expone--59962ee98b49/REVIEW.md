@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model is three independent exponential component lifetimes with strictly positive rates \(a,a,b\); the parallel lifetime is their maximum. The proof differentiates its exact survival function, derives an exact rational-exponential identity for the hazard curvature, and treats every allowed ratio. The logarithmic inequalities establish strict positivity on the entire infinite time domain when \(b/a\ge2\), while the leading asymptotic term proves strict eventual negativity for \(0<b/a<2\) except at equality. The homogeneous case factors positively. The standalone verifier reproduces the independent differentiation identity and rational diagnostics. A finite computation is not used as a substitute for an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risks
-The primary 2021 reference develops stochastic hazard-rate comparisons for parallel systems with starting devices and a proportional reversed-hazard model, not the absolute IFR property of the specified three-exponential maximum. Yaming Yu (2016) compares hazard rates of heterogeneous and homogeneous order statistics; such an ordering neither establishes nor refutes hazard monotonicity of the heterogeneous statistic. Kochar and Xu (2009) study a convex-transform comparison, likewise not this classification. Joo and Mi (2010) examine two-component exponential-system hazard comparisons, but their full text was not available for verification here. Searches of public titles and statements and mathematical research records identified no covering sharp factor-two theorem; non-detection alone is not evidence of uniqueness. Residual risk: an equivalent criterion or a strong unpublished/older theorem may exist.
+PASS
 
-## Value — PASS
-It supplies a complete sharp phase diagram for the smallest parallel exponential system in which two identical slow components compete with a potentially faster third. The threshold answers when system aging can remain globally monotone, rather than merely comparing two different reliability distributions. The nonmonotone dependence on component heterogeneity (IFR at equality, failure immediately off equality on one side, and re-entry at a factor two) is substantive for reliability modeling and cannot be inferred from the standard homogeneous IFR preservation statement. No claim is made about arbitrary three distinct rates.
+For pinned RESULT.md, let r=b/a,x=exp(−at), S=2x−x²+x^r(1−x)². Independently expanded S derivatives to confirm exactly D=(S prime)^2−S S second = x[2x²+x^r B_r(x)+2x^(2r)(1−x)²] for positive real r. If 0<r<2,r!=1 then D/x^(r+1) tends to −2(r−1)², so the hazard eventually decreases. At r=1 D=3x³(3−x)(1−x)>0, and for r=2 independent factorization D=2x^4(1−x)(8−x−x²)>0. For all r=2+u,u>=0, source exponential lower bound e^(us)>=1+us+(us)^2/2 and elementary log bounds show 2e^(us)+B_r(x)>0 coefficientwise; this analytic step controls the infinite continuum. Finite packaged verifier checks rational polynomial curvature identities and does not substitute for proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sharp internal aging characterization IFR iff b=a or b>=2a for the maximum of three independent exponentials with two equal rates is different from the extensive literature ordering the hazards of TWO systems. Yu 2016 and the 2021 primary parallel-system paper compare across parameter vectors rather than h_T prime(t) within one law. Kochar–Xu convex transform work acknowledges non-IFR heterogeneous maxima but does not identify this doubling iff in inspected material. Older two-component articles not fully read remain priority risks.
+
+## value
+
+PASS
+
+A complete, sharp and counterintuitive hazard-shape classification of the natural 3-component parallel reliability system with two equal exponential rates: slight asymmetry destroys IFR while doubling the third rate restores it. A precise model-validation threshold for monotone aging assumptions, beyond a routine parameter substitution or isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
