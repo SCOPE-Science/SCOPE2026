@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central lemma gives a unique invariant submodule with each divisor characteristic polynomial in the cyclic \(\mathbb F_q[t]\)-module. Since a prescribed upper-triangular diagonal word specifies the characteristic polynomials on all prefixes, every unrestricted similarity between two cyclic matrices with the same word preserves the standard flag. Centralizers are units of \(\mathbb F_q[t]/(f)\), and orbit-stabilizer yields the claimed exact count. Stirling counting and its EGF give the total and asymptotic. Direct exhaustive enumeration by an independent powers-rank test supports the algebraic proof in the stated small fields/dimensions. All field/size boundaries, including \(n=1\) and \(q=2\), are covered.
+## correctness
 
-## Originality — PASS, qualified
-The complete regular-nilpotent slice is **not new**: its one-orbit property is present in Fresse's 2013 work, and its finite-field count appears explicitly in Yip's 2013 paper. Brown–Praeger–Giudici's 2011 primary paper treats cyclic matrices preserving a single subspace, not simultaneously a full ordered flag. The combined mixed-eigenvalue fixed-diagonal orbit formula, multiplicity enumeration and sharp density asymptotic were not identified in inspected primary works or targeted source searches. Historical equivalent formulations cannot be excluded; Neumann–Praeger's 1995 full text remained unavailable for material inspection.
+PASS
 
-## Value — PASS
-A full upper-triangular algebra is a canonical finite-dimensional algebra and its unit group is a natural Borel subgroup. The result gives all cyclic conjugacy strata and their sizes in every dimension, a coefficient-wise generating function and a sharp asymptotic: cyclicity becomes exponentially rare in this complete-flag algebra, unlike the much larger single-subspace stabilizer algebras previously quantified. These are natural structural and probabilistic invariants; the result is not based only on finite enumeration.
+PASS: Each cyclic matrix realizes the F_q[t]/(f) cyclic module. Every invariant submodule of such a module is uniquely indexed by a monic divisor; the characteristic polynomial on a prefix of a complete invariant flag uniquely specifies the submodule. Thus any similarity between two matrices with equal ordered diagonal must preserve all flag prefixes and is upper triangular. Every diagonal word has a cyclic representative by linking positions of each repeated eigenvalue into one Jordan chain. The full centralizer is F_q[A], whose invertible unit group has q^(n-k)(q-1)^k elements and, since A is triangular, lies in the Borel group. Orbit-stabilizer proves the formula, Stirling partitions count words by k, and binomial EGF/term j=q gives asymptotic (q/(q-1))^q((q-1)/q)^n. Independent direct matrix-power-rank enumeration verified every fixed diagonal word for q=2,n=3 (28 cyclic matrices), q=2,n=4 (240), q=3,n=3 (522). These exhaustive bounded values corroborate only the general algebraic proof.
 
-## Limits
-Noncyclic orbit classes and arbitrary Jordan-type fibers remain outside the theorem. The named nilpotent special case is credited to prior literature. The arbitrary-dimension claim rests on the symbolic proof. No claim of independent validation or exhaustive historical novelty is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The nilpotent regular-one-Jordan-block special case and its orbit size were published by Yip/Fresse, and unrestricted cyclic matrix counts are classical. Brown–Praeger–Giudici treat the parabolic algebra preserving one subspace, with a similar unique cyclic submodule lemma, not the complete-flag ordered diagonal orbit decomposition. Inspected full primary Brown result and exact logical hypotheses; no prior statement of the mixed-diagonal all-q Stirling density was found. Historical 1995/1999 texts not fully available remain a residual risk.
+
+## value
+
+PASS
+
+PASS: A complete flag-preserving matrix algebra is a canonical finite-dimensional algebra distinct from the full and maximal-parabolic matrix spaces. Exact Borel-conjugacy classes for all cyclic matrices, stabilizer orders, a Stirling distribution and exponential density supply natural representation and finite-field matrix-invariant data beyond the classical one-Jordan-block case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
