@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds all \(169\) tetrahedra and uses only the Python standard library.
+# Independent mathematical audit
 
-After contracting a spanning tree, the graph-cycle lattice has rank \(170\). A deterministic \(170\times170\) facial-relation minor has determinant
-\[
--125,
-\]
-while the full relation matrix has rank \(167\) modulo \(5\). These two facts force
-\[
-H_1(K;\mathbb Z)\cong(\mathbb Z/5)^3.
-\]
+## correctness
 
-The verifier constructs a basis of the mod-\(5\) cocycle space and uses it as exact coordinates on the proved quotient. Exhaustion yields \(984\) graph triangles, \(338\) facial triangles, and \(646\) nonfacial triangles. Every nonfacial triangle has nonzero coordinates.
+PASS
 
-The \(646\) coordinates meet all \(31\) one-dimensional subspaces of \(\mathbf F_5^3\). Up to orientation, they represent \(40\) of the \(62\) nonzero inverse-pair classes. Nine projective directions contain both inverse-pair types and twenty-two contain one.
+From all 169 frozen tetrahedra independently reconstructed f=(21,190,338,169) and 170-dimensional graph-cycle lattice. Computed a full-rank 170×170 facial-relation minor with exact determinant −125; full mod-5 rank 167 forces H1=(Z/5)^3. Computed annihilating mod-5 cocycles on all graph triangles: 984 cliques, 338 faces, 646 nonfaces, all nonfaces nonzero. Every one of the 31 lines of PG(2,5) occurs; 40/62 unoriented ±-classes occur, with 9 lines carrying both and 22 only one. Independently checked explicit order-three permutation preserves the facet set and induced action on homology classes, one fixed projective direction with 16 carriers, ten three-cycles with per-line totals 2,7,8,19,21,25,26,28,35,39.
 
-The explicit order-three vertex permutation is checked against the full facet set. Its induced homology map is reconstructed from the cocycle coordinates and verified on every graph triangle. On projective directions it has one fixed point and ten three-cycles. The fixed direction has \(16\) carriers, and the ten three-cycles have per-direction carrier totals
-\[
-2,\ 7,\ 8,\ 19,\ 21,\ 25,\ 26,\ 28,\ 35,\ 39.
-\]
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=21,190,338,169 H1_Z=Z5^3 graph_triangles=984 facial3=338 empty3=646 all_empty3_nonzero=yes projective_directions=31 all_directions_hit=yes unoriented_class_pairs_hit=40of62 direction_pair_profile=double9+single22 order3_symmetry=yes projective_orbits=1+10x3 fixed_direction_carriers=16 triple_direction_totals=2,7,8,19,21,25,26,28,35,39 maximal_minor_det=-125 rank_mod5=167`
+Published Lutz–Sulanke–Swartz data identify Weber–Seifert as H1=(Z/5)^3 and give the f-vector and input facets. Burton–Rubinstein–Tillmann treat non-Haken normal surface geometry using a different 23-tetrahedron singular triangulation. Neither ambient homology nor that theorem implies all 31 projective directions are realized by minimum 3-cycles, the incomplete 40-of-62 element pairs, or carrier orbits of a concrete order-three symmetry. No exact prior data on this shell inspected; Resultary unsuccessful.
+
+## value
+
+PASS
+
+Projective directions PG(2,5) form a canonical finite geometry attached to H1 of a notable hyperbolic three-manifold. Showing full direction coverage but selective element-pair coverage among absolute shortest simple cycles, plus an induced order-three orbit partition with unequal carrier weights, is a nontrivial natural combinatorial-topological invariant for this specific triangulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
