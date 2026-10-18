@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The channel and projected effective Hamiltonian are explicitly defined. The rank-one update of the tridiagonal Gram matrix proves the end-site flat-band projector entries for all \(N\ge2\), while the exact two-dimensional endpoint Gramian proves the amplitude bound. Irrational-frequency density establishes generic sharpness, not strict equality at exceptional rational ratios. A standalone direct-matrix checker reports 2,818 successful comparisons with worst discrepancy approximately \(7.59\times10^{-15}\). These finite checks corroborate the symbolic proof.
+
+**Originality — PASS, subject to independent priority review.** Almeida et al. (arXiv:2307.15360) give the general flat-band two-hub effective star transfer formula and study random coupling disorder; that ingredient is not claimed as new. The additional claim is the exact, single microscopic bond-pair defect projector calculation and its discontinuous length-dependent transfer/timing law, not a generic star-network identity. Full texts of Flach et al. (arXiv:1311.5689) and Gligorić et al. (arXiv:1909.07055) were compared for stronger coverage. Searches of published research records recovered only related but non-dominating quantum-transfer or flat-band results. A more general published Green-function identity remains a residual priority risk.
+
+**Value — PASS.** The work resolves a concrete fabrication/transport issue left quantitative and disorder-statistical in the source model: an arbitrarily small *isolated* symmetry-breaking hopping defect activates a projected flat-band communication route, but generic high-fidelity transmission across \(N\) cells demands an \(O(1/N)\) defect window and incurs an \(\Omega(N/g)\) slow-beat time. The discontinuity at exactly zero defect and exact Gramian constitute useful structural information rather than mere parameter substitution.
+
+**Limitations.** The claim is exact for the zero-mode-projected resonant Hamiltonian. It supplies no uniform-in-time finite-coupling error for the full channel. The countable rational frequency-ratio exceptions are not classified by best achievable transfer probability. Published-priority and correctness assessments are not independent.
+
+Self-review: passed. Independent audit: not yet performed.
