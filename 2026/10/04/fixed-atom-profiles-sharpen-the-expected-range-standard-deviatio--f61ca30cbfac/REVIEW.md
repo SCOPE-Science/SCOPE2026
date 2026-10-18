@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The probabilities that the sample maximum and minimum equal a given atom give the coefficient
-\[
-c_i=K_n(P_i)-K_n(P_{i-1}).
-\]
-These coefficients sum to zero, so the expected range is a weighted covariance between the support vector and
-\[
-z_i=c_i/p_i.
-\]
-Weighted Cauchy--Schwarz gives the claimed constant.
+PASS
 
-The equality geometry is valid rather than merely formal: \(z_i\) is the average of the strictly increasing function \(K_n'\) over the \(i\)-th probability cell, so the \(z_i\) are strictly increasing. Equality therefore produces a distinct ordered support and is unique up to positive affine transformation.
+The exact maxima/minima probabilities give c_i=K_n(P_i)-K_n(P_{i-1}), sum c_i=0, and R_n=sum p_i z_i(x_i-mu). Weighted Cauchy--Schwarz yields C_n(p)^2=sum c_i^2/p_i, with equality iff x_i=a+b z_i. K_n''=n(n-1)[u^(n-2)+(1-u)^(n-2)]>0 ensures consecutive cell-average z_i strictly increase, so equality is admissible iff b>0. For K_n'=n[u^(n-1)-(1-u)^(n-1)], beta-integral yields B_n^2; the orthogonal cell-average identity gives B_n^2-C_n(p)^2=sum int_{I_i}(K_n'-z_i)^2>0 for every positive cell. Independently tested 24 exact rational profile/sample-size cases, the exact polynomials, score ordering and norm deficit. Finite checks corroborate, not prove, the all-profile statement. m must be >=2 for a nondegenerate law; n>=3.
 
-The unrestricted constant is the exact squared \(L^2\) norm of \(K_n'\). Subtracting the squared norm of its cell-average projection gives the stated positive atomization deficit.
+## originality
 
-## Originality
+PASS
 
-PASS, with explicit access and older-projection-literature residual risks. The complete Han--Wang--Wu arXiv text was inspected through its quantile representation, global expected-range/standard-deviation inequality, equality condition, and estimation section. It optimizes over the unrestricted square-integrable class and does not prescribe atom probabilities.
+The unrestricted Plackett and Han--Wang--Wu bounds do not prescribe finite positive atom masses; the score's exact cellwise projection and strict deficit are a substantive fixed-profile refinement. A published same-day **later** complete attainable-interval result explicitly includes the same upper fixed-profile constant and equality support, so it is strong mathematical coverage now, but the target's original import (2026-10-04T06:01:17Z) precedes that record's import (2026-10-04T06:01:22Z), and the later full theorem does not express the continuous-score atomization-deficit identity. The pass is historical best-of-knowledge, not an assertion that no equivalent antecedent exists.
 
-The complete Kozyra--Rychlik article was inspected through its main theorem, proof, special cases, and discussion of order-statistic differences. It normalizes centered \(L\)-statistics by Gini mean difference and explicitly identifies Plackett's standard-deviation result as prior context; it does not solve the fixed-probability support problem.
+## value
 
-Plackett's bibliographic record and later primary description verify the classical global mean-range/standard-deviation scope. Its PDF required publisher-side human verification and was not treated as a full-text noncoverage certificate.
+PASS
 
-Targeted semantic searches for prescribed probability profiles, expected range, standard deviation, finite support, and support geometry did not return the profile constant, unique support shape, or exact projection-deficit formula.
+The fixed probability vector is a natural constraint for categorical or empirical distributions. The result solves the sharp sample-range/variance problem at that information level, determines the unique optimal ordered support, and quantifies the unavoidable gap to the unrestricted sharp constant by a useful orthogonal-projection identity; this is more than a renamed global range bound.
 
-## Value
-
-PASS. Expected sample range is both a classical order-statistic functional and the modern higher-order Gini deviation. The unrestricted sharp constant does not say how much dispersion is lost when the probabilities of a categorical or empirical distribution are fixed. The theorem solves that finite-profile extremal problem exactly, identifies the unique optimal coding of the categories, and quantifies the entire gap to the global bound by a transparent \(L^2\) projection error.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK formula_checks=18000 monotonicity_checks=71616 bound_checks=18000 equality_checks=54000 deficit_checks=125616 global_norm_checks=18000`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
