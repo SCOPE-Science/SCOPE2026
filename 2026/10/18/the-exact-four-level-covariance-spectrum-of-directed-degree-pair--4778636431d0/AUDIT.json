@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Every off-diagonal vertex pair shares exactly the two oppositely oriented arcs; conditional on them the four remaining binomial arc counts are independent. Centering the conditional cell probability gives two degree-derivative terms and one bilinear interaction, whose orthogonality yields the exact covariance decomposition. Elementary binomial-score identities give four pairwise orthogonal eigendirections, two zeros, a sharp 2n mode, a n²/(n−1) interaction mode, and n on their orthogonal complement. Boundary n=2, all 0<p<1, rank and multiplicities checked. Standalone exact rational enumeration exhausts n=2,3,4 (12,492 probability-weighted digraph configurations across three probabilities) and every covariance matrix entry, but the general theorem rests on the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.1 of arXiv:2006.15797 gives asymptotic fixed-edge-count labeled degree sequence probabilities in regularity ranges; arXiv:0912.4812 provides exact covariance for undirected single-degree count vectors."
+      ],
+      "reasoning": "A general asymptotic joint degree-sequence approximation does not determine all finite n,p moments or eigenvalues, especially non-typical histogram cells; the undirected single-degree model couples a different edge set and has no reverse-arc interaction. The directed-component scaling theorem addresses connectivity rather than covariance. There is no observed stronger exact theorem covering the full claim.",
+      "searches": [
+        "arXiv:2006.15797 §§1-3 and proof",
+        "arXiv:0912.4812 §3",
+        "arXiv:2303.05138 §§2-4",
+        "arXiv:1905.05397 §§1,2,5 and contents"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1905.05397v3",
+      "https://arxiv.org/abs/2006.15797",
+      "https://arxiv.org/abs/0912.4812",
+      "https://arxiv.org/abs/2303.05138",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/rsa.21105"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Undirected degree-count work yields covariance mechanisms for one degree per vertex; Liebenau–Wormald approximates labeled in-/out-degree sequence distributions with fixed total edges, whereas the present identity is exact for random total edges; Goldschmidt–Stephenson concerns strongly connected components."
+      ],
+      "reasoning": "Specializing a prior theorem to this object/parameter set would be decisive, but the inspected closest results have different models/statistics or nonexact asymptotics. The new diagonalization requires two oriented shared arcs and the bilinear interaction direction. It cannot be obtained merely by substituting directed labels into the undirected rank-one covariance formula.",
+      "searches": [
+        "arXiv:0912.4812 degree count covariance matrix",
+        "arXiv:2006.15797 digraph degree sequence theorem",
+        "arXiv:2303.05138 degree covariance",
+        "arXiv:1905.05397 strongly connected components theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liebenau–Wormald (arXiv:2006.15797) studies a labeled in-/out-degree sequence under fixed edge count using asymptotic enumeration; Lin–Reinert (arXiv:0912.4812) studies univariate undirected degree-cell counts."
+      ],
+      "reasoning": "Checked permutations of the in/out labels, graph-vs-bipartite adjacency-matrix representation, Pearson variance normalization and the fixed-sum constraint. Neither source supplies the stated unconditional finite-n n²-cell covariance and three nonzero eigenvalue levels. An unrecognized implicit equivalent remains a priority risk.",
+      "searches": [
+        "directed random graph joint in and out degree distribution covariance matrix empirical counts fluctuations",
+        "finite directed Erdos Renyi in-degree out-degree bidegree histogram covariance exact Pearson eigenvalues distribution frequencies",
+        "arXiv:2006.15797 §§1-3",
+        "arXiv:0912.4812 §§1,3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature searches and inspected paper sections have not exhibited any published table or spectral formula for the n²-dimensional directed bidegree-count covariance."
+      ],
+      "reasoning": "The claim varies with arbitrary n and p and is not a particular numerical table. Search absence alone is not a proof of novelty, but neither a finite database nor an equivalent all-n spectral theorem was identified.",
+      "searches": [
+        "finite directed Erdos Renyi in-degree out-degree bidegree histogram covariance exact Pearson eigenvalues distribution frequencies",
+        "joint bidegree frequencies counts covariance matrix in out random digraph",
+        "arXiv:2006.15797 find degree counts / histogram",
+        "arXiv:0912.4812 find directed"
+      ]
+    },
+    "rationale": "Under actual retrieved history, targeted result searches and relevant full-text inspections, none of the closest items determines the exact unconditional finite-n Pearson spectrum of the complete directed bidegree histogram. Unlike Lin–Reinert’s exact undirected one-degree count covariance, reverse directed arcs yield a signed rank-two correction plus a bilinear interaction. Liebenau–Wormald’s wider labeled in/out-degree-sequence result is asymptotic and conditioned on edge count, and does not imply the exact unrestricted claim. Earlier general identities may implicitly encode the same result; novelty remains self-review, not independently confirmed.",
+    "residual_risks": [
+      "Exact finite covariance matrix may be derivable in an unlocated general degree-sequence or contingency-table moment theorem.",
+      "An equivalent closed spectral form might appear under chi-square/categorical null-test terminology.",
+      "One publisher full page intermittently timed out; open-access arXiv full text of the same Liebenau–Wormald paper was inspected instead."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected aims and results concern connectivity-component scaling, not degree-pair frequency covariances.",
+        "evidence": [
+          "Model: n(n−1) independently present directed edges; main result a scaling limit of strongly connected components, arXiv:1905.05397 §§1,5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.05397v3",
+        "material_read": "Full-text HTML table of contents, abstract, Introduction (model and Theorems 1.1–1.3), sections describing component-focused exploration and proofs; targeted whole-text search for covariance and degree sequence",
+        "method": "Open-access full-text HTML and targeted text searches",
+        "title": "The scaling limit of a critical random directed graph",
+        "trigger": "Exactly matching independent-arc loopless directed Erdős–Rényi probability space, first version 2019-05-14"
+      },
+      {
+        "assessment": "Asymptotic probabilities for labeled in/out-degree sequences with fixed edge number, not finite-n joint count-histogram covariance or Pearson eigenspaces.",
+        "evidence": [
+          "arXiv:2006.15797 Introduction, Theorem 1.1, Lemma 2.9 and section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.15797",
+        "material_read": "Full open-access HTML sections 1.1 and 2, Theorem 1.1 assumptions, degree-sequence probability model, Lemma 2.9 covariance passages and proof sections; whole-document searches for degree counts, joint degree and histogram",
+        "method": "Open-access HTML with precise theorem and searched terms",
+        "title": "Asymptotic enumeration of digraphs and bipartite graphs by degree sequence",
+        "trigger": "Closest directed-model full joint in/out-degree sequence theory"
+      },
+      {
+        "assessment": "Undirected single-degree counts and a single shared undirected edge; different statistic and edge dependence, does not directly imply oriented degree-pair modes.",
+        "evidence": [
+          "arXiv:0912.4812 Introduction, §§2–3, Remark 3.4; no directed model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0912.4812",
+        "material_read": "Full HTML Intro, sections 2 and 3.1 exact covariance construction, Remark 3.4 homogeneous case; text search for directed model",
+        "method": "Open-access full text with targeted covariance formula comparison",
+        "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+        "trigger": "Strong historical antecedent on exact covariance of dependent degree-count vectors"
+      },
+      {
+        "assessment": "Undirected degree vector and simulations; no directed degree-pair histogram covariance matrix.",
+        "evidence": [
+          "arXiv:2303.05138 §§2–4, pairwise degree covariance p(1−p)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.05138",
+        "material_read": "Full HTML abstract, introduction, goodness-of-fit discussion §2, labeled-degree covariance calculation §3, multivariate normal formulation §4; text search for in-degree",
+        "method": "Open-access full text",
+        "title": "The joint node degree distribution in the Erdős–Rényi network",
+        "trigger": "Published motivation for degree-dependence calibration and goodness-of-fit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47786364-31d0-4e90-b5c7-a50759a51eee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full bidegree histograms are canonical sufficient descriptive data for directed network null models. Their n²-dimensional dependence geometry is not captured by marginal binomial laws: normalization and arc conservation yield exactly two null modes, while symmetric degree and in×out interaction obtain distinct variance inflation; all residual directions have exactly multinomial covariance. A universal, sharp factor-two bound quantifies errors from treating vertices as independent across any linear histogram statistic. This is a structural finite-sample classification, not merely a small numerical refinement. It informs variance modeling without asserting an unproved chi-square or Gaussian limit.",
+    "status": "PASS"
+  }
+}
