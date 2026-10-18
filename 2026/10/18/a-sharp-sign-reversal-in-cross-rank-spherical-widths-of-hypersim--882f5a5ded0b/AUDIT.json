@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each rank, support maximization over zero-one indicators gives exactly the upper-minus-lower Gaussian order-statistic sum divided by an independent chi radius. DKW control of the empirical quantiles gives an \\(o_{L^2}(\\sqrt n)\\) symmetric trimmed-sum linearization for any fixed positive rank fraction. Joint Gaussian CLT plus the exact radial expansion produces the covariance kernel. The actual covariance limits follow from the exact independence identity for Gaussian radius and directional widths, rather than weak convergence alone. Gaussian integration verifies the mixed moments and the normalization correction. The derivative of the half-rank covariance has one positive zero by a two-root quadratic derivative analysis, proving a single covariance zero. The packaged reproducible checker verifies finite identities, six mixed Gaussian moments, the bracketed threshold and simulated signs, without using finite data as proof of infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1511.08479, Sections 3 and 6: established Gaussian-to-spherical width techniques and the normalization CLT for cube, regular simplex and crosspolytope; Remark 6.1 explicitly acknowledges generic studentized-sum theory.",
+        "arXiv:2010.10227, Sections 3 and 4: matroid-polytope basis exchange and reconstruction, no cross-rank directional-width distribution theorem located in its full text."
+      ],
+      "reasoning": "The cited 2015 Gaussian-width paper proves an overlapping *method*, not the stated hypersimplex kernel or threshold. An arbitrary multivariate self-normalized L-statistic theorem could yield asymptotic normality once the influence functions are supplied, but a general limit theorem does not itself establish the exact Gaussian-tail kernel or a unique sign change; those are separately proved here. The possibility that an earlier specialized theorem subsumes them remains a stated risk.",
+      "searches": [
+        "hypersimplex random directional width distribution central limit theorem mean variance Gaussian order statistics",
+        "hypersimplex mean width variance and skewness proportional rank trimmed sums",
+        "Uniform matroid base polytope angular width profile empirical trimmed sum Brownian bridge covariance process sphere self-normalization",
+        "cross rank correlations L-statistics self normalized normal order statistics negative correlation Gaussian"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2010.10227",
+      "https://arxiv.org/abs/1511.08479",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90 (random simplex-section face counts, not width)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-gaussian-fluctuations-of-the-intrinsic-volume-index-of-a-s--fe945a5ea473 (simplex tangent-cone intrinsic volumes, not rank-width)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-uniform-matroid-independence-polytopes-have-two-exact-euclidean--7ec706524f8f (radii, not cross-rank widths)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-inradius-of-every-connected-matroid-base-polytope-is-a-fract--a58242d50e97 (inradius, not cross-rank widths)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2010.10227 (first publicly posted 2020-10-20), Section 4: the hypersimplex is a uniform matroid polytope and its facets/reconstruction are considered; its theorems do not give a joint width covariance.",
+        "arXiv:1511.08479 (2015), Sections 3 and 6: radial Gaussian normalization and asymptotic random widths for cube and other regular polytopes; the paper does not discuss hypersimplices by name and the inspected conclusions give no cross-rank sign threshold.",
+        "Direct calculations show the new signed covariance equals an always-nonnegative Gaussian trimmed-sum covariance minus the explicit positive spherical-normalization correction. Its unique zero is obtained by a new Gaussian-tail derivative argument."
+      ],
+      "reasoning": "The geometric object is prior work and Gaussian normalization plus the central limit theorem are prior tools. Neither the primary combinatorial reconstruction results nor the Gaussian-width results imply the explicit two-parameter kernel and its analytically unique sign transition without additional evaluation and argument. The statement-level overlap check therefore isolates the claimed new contribution rather than reclaiming established methods.",
+      "searches": [
+        "arXiv:2010.10227",
+        "arXiv:1511.08479",
+        "Hypersimplex widths at two different ranks in same uniform spherical direction become negatively correlated for rank below 0.208 of dimension and half rank, while asymptotically joint Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2010.10227, Section 4: a rank-k hypersimplex is the uniform-matroid base polytope; its complement has the same directional width at rank n-k.",
+        "The rank-complement equivalence was explicitly incorporated by restricting rank fractions to at most one half.",
+        "The accessible earlier hypersimplex width and Minkowski-asymmetry findings concern minimum directional width or centers, not shared-direction covariances."
+      ],
+      "reasoning": "The same mathematical statement can be phrased as the joint limiting covariance of symmetrically trimmed Gaussian L-statistics divided by a common chi radius. Those formulations and the hypersimplex rank-complement symmetry were checked. The cited hypersimplex reconstructibility article treats combinatorial reconstruction; the nearby stored hypersimplex claims treat deterministic extremal geometry rather than random cross-rank fluctuations. No corresponding signed threshold was identified.",
+      "searches": [
+        "hypersimplex Gaussian directional width central limit theorem high dimensional proportional rank trimmed Gaussian order statistics random spherical direction",
+        "Hypersimplex widths at two different ranks in same uniform spherical direction become negatively correlated for rank below 0.208 of dimension and half rank, while asymptotically joint Gaussian",
+        "Gaussian normal rank order statistic hypersimplex cross-rank spherical-width covariance changes sign threshold 0.208",
+        "Uniform matroid base polytope angular width profile empirical trimmed sum Brownian bridge covariance process sphere self-normalization",
+        "hypersimplex joint widths ranks covariance Gaussian trimmed sum negative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The geometric record on uniform-matroid independence polytopes gives Euclidean radius transitions, not rank-width covariances (identifier 2026/10/11/SCOPE-uniform-matroid-independence-polytopes-have-two-exact-euclidean--7ec706524f8f).",
+        "The record on matroid-base-polytope inradius treats fractional rank partition, not Gaussian directional width (identifier 2026/10/11/SCOPE-the-inradius-of-every-connected-matroid-base-polytope-is-a-fract--a58242d50e97)."
+      ],
+      "reasoning": "Searches using the numerical threshold, cross-rank geometry, Gaussian ordering, and both rank fractions returned no exact known coefficient table or matching claimed transition among inspected results. This is negative search evidence only and is not treated as an exhaustive catalogue.",
+      "searches": [
+        "Sharp negative correlation threshold 0.207998 between proportional rank hypersimplex spherical widths under one shared Haar direction with Gaussian L-statistic kernel",
+        "uniform matroid hypersimplex cross-rank random spherical mean width covariance opposite sign for rank 0.2 versus rank one half",
+        "hypersimplex mean width covariance random direction Gaussian order statistics central limit rank"
+      ]
+    },
+    "rationale": "The explicit proportional-rank cross-width covariance kernel and its unique negative-to-positive transition were compared against full available primary articles on uniform-matroid hypersimplices and Gaussian regular-polytope widths, published mathematical abstracts, semantic mathematical-record searches, and accessible previous related claims. Prior sources cover the object, width normalizations and general asymptotic methods but no located result proves the precise rank-covariance sign threshold. This supports a qualified originality assessment, not proof of historical uniqueness.",
+    "residual_risks": [
+      "Unlocated general theory for jointly studentized or self-normalized Gaussian L-statistics might contain a specialized explicit covariance or sign result under different terminology.",
+      "Semantic searches and selected primary-source inspections cannot establish exhaustive bibliographic uniqueness.",
+      "The new proof is not independently mathematically validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_ONLY: identifies and analyzes hypersimplex combinatorics and reconstruction, not the proposed cross-rank spherical covariance and sign-transition statement.",
+        "evidence": [
+          "Posted 2020-10-20, 2020 MSC primary 52B11; Section 4 identifies the uniform-matroid base polytope with the hypersimplex and states reconstruction results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.10227",
+        "material_read": "Accessible public full text, including abstract, Section 3 basis-exchange graphs, Section 4 hypersimplex examples and reconstruction results, and the listed MSC and posted date.",
+        "method": "Read arXiv public full-text rendering and compared theorem statements and implications to joint random directional-width covariance.",
+        "title": "Reconstructibility of matroid polytopes",
+        "trigger": "Direct source of the uniform-matroid hypersimplex, verified primary geometry MSC and eligible earliest public date"
+      },
+      {
+        "assessment": "METHOD_OVERLAP_NOT_CLAIM_COVERAGE: radial normalization and Gaussian width central limit methodology are established; the published treated geometries are not proportional-rank hypersimplex pairs, and the explicit cross-rank sign transition was not found.",
+        "evidence": [
+          "Remark 6.1 records established studentized-sum theory; a text search for hypersimplex found no use; Sections 3 and 6 prove regular-polytope width limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+        "material_read": "Accessible public full text, including Sections 2 and 3 and the proofs of random-width limit theorems in Section 6 and Remark 6.1.",
+        "method": "Read arXiv public full-text rendering and checked the stated cube/simplex/crosspolytope limit theorems, Gaussian radial-normalization argument, and possible hypersimplex claims.",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "Potential stronger source for Gaussian directional-width laws and chi-normalization asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "882f5a5d-ed0b-44cd-8e67-edcfabf8d5b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rank-indexed hypersimplices are natural uniform-matroid polytopes in one canonical Euclidean space; jointly measuring their directional widths reveals dependence between two geometric scales of the same direction. The exact kernel isolates a negative dependence induced by unit-sphere normalization, reversing the nonnegative leading covariance of corresponding raw Gaussian trimmed sums. A unique explicitly located rank threshold separates both signs. This is a structural, experimentally testable geometric distinction across an infinite family rather than a cosmetic rewrite of a standard mean-width identity.",
+    "status": "PASS"
+  }
+}
