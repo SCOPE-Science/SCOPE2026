@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives necessary and sufficient neighborhood-hitting conditions for all vertex pairs in a direct complete-graph product. A four-edge matching satisfies the constraints; otherwise König's theorem forces a three-row or three-column vertex cover, and inclusion-minimality forces exactly two incident edges at each of the three support vertices with pairwise distinct neighbor pairs. The overlap is the six-cycle in a three-by-three bipartite subgraph. These steps prove the exact two-term enumerator and lower parameter for every factor order at least four. A standalone direct common-neighbor checker passed exhaustive small-board tests and larger predetermined samples. The finite tests corroborate, but do not replace, the proof.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Brešar and Yero (arXiv:2307.02951) introduced lower total mutual visibility, including maximality as distinct from maximum cardinality, but their relevant complete-graph product discussion is Cartesian. Cicerone, Di Stefano, Klavžar and Yero (arXiv:2401.02373, Theorem 2.2) proved the maximum total mutual-visible cardinality for direct products and gave one four-cell omitted configuration; that scalar theorem does not classify or count all inclusion-maximal sets, nor imply the lower cardinality. Searches for direct/tensor products, maximality, neighborhood transversals, and matching formulations found no dominating statement. An equivalent result in older minimum-hitting-set literature remains a risk; these searches do not constitute a uniqueness proof.
+PASS
 
-**Value — PASS.** A complete classification of all outcomes of greedy total-visibility selection in an unrestricted two-parameter family determines the lower number, the exactly two possible sizes, and their exact multiplicities. The six-omission configurations contribute a distinct mathematical phenomenon beyond the previously known optimum.
+Direct graph has diameter two. X total-visible iff omitted cells Y hit each same-row and same-column distance-two common-neighbor set, equivalent to at least three distinct opposite-side labels after deleting ANY specified row or column. If Y has a 4-matching, it is feasible; without one König matching-cover implies Y is entirely supported on exactly three rows or columns. Inclusion-minimality of feasible Y then forces degree two in each of these rows, and distinct pair-neighborhoods; transposed similarly. Intersection is exactly bipartite 6-cycles (six per fixed row/column triple). Counting 4-matchings yields 24*C(m,4)*C(n,4), six patterns produce C(m,3)*(b_n)_3+C(n,3)*(b_m)_3-6*C(m,3)*C(n,3). Independently checked direct common-neighbor masks and inclusion maximality for ALL subsets 3x3,3x4,4x4, finding 4x4 coefficients 864 size10 and 24 size12, matching formula. Infinite proof uses König, not finite enumeration.
 
-**Scientific limitations.** This applies to the tensor product with both factor orders at least four, not to Cartesian products or other visibility variants. It enumerates inclusion-maximal sets only, not all feasible sets. The results have received no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cicerone–Di Stefano–Klavžar–Yero Theorem 2.2 determines maximum total visibility mn−4 for m,n≥5 and supplies 4-cell diagonal complement, but not inclusion-maximal sets of smaller size or a counting polynomial. Brešar–Yero study lower total-visibility generally and other products. The 6-cell maximal-layer classification is mathematically distinct and not implied by an extremal maximum.
+
+## value
+
+PASS
+
+The inclusion-maximal-set polynomial classifies every irredundant total-visibility pattern in a natural infinite product-graph family, including the lower total-visibility number mn-6. Lower versus upper extremal cardinalities and exact counts are intrinsically useful combinatorial invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

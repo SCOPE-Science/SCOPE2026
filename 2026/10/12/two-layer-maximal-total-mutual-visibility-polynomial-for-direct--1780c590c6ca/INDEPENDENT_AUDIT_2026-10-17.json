@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:41:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/two-layer-maximal-total-mutual-visibility-polynomial-for-direct--1780c590c6ca/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/two-layer-maximal-total-mutual-visibility-polynomial-for-direct--1780c590c6ca/VERIFICATION.md"
+      ],
+      "rationale": "Direct graph has diameter two. X total-visible iff omitted cells Y hit each same-row and same-column distance-two common-neighbor set, equivalent to at least three distinct opposite-side labels after deleting ANY specified row or column. If Y has a 4-matching, it is feasible; without one König matching-cover implies Y is entirely supported on exactly three rows or columns. Inclusion-minimality of feasible Y then forces degree two in each of these rows, and distinct pair-neighborhoods; transposed similarly. Intersection is exactly bipartite 6-cycles (six per fixed row/column triple). Counting 4-matchings yields 24*C(m,4)*C(n,4), six patterns produce C(m,3)*(b_n)_3+C(n,3)*(b_m)_3-6*C(m,3)*C(n,3). Independently checked direct common-neighbor masks and inclusion maximality for ALL subsets 3x3,3x4,4x4, finding 4x4 coefficients 864 size10 and 24 size12, matching formula. Infinite proof uses König, not finite enumeration.",
+      "residual_risks": [
+        "The independent finite computations have only the stated bounded scope; the general assertions rely on the supplied proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 explicitly states μ_t(K_m×K_n)=mn−4 for m,n≥5. Its lower bound uses one fixed four-diagonal complement."
+        ],
+        "reasoning": "Theorem 2.2 bounds largest total-visible cardinality but does not constrain inclusion-maximal sets below that size. The six-cell family and lower invariant are additional information, not corollaries of the maximum.",
+        "searches": [
+          "https://arxiv.org/pdf/2401.02373",
+          "https://arxiv.org/pdf/2307.02951"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/two-layer-maximal-total-mutual-visibility-polynomial-for-direct--1780c590c6ca/RESULT.md",
+        "https://arxiv.org/pdf/2401.02373",
+        "https://arxiv.org/pdf/2307.02951"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New formula gives lower μ_t^-(K_m×K_n)=mn−6 and 864 maximal sets of size10 in K4×K4 alongside 24 of size12, whereas known μ_t concerns maximum only."
+        ],
+        "reasoning": "Prior mn−4 maximum alone cannot recover lower maximal layer or multiplicity coefficient, so assessed claim is not covered.",
+        "searches": [
+          "https://arxiv.org/pdf/2401.02373",
+          "https://arxiv.org/pdf/2307.02951"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Omitted Y is an edge set in K_{m,n}; total visibility is a hitting-set condition on distance-two common-neighbor sets. Minimal valid omitted sets correspond to maximal selected sets, NOT only maximum selected sets."
+        ],
+        "reasoning": "Translated between total-visibility sets, bipartite matching covers, and minimal hitting sets; direct/tensor product is not Cartesian product.",
+        "searches": [
+          "total mutual visibility direct product K_m tensor K_n lower mutual visibility number maximal sets polynomial bipartite matchings",
+          "https://arxiv.org/pdf/2401.02373",
+          "https://arxiv.org/pdf/2307.02951"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A Resultary visibility-polynomial result concerns coefficientwise extremes of complete multipartite graphs, not the categorical K_m×K_n. No matching maximal-set coefficient table in inspected sources."
+        ],
+        "reasoning": "The polynomial coefficients count labelled maximal sets, not a standard domination polynomial or unrelated graph-product visibility values.",
+        "searches": [
+          "total mutual visibility direct product K_m tensor K_n lower mutual visibility number maximal sets polynomial bipartite matchings",
+          "https://arxiv.org/pdf/2401.02373",
+          "published visibility-polynomial result for complete multipartite graphs"
+        ]
+      },
+      "rationale": "Cicerone–Di Stefano–Klavžar–Yero Theorem 2.2 determines maximum total visibility mn−4 for m,n≥5 and supplies 4-cell diagonal complement, but not inclusion-maximal sets of smaller size or a counting polynomial. Brešar–Yero study lower total-visibility generally and other products. The 6-cell maximal-layer classification is mathematically distinct and not implied by an extremal maximum.",
+      "residual_risks": [
+        "Restricted to tensor/direct products m,n>=4; not Cartesian products, other visibility variants, or all valid subsets.",
+        "A classification under bipartite transversal or minimal hitting-set terminology could be earlier and not indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS upper extremal μ_t=mn−4 but not lower maximality/whole polynomial",
+          "evidence": "Theorem 2.2 states exactly μ_t(K_m×K_n)=μ(K_m×K_n)=mn−4 (m,n>=5). No inclusion-minimal omission classification in that theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.02373",
+          "material_read": "Section 2 Theorem 2.2 and proof on PDF pages7–8 inspected through full primary PDF extracted text and visual page image",
+          "method": "arXiv full PDF mathematical theorem and proof",
+          "title": "Mutual-visibility problems on graphs of diameter two",
+          "trigger": "same direct product K_m×K_n and theorem of maximum"
+        },
+        {
+          "assessment": "BACKGROUND lower total-visible definitions; full-body comparison remains a risk",
+          "evidence": "It introduces lower total visibility, but no current exact tensor-product maximal-set polynomial was observed in available material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.02951",
+          "material_read": "abstract and bibliographic identification and targeted published source comparison; no full-body exclusion made",
+          "method": "arXiv reference search and source summary",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "same lower inclusion-maximal invariant and possible general implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/two-layer-maximal-total-mutual-visibility-polynomial-for-direct--1780c590c6ca/RESULT.md",
+        "https://arxiv.org/pdf/2401.02373",
+        "https://arxiv.org/pdf/2307.02951"
+      ],
+      "rationale": "The inclusion-maximal-set polynomial classifies every irredundant total-visibility pattern in a natural infinite product-graph family, including the lower total-visibility number mn-6. Lower versus upper extremal cardinalities and exact counts are intrinsically useful combinatorial invariants.",
+      "residual_risks": [
+        "Restricted to tensor/direct products m,n>=4; not Cartesian products, other visibility variants, or all valid subsets.",
+        "A classification under bipartite transversal or minimal hitting-set terminology could be earlier and not indexed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For tensor/direct K_m x K_n with m,n>=4, the only inclusion-maximal total-mutual-visible sets omit a four-cell matching or one of two symmetric six-cell patterns of three distinct row/column 2-neighborhoods; there are exactly two cardinality layers mn-4 and mn-6 with the stated closed polynomial.",
+  "limitations": [
+    "Restricted to tensor/direct products m,n>=4; not Cartesian products, other visibility variants, or all valid subsets.",
+    "A classification under bipartite transversal or minimal hitting-set terminology could be earlier and not indexed.",
+    "fresh graph adjacency/common-neighbor-mask exhaustive calculations for 3x3,3x4,4x4",
+    "checked signed source-tree independent Git SHA1",
+    "Confidential operational identifier in source metadata prevents safe immediate publication; mathematical PASS is not a published certificate."
+  ],
+  "schema_version": 1
+}

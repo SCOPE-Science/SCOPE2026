@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The attached `verify.py` constructs the direct-product graph by coordinate inequalities. For each pair of nonadjacent vertices it independently computes the common-neighbor mask; a proposed complement is feasible precisely when it intersects every such mask. It checks inclusion-maximality by deleting each omitted cell in turn and compares all tested results to the proposed three-family structure. It exhaustively covers orders \((3,3)\), \((3,4)\), \((3,5)\), and \((4,4)\), and performs predetermined additional sample tests for \((4,5)\) and \((5,5)\). The exhaustive tests include 102,912 binary configurations, and the two sample groups cover 20,000 checks.
+## correctness
 
-Run `python3 verify.py` from this package directory. `verification_output.txt` records one successful execution; rerun against the packaged script, not a version external to this package. The checker establishes no infinite claim and does not independently audit originality or mathematical value. The general proof is in `RESULT.md`.
+PASS
+
+Direct graph has diameter two. X total-visible iff omitted cells Y hit each same-row and same-column distance-two common-neighbor set, equivalent to at least three distinct opposite-side labels after deleting ANY specified row or column. If Y has a 4-matching, it is feasible; without one König matching-cover implies Y is entirely supported on exactly three rows or columns. Inclusion-minimality of feasible Y then forces degree two in each of these rows, and distinct pair-neighborhoods; transposed similarly. Intersection is exactly bipartite 6-cycles (six per fixed row/column triple). Counting 4-matchings yields 24*C(m,4)*C(n,4), six patterns produce C(m,3)*(b_n)_3+C(n,3)*(b_m)_3-6*C(m,3)*C(n,3). Independently checked direct common-neighbor masks and inclusion maximality for ALL subsets 3x3,3x4,4x4, finding 4x4 coefficients 864 size10 and 24 size12, matching formula. Infinite proof uses König, not finite enumeration.
+
+## originality
+
+PASS
+
+Cicerone–Di Stefano–Klavžar–Yero Theorem 2.2 determines maximum total visibility mn−4 for m,n≥5 and supplies 4-cell diagonal complement, but not inclusion-maximal sets of smaller size or a counting polynomial. Brešar–Yero study lower total-visibility generally and other products. The 6-cell maximal-layer classification is mathematically distinct and not implied by an extremal maximum.
+
+## value
+
+PASS
+
+The inclusion-maximal-set polynomial classifies every irredundant total-visibility pattern in a natural infinite product-graph family, including the lower total-visibility number mn-6. Lower versus upper extremal cardinalities and exact counts are intrinsically useful combinatorial invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
