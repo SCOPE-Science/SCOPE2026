@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:13:34.871045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centered C_n/(n+1) is an L²-bounded martingale: external gap depth identity sum=C_n+2n gives its exact conditional mean; insertion depth is dominated in second moment by lower record maxima and upper record minima, giving L² tail E|M_n-M_k|=O((1+log k)/sqrt(k)). Inversions on the last n-k inputs are independent of M_k; omitted centered inversion pairs are bounded by kn, hence O(k/sqrt(n)) after n^(3/2) normalization. Lipschitz covariance substitutions yield inequality (1), optimizing k yields n^(-1/6)(log n)^(2/3), and CLT follows from independent insertion-rank inversion decomposition with variance asymptotic 1/36. Reflection of every key leaves Quicksort cost unchanged but complements inversion count, yielding exact conditional symmetry/covariance 0. Independent enumeration 5,913 permutations n<=7 validates conditional reflection and covariance; independence in the limit rests on analytic martingale+tightness proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neininger joint contraction for comparisons/exchanges gives no direct tail-inversion independence in inspected application."
+        ],
+        "reasoning": "General contraction/refined cost results might imply the conclusion through further work; no direct dominating implication established.",
+        "searches": [
+          "Quicksort number of comparisons inversions asymptotic independence Gaussian binary search tree",
+          "doi:10.1002/rsa.10010",
+          "arXiv:1207.4556"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/rsa.10010",
+        "https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf",
+        "arXiv:1004.1160",
+        "arXiv:1207.4556",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/quantitative-asymptotic-independence-of-quicksort-cost-and-inver--469daa24830a/RESULT.md",
+        "Resultary published mathematical research semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only classical marginal cost limit, marginal inversion CLT, and zero-covariance background are known from compared sources."
+        ],
+        "reasoning": "None states both the covariance bound for all bounded 1-Lipschitz tests and the non-Gaussian/Gaussian product limit for this specific pair.",
+        "searches": [
+          "Quicksort number of comparisons inversions asymptotic independence Gaussian binary search tree",
+          "doi:10.1002/rsa.10010",
+          "arXiv:1004.1160"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quicksort key exchanges differ from initial inversions; inversion-major-index asymptotic normal pair differs from Quicksort non-Gaussian path cost."
+        ],
+        "reasoning": "No direct equivalence by renaming one statistic; nonlinear joint independence still needs proof.",
+        "searches": [
+          "Quicksort number of comparisons inversions asymptotic independence Gaussian binary search tree",
+          "doi:10.1002/rsa.10010",
+          "arXiv:1004.1160"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These concern indicator covariance matrices or root-split imbalance with BST path length, not the requested joint law."
+        ],
+        "reasoning": "Exact finite covariance zero is a moment condition, not a database of all two-variable distributions or quantitative asymptotic factorization.",
+        "searches": [
+          "Quicksort number of comparisons inversions asymptotic independence Gaussian binary search tree",
+          "Resultary: incidence precision law for all inversion indicators of a random permutation",
+          "Resultary: squared root imbalance has an exact cubic covariance with random-BST path length"
+        ]
+      },
+      "rationale": "Classical Quicksort comparison limit and marginal inversion CLT are background. Neininger 2001 joint analysis compares comparisons to key-exchanges, not input inversion count. Baxter-Zeilberger inversion+major-index limit is different. No checked source established quantitative bounded-Lipschitz independence of the specific pair. Potential implicit generic recursive-statistics theorem remains a residual risk.",
+      "residual_risks": [
+        "The full text of Neininger 2012 and He–Peng–Xu 2018 was not accessible in this review; an implicit broader recursive-statistic theorem is possible.",
+        "The rate is an upper bound, not optimal; finite correlation is zero but not independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies comparisons and key exchanges; does not state claimed joint inversions independence",
+          "evidence": "https://www.math.uni-frankfurt.de/~neiningr/multcont.pdf",
+          "identifier_or_url": "doi:10.1002/rsa.10010",
+          "material_read": "Author preprint, in particular Quicksort application and definitions distinguishing key exchanges from input inversions",
+          "method": "Author-hosted full PDF, theorem/section inspection",
+          "title": "On a multivariate contraction method for random recursive structures with applications to Quicksort",
+          "trigger": "Closest multivariate Quicksort cost theorem"
+        },
+        {
+          "assessment": "Adaptive inversion parameter analysis, not covariance/joint weak convergence of two random variables",
+          "evidence": "https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf",
+          "identifier_or_url": "https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf",
+          "material_read": "Accessible abstract and bibliographic context, not full paper",
+          "method": "Research report summary",
+          "title": "On the Adaptiveness of Quicksort",
+          "trigger": "Inversion-presortedness may influence Quicksort cost"
+        },
+        {
+          "assessment": "Inversion-major-index pair, not BST Quicksort cost",
+          "evidence": "https://arxiv.org/abs/1004.1160",
+          "identifier_or_url": "arXiv:1004.1160",
+          "material_read": "Abstract and listed theorem pair",
+          "method": "arXiv abstract",
+          "title": "The Number of Inversions and the Major Index of Permutations are Asymptotically Joint-Independently Normal",
+          "trigger": "Potential general permutation-statistic asymptotic independence"
+        },
+        {
+          "assessment": "A potential residual stronger-result priority risk; no whole-document exclusion inferred",
+          "evidence": "https://arxiv.org/abs/1207.4556",
+          "identifier_or_url": "arXiv:1207.4556",
+          "material_read": "Abstract level only; full text not accessed",
+          "method": "arXiv metadata",
+          "title": "Refined Quicksort asymptotics",
+          "trigger": "Other Quicksort rate theorem possible implicit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishes exact finite zero covariance from true nonlinear asymptotic independence of a non-Gaussian Quicksort cost and Gaussian inversion noise. Explicit rate provides useful quantitative decoupling for two natural fundamental permutation statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1002/rsa.10010",
+    "https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf",
+    "arXiv:1004.1160",
+    "arXiv:1207.4556",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/quantitative-asymptotic-independence-of-quicksort-cost-and-inver--469daa24830a/RESULT.md",
+    "Resultary published mathematical research semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The full text of Neininger 2012 and He–Peng–Xu 2018 was not accessible in this review; an implicit broader recursive-statistic theorem is possible.",
+    "The rate is an upper bound, not optimal; finite correlation is zero but not independence."
+  ],
+  "schema_version": 1
+}

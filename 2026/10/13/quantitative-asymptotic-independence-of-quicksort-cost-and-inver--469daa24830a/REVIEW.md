@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The comparison-cost martingale follows from the exact external-gap identity of binary search trees and the elementary expected-comparison formula. The insertion depth has a uniformly summable squared-increment bound via independent record indicators. The random-permutation suffix is independent of each finite-prefix search-tree cost; the omitted inversion pairs contribute at most \(k/\sqrt n\) after normalization. This proves nonlinear factorization without presuming independence from zero covariance. Independent Lehmer insertion ranks give the inversion central limit, completing the joint limit. Finite exact checks cover all 46,233 permutations through order 8 and the 873 next-step configurations through order 6. The finite checks corroborate, but do not substitute for, universal proof.
+PASS
 
-## Originality — PASS, subject to independent priority audit
+Centered C_n/(n+1) is an L²-bounded martingale: external gap depth identity sum=C_n+2n gives its exact conditional mean; insertion depth is dominated in second moment by lower record maxima and upper record minima, giving L² tail E|M_n-M_k|=O((1+log k)/sqrt(k)). Inversions on the last n-k inputs are independent of M_k; omitted centered inversion pairs are bounded by kn, hence O(k/sqrt(n)) after n^(3/2) normalization. Lipschitz covariance substitutions yield inequality (1), optimizing k yields n^(-1/6)(log n)^(2/3), and CLT follows from independent insertion-rank inversion decomposition with variance asymptotic 1/36. Reflection of every key leaves Quicksort cost unchanged but complements inversion count, yielding exact conditional symmetry/covariance 0. Independent enumeration 5,913 permutations n<=7 validates conditional reflection and covariance; independence in the limit rests on analytic martingale+tightness proof.
 
-Neininger (2001) proves a multivariate Quicksort cost/exchange limit; exchanges are not input inversions, and its displayed recursions do not give a comparison-cost/inversion limit. Brodal, Fagerberg and Moruz (2004) discuss inverse-pair presortedness and adaptive Quicksort, but not quantitative covariance factorization under uniform random inputs. Iliopoulos (2015) presents marginal algorithm analysis. He, Peng and Xu (2018) bound BST height under inversion-count conditioning, a different response statistic; the full 2018 paper was inaccessible, so stronger implicit implications remain an explicit risk. Baxter and Zeilberger (2010) concern inversion/major-index independence instead. The exact reflection symmetry and univariate Quicksort limit are excluded from the novelty claim. Published mathematical search also found an inversion-refined permutation-avoidance census, logically incomparable with this theorem. No located result directly asserts (1) or (2). Search absence is not proof of priority; implicit coverage by broad joint-limit methods remains a risk. A plausible 2012 Quicksort paper could not be materially inspected due to source-access restrictions.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating mathematical question is whether ordinary inversion-defined disorder influences first-pivot Quicksort comparison-cost fluctuations even though their finite covariance is zero. Formula (1) controls all bounded Lipschitz nonlinear tests and proves asymptotic *distributional* decoupling of a nondegenerate algorithmic limit from Gaussian permutation fluctuations. This matters for joint statistical modeling of algorithmic cost and disorder, and cannot be concluded from their separate marginal limits or zero covariance.
+Classical Quicksort comparison limit and marginal inversion CLT are background. Neininger 2001 joint analysis compares comparisons to key-exchanges, not input inversion count. Baxter-Zeilberger inversion+major-index limit is different. No checked source established quantitative bounded-Lipschitz independence of the specific pair. Potential implicit generic recursive-statistics theorem remains a residual risk.
 
-## Scientific boundaries
+## value
 
-First-element-pivot, order-preserving recursion only. No assertion of optimal decorrelation rate, of finite independence, or of coverage of other partition implementations. The joint-limit priority and residual inaccessible source require independent historical assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinguishes exact finite zero covariance from true nonlinear asymptotic independence of a non-Gaussian Quicksort cost and Gaussian inversion noise. Explicit rate provides useful quantitative decoupling for two natural fundamental permutation statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
