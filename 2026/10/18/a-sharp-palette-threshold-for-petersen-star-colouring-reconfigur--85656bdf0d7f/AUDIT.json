@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The claim is a finite exhaustive theorem on KG(5,2): 10 vertices, 15 edges and all 60 non-induced simple four-vertex paths. Both programs independently generate these objects. Every invalid partial six-colour map has a permanent monochromatic edge or alternating two-colour four-path, so exhaustive prefix-pruning does not omit any valid assignment. C++ verifies all 341280 valid named six-palette maps, all one-position substitutions, the full degree spectrum and degree sum 2188800; in the five-name subgraph every one of 7680 valid maps has degree zero. Python exhausts all 115975 vertex set partitions, obtains exactly 64 admissible five-block and 410 six-block partitions, and independently verifies corresponding named palette counts, degrees and 11 vertex-symmetry orbits. C++ full NAMED-state BFS on each of the 11 ground-set-and-colour-renaming orbit representatives visits all 341280 states, producing eccentricities 14 and 15 with weighted multiplicities 21600 and 319680. The automorphisms preserve every allowed recolouring; the 11 full BFS traversals cover all source orbits, certifying radius14 and diameter15. Programs and actual assertion-passing outputs are embedded in the same finding. The independent partition code does not independently recompute all BFS distances, a stated reproducibility limitation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen, Raspaud and Wang, 6-Star-Coloring of Subcubic Graphs, online 2012, establishes existence upper bound 6 for subcubic graphs, not single-site reachability from all optimal states.",
+        "Johnson et al., Finding Shortest Paths between Graph Colourings, arxiv:1403.6347, analyses transformations of ordinary proper colourings without the no-two-coloured-P4 restriction."
+      ],
+      "reasoning": "General existence results (five/six-colour bound) do not entail local connectivity, full degree counts or all-pair distances. General proper-recolouring reachability allows intermediate two-coloured P4s and therefore cannot dominate this constrained reconfiguration theorem. No broader star-recolouring theorem forcing these exact numerical outputs surfaced.",
+      "searches": [
+        "Petersen graph star coloring single vertex recoloring reconfiguration optimal star colorings connected components chromatic star",
+        "five star colorings Petersen graph no single vertex recoloring all connected six colors",
+        "\"star coloring\" \"reconfiguration\" \"Petersen\"",
+        "doi:10.1002/jgt.21636",
+        "arxiv:1403.6347"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/1779",
+      "doi:10.1002/jgt.21636",
+      "arxiv:1403.6347",
+      "doi:10.1016/j.dam.2016.03.003",
+      "published mathematical-record source 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82",
+      "published mathematical-record source 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Albertson et al. 2004 defines star vertex colouring and supplies upper bounds, but not Petersen single-site recolouring distances.",
+        "Chen et al. 2012 proves six-colour existence for subcubic graphs and does not assert all named states are in one constrained component.",
+        "Johnson et al. 2014 uses ordinary proper recolouring, permitting forbidden two-coloured P4s.",
+        "Hojny and Pfetsch 2015 studies a star-colourability polytope, not the reconfiguration graph on labelled feasible solutions."
+      ],
+      "reasoning": "The current conclusion simultaneously states an exact five-to-six palette mobility threshold and complete finite degree/metric distribution for a fixed named-colour reconfiguration graph. The inspected literature supplies motivation and loose feasibility constraints, not an implication to this exact stronger constrained-state statement.",
+      "searches": [
+        "doi:10.37236/1779",
+        "doi:10.1002/jgt.21636",
+        "arxiv:1403.6347",
+        "doi:10.1016/j.dam.2016.03.003",
+        "Petersen graph star coloring single vertex recoloring reconfiguration optimal star colorings connected components chromatic star",
+        "five star colorings Petersen graph no single vertex recoloring all connected six colors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Star colouring is precisely proper vertex colouring without two-coloured four-vertex paths (Albertson et al. 2004, doi:10.37236/1779).",
+        "Equivalent question is connectivity/diameter of the one-vertex star-colouring solution graph on Kneser KG(5,2), also GP(5,2).",
+        "Nearest published index hit 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82 concerns ordinary C5-target homomorphisms of the Heawood graph, not star colourings of Petersen."
+      ],
+      "reasoning": "Compared both Petersen / KG(5,2) / generalized Petersen identifiers, British/American spelling, and star colouring as P4-avoidance. The named-palette single-site recolouring graph is not equivalent to ordinary proper-colouring reconfiguration or edge star-colouring. No retrieved matching exact assertion was found.",
+      "searches": [
+        "Petersen graph star coloring single vertex recoloring reconfiguration optimal star colorings connected components chromatic star",
+        "Petersen graph star chromatic number reconfiguration with five colors and six colors",
+        "star colouring Petersen graph χ_s=5 rigid optimal 5-star colourings 6-palette star recoloring graph diameter 15",
+        "\"Petersen graph\" \"star colourings\" reconfiguration graph vertex",
+        "\"Petersen graph\" \"star chromatic number\" \"recoloring\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries used numbers 341280, radius14/diameter15, Petersen, star-colouring and five/six-colour palette aliases.",
+        "Published index result 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82 concerns a different graph and ordinary homomorphisms. No displayed indexed source carries these exact Petersen star-recolouring state or distance counts."
+      ],
+      "reasoning": "No exact named-state Petersen star-vertex-recolouring enumeration or metric table was recovered from searches or accessible own claim histories. A partition-census table for a different invariant or graph would not imply all-pairs distance. Unindexed tables remain a residual risk; search absence is not used as proof.",
+      "searches": [
+        "star colouring Petersen graph χ_s=5 rigid optimal 5-star colourings 6-palette star recoloring graph diameter 15",
+        "star-coloring constraint forbids bicolored path on four vertices and single-vertex recoloring on graph KG(5,2) 341280 states radius 14 diameter 15",
+        "\"Petersen graph\" \"star coloring\" reconfiguration recoloring",
+        "\"Petersen graph\" \"star chromatic number\" \"recoloring\""
+      ]
+    },
+    "rationale": "For the exact Petersen-graph STAR VERTEX-colouring reconfiguration question, the closest full primary sources establish definitions/general colouring bounds (Albertson et al. 2004), subcubic six-star-colour existence (Chen et al. 2012 online), ordinary proper-vertex-colour reconfiguration (Johnson et al. 2014), and star-colourability polyhedra (Hojny and Pfetsch 2015). None of those statements imply that all five-name Petersen star-colourings are frozen while six-name local moves form a connected graph of exact radius14, diameter15 and 1094400 edges. Actual published mathematical-record queries with aliases/parameter spellings and source comparisons returned no covering claim. That negative search is not a proof of novelty; an unindexed or inaccessible same-problem result remains possible.",
+    "residual_risks": [
+      "Some full articles and unindexed historical tables were not accessible, so independent publication priority is not certified.",
+      "The exact diameter/eccentricity verification relies on one full named-state BFS implementation; the independent partition checker validates counts, degrees and orbits but does not independently reproduce BFS metric values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO_DIRECT_COVERAGE",
+        "evidence": [
+          "2004 EJC 11 R26, doi:10.37236/1779; star vertex colouring is no two-coloured P4; general subcubic bound, not single-site Petersen reconfiguration."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r26/pdf/",
+        "material_read": "Accessible 13-page full open article: definitions, early structural bounds, theorem and proof sections, and closing questions; searched article text for Petersen and recolour variants.",
+        "method": "Read rendered and extracted pages and searched terms; reviewed the graph-theoretic statements.",
+        "title": "Coloring with no 2-Colored P4’s",
+        "trigger": "Foundational first publicly dated 2004 definition and possible Petersen-specific examples."
+      },
+      {
+        "assessment": "EXISTENCE_ONLY_IN_ACCESSIBLE_MATERIAL",
+        "evidence": [
+          "The abstract states that every subcubic graph is star six-colourable; no accessible claim concerns exact local reconfiguration geometry."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.21636",
+        "material_read": "Accessible abstract and bibliographic/online-publication information; full primary article was not materially read.",
+        "method": "Abstract-level statement comparison only; not represented as whole-document exclusion.",
+        "title": "6-Star-Coloring of Subcubic Graphs",
+        "trigger": "Could provide a stronger six-colour theorem dominating Petersen parameter."
+      },
+      {
+        "assessment": "DIFFERENT_CONSTRAINT",
+        "evidence": [
+          "Proper vertex-colouring reconfiguration does not forbid two-colour paths of four vertices and cannot imply constrained connectivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.6347",
+        "material_read": "Accessible full preprint: introductory definitions, principal results and section conclusions; searched full text for star colouring and Petersen.",
+        "method": "Read theorem scope and compare allowed-state predicate; inspected PDF pages and term-search results.",
+        "title": "Finding Shortest Paths between Graph Colourings",
+        "trigger": "The closest earlier work on one-vertex recolouring distances and graph connectivity."
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE",
+        "evidence": [
+          "Star-colourable induced-subgraph polytope, no Petersen single-vertex change graph or radius/diameter assertion in inspected material."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2015/01/4759.pdf",
+        "material_read": "Accessible 31-page open preprint: introduction, key polyhedral claims, computational section, conclusions; full text searched for Petersen.",
+        "method": "Primary PDF materially inspected, including computational applications; star colouring polytope rather than recolouring state graph.",
+        "title": "A Polyhedral Investigation of Star Colorings",
+        "trigger": "Full paper on exact star-colouring predicates could contain a Petersen enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85656bdf-0d7f-4a26-8110-7f2956cb8f02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Star-colouring imposes a genuine strengthening of proper-colouring locality; the basic star-chromatic number alone gives no information about reachability. The theorem exhibits a sharp, counterintuitive state-space transition on the canonical cubic Petersen graph: all 7680 optimal five-name states frozen but a sixth available name connects 341280 states. Exact reconfiguration diameter/radius and state/degree census quantify this local mobility and give a nontrivial reproducible benchmark for constrained graph-colouring reconfiguration. The motivation is a natural optimality-vs-mobility gap, not an arbitrary numerical slice; finite scope is acknowledged.",
+    "status": "PASS"
+  }
+}
