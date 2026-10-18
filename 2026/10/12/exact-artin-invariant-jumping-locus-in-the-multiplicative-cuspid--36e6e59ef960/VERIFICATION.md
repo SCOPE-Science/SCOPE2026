@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has one source-supplied input and one elementary elimination step. The source-supplied input is that the common solutions \(\alpha\) of
-\[
-\lambda_4\alpha^4+\mu_4\alpha=0,
-\qquad
-\lambda_2\alpha^2+\mu_2\alpha=0
-\]
-number \(2^m\), and that the resulting K3 surface has \(\sigma=3-m\).
+# Independent mathematical audit
 
-For \((\lambda_2,\mu_2)\ne(0,0)\), a nonzero solution forces \(\lambda_2\mu_2\ne0\) and \(\alpha=\mu_2/\lambda_2\). The verifier checks symbolically that substituting this value into the first equation, after clearing denominators, gives exactly \(\mu_2\Delta\), with \(\Delta=\lambda_4\mu_2^3+\mu_4\lambda_2^3\). Thus the root count is exhaustive.
+## correctness
 
-At \((\lambda_2,\mu_2)=(0,0)\), the remaining cubic has three distinct nonzero roots over the algebraically closed field, plus \(0\). This is an algebraic argument; no finite-field enumeration is used as a proof.
+PASS
 
-Run `python artifacts/verify.py`. The expected final line is:
+Frozen RESULT.md 302747b63e29d20b9e0127696aea8c09235f8800 correctly cites Kondo--Schroer Prop 2.1, Cor 2.2 and Prop 3.5. In char2, common roots of lambda4 α^4+mu4 α=0 and lambda2 α²+mu2 α=0 number 2^m with sigma=3−m. At λ2=μ2=0, separable cubic factor gives α=0 and 3 distinct cube roots, m=2. Otherwise a nonzero common α forces λ2μ2≠0 and α=μ2/λ2; direct substitution gives numerator μ2(λ4 μ2³+μ4 λ2³)/λ2^4, hence two roots iff Δ=0, else one. Fixed nonzero leading coefficients yield three distinct slopes in alg closed char2. Verified symbolic identity independently in polynomial ring modulo2. Dependence on λ0,μ0,nonzero τ vanishes by source equations; normality ensured by λ4μ4≠0, source Prop 3.1. The coefficient parameterization is not a global moduli chart.
 
-`VERIFY_OK identity=M2*Delta cases=sigma1_origin,sigma2_Delta0_punctured,sigma3_Delta_nonzero`
+## originality
 
-The verification does not attempt to re-prove the cited K3 lattice theorem \(\sigma=3-m\), nor does it claim a global moduli quotient of the coefficient space.
+PASS
+
+The original primary proves attainable Artin invariants 1–3 and formula sigma=3−m but does not isolate the exact discriminant-like cubic coefficient locus. The present elimination of the common root and three-line stratification refines that family classification; later Kummer-type literature is a residual comparison risk.
+
+## value
+
+PASS
+
+The Artin invariant is a central discrete invariant of supersingular K3 surfaces. Precisely describing its jumping strata in an explicitly parameterized natural characteristic-two family is a motivated geometric classification of degeneration loci, with direct meaning for parameter choices and specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
