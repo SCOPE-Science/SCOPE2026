@@ -1,11 +1,21 @@
-# Scientific assessment: complete-bipartite graph Lie ideals
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem classifies every ideal via its projection \(X\), its central intersection \(C\), and a linear lift. The exact bracket-span identity \([X,U\oplus W]=\pi_U(X)\otimes W+U\otimes\pi_W(X)\) and the Goursat parametrization of \(X\) prove the displayed coefficient formula for every finite field. Exhaustive independent low-dimensional enumeration agrees. Finite checks are corroboration, not the proof for all parameters.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The nearest directly relevant paper, Godoy Molina–Lagos (arXiv:2308.00272), supplies special graph-ideals and derivations for the same graph family but no full ideal census. Lee (arXiv:2010.02268) establishes the general finite-field ideal-zeta framework and some explicit examples, and Lee (arXiv:2602.07254) treats solvable Lie algebras through dimension four. The three-dimensional Heisenberg instance is already known; the contribution is the closed formula uniform in both bipartite part sizes. Broader literature might contain an equivalent tensor-extension computation under other terminology.
+PASS
 
-**Value — PASS.** This is a natural complete invariant of an infinite two-parameter family already investigated from the perspective of graph-ideals. Noncoordinate central ideals and mixed projection-graph ideals cannot be enumerated from graph-induced ideals alone. The result supplies dimension distributions and finite-field ideal zeta polynomials in every characteristic with a structural explanation and explicit algorithmic use.
+For L=U⊕W⊕(U⊗W) with central Z and [u+w,u'+w']=u⊗w'−u'⊗w, an ideal I is exactly specified by X=projection in U⊕W, C=I∩Z with [X,U⊕W]⊆C, and a linear graph lift X→Z/C. If projections A⊆U and B⊆W have dimensions r,s, Goursat graph classification of X uses quotient dimension k and dim X=r+s−k, counted by [a r]_q[b s]_q[r k]_q[s k]_q |GL_k(Fq)|. The bracket image is A⊗W+U⊗B, with central quotient dimension c=(a−r)(b−s); choose t-dimensional central subspace [c t]_q then q^{(r+s−k)(c−t)} graph lifts. Ideal dimension is ab−c+t+r+s−k. All are bijective including char2 due to alternating bracket. Independently evaluated full 4-index formula at (a,b,q)=(1,1,2),(1,1,3),(1,2,2),(1,2,3),(2,2,2), giving ideal totals 6,7,26,45,247. Also independently enumerated all 374 subspaces of 5-dimensional F2^5 for (1,2,2) and tested bracket closure; dimension coefficients {0:1,1:3,2:7,3:7,4:7,5:1}, total26, matching formula. This supports, but does not replace, the all-parameter proof.
 
-**Limits and prior work.** The proof is for \(\mathbf F_q\)-linear Lie ideals, not \(p\)-adic lattices, normal subgroup counts, or arbitrary Lie subalgebras. Mathematical novelty is assessed from literature examined, not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete-bipartite Lie family is natural and its all-ideal dimension generating polynomial is not the restricted subgraph-derived ideal data in Godoy Molina–Lagos, nor the general subspace-checking algorithm in Lee's 2020 finite-field zeta-function framework. Lee's primary Theorem 2.6 includes the a=b=1 3D Heisenberg case, which is explicitly excluded from novelty; it does not contain the uniform arbitrary a,b fourfold polynomial. Broader finite-dimensional/zeta-function theory requires nontrivial projection and lifting enumeration to derive this family-specific closed answer.
+
+## value
+
+PASS
+
+Graph Lie algebras of complete bipartite graphs are a fundamental family of class-two nilpotent Lie algebras, with many non-coordinate ideals. A uniform q-polynomial giving the entire ideal dimension profile across all a,b is a natural complete enumeration useful in Lie ideal-counting/zeta-function theory; not merely a known scalar Heisenberg result or a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
