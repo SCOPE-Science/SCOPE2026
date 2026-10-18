@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is symbolic. It first derives the full automorphism normal form from the defining brackets, then counts ranks of \(\phi-I\) after partitioning \((a,h)\) by the vanishing pattern of \(a-1\), \(h-1\), \(ah-1\), and \(a^2h-1\). For odd fields the only multi-collision outside the identity is \((a,h)=(-1,1)\). The identity-diagonal stratum reduces to an explicit lower-triangular \(3\times3\) rank calculation.
+# Independent mathematical audit
 
-`verify.py` exhaustively enumerates the automorphism parameters for \(q=3,5,7\). It checks the full fixed-dimension distribution, the group-order sum, and Burnside average \(5\). For \(q=3\) it also constructs actual element-orbits and verifies that they coincide with the five intrinsic layers. A successful replay ends with `VERIFY_OK`.
+## correctness
 
-The computational replay is deliberately finite and uses prime fields only. It is not evidence for all extension fields by itself; arbitrary odd prime powers are covered by the symbolic parameter and rank argument. Characteristic \(2\) is outside the theorem.
+PASS
+
+PASS: Independently reconstructed the automorphism normal form from [e1,e2]=e3 and [e1,e3]=e4, including h,a nonzero and five arbitrary shear coefficients. Fixed-vector equations are triangular, with ordinary single diagonal-zero strata, one double stratum (a,h)=(-1,1) in odd characteristic, and identity-diagonal rank(B) strata. Re-counting these gives N0=(q-3)^2q^5, N1=q^3(4q^3-8q^2-3q+1), N2=3q^4-2q^3-q^2+q, N3=q^3+q^2-q-1, N4=1; their sum is (q-1)^2q^5 and Burnside weighted sum gives exactly 5 orbits. Separate direct rank enumerations gave q=3:(0,756,183,32,1), q=5:(12500,35750,1605,144,1), with group sizes 972 and 50000. These finite computations corroborate but cannot prove all odd prime powers. Characteristic two is expressly excluded.
+
+## originality
+
+PASS
+
+PASS, best of knowledge: The automorphism normal form is known and explicitly not claimed as novel. The actual new statement is the all-odd-prime-power fixed-space fiber polynomial plus explicit five intrinsic orbits. The closest fixed-point count read concerns the different three-dimensional Heisenberg Lie algebra; the 2024 model filiform automorphism paper gives matrices over characteristic zero without a fixed-space census. No stronger published formula was found in targeted semantic search, but differently indexed finite-field work remains a risk.
+
+## value
+
+PASS
+
+PASS: The four-dimensional model filiform Lie algebra is the first non-Heisenberg standard filiform case. Complete distribution of fixed dimensions and intrinsic orbit strata for its automorphism action is a natural algebraic invariant, extending beyond the already-known parametrization and fixed-point-free existence. Reproducibility alone is not the value rationale; exact orbit/fixed-space data describe the full group action.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

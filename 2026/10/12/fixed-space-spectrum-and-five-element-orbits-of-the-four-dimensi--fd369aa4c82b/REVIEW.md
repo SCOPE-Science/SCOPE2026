@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every automorphism is reconstructed from the defining brackets, giving an explicit \((q-1)^2q^5\)-parameterization. The fixed-vector equations are triangular, and the proof exhausts every possible collision among \(a-1\), \(h-1\), \(ah-1\), and \(a^2h-1\) for odd \(q\). The exceptional pair \((-1,1)\) and the identity-diagonal stratum are counted separately. The formulas sum to the full automorphism-group order and their Burnside sum is \(5\). Independent finite replay over \(q=3,5,7\) matches every fiber, and direct orbit construction at \(q=3\) matches the five intrinsic layers. The finite checks are corroborative; the universal statement rests on the symbolic argument.
+## correctness
 
-## Originality
-PASS. The closest structural literature describes model filiform Lie algebras and their automorphisms, while the closest fixed-point literature asks for existence of fixed-point-free automorphisms. Targeted published-corpus searches found no source giving the exact finite-field distribution by fixed-space dimension or the equivalent five-layer orbit census. The structural normal form is explicitly not claimed as novel. Residual risk is limited to differently indexed finite-field literature.
+PASS
 
-## Value
-PASS. The four-dimensional model filiform algebra is the smallest non-Heisenberg member of the standard filiform family, so a complete automorphism fixed-space spectrum is a natural base case rather than an arbitrary slice. The result resolves every fixed-space fiber at once and converts the Burnside average into a transparent intrinsic orbit filtration. The arithmetic formulas expose where fixed-vector jumps occur, including the exceptional \((-1,1)\) diagonal stratum.
+PASS: Independently reconstructed the automorphism normal form from [e1,e2]=e3 and [e1,e3]=e4, including h,a nonzero and five arbitrary shear coefficients. Fixed-vector equations are triangular, with ordinary single diagonal-zero strata, one double stratum (a,h)=(-1,1) in odd characteristic, and identity-diagonal rank(B) strata. Re-counting these gives N0=(q-3)^2q^5, N1=q^3(4q^3-8q^2-3q+1), N2=3q^4-2q^3-q^2+q, N3=q^3+q^2-q-1, N4=1; their sum is (q-1)^2q^5 and Burnside weighted sum gives exactly 5 orbits. Separate direct rank enumerations gave q=3:(0,756,183,32,1), q=5:(12500,35750,1605,144,1), with group sizes 972 and 50000. These finite computations corroborate but cannot prove all odd prime powers. Characteristic two is expressly excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: The automorphism normal form is known and explicitly not claimed as novel. The actual new statement is the all-odd-prime-power fixed-space fiber polynomial plus explicit five intrinsic orbits. The closest fixed-point count read concerns the different three-dimensional Heisenberg Lie algebra; the 2024 model filiform automorphism paper gives matrices over characteristic zero without a fixed-space census. No stronger published formula was found in targeted semantic search, but differently indexed finite-field work remains a risk.
+
+## value
+
+PASS
+
+PASS: The four-dimensional model filiform Lie algebra is the first non-Heisenberg standard filiform case. Complete distribution of fixed dimensions and intrinsic orbit strata for its automorphism action is a natural algebraic invariant, extending beyond the already-known parametrization and fixed-point-free existence. Reproducibility alone is not the value rationale; exact orbit/fixed-space data describe the full group action.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
