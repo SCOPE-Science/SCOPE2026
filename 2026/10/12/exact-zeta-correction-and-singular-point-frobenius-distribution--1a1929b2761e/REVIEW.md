@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization is constructed explicitly as the biquadratic fiber product of two disjoint elliptic double covers; its function field is recovered rationally from the plane coordinates. The geometric ADE singularity analysis, which is **prior information rather than an originality claim**, is reconstructed to identify the two rational normalization branches at the infinity tacnode and the two branches above each affine cubic-difference root. The latter are exchanged by a degree-\(d\) Frobenius precisely when the common quartic value is a nonsquare in \(\mathbb F_{q^d}\). Comparing exact closed-point zeta factors gives the stated identity for every extension degree even when the cubic has repeated roots. The specialization cubic has discriminant \(-4460\) and irreducible reduction modulo \(13\), hence Galois group \(S_3\), and Chebotarev gives the exact density profile. The included verifier checks direct point counts for nine good small primes, not an infinite claim.
+## correctness
 
-## Originality — PASS, with residual risk
-The existing geometric ADE refinement of Kudo's genus-five Howe plane sextic already establishes the \(A_{2r-1}\) affine singularities and the \(A_3\) infinity tacnode. Those are expressly **excluded from the new contribution**. Kudo arXiv:2401.00760 establishes the model, support and multiplicity. Neither that source, the existing ADE refinement, the related Moriya–Kudo I construction, nor inspected generalized Howe curve work states the object-specific arithmetic zeta ratio, its explicit Frobenius splitting signs valid at repeated-root degenerations, or the \(S_3\) rational-singular-point density example. The global zeta quotient follows from a classical general normalization principle once branch splitting is known; the new mathematical information is the exact description of all normalization fibers and their Frobenius actions in this family. Unindexed calculations of the same arithmetic refinement remain a genuine bibliographic risk.
+PASS
 
-## Value — PASS
-Point counting of the singular plane model differs from that of the smooth genus-five normalization and is sensitive to rationality of branches, not merely to the ADE basket. The formula computes that correction uniformly over all odd finite fields and all extensions, including nonreduced cubic discriminant strata. The \(S_3\) specialization yields a natural, complete prime-density distribution of rational singular points, providing a concrete arithmetic variation absent from the geometric classification. The exact signs and degree factors are structural arithmetic invariants, not a renamed ADE classification or a small finite census.
+For odd q and disjoint squarefree monic quartics with deg(φ1−φ2)=3, the fiber-product function field is degree four, giving a smooth genus-five normalization. Formal local factorization at each DISTINCT root ξ of h gives two branches at u=±sqrt(φ1(ξ)), v=∓sqrt(φ1(ξ)), with Frobenius exchange determined by χ(φ1(ξ)); the infinity tacnode has two rational normalization branches. Closed-point normalization factors yield (1−T)∏_O(1−ε_O T^{|O|}), even at repeated roots. Independently evaluated χ-point corrections at p=11,13,17,19,23 (0,−1,0,−1,−1); exact expansion gives h/4=3x³−32x²+110x−126 and discriminant −4460. The S3 splitting densities then follow by Chebotarev outside bad primes.
 
-## Sources and limitations
-Kudo arXiv:2401.00760 (primary plane model, full relevant sections); Moriya–Kudo arXiv:2310.15993 (different cover configuration); Katsura–Takashima arXiv:2108.06936 (smooth Jacobian background). The result requires eight distinct branch points, cubic difference, odd characteristic, and concerns only the explicit zeta ratio and Chebotarev specialization; it neither claims geometric classification as new nor computes the entire normalization zeta function.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kudo supplies the same sextic and geometric singular support, so no new geometric classification is credited. The claimed new finite-field zeta quotient requires tracking arithmetic branch splitting, not just Kudo’s singularity number. Direct searches and Resultary results found no statement already computing this family’s signed zeta quotient or exhibited cubic Frobenius densities, subject to general singular-curve normalization formula risk.
+
+## value
+
+PASS
+
+The signed exact correction transfers smooth normalization counts to a natural singular plane model for every extension degree, including non-split and repeated-root cases; it is a motivated arithmetic invariant of the same Howe sextics, not a mere repeat of ADE types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
