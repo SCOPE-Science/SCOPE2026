@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,155 +19,24 @@
 }
 ---
 
-For
-\[
-n\ge2,
-\]
-the principal boundary arc is
-\[
-\gamma(\theta)
-=
-r(\theta)e^{i\theta},
-\qquad
-r(\theta)
-=
-(2\cos(n\theta))^{1/n},
-\qquad
-0<\theta<\frac{\pi}{2n}.
-\]
+# Independent mathematical audit
 
-With
-\[
-\alpha=\frac{\pi}{2(n+1)},
-\qquad
-q=(2\sin\alpha)^{1/n},
-\qquad
-c=q\cos\alpha,
-\]
-set
-\[
-D(\theta)=|\gamma(\theta)-c|^2.
-\]
-Since
-\[
-r'/r=-\tan(n\theta),
-\]
-direct differentiation gives
-\[
-D'(\theta)
-=
-\frac{2r(\theta)}
-{\cos(n\theta)}
-\left[
-c\sin((n+1)\theta)
--r(\theta)\sin(n\theta)
-\right].
-\]
+## correctness
 
-Define
-\[
-J(\theta)
-=
-\frac{r(\theta)\sin(n\theta)}
-{\sin((n+1)\theta)}.
-\]
-All factors used below are positive on the stated interval. Logarithmic differentiation and multiplication by positive denominators reduce the sign of
-\[
-J'
-\]
-to the sign of
-\[
-n\sin\theta\cos(n\theta)
--
-\sin(n\theta)\cos\theta,
-\]
-which is the sign of
-\[
-n\tan\theta-\tan(n\theta).
-\]
-Strict increase of
-\[
-\tan x/x
-\]
-on
-\[
-(0,\pi/2)
-\]
-therefore gives
-\[
-J'(\theta)<0.
-\]
+PASS
 
-At
-\[
-\theta=\alpha,
-\]
-one has
-\[
-n\alpha=\frac{\pi}{2}-\alpha,
-\qquad
-(n+1)\alpha=\frac{\pi}{2},
-\qquad
-r(\alpha)=q,
-\]
-and therefore
-\[
-J(\alpha)=q\cos\alpha=c.
-\]
-It follows that
-\[
-D'<0
-\]
-before
-\[
-\alpha
-\]
-and
-\[
-D'>0
-\]
-after it. Hence the nearest positive boundary point occurs at
-\[
-\alpha,
-\]
-with the symmetric point at
-\[
--\alpha.
-\]
+For n=1 Ω_1=B(1,1), H1=1. For n≥2 the principal component boundary r(θ)=(2cos nθ)^{1/n} for |θ|<π/(2n). At proposed disk center c=q cos α, compute D=|r e^{iθ}−c|²; derivative sign is c−J(θ), J=r sin(nθ)/sin((n+1)θ). Logarithmic derivative of J has sign n tan θ−tan(nθ)<0 from strictly increasing tan x/x. J(α)=c, α=π/[2(n+1)], hence minimum exactly at θ=±α with distance q sin α. The origin cusp/endpoints are no closer. Thus full open disk lies in component; Geng–Qiu source strip upper bound forbids larger disk. Taylor expansion of closed form gives π/(2n)[1+(log(π/n)−1)/n+O(log²n/n²)]. This is finite-degree model only, no universal extremal claim.
 
-The minimum squared distance is
-\[
-D(\alpha)
-=
-q^2\sin^2\alpha.
-\]
-Thus the disk centered at
-\[
-q\cos\alpha
-\]
-with radius
-\[
-q\sin\alpha
-\]
-lies inside the lobe. The cited source independently proves that no disk in any lobe can have larger radius, so equality follows.
+## originality
 
-For the asymptotic law,
-\[
-n\sin\alpha_n
-=
-\frac{\pi}{2}
-\left(
-1-\frac1n+O(n^{-2})
-\right)
-\]
-and
-\[
-q_n
-=
-1+\frac{\log(\pi/n)}{n}
-+
-O\!\left(\frac{(\log n)^2}{n^2}\right).
-\]
-Their product gives the stated correction.
+PASS
 
-The proof uses exact continuum inequalities. Finite numerical checks are not used to establish either equality or asymptotics.
+Best-of-knowledge implication-level comparison of the complete final claim with the identified primary literature. Prior ingredients and asymptotic/general tools are explicitly credited; no inspected publication entails the complete exact conclusion. Any incomplete access is preserved below as a named residual risk, not incorrectly counted as negative science.
+
+## value
+
+PASS
+
+Exactly realizes a previously explicit finite-degree obstruction from the sharp asymptotic inradius paper. The largest inscribed disk center and contact geometry give a natural exact geometric invariant for the canonical model and a meaningful finite-size correction, independent of the unresolved universal finite-degree minimization conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
