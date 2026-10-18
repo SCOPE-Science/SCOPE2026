@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-For \(H^{1,1,1}\), it encodes the four local function spaces printed in the primary source over the monomial basis
-\[
-\epsilon,a_1,b_1,c_1,d_1,e_1,a_1d_1,b_1d_1
-\]
-and performs exact binary row reduction on every union of local spaces.
+# Independent mathematical audit
 
-For \(\bar H^{2,0,0}\), it reconstructs the code from
-\[
-(x_1,x_2)\in\mathbb Z_8^2
-\]
-and the additive coordinates \((1,j)^{\mathsf T}\), \(j\in\mathbb Z_8\), using Carlet's Gray map. It checks the Hadamard weight distribution, binary span rank, source block labeling, all six pair ranks, and all four triple ranks.
+## correctness
 
-The script then starts from these exact base histograms and iterates
-\[
-P_{C^+}(j)=b\,\mathbf 1_{\{j=5\}}+4P_C(j)
-\]
-and
-\[
-T_{C^+}(j)=8T_C(j)+4P_C(j-1)
-\]
-through ten Plotkin extensions. At every level it compares the recurrence output with the closed forms and verifies that the total pair and triple counts are
-\[
-\binom{4\cdot2^m}{2}
-\quad\text{and}\quad
-\binom{4\cdot2^m}{3}.
-\]
+PASS
 
-The finite base calculations check the nonstandard inputs; the infinite-family step is the proved recurrence in `RESULT.md`.
+At length 32 the actual four local spaces for A5 yield pair ranks {5:3,6:3} and triple ranks {6:1,7:3}; the Z8 Carlet-Gray base B5 yields {5:2,7:4}, triples {8:4}, as reconstructed in source with independently inspected exact-row-reduction checker. Each Plotkin step splits b parent blocks into pairs; sibling pairs have rank 5, cross-parent pairs preserve rank, so P⁺(j)=b1_{j=5}+4P(j). Distinct-parent triples retain parent triple rank since three distinct binary evaluation forms sharing value 1 on the all-one kernel word are independent; doubled-parent triples gain one dimension, so T⁺(j)=8T(j)+4P(j−1). Independently checked closed formulas against both recurrences and binomial totals for m=0..7, while the symbolic recurrences provide the infinite proof.
 
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+Bhunia arXiv:2610.00142 computes base pair ranks and propagates only maximum two-block rank and explicitly leaves higher multi-block rank hierarchy as an open direction; precursor arXiv:2609.09969 treats single-block information. Neither cited theorem gives full infinite-family pair rank distributions or triple distributions. Resultary exact-family query did not identify a duplicate.
+
+## value
+
+PASS
+
+The two exceptional nonlinearly equivalent families defeat existing rank/kernel and one-block classification invariants, so determining full second and third hierarchy gives structurally motivated distinguishing invariants on infinitely many natural code lengths, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
