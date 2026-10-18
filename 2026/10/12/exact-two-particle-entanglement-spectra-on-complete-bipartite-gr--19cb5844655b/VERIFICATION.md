@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact spectrum
+# Independent mathematical audit
 
-The theorem is proved by symbolic finite-rank algebra for **all** integers \(m,n\ge1\). It does not rely on the finite checker to extrapolate to arbitrary size.
+## correctness
 
-Run `python3 -m pip install -r requirements.txt` in an isolated environment, followed by `python3 verify.py`. The checker separately constructs the two-particle Grover transition directly from incoming directed arcs on \(K_{m,n}\), with no invocation of the analytic amplitude formulas for propagation. It compares propagation against those formulas and verifies singular spectra, repeated multiplicities, normalization, exchange symmetry and four-periodicity.
+PASS
 
-The eleven tested pairs are \((1,1)\), \((1,2)\), \((2,1)\), \((2,2)\), \((2,3)\), \((3,2)\), \((2,4)\), \((3,3)\), \((3,4)\), \((4,3)\) and \((4,4)\). Both exchange signs and times zero through four are tested, including vanishing Schmidt values and unbalanced dimensions. Recorded result: `VERIFY_OK 572 matrix identities 11 graph sizes`.
+PASS. The arc-Hilbert-space two-particle Grover walk lives in the K_{mn,mn} component of G⊗G, with U^4=I. Direct Grover scattering yields block-off-diagonal amplitude matrix Ψ_t with block B_t and σ B_t^T. For z=e_x⊗e_y−2/(mn)1_x⊗1_y its squared Schmidt values A,B sum 1 and product q²=4(m−1)(n−1)/(m²n²). Odd-time B blocks have squared singular values A/2,B/2; at t=2, √2 B_2 is the one-subsystem partial transpose of |z><z|, with singular-value squares A²/2,B²/2,AB/2,AB/2. Ψ_t Ψ_t* duplicates each, giving all eigenvalue multiplicities, boson/fermion equality, Rényi expressions and rank<=8 for every m,n including one-vertex part and mn=1. q<=1/2 with equality only m=n=2 proves the sharp log 8 upper bound. Independently constructed full-arc Grover transition for four sizes and both signs over all four time residues; numerical eigenvalues matched, as finite corroboration.
 
-The analytic proof independently checks the coefficient-matrix Frobenius norm and exterior-product determinant, the exact identity between the time-two matrix and a partially transposed rank-one projector, and the extremal elementary inequality. The verifier uses floating-point arithmetic, so it provides numerical corroboration, not exact certification for its finite cases nor any infinite-family certificate. Source-priority uncertainty remains; no independent audit has been performed.
+## originality
+
+PASS
+
+PASS, best of knowledge with substantial access limitation. Kubota–Matsubara–Segawa arXiv:2607.09066 define exactly this two-particle Grover model, prove exchange symmetry and balanced K_{n,n} entropy-saturation cases. Some balanced entropy values are thus existing direct consequences. This review credits that coverage; the surviving final claim is the complete particle-reduced spectrum for ALL rectangular K_{m,n}, all Rényi orders and the uniform rank bound, via explicit partial-transpose tensorization. Full original paper and appendices could not be read through available lawful access, so an implicit earlier general-rectangular derivation is a significant priority risk; abstract alone cannot support whole-paper NOT_COVERING.
+
+## value
+
+PASS
+
+PASS. Entanglement eigenvalues and every Rényi entropy in a natural interaction-like Kronecker Grover walk supply genuine finer invariants than ambient-dimension bounds or maximal von Neumann entropy alone. Constant Schmidt rank <=8 despite Hilbert dimension 2mn is a motivated structural distinction; a complete rectangular classification is useful even where special balanced entropy formulas are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
