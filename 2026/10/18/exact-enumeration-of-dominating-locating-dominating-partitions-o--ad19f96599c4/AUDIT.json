@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The direct open-neighborhood collision lemma for simple cycles of length at least 5 proves equivalence to avoiding 000, 111, 00100; C3 and C4 are separately exact. Maximal alternating runs and the 2-by-2 weighted matrix count cyclic binary words with labelled vertex positions by trace of powers and the n/k marked-run correction. The determinant is exactly 1-z²-z³-z⁴-z⁵-z⁶; subtracting two spurious length-2 words and two invalid length-4 alternating words yields the claimed OGF. The factorization (1+z)(1-z-z³-z⁵) and triangle inequality prove the unique smallest-modulus positive root, hence the exact leading exponential asymptotic. Standalone tests enumerate 131064 memberships n=3..16, agreeing with the graph condition, and independently check coefficients of matrix and determinant series to degree 30.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chakraborty et al. (2026), DOI 10.37236/14049, Theorem 6 proves DLDS existence for all isolate-free graphs, but no counting theorem; Fig. 2 gives isolated examples.",
+        "Foucaud et al. (2025/2026), arXiv:2506.12933, establishes existence of stronger LD/LD partitions in select graph classes, not the number of mixed partitions."
+      ],
+      "reasoning": "A general existence algorithm does not imply the precise cardinality of its entire solution set. The broader graph-class results concern feasibility and extremal code sizes rather than an exact mixed-partition enumerator. No stronger identified theorem implies the stated cyclic coefficient formula.",
+      "searches": [
+        "\"A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set\" published 2026",
+        "\"locating dominating\" \"dominating\" \"cycle\" \"generating function\"",
+        "arxiv:2506.12933 original full text",
+        "DOI 10.37236/14049 primary 12-page full text"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.37236/14049",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+      "https://arxiv.org/abs/2506.12933",
+      "https://arxiv.org/abs/0908.2750"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.37236/14049 proves existence and polynomial construction only; it does not enumerate the full solution set.",
+        "arXiv:2506.12933 studies two locating-dominating parts, not the mixed count; arXiv:0908.2750 proves extremal code-size information, not all complementary pairs."
+      ],
+      "reasoning": "A published existence proof, even when constructive, does not determine the total number of admissible ordered partitions. Likewise, a minimum LD-code size on cycles does not determine how many of its supersets have dominating complements. The exact local collision characterization, two-state transfer determinant, full generating function, and singularity asymptotic are not derived as published corollaries in the inspected primary articles.",
+      "searches": [
+        "\"A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set\" published 2026",
+        "\"dominating\" \"locating dominating\" \"cycles\" \"number of partitions\"",
+        "mixed dominating and locating dominating partition cycle C_n forbidden cyclic pattern 00100 transfer matrix determinant",
+        "\"locating dominating\" \"dominating\" \"cycle\" \"generating function\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chakraborty et al., DOI 10.37236/14049, pp.1–6, explicitly define DLDS as a dominating/locating-dominating vertex partition.",
+        "Foucaud et al., arXiv:2506.12933, study partitions into two locating-dominating sets; Chen et al., arXiv:0908.2750, study locating/identifying codes of paths and cycles."
+      ],
+      "reasoning": "The new count corresponds exactly to choosing an LD set whose complement dominates, equivalently labelled binary cycle words with three forbidden patterns; it is not enumeration of arbitrary locating codes or of partitions into two LD sets. The full examined primary texts do not supply the mixed cycle count.",
+      "searches": [
+        "\"dominating\" \"locating dominating\" \"cycles\" \"number of partitions\"",
+        "\"DLDS partition\" cycle count polynomial",
+        "mixed dominating and locating dominating partition cycle C_n forbidden cyclic pattern 00100 transfer matrix determinant",
+        "arxiv:0908.2750",
+        "arxiv:2506.12933"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive original-graph definition and independent forbidden-language/transfer calculations agree for all lengths 3–16; the sequence begins 3,4,10,17,21,38,57,92.",
+        "No inspected source provides a table of counts for ordered mixed dominating/locating-dominating partitions of labelled cycles."
+      ],
+      "reasoning": "The explicit coefficient sequence was compared by phrase and numeric searching to possible prior tables. A generic table of cyclic binary words might contain these numbers without mentioning graphs; that residual lookup risk is expressly retained, and failed search alone is not treated as novelty proof.",
+      "searches": [
+        "\"DLDS partition\" cycle count polynomial",
+        "DLDS dominating set locating-dominating set partitions of cycle C_n exact enumeration 3 4 10 17 21 38 57 92",
+        "bicolored cycles binary words no 000 111 00100, number 3 4 10 17 21 38 57 92"
+      ]
+    },
+    "rationale": "Direct statement and implication comparisons with the complete motivating 2026 partition paper, the related 2025/2026 two-LD-set partition paper, and the earlier cycle code paper find existence or minimum-cardinality results, but no full labelled mixed-partition enumeration, forbidden-word count, OGF or asymptotic. Targeted published-mathematics and literature searches identified no dominating result. The principal remaining risk is an independently known cyclic binary-language table under different terminology.",
+    "residual_risks": [
+      "Another article or sequence database might encode the same forbidden-word count without naming graph domination; not every publication or integer sequence table is searchable.",
+      "An independently discovered stronger counting theorem may imply the formula though no such theorem was identified in the checked primary full texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same graph-partition problem and stronger scope for existence but no covering enumerative formula for labelled cycles.",
+        "evidence": [
+          "Official journal article published 2026-03-13; Theorem 6 asserts existence and an algorithm; Figure 2 has individual examples including C3 and C4; no cyclic count or generating function appears."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/14049",
+        "material_read": "Full 12-page journal PDF, including introduction, Definition/Problem 5, Theorem 6, construction proof, examples, discussion and references.",
+        "method": "Direct primary PDF reading, text search for cycles, counting, partitions, examination of figures and proof sections.",
+        "title": "A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set",
+        "trigger": "The motivating 2026 existence result has exactly the same partition definition."
+      },
+      {
+        "assessment": "Proves LD/LD feasibility on graph classes but not mixed DLDS count, so does not cover the formula.",
+        "evidence": [
+          "First public arXiv submission 2025-06-15; focus on bipartite, distance-hereditary, split, co-bipartite, maximal outerplanar LD/LD partitions and code bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.12933",
+        "material_read": "Full 10-page author-hosted PDF and arXiv abstract/bibliographic record.",
+        "method": "Inspect introduction, theorem statements and graph-class hypotheses; search text for cycles and enumeration.",
+        "title": "Locating-dominating partitions for some classes of graphs",
+        "trigger": "Potentially stronger partition requirements might imply enumerative results for cycles."
+      },
+      {
+        "assessment": "The paper treats minimum identifying and radius-dependent locating code sizes; the specific ordered mixed-partition count is not a consequence of its reported extremal values.",
+        "evidence": [
+          "arXiv:0908.2750 2009-08-19; abstract specifies complete results for identifying codes and 2-locating-dominating sets, not enumerators of complementary domination partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0908.2750",
+        "material_read": "Full 18-page arXiv PDF, with abstract, introduction, statements of path/cycle code results and definitions inspected.",
+        "method": "Read the primary PDF and compare exact objects, neighborhood radius definitions, quantifiers and whether full partition counts are stated.",
+        "title": "Identifying codes and locating-dominating sets on paths and cycles",
+        "trigger": "Direct study of the same underlying graph family and locating-dominating concepts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad19f965-99c4-42db-ab84-ad14ffca6dc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural quantitative question left by the newly studied mixed domination/locating-domination vertex-partition problem on an elementary but nontrivial infinite graph family. The collision obstruction is a genuine length-five condition beyond the two elementary domination exclusions, and the exact count/generating function/asymptotic identify the rate of rare feasible partitions among all binary labellings; this is substantially more information than existence, a witness or an extremal size.",
+    "status": "PASS"
+  }
+}
