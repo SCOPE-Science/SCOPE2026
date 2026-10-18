@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the central-section vertex formula
+# Independent mathematical audit
 
-The proof is analytic and covers all integer dimensions at least four and every positive half-width vector. The finite program below supplements but does not prove the universal assertions.
+## correctness
 
-Run `python3 verify.py` with any recent Python 3 standard library. The observed output from the bundled source is:
+PASS
 
-```
-VERIFY_OK
-counted_example_means [(3, 4.696, 4.701919), (3, 4.426222, 4.412228), (4, 10.685778, 10.666667), (4, 9.585778, 9.563942), (5, 23.595111, 23.613379), (5, 21.749111, 21.740045)]
-transfer_trials 72000
-local_Hessian_checks (4, 5, 9)
-```
+For a generic Haar-random central normal u, every vertex of B(a)∩u^⊥ corresponds bijectively to a transversely intersected box edge. There are 2^(d-1) edges in each direction i. Gaussian representation u=G/||G|| gives the crossing event |Σ_{j!=i}ε_j a_jG_j|<a_i|G_i| for independent centered normals, so its probability is (2/π)arcsin[a_i/(Σa_j²)^(1/2)]. Summing exact indicators establishes E[V]=2^d/π Σ_i arcsin sqrt(p_i). For f(p)=arcsin sqrt p, f'(p)=1/[2sqrt(p(1-p))]; if x>y and x+y<1 then x(1-x)>y(1-y), hence f'(x)<f'(y). Every nontrivial balancing transfer increases the sum whenever d>=3 and all p_i>0; d>=4 in claimed scope. The cube is the unique maximizer; successive coordinate mergers give strict lower infimum 2^(d-1), attained only as a boundary limit. Taylor f''(1/d)=-(d-2)d²/[4(d-1)^(3/2)] gives deficit coefficient (2^d/π)(d-2)d²/[8(d-1)^(3/2)], and the 4-cube expectation is exactly 32/3. Independent 4D Gaussian edge-count Monte Carlo reproduced 10.6667 and asymmetric-case predicted values within sample error; the exact result and strict inequalities are analytic, not Monte Carlo consequences.
 
-The first number of each pair is an empirical average computed by independently testing all coordinate edges for transversal crossings, not by evaluating the claimed formula. The second is the analytic expectation. The two exact identities used as deterministic anchors are the dimension-two constant of two vertices and the four-dimensional cube mean of \(32/3\). Numerical transfers are sampled only; the strict inequalities follow in the proof from the explicit derivative identity with positive factor \((x-y)(1-x-y)\). The strict lower infimum and its nonattainment are likewise analytic, not a numerical extrapolation.
+## originality
 
-The evidence does not amount to exhaustive dimension sampling or independent verification. The historical comparison is limited to sources actually read and queried.
+PASS
+
+Best-of-knowledge original exact central, Haar-oriented rectangular-orthotope vertex expectation plus strict Schur concavity and sharp extremal shape. Swan 2016/2018 proves a constant 2^k for random k-flat with uniform *translation among intersecting positions*, a different law; here 2^(d-1) is merely a nonattained central-section infimum. Marichal–Mossinghoff derives volume integrals of central cube sections, not mean vertex number or orthotope shape ordering. Related published SCOPE d=4 cube face-vector distribution concerns fixed cube special case and does not cover continuous orthotope p-space.
+
+## value
+
+PASS
+
+A natural combinatorial statistic of random central sections has an explicit all-dimensional formula and sharp geometry-of-numbers shape theorem. The 4D cube value and strict Schur ordering under diagonal constraint quantify central section complexity beyond volume-based slice results. The lower infimum differs meaningfully from translated-slice expectation although the numeric value agrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

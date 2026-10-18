@@ -1,21 +1,21 @@
-# Scientific review: strictly positive orthotope central sections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For almost every normal the central section vertex/edge correspondence holds, so each edge crossing is counted once. Gaussian radial parametrization produces independent normal numerator and denominator for each fixed edge, giving the displayed Cauchy/arcsine crossing probability. The derivative comparison is strict because every pair of normalized squared positive widths sums to less than one in dimensions at least three. A finite chain of equalizing transfers proves Schur monotonicity; merging coordinates proves the sharp infimum, and the Hessian at the diagonal is computed explicitly. Boundary cases include all positive widths, a lower infimum only as widths vanish, and the dimension-two exception. No finite simulation is mistaken for a proof. `verify.py` returned `VERIFY_OK` for the reported geometric counts and checks.
+PASS
 
-## Originality — PASS, with explicit historical limitations
+For a generic Haar-random central normal u, every vertex of B(a)∩u^⊥ corresponds bijectively to a transversely intersected box edge. There are 2^(d-1) edges in each direction i. Gaussian representation u=G/||G|| gives the crossing event |Σ_{j!=i}ε_j a_jG_j|<a_i|G_i| for independent centered normals, so its probability is (2/π)arcsin[a_i/(Σa_j²)^(1/2)]. Summing exact indicators establishes E[V]=2^d/π Σ_i arcsin sqrt(p_i). For f(p)=arcsin sqrt p, f'(p)=1/[2sqrt(p(1-p))]; if x>y and x+y<1 then x(1-x)>y(1-y), hence f'(x)<f'(y). Every nontrivial balancing transfer increases the sum whenever d>=3 and all p_i>0; d>=4 in claimed scope. The cube is the unique maximizer; successive coordinate mergers give strict lower infimum 2^(d-1), attained only as a boundary limit. Taylor f''(1/d)=-(d-2)d²/[4(d-1)^(3/2)] gives deficit coefficient (2^d/π)(d-2)d²/[8(d-1)^(3/2)], and the 4-cube expectation is exactly 32/3. Independent 4D Gaussian edge-count Monte Carlo reproduced 10.6667 and asymmetric-case predicted values within sample error; the exact result and strict inequalities are analytic, not Monte Carlo consequences.
 
-The primary 2008 source by Marichal and Mossinghoff gives hypercube sectional *volumes*, not the expected vertex count or an orthotope majorization theorem. The 2009 Ball–Prodromou theorem establishes isotropic measures on fixed cube sections, not random direction counts. The closest title, Swan's *Expected Number of Vertices of a Hypercube Slice*, calculates a constant \(2^k\) under uniform **translations** conditional on meeting the cube, whereas every hyperplane here goes through the origin. In dimension four those values are respectively eight and \(32/3\); the statements do not imply each other. A public 2015 question identifies the central model but contains no closed formula or shape-rigidity assertion. Cover–Efron studies random cones, not this anchored box. Previously treated three-dimensional dual shadow probabilities are credited as overlapping lower-dimensional special cases rather than advertised as new results.
+## originality
 
-The complete text of the most plausible papers and the public discussion were inspected; semantic mathematical-record searches across central section, random cube edge intersection, Gaussian/Cauchy angular, and Schur-concavity aliases found no covering claim. Such searches cannot rule out unindexed or privately derived identities. Independently assessed priority remains unknown.
+PASS
 
-## Value — PASS
+Best-of-knowledge original exact central, Haar-oriented rectangular-orthotope vertex expectation plus strict Schur concavity and sharp extremal shape. Swan 2016/2018 proves a constant 2^k for random k-flat with uniform *translation among intersecting positions*, a different law; here 2^(d-1) is merely a nonattained central-section infimum. Marichal–Mossinghoff derives volume integrals of central cube sections, not mean vertex number or orthotope shape ordering. Related published SCOPE d=4 cube face-vector distribution concerns fixed cube special case and does not cover continuous orthotope p-space.
 
-This is a motivated exact statistic of how complicated high-dimensional cube sections look under random orientations. It gives an all-dimensions formula, an anisotropic ordering theorem, a sharp optimizer and infimum, a dimension-four rational landmark and local quantitative stability. Strict Schur-concavity is not a routine application of coordinatewise concavity: the scalar function changes curvature at one half, and the simplex constraint is essential. Uniform translation leads instead to a constant first moment, making the result a substantive distinction between standard geometric sampling models.
+## value
 
-## Reproducibility and limits
+PASS
 
-`python3 verify.py` is standalone and replays six directly edge-enumerated random-section diagnostics (9,000 Gaussian normals per case), 72,000 numerical transfers, and three local expansion checks. The exact proof does not depend on random test coverage. Only positive orthotopes, fixed-center hyperplane sections, and expected vertex count are proved; no noncentral law, higher moment or arbitrary parallelotope theorem is asserted. Published analogues and historical risks are documented in `AUDIT.json` and the references. No independent audit has been performed.
+A natural combinatorial statistic of random central sections has an explicit all-dimensional formula and sharp geometry-of-numbers shape theorem. The 4D cube value and strict Schur ordering under diagonal constraint quantify central section complexity beyond volume-based slice results. The lower infimum differs meaningfully from translated-slice expectation although the numeric value agrees.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:19:06.754255Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a generic Haar-random central normal u, every vertex of B(a)∩u^⊥ corresponds bijectively to a transversely intersected box edge. There are 2^(d-1) edges in each direction i. Gaussian representation u=G/||G|| gives the crossing event |Σ_{j!=i}ε_j a_jG_j|<a_i|G_i| for independent centered normals, so its probability is (2/π)arcsin[a_i/(Σa_j²)^(1/2)]. Summing exact indicators establishes E[V]=2^d/π Σ_i arcsin sqrt(p_i). For f(p)=arcsin sqrt p, f'(p)=1/[2sqrt(p(1-p))]; if x>y and x+y<1 then x(1-x)>y(1-y), hence f'(x)<f'(y). Every nontrivial balancing transfer increases the sum whenever d>=3 and all p_i>0; d>=4 in claimed scope. The cube is the unique maximizer; successive coordinate mergers give strict lower infimum 2^(d-1), attained only as a boundary limit. Taylor f''(1/d)=-(d-2)d²/[4(d-1)^(3/2)] gives deficit coefficient (2^d/π)(d-2)d²/[8(d-1)^(3/2)], and the 4-cube expectation is exactly 32/3. Independent 4D Gaussian edge-count Monte Carlo reproduced 10.6667 and asymmetric-case predicted values within sample error; the exact result and strict inequalities are analytic, not Monte Carlo consequences.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marichal–Mossinghoff central cross-section theorems calculate volumes, not vertex-count mean for all positive orthotopes.",
+          "Ball–Prodromou concerns measures/sections, while Swan’s theorem is for translated sections."
+        ],
+        "reasoning": "These results neither quantify central Haar box-edge intersection probabilities nor give strict majorization under fixed diagonal.",
+        "searches": [
+          "Marichal Mossinghoff Slices Slabs and Sections of Unit Hypercube 2008",
+          "Ball Prodromou combinatorial Vaaler theorem 2009",
+          "arxiv:1808.09482"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1808.09482",
+        "https://combinatorialpress.com/article/ojac/vol3/Marichal_2008.pdf",
+        "https://mathoverflow.net/questions/206414/expected-number-of-vertices-of-a-hypercube-slice-is-this-new-interesting",
+        "Resultary query: random central hyperplane section orthotope expected vertices arcsin squares Schur concavity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Swan: a random flat is uniformly placed among intersecting translations, yielding constant 2^k; central orientation-only expectation depends on a and is nonconstant.",
+          "d=4 cube face-vector law at uniform a yields one validation point 32/3 but cannot give gradients/Hessian in nonuniform directions."
+        ],
+        "reasoning": "Neither cited theorem yields exact formula for all positive a, strict Schur concavity, or sharp asymptotic boundary infimum.",
+        "searches": [
+          "arxiv:1808.09482",
+          "Marichal Mossinghoff 2008 PDF central hypercube sections",
+          "Resultary: 4-cube two-point central section face vector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniformly translated intersecting flats (Swan) and Haar central hyperplanes are distinct probability distributions; Swan’s 2^k constant is not current E[V_a].",
+          "At the 4D cube the present exact 32/3 is not Swan’s translated-section constant 8, directly distinguishing laws."
+        ],
+        "reasoning": "Orientation-only probability and translation-conditioned random-flat probability are inequivalent, so identical boundary infimum 2^(d-1) is not an implication of Swan.",
+        "searches": [
+          "arxiv:1808.09482 Hunter Swan Expected Number of Vertices of a Hypercube Slice",
+          "MathOverflow 206414 expected number vertices hypercube slice random translation central"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related published d=4 cube face-vector law has vertex counts 8 (prob 1/3) and 12 (prob 2/3), giving mean 32/3 for that single cube; it does not imply the all-a formula or Schur ordering.",
+          "The assigned record delivers a continuum of positive orthotopes and all d>=4, beyond that special table."
+        ],
+        "reasoning": "Known special-case 4-cube mean is a corollary, but no inspected stronger exact orthotope expectation or inequality covers the general result.",
+        "searches": [
+          "Resultary: random central hyperplane section orthotope expected vertices arcsin squares Schur concavity",
+          "Resultary: exact two point face vector law random central four cube"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact central, Haar-oriented rectangular-orthotope vertex expectation plus strict Schur concavity and sharp extremal shape. Swan 2016/2018 proves a constant 2^k for random k-flat with uniform *translation among intersecting positions*, a different law; here 2^(d-1) is merely a nonattained central-section infimum. Marichal–Mossinghoff derives volume integrals of central cube sections, not mean vertex number or orthotope shape ordering. Related published SCOPE d=4 cube face-vector distribution concerns fixed cube special case and does not cover continuous orthotope p-space.",
+      "residual_risks": [
+        "A mathematically equivalent older Gaussian/Cauchy integral formula could be published under projection or Cauchy-crofton terminology; not exhaustively excluded.",
+        "Finite sampled orientation checks corroborate but do not prove the all-a formula.",
+        "A published special-case four-cube 32/3 mean is not itself new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different translated random-slice law; proves 2^k expectation independent of geometry, while central oriented law varies",
+          "evidence": "Definition samples uniformly among intersecting translations, not hyperplane through center.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.09482",
+          "material_read": "Full four-page primary paper text and proof/assumptions, with PDF page screenshots of theorem and geometric counting",
+          "method": "Lawful arXiv full primary PDF",
+          "title": "Expected Number of Vertices of a Hypercube Slice",
+          "trigger": "Same hypercube vertex-count statistic but alternate randomization of hyperplane position"
+        },
+        {
+          "assessment": "Section volume is different observable than section vertex count",
+          "evidence": "Exact volume integrals do not imply all-orthotope vertex expectation or Schur inequality.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol3/Marichal_2008.pdf",
+          "material_read": "First sections and central hyperplane volume formulas in full-text primary manuscript",
+          "method": "Lawful primary PDF text and relevant theorems",
+          "title": "Slices, Slabs, and Sections of the Unit Hypercube",
+          "trigger": "Central cube section results, potentially relevant random invariant"
+        },
+        {
+          "assessment": "Motivates probability-space distinction, not a published formula covering all positive orthotopes",
+          "evidence": "Central fixed-center orientation question distinguished from translated random-flat model.",
+          "identifier_or_url": "https://mathoverflow.net/questions/206414/expected-number-of-vertices-of-a-hypercube-slice-is-this-new-interesting",
+          "material_read": "Question/discussion distinguishing three sampling methods and center-fixed integrals",
+          "method": "Public dated mathematical discussion",
+          "title": "Expected number of vertices of a hypercube slice—is this new/interesting?",
+          "trigger": "Historical priority and specific central-versus-translated distribution ambiguity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural combinatorial statistic of random central sections has an explicit all-dimensional formula and sharp geometry-of-numbers shape theorem. The 4D cube value and strict Schur ordering under diagonal constraint quantify central section complexity beyond volume-based slice results. The lower infimum differs meaningfully from translated-slice expectation although the numeric value agrees.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1808.09482",
+    "https://combinatorialpress.com/article/ojac/vol3/Marichal_2008.pdf",
+    "https://mathoverflow.net/questions/206414/expected-number-of-vertices-of-a-hypercube-slice-is-this-new-interesting",
+    "Resultary query: random central hyperplane section orthotope expected vertices arcsin squares Schur concavity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "d>=4 and strictly positive a_i in assigned theorem; d=2 exceptional constant mean",
+    "Infimum 2^(d-1) is approached by degenerating widths, never attained at positive widths",
+    "Only first vertex-count moment and central codimension-one sections."
+  ],
+  "residual_risks": [
+    "A mathematically equivalent older Gaussian/Cauchy integral formula could be published under projection or Cauchy-crofton terminology; not exhaustively excluded.",
+    "Finite sampled orientation checks corroborate but do not prove the all-a formula.",
+    "A published special-case four-cube 32/3 mean is not itself new."
+  ],
+  "schema_version": 1
+}
