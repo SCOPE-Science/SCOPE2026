@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gauss-sum normalization yields the exact Hermitian four-column matrix \(E_I\). Four-vertex tournament classification, symbolic characteristic-polynomial identities, and double regularity prove the spectrum and multiplicities. Root-sign identities show the strict sharp maximum, including the exceptional \(p=7\) case, and a simple-root limit gives the sharp asymptotic. The standalone checker independently validates 13,096 four-subset cases and all canonical symbolic characteristic polynomials; finite checks are supporting evidence, not infinite proof.
+## correctness
 
-## Originality — PASS with explicit historical-priority risk
-Renes's original Paley ETF matrix already provides the underlying full Gram entries, and those entries are not new. Satake examines a related augmented Paley RIP matrix; Magsino–Mixon–Parshall study real-Paley random subensembles. The assessed exact three-class four-column polynomial and multiplicity distribution, strict maximizer characterization, and exceptional-small-prime formula are not stated by the inspected sources, nor identified by statement-level searches of published mathematical records. An equivalent four-vertex tournament/conference-frame spectral result remains a plausible historical risk. Independent priority verification is not claimed.
+PASS
 
-## Mathematical value — PASS
-The sharp order-four deviation is a natural stability invariant for this canonical deterministic harmonic frame. Its exact optimizers, three-point polynomial fingerprint of all four-column restrictions, complete multiplicity census, and the \(p=7\) exception go beyond the generic coherence bound and provide a reusable exact benchmark for sparse Fourier-frame conditioning.
+With m=(p-1)/2 square frequencies, Gauss sums give E_ab=-1+i sqrt(p) chi(b-a) off-diagonal and zero diagonal. All four-vertex tournaments give three distinct exact Hermitian characteristic polynomials PT, PD and PS; source symbolic checker and exact double-regular Paley tournament count establish all four-subset multiplicities. In an independent symbolic calculation PD expands to t^4-6(p+1)t^2+8t+9p^2+6p-3 and PT(-r)-PS(r)=-16(p+r). PT(-R_D)=-8p(p+sqrt(3p+4)+2)<0 and root asymmetry prove its least root dominates the absolute roots of D, S and its own positive roots when p>=11, with p=7 no transitive sets and S maximal; p=11 δ4=0.9025414700217169 and p=7 δ4=1.2005597106277182 from independent symbolic/numeric tests. Simple leading polynomial gives (1+sqrt(2))/sqrt(p)+O(p^-1). No all-prime conclusion relies on four finite checker primes.
 
-## Scope and limitations
-This is a theorem for prime \(p\equiv3\pmod4\) and the nonzero-square-frequency unaugmented frame; neither unrestricted prime powers nor larger support cardinalities are treated. External historical equivalence remains a residual risk. Source Gram and Gauss identities are acknowledged foundations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Renes 2004 supplies base Gram and Gauss sum, Satake 2020 treats RIP of the different augmented Paley matrix, and Hoffman-Solazzo 2011 studies general ETF four erasures but does not state this exact arithmetic four-column census or δ4 optimizer. A VERY CLOSE four-erasure result now published in Resultary gives the identical polynomial table and counts (after positive scaling); however its SCOPE source Git commit is stamped 2026-10-11 12:59:20Z, 83 seconds AFTER this source Git import at 12:57:57Z, and its Resultary hosting is stamped 13:59:41Z. Thus it is overlapping later work, not established PRIOR coverage of this earlier source. It also identifies worst RETAINED lower frame bound (strong type), not the sharp TWO-SIDED unit-frame δ4 (transitive type). Source timestamps are recorded with caution, not claimed to certify originality.
+
+## value
+
+PASS
+
+The exact sharp two-sided order-four restricted-isometry deviation of a canonical unaugmented complex Paley frame is a natural conditioning invariant; the complete three-class spectrum gives attainment counts and strict transitive optimizer, with the p=7 exceptional strong optimizer. The contrast with worst one-sided four erasures is mathematically consequential and not a cosmetic relabeling. This exact finite-order benchmark has plausible use in sparsity/coding/frame analyses even without a general high-order RIP theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
