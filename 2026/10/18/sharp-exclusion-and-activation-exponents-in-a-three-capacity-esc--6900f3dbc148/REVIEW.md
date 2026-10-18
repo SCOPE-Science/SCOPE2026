@@ -1,0 +1,15 @@
+# Scientific review: exact escort-capacity species activation
+
+## Correctness — PASS
+The central statement is about the global maximizer, not just a stationary point. The escort transformation is an exact closed-simplex bijection for positive order; it converts the apparently nonconvex capacity equation to a linear slice. Strict convexity for low order and strict concavity for high order establish existence and uniqueness. The KKT inequalities on the two adjacent boundary faces give the exact critical budgets, including equality at their endpoints. A separate expansion of the unique interior KKT root gives the order-dependent activation exponent and leading positive coefficient; all limiting operations hold with the diversity order fixed. The boundary cases, Shannon order, and exact order-one-half formulas are accounted for. The embedded standalone checker reproduces exact rational witnesses and finite-parameter consistency checks, not the infinite proof.
+
+## Originality — PASS with residual literature risk
+The underlying Hill diversity, escort constraint, reciprocal escort duality, and truncated power-law canonical distributions are established mathematics: see Eguchi (2026), Bercher (2011), and Eguchi (2024). This result does **not** claim those ingredients. The motivating work's published stationary power-law expression covers potential truncation in general but does not state or establish the unique three-level capacity cutoffs, strict inclusion/exclusion diagram for all orders, or the distinct activation exponents on either side of order one half. Bercher establishes the general escort correspondence and studies an explicit two-level system, not the first nontrivial three-level activation problem. Searches for equivalent three-level statements and prior accessible mathematical records yielded no covering theorem. The risk that these exact transitions follow an unlocated worked three-level example is acknowledged; search absence is not proof of independent priority.
+
+## Mathematical value — PASS
+The first nontrivial nonbinary capacity benchmark gives a complete and sharp mathematical decision rule for when maximizing an escort-constrained biodiversity index assigns zero potential weight to an otherwise allowed species. The onset rate is nonanalytic and changes exponent at a second precise diversity-order boundary. This identifies a sensitivity property of the benchmark that its general power-law stationary formula alone does not quantify. The result is informative for benchmark calibration, but it is not evidence that real species disappear or that a conservation intervention will have these effects.
+
+## Scope and risk
+The theorem is exact for three equally spaced nonnegative capacities with an equality escort-mean budget. Unequal spacings, inequality budgets, random sampling, empirical model validation, and ecological dynamics are outside scope. Possible unindexed exact three-level solutions remain a literature risk. No independent scientific validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
