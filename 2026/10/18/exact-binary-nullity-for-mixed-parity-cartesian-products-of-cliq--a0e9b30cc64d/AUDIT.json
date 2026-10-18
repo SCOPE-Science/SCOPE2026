@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Full tensor-space decomposition over F2 gives M=(d+1)I+sum J_i. Odd factors split into J_i eigenvalues zero and one. Even factors give J_i^2=0, one length-two block and q_i−2 zero blocks; an explicit h proves equal kernel/image on every tensor summand containing a length-two factor. This proves the formula for all allowed sizes. Explicit all-on solutions are verified algebraically; direct brute-force GF2 row reduction independently passed for 109 graphs and 6230 press equations. Finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Curtis et al. (2018), Theorem 2.1, covers arbitrary graph pairs by spectral/Jordan data.",
+        "Ducey–Jalil (2013), §4.3, computes modular data under a coprime-characteristic condition that fails with an even alphabet.",
+        "Peters et al. (2017), Proposition 3.1, proves the even/even two-factor uniqueness case."
+      ],
+      "reasoning": "Broader general algorithms can compute the answer, but the evaluated closed parity product for arbitrary factor count and the explicit arbitrarily large gap are not given as consequences in those references. The older even/even two-factor uniqueness is acknowledged, not claimed as newly discovered; all-odd regime is deliberately excluded.",
+      "searches": [
+        "arXiv:1802.05359 nullity any Cartesian product invariant factors Jordan blocks",
+        "arXiv:1308.2335 modular Smith Hamming graphs odd prime does not divide group order",
+        "2017 LIGHTS OUT Cartesian Products Kn square Km Proposition 3.1"
+      ]
+    },
+    "checked_sources": [
+      "Peters–Goldwasser–Young 2017: DOI 10.13001/1081-3810.3483",
+      "Curtis–Earl–Livingston–Shader 2018: arXiv:1802.05359v1",
+      "Ducey–Jalil 2013: arXiv:1308.2335v2",
+      "Munter–Peters 2021: DOI 10.13001/ela.2021.5601",
+      "Codsi et al. 2026: arXiv:2602.07241v1",
+      "Cunningham–Minevich 2025: arXiv:2510.10314v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 paper, Conjecture 4.1, states a gcd-degree lower bound; 2018 paper proves this general bound.",
+        "The exact family K_{2r} square K3 has gcd-degree 1 but nullity 2r−1, so neither the bound nor its proof states this equality.",
+        "2021 paper studies direct/strong products and generalized ring solvability; it does not tabulate the claimed binary nullities."
+      ],
+      "reasoning": "The general 2018 Jordan formula is an alternative derivation in principle, hence the claimed novelty is strictly the explicit multi-factor evaluation and quantified gap, not the existence of a general method or the solvability of the all-on pattern.",
+      "searches": [
+        "Peters Goldwasser Young 2017 characteristic gcd nullity conjecture Cartesian Lights Out",
+        "Curtis Earl Livingston Shader 2018 resolved conjecture 4.1 exact nullity",
+        "Munter Peters 2021 Lights Out graph products rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Curtis et al. (2018), arXiv:1802.05359v1, §2, gives Jordan and invariant-factor general rank formulas.",
+        "Peters–Goldwasser–Young (2017), Proposition 3.1 and Theorem 2.5, addresses universal solvability, not the multi-factor explicit closed expression."
+      ],
+      "reasoning": "The general Sylvester computation applies to any two-factor product, so the underlying rank method is not new; the claimed object is the fully evaluated, uniform formula for unrestricted mixed-parity clique factors and its unbounded lower-bound gap. The displayed algebra is required to extract this evaluation and its nonsemisimple factor dependence.",
+      "searches": [
+        "Lights Out on Hamming graphs nullity Cartesian products binary closed neighborhood",
+        "quiet patterns clique graph products F2 kernel formula",
+        "arXiv:1802.05359v1, Theorems 2.1 and Corollary 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Peters et al. (2017), Tables 1–3 and Proposition 3.1, contain solvability entries for two factors, not exact rank for the full mixed-dimensional family.",
+        "Curtis et al. (2018), Examples 2.5–2.7, evaluate stars, paths and the Petersen graph rather than arbitrary clique products."
+      ],
+      "reasoning": "No exact table or data source containing the asserted general formula was identified. This is limited negative evidence, not proof of global uniqueness.",
+      "searches": [
+        "\"Lights Out\" \"Hamming graph\" \"nullity\"",
+        "\"Lights Out\" \"Cartesian product\" \"complete graphs\" rank",
+        "Peters Goldwasser Young graph-product Lights Out Table 1"
+      ]
+    },
+    "rationale": "The 2017 paper establishes two-factor clique solvability but not arbitrary-factor nullity. Curtis et al. (2018) provide a general Jordan/invariant-factor method applicable in principle to every graph product, explicitly acknowledged; no closed uniform mixed-parity clique formula or unbounded gcd-gap evaluation was identified. This is an exact natural specialized evaluation rather than a claim of a new universal rank method. The all-odd case is excluded because earlier characteristic-coprime modular results apply. Residual bibliographic risk is explicitly retained.",
+    "residual_risks": [
+      "The 2018 general nullity computation subsumes every fixed Cartesian graph-product instance algorithmically; this finding is only an evaluated explicit infinite-family expression.",
+      "An unindexed prior explicit mixed-parity formula could exist, despite targeted comparisons and searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known universal solvability and binary gcd lower bound are credited; no full multi-factor kernel count is stated",
+        "evidence": [
+          "Theorem 2.5 and Proposition 3.1",
+          "Conjecture 4.1 (nullity lower bound)"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.3483",
+        "material_read": "Full 11-page open-access paper, including §§2–4, Proposition 3.1, tables and Conjecture 4.1",
+        "method": "Compared determinant criterion, two-factor clique statement, and lower-bound conjecture to exact nullity claim",
+        "title": "Lights Out! on Cartesian Products",
+        "trigger": "Exact same game and graph operation, known complete-clique case"
+      },
+      {
+        "assessment": "General exact Jordan/invariant-factor computation dominates any fixed instance; explicit closed formula for all mixed-parity clique dimensions and unbounded discrepancy is not written there",
+        "evidence": [
+          "Theorem 2.1; Corollary 2.2; Examples 2.5–2.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.05359",
+        "material_read": "Full six-page preprint including §§1–3 and Examples 2.5–2.7",
+        "method": "Examined Theorem 2.1, Corollary 2.2 and examples; assessed implications for clique factors",
+        "title": "Resolution of Conjectures Related to Lights Out! and Cartesian Products",
+        "trigger": "Potential dominating general theorem computing arbitrary graph-product nullity"
+      },
+      {
+        "assessment": "Its characteristic-coprime calculations cover all-odd alphabets in characteristic two, excluded here, but do not supply the even-factor nilpotent decomposition",
+        "evidence": [
+          "§3 Smith eigenvalue criterion; §4.3 Cartesian complete graph factors"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1308.2335",
+        "material_read": "Read relevant full PDF sections, notably §3 and §4.3 on products of complete graphs",
+        "method": "Checked coprimality hypotheses against parity of factor cardinalities",
+        "title": "Integer Invariants of Abelian Cayley Graphs",
+        "trigger": "Exact modular spectra of Cartesian complete graphs could imply claimed result"
+      },
+      {
+        "assessment": "No exact F2 nullity formula for arbitrary Cartesian products of complete graphs identified",
+        "evidence": [
+          "§2 graph-product matrices; §§3–4 graph-product solvability"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/ela.2021.5601",
+        "material_read": "Full 9-page PDF including §2 and results on direct and strong products",
+        "method": "Compared product type and stated results",
+        "title": "Lights Out! on graph products over the ring of integers modulo k",
+        "trigger": "Sequel to central graph-product paper"
+      },
+      {
+        "assessment": "General parity/odd-matching results do not supply claimed multi-factor nullity formula",
+        "evidence": [
+          "Definitions of Lights Out extremality; general parity-matching characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.07241v1",
+        "material_read": "Full publicly available HTML manuscript, principal definitions, results and proofs",
+        "method": "Compared parity/matching characterizations to exact Hamming-product kernel dimension",
+        "title": "Extremal Graphs for the Lights Out Problem",
+        "trigger": "Recent motivating parity and extremality study"
+      },
+      {
+        "assessment": "RA lattice condition differs from binary closed-neighborhood invertibility; e.g. K2 square K3 is RA but binary nullity is 1",
+        "evidence": [
+          "Corollary 4.6, RA condition for clique-product graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.10314v1",
+        "material_read": "Full accessible HTML material including Corollary 4.6",
+        "method": "Compared augmentation rank condition to closed-neighborhood rank",
+        "title": "Graph Powers of Groups II: The RA Matrix",
+        "trigger": "Closely related group generalization on Cartesian products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0e9b30c-c64d-4976-8c3d-b7a14e3473fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closed exact formula counts all binary null patterns and all-on solutions for unlimited dimensions and coordinate sizes, with constructive winning patterns and sharp unique-solution condition. More significantly K_{2r} square K3 realizes an unbounded excess 2r−2 over the motivating characteristic-polynomial gcd nullity lower bound, clarifying a natural question raised by 2017 work. The proof handles the nonsemisimple characteristic-two even-size case rather than a routine odd-order spectral substitution.",
+    "status": "PASS"
+  }
+}
