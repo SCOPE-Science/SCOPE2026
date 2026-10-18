@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a sharply specified mean-square classification for a scalar, noiseless, constant-step quadratic with a stationary two-state delay chain. The zero-delay update collapses the two-dimensional state to one fixed direction, making the successive zero-events an exact nonnegative weighted renewal process. The rational renewal mass and its two crossings are derived algebraically; the elementary discrete renewal theorem proves the stability, nonzero critical lower bound, and exponential-growth regimes. The last-zero decomposition rigorously transfers the renewal classification to the full squared iterate. Exact arithmetic reproduces the transfer determinant, generating-function identity, rational Lyapunov certificate, and weighted short histories. Computation is not used as an infinite-horizon proof.
+## correctness
 
-## Originality — PASS, with literature risk
-Closest inspected work includes Dutta and colleagues' 2018 asynchronous-SGD theory under possibly dependent staleness and its accompanying proof supplement, and Arjevani, Shamir and Srebro's 2018/2020 fixed-delay quadratic convergence theory. The former gives sufficient step-size/error guarantees rather than the exact persistence-dependent frontier; the latter does not switch between delay zero and one according to a correlated Markov law. The published two-coordinate random Gauss–Seidel delay result found by semantic search uses an independent bounded stale-read law and a different algorithm, and therefore its stated scalar recurrence does not imply the present Markov correlation transition. A direct full-text inspection of that indexed finding was unavailable, so its summary-only comparison is a residual risk. A general Markov-jump moment criterion is known and is not claimed as new. Equivalently parameterized studies absent from the searched indexes remain possible; no independence of priority is certified.
+PASS
 
-## Value — PASS
-The motivation is precise: gradient staleness is naturally temporally clustered in asynchronous computation, and its marginal frequency does not characterize the stability of fixed-step updates. The sharp re-entrant interval exhibits both instability from overly rapid alternation and instability from long stale runs, at the same average stale-gradient frequency. The exact two-boundary classification supplies a nontrivial, reproducible stress test for staleness scheduling and for mean-square convergence criteria, rather than a routine algebraic substitution or an arbitrary optimization benchmark. It does not claim a systems-level scheduling guarantee or general convergence theorem.
+At zero-delay update the vector (x_t,x_{t-1}) resets to (-x_t/5,x_t), giving a rank-one reset and an exact positive renewal process indexed by gaps between D=0 events. The renewal kernel has b_1=p/25 and b_{L+1}=(1-p)^2*p^(L-1)*(e1^T A1^L v)^2, v=(-1/5,1). A rational resolvent for the A1 symmetric moment map gives 1-B(1)=24*(432p^3-156p^2-305p+125)/[25*(6p-5)*(36p^2+35p+25)] below 5/6, with B infinite above. Aperiodic positive-kernel renewal theorem gives exponential decay for B(1)<1, nonzero critical renewal level when =1 and exponential growth when >1; last-zero decomposition transfers to E[x_t^2]. Independently recomputed symbolic 6x6 moment transfer determinant -24*cubic/3125, B mass rational, 3 real roots including 0.4267763163 and 0.7912257351, positive Lyapunov matrix at p=1/2. All-p claim rests on renewal argument rather than finitely many simulated delays.
 
-## Limitations and priority
-The delay chain is an exogenous idealization rather than a derived worker queue. Only one specified scalar overrelaxation parameter and independent initial history are covered. The proof does not establish almost-sure limits or arbitrary-delay robustness. Relevant full texts were compared, but coverage beyond accessible publications remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dutta et al. 2018 full original PMLR text gives step-size-restricted sufficient bounds for asynchronous stochastic gradient descent and a conditional freshness p0; its Theorem 3 does not classify Markov-persistence p at overrelaxed step 6/5. Arjevani--Shamir--Srebro 2020 full original text fixes delay tau (rather than Markov switching) and supplies complexity estimates via generating functions, not this exact two-crossover mean-square region. General Markov-jump moment transfer criteria are known and not claimed new. A separate indexed randomized Gauss--Seidel delay-law result concerns iid bounded delay and another algorithm, so it does not entail this correlated two-state cubic. Unindexed equivalent jump-linear-system examples remain an originality risk.
+
+## value
+
+PASS
+
+All p share the same 1/2 fresh-gradient marginal but correlation alone changes the exact stability regime twice. The sharp rational cubic frontier is a precise counterexample to explanations based solely on expected staleness and a motivated stochastic-optimization stability test. It is not a queue-system universal law or an arbitrary one-shot algebra identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
