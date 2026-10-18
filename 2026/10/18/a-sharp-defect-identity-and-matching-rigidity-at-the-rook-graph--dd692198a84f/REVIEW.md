@@ -1,0 +1,19 @@
+# Scientific review: sharp defect identity for square rook graphs
+
+## Correctness
+
+**PASS.** The exact domain is every proper colouring of the \(n\)-by-\(n\) rook graph using colours from a palette of size \(n+1\), for every integer \(n\ge2\). Since each row and column uses \(n\) distinct colours, it omits exactly one. For a cell, the open-neighbourhood witness condition is equivalent to the inequality between its row and column palettes. Thus a defect occurs exactly at an equality of omitted symbols. Since a proper matrix has the same frequency of any colour when counted across rows or columns, the row- and column-omission multiplicities coincide, proving \(U=\sum_s a_s^2\). Disjoint balanced bicliques describe the entire defect set. Integer convexity gives the sharp lower bound \(n\), equality characterizes matching-shaped defects, and deleting one row and column from a cyclic Latin square realizes it. The proof accounts for unused palette colours. The standalone checker confirms the identity and equality cases on all 1,056 proper 3-by-3 matrices using four named colours, and on all 18 proper 2-by-2 matrices using three; the general theorem is not inferred from tests.
+
+## Originality
+
+**PASS for the *quantitative defect identity and matching rigidity*, not for the chromatic number.** The exact AVD/PCF equivalence was investigated against Balister, Győri, Lehel and Schelp's *Adjacent Vertex Distinguishing Edge-Colorings* (SIAM J. Discrete Math. 21 (2007), 237–250, DOI 10.1137/S0895480102414107), especially its first-page omission argument and Section 3. That article proves the general bipartite upper bound and motivates a one-extra-colour obstruction; the known exact equality \(\chi_{\mathrm{pcf}}(K_n\square K_n)=n+2\) is credited. It does not in the material checked specify the number of remaining undistinguished edges for every \((n+1)\)-palette proper edge colouring, nor classify the defect structure and sharp matching configuration. Jiménez and colleagues' quasi-line-graph upper bound similarly does not imply a defect census. Pradhan and Sharma's 11 August 2026 preprint describes complexity and algorithms for other classes; its accessible abstract does not cover this count, but inaccessible complete text remains a bibliographic risk. Searches under PCF, AVD, neighbour-distinguishing, line-graph, omitted-colour, and defect terminology, plus published mathematical-record comparisons, found no equivalent quantitative claim. No failed search is treated as a proof of priority.
+
+## Value
+
+**PASS.** The question is not to recompute an already known chromatic threshold. It asks for the **sharp unavoidable number and exact spatial form of failures** when a natural edge-colouring system is restricted to one colour less than the adjacent-vertex-distinguishing threshold. The sum-of-squares identity and balanced-biclique decomposition describe every colouring at that boundary, not an arbitrary slice or merely a small numerical improvement. They give a precise stability profile: the optimal approximate solutions lose exactly one vertex per row and per column, whereas concentrated missed colours force quadratic blocks of failure. This is a natural exact obstruction relevant to near-feasible PCF/AVD colourings. The paper does not assert downstream algorithms or a general-graph stability theorem.
+
+## Literature and limitations
+
+The closest established theory is Balister et al. (2007), DOI 10.1137/S0895480102414107. Related background is Jiménez et al. (arXiv:2308.00170) and Pradhan–Sharma (arXiv:2608.10874). The full text of the latter was not available for exhaustive exclusion of possible equivalent statements. Work under alternative terminology may also exist. Computational verification is bounded and no independent audit has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.

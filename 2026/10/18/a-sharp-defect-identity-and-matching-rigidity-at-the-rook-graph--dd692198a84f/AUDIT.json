@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=2 and every proper n-by-n board colouring from n+1 named symbols, the open-neighbourhood witness condition is inequality of row and column palettes; every row/column omits exactly one symbol. For each symbol the omitted-row and omitted-column counts are equal because the proper colour class is a matching, hence all defects form balanced bicliques and their number is exactly sum_s a_s^2. Sum_s a_s=n proves U>=n and equality iff multiplicities are 0/1, yielding a perfect matching of defects. Delete one row and column of cyclic Latin square of order n+1 to attain equality. Direct exhaustive code compares the identity and matching condition for every proper small named-palette array.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jimenez et al., arXiv:2308.00170, Theorem 1.10: chi_pcf(G) <= Delta(G)+4 for quasi-line graphs.",
+        "Balister et al., SIAM J. Discrete Math. 21 (2007), Theorem 1.2: chi_a_prime(G) <= Delta(G)+2 for bipartite G."
+      ],
+      "reasoning": "The classical results cover a stronger graph class but only an existential palette bound, not a quantitative census of bad cells in each proper colouring at the subthreshold budget. Such a bound cannot imply the new identity or characterization of all minimum-defect configurations.",
+      "searches": [
+        "arXiv:2308.00170; Theorem 1.10",
+        "doi:10.1137/S0895480102414107; Theorem 1.2",
+        "proper conflict-free chromatic Hamming graphs Cartesian product of complete graphs"
+      ]
+    },
+    "checked_sources": [
+      "Balister et al. 2007 DOI:10.1137/S0895480102414107",
+      "Jimenez et al. arXiv:2308.00170",
+      "Pradhan and Sharma arXiv:2608.10874 (abstract only)",
+      "Published result: Exact proper conflict-free colorings of complete multipartite graphs",
+      "Published result: Exact proper conflict-free chromatic number of crown graphs (different graph family)",
+      "Published record: Integral and equivariant homology of three-cut complexes of rook graphs (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Balister et al. 2007 first page argues a one-extra-colour obstruction through missing symbols; not a bound of n on number of defective vertices, nor the sum of squares.",
+        "Pradhan–Sharma 2026 abstract lists complexity and algorithms, not subthreshold defect counts."
+      ],
+      "reasoning": "A theorem that at least one adjacent pair is undistinguished under n+1 colours does not imply a sharp number n, its parity, exact distribution, or the necessary and sufficient structural condition for attaining equality. The new proof counts all such pairs without any uniqueness assertion for the chromatic threshold.",
+      "searches": [
+        "arXiv:2608.10874",
+        "doi:10.1137/S0895480102414107",
+        "proper conflict-free chromatic number rook graphs Cartesian product of cliques Latin rectangles K_m square K_n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph R_{n,n} is exactly L(K_{n,n}); proper rook colouring is a proper edge colouring, and the PCF witness condition is unequal endpoint incident-colour sets.",
+        "Balister et al. 2007 defines adjacent vertex distinguishing edge colouring and gives bipartite Delta+2 upper bound."
+      ],
+      "reasoning": "This reduction proves the ordinary PCF chromatic threshold is classical; the assessed claim is only the finer exact defect count for nearly AVD proper edge colourings. Published existence/nonexistence of an AVD edge colouring does not quantify the undistinguished edges for each non-AVD colouring.",
+      "searches": [
+        "adjacent vertex distinguishing edge chromatic index complete bipartite graph K_{n,n} Delta+2 sharp for all n",
+        "neighbor distinguishing chromatic index K_mn complete bipartite m<n equals n n=n n+2",
+        "proper conflict-free chromatic number rook graphs Cartesian product of cliques Latin rectangles K_m square K_n",
+        "doi:10.1137/S0895480102414107"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public complete-multipartite PCF classification includes a numerical K_{2,2} case but no rook-graph defect count.",
+        "Full-text search of the 2007 AVD paper did not identify an exact defect census or a table of all balanced K_{a,a} failure blocks."
+      ],
+      "reasoning": "Exact indexed searches and closest published records did not show an equivalent defect table or formula. Unindexed papers may still contain it; absence of results is not taken as a novelty certificate.",
+      "searches": [
+        "proper conflict-free coloring Latin squares rows columns unique color in neighborhood grid",
+        "\"adjacent vertex distinguishing\" \"undistinguished edges\" complete bipartite",
+        "\"adjacent vertex distinguishing\" \"bad edges\" \"complete bipartite\"",
+        "\"neighbor distinguishing\" \"minimum\" \"undistinguished\" edges proper edge coloring",
+        "2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c"
+      ]
+    },
+    "rationale": "The exact edge/vertex colouring equivalence and chi threshold are established prior art and explicitly excluded from the new claim. Under that equivalence, the newly assessed statement counts and classifies all failures in every proper (n+1)-palette square-rook colouring: U=sum_s a_s^2, a disjoint union of K_{a_s,a_s} defect bicliques, with sharp minimum n and perfect-matching rigidity. No inspected exact or dominating prior statement implies this quantitative classification. Main bibliographic risks are full uninspected 2026 preprint and possible work under AVD or defect-stability aliases.",
+    "residual_risks": [
+      "The full text of the August 2026 initiating preprint was not accessible; abstract-only evidence cannot exclude an unindexed theorem within it.",
+      "Classical AVD edge-colouring literature is extensive and may use terminology such as undistinguished pairs or near-optimal edge colourings without the PCF keywords.",
+      "A formula equivalent to the sum-of-squares defect census may exist in a separate primary source not retrieved; no proof of global publication uniqueness is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the AVD invariant and general bipartite Delta+2 upper bound; exact numerical rook threshold is classical/derivable. No exact minimum number of undistinguished edges, balanced-biclique defect decomposition or universal sum-of-squares census identified.",
+        "evidence": [
+          "DOI:10.1137/S0895480102414107; p.237 adjacent-vertex-distinguishing definition and missing-colour argument.",
+          "Theorem 1.2 p.238: chi_a_prime(G) <= Delta(G)+2 for bipartite graphs.",
+          "Section 3 pp.244–245 describes constructive AVD upper bound, not subthreshold defect classification."
+        ],
+        "identifier_or_url": "https://www.memphis.edu/msci/people/pbalistr/avdec.pdf",
+        "material_read": "Full author-hosted 14-page PDF accessible; title/abstract/introduction p.237, Theorem 1.2 p.238, and section 3 pp.244–245, plus targeted whole-PDF text searches for omitted colours, complete bipartite graphs and defective edges.",
+        "method": "Read and compare definition, p.237 omitted-colour obstruction and general bipartite bound with exact bad-edge census.",
+        "title": "Adjacent Vertex Distinguishing Edge-Colorings",
+        "trigger": "Exact edge-colouring equivalence of the rook-graph PCF condition, and potential stronger classical theorem."
+      },
+      {
+        "assessment": "Theorem 1.10 gives chi_pcf(G) <= Delta(G)+4 for all quasi-line graphs, substantially weaker than an exact count of failed vertices at a prescribed palette; does not imply the quantitative theorem.",
+        "evidence": [
+          "arXiv:2308.00170, Theorem 1.10 (quasi-line upper bound).",
+          "Sections 1.2 and 2: recolouring reduces unhappy vertices but does not yield the square-board sum-of-squares formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.00170",
+        "material_read": "Accessible full arXiv HTML text, introduction Section 1.2 and Section 2 examined; searches for rook, Cartesian product, complete bipartite and related exact formulas.",
+        "method": "Compare general quasi-line upper bound and PCF definitions against exact near-threshold defect identity.",
+        "title": "Boundedness for proper conflict-free and odd colorings",
+        "trigger": "Potential general quasi-line graph theorem dominating the rook-graph claim."
+      },
+      {
+        "assessment": "Abstract treats hardness and linear-time algorithms on block, proper interval, chain and pseudo-split graphs; it does not announce square-rook near-threshold defect stability, but uninspected text is residual priority risk.",
+        "evidence": [
+          "arXiv:2608.10874 version first posted 2026-08-11; abstract and stated graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.10874",
+        "material_read": "ArXiv indexed abstract and short indexed text only; direct arXiv PDF and open alternate representations could not be read. No claim of full-text inspection.",
+        "method": "Compare the enumerated subject classes and the current defect observable.",
+        "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+        "trigger": "Recent initiating work on the same invariant, first publicly available 2026-08-11."
+      },
+      {
+        "assessment": "Covers the numerical four-cycle boundary (and more general complete multipartite graphs) but not the defect distribution of square rook graphs; a numerical n=2 special case is credited.",
+        "evidence": [
+          "Published theorem chi_pcf(K_{n_1,...,n_r})=r+max(0,2-s); graph is not rook graph for general n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c",
+        "material_read": "Indexed published summary and theorem statement, not full repository article.",
+        "method": "Compare graph class and statement-level implications.",
+        "title": "Exact proper conflict-free colorings of complete multipartite graphs",
+        "trigger": "Published record with identical PCF invariant; four-cycle common special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd692198-a84f-4767-bb77-932dd4782979",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural near-feasibility question one colour below the classical adjacent-vertex-distinguishing threshold has a sharp exact stability answer for all n: every proper colouring has a precise defect count and block structure, and all minimal failures are spread as a perfect matching. This quantifies the obstruction beyond known existence bounds and gives the full structural distribution for each colouring, not an arbitrary finite slice, a textbook normalization or an unsupported marginal gain.",
+    "status": "PASS"
+  }
+}
