@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive integer with at least two digits, disjointness and exhaustiveness up to a rigorously bounded residual set follow by splitting the prime divisors from \(\{2,3,5,7\}\). Each of four principal subclasses has an independent local-congruence description and explicit leading/trailing digit counts. Fourier inversion on the units modulo \(21\) and \(63\) gives uniform residue equidistribution with exponential error. The special bound \(\vartheta(A,21)<8\), needed to isolate a genuine second term, is proved by pairing roots of unity, not guessed from numerical spectra. A finite census through six digits checks all cases but is not used to infer the infinite statement. Boundary \(k=1\) is excluded from the asymptotic but is defined; the proof uses \(k\ge3\) only where the last two digits are separated.
+## correctness
 
-## Originality — PASS, residual risk acknowledged
-The complete primary source arXiv:2601.07846v1 defines patterned numbers and comments on their frequency without a \(k\)-digit infinite asymptotic. Maynard's prime-restricted-digit paper concerns a different class, and its statement does not imply the displayed two-term formula; standard additive-character techniques are acknowledged as antecedents. Search comparisons examined exact names, aliases, digit-avoiding numbers, and uniform modular counts, with no covering result identified. The checked earlier mathematical findings include no matching digit-divisor counting theorem. Unindexed equivalent work, or an unstated easy derivation from established general digit-language results, remains a possibility.
+PASS
 
-## Value — PASS
-The digit-divisor property is a specifically introduced, naturally defined integer class whose original article explicitly invites asymptotic density analysis. The second term is not a mere leading-density observation: it separates three arithmetic mechanisms with exact rational coefficients at order \(8^k\) and controls *all* remaining configurations at an exponentially smaller rate. This precise sharp second-scale description is meaningful even without a third-order expansion or a prime counterpart.
+A k-digit unpatterned integer contains no 1. Split into E: gcd(n,210)=1 and three mutually exclusive F_p classes excluding one more prime digit p=2,3,7 under their congruence conditions (nu2=1, nu3=1, or 7|n). Counting fixed first/last digits and equidistribution of free middle digits modulo 21 and 63 yields E=(96/7)9^(k-2)+O(rho^k), F2=(3/32)8^k+O(rho^k), F3=(1/24)8^k+O(rho^k), F7=(1/48)8^k+O(rho^k). Their 8^k coefficients total 5/32. Every other unpatterned number omits 1 plus at least two other digits, O(7^k). Fourier inversion has nontrivial character magnitude theta<8 for each required alphabet/modulus, in particular theta(A,21) is about 6.251 and theta(A3,63) about 7.682; positivity of the secondary coefficient is therefore separated from the error. Independently checked exact counts for k=2..6 and the spectral radii; finite checks do not prove the uniform limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Campbell introduced the exact digit/divisor property and counted examples but did not give this two-scale asymptotic; Maynard counts a different prime restriction. The four-class decomposition and precise 8^k coefficient are not implications of the statements inspected.
+
+## value
+
+PASS
+
+A natural integer family introduced with finite frequency questions admits a nontrivial asymptotic scale separation. The 8^k coefficient 5/32 quantifies three mathematically distinct prime-adic obstructions, rather than merely supplying a routine leading-density constant. It is useful for precise enumeration even without a sharp third-order rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

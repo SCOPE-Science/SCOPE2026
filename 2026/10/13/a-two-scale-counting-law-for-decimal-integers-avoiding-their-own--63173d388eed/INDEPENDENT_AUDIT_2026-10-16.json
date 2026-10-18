@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:14:09.022461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A k-digit unpatterned integer contains no 1. Split into E: gcd(n,210)=1 and three mutually exclusive F_p classes excluding one more prime digit p=2,3,7 under their congruence conditions (nu2=1, nu3=1, or 7|n). Counting fixed first/last digits and equidistribution of free middle digits modulo 21 and 63 yields E=(96/7)9^(k-2)+O(rho^k), F2=(3/32)8^k+O(rho^k), F3=(1/24)8^k+O(rho^k), F7=(1/48)8^k+O(rho^k). Their 8^k coefficients total 5/32. Every other unpatterned number omits 1 plus at least two other digits, O(7^k). Fourier inversion has nontrivial character magnitude theta<8 for each required alphabet/modulus, in particular theta(A,21) is about 6.251 and theta(A3,63) about 7.682; positivity of the secondary coefficient is therefore separated from the error. Independently checked exact counts for k=2..6 and the spectral radii; finite checks do not prove the uniform limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maynard 2019 proves primes avoiding fixed digits; here all integers are counted with digit restrictions conditional on divisibility.",
+          "Standard additive-character equidistribution is an acknowledged technique, not a claimed new lemma."
+        ],
+        "reasoning": "Neither prime-counting theorem nor generic character-sum method alone specifies the four arithmetic subclasses or exact 5/32 coefficient.",
+        "searches": [
+          "Maynard primes with restricted digits arXiv:1604.01041",
+          "restricted digit integers modular distribution mod 21 63"
+        ]
+      },
+      "checked_sources": [
+        "J. T. M. Campbell, Patterned Numbers: A Novel Number Classification with Structural and Quantum Algebraic Perspectives, arXiv:2601.07846v1",
+        "J. Maynard, Primes with restricted digits, arXiv:1604.01041 (scope/abstract)",
+        "Resultary semantic search hit list"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Campbell provides a definition and finite examples, no uniform asymptotic expansion.",
+          "The fixed-digit prime result changes both counted objects and predicate."
+        ],
+        "reasoning": "Earlier definitions and modular Fourier machinery permit deriving this result, but without the nontrivial conditional prime-splitting calculation they do not themselves imply its statement.",
+        "searches": [
+          "arXiv:2601.07846v1 main results",
+          "arXiv:1604.01041 digit restriction statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J. T. M. Campbell, Patterned Numbers: A Novel Number Classification with Structural and Quantum Algebraic Perspectives, arXiv:2601.07846v1: patterned iff a one-digit divisor appears among digits; its exposition gives finite examples, not two-term k-digit asymptotics."
+        ],
+        "reasoning": "Looked for aliases self-dividing displayed digit, digit-divisor avoidance, digit-restricted modular counting. No same-statement source located; discovery limitations remain.",
+        "searches": [
+          "decimal patterned numbers digit divides number unpatterned numbers two-term asymptotic nine eight digit restrictions",
+          "unpatterned digit divisor own digit decimal counting asymptotics",
+          "Resultary semantic search: decimal patterned numbers digit divides number unpatterned numbers two-term asymptotic nine eight digit restrictions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary finite counts do not tabulate the k→infinity 9^k and 8^k coefficients.",
+          "No indexed table with the same U(k) second-scale asymptotic appeared in the actual semantic search."
+        ],
+        "reasoning": "Exact finite table recomputation is not claimed; new result is asymptotic distribution with a separated second scale.",
+        "searches": [
+          "Campbell arXiv:2601.07846v1 finite patterned-number enumeration",
+          "Resultary search patterned unpatterned digit divisor count table"
+        ]
+      },
+      "rationale": "Campbell introduced the exact digit/divisor property and counted examples but did not give this two-scale asymptotic; Maynard counts a different prime restriction. The four-class decomposition and precise 8^k coefficient are not implications of the statements inspected.",
+      "residual_risks": [
+        "Undiscovered earlier automatic-language or number-theory digit-restriction theorems could implicitly subsume the second term.",
+        "Numerical spectral margins and finite k counts do not prove all asymptotic estimates; proof uses uniform character sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines source class and provides finite data but not two-term k-digit limit",
+          "evidence": "A number is patterned iff some divisor digit occurs in its decimal expansion.",
+          "identifier_or_url": "https://arxiv.org/html/2601.07846v1",
+          "material_read": "Accessible complete primary HTML, definition of patterned number and sections on enumeration and frequency",
+          "method": "Read HTML sections and searched terms asymptotic, divisor, counting, digits",
+          "title": "Patterned Numbers: A Novel Number Classification with Structural and Quantum Algebraic Perspectives",
+          "trigger": "Exact source of the patterned integer predicate"
+        },
+        {
+          "assessment": "Different counting domain; method precedent only",
+          "evidence": "Fixed missing digit in primes versus all integers avoiding every divisor digit.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01041",
+          "material_read": "Public abstract and theorem scope on missing digits of primes; not a claimed whole-document inspection",
+          "method": "Web arXiv abstract/literature overview",
+          "title": "Primes with restricted digits",
+          "trigger": "Plausible stronger restricted-digit counting results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural integer family introduced with finite frequency questions admits a nontrivial asymptotic scale separation. The 8^k coefficient 5/32 quantifies three mathematically distinct prime-adic obstructions, rather than merely supplying a routine leading-density constant. It is useful for precise enumeration even without a sharp third-order rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "J. T. M. Campbell, Patterned Numbers: A Novel Number Classification with Structural and Quantum Algebraic Perspectives, arXiv:2601.07846v1",
+    "J. Maynard, Primes with restricted digits, arXiv:1604.01041 (scope/abstract)",
+    "Resultary semantic search hit list"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Undiscovered earlier automatic-language or number-theory digit-restriction theorems could implicitly subsume the second term.",
+    "Numerical spectral margins and finite k counts do not prove all asymptotic estimates; proof uses uniform character sums."
+  ],
+  "schema_version": 1
+}
