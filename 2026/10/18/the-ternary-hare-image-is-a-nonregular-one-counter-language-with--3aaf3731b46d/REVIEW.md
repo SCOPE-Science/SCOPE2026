@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The one-step recursion gives a unique decomposition by maximal letters. Binary hare sorts each segment, so a concatenation of \(k+1\) monotone pieces has at most \(k\) adjacent \(10\) descents; splitting at every such descent gives a constructive converse. Distinct maximal-letter separators preserve distinct segment choices and produce the exact binomial-product preimage count. The binary descent series yields the rational enumerator; the Myhill–Nerode argument proves nonregularity. A complete direct enumeration of all inputs through length ten agrees with exact individual fibers and counts (88,573 output candidates). The proof is general and does not assume finite verification is exhaustive at arbitrary lengths.
+
+**Originality — PASS within the examined evidence.** The inspected 2020 Defant–Kravitz primary PDF defines the map and treats sorting to identity, pattern avoidance, and general fertility, not the exact ternary global image language. The April 2026 Campbell–Rampersad abstract and detailed external account concern hare/tortoise complexity of factors of specific infinite binary words; full paper was not accessible, a residual risk. Five live semantic searches of published mathematical results, precise web searches, and the accessible prior claim ledger found no equivalent statement. OEIS A077855 already gives precisely the enumeration series and is fully credited: its numbers, recurrence, and asymptotic are **not claimed new**. The proposed new contribution is the full ternary hare-image language, nonregular boundary and complete fibers.
+
+**Value — PASS.** For the smallest alphabet where hare is more complex than binary sorting, the result classifies *every* attainable output and *every* ambiguity fiber, rather than a small numerical slice. Nonregularity marks a sharp qualitative transition from the regular binary image, while the one-counter recognizer makes membership efficient. The exact quotient count describes the one-step information collapse for all ternary words.
+
+The characterization is limited to one step and three letters; no independent validation or published priority determination is asserted. Full-text access to the 2026 paper remained unavailable; it is a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
