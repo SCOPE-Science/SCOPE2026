@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:14:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the centered transition operator, T phi_{i+1}=lambda_i phi_i and T h=0 off the finite span. Therefore lag-k covariance is a^T J^(k) a, with J^(k)_(i,i+k)=(product lambda)/2. Its graph is a disjoint union of paths with alternating-sign conjugation DJD=-J, so its eigenvalue extrema are ±||J|| and achieved by real finite-span scores. Expanding Var(sum_0^{N-1} f(X_i))/N gives the real symmetric H_N with diagonal 1 and offdiagonal (1-|i-j|/N) product lambda when |i-j|<N; the orthogonal h component contributes ||h||², while min eig(H_N)<=1<=max eig(H_N). Rayleigh proves sharp finite-N and limiting endpoints for every nonconstant real L² score. The admissible trigonometric example m=2, lambda=(1/4,1/4), score vector (1/2,1/sqrt(2),1/2) gives covariance sqrt(2)/8>1/8; its H eigenvalues are 15/16 and (33±sqrt(129))/32, independently recomputed with SymPy. Copula density remains nonnegative since |phi_i phi_{i+1}|<=2. Zero coefficients and N=1 are included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longla Theorem 5.1 gives fixed-score covariance and the asymptotic variance formula, not maximization over scores.",
+          "Kac–Murdock–Szegő treats spectra of homogeneous Toeplitz matrices independent of this copula interpretation."
+        ],
+        "reasoning": "The basic covariance identity reduces the new proof to a finite spectral calculation, but no stronger primary theorem inspected supplies both the attainable family-wide extrema and the invalidation of the printed half-coefficient assertion.",
+        "searches": [
+          "finite-dependent nonreversible copula chain sharp same-score lag correlation variance eigenvalues Longla adjacent half coefficient counterexample",
+          "https://doi.org/10.1007/s11749-026-01003-0",
+          "https://arxiv.org/abs/1804.08140"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s11749-026-01003-0",
+        "https://arxiv.org/abs/1804.08140",
+        "https://doi.org/10.3390/math13122034"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct counterexample covariance sqrt(2)/8 exceeds source Theorem 4.4(2) claimed 1/8.",
+          "Longla Theorem 5.1 is a lag covariance identity for an arbitrary fixed score."
+        ],
+        "reasoning": "The new sharp claim is not a corollary of the published wrong bound; it follows from the published lag identity plus a separately supplied simultaneous spectral optimization and witness.",
+        "searches": [
+          "finite-dependent nonreversible copula chain sharp same-score lag correlation variance eigenvalues Longla adjacent half coefficient counterexample",
+          "https://doi.org/10.1007/s11749-026-01003-0",
+          "https://arxiv.org/abs/1804.08140"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longla Eq. (11) gives the nilpotent chain, whereas Thm.4.4(2) prints max|lambda_i|/2 and its proof restricts f to a single adjacent basis pair.",
+          "New J^(k) is the symmetric part of T^k; H_N is the score-dependent variance operator."
+        ],
+        "reasoning": "A known operator-norm or numerical-radius reformulation would be an alias, but the source asserts a smaller incorrect value; abstract Toeplitz diagonalization alone does not identify these sharp all-score probabilistic extrema.",
+        "searches": [
+          "finite-dependent nonreversible copula chain sharp same-score lag correlation variance eigenvalues Longla adjacent half coefficient counterexample",
+          "https://doi.org/10.1007/s11749-026-01003-0",
+          "Kac-Murdock-Szegő Toeplitz covariance eigenvalue path matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The m=2 eigenvalues (33±sqrt(129))/32 were independently recomputed and are extrema over all scores.",
+          "Source has a worked m=2 trigonometric example but only selected scores and a wrong uniform lag bound."
+        ],
+        "reasoning": "These are symbolic all-m formulas, not a recomputation of a known database/table of identical sharp same-score bounds.",
+        "searches": [
+          "finite-dependent nonreversible copula chain sharp same-score lag correlation variance eigenvalues Longla adjacent half coefficient counterexample",
+          "finite dependent copula spectral maximal correlation exact m 2 bound table",
+          "https://doi.org/10.1007/s11749-026-01003-0"
+        ]
+      },
+      "rationale": "Longla (2026) Theorem 4.4(2) explicitly asserts a coefficient-half upper bound, and its proof optimizes a single adjacent basis pair, missing constructive interference from two neighboring links. The claimed spectral repair, exact sharp lag profile and finite/asymptotic score-uniform variance endpoints are not provided there; they genuinely contradict the printed general upper bound, as checked against the open-access full article. Classical Rayleigh and Toeplitz spectra are prior mathematical ingredients, not claimed new.",
+      "residual_risks": [
+        "Generic numerical-radius/Rayleigh reformulation could have appeared previously under operator-language rather than copula terminology.",
+        "Only bounded symbolic recomputations were executed independently; infinite dimension and all scores are established by the reconstruction, not finite tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly false Theorem 4.4(2); the fixed-score covariance identity is correct and supports a new maximization argument",
+          "evidence": [
+            "Eq (11) nilpotent copula; Theorem 4.4(2): bound max |lambda|/2; its proof chooses phi_k±phi_{k+1}; Thm5.1 fixed-score lag covariances."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11749-026-01003-0",
+          "material_read": "Open-access full HTML Sections 2, 4.3 Theorem 4.4 and proof, 4.4 example, 5.1 and lag formula",
+          "method": "full primary article HTML and theorem/eq comparison",
+          "title": "Copulas, m-dependence, and Markov chains",
+          "trigger": "exact source model and printed bound"
+        },
+        {
+          "assessment": "May pre-establish homogeneous matrix spectrum but not identified copula score-uniform statement",
+          "evidence": [
+            "The claimed new content does not include generic Toeplitz spectral theory."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.08140",
+          "material_read": "Title, abstract and source RESULT reference; interior not read",
+          "method": "arXiv abstract/reference cross-check",
+          "title": "Spectral properties of Kac–Murdock–Szegő matrices with a complex parameter",
+          "trigger": "homogeneous Toeplitz matrix alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sharp same-score dependence envelopes and all-N variance inflation/deflation factors correct a quantitatively false published theorem in a nonreversible finite-memory model; the same family covers all m and all real L² scores, rather than a tiny isolated negative check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Generic numerical-radius/Rayleigh reformulation could have appeared previously under operator-language rather than copula terminology.",
+    "Only bounded symbolic recomputations were executed independently; infinite dimension and all scores are established by the reconstruction, not finite tests."
+  ]
+}

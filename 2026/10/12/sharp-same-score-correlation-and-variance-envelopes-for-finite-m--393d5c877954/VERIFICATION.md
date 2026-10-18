@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical derivation checks these points: (i) the density is nonnegative and has uniform margins; (ii) the centered Markov operator shifts orthonormal coordinates and vanishes on the orthogonal complement; (iii) its powers produce the exact path-product lag covariances; (iv) lag matrices are symmetric weighted unions of paths, hence have sign-symmetric spectra; (v) the Rayleigh endpoints are attained by actual scores; and (vi) sample-variance normalization gives a symmetric matrix with unit diagonal and an attained spectral interval. All arguments remain valid for zero or negative coefficients and for sample size one.
+## correctness
 
-The concrete counterexample is **exact**, not an empirical fit: \(\lambda_1=\lambda_2=1/4\), Fourier basis functions \(\phi_1=\sqrt2\sin(2\pi u)\), \(\phi_2=\sqrt2\cos(2\pi u)\), \(\phi_3=\sqrt2\sin(4\pi u)\); Fourier orthogonality and \(c\ge0\) show validity. The score coefficients \((1/2,1/\sqrt2,1/2)\) are normalized, giving \(\gamma_1=\sqrt2/8>1/8\) and a three-dimensional long-run matrix with exact eigenvalues \(15/16\) and \((33\pm\sqrt{129})/32\).
+PASS
 
-For reproducibility run `python longla_spectral_checker.py`. Its 718 finite checks test path shift powers, eigenvalue sign symmetry, homogeneous discrete-sine eigenvalues, finite-horizon variance identities, exact symbolic eigenvalues and witness, plus direct numerical quadrature of one- and two-step copula densities. These checks are auxiliary; no finite computation proves the general Hilbert-space statement. The bounded-density hypothesis matters, and no claim is made for general copulas outside the stated family. Independent audit has not been performed.
+For the centered transition operator, T phi_{i+1}=lambda_i phi_i and T h=0 off the finite span. Therefore lag-k covariance is a^T J^(k) a, with J^(k)_(i,i+k)=(product lambda)/2. Its graph is a disjoint union of paths with alternating-sign conjugation DJD=-J, so its eigenvalue extrema are ±||J|| and achieved by real finite-span scores. Expanding Var(sum_0^{N-1} f(X_i))/N gives the real symmetric H_N with diagonal 1 and offdiagonal (1-|i-j|/N) product lambda when |i-j|<N; the orthogonal h component contributes ||h||², while min eig(H_N)<=1<=max eig(H_N). Rayleigh proves sharp finite-N and limiting endpoints for every nonconstant real L² score. The admissible trigonometric example m=2, lambda=(1/4,1/4), score vector (1/2,1/sqrt(2),1/2) gives covariance sqrt(2)/8>1/8; its H eigenvalues are 15/16 and (33±sqrt(129))/32, independently recomputed with SymPy. Copula density remains nonnegative since |phi_i phi_{i+1}|<=2. Zero coefficients and N=1 are included.
+
+## originality
+
+PASS
+
+Longla (2026) Theorem 4.4(2) explicitly asserts a coefficient-half upper bound, and its proof optimizes a single adjacent basis pair, missing constructive interference from two neighboring links. The claimed spectral repair, exact sharp lag profile and finite/asymptotic score-uniform variance endpoints are not provided there; they genuinely contradict the printed general upper bound, as checked against the open-access full article. Classical Rayleigh and Toeplitz spectra are prior mathematical ingredients, not claimed new.
+
+## value
+
+PASS
+
+The exact sharp same-score dependence envelopes and all-N variance inflation/deflation factors correct a quantitatively false published theorem in a nonreversible finite-memory model; the same family covers all m and all real L² scores, rather than a tiny isolated negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
