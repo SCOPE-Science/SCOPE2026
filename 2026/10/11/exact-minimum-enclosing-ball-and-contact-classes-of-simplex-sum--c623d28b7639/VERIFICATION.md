@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package. The script uses Python 3 standard-library `fractions.Fraction`, `itertools.permutations`, and a fixed-seed local pseudorandom generator for independent generic support vectors. In the recorded run, it passed exact rank identities for all integers from 1 to 80 (3,320 identities), explicit enumeration of 125,672 vertices in dimensions 1 through 8, 46,241 exact vertex-sphere contacts, the weighted contact-barycenter conditions, and 600 independent simplex-sum support calculations. All distance, clearance, and contact tests use exact rational integers; the support-vector cases choose distinct integer coefficients.
+## correctness
 
-No computational enumeration proves the statements for unbounded \(k\). The infinite conclusion follows from the support-function enumeration, geometric-series identity, and positive barycentric variance identity written in RESULT.md. Computations neither establish priority nor substitute for independent mathematical validation.
+PASS
+
+Support maximization independently enumerates all vertices by ordered leaves; algebra shows rank-r squared clearance (2/3)(2^k-2^(k-r))(2^(k-r)-1)>=0, with equality only at r=0,k. The hub and uniform rank-k contacts positively barycenter the proposed center; the variance identity shows strict optimality against every other center. Independent exact rational checks reproduced 414 vertices and 158 contacts for k=1..5; finite checks are only corroboration.
+
+## originality
+
+PASS
+
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
+
+## value
+
+PASS
+
+A complete metric smallest-ball invariant for a canonical infinite stellohedron realization, with exact center, radius, only 1+k! contacts, and strict clearance for all middle ranks, is a natural structural datum not supplied by face-enumeration results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
