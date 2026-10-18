@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,46 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-dimensional proof has two inputs.
+# Independent mathematical audit
 
-First, the classical Lower Bound Theorem for a simplicial \(d\)-polytope with \(v\) vertices states that its \(j\)-face count is at least that of a stacked polytope with \(v\) vertices. The explicit formulas are
-\[
-\phi_{d,j}(v)
-=
-\binom d j v-j\binom{d+1}{j+1}
-\]
-for \(1\le j\le d-2\), and
-\[
-\phi_{d,d-1}(v)
-=
-(d-1)v-(d+1)(d-2).
-\]
-Solving \(\phi_{d,j}(v)\le M\) for \(v\) gives exactly \(v\le\Lambda_{d,j}(M)\).
+## correctness
 
-Second, the full lead-source text was checked at Theorem 3.7 in the vertex case and Theorem 3.8 in the facet case. Those inequalities have the complexity dependence
-\[
-N^{-2/(d-1)},
-\]
-inside an increasing minimum, so their right-hand sides decrease as the allowed endpoint count \(N\) increases.
+PASS
 
-For an inscribed simplicial polytope, substitute
-\[
-f_0(P)\le\Lambda_{d,k}(M).
-\]
-For a circumscribed simple polytope, polarity gives
-\[
-f_{d-1}(Q)=f_0(Q^\circ),
-\qquad
-f_k(Q)=f_{d-1-k}(Q^\circ),
-\]
-so the same combinatorial inversion gives
-\[
-f_{d-1}(Q)\le\Lambda_{d,d-1-k}(M).
-\]
-The endpoint source theorems then give the claimed bounds.
+For simplicial d-polytopes, the sharp stacked-polytope Lower Bound Theorem gives f0≤Λ(d,k,M) for each 0≤k≤d−1, including endpoints. HSW Thm3.7 applies at k=0 to actual v=f0(P), and x↦min{1,a x^(−2/(d−1))} is nonincreasing, so replacing v by Λ gives the inscribed q≠0 and q=0 inequalities. For simple circumscribed Q, polar Q° is simplicial and f_k(Q)=f_{d−1−k}(Q°); hence f_{d−1}(Q)≤Λ(d,d−1−k,M), allowing HSW Thm3.8 facet estimates. All q, d=2 endpoints, vacuous low M are handled. Finite d≤40 algebra tests are supplementary to the classical LBT.
 
-The bundled checker verifies the stacked face formulas and their exact inverses for all \(2\le d\le40\), all face dimensions, and multiple vertex counts, and verifies the polarity index map. These finite checks are supplementary and do not certify the classical Lower Bound Theorem itself.
+## originality
 
-No claim is made for arbitrary nonsimplicial or nonsimple polytopes in the missing face-dimension ranges.
+PASS
+
+Best-of-knowledge original restricted-class synthesis: HSW arXiv:2608.02554 gives endpoint dual-volume bounds and arbitrary-polytope half-vector bounds, not the explicit all-k simplicial/simple statement. The classical LBT is an ingredient, not itself a dual-volume theorem. This combination yields a natural additional result, with explicit limitation that it does not solve the general open problem.
+
+## value
+
+PASS
+
+The source explicitly asks about the missing all-k nonasymptotic dual-volume range, and simplicial inscribed/simple circumscribed approximants form natural combinatorially controlled classes. The LBT inverse supplies a dimension- and face-count-sensitive explicit bound in precisely those missing ranges. It is a targeted natural subclass theorem, not an arbitrary parameter restriction or unexplained tiny improvement; no full all-polytope solution is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

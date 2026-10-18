@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T00:09:06.269448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:2608.02554v1 Theorems3.7 and3.8",
+        "Kalai 1987 LBT",
+        "assigned verify.py blob 860421c7fcadbab12a05bcd160e5560f979f05f0"
+      ],
+      "rationale": "For simplicial d-polytopes, the sharp stacked-polytope Lower Bound Theorem gives f0≤Λ(d,k,M) for each 0≤k≤d−1, including endpoints. HSW Thm3.7 applies at k=0 to actual v=f0(P), and x↦min{1,a x^(−2/(d−1))} is nonincreasing, so replacing v by Λ gives the inscribed q≠0 and q=0 inequalities. For simple circumscribed Q, polar Q° is simplicial and f_k(Q)=f_{d−1−k}(Q°); hence f_{d−1}(Q)≤Λ(d,d−1−k,M), allowing HSW Thm3.8 facet estimates. All q, d=2 endpoints, vacuous low M are handled. Finite d≤40 algebra tests are supplementary to the classical LBT.",
+      "residual_risks": [
+        "The stated inequality is not a geometrically sharp all-k estimate; combinatorial stacked sharpness cannot establish optimal ball approximation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source covers all polytopes only when k lies in a half-vector range; for k outside it no source theorem applies to all polytopes. The new statement restricts to simplicial P and simple Q."
+        ],
+        "reasoning": "The source general arbitrary-polytope theorem and restricted all-k subclass theorem are neither equivalent nor nested as whole domains. No stronger all-k theorem was observed in the inspected primary.",
+        "searches": [
+          "arXiv:2608.02554v1 introduction and section 6 discussion",
+          "arXiv:2510.22771"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.02554v1 Thms3.7–3.8 and section 6",
+        "Kalai 1987 Lower Bound Theorem",
+        "arXiv:2510.22771 abstract",
+        "assigned RESULT.md blob 1248c1b94c1d54d948f5a21487fbd46f8b1af39a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The result follows by combining previously known LBT plus HSW endpoint bounds with monotone substitution. Neither predecessor by itself states the all-k restricted subclass theorem."
+        ],
+        "reasoning": "The combination is elementary but mathematically targeted at the source explicit remaining-range question; do not misrepresent the result as a new general-polytope inequality.",
+        "searches": [
+          "arXiv:2608.02554v1 Thms3.7–3.8",
+          "Kalai 1987 LBT",
+          "assigned verify.py blob 860421c7fcadbab12a05bcd160e5560f979f05f0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The effective complexity Λ_{d,k}(M) is the sharp inverse stacked-polytope lower-face bound; this is equivalent to controlling vertices (or polar facets) by a higher face-count."
+        ],
+        "reasoning": "The inverse face-number formula was not novel, but substituting it in a particular dual-volume endpoint theorem for all face dimensions on natural restricted classes was not located as an existing theorem.",
+        "searches": [
+          "polytope lower bound theorem stacked simplicial f_k bound vertices dual volume approximation ball Hoehner Schuett Werner all k",
+          "arXiv:2608.02554v1 Thms3.7–3.8",
+          "Kalai 1987 Lower Bound Theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Λ(d,k,M) equals the exact algebraic inverse of known stacked f-vector counts; it is not an independently unknown table invariant."
+        ],
+        "reasoning": "No claim of novelty for Λ alone. The novelty assertion is the geometric lower bound obtained using it; database search incomplete.",
+        "searches": [
+          "polytope lower bound theorem stacked simplicial f_k bound vertices dual volume approximation ball Hoehner Schuett Werner all k",
+          "Kalai 1987 stacked f-vector formulas"
+        ]
+      },
+      "rationale": "Best-of-knowledge original restricted-class synthesis: HSW arXiv:2608.02554 gives endpoint dual-volume bounds and arbitrary-polytope half-vector bounds, not the explicit all-k simplicial/simple statement. The classical LBT is an ingredient, not itself a dual-volume theorem. This combination yields a natural additional result, with explicit limitation that it does not solve the general open problem.",
+      "residual_risks": [
+        "The named Resultary query returned temporarily_unavailable/search_internal_error with search_completed=false; this is not a negative or complete published-finding search.",
+        "The same immediate LBT-plus-endpoint corollary may be recorded in a different approximation paper; 2025 full text was not read.",
+        "Face-number sharpness on stacked examples does not show dual-volume approximation sharpness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_RESULTS_ONLY_AND_EXPLICIT_GENERAL_OPEN_PROBLEM",
+          "evidence": "Theorem 3.7 has vertex k=0 bound and k≤floor(d/2); Thm3.8 has facet k=d−1 and upper half. Section 6 asks for all k without simplicial/simple restrictions. No explicit Λ_{d,k} simplicity-constrained all-k inequality appears in inspected parts.",
+          "identifier_or_url": "https://arxiv.org/html/2608.02554v1",
+          "material_read": "Full author-uploaded HTML opened; introduction, theorem 3.7(i–iii), theorem 3.8(i–iii), proofs 4.1–4.2 and section 6 open problem consulted",
+          "method": "Lawful primary arXiv HTML; PDF separately accessible",
+          "title": "Dual volume approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+          "trigger": "Exact source endpoint bounds and open range"
+        },
+        {
+          "assessment": "CLASSICAL_INGREDIENT_NOT_CLAIMED_NEW",
+          "evidence": "For a simplicial d-polytope with v vertices, f_k≥C(d,k)v−k C(d+1,k+1) (1≤k≤d−2) and f_{d−1}≥(d−1)v−(d+1)(d−2).",
+          "identifier_or_url": "Kalai, Inventiones Mathematicae 88 (1987), 125–151",
+          "material_read": "Known theorem and stacked f-vector formulas cross-checked from exact assignment and independently evaluated in dimensions 2..40",
+          "method": "Classical published combinatorial theorem; independent finite algebra consistency test",
+          "title": "Rigidity and the Lower Bound Theorem I",
+          "trigger": "Sharp simplicial face-number envelope"
+        },
+        {
+          "assessment": "HALF_VECTOR_PRIOR_COMPARISON_ONLY",
+          "evidence": "The authors’ earlier intrinsic-volume results restricted arbitrary polytopes to half the f-vector; the present exact dual-volume inequality applies a different theorem only under simplicial/simple assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.22771",
+          "material_read": "Indexed primary abstract and focal arXiv2608.02554 Introduction comparisons; the full 2025 paper was not obtained in this execution",
+          "method": "ArXiv search/primary cross-references, not a full-text claim",
+          "title": "Approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+          "trigger": "Prior intrinsic-volume half-vector analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2608.02554v1 Section6 and Theorems3.7–3.8",
+        "Kalai 1987 LBT"
+      ],
+      "rationale": "The source explicitly asks about the missing all-k nonasymptotic dual-volume range, and simplicial inscribed/simple circumscribed approximants form natural combinatorially controlled classes. The LBT inverse supplies a dimension- and face-count-sensitive explicit bound in precisely those missing ranges. It is a targeted natural subclass theorem, not an arbitrary parameter restriction or unexplained tiny improvement; no full all-polytope solution is asserted.",
+      "residual_risks": [
+        "Elementary corollary nature and possible unindexed earlier combination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.02554v1 Theorems3.7 and3.8",
+    "Kalai 1987 LBT",
+    "assigned verify.py blob 860421c7fcadbab12a05bcd160e5560f979f05f0",
+    "arXiv:2608.02554v1 Thms3.7–3.8 and section 6",
+    "Kalai 1987 Lower Bound Theorem",
+    "arXiv:2510.22771 abstract",
+    "assigned RESULT.md blob 1248c1b94c1d54d948f5a21487fbd46f8b1af39a",
+    "arXiv:2608.02554v1 Section6 and Theorems3.7–3.8"
+  ],
+  "disposition": "passed",
+  "limitations": "Only simplicial inscribed and simple circumscribed approximants; no general all-k arbitrary-polytope theorem and no geometric sharpness claim.",
+  "residual_risks": [
+    "The stated inequality is not a geometrically sharp all-k estimate; combinatorial stacked sharpness cannot establish optimal ball approximation.",
+    "The named Resultary query returned temporarily_unavailable/search_internal_error with search_completed=false; this is not a negative or complete published-finding search.",
+    "The same immediate LBT-plus-endpoint corollary may be recorded in a different approximation paper; 2025 full text was not read.",
+    "Face-number sharpness on stacked examples does not show dual-volume approximation sharpness.",
+    "Elementary corollary nature and possible unindexed earlier combination."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ENDPOINT_RESULTS_ONLY_AND_EXPLICIT_GENERAL_OPEN_PROBLEM",
+      "evidence": "Theorem 3.7 has vertex k=0 bound and k≤floor(d/2); Thm3.8 has facet k=d−1 and upper half. Section 6 asks for all k without simplicial/simple restrictions. No explicit Λ_{d,k} simplicity-constrained all-k inequality appears in inspected parts.",
+      "identifier_or_url": "https://arxiv.org/html/2608.02554v1",
+      "material_read": "Full author-uploaded HTML opened; introduction, theorem 3.7(i–iii), theorem 3.8(i–iii), proofs 4.1–4.2 and section 6 open problem consulted",
+      "method": "Lawful primary arXiv HTML; PDF separately accessible",
+      "title": "Dual volume approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+      "trigger": "Exact source endpoint bounds and open range"
+    },
+    {
+      "assessment": "CLASSICAL_INGREDIENT_NOT_CLAIMED_NEW",
+      "evidence": "For a simplicial d-polytope with v vertices, f_k≥C(d,k)v−k C(d+1,k+1) (1≤k≤d−2) and f_{d−1}≥(d−1)v−(d+1)(d−2).",
+      "identifier_or_url": "Kalai, Inventiones Mathematicae 88 (1987), 125–151",
+      "material_read": "Known theorem and stacked f-vector formulas cross-checked from exact assignment and independently evaluated in dimensions 2..40",
+      "method": "Classical published combinatorial theorem; independent finite algebra consistency test",
+      "title": "Rigidity and the Lower Bound Theorem I",
+      "trigger": "Sharp simplicial face-number envelope"
+    },
+    {
+      "assessment": "HALF_VECTOR_PRIOR_COMPARISON_ONLY",
+      "evidence": "The authors’ earlier intrinsic-volume results restricted arbitrary polytopes to half the f-vector; the present exact dual-volume inequality applies a different theorem only under simplicial/simple assumptions.",
+      "identifier_or_url": "https://arxiv.org/abs/2510.22771",
+      "material_read": "Indexed primary abstract and focal arXiv2608.02554 Introduction comparisons; the full 2025 paper was not obtained in this execution",
+      "method": "ArXiv search/primary cross-references, not a full-text claim",
+      "title": "Approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+      "trigger": "Prior intrinsic-volume half-vector analogue"
+    }
+  ]
+}
