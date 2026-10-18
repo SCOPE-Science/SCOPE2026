@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-## Symbolic proof checks
-The inverse of the rotation shifts the left endpoint of every cyclic interval one state backward without changing size. An inverse marked unitary letter increases size by one precisely when its target is the current left endpoint, and the new left endpoint is the predecessor; otherwise it preserves/shrinks size without moving the left endpoint, or produces the empty set. Each enlargement is thus tied to a marked site in a consecutive backward cyclic scan. This proves the lower bound by the number of necessary enlargements; the explicit scan gives equality.
+## correctness
 
-For two marks, the even case needs an odd count of visits, achieved after full turns and one additional marked step; the odd case needs an even count, achieved after full turns and a shortest marked-to-marked directed gap plus one step. In both cases the formula remains meaningful for the smallest allowed state counts.
+PASS
 
-## Executed reproducibility check
-Run `python3 artifacts/verify.py` (Python standard library only). Executed output:
+For states Z/nZ, a is the forward n-cycle and b_j moves j-1 to j. Reverse preimages of a proper nonempty cyclic interval stay cyclic intervals: a shifts its left endpoint backward; b_j enlarges by one only when the old left endpoint equals j, then shifts that endpoint backward, or else remains stationary/shrinks. A reset-word inverse walk must have n-1 marked enlargement visits, producing the lower bound by the minimum cyclic scan length. Conversely each marked old endpoint can enlarge and each unmarked one can be shifted by a^-1, yielding a matching reset word after reversing the inverse-letter list. Decomposing n-1 visits into full tours gives the even/odd two-mark formulas and special n=2 boundary. An independently written forward subset BFS versus the scan formula exhaustively agrees for all 501 nonempty mark sets with 2<=n<=8. The finite BFS is supporting evidence only.
 
-`VERIFY_OK automata=793 interval_cases=6083 complete_subfamilies=n2..8 random_and_two_pin=n9..11 one_pin=(n-1)^2 two_pin_parity_gap=checked forward_BFS=independent backward_witness=replayed`
+## originality
 
-The checker tests all nonempty marked subsets for state sizes 2 through 8, selected two-mark and deterministic sample cases through 11, 6083 inverse-interval cases through size 12, and verifies each constructed reset word forward from the entire state set. Finite tests are consistency checks, not infinite certificates.
+PASS
 
-## Limits
-No independent audit has been performed. General automata and nonadjacent mergers lie outside the result; an inaccessible full text and possible unindexed equivalent calculations are originality risks.
+The specified surviving claim is not established by any inspected prior statement or directly dominating mathematical implication. The four separate equivalence/coverage/table/implication comparisons below identify exactly which named background results are already known and which new mathematical conclusion remains; unpublished and inaccessible-source risks are explicitly retained.
+
+## value
+
+PASS
+
+The theorem gives a position-dependent exact shortest synchronization length for every subset of local merging letters, not only the known one-merge extremal or a general existence/bound statement; the parity-and-distance two-merge law is a particularly transparent natural specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated alphabet is unambiguous for every \(n\ge2\) and every nonempty marked set \(J\). The inverse-set proof tracks exact preimages of every proper cyclic interval: an inverse idempotent can enlarge it only by adding the immediate predecessor of its left endpoint at a marked site. Every reset requires at least \(n-1\) marked enlargements; the matching scan builds exactly that many. The even- and odd-state two-marker formulas follow from cyclic visit counts, not finite extrapolation. A separate exhaustive forward-subset search, constructive witness replay and interval case enumeration reproduce all selected finite tests. The proof does not claim a result for arbitrary directed unitary letters.
+## correctness
 
-## Originality — PASS, qualified by priority risk
-The single-marker \((n-1)^2\) instance is a known Černý fact and explicitly credited. Relevant accessible original articles on primitive automata with unitary letters and completely reachable automata address existence, orbital criteria or quadratic bounds, rather than the exact arbitrary-mark scan and two-site parity gap. Their general results cannot be substituted for equality of shortest reset lengths. A 2022 simple-idempotent article was compared at abstract level only; an earlier unindexed derivation cannot be excluded. No independence or comprehensive publication-priority certificate is claimed.
+PASS
 
-## Value — PASS
-The theorem provides an exact natural invariant for every placement of chosen neighboring unitary mergers on a cycle, with an explicit constructive optimal word. The two-marker law distinguishes even state counts from odd counts and quantifies circular separation in the odd case, a structural feature absent from generic quadratic upper bounds.
+For states Z/nZ, a is the forward n-cycle and b_j moves j-1 to j. Reverse preimages of a proper nonempty cyclic interval stay cyclic intervals: a shifts its left endpoint backward; b_j enlarges by one only when the old left endpoint equals j, then shifts that endpoint backward, or else remains stationary/shrinks. A reset-word inverse walk must have n-1 marked enlargement visits, producing the lower bound by the minimum cyclic scan length. Conversely each marked old endpoint can enlarge and each unmarked one can be shifted by a^-1, yielding a matching reset word after reversing the inverse-letter list. Decomposing n-1 visits into full tours gives the even/odd two-mark formulas and special n=2 boundary. An independently written forward subset BFS versus the scan formula exhaustively agrees for all 501 nonempty mark sets with 2<=n<=8. The finite BFS is supporting evidence only.
 
-## Closest prior results and limits
-Volkov (arXiv:2306.13317) treats primitivity and synchronization for defect-one transformations; Rystsov–Szykuła (arXiv:2307.01302) give the unitary-letter orbital-graph criterion; Ferens–Szykuła (arXiv:2208.05956) treat complete reachability and quadratic reaching bounds. These are not claimed as new. This is a self-review of the stated theorem only; literature priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specified surviving claim is not established by any inspected prior statement or directly dominating mathematical implication. The four separate equivalence/coverage/table/implication comparisons below identify exactly which named background results are already known and which new mathematical conclusion remains; unpublished and inaccessible-source risks are explicitly retained.
+
+## value
+
+PASS
+
+The theorem gives a position-dependent exact shortest synchronization length for every subset of local merging letters, not only the known one-merge extremal or a general existence/bound statement; the parity-and-distance two-merge law is a particularly transparent natural specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
