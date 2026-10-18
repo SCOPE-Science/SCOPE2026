@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts \(\omega(n)=1\) and \(\omega(n)=2\). Prime powers reduce to \(m=p^{m-2}\). Two odd primes reduce by parity to exponents \(2A\) and \(2B+1\); the \(B=0\) discriminant factorization leaves no prime root, and \(B\ge1\) forces divisibility by both prime squares before an elementary exponential-versus-linear contradiction. For support \(\{2,p\}\), parity forces the odd-prime exponent even, reduction modulo \(p^2\) forces \(p^2\mid k\), and the resulting divided equation is again impossible. The finite checker is consistent with every branch but is not used as the infinite proof.
+## correctness
 
-## Originality
-PASS. Hurd--McCranie settle prime powers and derive necessary conditions for odd two-prime candidates, but explicitly stop short of the complete fixed-point conjecture. Current OEIS data record later huge counterexamples to the global conjecture but do not state the low-support theorem. Targeted published-finding corpus and exact web searches found no complete classification for \(\omega(n)\le2\).
+PASS
 
-## Value
-PASS. The theorem closes the entire one- and two-prime-support region for the exact arithmetic function studied in the source. Since later fixed points exist, this identifies a genuine structural threshold: every nontrivial example must involve at least three distinct primes. The result is an infinite exact classification, not a finite census.
+For prime powers p^m, m=p^{m-2} gives only p,m=(3,3),(2,4). For odd two-prime support, parity makes one exponent even, one odd; the b=1 branch yields a quadratic discriminant product of size 8A and impossible bounds, while b>=3 forces q^2|A and p^2|(2B+1), contradicting exponential>linear. For support {2,p} parity forces odd-prime exponent even, and p^2|k, yielding 2^{p^2 C-1}p^{2B-2}=2C+B, impossible by elementary bounds. All exponent boundaries checked.
 
-## Closest literature and limitations
-The closest source is Section 4 of Hurd--McCranie, especially Lemmas 14 and 15. Their divisibility conditions are used as a starting point but do not themselves imply the final contradiction stated here. OEIS A338093 documents later large fixed points, so the 2019 global two-element conjecture is no longer viable. The theorem here deliberately makes no claim for support size at least three.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hurd-McCranie give a complete prime-power criterion and some restrictions for two-prime candidates; their final global conjecture that 16,27 are the only fixed points was disproved by huge examples. The new theorem proves precisely the support<=2 slice, rather than the false global conjecture. Relevant Resultary hits concern other arithmetic functions and equations.
+
+## value
+
+PASS
+
+Closes a natural smallest-unsolved prime-support slice in the multiplicity-counted square-prime-factor fixed-point equation, separating known large higher-support fixed points from the two-support impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
