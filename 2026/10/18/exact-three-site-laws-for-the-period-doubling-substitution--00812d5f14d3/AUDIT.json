@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The explicit period-doubling recursion \\(s_{2n}=1,\\ s_{2n+1}=-s_n\\) gives \\(s_n=(-1)^{\\nu_2(n+1)}\\). Approximation by periodic residue-class observables, with error bounded by three classes of density \\(2^{-K}\\), makes the Haar expectation rigorous. For any three distinct sites, the \\(2\\)-adic distance valuations are exactly \\((m,m,t)\\) with \\(t>m\\). Splitting Haar measure by valuation <m and the two modulo-\\(2^{m+1}\\) residue branches yields \\(\\mathcal T=\\frac13-\\frac{4(-1)^m}{3\\,2^t}\\); the pair result follows by the corresponding two-case split. The Walsh expansion of the sign indicators yields all eight probabilities; elementary optimization over integer m,t proves exact zero/minimum/maximum cases. Actual package verifier on moduli \\(2^9,2^{11},2^{13}\\) performed 638 exact rational moment checks and 7,936 exact sign-probability checks, but the infinite conclusion rests on the measure argument, not finite enumeration. No unproved infinite enumeration or numerical inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deng--Moody, arXiv:0901.4381, Proposition 1, gives general Haar intersection formulas for frequencies of regular model sets.",
+        "Deng--Moody, arXiv:0904.4552, §2 equation (2) gives weighted model-set multi-point correlation measures as sums of weighted Haar window intersections.",
+        "Mazac, arXiv:2507.07753, introduction explicitly proposes arbitrary sparse three-point patches and general exact renormalization, demonstrated for Fibonacci substitution.",
+        "Polakova, arXiv:1902.08387, gives exact contiguous-word cylinder measures at arbitrary lengths."
+      ],
+      "reasoning": "These frameworks dominate existence/computability of a given patch frequency, including the period-doubling system, so the new claim does not assert inaccessible or uncomputable quantities or a general first algorithm. The evaluated theorem solves a distinct uniform expression problem: simultaneous closed \\(2\\)-adic valuation formula at all displacements with global zero and sharp extrema. Without this evaluation, the cited machinery yields only a finite patch-specific intersection/renormalization or a potentially long cylinder sum. A hidden earlier explicit evaluation would defeat originality, and is listed as a residual risk. Mazac Theorem 10 specifically assumes an irreducible substitution-matrix characteristic polynomial, which does not hold for the period-doubling matrix with eigenvalues 2 and -1; its direct symbolic applicability cannot be presumed. Theorem 2 remains a relevant geometric renormalization framework.",
+      "searches": [
+        "period doubling complexity invariant measure all cylinders sparse patch frequencies",
+        "\"period doubling\" \"higher order correlations\" substitution sequence",
+        "arxiv:0901.4381 Proposition 1",
+        "arxiv:2507.07753 Theorems 2, 10, 12"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0901.4381, Deng--Moody (2009), Proposition 1, inspected relevant primary full text",
+      "arxiv:1007.0707, Baake--Grimm (2010), §3, inspected relevant primary full text",
+      "arxiv:0904.4552, Deng--Moody (2009), §2 weighted higher-point correlation equation (2), inspected relevant primary full text",
+      "arxiv:1902.08387, Polakova (2019), Theorem 1.2 and §4, inspected relevant primary full text",
+      "arxiv:2507.07753, Mazac (2025), arbitrary patch renormalization and symbolic case",
+      "Published mathematical research-record semantic comparisons on the target claim, valuation aliases, period-doubling higher moments, and three-point windows; closest checked other result treats a three-block difference lift modulo a parameter rather than correlation in the original sign process."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baake--Grimm gives pair C(h)=1-4/(3*2^v2(h)); pair data alone cannot furnish an arbitrary third moment for a general process.",
+        "Deng--Moody Proposition 1 makes a fixed three-site frequency an explicit Haar window intersection, not an already simplified number in (m,t).",
+        "Deng--Moody arXiv:0904.4552 generalizes window intersection to weighted correlations; the paper does not specialize to period-doubling valuation patterns.",
+        "Mazac gives exact general patch methods for primitive substitutions, not a period-doubling two-valuation theorem or its global extrema."
+      ],
+      "reasoning": "The claim is not the known substitution identity, the existence of sparse correlation, or an instance of a general patch-frequency algorithm. It is the uniform evaluation of an infinite 2-variable family and classification of all possible zero and extremal valuation patterns. Broad computability does imply each fixed number in principle; it does not give the uniform simplified formula without extra computation. The logical dependency and residual historical-priority risk are openly acknowledged.",
+      "searches": [
+        "period doubling 3-deck signed model set triple correlation formula all lags",
+        "\"period doubling\" \"higher-order correlations\" \"triple\" exact",
+        "arxiv:0901.4381 §3",
+        "arxiv:2507.07753 §§1,3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baake--Grimm, arXiv:1007.0707, equations (5), (9)--(12), computes pairs and diffraction.",
+        "Polakova, arXiv:1902.08387, Theorem 1.2, computes measures of all contiguous cylinders."
+      ],
+      "reasoning": "The substitution sign convention matches Baake--Grimm after assigning (+1,-1) to (a,b); this equivalence was checked, not presumed. The three-lag formula can be expressed as a 3-deck of a \\(2\\)-adic model-set window or a signed third moment of the subshift. The inspected prior statements do not display its all-integer-lag collapse to the two valuation scales (m,t) or the resulting sharp parameter classification. The cylinder theorem gives an implicit calculation for each fixed lag, a material priority risk but not a previously evaluated uniform two-valuation formula.",
+      "searches": [
+        "period doubling substitution three-point correlations exact arbitrary lags valuation",
+        "\"period-doubling\" \"3-point\" \"correlation\" sequences odometer",
+        "\"period doubling\" \"three-point correlation\" \"valuation\"",
+        "arxiv:1007.0707 sec 3; arxiv:1902.08387 Thm 1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Polakova arXiv:1902.08387 Theorems 1.1--1.2: exact cylinder-frequency tables, but not a tabulation of every sparse displacement pair.",
+        "Baake--Grimm arXiv:1007.0707: explicit autocorrelation coefficient table indexed by a single displacement, not two."
+      ],
+      "reasoning": "Known exact tables and effective formulas cover consecutive finite words or two-site autocorrelations, and can be computationally transformed into fixed-lag triple values. No identified source table enumerates the all-lag valuation classes, provides the eight-event formula, or establishes global sign/extremal patterns. This is not an assertion that all relevant literature is indexed.",
+      "searches": [
+        "\"period doubling\" \"third-order\" moment frequencies",
+        "\"period-doubling\" \"3-point correlation\" sequences",
+        "period-doubling odometer sparse three-site joint law 2-adic pairwise valuations",
+        "period doubling invariant measure symbolic higher order 3-block arbitrary gaps; trivariate distribution"
+      ]
+    },
+    "rationale": "The exact all-lag valuation-only three-point sign formula, the complete sparse three-site joint law and sharp zero/extremal classes were not found in the inspected primary statements or relevant published research records. This is a specific evaluated uniform law, not a claim of first providing a way to compute arbitrary patch frequencies. Baake--Grimm already provide the substitution, \\(2\\)-adic setting, two-point formula and pure point spectrum. Deng--Moody, Polakova and Mazac imply computability of fixed sparse marginals via window intersections, sums of contiguous cylinders or general patch renormalization. Those broad results are substantial coverage and could conceal an equivalent computation; no independent historical-priority certification is claimed. Deng--Moody arXiv:0904.4552 independently covers general weighted higher correlations, not the closed period-doubling evaluation.",
+    "residual_risks": [
+      "No exhaustive indexing or independent historical priority review; an earlier specialized \\(2\\)-adic 3-deck calculation may exist in model-set or substitution literature.",
+      "The broad regular-model-set Haar-intersection and arbitrary-cylinder/patch frequency results entail fixed-lag values in principle. If a prior source has already simplified the entire all-lag law, originality would fail.",
+      "The result is one \\(2\\)-adic substitution only, has no four-site or higher extension and does not imply reconstruction of a process from two-point data."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General 3-deck Haar-intersection formula is directly applicable in principle; no period-doubling valuation-only evaluation in the inspected material",
+        "evidence": [
+          "Proposition 1: frequency of a pattern equals Haar measure of intersected shifted windows",
+          "Introduction discusses 2/3-point information and model-set reconstruction"
+        ],
+        "identifier_or_url": "arxiv:0901.4381",
+        "material_read": "Full-text introduction, §2 model-set setting, §3 frequency definition and Proposition 1 with its proof, and discussion of higher moments",
+        "method": "Accessible preprint PDF text and page inspection",
+        "title": "How model sets can be determined by their two-point and three-point correlations",
+        "trigger": "Foundational general three-point model-set theorem potentially covering the claim"
+      },
+      {
+        "assessment": "Exact general weighted higher-correlation framework for arbitrary sites, but no period-doubling formula; PDF search finds no matching period-doubling specialization",
+        "evidence": [
+          "Equation (2) weighted correlation as sum of window intersections for any order",
+          "Periodic colored-example construction focuses on distinct homometric weighted sets"
+        ],
+        "identifier_or_url": "arxiv:0904.4552",
+        "material_read": "Abstract and introduction; §2 definition and equation (2) with weighted Haar intersections; §3 periodic case and listed worked setting",
+        "method": "Accessible arXiv full text and original PDF p.4 image",
+        "title": "Weighted model sets and their higher point-correlations",
+        "trigger": "Same higher weighted moment concept and potential dominating formula"
+      },
+      {
+        "assessment": "Exact pair correlation and diffraction, not the claimed three-site moment or 3-site sign law",
+        "evidence": [
+          "v(2n)=1, v(2n+1)=-v(n), Eq. (9) two-site recursion",
+          "Eq. (8) \\(2\\)-adic model-set partition and Eqs. (11)--(12) diffraction"
+        ],
+        "identifier_or_url": "arxiv:1007.0707",
+        "material_read": "Full-text §3 and displayed substitution/sign recursions (5), (9)--(12), with its \\(2\\)-adic point-set representation (8)",
+        "method": "Accessible arXiv preprint PDF text and original page 3 visual inspection",
+        "title": "Diffraction of limit periodic point sets",
+        "trigger": "Same substitution and balanced sign autocorrelation"
+      },
+      {
+        "assessment": "Strong implicit coverage of any fixed sparse three-site marginal by summing contiguous cylinders, but no simple valuation-only all-lag coefficient or extremal classes are stated",
+        "evidence": [
+          "Theorem 1.2 exact measure of every permitted contiguous word",
+          "§4 invariant-measure argument and §5 correlation integral applications"
+        ],
+        "identifier_or_url": "arxiv:1902.08387",
+        "material_read": "Theorems 1.1 and 1.2 on original PDF p.2, §4 derivation on PDF p.9, and §5 applications on correlation integrals",
+        "method": "Accessible primary preprint PDF text and page screenshots",
+        "title": "Complexity and invariant measure of the period-doubling subshift",
+        "trigger": "Direct theorem of all cylinder measures for the same subshift and exact statistical data"
+      },
+      {
+        "assessment": "Explicit general computation framework for arbitrary patches; the source does not evaluate the period-doubling triple valuation formula or classify its global extrema Theorem 10 has an irreducible-characteristic-polynomial hypothesis that fails for the period-doubling matrix, so the symbolic consequence is not automatic.",
+        "evidence": [
+          "Introduction explicitly proposes frequencies of letters at 0, l, m and states Theorems 2, 10, 12",
+          "Fibonacci example is the worked symbolic case"
+        ],
+        "identifier_or_url": "arxiv:2507.07753",
+        "material_read": "Preprint abstract, introduction pp.1-2, exact renormalization theorem context, and symbolic application and Fibonacci example description",
+        "method": "Accessible full-text PDF text and page inspection",
+        "title": "Exact renormalisation for patch frequencies in inflation systems",
+        "trigger": "Potentially dominating arbitrary sparse three-point patch algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00812d5f-14d3-4113-98d6-231865f4fe91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Third-order correlations and sparse cylinder probabilities are natural invariants in symbolic dynamics and diffraction. The result collapses the infinite family of all triples of sampling times to just two \\(2\\)-adic valuation scales, providing exact joint probabilities, zeros, a negative extreme and a positive extreme with fully classified equality cases. This is a sharp global classification rather than a finite table, arbitrary slice, relabeling, or a routine numerical recomputation. It clarifies phase-sensitive third-order structure of a canonical pure-point subshift beyond its known pair autocorrelations. General exact-patch algorithms cover computability, but do not supply this globally uniform simplicity, which can guide three-site observation/design and comparisons of dynamical symbolic laws.",
+    "status": "PASS"
+  }
+}
