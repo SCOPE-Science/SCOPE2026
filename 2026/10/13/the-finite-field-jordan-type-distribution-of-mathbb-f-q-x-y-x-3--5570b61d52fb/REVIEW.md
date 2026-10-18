@@ -1,11 +1,21 @@
-# Scientific review: full finite-field multiplication-Jordan census
+# Independent mathematical audit
 
-**Correctness — PASS.** Expanding the unique eight-parameter element in the monomial basis yields the exact powers through degree four, and the dimension of the principal ideal gives the first multiplication rank. The two independent quadratic determinants \(d^2-ce\) and \(d^2+2ce\) give all remaining rank strata, with a genuine characteristic-three collision. Field-point counts are exact, disjoint, and sum to \(q^8\). Replaying the bundled verifier checks the complete \(q=2,3\) distributions and samples three more fields. The proof, not finite experiments, establishes all prime-power statements.
+## correctness
 
-**Originality — PASS (with residual risk).** The theorem's actual new subject is the polynomial **multiplicity of every partition** among all nonconstant elements, not the known large-characteristic support of partitions. The closest source, Iarrobino–Macias Marques–McDaniel (arXiv:1802.07383, Example 3.8), explicitly studies the identical ring and already covers a special Jordan type and possible support. Cook (arXiv:1111.4979v1) treats Lefschetz characteristic thresholds; Altafi–Iarrobino–Khatami (arXiv:1810.00716) classifies partitions for linear forms over large-characteristic algebraically closed fields. Neither directly implies the full finite-field fiber multiplicities. Multiple targeted published-finding corpus and literature searches found no equivalent polynomial-count theorem, but an unindexed Hall-algebra or Jordan-stratification calculation remains possible.
+PASS
 
-**Value — PASS.** This is a complete, naturally defined finite-field invariant of a fundamental Artinian Gorenstein complete intersection, not just an example. The intersection of two quadratic rank loci determines seven nontrivial characteristic-sensitive strata, and the characteristic-three collapse and characteristic-two change of the generic Jordan partition are meaningful modular Lefschetz phenomena. It gives exact frequencies over extension fields, improving over existence/support descriptions without requiring a downstream classification theorem.
+A has monomial basis x^iy^j (0<=i,j<=2), dim 9, and m has exactly q^8 elements. Nilpotent Jordan type is recovered from r_t=rank(M_{u^t}) via successive differences. For nonzero linear part (a,b), r1=6 and powers through u4 give the p=2, p=3, and p>=5 partitions. For zero linear but nonzero quadratic part (c,d,e), r1=3 iff d²-ce=0 and r2=0 iff d²+2ce=0; each conic has q² points, with intersection 2q-1 except when p=3 where they coincide. The q³ unconstrained higher coefficients and the high-degree tail yield all tabulated multiplicities; the polynomial totals are q^8. Independent direct 9x9 multiplication-matrix ranks exhausted all 256 elements over F2 and all 6561 over F3 with exact agreement (ten and six types respectively). This finite verification corroborates but does not replace the stated all-prime-power algebraic proof.
 
-**Boundaries.** This is not a classification of algebra isomorphism types or orbits. Prior large-characteristic support is not independently novel, and the near-source example must be credited. The program exhausts only the two smallest prime fields and samples three other fields. No uniqueness or independent verification is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Iarrobino–Macias Marques–McDaniel arXiv:1802.07383 §3.2, Example 3.8 studies exactly k[x,y]/(x³,y³), and earlier support of possible Jordan partitions is credited. That study computes the special element x²+y² and generic/support issues, rather than fiber cardinality polynomials for every element over each finite field. Characteristic-dependent *complete finite-field counts* of all nonhomogeneous elements are not entailed by that support theorem or characteristic-zero linear-form classification. Targeted semantic and web searches did not locate such a census, subject to stated residual risk.
+
+## value
+
+PASS
+
+The distribution measures a natural invariant for every nilpotent multiplication operator of a canonical small complete intersection, not an arbitrary coefficient slice. It quantifies stratification and characteristic jumps beyond known possible-partition support; the exact q-polynomial counts and the p=2/p=3 changes are individually usable finite-field algebra data. No extension to other ring dimensions is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
