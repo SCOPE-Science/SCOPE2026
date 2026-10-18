@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2, the 2^(n-1) specific nondyadic rational angular points have all length-(n-1) binary itineraries and identical starting fibers. The coordinate change u=x+y,q=y/u gives u_next=alpha*u and q_next=2q mod 1. Each first symbolic difference occurs at t<=n-2; equal prefixes force equal fiber z_t and the affine branch gap phi2(z_t)-phi1(z_t) is bounded below by delta=min(1-lambda1,1-lambda2)>0 on [0,1]. Their t+1 values differ at fixed epsilon<delta. Every common n-itinerary branch composition contracts in maximum norm by kappa<=max(2alpha,lambda1,lambda2)<1, so each of 2^n itineraries contributes at most (floor(1/epsilon)+1)^3 separated points, proving exact entropy log 2. All quantifiers, strict inequalities and the noncompact domain are specified. The standalone exact-Fraction checker verifies samples in four regimes and word lengths 1..8, but the proof for all n and all parameters is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limitations": [
+    "Only the source's forward-admissible noncompact system; no inference to entropy restricted to the attractor.",
+    "Parameters alpha in (0,1/2) and both lambdas in (0,1); endpoints excluded.",
+    "Exact rational finite checks sample parameters and finite word lengths; the all-n statement rests on the analytic proof.",
+    "Historical priority is best knowledge from accessible full text and literature/result searches; no independent audit."
+  ],
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kruglikov--Rypdal, Entropy via multiplicity, arXiv:math/0505019v3, Theorem 3 and Corollary 7, https://arxiv.org/abs/math/0505019",
+        "Kruglikov--Rypdal Theorem 3 bounds skew-product entropy using base and fiber multiplicity; Corollary 7 gives log N for a compact full-shift base, not for the noncompact contracting base with zero topological entropy.",
+        "Catsigeras--Guiraud--Meyroneinc, Complexity of injective piecewise contracting interval maps, arXiv:1702.03599, https://arxiv.org/abs/1702.03599"
+      ],
+      "reasoning": "A general entropy bound or an entropy identity for a compact full-shift base cannot deliver the sharp lower bound here. The source explicitly points out that direct symbolic-factor reasoning fails in its noncompact setting. General fixed-parameter entropy estimates and interval-map complexity do not dominate this full-parameter quantitative statement.",
+      "searches": [
+        "\"piecewise contracting\" \"exact topological entropy\" skew product",
+        "\"piecewise contracting\" \"full topological entropy\" disjoint symbols",
+        "Kruglikov Rypdal 2005 Entropy via multiplicity piecewise affine contracting map skew product h_top equal log 2 for all two contractions when symbolic base angular expansion",
+        "\"piecewise contracting\" \"topological entropy\" \"attractor\" \"interval\" \"exactly\""
+      ]
+    },
+    "checked_sources": [
+      "Catsigeras--Guiraud--Meyroneinc--Ugalde, arXiv:1108.1501v2, Example 5.1 and Proposition 5.3(3), https://arxiv.org/html/1108.1501v2",
+      "Kruglikov--Rypdal, Entropy via multiplicity, arXiv:math/0505019v3, Theorem 3 and Corollary 7, https://arxiv.org/abs/math/0505019",
+      "Catsigeras--Guiraud--Meyroneinc, Complexity of injective piecewise contracting interval maps, arXiv:1702.03599, https://arxiv.org/abs/1702.03599"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Catsigeras--Guiraud--Meyroneinc--Ugalde, arXiv:1108.1501v2, Example 5.1 and Proposition 5.3(3), https://arxiv.org/html/1108.1501v2",
+        "Proposition 5.3: h_top>=log(2)/k0; Example 5.1: interval attractor iff lambda1+lambda2>=1. For overlapping parameters k0>=2, hence published lower bound <=log2/2 and does not imply the sharp answer.",
+        "Kruglikov--Rypdal, Entropy via multiplicity, arXiv:math/0505019v3, Theorem 3 and Corollary 7, https://arxiv.org/abs/math/0505019",
+        "Original paper observes semiconjugacy of contracting base g with full shift but entropy(g)=0, refuting the simplistic assertion that factor coding alone implies log2."
+      ],
+      "reasoning": "The original lower bound plus trivial upper bound log2 leaves a nontrivial gap whenever k0>=2. The fixed-scale family witnesses a larger separation not obtained by prior block separation; thus the new theorem is neither a direct corollary nor a parameter specialization of the stated original proposition.",
+      "searches": [
+        "\"On the Asymptotic Properties of Piecewise Contracting Maps\" entropy improved bound later",
+        "\"Catsigeras\" \"Example 5.1\" \"entropy\" \"log 2\"",
+        "Catsigeras Guiraud Meyroneinc Ugalde arXiv 1108.1501 Example 5.1 entropy equality log 2 even when lambda1+lambda2 >=1; continuous interval attractor; same-z first symbolic mismatch",
+        "Kruglikov Rypdal 2005 Entropy via multiplicity piecewise affine contracting map skew product h_top equal log 2 for all two contractions when symbolic base angular expansion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Catsigeras--Guiraud--Meyroneinc--Ugalde, arXiv:1108.1501v2, Example 5.1 and Proposition 5.3(3), https://arxiv.org/html/1108.1501v2",
+        "Source p. Example 5.1 has identical g_i and phi_i, with Proposition 5.3 only lower (log2)/k0 and specific warning about noncompact semiconjugacy.",
+        "Semantic mathematical-result searches located a different discontinuous scalar return system with a thirteen-step symbolic horseshoe; its dynamics and claims do not imply the present exact entropy statement."
+      ],
+      "reasoning": "Equivalent terms include angular doubling over a contracting radial coordinate, two-fiber interval IFS with overlap, and separated-set entropy of a noncompact symbolic semiconjugate. Original paper identifies these objects but lacks the uniform single-time separation construction; nearest semantic findings concern unrelated systems.",
+      "searches": [
+        "\"Catsigeras\" \"Example 5.1\" \"entropy\" \"log 2\"",
+        "\"piecewise contracting\" \"topological entropy\" \"log 2\" \"lambda_1\" \"lambda_2\"",
+        "Catsigeras Guiraud Meyroneinc Ugalde arXiv 1108.1501 Example 5.1 entropy equality log 2 even when lambda1+lambda2 >=1; continuous interval attractor; same-z first symbolic mismatch",
+        "\"Guiraud\" \"Meyroneinc\" \"full\" \"topological entropy\" \"piecewise contracting\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical invariant is topological entropy of an explicitly defined 3D piecewise-affine map, not a tabulated finite invariant.",
+        "Catsigeras--Guiraud--Meyroneinc--Ugalde, arXiv:1108.1501v2, Example 5.1 and Proposition 5.3(3), https://arxiv.org/html/1108.1501v2",
+        "Semantic mathematical-result searches located a different discontinuous scalar return system with a thirteen-step symbolic horseshoe; its dynamics and claims do not imply the present exact entropy statement."
+      ],
+      "reasoning": "No natural parameter table determines the separated-set entropy in the original source; the published lower bound is not an exact census in the overlapping regime. No covering database/table was identified.",
+      "searches": [
+        "\"Catsigeras\" \"Example 5.1\" \"entropy\" \"log 2\"",
+        "piecewise contracting map with interval attractor full topological entropy log 2 irrespective overlap contractions Cantor interval entropy lower bound log2/k0",
+        "\"piecewise contracting\" \"exact topological entropy\" skew product"
+      ]
+    },
+    "rationale": "The motivating original exact model proves only h_top >= (log2)/k0, where k0>1 throughout the overlapping regime lambda1+lambda2>=1; its authors state that factor symbolic coding on the noncompact admissible set is insufficient to obtain full-shift entropy and note that the base g itself has zero entropy. The new synchronized-fiber construction proves a stronger sharp full-parameter fixed-scale bound, and its conclusion is not implied by their quantitative theorem. Kruglikov--Rypdal provide general multiplicity/skew-product bounds and an equality for genuinely compact symbolic base shifts, not a lower bound for the present noncompact contracting triangular base. No equivalent coverage was verified from the inspected papers and targeted mathematical literature searches. Historical priority cannot be guaranteed against inaccessible or unindexed results.",
+    "residual_risks": [
+      "An unindexed earlier derivation could prove the same exact entropy; absence in accessible searches does not prove novelty.",
+      "A later source not inspected in full might contain the same sharp separation construction.",
+      "The theorem uses separated-set entropy of the full noncompact admissible system; entropy of the limit attractor is a different notion and is not addressed.",
+      "The first-public source date is the original arXiv manuscript date (2011-08-06); the exact later-version Example 5.1 was verified in v2 (2014-04-01), without asserting that the example existed in v1."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model and all parameters; proves a strictly weaker entropy lower bound when fiber maps overlap. Does not establish exact log2 or fixed-scale 2^(n-1) bound.",
+        "evidence": [
+          "Catsigeras--Guiraud--Meyroneinc--Ugalde, arXiv:1108.1501v2, Example 5.1 and Proposition 5.3(3), https://arxiv.org/html/1108.1501v2",
+          "arXiv v2 displays 01 Apr 2014; Example 5.1 in lines 282-305; Proposition 5.3 and noncompact warning in lines 309-353.",
+          "The arXiv record lists first public submission 6 Aug 2011 and a later v2 on 1 Apr 2014; the specific Example 5.1 and entropy proposition were checked against the accessible 2014 v2, not assumed present in v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1108.1501v2",
+        "material_read": "Section 2 entropy/forward-admissibility definitions, Section 5 Example 5.1 formulas and attractor classification, Proposition 5.3 statements and proof/discussion, especially the k0-block separated-set argument.",
+        "method": "Read publicly accessible full-text HTML at arXiv, comparing map definitions, parameters, quantitative theorem and logical implications.",
+        "title": "On the Asymptotic Properties of Piecewise Contracting Maps",
+        "trigger": "The exact three-dimensional triangular contracting skew-product source and nearest potential dominating theorem."
+      },
+      {
+        "assessment": "General skew-product bounds and entropy log N for an actual full-symbol shift factor, but no quantitative separated-set construction for this contracting triangular-base example.",
+        "evidence": [
+          "Kruglikov--Rypdal, Entropy via multiplicity, arXiv:math/0505019v3, Theorem 3 and Corollary 7, https://arxiv.org/abs/math/0505019",
+          "§1.4 separates genuine full-shift base from general skew-product bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0505019",
+        "material_read": "Full public arXiv textual rendering: Introduction, §1.1 definition of entropy, §1.2–1.4 main theorems including Theorem 3, Corollary 7; compared with triangular-base special case.",
+        "method": "Read arXiv public text and check hypotheses, directions of entropy inequalities, and whether full-shift corollary transfers to noncompact angular coding.",
+        "title": "Entropy via multiplicity",
+        "trigger": "Potential stronger general theorem for piecewise-affine skew products and entropy."
+      },
+      {
+        "assessment": "Different one-dimensional injective setting, therefore does not imply the proposed exact 3D entropy.",
+        "evidence": [
+          "Catsigeras--Guiraud--Meyroneinc, Complexity of injective piecewise contracting interval maps, arXiv:1702.03599, https://arxiv.org/abs/1702.03599",
+          "Published 2017 work describes eventual affine complexity of interval map itineraries."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.03599",
+        "material_read": "Accessible title/abstract and scope description: injective interval contractions and their eventual affine itinerary complexity; not a three-dimensional nonconformal example.",
+        "method": "Read bibliographic abstract and compare objects; no claim of entire full-text inspection.",
+        "title": "Complexity of injective piecewise contracting interval maps",
+        "trigger": "Later related work of overlapping authors that might establish a general complexity formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79e99c84-d12b-4e39-8856-f887f00447d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines a previously non-exact invariant in the exact natural family of a published positive-entropy piecewise contraction, closes an explicit parameter-dependent factor loss in Proposition 5.3, and proves entropy stays maximal log2 even when its attractor changes from Cantor set to an interval. The synchronous common-fiber argument gives a reusable explanation of why overlapping image intervals need not reduce finite-time orbit separation; no unmotivated parameter slice or routine numerical recomputation is involved.",
+    "status": "PASS"
+  }
+}
