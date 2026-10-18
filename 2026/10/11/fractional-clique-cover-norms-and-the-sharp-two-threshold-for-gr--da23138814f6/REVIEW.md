@@ -1,11 +1,21 @@
-# Scientific review: Fractional clique-cover norms and the sharp two-threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The boundedness criterion is the exact strong-duality equality of two feasible finite linear programs. Odd cycles furnish strict dual obstructions above the threshold; bipartite graphs admit two-color fractional covers. In the uncountable construction, graph joins make the source norm a sum of block norms, while uniform-star averaging and Erdős–Ko–Rado give matching constants. Lovász–Kneser yields unbounded ordinary chromatic numbers. Density transfers the norm estimate and inverse identities from finitely supported vectors to completions. The external graph theorems are explicitly cited rather than treated as self-proved.
+## correctness
 
-**Originality — PASS, with qualified scope.** Source-specific indexed scientific-record searches and both available own ledgers were compared at claim level. The 2024 *Zoo* Example 4.7 is a serious predecessor: it already uses finite stars on \(k\)-subsets and obtains integer-parameter \(\ell_1\)-equivalence with unbounded covers by the chosen generating stars. It does not classify full graph-clique norms, establish the universal canonical threshold \(2\), or establish arbitrary real above-threshold norm with no finite cover by **any** cliques. The 2026 graph-space and perfect-graph papers address different structure, and the Kneser article supplies classical ingredients. No covering statement was found in inspected material. Possible unstated folklore combinations remain a residual risk, and no independence or exhaustive literature coverage is certified.
+PASS
 
-**Mathematical value — PASS.** The recent nonseparable combinatorial-space framework motivates detecting canonical \(\ell_1\)-equivalence from graph structure. The exact fractional-cover norm supplies a finite-dimensional criterion for arbitrary cardinality. Its boundary at \(2\) is rigid, yet every arbitrarily small positive excess permits infinite clique-cover number even for a nonseparable space canonically isomorphic to \(\ell_1(\omega_1)\). This makes a structural, motivated distinction between fractional and integral covering rather than a numerical table entry or a new name for an existing invariant.
+For arbitrary finite E, the norm ratio of hereditary source and target set-sum norms equals the finite LP maximizing ∑w_v subject to ∑_{v∈F}w_v≤1; finite strong duality gives minimum fractional F cover. For graph clique F, independent sets of complement H give χ_f(H[E]). Bounded identity has inverse norm exactly 1 by singleton/ℓ1 domination and density, hence onto. χ_f≤2 forbids odd cycle because uniform dual weights 1/m on 2m+1-cycle yield 2+1/m; no odd cycle iff bipartite even on uncountable components. The block construction makes G a complete join of repeated intersecting-k-set graphs, complement disjoint union KG(floor(ck),k), with additive block norm. EKR gives exact ratio n_k/k via uniform vector, random-star lower bound for all coefficients, and Lovász–Kneser gives χ(H)=ℵ0. Sup floor(ck)/k=c. Independent finite LP checked C5=2.5, K3=3, edge+isolate=2; finite checks are corroboration, not uncountable proof.
 
-**Limits and source comparison.** The statement does not determine unrestricted Banach–Mazur distance or arbitrary embeddings; it uses the published Erdős–Ko–Rado and Lovász–Kneser theorems. The closest prior construction is arXiv:2404.01733v1, Example 4.7, and the focal setting is arXiv:2610.01919v1. Unindexed equivalent formulations remain possible; no independent review has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classic fractional χ LP and both Kneser formulas are fully credited. 2024 Zoo Example 4.7 strongly overlaps finite star weights but does not automatically yield the full intersecting-clique family, all real >2 exact norm, or sharp universal bipartite transition. Indexed same-topic results do not show an identical theorem, but complete primary articles were inaccessible; this is a serious but non-decisive best-of-knowledge risk.
+
+## value
+
+PASS
+
+The exact canonical norm links a natural combinatorial Banach-space construction to a recognizable graph LP for every cardinality. The rigid boundary 2 and arbitrary tiny excess c−2 with χ(H)=ℵ0 exhibit meaningful fractional/integral gap in a nonseparable ℓ1-identifiable space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

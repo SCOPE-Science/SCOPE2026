@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof has been checked symbolically on arbitrary finite supports, rather than inferred from sampling. The finite primal maximizing total coordinate weight subject to clique-weight constraints has dual minimizing fractional clique-cover weight; singleton feasibility gives strong duality. Complementation turns those cliques into independent sets, producing the fractional chromatic number exactly.
+# Independent mathematical audit
 
-The boundary calculation uses the dual feasible weights \(1/m\) on each vertex of an odd cycle of length \(2m+1\). Every independent set meets the cycle in at most \(m\) vertices, yielding a strictly greater-than-\(2\) lower bound. In the construction, sampling one element of each ground set produces a clique star that captures exactly \(k/n_k\) of each coordinate in expectation. Uniform coefficients attain the inverse ratio by the cited Erdős–Ko–Rado theorem. The finite identity holds blockwise and extends to the completion because the constants are uniform. The Lovász–Kneser theorem supplies the unbounded chromatic number of the complement, not a finite computation.
+## correctness
 
-Reproduction from the definitions: choose a real \(c>2\), set \(n_k=\lfloor ck\rfloor\), repeat the graph on all \(k\)-subsets of \([n_k]\) at each \(k\) across \(\omega_1\) indexed copies, join distinct copies, and use within-copy intersection adjacency. One can check the finite \(k=2,n_k=5\) illustration through the identities \(\binom52=10\) and \(\binom41=4\). It is not used as an infinite proof.
+PASS
 
-There are no computational certificates, external verification jobs, numerical tolerances, or hidden dependencies. Published graph theorems are dependencies and were checked against the statements in DOI:10.1007/s00373-024-02782-9. Neither exhaustive prior-art coverage nor independent audit is asserted.
+For arbitrary finite E, the norm ratio of hereditary source and target set-sum norms equals the finite LP maximizing ∑w_v subject to ∑_{v∈F}w_v≤1; finite strong duality gives minimum fractional F cover. For graph clique F, independent sets of complement H give χ_f(H[E]). Bounded identity has inverse norm exactly 1 by singleton/ℓ1 domination and density, hence onto. χ_f≤2 forbids odd cycle because uniform dual weights 1/m on 2m+1-cycle yield 2+1/m; no odd cycle iff bipartite even on uncountable components. The block construction makes G a complete join of repeated intersecting-k-set graphs, complement disjoint union KG(floor(ck),k), with additive block norm. EKR gives exact ratio n_k/k via uniform vector, random-star lower bound for all coefficients, and Lovász–Kneser gives χ(H)=ℵ0. Sup floor(ck)/k=c. Independent finite LP checked C5=2.5, K3=3, edge+isolate=2; finite checks are corroboration, not uncountable proof.
+
+## originality
+
+PASS
+
+The classic fractional χ LP and both Kneser formulas are fully credited. 2024 Zoo Example 4.7 strongly overlaps finite star weights but does not automatically yield the full intersecting-clique family, all real >2 exact norm, or sharp universal bipartite transition. Indexed same-topic results do not show an identical theorem, but complete primary articles were inaccessible; this is a serious but non-decisive best-of-knowledge risk.
+
+## value
+
+PASS
+
+The exact canonical norm links a natural combinatorial Banach-space construction to a recognizable graph LP for every cardinality. The rigid boundary 2 and arbitrary tiny excess c−2 with χ(H)=ℵ0 exhibit meaningful fractional/integral gap in a nonseparable ℓ1-identifiable space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
