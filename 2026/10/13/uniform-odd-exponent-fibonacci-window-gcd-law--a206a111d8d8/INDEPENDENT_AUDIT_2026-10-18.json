@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:50:02.642185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Companion Fibonacci matrix A∈GL2(Z) induces an invertible integral (r+1)×(r+1) action on homogeneous polynomials of degree r. Its monic characteristic polynomial has constant coefficient ±1, so each r-th-power Fibonacci window obeys an integer reversible recurrence, proving all-shift gcd equals gcd of W0,…,Wr and that gcd divides D0=F_k^r via Dn=F_{n+k}^r−F_n^r. For odd r,k, an odd p dividing gcd implies F_k≡0, F_{k+1}^r≡1, while Cassini gives F_{k+1}²≡−1 mod p, contradiction. Fibonacci parity period3 and modulo4 period6 force gcd2 exactly when k≡3 (mod6), otherwise1. Independent exact gcd loop checked 105 odd-(r,k) pairs r=1..13,k=1..29 with 15 extra windows and finite-prefix equality; no finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper treats r=1; second treats r=2, with explicit open questions for higher powers, particularly r≥3 and even windows."
+        ],
+        "reasoning": "The older results do not have the full odd-exponent parameter quantified and do not logically determine the arbitrary-power gcd from shared r=1,r=2 values.",
+        "searches": [
+          "Mbirika Spilker 2022 section 6.1 higher powers",
+          "Guyer Mbirika 2021 theorem all Gibonacci sums"
+        ]
+      },
+      "checked_sources": [
+        "Guyer–Mbirika arXiv:2104.12262 title/abstract and main theorem in complete downloadable primary PDF",
+        "Mbirika–Spilker arXiv:2204.12626 Theorem 5.2 §6.1 and Tables 1–2 inspected in complete PDF",
+        "OEIS:A210209 sequence identification",
+        "Resultary semantic query: gcd sums consecutive odd powers Fibonacci arbitrary odd exponent odd window 2 if k mod 6 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any odd p|g, finite-prefix/unimodular recurrence forces p|F_k^r and F_{k+1}^r−1. Odd k gives F_{k+1}²≡−1 mod p by Cassini. With odd r, 1≡(F_{k+1}^r)²≡−1 mod p, impossible. Mod2 and mod4 Fibonacci periods fix the sole remaining power of 2."
+        ],
+        "reasoning": "Unlike the earlier low-power formulas, the Cassini obstruction holds uniformly for every odd r, and the unit-constant recurrence justifies D0 divisibility that naive telescoping would miss. This is the needed new implication step.",
+        "searches": [
+          "Guyer Mbirika 2021 first power gcd theorem",
+          "Mbirika Spilker 2022 squares Theorem 5.2 higher powers question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The r-th symmetric-power matrix Sym^r([[1,1],[1,0]]) is unimodular with characteristic polynomial unit constant coefficient, giving finite prefix gcd length r+1."
+        ],
+        "reasoning": "The arbitrary-r recurrence and the odd-power Cassini obstruction reformulate the all-shift GCD as a divisibility property; first- and square-power identities are distinct low-r statements, not an equivalent arbitrary-r result.",
+        "searches": [
+          "gcd sums consecutive odd powers Fibonacci arbitrary odd exponent odd window 2 if k mod 6 3",
+          "higher powers generalized Fibonacci consecutive sums gcd fixed shift unimodular recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A210209 encodes the first-power case; Mbirika–Spilker Table 2 gives square-power rows for odd k.",
+          "Independent 105 odd-(r,k) parameter tests r≤13, odd k≤29 reproduced the claimed all-shift 1/2 gcd and first r+1 finite prefix."
+        ],
+        "reasoning": "These tables are not an all-odd-power table; finite observed matches do not prove an infinite exponent theorem.",
+        "searches": [
+          "OEIS A210209 fibonacci window gcd",
+          "gcd sums consecutive odd powers Fibonacci arbitrary odd exponent odd window 2 if k mod 6 3"
+        ]
+      },
+      "rationale": "Guyer–Mbirika prove the first-power sequence; Mbirika–Spilker prove square powers and explicitly discuss higher-power questions. Neither covers the all odd-exponent/odd-window dichotomy. Unimodular recurrence and Cassini sign parity provide a new uniform proof beyond observed shared low-power outputs.",
+      "residual_risks": [
+        "An independent all-odd-power theorem in older number-theory literature could be expressed in Pisano-period or recurrence-sequence terms and may have escaped the searches.",
+        "The classification is restricted to odd r and odd k; for even r, e.g. r=4 k=25, a factor 5 can divide every sum, so no extension is claimed.",
+        "The finite prefix reduction is valid for all positive r,k, but the 1/2 dichotomy is not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies only first powers, with r=1 odd-window outputs 2 or 1; does not directly establish arbitrary odd r.",
+          "evidence": "Guyer–Mbirika 2021, arXiv:2104.12262, Theorems 5.5–5.6",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.12262",
+          "material_read": "Full 25-page arXiv preprint opened; title/abstract and main general-Fibonacci formula gcd(F_{k+1}−1,F_{k+2}−1), original theorem structure read.",
+          "method": "primary full PDF accessible, title/abstract and main theorem passages inspected",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "exact r=1 odd-window predecessor and formula"
+        },
+        {
+          "assessment": "Provides r=2 exactly; §6.1 explicitly proposes higher-power extensions and cubic conjectures mainly for even windows, not this all odd-r/odd-k classification.",
+          "evidence": "Mbirika–Spilker 2022/23, arXiv:2204.12626, Theorem 5.2 and §6.1",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Complete 15-page arXiv paper opened; Introduction, Table 2, Theorem 5.2 p.12, §6.1 higher powers pp.13–14 read including visible page screenshots.",
+          "method": "primary PDF full text and scanned theorem/question sections",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "same window-gcd for r=2 and open higher power question"
+        },
+        {
+          "assessment": "Documents r=1 pattern, not an arbitrary-exponent two-variable gcd classification.",
+          "evidence": "OEIS:A210209",
+          "identifier_or_url": "https://oeis.org/A210209",
+          "material_read": "Indexed OEIS name and reference to first-power sequence; full terms page not independently inspected.",
+          "method": "OEIS metadata and assigned comparison",
+          "title": "OEIS A210209",
+          "trigger": "exact tables of the first-power window gcd"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes a natural infinite-parameter case of a published GCD-of-consecutive-Fibonacci-powers research program, with exact all-shift finite reduction and a sharp necessary odd-exponent hypothesis. A researcher studying higher-power windows can directly use the uniform obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Guyer–Mbirika arXiv:2104.12262 title/abstract and main theorem in complete downloadable primary PDF",
+    "Mbirika–Spilker arXiv:2204.12626 Theorem 5.2 §6.1 and Tables 1–2 inspected in complete PDF",
+    "OEIS:A210209 sequence identification",
+    "Resultary semantic query: gcd sums consecutive odd powers Fibonacci arbitrary odd exponent odd window 2 if k mod 6 3"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An independent all-odd-power theorem in older number-theory literature could be expressed in Pisano-period or recurrence-sequence terms and may have escaped the searches.",
+    "The classification is restricted to odd r and odd k; for even r, e.g. r=4 k=25, a factor 5 can divide every sum, so no extension is claimed.",
+    "The finite prefix reduction is valid for all positive r,k, but the 1/2 dichotomy is not."
+  ],
+  "schema_version": 1
+}

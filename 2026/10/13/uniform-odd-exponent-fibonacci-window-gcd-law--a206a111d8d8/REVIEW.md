@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The power sequence is a coordinate of the \(r\)-th symmetric power of the integral Fibonacci companion matrix; its transition is unimodular. Cayley–Hamilton therefore gives a recurrence with a unit constant term, recovering the missing zero-index power difference from all positive-index differences. Any odd prime in the gcd would divide \(F_k\) and \(F_{k+1}^r-1\); Cassini's identity then yields \(1\equiv-1\) modulo that prime for odd \(r,k\). The periodic residues modulo \(2\) and \(4\) give the exact remaining valuation. These arguments apply to all parameter values without a computational cutoff. The embedded standalone verifier also passed \(372\) parameter cases; those experiments are corroboration, not the proof.
+## correctness
 
-## Originality — PASS relative to inspected material
-The full primary texts arXiv:2104.12262 and arXiv:2204.12626 were inspected in their result and problem sections. The first gives the known first-power formula, and the second gives the square-power formula and raises the higher-power direction. Equality of those two earlier formulas for odd window lengths is not a logical implication covering every higher odd power. The inspected published mathematical findings closest in subject instead address recurrence periods or reciprocal-power tails. Targeted scientific-record searches for odd-power Fibonacci window gcds, shift-period aliases, and symmetric-power formulations returned no equivalent mathematical statement. This is an originality assessment over inspected evidence, not a proof that no equivalent statement exists in unindexed literature.
+PASS
 
-## Value — PASS
-This gives an exact, unbounded, two-parameter classification of a natural invariant studied in the cited Fibonacci-window papers, settling the entire odd-exponent/odd-window region rather than one fixed cube or a finite dataset. The unimodular reduction shows that \(r+1\) windows suffice to determine the infinite gcd at any exponent; the Cassini obstruction explains why the odd powers admit no odd prime common factors. The even-exponent boundary demonstrates why this is a structural parity phenomenon rather than substituting an exponent into an already-proved formula. The result does not classify even-length windows or arbitrary initial values.
+Companion Fibonacci matrix A∈GL2(Z) induces an invertible integral (r+1)×(r+1) action on homogeneous polynomials of degree r. Its monic characteristic polynomial has constant coefficient ±1, so each r-th-power Fibonacci window obeys an integer reversible recurrence, proving all-shift gcd equals gcd of W0,…,Wr and that gcd divides D0=F_k^r via Dn=F_{n+k}^r−F_n^r. For odd r,k, an odd p dividing gcd implies F_k≡0, F_{k+1}^r≡1, while Cassini gives F_{k+1}²≡−1 mod p, contradiction. Fibonacci parity period3 and modulo4 period6 force gcd2 exactly when k≡3 (mod6), otherwise1. Independent exact gcd loop checked 105 odd-(r,k) pairs r=1..13,k=1..29 with 15 extra windows and finite-prefix equality; no finite extrapolation.
 
-## Closest sources and residual risks
-Guyer–Mbirika (2021) covers \(r=1\); Mbirika–Spilker (2022) covers \(r=2\) and poses higher-power questions; OEIS A210209 indexes \(r=1\). None of the inspected passages establishes the assertion for every odd \(r\ge3\). An equivalent theorem hidden in less easily indexed recurrence literature is a residual bibliographic risk. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Guyer–Mbirika prove the first-power sequence; Mbirika–Spilker prove square powers and explicitly discuss higher-power questions. Neither covers the all odd-exponent/odd-window dichotomy. Unimodular recurrence and Cassini sign parity provide a new uniform proof beyond observed shared low-power outputs.
+
+## value
+
+PASS
+
+Closes a natural infinite-parameter case of a published GCD-of-consecutive-Fibonacci-powers research program, with exact all-shift finite reduction and a sharp necessary odd-exponent hypothesis. A researcher studying higher-power windows can directly use the uniform obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
