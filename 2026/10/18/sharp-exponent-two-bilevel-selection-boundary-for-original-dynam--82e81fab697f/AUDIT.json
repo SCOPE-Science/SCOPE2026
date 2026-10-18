@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact coordinate reduction uses β=4. Symbolic expansion confirms nonnegative dissipation identity; energy gives subcritical rate and critical harmonic square-summability. Logarithmic-mesh lemma turns harmonic summability plus O(1/k) regularity into endpoint convergence. For every supercritical γ>2, a dominated-convergence offset bound and convex-combination invariant prove a positive limiting nullspace coordinate. Geometric u convergence follows from the 2-step norm bound. `verify.py` checks algebra and finite recurrences, not infinite conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The motivating paper has general subcritical objective-rate bounds; these must be credited rather than regarded as novel. Its pointwise statement explicitly restricts gamma to the open range 1<gamma<2, with a different t schedule.",
+        "Attouch–László study time-dependent damping/Tikhonov terms in inertial flows, whose equations are not the discrete FBi-PG scheme.",
+        "Karapetyants–László have double regularization and a different update location."
+      ],
+      "reasoning": "The prior general results dominate the subcritical part in this simple example. The assessed distinct content is gamma=2 for the precise original discrete scheme, joined to the sharp beyond-two obstruction; the continuous inverse-square threshold alone does not imply either discrete endpoint convergence or the particular counterexample.",
+      "searches": [
+        "Primary: arXiv:2407.21221 Proposition 3, Theorem 5 and appendices",
+        "Primary: Attouch–László 2024 inertial Tikhonov paper full text",
+        "Primary: Karapetyants–László 2024 double Tikhonov paper full text",
+        "Published mathematical-record query: accelerated iterative Tikhonov inertial regularization critical exponent two polynomial vanishing penalty convergence bilevel"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.21221 full text",
+      "arXiv:2302.02115 full text",
+      "Attouch–László 2024 full text",
+      "Karapetyants–László 2024 full text",
+      "Published mathematical-record searches for original dynamic FISTA, exponent-two selection and inertial Tikhonov aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2024 FBi-PG gives its original recurrence but its general pointwise theorem assumes open gamma range and alternate prescribed t; no cited source states the gamma=2 endpoint for this recurrence.",
+        "Source rate estimates can yield v_k->0 for gamma<2, which is explicitly acknowledged.",
+        "The non-optimal supercritical limit is constructed by S(a)<1, a condition not established by the prior sufficient-convergence results."
+      ],
+      "reasoning": "The new implication is a sharp two-sided boundary for a fixed named algorithm and a natural rank-deficient instance, not a new general vanishing-regularization theorem. The covered subcritical implication has not been passed off as independent novelty.",
+      "searches": [
+        "Primary: arXiv:2407.21221 original t recurrence vs Theorem 5 hypotheses",
+        "Published mathematical-record query: Tikhonov vanishing weight accelerated FISTA ...",
+        "Published mathematical-record query: FBi-PG Dynamic FISTA Merchav Sabach Teboulle ..."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original FBi-PG uses standard FISTA t_{k+1}=(1+sqrt(1+4t_k^2))/2, dynamic alpha_k=(k+a)^(-gamma); the theorem in its convergence section uses a distinct allowed momentum prescription.",
+        "arXiv:2302.02115 regularizes the previous primal iterate rather than the FBi-PG extrapolated point.",
+        "Closest published result on fourth-iterate nonmonotonicity of original FISTA treats objective ascent in a fixed-objective FISTA mode."
+      ],
+      "reasoning": "A bare exponent-two match is insufficient. The exact claim is the critical endpoint selection plus per-exponent supercritical failure for the source’s original discrete FISTA recurrence, on an inner-minimizer line. Neither other momentum normalization nor a fixed-objective transient is equivalent.",
+      "searches": [
+        "Published mathematical-record query: Tikhonov vanishing weight accelerated FISTA t_k t_{k+1} sqrt gamma=2 sharp selection failure above two flat direction",
+        "Published mathematical-record query: FBi-PG Dynamic FISTA Merchav Sabach Teboulle 2407.21221 alpha_k k+a to gamma 2 critical bilevel selection",
+        "Primary: arXiv:2407.21221 Algorithm (2.4)–(2.7) and Theorem 5",
+        "Primary: arXiv:2302.02115 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly corresponding entry was returned in inspected Published mathematical records rankings. Closest record the published summable-Tikhonov Pareto-interval result uses SAA-RMGDA, not FBi-PG.",
+        "No parameter-table listing applies to this continuous-exponent analytic claim."
+      ],
+      "reasoning": "A finite table could not dominate the continuum-of-gamma theorem without a uniform implication. Search absence is only best-knowledge evidence, not proof of priority; recovered historical claims were used strictly to exclude literal or logically covering overlap.",
+      "searches": [
+        "Published mathematical-record query: finite summable regularization FISTA fast bilevel acceleration two-dimensional quadratic flat manifold convergence endpoint gamma two",
+        "Published mathematical-record query: arxiv 2407.21221 theorem gamma2 pointwise convergence minimum outer solution counterexample",
+        "Prior mathematical claims queried for FBi-PG, original FISTA, bilevel Tikhonov and exponent-two selection overlap"
+      ]
+    },
+    "rationale": "Original FBi-PG rate results overlap the subcritical special case, fully acknowledged. The assessed new combined statement is critical gamma=2 pointwise selection for exactly the original recurrence and the matching supercritical obstruction on a rank-deficient bilevel quadratic. Related exact dynamic-FISTA and continuous inertial Tikhonov full texts and closest published mathematical records were compared for actual implication; none found to dominate this discrete two-sided theorem. Priority remains limited to inspected literature.",
+    "residual_risks": [
+      "Continuous inverse-square scale is well known; exact recurrence could have appeared elsewhere under a different discrete name.",
+      "Full global priority across past accelerated Tikhonov literature and unindexed theses is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same algorithm; subcritical results overlap; the endpoint and supercritical counterexample in the original t recurrence not identified",
+        "evidence": [
+          "arXiv:2407.21221, pp. 5–7 Algorithm and Proposition 3; p. 19 Theorem 5 explicitly 1<gamma<2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.21221",
+        "material_read": "Algorithm (2.4)–(2.7), Proposition 3, theorem statements including Theorem 5, cited-rate discussion and appendices",
+        "method": "Full accessible preprint text and displayed equations compared to the coordinate recurrence and gamma quantifiers",
+        "title": "Dynamic FISTA for Convex Composite Bi-Level Optimization",
+        "trigger": "Exact source recurrence and possible covering endpoint theorem"
+      },
+      {
+        "assessment": "Related but distinct recurrence; no direct implication for original FBi-PG exact gamma-two boundary identified",
+        "evidence": [
+          "arXiv:2302.02115, inertial proximal step regularizing prior iterate"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.02115",
+        "material_read": "Algorithm and principal convergence hypotheses in accessible full text",
+        "method": "Compared placement of inertial extrapolation and Tikhonov correction and parameter conditions",
+        "title": "On the convergence of an inertial proximal algorithm with a Tikhonov regularization term",
+        "trigger": "Potential stronger discrete inertial selection theorem"
+      },
+      {
+        "assessment": "Shows inverse-square scale is known in related settings; distinct dynamics do not state this discrete endpoint or counterexample",
+        "evidence": [
+          "Attouch–László 2024, continuous regularized inertial dynamics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00186-024-00867-y",
+        "material_read": "Accessible full-text model equations, regularization schedules and convergence conclusions",
+        "method": "Compared continuous inertial damping/Tikhonov dynamics against discrete FBi-PG and endpoint statements",
+        "title": "Convex optimization via inertial algorithms with vanishing Tikhonov regularization: fast convergence to minimum norm solution",
+        "trigger": "Potential continuous-time broader exponent-two regularization results"
+      },
+      {
+        "assessment": "Not the same discrete recursion; no dominating gamma-two theorem for original FBi-PG identified",
+        "evidence": [
+          "Karapetyants–László 2024, double-Tikhonov update"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00245-024-10163-0",
+        "material_read": "Accessible full-text algorithm, parameter and convergence discussion",
+        "method": "Compared two regularization terms and update location with FBi-PG",
+        "title": "A Nesterov Type Algorithm with Double Tikhonov Regularization",
+        "trigger": "Possible discrete inertial theorem dominating source-specific boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82e81fab-697f-40ff-b8bc-971f29347727",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a complete threshold for a natural rank-deficient bilevel benchmark: acceleration allows selection even when \\(\\sum_k\\alpha_k<\\infty\\) up to the critical exponent, but for every higher exponent an admissible offset leaves permanent nullspace bias. Exact boundary resolves a motivated tuning gap for the original FBi-PG scheme, and the endpoint proof is genuinely stronger than the source subcritical rate implication; no general objective guarantee is asserted.",
+    "status": "PASS"
+  }
+}
