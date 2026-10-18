@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a unit vector \(f\), write \(a=a_f\), \(b=b_f\) with
-\[
-\int_Xa\,d\mu=\int_Xb\,d\mu=1.
-\]
-Then
-\[
-\int_X\min(a,b)\,d\mu=\frac12\int_X(a+b-|a-b|)\,d\mu=1-\frac12\int_X|a-b|\,d\mu,
-\]
-\[
-\int_X\max(a,b)\,d\mu=1+\frac12\int_X|a-b|\,d\mu.
-\]
-Choose \(\sigma_f=\{a_f\le b_f\}\) to attain the former as a weaving energy, and choose \(\{a_f\ge b_f\}\) for the latter. Since \(\inf_\sigma\inf_f=\inf_f\inf_\sigma\) and \(\sup_\sigma\sup_f=\sup_f\sup_\sigma\), the optimal universal bounds are exactly \(1-\tau\) and \(1+\tau\), without a common optimizing partition.
+# Independent mathematical audit
 
-Write \(D_\sigma=S_{1,\sigma}-S_{2,\sigma}\), which is self-adjoint. Then \(\|D_\sigma\|=\sup_{\|f\|=1}|\int_\sigma(a_f-b_f)|\); as this scalar signed density has zero total mass, \(\sup_\sigma|\int_\sigma(a_f-b_f)|=\tfrac12\int_X|a_f-b_f|\). Exchange the suprema to obtain \(\tau=\sup_\sigma\|D_\sigma\|\). All woven frame operators are \(I+D_\sigma\), and taking complements changes the sign, confirming both optimal constants.
+## correctness
 
-For the exact two-point model use
-\[
-A_1=\begin{pmatrix}1&0\\0&0\end{pmatrix},\quad A_2=\begin{pmatrix}0&0\\0&1\end{pmatrix},
-\]
-\[
-B_1=\begin{pmatrix}1-t&0\\0&t\end{pmatrix},\quad B_2=\begin{pmatrix}t&0\\0&1-t\end{pmatrix},\quad 0\le t\le1.
-\]
-Both pairs sum to \(I\), so their square roots are valid Parseval analysis maps. The signed energy differences at the two atoms are equal and opposite, with absolute magnitude \(t\bigl||f_1|^2-|f_2|^2\bigr|\). Hence \(\tau=t\). The two mixed weaves have diagonal eigenvalues \((1+t,1-t)\) and \((1-t,1+t)\); both optimal bounds are realized at every \(t\). At \(t=1\), a mixed weave is \(2P_1\), with kernel \(\operatorname{span}\{e_2\}\), though each source sum remains \(I\). Equivalently, to realize this boundary example with one common fibre map, set \(\Lambda(1)=\Lambda(2)=I_H\), \(F(1)=\operatorname{span}\{e_1\}\), \(F(2)=\operatorname{span}\{e_2\}\), \(G(1)=\operatorname{span}\{e_2\}\), and \(G(2)=\operatorname{span}\{e_1\}\), with unit weights.
+PASS
 
-The 2021 primary preprint was inspected at its frame and weaving definitions and complete Theorem 2.15 proof, including its rendered theorem page. This exhibits the distinction between an integrated positive difference and positivity of local differences; the latter is a stronger condition and is not met in the boundary example. Foundational weaving-frame and generalized-frame source sections were also compared for implication-level coverage.
+For each unit state both coefficient-energy densities a_f,b_f are measurable, nonnegative and integrate to one. The measurable selection σ={a_f≤b_f} attains the min density for that state and the opposite selection the max. Their integrals equal 1 ∓ (1/2)∫|a_f-b_f|. Commuting the joint infimum and joint supremum over f and measurable σ yields exact optimal universal bounds 1−τ and 1+τ; the same partition need NOT optimize every state. Partial positive frame operators exist by bounded Parseval forms. D_σ=S1,σ−S2,σ is self-adjoint, and sup_σ||D_σ||=sup_f(1/2)∫|a_f-b_f| because the signed density has total zero. Two-atom operators A1=P1,A2=P2,B1=(1−t)P1+tP2,B2=tP1+(1−t)P2 form legitimate Parseval systems and give τ=t, mixed eigenvalues 1±t even t=0 and t=1. Infinite-dimensional statement does not assert attainment of τ.
+
+## originality
+
+PASS
+
+The exact Parseval quantitative invariant is an operational characterization by worst-state total variation and partial-operator norm. Foundational weaving theory proves weak/strong equivalence and sufficient perturbations; generalized g-frame theory supplies extremal bounds relative to individual frame bounds, not this exact formula. A two-atom continuous threshold family makes its sharpness substantive. The Ghosh–Samanta theorem has a pointwise/local positivity ambiguity and is not asserted refuted under its stronger reading.
+
+## value
+
+PASS
+
+It converts all measurable allocation patterns into a single exact worst-state distance, determining the precise lower and upper universal stability constants even for non-atomic continuous systems. The sharp two-atom continuum and t=1 failure with two identical global frame operators show why global equalities alone are insufficient. This is a motivated exact robustness theorem, not a self-contained but arbitrary algebra trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. For a unit vector \(f\), both local Parseval energy densities integrate to one. Minimizing or maximizing their partitioned sum chooses their pointwise minimum or maximum, yielding respectively \(1-\tfrac12\int|a_f-b_f|\) and \(1+\tfrac12\int|a_f-b_f|\). Joint extrema over partitions and unit vectors commute; optimizing partitions are allowed to depend on the tested vector. Thus the optimal universal constants are exactly \(1-\tau\) and \(1+\tau\). The invariant also equals the supremum norm of all partial self-adjoint frame-operator differences; the two-atom positive diagonal families attain both endpoints for every \(\tau\in[0,1]\).
+# Independent mathematical audit
 
-## Originality
-PASS. The original continuous controlled \(K\)-\(g\)-fusion weaving source, foundational woven-frame theory, generalized weaving criteria, total-variation aliases, optimal-bound statements, and the precise integrated-versus-pointwise positivity distinction were compared. No inspected source states this exact worst-state total-variation and partial-operator-norm parameter with both optimal constants and the complete two-atom sharpness path. Earlier bounds and spanning criteria do not identify the same invariant. Absence of an indexed statement is not by itself proof of novelty; unindexed equivalent reformulations remain a risk.
+## correctness
 
-## Value
-PASS. The invariant is the operational measurement distinguishability of the two Parseval coefficient-energy distributions, maximized over states. It exactly decides whether *every* measurable weaving has a uniform positive lower bound and computes both optimal constants without enumerating partitions. The explicit sharp family shows that even identical global frame operators do not control weaving robustness; the attainable stability margin fills the complete interval from one to zero.
+PASS
 
-## Closest literature and limitations
-Ghosh--Samanta, Theorem 2.15, motivates positive operator comparisons, while Bemrose et al. and Deepshikha--Samanta provide general weaving and generalized-frame criteria. The full-space positive-defect interpretation of Theorem 2.15 is insufficient, but its phrasing may instead require pointwise density positivity; no unconditional contradiction to that stronger interpretation is claimed. The exact criterion is restricted to two Parseval families.
+For each unit state both coefficient-energy densities a_f,b_f are measurable, nonnegative and integrate to one. The measurable selection σ={a_f≤b_f} attains the min density for that state and the opposite selection the max. Their integrals equal 1 ∓ (1/2)∫|a_f-b_f|. Commuting the joint infimum and joint supremum over f and measurable σ yields exact optimal universal bounds 1−τ and 1+τ; the same partition need NOT optimize every state. Partial positive frame operators exist by bounded Parseval forms. D_σ=S1,σ−S2,σ is self-adjoint, and sup_σ||D_σ||=sup_f(1/2)∫|a_f-b_f| because the signed density has total zero. Two-atom operators A1=P1,A2=P2,B1=(1−t)P1+tP2,B2=tP1+(1−t)P2 form legitimate Parseval systems and give τ=t, mixed eigenvalues 1±t even t=0 and t=1. Infinite-dimensional statement does not assert attainment of τ.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact Parseval quantitative invariant is an operational characterization by worst-state total variation and partial-operator norm. Foundational weaving theory proves weak/strong equivalence and sufficient perturbations; generalized g-frame theory supplies extremal bounds relative to individual frame bounds, not this exact formula. A two-atom continuous threshold family makes its sharpness substantive. The Ghosh–Samanta theorem has a pointwise/local positivity ambiguity and is not asserted refuted under its stronger reading.
+
+## value
+
+PASS
+
+It converts all measurable allocation patterns into a single exact worst-state distance, determining the precise lower and upper universal stability constants even for non-atomic continuous systems. The sharp two-atom continuum and t=1 failure with two identical global frame operators show why global equalities alone are insufficient. This is a motivated exact robustness theorem, not a self-contained but arbitrary algebra trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
