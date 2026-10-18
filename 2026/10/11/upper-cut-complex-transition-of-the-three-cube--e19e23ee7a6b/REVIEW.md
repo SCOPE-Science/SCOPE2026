@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the graph definition through the simplicial chain complex. Exhaustive enumeration gives \(32\) disconnected four-sets and \(8\) disconnected five-sets. For \(\Delta_4(Q_3)\), the full two-skeleton is present, the exact boundary ranks are \((7,21,32)\), and an explicit maximal \(\partial_3\) minor has determinant \(-1\). This proves integral homology \(\widetilde H_2\cong\mathbb Z^3\) with all other reduced homology zero; simple connectivity plus Hurewicz and homological Whitehead gives the stated wedge. At level five, the facet list is exactly the two parity tetrahedral boundaries, and both filling tetrahedra are checked to lie in level four, so the inclusion is genuinely null-homotopic.
+## correctness
 
-Risk: the homotopy-type step relies on standard Hurewicz and Whitehead theorems after the finite calculation; it is not an exhaustive enumeration of homotopies.
+PASS
 
-## Originality
-PASS. The foundational source arXiv:2304.13675, its follow-up arXiv:2407.08158, and the grid-focused arXiv:2408.07646 were inspected. The accessible full texts of the first two were searched for cube/hypercube coverage; no cube-specific result was located. Focused published-record searches for the exact \(k=4\), \(k=5\), parity-boundary and filtration-map formulations returned as the closest same-object result the distinct level-three statement \(\Delta_3(Q_3)\simeq S^3\vee\bigvee^4S^4\). That does not imply the present claim.
+For the eight vertices of Q3 and the ordinary cut complex (facets complements of disconnected k-sets), independent exhaustive enumeration found exactly 32 disconnected 4-sets with even/odd profile (1,12,6,12,1), and exactly 8 disconnected 5-sets. The Δ4 simplicial f-vector is (8,28,56,32) with complete 2-skeleton; exact rational simplicial boundary ranks are (7,21,32). Independently computed a full 32×32 ∂3 minor determinant −1, proving a primitive image and no integral H2 torsion; thus reduced H2=Z³ and all other reduced homology zero. Complete two-skeleton ⇒ simply connected; Hurewicz and homological Whitehead imply Δ4≃∨³ S². The Δ5 facets exactly equal the four triangles on each parity tetrad, hence S²⊔S². Both parity full tetrahedra are 3-simplices of Δ4, so both component inclusions bound 3-balls, proving the actual filtration inclusion is nullhomotopic. This is exhaustive eight-vertex verification, not a general higher-cube proof.
 
-Residual risk: an unindexed small-graph table or computation may contain the same finite values.
+## originality
 
-## Value
-PASS. This is a natural adjacent-level calculation in the cut-complex filtration of a canonical graph. It gives more than a numerical invariant: the level-five complex splits into two explicit spheres, the level-four complex is \(\bigvee^3S^2\), and the actual inclusion is null-homotopic. The result therefore records a concrete persistence failure for the two level-five classes while three different degree-two classes occur at level four, making it a useful exact benchmark for broader cube/grid questions.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The foundational Bayer et al. 2023/2024 cut-complex theory defines the convention, filtration and complete-skeleton topology. The indexed result for Q3 at k=3 gives S³∨4S⁴, which does not decide the adjacent k=4/5 topology or map; studied 2D grid cases likewise do not cover 3-cube. Full accessible Bayer follow-up was inspected without Q3 k=4/5 coverage. Best-of-knowledge these exact canonical graph filtration levels and null map survive originality search.
+
+## value
+
+PASS
+
+The eight-vertex 3-cube is a canonical smallest higher-dimensional Cartesian cube. Determining consecutive upper levels exactly, including two disconnected parity-sphere components mapping nullhomotopically into a connected wedge, provides a natural finite transition datum for graph cut-complex filtrations rather than a random tiny numerical output. The exact integral torsion check and inclusion map supply information missing from a mere Betti table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
