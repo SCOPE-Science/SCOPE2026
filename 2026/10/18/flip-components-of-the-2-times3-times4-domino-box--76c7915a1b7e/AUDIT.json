@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The first-free-cell perfect-matching recursion exhaustively and uniquely enumerates every tiling, with an independent four-floor transfer recursion agreeing at 1845. Two exact flip characterizations agree on 6949 edges. Connected components, four P5 degree sequences, reflection transitivity, minimum degree 1, and all 1825-source shortest paths are asserted and checked by a runnable standalone certificate. The 29 elementary four-cycles cover every permitted 2x2 slab. This is a complete finite proof only, not a general-volume result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Milet and Saldanha arXiv:1404.6509 prove boxes need not be flip-connected and give specific other-box examples.",
+        "Freire, Klivans, Milet, Saldanha arXiv:1702.00798 study connectivity after suitable refinement.",
+        "Saldanha arXiv:1912.12102 addresses domino groups and connectivity for cylindrical families."
+      ],
+      "reasoning": "Generic non-connectivity already implies a broad possibility of many components, but not the component-size partition and no-frozen-tiling property of this specific box, or its 16-step diameter. Refinement and cylinder equivalence involve changing geometry or available moves, so they do not entail the fixed-volume metric census.",
+      "searches": [
+        "Two-layer 3D cubical domino tilings flip graph 2x3x4 radius diameter frozen tilings",
+        "arXiv:1404.6509 Sections 1 and 6",
+        "arXiv:1702.00798 main theorem",
+        "arXiv:1912.12102 Section 9"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.6509",
+      "arXiv:1912.12102",
+      "arXiv:1702.00798",
+      "arXiv:2507.22625",
+      "full embedded standalone checker verify_box_flips.py",
+      "Milet–Saldanha 2014 finite tables",
+      "Saldanha 2019 Lemma 9.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 invariant-based disconnectedness gives a qualitative non-reachability framework, not this finite graph enumerator.",
+        "2019 generator lemma specifically reuses the 2x3x4 box, but does not state its full flip graph metric.",
+        "2017 refinement result allows changes not in the claimed graph.",
+        "2025 survey lists different-volume examples."
+      ],
+      "reasoning": "The claim is not that three-dimensional domino tilings can be disconnected, that this box exists, or that no invariants are known: those conclusions have earlier coverage. Its exact five-component decomposition into a 1825-vertex giant and four mobile P5 paths, degree minimum 1, reflection orbit and giant diameter 16 are not implied by the inspected original results.",
+      "searches": [
+        "Domino tiling local 2x2 square flip all tilings have legal move yet not flip-connected 2x3x4",
+        "Two layer 3 by 4 rectangle flip graph metric eccentricity, graph diameter and connected components",
+        "arXiv:1404.6509",
+        "arXiv:1912.12102",
+        "arXiv:1702.00798",
+        "arXiv:2507.22625"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Milet and Saldanha arXiv:1404.6509 define face-flip adjacency on 3D domino tilings.",
+        "Saldanha arXiv:1912.12102, Section 9, Lemma 9.2 explicitly uses a 2x3x4 subbox for domino-group generator constructions."
+      ],
+      "reasoning": "The alternative 4x3x2 orientation, two-floor 3x4 slab, and fixed-volume twist-fiber description are the same objects or related equivalence problems. The cited generator construction already covers the physical subbox as an example, but its actual conclusion is group generation rather than the exact 1845-state graph, four P5 components, all-movable phenomenon, or all-source diameter.",
+      "searches": [
+        "Three-dimensional domino tilings of small rectangular boxes, local square flips, connected components, exact flip graph census, 2 by 3 by 4 box",
+        "arXiv:1912.12102 Lemma 9.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Milet and Saldanha arXiv:1404.6509 present a 3x3x2 small box and a 7x3x2 example.",
+        "Klivans and Saldanha arXiv:2507.22625 Section 3 give tiling tables for 3x3x2 and 4x4x4, with no exact component size/diameter table for 2x3x4 in the inspected material."
+      ],
+      "reasoning": "Tables for other rectangular volumes cannot determine the exact graph metric at this volume. The inspected source tables do not record the giant 1825-vertex component, four paths, reflection orbit, eccentricity distribution or absence of frozen tilings. Search non-retrieval alone is not evidence of uniqueness.",
+      "searches": [
+        "For the 2 x 3 x 4 three-dimensional rectangular box there are 1845 domino tilings whose square-flip graph has a giant component of 1825 and four path components of size 5, with diameter 16",
+        "Domino brick tilings two-floor 3 by 4 slab flip graph exact connected component sizes P5 5-vertex paths 1825 and four exceptional components",
+        "arXiv:2507.22625 Section 3"
+      ]
+    },
+    "rationale": "The complete fixed-volume classification is not covered by the four primary full texts compared. Prior papers already prove generic non-connectivity and even use a 2x3x4 subbox, so only the all-state component structure, path symmetry, no-frozen property and exact metric are claimed as new, subject to unindexed prior code risk.",
+    "residual_risks": [
+      "An unindexed table, unpublished calculation or repository may already enumerate the exact 2x3x4 flip graph.",
+      "Related domino group results could encode component information implicitly beyond the explicitly inspected consequences; no claim of absolute priority.",
+      "Searches cannot prove uniqueness, and no independent external mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related and partially broader qualitative disconnection; does not give this box’s exact component graph and metric.",
+        "evidence": "The paper explicitly supplies 3x3x2 and 7x3x2 boxes and general non-connectivity results, rather than the 1845-vertex 2x3x4 census.",
+        "identifier_or_url": "https://arxiv.org/abs/1404.6509",
+        "material_read": "Open-access full-text PDF, especially definitions and explicit finite examples in Sections 1 and 6.",
+        "method": "Compared flip definition, box dimensions, component examples, statement strength and which parameters are tabulated.",
+        "title": "Flip invariance for domino tilings of three-dimensional regions with two floors",
+        "trigger": "Defines same three-dimensional local flip and displays finite disconnection examples."
+      },
+      {
+        "assessment": "Same physical subbox already used as a group construction; no complete fixed-volume 1845-state component census, non-frozen conclusion, or diameter proved in inspected material.",
+        "evidence": "Section 9 constructs domino-group generators using 2x3x4 blocks, without a 4P5-plus-giant all-state classification.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.12102",
+        "material_read": "Open-access full-text PDF, Section 9 and Lemma 9.2 and surrounding generator discussion.",
+        "method": "Compared geometric box, distinguished tilings and group generators to complete finite fixed-volume flip graph assertion.",
+        "title": "Domino tilings of cylinders: the domino group and connected components under flips",
+        "trigger": "Direct same 2x3x4 subbox in Lemma 9.2, an unusually close overlap requiring full-text inspection."
+      },
+      {
+        "assessment": "The theorem concerns connectivity after refinement, so does not cover original-box local-flip distances.",
+        "evidence": "The refinement operation changes the region; the exact 2x3x4 component decomposition is not implied.",
+        "identifier_or_url": "https://arxiv.org/abs/1702.00798",
+        "material_read": "Open-access full-text PDF, abstract, principal theorem and hypotheses on refinement.",
+        "method": "Checked whether allowed moves and volume remain fixed.",
+        "title": "On the connectivity of spaces of three-dimensional domino tilings",
+        "trigger": "Could contain a stronger universal connectivity theorem."
+      },
+      {
+        "assessment": "The inspected small-box tables discuss 3x3x2 and 4x4x4, not the full metric of 2x3x4.",
+        "evidence": "Section 3 includes disconnectedness and frozen examples at different dimensions.",
+        "identifier_or_url": "https://arxiv.org/abs/2507.22625",
+        "material_read": "Open-access full-text PDF, Section 3 and its small-box examples/tables.",
+        "method": "Compared each tabulated volume and invariant to the proposed five-component metric census.",
+        "title": "Domino tilings beyond 2D",
+        "trigger": "Recent overview may contain existing small-box enumerations and exact tables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76c7915a-1b7e-4cc9-a8ba-c1db97746962",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classical 3x3x2 three-dimensional domino tilings have disconnection partly from frozen tilings, while the adjacent 2x3x4 brick is disconnected despite every state having a legal move. The four symmetry-equivalent P5 components explicitly exhibit nontrivial mobile obstructions; the connected giant and its exact radius 10/diameter 16 provide a natural reconfiguration benchmark useful for testing flip invariants and constrained-search algorithms. This is a motivated full classification, not an arbitrary unstructured set of numbers.",
+    "status": "PASS"
+  }
+}
