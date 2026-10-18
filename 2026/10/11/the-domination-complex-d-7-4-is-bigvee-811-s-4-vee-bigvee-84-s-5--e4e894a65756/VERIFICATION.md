@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification artifact reconstructs every labeled simple graph on seven vertices and tests the domination-number predicate directly. It obtains \(17{,}388\) nonempty faces with edge-count profile \((21,210,1330,4515,7077,3605,630)\) and confirms there are no larger faces.
 
-It rebuilds the successive-toggle matching, checks all \(83{,}895\) Hasse cover relations, and topologically sorts the modified Hasse graph. The matching has \(8{,}210\) pairs and critical-cell counts \((1,847,120)\) in dimensions \((0,4,5)\).
+# Independent mathematical audit
 
-The signed gradient-path recurrence reconstructs the integral Morse boundary \(\partial_5\). Exact arithmetic gives rank \(36\), and a specified \(36\times36\) minor has determinant \(-1\). Consequently every nonzero Smith invariant is a unit. Independent mod-\(2\) simplicial boundary ranks are \((20,190,1140,3375,2891,630)\), yielding reduced Betti ranks \(811\) and \(84\) in degrees \(4\) and \(5\), with all others zero.
+## correctness
 
-The checker proves only this finite case. It does not infer a formula for other bounded-domination complexes and it does not treat literature search as mathematical evidence for correctness.
+PASS
+
+The graph predicate on all 2^21 labeled seven-vertex graphs is tested by all domination sets of sizes 1,2,3. Re-execution of the inspected artifacts/verify.py returned VERIFY_OK: face-size histogram (1,21,210,1330,4515,7077,3605,630), 17388 nonempty faces, 83895 full Hasse covers; sequential toggle 8210 disjoint pairs and a full topological sort give acyclic critical cells (1 in dim0,847 dim4,120 dim5). Integer Morse boundary has exact rank 36 and a displayed 36x36 determinant -1. Therefore all 36 nonzero Smith invariants are units; the 4-skeleton is simply-connected wedge S4 and Hurewicz/elementary CW cancellations give 811 S4 and84 S5. F2 chain ranks independently in verifier are consistent, not standalone wedge proof.
+
+## originality
+
+PASS
+
+Published all-n theorem applies to D_{n,n-2}; this instance D_{7,4} has k=n-3. Published exact D_{6,3} is a different labelled complex and does not determine seven-vertex Morse boundary or homotopy; an independent complete finite certificate addresses a natural next member of the filtration.
+
+## value
+
+PASS
+
+D7,4 is the next natural seven-vertex n−3 bounded-domination complex beyond the published D6,3 mixed wedge, directly within the authors’ open all-Dn,k wedge problem. Its exact finite homotopy is a motivated nontrivial case and determines integral attaching information a dimension/census cannot supply; finite does not reduce its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph predicate on all 2^21 labeled seven-vertex graphs is tested by all domination sets of sizes 1,2,3. Re-execution of the inspected artifacts/verify.py returned VERIFY_OK: face-size histogram (1,21,210,1330,4515,7077,3605,630), 17388 nonempty faces, 83895 full Hasse covers; sequential toggle 8210 disjoint pairs and a full topological sort give acyclic critical cells (1 in dim0,847 dim4,120 dim5). Integer Morse boundary has exact rank 36 and a displayed 36x36 determinant -1. Therefore all 36 nonzero Smith invariants are units; the 4-skeleton is simply-connected wedge S4 and Hurewicz/elementary CW cancellations give 811 S4 and84 S5. F2 chain ranks independently in verifier are consistent, not standalone wedge proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1: D_{n,n-2} is wedge of 2-spheres; Proposition 1.3: D5,2 wedge four S5.",
+          "Introduction Problem 1.4 specifically asks for mixed-dimensional sphere wedges for other k and gives D6,3 Euler 92 as clue."
+        ],
+        "reasoning": "These theorems do not imply D7,4; the difference in domination filtration changes entire face poset, and neither exact integral multiplicity nor incidence boundary follows by n substitution.",
+        "searches": [
+          "arXiv:1901.07130 Theorem 1.1 and Proposition 1.3",
+          "D_{n,n-3} bounded domination complex all n wedge"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md sha 1c022a2be3421dafa6ceb59c8412f0e1a2d45885",
+        "Frozen artifacts/verify.py sha 7789410e30e9692f87e113f4cdf540c5745d001f",
+        "arXiv:1901.07130 complete PDF",
+        "Resultary D6,3 full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2021 paper explicitly says Dn,k for n−3≥k≥2 is unknown at its publication; Section 8 D5,2 only.",
+          "D6,3 result proves an adjacent case but gives no natural equivalence or recurrence implying D7,4."
+        ],
+        "reasoning": "The prior results imply neither the 36-unit Smith boundary calculation nor the D7,4 wedge decomposition; later unindexed work remains a risk.",
+        "searches": [
+          "González Hoekstra-Mendoza full arXiv:1901.07130 Sections 1,2,8",
+          "Resultary full D6,3 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "González–Hoekstra-Mendoza 2021 defines graphs on n labeled vertices with domination ≥k; Theorem 1.1 is k=n-2, not D7,4.",
+          "Published D6,3 mixed wedge has 115 S4 and 24 S5, not the seven-vertex object."
+        ],
+        "reasoning": "Both symbolic D7,4 and verbal seven-vertex-domination≥4 aliases checked. No covering equivalent formulation in inspected primary paper.",
+        "searches": [
+          "Resultary semantic: domination complex D_{7,4} 7 vertices domination number at least 4 wedge spheres 811 84",
+          "arXiv:1901.07130 full text Dn,k notation and seven-vertex aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Resultary D6,3 RESULT.md verifies a six-vertex object with 4502 faces, distinct from D7,4 with 17388 nonempty faces.",
+          "The focal D7,4 entry appears in Resultary for 2026/10/11, the current record, not a separate earlier theorem."
+        ],
+        "reasoning": "A database match to D6,3 cannot substitute for the seven-vertex exact classification; no inspected exact-object table of 811 and 84.",
+        "searches": [
+          "Resultary published D6,3 mixed sphere wedge 2026/10/4",
+          "Resultary semantic D7,4 811 84"
+        ]
+      },
+      "rationale": "Published all-n theorem applies to D_{n,n-2}; this instance D_{7,4} has k=n-3. Published exact D_{6,3} is a different labelled complex and does not determine seven-vertex Morse boundary or homotopy; an independent complete finite certificate addresses a natural next member of the filtration.",
+      "residual_risks": [
+        "A later or differently named D7,4 computation might exist despite the targeted search.",
+        "The exact determinant of the exhibited minor was recomputed by running the inspected verifier; its mathematical meaning assumes the usual cellular Morse incidence construction, independently analyzed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING, Theorem 1.1 restricted to n−2, D5,2 special, D7,4 not solved",
+          "evidence": "PDF text lines 42-82 and 165-167 expressly distinguish unknown n−3 layer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07130",
+          "material_read": "Full 22-page text: Introduction Theorem 1.1, Proposition 1.3, Problem 1.4, Dn,k definition, Section 8 result",
+          "method": "open complete PDF and read relevant theorem/section; exact term D7,4 search",
+          "title": "On the homotopy type of complexes of graphs with bounded domination number",
+          "trigger": "defining family, plausible full result for k=n-3"
+        },
+        {
+          "assessment": "NOT_COVERING seven-vertex result",
+          "evidence": "D6,3 wedge115 S4 plus24 S5 has six vertices, 15 possible edges vs D7,4 twenty-one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-mixed-dimensional-sphere-wedge-for-d-6-3--55d89ec4bab2/RESULT.md",
+          "material_read": "Full RESULT.md all sections including exact wedge proof and limitations",
+          "method": "GitHub fetch_file full blob 987267ec000fee7271f9b270218b90b81ca49d17",
+          "title": "A mixed-dimensional sphere wedge for D_{6,3}",
+          "trigger": "closest neighbouring bounded-domination object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "D7,4 is the next natural seven-vertex n−3 bounded-domination complex beyond the published D6,3 mixed wedge, directly within the authors’ open all-Dn,k wedge problem. Its exact finite homotopy is a motivated nontrivial case and determines integral attaching information a dimension/census cannot supply; finite does not reduce its value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A later or differently named D7,4 computation might exist despite the targeted search.",
+    "The exact determinant of the exhibited minor was recomputed by running the inspected verifier; its mathematical meaning assumes the usual cellular Morse incidence construction, independently analyzed.",
+    "No independent expert attestation or Lean proof claimed.",
+    "Publication is withheld; assessment is a private scientific change-set, not an issued public certificate."
+  ],
+  "schema_version": 1
+}

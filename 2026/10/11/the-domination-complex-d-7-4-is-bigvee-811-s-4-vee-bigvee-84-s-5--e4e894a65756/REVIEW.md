@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete finite face set was reconstructed directly from the domination-number definition. The discrete-Morse matching was checked on the entire modified Hasse diagram, not sampled. The signed Morse boundary has exact rank \(36\) and a determinant-\(-1\) full-rank minor, while a separate mod-\(2\) simplicial-chain calculation gives reduced Betti ranks \(811\) and \(84\) in degrees \(4\) and \(5\). The homotopy conclusion follows from Hurewicz and Smith reduction of the two-level Morse CW complex.
+## correctness
 
-## Originality
-PASS. The primary paper covers \(D_{n,n-2}\), computes \(D_{5,2}\), and identifies the lower filtration range as unresolved; its full text contains no \(D_{7,4}\) computation. published-finding corpus searches found the adjacent exact result for \(D_{6,3}\) but no seven-vertex analogue. Exact notation, verbal aliases, and the numerical invariants were checked.
+PASS
 
-## Value
-PASS. The complex \(D_{7,4}\) is a canonical member of the first unresolved bounded-domination layer highlighted in the literature. A full mixed-dimensional wedge classification is a natural structural datum for that open family and is stronger than an Euler-characteristic or homology-only calculation.
+The graph predicate on all 2^21 labeled seven-vertex graphs is tested by all domination sets of sizes 1,2,3. Re-execution of the inspected artifacts/verify.py returned VERIFY_OK: face-size histogram (1,21,210,1330,4515,7077,3605,630), 17388 nonempty faces, 83895 full Hasse covers; sequential toggle 8210 disjoint pairs and a full topological sort give acyclic critical cells (1 in dim0,847 dim4,120 dim5). Integer Morse boundary has exact rank 36 and a displayed 36x36 determinant -1. Therefore all 36 nonzero Smith invariants are units; the 4-skeleton is simply-connected wedge S4 and Hurewicz/elementary CW cancellations give 811 S4 and84 S5. F2 chain ranks independently in verifier are consistent, not standalone wedge proof.
 
-## Closest literature and limitations
-The closest primary source is González–Hoekstra-Mendoza, arXiv:1901.07130, which establishes the preceding \(D_{n,n-2}\) layer and treats \(D_{5,2}\). A published published-finding corpus record determines \(D_{6,3}\), but no implication transfers that answer to \(D_{7,4}\). The present result is finite and does not claim an all-\(n\) pattern. A residual bibliographic risk remains for unindexed work under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published all-n theorem applies to D_{n,n-2}; this instance D_{7,4} has k=n-3. Published exact D_{6,3} is a different labelled complex and does not determine seven-vertex Morse boundary or homotopy; an independent complete finite certificate addresses a natural next member of the filtration.
+
+## value
+
+PASS
+
+D7,4 is the next natural seven-vertex n−3 bounded-domination complex beyond the published D6,3 mixed wedge, directly within the authors’ open all-Dn,k wedge problem. Its exact finite homotopy is a motivated nontrivial case and determines integral attaching information a dimension/census cannot supply; finite does not reduce its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
