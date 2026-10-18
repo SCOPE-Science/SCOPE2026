@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each length-19 unfolding of a binary order-four de Bruijn cycle has 16 distinct length-four factors at starts 0..15. A full attractor must intersect each unique corresponding window; each position meets at most four windows. Exactly four positions therefore force the unique window-hitting set S4={3,7,11,15}. The fixed S5={3,6,9,12,15} hits every length-four window. Factors longer than four automatically have an occurrence intersected by any set that hits all length-four windows, so finite factor checks 1..4 suffice for full attractors. Independently enumerated all 2^16 binary 16-words, obtained 256 cyclic de Bruijn roots and 16 cycles, then compared full distinct factor sets for all roots: exactly 192 S4-successes, 64 failures all covered by S5; per-cycle count histogram 4 cycles with 16, 8 with 12, 4 with 8 successful cuts. Thus finite exhaustion proves the complete stated first-composite-order census, with no infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic bounds for linearized de Bruijn words admit 4 or5 at order4 but do not imply the 192/64 split. Theorem29 concerns prime-order Lyndon constructions and cannot specialize to order4 composite."
+        ],
+        "reasoning": "Broader theoretical bounds and constructions do not yield exact all-rotation counts; neither inspected theorem subsumes this result.",
+        "searches": [
+          "Mantaci et al. arXiv:1907.04660, journal 2021 Proposition 41",
+          "Whittington arXiv:2407.15599 Theorem 29"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md dd028e22261851e9bd1a6c5870edf24321491c66, verify.py 48abb419fc5c55a82890cf49e61cd8b85e76b38c, CENSUS.csv 0f8eb2d4037e13da9734266b519f8fc6662ba62c",
+        "Mantaci et al. 2021 §6.2 Proposition 41 full relevant PDF",
+        "Whittington arXiv:2407.15599 Section5 Thm29 full relevant PDF",
+        "Resultary de Bruijn and binary string-attractor queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior single optimal example establishes existence of size4 roots, but not that exactly 192/256 roots admit them, nor the 64 size5 cases and universal S5. Prime order construction does not decide composite order4."
+        ],
+        "reasoning": "The new complete-domain enumeration and window-incidence uniqueness provide information logically beyond cited bounds and isolated construction.",
+        "searches": [
+          "Mantaci et al. A Combinatorial View on String Attractors, Proposition 41",
+          "Whittington Online String Attractors, Theorem 29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A binary cyclic de Bruijn order4 sequence has 16 rooted length19 unfolds; linear full-attractor notion involves every nonempty factor, not circular/online variants. Proposition41 has one size4 example, not the all-cut rank profile."
+        ],
+        "reasoning": "Linear factor attractor classifications were compared at the same order and window normalization; the one example is not a complete optimizer census.",
+        "searches": [
+          "Resultary: binary order four de Bruijn sequence string attractor length nineteen unfolding all 256 cuts size four five classification",
+          "Mantaci et al. 2021 §6.2 Proposition 41",
+          "Whittington arXiv:2407.15599 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary table counts arbitrary length12 words, whereas this exhaustive table has exactly sixteen cyclic order4 representatives and all 256 length19 rooted unfoldings."
+        ],
+        "reasoning": "No indexed exact 256-root census was identified; explicitly not a proof no prior unindexed census exists.",
+        "searches": [
+          "Resultary: all rooted length 19 binary order 4 de Bruijn string attractor count 192 64",
+          "Resultary: complete length 12 binary string attractor census 28 size four words in 9 symmetry classes"
+        ]
+      },
+      "rationale": "Mantaci et al., A Combinatorial View on String Attractors, Section 6.2 Proposition 41, gives general de Bruijn attractor bounds and one binary order-four example attaining four positions. Whittington, Online String Attractors Section 5/Theorem 29, discusses an online/linear formulation and Lyndon-generated de Bruijn optimality at prime orders. Neither provides the 16-cycle/256-cut composite order-four full census, unique optimal placement, universal five-set or 192/64 profile in the inspected mathematical material. Published Resultary string-attractor censuses concern length-12 arbitrary words, Thue–Morse or pseudostandard words, not these length-19 de Bruijn unfoldings.",
+      "residual_risks": [
+        "Possible unpublished order-four de Bruijn cut table indexed under necklaces or substrings rather than string attractors.",
+        "All 65536 cyclic candidates enumerated independently; proof makes no claim for higher alphabet sizes or arbitrary de Bruijn orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDER4_EXAMPLE_NOT_FULL_CENSUS",
+          "evidence": "Proposition 41 provides an order4 size4 witness and general bounds, not counts over 256 roots.",
+          "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf",
+          "material_read": "Full-lawful OA postprint: abstract, relevant definitions, §6.2 pages23–24 and Proposition 41 including order4 example",
+          "method": "Read PDF text and inspected rendered page 24",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "Same de Bruijn linearization and order-four case"
+        },
+        {
+          "assessment": "PRIME_ORDER_CONSTRUCTION_NOT_COVERING",
+          "evidence": "Lyndon-based theorem is for prime order; target order4 first composite, all cycles and cuts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.15599",
+          "material_read": "Full accessible paper, relevant de Bruijn Section 5 pages15–17 and Theorem29 (page16 rendered)",
+          "method": "Read PDF text and inspected rendered page",
+          "title": "Online String Attractors",
+          "trigger": "All-order de Bruijn attractor question and candidate dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN",
+          "evidence": "All binary words length12, versus binary de Bruijn roots length19. No implication of this census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925",
+          "material_read": "Published Resultary title and theorem-level summary, not Git full files",
+          "method": "Semantic database search",
+          "title": "Complete length-12 binary string-attractor census: 28 size-four words in 9 symmetry classes",
+          "trigger": "Closest indexed exact binary attractor census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order four is the first composite binary de Bruijn order, and the gap between the theoretical order-size attractor lower bound four and actual optimal size across all rooted cuts is a natural complete boundary classification. Exact counts and universal four/five placements give reproducible counterexamples to the belief that every cut attains the lower bound, while identifying at least eight optimal cuts on every cycle. This is a meaningful complete finite structural result rather than an arbitrary sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite binary alphabet, fixed de Bruijn order4, 19-length linearization; no theorem of online, circular or arbitrary-order attractor size.",
+    "Full record tree object verified, not a full independent repository-root ancestry rehash.",
+    "Possible unpublished order-four de Bruijn cut table indexed under necklaces or substrings rather than string attractors.",
+    "All 65536 cyclic candidates enumerated independently; proof makes no claim for higher alphabet sizes or arbitrary de Bruijn orders.",
+    "Public METADATA.json and AUDIT.json include confidential operational metadata; publication plan intentionally withheld pending complete private sanitization.",
+    "Historical ledger gaps and defects are preserved; only this new review was validated."
+  ],
+  "schema_version": 1
+}

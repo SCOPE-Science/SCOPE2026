@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The size-four lower bound follows from sixteen unique length-four factors, each requiring a crossing mark and each mark crossing at most four of their unique windows. Equality forces the unique mark set \(\{3,7,11,15\}\); this argument holds for all cycles and cuts. Because hitting every length-four window also hits every longer factor occurrence, factors through length four suffice for a full attractor. `verify.py` exhausts the entire \(2^{16}\)-word domain, identifies all \(256\) rooted unfoldings and \(16\) rotation classes, checks full factor cover for both stated mark sets, and independently recomputes the \(16\)-row `CENSUS.csv`. The checker ran successfully with the printed counts in `VERIFICATION.md`. This is a finite complete proof; the claims do not depend on unbounded experimental extrapolation.
+## correctness
 
-## Originality (O): PASS, with priority risk
-The nearest relevant treatment by Mantaci et al. gives asymptotic bounds in §6.2 and a single size-four binary order-four example in Proposition 41, not the all-roots distribution. Whittington explicitly asks about general de Bruijn unfoldings in §5, and Theorem 29 resolves a chosen construction only for *prime* orders. Thus neither compared claim implies the classification at composite order \(4\), the exact \(192/64\) split, the \(4/8/4\) orbit distribution, or a universal five-mark set. Relevant semantic-result and published-literature searches were performed for the exact cycle, parameter, and synonym formulations. Absence of an indexed covering result is not absolute priority proof; an earlier unpublished or differently described exhaustive census remains a residual risk.
+PASS
 
-## Value (V): PASS
-The question is directly motivated by a published open investigation of how the attractor optimum depends on the cyclic de Bruijn word and its unfolding. The first composite binary order is a natural complete test case: all sixteen cycles and all their cuts are classified, not an arbitrary isolated instance. The result both exhibits bad cuts (where the minimal sharp four-hitting set is not a full attractor) and proves that each cycle has many good cuts, giving exact extremal incidence counts and a uniform five-position certificate. The known single good example does not determine these facts.
+Each length-19 unfolding of a binary order-four de Bruijn cycle has 16 distinct length-four factors at starts 0..15. A full attractor must intersect each unique corresponding window; each position meets at most four windows. Exactly four positions therefore force the unique window-hitting set S4={3,7,11,15}. The fixed S5={3,6,9,12,15} hits every length-four window. Factors longer than four automatically have an occurrence intersected by any set that hits all length-four windows, so finite factor checks 1..4 suffice for full attractors. Independently enumerated all 2^16 binary 16-words, obtained 256 cyclic de Bruijn roots and 16 cycles, then compared full distinct factor sets for all roots: exactly 192 S4-successes, 64 failures all covered by S5; per-cycle count histogram 4 cycles with 16, 8 with 12, 4 with 8 successful cuts. Thus finite exhaustion proves the complete stated first-composite-order census, with no infinite extrapolation.
 
-## Limitations
-No claim is made for larger order, larger alphabet, circular attractors, online choices, or general conjectures. No independent human or external audit has been performed. Source-specific publication priority remains open to further checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mantaci et al., A Combinatorial View on String Attractors, Section 6.2 Proposition 41, gives general de Bruijn attractor bounds and one binary order-four example attaining four positions. Whittington, Online String Attractors Section 5/Theorem 29, discusses an online/linear formulation and Lyndon-generated de Bruijn optimality at prime orders. Neither provides the 16-cycle/256-cut composite order-four full census, unique optimal placement, universal five-set or 192/64 profile in the inspected mathematical material. Published Resultary string-attractor censuses concern length-12 arbitrary words, Thue–Morse or pseudostandard words, not these length-19 de Bruijn unfoldings.
+
+## value
+
+PASS
+
+Order four is the first composite binary de Bruijn order, and the gap between the theoretical order-size attractor lower bound four and actual optimal size across all rooted cuts is a natural complete boundary classification. Exact counts and universal four/five placements give reproducible counterexamples to the belief that every cut attains the lower bound, while identifying at least eight optimal cuts on every cycle. This is a meaningful complete finite structural result rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
