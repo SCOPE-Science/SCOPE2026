@@ -1,12 +1,21 @@
-# Scientific review: five-cell ternary limited-magnitude codes
+# Independent mathematical audit
 
-## Correctness — PASS
-The channel has exactly 243 possible transmitted words, with disjoint radius-one directed error balls exactly characterizing zero-error codes. Receiver-preimage packing constraints form a provably equivalent 243-variable 243-constraint integer optimization. A separate construction of all 1890 confusability edges yields an independent exact maximum-independent-set model. Both solvers reported optimal status, primal value 45, and dual bound 45. A third standard-library program checked every output of each of the 45 listed codewords. The upper-bound proof is computational, relies on correct mixed-integer solver execution, and is not an independent formal proof certificate.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The closest explicit primary result is the 2014 paper of Fazeli, Vardy and Yaakobi, Section V.A, Table V, giving an upper bound of 55 for the same parameters; it derives fractional bounds and does not determine the exact unrestricted integer packing number. Buzaglo and Etzion study the perfect-lattice construction setting rather than the unrestricted finite maximum. Published coding constructions by Cassuto and colleagues and by Kløve, Bose and Elarief are highly relevant, but only available abstracts or bibliographic data were inspected for some of them. An earlier unindexed tabulation cannot be excluded. The finite packing optimum is therefore compared to verified statements rather than asserted globally unique.
+PASS
 
-## Value — PASS
-An exact unrestricted cardinality is a natural finite-capacity benchmark for a physical one-coordinate downward-error channel, and this parameter reduces the strongest inspected fractional upper bound from 55 to 45, a reduction of ten codewords. The explicit code gives a usable optimal design, while the separate upper-bound computation establishes that non-linear alternatives cannot do better under the specified error model. This is an exact finite design fact, not an asymptotic theorem or a new decoder for arbitrary lengths.
+For the fixed channel B(x)={x}∪{x−e_i:x_i>0} on {0,1,2}^5, disjoint received balls are equivalent to the complete 243-variable, 243-receiver binary packing program. Independently reconstructed that incidence matrix and solved it with SciPy/HiGHS mixed-integer programming: objective 45, equal global dual bound 45, gap zero and optimal status. The source constructs the separate 1890-edge confusability independent-set formulation. The exact 45-word source witness, whose fetched Git blob is ef50915553c694efebfc5e84b16acf61e84be1d9, was independently checked to give 185 distinct received words and zero collisions. Thus 45≤opt≤45 conditional on the integrity of HiGHS numerical/branch-and-bound optimality reporting; two formulations do not constitute a solver-independent symbolic infeasibility certificate. Levels do not wrap and there is at most one downward one-level error including identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact unrestricted five-cell optimum 45 is not implied by the previously published generalized sphere-packing upper bound 55; it genuinely improves that bound, while distinct finite ternary absorption/deletion codes use non-equivalent receive alphabets and operations. A 45-codeword maximum in an obscure older flash-code publication remains plausible and is not excluded by searches.
+
+## value
+
+PASS
+
+The unrestricted exact number of independently decodable ternary five-cell flash states is a natural finite coding invariant for a practical one-sided magnitude-constrained channel. Closing the published 55-to-45 gap through a construction plus global packing establishes more than a recomputation of a known table or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

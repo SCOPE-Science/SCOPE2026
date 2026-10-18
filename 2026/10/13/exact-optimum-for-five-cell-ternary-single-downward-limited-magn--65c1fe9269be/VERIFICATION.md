@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-The listed code is stored in `data/codewords.txt`. Execute `python tools/verify_code.py` from the package root. This standard-library program asserts 45 distinct ternary words and checks disjointness of their possible received sets. Observed output: `CODE_OK size=45 distinct_received=185`.
+# Independent mathematical audit
 
-Run `python tools/solve_packing.py` and `python tools/solve_pairs.py` with `scipy` and `numpy` installed and a working HiGHS mixed-integer solver. Observed outputs: `PACKING_OPTIMAL 45 upper=45 lower=45 received_constraints=243` and `GRAPH_OPTIMAL 45 upper=45 lower=45 vertices=243 edges=1890`. Neither script accepts a feasible incumbent in lieu of globally optimal solver status, and each checks the reported dual bound and relative mixed-integer gap.
+## correctness
 
-The receiver-based packing model and pairwise confusability model are built separately from elementary channel definitions. They independently support the finite upper bound, but both rely on the computational correctness of the mixed-integer solver; this is not a solver-independent formal proof certificate. No claim is made for other word lengths, alphabets, or multiple errors.
+PASS
+
+For the fixed channel B(x)={x}∪{x−e_i:x_i>0} on {0,1,2}^5, disjoint received balls are equivalent to the complete 243-variable, 243-receiver binary packing program. Independently reconstructed that incidence matrix and solved it with SciPy/HiGHS mixed-integer programming: objective 45, equal global dual bound 45, gap zero and optimal status. The source constructs the separate 1890-edge confusability independent-set formulation. The exact 45-word source witness, whose fetched Git blob is ef50915553c694efebfc5e84b16acf61e84be1d9, was independently checked to give 185 distinct received words and zero collisions. Thus 45≤opt≤45 conditional on the integrity of HiGHS numerical/branch-and-bound optimality reporting; two formulations do not constitute a solver-independent symbolic infeasibility certificate. Levels do not wrap and there is at most one downward one-level error including identity.
+
+## originality
+
+PASS
+
+The exact unrestricted five-cell optimum 45 is not implied by the previously published generalized sphere-packing upper bound 55; it genuinely improves that bound, while distinct finite ternary absorption/deletion codes use non-equivalent receive alphabets and operations. A 45-codeword maximum in an obscure older flash-code publication remains plausible and is not excluded by searches.
+
+## value
+
+PASS
+
+The unrestricted exact number of independently decodable ternary five-cell flash states is a natural finite coding invariant for a practical one-sided magnitude-constrained channel. Closing the published 55-to-45 gap through a construction plus global packing establishes more than a recomputation of a known table or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

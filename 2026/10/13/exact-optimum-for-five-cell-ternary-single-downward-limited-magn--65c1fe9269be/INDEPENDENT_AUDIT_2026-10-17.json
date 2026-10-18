@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed channel B(x)={x}∪{x−e_i:x_i>0} on {0,1,2}^5, disjoint received balls are equivalent to the complete 243-variable, 243-receiver binary packing program. Independently reconstructed that incidence matrix and solved it with SciPy/HiGHS mixed-integer programming: objective 45, equal global dual bound 45, gap zero and optimal status. The source constructs the separate 1890-edge confusability independent-set formulation. The exact 45-word source witness, whose fetched Git blob is ef50915553c694efebfc5e84b16acf61e84be1d9, was independently checked to give 185 distinct received words and zero collisions. Thus 45≤opt≤45 conditional on the integrity of HiGHS numerical/branch-and-bound optimality reporting; two formulations do not constitute a solver-independent symbolic infeasibility certificate. Levels do not wrap and there is at most one downward one-level error including identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazeli–Vardy–Yaakobi generalized packing Table V gives q=3,n=5 upper bound 55.",
+          "Buzaglo–Etzion address perfect-code existence; neither cited construction supplies an exact unrestricted 45 bound."
+        ],
+        "reasoning": "An upper bound 55 cannot entail upper bound 45. Perfect-code and systematic-code theorems do not necessarily classify all unrestricted nonlinear codes.",
+        "searches": [
+          "Resultary semantic published findings search: five cell ternary asymmetric limited magnitude error correcting code optimum 45 q=3 n=5 single downward error fractional packing",
+          "arXiv:1401.6496v1, Section V.A and Table V",
+          "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74",
+          "GitHub Resultary/2026 exact-code search: single downward limited magnitude"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git tree 2a9fb64d8a7af3780b3936621affc34f8607a78d: RESULT.md, codewords.txt, solve_packing.py, solve_pairs.py, verify_code.py",
+        "arXiv:1401.6496v1 Table V",
+        "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fazeli bounds imply opt≤55; independent packing computation supplies stronger opt≤45 plus a 45-word witness.",
+          "The distinct absorption/deletion results cannot be reduced to per-coordinate decrement with fixed received length."
+        ],
+        "reasoning": "Prior claims do not logically imply equality 45; the new bound uses a different, fully specified integer feasible polytope.",
+        "searches": [
+          "Resultary semantic published findings search: five cell ternary asymmetric limited magnitude error correcting code optimum 45 q=3 n=5 single downward error fractional packing",
+          "arXiv:1401.6496v1, Section V.A and Table V",
+          "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74",
+          "GitHub Resultary/2026 exact-code search: single downward limited magnitude"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sender receiver matrix and confusability edge graph encode the same disjointness exactly.",
+          "Resultary ternary absorption result merges adjacent symbols and shortens length to four; its 29 optimum is not a downward-level error."
+        ],
+        "reasoning": "Compared coordinatewise one-step errors, reflected upward errors, single deletion, adjacent absorption and asymmetric limited-magnitude codes; only the first and its reflection are equivalent, not the 29/24 entry results.",
+        "searches": [
+          "Resultary semantic published findings search: five cell ternary asymmetric limited magnitude error correcting code optimum 45 q=3 n=5 single downward error fractional packing",
+          "arXiv:1401.6496v1, Section V.A and Table V",
+          "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74",
+          "GitHub Resultary/2026 exact-code search: single downward limited magnitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Table V q=3,n=5 value 55 is a relaxation, not optimal size.",
+          "Resultary one-absorption size 29 and one-deletion size 24 address different error balls."
+        ],
+        "reasoning": "Read the table entry and actual distinct-channel Resultary RESULT; no equivalent exact size 45 was located, but a failed search is not proof of absolute priority.",
+        "searches": [
+          "Resultary semantic published findings search: five cell ternary asymmetric limited magnitude error correcting code optimum 45 q=3 n=5 single downward error fractional packing",
+          "arXiv:1401.6496v1, Section V.A and Table V",
+          "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74",
+          "GitHub Resultary/2026 exact-code search: single downward limited magnitude"
+        ]
+      },
+      "rationale": "The exact unrestricted five-cell optimum 45 is not implied by the previously published generalized sphere-packing upper bound 55; it genuinely improves that bound, while distinct finite ternary absorption/deletion codes use non-equivalent receive alphabets and operations. A 45-codeword maximum in an obscure older flash-code publication remains plausible and is not excluded by searches.",
+      "residual_risks": [
+        "Global 45 upper bound relies on the correctness of the HiGHS MIP optimality report, not a separately checkable rational infeasibility certificate.",
+        "Original systematic/limited-magnitude code historical full texts were not comprehensively read; possible prior exact small-case enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides fractional/generalized sphere-packing bound 55, not an inspected exact optimum of 45",
+          "evidence": "Table V row q=3,n=5 lists GSPB 55; bounded source-text access, no whole-document noncoverage claim.",
+          "identifier_or_url": "arXiv:1401.6496v1",
+          "material_read": "Search-indexed Table V row and Section V.A description; full PDF was not obtained in this run",
+          "method": "Public indexed primary-source table excerpt",
+          "title": "Generalized Sphere Packing Bound",
+          "trigger": "Same single asymmetric limited-magnitude channel and ternary five-cell parameters"
+        },
+        {
+          "assessment": "Not covering; adjacent absorption reduces word length, unlike single-coordinate downward decrement preserving length",
+          "evidence": "Absorption replaces neighbors by min(a+b,2) or drops last symbol; n=5 optimum 29 rather than this channel 45.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74/RESULT.md",
+          "material_read": "Complete RESULT.md, including channel definition, theorem and explicit 29-word construction",
+          "method": "GitHub primary record blob",
+          "title": "Exact ternary one-absorption optima through length 5",
+          "trigger": "Strong Resultary same ternary-length-five search match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unrestricted exact number of independently decodable ternary five-cell flash states is a natural finite coding invariant for a practical one-sided magnitude-constrained channel. Closing the published 55-to-45 gap through a construction plus global packing establishes more than a recomputation of a known table or an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git tree 2a9fb64d8a7af3780b3936621affc34f8607a78d: RESULT.md, codewords.txt, solve_packing.py, solve_pairs.py, verify_code.py",
+    "arXiv:1401.6496v1 Table V",
+    "Resultary/2026/10/4/SCOPE-exact-ternary-one-absorption-optima-through-length-5--ec1318dbdd74"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Global 45 upper bound relies on the correctness of the HiGHS MIP optimality report, not a separately checkable rational infeasibility certificate.",
+    "Original systematic/limited-magnitude code historical full texts were not comprehensively read; possible prior exact small-case enumeration."
+  ],
+  "residual_risks": [
+    "Global 45 upper bound relies on the correctness of the HiGHS MIP optimality report, not a separately checkable rational infeasibility certificate.",
+    "Original systematic/limited-magnitude code historical full texts were not comprehensively read; possible prior exact small-case enumeration."
+  ],
+  "schema_version": 1
+}
