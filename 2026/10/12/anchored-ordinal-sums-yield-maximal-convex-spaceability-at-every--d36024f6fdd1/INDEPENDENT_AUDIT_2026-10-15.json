@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let c=2−2^(1/q)>0 for finite p≥1, with conjugate q and σ=1/(2−c)=2^(−1/q). The concrete B_c=min(u,v,max((u+v−c)/(2−c),0)) is a bivariate copula: for fixed u its conditional u derivative is nondecreasing as v increases, giving nonnegative rectangle volumes by integration, with correct margins. Its a.e. gradients (0,0),(1,0),(0,1),(σ,σ) all have dual ell_q norm≤1, as does M=min(u,v). Convex interpolations in disjoint ordinal-sum blocks and fixed top B_c block therefore form copulas globally one-Lipschitz in ell_p. At the strict middle-affine point of the fixed top block the gradient equals (σ,σ), whose dual ell_qprime norm exceeds 1 for every p′>p (also p′=infinity); every member has exact sharp p threshold, including p=1 and any finite p>1. The family parameterized by x∈[0,1]^N is affine, uniformly continuous in the product topology because the n-th block has height 2^(−n−1), hence compact and convex in sup norm. For x_n=t^n, a hypothetical finite linear relation vanishes at (1,1) and then yields ∑a_j t_j^n=0 on each nonanchor block; the first k such relations are an invertible Vandermonde system. Thus the compact convex set contains continuum many linearly independent members, maximal by cardinality of C([0,1]^2). Source check.py was inspected; its finite grids cannot establish the infinitely many p thresholds, which are separately proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Amo et al. prove only maximal convex lineability of sharp-p copulas and expressly cannot assert closure. De Baets–De Meyer–Mesiar 2010 abstract covers Lipschitz preservation by ordinal/convex sums, not an evidenced continuum independent compact sharp-exponent family."
+        ],
+        "reasoning": "The broader 2026 article is same exact class and explicitly weaker than the current compact-convex theorem. Known sum closure tools are premises, not an implication of maximal spaceability without fixed-anchor and product-compactness proof.",
+        "searches": [
+          "Resultary: copulas Lipschitz exponent p maximal convex spaceability anchored ordinal sums",
+          "arXiv:2602.06918 and Springer DOI:10.1007/s00009-026-03129-9",
+          "2010 copula Lipschitz stability De Baets De Meyer Mesiar"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00009-026-03129-9 full Springer HTML",
+        "arXiv:2602.06918 preprint full text",
+        "DOI:10.1016/j.na.2010.01.009 journal abstract and UGent access metadata",
+        "Resultary semantic query",
+        "actual source RESULT.md, SLOGAN.txt, check.py, AUDIT.json, METADATA.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Springer article conclusion says spaceability of 1-p-Lipschitz copulas not 1-pprime-Lipschitz at pprime>p remains unknown; source describes a nonclosed convex-hull family. It supplies base B_c but not the fixed-anchor compact family."
+        ],
+        "reasoning": "Earlier maximal convex lineability does not imply convex spaceability; the new construction resolves this actual open implication through anchoring an exponent-attaining block and decreasing variable-block scales. The 2010 general stability result is distinct and full text was inaccessible.",
+        "searches": [
+          "Springer 2026 Theorem 3.6 and §4 open problems",
+          "arXiv:2602.06918 Theorem 6 and conclusions",
+          "De Baets et al. 2010 DOI:10.1016/j.na.2010.01.009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Amo et al., Med. J. Math. 23:131 (2026), Definition 2.5 defines maximal convex spaceability by a closed convex subset containing continuum many linearly independent elements; its §4 states this remains open for sharp 1-p-Lipschitz classes."
+        ],
+        "reasoning": "Verified the claimed property matches exactly the primary article definition, rather than standard closed linear subspace spaceability (impossible for copulas). A compact affine cube with a Vandermonde-independent subset meets that definition.",
+        "searches": [
+          "Resultary: copulas Lipschitz exponent p maximal convex spaceability anchored ordinal sums",
+          "Web: copula exact p Lipschitz maximal convex spaceability ordinal sum 2026",
+          "Primary Springer DOI:10.1007/s00009-026-03129-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The asserted result is uniform over real exponents p∈[1,infinity), involving infinite closed convex families; no finite numerical table/database could establish it."
+        ],
+        "reasoning": "This check is mathematically inapplicable as an exact-invariant lookup; prior classification is analytic rather than enumerative. The actual database/source search found no all-exponent compact witness.",
+        "searches": [
+          "Resultary: copulas Lipschitz exponent p maximal convex spaceability anchored ordinal sums",
+          "arXiv:2602.06918 sections 3 and 4"
+        ]
+      },
+      "rationale": "The exact Lipschitz-exponent copula class and B_c base family appear in de Amo et al. (2026); its Theorem 3.6 proves maximal convex lineability and its conclusion explicitly leaves convex spaceability of precisely this class open. The fixed top block plus independently variable shrinking blocks supplies the missing norm closure and linearly independent continuum. No stronger coverage was found.",
+      "residual_risks": [
+        "Full 2010 foundational paper is behind a UGent access restriction; authorized Oxford route returned vpn_disconnected, so exclusion of an equivalent older construction is not claimed.",
+        "An unindexed post-May-2026 independent resolution of the 2026 open problem may exist.",
+        "Neither finite grid tests nor finite Vandermonde examples alone prove continuum independence or global sharpness; the analytic dual-gradient and arbitrary-k Vandermonde arguments supply that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same class, base B_c and maximal convex lineability are prior; exact maximal convex spaceability is explicitly left open",
+          "evidence": "Definition 2.5 (closed convex witness with infinite LI subset); conclusions state 1-p-Lipschitz sharp family spaceability unknown.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-026-03129-9",
+          "material_read": "Accessible complete Springer HTML, specifically Definition 2.5, sharp-p class Theorem 3.6, relevant proof and Section 4 conclusions; not a claim to have read every unrelated section.",
+          "method": "primary full-text reading",
+          "title": "Convex Lineability in Copula and Quasi-copula Sets",
+          "trigger": "Direct same sharp-p Lipschitz class and purported open question"
+        },
+        {
+          "assessment": "Earlier version establishes maximal convex lineability rather than present closure result",
+          "evidence": "arXiv v1 Theorem 6 and §4 discuss the same p threshold and unresolved convex spaceability.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.06918",
+          "material_read": "Full arXiv HTML text, theorem and limitations",
+          "method": "primary full-text reading",
+          "title": "Convex lineability in copula and quasi-copula sets",
+          "trigger": "Preprint of identical 2026 primary and earliest accessible version"
+        },
+        {
+          "assessment": "Known preservation of 1-Lipschitz conditions under ordinal and convex sums, not evidence of the present closed LI product family; cannot assert the full paper excludes it",
+          "evidence": "Author archive abstract explicitly identifies preservation by ordinal/convex sums. Full source remains a priority residual risk.",
+          "identifier_or_url": "https://doi.org/10.1016/j.na.2010.01.009",
+          "material_read": "Journal abstract and institutional bibliographic record; full text not accessible: UGent only; arXiv/OA attempt unsuccessful; authorized Oxford returned vpn_disconnected",
+          "method": "abstract/metadata only; no full-paper reading",
+          "title": "Lipschitz continuity of copulas w.r.t. L_p-norms",
+          "trigger": "Same copula Lipschitz constraint, possible general sum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Constructs a compact convex continuum-linearly-independent family inside a natural sharp-Lipschitz copula class, answering an explicit 2026 open convex-spaceability problem. The fixed-anchor/variable-shrinking-block mechanism is reusable for preserving a sharp invariant while enforcing closure; substantial motivated structure beyond a routine Lipschitz check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s00009-026-03129-9 full Springer HTML",
+    "arXiv:2602.06918 preprint full text",
+    "DOI:10.1016/j.na.2010.01.009 journal abstract and UGent access metadata",
+    "Resultary semantic query",
+    "actual source RESULT.md, SLOGAN.txt, check.py, AUDIT.json, METADATA.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 2010 foundational paper is behind a UGent access restriction; authorized Oxford route returned vpn_disconnected, so exclusion of an equivalent older construction is not claimed.",
+    "An unindexed post-May-2026 independent resolution of the 2026 open problem may exist.",
+    "Neither finite grid tests nor finite Vandermonde examples alone prove continuum independence or global sharpness; the analytic dual-gradient and arbitrary-k Vandermonde arguments supply that."
+  ],
+  "schema_version": 1
+}

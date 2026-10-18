@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The construction explicitly fixes the norm-attaining gradient in a top ordinal-sum block and independently varies shrinking lower blocks. The base copula is verified by conditional-derivative monotonicity and margins; its only possible gradients have dual norm at most one. The top block's nonzero two-coordinate gradient rules out every larger exponent. Compactness is a product-topology consequence with a quantitative tail bound, and distinct power-coded sequences yield a nonzero Vandermonde determinant. The Python checker confirms finite representative cases but is not used as a substitute for the infinite arguments.
+## correctness
 
-**Originality — PASS with residual priority risk.** The 2026 article explicitly proves only maximal convex lineability for the precise exponent class (arXiv:2602.06918v1 Theorem 6; final article Theorem 3.6), then states that its convex spaceability is unknown. Its almost-disjoint construction does not imply a closed convex witness. The new fixed-anchor/product construction supplies that missing property. The antecedent 2010 Lipschitz paper's abstract describes preservation under ordinal and convex sums but no closed continuum-independent family. Its full text was inaccessible; equivalent unindexed work cannot be excluded. Targeted searches did not reveal a covering theorem.
+PASS
 
-**Value — PASS.** This settles a natural, explicitly identified closure question for the entire range of finite Lipschitz exponents, distinguishing a genuinely compact convex supply of exact-exponent dependence models from mere convex lineability. No claim of a linear Banach subspace of copulas or of a higher-dimensional statement is made.
+Let c=2−2^(1/q)>0 for finite p≥1, with conjugate q and σ=1/(2−c)=2^(−1/q). The concrete B_c=min(u,v,max((u+v−c)/(2−c),0)) is a bivariate copula: for fixed u its conditional u derivative is nondecreasing as v increases, giving nonnegative rectangle volumes by integration, with correct margins. Its a.e. gradients (0,0),(1,0),(0,1),(σ,σ) all have dual ell_q norm≤1, as does M=min(u,v). Convex interpolations in disjoint ordinal-sum blocks and fixed top B_c block therefore form copulas globally one-Lipschitz in ell_p. At the strict middle-affine point of the fixed top block the gradient equals (σ,σ), whose dual ell_qprime norm exceeds 1 for every p′>p (also p′=infinity); every member has exact sharp p threshold, including p=1 and any finite p>1. The family parameterized by x∈[0,1]^N is affine, uniformly continuous in the product topology because the n-th block has height 2^(−n−1), hence compact and convex in sup norm. For x_n=t^n, a hypothetical finite linear relation vanishes at (1,1) and then yields ∑a_j t_j^n=0 on each nonanchor block; the first k such relations are an invertible Vandermonde system. Thus the compact convex set contains continuum many linearly independent members, maximal by cardinality of C([0,1]^2). Source check.py was inspected; its finite grids cannot establish the infinitely many p thresholds, which are separately proved.
 
-**Closest literature and limits.** de Amo et al. (2026), arXiv:2602.06918, Sections 2, 3.4, and 4; De Baets–De Meyer–Mesiar (2010), DOI 10.1016/j.na.2010.01.009 (accessible abstract only). The source first appeared on 2026-02-06 and lists primary MSC 60E05. Independently obtained detailed referee assessment is unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Lipschitz-exponent copula class and B_c base family appear in de Amo et al. (2026); its Theorem 3.6 proves maximal convex lineability and its conclusion explicitly leaves convex spaceability of precisely this class open. The fixed top block plus independently variable shrinking blocks supplies the missing norm closure and linearly independent continuum. No stronger coverage was found.
+
+## value
+
+PASS
+
+Constructs a compact convex continuum-linearly-independent family inside a natural sharp-Lipschitz copula class, answering an explicit 2026 open convex-spaceability problem. The fixed-anchor/variable-shrinking-block mechanism is reusable for preserving a sharp invariant while enforcing closure; substantial motivated structure beyond a routine Lipschitz check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
