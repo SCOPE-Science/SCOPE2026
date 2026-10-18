@@ -1,0 +1,19 @@
+# Scientific review: exact spectral doublets of one-atom Stieltjes integration
+
+## Correctness
+
+**PASS (self-review).** The strict inequality in the integration kernel fixes the atom's left-continuous state coordinate. This yields an exact isometry between the input \(L^2(dt+a\delta_{1/2})\) and the piecewise Sobolev energy norm containing both the continuous derivative energy and the squared jump divided by the atom mass. The corresponding compact embedding leads to the explicit self-adjoint transmission problem. Solving its left Dirichlet/right Neumann ODE and imposing the two independent interface variations gives a characteristic determinant that factors into two cotangent equations. Each branch has exactly one root per period interval; none is missed at a cotangent pole, and each eigenfunction space is one-dimensional. The two-term large-root expansion proves the fourth-order doublet singular gap. The direct Hilbert–Schmidt kernel integral gives the exact trace sum. The embedded verifier compares the determinant and finite quadrature spectra separately; finite tests are not treated as proof of the infinite claim.
+
+## Originality
+
+**PASS under the evidence inspected, with residual priority risk.** Fernández (arXiv:2609.10064v1, full text) establishes a general mixed-clock compactness framework, not exact singular values, point-mass transmission doublets or their quartic splitting. Bird–Ngai–Teplyaev (2003; publisher abstract checked) concern a distinct Dirichlet form and explicitly continuous measures. The public 2026 research results *Radial singular-value majorization for reflection-symmetric weighted integration* and *An entire characteristic determinant for the singular spectrum of the Hardy–Volterra commutator* were each read in full: the former uses smooth reflection-symmetric input weights on Lebesgue space and a rank-one correction, whereas the latter has a second-order integral kernel \(x^{-1}\int_0^x(x-t)f(t)dt\); neither covers this atom-dependent spectrum. The database and web searches included the equality's cotangent aliases, string/point-mass interface equivalents, mixed-measure Volterra spectra and quartic pair splitting, without a covering statement identified. This is not proof of worldwide novelty. A general coupled-string or eigenparameter-dependent Sturm–Liouville theorem could encompass some characteristic-equation aspects, and relevant older full texts were not all available.
+
+## Mathematical value
+
+**PASS.** A single interior atom is the smallest model coupling ordinary continuous time and an impulse, directly motivated by the recently developed Stieltjes–Bochner graph. At the symmetric midpoint, the canonical strict integration operator has a non-obvious two-branch spectrum whose singular-value gaps decay at different orders: order \(m^{-4}\) within each close pair versus the ordinary order \(m^{-2}\) between pairs. The exact coefficient and complete simplicity/ordering classification are natural spectral invariants of this model. The classical Hilbert–Schmidt norm and Schatten threshold provide quantitative consistency and a useful sharp benchmark for mixed time discretizations. The midpoint symmetry and nonuniformity as atomic mass vanishes are stated rather than concealed.
+
+## Scope and limitations
+
+The accepted theorem concerns a fixed \(a>0\), an atom exactly at \(1/2\), strict half-open Stieltjes integration, and the singular spectrum on scalar \(L^2(dt+a\delta_{1/2})\). There is no claimed multi-atom theorem, uniform atom-mass limit, or full state-projection spectrum. Differential/interface factorization uses standard methods; the novelty asserted is the precise paired spectral law. An equivalent unindexed result remains a publication-priority risk and needs independent review.
+
+Self-review: passed. Independent audit: not yet performed.
