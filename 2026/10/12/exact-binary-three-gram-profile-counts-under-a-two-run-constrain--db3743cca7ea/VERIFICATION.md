@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite corroboration
 
-Run `python3 verify_profiles.py` in the same directory as this file. It uses the Python 3 standard library only and constructs profiles by three separate approaches: a directed-walk state-set recurrence through \(m=72\), direct integer flow-balance parametrization through \(m=40\), and literal enumeration of all admissible binary strings through \(n=17\). It compares all counts against coefficients of the claimed rational generating function, with no preloaded profile data.
+# Independent mathematical audit
 
-The actual successful invocation printed:
+## correctness
 
-`VERIFY_OK max_m 72 direct_strings_through_n 17 balance_through_m 40 first_16 [1, 6, 9, 12, 20, 28, 34, 44, 55, 66, 79, 92, 106, 124, 140, 156] at_m72 2971`
+PASS
 
-The verifier is a finite check only. Formal proof for all \(n\ge2\) is supplied by the Euler-trail characterization, exact shift classification, double geometric summation and exact rational-function identities in `RESULT.md`. The test does not establish unexamined empirical cases beyond its enumerated lengths, does not independently verify bibliographic priority, and does not constitute external certification.
+The assigned RESULT.md models each permitted word as a path of m=n-2 edges in the six-arc restricted binary order-2 de Bruijn graph. Independently checked the vertex balance equations, connected Euler-trail support in the balanced and central endpoint families and forced outer-edge shifts covering all ordered endpoint imbalances. The geometric sums H0=(1+z^3)/D, Hc=z(1+z)/D and (1+4z+2z^2)H0+(2+4z)Hc yield exactly (1+6z+8z^2+5z^3+4z^4+2z^5)/D with D=(1-z^2)(1-z^3)(1-z^4). Sympy exact partial fractions give leading 13m^2/24+9m/4 and minimal period 12 from nonzero cubic/fourth-root terms. Fresh independent literal constrained-word counts n=2..16 and complete edge-flow-versus-walk comparisons m=0..9 agree. These finite checks corroborate rather than prove all n; Eulerian support and the formal series establish the infinite result.
+
+## originality
+
+PASS
+
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
+
+## value
+
+PASS
+
+A complete all-length exact profile-class count for a natural two-run-limited DNA-sequence observation model is a mathematically useful code-size invariant, with nontrivial Euler-trail realizability, rational generating function, sharp quadratic coefficient and genuinely minimal periodic fluctuation. This is not merely restating generic polynomial degree or a table of a few initial values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

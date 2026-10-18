@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Binary three-grams are exactly the six edges of the displayed restricted de Bruijn graph. Endpoint imbalance identifies disjoint non-balanced profile families; the twelve possible unequal endpoint pairs are partitioned into forced outer-path shifts of balanced and central families. Every nonnegative flow in either base family has connected positive support, so the Euler trail criterion gives *sufficiency*, not just a necessary linear equation. Two finite geometric sums yield exact rational base series; their combination and root-of-unity expansion establish the all-length formula. The standalone program recomputes 73 profile counts by independent walk construction, checks the balance-parameter sets through 41 terms, and directly enumerates admissible strings through length 17. Potential boundary traps—zero-length walk, two distinct starting vertices with the same balanced profile, and endpoint-pair double counting—are explicitly treated.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Kiah–Puleo–Milenkovic's complete expanded text establishes restricted de Bruijn profile enumeration in general, including the admissible family under the specialization \(S(2,3;1,[1,2])\), and its Ehrhart theorem determines growth *degree* two. The text's Section 7 numerical restricted-weight Table II instead begins at \(\ell=4\). The source does not provide the special exact six-edge rational generating function, \(13/24\) coefficient or twelve-residue formula. Published-record searches under aliases “Markov type”, “three-gram profile”, “restricted de Bruijn graph”, “homopolymer exclusion”, and targeted mathematical-record searches revealed no equivalent full formula. The existing unrestricted \(\ell=3\) count and the restricted \(\ell=2\) count address distinct counting problems. An unindexed specialized calculation may exist; novelty is an evidence-supported but non-absolute judgment.
+PASS
 
-**Value — PASS.** The study of noiseless sequence-profile code sizes under admissible-gram restrictions is an explicitly motivated DNA-storage and sequence-reconstruction problem. A sharp all-length numerator/denominator, exact period-twelve closed formula, and leading coding-capacity coefficient provide information not implied by a general \(\Theta(n^2)\) result. Run length at most two is a canonical smallest nontrivial homopolymer restriction; the exact constant quantifies its effect on distinguishing complete three-gram profiles. No downstream theorem or error-resilience improvement is asserted.
+The assigned RESULT.md models each permitted word as a path of m=n-2 edges in the six-arc restricted binary order-2 de Bruijn graph. Independently checked the vertex balance equations, connected Euler-trail support in the balanced and central endpoint families and forced outer-edge shifts covering all ordered endpoint imbalances. The geometric sums H0=(1+z^3)/D, Hc=z(1+z)/D and (1+4z+2z^2)H0+(2+4z)Hc yield exactly (1+6z+8z^2+5z^3+4z^4+2z^5)/D with D=(1-z^2)(1-z^3)(1-z^4). Sympy exact partial fractions give leading 13m^2/24+9m/4 and minimal period 12 from nonzero cubic/fourth-root terms. Fresh independent literal constrained-word counts n=2..16 and complete edge-flow-versus-walk comparisons m=0..9 agree. These finite checks corroborate rather than prove all n; Eulerian support and the formal series establish the infinite result.
 
-**Closest source and limitations.** H. M. Kiah, G. J. Puleo and O. Milenkovic, *Codes for DNA Storage Channels*, arXiv:1410.8837 (2014), and *Codes for DNA Sequence Profiles*, arXiv:1502.00517 (2015); expanded full text arXiv:1410.8837v2. The claim is only for a fixed binary alphabet, complete noncyclic three-gram multiplicities and runs of size at most two; priority beyond searched sources remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
+
+## value
+
+PASS
+
+A complete all-length exact profile-class count for a natural two-run-limited DNA-sequence observation model is a mathematically useful code-size invariant, with nontrivial Euler-trail realizability, rational generating function, sharp quadratic coefficient and genuinely minimal periodic fluctuation. This is not merely restating generic polynomial degree or a table of a few initial values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
