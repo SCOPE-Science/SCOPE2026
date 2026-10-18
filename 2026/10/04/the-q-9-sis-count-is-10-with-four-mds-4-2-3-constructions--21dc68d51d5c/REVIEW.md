@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Solving the defining equations for a symmetric \(2\times2\) matrix over \(\mathbb F_9\) gives four solutions with zero off-diagonal entry and six with nonzero off-diagonal entry, hence exactly ten. A separate exhaustive enumeration over all \(729\) symmetric matrices reproduces the same count. For every SIS solution, \([I_2\mid A]\) is self-dual. Exact code enumeration yields six distance-two and four distance-three cases; the explicit MDS witness has weight enumerator \(1+32z^3+48z^4\).
+PASS
 
-## Originality
+Over F9=F3[u]/(u²+1), a symmetric 2×2 matrix [[a,b],[b,c]] satisfies A⁻¹=-A iff A²=-I, giving a²+b²=c²+b²=-1 and b(a+c)=0. b=0 yields exactly four diagonal choices a,c=±u. b!=0 gives c=-a and six (a,b): (0,±u),(±1,±1). Thus exactly 10, not published table’s 8. Independent separate GF9 polynomial-pair implementation exhausts 729 symmetric matrices and 81 message words per code: four MDS [4,2,3], six [4,2,2]; self-duality follows GGᵀ=I+A²=0. Witness [[1,1],[1,-1]] has 1+32z³+48z⁴. This classification is finite and genuinely exhaustive.
 
-PASS. The primary 2026 table reports eight SIS matrices at \(q=9,n=2\), while focused research-record and web searches under the source title, both counts, the equation \(A^2=-I\), SIS terminology, and \([4,2,3]\) found no correction or same-object result. The publisher full PDF was inaccessible, so the comparison is tied to the public abstract definition and exact public table row; this access limitation is retained as a residual risk rather than ignored.
+## originality
 
-## Value
+PASS
 
-PASS. The result corrects a published finite census used to demonstrate the construction and changes the coding conclusion for that row: four of the ten SIS matrices yield MDS \([4,2,3]_9\) self-dual codes, whereas the table displays only an AMDS \([4,2,2]_9\) parameter. This is a concrete structural correction with an explicit witness, not a routine recomputation.
+Primary publisher’s public Table1 explicitly says q=9 n=2 has 8 SIS matrices with [4,2,2] AMDS. Neither its abstract nor the observable tables give the corrected 10 or four [4,2,3] constructions. Resultary query returned exact assigned finding and nearby coding results, not a correction. Full article body could not be verified: public HTML asks for login, arXiv/OA searches did not locate an open full preprint, and authorized Oxford lookup reported no_pdf. The inaccessible source is a qualified priority/comparison risk, not alone an originality failure. General 2×2 matrix counting methods could imply ten, but no checked published SIS instance identified this combined table and MDS correction.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finite correction overturns a published computational count and its coding conclusion for a natural first extension field: four source-family generators produce self-dual MDS [4,2,3] codes where the table reports only distance-two constructions. It is not merely a recount of a known table because it changes the attainable code parameters and supplies an explicit code plus complete dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
