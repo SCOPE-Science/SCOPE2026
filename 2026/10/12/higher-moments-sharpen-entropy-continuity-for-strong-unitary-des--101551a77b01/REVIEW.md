@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof keeps the source's exact cutoff decomposition and Kolmogorov estimate, replaces only the second-moment tail estimate by the globally valid inequality \(\ln z\le z^{q-1}/(e(q-1))\), and invokes the source's strong-design squared-polynomial estimate with \(p(t)=t^{q/2}\) for even \(q\le2k\). The beta moment and cutoff optimization are exact. The asymptotic resource consequence is obtained only after imposing \(k\ll2^n\), which holds for \(k=\Theta(n^2(\ln n)^2)\).
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2610.02135v1, proves \(O(\sqrt\eta)\) using the second moment and states the resulting \(O(n^4)\) sufficient generic design-order scale. Its higher even moment control is available earlier in the paper but is not propagated through the entropy tail. published-finding corpus and literature searches for higher-moment entropy, Porter–Thomas, Kolmogorov, and unitary-design formulations found no statement of the displayed \(q\)-dependent bound, the \(O(\eta\ln(1/\eta))\) corollary, or the \(n^2(\ln n)^2\) sufficient scale. The principal residual risk is an equivalent general probability interpolation theorem under different terminology.
+PASS
 
-## Value
-PASS. The finding directly sharpens the source's quantitative randomness-generation application for generic designs. It changes the sufficient polynomial design-order exponent from four to two up to logarithms and exposes a systematic way to trade available design moments for entropy continuity. The result is not claimed to be optimal and does not compete with the source's stronger locally invariant regime.
+ORIGINAL SCOPE TOO BROAD WITHOUT VERIFIED MOMENT PREMISE: the original text infers E(P_x^q)≤(1+ε)E_Haar(P_x^q) for even q≤2k from a strong (k,k) design, but ordinary order-k relative moment matching only controls bidegree (q,q) with q≤k. To exhibit why unconditional q=2 at k=1 fails, mix Haar (weight .9) and a uniformly random Weyl/Pauli one-design (weight .1) at N=2^20: Kolmogorov η=.1(1−1/N), ensemble entropy deficit δ(H_N−1)/ln2≈1.9390, exceeding the original q2 formula ≈0.9494 without moment domination. Source-specific stronger terminology might grant extra moments; the inaccessible source prevents unconditional original assertion or universal refutation for that special design notion. REPAIRED exact theorem states explicit q-th nonnegative marginal moment domination (M_q), with conventional design specialization 2≤even q≤k. Independent proof: cutoff entropy decomposition, Kolmogorov interval bound ≤2ηB/(e ln2); ln z≤z^(q−1)/[e(q−1)] for z≥1; exact Haar Beta moment q!/[N···(N+q−1)]; optimizing B yields displayed η^(1−1/q) bound. Taking q=2ceil(log1/η/2) and R_Nq≤1 yields ≤15η ln1/η. Conventional high design order k=Θ(n²(log n)²) controls all needed moments (subject to the source marginal bound), so O(1/n) sufficient entropy gap remains. Full corrected RESULT.md and SLOGAN.txt bytes supplied with exact original Git blob guards and SHA-256.
 
-## Closest literature and limitations
-The primary comparison is Shih-Han Hung, arXiv:2610.02135v1, especially Theorem 3.2 and Section 7. Foundational unitary-design construction work supplies the moment framework but not this entropy interpolation. Zhengmin Zhang's 2007 mutual-information/Kolmogorov paper was inspected through its accessible bibliographic description and appears inapplicable to the beta-marginal matched-moment setting; lack of inspected full text is retained as a residual literature risk. The asymptotic \(n^2(\ln n)^2\) conclusion inherits unspecified constants from the source's marginal \(O(\cdot)\) estimate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Hung 2026 paper supplies a square-root entropy estimate from second moments and a general marginal error estimate. The surviving explicitly conditional higher-moment cutoff optimization and η log(1/η) corollary are not stated by inspected publicly accessible source abstract or other checked records. Crucially, Hung full text could not be inspected due source retrieval restrictions and disconnected institutional authorization, so an implicit or explicit q-moment interpolation antecedent remains a substantial residual novelty risk, but that access limit by itself does not negate best-of-knowledge originality.
+
+## value
+
+PASS
+
+The repaired result supplies a reusable dimension-free entropy-continuity inequality under explicitly stated Kolmogorov plus high-moment hypotheses. It yields a motivated asymptotic improvement of the sufficient generic expected-entropy guarantee under available design moments, without claiming entropy concentration or necessary optimal design order. This is substantive and not merely a normalization/type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,102 +1,74 @@
-# Higher moments sharpen entropy continuity for strong unitary designs
+# Higher-moment entropy continuity from controlled output-probability moments
+
 ## Finding
-Let \(N=2^n\). Let \(\mu\) be a strong \(\varepsilon\)-approximate unitary \((k,k)\)-design with \(0\le\varepsilon\le1\), fix an input computational-basis state \(y\), and write
+Let \(N=2^n\), let \(\mu\) be an ensemble of \(N\times N\) unitary matrices, and fix an input computational-basis state \(y\). Put
 \[
-P_x(U)=|\langle x|U|y\rangle|^2,\qquad S(U)=-\sum_x P_x(U)\log_2 P_x(U).
+P_x(U)=|\langle x|U|y\rangle|^2,\qquad S(U)=-\sum_{x=1}^N P_x(U)\log_2 P_x(U).
 \]
-Assume that for every output \(x\), the marginal law of \(P_x\) under \(\mu\) has Kolmogorov distance at most \(\eta\le1/2\) from its Haar law \(\operatorname{Beta}(1,N-1)\). For every even integer \(q\) with \(2\le q\le2k\), define
+Suppose that, for every \(x\), the law of \(P_x\) under \(\mu\) is within Kolmogorov distance \(\eta\in[0,1/2]\) of the Haar law \(\operatorname{Beta}(1,N-1)\). Let \(q\ge2\) be an integer for which the following **explicit moment bound** holds for every \(x\):
 \[
-R_{N,q}=\frac{N^{q-1}}{(N+1)(N+2)\cdots(N+q-1)}.
+\mathbb E_\mu P_x^q\le(1+\varepsilon)\mathbb E_{\rm Haar}P_x^q,
+\quad 0\le\varepsilon\le1.
+\tag{M_q}
 \]
-Then
+Define \(R_{N,q}=N^{q-1}/[(N+1)\cdots(N+q-1)]\). Then
 \[
-\left|\mathbb E_\mu S-\mathbb E_{\mathrm{Haar}}S\right|
-\le
-\frac{2q}{e(q-1)\ln2}\,\eta^{1-1/q}
-\left(\frac{(2+\varepsilon)q!R_{N,q}}{2}\right)^{1/q}.
+\boxed{\left|\mathbb E_\mu S-\mathbb E_{\rm Haar}S\right|
+\le\frac{2q}{e(q-1)\ln2}\,\eta^{1-1/q}
+\left(\frac{(2+\varepsilon)q!R_{N,q}}2\right)^{1/q}.}
+\tag{1}
 \]
-For \(\eta=0\), the entropy gap is zero.
+For \(\eta=0\), the left side is zero. In particular, (1) applies to **even \(2\le q\le k\)** for a relative-error strong unitary design whose order-\(k\) moment operator dominates each nonnegative bidegree-\((q,q)\) matrix coefficient in the usual sense. The theorem does **not** claim that an ordinary order-\(k\) design necessarily controls moments through \(2k\).
 
-In particular, if \(0<\eta\le e^{-2}\) and \(k\ge\lceil\ln(1/\eta)/2\rceil\), choose the least even integer \(q\ge\ln(1/\eta)\). Then
+If \(0<\eta\le e^{-2}\), \(L=\ln(1/\eta)\), and moment domination (\(M_q\)) is available for \(q=2\lceil L/2\rceil\), then
 \[
-\left|\mathbb E_\mu S-\mathbb E_{\mathrm{Haar}}S\right|
-\le 15\eta\ln(1/\eta).
+\boxed{\left|\mathbb E_\mu S-\mathbb E_{\rm Haar}S\right|\le15\eta\ln(1/\eta).}
+\tag{2}
 \]
-Combining this with the generic marginal estimate in Hung's arXiv:2610.02135v1 gives, in the regime \(k\ll2^n\), the sufficient scale \(k=\Theta(n^2(\ln n)^2)\) and \(\varepsilon=O(n^{-2})\) for an expected entropy gap \(O(1/n)\). The source states the sufficient generic scale \(O(n^4)\) when its square-root entropy-continuity estimate is used.
-
-## Assumptions and scope
-The result concerns the ensemble-averaged Shannon entropy of computational-basis outcomes for a fixed input basis state. The design notion is the strong relative-error \((k,k)\)-design used in arXiv:2610.02135v1. The only distributional hypothesis beyond that design condition is a uniform marginal Kolmogorov bound \(\eta\) for the individual output probabilities. The proof uses even moments up to order \(2k\); it makes no claim about entropy concentration around its mean, adversarially correlated repeated samples, certification, or ordinary additive-error designs.
+Consequently, if the generic strong-design marginal estimate \(\eta=O(\sqrt{N/[k(k+N)]}+\varepsilon)\) is applicable and the design controls all moments of orders through \(k\), then for \(N=2^n\), \(k=\Theta(n^2(\ln n)^2)\), and \(\varepsilon=O(n^{-2})\), this method gives \(O(1/n)\) expected entropy error. The hidden constants depend on the marginal estimate; this is a sufficient asymptotic scale, not an optimality claim. It requires the usual relative-moment implication from the specific design definition used.
 
 ## Proof
-Hung's entropy decomposition introduces a cutoff \(B/N\) and functions \(\phi_B^+\) and \(\phi_B^-\) satisfying
+For an arbitrary cutoff \(B>0\), split the entropy summand as
 \[
-S(P)=\log_2(N/B)+\sum_x\phi_B^+(P_x)-\sum_x\phi_B^-(P_x).
+-p\log_2p=p\log_2(N/B)+\phi_B^+(p)-\phi_B^-(p),
+\quad\phi_B^+(p)=p[\log_2(B/(Np))]_+,\quad
+\phi_B^-(p)=p[\log_2(Np/B)]_+.
 \]
-The positive truncated contribution has interval superlevel sets and \(\|\phi_B^+\|_\infty=B/(Ne\ln2)\). The marginal Kolmogorov hypothesis therefore gives
-\[
-\left|\mathbb E_\mu\sum_x\phi_B^+(P_x)-\mathbb E_{\mathrm{Haar}}\sum_x\phi_B^+(P_x)\right|
-\le\frac{2\eta B}{e\ln2}.
-\]
+Since \(\sum_x P_x=1\), the constant term is identical under both ensembles. The function \(\phi_B^+\) is unimodal and nonnegative, its superlevel sets are intervals, and its supremum is at most \(B/(Ne\ln2)\). If two real-valued laws have Kolmogorov distance at most \(\eta\), their probabilities of every interval differ by at most \(2\eta\). The layer-cake representation thus bounds the total difference of positive terms by \(2\eta B/(e\ln2)\).
 
-For the tail, write \(z=Np/B\ge1\). For every \(q>1\),
+On the domain \(Np/B\ge1\), put \(z=Np/B\). Calculus gives \(\ln z\le z^{q-1}/[e(q-1)]\) for \(q>1\); consequently
 \[
-\ln z\le\frac{z^{q-1}}{e(q-1)},
+\phi_B^-(p)\le \frac{N^{q-1}p^q}{e(q-1)B^{q-1}\ln2}.
 \]
-because the maximum of \(\ln z/z^{q-1}\) over \(z\ge1\) is \(1/(e(q-1))\). Hence
+For \(P_x\sim\operatorname{Beta}(1,N-1)\),
 \[
-\phi_B^-(p)=p\log_2(Np/B)
-\le\frac{N^{q-1}p^q}{e(q-1)B^{q-1}\ln2}.
+\mathbb E_{\rm Haar}P_x^q=\frac{q!}{N(N+1)\cdots(N+q-1)}.
 \]
-For the Haar marginal,
+Summation, (\(M_q\)), and the triangle inequality bound the two nonnegative tail expectations together by
 \[
-\mathbb E_{\mathrm{Haar}}[P_x^q]
-=\frac{q!}{N(N+1)\cdots(N+q-1)}.
+\frac{(2+\varepsilon)q!R_{N,q}}{e(q-1) B^{q-1}\ln2}.
 \]
-Now take \(q=2r\) even with \(r\le k\). The strong-design squared-polynomial estimate applied to the polynomial \(p(t)=t^r\) gives
+Therefore the entropy difference is at most
 \[
-\mathbb E_\mu[P_x^q]\le(1+\varepsilon)\mathbb E_{\mathrm{Haar}}[P_x^q].
+\frac1{e\ln2}\left(2\eta B+\frac{(2+\varepsilon)q!R_{N,q}}{(q-1)B^{q-1}}\right).
 \]
-Summing the tail bound over \(x\) under both measures yields
-\[
-\mathbb E_\mu\sum_x\phi_B^-(P_x)+\mathbb E_{\mathrm{Haar}}\sum_x\phi_B^-(P_x)
-\le
-\frac{(2+\varepsilon)q!R_{N,q}}{e(q-1)B^{q-1}\ln2}.
-\]
-Therefore, for every \(B>0\),
-\[
-\left|\mathbb E_\mu S-\mathbb E_{\mathrm{Haar}}S\right|
-\le\frac1{e\ln2}
-\left(2\eta B+\frac{(2+\varepsilon)q!R_{N,q}}{(q-1)B^{q-1}}\right).
-\]
-For \(\eta>0\), differentiation gives the minimizing cutoff
-\[
-B^q=\frac{(2+\varepsilon)q!R_{N,q}}{2\eta},
-\]
-which gives the displayed bound. If \(\eta=0\), the marginal laws agree exactly and the expected entropy, being a sum of marginal expectations, agrees exactly as well.
+When \(\eta>0\), this is minimized at
+\(B^q=(2+\varepsilon)q!R_{N,q}/(2\eta)\), proving (1). The cutoff was arbitrary positive, so no unproved boundary requirement on \(B\) is needed. When \(\eta=0\), the marginal laws agree exactly, hence so do the expectations of the sum of the marginal entropy contributions.
 
-For the near-linear corollary, use \(R_{N,q}\le1\), \(\varepsilon\le1\), and \((q!)^{1/q}\le q\). This gives
+For (2), \(R_{N,q}\le1\), \(q!^{1/q}\le q\), and \(2+\varepsilon\le3\) yield
 \[
-\left|\mathbb E_\mu S-\mathbb E_{\mathrm{Haar}}S\right|
+\left|\mathbb E_\mu S-\mathbb E_{\rm Haar}S\right|
 \le\frac{4\sqrt{3/2}}{e\ln2}\,q\eta^{1-1/q}.
 \]
-Let \(L=\ln(1/\eta)\ge2\) and choose \(q=2\lceil L/2\rceil\). Then \(L\le q\le2L\) and \(\eta^{-1/q}\le e\), so the right-hand side is at most
-\[
-\frac{8\sqrt{3/2}}{\ln2}\,\eta L<15\eta L.
-\]
-Finally, Hung's generic marginal bound is \(\eta=O(\sqrt{N/(k(k+N))}+\varepsilon)\). For \(N=2^n\) and \(k=\Theta(n^2(\ln n)^2)\ll N\), with \(\varepsilon=O(n^{-2})\), this is \(\eta=O(1/(n\ln n))\). The near-linear entropy bound is therefore \(O(1/n)\).
+Our chosen even \(q\) lies between \(L\) and \(2L\), so \(\eta^{-1/q}\le e\), and the right side is less than \(15\eta L\). With \(k=\Theta(n^2(\ln n)^2)\ll N=2^n\), the cited marginal scale is \(O(1/(n\ln n))\) when \(\varepsilon=O(n^{-2})\), and \(\eta\ln(1/\eta)=O(1/n)\).
 
-## Verification
-The proof is analytic. The accompanying script `artifacts/verify.py` checks the optimized-cutoff algebra, the \(q=2\) reduction, the exact Haar moment factor \(R_{N,q}\), and the numerical constant in the \(15\eta\ln(1/\eta)\) corollary over representative dimensions and even moments. These finite computations corroborate, but do not replace, the inequalities proved above.
+For the design specialization, \(P_x^q\) is a polynomial of bidegree \((q,q)\) in the entries of \(U\) and their conjugates. Thus the ordinary relative moment-operator order-\(k\) comparison applies when \(q\le k\). We do not infer a bound at \(q>k\) from this ordinary moment comparison. If a stronger convention separately supplies (\(M_q\)) for additional orders, the same conditional theorem remains applicable to those orders.
 
-## Relationship to prior work
-Hung, arXiv:2610.02135v1, proves the marginal Kolmogorov estimate for strong approximate designs and then derives a dimension-free expected Shannon-entropy bound of order \(O(\sqrt\eta)\) by controlling the large-probability tail with the second moment. The paper explicitly states the resulting sufficient generic design-order scale \(O(n^4)\) for \(O(1/n)\) expected entropy error. Its strong-design polynomial estimate, however, controls higher even moments as well. The finding above uses those already available higher moments in the same cutoff argument, yielding a family of \(\eta^{1-1/q}\) bounds and the near-linear \(O(\eta\ln(1/\eta))\) consequence.
+## Why the order restriction matters
+For conventional order-one unitary designs, second moments of \(P_x\) need not match Haar. For example, in dimension \(N=2^n\), the uniform Weyl/Pauli unitary ensemble is an exact unitary one-design and maps each fixed basis input to a uniformly distributed basis output. Its \(P_x\) takes values 0 and 1, unlike \(\operatorname{Beta}(1,N-1)\). Mixing this ensemble with Haar in proportions \(\delta\) and \(1-\delta\) remains an exact one-design, gives marginal Kolmogorov distance \(\eta=\delta(1-1/N)\), and lowers expected output entropy by \(\delta(H_N-1)/\ln2\), where \(H_N\) is the harmonic number. For \(\delta=0.1\) and \(N=2^{20}\), this entropy gap is about 1.94 bits, exceeding the putative \(q=2\) right-hand side of (1) (about 0.95 bits) **if** one were to apply it without the second-moment hypothesis. This is a concrete guard against assuming that the ordinary first design moment controls second moments; it does not address a separately defined stronger design notion that includes such control.
 
-The source also proves exponentially better marginal approximation under local unitary invariance, leading to a much smaller design order, but that result has an additional structural hypothesis and therefore does not cover the generic-design statement here. General work on unitary designs and random circuits supplies design constructions and moment control, while the searched literature did not identify a prior statement combining the source's marginal Kolmogorov estimate with higher design moments to obtain this entropy bound or the resulting \(n^2(\ln n)^2\) sufficient generic order scale. A 2007 paper by Zhang concerns bounds on mutual information for finite discrete variables in terms of Kolmogorov/variation-type distances; its accessible description does not address output-probability marginals of unitary designs or matched high moments.
+## Relationship to earlier work and limitations
+Hung, *Random Quantum Circuits Beyond Moment Matching*, arXiv:2610.02135v1 (2026), gives a marginal Kolmogorov estimate for strong approximate unitary designs and states an \(O(\sqrt\eta)\) expected-entropy estimate. The present bound is a separate high-moment interpolation consequence: it applies under the explicitly displayed moment hypothesis, and its generic design-order corollary is conditional on the available order of the design's relative moment control. General unitary-design constructions do not by themselves identify the optimized entropy cutoff. The relevant source full text could not be retrieved for this independent review, so the exact strength of its squared-polynomial comparison and a possible implicit antecedent remain priority and applicability risks; the paper's abstract was accessible. No claim is made of an entirely new entropy functional, an information-theoretically necessary design order, concentration, or a result beyond the stated moment assumptions.
 
-## Limitations
-This is a sufficient bound, not a lower bound on the design order needed for high expected entropy. The asymptotic resource corollary uses the hidden constants in Hung's \(O(\cdot)\) marginal estimate and therefore asserts an asymptotic scale rather than a finite numerical threshold. The result does not improve the source's stronger locally invariant regime. Literature searches cannot exclude an equivalent statement hidden under different terminology; the closest unresolved risk is a general probability inequality that may imply a comparable interpolation bound when specialized to beta marginals and matched moments.
-
-## References
-1. Shih-Han Hung, “Random Quantum Circuits Beyond Moment Matching,” arXiv:2610.02135v1, first submitted 1 October 2026. See Definition 2.2, Theorem 3.2, Theorem 1.1, Theorem 1.4, and Theorem 7.2.
-2. Fernando G. S. L. Brandão, Aram W. Harrow, and Michał Horodecki, “Local Random Quantum Circuits are Approximate Polynomial-Designs,” Communications in Mathematical Physics 346 (2016), 397–434, DOI:10.1007/s00220-016-2706-8.
-3. Zhengmin Zhang, “Estimating Mutual Information via Kolmogorov Distance,” IEEE Transactions on Information Theory 53 (2007), 3280–3282, DOI:10.1109/TIT.2007.903122.
+## Verification and scope
+The proof above is analytic. The quantitative check \(\delta(H_{2^{20}}-1)/\ln2\approx1.94\), versus the invalid unrestricted \(q=2\) extrapolation near 0.95, follows directly from a one-design mixture. Finite arithmetic can check constants and the minimizer but does not prove any unverified design-moment implication. The full theorem is valid whenever (\(M_q\)) and the Kolmogorov hypothesis hold, including distributions unrelated to unitary designs.
