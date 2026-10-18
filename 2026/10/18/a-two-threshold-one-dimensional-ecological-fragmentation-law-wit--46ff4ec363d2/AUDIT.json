@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The first update is exactly the initial high-biomass indicator; local comparison of 1-alpha*h/2 for h=0,1,2 proves the full finite-time run classification for every n>=5 and all alpha>1. Exact 3/4/5-bit moment calculation yields the claimed means and covariance table, hence variance 7n/64. Two-dependence and positive limiting variance imply Gaussian limits; disjoint four-bit blocks and finite-dependence LLN establish periodic prevalence and the macroscopic phase difference. The standalone package checker replayed 12192 complete trajectories and both local-covariance regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sergo et al. Section II mainly random d-regular graphs with degree d>=3 and large-system dynamical-cavity percolation, Appendix C general period<=2 and generic coupling thresholds",
+        "2026/9/20/SCOPE-synchronous-ricker-spectral-floquet-reduction--5261a9c6ad45 studies row-regular Ricker competition, not Sergo synchronous sign dynamics"
+      ],
+      "reasoning": "The source provides a genuinely broader structural period bound, which is acknowledged, but neither the probability of oscillation nor the exact count moments follow from that bound. This is not merely restating the generic period claim: it calculates full initial-state-dependent terminal supports, a sharp alpha=2 bifurcation of temporal behavior, and finite-size statistics on the specific natural graph family.",
+      "searches": [
+        "published-finding corpus: discrete generalized Lotka Volterra ecological interaction graphs equilibrium accessibility percolation clustering induced matching path cycle finite graphs",
+        "published-finding corpus: ecological competitive discrete dynamical model local exclusion stable configurations graph cycles and basin boundaries",
+        "web: \"Sergo\" \"d = 2\" \"K = 2\" ecological"
+      ]
+    },
+    "checked_sources": [
+      "Sergo et al., arxiv:2606.09494v1, full text Section II/Appendices C and F",
+      "published-finding corpus published finding searches on exact cyclic discrete gLV, synonyms, run boundary statistics, phase thresholds (13 actual queries across search batches)",
+      "Hoeffding–Robbins 1948 and Diananda 1955 dependent-variable CLT references",
+      "Tomé and de Carvalho 2007 stochastic ecological CA abstract",
+      "J. C. Sprott et al. 2005 continuous-time ring LV abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sergo et al. Appendix C gives only the maximum eventual period two; it does not supply a run-by-run distribution",
+        "W. Hoeffding and H. Robbins (1948), DOI:10.1215/S0012-7094-48-01568-3, supply the general dependent-variable CLT after covariance conditions",
+        "2007 T. Tomé and K. C. de Carvalho, DOI:10.1088/1751-8113/40/43/005, use a different stochastic predator–prey cellular automaton"
+      ],
+      "reasoning": "The known result that a symmetric-sign automaton has eventual periods <=2 is insufficient to derive which initial words produce a 2-cycle or its almost-sure emergence under Bernoulli data. The CLT is a method already known and expressly reused; the exact model reduction, equality threshold, and computed covariance amplitudes require further work. Different stochastic ecological models and continuous-time rings are neither equivalent nor dominating formulations.",
+      "searches": [
+        "published-finding corpus: survivors of runs of consecutive 1s boundary sites random Bernoulli cycle number variance 7/64",
+        "published-finding corpus: two-step cellular automaton survival density run boundaries length-two runs variance equal strong competition",
+        "web: one dimensional deterministic cellular automaton generalized Lotka Volterra cycle biomass site survival exact density",
+        "published-finding corpus: finite cycle sign dynamics ecological biomass three eighth one eighth equal variance Gaussian synchronized two cycle",
+        "published-finding corpus: boundary vertices of Bernoulli runs isolated one length two run one-dimensional ecology survival"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sergo et al. arXiv:2606.09494v1 Section II Eq.(2)–(3) and Appendix C, full-text public reproduction at https://www.researchgate.net/publication/406463841_Percolation_and_clustering_in_ecological_communities_A_dynamical_theory",
+        "published-finding corpus closest alternate class 2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b concerns rule 128, not this ecological update"
+      ],
+      "reasoning": "Translation of the ecological update into binary run boundaries and isolated initial high-biomass sites is exact, but no checked prior claimed these two survivor maps and their critical equality behavior. General elementary automaton results may imply pieces; the full ecological phase law and equal ring variances are not automatically contained in an arbitrary local-automaton phase diagram.",
+      "searches": [
+        "published-finding corpus: Sergo Koller Erba Zdeborová discrete Lotka Volterra cycle d=2 carrying capacity 2 exact survival density three eighths one eighth strong competition",
+        "published-finding corpus: on one-dimensional cycle discrete generalized Lotka Volterra synchronous update biomass 1 2 uniform initial extinction density run boundaries two cycles",
+        "web: \"Percolation and clustering\" \"one dimensional\" Lotka Volterra",
+        "published-finding corpus: \"Sergo\" \"Koller\" discrete Lotka Volterra ring cycle explicit Bernoulli density oscillations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Main source Appendix F tabulates approximate critical values mainly for degrees at least three, not cyclic exact 3/8 and 1/8 survival laws",
+        "2026/10/4/SCOPE-exact-mean-and-variance-of-b-symbol-corruption-under-independent--c9a49f782c6b is an exact local-window variance result in information theory but on different random variables"
+      ],
+      "reasoning": "Neither the accessible source paper tables nor retrieved exact-result metadata list a cycle terminal-population table or the identical 7n/64 variance for the two coupling intervals. This is an evidence-based noncoverage comparison, not a claim that failed search proves universal novelty.",
+      "searches": [
+        "published-finding corpus: \"Percolation and clustering in ecological communities\" exact cycle one-dimensional finite-time Bernoulli survival variances",
+        "published-finding corpus: discrete generalized Lotka Volterra K=2 one dimensional random binary initial 3/8 1/8 occupancy periodic two cycles",
+        "web: \"Percolation and clustering\" \"one dimensional\" Lotka Volterra"
+      ]
+    },
+    "rationale": "The primary source proves generic period<=2 and develops approximate higher-degree dynamics, but does not identify the exact degree-two support masks and the sharp coexistence of extinction, fixed points and synchronous period-two regimes, common finite-ring variance, or two Gaussian laws. Direct semantic published-finding corpus queries and named prior-work implication checks found no dominating statement. The classical m-dependent CLT is explicitly treated as a prior tool. Unindexed exact CA run-count papers remain a limited priority risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible analysis of the same two-state synchronous gLV cycle could already derive the survivor masks or variance coincidence.",
+      "Standard run statistics may independently yield the local-window probability formulas without naming this ecological system; the contribution is the combined dynamical and statistical classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same map and prior broad period bound, but does not provide this one-dimensional exact run classification, ring variances, Gaussian laws, or temporal threshold at alpha=2.",
+        "evidence": [
+          "https://www.researchgate.net/publication/406463841_Percolation_and_clustering_in_ecological_communities_A_dynamical_theory",
+          "arXiv:2606.09494v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.09494 (licensed full text mirrored at https://www.researchgate.net/publication/406463841_Percolation_and_clustering_in_ecological_communities_A_dynamical_theory)",
+        "material_read": "Full-text Section II model Eq.(1)–(3), discussion of d-regular analysis and phase diagram; Appendix C complete technical description of breakpoint set and period<=2 proof; Appendix F tabular context.",
+        "method": "Publicly readable licensed full-text reproduction and direct line-range inspection (source lines 386–565, 1719–1862, 2911–3450).",
+        "title": "Percolation and clustering in ecological communities: A dynamical theory",
+        "trigger": "Exact motivating model and highly plausible stronger source"
+      },
+      {
+        "assessment": "General CLT does not identify any ecological local indicator or special variance.",
+        "evidence": [
+          "https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/central-limit-theorem-for-mdependent-variables/5CB320F3EFA15F75DD6712CB34997964"
+        ],
+        "identifier_or_url": "https://doi.org/10.1215/S0012-7094-48-01568-3",
+        "material_read": "Bibliographic description and theorem use, as summarized in Diananda (1955) source references.",
+        "method": "Index and theorem-reference comparison (no complete original text represented as inspected).",
+        "title": "The central limit theorem for dependent random variables",
+        "trigger": "General CLT could subsume stochastic limit technique"
+      },
+      {
+        "assessment": "It is a stochastic predator–prey interaction process and does not directly assert or derive results for the exact Sergo sign-map; absent a demonstrated reduction, its findings are not decisive coverage.",
+        "evidence": [
+          "https://openalex.org/W2156978454"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1751-8113/40/43/005",
+        "material_read": "Abstract, model type, scope of oscillatory stochastic stationary behavior.",
+        "method": "Open bibliographic abstract inspection, not full-text claim of noncoverage.",
+        "title": "Stable oscillations of a predator–prey probabilistic cellular automaton",
+        "trigger": "Ecological CA model with oscillations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46ff4ec3-63d2-492c-82ea-3f78b09419f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The degree-two cycle is the canonical connected one-dimensional regular habitat and a natural boundary to the motivating higher-degree dynamical percolation study. The result gives all-size exact uncertainty for survival counts, a sharp one-sided extinction density step, and a parameter-critical loss of genuinely macroscopic synchronized biomass oscillations even though occupied density is continuous at equality. These features are substantial dynamics/statistics of the model, not just a parameter substitution or isolated numerical example.",
+    "status": "PASS"
+  }
+}
