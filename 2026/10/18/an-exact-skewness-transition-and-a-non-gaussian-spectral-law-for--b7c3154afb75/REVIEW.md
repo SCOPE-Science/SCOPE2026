@@ -1,0 +1,19 @@
+# Scientific review: circular geometric edge-count skewness and spectral law
+
+## Correctness — PASS
+The finite-sample theorem follows by first establishing independent edge indicators for every forest (leaf integration under translation-invariant uniform positions). The only nonzero distinct-edge third-cumulant contributions come from triangles. The cyclic gaps of three sampled points have the uniform Dirichlet simplex law, giving the exact triangle probability \(3r^2+(3r-1)_+^2\). The resulting cubic-moment expression factors on the dense-radius branch into a strictly monotone quadratic in \(1-2r\) and has exactly the claimed sign change. For the limiting law, orthogonal Fourier truncation of the degenerate connection kernel and a uniform \(L^2\) tail bound justify the joint complex Gaussian Fourier limit and its independent exponential squares. The limiting third cumulant equals the centered triangle integral and is strictly positive.
+
+The supplied independent finite checker passes 993 tests. The finite-grid calculations are corroboration, not substitutes for the continuous and infinite proofs. Boundary radii \(0\) and \(1/2\), nonuniform locations, and radii varying with sample size are outside the claim.
+
+## Originality — PASS on inspected evidence
+Wilsher, Dettmann and Ganesh (arXiv:2202.08044v1) study isolated-node Poisson limits in a soft one-dimensional circular geometric graph with Poisson vertex number, rather than third cumulants for a fixed-size hard graph. Liu and Rácz (arXiv:2103.15249v1, especially Section 4) study signed-triangle detection for high-dimensional spherical geometry; they do not provide the explicit one-dimensional finite-size skewness sign threshold. Bonnet and coauthors (arXiv:2212.12268v1) study sparse high-dimensional Poisson geometric graphs and additive-functionals limit theory. Searches of their primary texts for the exact target and related moments, along with semantic mathematical-record searches for the radius formula, U-statistic aliases, Fourier exponential mixtures, and geometric triangles, revealed no stronger statement implying the full finite-sample classification.
+
+The general U-statistic Fourier method and connected-edge cumulant expansion are established mathematical tools, not claimed as new. The original target is the explicit all-radius/all-size skewness classification together with its spectral explanation. **Residual risk:** a prior exact edge-count cumulant on a one-dimensional torus, or a broadly stated random-connection moment theorem that specializes to the same sharp radius, may have escaped the literature search. This assessment does not establish independent historical priority.
+
+## Value — PASS
+Geometric edge indicators are pairwise independent and have exactly the Erdős–Rényi edge-count mean and variance; hence third-order dependence is the first place where the latent metric becomes detectable by aggregated edge-count moments. The theorem proves a sharp finite-size sign transition and, when \(n>3\), a nonempty interval of edge densities above one half in which the geometric model has positive skewness while the independent-edge model has negative skewness. It also explains persistent non-Gaussian fluctuations at every fixed nontrivial radius with a fully explicit limiting law. These are natural model-comparison diagnostics, not arbitrary numeric slices.
+
+## Sources and limitations
+Primary comparisons: https://arxiv.org/abs/2202.08044 (2022-02-16 first version), https://arxiv.org/abs/2103.15249 (2021-03-28 first version), https://arxiv.org/abs/2212.12268 (2022-12-23 first version). Classical degenerate U-statistic limit principles underpin the spectral step. See RESULT.md for definitions, proof, exact conditions, and unresolved generalization and historical-priority risks.
+
+Self-review: passed. Independent audit: not yet performed.
