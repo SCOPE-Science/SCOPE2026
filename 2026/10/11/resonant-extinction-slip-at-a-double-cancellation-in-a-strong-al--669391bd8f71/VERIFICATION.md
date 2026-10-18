@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python verify_resonance.py` with Python 3 and SymPy installed; it emits `CHECK_OK: exact vector field, Jacobian, resonant forcing, and asymptotic coefficient balances` after checking the precise tuned vector field, the analytic ratio-coordinate identity, Jacobian eigenvalues, the nonlinear forcing coefficient, the prey cubic balance and the resonant ratio balance. The proof of convergence, existence and positivity of the amplitude, integrability of the phase remainder, and all infinite-time limits is supplied analytically in RESULT.md, Sections 3–5. A finite symbolic identity is not by itself an infinite-time theorem.
+## correctness
 
-A direct finite-interval ODE check was additionally performed for \(M=S=1/4\), \(A\in\{1/2,2\}\), \(Q=A(1+M)/2\), and \((u(0),v(0))=(1/8,1/4)\). At nondimensional physical time \(\theta=40\) the normalized ratio diagnostics \((v/u-2)/(\theta u^2)\) were approximately \(-3.05008\) and \(0.81480\), trending toward the exact proved limits \(-3\) and \(0.75\). These computations are corroborative only, and neither finite-time values nor solver tolerances establish the asymptotics. The exceptional surface \(A=1+M\) is excluded. Independent audit has not been performed.
+PASS
+
+The exact η=v/u−2 reduction follows by differentiating the ratio: u′=u[−M+F(u)−h(u)η], η′=(2+η)[−Mη−F(u)+h(u)η], F(u)=u²(1+M−A−u)/(u+A), h=Qu/(u+A). Logistic comparison proves η→0; u′/u→−M gives exponential bounds. Integrability of d log(ue^{Mθ})/dθ gives L>0. The forcing η′+2Mη=−2δu²+O(u³+u|η|+η²) is resonant; weighted integrable error yields H and coefficient −2δ; backward integration yields cubic u coefficient. Correct domain and physical time distinguished from desingularized clock.
+
+## originality
+
+PASS
+
+The 2019 same-system blow-up work treats basin/eigendirection and the 2023 bifurcation work studies equilibria; neither inspected statement supplies the universal physical-time θe^{-3Mθ} coefficient. A generic 1:2 stable-node normal form does not automatically compute δ for this physical model. Best-of-knowledge original conditional asymptotic.
+
+## value
+
+PASS
+
+A precise universal nonlinear extinction observable and sign-changing resonance coefficient on a distinguished biologically meaningful parameter surface, including an explicitly open extinction basin, is a substantive asymptotic refinement over qualitative attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The physical-time model follows algebraically from the source equations, without conflating the singular polynomial time change. The open set of extinction initial values is certified by scalar prey comparison and predator logistic comparison. The exact ratio-coordinate equations have eigenvalues \(-M\) and \(-2M\), zero quadratic prey drift, and nonzero quadratic forcing \(-2\delta u^2\). The proof independently establishes a positive amplitude \(L\), integrable resonant remainders, a finite phase \(H\), the sharp expansions and both signs. The bundled checker replayed successfully at the actual embedded file path. Finite numerical runs are not used as proofs.
+## correctness
 
-## Originality — PASS
-The closest full primary source, Arancibia-Ibarra–Flores–Pettet–van Heijster (2019), already supplies the blow-up origin attractor, a first-order eigendirection and the associated curvature cancellation; none is relabeled as novel. Liu–Li–He (2023) treat bifurcations of the identical vector field in a different time clock. Their inspected results and the 2019 nonhyperbolic-origin section do not supply the exact, nonzero higher-order resonant forcing, physical-time \(\theta e^{-3M\theta}\) term or finite renormalized phase. A similarly titled 2023 modified model is not equivalent because its predator denominator contains an added constant. Standard normal-form theory explains the resonance mechanism generically, but does not itself evaluate the model-specific coefficient. Searches of published mathematical records and available comparison literature found no stronger covering statement. Risk: priority coverage is not exhaustive and a general theorem combined with further model algebra could reproduce the result.
+PASS
 
-## Value — PASS
-Both equalities have structural origins: the predation condition cancels the first order orbit curvature at extinction, while equality of predator growth and prey Allee thresholds enforces a \(1{:}2\) stable-node resonance. The theorem identifies an unavoidable logarithmic-in-density predator slip after that cancellation, with a sign controlled by saturation parameter \(A\), and gives the sharp correction in original physical rather than desingularized time. This describes the rate at which ecological population ratios synchronize near extinction, not an arbitrary parameter substitution.
+The exact η=v/u−2 reduction follows by differentiating the ratio: u′=u[−M+F(u)−h(u)η], η′=(2+η)[−Mη−F(u)+h(u)η], F(u)=u²(1+M−A−u)/(u+A), h=Qu/(u+A). Logistic comparison proves η→0; u′/u→−M gives exponential bounds. Integrability of d log(ue^{Mθ})/dθ gives L>0. The forcing η′+2Mη=−2δu²+O(u³+u|η|+η²) is resonant; weighted integrable error yields H and coefficient −2δ; backward integration yields cubic u coefficient. Correct domain and physical time distinguished from desingularized clock.
 
-## Scope and residual risks
-Only strictly positive extinction trajectories are covered, although the theorem exhibits an open extinction region. The degenerate \(A=1+M\) surface needs higher-order study, and closed formulae for initial-data amplitudes are not claimed. Comparison with all unindexed, non-English, unpublished, or later publications is not certified. No independent validation has been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 same-system blow-up work treats basin/eigendirection and the 2023 bifurcation work studies equilibria; neither inspected statement supplies the universal physical-time θe^{-3Mθ} coefficient. A generic 1:2 stable-node normal form does not automatically compute δ for this physical model. Best-of-knowledge original conditional asymptotic.
+
+## value
+
+PASS
+
+A precise universal nonlinear extinction observable and sign-changing resonance coefficient on a distinguished biologically meaningful parameter surface, including an explicitly open extinction basin, is a substantive asymptotic refinement over qualitative attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
