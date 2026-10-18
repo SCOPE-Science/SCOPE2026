@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Expanding the defining identities gives exactly the four linear relations and two residual factor equations in the finding. Over a field these equations are equivalent to the union \(H\cup P\). The first product is \(K\times K\), whose automorphism group is the two-element permutation group on its primitive idempotents. The induced involution and its fixed plane are computed explicitly, so inclusion-exclusion and Burnside give the stated point and class counts. The packaged checker independently verifies the defining identities and orbit partitions over \(\mathbf F_2\), \(\mathbf F_3\), and \(\mathbf F_5\).
+PASS
 
-## Originality
+The identities for * and dot+* were independently enumerated over F2 and F3 over all q^8 bilinear products, matching r=c, s=-b, g=-c, d=-b and b(a+b+c-h)=c(a+b+c-h)=0. These equations are characteristic-free and imply H∪P with sizes q³,q²,q; for K×K the only first-product automorphisms permute two primitive idempotents, giving the involution (a,b,c,h)↦(h,-c,-b,a) with fixed locus a=h,c=-b of size q². Burnside yields q(q²+2q-1)/2 classes and q² singleton orbits, q(q²-1)/2 doublets. The field nature (zero-product) is crucial; q2 signs collapse but fixed equations remain valid. F2 produced 10 valid products and F3 33, exactly the formulas; finite checks do not establish arbitrary field by themselves.
 
-PASS. The primary source gives the complex classification and the two branches for the fixed first product, but the inspected full text does not give the arbitrary-field affine-union formulation as a finite-field census, the closed Burnside formula, or the characteristic-two statement. Focused semantic and literature searches found no matching count or orbit distribution. A specialized unindexed finite-field treatment remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete finite-field moduli count for the canonical semisimple two-dimensional first product, identifies the geometry of the compatible-product fiber, and shows uniform behavior across all characteristics. It is a natural structural refinement of the complex classification rather than an isolated parameter calculation.
+A 2024 complete complex classification already covers the two geometric branches of the C07 fiber, which must be credited; the surviving finding counts all F_q-rational compatible second products and fixed-first-product automorphism orbits including characteristic two. The closed finite-field formulas were not in inspected primary text; exact natural moduli point counts merit limited but real value.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The C07 fiber is a canonical semisimple two-dimensional first product in the published complete compatible-pre-Lie classification. Its complete F_q-point and automorphism orbit counts in every characteristic are natural moduli invariants, including the q-even issue not settled by complex classification. The elementary Burnside counting limits depth but does not make the exact cross-characteristic finite-field census intrinsically arbitrary or a prior table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
