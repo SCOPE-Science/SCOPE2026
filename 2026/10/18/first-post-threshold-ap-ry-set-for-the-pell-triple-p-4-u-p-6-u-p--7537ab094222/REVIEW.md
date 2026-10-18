@@ -1,0 +1,9 @@
+# Review of the first excluded Pell-triple parameter
+
+**Correctness — PASS.** The recurrence identities give \(c=(s^2-s-1)(s^2-1)-s(s-1)\). Reduction of representation coefficients modulo \(u\) leaves two and only two possible \(c\)-coefficient blocks, each enumerated in the proof. The shifted last row and every threshold are obtained with exact quantifiers for all integers \(u\ge2\). The Apéry extremum and sum prove the two closed formulas. An independent generating-function dynamic program verifies every residue for \(u=2,3,4,5\); finite tests are supplemental.
+
+**Originality — PASS within accessible evidence.** Komatsu–Mu (arXiv:2307.08998, Theorems 1–2) has strict \(p<u^2\) on this triple and so does not imply the first excluded boundary; blindly extending it produces demonstrably wrong values. The 2024 Mu–Komatsu recurrence-triple theorems require \(i\ge k\ge3\), whereas this triple has \((i,k)=(4,5)\). The earlier arXiv:2304.00443 develops Jacobsthal-polynomial generator triples with a different recurrence; no stated theorem provides this uniform Pell boundary. Related published results for Pythagorean quadruples have incompatible generators. Cross-comparisons of equivalent denumerant formulations, broader hypotheses, exact-value tables and earlier accessible claims revealed no encompassing assertion. The separate 2025 journal edition was not available in full text, leaving a material residual literature risk; nonindexed prior work cannot be ruled out.
+
+**Mathematical value — PASS.** The theorem resolves the earliest missing \(p\)-point of a published infinite Pell family, supplies the full exceptional Apéry-set geometry, and simultaneously determines the Frobenius and genus corrections. This is a structurally motivated parameter boundary, not only an isolated computed integer. It does not classify later \(p\)-values or other index patterns.
+
+Self-review: passed. Independent audit: not yet performed.
