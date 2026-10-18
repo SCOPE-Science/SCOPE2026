@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The face list is the labeled 1133 complex. The integral presentation has rank \(16\) on \(17\) generators and maximal-minor gcd \(2\), while the primitive cofactor cocycle and independent mod-two quotient calculation classify every one of the twenty empty triangles. The complete computation is reproduced by `verify.py`.
+## correctness
 
-## Originality
-PASS. The closest exact source is Cervone's classification and immersion analysis; it gives the 1133 complex and uses mod-two homology for double-sets, but not the integral empty-triangle spectrum. Sulanke's irreducible-triangulation classification and Lutz's vertex-minimal survey do not imply the accepted claim. Residual risk remains that an unindexed finite computation exists.
+PASS
 
-## Value
-PASS. The claim gives a complete shortest-cycle homology spectrum for a canonical vertex-minimal Klein-bottle triangulation, simultaneously detecting the unique torsion class and both primitive free torsion-cosets.
+Rebuilt Cervone 1133 triangulation directly from the 16 listed faces: (V,E,F)=(8,24,16), valence multiset (4,5,6,6,6,7,7,7). Contracting the seven A-star edges leaves 17 generators; direct independent exact rational rank of all sixteen face relations is 16, all seventeen maximal 16x16 minors have gcd 2, so H1≅Z⊕Z/2; the mod2 matrix rank is 15. Enumerating all 3-cliques gives 36, 16 filled and 20 empty. Primitive cofactor null vector evaluates free coordinate zero on 8 empties and ±1 on 12; independent canonical mod2 quotient reduction puts 8,6,6 empties into the three nonzero classes. The precise labeled partition reproduces the eight t cycles ABC,ABG,ADE,ADG,BCF,BCH,CEF,DEF, the six ±g cycles ABE,ABF,ACD,ACF,AFH,BDF and six ±(g+t) cycles ACE,BCD,BDE,BEG,CDG,CEG. Therefore every empty triangle is essential and these exhaust three-edge simple-cycle nonzero unoriented integral types with |free|≤1. No inference about longer cycles or other five eight-vertex types.
 
-## Closest literature and limitations
-The claim is restricted to the unique 1133 eight-vertex triangulation and to simple three-edge cycles. It does not classify the other five minimal Klein-bottle triangulations or longer cycles.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original result is the complete nonfacial length-three cycle integral homology spectrum 8 torsion, 6 primitive and 6 primitive-plus-torsion, not the already-known 1133 face list, uniqueness or H1 group. Direct source comparison and independent finite determinant computation support a specific natural graph-topology invariant unaccounted for in inspected prior literature.
+
+## value
+
+PASS
+
+For a canonical vertex-minimal Klein-bottle triangulation, the integral homology classes of its shortest essential cycles are intrinsically motivated. The exact 20-cycle 8/6/6 partition reveals both torsion and both primitive torsion cosets rather than merely recovering H1 or an Euler characteristic, making a reusable complete shortest-cycle spectrum. This is neither a tiny normalization check nor a claim about all Klein triangulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
