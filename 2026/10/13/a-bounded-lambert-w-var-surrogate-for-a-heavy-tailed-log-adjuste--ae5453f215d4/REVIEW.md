@@ -1,19 +1,21 @@
-# Scientific review: bounded VaR surrogate for the LAPFr model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source PDF (DOI:10.3934/math.20251187, Eqs. (1)–(3) and (13), pp. 27017–27018 and 27022–27023) provides both the exact CDF and the Lambert-W surrogate, including the domain \(\alpha,\theta,\beta>0\). The proof substitutes the surrogate equation into the true CDF, giving the *exact* achieved coverage \(q\log(1+z)/z\). Its strict deficit follows from \(\log(1+z)<z\). The finite surrogate endpoint, sharp generator-parameter coverage range, and true upper-tail divergence follow from monotone inversion and the explicitly calculated derivative \(h_\beta'(1)\). The final lower-tail statement uses expansions at zero. Independently replayed `verify.py` checks scalar inversion, numerical claims and the coverage identity. No finite numerical test is used as the proof of an infinite limit.
+PASS
 
-## Originality — PASS, with residual priority risk
+The published CDF is F(x)=log(1+g)e^{beta(g-1)}/log2 with g=e^{-(alpha/x)^theta}. Its printed Eq(13) surrogate chooses z_q=W_0(beta q e^beta log2)/beta (equivalently unique z in (0,1) with z e^{beta(z-1)}=q log2), hence F(Qtilde(q))=q log(1+z_q)/z_q<q. As q approaches 1, z_q approaches z_beta<1 satisfying z_beta e^{beta(z_beta-1)}=log2; thus Qtilde is bounded while exact quantile diverges. Because z_beta is in (log2,1), limiting achieved coverage c_beta=log(1+z_beta)/z_beta belongs to (log2, log(1+log2)/log2). Expanding exact CDF at g=1 gives 1-F(x)~(beta+1/(2log2))(alpha/x)^theta; hence Q_exact(q)~alpha[(beta+1/(2log2))/(1-q)]^{1/theta}. Independent monotone bisection for alpha=theta=beta=1, q=.99 gave surrogate 5.0654970551, exact 171.0287464965 and coverage .7227998524. This is source equation evaluation, not claim about unknown software or empirical VaR figures.
 
-The main paper already calls Eq. (13) an approximation; its novelty is not challenged on that point. It also states that the approximation is suitable for high confidence levels, without providing the exact coverage identity, the universal sharp under-76% limiting coverage ceiling, or the finite-versus-diverging quantile theorem. The related GLEP model in AboAlkhair et al. (2025, DOI:10.3390/math13193097) recommends numerical inversion for a different logarithmic generator. That related general principle is not this exact model-specific high-tail calibration failure. Searches for the source title, Lambert-W inversion, VaR calibration, asymptotic quantile error and equivalent generators revealed no indexed covering result. An unindexed correction or a more recent follow-up remains possible; no uniqueness or independent validation is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-VaR is the central quantity the source uses for extreme financial and insurance losses. Unlike a small truncation or rounding error, using the printed surrogate at nominal 99% confidence can yield only about 72.28% actual model coverage for an admissible parameter set. More fundamentally, the surrogate never diverges while the true quantile does. The proof identifies the entire offending parameter regime and supplies a robust exact inversion procedure, restoring the intended risk threshold without changing the probability model. This is substantively consequential even though the underlying inequality and scalar root-finding technique are standard.
+The exact source declares Lambert-W Eq(13) an approximation yet claims it is useful at high q>=.90. The submission proves a universal strict undercoverage and limiting coverage interval, plus corrected infinite high-confidence quantile asymptotic; these full results were not in the inspected primary source or matched by relevant Resultary searches. Prior use of Lambert-W inversion and textbook log(1+z)<z is credited; the source-specific quantified tail-risk defect is the contribution.
 
-## Closest literature and limits
+## value
 
-Aljadani (2025), DOI:10.3934/math.20251187, Section 3.1, is the precise source of the disputed high-confidence approximation. AboAlkhair et al. (2025), DOI:10.3390/math13193097, Section 2.2, documents numerical inversion of a related log-exponential family. There is no claim that published datasets, fitted estimates, or numerical software actually used the displayed approximation rather than an exact inverse. The analysis is a mathematical conditional statement about Eq. (13), not an independent audit of any third-party empirical work. The related publisher page returned an access restriction on a later direct fetch; accessible indexed section text supported only a limited comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifying true-versus-nominal coverage of a risk threshold is substantively motivated. Demonstrating that a proposed high-confidence VaR cutoff remains bounded while the correct quantile diverges, with exact coverage ceiling and asymptotic correction, has direct implications for tail-risk calibration; more than a cheap algebraic typo check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:10:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published CDF is F(x)=log(1+g)e^{beta(g-1)}/log2 with g=e^{-(alpha/x)^theta}. Its printed Eq(13) surrogate chooses z_q=W_0(beta q e^beta log2)/beta (equivalently unique z in (0,1) with z e^{beta(z-1)}=q log2), hence F(Qtilde(q))=q log(1+z_q)/z_q<q. As q approaches 1, z_q approaches z_beta<1 satisfying z_beta e^{beta(z_beta-1)}=log2; thus Qtilde is bounded while exact quantile diverges. Because z_beta is in (log2,1), limiting achieved coverage c_beta=log(1+z_beta)/z_beta belongs to (log2, log(1+log2)/log2). Expanding exact CDF at g=1 gives 1-F(x)~(beta+1/(2log2))(alpha/x)^theta; hence Q_exact(q)~alpha[(beta+1/(2log2))/(1-q)]^{1/theta}. Independent monotone bisection for alpha=theta=beta=1, q=.99 gave surrogate 5.0654970551, exact 171.0287464965 and coverage .7227998524. This is source equation evaluation, not claim about unknown software or empirical VaR figures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary paper provides Eq(13) but no derived limit c_beta∈(log2,0.7597), no true Q(q) leading asymptotic, and no global coverage error theorem."
+        ],
+        "reasoning": "Other generic Lambert W quantile methods may use different approximations. A generic inequality log(1+z)<z does not by itself publish the parameterized limiting coverage and failure at high nominal confidence for this model.",
+        "searches": [
+          "Lambert W generalized Frechet quantile approximation coverage extreme value risk",
+          "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf",
+          "log adjusted polynomial Frechet Lambert W value at risk approximation extreme quantiles undercoverage 0.7597"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf",
+        "log adjusted polynomial Frechet Lambert W value at risk approximation extreme quantiles undercoverage 0.7597"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paper p.27022 labels its approximation and p.27023 says high confidence q>=0.9; the exact CDF contains log(1+g) whereas the surrogate inverts g."
+        ],
+        "reasoning": "The paper does not imply that its own asymptotic accuracy assertion is false: deriving the exact coverage deficit and finite cutoff is a nontrivial source-specific negative theorem. That false assumption, not the model itself or empirical tables, is the bounded target of the claim.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf",
+          "Lambert W quantile surrogate log(1+exp) approx exp",
+          "log adjusted polynomial Frechet Lambert W value at risk approximation extreme quantiles undercoverage 0.7597"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aljadani 2025 PDF pp. 27022–27023 derives Eq(13) using log(1+e^-u)≈e^-u and asserts this approximation suitable for high confidence."
+        ],
+        "reasoning": "The submitted coverage profile uses the same exact CDF and substituted approximate root, not a differently parametrized distribution. Exact limiting coverage differs from nominal 1 even at q↑1, contrary to claimed far-tail accuracy.",
+        "searches": [
+          "log adjusted polynomial Frechet Lambert W value at risk approximation extreme quantiles undercoverage 0.7597",
+          "Aljadani LAPFr Equation 13 Lambert W asymptotic VaR x_q q >=.9",
+          "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent bisection yields q=.99, alpha=theta=beta=1: surrogate 5.0654970551, true 171.0287464965, achieved 0.7227998524; global upper constant 0.7597073881."
+        ],
+        "reasoning": "No existing exact calibration table giving these limiting values was found. The finite bisection is not a proof for all parameters; monotonicity and endpoint analysis are.",
+        "searches": [
+          "log adjusted polynomial Frechet Lambert W VaR nominal coverage 0.759707",
+          "log adjusted polynomial Frechet Lambert W value at risk approximation extreme quantiles undercoverage 0.7597"
+        ]
+      },
+      "rationale": "The exact source declares Lambert-W Eq(13) an approximation yet claims it is useful at high q>=.90. The submission proves a universal strict undercoverage and limiting coverage interval, plus corrected infinite high-confidence quantile asymptotic; these full results were not in the inspected primary source or matched by relevant Resultary searches. Prior use of Lambert-W inversion and textbook log(1+z)<z is credited; the source-specific quantified tail-risk defect is the contribution.",
+      "residual_risks": [
+        "Cannot determine whether the paper’s undocumented empirical figures used Equation (13) verbatim; no claim made.",
+        "The failure is for the specified Lambert-W surrogate, not proof the entire distribution or all numerical estimation methods fail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PAPER_NO_PRIOR_CALIBRATION_THEOREM",
+          "evidence": [
+            "Equation 13 replaces log(1+g) with g, and text says valid at high q>=0.9 despite g approaching 1 there."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf",
+          "material_read": "Full primary PDF, equations (1), (13), and risk-section surrounding pp.27022–27023; rendered page images",
+          "method": "Read exact formula and stated approximation condition directly in primary full text",
+          "title": "A new log-adjusted polynomial Fréchet model for heavy-tailed PORT-VaR analysis and one-step-ahead-VaR forecasting in finance and economics",
+          "trigger": "Same model, same exact CDF, exact Equation 13"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifying true-versus-nominal coverage of a risk threshold is substantively motivated. Demonstrating that a proposed high-confidence VaR cutoff remains bounded while the correct quantile diverges, with exact coverage ceiling and asymptotic correction, has direct implications for tail-risk calibration; more than a cheap algebraic typo check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the published surrogate Equation (13), not an assertion about how empirical numerical tables were generated.",
+    "No model-estimation or backtesting conclusion is claimed; theorem assumes positive alpha, theta, beta."
+  ]
+}
