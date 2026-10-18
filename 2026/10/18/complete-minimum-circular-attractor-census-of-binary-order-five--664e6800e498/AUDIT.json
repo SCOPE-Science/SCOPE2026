@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "One-to-one five-bit Hamilton-cycle enumeration proves all cyclic objects covered; all length-five windows uniquely occur and yield a sharp seven-position lower bound; every viable minimum position set belongs to the exhaustive 384 seven-subsets with circular gaps at most five; exact masks cover all shorter circular factors while length-five coverage forces all longer factors. The actual standard-library certificate exhausts 2048 cycles, reproduces all counts, and brute-checks all factor lengths independently for 6 extreme cycles x 384 candidate sets. No infinite claim is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al. 2021 Proposition 41: asymptotic bounds for *linear* de Bruijn strings",
+        "Whittington 2024 Theorem 5.22: Lyndon-generated prime-order de Bruijn word with selected linear unfolding",
+        "Banbara et al. 2026: exact linear attractor sets for Fibonacci, period-doubling, and Thue-Morse word families"
+      ],
+      "reasoning": "The 2021 result is asymptotic and linear; 2024 gives existence for a specified word, not a universal statement over all binary order-five de Bruijn necklaces, and no optimizer-count distribution. 2026 classifications address different word families. None dominates all claims.",
+      "searches": [
+        "de Bruijn sequence circular string attractor minimum all orders 2026",
+        "de Bruijn sequence circular string attractor every word ceil 2^n / n conjecture 2026",
+        "Mantaci Restivo Romana Rosone Sciortino Proposition 41 de Bruijn attractors",
+        "Online String Attractors Theorem 5.22 Lyndon prime order"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.16152v1",
+      "arXiv:2407.15599",
+      "doi:10.1016/j.tcs.2020.11.006",
+      "Romana ICTCS2023 paper 9885",
+      "OEIS A016031 as object count, not attractor table",
+      "Public 2026 length-twelve binary string-attractor census (different domain)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Whittington states Theorem 5.22 only for one Lyndon-generated prime-order unfolded sequence and poses arbitrary-sequence behavior as a question",
+        "Mantaci et al. 2021 Section 6.2 explicitly treats linearizations of de Bruijn words and gives Proposition 41",
+        "Banbara et al. 2026 defines the linear problem and gives classifications for different substitution families",
+        "Romana 2023 Theorem 1 solves general verification, not enumerating order-five minima"
+      ],
+      "reasoning": "A result for one special word does not imply the other 2047 cases. An algorithm to *test* a candidate does not imply the reported exhaustive 2048-by-384 mathematical classification, and a linear attractor can differ from a circular one. Claims have distinct quantifiers, domains, and outcomes.",
+      "searches": [
+        "Whittington Online String Attractors Theorem 5.22 de Bruijn prime Lyndon",
+        "Mantaci A Combinatorial View on String Attractors Proposition 41 linear de Bruijn",
+        "Banbara The Smallest String Attractors of Fibonacci and Period-Doubling Words first posted February 2026",
+        "Romana Algorithmic View on Circular String Attractors 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Whittington 2024, Section 5, questions on arbitrary de Bruijn sequences, rather than a circular all-sequence enumeration",
+        "Romana 2023 circular-attractor definition and algorithm; no enumerated de Bruijn order-five class",
+        "Nearest public research summary concerning length-twelve binary *linear* string-attractor census has a different finite universe and is not equivalent"
+      ],
+      "reasoning": "Circular attractors require cyclic occurrences and are rotation invariant. Linear unfoldings and sharp length-five attractors must not be equated with all-length circular attractors. No examined equivalence or relabeling implies the order-five 2048-cycle distribution.",
+      "searches": [
+        "binary de Bruijn sequences order five length 32 circular string attractors exact minimum across all 2048 necklaces",
+        "circular string attractor order five de Bruijn cycles 2048 distribution 7 8",
+        "de Bruijn words minimum cyclic attractor 2^n/n n=5",
+        "For all 2048 binary order-five de Bruijn necklaces circular string attractor number of minimum seven-position attractor sets varies from 216 to 368"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A016031 lists the classical count 2048 cyclic order-five de Bruijn sequences but not circular attractor minima or counts",
+        "Reviewed publicly visible exact finite string-attractor results concern different families",
+        "Full cycle-by-cycle counts computed from finite exhaustive certificate in census.csv"
+      ],
+      "reasoning": "The number 2048 is a known combinatorial census of objects, not an exact attractor-count database. Searches did not find prior exact optimizer tables; absence of an indexed table is not novelty proof.",
+      "searches": [
+        "binary order-5 de bruijn attractors number optimal 2048",
+        "cyclic de bruijn 32 circular attractor 216 368",
+        "binary de Bruijn sequences order five 2048 distinct circular attractor count",
+        "de Bruijn sequences and universal cycles table binary order 5"
+      ]
+    },
+    "rationale": "The complete circular order-five optimizer census and its distribution are not statements or implications of the examined 2021 linear asymptotic de Bruijn bounds, the 2023 circular-attractor general algorithm, the 2024 one-sequence Lyndon prime-order linear result, or the 2026 linear substitution-family attractor classifications. Targeted searches of scientific literature and public research findings found no equivalent statement; unindexed or unpublished enumeration remains a historical-priority risk.",
+    "residual_risks": [
+      "An equivalent complete enumeration under alternative terminology or in an unindexed repository may exist.",
+      "The numerical assertion is finite, so it does not resolve arbitrary de Bruijn order or alphabet size.",
+      "The checker and its proof have only received self-review, not independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates enumeration but does not imply the new finite de Bruijn claim",
+        "evidence": [
+          "First public preprint dated 2026-02-18",
+          "Introduction treats linear factors of Fibonacci, period-doubling and Thue-Morse words; de Bruijn mentioned only as historical linear asymptotics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+        "material_read": "ArXiv full-text HTML including abstract, Introduction and related work, definitions and result summaries",
+        "method": "Read accessible primary full-text HTML; compared linear substitution-family objects against circular de Bruijn cycles",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Recent literature demonstrating complete small-attractor classification and the importance of counting all minimizers"
+      },
+      {
+        "assessment": "Not covering: no all-sequence circular order-five enumeration, nor minimizer multiplicities",
+        "evidence": [
+          "Theorem 5.22 constructs a prime-order result for Lyndon-generated sequence with last positions repeated before the word",
+          "Text explicitly asks how attractors behave on general de Bruijn sequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.15599",
+        "material_read": "Complete accessible full-text HTML; especially Section 5, Lemmas 5.19–5.20, Theorem 5.22, proof and following questions",
+        "method": "Read original theorem scope and inspected why prime-order argument applies to specified unfolded Lyndon-generated sequence only",
+        "title": "Online String Attractors",
+        "trigger": "Most directly applicable primary work discussing optimal attractors in de Bruijn sequences"
+      },
+      {
+        "assessment": "Does not cover: de Bruijn result is for linearized words and gives asymptotic bounds, no cyclic order-five full census",
+        "evidence": [
+          "Section 6.2 begins by explicitly choosing linear rather than circular de Bruijn words",
+          "Proposition 41 provides inequalities for linear de Bruijn words; final section asks about other circular structures"
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "Complete primary open-access PDF textual extraction; relevant Introduction, circular-attractor section, Section 6.2 and Proposition 41, visually inspected page 25",
+        "method": "Read main definitions and exact scope of the de Bruijn section and verified the page screenshot",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Foundational circular-attractor definition and de Bruijn string-attractor results"
+      },
+      {
+        "assessment": "General polynomial-time verification, not an exact finite de Bruijn cycle census",
+        "evidence": [
+          "Definition 1 defines circular factors crossing selected positions",
+          "The abstract and main theorems concern checking algorithms and NP-completeness"
+        ],
+        "identifier_or_url": "https://ictcs2023.unipa.it/wp-content/uploads/2023/08/ICTCS2023_PAPER_9885.pdf",
+        "material_read": "Full PDF text including definition, introductory results, verification and NP-completeness theorems; visually inspected definition page",
+        "method": "Read scientific statements and comparison to complete finite enumeration",
+        "title": "Algorithmic View on Circular String Attractors",
+        "trigger": "Plausible general covering theorem in exact circular-attractor model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "664e6800-e498-4cc2-8365-55d54a0df56e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite full-family cutoff covers all 2048 binary order-five universal cycles, a natural first sizeable odd-prime test of whether *every* de Bruijn sequence meets its sharp circular attractor lower bound. Counting all optimal sets reveals substantial nonrigidity (216 to 368 per cycle and 120 counts) not implied by the minimum itself, and supplies a reproducible benchmark for the open general behavior. A complete natural finite classification can be valuable without an all-order theorem; not an arbitrary hand-picked slice.",
+    "status": "PASS"
+  }
+}
