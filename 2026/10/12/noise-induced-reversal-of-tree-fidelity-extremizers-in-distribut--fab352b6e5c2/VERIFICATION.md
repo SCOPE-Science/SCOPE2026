@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-size proof is in `RESULT.md`. It assumes exactly the source's independent noisy-resource-channel formulas, with ideal gates, data qubits and readout.
+# Independent mathematical audit
 
-For \(0<q<1\), the second derivative
-\[
-\frac{d^2}{ds^2}\log(1+q^s)=\frac{(\log q)^2q^s}{(1+q^s)^2}>0
-\]
-combines with integer degree majorization to give the sharp path/star bounds.
+## correctness
 
-For \(q=-r\), \(0<r\le1/3\), the key negative-regime inequality is
-\[
-(1-r)(1+r+r^2)^2-(1+r^2)=r(1+r)(1-r-r^3)>0.
-\]
-It proves that two independent positive degree-excess contributions exceed the largest possible single contribution; the full path maximality uses the separate bound on the number of positive excess coordinates.
+PASS
 
-For maximum-degree-three trees,
-\[
-(1+q)(1+q^3)-(1+q^2)^2=q(1-q)^2
-\]
-controls the exact branching ratio.
+For fixed n-vertex tree, Prüfer excess degree vector t_i>=0 sums n-2. For 0<q<1, strict convexity of log(1+q^d) and majorization make path unique minimum and star unique maximum. For physical q=-r in [-1/3,0), positive excess contributions h_r(k) lie between h_r(2) and h_r(1); inequality 2h_r(2)>h_r(1), equivalent to r(1+r)(1-r-r^3)>0, makes star unique minimum, path maximum. For subcubic trees degree count (k+2,n-2-2k,k) produces exact step factor 1+q(1-q)^2/(1+q²)^2. Independently enumerated all Prüfer words n=4,5,6 for q=+/-1/3, verified endpoints and subcubic ratios. Proof applies to all n>=4, actual physical depolarizing p up to 1.
 
-The bundled standalone Python checker enumerates all \(18,244\) labeled Prüfer words for \(4\le n\le7\), uses exact rational arithmetic for both positive and negative parameters, verifies the equality degree types and the entire subcubic formula on those cases, and replays the two key polynomial inequalities at representative rational points. It printed `VERIFY_OK 18244 labelled tree sequences` in direct execution. This finite computation is not used to infer universal quantifiers; the proof above covers every \(n\ge4\) and the full physical parameter intervals.
+## originality
 
-The theorem does not assert hardware-native embeddability or experimental noise robustness. The physical high-noise boundary \(p=3/4\) corresponds to a vanishing channel contraction, not a phase transition in many-body thermodynamics.
+PASS
+
+Dutta Theorems 15–16 establish source product; Remarks 17–20 compare positive contraction and four-node trees; no negative-contraction whole-tree star/path reversal or full subcubic k-law. Tanizawa/Numajiri model post-preparation data-qubit noise, not distribution resource-qubit noise. Substantive best-of-knowledge originality, not merely absence of identical wording.
+
+## value
+
+PASS
+
+The source-defined graph-state fidelity has a sharp *physical* sign reversal at completely depolarizing point, all-tree extremizers and a structural subcubic branch-count law. Those results answer topology selection in the idealized protocol, not merely a low-order numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
