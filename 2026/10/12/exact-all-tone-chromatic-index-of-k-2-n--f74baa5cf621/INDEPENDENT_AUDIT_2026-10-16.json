@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:55:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/exact-all-tone-chromatic-index-of-k-2-n--f74baa5cf621/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/exact-all-tone-chromatic-index-of-k-2-n--f74baa5cf621/verify.py"
+      ],
+      "rationale": "L(K_{2,n}) consists of two n-cliques E_i and F_j with matching adjacency E_i--F_i and distance 2 for i!=j. E_i labels disjoint union U has size nt. F_j avoids E_j and intersects each of n-1 other E_i in at most one color, forcing r=max(0,t-n+1) colors outside U; F_j mutually disjoint forces >=nr new colors. Modular cyclic construction F_j={a_{j+s,s}:1<=s<=min(t,n-1)} ∪ {b_{j,h}:1<=h<=r}, E_i={a_{i,s}:1<=s<=t} meets every clique and cross-distance intersection requirement with exactly nt+nr palette. n=1 gives adjacent-edge 2t boundary; n=2 gives cycle/C4 4t-2. Independent tests for n<=6,t<=7 checked 42 constructions and pair intersections; analytic proof covers every n,t>=1.",
+      "residual_risks": [
+        "All-n assertions established from analytic structural argument, not finite experiments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Nichols Theorem14: for graph with m vertices diameter D, exact eventual bound only t>=(m-1)(D-1), yielding t>=2n-1 on K2 □ Kn.",
+          "Theorem13 is K_n □ K_n via MOLS, not all n,t for K2 □ Kn."
+        ],
+        "reasoning": "The earlier universal theorem implies the claimed t>=2n-1 tail but leaves the exact onset and t<2n-1 range. A covered special case is explicitly acknowledged, not counted as independent novelty.",
+        "searches": [
+          "arXiv:2510.13382 Theorems 13 and 14 and their proofs",
+          "Bickle 2013 2-tone coloring joins/products",
+          "Cooper–Wash Congr. Numer. 228 2017 issue record"
+        ]
+      },
+      "checked_sources": [
+        "Bennett and Nichols arXiv:2510.13382 full primary Theorems 13–14",
+        "Cooper and Wash 2017 Congressus Numerantium Vol.228 pp.199–210 bibliographic publisher listing",
+        "arXiv:2605.24571 edge-tone definition/abstract",
+        "Resultary semantic t-tone edge coloring K2n",
+        "Pinned RESULT.md Git blob e726701b885e5103d06993492c32a60d976e4f07 verify.py 6e2ccea54b39c821aa0d2694d6810384d417697b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local clique degree gives nt but cannot prove n(t-n+1) extra colors once t>=n; the new counting argument does.",
+          "The high-t formula from Theorem14 algebraically simplifies to n(2t-n+1) only above threshold 2n-1."
+        ],
+        "reasoning": "Previous results are logically sufficient for an eventual portion; neither inspected theorem implies the full sharp transition for all t.",
+        "searches": [
+          "Bennett–Nichols arXiv:2510.13382 Theorem14 quantitative threshold",
+          "Al Bazzal arXiv:2605.24571 edge-tone-to-line-graph identity",
+          "Bickle t=2 product formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition t-tone edge index tau_t prime(K2,n)=vertex tau_t(K2 □ K_n), not tau_t(K_n²).",
+          "For K2 □ Kn, unmatched cross pairs have graph distance 2 and matched cross pairs distance 1."
+        ],
+        "reasoning": "Same graph was checked under product and edge-coloring aliases; full all-t formula has a different scope from available source theorems.",
+        "searches": [
+          "Resultary query t tone edge coloring K2n line graph clique prism K2 Cartesian K_n chromatic index all t",
+          "Bennett–Nichols arXiv:2510.13382 Theorems 13–14",
+          "Cooper–Wash 2017 title t-tone colorings in Cartesian product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing t=2 and eventual-t values are only slices.",
+          "The source 2017 paper is listed at Congr. Numer.228 pp.199–210, but no inspectable theorem/table was available."
+        ],
+        "reasoning": "No fully inspected exact all-t K2 □ Kn table; material access risk remains specifically for the plausible Cooper–Wash article.",
+        "searches": [
+          "Resultary semantic t-tone edge index K2n query",
+          "Bennett–Nichols Corollary 2 and Theorem 14",
+          "Cooper–Wash 2017 journal issue bibliographic entry"
+        ]
+      },
+      "rationale": "Bennett–Nichols 2025 full primary Theorem 14 yields the high-t branch on K_2 □ K_n only for t>=2n-1, while their Theorem 13 uses MOLS for Cartesian powers K_n^2 and does not determine this clique-prism family in the transition 1<=t<2n-1. Bickle t=2 work gives a small special case, not all t. Cooper–Wash 2017 on Cartesian products is a plausible inaccessible primary: preserve as explicit originality risk, not automatic failure. Best-of-knowledge no coverage for entire exact formula with sharp t=n transition.",
+      "residual_risks": [
+        "Cooper–Wash 2017 paper might have exact K2 □ Kn theorem; article full text was not lawfully retrievable from searched OA/preprint sources, so this is a genuine originality limitation.",
+        "Bickle 2013 t=2 and Bennett–Nichols eventual-t special cases are covered and NOT claimed as independently new.",
+        "Finite modular construction tests cannot prove arbitrary n,t without palette accounting and explicit construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only MOLS for K_n² and general eventual-t threshold t>=2n-1 on graph K2 □ Kn, not full t>=n formula",
+          "evidence": "Theorem 14 says equality when t>=(m-1)(D-1), Theorem 13 is K_n².",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.13382",
+          "material_read": "Full 20-page PDF searchable; §§1.5–1.6 and Theorems 13–14 (printed pp.4–5) plus proofs pp.12–13 materially read, PDF p.5 page image inspected",
+          "method": "Lawful arXiv full PDF and page image",
+          "title": "Some progress on t-tone coloring",
+          "trigger": "Potential stronger general-t theorem dominating entire graph family"
+        },
+        {
+          "assessment": "Plausible coverage unknown; no NOT_COVERING assertion without reading",
+          "evidence": "Article exact title/author/page range verified; its theorems remained uninspected and residual risk recorded.",
+          "identifier_or_url": "https://combinatorialpress.com/cn/vol228/",
+          "material_read": "2017 journal Volume 228 table of contents, pp.199–210 entry and later citations, NOT article full text",
+          "method": "Publisher journal issue browser listing and targeted lawful OA/preprint search",
+          "title": "t-tone colorings in the Cartesian product",
+          "trigger": "2017 article directly about product containing K2 □ Kn"
+        },
+        {
+          "assessment": "Introduces edge t-tone index identity; specializes primarily t=2, not full K2n formula in inspected material",
+          "evidence": "Edge-tone coloring is t-tone vertex coloring of line graph, a definitional equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24571",
+          "material_read": "Abstract and paper scope from submitted reference, not full original PDF",
+          "method": "Public arXiv abstract and cross comparison",
+          "title": "t-tone edge coloring of graphs",
+          "trigger": "Foundational edge-tone versus line-graph reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bennett and Nichols arXiv:2510.13382 full primary Theorems 13–14",
+        "Cooper and Wash 2017 Congressus Numerantium Vol.228 pp.199–210 bibliographic publisher listing",
+        "arXiv:2605.24571 edge-tone definition/abstract",
+        "Resultary semantic t-tone edge coloring K2n",
+        "Pinned RESULT.md Git blob e726701b885e5103d06993492c32a60d976e4f07 verify.py 6e2ccea54b39c821aa0d2694d6810384d417697b"
+      ],
+      "rationale": "Determining the full all-t palette of the natural complete bipartite K_{2,n} line graph, including exact threshold t=n when local nt bound stops being attainable, is an all-parameter structural coloring classification. It strengthens existing eventual-t theorems by a linear-size nontrivial onset and settles every intermediate t, supplying meaningful formulas for a fundamental graph product.",
+      "residual_risks": [
+        "Cooper–Wash 2017 paper might have exact K2 □ Kn theorem; article full text was not lawfully retrievable from searched OA/preprint sources, so this is a genuine originality limitation.",
+        "Bickle 2013 t=2 and Bennett–Nichols eventual-t special cases are covered and NOT claimed as independently new.",
+        "Finite modular construction tests cannot prove arbitrary n,t without palette accounting and explicit construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Cooper–Wash 2017 paper might have exact K2 □ Kn theorem; article full text was not lawfully retrievable from searched OA/preprint sources, so this is a genuine originality limitation.",
+    "Bickle 2013 t=2 and Bennett–Nichols eventual-t special cases are covered and NOT claimed as independently new.",
+    "Finite modular construction tests cannot prove arbitrary n,t without palette accounting and explicit construction.",
+    "No public-facing files were changed, and independent audit certificate, external expert and Lean attestation were not fabricated. Original scientific files and preexisting evidence preserved.",
+    "The frozen package contains potentially-public private provenance in both AUDIT.json and METADATA.json. Publication plan not_ready despite complete scientific assessment.",
+    "Historical 2026-10-15 23:43 cumulative-ledger 7-row delivery gap remains unreconstructed; 330-row historical ledger and extant recovery prefix preserved byte-for-byte."
+  ],
+  "schema_version": 1
+}

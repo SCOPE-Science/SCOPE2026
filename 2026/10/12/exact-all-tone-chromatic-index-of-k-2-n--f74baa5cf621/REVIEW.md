@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound partitions the palette into the disjoint first-star union and colors outside it. Each second-star label can reuse at most one color from each of the other \(n-1\) first-star labels and none from its matched label, forcing exactly the stated outside-palette deficit. The modular construction attains this bound and every required distance-one and distance-two intersection condition is checked explicitly. Boundary cases \(n=1\) and \(t=1\) are included.
+## correctness
 
-## Originality
-PASS. The initiating 2026 edge-coloring paper defines the invariant and transfers vertex-tone results through line graphs, but its inspected text does not give the complete-bipartite formula. Bickle's product theorem covers only \(t=2\). Bennett--Nichols gives a general-\(t\) MOLS criterion for symmetric clique products and a fixed-graph large-\(t\) exact theorem; on \(K_2\square K_n\), the latter reaches the present high-\(t\) formula only for \(t\ge2n-1\), not the exact onset \(t=n\) or the whole spectrum. Searches for the exact formula, the line-graph formulation, clique-prism aliases, and complete-bipartite edge formulations found no implication-equivalent result. The inaccessible full text of Cooper--Wash (2017) remains an explicit residual risk.
+PASS
 
-## Value
-PASS. This is a complete infinite two-parameter classification for a canonical family under a newly introduced edge invariant. It identifies a sharp structural transition: a degree-based lower bound is exact exactly through \(t=n-1\), while a linear reuse deficit begins at \(t=n\). The theorem also bridges the previously known \(t=2\) product calculation and the much-later generic fixed-graph large-\(t\) regime.
+L(K_{2,n}) consists of two n-cliques E_i and F_j with matching adjacency E_i--F_i and distance 2 for i!=j. E_i labels disjoint union U has size nt. F_j avoids E_j and intersects each of n-1 other E_i in at most one color, forcing r=max(0,t-n+1) colors outside U; F_j mutually disjoint forces >=nr new colors. Modular cyclic construction F_j={a_{j+s,s}:1<=s<=min(t,n-1)} ∪ {b_{j,h}:1<=h<=r}, E_i={a_{i,s}:1<=s<=t} meets every clique and cross-distance intersection requirement with exactly nt+nr palette. n=1 gives adjacent-edge 2t boundary; n=2 gives cycle/C4 4t-2. Independent tests for n<=6,t<=7 checked 42 constructions and pair intersections; analytic proof covers every n,t>=1.
 
-## Closest literature and limitations
-The closest exact prior statement is Bickle's \(t=2\) theorem for Cartesian products of complete graphs. Bennett--Nichols' Theorems 13 and 14 are the closest general-\(t\) statements. The result is confined to \(K_{2,n}\), and incomplete full-text access to Cooper--Wash (2017) leaves a terminology/coverage risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bennett–Nichols 2025 full primary Theorem 14 yields the high-t branch on K_2 □ K_n only for t>=2n-1, while their Theorem 13 uses MOLS for Cartesian powers K_n^2 and does not determine this clique-prism family in the transition 1<=t<2n-1. Bickle t=2 work gives a small special case, not all t. Cooper–Wash 2017 on Cartesian products is a plausible inaccessible primary: preserve as explicit originality risk, not automatic failure. Best-of-knowledge no coverage for entire exact formula with sharp t=n transition.
+
+## value
+
+PASS
+
+Determining the full all-t palette of the natural complete bipartite K_{2,n} line graph, including exact threshold t=n when local nt bound stops being attainable, is an all-parameter structural coloring classification. It strengthens existing eventual-t theorems by a linear-size nontrivial onset and settles every intermediate t, supplying meaningful formulas for a fundamental graph product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
