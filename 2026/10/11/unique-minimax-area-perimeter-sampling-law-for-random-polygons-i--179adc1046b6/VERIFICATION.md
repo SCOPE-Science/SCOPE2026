@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact continuum theorem using the boundary-sampling intrinsic-volume asymptotic, planar ellipse geometry, Hölder's inequality, strict concavity, and uniform Taylor expansion. No external numerical certificate or independent audit is claimed.
+## correctness
 
-Run `python verify_ellipse_minimax.py` using the Python standard library. The program checks ten ellipticities, uses 32,768 midpoint angular samples, computes the unique balancing weight by bisection, verifies that both normalized objectives equal the scalar dual value to a tolerance of \(3\times10^{-10}\), and checks the near-circle \(3/8\) expansion. It terminates with `ELLIPSE_MINIMAX_STANDARD_LIBRARY_CHECKS_OK` if all tests pass. Quadrature results are approximate and provide sanity checks only, not a computer-assisted proof for all inputs.
+PASS
 
-The checked source date for the motivating theorem is the arXiv version-1 submission on 2026-02-20, rather than the manuscript's displayed internal date. The application addresses only fixed strictly positive continuous sampling densities and leading \(N^{-2}\) asymptotics.
+The given planar random-polytope input functionals I_A∝∫κρ^-2 ds and I_P∝∫κ²ρ^-2 ds, with E=a²sin²θ+b²cos²θ, ds=sqrt(E)dθ and κ=ab E^-3/2, transform exactly to <q^-2> and <Wq^-2> after separate normalization. Hölder gives inf_{<q>=1}<Fq^-2>=<F^(1/3)>³ with unique q proportional to F^(1/3). Fλ=λ+(1-λ)W, Hλ=<Fλ^(1/3)> is strictly concave for noncircular ellipse, satisfies H(0)=H(1)=1 and has unique interior λ*, H'(λ*)=0. q*=Fλ*^(1/3)/Hλ* balances R_A and R_P and attains the minimax lower bound, unique by Hölder. Uniform Taylor E=1-2epsilon cos2θ+epsilon² gives Hλ=1+λ(1−λ)epsilon²/2+O(epsilon³), hence M=1+3epsilon²/8+O(epsilon³); circle q=1. Independent angular quadrature/bisection at ε=.01,.1,.5,.95 reproduced equal objectives and near-circle coefficient .375014 at ε=.01. Continuous proof, not quadrature, proves all eccentricities.
+
+## originality
+
+PASS
+
+Primary sources provide individually optimal curvature laws and qualitative non-simultaneous equality for nonspherical K; the unique Pareto minimax compromise and quantitative 3/8 near-circle cost need an additional scalar duality argument.
+
+## value
+
+PASS
+
+Quantifies a natural conflicting-design question: what one sampling density should use for two competing, individually normalized geometric deficits on a canonical noncircular convex body? Gives unique exact all-eccentricity compromise and sharp 3/8 near-circle price, not merely qualitative incompatible optimal samplers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

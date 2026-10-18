@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:59:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The given planar random-polytope input functionals I_A∝∫κρ^-2 ds and I_P∝∫κ²ρ^-2 ds, with E=a²sin²θ+b²cos²θ, ds=sqrt(E)dθ and κ=ab E^-3/2, transform exactly to <q^-2> and <Wq^-2> after separate normalization. Hölder gives inf_{<q>=1}<Fq^-2>=<F^(1/3)>³ with unique q proportional to F^(1/3). Fλ=λ+(1-λ)W, Hλ=<Fλ^(1/3)> is strictly concave for noncircular ellipse, satisfies H(0)=H(1)=1 and has unique interior λ*, H'(λ*)=0. q*=Fλ*^(1/3)/Hλ* balances R_A and R_P and attains the minimax lower bound, unique by Hölder. Uniform Taylor E=1-2epsilon cos2θ+epsilon² gives Hλ=1+λ(1−λ)epsilon²/2+O(epsilon³), hence M=1+3epsilon²/8+O(epsilon³); circle q=1. Independent angular quadrature/bisection at ε=.01,.1,.5,.95 reproduced equal objectives and near-circle coefficient .375014 at ε=.01. Continuous proof, not quadrature, proves all eccentricities.",
+      "residual_risks": [
+        "The area/perimeter asymptotics are for each fixed density as N→∞; no uniform-in-density remainder or optimizer for finite sample N.",
+        "Strictly positive continuous densities and nondegenerate ellipse are essential; no arbitrary convex body theorem is asserted."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6/verify_ellipse_minimax.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoehner 2026 proves optimum mismatch on nonballs and characterizes simultaneous individual optimality, not a sharp penalty formula for balancing objectives on ellipses.",
+          "Besau–Hoehner–Kur 2019 concerns intrinsic-volume deviations and comparisons, chiefly ball settings; no inspected exact ellipse tradeoff dominates it."
+        ],
+        "reasoning": "A general qualitative ball characterization does not yield the unique minimizing compromise density or 3/8 expansion. Separate functional formulas supply input but not their joint minimax optimizer without the new dual argument.",
+        "searches": [
+          "random polygons minimax sampling area perimeter joint estimator asymptotic variance optimal sampling density",
+          "arXiv:2602.18547v1 Hoehner Sections 3.1 and 3.2",
+          "arXiv:1905.08862 Besau Hoehner Kur simultaneous approximation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 233b847e0051647443ff28b6eac6bc2811262794",
+        "Hoehner arXiv:2602.18547v1 §§3.1–3.2",
+        "Böröczky–Fodor–Hug arXiv:1103.4978",
+        "Besau–Hoehner–Kur arXiv:1905.08862v2",
+        "Resultary clipped-curvature minimax Hausdorff-area 2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The area/perimeter coefficient weights follow from published asymptotics, but they specify two separate objective functionals.",
+          "The new theorem derives a unique lambda* and compromise q* by strict concavity and exact balancing, and computes curvature perturbation coefficient 3/8."
+        ],
+        "reasoning": "Known separate density optimizers and their incompatibility do not logically determine the value of inf_q max{R_A,R_P}; an additional minimax saddle/duality argument is necessary.",
+        "searches": [
+          "Hoehner arXiv:2602.18547v1 Theorem 3.1 Sections 3.1-3.2",
+          "Böröczky Fodor Hug arXiv:1103.4978 intrinsic volumes random boundary polytope",
+          "ellipse area perimeter relative efficiency joint tradeoff 3/8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoehner arXiv:2602.18547v1 §3.1 gives separate planar boundary-curvature leading functionals and optimal densities; §3.2 derives Euclidean-ball simultaneous-individual-optimum rigidity.",
+          "This theorem normalizes the objectives separately and minimizes their maximum, which differs from requiring both to attain 1."
+        ],
+        "reasoning": "Compared weighted L^-2 Hölder formulations, Pareto scalarization, intrinsic volume and ellipse curvature coordinates; the exact balanced minimax is not synonymous with a theorem that individual optimizers differ.",
+        "searches": [
+          "random polygons minimax sampling area perimeter joint estimator asymptotic variance optimal sampling density",
+          "ellipse optimal sampling density perimeter area joint Pareto curvature Hölder",
+          "Hoehner one polytope fits all simultaneous approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a clipped-curvature minimax sampling result for Hausdorff and area, which uses a different pair of objectives and constraints.",
+          "No precomputed ellipse-specific M(a,b) or 3/8 cost appeared in inspected indexed records."
+        ],
+        "reasoning": "Continuous one-dimensional root characterization for all ellipses is a nontrivial functional optimization, not a finite table lookup; database non-hit alone does not certify priority.",
+        "searches": [
+          "random polygons minimax sampling area perimeter joint estimator asymptotic variance optimal sampling density",
+          "ellipse Pareto leading area perimeter random polytope exact minimax cost table",
+          "Resultary clipped curvature minimax Hausdorff area"
+        ]
+      },
+      "rationale": "Primary sources provide individually optimal curvature laws and qualitative non-simultaneous equality for nonspherical K; the unique Pareto minimax compromise and quantitative 3/8 near-circle cost need an additional scalar duality argument.",
+      "residual_risks": [
+        "A generic multiobjective curvature-weighted Hölder scalarization might appear in older or unindexed approximation literature.",
+        "Earlier 2011 paper and entire Besau–Hoehner–Kur manuscript were not read page-by-page; no whole-document noncoverage certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INDIVIDUAL_EXTREMIZERS_NOT_JOINT_MINIMAX",
+          "evidence": "Shows each coefficient minimum and distinct optimizer away from ball, not the sharp ellipse tradeoff.",
+          "identifier_or_url": "arXiv:2602.18547v1; https://arxiv.org/html/2602.18547v1",
+          "material_read": "Full publicly readable HTML; §§3.1–3.2 on leading coefficients, optimal densities and rigidity, and searched for minimax",
+          "method": "Primary full-text HTML reading and keyword search",
+          "title": "One polytope fits all: Characterization of the Euclidean ball via simultaneous intrinsic volume approximation",
+          "trigger": "Exact source for two separate leading random-polytope objectives"
+        },
+        {
+          "assessment": "ASYMPTOTIC_INPUT_PRIORITY_RISK",
+          "evidence": "Supplies single-functional asymptotic curvature weights, no verified exact two-objective ellipse minimax.",
+          "identifier_or_url": "arXiv:1103.4978",
+          "material_read": "Theorem-level accessible PDF/abstract comparison and source formula; full paper not reread page-by-page",
+          "method": "Partial primary-source reading",
+          "title": "Intrinsic volumes of random polytopes with vertices on the boundary of a convex body",
+          "trigger": "Earlier boundary-sampling asymptotics with possible general optimization"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_METRIC",
+          "evidence": "Discusses simultaneous approximation especially for balls, no checked exact ellipse Pareto cost.",
+          "identifier_or_url": "arXiv:1905.08862v2",
+          "material_read": "Publicly accessible HTML, relevant comparison sections on intrinsic deviations; not exhaustively all sections",
+          "method": "Partial full-text reading",
+          "title": "Intrinsic and Dual Volume Deviations of Convex Bodies and Polytopes",
+          "trigger": "Potential broader simultaneous optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies a natural conflicting-design question: what one sampling density should use for two competing, individually normalized geometric deficits on a canonical noncircular convex body? Gives unique exact all-eccentricity compromise and sharp 3/8 near-circle price, not merely qualitative incompatible optimal samplers.",
+      "residual_risks": [
+        "A generic multiobjective curvature-weighted Hölder scalarization might appear in older or unindexed approximation literature.",
+        "Earlier 2011 paper and entire Besau–Hoehner–Kur manuscript were not read page-by-page; no whole-document noncoverage certification."
+      ],
+      "sources": [
+        "Frozen RESULT.md 233b847e0051647443ff28b6eac6bc2811262794",
+        "Hoehner arXiv:2602.18547v1 §§3.1–3.2",
+        "Böröczky–Fodor–Hug arXiv:1103.4978",
+        "Besau–Hoehner–Kur arXiv:1905.08862v2",
+        "Resultary clipped-curvature minimax Hausdorff-area 2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 233b847e0051647443ff28b6eac6bc2811262794",
+    "Hoehner arXiv:2602.18547v1 §§3.1–3.2",
+    "Böröczky–Fodor–Hug arXiv:1103.4978",
+    "Besau–Hoehner–Kur arXiv:1905.08862v2",
+    "Resultary clipped-curvature minimax Hausdorff-area 2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Asymptotic leading N^-2 expected deficits only, not fixed finite N.",
+    "Strictly positive continuous boundary densities on ellipses; no global general-convex-curve minimax theorem."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "INDIVIDUAL_EXTREMIZERS_NOT_JOINT_MINIMAX",
+      "evidence": "Shows each coefficient minimum and distinct optimizer away from ball, not the sharp ellipse tradeoff.",
+      "identifier_or_url": "arXiv:2602.18547v1; https://arxiv.org/html/2602.18547v1",
+      "material_read": "Full publicly readable HTML; §§3.1–3.2 on leading coefficients, optimal densities and rigidity, and searched for minimax",
+      "method": "Primary full-text HTML reading and keyword search",
+      "title": "One polytope fits all: Characterization of the Euclidean ball via simultaneous intrinsic volume approximation",
+      "trigger": "Exact source for two separate leading random-polytope objectives"
+    },
+    {
+      "assessment": "ASYMPTOTIC_INPUT_PRIORITY_RISK",
+      "evidence": "Supplies single-functional asymptotic curvature weights, no verified exact two-objective ellipse minimax.",
+      "identifier_or_url": "arXiv:1103.4978",
+      "material_read": "Theorem-level accessible PDF/abstract comparison and source formula; full paper not reread page-by-page",
+      "method": "Partial primary-source reading",
+      "title": "Intrinsic volumes of random polytopes with vertices on the boundary of a convex body",
+      "trigger": "Earlier boundary-sampling asymptotics with possible general optimization"
+    },
+    {
+      "assessment": "RELATED_DIFFERENT_METRIC",
+      "evidence": "Discusses simultaneous approximation especially for balls, no checked exact ellipse Pareto cost.",
+      "identifier_or_url": "arXiv:1905.08862v2",
+      "material_read": "Publicly accessible HTML, relevant comparison sections on intrinsic deviations; not exhaustively all sections",
+      "method": "Partial full-text reading",
+      "title": "Intrinsic and Dual Volume Deviations of Convex Bodies and Polytopes",
+      "trigger": "Potential broader simultaneous optimization"
+    }
+  ]
+}

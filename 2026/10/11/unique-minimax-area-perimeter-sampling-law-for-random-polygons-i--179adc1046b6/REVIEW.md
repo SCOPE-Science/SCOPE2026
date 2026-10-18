@@ -1,9 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The limiting intrinsic-volume functionals are taken from Hoehner's 2026 Theorem 3.1 with the exact planar exponents and curvature weights. Their conversion to angular coordinates is explicit, including every factor of \(2\pi\). Hölder gives a sharp universal lower bound; strict concavity of the scalar dual forces a unique interior balance parameter and equality density. The resulting density saturates both objectives, and the uniform Taylor expansion gives the coefficient \(3/8\). A standalone numerical verifier independently confirms selected parameter cases; it is not the proof of the continuum statement.
+## correctness
 
-**Originality — PASS, with literature uncertainty.** Hoehner (2026), Sections 3.1–3.2, determines individual optima and qualitative ball rigidity, but does not present the exact ellipse minimax compromise, uniqueness of the balanced density, or the coefficient \(3/8\). Böröczky–Fodor–Hug (2011) supplies asymptotics rather than this two-objective optimum. Besau–Hoehner–Kur (2019/2020) addresses primarily the Euclidean ball and simultaneous approximation up to constants. Earlier curvature-law separation statements also establish incompatibility rather than the sharp compromise. Equivalent unindexed research remains a residual originality risk.
+PASS
 
-**Value — PASS.** A noncircle cannot optimize both errors separately. Rather than merely measuring this incompatibility, the theorem completely optimizes the first natural two-objective compromise for the entire nontrivial family of ellipses, determines a unique geometric sampling law, and quantifies its near-circle price with a sharp, scale-free constant. The conclusion is a leading-order asymptotic statement, not a fixed-sample-size theorem.
+The given planar random-polytope input functionals I_A∝∫κρ^-2 ds and I_P∝∫κ²ρ^-2 ds, with E=a²sin²θ+b²cos²θ, ds=sqrt(E)dθ and κ=ab E^-3/2, transform exactly to <q^-2> and <Wq^-2> after separate normalization. Hölder gives inf_{<q>=1}<Fq^-2>=<F^(1/3)>³ with unique q proportional to F^(1/3). Fλ=λ+(1-λ)W, Hλ=<Fλ^(1/3)> is strictly concave for noncircular ellipse, satisfies H(0)=H(1)=1 and has unique interior λ*, H'(λ*)=0. q*=Fλ*^(1/3)/Hλ* balances R_A and R_P and attains the minimax lower bound, unique by Hölder. Uniform Taylor E=1-2epsilon cos2θ+epsilon² gives Hλ=1+λ(1−λ)epsilon²/2+O(epsilon³), hence M=1+3epsilon²/8+O(epsilon³); circle q=1. Independent angular quadrature/bisection at ε=.01,.1,.5,.95 reproduced equal objectives and near-circle coefficient .375014 at ε=.01. Continuous proof, not quadrature, proves all eccentricities.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary sources provide individually optimal curvature laws and qualitative non-simultaneous equality for nonspherical K; the unique Pareto minimax compromise and quantitative 3/8 near-circle cost need an additional scalar duality argument.
+
+## value
+
+PASS
+
+Quantifies a natural conflicting-design question: what one sampling density should use for two competing, individually normalized geometric deficits on a canonical noncircular convex body? Gives unique exact all-eccentricity compromise and sharp 3/8 near-circle price, not merely qualitative incompatible optimal samplers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
