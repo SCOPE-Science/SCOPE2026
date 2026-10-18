@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof first characterizes diagonal surjectivity via maximal ideals of the polynomial ring and the Chinese remainder theorem. It classifies every cover two-by-two subalgebra surjecting to Fq×Fq: its off-diagonal kernel either vanishes, forcing all generator cover coordinates proportional to the diagonal difference through one conjugating scalar, or is all of Fq, giving the full two-by-two triangular ring. Semisimple splitting and conjugacy apply because the base prime field is perfect and the finite diagonal quotient is separable; conjugation and products of all cover units recover the whole incidence algebra. This gives necessary and sufficient independent tests and the exact product formula. The standalone checker independently closes all generated subrings in seven exhaustive finite-field/poset instances and agrees with the prediction. Finite checks alone cannot establish the infinite theorem; that role is played by the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kolegov arXiv:2509.00252v1 Sections 2–4: definition of Gen_m(A,R) adjoins RI; Lemma 4 counts q-field-distinct diagonal rows and q^k-q choices for each cover.",
+        "Sercombe–Shalev DOI:10.1112/jlms.12827 studies generation as an algebra over the chosen base field and bounds/asymptotics, not an exact prime-field unital ring generation formula for incidence algebras."
+      ],
+      "reasoning": "The 2025 arbitrary-incidence-ring theorem has wider coefficient-ring scope but requires the entire coefficient scalar ring be adjoined; this stronger object scope does not entail the no-scalars event. The 2023/2024 general associative-algebra study gives broad qualitative results but no statement implying this exact poset-independent Galois factor.",
+      "searches": [
+        "arXiv:2509.00252v1 Lemma 3, Lemma 4, Theorem 7",
+        "Galois conjugacy Frobenius orbital separation counts for generators of finite incidence rings and triangular matrix rings",
+        "generating finite matrix algebra as ring over prime field triangular matrices probability",
+        "Sercombe and Shalev Random generation of associative algebras DOI:10.1112/jlms.12827"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.00252v1 Sections 2–4",
+      "arXiv:1709.06982 Sections 1–3",
+      "DOI:10.1112/jlms.12827 introduction and generation scope",
+      "DOI:10.1016/j.jalgebra.2022.12.025 available abstract and later citation",
+      "DOI:10.1007/s10958-019-04396-6 available abstract",
+      "Targeted semantic published-finding and external scholarly searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kolegov arXiv:2509.00252v1 Sections 2–4: definition of Gen_m(A,R) adjoins RI; Lemma 4 counts q-field-distinct diagonal rows and q^k-q choices for each cover.",
+        "First–Reichstein–Salazar arXiv:1709.06982 Theorem 1.1, Proposition 3.2, Lemma 3.3: exact number of full Frobenius orbits generating a product of finite field extensions over the prime field.",
+        "The generated-ring theorem proved here has an additional global lifting step for the radical; explicit T_2(F4) unassisted count 1440 differs from the scalar-assisted count 2880."
+      ],
+      "reasoning": "For q=p, scalar-assisted and unassisted generation agree, so that specialization is already covered and not claimed new. For q=p^e with e>1, replacing distinct diagonal points by distinct Frobenius orbits is necessary but not by itself sufficient: the new two-by-two kernel lemma and global semisimple lifting prove sufficiency; these are not statements of the cited field-product or scalar-assisted results. The full-text accessibility limitation of the 2023 source is explicitly retained.",
+      "searches": [
+        "arXiv:2509.00252v1 Sections 2–4",
+        "arXiv:1709.06982 Theorem 1.1 and Proposition 3.2",
+        "Number of generating pairs of upper triangular matrices over nonprime finite fields, distinguished from algebra generation over full field",
+        "On generators of incidence rings over finite posets DOI:10.1016/j.jalgebra.2022.12.025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "First–Reichstein–Salazar arXiv:1709.06982 Theorem 1.1, Proposition 3.2, Lemma 3.3: exact number of full Frobenius orbits generating a product of finite field extensions over the prime field.",
+        "The diagonal condition is precisely surjection from Fp[X_1,...,X_k] to Fq^n; the full incidence ring is noncommutative whenever a cover exists."
+      ],
+      "reasoning": "Frobenius tuple-orbit separation is an exact equivalent for the quotient, already known in the étale setting, but it is not equivalent to generation of the full incidence algebra: one must enforce the extra q^k-q condition at every cover and prove sufficiency.",
+      "searches": [
+        "Generation as a unital ring by random tuples of elements in finite field incidence algebra over its prime field, without adjoining all scalar matrices; Frobenius orbits of diagonal tuples and covering relation",
+        "Number of generating pairs of upper triangular matrices over nonprime finite fields, distinguished from algebra generation over full field",
+        "generation of finite incidence algebra over prime subfield without scalars by random elements Galois Frobenius orbits",
+        "number of generators of incidence algebra over Fq as unital ring not algebra field extension Frobenius",
+        "arXiv:1709.06982 Section 3: generators of pure étale algebras / Frobenius orbits"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-index search hits concerned other matrix invariants; no exact table of prime-field-generated incidence rings was recovered.",
+        "The 2018/2019 Kolegov–Markova work addresses minimum generator cardinalities and strict generation without the unit rather than a full random-tuple census without coefficient scalars."
+      ],
+      "reasoning": "No exact matching probability table was located; this is not proof of nonexistence. The closest existing matrix-incidence studies concern generator minima or random generation assisted by the base coefficient ring, which have different counting events.",
+      "searches": [
+        "Generation as a unital ring by random tuples of elements in finite field incidence algebra over its prime field, without adjoining all scalar matrices; Frobenius orbits of diagonal tuples and covering relation",
+        "Galois conjugacy Frobenius orbital separation counts for generators of finite incidence rings and triangular matrix rings",
+        "random ring generators upper triangular finite field Galois conjugate diagonal vector",
+        "Kolegov and Markova Systems of Generators of Matrix Incidence Algebras over Finite Fields DOI:10.1007/s10958-019-04396-6"
+      ]
+    },
+    "rationale": "The first source counts generation after all coefficient scalar matrices are included, whereas this result counts unital ring generation without those scalars; the two probabilities demonstrably differ over nonprime fields. The second source already supplies the Frobenius orbit number for the diagonal étale quotient and is credited. Neither inspected paper supplies the needed local-to-global prime-field radical lifting and factorized ring generation formula for arbitrary incidence posets. Searches for aliases and stronger finite-algebra statements did not find an identical or dominating formula. Potential implicit earlier coverage remains a named risk; no uniqueness is asserted.",
+    "residual_risks": [
+      "An implicit prime-field ring statement might exist in the inaccessible full text of Kolegov (2023) or Kolegov–Markova (2018/2019).",
+      "An independently discovered, unindexed equivalent factorization could exist; search absence is not mathematical proof of uniqueness.",
+      "Wedderburn–Malcev is invoked as a standard structure theorem, not independently formalized."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts tuples plus all coefficient scalar matrices; covers the e=1 case, does not state the unassisted extension-degree formula",
+        "evidence": "Definitions of Gen_m(A,R) in Section 2, Lemma 4 diagonal/cover factors in Section 3, Theorem 7 in Section 4.",
+        "identifier_or_url": "https://arxiv.org/html/2509.00252v1",
+        "material_read": "Full HTML introduction, preliminaries and finite-ring Sections 3–4, including Lemmas 3–4 and Theorem 7 context",
+        "method": "Read accessible arXiv HTML sections, definitions and exact formulas",
+        "title": "On the probability of generating matrix incidence rings",
+        "trigger": "same incidence objects and exact random generation count"
+      },
+      {
+        "assessment": "Exactly covers the diagonal Frobenius orbit test and its generator threshold; no nonsemisimple incidence radical counting",
+        "evidence": "Theorem 1.1 and Proposition 3.2 give N_e(k); Lemma 3.3 identifies full Frobenius orbits.",
+        "identifier_or_url": "https://arxiv.org/abs/1709.06982",
+        "material_read": "Accessible full-text rendering of Introduction and Sections 2–3, especially Theorem 1.1, Lemma 2.2, Proposition 3.2, Lemma 3.3",
+        "method": "Read primary full-text HTML rendered on arXiv abstract page",
+        "title": "On the number of generators of a separable algebra over a finite field",
+        "trigger": "potential stronger Galois-orbit coverage of the semisimple diagonal quotient"
+      },
+      {
+        "assessment": "Random generation as unital algebra over a chosen coefficient field, not this exact incidence-ring law without coefficient scalars",
+        "evidence": "Definition of P(A) requires unital k-algebra generation; general bounds and asymptotic rather than exact incidence probability.",
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12827",
+        "material_read": "Public publisher full-text introduction and Section 9 summary on generator counts",
+        "method": "Read public online textual rendition",
+        "title": "Random generation of associative algebras",
+        "trigger": "possible stronger general finite associative-algebra probability theorem"
+      },
+      {
+        "assessment": "Cannot conclude whole-document noncoverage; residual uncertainty recorded",
+        "evidence": "2025 Kolegov paper attributes scalar-assisted Lemma 3 to its 2023 Theorem 1.1.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2022.12.025",
+        "material_read": "Bibliographic abstract and later cited restatement, but not the original full text",
+        "method": "Read publisher/repository metadata and its precise citation in arXiv:2509.00252v1",
+        "title": "On generators of incidence rings over finite posets",
+        "trigger": "same structural object, possible implicit ring generation criterion"
+      },
+      {
+        "assessment": "Does not establish equivalence to unassisted prime-field ring enumeration; full-text originality uncertainty retained",
+        "evidence": "Abstract explicitly lists minimal cardinality, length and strict generation criterion.",
+        "identifier_or_url": "https://doi.org/10.1007/s10958-019-04396-6",
+        "material_read": "Publication abstract on numerical invariants, generator cardinality and strict non-unital generation, not original full text",
+        "method": "Read public bibliographic abstract and published characterization",
+        "title": "Systems of Generators of Matrix Incidence Algebras over Finite Fields",
+        "trigger": "older finite-field incidence generators and possible exact tabulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68719a02-c8e5-4a48-8edb-1b38b2aec618",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unassisted random ring generation probability is a natural, presently distinct invariant from the scalar-assisted incidence-algebra probability, with direct implications for generating finite rings from actual matrix tuples. The finding supplies its complete exact formula for every finite poset, a sharp positive generator threshold, and a poset-independent Galois penalty separating finite-field extension and radical obstructions. The explicit F4 two-vertex count halves the scalar-assisted probability, showing mathematical substance beyond relabeling the known formula. The local cover splitting theorem is structural and supports comparisons across arbitrary Hasse diagrams; no unsupported downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
