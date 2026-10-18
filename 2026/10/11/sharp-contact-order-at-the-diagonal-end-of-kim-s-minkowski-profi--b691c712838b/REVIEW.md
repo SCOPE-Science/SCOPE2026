@@ -1,33 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact source vector field is expanded at \(p_4=(\pi/2,\pi/4)\). Its hyperbolic eigenvalues are
-\[
-\frac{m+n}{\sqrt2}
-\quad\text{and}\quad
--\frac1{\sqrt2}.
-\]
-The local unstable manifold has no linear transverse term, and its invariance equation forces
-\[
-b-\frac\pi4
-=
-\frac{(a-\pi/2)^2}{4(2(m+n)+1)}
-+
-O\!\left(|a-\pi/2|^3\right).
-\]
-Using the source coordinates \(\csc a=y'/x'\) and \(\tan b=y/x\) gives the exact ratio limit \(2(m+n)+1\). The identity \(y=x(y/x)\) then converts that ratio into the sharp power law \(y=x+C x^{2(m+n)+1}+o(x^{2(m+n)+1})\). The symbolic checker independently verifies the critical expansions.
+PASS
 
-## Originality
+Taking as hypotheses the precise phase ODEs quoted from Kim, set M=m+n, alpha=a-pi/2, beta=b-pi/4. The Jacobian has eigenvalues M/sqrt(2)>0 and -1/sqrt(2)<0, so the backwards-time convergent nontrivial branch is the unique local unstable manifold beta=c alpha²+O(alpha³). Its invariance equation gives 2Mc=1/4-c and c=1/[4(2M+1)]. Then q=csc a=1+alpha²/2+O(alpha^4), r=tan b=1+alpha²/[2(2M+1)]+O(alpha³), hence lim(q-1)/(r-1)=2M+1. Since y=xr and q=dy/dx, x d(r-1)/dx=2M(r-1)+O((r-1)^{3/2}). The angular error is integrable along x down to zero, giving r-1=C x^{2M}(1+o(1)) with C>0 and contact order 2M+1. The source verify.py correctly expands the exact quoted ODE and invariance coefficient; independently checked the linear/quadratic terms. This establishes the local conditional conclusion for all integers m,n>=1; source classification supplies existence of the geometric end. Full publisher manuscript was inaccessible, so exact transcription of its starting vector field and identification of the correct geometric branch remain unverified primary-premise risks.
 
-PASS with stated access risk. The primary source classifies the same profile end by its limiting point and angle and exposes the exact phase equations used here. The inspected relevant passages do not contain the higher-order unstable-manifold coefficient, the slope/radial-ratio limit, or the contact exponent. DOI-, object-, alias-, and formula-specific searches found no covering result. The publisher PDF itself was not openly accessible, so no claim of whole-document noncoverage is made from snippets alone.
+## originality
 
-## Value
+PASS
 
-PASS. The contact exponent is a natural, scale-invariant geometric invariant of the classified end. It shows that the profiles become increasingly flat against the diagonal as the symmetry dimension increases and supplies a precise local model where the source records only an angle. This is stronger than a routine eigenvalue calculation because it identifies and integrates the first nonlinear transverse term of the actual geometric separatrix.
+On accessible evidence, Kim classifies the phase ends and identifies diagonal tangency qualitatively; the audited quantitative contact exponent and ratio are additional local asymptotic information. The inaccessible same paper is explicitly named; best-of-knowledge PASS is conditional on its actual vector field and no hidden exact asymptotic theorem, not a claim to have read it.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Daehwan Kim, *Zero mean curvature submanifolds as generalizations of rotational surfaces in Minkowski space*, DOI 10.4064/ap250309-25-8. The theorem is restricted to the nontrivial branch tending to \(p_4\); the coefficient \(C\) varies under dilation. The downloadable publisher PDF was not openly accessible during this review, leaving a residual bibliographic risk explicitly recorded in the audit.
+The source classification produces a geometrically canonical singular endpoint; finding its precise first nontrivial departure from its tangent ray is a natural local invariant. The explicit high-order exponent 2(m+n)+1 is universal, dimension-dependent and sensitive to the unstable manifold quadratic coefficient rather than a trivial restatement of angle pi/4. The result assists geometric asymptotic matching and distinguishes tangency strengths across the entire dimension family without claiming a global theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
