@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Set
-\[
-v=\frac1{\sqrt2}
-\begin{pmatrix}
-1\\
-1
-\end{pmatrix},
-\qquad
-U=I,
-\qquad
-C=
-\begin{pmatrix}
-1&0\\
-0&-1
-\end{pmatrix}.
-\]
-For every \(j,k\),
-\[
-f_j=f_k=v
-\]
-and
-\[
-\langle C f_j,U f_k\rangle
-=
-\langle Cv,v\rangle
-=
-0.
-\]
-Hence the controlled Gram matrix is the zero operator on \(\ell^2\).
+# Independent mathematical audit
 
-At the same time,
-\[
-|\langle v,f_k\rangle|^2=1
-\]
-for every \(k\), so
-\[
-\sum_{k=1}^{\infty}|\langle v,f_k\rangle|^2=\infty.
-\]
-The sequence is not Bessel.
+## correctness
 
-For the repair, if
-\[
-A=U^*C\in GL^+(H),
-\]
-then
-\[
-\langle C f_j,U f_k\rangle
-=
-\langle A^{1/2}f_j,A^{1/2}f_k\rangle.
-\]
-Thus the controlled Gram matrix is an ordinary Gram matrix. A bounded ordinary Gram matrix gives a bounded synthesis map on finitely supported sequences and therefore a Bessel sequence. Since \(A^{-1/2}\) is bounded, Besselness of \(A^{1/2}f_k\) is equivalent to Besselness of \(f_k\).
+PASS
 
-The complete source proof was inspected in the first public PDF, including the page where its third case discards the \(M^\perp\) component. No numerical approximation, finite truncation, or experimental inference is used.
+Exact repeated unit vector v=(1,1)/sqrt2 and U=I,C=diag(1,-1) make all controlled Gram entries <Cv,v>=0, whereas the sum of |<v,f_k>|² diverges. Under U* C positive bounded invertible, the matrix is ordinary Gram for (U* C)^(1/2) f_k; finite-synthesis identity proves bounded Gram iff Bessel. The invalid h in M-perp argument was checked against the full primary lemma.
+
+## originality
+
+PASS
+
+Source-specific statement/implication searches and mathematical comparison support a distinct finding; relevant full-text access limitations and database outage are retained explicitly.
+
+## value
+
+PASS
+
+A false necessary-and-sufficient diagnostic in a published frame lemma is a significant structural error; a bounded zero controlled Gram for a maximally non-Bessel repeated sequence invalidates the intended test, and the positive-product repair gives a useful correct characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
