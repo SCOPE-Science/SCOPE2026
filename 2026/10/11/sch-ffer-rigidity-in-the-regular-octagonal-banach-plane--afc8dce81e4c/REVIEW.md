@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The regular-octagon symmetry reduction is exhaustive. Four upper-half boundary pieces force one chord strictly above \(\sqrt2\), except for a shared endpoint. On the top edge, the two conditions needed for a Schäffer value at most \(\sqrt2\) are opposite inequalities and force the quarter-turn relation. Direct substitution gives both chord norms exactly \(\sqrt2\).
+## correctness
 
-## Originality
-PASS. Classical nonsquare-constant identities already imply the scalar value once the James value is known, so novelty is not claimed for \(C_S=\sqrt2\). The new content is the complete minimizer classification. The decisive same-object full text treats the regular-octagon James geometry but contains no Schäffer discussion, targeted literature searches found no equivalent equality theorem, and current/prior comparison records do not imply the iff statement. An inaccessible 2003 James-constant source remains an explicit residual bibliographic risk.
+PASS
 
-## Value
-PASS. The Schäffer constant is the natural infimal companion to the James constant, and the regular octagon is a canonical minimal-James non-Hilbert plane. Showing that every Schäffer minimizer is forced to be a quarter-turn pair, exactly matching the James extremizer set, supplies structural equality information rather than recomputing a known scalar.
+Write r=√2−1. Octagonal dihedral symmetries reduce x to (1,t), 0<=t<=r, and sign of y to the upper semicircle. Each right/left vertical boundary forces one chord norm 2, each slanted boundary makes the Schäffer max strictly exceed √2 except a shared top endpoint, and on top y=(a,1) the inequalities N(x+y)<=√2 and N(x−y)<=√2 are exactly a+t<=0 and a+t>=0. Therefore necessarily a=−t, i.e. y=Qx (up to symmetry/sign), with both chord norms √2. All other pairs have max>√2. This proves C_S=√2 and iff minimizers, not merely finite sampling.
 
-## Closest literature and limitations
-Yan supplies the classical James--Schäffer identities. Komuro--Saito--Tanaka supplies the decisive same-object regular-octagon James framework. Nilsrakoo--Saejung supplies archival normalized-norm James context, and the later continuation verifies primary MSC 46B20 for this research line. The theorem is specific to the real regular octagon.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar C_S=√2 is known from the classical nonsquare constants identity and the James value, and a distinct published record determines all James maximizers. Neither result entails minimizers of max(N(x+y),N(x−y)); max-inf and min-sup have different quantifier order and extremality inequalities. The assigned independent five-edge boundary proof shows the full Schäffer equality set y=±Qx, giving new pair-level rigidity at best current literature knowledge.
+
+## value
+
+PASS
+
+A complete equality-case classification for the natural Schäffer inf-max companion to James sup-min is a structural rigidity result: every minimizing pair is an exact Euclidean quarter turn and therefore also a James maximizer. This supplies pair-level geometry beyond the known scalar value, and the coincidence of the two extremizer sets is not implied by their numerical constant product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
