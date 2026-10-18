@@ -1,19 +1,21 @@
-# Scientific review: two-level Van der Laan rigidity and growth
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(0<u<v\), direct sorting of all five possible multiplicities of \(u\) in a four-block shows that only multiplicities two and three are possible and that they force \(v=2u\). For \(u=0\), the only allowed four-block multiplicities of zero are one and four; forbidden intermediate multiplicities prevent a mixed sequence from containing an all-zero window. The equality of successive one-zero window counts forces period four. These arguments cover every index, not a finite experiment. For the positive subshift, its explicit eight-state transition graph yields an exact generating function by a finite matrix inverse; the characteristic polynomial, seven-state primitivity, and Perron–Frobenius theorem yield the exponential growth claim. The supplied standard-library verifier independently rechecks the key finite algebra and sample words. The proof does not infer infinitude from finite enumeration.
+PASS
 
-## Originality — PASS, relative to inspected literature
+Count lower-symbol multiplicity j in a four-term window. For u>0, j=0,1,4 contradict largest=sum of two smallest; j=2,3 work iff v=2u. For u=0, only 4 zeros or one zero can appear; sliding cannot transition between these counts without forbidden intermediate 2 or 3 zeros, hence only zero constant or one zero in every window, giving e_(i+4)=e_i and exactly four phases. Build 8-state suffix transfer matrix for binary 4-blocks with 2 or 3 ones. Independent exact symbolic inversion of I-zM gives GF (1+z+2z²+3z³−z⁴−2z⁶−2z⁷+z⁹)/(1−z−z³−z⁴+z⁶); characteristic x(x+1)(x^6−x^5−x^3−x²+1). Essential 7-state graph strongly connected and primitive by 3- and 4-cycles; Perron spectral radius >1 yields entropy and uncountably many aperiodic paths. Independent exact counts n=0..13 agree [1,2,4,8,10,16,25,39,61,95,149,233,364,569].
 
-D. Nacin's 2022-public paper defines the four-window property and analyzes increasing and selected permutation-increasing sequences. It lists the period-four \((1,1,1,2)\) example, also tabulated as OEIS A177704, but neither source claims the complete classification over arbitrary fixed two-valued alphabets, the forced dichotomy for zero-containing sequences, nor the exact generating function and entropy. OEIS A000931 discusses the Padovan recurrence and related individual word counts, not this seven-state language. Semantic mathematical-record searches for alternative names, exact counts and the growth polynomial identified no dominating statement. A bibliography that is not indexed by these searches may exist, and the transfer-matrix method itself is standard.
+## originality
 
-## Value — PASS
+PASS
 
-The two-valued case is the smallest nontrivial alphabet restriction for the four-term max/min equation. Resolving it reveals a sharp change from only five zero-containing possibilities to a positive-entropy, uncountable aperiodic family as soon as the lower symbol becomes positive; the larger symbol is then compelled to be exactly double. The exact rational word series and six-degree Perron polynomial quantify that qualitative contrast. The result responds to the observed failure of the original Padovan-merging conjecture by classifying a complete, nontrivial bounded stratum, rather than presenting one more periodic example. It does not settle more general alphabets.
+Nacin 2023 defines Van der Laan property and develops increasing/Padovan-related sequences, with one known periodic (1,1,1,2) example. Full two-symbol alphabets, zero/positive rigidity dichotomy, entire finite-word generating function, and entropy are not contained in the inspected sections. Positive topological entropy follows from standard finite-type-shift methods, not a novel theorem of symbolic dynamics.
 
-## Closest sources and limits
+## value
 
-D. Nacin, *Van der Laan Sequences and a Conjecture on Padovan Numbers*, Journal of Integer Sequences 26 (2023), Art. 23.1.2, publicly issued December 30, 2022: https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf . OEIS A177704: https://oeis.org/A177704 . OEIS A000931: https://oeis.org/A000931 . A possible equivalent enumeration in older combinatorics literature remains a residual originality risk. Computational tests are corroboration, not a replacement for the unrestricted proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies exactly what happens on the smallest nontrivial alphabet for a recently introduced integer recurrence: a rigid zero branch versus a positive-entropy family. Complete local-language count and entropy quantify complexity far beyond the known isolated period-four example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

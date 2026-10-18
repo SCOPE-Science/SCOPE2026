@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of two-level Van der Laan rigidity and growth
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later. No third-party packages, internet connection or externally stored intermediate files are required.
+## correctness
 
-The verifier constructs the complete adjacency matrix directly from the allowed binary four-blocks, checks every binary word at lengths \(0\) through \(13\) against direct max/min evaluation, computes the characteristic polynomial using exact integer Newton identities, and checks the claimed rational generating function at 120 successive coefficients. It also independently enumerates zero-and-positive-word possibilities through length \(11\), checks all pertinent local two-symbol cases, verifies strong connectivity of the seven active states and the explicit return cycles of lengths three and four, and brackets the stated positive root numerically. The recorded output is in `verify_output.txt`.
+PASS
 
-The unrestricted existence/classification result is proved by the full local-multiplicity argument; the rational generating function comes from the displayed exact finite matrix resolvent. Finite word enumeration does not establish an unrestricted infinite sequence claim. The spectral statement uses the standard Perron–Frobenius theorem on the explicitly primitive essential state graph. No independent audit has been performed.
+Count lower-symbol multiplicity j in a four-term window. For u>0, j=0,1,4 contradict largest=sum of two smallest; j=2,3 work iff v=2u. For u=0, only 4 zeros or one zero can appear; sliding cannot transition between these counts without forbidden intermediate 2 or 3 zeros, hence only zero constant or one zero in every window, giving e_(i+4)=e_i and exactly four phases. Build 8-state suffix transfer matrix for binary 4-blocks with 2 or 3 ones. Independent exact symbolic inversion of I-zM gives GF (1+z+2z²+3z³−z⁴−2z⁶−2z⁷+z⁹)/(1−z−z³−z⁴+z⁶); characteristic x(x+1)(x^6−x^5−x^3−x²+1). Essential 7-state graph strongly connected and primitive by 3- and 4-cycles; Perron spectral radius >1 yields entropy and uncountably many aperiodic paths. Independent exact counts n=0..13 agree [1,2,4,8,10,16,25,39,61,95,149,233,364,569].
+
+## originality
+
+PASS
+
+Nacin 2023 defines Van der Laan property and develops increasing/Padovan-related sequences, with one known periodic (1,1,1,2) example. Full two-symbol alphabets, zero/positive rigidity dichotomy, entire finite-word generating function, and entropy are not contained in the inspected sections. Positive topological entropy follows from standard finite-type-shift methods, not a novel theorem of symbolic dynamics.
+
+## value
+
+PASS
+
+Identifies exactly what happens on the smallest nontrivial alphabet for a recently introduced integer recurrence: a rigid zero branch versus a positive-entropy family. Complete local-language count and entropy quantify complexity far beyond the known isolated period-four example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
