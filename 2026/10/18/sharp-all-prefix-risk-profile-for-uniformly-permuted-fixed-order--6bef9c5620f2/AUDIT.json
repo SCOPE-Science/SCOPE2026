@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact expectation decomposition (1), bias identity (2), and RR finite-population formula (3) were rederived with all indices and quantifiers. The full sample-mask quadratic form decomposes into trivial and block-contrast representations, its top eigenvalue is the 2x2 formula, and Sylvester criterion plus a convex quadratic polynomial proves the strict partial-prefix bound. Exact permutation enumerations and rational principal-minor checks passed 8260 tests from the supplied CHECK.py; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical cluster sampling addresses whole selected clusters and a cluster design effect, encompassing the block-boundary ratio.",
+        "The 2026 analysis covers the named shuffling method and a variance decomposition but omits the full per-individual-prefix minimax profile."
+      ],
+      "reasoning": "Existing whole-cluster covariance bounds subsume the global constant at multiples of block size, so this is treated as context, not new. They do not settle the exact interior profile with a fixed nonrandom within-cluster order. No stronger covering primary statement was found, but older specialized survey-sampling theory is incompletely checked.",
+      "searches": [
+        "cluster sampling design effect equal size cluster finite population maximum",
+        "systematic sampling design effect partial cluster finite population order",
+        "random reshuffling sample prefix gradient variance block order"
+      ]
+    },
+    "checked_sources": [
+      "Nguyen, Phan, Kalagnanam, arXiv:2604.00260v1, Sections 2.2, 3.1, Appendix A.1--A.3",
+      "Mishchenko, Khaled, Richtárik, arXiv:2006.05988, Section 7",
+      "Arnold, Sample Surveys, Chapter 11 Sections 11.1--11.3 (whole and two-stage cluster design effect)",
+      "Classical cluster sampling sources on complete-cluster design effects (context, not full coverage)",
+      "Closest public mathematical record: Rounded proportional allocation can reverse gradient-clustered variance reduction (different block-allocation setting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For m=qb, dividing the 2026 paper’s two existing variance formulas gives (Kb-1)/(K-1) times the between-block variance fraction. This complete-block corollary is explicitly excluded from novelty.",
+        "For m=qb+r with 0<r<b, the fixed internal order can induce nonzero bias, and the 2026 comparison of k complete block means does not define this statistic.",
+        "The sharp per-prefix spectral expression and its strict partial-prefix gap were independently established by decomposing the permutation mask into block-constant and block-contrast modes."
+      ],
+      "reasoning": "The new claim is stronger in index range and stronger in norm optimality than the whole-block identity. A combination of classical identities helps prove it, but an asserted partial-prefix theorem with exact sharp eigenvalues was not encountered. The value and novelty attach to that nontrivial combined classification, not elementary variance decomposition.",
+      "searches": [
+        "Learning to Shuffle Block Reshuffling Reversal Proposition 3.4 matched individual sample prefix",
+        "Random Reshuffling Simple Analysis with Vast Improvements Section 7 finite population lemma",
+        "random block permutation complete and incomplete block prefixes sharp worst case variance amplification against random reshuffling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nguyen, Phan, Kalagnanam (arXiv:2604.00260v1), Proposition 3.4 computes block-level prefix variance for full blocks; no partial-block mask covariance is stated in Sections 2.2, 3.1 or Appendix A.1--A.3.",
+        "Mishchenko, Khaled, Richtárik (arXiv:2006.05988), Section 7 is the usual sample-without-replacement finite population identity, not a fixed-order grouped comparison."
+      ],
+      "reasoning": "The target statement is an attained sharp spectral constant for every incomplete individual-observation prefix under a random block ordering with deterministic within-block positions. A complete-block cluster design effect or an individual-only prefix formula does not by itself imply the strict interior spectral gap or the exact two-dimensional eigenvalues; these require the partial-mask operator. No equivalent formulation was identified in the inspected material.",
+      "searches": [
+        "Sharp all-prefix variance envelope fixed-order block reshuffling random block permutations exact spectral risk 2x2 partial block",
+        "random block permutation complete and incomplete block prefixes sharp worst case variance amplification against random reshuffling",
+        "partial cluster survey sampling design effect incomplete last cluster variance eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research search results were compared by claim text, including a result on rounded cluster allocation (a different stratification and rounding mechanism), and results on random block-count distributions; no exact match was identified.",
+        "No table of all-prefix sharp variance ratios appeared in the inspected primary source."
+      ],
+      "reasoning": "The object is a symbolic continuum of Euclidean vector arrays with arbitrary K,b,m, not a known finite table or one numerical value. A failed database search is not proof of absolute uniqueness; the conclusion is limited to the actual comparisons.",
+      "searches": [
+        "Sharp all-prefix variance envelope fixed-order block reshuffling random block permutations exact spectral risk 2x2 partial block",
+        "matched sample block reshuffle variance table partial prefix",
+        "random permutation of blocks incomplete prefix covariance eigenvalues"
+      ]
+    },
+    "rationale": "Best-knowledge originality: the arXiv:2604.00260v1 full-text propositions treat whole blocks as sampling units and the usual RR finite-population lemma. Whole-cluster design effects are known and not claimed new. The assessed mathematical extension is the complete sharp per-individual-prefix eigenvalue law with order bias, equality and strict partial-block gap. Full relevant primary sections were inspected; remaining older partially filled cluster theory is a real bibliographic risk.",
+    "residual_risks": [
+      "An earlier survey-sampling text may give the same sharp partially completed cluster design-effect spectrum under equivalent terminology; some relevant classical texts were not inspected in full.",
+      "The result is a fixed-gradient exact risk comparison and does not establish a full SGD convergence consequence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS complete-block block-variance and sample-level RR identities; does not state the exact all-individual-prefix 2x2 spectral law or the fixed-order incomplete-block bias",
+        "evidence": [
+          "Proposition 3.3 is sample-level RR; Proposition 3.4 samples complete block means; their sample units differ.",
+          "Appendix A.3 derives Proposition 3.4 from the standard finite-population lemma, with no incomplete-block case."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.00260v1",
+        "material_read": "Sections 2.2, 3.1, Appendix A.1--A.3 and the method description of uniform block permutations",
+        "method": "Accessible primary HTML full-text sections and formula comparison",
+        "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+        "trigger": "Same block-reshuffling method and possible coverage of prefix risk"
+      },
+      {
+        "assessment": "COVERS ordinary without-replacement sampling, not the stated arbitrary fixed-order block-prefix ratio",
+        "evidence": [
+          "Section 7, Lemma 1 gives exact mean and variance for a uniform sample without replacement.",
+          "The paper analyzes full random reshuffling and shuffle once, rather than random permutation of fixed internal-order blocks."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2006.05988",
+        "material_read": "Introduction, random reshuffling method, Section 7 finite-population lemma and its proof; searched for block and prefix grouping",
+        "method": "Primary preprint full HTML, section and term inspection",
+        "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+        "trigger": "Classical stronger sampling lemma and possible grouped sampling variant"
+      },
+      {
+        "assessment": "COVERS classical one-stage whole-cluster sampling and two-stage within-cluster sampling. No fixed-order incomplete block prefix spectral extremal comparison identified in inspected chapter.",
+        "evidence": [
+          "Chapter 11 defines one-stage sampling as a census of randomly selected clusters and two-stage sampling as sampling additional units inside each chosen cluster.",
+          "Discussion of design effects concerns variance costs of clustered samples; no all-prefix fixed-order extremal eigenvalue formula in the inspected material."
+        ],
+        "identifier_or_url": "https://homepages.ecs.vuw.ac.nz/~rarnold/STAT392/SampleSurveysBook/_book/cluster-sampling.html",
+        "material_read": "Sections 11.1--11.3 on cluster-level sampling, within-cluster selection and design effect",
+        "method": "Full accessible chapter HTML; materially inspected relevant definitions, selected samples and design-effect statements",
+        "title": "Sample Surveys, Chapter 11: Cluster Sampling",
+        "trigger": "Primary survey sampling context potentially stronger than the optimization paper"
+      },
+      {
+        "assessment": "Related whole-cluster sampling, not enough accessible material to rule out all partial-cluster formulae",
+        "evidence": [
+          "Excerpts define random cluster selection and cluster totals.",
+          "Full source inspection was not achieved; possible coverage is retained as a risk."
+        ],
+        "identifier_or_url": "https://online.stat.psu.edu/stat506/Lesson07",
+        "material_read": "Search-result excerpts describing primary sampling units and cluster totals; page retrieval timed out",
+        "method": "Bibliographic and excerpt comparison only, not complete full-text assessment",
+        "title": "Sampling Theory and Methods, Lesson 7 (cluster and systematic sampling)",
+        "trigger": "Classical complete-cluster variance precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bef9c56-20f2-431b-a61d-e733733f9906",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete natural classification of every gradient-prefix sampling budget in fixed-order block shuffling: exact sharp variance inflation, a nontrivial incomplete-block spectral profile and bias, strictness versus whole-block endpoints, and the exact between/within-block comparison criterion. The construction responds to a current numerical-optimization design question while carefully excluding classical whole-block identities and any unproved convergence/runtime implications.",
+    "status": "PASS"
+  }
+}
