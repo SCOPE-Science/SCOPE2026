@@ -1,9 +1,21 @@
-# Review of binary weighted-shift smoothness
+# Independent mathematical audit
 
-**Correctness — PASS.** The Jacobi reduction is exact for arbitrary bounded complex perturbations, not just finite matrices. For binary weights, all path-block spectra and their top sine eigenvectors are explicit. Unique finite maximal run gives a uniform eigenvalue gap and a real Fréchet expansion whose first-order term ignores all zero-weight edges. Two equal maxima and unbounded run lengths yield explicit directions with unequal one-sided derivatives. Finite eigenvalue spot checks are not used to prove infinite claims.
+## correctness
 
-**Originality — PASS, with limitations.** Sharif's 2023 study of the numerical-radius norm on bounded sequences gives the structural spectral reduction but not the binary smoothness phase. Roy and Sain's 2021 finite-dimensional operator-space smoothness results and the general numerical-range characterization of Martín and collaborators do not compute the unique-longest-run criterion or its gradient. Standard spectral perturbation is a proof ingredient and not the fully evaluated infinite binary classification. A historical equivalent in unindexed literature remains possible.
+PASS
 
-**Mathematical value — PASS.** The binary weights comprise the natural extreme points of the positive unit cube and describe disjoint unions of unweighted paths. The classification exhibits a sharp structural differentiability transition at unique finite longest run and includes binary sequences with infinitely many nonzero coordinates. The exact derivative determines sensitivity to every bounded complex perturbation. It does not classify arbitrary nonbinary weights or perturbations by nonshift operators.
+Gauge phase alignment reduces the weighted-shift numerical radius on full complex ℓ∞ (as a real Banach norm) to the top of a bipartite Jacobi matrix with offdiagonal |a_n|/2. Binary zeros decompose it into path blocks; a run of m ones has top eigenvalue cos(π/(m+2)) and normalized sine eigenvector. If one finite run uniquely attains the maximum, other blocks lie below by a uniform spectral gap δ_m>0; Rayleigh decomposition gives O(||E||²/δ_m) uniformly for arbitrary bounded complex perturbations. Although modulus at zero is nonsmooth, the winning eigenvector sees only base-one edges, where |1+h|=1+Re h+O(|h|²), giving the exact real Fréchet derivative. In a tied maximum, scaling one run changes the right slope while another holds the left flat. For arbitrarily long/infinite runs, choose disjoint alternating long all-one blocks with ± signs, producing N(a+th)=1+|t| for small t. At a=0 every norm is nonsmooth. All binary cases exhausted; no finite-section inference.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact path radius and standard simple-eigenvalue perturbation tools are classical inputs. However the complete binary ℓ∞ dichotomy including arbitrarily many infinite-support runs and unrestricted complex perturbations is not entailed by the closest published spectral-gap result, which explicitly assumes every weight nonzero with moduli tending to b>0. Finite graph smooth-locus results cover each finite truncation but do not establish uniform infinite-sequence failure directions or global uniform spectral gap.
+
+## value
+
+PASS
+
+Binary {0,1} sequences are a natural combinatorial skeleton of the numerical-radius norm, encoding disjoint paths. A complete classification and explicit full-ℓ∞ derivative separate isolated unique spectral winners from ties and infinite edge accumulation. It is a motivated exact smooth-locus boundary rather than a small arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
