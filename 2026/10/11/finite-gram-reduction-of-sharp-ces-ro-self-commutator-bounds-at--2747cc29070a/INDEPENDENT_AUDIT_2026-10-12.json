@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T23:04:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Ma arXiv:2610.00193v1 Theorem2.3, Lemma3.2, §2.1 right inverse",
+        "Rhaly 2018 DOI:10.7153/oam-2018-12-08 §§2-3",
+        "actual RESULT.md Git blob f6cd82feca925cc215416fd1931715210e743be5",
+        "actual checker source blob 8c7df751fee4941da474f0c903fa7460d042223c"
+      ],
+      "rationale": "Independent inspection of Ma arXiv:2610.00193v1, Theorem 2.3 (2.15)-(2.18), confirms bounded B, the operator defect Q=R+sum lambda_r v_r v_r*, and exact finite-support right inverse ML=I; source polynomials p_{m,r} match the package. Density of M(c00) reduces sharp ratio to weighted R-Rayleigh infimum on c00, with strictly positive r_n. As n->infty, r_n=m^2/n+O(n^-2), v_0~1/n gives divergent sum |v0|^2/r_n, while v_r=O(n^-r-1), r>=1 gives convergent weighted Gram. For alpha>0 the positive unbounded weighted-functional rank-one term can be killed by increasingly distant finite-support tails at arbitrarily small R-norm: kernel dense in weighted completion, so omitting it does not change infimum. Then the remaining bounded weighted finite-rank selfadjoint operator has nonzero spectrum that of G^(1/2) Lambda G^(1/2), and the infinite-dimensional orthogonal complement supplies eigenvalue zero; hence 1+min(0,lambda_min). For -1<alpha<0, truncating R^-1 v0 drives negative lambda0 Rayleigh quotient to -infinity while other rank-one terms are weighted bounded. alpha=0 all lambdas zero. At m=2, G11 digamma telescoping and lambda1=3alpha(alpha^2-1) give explicit value; order-two Cauchy-Schwarz nonattainment in 0<alpha<1 follows because R^-1 v1 is not orthogonal to v0. Independently re-evaluated 20,000 positive summands at alpha=1/2 giving c=0.9859318143428387 versus 261/560+3 log2/4=0.9859318139913875 with positive truncation difference 3.52e-10. Finite test does not prove the all-order analytic identity. Boundary m=1 uses empty matrix convention.",
+      "residual_risks": [
+        "The exact coefficient is relative to the specified natural diagonal weight R and Ma integer-order Cesaro family, not arbitrary weighted means.",
+        "All-order decomposition is a nontrivial published input inspected directly, not proved by the small finite-column script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma arXiv:2610.00193v1 equations (2.15)-(2.18), Lemma3.2 1/36 bound.",
+          "Rhaly 2018 Corollary2.4 alpha in {0} union [1,infinity) and Conjecture3.2 for 0<alpha<1."
+        ],
+        "reasoning": "Ma’s all-order operator identity and positivity theorem are broader algebraic machinery, but their conclusions are weaker for sharp coefficients. Rhaly 2018 covers order two qualitative positivity only; neither yields the exact Gram eigenvalue without the density argument.",
+        "searches": [
+          "Resultary semantic query: generalized Cesàro matrix sharp weighted self commutator coefficient finite rank Gram eigenvalue"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00193v1",
+        "https://files.ele-math.com/articles/oam-12-08.pdf",
+        "https://api.github.com/repos/Resultary/2026/contents/2026/10/11/SCOPE-exact-unit-strength-regime-for-generalized-ces-ro-self-commutato--e67d7d5a407f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparison with complete published exact-unit-strength RESULT.md, Ma Theorem2.3 and Lemma3.2, Rhaly §3."
+        ],
+        "reasoning": "New c_m(alpha) formula implies prior threshold and strengthens Ma lower bound, whereas the converse fails: c<1 plus c>=1/36 leaves a continuum of possibilities and does not imply 261/560+(3/4)log2 or nonattainment.",
+        "searches": [
+          "Resultary semantic query: generalized Cesàro matrix sharp weighted self commutator coefficient finite rank Gram eigenvalue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma Theorem2.3 decomposes Q but does not optimize c_m(alpha); Lemma3.2 bounds it below.",
+          "Published exact-unit-strength paper proves c_m(alpha)=1 classification but does not derive values for 0<alpha<m-1 noninteger."
+        ],
+        "reasoning": "The weighted commutator modulus is equivalently the bottom of a generalized Rayleigh quotient; an existing sufficient bound, positivity criterion or spectral sign test does not compute that bottom.",
+        "searches": [
+          "Resultary semantic query: generalized Cesàro matrix sharp weighted self commutator coefficient finite rank Gram eigenvalue",
+          "Ma Theorem 2.3 finite rank weighted self-commutator exact coefficient search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-unit-strength published RESULT.md: explicit limitation no exact c_m(alpha) in noninteger bands; matched exact same c but strictly weaker.",
+          "Resultary self-hit excluded; other Cesaro trace/Schatten results concern trace or singular numbers."
+        ],
+        "reasoning": "The closest Resultary exact-one coefficient result is a table/classification of where value is 1, but excludes all noninteger-band values; it cannot replace the new full spectral formula or m2 digamma constant. Related trace results quantify different invariants.",
+        "searches": [
+          "Resultary semantic query: generalized Cesàro matrix sharp weighted self commutator coefficient finite rank Gram eigenvalue"
+        ]
+      },
+      "rationale": "Ma gives a crucial exact rank-m defect but only a nonsharp universal 1/36 coefficient and the Cauchy-Schwarz lower estimate, not its optimal quotient-Rayleigh value. Rhaly only treats order-two interrupter/hyponormality. The separate published exact-unit-strength result determines only alpha bands where the same c equals 1, not its numeric values below 1, cross-Gram interactions, or nonattainment. The new content is the weighted-unbounded rank-zero removal and exact all-orders spectral minimax theorem; possible older implicit derivations remain a residual risk.",
+      "residual_risks": [
+        "The exact coefficient is relative to the specified natural diagonal weight R and Ma integer-order Cesaro family, not arbitrary weighted means.",
+        "All-order decomposition is a nontrivial published input inspected directly, not proved by the small finite-column script.",
+        "An older operator-theoretic expression for this exact minimax/Gram spectrum under interrupter terminology could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_PARTIAL: rank-m identity, uniform bound and qualitative hyponormality do not state sharp Gram Rayleigh infimum.",
+          "evidence": "Theorem2.3 (2.16)-(2.18); Lemma3.2 (3.7) uses weighted Cauchy-Schwarz lower bound and explicitly does not use divergent v0 term.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00193v1",
+          "material_read": "Full relevant §§2.1-2.4 and 3.1 including Theorem2.3, Lemma3.2, equations (2.1)-(2.18), §7 context.",
+          "method": "arXiv primary HTML equation-by-equation inspection",
+          "title": "Hyponormality of generalized Cesàro matrices of every positive integer order",
+          "trigger": "Same operators, parameters, exact defect decomposition and possible dominating theorem"
+        },
+        {
+          "assessment": "PARTIAL_NOT_COVERING: proves alpha=0 and alpha>=1 hyponormality; conjectures 0<alpha<1; no sharp parametric weighted coefficient reported.",
+          "evidence": "Corollary2.4, §3 Conjecture3.2 and main interrupter Theorem2.1.",
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-12-08.pdf",
+          "material_read": "Original PDF abstract, §§1-3 and Conjecture 3.2; theorem formulas and conclusions examined.",
+          "method": "Primary PDF text with equations / section inspection",
+          "title": "Supraposinormality and hyponormality for generalized Cesàro matrices of order two",
+          "trigger": "Earlier exact same order-two matrices and interrupter potential"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: establishes c=1 iff alpha integer or alpha>=m-1, explicitly leaves exact values in strict noninteger bands undetermined.",
+          "evidence": "Finding and Limitations section explicitly says no exact values when 0<alpha<m-1 and noninteger.",
+          "identifier_or_url": "https://api.github.com/repos/Resultary/2026/contents/2026/10/11/SCOPE-exact-unit-strength-regime-for-generalized-ces-ro-self-commutato--e67d7d5a407f/RESULT.md",
+          "material_read": "Complete publicly available RESULT.md including proof, limitations and references.",
+          "method": "Published source GitHub blob read",
+          "title": "Exact unit-strength regime for generalized Cesàro self-commutator bounds",
+          "trigger": "Same invariant and natural stronger coverage candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ma arXiv:2610.00193v1 §3",
+        "Published exact-unit-strength-result full RESULT.md",
+        "Actual proof and independent 20,000-term m2 diagnostic"
+      ],
+      "rationale": "Computing the exact sharp relative self-commutator coefficient is a natural operator-theoretic invariant already central to qualitative hyponormality. Finite-dimensional Hermitian spectral reduction for every integer order is a reusable exact quantitative tool, not mere finite truncation. The m=2 closed digamma profile and proven nonattainment quantify real behavior missed by the source’s 1/36 estimate and the prior binary c=1 classification. Existing rank decomposition does not automatically establish the dense-kernel infimum or sharpness.",
+      "residual_risks": [
+        "An older operator-theoretic expression for this exact minimax/Gram spectrum under interrupter terminology could be unindexed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact coefficient is relative to the specified natural diagonal weight R and Ma integer-order Cesaro family, not arbitrary weighted means.",
+    "All-order decomposition is a nontrivial published input inspected directly, not proved by the small finite-column script.",
+    "An older operator-theoretic expression for this exact minimax/Gram spectrum under interrupter terminology could be unindexed.",
+    "Export preparation was incomplete in the original submission; this administrative note does not change the scientific assessment or its limitations."
+  ],
+  "schema_version": 1
+}
