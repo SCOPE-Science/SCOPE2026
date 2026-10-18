@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the definition exactly: all outer vertices automatically satisfy strong oddness in every proper coloring, while the center sees all outer vertices and therefore forces each used outer color to have odd multiplicity. The necessary color counts follow from parity and the fact that one color can occupy at most one endpoint of each outer edge. For every remaining allowed count, odd class sizes bounded by \(k\) are constructed and paired across different colors via the complete-multipartite perfect-matching criterion. The bundled verifier independently checks all canonical set partitions for \(2\le k\le5\).
+## correctness
 
-## Originality
-PASS. The most relevant recent broader result, arXiv:2610.01441v1, computes an optimal strong odd coloring for every block graph and therefore covers minimum-value computability in principle. It does not classify all feasible color counts. The other primary source, arXiv:2602.03259v1, studies exact values for cycle joins and special one-point unions but contains no friendship/windmill statement. published-finding corpus and own-ledger searches found no friendship strong-odd spectrum. The new claim is therefore the full color-count spectrum and structural parity characterization, not merely an algorithm for the minimum.
+PASS
 
-## Value
-PASS. Friendship graphs are a standard, highly symmetric block-graph family. The theorem completely classifies every attainable number of colors and reveals a sharp parity transition: odd \(k\) permits three colors, while even \(k\) forces at least five, after which every odd count through \(2k+1\) is attainable. This is a natural complete classification and a useful closed-form benchmark for the new block-graph algorithmic theory.
+In any proper coloring center c is fresh and each outer edge has two distinct endpoint colors. Each outer vertex automatically meets odd neighborhood counts because it sees distinct center and partner colors. At c, each outer color has positive odd multiplicity <=k. There must be an even number q of outer colors; q=2 forces both sizes k and is possible iff k odd. For even 4<=q<=2k, choose positive odd class sizes d_i<=k summing to 2k by distributing k-q/2 units among q capacities floor((k-1)/2); capacity is sufficient. A complete multipartite graph with these classes has a perfect matching because largest part <=k, placing distinct colors at each edge. This proves all allowed counts for every k>=2. Independent canonical partition enumeration gave F2:{5}, F3:{3,5,7}, F4:{5,7,9}.
 
-Closest literature and residual risks are recorded in `AUDIT.json`. The result does not claim a spectrum theorem for generalized windmills or arbitrary block graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The block-graph optimization result encompasses minimum-color computability on F_k, but does not itself determine the feasible spectrum, its missing counts or parity threshold. The inspected cycle-join/one-point-union paper does not furnish the matching spectrum classification. Full block-graph paper unavailable this run, explicitly a residual risk, not automatic originality failure.
+
+## value
+
+PASS
+
+A complete spectrum for a natural block-graph family reveals a sharp parity transition of the minimum and proves gaplessness above that bound in odd steps; useful structural benchmark for the recent general algorithm. The full attainable-count classification is more than computing one easy optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
