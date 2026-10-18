@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The normalized harmonic-oscillator eigenvalue equation, Hermite boundary values, and vanishing Wronskian at positive infinity yield an exact scaled-Cauchy cross-parity matrix. Every maximal minor is nonzero, so the midpoint eigenvalue multiplicity and complementary pairing are exact for every finite mask. Cauchy–Binet proves the complete noncentral spectral-gap product. For contiguous even low-pass masks, extending the Cauchy determinant one row and column at a time gives the gamma recurrence; Barnes asymptotics prove the sharp quarter-power and constant. Numerical quadrature and finite diagonalizations corroborate but are not used as infinite proofs.
+## correctness
 
-**Originality (PASS with named residual risk).** The inspected archive-era Hermite papers concern Gabor Hermite-series identities or approximation, not these finite half-line spectral invariants. The strongest adjacent literature is the Gaussian sign-jump Hankel determinant: Its–Krasovsky's explicit theorem (arXiv:0706.3192, Theorem 1.1) assumes a strict jump-parameter strip \(|\Re\beta|<1/4\), excluding the sign-jump endpoint \(\beta=1/2\); Charlier's generalization (arXiv:1706.03579, Theorem 1.1) keeps the same strict restriction. Charlier–Deaño (arXiv:1708.02519) treats nonnegative jump factors, not \(-1\). These references are adjacent and suggest a random-matrix interpretation, but none of the inspected theorem statements yields the exact finite arbitrary-mask formula or its low-pass determinant evaluation. An equivalent formula may exist in other Hermite or GUE index-parity literature and independent evaluation remains necessary.
+PASS
 
-**Value (PASS).** The positive half-line is the canonical parity-symmetry cut for the oscillator. The midpoint multiplicity is a stable invariant across every gapped selection of energy levels; the product of all off-midpoint gaps measures the collective conditioning of the corresponding projection problem. The exact low-pass gamma law and sharp quarter-power decay, including its constant, quantify a natural limiting regime rather than an arbitrary finite slice. This is mathematically stronger than simply knowing that the centered matrix is off-diagonal.
+Normalized Hermite boundary values are u_a=psi_{2a}(0), v_b=psi′_{2b+1}(0), from Rodrigues formulas. Green/Wronskian identity applied to oscillator energies 4a+1 and 4b+3 yields the centered positive-halfline block B_{ab}=u_a v_b/(2b+1-2a); same-parity centered blocks vanish. Distinct even/odd energy labels imply nonzero scaled Cauchy maximal minors and rank r=min(e,o). Singular-value pairing gives exactly |e-o| midpoint modes and nonzero-gap product as sum of squared maximal Cauchy minors; nonzero analytic Hermite polynomials cannot vanish on either open halfline, so all concentration eigenvalues are strictly inside (0,1). For contiguous 2m levels a single Cauchy determinant yields D_m=product_{j=0}^{m-1}Gamma(j+1)^2/[Gamma(j+1/2)Gamma(j+3/2)]; Barnes-G recurrence and large-z expansion give limit sqrt(pi) G(1/2)^2 times m^{-1/4}. Independent mpmath/numpy calculation m=1..5 matched exact determinant vs gamma products to <4e-16; this does not substitute for the proof.
 
-**Limits.** Individual noncentral eigenvalues and shifted windows are not classified. The numerical checker is a finite corroboration only. The exact signed-Gaussian Hankel literature remains the main originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Reviewed equivalent Gaussian Hankel determinant / parity of positive GUE eigenvalue counts, not just Hermite vocabulary. Its–Krasovsky and Charlier derive large-n asymptotics for jump parameter beta in the strict |Re beta|<1/4 strip; a true sign jump corresponds to beta=1/2 and is outside these stated theorems. Charlier–Deaño works with nonnegative real jump s∈[0,1], excluding s=-1. None of these read results supplies finite arbitrary-mask Cauchy minors. However known exact GUE index-parity expectations or endpoint extensions might reproduce lowpass Barnes formula, a real unclosed originality risk. The all-mask feature remains separately significant and no covering comparison was found.
+
+## value
+
+PASS
+
+The oscillator and centered halfline are canonical spectral/spatial coordinates. Every finite sparse selection of Hermite modes has an exact transition eigenspace and collective off-center gap product; in the physically natural lowpass regime this invariant has a sharp quarter-power decay with Barnes constant. This answers a motivated spectral concentration question and is not a finite table entry, even if the Cauchy and Barnes identities used are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

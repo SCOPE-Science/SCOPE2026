@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T04:03:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/verify.py",
+        "Exact Hermite Wronskian/Cauchy determinant/Gamma duplication/Barnes expansion"
+      ],
+      "rationale": "Normalized Hermite boundary values are u_a=psi_{2a}(0), v_b=psi′_{2b+1}(0), from Rodrigues formulas. Green/Wronskian identity applied to oscillator energies 4a+1 and 4b+3 yields the centered positive-halfline block B_{ab}=u_a v_b/(2b+1-2a); same-parity centered blocks vanish. Distinct even/odd energy labels imply nonzero scaled Cauchy maximal minors and rank r=min(e,o). Singular-value pairing gives exactly |e-o| midpoint modes and nonzero-gap product as sum of squared maximal Cauchy minors; nonzero analytic Hermite polynomials cannot vanish on either open halfline, so all concentration eigenvalues are strictly inside (0,1). For contiguous 2m levels a single Cauchy determinant yields D_m=product_{j=0}^{m-1}Gamma(j+1)^2/[Gamma(j+1/2)Gamma(j+3/2)]; Barnes-G recurrence and large-z expansion give limit sqrt(pi) G(1/2)^2 times m^{-1/4}. Independent mpmath/numpy calculation m=1..5 matched exact determinant vs gamma products to <4e-16; this does not substitute for the proof.",
+      "residual_risks": [
+        "Barnes asymptotic applies to contiguous even lowpass index 2m, not arbitrary irregular masks.",
+        "The halfline boundary must be exactly zero; shifted thresholds break parity Cauchy form."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Charlier one-cut Fisher–Hartwig theorem assumes jump beta with Re beta in (-1/4,1/4).",
+          "Charlier–Deaño formulates positive discontinuity parameter s∈[0,1], and Jaming et al approximate almost time-/band-limited functions with Hermite series."
+        ],
+        "reasoning": "These frameworks are broader in some directions (potentials or approximation) but not stronger on this exact sign halfline all-mask invariant; their stated hypotheses do not cover the sign endpoint or sparse subsets.",
+        "searches": [
+          "Resultary semantic search: Hermite harmonic oscillator positive half line spectral concentration parity eigenvalues Barnes G determinant GUE sign gap",
+          "arXiv:1706.03579 Theorem 1.1 pp5–6",
+          "arXiv:1708.02519 eqs (1.1)–(1.3), Theorems 2.1–2.3",
+          "Jaming–Karoui–Kerman–Spektor arXiv:1407.1293"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0706.3192 Theorem 1.1, explicit strict strip",
+        "arXiv:1706.03579 Theorem 1.1",
+        "arXiv:1708.02519 eq 1.2 and Theorem 2",
+        "arXiv:1407.1293 limited scope",
+        "Resultary semantic search: Hermite harmonic oscillator positive half line spectral concentration parity eigenvalues Barnes G determinant GUE sign gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The restricted beta-range and positive-jump parameters are essential written assumptions, not gaps one may fill by plugging beta=1/2 or s=-1.",
+          "The exact scaled-Cauchy Hermite boundary identity plus Cauchy–Binet proves an arbitrary-mask finite formula not stated in those random-matrix asymptotic papers."
+        ],
+        "reasoning": "Existing theorem statements cannot logically imply the proposed boundary-parameter result by formal substitution, though a different older exact endpoint theorem might; such equivalence remains unverified.",
+        "searches": [
+          "Resultary semantic search: Hermite harmonic oscillator positive half line spectral concentration parity eigenvalues Barnes G determinant GUE sign gap",
+          "arXiv:0706.3192 Theorem 1.1",
+          "arXiv:1706.03579 Theorem 1.1",
+          "arXiv:1708.02519 Introduction/Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For F={0,...,2m-1}, det(2C-I) is a normalized Gaussian Hankel determinant with weight sgn(x), equal to the GUE index-parity expectation up to signed normalization.",
+          "Its–Krasovsky theorem has |Re beta|<1/4 while sign jump corresponds to beta=1/2, not a routine substitution."
+        ],
+        "reasoning": "Explicitly compared random-matrix dual formulations; the read strict-strip asymptotic results do not imply the endpoint exact finite gamma product, and arbitrary gapped Hermite mask determinants are further outside their setting.",
+        "searches": [
+          "Resultary semantic search: Hermite harmonic oscillator positive half line spectral concentration parity eigenvalues Barnes G determinant GUE sign gap",
+          "Its–Krasovsky arXiv:0706.3192 Theorem 1.1",
+          "Charlier arXiv:1706.03579 Theorem 1.1",
+          "Gaussian sign-jump Hankel determinant GUE index parity expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact m=1..5 lowpass gamma values were independently checked from normalized boundary determinants.",
+          "No matching indexed table for all arbitrary Hermite spectral masks was retrieved; this does not exclude a classic exact GUE parity determinant table."
+        ],
+        "reasoning": "Finite checks are not originality evidence. A precomputed special-function determinant for contiguous masks could cover that special case, but the complete claim includes every gapped mask and parity multiplicity.",
+        "searches": [
+          "Resultary semantic search: Hermite harmonic oscillator positive half line spectral concentration parity eigenvalues Barnes G determinant GUE sign gap",
+          "GUE number positive eigenvalues parity gamma product Barnes G exact",
+          "Resultary index Hermite halfline and hemispherical concentration IDs 5e08b6020a88 and 0284b88cef7a"
+        ]
+      },
+      "rationale": "Reviewed equivalent Gaussian Hankel determinant / parity of positive GUE eigenvalue counts, not just Hermite vocabulary. Its–Krasovsky and Charlier derive large-n asymptotics for jump parameter beta in the strict |Re beta|<1/4 strip; a true sign jump corresponds to beta=1/2 and is outside these stated theorems. Charlier–Deaño works with nonnegative real jump s∈[0,1], excluding s=-1. None of these read results supplies finite arbitrary-mask Cauchy minors. However known exact GUE index-parity expectations or endpoint extensions might reproduce lowpass Barnes formula, a real unclosed originality risk. The all-mask feature remains separately significant and no covering comparison was found.",
+      "residual_risks": [
+        "Exact parity-of-GUE-index expectations may have an older exact gamma/Barnes determinant formula under a different normalization.",
+        "Endpoint beta=1/2 extensions of Fisher–Hartwig analysis not inspected; no global novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICT_HYPOTHESIS_NOT_COVERING_SIGN_ENDPOINT",
+          "evidence": "Theorem 1.1 assumes |Re beta|<1/4; sign jump beta=1/2 lies outside claimed parameter strip. Does not prove an arbitrary-mask formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/0706.3192",
+          "material_read": "34-page primary PDF; read abstract, Introduction and Theorem 1.1 in early pages, jump parameter restriction and endpoint remarks.",
+          "method": "Lawful arXiv PDF text and rendered early theorem page",
+          "title": "Hankel determinant and orthogonal polynomials for the Gaussian weight with a jump",
+          "trigger": "Direct GUE sign-jump endpoint equivalence"
+        },
+        {
+          "assessment": "STRICT_BETA_RANGE_EXCLUDES_SIGN_CASE",
+          "evidence": "Theorem 1.1 has Re beta in (-1/4,1/4); no endpoint beta=1/2 and no gapped Hermite-index matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03579",
+          "material_read": "41-page primary PDF; Introduction, parameter definitions, Theorem 1.1 pp5–6 and its beta restriction, remarks.",
+          "method": "Open arXiv text and visual p6",
+          "title": "Asymptotics of Hankel determinants with a one-cut regular potential and Fisher-Hartwig singularities",
+          "trigger": "Potentially dominating general Gaussian jump theorem"
+        },
+        {
+          "assessment": "NONNEGATIVE_JUMP_DOES_NOT_INCLUDE_SIGN",
+          "evidence": "Parameters s∈[0,1] represent nonnegative discontinuous weights; pure sign s=-1 not in the stated hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02519",
+          "material_read": "43-page primary PDF; first three pages including definitions eq (1.1)–(1.3), parameter s range and GUE interpretation, Theorem 2 scope around pp5–6.",
+          "method": "Open arXiv text and rendered p3",
+          "title": "Asymptotics for Hankel Determinants Associated to a Hermite Weight with a Varying Discontinuity",
+          "trigger": "Possible exact signed Gaussian formula"
+        },
+        {
+          "assessment": "RELATED_APPROXIMATION_ONLY_IN_READ_SCOPE",
+          "evidence": "Approximating almost time/band-limited functions in Hermite expansions is distinct from exact one-sided finite-mask gap determinants; cannot assert full-document NOT_COVERING.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1293",
+          "material_read": "Abstract and cited research scope; full text not reopened in current execution.",
+          "method": "Open primary bibliography/abstract; restricted comparison",
+          "title": "Approximation of almost time and band limited functions I: Hermite expansions",
+          "trigger": "Closest Hermite approximation companion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Normalized harmonic oscillator energy and halfline concentration",
+        "Gaussian random matrix sign-jump analogue in Its–Krasovsky 2007"
+      ],
+      "rationale": "The oscillator and centered halfline are canonical spectral/spatial coordinates. Every finite sparse selection of Hermite modes has an exact transition eigenspace and collective off-center gap product; in the physically natural lowpass regime this invariant has a sharp quarter-power decay with Barnes constant. This answers a motivated spectral concentration question and is not a finite table entry, even if the Cauchy and Barnes identities used are classical.",
+      "residual_risks": [
+        "Noncentral individual eigenvalues are not explicitly solved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment only; neither independence certification nor publication authorization.",
+    "Publication withheld pending authorized provenance sanitization and cross-file privacy/math checks.",
+    "No GitHub write or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}
