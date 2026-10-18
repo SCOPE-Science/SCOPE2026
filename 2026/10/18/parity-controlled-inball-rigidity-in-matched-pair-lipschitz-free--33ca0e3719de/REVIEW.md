@@ -1,0 +1,15 @@
+# Review of matched-pair inball rigidity
+
+## Correctness
+PASS. For a uniform matching ultrametric, the centered dual Lipschitz ball is the linear image of a product of explicit hexagons. The exact identity for the squared norm turns the global optimization into a penalty depending on the number of split pairs and an odd/even signed imbalance. The proof excludes every two-or-more-split competitor using a rigorous two-region inequality, proves the unique odd-parity threshold, and counts all equality patterns. Orthogonal decomposition into pair-mean and pair-difference subspaces determines the span of contacting normals and therefore the affine dimension of every optimal-center set. Direct exact-rational enumeration passed 23 cases, including two threshold equalities and contact-normal rank tests. The finite cases are corroboration rather than proof for the infinite family.
+
+## Originality
+PASS, with residual literature risk. Alexander et al. (arXiv:1911.10642) supply the finite Lipschitz-free duality framework and general volume-product geometry, without this uniform matching inball theorem. The published *Facet enumeration for equilateral metrics with independently shortened pairs* classifies every dual extreme point for the exact broader metric family, but counts facets only: it does not optimize their Euclidean norms, distinguish their contact subsets, or classify their maximal-ball center loci. *Sharp optimal projection constants for clustered finite metric free spaces* studies minimal operator projection norms of the exact metric class; *Exact Hilbert distortion of a balanced four-point ultrametric* computes a Banach--Mazur distance for the smallest instance. Neither implies the present canonical-coordinate Euclidean inradius or the parity transition. Related published results for snowflaked bipartite metrics, metric products, and other inball problems do not cover uniform contractions of a perfect matching for \(0<t<1\). Search incompleteness and possible different terminology remain risks.
+
+## Mathematical value
+PASS. The main phenomenon is an interior rigidity transition of largest inscribed Euclidean balls while the polytope's facet census stays fixed. It occurs precisely in odd numbers of two-point clusters at the sharp dimension-dependent ratio \(t=(2k-2)/(2k-1)\); even parity has no interior transition. The result gives the actual radius, every touching-facet count, and the dimension of all maximum-ball centers, not merely a bound or an isolated example. It is a natural geometric invariant for a finite-dimensional Banach-space family already studied through its facets.
+
+## Limits and external comparisons
+All claims use the canonical zero-sum Euclidean metric, not an arbitrary linear renorming. The proof is restricted to an equal short distance on every matched pair, with at least two pairs. A differently named covering theorem in uncatalogued literature remains possible. No independent scientific audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
