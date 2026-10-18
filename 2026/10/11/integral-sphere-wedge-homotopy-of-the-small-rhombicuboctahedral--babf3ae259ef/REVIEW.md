@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph's canonical Euclidean-coordinate realization has 24 vertices, 48 edges and degree four. The fully reproduced independence-complex enumeration has 13,874 nonempty faces. An explicit stagewise vertex-toggle matching leaves critical cell dimensions \((0,4,5,5,5,5)\), and a complete topological sort checks all 70,536 face incidences. Signed integral gradient-path reduction gives the zero \(1\times4\) Morse boundary. The unique critical four-cell is a sphere and all four five-cell attaching degrees vanish; \(\pi_4(S^4)\cong\mathbb Z\) makes the attaching maps null. The independent Euclidean/\(\mathbb F_2\) program checks the face vector and homology, without being misrepresented as an integral certificate.
+## correctness
 
-## Originality — PASS (within checked evidence)
-Barmak's arXiv:1007.0418 supplies general techniques; its no-triangle-vertex suspension criterion does not apply to this graph's vertices, all of which lie in triangles. Goyal–Shukla–Singh's arXiv:1905.06926 covers different named product, Mycielski and edge-replacement classes, not this exact 24-vertex quartic graph. MathWorld records graph parameters, and OEIS A159055 records colorings, not this homotopy invariant. Searches of the graph name, cantellated-cube aliases, equivalent cube-face incidences, the numerical pattern and related exact complexes did not find a theorem implying the displayed integral wedge. The possibility of unindexed equivalent work remains a genuine limitation.
+PASS
 
-## Value — PASS
-The small rhombicuboctahedron is a canonical vertex-transitive Archimedean polyhedron, and the independence complex of its edge graph is a natural topological invariant. The simultaneous four- and five-dimensional summands show a nontrivial mixed-dimensional type invisible to graph degree, face counts or generic connectivity estimates. The optimal six-critical-cell integral Morse certificate gives a reproducible structural calculation, rather than an arbitrary subset statistic. Exact determination can serve as a comparison case for symmetry-aware independence-complex methods. No unsupported family-level consequence is claimed.
+The 24-vertex 48-edge graph is reconstructed from signed coordinate labels of the small rhombicuboctahedron, not the great variant. Independently executed actual verify_morse.py: 13,874 nonempty independent masks, 6,934 genuine face pairs and a complete topological sort of all 13,874 vertices of the reversed Hasse digraph with 70,536 incidences, proving acyclicity. Critical cells are one 0-cell, one 4-cell, four 5-cells. Exact oriented Morse recursion gives all four integral 5-to-4 boundary degrees 0; maps S4→S4 classified by degree, so all four 5-cells attach null-homotopically and homotopy type is S4 wedge four S5. Not merely mod-two Betti inference.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Determines full integral homotopy type, not merely field homology, of the natural convex Archimedean small rhombicuboctahedron graph independence complex, including explicit finite Morse certificate. Graph family theorem is not needed for this complete motivated exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

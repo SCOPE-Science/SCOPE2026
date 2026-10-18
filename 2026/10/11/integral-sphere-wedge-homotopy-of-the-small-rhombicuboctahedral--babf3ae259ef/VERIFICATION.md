@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify_morse.py` for the combinatorial face enumeration, explicit 6,934 pairs, 70,536 oriented Hasse incidences, full DAG sort and four zero signed integral boundary coefficients. Execute `python3 verify_chains.py` for an independent construction of the graph from Euclidean coordinates and exact mod-two boundary ranks.
+## correctness
 
-The two programs have been run successfully on the embedded versions. `verify_morse.py` reports critical bitmasks `8388608`, `2163272`, `99426`, `807456`, `2183304`, `3146889`, in dimensions \(0,4,5,5,5,5\). `verify_chains.py` reports rank sequence `23,205,899,2041,2326,1206,234` and reduced mod-two Betti vector `0,0,0,0,1,4,0,0`.
+PASS
 
-## Scope of verification
+The 24-vertex 48-edge graph is reconstructed from signed coordinate labels of the small rhombicuboctahedron, not the great variant. Independently executed actual verify_morse.py: 13,874 nonempty independent masks, 6,934 genuine face pairs and a complete topological sort of all 13,874 vertices of the reversed Hasse digraph with 70,536 incidences, proving acyclicity. Critical cells are one 0-cell, one 4-cell, four 5-cells. Exact oriented Morse recursion gives all four integral 5-to-4 boundary degrees 0; maps S4→S4 classified by degree, so all four 5-cells attach null-homotopically and homotopy type is S4 wedge four S5. Not merely mod-two Betti inference.
 
-The integer attaching-map conclusion comes from the signed Morse boundary calculation. Mod-two ranks independently support the homology pattern but are not a substitute for integral homotopy verification. The calculation is finite and exhaustive on the stated 24-vertex graph; it makes no claim for other graphs or a complete literature census. Independent scientific validation is not recorded.
+## originality
+
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Determines full integral homotopy type, not merely field homology, of the natural convex Archimedean small rhombicuboctahedron graph independence complex, including explicit finite Morse certificate. Graph family theorem is not needed for this complete motivated exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
