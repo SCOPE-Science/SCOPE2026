@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The object, facets, Alexander dual and all quantifiers are explicit. The checked dual counts are \((1,16,120,176,60)\); each of sixty tetrahedra has a private triangle, permitting sixty verified elementary collapses. A complete integral signed boundary calculation on 105 cycle rows and 116 residual triangles reduces by 105 unit pivots to an identity block and eleven zero columns. This is an integer, not only rational or modular, certificate. Integral Alexander duality gives only \(\mathbb Z^{11}\) in cut degree eleven. The full ten-skeleton ensures simple connectivity, and Hurewicz plus homological Whitehead gives the asserted homotopy equivalence. All relevant calculations were executed from the included source.
+
+**Originality: PASS, qualified.** The foundational cut-complex paper (arXiv:2304.13675) does not contain a Shrikhande calculation. Its complete codimension-one skeleton theorem is inapplicable because exactly sixty twelve-vertex faces are absent. Its sequel (arXiv:2407.08158) treats different graph families. The published rook-graph three-cut theorem has different graph hypotheses and supplies the known comparator rank twenty-seven, not the new rank eleven. Published high-girth/four-cycle-free three-cut results do not cover Shrikhande, which has four-cycles. Actual searches and source comparisons are recorded in `AUDIT.json`. Inaccessible or unindexed equivalent publications remain a priority risk.
+
+**Value: PASS.** The Shrikhande and rook graphs are the two exceptional nonisomorphic strongly regular graphs with parameters \((16,6,2,2)\). An exact homotopy invariant distinguishing them is a natural question; the nonzero homology sits below the pure complex's top dimension, also certifying nonshellability. This is not just a scalar graph count: the statement determines the complete integral homotopy type, including absence of torsion and all other homology, by a nontrivial integer certificate.
+
+**Limitations.** The calculation is restricted to this graph and to ordinary three-cuts. It is neither an equivariant classification nor a general strongly regular graph theorem. Code execution verifies a finite certificate; specialists have not independently reviewed the mathematics or the priority comparison.
+
+Self-review: passed. Independent audit: not yet performed.
