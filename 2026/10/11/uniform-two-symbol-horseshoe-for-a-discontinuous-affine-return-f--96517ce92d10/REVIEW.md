@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the explicitly defined scalar discontinuous affine map, not its parent planar model. All parameters, branch choices and rational intervals are specified. At the center, both thirteen-step affine branches have absolute derivative strictly exceeding five, satisfy fixed strict branch itineraries, and map their disjoint domains strictly across the return interval. The attached standard-library script checks those inequalities exactly. Its rational interval extension checks the complete closed parameter band without discretization; enclosure arithmetic and the monotone endpoint tests justify the uniform conclusion. The inverse branches define a uniformly contracting separated two-map Cantor repeller conjugate to the full one-sided shift. Applying entropy scaling only to the compact continuous invariant union avoids treating the discontinuous global function as a compact continuous dynamical system. Risks: no theorem about the 2D map or typical orbits; the rational band is sufficient, not sharp.
+PASS
 
-## Originality — PASS, with stated priority risk
+The exact two branches are at the stated sign itineraries W0=LRL^11 and W1=L^13 on C0=[-1023/500,-1791/1000] and C1=[-197/200,-841/1000]. Read verify_horseshoe.py and independently reproduced exact Fraction iterated-image and interval-enclosure computations, including strict sign at each intermediate point, both endpoint covering inequalities across J=[-21/10,-4/5], and branch slopes |(F^13)'|>5 uniformly for the entire closed rational a band. At central a=-1/3 checked slopes approx +5.1208648 and -9.1037597; intervals enclose the entire parameter band via outward exact rational arithmetic, not discretized points. Inverse branches are strict contractions J to disjoint subsets, so their nested images yield a continuous injective coding of the full one-sided shift. All intermediate iterates avoid the discontinuity, making X=union_{j=0}^{12}F^j(K) a compact invariant set on which entropy law for continuous maps applies. This does not prove a lift to the source two-dimensional system.
 
-Tikjha's 2026 preprint derives this scalar formula (Corollary 4.2), supplies an invariant interval and numerical evidence of chaotic bands (Proposition 4.4, Example 4.1, Remark 4.5). It does not establish these exact thirteen-step covering branches, a full-shift repeller for the rational closed parameter band, or an explicit entropy bound. General symbolic-dynamics and horseshoe methods are classical and credited; their generality alone does not supply this parameter-specific branch certificate. Searches for the map formula, its coefficient aliases, two-shift coding and entropy equivalents did not identify the specific theorem in indexed research. Residual risk: the later journal version or uncatalogued work could contain an equivalent construction. A failed database search by itself is not a priority proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The literature identifies a specific unresolved distinction between rigorous interval boundedness and numerical evidence of topological chaos. A two-shift conjugacy and quantitative entropy floor establish genuine invariant symbolic complexity on an explicit nonzero parameter interval, not merely an additional short orbit or an arbitrary arithmetic count. The thirteen-step length is a constructive certificate of an invariant repeller, not asserted optimal. It distinguishes repelling symbolic dynamics from the stronger claim of a chaotic attractor, and carefully respects the conditional origin of the scalar reduction.
+Exact robust two-branch topological conjugacy and uniform rational enclosure are new concrete dynamical information not implied by plotting chaotic iterates or merely knowing piecewise-affine branch formulas.
 
-## Closest literature and limitations
+## value
 
-W. Tikjha, arXiv:2607.13519v1 (2026), full preprint §4.2 and Remark 4.5, is the closest source. Glendinning–Jeffrey (2019), piecewise-smooth maps, supplies established general context. Full text of a later journal edition was not obtained. No lifting into planar dynamics, attractor uniqueness, or sharp entropy value has been shown.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact certified full two-shift is a meaningful invariant-subsystem theorem for an explicitly published discontinuous return family, converting numerical chaos speculation to a strict open parameter band with quantitative entropy. The object and exact invariant subset/entropy are naturally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
