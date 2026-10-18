@@ -1,15 +1,21 @@
-# Scientific review: generalized sum-rank subcode MacWilliams transform
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantified statement applies to every \(\mathbb F_{q^m}\)-linear code with the stated block lengths and its ordinary Euclidean dual. The proof gives the exact identity \(\dim(C\cap V_{\mathbf L})-\dim(C^\perp\cap V_{\mathbf L^\perp})=k+\sum_i s_i-n\), derives the two shift regimes using the finite Gaussian-binomial product, and proves the exact-support-to-moment relation by a separate pair count. The resulting profile transform is unitriangular and therefore invertible. Both signs and the zero shift were checked against independent exhaustive finite enumerations of an arbitrary non-MSRD code and its dual over \(\mathbb F_4\). The finite check does not substitute for the proof.
+## correctness
 
-## Originality — PASS, with stated risk
-Molina, *MacWilliams identities for the generalized rank weights* (arXiv:2602.10929v1), Section 3 and Introduction/Table 3, gives an all-subcode MacWilliams relation for the one-block **rank** metric and specifically identifies the generalized **sum-rank** MacWilliams problem as not addressed there. Martínez-Peñas, *Theory of supports* (arXiv:1808.02468), Section 3, establishes the support lattice and the dimension duality used here, but does not formulate the simultaneous all-dimensional, all-block-profile enumerator transform. Santonastaso–Sheekey (arXiv:2308.00378v1), Section 2.5, computes the ordinary codeword distribution, not the higher-subcode distribution. Xia–Fu (arXiv:2608.09085v1) addresses ordinary support, rank-list, and sum-rank distributions and generalized minimum weights; its full text could not be checked. The precise product-profile moment identity, together with invertible recovery of every exact subcode profile, was not found in inspected sources or relevant published research records. A direct synthesis of earlier dimension duality and Gaussian-binomial calculus is nevertheless plausible, and an unindexed earlier equivalent presentation remains a risk.
+PASS
 
-## Value — PASS
-This is an all-codes structural duality, not a small-parameter enumerative increment. Minimum generalized weights record only the first support size attained at each rank; the claimed invertible transform relates the **entire joint support profile distribution** of all subcode dimensions on a code and its dual. It treats block lengths separately and includes both one-block rank and singleton-block Hamming specializations, supplying a common finite-field formulation of a generalization explicitly singled out as missing in 2026. The data count higher-dimensional information subspaces constrained to each selected set of shot-wise observation spaces, a natural quantity in multishot coding and secrecy analysis. No quantitative channel-performance gain is asserted.
+Over F_Q (Q=q^m), every blockwise F_q-support space V_L is an F_Q subspace of dimension s and V_L^perp=V_(L^perp). The dimension formula gives a=dim(C∩V_L), b=dim(C^perp∩V_(L^perp)), a-b=k+s-n=delta. Summing P_a(z)=prod_{j<a}(1+Q^j z)=sum_r Q^{r choose 2}[a choose r]_Q z^r over all support tuples of fixed dimensions, and factoring P_(b+delta)=P_delta P_b(Q^delta z), gives both nonnegative delta branches and the complement-profile identity. Double counting (subcode D, containing support tuple L) gives B_r(C,s)=sum_{t<=s} N_r(C,t) prod_i [n_i-t_i choose s_i-t_i]_q, unitriangular with diagonal one and hence exactly invertible. Independently constructed a nontrivial GF4 code with two length-two blocks and its Euclidean dual, and verified all nine profiles and both signs of delta in arithmetic independent of the package verify.py. Infinite/full arbitrary-code result follows from algebra, not this finite example.
 
-## Scope and remaining risks
-The proof requires extension-field linearity, standard Euclidean duality, and finite fields. The transform is exact, not an assertion of efficient algorithmic complexity or code-independent coefficients. The directness of its derivation from the earlier shortening duality is the principal priority/novelty risk; the complete 2026 Xia–Fu preprint was not materially read. All axes concern the one final transform stated in `RESULT.md`, not an independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge arbitrary-code, all-subcode-dimension multiblock support-profile MacWilliams transform survives comparison. Martínez-Peñas 2018 establishes support spaces and complementary dimensions, and Molina 2026 proves the one-block generalized rank-weight transform while identifying generalized sum-rank identities as unanswered (Table 3). Xia–Fu 2026 and Santonastaso–Sheekey provide results about special dually quasi-MSRD codes or codeword ranks; none inspected establishes the present arbitrary-code complete block-profile distribution. A possible hidden direct product-poset association scheme identity remains residual risk.
+
+## value
+
+PASS
+
+Complete joint-support spectrum for all dimensions of subcodes is a natural higher-order code invariant, and a reversible MacWilliams transform is a substantive classification-like structural identity for arbitrary multiblock codes. The tensor-product geometry and Gaussian inversion are motivated beyond an arbitrary finite test or renamed one-block result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

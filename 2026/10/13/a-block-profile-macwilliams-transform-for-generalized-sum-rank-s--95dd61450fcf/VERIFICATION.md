@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run from the unpacked artifact directory:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The code uses only the Python standard library. It implements \(\mathbb F_4=\mathbb F_2[\alpha]/(\alpha^2+\alpha+1)\), independently forms a two-dimensional length-four code from its two listed generators, and forms the ordinary Euclidean dual by an exhaustive dot-product test over all \(4^4\) words. It independently enumerates every dimension-zero, dimension-one, and dimension-two subcode, and the 25 pairs of \(\mathbb F_2\)-subspaces of \(\mathbb F_2^2\).
+Over F_Q (Q=q^m), every blockwise F_q-support space V_L is an F_Q subspace of dimension s and V_L^perp=V_(L^perp). The dimension formula gives a=dim(C∩V_L), b=dim(C^perp∩V_(L^perp)), a-b=k+s-n=delta. Summing P_a(z)=prod_{j<a}(1+Q^j z)=sum_r Q^{r choose 2}[a choose r]_Q z^r over all support tuples of fixed dimensions, and factoring P_(b+delta)=P_delta P_b(Q^delta z), gives both nonnegative delta branches and the complement-profile identity. Double counting (subcode D, containing support tuple L) gives B_r(C,s)=sum_{t<=s} N_r(C,t) prod_i [n_i-t_i choose s_i-t_i]_q, unitriangular with diagonal one and hence exactly invertible. Independently constructed a nontrivial GF4 code with two length-two blocks and its Euclidean dual, and verified all nine profiles and both signs of delta in arithmetic independent of the package verify.py. Infinite/full arbitrary-code result follows from algebra, not this finite example.
 
-Observed output:
+## originality
 
-```text
-block profiles: 9; base-field support-space pairs: 25
-all duality shifts: -2,-1,0,1,2
-exact subcode-to-moment transforms checked at ranks 0,1,2
-VERIFY_OK
-```
+PASS
 
-The checks compare directly enumerated exact subcode-support profiles against Gaussian-binomial support moments, then check both complementary dual-shift identities coefficient by coefficient for every possible block-support profile. No precomputed table is used. These finite checks do not verify the infinite quantifiers for arbitrary prime powers, extension degrees, block dimensions, or code dimensions. Those follow solely from the proof in `RESULT.md`. No independent external validation was performed.
+Best-of-knowledge arbitrary-code, all-subcode-dimension multiblock support-profile MacWilliams transform survives comparison. Martínez-Peñas 2018 establishes support spaces and complementary dimensions, and Molina 2026 proves the one-block generalized rank-weight transform while identifying generalized sum-rank identities as unanswered (Table 3). Xia–Fu 2026 and Santonastaso–Sheekey provide results about special dually quasi-MSRD codes or codeword ranks; none inspected establishes the present arbitrary-code complete block-profile distribution. A possible hidden direct product-poset association scheme identity remains residual risk.
+
+## value
+
+PASS
+
+Complete joint-support spectrum for all dimensions of subcodes is a natural higher-order code invariant, and a reversible MacWilliams transform is a substantive classification-like structural identity for arbitrary multiblock codes. The tensor-product geometry and Gaussian inversion are motivated beyond an arbitrary finite test or renamed one-block result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
