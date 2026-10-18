@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The partition polynomial follows by conditioning on the central spin. The explicit finite Blaschke product proves that all zeros are simple and on the unit circle; its strictly positive angular derivative handles roots at the circle's endpoints without a genericity assumption. The Cauchy logarithm argument proves an all-size, all-order exponential error bound with the stated quantifiers. Fourier uniqueness, uniform Poisson expansion, Hausdorff moment determinacy, and a uniform Taylor/derivative bound establish respectively the limiting density, inverse law, and edge spacing. Exact-rational and independent phase checks in `verify.py` reproduce crucial finite calculations. The infinite statements follow analytically, not from experiments.
+PASS
 
-## Originality — PASS (with residual risk)
+Central-spin conditioning gives Z_m=P_m+z Q_m, P_m=∏(1+q_i z), Q_m=∏(z+q_i), with real palindromic coefficients. B_m=z∏(z+q_i)/(1+q_i z) is a degree-m+1 finite Blaschke product. Its circle phase satisfies Φ'_m=1+Σ(1-q_i²)/(1+q_i²+2q_i cos θ)>0, forcing exactly m+1 distinct unit-circle zeros. On |z|=1/2, |B_m(z)|≤τ^m/2 for τ=(q_*+1/2)/(1+q_*/2). The analytic log quotient has boundary modulus at most τ^m; Cauchy bounds each Taylor coefficient by 2^kτ^m. Newton-log identities then give the stated *unnormalized*, all-k error k2^kτ^m. Weak convergence of µ_m and the uniformly convergent Poisson Fourier expansion imply the limiting angular mixture; Hausdorff moment uniqueness yields injection. The uniform phase Taylor expansion near zero and derivative ≥1+m(1-q_*)/(1+q_*) give mθ_{j,m}→(2j-1)π/r_µ. Independent exact Fraction polynomial/Newton-sum recomputation checked k≤10 and heterogeneous m=3,5,8,13. Finite tests do not replace the analytic proof.
 
-Chio–He–Ji–Roeder, arXiv:1806.00403, Proposition 1.1, covers the homogeneous finite-star equation as a subcase of its Cayley-tree recursion, and the paper's main limit instead fixes branching and grows depth. Hou–Jiang–Newman, arXiv:2208.00917, considers motion of zeros as bonds change. Simon, arXiv:2111.00650, treats analytic zero-free consequences. Their results do not state, and without additional arguments do not imply, the coupled heterogeneous increasing-degree inverse theorem together with the quantified finite zero-moment relation. General finite-Blaschke and orthogonal-polynomial literature may nevertheless contain a broader theorem implying these particular conclusions; that is the principal remaining prior-art risk. Absence of a direct search match is not asserted as proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves an exact inverse thermodynamic question for a natural heterogeneous statistical-mechanical family: the asymptotic bond distribution is encoded uniquely by the Lee–Yang zero measure, while finite spectral information recovers its moments at an exponential error scale. The formula covers arbitrary deterministic variation of the bond strengths and supplies physical edge-zero scaling. This is a complete, motivated asymptotic classification for the stated geometry rather than a table of isolated numerical cases. It is not claimed to extend to all trees or to yield stable inversion of noisy high-order moments.
+Chio--He--Ji--Roeder (2018/2019) derive the homogeneous Cayley-tree Lee--Yang Blaschke recursion, and its finite depth-one specialization gives the equal-coupling star equation, so that equation itself is prior. Their limiting regime has fixed branching and growing depth and has a different (possibly singular) zero law, unlike heterogeneous depth-one degree→∞. Hou--Jiang--Newman address bond perturbations and monotone zero motion; Simon addresses general Lee--Yang analyticity. No inspected source gives the simultaneous heterogeneous coupling-mixture density, exponentially accurate finite moment tomography and smallest-angle formula. The classical Blaschke phase and Poisson kernel are credited as tools. Remaining possible broader finite-Blaschke/paraorthogonal polynomial results are a genuine novelty risk, not search proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Recovers an entire limiting heterogeneous physical interaction distribution from Lee--Yang zero locations, not merely a scalar order parameter; the exponential unnormalized finite-order moment bound and sharp initial-zero spacing provide concrete, potentially reusable spectral statistics. The restriction q_*<1 is natural for a positive uniform coupling bound and is explicitly necessary for the uniform estimates claimed. The result is a motivated inverse problem and a nontrivial asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
