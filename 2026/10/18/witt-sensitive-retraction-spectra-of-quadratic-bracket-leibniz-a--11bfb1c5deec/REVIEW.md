@@ -1,0 +1,15 @@
+# Scientific review: Witt-sensitive retraction spectra of quadratic-bracket Leibniz algebras
+
+## Correctness — PASS
+The derived ideal is one-dimensional and central. Every endomorphism is parametrized by a linear map on the noncentral quotient, a central linear functional, and a central scalar. The bracket relation is a symmetric-form similitude equation. Idempotence forces that scalar to be zero or one; the nonzero case is the identity, and the zero case is precisely an isotropic-image projection with an independent graph functional. Complement counting and ordered isotropic-frame counting give both rank polynomials. The rank-one orbit argument reduces to Gram matrices of two vectors, Witt extension, the multiplier subgroup of the finite orthogonal similitude group, and the uniform number of normalized dual vectors with a prescribed norm. All steps are exact over odd finite fields. The accompanying finite checker independently verifies the predictions in a selection of complete small instances.
+
+## Originality — PASS within inspected coverage
+The bilinear-form description of two-step nilpotent Leibniz algebras is established by Mancini and La Rosa (2021); it is not the new claim. Kurdachenko, Subbotin, and Yashchuk (2021) investigate the endomorphism monoid of a cyclic infinite-dimensional Leibniz algebra, not this family. A closely related pre-existing count of isotropic-image idempotent endomorphisms for alternating-form Heisenberg Lie algebras already explains the abstract rank-counting strategy; accordingly a change of bilinear-form type alone is not treated as a novelty claim. The precise orthogonal rank-one conjugacy partition under all algebra automorphisms, including its even/odd-dimension and norm-squareclass transitions and exact orbit cardinalities, is the distinguishing theorem. Classical orthogonal-pair orbit theory may contain an equivalent fact in another presentation; this residual priority risk is not eliminated.
+
+## Value — PASS
+The theorem distinguishes split versus anisotropic quadratic-bracket Leibniz algebras by their intrinsic retraction monoids and classifies every embedded retract and idempotent map. The rank-one orbit splitting is finer than isotropic-subspace counting: the number of symmetry classes changes from two to three with dimension parity, and the sizes are exact for all odd prime powers and all isotropic dimensions. This supplies a concrete algebraic invariant and a structural account of its Witt sensitivity, rather than only a handful of small-field counts.
+
+## Closest sources and boundaries
+Mancini–La Rosa, *Two-step nilpotent Leibniz algebras* (arXiv:2106.12904v1); Kurdachenko–Subbotin–Yashchuk, *On the endomorphisms and derivations of some Leibniz algebras* (arXiv:2104.05922v1); classical Witt theory. The orbit statement does not extend to higher-rank projections. Characteristic two, degenerate bilinear forms, and absolute historical priority remain outside the claim.
+
+Self-review: passed. Independent audit: not yet performed.
