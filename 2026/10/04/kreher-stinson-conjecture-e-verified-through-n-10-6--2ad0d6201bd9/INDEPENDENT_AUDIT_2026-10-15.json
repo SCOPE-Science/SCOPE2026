@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:49:56.165793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n≥1 the binary representation 2^n is 10...0 and is not a palindrome; thus b(2^n)=3 iff the ternary expansion of 2^n is palindromic. The actual C++17 source stores 2^n as little-endian base 3^39 chunks using exact 128-bit carry arithmetic, including leading zeroes within non-leading chunks; it scans all exponents through one million. For length≥24 it uses only the necessary condition that the first 12 digits equal the reverse of the last 12, with exact cross-chunk leading-digit extraction, then full symmetric-digit comparison on every survivor; length<24 receives full comparison. A separately compiled independent equivalent C++17 integer implementation fully ran all 1,000,000 exponents and returned hits 1,2,3,4 and exactly seven long-number filter survivors 41298,41299,41300,62318,377166,877495,918265; all seven were rejected by complete comparison. Finite proof only through the specified cutoff; it is not an infinite Diophantine proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kreher--Stinson report n<64 as computed and state the general claim as a conjecture; OEIS linked exact table documents n≤10000. Neither statement covers n≤1e6."
+        ],
+        "reasoning": "A proof of the infinite conjecture or a larger certified census would dominate the current finite range; none was identified among checked materials.",
+        "searches": [
+          "arXiv:2401.07351v1 Section 4",
+          "OEIS:A369233",
+          "Resultary exact n=1,000,000 ternary palindrome search"
+        ]
+      },
+      "checked_sources": [
+        "Git tree d7c0bc5a3d7322504c24fd115a6e187ef5cf93b3, RESULT.md b65e332139c1fec6623905983f2796788a32a1a9, verify.cpp 3bad4fd15557e6fde0624708d47862956f293907",
+        "Arxiv:2401.07351v1",
+        "Integers 24(2024) A69",
+        "OEIS:A369233",
+        "Separately compiled C++17 full scan at /mnt/data/scope_verify_kreher_20261015.cpp; captured VERIFY_OK in scope_verify_kreher_run_20261015.txt",
+        "Current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A conjecture and its initial values do not prove subsequent values; the all-exponent assertion remains unproved by this finite scan."
+        ],
+        "reasoning": "The candidate's entire scientific content is the complete exact finite census through 10^6, independently executable, not a logical consequence of the cited conjecture or a claim about larger exponents.",
+        "searches": [
+          "Kreher Stinson Section 4 Conjecture (e) arXiv:2401.07351",
+          "OEIS A369233 sequence/table description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalence b(2^n)=3 ⇔ 2^n ternary palindrome follows because base 2 representation is not palindromic for n≥1."
+        ],
+        "reasoning": "Both the minimum-base and ternary-palindrome forms were searched; no published proof or cutoff at least 1e6 was located.",
+        "searches": [
+          "Resultary: Kreher Stinson conjecture palindromic powers of 2 base 3 verified 1000000 n OEIS A369233",
+          "arXiv:2401.07351 conjecture e",
+          "OEIS:A369233 minimum palindromic base for powers of 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact OEIS sequence A369233 is the same invariant; its linked table is reported only to 10000. The submitted check reaches 1,000,000 and lists exact near-miss filter survivors."
+        ],
+        "reasoning": "This is the directly applicable database comparison; exact reported table coverage is 100x shorter, so the scan is not a recomputation of all already-tabulated values.",
+        "searches": [
+          "OEIS:A369233 linked table n 1..10000",
+          "arXiv:2401.07351 appendix examples"
+        ]
+      },
+      "rationale": "The primary 2024 paper explicitly conjectures only four ternary-palindromic powers of two and computes all palindromic representations for n<64. OEIS A369233's linked table is described through n=10000. Current Resultary query found the candidate and unrelated digit combinatorics, not a stronger published exact scan. This best-of-knowledge result extends the documented public cutoff, but inaccessible private computations could exist.",
+      "residual_risks": [
+        "Numerical verification ends at exactly n=1,000,000, gives no impossibility statement beyond it.",
+        "An unindexed computation or private continuation may already have reached a greater exponent.",
+        "The necessary 12-digit filter is not sufficient and is never used to accept a hit without full digit comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_CONJECTURE; SMALLER_COMPUTED_RANGE",
+          "evidence": "States b(2^n)=3 exactly for n=1,2,3,4 as an unproved conjecture and reports prior complete n<64 computations.",
+          "identifier_or_url": "arXiv:2401.07351v1; Integers 24 (2024) A69",
+          "material_read": "Primary published PDF text including definition b(N), computational discussion for n<64, Section 4's explicit conjecture (e), and appendix; the conjecture page visually inspected.",
+          "method": "Primary open-access PDF text and page-image inspection",
+          "title": "On min-base palindromic representations of powers of 2",
+          "trigger": "Origin of conjecture (e) and previous computational frontier"
+        },
+        {
+          "assessment": "PREVIOUS_TABLE_SHORTER",
+          "evidence": "Contains exact same integer invariant but not a complete table to n=10^6.",
+          "identifier_or_url": "https://oeis.org/A369233",
+          "material_read": "Sequence definition, comments, initial terms, and the linked table's stated coverage n=1..10000.",
+          "method": "Direct OEIS entry inspection",
+          "title": "OEIS A369233: smallest palindromic base for 2^n",
+          "trigger": "Exact sequence/table check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kreher--Stinson's explicit conjecture makes the finite cutoff mathematically motivated. A million-exponent exact census extends the closest stated public OEIS table by factor 100, with a transparent necessary-digit filter and a fully replayable integer scan. Its scope is limited but nontrivial as a rigorous computational benchmark for a live digit-conjecture, not an arbitrary isolated small example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Numerical verification ends at exactly n=1,000,000, gives no impossibility statement beyond it.",
+    "An unindexed computation or private continuation may already have reached a greater exponent.",
+    "The necessary 12-digit filter is not sufficient and is never used to accept a hit without full digit comparison."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For positive \(n\), base \(2\) cannot be palindromic, so the minimum base equals \(3\) exactly when the ternary expansion is a palindrome. The verifier stores \(2^n\) exactly in base \(3^{39}\), uses only an exact necessary 12-digit symmetry filter, and fully compares every survivor. The complete scan through \(n=10^6\) has hit set \(\{1,2,3,4\}\).
+## correctness
 
-## Originality
-PASS. The 2024 primary source states the all-exponent assertion as conjecture (e) and reports complete palindromic-representation computation for \(n<64\). OEIS A369233 describes a table through \(n=10000\). Targeted semantic and web searches found no covering proof or larger indexed finite verification. The residual risk is an unindexed or private computation.
+PASS
 
-## Value
-PASS. The verified cutoff is a natural finite milestone for an explicit recent number-theory conjecture, extends the stated OEIS finite frontier by a factor of \(100\), and is supplied with an exact replayable certificate and complete near-miss filter list.
+For every n≥1 the binary representation 2^n is 10...0 and is not a palindrome; thus b(2^n)=3 iff the ternary expansion of 2^n is palindromic. The actual C++17 source stores 2^n as little-endian base 3^39 chunks using exact 128-bit carry arithmetic, including leading zeroes within non-leading chunks; it scans all exponents through one million. For length≥24 it uses only the necessary condition that the first 12 digits equal the reverse of the last 12, with exact cross-chunk leading-digit extraction, then full symmetric-digit comparison on every survivor; length<24 receives full comparison. A separately compiled independent equivalent C++17 integer implementation fully ran all 1,000,000 exponents and returned hits 1,2,3,4 and exactly seven long-number filter survivors 41298,41299,41300,62318,377166,877495,918265; all seven were rejected by complete comparison. Finite proof only through the specified cutoff; it is not an infinite Diophantine proof.
 
-## Closest literature and limitations
-The closest source is D. L. Kreher and D. R. Stinson, “On min-base palindromic representations of powers of 2,” arXiv:2401.07351v1 / *Integers* 24 (2024), A69. The closest exact data source is OEIS A369233. This is not an infinite proof, and a larger unindexed computation could overlap the finite range.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2024 paper explicitly conjectures only four ternary-palindromic powers of two and computes all palindromic representations for n<64. OEIS A369233's linked table is described through n=10000. Current Resultary query found the candidate and unrelated digit combinatorics, not a stronger published exact scan. This best-of-knowledge result extends the documented public cutoff, but inaccessible private computations could exist.
+
+## value
+
+PASS
+
+Kreher--Stinson's explicit conjecture makes the finite cutoff mathematically motivated. A million-exponent exact census extends the closest stated public OEIS table by factor 100, with a transparent necessary-digit filter and a fully replayable integer scan. Its scope is limited but nontrivial as a rigorous computational benchmark for a live digit-conjecture, not an arbitrary isolated small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
