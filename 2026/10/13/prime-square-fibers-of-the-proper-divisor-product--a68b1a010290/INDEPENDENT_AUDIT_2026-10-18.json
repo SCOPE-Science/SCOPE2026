@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:12:32.347310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set B(n)=n s(n), s(n)=sigma(n)−n; B(p²)=p²(p+1). Any solution n divides p²(p+1), split e=v_p(n)∈{0,1,2}. For e=2 n=p²d, d|p+1, d>1 makes proper divisor p² contradict s(n)=(p+1)/d; hence n=p². For e=0 n=d|p+1 and p²|s(d), impossible as s(d)≤d(d−1)/2≤p(p+1)/2<p². For e=1 n=pd, d|p+1, gcd(p,d)=1 and sigma multiplicativity yield d(d+(p+1)s(d))=p(p+1). Put p+1=dk: d(1+k s(d))=pk, hence d|k, k=dh, and modulo h forces h=1; p+1=d², primality gives d=2,p=3,n=6. Both B(6)=B(9)=36. All primes covered, including p=2; independent exact divisor enumeration corroborates first 62 primes, not a proof of all primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 29 is open and does not rule out special fibers.",
+          "General arithmetic-function quasi-injectivity results consider other quantifiers."
+        ],
+        "reasoning": "No inspected established global theorem eliminates all prime-square participants; solving an infinite subfamily is not implied by posing a larger open problem.",
+        "searches": [
+          "Noppakaew–Pongsriiam 2023, Question 29",
+          "proper divisor product B(n)=n (sigma(n)-n) collisions prime square preimages 6 9"
+        ]
+      },
+      "checked_sources": [
+        "P. Noppakaew and P. Pongsriiam, Product of Some Polynomials and Arithmetic Functions, JIS 26 (2023), Article 23.9.1, https://cs.uwaterloo.ca/journals/JIS/VOL26/Pongsriiam/pong43.pdf",
+        "OEIS A212327, https://oeis.org/A212327",
+        "Frozen Git RESULT.md and verify.py at designated commit",
+        "Resultary semantic query: proper divisor product B(n)=n (sigma(n)-n) collisions prime square preimages 6 9",
+        "GitHub SCOPE2026 code search: proper divisor product prime square (0 results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B(6)=B(9)=36 is prior data, explicitly credited.",
+          "No source argument asserts that prime squares p² with p≠3 have no other preimage."
+        ],
+        "reasoning": "The published example and tables establish existence of one collision, whereas the new theorem proves a universal absence of every other prime-square collision.",
+        "searches": [
+          "Noppakaew–Pongsriiam 2023 Example 8, Question 29",
+          "OEIS A212327"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent: among all collisions B(m)=B(n), the only one with a prime-square argument is B(6)=B(9)=36.",
+          "The equation n s(n)=p²(p+1) has exactly one or two solutions as stated."
+        ],
+        "reasoning": "Searched both exact-fiber and collision-participant wordings; checked closest source Question 29 and OEIS listing, which do not state this classification.",
+        "searches": [
+          "proper divisor product B(n)=n (sigma(n)-n) collisions prime square preimages 6 9",
+          "Noppakaew–Pongsriiam 2023 Question 29"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Database contains 36 and later collision values; Example 8 lists 6 and 9 explicitly."
+        ],
+        "reasoning": "Known finite entries confirm the exception but cannot prove uniqueness over infinitely many possible p; the divisor-exponent case split is the necessary proof.",
+        "searches": [
+          "OEIS A212327",
+          "Noppakaew–Pongsriiam 2023 Example 8"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact INFINITE family fiber theorem. Noppakaew–Pongsriiam 2023 Example 8 already lists B(6)=B(9)=36 and Question 29 asks whether infinitely many collisions exist; a finite example does NOT imply all other prime squares cannot collide. OEIS A212327 lists collision values but no universal prime-square exclusion. The known collision 36 gets no novelty credit.",
+      "residual_risks": [
+        "An unindexed comment on OEIS A212327 or the first collision might already prove the prime-square exclusion.",
+        "The proof is elementary divisor arithmetic but obtains an unrestricted family statement beyond enumerated data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the prime-square fiber theorem: supplies B(6)=B(9)=36 and asks broad collision existence without excluding every other prime-square argument.",
+          "evidence": "Question 29 asks infinite collisions of B; Example 8 records the first non-amicable collision, not an all-prime classification.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Pongsriiam/pong43.pdf",
+          "material_read": "Available complete PDF, definitions, Example 8 / collision table and Question 29 read.",
+          "method": "Publisher-hosted PDF extracted full text and referenced-passage inspection",
+          "title": "Product of Some Polynomials and Arithmetic Functions",
+          "trigger": "Introduced exact collision question B(n)=ns(n) and explicit example 6,9."
+        },
+        {
+          "assessment": "Finite-value list alone cannot establish the absence of other prime-square collisions for all primes.",
+          "evidence": "A212327 starts with 36 but does not state the entire fiber B^{-1}(p²(p+1)) for every p.",
+          "identifier_or_url": "https://oeis.org/A212327",
+          "material_read": "Sequence entry definition, listed collision values and references.",
+          "method": "OEIS entry read",
+          "title": "OEIS A212327, noninjective proper-divisor-product values",
+          "trigger": "Exact collision database could have tabulated an equivalent exclusion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining all fibers containing prime squares is a natural complete first subfamily of the open ns(n) collision problem, establishes 9 as unique prime-square participant, and gives a reusable obstacle for attempts to construct infinitely many collisions. It is a genuine infinite classification, not a restatement of the sample value 36.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "P. Noppakaew and P. Pongsriiam, Product of Some Polynomials and Arithmetic Functions, JIS 26 (2023), Article 23.9.1, https://cs.uwaterloo.ca/journals/JIS/VOL26/Pongsriiam/pong43.pdf",
+    "OEIS A212327, https://oeis.org/A212327",
+    "Frozen Git RESULT.md and verify.py at designated commit",
+    "Resultary semantic query: proper divisor product B(n)=n (sigma(n)-n) collisions prime square preimages 6 9",
+    "GitHub SCOPE2026 code search: proper divisor product prime square (0 results)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not classify collisions with no prime-square arguments.",
+    "Higher prime powers are not covered; no implication of the infinite-collisions conjecture is claimed."
+  ],
+  "residual_risks": [
+    "An unindexed comment on OEIS A212327 or the first collision might already prove the prime-square exclusion.",
+    "The proof is elementary divisor arithmetic but obtains an unrestricted family statement beyond enumerated data."
+  ],
+  "schema_version": 1
+}

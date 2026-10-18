@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Any solution of
-\[
-ns(n)=p^2(p+1)
-\]
-divides the right-hand side, so its \(p\)-adic exponent is \(0\), \(1\), or \(2\). The exponent-two case forces \(n=p^2\); the exponent-zero case contradicts the elementary bound \(s(n)<p^2\) for \(n\le p+1\). In the exponent-one case, writing \(n=pd\) and \(p+1=dk\) reduces the equation to
-\[
-d(1+ks(d))=pk.
-\]
-Coprimality gives \(d\mid k\), and reduction modulo the quotient forces \(k=d\), hence \(p=d^2-1\), whose only prime solution is \(p=3,d=2\). The verifier exhausts every target divisor for primes through \(5000\).
+## correctness
 
-## Originality
-PASS. The focal paper gives \(B(6)=B(9)=36\) and poses the general collision problem, but does not classify fibers containing prime squares. OEIS A212327 records collision values and the same first example, not the infinite exclusion theorem. Targeted searches under the fiber equation, prime-square wording, and equivalent collision formulation found no implication-equivalent result.
+PASS
 
-## Value
-PASS. The smallest non-amicable collision in the focal paper contains the prime square \(9\). Proving that this is the only prime square that can ever occur in a collision gives an exact structural boundary for a named open collision problem and rules out an entire canonical infinite family from any future infinitude construction.
+Set B(n)=n s(n), s(n)=sigma(n)−n; B(p²)=p²(p+1). Any solution n divides p²(p+1), split e=v_p(n)∈{0,1,2}. For e=2 n=p²d, d|p+1, d>1 makes proper divisor p² contradict s(n)=(p+1)/d; hence n=p². For e=0 n=d|p+1 and p²|s(d), impossible as s(d)≤d(d−1)/2≤p(p+1)/2<p². For e=1 n=pd, d|p+1, gcd(p,d)=1 and sigma multiplicativity yield d(d+(p+1)s(d))=p(p+1). Put p+1=dk: d(1+k s(d))=pk, hence d|k, k=dh, and modulo h forces h=1; p+1=d², primality gives d=2,p=3,n=6. Both B(6)=B(9)=36. All primes covered, including p=2; independent exact divisor enumeration corroborates first 62 primes, not a proof of all primes.
 
-## Closest literature and limitations
-The closest source is Noppakaew--Pongsriiam's 2023 Question 29 and Table 1. OEIS A212327 is the exact collision-value database and begins with \(36\). The result does not settle infinitude of collisions and does not claim a classification for higher prime powers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact INFINITE family fiber theorem. Noppakaew–Pongsriiam 2023 Example 8 already lists B(6)=B(9)=36 and Question 29 asks whether infinitely many collisions exist; a finite example does NOT imply all other prime squares cannot collide. OEIS A212327 lists collision values but no universal prime-square exclusion. The known collision 36 gets no novelty credit.
+
+## value
+
+PASS
+
+Determining all fibers containing prime squares is a natural complete first subfamily of the open ns(n) collision problem, establishes 9 as unique prime-square participant, and gives a reusable obstacle for attempts to construct infinitely many collisions. It is a genuine infinite classification, not a restatement of the sample value 36.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
