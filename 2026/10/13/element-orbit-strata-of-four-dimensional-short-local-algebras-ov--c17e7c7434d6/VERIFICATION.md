@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification checks
+# Independent mathematical audit
 
-Execute \(\texttt{python3 verify.py}\) with Python 3 and no third-party dependencies. The checker enumerates all nonzero symmetric binary forms over the prime fields \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\) and the explicitly implemented quadratic field \(\mathbb F_4=\mathbb F_2[t]/(t^2+t+1)\). For each form, it checks the invertible similarities and their multipliers; it computes all radical orbits by union-find on the \(q^3\) elements, collapsing socle coordinates when the vector part is nonzero because every linear shift \(\tau:V\to J^2\) is available. It then matches the **complete** orbit-size multiset, not merely its count, with the formula in RESULT.md. The program reports the numbers of tested forms as \(7,26,63,124\), ends in \(\texttt{VERIFY_OK}\), and raises an assertion on disagreement.
+## correctness
 
-All arbitrary-prime-power cases rely on the algebraic proof: the similarity classification of symmetric bilinear planes over finite fields, the square-class multiplier description for rank-one forms, norm surjectivity in the anisotropic case, and explicit transitivity in the characteristic-two nonalternating case. No finite enumeration certifies universal correctness or independent originality.
+PASS
+
+With J^3=0 and dim J/J²=2, dim J²=1, multiplication is exactly nonzero symmetric B:V×V->kz, and every automorphism acts by (r,v,s)->(r,gv,tau(v)+c s) where B(gv,gw)=c B(v,w), tau in V*. On v≠0 unrestricted tau makes a q-fold orbit over each similitude orbit in V, while on v=0 the multiplier subgroup controls k*z. Rank-one B yields two V orbits and square-class socle split in odd characteristic; odd rank-two split forms have isotropic/off-conic orbits, anisotropic norms transitive; even alternating forms have GL2 transitivity and even nonalternating forms preserve the isotropic line with explicit shear transitivity. Each predicted row sums to q³ in each fixed residue fiber. Independently exhaustive enumeration of every nonzero symmetric form and its exact similitude orbits for F2 (7 forms), F3 (26 forms) and F5 (124 forms) reproduces full orbit multisets; the supplied checker covers F4 (63 forms) additionally. The infinite q theorem rests on group-theoretic form classification, not finite tests alone.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Previously published work on short local algebras treats tensor-kernel/Segre monomializability and isomorphism classes of algebras; Jelisiejew’s full text treats Gorenstein inverse-system generators, on which group orbits classify algebras, not the automorphism orbit sizes of elements inside a fixed finite-field algebra. The complete six-row element orbit multiset for every finite field was not implied by these statements. Casnati’s 2010 short-algebra type study could not be fully accessed and remains a named priority risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+PASS: Complete orbit-size data of the intrinsic automorphism action on elements is a natural invariant for a specified full finite-field Hilbert stratum, not an arbitrary parameter slice. It detects various multiplication forms while also exhibiting a meaningful failure of detection: in characteristic two, nonisomorphic rank-one non-Gorenstein and nonsingular nonalternating Gorenstein algebras share an identical element-orbit-size multiset. The exact all-prime-power phase classification is reusable for equivariant counting and symmetry analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
