@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the exact factor law, normalization, full ambient-space quantifier, and strict asymptotic regimes. The Walsh–Hadamard column-label identity follows from factorizing each two-sign vector into its overall sign and relative sign. It implies the exact covariance eigenvalues and rank formula. For the sufficient side, two standard binomial Chernoff estimates and the strict ordering of their rate functions prove convergence in probability. For the necessary side, a Stirling local-mass lower bound gives a diverging expected number of overoccupied labels; negative covariance of their threshold indicators follows by conditioning one multinomial count, and a second-moment argument proves failure with probability tending to one. The standalone standard-library verifier passed 14,223 finite exact checks; these do not substitute for the analytical limit proof. The boundary value of the sample coefficient is deliberately unclaimed.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest inspected discussion is the real-Rademacher *overwhelming orthogonality* construction in Camaño et al. (2025), Section 5.3. Its single-vector failure and exponential cost do not imply the exact full-space covariance spectrum or the sharp tolerance-dependent constant. The Khatri–Rao embedding theorem in Saibaba–Verma–Ballard (2025) is a sufficient general sub-Gaussian dimension bound, not a sharp asymptotic formula for the binary-factor family. The zero-testing bound of Meyer–Swartworth–Woodruff (2025) is for a different task. Chen–Jin (2020) treats two-factor row-wise tensor sketching and least-squares error. Beretta–Musco (2026) treats broad sufficient OSE bounds. Published-result searches for Walsh labels, coupon collection, multinomial spectral extremes, and sharp Khatri–Rao oversampling identified no dominating specialized claim. The occupancy tools are classical; source priority outside the inspected corpus remains a genuine risk.
+PASS
 
-## Value — PASS
-The same discrete tensor distribution was identified in current Khatri–Rao literature as a worst-case sketching failure, but an exponential qualitative warning is not a cost prescription. The result replaces that warning with an exact leading sample-budget constant for *every vector simultaneously*, a stronger demand than merely detecting one nonzero vector or attaining full rank. For distortion one half, near-isometry requires a leading multiplier about 9.24234 on the ambient-dimension-times-logarithm scale; full rank has leading multiplier one. This complete phase threshold separates an algorithmically meaningful stability requirement from basic identifiability. The result is restricted to one sampling distribution and the full ambient space and does not promise an optimal implementation.
+With N=2^d, each length-2 factor is σ_r(1,t_r), where independent fair signs σ_r,t_r yield a column equal to ± one fixed Walsh–Hadamard vector h_T, T uniform among N orthogonal labels. Hence ΨΨᵀ eigenvalues are exactly NC_t/m for multinomial occupancies C_t with total m; rank N iff every bin nonempty, and inclusion–exclusion gives its exact finite probability. For ε∈(0,1), m=⌊cNlogN⌋, the near-isometry condition is simultaneous |C_t−m/N|≤ε m/N. Chernoff rates H_+=(1+ε)ln(1+ε)−ε and H_−=ε+(1−ε)ln(1−ε) satisfy H_->H_+; for cH_+>1 union bound gives success with probability→1. For cH_+<1, letting Z count bins above (1+ε)m/N, a local binomial lower bound plus Stirling gives EZ=N^{1−cH_++o(1)}→∞. Conditional binomial monotonicity gives pairwise nonpositive covariances for high-occupancy indicators, so Var Z≤EZ and P(Z=0)→0. The critical coefficient c*=1/H_+ is sharp on both open sides; c=c* is explicitly unproved. An independent 5-small-tensor-count Walsh diagonalization and exact occupancy/rank check reproduced the finite spectral identity; bounded tests are not the asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact uniform-Walsh column identification makes this specific tensorized Rademacher sketch a multinomial occupancy process. Camaño–Epperly–Meyer–Tropp (2025), §5.3 analyze precisely the same two-entry Rademacher factor distribution and show many inputs become orthogonal, requiring exponentially many columns; the inspected discussion does not give the complete finite-dimensional full-space spectrum or sharp ε-dependent coefficient in NlogN. Beretta–Musco (2026) Theorem 1.3 establishes a broad sufficient OSE bound for sub-Gaussian Khatri–Rao products, not this necessary-and-sufficient full-space asymptotic constant. The coupon-collector and Chernoff occupancy tools are classical and are not claimed as novel; the assessed contribution is their exact probability threshold for the specified sketch model. A specialized preexisting Walsh/occupancy restatement is an important priority risk.
+
+## value
+
+PASS
+
+The exact sample requirement for an entire N-dimensional embedding is a natural numerical-stability invariant of the same pathological two-sign tensor law singled out in current sketching literature. It distinguishes mere full rank (classical coefficient one) from distortion-ε near-isometry (coefficient 1/H_+(ε), e.g. ≈9.2423 at ε=1/2), and provides matching necessary and sufficient asymptotic regimes. This precise operational threshold is mathematically motivated and not merely a code check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

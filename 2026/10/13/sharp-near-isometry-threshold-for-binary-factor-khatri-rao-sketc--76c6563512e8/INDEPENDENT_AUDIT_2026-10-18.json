@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:04:38.015584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With N=2^d, each length-2 factor is σ_r(1,t_r), where independent fair signs σ_r,t_r yield a column equal to ± one fixed Walsh–Hadamard vector h_T, T uniform among N orthogonal labels. Hence ΨΨᵀ eigenvalues are exactly NC_t/m for multinomial occupancies C_t with total m; rank N iff every bin nonempty, and inclusion–exclusion gives its exact finite probability. For ε∈(0,1), m=⌊cNlogN⌋, the near-isometry condition is simultaneous |C_t−m/N|≤ε m/N. Chernoff rates H_+=(1+ε)ln(1+ε)−ε and H_−=ε+(1−ε)ln(1−ε) satisfy H_->H_+; for cH_+>1 union bound gives success with probability→1. For cH_+<1, letting Z count bins above (1+ε)m/N, a local binomial lower bound plus Stirling gives EZ=N^{1−cH_++o(1)}→∞. Conditional binomial monotonicity gives pairwise nonpositive covariances for high-occupancy indicators, so Var Z≤EZ and P(Z=0)→0. The critical coefficient c*=1/H_+ is sharp on both open sides; c=c* is explicitly unproved. An independent 5-small-tensor-count Walsh diagonalization and exact occupancy/rank check reproduced the finite spectral identity; bounded tests are not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beretta–Musco bound m≥d^{O(d)} k ε^{-2}[log(k/(εδ))]^{d+1} sufficient for k-dimensional OSE; it does not give a sharp limit coefficient as d=log2N and k=N.",
+          "General sub-Gaussian bounds encompass many factor laws but do not entail the exact binary-factor covariance distribution or the matching necessary threshold."
+        ],
+        "reasoning": "Parameter-broader sufficient OSE theorems are not sharp covering the claimed full-space necessary-and-sufficient two-sided phase transition.",
+        "searches": [
+          "Beretta–Musco arXiv:2608.28094, Theorem 1.3",
+          "Saibaba–Verma–Ballard arXiv:2507.23207, general sub-Gaussian Khatri–Rao bounds"
+        ]
+      },
+      "checked_sources": [
+        "Camaño et al., arXiv:2508.21189 §5.3",
+        "Beretta and Musco (2026), arXiv:2608.28094 Theorem 1.3",
+        "Saibaba, Verma and Ballard (2025), arXiv:2507.23207",
+        "Resultary: 2026/10/4/SCOPE-exact-affine-orbit-rank-census-for-the-5-9-walsh-support-gap-on--2a5eb96974d1 (different Walsh problem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-vector lower-bound mechanism only says m must be exponentially large in tensor order for fixed nonzero vector; m≈NlogN sharp full-space norm control requires simultaneous-bin deviations.",
+          "The sufficient OSE theorem lacks a sharp coefficient and a matching necessity result in the d→∞ binary-factor regime."
+        ],
+        "reasoning": "The new essential implication is the exact Walsh-labelization plus upper-tail occupancy extremes; the elementary finite coupon-collector formula alone cannot prove the distortion-dependent concentration threshold.",
+        "searches": [
+          "Camaño et al. arXiv:2508.21189, Section 5.3 one-vector orthogonality",
+          "Beretta–Musco arXiv:2608.28094, Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same binary-factor Rademacher tensor distribution is discussed as catastrophically orthogonal to fixed vectors with high probability.",
+          "The Resultary nearest Walsh support or spectral frame findings concern finite Boolean Fourier combinatorics, not the full-space Khatri–Rao distortion phase transition."
+        ],
+        "reasoning": "The same sketch law is present in prior work, but a one-vector failure/sufficient dimension warning is not equivalent to exact all-ambient-vector near-isometry with distortion-dependent sharp leading constant.",
+        "searches": [
+          "Resultary: two-entry Rademacher Khatri-Rao sketch Walsh occupancy spectrum multinomial exact N log N near isometry",
+          "Camaño et al. arXiv:2508.21189, §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact ε-specific leading constant 1/H_+(ε) or corresponding sample-budget table appears in those relevant inspected papers.",
+          "The exact rank inclusion–exclusion is classical coupon collector and is separately credited as prior, not presented as new finite table."
+        ],
+        "reasoning": "The new formula combines an exact finite spectral reduction with uniform extreme-bin asymptotics, not a replacement for a precomputed sample-size table.",
+        "searches": [
+          "Camaño et al. arXiv:2508.21189, §5.3",
+          "Beretta–Musco arXiv:2608.28094, main theorem",
+          "Resultary: two-entry Rademacher sketch Walsh occupancy spectrum"
+        ]
+      },
+      "rationale": "The exact uniform-Walsh column identification makes this specific tensorized Rademacher sketch a multinomial occupancy process. Camaño–Epperly–Meyer–Tropp (2025), §5.3 analyze precisely the same two-entry Rademacher factor distribution and show many inputs become orthogonal, requiring exponentially many columns; the inspected discussion does not give the complete finite-dimensional full-space spectrum or sharp ε-dependent coefficient in NlogN. Beretta–Musco (2026) Theorem 1.3 establishes a broad sufficient OSE bound for sub-Gaussian Khatri–Rao products, not this necessary-and-sufficient full-space asymptotic constant. The coupon-collector and Chernoff occupancy tools are classical and are not claimed as novel; the assessed contribution is their exact probability threshold for the specified sketch model. A specialized preexisting Walsh/occupancy restatement is an important priority risk.",
+      "residual_risks": [
+        "Since the Walsh reduction is short and multinomial extreme-bin rates are classical, an unindexed earlier special-case coupon-collector embedding theorem could entail the same constant.",
+        "The knife-edge equality c=c* remains open in the claim; the rate holds only 0<ε<1 and as d→∞.",
+        "No assertion for all Khatri–Rao factor laws, arbitrary subspaces, or computational implementation advantages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FACTOR_LAW_WEAKER_TASK",
+          "evidence": "Identifies overwhelming orthogonality for binary-factor products, but not exact normalized multinomial eigenvalues with a necessary-and-sufficient ε-dependent NlogN coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.21189",
+          "material_read": "Sections 5.3–5.4 and related statement of an exponential-in-tensor-order lower requirement",
+          "method": "Read arXiv primary full text and relevant page image",
+          "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+          "trigger": "Same length-two Rademacher tensor factor distribution and orthogonality pathology"
+        },
+        {
+          "assessment": "GENERAL_SUFFICIENT_NOT_SHARP_SPECIALIZED_BOUND",
+          "evidence": "m>d^{O(d)}k ε^{-2}log^{d+1}(k/(εδ)) sufficient with factors n_i≥2; no stated sharp binary-factor full-space coefficient or converse.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.28094",
+          "material_read": "Theorem 1.3 and proof overview on page 3 in primary full-text PDF/page image",
+          "method": "Read lawful arXiv paper and screenshot of exact main theorem",
+          "title": "A Tight Analysis of Khatri-Rao Oblivious Subspace Embeddings",
+          "trigger": "Recent near-matching broad Khatri–Rao OSE guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sample requirement for an entire N-dimensional embedding is a natural numerical-stability invariant of the same pathological two-sign tensor law singled out in current sketching literature. It distinguishes mere full rank (classical coefficient one) from distortion-ε near-isometry (coefficient 1/H_+(ε), e.g. ≈9.2423 at ε=1/2), and provides matching necessary and sufficient asymptotic regimes. This precise operational threshold is mathematically motivated and not merely a code check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Critical c=c*(ε) limiting probability is not determined.",
+    "The finite checker verifies exact small-dimensional eigenvalues/rank identities, not high-dimensional probability convergence.",
+    "Publication withheld because original public metadata retain operational provenance and no audited sanitized replacements have been staged."
+  ],
+  "schema_version": 1
+}
