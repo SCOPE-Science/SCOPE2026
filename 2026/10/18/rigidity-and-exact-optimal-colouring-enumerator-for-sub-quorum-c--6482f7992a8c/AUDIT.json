@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For any coloured a_i, with a coloured A-vertices and colour multiplicity u, the exact criterion is 2(u+epsilon_i)>=a+delta_i. Every A-colour has multiplicity >=ceil((a-1)/2). Hence a row supports at most three colours; three force exactly three differently coloured vertices and their matched partners of the same colours. This leaves at most three global colours. Four global colours therefore force two colours per row, disjoint palettes, equal positive row multiplicities, and no doubly-coloured matched edge; the converse holds with equality in every local majority. Direct enumeration of all partial set partitions for 1<=n<=5 and exact multinomial enumeration for optimizers are independently executable in verify.py. The proof, not finite experiments, establishes the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.25128, degree bound psi_sq <= Delta*|V|/(Delta+delta-1) for minimum degree at least two.",
+        "On K_2 Cartesian K_n: Delta=delta=n and |V|=2n, giving floor(2n^2/(2n-1)), which is at least five for n>=5.",
+        "arXiv:2609.25128, matching characterization applies at maximum degree at most three and cannot cover n>=4."
+      ],
+      "reasoning": "The applicable broad degree theorem leaves a gap growing with n; the bounded-degree matching characterization does not apply to the infinite n>=4 subfamily. Neither implies the optimizer rigidity or exact enumerator.",
+      "searches": [
+        "\"sub-quorum coloring number\" \"clique cover number\"",
+        "\"sub-quorum\" \"rook graphs\" OR \"line graphs\"",
+        "\"quorum coloring number\" clique cover upper bound",
+        "\"sub-quorum coloring\" \"prism\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25128 public full HTML article text and revised public abstract",
+      "Hedetniemi et al., Quorum Colorings of Graphs, 2012 working-paper repository summary / 2013 journal reference",
+      "Published published-finding corpus neighborhood-complex result on K_2 Cartesian K_n, title and summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Sahbi–Zhang (2026), Section 5, Theorem 5.3: ladder P_2 Cartesian P_n, not K_2 Cartesian K_n.",
+        "Ma–Sahbi–Zhang (2026), Theorem 5.11: complete multipartite host K_(n1,...,np), not the co-bipartite matching join.",
+        "Ma–Sahbi–Zhang (2026), general degree inequality applies but is weaker for n>=5; for n<=4 the small numerical values are not presented as the novel core.",
+        "2013 foundational quorum colouring work treats total colourings and proposes the partial variant; its original full text was not available in the access path used."
+      ],
+      "reasoning": "Neither graph containment nor matching parameter names transfer an upper bound between the stated nonisomorphic families. Known results may explain small boundary values, but do not yield the stabilizing bound or the exact extremal structural/counting formula.",
+      "searches": [
+        "\"sub-quorum\" \"clique prism\" \"K_n\"",
+        "\"sub-quorum coloring\" \"two cliques\" matching",
+        "\"quorum coloring\" \"K_n\" \"cartesian\" \"K_2\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is L(K_{2,n}), also K_2 Cartesian K_n, the union of two cliques with a perfect matching.",
+        "arXiv:2609.25128, Section 5: ordinary grid ladders P_2 Cartesian P_n and complete multipartite evaluations use different adjacency structures.",
+        "Search results concerning open-neighborhood complexes of clique prisms discuss homotopy groups, not sub-quorum colouring counts."
+      ],
+      "reasoning": "The line-graph, clique-prism, two-clique-matching and Cartesian-product descriptions represent the identical graph and were compared as implications rather than keyword matches. No indexed result returned the invariant or its complete optimiser census on this graph family.",
+      "searches": [
+        "sub-quorum coloring number of line graphs of complete bipartite graphs, rook graphs, color classes, 2-independent sets",
+        "subquorum coloring of clique prism K_n square K_2: 4 colors for n at least 4, 3 for n=3",
+        "\"sub-quorum coloring\" \"two cliques\" matching",
+        "\"sub-quorum\" \"co-bipartite\" graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed same-graph-family record was a neighborhood-complex homotopy classification, not a colouring table.",
+        "The accessible initiating paper contains exact tables for different host families but no clique-prism four-colour optimizer count.",
+        "Direct small-order exhaustive calculations (verify.py) are local checks only, not evidence of database uniqueness."
+      ],
+      "reasoning": "The actual queried index and accessible primary tables disclosed no tabulation or equivalent family result; lack of a hit is not proof of absolute novelty.",
+      "searches": [
+        "exact sub-quorum coloring number of two-row rook graphs K_2 Cartesian product K_n, two disjoint cliques connected by matching, value 4, optimal colorings",
+        "subquorum coloring of clique prism K_n square K_2: 4 colors for n at least 4, 3 for n=3",
+        "\"dissociation number\" \"rook graph\" exact formula"
+      ]
+    },
+    "rationale": "The early public source arXiv:2609.25128 introduces and studies sub-quorum colorings but its published classical-family evaluations are not for K_2 Cartesian K_n; P_2 Cartesian P_n is a different graph. Its degree upper bound is floor(2n^2/(2n-1)), weaker for n>=5, and does not imply four-colour equality rigidity or the multinomial enumerator. Semantic mathematical-record searches for the exact invariant, clique-prism aliases, matching of cliques, larger coverage and tabulated values found no implication-covering record; same-family neighborhood-complex results address topology instead. The newest revision full text could not be inspected and equivalent unindexed work remains a priority risk.",
+    "residual_risks": [
+      "The newest full text of arXiv:2609.25128v4 was inaccessible despite examination of the updated public abstract; it may contain unobserved details.",
+      "Earlier unindexed alliance-partition or defensive-colouring work may have equivalent results under another name.",
+      "No independent literature audit or priority certification has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible body does not contain K_2 Cartesian K_n or an optimiser census. The newest complete revision is not accessible; no whole-document exclusion is claimed for that revision.",
+        "evidence": [
+          "Definition 2.2, Lemma 2.3",
+          "Theorems 5.1, 5.3, 5.11, 5.12, 5.15",
+          "2026-10-14 revision summary: cubic matching characterizations, trees, grid strips, hypercubes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.25128",
+        "material_read": "Accessible online full-text article: definition and local lemma in Section 2, classical-family theorems and proofs in Section 5, and abstract and scope of Section 6; targeted keyword searches through the full article HTML. Newest revision abstract was read separately.",
+        "method": "Read online HTML mathematical text and locate named theorems and graph-family aliases; inspect updated public revision abstract",
+        "title": "Sub-quorum colorings of graphs",
+        "trigger": "Primary paper establishing the parameter and named graph families"
+      },
+      {
+        "assessment": "Provides the historical definition/background; its inaccessible full text is not treated as checked NOT_COVERING.",
+        "evidence": [
+          "2012 Erasmus working-paper abstract introduces quorum colourings",
+          "2026 primary paper Section 1 identifies the sub-quorum parameter as an earlier posed problem"
+        ],
+        "identifier_or_url": "https://repub.eur.nl/pub/37620",
+        "material_read": "Repository summary, bibliographic metadata and discussion quoted by the 2026 source; not the full 2012 working-paper PDF",
+        "method": "Repository abstract and primary-source bibliography",
+        "title": "Quorum Colorings of Graphs",
+        "trigger": "Origin of quorum and proposed sub-quorum variant"
+      },
+      {
+        "assessment": "Computes homotopy type of the neighborhood complex, not sub-quorum colouring; this is not a whole-document novelty certificate.",
+        "evidence": [
+          "Its theorem identifies sphere summands of the open-neighborhood complex; no colouring quantity is asserted in the indexed summary."
+        ],
+        "identifier_or_url": "Published mathematical record (mathematical title)",
+        "material_read": "Title and indexed research summary",
+        "method": "Scientific summary comparison of invariant and conclusion",
+        "title": "Open-neighborhood complexes of clique prisms: a mixed-dimensional sphere decomposition",
+        "trigger": "Exact same graph family under clique-prism and two-row-rook names"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6482f799-2a8c-46cd-86f4-e510ee867615",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines the exact parameter on an infinite dense regular family where both order and degree grow, with a sharp uniform ceiling four not supplied by the available general bound for n>=5. The structure theorem classifies all optimal maps, including balanced large same-colour classes, and gives an exact multinomial polynomial and Bessel-series exponential generating function for optimal named-palette assignments. This answers a natural structural and enumerative question for the recently studied invariant and is not a trivial small-bound instance or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
