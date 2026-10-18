@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all \\(n\\ge1\\) every proper colouring gives rowwise injections and a loop-free indegree/outdegree≤1 colour-identification digraph. Distinct repeated colours sharing a column give exactly a bichromatic four-edge path or four-cycle, and every forbidden pattern yields two such links. Therefore feasible colourings correspond bijectively to oriented partial matchings of the n columns; k links consume \\(2n-k\\) unique colours and are counted by \\(n!/(k!(n-2k)!)\\). Named-colour choices are falling factorials; the exponential formula follows. Exact definition-based canonical partition enumeration for \\(2\\le n\\le7\\) tested 71,350 proper candidates and agreed at every coefficient. The finite test is not used to establish the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Casselgren–Granholm–Raspaud (2019), arXiv:1912.02467v1, §2 Proposition 2.1 proves only \\(\\chi_{st}^{\\prime}(\\(K_{2,n}\\))=2n-\\lfloor n/2\\rfloor\\)",
+        "Wang–Lu (2024), arXiv:2402.04526v1, §3 Theorem 3.1 provides a decision/construction algorithm given treewidth and degree, not the closed partition formula"
+      ],
+      "reasoning": "The known exact minimum does not determine the number of valid colourings at all palette sizes; many different distributions share a minimum. The proposed formula reconstructs every partition via an oriented-matching bijection, so a scalar bound alone is not dominating coverage. The generic fixed-parameter algorithm is not a uniform explicit counting identity for this family.",
+      "searches": [
+        "star edge coloring K2n star chromatic index 3n/2 chromatic polynomial matchings partial involutions",
+        "arxiv:1912.02467v1 Proposition 2.1",
+        "arxiv:2402.04526v1 Theorem 3.1",
+        "star edge-coloring polynomial complete bipartite graph enumeration"
+      ]
+    },
+    "checked_sources": [
+      "Casselgren–Granholm–Raspaud (2019), arXiv:1912.02467v1, §2 Proposition 2.1",
+      "Lei–Shi (2020), arXiv:2009.08017v1, §4 Theorem 4.2(a)",
+      "Wang–Lu (2024), arXiv:2402.04526v1, §3 Theorem 3.1",
+      "Searches for complete partition enumerators, line-graph star colorings, exact coefficient formulas, and all optimal star-edge-colorings; relevant indexed summaries compared for mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Casselgren–Granholm–Raspaud (2019), arXiv:1912.02467v1, §2 Proposition 2.1 uses a pigeonhole argument bounding the number of colours shared between the two degree-n vertices; it establishes χ′st only",
+        "Lei–Shi (2020), arXiv:2009.08017v1, §4 Theorem 4.2(a) states the same optimal index as a theorem",
+        "Wang–Lu (2024), arXiv:2402.04526v1, §3 Theorem 3.1 establishes algorithmic recognition under parameter constraints"
+      ],
+      "reasoning": "Their scalar minimum is recovered by maximizing the matching size, so that part is explicitly pre-existing. The new claim counts every matching size, orientations, colour partition and named palette assignment and proves coefficient log-concavity. The 2019 overlap bound is compatible with (and motivates) the bijection but, as a stated theorem, does not entail the exact multi-coefficient formula. The close relationship is made explicit; novelty is not asserted for the scalar.",
+      "searches": [
+        "arxiv:1912.02467v1 §2 Proposition 2.1 full proof",
+        "arxiv:2009.08017v1 §4 Theorem 4.2",
+        "arxiv:2402.04526v1 §3",
+        "count all star edge-colorings K_{2,n}, all optimal colorings bijection to matchings of n columns, exponential generating function exp(t z^2+t^2 z^3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lei–Shi (2020), arXiv:2009.08017v1, §4 Theorem 4.2(a) explicitly says the edge version equals star vertex-colouring of the line graph",
+        "The two-row rook graph satisfies \\(L(\\(K_{2,n}\\))\\cong K_2\\square K_n\\); this follows from line-graph adjacency"
+      ],
+      "reasoning": "The claim is the complete exact-colour partition count, equally expressible as a star vertex-colouring polynomial of a two-row rook graph. Search included both edge and vertex terminology. The survey acknowledges equivalence but provides the scalar chromatic index, not the entire count. A missed equivalent enumeration remains possible.",
+      "searches": [
+        "star vertex-colorings of two-row rook graph K_2 square K_n line graph of complete bipartite K_{2,n} exact chromatic polynomial",
+        "star chromatic number chromatic polynomial rook graph K_2 square K_n star vertex color classes",
+        "star edge-coloring polynomial complete bipartite graph enumeration",
+        "arxiv:2009.08017v1 §1 star vertex colouring line graph equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Casselgren–Granholm–Raspaud (2019), arXiv:1912.02467v1, §2 Proposition 2.1 Tables 1–3 concern star chromatic indices of other small complete bipartite graphs, not a full \\(K_{2,n}\\) partition-count table",
+        "Lei–Shi (2020), arXiv:2009.08017v1, §4 Theorem 4.2(a) repeats scalar values, no exact count table in inspected §4"
+      ],
+      "reasoning": "No exact same-coefficient table or polynomial was identified in indexed searches or inspected directly relevant sections. This is search evidence only, not proof of absence from every publication or database.",
+      "searches": [
+        "Complete star-edge-colouring partition polynomial of K_{2,n}: s_{n,r}=n!/((2n-r)!(2r-3n)!), oriented matching of columns, exp(z^2 t+z^3 t^2), optimal colorings",
+        "number of star edge colorings K 2 n counting",
+        "star edge coloring complete bipartite falling factorial counting exact polynomial n factorial",
+        "arxiv:1912.02467v1 Table 1; arxiv:2009.08017v1 Theorem 4.2"
+      ]
+    },
+    "rationale": "Full text of the primary 2019 article §2 and 2020 survey §4 supplies the scalar minimum but not the complete colour-partition distribution or matching-weight EGF. Searches across both edge-colouring and equivalent line-graph star vertex-colouring formulations and exact coefficient strings found no closer count. The complete bijective enumeration is distinct from the known scalar index. Residual risk: the matching interpretation is near the known lower-bound proof and may have appeared in later unindexed enumeration.",
+    "residual_risks": [
+      "Equivalence to star vertex-colouring on K_2 □ K_n may have been tabulated under another terminology.",
+      "The scalar minimum and the common-colour pigeonhole argument are known, so only the full counting assertion is proposed as new.",
+      "Indexed searches cannot establish unique priority; comprehensive human bibliographic review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers scalar minimum; does not present an all-palette enumerator in inspected material. The lower-bound pigeonhole argument motivates the matching condition.",
+        "evidence": [
+          "Theorem in §2: \\(\\chi_{st}^{\\prime}(K_{2,d})=2d-\\lfloor d/2\\rfloor\\)",
+          "No instances of word polynomial or count in indexed full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.02467",
+        "material_read": "HTML full paper introduction, §2 Proposition 2.1 proof and subsequent results/tables; inspected count and polynomial terms",
+        "method": "Full HTML text and section/term searches",
+        "title": "On star edge colorings of bipartite and subcubic graphs",
+        "trigger": "Exact same graph \\(K_{2,n}\\) and scalar star chromatic index"
+      },
+      {
+        "assessment": "The relevant theorem is a scalar exact index, not a count of every colouring partition.",
+        "evidence": [
+          "Introduction identifies equivalence with star vertex-colouring of L(G)",
+          "Theorem 4.2(a) gives \\(\\chi_{st}^{\\prime}(\\(K_{2,n}\\))=2n-\\lfloor n/2\\rfloor\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.08017v1",
+        "material_read": "HTML Introduction and §4 bipartite graph results (including Theorem 4.2)",
+        "method": "Full HTML source with direct section inspection",
+        "title": "A survey on star edge-coloring of graphs",
+        "trigger": "Broader pre-2024 coverage and line-graph equivalence"
+      },
+      {
+        "assessment": "Decides feasibility with a named palette at bounded structural parameters, but does not derive the explicit uniform enumerator. No claim that uninspected passages cannot contain counts.",
+        "evidence": [
+          "Theorem 3.1 is a feasibility/construction algorithm with running time in n,c,k,Δ"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.04526",
+        "material_read": "HTML abstract, Introduction, definitions, §3 Theorem 3.1 and its algorithmic formulation",
+        "method": "Primary full HTML relevant sections",
+        "title": "A polynomial time algorithm to find star chromatic index on bounded treewidth graphs with given maximum degree",
+        "trigger": "Potential stronger algorithmic method subsuming counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae06d7ff-67de-4305-b74d-190b65ba9072",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2019 exact star chromatic index gives only the minimum palette. The new structural bijection and all-colour enumerator determine the complete solution distribution, all optimal-solution multiplicities, and a natural log-concavity property. Star edge-colouring and its line-graph vertex counterpart are established graph-colouring problems, so this complete infinite-family classification is mathematically motivated rather than an arbitrary slice. Counting the number of optimal solutions matters for enumeration and probabilistic sampling of star colourings.",
+    "status": "PASS"
+  }
+}
