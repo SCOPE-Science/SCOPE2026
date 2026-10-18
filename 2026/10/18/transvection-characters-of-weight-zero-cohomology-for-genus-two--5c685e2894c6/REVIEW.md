@@ -1,0 +1,12 @@
+# Scientific review
+
+**Correctness — PASS.** The underlying tropical boundary link and the incidence graph are explicitly defined in the cited primary literature. The proof does not treat a nonequivariant wedge splitting as equivariant: it uses natural Mayer–Vietoris exact sequences. For a nonidentity transvection in odd characteristic, the fixed signed vectors have symplectic pairing zero, and the invariant totally isotropic planes all contain its direction. There are exactly \(c\) decorated fixed planes and \(c^2\) fixed incidences; fixed surfaces are pointwise fixed. The graph trace and the surface summands therefore give the two cohomology traces with no unstated numerical hypothesis. Rational representation theory of \(C_p\) gives the unique cyclic multiplicities. The bundled `verify.py` directly corroborates the counts at three primes, and the general proof is not based on those finite experiments.
+
+**Originality — PASS, with literature risk.** Assaf–Brandt–Bruce–Chan–Vlad's explicit link and nonequivariant weight-zero dimensions are central premises. Capovilla-Searle's oriented symplectic Steinberg ranks are a relevant comparison but do not supply this character. The specific fixed-stratum counts and resulting transvection traces and cyclotomic multiplicities are not stated in the inspected primary passages. published-finding corpus and accessible historical-claim searches returned no identical invariant. An unindexed or more general group-character theorem could implicitly include this result; no absolute novelty claim is made.
+
+**Value — PASS.** A nontrivial symplectic transvection is a natural geometric generator of level monodromy. Exact trace and eigenspace multiplicities for every odd prime refine the known nonequivariant dimensions of an entire algebraic moduli family and quantify how much weight-zero cohomology is fixed under this natural monodromy. This is more precise than a routine numerical example and is not a renaming of the published Betti formula.
+
+**Closest literature and scope.** Primary: Assaf et al., arXiv:2609.14895v1, Corollary 5.8 and Theorems 5.10, 5.12; Capovilla-Searle, arXiv:2605.29010v1, Section 8; Assaf et al., arXiv:2505.10504v2, Sections 1 and 4. The theorem applies only to odd prime levels, rational weight-zero compact-support cohomology, and the transvection conjugacy class. It is not a full symplectic representation classification.
+
+Self-review: passed. Independent audit: not yet performed.
+
