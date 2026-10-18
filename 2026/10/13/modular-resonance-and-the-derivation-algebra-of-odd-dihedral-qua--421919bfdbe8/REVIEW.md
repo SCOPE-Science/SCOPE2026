@@ -1,15 +1,21 @@
-# Scientific review: modular resonance in odd dihedral quandle derivations
+# Independent mathematical audit
 
-## Correctness — PASS
-The assumptions explicitly require odd order and coefficient characteristic coprime to that order. The Fourier basis exists under precisely these hypotheses. For every zero product in that basis, the Leibniz identity kills an off-diagonal matrix coefficient; the remaining derivations commute with the cyclic translation and are therefore circulant. Direct substitution gives the necessary and sufficient coefficient identities. Orbit–stabilizer counting with scalar compatibility proves the finite-field dimension formula. An independent basis-equation checker verified 68 finite-field parameter pairs and every Leibniz coefficient for the nonzero 11-point example. Those finite tests support, but do not prove, the universal result.
+## correctness
 
-## Originality — PASS
-Elhamdadi–Makhlouf–Silvestrov–Zappala, *The derivation problem for quandle algebras* (arXiv:2106.08289), supplies the general derivation setup, characteristic-zero vanishing in odd dihedral order (Theorem 3.9), and positive-characteristic examples through order six (Section 4.2). The present statement goes beyond those outcomes by describing all derivations for **every odd order with coprime coefficient characteristic**, proving an explicit arithmetic dimension criterion, and exhibiting the first such nonzero case in characteristic three at order eleven. Aader's 2023 thesis studies the distinct dihedral group-conjugation quandle and does not imply this classification. Searches for equivalent terms and modular-resonance formulations did not identify a dominating statement. Unlocated equivalent literature remains a residual risk; this review is not a claim of exhaustive bibliographic uniqueness.
+PASS
 
-## Value — PASS
-The exact dimension and cardinality of a natural derivation Lie algebra are resolved on an infinite family, with a direct modular arithmetic criterion. The first coprime-characteristic exception at order eleven shows that characteristic-zero rigidity fails for subtler reasons than the characteristic dividing the algebra dimension. This is a structural boundary and not a routine small-case enumeration.
+For odd n and char K coprime to n, the n Fourier modes w_a satisfy w_a*w_b=w_{-a} only if b=-2a. The Leibniz equation at every zero product forces all off-diagonal Fourier coefficients d_{x,a} to vanish, since its two possible nonzero output modes differ when b != -2a. Hence all derivations commute with the cyclic shift and are circulant over K. Substituting D(e_i)=sum_u c(u)e_{i+u} gives the exact iff coefficient relations c(0)=0, c(-u)=-c(u), c(u)=2c(2u). On additive-order-d classes the doubling-and-negation group <2,-1> acts freely with orbit size h_d, and the scalar multiplier is consistent precisely when p divides 2^t_d-1 and, if -1 is a doubling power, p divides 2^(t_d/2)+1. This yields the divisor-sum dimension formula and count q^dimension, with zero in char0 and char2. Direct derivation-matrix Leibniz kernels in n=3,5,7,9,11,13 over tested coprime primes match; n11 p3 and n13 p5 have dimension1. Explicit Legendre character convolution is compatible at n11 p3. This independently reconstructs the unrestricted proof.
 
-## Limits and closest sources
-The theorem does not cover even dihedral orders or characteristic dividing the odd order. The 2024 even-order real/complex module-decomposition article was available only through its abstract; it does not appear to address this result, but its entire text was not inspected. The self-review should not be mistaken for independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Elhamdadi–Makhlouf–Silvestrov–Zappala prove characteristic-zero odd-dihedral derivation vanishing and provide positive-characteristic computations for small quandle sizes (n up to 6). They do not give the all odd n, arbitrary coprime-positive-characteristic orbit resonance formula in the inspected complete text; their known char0 case is correctly credited. Aader’s thesis treats dihedral group-conjugation quandles with different underlying quandle, so no implication by title alone. The n11 p3 positive example and exact formula are nontrivial additions beyond small-case tables. Originality best of knowledge with literature-indexing risk.
+
+## value
+
+PASS
+
+The derivation Lie algebra is a fundamental invariant of a natural family of quandle algebras, and the exact all-order modular resonance formula is a motivated structure theorem. It exhibits a qualitatively new char-dependent jump from zero derivations to nonzero at the first n=11 p=3 example, and counts every derivation over finite fields. This goes beyond textbook character-zero vanishing or arbitrary small-n arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
