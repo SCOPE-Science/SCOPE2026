@@ -1,32 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For an \(m\)-fold great circle, the source identities give
-\[
-L_m=2\pi m,\qquad
-A_m\equiv2\pi m\pmod{4\pi},
-\]
-and hence the stated Pinkall lattice and modulus. Zero geodesic curvature gives
-\[
-\mathcal W=\pi\mathcal E=2\pi^2m,
-\]
-while the source's density theorem gives the same factor \(m\) in the endpoint varifold. The only nontrivial classification step is modular: \(z_1=(1+i)/2\) maps to \(i=z_2\) under inversion followed by translation, while every \(z_m\) with \(m\ge2\) is already in the standard closed fundamental domain. Its uniqueness and boundary identifications force equality of multiplicities thereafter.
+PASS
 
-## Originality
+Length L_m=2pi m, geodesic curvature zero and oriented area A_m=2pi m modulo 4pi give z_m=(A_m+iL_m)/(4pi). The Pinkall generators (2pi,0),(A_m/2,pi m) have determinant 2pi²m; Clifford torus area times m and Hopf-elastic energy yield same scalar. Exact modular inversion and translation send z1=(1+i)/2 to z2=i; all m>=2 representatives lie in the closed PSL2Z standard fundamental domain with imaginary part m/2 and only identified vertical-boundary points preserve that imaginary part. Recomputed exact transform and modular inequalities. The conclusion is static, conditional flow-endpoint interpretation only.
 
-PASS. The closest paper explicitly observes only that the once- and twice-covered Clifford torus have the same square conformal class. It gives the general lattice and multiplicity formulas but does not classify the modular orbits of all great-circle covers. Pinkall supplies the classical lattice formula and the once-covered example. Targeted searches found no all-\(m\) statement that the pair \(1,2\) is the unique modular collision.
+## originality
 
-Residual risk: because the final modular reduction is short, an older equivalent observation may exist under terminology not surfaced by the searches.
+PASS
 
-## Value
+The motivating Ahmedou–Jakob abstract proves multiplicity-resolved convergence, Pinkall lattice convergence and existence of a multiplicity-two limit having square conformal class. It does not state an all-m modular collision classification in accessible abstract. Resultary semantic search found no stronger all-m classification beyond the audited record. The full primary paper was inaccessible; substantial overlap risk is expressly retained rather than claiming full-document noncoverage.
 
-PASS. The primary paper makes multiplicity resolution an explicit endpoint issue and uses the once/twice Clifford pair to show that conformal type can forget multiplicity. The theorem here gives the exact boundary of that failure: among all Clifford Hopf covers, only multiplicities one and two collide in moduli. It also aligns the three scale-sensitive quantities—marked-lattice covolume, Willmore energy, and varifold mass—at the common value \(2\pi^2m\).
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+Identifiability of covering multiplicity from the conformal class is a natural exact invariant of canonical Clifford Hopf covers. The unique {1,2} ambiguity and strict injectivity for all higher multiplicities form a complete structural classification relevant to geometric flow endpoints, without overclaiming that every high multiplicity occurs dynamically.
 
-The closest source is Ahmedou--Jakob, arXiv:2609.26997v1, especially Sections 8--10. Pinkall's 1985 paper supplies the classical marked-lattice construction.
-
-No existence theorem is asserted for simple initial flow data converging to every higher multiplicity. The theorem is restricted to multiply traversed great-circle profiles and does not classify modular collisions for arbitrary multiply covered elastic profiles.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
