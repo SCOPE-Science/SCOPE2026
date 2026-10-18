@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope and reproducibility
 
-The mathematics is based on the explicit Gödel modal clauses and a symbolic proof. Under Boolean atomic valuations, a nonempty set of positive accessibility grades without a largest member can be selected exactly by an atom, forcing failure of diamond attainment. Conversely, a Boolean modal-free formula has Boolean truth value, so an attained box infimum is automatic; reverse well-ordering of every positive row-grade set makes every depth-one diamond supremum attained. Both directions quantify over all worlds and all Boolean atomic valuations.
+# Independent mathematical audit
 
-The countable counterexample has root grade-one edges to first-layer nodes, and one edge of grade \(1/(n+1)\) from the \(n\)-th first-layer node to its terminal node. All other edges are zero. Each positive row has one distinct grade, but the root outer-box terms for \(\Box\Diamond p\) form a positive sequence converging to zero, with none equal to zero. The negative claim is a direct symbolic infinite proof; neither truncation nor a timeout demonstrates nonattainment.
+## correctness
 
-The standalone standard-library script `verify.py` was run with Python 3 and completed successfully, outputting `VERIFY_OK`. It checks exact-rational evaluations for nine finite restrictions with branch counts 1, 2, 3, 4, 8, 16, 32, 64, and 128, and confirms the finite values \(1/(N+1)\). It also checks increasing-grade subsets for the converse stress case. Finite restrictions are necessarily witnessed and satisfy the witness axiom: this is consistent with the genuine countably infinite failure. The script is not a proof checker and provides no infinite completeness certificate.
+PASS
+
+Boolean atomic inputs keep every modal-free Gödel term in {0,1}, so each box at modal depth one has an attained extremum and each diamond contribution lies in {0}∪G_w. Every subset of positive row grades having a maximum is sufficient; necessity follows by selecting any no-maximum subset with a Boolean variable and taking its unattained diamond supremum. The countable rooted height-two frame r→a_n weight1, a_n→b_n weight1/(n+1) has row-positive grade sets each singleton and globally reverse well-ordered grades. With p(b_n)=1, Diamond p(a_n)=1/(n+1)>0, and Box Diamond p(r)=0 without an attaining term. Box not-not Diamond p(r)=1 and not-not Box Diamond p(r)=0, refuting the schema. Independent exact-rational finite truncations have box values 1/(N+1) for N=1,2,3,4,8,16,128; the nonattainment at the infinite limit follows from the explicit sequence, never the finite test.
+
+## originality
+
+PASS
+
+Ferrari et al develop generally fuzzy witnessed Gödel models; their nonwitnessed example has different atomic/edge structure. Restricting to Boolean inputs creates an exact reverse-well-order row criterion, and the depth-two example shows a failure not supplied by finite-model or crisp-edge theorems. A finite ordinal-regrading result cannot imply infinite nonattainment.
+
+## value
+
+PASS
+
+Witnessedness of fuzzy modal operators is a mathematically motivated semantic property tied to finite-model results and proof rules. The exact reverse-well-order criterion under Boolean atomic valuations and a minimal depth-two failure on an extremely sparse countable frame isolate the first obstruction to compositional attainment. It differentiates Boolean-input from generally fuzzy valuations and genuinely crisp accessibility without claiming all-depth classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

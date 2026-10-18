@@ -1,19 +1,21 @@
-# Scientific review: Boolean-input Gödel witnessability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equivalence is proved by a Boolean atom that selects an arbitrary nonempty set of positive outgoing edge grades; failure of a maximum makes its diamond supremum unattained. In reverse, every modal-free Gödel formula under Boolean atomic inputs is Boolean, so each box infimum is over zero-one contributions and each diamond supremum is over zero together with a subset of the positive row grades. The latter is attained precisely under the row-spectrum condition. In the explicitly defined countable tree, every nonempty positive row-grade set is a singleton, yet the outer box has positive terms decreasing to zero and thus no attaining world. Double negation supplies a concrete failure of the witness axiom. The script `verify.py` checks nine finite restrictions with exact rational arithmetic, including the finite witness axiom and increasing-grade stress tests. It does not replace the infinite argument.
+PASS
 
-## Originality — PASS
+Boolean atomic inputs keep every modal-free Gödel term in {0,1}, so each box at modal depth one has an attained extremum and each diamond contribution lies in {0}∪G_w. Every subset of positive row grades having a maximum is sufficient; necessity follows by selecting any no-maximum subset with a Boolean variable and taking its unattained diamond supremum. The countable rooted height-two frame r→a_n weight1, a_n→b_n weight1/(n+1) has row-positive grade sets each singleton and globally reverse well-ordered grades. With p(b_n)=1, Diamond p(a_n)=1/(n+1)>0, and Box Diamond p(r)=0 without an attaining term. Box not-not Diamond p(r)=1 and not-not Box Diamond p(r)=0, refuting the schema. Independent exact-rational finite truncations have box values 1/(N+1) for N=1,2,3,4,8,16,128; the nonattainment at the infinite limit follows from the explicit sequence, never the finite test.
 
-The inspected 2026 Ferrari–Fiorentini–Giardini–Rodriguez paper treats logics whose individual models are already witnessed; it gives semantic definitions and finite-model results but no all-Boolean-valuation criterion for arbitrary fuzzy frames. The 2025 crisp-frame treatment excludes the graded edges essential here. The 2022 paraconsistent finite-branching results use a distinct two-component semantics. Searches for equivalent grade-spectrum and one-step witnessability formulations did not find a dominating statement. In particular, model-level witnessability, logic finite-model properties, and a frame-level guarantee for all Boolean atomic valuations have different quantifiers. This is a provisional scientific originality assessment, not proof that the literature is exhaustively searched.
+## originality
 
-## Value — PASS
+PASS
 
-Frame-level witnessability under restricted valuation types is a mathematically natural condition for graded modal semantics. The result gives its exact depth-one structural boundary, with a single-variable diagnostic, while the countable example proves that satisfying this optimal local property does not suffice at depth two. The example retains one positive weight per row and a globally reverse-well-ordered set of grades, so branching and arbitrary row-level grade diversity alone do not explain the obstruction. The modal-depth threshold and concrete witness-axiom failure are the principal value; no general theorem about every modal depth is asserted.
+Ferrari et al develop generally fuzzy witnessed Gödel models; their nonwitnessed example has different atomic/edge structure. Restricting to Boolean inputs creates an exact reverse-well-order row criterion, and the depth-two example shows a failure not supplied by finite-model or crisp-edge theorems. A finite ordinal-regrading result cannot imply infinite nonattainment.
 
-## Closest literature and limitations
+## value
 
-Ferrari, Fiorentini, Giardini, and Rodriguez, *A Gödel Modal Logic Over Witnessed Models* (2026), arXiv:2606.31906, DOI:10.4204/EPTCS.447.20; Ferrari, Fiorentini, and Rodriguez, *A Gödel Modal Logic over Witnessed Crisp Models* (2025), DOI:10.1007/978-3-032-06085-3_8; and Bílková, Frittella, and Kozhemiachenko, *Paraconsistent Gödel Modal Logic* (2022), DOI:10.1007/978-3-031-10769-6_26, were read at their semantic definitions and relevant main results. The theorem is for Boolean atomic inputs at depth one, not arbitrary fuzzy input assignments; the second claim is an existence counterexample at depth two, not a complete deeper characterization. A prior formulation using different terminology remains possible. Finite code checks cannot settle infinite attainment. Independent external review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Witnessedness of fuzzy modal operators is a mathematically motivated semantic property tied to finite-model results and proof rules. The exact reverse-well-order criterion under Boolean atomic valuations and a minimal depth-two failure on an extremely sparse countable frame isolate the first obstruction to compositional attainment. It differentiates Boolean-input from generally fuzzy valuations and genuinely crisp accessibility without claiming all-depth classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
