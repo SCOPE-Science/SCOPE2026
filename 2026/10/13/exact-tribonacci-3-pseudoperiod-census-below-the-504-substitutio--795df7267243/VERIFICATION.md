@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json` and `triples.tsv`.
+# Independent mathematical audit
 
-The checker regenerates the Tribonacci prefix \(\sigma^{15}(0)\), whose length is \(10609\). For every \(1\le m\le504\), it extracts all observed length-\(m\) factors and verifies that their number is exactly the published total \(2m+1\). This certifies that the finite prefix contains every factor required by the proof.
+## correctness
 
-It then exhaustively recomputes every triple \(1\le a<b<c<504\). The mismatch engine requires the intersection of the three mismatch-factor bitsets to be empty and must reproduce the stored `triples.tsv` list exactly. A separate direct-string pass then rechecks every one of the \(9352\) stored survivors against every relevant factor.
+PASS
 
-The cumulative substitution-scale counts and the first nine triples are recomputed from the verified list. The computation is exhaustive in the stated finite domain and makes no inference from sampling or timeout behavior.
+For the Tribonacci fixed point 0→01,1→02,2→0, the 3-pseudoperiod condition for 1≤a<b<c is equivalent to x0∈{xa,xb,xc} for every length-(c+1) factor. Independently generated sigma^15(0) length 10609; for all factor lengths 1..504 the observed factor count is exactly 2m+1, matching the established Tribonacci complexity p(m)=2m+1, hence factors are exhaustive. Independent mismatch-bitset full enumeration for every 1≤a<b<c<504 returned exactly 9352 and cumulative counts at lengths 7,13,24,44,81,149,274,504 of 0,2,9,42,172,676,2402,9352; the nine c<24 triples match the package. The finite check is exhaustive because of the complexity theorem, not merely because a large prefix was sampled.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+The original 3-pseudoperiod characterization is open. A rigorously certified 9352-member full initial domain through the canonical substitution scale q_10=504 provides a meaningful, reproducible finite classification and a structured data benchmark for future automatic, number-theoretic or morphic approaches. The cutoff is a genuine substitution length, not an arbitrary small instance; no infinite characterization claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

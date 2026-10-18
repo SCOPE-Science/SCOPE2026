@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each candidate \((a,b,c)\), the defining infinite condition is equivalent to a finite condition on all factors of length \(c+1\). The published Tribonacci complexity \(p(m)=2m+1\) makes the extracted factor sets exhaustive, and the package verifies that count for every required \(m\). The exhaustive mismatch-bitset census reproduces the full \(9352\)-triple list, and a separate direct-string pass rechecks every stored survivor against all relevant factors.
+## correctness
 
-## Originality
-PASS. The direct source proves only the witness \((4,6,7)\) and immediately asks for a characterization of all Tribonacci 3-pseudoperiods, noting that the intended automaton computation exceeded available resources. Exact-cutoff, exact-count, alias, and later-literature searches found no published finite table through \(504\). The closest own use of the source concerns a binary fixed 2-pseudoperiod, while the closest own Tribonacci result concerns additive powers; neither implies this census.
+PASS
 
-Residual risk remains for an unindexed or unpublished finite computation.
+For the Tribonacci fixed point 0→01,1→02,2→0, the 3-pseudoperiod condition for 1≤a<b<c is equivalent to x0∈{xa,xb,xc} for every length-(c+1) factor. Independently generated sigma^15(0) length 10609; for all factor lengths 1..504 the observed factor count is exactly 2m+1, matching the established Tribonacci complexity p(m)=2m+1, hence factors are exhaustive. Independent mismatch-bitset full enumeration for every 1≤a<b<c<504 returned exactly 9352 and cumulative counts at lengths 7,13,24,44,81,149,274,504 of 0,2,9,42,172,676,2402,9352; the nine c<24 triples match the package. The finite check is exhaustive because of the complexity theorem, not merely because a large prefix was sampled.
 
-## Value
-PASS. The cutoff \(504=|\sigma^{10}(0)|\) is a canonical substitution scale, and the result gives a complete initial region of an explicitly stated open classification problem rather than an arbitrary finite sample. The full \(9352\)-triple table is suitable as a regression target and conjecture-forming dataset for a future structural or automaton solution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+The original 3-pseudoperiod characterization is open. A rigorously certified 9352-member full initial domain through the canonical substitution scale q_10=504 provides a meaningful, reproducible finite classification and a structured data benchmark for future automatic, number-theoretic or morphic approaches. The cutoff is a genuine substitution length, not an arbitrary small instance; no infinite characterization claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
