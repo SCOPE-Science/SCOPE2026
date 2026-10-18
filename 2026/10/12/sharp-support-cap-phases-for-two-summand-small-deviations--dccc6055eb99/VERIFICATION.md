@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the exact support-cap tail envelope
+# Independent mathematical audit
 
-The mathematical argument is self-contained after the explicitly credited standard two-point mean decomposition, whose mixing coefficients are reproduced and checked in `RESULT.md`. The nontrivial calculations are: the product minimum \(bd\geq L(3-L)\) for \(3/2\leq L\leq2\); the high probability bound \(q\leq1/b\); the monotone gradient of the both-cross functional; and the exact identity
-\[
-\frac{2t+3t^2}{(1+2t)^2}-\frac12=\frac{2t^2-1}{2(1+2t)^2}.
-\]
-The proof handles all real caps, nonidentical laws, degenerate means, and both closed-event phase endpoints. Explicit two-point laws attain each piece, including the threshold discontinuity and the \(5/9\) asymptote at a finite cap.
+## correctness
 
-The packaged `check.py` is executable using Python 3 and its standard library alone (`python check.py`). Its actual replay gave `PASS 32397 exact-rational checks; analytic proof still required`. It enumerates paired mean-one two-atom marginals on rational grids over caps \(1\) through \(4\), verifies individual probabilities against the proposed envelope, verifies explicit extremizers for rational caps \(1\) through \(5\), and checks the algebraic phase-comparison identity at rational inputs. The program is *not* an exhaustive enumeration of continuous probability laws and is not a replacement for the analytical proof.
+PASS
 
-No separate independent audit has been performed. The result does not address other thresholds, dependence, unequal caps, or more summands.
+Exact claim: for independent 0<=X,Y<=L with E X=E Y=1 and inclusive event X+Y>=3, F(L)=0 when 1<=L<3/2; 1/[L(3-L)] for 3/2<=L<=2; 1/2 for 2<=L<=2+1/sqrt(2); [2t+3t^2]/(1+2t)^2, t=L-2, for 2+1/sqrt(2)<=L<=3; 5/9 for L>=3. Read the complete proof: each mean-one [0,L] marginal is a mixture of degenerate one or mean-one two-atom laws, preserving cap and independence on product mixtures. Each elementary pair has low-low impossible, high-high only bound, one-cross bound<=1/2, or both crosses with b=3-c,d=3-a and H(A,B) monotone on 0<A,B<=min(1,L-2). Explicit two-atom extremizers attain each branch, including the discontinuity at L=3/2 and plateau transition; end points agree. Independently enumerated exact rational two-atom grids across L=3/2,9/5,2,5/2,14/5,3,4 and checked the required branch values. Grid is supporting evidence only; complete moment-mixture argument proves arbitrary distributions.
+
+## originality
+
+PASS
+
+Ling proves the uncapped optimum 5/9 and a general two-atom reduction. The complete support-dependent envelope and its internal phase boundaries are not implied by the uncapped scalar bound, nor by standard exponential Chernoff bounds. Full-text inspection of Ling separates known mixture lemma from the new finite-cap optimization. An older differently indexed exact cap result remains a priority risk.
+
+## value
+
+PASS
+
+A natural, useful support-capped extension of the unrestricted two-variable Feige/Samuels small-deviation extremum with exact attained phases, a discontinuous threshold, a plateau and a nontrivial algebraic switching cap. The cap is a meaningful probabilistic constraint, and the exact bound is not a routine single application of Markov or Hoeffding; it distinguishes sharp event probabilities from surrogate exponential inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
