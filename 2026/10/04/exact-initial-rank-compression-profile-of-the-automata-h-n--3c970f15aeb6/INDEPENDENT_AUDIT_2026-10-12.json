@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:16:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-rank-compression-profile-of-the-automata-h-n--3c970f15aeb6/RESULT.md",
+        "Git blob RESULT.md f5492c5447e5ad82098f0bcc676eae5297967b9b",
+        "Git blob verifier 8bedbce4e4508d3a342b5907e97632e5aba4b8f4",
+        "Independent bitmask BFS and/or compatibility-graph exact clique computations, /tmp/scope10_check_results.json"
+      ],
+      "rationale": "H_n uses a involutive swap of 1,n and b with collision {2,n}. b is the sole rank-reducing letter. Every b omits n; to make a later b effective, a must restore n from state 1, forcing state 1 then absent and the previous b to leave both 2,n absent; another drop after the second requires b to restore 2, then a to restore n, then effective b. Thus initial b followed by the minimal ab and thereafter bab blocks gives length 3s−3 for s≥2, with rigid unique equality word (bab)^(s−1). Inducting the holes {n,2,4,...,2r}, including the even-n n↔1 transition, yields h=floor(n/2)+1 and saturation immediately after. Independent subset BFS n4..13 checked uniqueness and the next deficiency; packaged verifier BFS n4..14 and replay to 300 was source-read, not assumed sufficient for all n.",
+      "residual_risks": [
+        "n≥4, s1 and 2≤s≤floor(n/2)+1; first-next-deficiency statement only when h+1≤n−1; not the full quadratic reset threshold.",
+        "Finite BFS checks only n=4..13 for automata; all-n correctness rests on the symbolic proof, not those samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 is a precise full reset threshold n²−4n+6; general n-state synchronization estimates bound rank-one targets."
+        ],
+        "reasoning": "Final reset distance and general worst-case lower/upper estimates cannot produce the intermediate exact values and unique geodesics through h.",
+        "searches": [
+          "https://arxiv.org/pdf/1302.5793",
+          "https://arxiv.org/pdf/1005.0129",
+          "DFAs and PFAs with Long Shortest Synchronizing Word Length arXiv:1703.07618"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-rank-compression-profile-of-the-automata-h-n--3c970f15aeb6#RESULT.md",
+        "Git blob RESULT.md f5492c5447e5ad82098f0bcc676eae5297967b9b",
+        "https://arxiv.org/pdf/1302.5793",
+        "https://arxiv.org/pdf/1005.0129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2013 Theorem 5 length n²−4n+6 for reset; new λ_n(s)=3s−3 for s≥2≤floor(n/2)+1 and strict next boundary."
+        ],
+        "reasoning": "A single endpoint at s=n−1 does not imply the piecewise high-rank profile, especially uniqueness and parity boundary.",
+        "searches": [
+          "https://arxiv.org/pdf/1302.5793",
+          "https://arxiv.org/pdf/1005.0129"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AGV 2013 Section 4.2 defines same H_n action and describes a reduction to a slowly synchronizing subsystem."
+        ],
+        "reasoning": "A relabeled automaton would preserve λ_n(s), but the inspected source does not give the s-dependent unique words; keyword searches do not rule out aliases.",
+        "searches": [
+          "H_n automata deficiency rank compression intermediate shortest word bab",
+          "Resultary: Ananichev Gusev Volkov H_n automaton rank compression shortest word bab deficiency lambda first saturation [temporarily_unavailable]",
+          "GitHub SCOPE2026 code search: H_n minimum rank shortest synchronizing [0 hits]",
+          "https://arxiv.org/pdf/1302.5793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact H_n intermediate-rank table in reviewed 2013 family and proof; semantic index unavailable."
+        ],
+        "reasoning": "The infinite symbolic family is not a finite table, but exact rank-threshold databases could include these points; searched aliases and source section.",
+        "searches": [
+          "GitHub SCOPE2026 code search: H_n minimum rank shortest synchronizing [0 hits]",
+          "Resultary: Ananichev Gusev Volkov H_n automaton rank compression shortest word bab deficiency lambda first saturation [temporarily_unavailable]",
+          "https://arxiv.org/pdf/1302.5793"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: AGV 2013 full Section 4.2 proves full reset length via a different reduction and names H_n, but not the unique shortest intermediate-rank words or first saturation. AGV 2010 only previews an unnamed related family. General synchronizing-length results do not entail this detailed profile. Residual risk of differently named rank profiles persists.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+        "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+        "The same automaton may be relabeled or called a Wielandt-subautomaton extension in subset-synchronization literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 derives full reset threshold via a reduction, but does not give high-rank λ_n(s), (bab)^(s-1) uniqueness or first saturation.",
+          "evidence": "Theorem 5 states n^2-4n+6 shortest reset length; the assessed intermediate s<=floor(n/2)+1 is not determined by endpoint length.",
+          "identifier_or_url": "arXiv:1302.5793v2; https://arxiv.org/pdf/1302.5793",
+          "material_read": "23-page full text, Section 4.2 H_n transition construction and Theorem 5 proof; checked neighboring family section.",
+          "method": "Authoritative arXiv full PDF text and page visual check.",
+          "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+          "trigger": "Same H_n automaton and exact transition labelling, especially Section 4.2."
+        },
+        {
+          "assessment": "2010 paper announces an unnamed n^2-4n+6 family but does not define H_n and does not list the intermediate-rank profile.",
+          "evidence": "2010 source preceding the named H_n extension.",
+          "identifier_or_url": "arXiv:1005.0129v1; https://arxiv.org/pdf/1005.0129",
+          "material_read": "13-page source including named family diagrams and Theorem 4 reset threshold proofs.",
+          "method": "arXiv full PDF with visual page inspection.",
+          "title": "Slowly synchronizing automata and digraphs",
+          "trigger": "Older related automata paper, potentially an alias of H_n."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git blob RESULT.md f5492c5447e5ad82098f0bcc676eae5297967b9b",
+        "https://arxiv.org/pdf/1302.5793",
+        "https://arxiv.org/pdf/1005.0129"
+      ],
+      "rationale": "Exact parameter-wide high-rank metric and uniquely forced words in a celebrated extremal automaton family, with a sharp n-parity hole-saturation transition. This structural bottleneck is not routine consequence of the known final reset length.",
+      "residual_risks": [
+        "Value scoped exactly to the stated natural invariant/domain; no downstream theorem or global census claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n≥4, s1 and 2≤s≤floor(n/2)+1; first-next-deficiency statement only when h+1≤n−1; not the full quadratic reset threshold.",
+    "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+    "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+    "The same automaton may be relabeled or called a Wielandt-subautomaton extension in subset-synchronization literature."
+  ],
+  "schema_version": 1
+}

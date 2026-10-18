@@ -1,19 +1,21 @@
-# Review of Exact initial rank-compression profile of the automata \(H_n\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies \(b\) as the only rank-decreasing letter and its sole collision pair \(\{2,n\}\). It then proves a spacing lemma for effective uses of \(b\): the first two decreases cost lengths \(1\) and \(2\), while every subsequent decrease costs at least three further letters because a nonfirst effective \(b\) leaves both \(2\) and \(n\) absent. Equality rigidly forces \((bab)^{s-1}\). The explicit hole induction proves that this forced word attains deficiency \(s\) exactly through \(s=\lfloor n/2\rfloor+1\), and the next iterate supplies the strict saturation boundary. Exact power-automaton BFS for \(4\le n\le14\) and direct replay through \(n=300\) agree with every proved statement.
+## correctness
 
-Risk: a transcription error in the family definition would invalidate the argument; this was controlled by comparing the transition formulas with the defining source and reconstructing them independently in the verifier.
+PASS
 
-## Originality
-PASS. The 2013 primary source defines \(H_n\) and proves the endpoint reset threshold \(n^2-4n+6\), but not the intermediate-rank profile. The 2010 precursor explicitly postpones the corresponding unnamed \(n^2-4n+6\) series to an extended version. Semantic searches of the published published-finding corpus collection and web/literature searches for `H_n`, rank compression, deficiency, shortest rank words, and equivalent wording found no statement that implies the claimed profile. The closest published-finding corpus items concern a finite slow-reset census and the Černý-family avoiding threshold, neither of which implies this result.
+H_n uses a involutive swap of 1,n and b with collision {2,n}. b is the sole rank-reducing letter. Every b omits n; to make a later b effective, a must restore n from state 1, forcing state 1 then absent and the previous b to leave both 2,n absent; another drop after the second requires b to restore 2, then a to restore n, then effective b. Thus initial b followed by the minimal ab and thereafter bab blocks gives length 3s−3 for s≥2, with rigid unique equality word (bab)^(s−1). Inducting the holes {n,2,4,...,2r}, including the even-n n↔1 transition, yields h=floor(n/2)+1 and saturation immediately after. Independent subset BFS n4..13 checked uniqueness and the next deficiency; packaged verifier BFS n4..14 and replay to 300 was source-read, not assumed sufficient for all n.
 
-Residual risk: an older or unindexed source may state the same profile under different notation. No search result established such coverage.
+## originality
 
-## Value
-PASS. Rank-compression time is a natural structural invariant of a synchronizing automaton, and \(H_n\) is a classical named slowly synchronizing family. The result determines an entire parameterized initial profile, its unique optimal words, and the precise first point where linear compression saturates. It therefore describes structure not contained in the known endpoint reset threshold and is not a one-off table computation or arbitrary slice.
+PASS
 
-## Closest literature and limitations
-The closest primary source is Ananichev–Gusev–Volkov, arXiv:1302.5793v1, Theorem 5, which proves the full reset threshold after defining \(H_n\). The 2010 precursor arXiv:1005.0129v1 announces a series at the same endpoint threshold but leaves it for the extended version. The present result does not determine larger deficiencies after the first saturation point and does not change the known reset threshold.
+Best-of-knowledge PASS: AGV 2013 full Section 4.2 proves full reset length via a different reduction and names H_n, but not the unique shortest intermediate-rank words or first saturation. AGV 2010 only previews an unnamed related family. General synchronizing-length results do not entail this detailed profile. Residual risk of differently named rank profiles persists.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact parameter-wide high-rank metric and uniquely forced words in a celebrated extremal automaton family, with a sharp n-parity hole-saturation transition. This structural bottleneck is not routine consequence of the known final reset length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
