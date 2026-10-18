@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The underlying graph is unambiguous: all 24 signed two-support vectors in four coordinates, with edges at inner product one. The independently generated graph has exactly 96 edges, each vertex of degree eight. Exhaustive enumeration verifies the full 1,493-face poset and its dimensional counts. The staged toggle matching consists of 717 valid pairs; every one of the 5,496 Hasse incidences has been oriented and a topological sort visits all 1,493 faces. Its Morse CW complex has one critical zero-cell, 34 critical two-cells and 24 critical three-cells. The exact signed Morse boundary is checked against a complete nine-nonzero-row sparse description and has rank three with an explicitly verified determinant-minus-one maximal minor. Hurewicz and cellular cancellations then give precisely \(\bigvee^{31}S^2\vee\bigvee^{21}S^3\). A separately written enumerator independently confirms the full boundary ranks over three finite fields. The field checks alone would not prove the integral homotopy type; the unit integral minor is essential.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The source graph is the classical regular 24-cell, whose edge graph is not an arbitrary degree-eight graph. Barmak's *Star clusters in independence complexes of graphs*, arXiv:1007.0418v1, was examined in its HTML full text, including its triangle-free suspension theorem and special family computations. The 24-cell graph has 96 triangles, each vertex in twelve, so the triangle-free-vertex theorem is not applicable; its other theorems do not give this mixed integral decomposition. The full-text family statements in Deshpande and Singh's arXiv:2001.05448v2 concern complete multipartite, fully whiskered, path, cycle and perfect-tree graphs; they do not encompass the 24-cell graph, and their general discrete-Morse toolkit does not imply the exact rank-three matrix. Searches under 24-cell, icositetrachoron, D4 roots, F4 polytope, clique complex of the graph complement, and sphere multiplicities 31 and 21 yielded no covering statement. Published research-record searches were compared by implication. One geometrical record about lattice reduction of the same polytope does not concern independent sets. An unindexed or unpublished equivalent computation cannot be ruled out, and priority is not certified.
+PASS
 
-## Value — PASS
-The 24-cell is the regular self-dual four-dimensional polytope with no three-dimensional Platonic analogue. Its independence complex is a canonical symmetric flag complex and its exact homotopy type is a natural invariant, not an arbitrarily imposed slice or a table recomputation. The original complex has dimension seven; its integral homotopy class has spheres in two adjacent dimensions and nontrivial multiplicities. This supplies meaningful topological structure and distinguishes the full wedge homotopy decomposition from face counts, Euler characteristic, or finite-field Betti numbers. The claim is self-contained and makes no unsupported extrapolation to other polytopes.
+For the 24-cell D4 root graph, all 24 signed two-support vectors and adjacencies dot(v,w)=1 are constructed from the frozen RESULT. Independent exhaustive enumeration gives 96 edges and 1,493 nonempty independent faces with f=(24,180,488,474,216,84,24,3). The prescribed 717-pair staged toggle matching has a verified acyclic orientation on 5,496 incidences and critical multiplicities (1 in dim0,34 in dim2,24 in dim3). An independent exact Morse reduction reproduces all 34×24 matrix rows: a,a,-a; b,b,-b; c,c,-c; remaining zero. Rank 3 and the displayed determinant -1 show saturated image with Smith factors 1,1,1. Because the CW 2-skeleton is a wedge of 34 S², integral π₂≅H₂ makes the 3-cell attaching maps determined by that matrix. Three cancellations leave 31 S² and 21 S³. Finite-field rank checks alone were not used to infer torsion-freeness.
 
-## Sources and limits
-Primary anchor: Barmak, arXiv:1007.0418v1, first publicly submitted 2010-07-02, primary MSC 57M15. Comparative full text: Deshpande and Singh, arXiv:2001.05448v2. Coordinate reference: MathWorld, *24-Cell*. Closest indexed claims concern independence/matching complexes of different graphs and geometric lattice-reduction properties of the same polytope. Possible unindexed equivalent results remain a residual risk. Independent evaluation was not requested or conducted; the supplied standard-library checkers are reproducible finite certificates, not third-party certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact statement comparison: Compared aliases 24-cell edge graph, D4-root graph, graph independence complex; no equal homotopy decomposition in retrieved research, not an exhaustive absence claim. General methods cannot substitute for a 34×24 integral Morse matrix; no located stronger theorem specializes to the result. The numerical and homotopy conclusion is not a mechanical specialization of the identified literature. Residual risks explicitly preserved.
+
+## value
+
+PASS
+
+The 24-cell is a canonical exceptional four-dimensional regular polytope and root configuration. Its graph independence complex is a natural topological graph invariant; the exact mixed-dimensional integral homotopy type, including torsion exclusion and explicit Morse matrix, is useful independent finite topology data not supplied by general techniques. Does not require a new infinite family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
