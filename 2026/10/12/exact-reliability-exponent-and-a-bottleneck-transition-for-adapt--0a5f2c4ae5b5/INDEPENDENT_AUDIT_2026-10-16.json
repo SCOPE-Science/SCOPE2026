@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:00:11.327721Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bittel et al. source supplies a pure-state exact learner in which codimension r falls by one with probability p_r=(1-2^{-r})/2 independently at successive geometric waiting times. Starting at r=n is the stochastic maximum over stabilizer states; if the learner halts before full diagonalization, the returned basis state cannot equal the remaining nonbasis stabilizer state. Thus F_n(T)=Pr(sum_{r=1}^n Geom(p_r)>T), without a missing success correction. Separating r=1, the bulk r>=2 log-mgf per n tends to Λ(theta)=log(e^theta/(2-e^theta)); its slope under tilt gives theta_x=log(2(x-1)/x), at x=3 attaining the r=1 MGF singularity a=log(4/3). Standard exponential Chernoff upper and tilted bulk lower bounds yield I0(x) for 2<x<=3. For x>=3, constrain the bulk to 3n+o(n) at rate 3a-log2 and assign excess (x-3)n+o(n) to G1 tail (3/4)^j: rate xa-log2. Endpoint continuity/differentiability follows directly. Our independent finite convolution checks at n=20,40,80 for x=2.5,3,4 were consistent with the limits but do not prove the triangular-array LDP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson 2017 gives geometric-sum concentration bounds; Montanaro Bell sampling and Chang et al. unrestricted measurement learning are different physical algorithms."
+        ],
+        "reasoning": "None inspected derives the exact *this algorithm’s* worst-case exponent. Generic geometric concentration supplies comparison inequalities; not the matched two-rate asymptotic formula and transition.",
+        "searches": [
+          "https://arxiv.org/html/2610.02031v1",
+          "https://arxiv.org/abs/1709.08157",
+          "https://arxiv.org/abs/1707.04012",
+          "https://arxiv.org/abs/2609.10974"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.02031v1",
+        "https://arxiv.org/abs/1709.08157",
+        "https://arxiv.org/abs/1707.04012",
+        "https://arxiv.org/abs/2609.10974",
+        "Resultary semantic query: adaptive single-copy stabilizer learning reliability large deviation exponent geometric waiting time codimension-one bottleneck"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source explicitly computes stage probabilities p_r and cites geometric-sum concentration for a runtime guarantee."
+        ],
+        "reasoning": "Its premises are sufficient to derive the new asymptotics, but the precise Legendre boundary and extra final-stage delayed failure mechanism are not a stated theorem or immediate numerical substitution of a prior exact-rate identity.",
+        "searches": [
+          "https://arxiv.org/html/2610.02031v1",
+          "https://arxiv.org/abs/1709.08157",
+          "adaptive single-copy stabilizer learning reliability large deviation exponent geometric waiting time codimension-one bottleneck"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bittel et al. Algorithm 1 uses independent geometric success stages and gives a high probability guarantee but no piecewise asymptotic large-deviation exponent."
+        ],
+        "reasoning": "Recasting in stopping-time distribution does not itself deliver the r=1 non-steep MGF large-deviation boundary; the submitted branches require separating the finite bottleneck from the limiting bulk.",
+        "searches": [
+          "adaptive single-copy stabilizer learning reliability large deviation exponent geometric waiting time codimension-one bottleneck",
+          "https://arxiv.org/html/2610.02031v1",
+          "https://arxiv.org/abs/1709.08157"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked published exact rate table or function indexed by this stabilizer algorithm and x; Resultary nearest results on unrelated stochastic optimization tails."
+        ],
+        "reasoning": "The answer is a continuous x-indexed rate function rather than a finite precomputed database. Exact coverage would require the two analytical branches, not present in searched tables.",
+        "searches": [
+          "adaptive single-copy stabilizer learning reliability large deviation exponent geometric waiting time codimension-one bottleneck",
+          "Resultary semantic query: adaptive single-copy stabilizer learning reliability large deviation exponent geometric waiting time codimension-one bottleneck"
+        ]
+      },
+      "rationale": "The exact stabilizer source states independent geometric stages and a general high-probability upper bound, but no asymptotic worst-case log-failure exponent or changepoint. Janson supplies nonsharp explicit tail inequalities for generic geometric sums. Separating one fixed slow geometric bottleneck from n asymptotically rate-1/2 summands produces a sharp two-mechanism law not stated in the checked sources or semantically similar Resultary entries. This is a novel evaluation/interpretation of known algorithmic stages, not a new stabilizer-learning algorithm.",
+      "residual_risks": [
+        "A general non-steep triangular-array large-deviation theorem may imply the probabilistic formula after checking its hypotheses, even if absent as a stabilizer-learning instance.",
+        "The package mentions a separate finite checker but verify.py is absent at the pinned package path; do not claim to have rerun that packaged program.",
+        "Failure exponent is for this specific algorithm, not a universal adaptive optimality bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stage representation is prior work; exact two-branch error exponent not stated in source",
+          "evidence": "p_r=(1-2^-r)/2; geometric waiting time sum; general concentration rather than matching large-deviation lower bound.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02031v1",
+          "material_read": "Accessible full arXiv HTML, especially Algorithm 1, geometrically distributed stage analysis and probability bounds",
+          "method": "read scholarly HTML full text",
+          "title": "Adaptivity is all you need: Optimal stabilizer learning using just single-copy measurements",
+          "trigger": "Exact same adaptive algorithm and stage probabilities"
+        },
+        {
+          "assessment": "Not enough to assert full-document noncoverage; residual possible generic equivalent theorem",
+          "evidence": "Generic tail inequalities do not on available evidence give exact triangular-array asymptotic with one persistently slow variable.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.08157",
+          "material_read": "Public abstract and described concentration inequalities; complete full text not verified in this run",
+          "method": "abstract/available theorem-summary comparison",
+          "title": "Tail bounds for sums of geometric and exponential variables",
+          "trigger": "General tail theorem might dominate the claimed exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp reliability exponent identifies exactly the exponentially small algorithm failure risk at each linear round budget, with a previously unspecified change of dominant failure mechanism at three rounds per qubit (six copies asymptotically). This is relevant to high-confidence resource provisioning and explains why bulk Chernoff extrapolation stops being exact. No claim of optimizing the underlying algorithm is needed for this specific resource bound to matter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The checker claimed in package was NOT_FOUND at verify.py; private independent convolution check performed instead.",
+    "Analytic asymptotic proof relies on standard exponential tilting for a mildly nonidentical triangular array; verified limiting mgf and separation argument, finite tests not proof."
+  ],
+  "schema_version": 1
+}

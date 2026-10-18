@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's exact one-step probabilities imply an independent geometric-stage representation. The bulk cumulant generating function has a summable perturbation from the \(p=1/2\) limit, and the interior saddle gives the first branch. Separating the final \(p_1=1/4\) stage gives both the boundary upper bound and the matching lower construction for the linear branch. The equality between worst-case algorithmic failure and the stopping-time tail is attained by states with trivial diagonal stabilizer subspace.
+## correctness
 
-## Originality
-PASS. The primary paper uses a generic geometric-sum upper-tail inequality and does not state the exact exponent or bottleneck transition. Searches using stopping-time, reliability-exponent, adaptive single-copy, geometric-waiting-time, and equivalent computational-difference-sampling terminology did not locate a covering statement. The closest stabilizer-learning papers use different measurement models. A residual risk remains that a general non-steep triangular-array large-deviation theorem may abstractly subsume the probability calculation.
+PASS
 
-## Value
-PASS. The result gives the full exponential reliability curve of a new linear-sample adaptive learner and identifies why the rare-event mechanism changes at six copies per qubit. This is a natural finite-confidence refinement of the source's exact-learning analysis, not a routine recomputation of its displayed concentration bound.
+The Bittel et al. source supplies a pure-state exact learner in which codimension r falls by one with probability p_r=(1-2^{-r})/2 independently at successive geometric waiting times. Starting at r=n is the stochastic maximum over stabilizer states; if the learner halts before full diagonalization, the returned basis state cannot equal the remaining nonbasis stabilizer state. Thus F_n(T)=Pr(sum_{r=1}^n Geom(p_r)>T), without a missing success correction. Separating r=1, the bulk r>=2 log-mgf per n tends to Λ(theta)=log(e^theta/(2-e^theta)); its slope under tilt gives theta_x=log(2(x-1)/x), at x=3 attaining the r=1 MGF singularity a=log(4/3). Standard exponential Chernoff upper and tilted bulk lower bounds yield I0(x) for 2<x<=3. For x>=3, constrain the bulk to 3n+o(n) at rate 3a-log2 and assign excess (x-3)n+o(n) to G1 tail (3/4)^j: rate xa-log2. Endpoint continuity/differentiability follows directly. Our independent finite convolution checks at n=20,40,80 for x=2.5,3,4 were consistent with the limits but do not prove the triangular-array LDP.
 
-## Closest literature and limitations
-The principal comparison is arXiv:2610.02031v1 itself, together with the generic geometric-sum bounds in arXiv:1709.08157v1 and stabilizer learners in arXiv:1707.04012 and arXiv:2609.10974v1. The theorem is algorithm-specific and does not establish an optimal adaptive-single-copy reliability exponent or reduce the fixed-confidence leading copy constant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact stabilizer source states independent geometric stages and a general high-probability upper bound, but no asymptotic worst-case log-failure exponent or changepoint. Janson supplies nonsharp explicit tail inequalities for generic geometric sums. Separating one fixed slow geometric bottleneck from n asymptotically rate-1/2 summands produces a sharp two-mechanism law not stated in the checked sources or semantically similar Resultary entries. This is a novel evaluation/interpretation of known algorithmic stages, not a new stabilizer-learning algorithm.
+
+## value
+
+PASS
+
+A sharp reliability exponent identifies exactly the exponentially small algorithm failure risk at each linear round budget, with a previously unspecified change of dominant failure mechanism at three rounds per qubit (six copies asymptotically). This is relevant to high-confidence resource provisioning and explains why bulk Chernoff extrapolation stops being exact. No claim of optimizing the underlying algorithm is needed for this specific resource bound to matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
