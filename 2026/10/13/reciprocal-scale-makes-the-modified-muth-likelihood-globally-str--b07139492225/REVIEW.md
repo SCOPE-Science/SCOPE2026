@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published modified-Muth likelihood becomes, under \(\eta=1/\theta\), a one-dimensional objective whose second derivative is
-\[
--\frac n{\eta^2}-\sum_i x_i^2e^{\eta x_i}-2\sum_i\frac{x_i^2e^{\eta x_i}}{(e^{\eta x_i}-1)^2},
-\]
-which is strictly negative on the entire parameter domain for every positive sample. Exact endpoint expansions send the objective to \(-\infty\) at both ends, so existence and uniqueness follow without simulation. The original-scale expansion gives eventual positive curvature and therefore does not conflict with the transformed concavity proof.
+## correctness
 
-## Originality
-PASS. The closest source is the 2026 modified-Muth article itself. It gives the likelihood, reports numerical single-maximizer behavior, and explicitly says formal theoretical proofs of unimodality and uniqueness are left for future work. The classical 2015 Muth predecessor uses numerical maximum-likelihood solving for a different density and does not imply the present theorem. Searches across unique-MLE, inverse-scale, monotone-score, and concavity formulations found no covering result or correction notice.
+PASS
 
-Residual originality risk remains from an unindexed note or a generic transformed-likelihood theorem stated without the Muth name.
+For all n>=1 and positive x_i, exact variable change η=1/θ leads to second derivative -n/η²-Σx_i²e^(ηx_i)-2Σx_i²e^(ηx_i)/(e^(ηx_i)-1)²<0. Both ends tend to -∞; unique interior MLE. θ curvature 3n/θ²+o(θ^-2)>0 at infinity. Independent sympy differentiation checked one observation, and analytic proof covers all samples.
 
-## Value
-PASS. This resolves a stated theoretical gap in the main likelihood estimator of a new distribution family, upgrades empirical uniqueness to an all-positive-sample theorem, and identifies the coordinate in which strict global concavity is actually true. The monotone reciprocal-scale score also yields a stable bracketing principle for computation.
+## originality
 
-The scope is intentionally limited to maximum likelihood; no analogous uniqueness result is asserted for the paper's spacing or minimum-distance estimators.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge novel samplewise global MLE strict concavity in reciprocal scale; primary MMuth authors explicitly leave proof open.
+
+## value
+
+PASS
+
+Source authors identified theoretical samplewise uniqueness as unproved; a global strict-concavity coordinate provides a parameter-independent proof and robust root-bracketing structure for a recently introduced statistical likelihood.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

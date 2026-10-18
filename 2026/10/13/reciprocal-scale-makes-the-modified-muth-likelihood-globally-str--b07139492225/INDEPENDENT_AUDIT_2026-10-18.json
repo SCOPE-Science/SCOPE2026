@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:00:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/reciprocal-scale-makes-the-modified-muth-likelihood-globally-str--b07139492225/RESULT.md",
+        "https://doi.org/10.3934/math.2026259"
+      ],
+      "rationale": "For all n>=1 and positive x_i, exact variable change η=1/θ leads to second derivative -n/η²-Σx_i²e^(ηx_i)-2Σx_i²e^(ηx_i)/(e^(ηx_i)-1)²<0. Both ends tend to -∞; unique interior MLE. θ curvature 3n/θ²+o(θ^-2)>0 at infinity. Independent sympy differentiation checked one observation, and analytic proof covers all samples.",
+      "residual_risks": [
+        "No theorem for other estimators; proof assumes x_i>0. Numerical derivative check alone is not global proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barakat AIMS §3.1 gives likelihood and §3.2 explicitly leaves a general proof of uniqueness open.",
+          "Classical Muth distribution of Jodrá et al is a different density."
+        ],
+        "reasoning": "General parametric MLE asymptotics or numerical uniqueness do not establish strict concavity for every positive dataset in this specific reciprocal coordinate.",
+        "searches": [
+          "Barakat 2026 MMuth uniqueness likelihood formal proof",
+          "Muth classical likelihood uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/reciprocal-scale-makes-the-modified-muth-likelihood-globally-str--b07139492225/RESULT.md",
+        "https://doi.org/10.3934/math.2026259",
+        "https://doi.org/10.3846/13926292.2015.1048540"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source is explicit that formal proof is beyond its work; differentiating the exact formula gives -n/η² minus positive contributions."
+        ],
+        "reasoning": "No inspected cited primary theorem entails global reciprocal-scale concavity, so best-of-knowledge O PASS with unindexed-note risk.",
+        "searches": [
+          "https://doi.org/10.3934/math.2026259",
+          "https://doi.org/10.3846/13926292.2015.1048540"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reciprocal scale is a bijective reparametrization, so unique MLE in η is equivalent to unique MLE in θ."
+        ],
+        "reasoning": "No novelty is claimed for merely renaming θ; strict global negative curvature and the boundary behavior are the new samplewise proof.",
+        "searches": [
+          "modified Muth distribution reciprocal scale log likelihood strict concavity unique maximum likelihood score Barakat 2026",
+          "MMuth reciprocal rate η=1/θ unique score root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper gives simulation tables of estimators, not an exact theorem for arbitrary samples."
+        ],
+        "reasoning": "A finite simulation table cannot imply all-sample strict concavity; no relevant exact theorem table located.",
+        "searches": [
+          "modified Muth samplewise unique MLE theorem",
+          "doi:10.3934/math.2026259"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel samplewise global MLE strict concavity in reciprocal scale; primary MMuth authors explicitly leave proof open.",
+      "residual_risks": [
+        "Equivalent unindexed calculus note cannot be excluded. The 2015 different Muth likelihood primary text not read full this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes formula and explicitly does not prove unique MLE globally",
+          "evidence": [
+            "PDF page14 exact log-likelihood; page17 explicitly leaves theoretical unimodality and uniqueness for future work."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2026259",
+          "material_read": "Full open PDF: introduction/density, §3.1 p14 log likelihood (3.1) and score, §3.2 p17 discussion of numerical uniqueness and formally open proof, conclusions",
+          "method": "Original publisher PDF",
+          "title": "The modified Muth distribution: Statistical properties, entropy measures, and parameter estimation",
+          "trigger": "Identical model and original likelihood"
+        },
+        {
+          "assessment": "Not evidence of modified-Muth reciprocal-scale coverage",
+          "evidence": [
+            "2015 paper predates 2026 modified distribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.3846/13926292.2015.1048540",
+          "material_read": "Title/abstract and source citation; original modified-Muth data not present",
+          "method": "Bibliographic lookup; no full manuscript inspection this run",
+          "title": "On the Muth Distribution",
+          "trigger": "Baseline Muth different model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/reciprocal-scale-makes-the-modified-muth-likelihood-globally-str--b07139492225/RESULT.md",
+        "https://doi.org/10.3934/math.2026259"
+      ],
+      "rationale": "Source authors identified theoretical samplewise uniqueness as unproved; a global strict-concavity coordinate provides a parameter-independent proof and robust root-bracketing structure for a recently introduced statistical likelihood.",
+      "residual_risks": [
+        "A short calculus result, not a contribution to asymptotic estimator efficiency."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact source likelihood and score from publisher Section 3.1; numerical claim expressly not proof.",
+    "Original finite-vs-global proof distinction preserved."
+  ],
+  "schema_version": 1
+}
