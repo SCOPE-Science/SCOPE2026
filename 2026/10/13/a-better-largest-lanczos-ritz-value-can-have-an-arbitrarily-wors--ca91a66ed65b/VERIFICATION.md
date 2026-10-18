@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof is in `RESULT.md`. The standalone checker replays exact algebra and one high-precision finite witness.
 
-For
-\[
-\varepsilon=\frac1{10},
-\]
-the first squared Ritz residual is exactly
-\[
-\frac{281}{40401}.
-\]
-The two-step generalized Ritz polynomial is exactly
-\[
-2810\theta^2-7611\theta+4882.
-\]
-The checker selects its larger root, reconstructs the corresponding generalized eigenvector from the exact Gram and projected matrices, normalizes the physical Ritz vector, and evaluates its residual.
+# Independent mathematical audit
 
-The resulting numerical values are approximately
-\[
-\rho_\varepsilon=1.054726368159204,
-\qquad
-\|r^{(1)}_\varepsilon\|_2=0.083398281662887,
-\]
-\[
-\theta_\varepsilon=1.665207655517674,
-\qquad
-\|r^{(2)}_\varepsilon\|_2=0.449903178976340.
-\]
-Thus the finite residual ratio exceeds
-\[
-5.39
-\]
-while the largest Ritz value moves toward \(2\).
+## correctness
 
-The checker also verifies the limiting generalized pencil exactly:
-\[
-G_0=
-\begin{pmatrix}
-2&-1\\
--1&2
-\end{pmatrix},
-\qquad
-H_0=
-\begin{pmatrix}
-2&-1\\
--1&3
-\end{pmatrix}.
-\]
-Its generalized eigenvalues are \(1\) and \(5/3\). The coefficient vector \((1,2)^{\mathsf T}\) produces the physical vector \((-1,1,2)^{\mathsf T}\), and its normalized residual at \(5/3\) has exact squared norm \(2/9\).
+PASS
 
-Finite replay is corroborative only. The divergent ratio, strict variational improvement, and dimension-three minimality are proved analytically.
+For 0<eps<1 the SPD diagonal family diag(1,1+eps,2) has condition number exactly 2. The first normalized Rayleigh residual has square eps^2(eps^2-2eps+3)/(eps^2+2)^2. The explicit Krylov basis u=(1,1,eps), w=(-1,0,1-eps) yields a symmetric definite 2x2 pencil whose limiting matrices G=[[2,-1],[-1,2]], H=[[2,-1],[-1,3]] have Ritz roots 1 and 5/3. Its larger unit Ritz vector tends to (-1,1,2)/sqrt(6), residual sqrt(2)/3. Since r1/eps ->sqrt(3)/2, r2/r1~2sqrt(6)/(9eps), while the top Ritz value strictly increases and the eigenvalue-error ratio ->1/3. In dimension 2 the second Krylov space is either invariant already or full, hence no positive second residual. Fresh independent symbolic pencil and numerical eigenresidual checks reproduced all central claims. Finite checks do not supply the limiting proof; simplicity and continuity of the limiting pencil do.
 
-Unproved limits include higher Krylov dimensions, restarted methods, finite precision, and any typical-case distribution of residual spikes.
+## originality
+
+PASS
+
+Earlier Rayleigh–Ritz convergence results identify conditional convergence of Ritz vectors and importance of residual diagnostics. A Resultary study gives extremal residual gain under a prescribed spectral filter, not this adaptively selected largest Ritz vector after one Lanczos step. Neither inspected primary source or related published record supplies the condition-two, dimension-three near-breakdown asymptotic and strict Ritz-value improvement as a single instance.
+
+## value
+
+PASS
+
+A sharp counterexample separates monotone extremal Ritz-value improvement from monotonicity of eigenpair residuals in exact Hermitian Lanczos, with no nonnormality or ill-conditioning; it provides an explicit scaling law for a practical convergence diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

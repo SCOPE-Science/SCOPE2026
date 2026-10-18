@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:13:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<eps<1 the SPD diagonal family diag(1,1+eps,2) has condition number exactly 2. The first normalized Rayleigh residual has square eps^2(eps^2-2eps+3)/(eps^2+2)^2. The explicit Krylov basis u=(1,1,eps), w=(-1,0,1-eps) yields a symmetric definite 2x2 pencil whose limiting matrices G=[[2,-1],[-1,2]], H=[[2,-1],[-1,3]] have Ritz roots 1 and 5/3. Its larger unit Ritz vector tends to (-1,1,2)/sqrt(6), residual sqrt(2)/3. Since r1/eps ->sqrt(3)/2, r2/r1~2sqrt(6)/(9eps), while the top Ritz value strictly increases and the eigenvalue-error ratio ->1/3. In dimension 2 the second Krylov space is either invariant already or full, hence no positive second residual. Fresh independent symbolic pencil and numerical eigenresidual checks reproduced all central claims. Finite checks do not supply the limiting proof; simplicity and continuity of the limiting pencil do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jia–Stewart Theorem 3.1 gives conditional Ritz-vector error from residual and spectral separation, no stepwise extremal residual monotonicity."
+        ],
+        "reasoning": "Broad eigenpair perturbation/convergence theorems do not specify a uniform condition-two SPD constructive family with this relative residual ratio.",
+        "searches": [
+          "https://drum.lib.umd.edu/bitstreams/71446ed9-e60d-4bcd-ae24-16f87eb7a768/download",
+          "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+          "Lanczos residual norm monotonicity breakdown Ritz step examples"
+        ]
+      },
+      "checked_sources": [
+        "https://drum.lib.umd.edu/bitstreams/71446ed9-e60d-4bcd-ae24-16f87eb7a768/download",
+        "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jia–Stewart results have hypotheses about target Ritz eigenpair and separation; limiting top Ritz pair here switches spectral emphasis and fails their convergence-to-target setup."
+        ],
+        "reasoning": "No checked theorem with those precise hypotheses immediately forces the claimed limit, despite prior general warnings that Ritz residual behavior is not monotone.",
+        "searches": [
+          "https://drum.lib.umd.edu/bitstreams/71446ed9-e60d-4bcd-ae24-16f87eb7a768/download",
+          "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+          "Rayleigh Ritz convergence Ritz residual counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jia–Stewart 1999 sections 1–4 consider convergence given subspace angle, separation and Ritz residuals; Resultary sharp Rayleigh-residual distortion concerns fixed spectral multipliers."
+        ],
+        "reasoning": "A Lanczos Ritz vector is an adaptively selected Krylov filter; bounds on arbitrary fixed filters do not force this stepwise divergence and dimension minimum.",
+        "searches": [
+          "Hermitian Lanczos Ritz residual amplification successive Krylov steps largest Ritz near breakdown fixed condition number diagonal symmetric 3x3",
+          "https://drum.lib.umd.edu/bitstreams/71446ed9-e60d-4bcd-ae24-16f87eb7a768/download",
+          "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest relevant published record is fixed-filter residual distortion; no exact small-dimensional tabulation from searched sources."
+        ],
+        "reasoning": "The object is a limiting family, not an OEIS or finite database sequence; negative discovery is not priority proof.",
+        "searches": [
+          "Resultary semantic index query: Hermitian Lanczos Ritz residual amplification successive Krylov steps largest Ritz near breakdown fixed condition number diagonal symmetric 3x3",
+          "Lanczos three by three Ritz residual example numerical table"
+        ]
+      },
+      "rationale": "Earlier Rayleigh–Ritz convergence results identify conditional convergence of Ritz vectors and importance of residual diagnostics. A Resultary study gives extremal residual gain under a prescribed spectral filter, not this adaptively selected largest Ritz vector after one Lanczos step. Neither inspected primary source or related published record supplies the condition-two, dimension-three near-breakdown asymptotic and strict Ritz-value improvement as a single instance.",
+      "residual_risks": [
+        "An equivalent 3x3 near-breakdown Ritz-residual example may exist in older numerical-linear-algebra literature despite different terminology.",
+        "The second residual remains bounded absolutely; only the ratio diverges, and exact arithmetic is assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related background, not the claimed fixed-kappa two-step family",
+          "evidence": [
+            "Theorem 3.1 is a separation-dependent residual-to-angle bound; introductory discussion states Ritz vectors can behave erratically."
+          ],
+          "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/71446ed9-e60d-4bcd-ae24-16f87eb7a768/download",
+          "material_read": "Complete 12-page PDF, especially introduction, Theorem 3.1, convergence and separation discussion in §§2–4",
+          "method": "lawful university full-text PDF, parsed text and page inspection",
+          "title": "On the Convergence of Ritz Values, Ritz Vectors, and Refined Ritz Vectors",
+          "trigger": "Same Ritz residual diagnostic and near-cluster eigenvalue phenomenon"
+        },
+        {
+          "assessment": "Prescribed-filter worst-case M/m gain is different from adaptive largest Ritz extraction",
+          "evidence": [
+            "Index statement explicitly assumes fixed nonvanishing normalized spectral filter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+          "material_read": "Published title, summary and exact statement in Resultary index, not asserted as a full-paper read",
+          "method": "Resultary semantic publication index",
+          "title": "Sharp Rayleigh-residual distortion under normal spectral filtering",
+          "trigger": "Nearby published residual amplification result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp counterexample separates monotone extremal Ritz-value improvement from monotonicity of eigenpair residuals in exact Hermitian Lanczos, with no nonnormality or ill-conditioning; it provides an explicit scaling law for a practical convergence diagnostic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "eps in (0,1), exact arithmetic, largest Ritz pair only, Krylov dimensions one to two; no generic or finite-precision behavior asserted.",
+    "An equivalent 3x3 near-breakdown Ritz-residual example may exist in older numerical-linear-algebra literature despite different terminology.",
+    "The second residual remains bounded absolutely; only the ratio diverges, and exact arithmetic is assumed."
+  ],
+  "schema_version": 1
+}

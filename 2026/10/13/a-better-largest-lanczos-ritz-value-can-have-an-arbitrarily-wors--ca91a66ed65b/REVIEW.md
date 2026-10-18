@@ -1,50 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first Rayleigh quotient and residual are computed exactly. A basis
-\[
-u_\varepsilon=(1,1,\varepsilon)^{\mathsf T},
-\qquad
-w_\varepsilon=(-1,0,1-\varepsilon)^{\mathsf T}
-\]
-represents the two-dimensional Krylov space without becoming singular as
-\[
-\varepsilon\downarrow0.
-\]
-The resulting symmetric definite generalized Ritz pencil converges to one with simple top eigenvalue
-\[
-5/3
-\]
-and physical Ritz vector
-\[
-(-1,1,2)^{\mathsf T}/\sqrt6.
-\]
-Its residual has norm
-\[
-\sqrt2/3.
-\]
-Together with the exact first-residual asymptotic, this yields
-\[
-\|r^{(2)}_\varepsilon\|_2/\|r^{(1)}_\varepsilon\|_2
-\sim
-2\sqrt6/(9\varepsilon).
-\]
+## correctness
 
-Variational maximality proves strict improvement of the largest Ritz value, and the two-dimensional full-space alternative proves minimal dimension three. The packaged checker replays the exact pencil identities and a high-precision finite witness.
+PASS
 
-## Originality
-PASS with stated residual risks. Classical Rayleigh--Ritz and Lanczos extraction, residual bounds, finite-precision near-breakdown concerns, and generic residual distortion under spectral filtering are prior work.
+For 0<eps<1 the SPD diagonal family diag(1,1+eps,2) has condition number exactly 2. The first normalized Rayleigh residual has square eps^2(eps^2-2eps+3)/(eps^2+2)^2. The explicit Krylov basis u=(1,1,eps), w=(-1,0,1-eps) yields a symmetric definite 2x2 pencil whose limiting matrices G=[[2,-1],[-1,2]], H=[[2,-1],[-1,3]] have Ritz roots 1 and 5/3. Its larger unit Ritz vector tends to (-1,1,2)/sqrt(6), residual sqrt(2)/3. Since r1/eps ->sqrt(3)/2, r2/r1~2sqrt(6)/(9eps), while the top Ritz value strictly increases and the eigenvalue-error ratio ->1/3. In dimension 2 the second Krylov space is either invariant already or full, hence no positive second residual. Fresh independent symbolic pencil and numerical eigenresidual checks reproduced all central claims. Finite checks do not supply the limiting proof; simplicity and continuity of the limiting pencil do.
 
-The closest full Rayleigh--Ritz source was inspected through its convergence, residual, and refined-Ritz sections. A primary Lanczos source was inspected through its exact recurrence and Ritz-residual setup. Neither contains the fixed-condition-number family, the divergent consecutive largest-Ritz residual ratio, the simultaneous strict Ritz-value improvement, or the dimension-three minimality statement.
+## originality
 
-Focused published-record and literature searches found no implication-equivalent theorem. Older near-breakdown literature remains the main originality risk.
+PASS
 
-## Value
-PASS. Hermitian eigensolvers commonly monitor both an extremal Ritz value and its residual. The example shows that variational progress of the Ritz value does not even qualitatively force stepwise progress of the residual: at condition number two the residual ratio can be arbitrarily large. The exact near-breakdown mechanism and minimal dimension provide a compact diagnostic for interpreting sudden residual changes.
+Earlier Rayleigh–Ritz convergence results identify conditional convergence of Ritz vectors and importance of residual diagnostics. A Resultary study gives extremal residual gain under a prescribed spectral filter, not this adaptively selected largest Ritz vector after one Lanczos step. Neither inspected primary source or related published record supplies the condition-two, dimension-three near-breakdown asymptotic and strict Ritz-value improvement as a single instance.
 
-## Closest literature and limitations
-The closest inspected sources are Jia--Stewart's Rayleigh--Ritz convergence report and Paige--Panayotov's Lanczos Ritz-vector analysis. A nearby published spectral-filter theorem gives a broad residual-distortion law for prescribed filters, but does not determine the adaptive filter selected by the largest Ritz extraction.
+## value
 
-The result is exact arithmetic, concerns only the transition from Krylov dimensions one to two, and gives an unbounded relative rather than absolute residual spike. It is not a typical-case statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp counterexample separates monotone extremal Ritz-value improvement from monotonicity of eigenpair residuals in exact Hermitian Lanczos, with no nonnormality or ill-conditioning; it provides an explicit scaling law for a practical convergence diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
