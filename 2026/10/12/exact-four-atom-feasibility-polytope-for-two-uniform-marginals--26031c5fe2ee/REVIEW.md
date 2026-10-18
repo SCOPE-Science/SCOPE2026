@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the target support exactly to a conditional \(4\times4\) transport problem. Uniform marginals force row and column sums \(1/4\); the two extreme target atoms occupy unique matrix cells and are therefore at most \(1/4\). Conversely, the displayed matrix is nonnegative precisely throughout the claimed rectangle and its diagonal totals reproduce all four masses. Mean, endpoint, zero-mass, and boundary cases are all included.
+## correctness
 
-## Originality
-**PASS.** The closest direct source is Mao--Wang--Wang, which explicitly states that the two-uniform aggregate set remains incompletely characterized and gives exact discrete results only for bi-atomic and equidistant tri-atomic laws. The broader Wang--Wang joint-mixability theorem does not cover a discrete target component, and Makarov-type bounds are pointwise rather than a simultaneous target-law characterization. Candidate-specific published-result searches found no implication covering this four-point feasibility polytope. Residual risk remains for an equivalent elementary construction under older transport or rearrangement terminology.
+PASS
 
-## Value
-**PASS.** This is the minimal genuinely four-atomic centered lattice case after the source's two- and three-atom classifications. It yields an exact two-parameter feasibility region and a coupling for every point in it, rather than a single example or a recomputation of a known table.
+For X,Y with standard uniform marginals and Z=X+Y on {1/4,3/4,5/4,7/4}, write A=4X, B=4(1−Y); A−B belongs to {−3,−1,1,3}, so A and B share a fractional part. Conditional row and column probabilities each equal 1/4 because both variables are uniform on [0,4]. The unique cells for extreme differences immediately give p0,p3≤1/4 and the sum mean1. Conversely the explicit 4×4 nonnegative matrix in RESULT.md, with a=p0,d=p3 in [0,1/4], has all row/column sums 1/4 and diagonal totals (a,1/2−2a+d,1/2+a−2d,d); inverse transformation constructs the required joint coupling. Independent exact Fraction checks at 25 rational parameter pairs including edges and corners validate each identity. Symbolic construction, not finite grid, proves every real pair and degenerate boundary mass.
 
-## Closest literature and limitations
-The direct source is arXiv:1811.11981 / DOI:10.1017/jpr.2019.52. Related structural background is DOI:10.1287/moor.2015.0755, and pointwise sum-distribution bounds trace to DOI:10.1137/1126086. The result does not classify arbitrary four-atomic supports or other lattice spacings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mao–Wang–Wang characterize target laws of sums of uniforms only for biatomic and equidistant triatomic distributions in their cited theorems and note the general n=2 set is not fully determined. Joint mixability with all components uniform is not equivalent to coupling two uniforms to an arbitrary discrete third distribution. Makarov bounds are pointwise rather than joint attainability of an entire CDF. No corresponding four-atom quarter-grid rectangle appeared in Resultary semantic search; older transportation/shuffle equivalences remain a real residual risk.
+
+## value
+
+PASS
+
+The centered four-point quarter-grid is a minimal natural next support beyond the two- and three-atom cases studied in the primary paper. The exact rectangle and explicit coupling settle all admissible target laws on this lattice including boundary and vanishing-atom cases, a useful nontrivial small-support feasibility classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
