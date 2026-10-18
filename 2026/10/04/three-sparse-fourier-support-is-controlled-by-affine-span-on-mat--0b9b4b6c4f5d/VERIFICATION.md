@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. For a translated support \(\{0,a,b\}\), restriction \(\widehat G\to\widehat H\) with \(H=\langle a,b\rangle\) has constant fiber size \(|G|/|H|\), so Fourier-support cardinality scales exactly by that factor.
-2. A two-generated subgroup of \(\mathbb Z_4^d\) containing three support points has one of exactly four isomorphism types: \(\mathbb Z_4\), \(\mathbb Z_2^2\), \(\mathbb Z_4\times\mathbb Z_2\), or \(\mathbb Z_4^2\).
-3. The local Fourier sums have at most two, one, two, and two zeros, respectively. The bounds are sharp by the explicit coefficient triples in `RESULT.md`.
-4. `artifacts/verify.py` independently exhausts every three-point support in \(\mathbb Z_4^2\) using exact Gaussian-integer character values. It verifies the predicted attainable sets for all \(560\) supports and prints `VERIFY_OK`.
+## correctness
 
-Replay command:
+PASS
 
-`python3 artifacts/verify.py`
+PASS: Translation of the three-point support and character restriction from G=Z4^d to H=<S-S> give exact fiber multiplier |G|/|H|. Classification of two-generator subgroups yields Z4, Z2^2, Z4×Z2, Z4^2. Polynomial/root and circle-intersection arguments bound local Fourier zeros, while nonzero-coefficient witnesses realize every permitted local count. Local spectra are 2/3/4, 3/4, 6/7/8 and 14/15/16 respectively; the global d>=2 spectrum is {8,12,14,15,16}4^(d-2). Independently recomputed exactly all 560 three-point supports of Z4² using Gaussian-integer character values and rank-nullity witness generation, with subgroup-type counts 96/16/192/256 and the claimed per-support profiles.
 
-Expected terminal lines include `VERIFY_OK`, span counts `{'C4': 96, 'C2xC2': 16, 'C4xC2': 192, 'C4xC4': 256}`, and global sizes `[8, 12, 14, 15, 16]`.
+## originality
 
-The finite replay is not a proof for arbitrary \(d\); the arbitrary-dimensional step is the exact character-restriction argument in `RESULT.md`.
+PASS
+
+PASS (qualified): Krahmer–Pfander–Rashkov already give a numerical support-pair uncertainty diagram for all groups of order at most 16, INCLUDING Z4², so numerical order-16 global pairs (3,14),(3,15),(3,16) are NOT treated as original. The new theorem specifies all attainable Fourier-support counts on EACH fixed 3-point support by H type, with an exact character-fiber lift to all d, which the inspected primary support-pair diagram does not determine. Existing Meshulam inequalities and Bonami–Ghobber families do not imply this fixed-support stratification.
+
+## value
+
+PASS
+
+PASS: Fixed-support spectral uncertainty varies with the geometric difference-span of 3-sparse data, an intrinsic support invariant of Z4^d. The exact four-type classification is potentially reusable for sparse Fourier support constraints in every dimension and goes beyond a known dimension-two global diagram; its finite check is accompanied by a general analytic proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces every three-point support to its two-generator difference span \(H\), uses exact character-extension fiber scaling, exhausts the four possible exponent-four span types, and proves the local zero bounds with explicit sharp witnesses. The included exact checker confirms all \(560\) supports in \(\mathbb Z_4^2\) with Gaussian-integer arithmetic. The enumeration is corroborative; the theorem for all \(d\) follows analytically.
+## correctness
 
-## Originality
-**PASS.** The closest source, Krahmer-Pfander-Rashkov, supplies a general rank criterion and a global small-group diagram containing \(\mathbb Z_4^2\), but not the fixed-support classification by \(\langle S-S\rangle\) or the formula for every \(\mathbb Z_4^d\). Bonami-Ghobber's exact families do not include \(\mathbb Z_4^d\) for \(d\ge2\). Meshulam gives lower bounds. Delvaux-Van Barel is the main residual comparison risk because only its abstract and metadata were accessible in the checked route.
+PASS
 
-## Value
-**PASS.** The result is a natural complete classification of the first nontrivial sparse stratum on an infinite family of finite Abelian groups. Its value is structural: the ambient dimension disappears after passage to the affine difference span, leaving four sharp local models and an exact global spectrum.
+PASS: Translation of the three-point support and character restriction from G=Z4^d to H=<S-S> give exact fiber multiplier |G|/|H|. Classification of two-generator subgroups yields Z4, Z2^2, Z4×Z2, Z4^2. Polynomial/root and circle-intersection arguments bound local Fourier zeros, while nonzero-coefficient witnesses realize every permitted local count. Local spectra are 2/3/4, 3/4, 6/7/8 and 14/15/16 respectively; the global d>=2 spectrum is {8,12,14,15,16}4^(d-2). Independently recomputed exactly all 560 three-point supports of Z4² using Gaussian-integer character values and rank-nullity witness generation, with subgroup-type counts 96/16/192/256 and the claimed per-support profiles.
 
-## Closest literature and limitations
-The bare \(d=2\) global support cells are compatible with the earlier numerical uncertainty diagram; the new content is the exact per-support span classification and its dimension-free lift. The claim does not address larger supports or coefficient-locus geometry, and an older equivalent statement under different terminology cannot be ruled out absolutely.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Krahmer–Pfander–Rashkov already give a numerical support-pair uncertainty diagram for all groups of order at most 16, INCLUDING Z4², so numerical order-16 global pairs (3,14),(3,15),(3,16) are NOT treated as original. The new theorem specifies all attainable Fourier-support counts on EACH fixed 3-point support by H type, with an exact character-fiber lift to all d, which the inspected primary support-pair diagram does not determine. Existing Meshulam inequalities and Bonami–Ghobber families do not imply this fixed-support stratification.
+
+## value
+
+PASS
+
+PASS: Fixed-support spectral uncertainty varies with the geometric difference-span of 3-sparse data, an intrinsic support invariant of Z4^d. The exact four-type classification is potentially reusable for sparse Fourier support constraints in every dimension and goes beyond a known dimension-two global diagram; its finite check is accompanied by a general analytic proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
