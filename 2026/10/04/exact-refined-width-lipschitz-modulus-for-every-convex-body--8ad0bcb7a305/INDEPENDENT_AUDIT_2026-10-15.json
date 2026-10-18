@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:58:01.997292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary full-dimensional compact convex K in R^n (n>=2), choose maximum-length A-B between exposed opposite support faces at u. Then <A-B,u>=w_K(u); its orthogonal component has length p_K(u). Perturb u by v_t=cos(t)u+sin(t)(A-B-wu)/p; the fixed two support points imply w_K(v_t)>=w_K(u)cos t+p_K(u)sin t, so the two-point local limsup slope is >=p. For p=0 it is >=0. Proposition 14 of Mushkarov--Nikolov--Thomas gives <=p; upper semicontinuity attains max p and yields the global exact Lipschitz constant. Does not assert diameter-function equality. Independently checked cube face case p=2sqrt(2), directional slopes approach p and smooth ellipsoid/square examples; finite tests are only consistency checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martini–Wenzel, Applied Mathematics Letters 22 (2009), DOI:10.1016/j.aml.2007.12.032, establishes general width Lipschitz bounds in Minkowski spaces.",
+          "Mushkarov–Nikolov–Thomas arXiv:2406.12537 Proposition 14 upper bounds, Corollary 13 exact for polytopes, and explicit open question for all convex bodies."
+        ],
+        "reasoning": "The broader ambient-space bound lacks the refined p_K identity, while known polytopal and smooth special cases do not imply equality for every convex body.",
+        "searches": [
+          "Martini Wenzel Lipschitz condition width function arbitrary Minkowski spaces 2009",
+          "arXiv:2406.12537 Corollary 13 Proposition 14 open question"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.12537 (primary mathematical text)",
+        "DOI:10.68381/jca33011 (2026 journal version identified)",
+        "DOI:10.1016/j.aml.2007.12.032",
+        "Resultary search for exact refined width modulus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary text states global quotient <=Mhat and w'_K<=p_K, then immediately asks whether both inequalities are always equalities.",
+          "The reviewed proof contributes the reverse inequality through a maximizing exposed-face chord."
+        ],
+        "reasoning": "Published upper estimates alone do not logically imply their reverses; the exhibited chord and one-sided geodesic perturbation supply the missing implication. Polytopes and ellipses are covered special cases only.",
+        "searches": [
+          "arXiv:2406.12537 Proposition 14 question equality convex bodies",
+          "DOI:10.68381/jca33011 open question refined width"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "w_K(u)=h_K(u)+h_K(-u)=h_{K-K}(u); its local spherical Lipschitz modulus is the maximum norm of tangential vectors in the exposed support face of K-K, equal to p_K(u).",
+          "arXiv:2406.12537 §4.1 defines p_K and the same projective quotient."
+        ],
+        "reasoning": "The support-function exposed-face formulation is an alias of the target; it was explicitly compared with the paper's refined p_K quantity. Published general Lipschitz estimates do not assert the exact local equality for all K.",
+        "searches": [
+          "width support-function directional derivative exposed face maximum tangential chord",
+          "Resultary semantic: Mushkarov Nikolov Thomas open question 4.5 exact local Lipschitz width modulus supporting chords convex bodies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included the target finding and related angular-modulus/convex-body entries, not an independent earlier exact all-body theorem.",
+          "Source Proposition 14 retains a question rather than a table of precomputed values."
+        ],
+        "reasoning": "This is an all-convex-body theorem, not a numeric-table invariant; no precise database entry was identified to subsume it. The returned target entry is not independent priority evidence.",
+        "searches": [
+          "Resultary semantic: Mushkarov Nikolov Thomas open question 4.5 exact local Lipschitz width modulus supporting chords convex bodies",
+          "p_K(u)=w'_K(u) arbitrary convex bodies Open Question 4.5"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.",
+      "residual_risks": [
+        "A short exposed-face support-function argument may exist in unindexed convex-analysis literature without using p_K nomenclature; searches are not novelty proofs.",
+        "The general Martini–Wenzel article was identified but not read in full this run; known abstract does not establish the refined identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS upper estimates and polytopal equality; DOES NOT state all-body reverse bound",
+          "evidence": "Proposition 14 gives w'_K(u)<=p_K(u), sup quotient<=Mhat; directly following open question asks whether equalities hold.",
+          "identifier_or_url": "arXiv:2406.12537; https://arxiv.org/pdf/2406.12537",
+          "material_read": "Definitions, Corollary 13, Proposition 14 and proof, immediately following open question on page 8; related upper-semicontinuity and diameter caveats",
+          "method": "Inspected primary 10-page arXiv full text, focused on pp. 1,7–9 and exact proposition screenshot",
+          "title": "Lipschitzness of the Width and Diameter Functions of Convex Bodies in R^n",
+          "trigger": "Exact same notation and stated open question"
+        },
+        {
+          "assessment": "General Lipschitz context only; full-text equivalence risk retained",
+          "evidence": "Publication concerns width Lipschitz conditions in arbitrary Minkowski spaces; full text not re-read here.",
+          "identifier_or_url": "DOI:10.1016/j.aml.2007.12.032",
+          "material_read": "Identified published scope and abstract/general Lipschitz assertion; entire full article not obtained for this run",
+          "method": "Citation and indexed metadata; no unsupported whole-document noncoverage claim",
+          "title": "A Lipschitz condition for the width function of convex bodies in arbitrary Minkowski spaces",
+          "trigger": "Broader metric setting might dominate target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural, previously open exact local and global modulus of continuity for width in arbitrary nonsmooth convex bodies; turns direction-dependent inequality in Proposition 14 into equality without regularity hypotheses. A direct resolution of the source's named open question is useful to convex geometry; not merely an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not address analogous diameter variation questions.",
+    "No inference of novelty from failed searches; an alias in unindexed convex analysis is possible."
+  ],
+  "schema_version": 1
+}

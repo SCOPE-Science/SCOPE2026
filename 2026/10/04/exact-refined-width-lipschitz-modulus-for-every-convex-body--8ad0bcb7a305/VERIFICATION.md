@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,45 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For a fixed \(u\), choose \(A\) and \(B\) from the two opposite support faces with
-\[
-\lVert A-B\rVert=s_K(u).
-\]
-Writing
-\[
-A-B=w_K(u)u+y,
-\qquad y\perp u,
-\]
-gives
-\[
-\lVert y\rVert=p_K(u).
-\]
-If \(p_K(u)>0\), set
-\[
-\xi=y/p_K(u),
-\qquad
-v_t=\cos(t)u+\sin(t)\xi.
-\]
-Then the same support pair is an admissible lower-bound witness at the perturbed direction:
-\[
-w_K(v_t)
-\ge
-\langle A-B,v_t\rangle
-=
-w_K(u)\cos t+p_K(u)\sin t.
-\]
-Since \(\rho(u,v_t)=t\) for sufficiently small positive \(t\),
-\[
-\limsup_{t\downarrow0}\Delta w_K(u,v_t)\ge p_K(u).
-\]
-The inspected published Proposition 4.4 gives the reverse inequality, so equality follows. At \(p_K(u)=0\), the published upper bound already forces equality.
+## correctness
 
-The same witness at a direction maximizing \(p_K\) gives the global lower bound \(\sup\Delta w_K\ge\widehat M_K\); Proposition 4.4 gives the reverse global inequality.
+PASS
 
-The embedded `verify.py` was replayed from its actual package path. It checks the support-pair/tangential-component construction on a cube at a facet normal and other nonsmooth polytopes, where opposite support faces are not singletons, and on a smooth ellipsoid. The replay output was:
+For arbitrary full-dimensional compact convex K in R^n (n>=2), choose maximum-length A-B between exposed opposite support faces at u. Then <A-B,u>=w_K(u); its orthogonal component has length p_K(u). Perturb u by v_t=cos(t)u+sin(t)(A-B-wu)/p; the fixed two support points imply w_K(v_t)>=w_K(u)cos t+p_K(u)sin t, so the two-point local limsup slope is >=p. For p=0 it is >=0. Proposition 14 of Mushkarov--Nikolov--Thomas gives <=p; upper semicontinuity attains max p and yields the global exact Lipschitz constant. Does not assert diameter-function equality. Independently checked cube face case p=2sqrt(2), directional slopes approach p and smooth ellipsoid/square examples; finite tests are only consistency checks.
 
-`VERIFY_OK exact refined width modulus`
+## originality
 
-Finite computations are consistency checks only. The all-dimensional proof is the support inequality above.
+PASS
+
+Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.
+
+## value
+
+PASS
+
+A natural, previously open exact local and global modulus of continuity for width in arbitrary nonsmooth convex bodies; turns direction-dependent inequality in Proposition 14 into equality without regularity hypotheses. A direct resolution of the source's named open question is useful to convex geometry; not merely an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
