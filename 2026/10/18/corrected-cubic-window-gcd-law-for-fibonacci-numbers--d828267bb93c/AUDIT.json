@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "A four-stage complete integer proof: (1) derive H(k)=gcd(F_{k+1}-1,F_{k+2}-1) by the Fibonacci unimodular matrix identity; (2) use Cassini norm and all cubic root pairs modulo primes not three, and 3-adic lifting, to show A(k)=3^[8|k]H(k); (3) prove gcd of every adjacent window difference is exactly A(k), using shift recurrence and 3h divisibility; (4) an exact telescoping cubic identity gives A|2S_0 and a sharp 2-adic expansion for 6|k gives gcd(A,S_0)=A/2, versus A otherwise. Boundary k=2 and simultaneous 6|k,8|k included. Reproducibility script independently checks 200 even lengths and 6,200 exact window differences, but is not used to justify infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mbirika and Spilker, arXiv:2204.12626, Theorem 5.2 covers squared windows for generalized Fibonacci sequences, and Section 6.1 identifies higher powers as further questions.",
+        "Guyer and Mbirika, arXiv:2104.12262, the broader-looking generalized Fibonacci treatment is restricted to first powers."
+      ],
+      "reasoning": "The published generalizations concern first powers and squares, not cubes, and therefore neither imply the proved law nor its prime-3 enhancement. The statement does not extend to their full generalized starting-value domain.",
+      "searches": [
+        "greatest common divisor sums of k consecutive cubes of Fibonacci numbers exact formula",
+        "GCD of sums of consecutive Fibonacci and Lucas cubes higher powers of generalized Fibonacci numbers",
+        "generalized Fibonacci Gibonacci cubes gcd consecutive sums k length 2022 2023"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.12626v2, Section 6 and Question 6.1",
+      "arXiv:2104.12262v2, Table 1 and Theorem 15",
+      "OEIS A210209",
+      "Indexed comparison to a sharp asymptotic for reciprocal Fibonacci cubic tails (a different quantity)",
+      "Indexed comparison to even-even period equality for Lucas recurrence pairs (a different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At k=6 the gcd of consecutive cubes is 2 while the conjectured formula gives 4; at k=8 the actual gcd is 9 while the printed case split would give 9/2.",
+        "Theorem 15 in arXiv:2104.12262 supplies H(k) as a first-power gcd but contains no cubic factorization argument.",
+        "The new all-even-length proof uses Cassini norm and cubic cube-root constraints, exact 3-adic LTE, and a sharp 2-adic initial-window computation."
+      ],
+      "reasoning": "First-power H(k) is an input, not an implication of the cubic identity. The 2022 source conjecture, as printed, contradicts concrete instances and so cannot cover the proved corrected theorem. Residual risk is an inaccessible independent correction elsewhere.",
+      "searches": [
+        "arxiv:2204.12626 pdf Section 6.1 Question 6.1",
+        "arxiv:2104.12262 Table 1 Theorem 15",
+        "Exact greatest common divisor of sums of k consecutive cubes of Fibonacci numbers for even k, Mbirika Spilker 2022 conjecture corrected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2204.12626 v2 Question 6.1 displays a conjecture about gcd of consecutive Fibonacci cubes, opposite half-factor cases.",
+        "arXiv:2104.12262 v2 Theorem 15 and Table 1 determine first-power window gcds, not cubic-window gcds.",
+        "An indexed study of cubic reciprocal Fibonacci tails concerns a distinct inverse-tail quantity rather than finite cubic window gcds."
+      ],
+      "reasoning": "Equivalent descriptions via cubic-window translation differences and \\(\\gcd(F_{k+1}^3-1,F_{k+2}^3-1)\\) were compared; the translated-difference gcd is the intermediate A, not itself the window gcd. The source conjecture reverses the window correction; no inspected equivalent proved formula was found.",
+      "searches": [
+        "GCD of sums of k consecutive Fibonacci cubes Mbirika Spilker conjecture corrected 6 8",
+        "Fibonacci cubic consecutive sums gcd 3 factor 2 parity Lucas half index",
+        "Exact greatest common divisor of sums of k consecutive cubes of Fibonacci numbers for even k, Mbirika Spilker 2022 conjecture corrected",
+        "Fibonacci cubes k consecutive sums gcd prime valuation piecewise modulo 6 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A210209 labels the gcd for first powers of consecutive Fibonacci numbers.",
+        "The published Question 6.1 supplies a conjectural expression, not an exact proven table of cubic gcds."
+      ],
+      "reasoning": "The first-power tabulation does not determine the correct cubic gcd and cannot account for the extra factor three at 8|k or the removed factor two at 6|k; checked cases 6,8 are distinct from the conjectured formula.",
+      "searches": [
+        "OEIS A210209 gcd of all sums of n consecutive Fibonacci numbers",
+        "Fibonacci cubic consecutive sums gcd 3 factor 2 parity Lucas half index"
+      ]
+    },
+    "rationale": "The primary article arXiv:2204.12626 Section 6.1 explicitly poses a cubic-window gcd formula as a conjecture, and its stated factor-one-half location is opposite the proved one. Direct counterexamples at lengths 6 and 8 disprove that stated case split. The complete repaired all-even-length formula is not implied by the first-power theorem of arXiv:2104.12262; it needs the cubic root, three-adic and two-adic arguments. No dominating statement was found in inspected primary texts, the first-power OEIS entry, and targeted indexed and bibliographic comparisons. This establishes originality relative to the inspected evidence only.",
+    "residual_risks": [
+      "The reversed printed congruence conditions might originate in a typographical error, not an intended proven claim.",
+      "A subsequent or unindexed paper may independently derive the corrected cubic gcd formula.",
+      "Odd windows and Lucas cubes were not investigated as consequences of the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_CONJECTURE_CONTRADICTED_BY_NEW_FORMULA",
+        "evidence": "Section 6.1 prints one-half for even k not divisible by 6, unlike proven one-half exactly for k divisible by 6. Source first posted 2022-04-26.",
+        "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+        "material_read": "Preprint text through Section 6, including Question 6.1, and relevant earlier theorem statements; inspected PDF page containing the displayed conjecture.",
+        "method": "Open-access preprint text and PDF page visual inspection",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Direct originating published Fibonacci-cube conjecture"
+      },
+      {
+        "assessment": "FIRST_POWER_ONLY_NOT_CUBIC_COVERAGE",
+        "evidence": "H(k) equals the known Fibonacci/Lucas first-power gcd, without any factor from cubing.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.12262",
+        "material_read": "Theorem on gcds of first-power windows, Table 1, and adjacent proof.",
+        "method": "Open-access preprint text and PDF page inspection",
+        "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+        "trigger": "Potential source for the first-power and dominating formulas"
+      },
+      {
+        "assessment": "FIRST_POWER_NOT_CUBIC",
+        "evidence": "Describes gcd of sums of consecutive Fibonacci numbers without cubes.",
+        "identifier_or_url": "https://oeis.org/A210209",
+        "material_read": "Sequence heading, description, and references",
+        "method": "Published sequence page inspection",
+        "title": "OEIS A210209",
+        "trigger": "Possible tabular duplicate of cubic gcds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d828267b-b93c-4467-84cb-ff95bc3501d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies a complete corrected theorem for the explicit unproved 2022 Question 6.1 on cubic Fibonacci windows, including all even k and exact valuation mechanisms at divisibility by 6 and 8. The published case split fails at two small but meaningful examples, and the complete proof is substantially stronger than a numerical correction, fitting the known first-power gcd structure and giving a sharp 3-adic extension.",
+    "status": "PASS"
+  }
+}
