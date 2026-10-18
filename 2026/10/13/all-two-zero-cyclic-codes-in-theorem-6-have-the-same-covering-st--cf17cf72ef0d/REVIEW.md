@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(q>3\), the published dual distance \(3\) makes the generator columns a projective point set in \(\operatorname{PG}(3,q)\). Minimality is exactly the condition that the zero hyperplane section span its plane. The published weights give section sizes \(2q-2,q,q-1,q-2,0\). The \(q-1\) sections are proved directly from the trace representation to lie on projective lines. A hyperplane-pencil count excludes line-contained \(q\)-sections; a deficit refinement using the \(q-1\) line sections excludes line-contained \(q-2\)-sections; and \(2q-2>q+1\) handles the minimum-weight class. The ternary family is reduced to the canonical code by a cyclic multiplier. Direct reconstruction over several prime fields agrees exactly.
+PASS
 
-## Originality
+For q>3, dual minimum distance 3 ensures the q²−1 generator columns are distinct projective points S⊂PG(3,q). Minimality iff the zero section S∩H spans its hyperplane. The published weight distribution gives section sizes 2q−2,q,q−1,q−2,0. First exceeds q+1 for q≥5. q−1 sections c(0,b) lie on a single projective line by trace-zero Fq-scalar parametrization. If q sections lay on a line L, the pencil sum |S|+q|S∩L|=2q²−1 exceeds (q+1)(2q−2)=2q²−2. If q−2 sections lay on L, deficit 2q−1 forces another pencil hyperplane with q−1 zero points; that section is known collinear, and shares ≥3 L-points, so must use L and contradict |S∩L|=q−2. Empty section nonminimal. q=3: both admissible exponent-coset possibilities cyclic-multiplier equivalent to canonical C_(2,-1); its published minimal weights are 4,5. Independent direct GF(p²) generator and zero-column projective-rank enumeration for p=3,5,7 and multiple exponents reproduced all predicted weights and projective counts; finite enumerations do not replace the pencil proof.
 
-PASS. The primary 2026 article proves the covering structure only for \(\mathcal C_{((q-1),-1)}\) and explicitly asks whether the remaining Theorem 6 codes share it. The cited 2009 covering theorem concerns perfect-nonlinear-function codes, and the authors' earlier subfield-code covering work concerns a different construction. Focused source, alias, and exact-family searches found no prior all-exponent result.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem closes a question explicitly stated by the source for a new infinite family and extends the secret-sharing covering information from one exponent pair to every admissible pair. The projective proof also explains why the common ordinary weight distribution is accompanied here by a common support-containment structure, something not true for arbitrary codes with the same weight enumerator.
+Hernández and Vega (2026), Theorem 6, proves full five-weight distribution and canonical covering structure, explicitly posing the remaining exponent pairs as future work. The submitted conclusion treats arbitrary admissible exponent pairs by projective geometry, not merely the canonical member or ordinary weight enumerator. The Li–Qu–Ling perfect-nonlinear special family is not a covering implication for all admissible exponents. No checked source or Resultary record proves the universal result, though later or differently indexed work may.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determines a nontrivial covering/minimal-support structure and count across an infinite parametric cyclic-code family, answering a published explicit future-work question. This informs associated secret-sharing access structures; neither the already known five-weight distribution nor trivial parameter substitution alone suffices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
