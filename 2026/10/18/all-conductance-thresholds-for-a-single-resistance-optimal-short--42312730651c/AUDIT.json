@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "On the orthocomplement of the all-ones vector, Sherman–Morrison gives the exact Kf gain. The voltage ramp produces the explicit amplitude with a square tail-imbalance penalty; the odd-parity second difference is positive, and the even-order span-two boundary is separately controlled. Explicit consecutive differences give the rational tau thresholds; strict concavity of F_w above n/2 gives strictly ordered crossing weights; F_w monotonicity below 3n/4 excludes all shorter chords. All n>=4, finite w>0 and ties are covered, backed by 67,122 exact rational/symbolic checks (n<=32) from verify.py. Finite tests are not the basis for the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Jiang MATCH 60 (2008) compares the whole family of unweighted unicyclic graphs, which does not hold a path of unit conductances fixed.",
+        "Predari et al. 2023 optimize general edge insertions via greedy approaches, and Ghosh–Boyd–Saberi optimize weighted networks under allocation constraints."
+      ],
+      "reasoning": "Broad topology-extremal theorems do not prescribe one new conductance on an immutable path. General exact edge gain formulas cover values but not automatically the infinite-all-n phase-order theorem; neither relevant full-text section supplied stronger exact covering inequalities. External access to all specialized monographs is not guaranteed.",
+      "searches": [
+        "unicyclic graph formed by cycle with two equal length pendant tails minimum Kirchhoff index single weighted edge",
+        "\"unicyclic graph minimum Kirchhoff index fixed n cycle star lollipop optimal cycle with pendant paths\"",
+        "\"Kirchhoff index\" \"one edge addition\" path optimal conductance"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, accessible 2006 original proceedings PDF and 2008 SIAM Review DOI",
+      "Summers–Shames–Lygeros–Dörfler, Topology Design for Optimal Network Coherence, arXiv:1411.4884v1 original full text",
+      "Yang–Jiang, Unicyclic Graphs with Extremal Kirchhoff Index, MATCH 60 (2008), original full-text PDF",
+      "Predari et al., Greedy Optimization of Resistance-based Graph Robustness with Global and Local Edge Insertions, 2023 open-access article",
+      "Published mathematical-record semantic searches for weighted path chord effective-resistance thresholds and unicyclic extremal coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior path-specific result explicitly established the basic one-edge gain, the first transition at n>=9, and the fixed-weight large-order limiting span, while leaving later finite-order transitions unclassified.",
+        "The new proof derives the entire cutoff series, strict increasing order, precise ties, total count, and exclusion of every other chord for all n and finite w.",
+        "Accessible original full texts by Ghosh–Boyd–Saberi, Summers et al., Yang–Jiang, and Predari et al. do not state this classification in the inspected relevant passages."
+      ],
+      "reasoning": "The first-transition statement and its consequences are covered and not novelty. The infinite sequence of higher transitions is not implied by the first transition or by the asymptotic position alone; generic rational formulas could in principle be evaluated at finite sizes but lack the proved no-skipping optimization theorem. No stronger explicit all-n fixed-path theorem was found in the inspected sources. Residual bibliographic uncertainty remains.",
+      "searches": [
+        "Optimal single new edge placement in path graph minimizing network effective resistance or Kirchhoff index with arbitrary conductance, exact strong-link limits",
+        "Optimal chord insertion in unweighted path to minimize Kirchhoff index with prescribed conductance w; uniquely symmetric endpoints, rational conductance thresholds every eight vertices, asymptotic shortcut spans three quarters",
+        "For the path P_n, complete successive globally optimal added chord transitions minimizing Kirchhoff index: exactly floor((n-1)/8) conductance thresholds, centered edges k to k+1, all no skipping",
+        "arXiv:1411.4884v1",
+        "doi:10.1137/050645452"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The synonym set consists of Kirchhoff index, total effective resistance, trace of Laplacian pseudoinverse, network coherence, and an added weighted chord of a path.",
+        "Summers et al. arXiv:1411.4884v1 uses the rank-one coherence update; inspected relevant sections do not report all ordered thresholds."
+      ],
+      "reasoning": "These equivalent resistance objectives all reduce to maximizing the exact rank-one gain. Knowing an individual gain function is not an implication of its complete global argmax and consecutive rational transition sequence; that requires balanced-tail exclusion and strict no-skipping inequalities. No equivalent full statement was found in inspected published sources or semantic records.",
+      "searches": [
+        "Optimal single new edge placement in path graph minimizing network effective resistance or Kirchhoff index with arbitrary conductance, exact strong-link limits",
+        "Optimal chord insertion in unweighted path to minimize Kirchhoff index with prescribed conductance w; uniquely symmetric endpoints, rational conductance thresholds every eight vertices, asymptotic shortcut spans three quarters",
+        "one new edge on n-vertex path minimize total effective resistance balanced tails and switching optimal chord length n-1-2k",
+        "For the path P_n, complete successive globally optimal added chord transitions minimizing Kirchhoff index: exactly floor((n-1)/8) conductance thresholds, centered edges k to k+1, all no skipping",
+        "\"Kirchhoff index\" \"path\" \"one edge\" \"optimal\" shortcut placement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record returns include 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818 on graph Fourier sensor frames and 2026/10/11/SCOPE-parallel-path-screening-and-the-exact-minimum-sphere-of-directed--fb9309fc855d on directed edge-polytope enclosing balls; these are different invariants.",
+        "The verified exact-arithmetic checker enumerates path orders 4–32; those computations are supporting evidence and are not a claimed published table."
+      ],
+      "reasoning": "No relevant database/table containing the full path conductance threshold series was located in the actual searches. A finite computational list would not itself imply strict ordering and uniqueness for all orders. Incompleteness of indexing remains a residual risk.",
+      "searches": [
+        "Optimal chord insertion in unweighted path to minimize Kirchhoff index with prescribed conductance w; uniquely symmetric endpoints, rational conductance thresholds every eight vertices, asymptotic shortcut spans three quarters",
+        "one new edge on n-vertex path minimize total effective resistance balanced tails and switching optimal chord length n-1-2k",
+        "For the path P_n, complete successive globally optimal added chord transitions minimizing Kirchhoff index: exactly floor((n-1)/8) conductance thresholds, centered edges k to k+1, all no skipping"
+      ]
+    },
+    "rationale": "New full, all-order, all-positive-finite-conductance threshold hierarchy, strict non-skipping and exact optimizer count; the known first threshold and rank-one gain are not claimed as new. Mathematical implication comparisons with accessible original and later full texts did not identify a covering classification. Remaining specialized-literature discovery risk is explicitly recorded.",
+    "residual_risks": [
+      "An equivalent path-specific result may be implicit in specialized literature omitted by semantic/full-text indexing.",
+      "Ellens et al. (2011), Effective graph resistance, was identified as related background; an attempted direct online full-PDF fetch failed. It is not treated as having been read or as decisive negative coverage.",
+      "Generic rank-one resistance gain formulas make this classification derivable in principle, but do not themselves establish the exact full global optimizer sequence without further optimization arguments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimal conductance allocations, not an exact all-threshold classification of one fixed-weight shortcut with frozen path edges.",
+        "evidence": [
+          "2006 original proceedings PDF, including graph conductance allocation setup; SIAM Review DOI 10.1137/050645452"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Available original proceedings full-text PDF: abstract, optimization formulation, path-network allocation discussion and conclusions.",
+        "method": "Inspected searchable text and PDF page image; compared optimization variables and mathematical implications.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "General resistance minimization and possible coverage by weighted design"
+      },
+      {
+        "assessment": "Gives general rank-one coherence reduction and optimization heuristics, not every fixed-path optimal chord and rational weight threshold.",
+        "evidence": [
+          "arXiv:1411.4884v1, dated 18 November 2014, accessible full-text PDF"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1411.4884",
+        "material_read": "Original arXiv first-version full-text PDF: abstract, model definitions, Section III rank-one update and edge-design discussion.",
+        "method": "Inspected readable full-text and page image; compared scope of edge-addition optimality claims.",
+        "title": "Topology Design for Optimal Network Coherence",
+        "trigger": "Potential single-edge Laplacian-pseudoinverse optimization dominance"
+      },
+      {
+        "assessment": "Unweighted extrema over all unicyclic graphs do not fix the original path backbone or specify this variable-conductance no-skipping phase sequence.",
+        "evidence": [
+          "MATCH Communications in Mathematical and in Computer Chemistry 60 (2008), pages 107–120"
+        ],
+        "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match60/n1/match60n1_107-120.pdf",
+        "material_read": "Accessible original 2008 full-text PDF: definitions and principal unicyclic extremal theorems.",
+        "method": "Inspected text and theorem-page image, distinguished fixed path with a prescribed extra conductance from unconstrained unweighted topology extrema.",
+        "title": "Unicyclic Graphs with Extremal Kirchhoff Index",
+        "trigger": "Potentially stronger classification over all unicyclic graphs"
+      },
+      {
+        "assessment": "General graph edge-addition framework and algorithms; no complete rational phase diagram for path chord placement.",
+        "evidence": [
+          "DOI 10.1007/s13278-023-01137-1, open-access published 12 October 2023"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13278-023-01137-1",
+        "material_read": "Lawful open-access published article: abstract, problem definitions, reduction formulas, greedy-algorithm discussion.",
+        "method": "Inspected accessible article sections and PDF page images for path-specific closed-form solution.",
+        "title": "Greedy Optimization of Resistance-based Graph Robustness with Global and Local Edge Insertions",
+        "trigger": "Explicit k=1 global edge insertion might cover path placements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42312730-651c-41ce-8678-2f4f57b53489",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete rational phase diagram for every finite path gives a natural global choice of one fixed-cost shortcut under a standard electrical robustness/coherence invariant. Counting all floor((n-1)/8) switches, proving no intermediate designs are skipped, and classifying strict/tied optimum locations are substantive all-order structural information beyond the previously known first change and asymptotic span.",
+    "status": "PASS"
+  }
+}
