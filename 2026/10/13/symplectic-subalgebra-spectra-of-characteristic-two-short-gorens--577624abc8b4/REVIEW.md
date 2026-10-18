@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every unital subalgebra is uniquely the scalars plus a radical subspace. Such a subspace either contains the one-dimensional square of the radical, in which case it is closed under multiplication automatically, or it does not, in which case its projected vector space is totally isotropic and its embedding is the graph of an arbitrary functional. The full automorphism action is the symplectic similitude group extended by all central shears. Symplectic Witt extension gives exactly the listed orbit invariants, and standard isotropic/orthogonal-sum counts prove the sizes. A standalone enumerator checked complete closure counts over six parameter pairs and complete group-generated orbits over four pairs. No finite check is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Jelisiejew (arXiv:1511.08007, 2015) studies Artinian Gorenstein isomorphism classes rather than subalgebra embeddings; Liu (2013) classifies subspace types and lattices under singular symplectic groups, but does not analyze the multiplication-closed subspaces of the specified Gorenstein algebras or enumerate their graph-map fibers. The claim is the complete ring-subalgebra spectrum and automorphism orbit refinement, not the already-known symplectic transitivity or Grassmannian counts. published-finding corpus searches for those ring objects, alternative terminology, and stronger parameter coverage found no matching claim in the retrieved closest records. The searches are not a proof of absence; unknown algebra-subring enumeration literature remains a risk. A related 2010 symplectic-lattice paper was available as an abstract but its full text was not independently inspected.
+PASS
 
-**Value — PASS.** This gives a complete, uniform natural invariant for every embedding dimension in a characteristic-two Gorenstein family, including individual orbit sizes and a dimension enumerator. The graph-map term shows exactly how much the unital subalgebra lattice exceeds the ideal lattice; this phenomenon is invisible to ideal counting alone. The resulting orbit count depends on embedding dimension but not field order, while total counts retain the finite-field geometry. The classification is motivated by finite-ring subalgebra counting, not an arbitrary selected statistic.
+In characteristic 2 a nondegenerate alternating form is symmetric, so vw defines a commutative associative algebra with J^2=kz and J^3=0. Algebra automorphisms act on V by symplectic similitudes with arbitrary central shears. Unital subalgebra is k+U where U<=J and U^2<=U. If z in U, U=L+kz for any L<=V; if not, U is a graph over a totally isotropic L, with q^d choices of shear map. Witt extension stratifies arbitrary L by radical dimension r and nondegenerate quotient rank 2s. Count radicals as I_(m,r), and complementary nondegenerate subspaces as S_(m-r)/(S_s S_(m-r-s)). The number of containing-z orbit types is (m+1)(m+2)/2, plus m+1 disjoint-z orbits. Independent F_2 subspace enumeration gives 12 total for m=1 with 5 containing-z, 7 graph; and 158 for m=2 with 67 and 91. These finite checks corroborate only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Jelisiejew arXiv:1511.08007 classifies isomorphism types of whole Artinian Gorenstein algebras and graded structures, not the embedded subalgebras of one fixed alternating char-2 algebra. Symplectic-subspace orbit/census formula is classical; the new subject is its full translation to all unital subalgebras including the z-free isotropic graph fibers and ideal/nonideal separation. No implication-equivalent exact subalgebra census identified.
+
+## value
+
+PASS
+
+Embedded subalgebra structure is a fundamental finite-algebra invariant independent of classification of ambient rings. Complete dimension and automorphism-orbit generating data across every even field size and m reveal precisely how nonideal subalgebras arise as isotropic graphs. The characteristic-two symplectic-product family is mathematically natural and directly connects ring substructure with finite symplectic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

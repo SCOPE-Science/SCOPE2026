@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Use `python3 artifacts/verify.py`; no third-party Python packages are needed. The implementation enumerates actual subspaces, not just a formula or a partial sample. It independently tests product closure in the radical for small finite fields and classifies each closed subspace using its symplectic restriction matrix.
+## correctness
 
-The full subalgebra enumerations over \((m,q)=(1,2),(1,4),(1,8),(2,2),(2,4),(3,2)\) give \(12,28,84,158,2230,5292\) respectively. Full group-orbit traversals are performed for \((1,2),(1,4),(2,2),(3,2)\) using symplectic transvections and basis central shears. The last case has fourteen orbits with sizes \(1,1,1,63,63,126,135,315,315,336,336,1080,1260,1260\). The script prints `VERIFY_OK` upon successful completion.
+PASS
 
-These are exact finite checks. The theorem for arbitrary \(m\ge1\) and every field of order \(2^e\) is established by the algebraic proof and classical symplectic-space counting arguments. No independent audit or external verification is claimed.
+In characteristic 2 a nondegenerate alternating form is symmetric, so vw defines a commutative associative algebra with J^2=kz and J^3=0. Algebra automorphisms act on V by symplectic similitudes with arbitrary central shears. Unital subalgebra is k+U where U<=J and U^2<=U. If z in U, U=L+kz for any L<=V; if not, U is a graph over a totally isotropic L, with q^d choices of shear map. Witt extension stratifies arbitrary L by radical dimension r and nondegenerate quotient rank 2s. Count radicals as I_(m,r), and complementary nondegenerate subspaces as S_(m-r)/(S_s S_(m-r-s)). The number of containing-z orbit types is (m+1)(m+2)/2, plus m+1 disjoint-z orbits. Independent F_2 subspace enumeration gives 12 total for m=1 with 5 containing-z, 7 graph; and 158 for m=2 with 67 and 91. These finite checks corroborate only.
+
+## originality
+
+PASS
+
+Jelisiejew arXiv:1511.08007 classifies isomorphism types of whole Artinian Gorenstein algebras and graded structures, not the embedded subalgebras of one fixed alternating char-2 algebra. Symplectic-subspace orbit/census formula is classical; the new subject is its full translation to all unital subalgebras including the z-free isotropic graph fibers and ideal/nonideal separation. No implication-equivalent exact subalgebra census identified.
+
+## value
+
+PASS
+
+Embedded subalgebra structure is a fundamental finite-algebra invariant independent of classification of ambient rings. Complete dimension and automorphism-orbit generating data across every even field size and m reveal precisely how nonideal subalgebras arise as isotropic graphs. The characteristic-two symplectic-product family is mathematically natural and directly connects ring substructure with finite symplectic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
