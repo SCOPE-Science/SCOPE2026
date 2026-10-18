@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Continuous spectral functional calculus reduces the normal-operator integral to a maximum of squared real projections. The trace and determinant of the real rank-one difference determine a one-harmonic quadratic form. Splitting the absolute cosine integral at its zeros gives the exact arctangent expression with the correct degenerate branch. Direct differentiation proves strict angle monotonicity; Taylor expansion proves the sharp positive cubic and linear coefficients. Every quantifier, zero case, and fixed-radius limitation is stated. The packaged finite diagnostics pass but are not used as proof.
+
+**Originality — PASS subject to independent priority review.** The complete motivating article [1] proves global and commuting-case inequalities but does not evaluate the unequal-modulus, general-angle two-point value. The complete published unitary spectrum result [2] covers the equal-radii subfamily. The complete rank-one result [3] covers the zero-eigenvalue case. The complete cubic-stability result [4] proves a stronger general cubic inequality and includes the perpendicular unequal-radii slice; its exact example is acknowledged, but it does not imply the new joint radial/angular formula or fixed-radius angular coefficient. Searches of current mathematical records and prior related claims did not identify such a formula. Residual risk: classical mean-width-square integrals under a different name may give an equivalent form.
+
+**Mathematical value — PASS.** Two-point normal spectra form the smallest nontrivial normal class, and differing eigenvalue moduli produce a genuine radial/angle geometry invisible to the previously known unitary, rank-one, or perpendicular slices. A complete sharp two-spectral-point certificate for arbitrary normal operators follows, along with the exact change in angular sensitivity from cubic to linear at radial degeneracy. This is a motivated natural finite-dimensional invariant and boundary classification, not an arbitrary numerical slice or an unexplained numerical experiment.
+
+The result is not a general classification for three-point normal spectra. Independent publication-priority assessment and proof audit remain necessary.
+
+Self-review: passed. Independent audit: not yet performed.
