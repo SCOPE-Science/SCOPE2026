@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-graph equivalence follows from a complete orthogonal-projector resolution of the combinatorial Laplacian of \(K_{a_1,\ldots,a_k}\). The three entry types are derived explicitly. Necessity uses \(K_2\) for the upper scalar bound, the arbitrarily large clique family with a rescaled step for the lower scalar bound, and bicliques \(K_{p,q}\) plus density of rational ratios for monotonicity of the difference quotient. No finite enumeration is used as an infinite proof. The concrete fourth-order multiplier has a strictly positive numerator, is strictly below one, and has a strictly decreasing difference quotient. The exact checker independently reconstructs and compares full rational matrices on 993 graph-step pairs.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For K_(a_i) with total n the mutually orthogonal spectral projectors E=J/n, B-E and within-part W_i diagonalize the combinatorial Laplacian at 0,n,n-a_i. Evaluating f(hL) produces cross-part entries (1-f(nh))/n, within-part off-diagonal entries proportional to [Φ((n-a_i)h)-Φ(nh)] and diagonal convex-combination entries; 0≤f≤1 and nonincreasing Φ suffice. Necessity comes from K₂ for f≤1, growing cliques at scaled steps for f≥0 and bicliques K_(p,q) with all positive rational ratios for monotonicity of Φ. For the Gauss step f=(s²-6s+12)/(s²+6s+12), numerator=(s-3)²+3>0 and Φ=12/(s²+6s+12) strictly decreases, giving strictly positive, symmetric, stochastic and positive-definite endpoint matrices. Independently inverted 15 rational Padé matrix cases at varied sizes/scales and recovered projectors/positive entries exactly.
 
-Lóczi and Ketcheson prove a zero absolute-monotonicity radius for the unrestricted fourth-order Padé stability function, which does not state that this function is positive on a particular entire graph family at every step. Zappavigna and colleagues provide a universal failure witness and short-step sufficient criterion for Hurwitz Metzler matrices; their entry-support condition does not cover nonsingleton complete multipartite graphs, and their theorem supplies neither the all-scale conclusion nor the scalar iff. The published eight-state Markov result concerns arbitrary generators at small steps and a single pure-birth witness, not the characterized family. A targeted search for graph-filter aliases, complete-bipartite positivity and divided-difference equivalences did not find statement-level coverage. An existing complete-bipartite Padé positivity special case is expressly not counted toward novelty; it does not imply the iff classification for every continuous scalar multiplier on arbitrarily many parts. An older matrix-function classification could still subsume the result under different language; this remains an explicit residual risk, not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem characterizes an infinite-dimensional cone of scalar time-stepping multipliers by only two scalar shape requirements, for an arbitrarily large and heterogeneous family of diffusion graphs including complete graphs, stars and bicliques. The two-hop nonadjacent entries yield a genuinely independent divided-difference restriction, and a concrete counterexample establishes that pointwise positivity alone is insufficient. The practical corollary resolves an apparently conflicting design question: a classical fourth-order integrator with **zero general-purpose absolute-monotonicity radius** nevertheless preserves the probability simplex for every positive step on this natural family. Both the exact structural criterion and its instance are reusable when choosing rational spectral filters for graph diffusion.
+The prior general absolute-monotonicity obstruction applies to arbitrary positive generators, not every scale on the specified symmetric multipartite subfamily. Primary positivity work proves short-time sufficient criteria for Hurwitz Metzler systems, not the iff scalar criterion for arbitrary continuous f on all multipartite graphs. Previously described Gauss positivity on a special bipartite graph is not newly credited; the full scalar iff is the novelty claim.
 
-## Closest sources and remaining limits
+## value
 
-Closest literature is Lóczi–Ketcheson (arXiv:1303.6651v1, Section 2.2.1), Zappavigna–Colaneri–Kirkland–Shorten (doi:10.1016/j.laa.2011.12.021, Section 4), Blanes–Iserles–Macnamara (arXiv:2102.08242), and *Eight-state barrier for Markov positivity of the [2/2] Padé map* (published RESULT.md linked in RESULT.md). The statement applies only to unweighted connected complete multipartite graphs and the end-step map; no independent audit or exhaustive historical priority claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp necessary/sufficient graph-filter conditions identify an entire nontrivial unweighted graph family on which a fourth-order method remains positive at any timestep despite its globally zero radius. The all-function scalar theorem is an independently useful structural classification, not merely a routine Padé computation or code benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

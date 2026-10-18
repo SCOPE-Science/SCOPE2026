@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The mathematical theorem is analytic and not based on finite enumeration. The proof explicitly resolves all spectral projectors of an arbitrary \(K_{a_1,\ldots,a_k}\), derives every matrix-entry type, and constructs three infinite-family tests proving the scalar conditions are necessary. The Gauss multiplier is evaluated symbolically for all \(s>0\), so no numerical approximation is used to establish the universal positivity conclusion.
+## correctness
 
-Run the standalone script with `python3 artifacts/verify.py` from the containing directory. It uses only Python's standard-library `fractions` and `itertools` modules. It constructs each graph Laplacian directly, squares it, forms both fourth-order Padé polynomials, inverts the denominator by rational Gaussian elimination, and compares the resulting matrix against an independently assembled spectral-projector expression. For each case it tests every entry for strict positivity and each row sum for exact equality to one.
+PASS
 
-Actual execution returned:
+For K_(a_i) with total n the mutually orthogonal spectral projectors E=J/n, B-E and within-part W_i diagonalize the combinatorial Laplacian at 0,n,n-a_i. Evaluating f(hL) produces cross-part entries (1-f(nh))/n, within-part off-diagonal entries proportional to [Φ((n-a_i)h)-Φ(nh)] and diagonal convex-combination entries; 0≤f≤1 and nonincreasing Φ suffice. Necessity comes from K₂ for f≤1, growing cliques at scaled steps for f≥0 and bicliques K_(p,q) with all positive rational ratios for monotonicity of Φ. For the Gauss step f=(s²-6s+12)/(s²+6s+12), numerator=(s-3)²+3>0 and Φ=12/(s²+6s+12) strictly decreases, giving strictly positive, symmetric, stochastic and positive-definite endpoint matrices. Independently inverted 15 rational Padé matrix cases at varied sizes/scales and recovered projectors/positive entries exactly.
 
-`VERIFY_OK 993 exact rational graph-step cases, spectral projections, row sums, strictly positive entries, sharp independent obstructions`
+## originality
 
-The cases comprise every ordered composition of total size \(2\le n\le8\) with at least two parts, each evaluated at four rational steps, plus five heterogeneous larger graphs. Separate exact checks examine nonnegativity and monotonicity of the specific multiplier and the independence of the scalar restrictions. The examples are arithmetic cross-checks; an infinite mathematical assertion cannot be certified by enumerating those cases. External independent audit has not been performed.
+PASS
+
+The prior general absolute-monotonicity obstruction applies to arbitrary positive generators, not every scale on the specified symmetric multipartite subfamily. Primary positivity work proves short-time sufficient criteria for Hurwitz Metzler systems, not the iff scalar criterion for arbitrary continuous f on all multipartite graphs. Previously described Gauss positivity on a special bipartite graph is not newly credited; the full scalar iff is the novelty claim.
+
+## value
+
+PASS
+
+The sharp necessary/sufficient graph-filter conditions identify an entire nontrivial unweighted graph family on which a fourth-order method remains positive at any timestep despite its globally zero radius. The all-function scalar theorem is an independently useful structural classification, not merely a routine Padé computation or code benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

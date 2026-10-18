@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:14:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_(a_i) with total n the mutually orthogonal spectral projectors E=J/n, B-E and within-part W_i diagonalize the combinatorial Laplacian at 0,n,n-a_i. Evaluating f(hL) produces cross-part entries (1-f(nh))/n, within-part off-diagonal entries proportional to [Φ((n-a_i)h)-Φ(nh)] and diagonal convex-combination entries; 0≤f≤1 and nonincreasing Φ suffice. Necessity comes from K₂ for f≤1, growing cliques at scaled steps for f≥0 and bicliques K_(p,q) with all positive rational ratios for monotonicity of Φ. For the Gauss step f=(s²-6s+12)/(s²+6s+12), numerator=(s-3)²+3>0 and Φ=12/(s²+6s+12) strictly decreases, giving strictly positive, symmetric, stochastic and positive-definite endpoint matrices. Independently inverted 15 rational Padé matrix cases at varied sizes/scales and recovered projectors/positive entries exactly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lóczi–Ketcheson §2.2.1 says unrestricted [2/2] Padé absolute-monotonicity radius is zero; Zappavigna et al Theorem 3 assumes Hurwitz Metzler and h≤h*; the eight-state pure-birth barrier is for non-symmetric CTMCs."
+        ],
+        "reasoning": "A general-method obstruction does not imply restricted-family failure; short-time sufficiency or finite-dimensional negative witnesses do not imply universal f-iff for all complete multipartite graphs.",
+        "searches": [
+          "arXiv:1303.6651",
+          "doi:10.1016/j.laa.2011.12.021",
+          "arXiv:2102.08242",
+          "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1112/S1461157013000326",
+        "doi:10.1016/j.laa.2011.12.021",
+        "arXiv:2102.08242",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Assigned RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt, artifacts/verify.py at frozen tree aa131ecb6855e92147f9145f2cccd0734a740417"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted universal equivalence implies Gauss positivity for all complete multipartite graphs, while the 2012 theorem covers finite short intervals for a different hypothesis set and Lóczi–Ketcheson proves zero unrestricted radius."
+        ],
+        "reasoning": "No inspected stronger theorem contains the two necessary scalar inequalities and simultaneously suffices at all scales; the bipartite Gauss instance alone is a strict special case.",
+        "searches": [
+          "arXiv:1303.6651",
+          "doi:10.1016/j.laa.2011.12.021",
+          "arXiv:2102.08242"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-graph iff uses 0≤f≤1 and monotonic Φ=(1-f)/s; primary positivity papers state radius or short-step constraints instead."
+        ],
+        "reasoning": "Checked aliases: stochastic matrix functions, graph spectral filtering, Padé diffusion, divided differences, complete multipartite Laplacian.",
+        "searches": [
+          "complete multipartite graph Laplacian fourth order Gauss Legendre Runge Kutta Padé positivity all timesteps and scalar characterization",
+          "complete multipartite matrices functions f(L) entrywise nonnegative divided difference iff complete multipartite spectral graph",
+          "Gauss Legendre fourth order Pade all time steps complete multipartite Laplacian positivity",
+          "essentially negative news about positive systems complete multipartite graph spectral filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known complete multipartite Laplacian eigenvalues are classical and a bipartite Padé case exists, but these do not tabulate the iff for arbitrary continuous f and all part sizes."
+        ],
+        "reasoning": "The spectrum is a premise, not an exhaustive tabulation of all positive matrix functions.",
+        "searches": [
+          "complete multipartite graph Laplacian fourth order Gauss Legendre Runge Kutta Padé positivity all timesteps and scalar characterization",
+          "complete multipartite matrices functions f(L) entrywise nonnegative divided difference iff complete multipartite spectral graph",
+          "Gauss Legendre fourth order Pade all time steps complete multipartite Laplacian positivity",
+          "[2/2] Padé positivity complete bipartite spectral table"
+        ]
+      },
+      "rationale": "The prior general absolute-monotonicity obstruction applies to arbitrary positive generators, not every scale on the specified symmetric multipartite subfamily. Primary positivity work proves short-time sufficient criteria for Hurwitz Metzler systems, not the iff scalar criterion for arbitrary continuous f on all multipartite graphs. Previously described Gauss positivity on a special bipartite graph is not newly credited; the full scalar iff is the novelty claim.",
+      "residual_risks": [
+        "An older matrix-function characterization under divided differences or inverse M-matrix language may prove a logically equivalent iff.",
+        "Endpoint positivity does not guarantee internal-stage positivity, stiffness decay or general graph/weight robustness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OPERATOR_QUANTIFIER",
+          "evidence": "Zero universal radius says not positivity-preserving for all monotone/Metzler linear systems; cannot exclude a restricted graph class.",
+          "identifier_or_url": "doi:10.1112/S1461157013000326; arXiv:1303.6651",
+          "material_read": "Available 47-page Cambridge PDF, its abstract and §2.2.1 on unique [2/2] Padé and R_(2/2,4)=0",
+          "method": "Primary full-text PDF review",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Potential unrestricted theorem subsuming graph-filter positivity"
+        },
+        {
+          "assessment": "NOT_ALLSTEP_IFF",
+          "evidence": "Theorem 3 is short-step positivity for Hurwitz Metzler systems and has no iff at every scale on complete multipartite semistable Laplacians.",
+          "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+          "material_read": "Author-posted 23-page accepted manuscript: Theorem 3 (p.17), graph-support comment 6, conditions h≤h* and hypotheses",
+          "method": "Lawful author-posted full PDF text and page-image reading",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Direct prior Padé positivity theory"
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": "Discusses high-order positivity limitations generally; not used for a whole-paper noncoverage conclusion.",
+          "identifier_or_url": "arXiv:2102.08242; doi:10.1051/m2an/2022042",
+          "material_read": "Full OA university repository abstract and description; no full-text claim made",
+          "method": "Repository primary overview",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "General high-order positivity barrier"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Directed pure-birth CTMC counterexample lies outside symmetric unweighted complete multipartite Laplacian class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Published mathematical finding summary: pure-birth eight-state obstruction and positivity windows",
+          "method": "Resultary published-finding semantic record",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Closest published finding for same Padé method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp necessary/sufficient graph-filter conditions identify an entire nontrivial unweighted graph family on which a fourth-order method remains positive at any timestep despite its globally zero radius. The all-function scalar theorem is an independently useful structural classification, not merely a routine Padé computation or code benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1112/S1461157013000326",
+    "doi:10.1016/j.laa.2011.12.021",
+    "arXiv:2102.08242",
+    "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+    "Assigned RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt, artifacts/verify.py at frozen tree aa131ecb6855e92147f9145f2cccd0734a740417"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older matrix-function characterization under divided differences or inverse M-matrix language may prove a logically equivalent iff.",
+    "Endpoint positivity does not guarantee internal-stage positivity, stiffness decay or general graph/weight robustness."
+  ],
+  "schema_version": 1
+}
