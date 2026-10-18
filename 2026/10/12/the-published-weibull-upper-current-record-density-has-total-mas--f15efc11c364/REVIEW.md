@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target paper's own general upper-current-record formula gives \(2^m f(x)P(m,t)\) after setting \(t=(x/\lambda)^k\). The displayed equation (2.6) instead contains \(P(m,t/2)\). Its total mass is exactly
-\[
-2^m\int_0^\infty e^{-t}P(m,t/2)\,dt=(2/3)^m,
-\]
-so it cannot be a probability density. The corrected CDF differentiates to the corrected density and has endpoints zero and one.
+## correctness
 
-An independent specialization check agrees: for \(k=2\) and \(\lambda=\sqrt{2}\sigma\), the corrected formulas reproduce the January 2026 Rayleigh-current-record formulas exactly.
+PASS
 
-## Originality
-PASS. The 2014 general current-record result already implies the corrected density, so no novelty is claimed for the abstract specialization itself. Focused searches instead tested the paper-specific claim: the February 2026 formulas, their normalization defect, the \(k=2\) inconsistency, formula aliases, and correction/erratum notices. No published correction or equivalent diagnosis was located.
+With t=(x/lambda)^k, f(x)dx=e^-t dt and for positive integer m, P(m,z)=1-e^-z sum_{j=0}^{m-1}z^j/j!. Thus printed 2^m f(x)P(m,t/2) integrates 2^m/3^m; symbolic exact integration independently verified m=2,3,5. General current-record density Eq. (2.10) yields 2^m f(x)P(m,t). Differentiation of G=P(m,2t)-2^m e^-t P(m,t) gives 2^m e^-t P(m,t), G(0)=0 and G(infinity)=1; symbolic residual zero. Restrict correction to marginal upper record equations and downstream results actually depending on them.
 
-The closest literature is the 2014 general current-record formula and the author's January 2026 Rayleigh specialization. Both support the correction but predate the erroneous February Weibull theorem.
+## originality
 
-Residual risk remains that a nonindexed corrigendum or note records the same defect.
+PASS
 
-## Value
-PASS. A displayed function labeled as a probability density has total mass strictly below one for every allowed \(m>1\). This affects the target paper's central marginal-distribution result and the upper marginal moments derived from that density. The correction is exact, parameter-uniform, and restores consistency with both the general theory and the Rayleigh special case.
+The corrected distribution follows immediately from Barakat–Nigm–Aldallal 2014 general formula, so it is not a new general current-record distribution. The separately motivated claim is a source-specific identification of a February 2026 published normalization error, its exact mass defect (2/3)^m, and its incompatibility with both the author’s general Eq. (2.10) and January 2026 Rayleigh case. Full original theorem and surrounding derivation inspected. No earlier source or erratum found exposing this particular February defect.
 
-The review does not infer that the paper's separate joint-record likelihood or every subsequent inferential result is false solely from this marginal error.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A published purported probability density with mass below one for every m>1 can invalidate likelihood and marginal inference if used literally. Exact diagnosis and consistent corrected PDF/CDF are a substantively motivated source-specific mathematical correction with direct statistical consequence, not arbitrary arithmetic or an unsupported gain. Claims about unaffected joint procedures are explicitly withheld.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

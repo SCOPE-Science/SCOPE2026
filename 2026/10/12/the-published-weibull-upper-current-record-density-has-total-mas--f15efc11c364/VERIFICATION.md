@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-Let \(t=(x/\lambda)^k\). The Weibull density satisfies \(f(x)\,dx=e^{-t}\,dt\).
 
-The target paper's displayed upper-current-record density is
-\[
-\widetilde f_{UC_m}(x)=2^m f(x)P(m,t/2).
-\]
-For integer \(m>1\),
-\[
-P(m,t/2)=1-e^{-t/2}\sum_{j=0}^{m-1}\frac{(t/2)^j}{j!}.
-\]
-Therefore
-\[
-\begin{aligned}
-\int_0^\infty \widetilde f_{UC_m}(x)\,dx
-&=2^m\left[
-1-\sum_{j=0}^{m-1}
-\frac{1}{2^j j!}
-\int_0^\infty t^j e^{-3t/2}\,dt
-\right]\\
-&=2^m\left[
-1-\sum_{j=0}^{m-1}\frac{2}{3^{j+1}}
-\right]\\
-&=(2/3)^m.
-\end{aligned}
-\]
-Thus the displayed function is nonnormalized.
+# Independent mathematical audit
 
-The general current-record density printed in the same source is
-\[
-2^m f(x)
-\left[
-1-\overline F(x)
-\sum_{j=0}^{m-1}
-\frac{\{-\log\overline F(x)\}^{j}}{j!}
-\right].
-\]
-With \(\overline F(x)=e^{-t}\), its bracket is \(P(m,t)\). Hence the corrected density is
-\[
-f_{UC_m}(x)=2^m f(x)P(m,t).
-\]
+## correctness
 
-Define
-\[
-G_m(t)=P(m,2t)-2^m e^{-t}P(m,t).
-\]
-Using \(P'(m,t)=t^{m-1}e^{-t}/\Gamma(m)\), direct differentiation gives
-\[
-G_m'(t)=2^m e^{-t}P(m,t).
-\]
-Also \(G_m(0)=0\) and \(G_m(t)\to1\), so \(G_m((x/\lambda)^k)\) is the corrected CDF.
+PASS
 
-A separate source check uses the paper's stated \(k=2\) Rayleigh reduction. With \(\lambda=\sqrt{2}\sigma\), the corrected CDF and density coincide exactly with equations (11)-(12) of the author's January 2026 Rayleigh-current-record article. The February formulas do not.
+With t=(x/lambda)^k, f(x)dx=e^-t dt and for positive integer m, P(m,z)=1-e^-z sum_{j=0}^{m-1}z^j/j!. Thus printed 2^m f(x)P(m,t/2) integrates 2^m/3^m; symbolic exact integration independently verified m=2,3,5. General current-record density Eq. (2.10) yields 2^m f(x)P(m,t). Differentiation of G=P(m,2t)-2^m e^-t P(m,t) gives 2^m e^-t P(m,t), G(0)=0 and G(infinity)=1; symbolic residual zero. Restrict correction to marginal upper record equations and downstream results actually depending on them.
 
-No finite experiment is used as proof. No assertion is made here about the validity of the separately defined joint-record likelihood.
+## originality
+
+PASS
+
+The corrected distribution follows immediately from Barakat–Nigm–Aldallal 2014 general formula, so it is not a new general current-record distribution. The separately motivated claim is a source-specific identification of a February 2026 published normalization error, its exact mass defect (2/3)^m, and its incompatibility with both the author’s general Eq. (2.10) and January 2026 Rayleigh case. Full original theorem and surrounding derivation inspected. No earlier source or erratum found exposing this particular February defect.
+
+## value
+
+PASS
+
+A published purported probability density with mass below one for every m>1 can invalidate likelihood and marginal inference if used literally. Exact diagnosis and consistent corrected PDF/CDF are a substantively motivated source-specific mathematical correction with direct statistical consequence, not arbitrary arithmetic or an unsupported gain. Claims about unaffected joint procedures are explicitly withheld.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
