@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:01:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized nonorthogonal columns a1,a2 with r=a1·a2≠0 and fixed iid sampling p∈(0,1), each exact coordinate step projects the error residual orthogonally to one column. Repetition retains squared error; switching multiplies by r². The post-step indexed expectation vector u_{k,i}=E[f_k 1(J_{k-1}=i)] therefore obeys exact positive matrix T=[[p,p r²],[(1-p)r²,1-p]]. Its Perron root is λ+=(1+sqrt((2p-1)²+4p(1-p)r⁴))/2; strict positivity and nonzero initial expected error imply F_{k+1}/F_k→λ+ for every nonoptimal deterministic start. Exact restricted curvature after previous coordinate i is ξ1=(1-p)(1-r²), ξ2=p(1-r²); mean ξbar=2p(1-p)(1-r²), giving F_{k+1}=ρav F_k-Cov(ξprev,f_k). Let t=4p(1-p),v=r²: 2(λ+-ρav)=sqrt(1-t+tv²)-(1-t+tv). Its squared positive-quantity difference is t(1-t)(1-v)²; gap is strictly positive iff p≠1/2, otherwise zero at all k. For fixed t derivative in v is nonpositive; v→0 gives (sqrt(1-t)-(1-t))/2<=1/8, equality limiting at p=1/4 or3/4. For admissible r≠0 the supremum is unattained. Independent exact rational two-column projections and spectral identities passed; finite runs only corroborate universal Perron/algebraic proof.",
+      "risk": "Two columns, iid fixed biased sampling, exact least-squares steps and asymptotic expected squared error, not finite-step/pathwise covariance or large block methods.",
+      "sources": [
+        "Frozen RESULT.md and verify.py from assigned tree",
+        "Xie & Yang arXiv:2610.04685v1 definitions and Theorem 4.3",
+        "independent_checks.py projected-error recurrence and rate frontiers"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source convergence bound requires nonnegative covariance, whereas its plot describes empirical rather than universal positive population sign.",
+          "Inverse-positive optimal sampling optimizes worst-case one-step energy contraction, not long-time biased-covariance discrepancy."
+        ],
+        "reasoning": "General expected-rate upper bounds are not mathematical statements of this sharp Perron-vs-average gap and cannot imply it without an additional exact specialization and optimization.",
+        "searches": [
+          "Xie–Yang full arXiv:2610.04685v1 Theorem 4.3, Remark 4.4",
+          "Ma–Needell–Ramdas arXiv:1503.08235",
+          "Qu–Richtárik arXiv:1412.8063",
+          "Resultary 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+        ]
+      },
+      "checked_sources": [
+        "Xie and Yang arXiv:2610.04685v1 full primary",
+        "Ma–Needell–Ramdas arXiv:1503.08235 background",
+        "Qu–Richtárik arXiv:1412.8063 background",
+        "Resultary 2026/9/20 exact uniform delayed Gauss–Seidel finding",
+        "Resultary 2026/9/20 inverse-positive optimal fixed sampling finding",
+        "Independent exact-rational projections and eigenvalue check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic λ+ differs from naive ρav exactly by Δ and covariance/F→-Δ. The source Theorem 4.3 does not assert the bound when Δ>0, so the candidate does not falsify a conditional theorem.",
+          "A uniform sampler has p=1/2 and identically zero two-coordinate curvature covariance, not a special case witnessing biased negative sign."
+        ],
+        "reasoning": "A source introducing a general inequality involving a covariance does not already prove the covariance sign in a new highly structured parameter family or its sharp rate optimism bound.",
+        "searches": [
+          "Xie–Yang arXiv:2610.04685v1 Theorem 4.3 restricted curvature",
+          "Resultary uniform delayed Gauss–Seidel 2026/9/20",
+          "Qu–Richtárik arbitrary sampling analysis arXiv:1412.8063"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same two-state recursion is a Markov-modulated second moment for a pair of orthogonal projections, and λ+ is its Perron root.",
+          "Restricted ξ1,ξ2 are Xie–Yang curvature specialized exactly to normalized one-coordinate batches."
+        ],
+        "reasoning": "Equivalence of step-projection and small positive matrix is elementary, not novelty. The new exact sign and sharp global p,r gap for source covariance are not given by the uniform delayed recurrence.",
+        "searches": [
+          "Resultary: randomized coordinate descent least squares biased sampling restricted curvature error covariance negative two coordinate rate gap",
+          "Xie and Yang arXiv:2610.04685v1 Theorem 4.3 Remark 4.4",
+          "Resultary 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source sample covariance table/figures are for selected problem sizes and steps; its one-coordinate positive-covariance criterion is conditional, not a parameter-wise exhaustive table."
+        ],
+        "reasoning": "Finite plotted positive empirical covariances cannot preclude a negative late-time population value. The candidate resolves all continuous p and r in its natural 2-column domain.",
+        "searches": [
+          "Xie–Yang arXiv:2610.04685v1 covariance simulation Remark 4.4",
+          "Resultary biased Gauss-Seidel exact two-state rate search"
+        ]
+      },
+      "rationale": "Xie–Yang (2026) define the restricted-subspace curvature and establish a refined convergence bound conditioned on nonnegative covariance; their numeric sample covariances for selected higher-dimensional cases do not establish biased two-column asymptotic negative population covariance, nor its sharp 1/8 rate gap. Earlier classical coordinate-descent bounds and the published uniform two-coordinate delayed Gauss–Seidel recurrence concern different assumptions or quantities. Perron theory and elementary projections are prior ingredients. The nonnegative-covariance assumption is not contradicted; this result quantifies an exact regime where it fails.",
+      "residual_risks": [
+        "Older Markovian alternating-projection or stochastic-coordinate analysis might contain an equivalent eigenvalue and covariance expression under other notation.",
+        "The asymptotic population sign does not certify the sign of a finite-sample covariance statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source is conditional on nonnegative covariance; it does not determine sign for unequal two-coordinate iid samples nor 1/8 frontier.",
+          "evidence": [
+            "Theorem 4.3 hypothesis Cov>=0; Remark 4.4 sampled positive covariance in selected examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04685v1",
+          "material_read": "Full accessible mathematical preprint, especially method definition, Theorem 4.3, Remark 4.4 and numerical covariance discussion",
+          "method": "Read full HTML, compared assumptions and iterate/current curvature conditioning",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "Same restricted curvature ξτ and conditional covariance theorem"
+        },
+        {
+          "assessment": "Arbitrary-sampling ESO bound does not determine the exact two-state asymptotic covariance sign.",
+          "evidence": [
+            "Bounds are upper estimates rather than exact biased two-state eigenvalues"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.8063",
+          "material_read": "Relevant abstract and optimization-bound scope",
+          "method": "Published analytical methods cross-reference",
+          "title": "Coordinate Descent with Arbitrary Sampling II: Expected Separable Overapproximation",
+          "trigger": "Potential broad arbitrary sampling rate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a complete sharp 2-coordinate applicability boundary for a recent conditional refined rate estimate: bias in either direction makes the population covariance eventually negative even when the two columns are arbitrarily close to orthogonal; the optimistic average-curvature factor can be wrong by nearly an exact 1/8. The precise continuous extremum and every-p result are useful for interpreting when sampling-based curvature averaging is unjustified. This is not a routine numerical counterexample or claim of general optimizer slowdown.",
+      "risk": "No finite-step universal covariance bound or runtime guarantee claimed.",
+      "sources": [
+        "Xie–Yang Theorem 4.3 conditional bound",
+        "Perron root, strict sign identity and sharp 1/8 calculus"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two unit columns, 0<|r|<1, 0<p<1 and exact iid coordinate minimizations only.",
+    "Asymptotic expected squared-error factor; no pathwise convergence rate or finite sample sign guarantee.",
+    "Unattained 1/8 limit approaches r=0, which is excluded because strict Perron positivity fails there for certain starts."
+  ],
+  "schema_version": 1
+}
