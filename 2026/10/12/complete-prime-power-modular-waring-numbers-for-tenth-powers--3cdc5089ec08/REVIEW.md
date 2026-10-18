@@ -1,9 +1,21 @@
-# Scientific review: complete prime-power tenth-power Waring numbers
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement handles every prime and exponent. For odd primes not dividing ten, the exact equality of the prime-power Waring number with the maximum of finite-field covering length and shortest nontrivial zero-sum length follows from a necessary witness modulo the prime square and Hensel lifting. For all primes at least \(6000\), the genus-\(36\) Fermat curve and Hasse–Weil bound ensure every nonzero residue is a sum of two *unit* tenth powers. The finite remaining prime set is exhaustively classified by an exact residue-mask verifier. The primes \(2\) and \(5\) have separate proofs, including rigorous lower witnesses. The combined CRT formula is exact. Code and output were checked at their included paths. The Hasse–Weil theorem is cited, not claimed re-proven by computation.
+## correctness
 
-**Originality — PASS (with residual bibliographic risk).** Arias–Borja–Anaya (2023) supply the modular Waring framework and an exponent table ending at \(9\), not the exact tenth-power prime-power spectrum. Alnaser–Cochrane (2008) already imply the global value \(12\) from existing bounds and the prime-five extremal; they do not classify all \(24\) exceptional prime fields or all \(18\) exceptional prime-power towers. Cipra–Cochrane–Pinner (2007) covers special small subgroup sizes and upper bounds, not this complete spectrum. A relevant 1977 paper by Small was identifiable bibliographically but its full text was not accessible in the inspected sources, so a previously tabulated identical classification remains possible. Related mathematical research records concerning stable tenth-power semigroup gaps address a different representation problem.
+PASS
 
-**Value — PASS.** Individual prime-power modular Waring numbers are the natural local invariants determining the value for an arbitrary modulus. The classification closes the first exponent beyond the published comparison table, pinpoints an unexpectedly finite exceptional-prime spectrum with actual higher-power jumps, and gives a reproducible exact decision procedure without testing arbitrary moduli. The claim is not inflated by presenting the earlier-implicit global maximum as novel.
+Gamma(10,m) is minimum count of tenth-power summands needed to cover EVERY residue; zero padding allowed and gamma(10,1)=1. For p odd!=5, nonzero-base Hensel lifting is possible since p does not divide 10: for all a>=2, gamma(10,p^a)=max(g_p,z_p), where g_p covers F_p and z_p is shortest nontrivial sum of tenth-power units equal to zero. Necessity of z_p follows by representing residue p mod p^2. For p>=6000, Fermat curve X^10+Y^10=cZ^10, genus36, Hasse–Weil and <=30 coordinate-zero/projective exceptions yield at least p-29-72sqrt(p)>0 unit representations of each nonzero c. Thus g_p=2; z_p=2 for p=1 mod4 and 3 for p=3 mod4. An independent exact bitmask implementation enumerated all 781 odd primes p<6000 excluding 5, checked the 24 exceptional prime-layer rows and 18 high-power exceptions from the inspected prime_exceptions.csv with zero mismatches. For p=2, odd tenth powers are 1 mod8; gamma exponents 1,2,3=>1,3,7 and >=4=>8, with lower bound via residue 8 mod16. For p=5, tenth powers mod25 are 0,+1,-1 giving sharp12, and binomial lifting by changing a unit base by 5^(a-1) maintains 12 for all a>=2; mod5 gamma=2. CRT gives gamma(10,m)=max of local prime-power values. Full exception lists and boundaries are in inspected RESULT.md/prime_exceptions.csv; pre-existing global supremum12 is not claimed novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Arias–Borja–Anaya 2023 Table 3 addresses global k up through 9, not local tenth-power prime-power lists. Alnaser–Cochrane 2008 gives general upper bounds and lifts (indeed Small 1977 already offers prime-power procedures), plus special p=2/5 values; no inspected theorem gives this exact tenth-power 24/18 exceptional table. General algorithms and upper bounds do not automatically imply particular sharp finite classifications absent execution or a closed computation. Prior published SCOPE tenth-power stable obstruction semigroup concerns positive-integer Waring gaps rather than modular p^a. Small 1977 full text was inaccessible: a same-exponent local table could exist and is residual risk.
+
+## value
+
+PASS
+
+The complete local classification of an established natural modular Waring invariant for fixed exponent 10—including each exceptional prime and all power towers—fills exact arithmetic data beyond global bound12. The cutoff p>=6000 with Hasse–Weil plus an exhaustively checked finite prime range gives complete, not arbitrary sampled, classification; its local exceptions are independently reusable for composite moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:56:55.766603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gamma(10,m) is minimum count of tenth-power summands needed to cover EVERY residue; zero padding allowed and gamma(10,1)=1. For p odd!=5, nonzero-base Hensel lifting is possible since p does not divide 10: for all a>=2, gamma(10,p^a)=max(g_p,z_p), where g_p covers F_p and z_p is shortest nontrivial sum of tenth-power units equal to zero. Necessity of z_p follows by representing residue p mod p^2. For p>=6000, Fermat curve X^10+Y^10=cZ^10, genus36, Hasse–Weil and <=30 coordinate-zero/projective exceptions yield at least p-29-72sqrt(p)>0 unit representations of each nonzero c. Thus g_p=2; z_p=2 for p=1 mod4 and 3 for p=3 mod4. An independent exact bitmask implementation enumerated all 781 odd primes p<6000 excluding 5, checked the 24 exceptional prime-layer rows and 18 high-power exceptions from the inspected prime_exceptions.csv with zero mismatches. For p=2, odd tenth powers are 1 mod8; gamma exponents 1,2,3=>1,3,7 and >=4=>8, with lower bound via residue 8 mod16. For p=5, tenth powers mod25 are 0,+1,-1 giving sharp12, and binomial lifting by changing a unit base by 5^(a-1) maintains 12 for all a>=2; mod5 gamma=2. CRT gives gamma(10,m)=max of local prime-power values. Full exception lists and boundaries are in inspected RESULT.md/prime_exceptions.csv; pre-existing global supremum12 is not claimed novel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alnaser–Cochrane 2008 Theorems 1–3 and Lemma 1",
+          "Small 1977 bibliography and reported algorithm",
+          "Cipra–Cochrane–Pinner 2007 prime-field general bounds"
+        ],
+        "reasoning": "General bound or algorithm for gamma(k,p^a) covers computational principle but does not state particular exact prime-specific values. The possibility Small published the complete exponent-10 table cannot be settled from bibliographic excerpts.",
+        "searches": [
+          "Resultary semantic search: modular Waring number 10 tenth powers prime power exceptional prime classification",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Alnaser–Cochrane 2008 Theorems 1–3 and Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "https://www.math.ksu.edu/~cochrane/research/waringmodm.pdf",
+        "Charles Small, American Mathematical Monthly 84 (1977) 12–25; DOI:10.1080/00029890.1977.11994269",
+        "2026/9/17/SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c",
+        "Resultary semantic published-finding search: modular Waring number 10 tenth powers prime power exceptional prime classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alnaser–Cochrane 2008 p=2/5 special cases and lifting",
+          "Resultary 2026/9/17/SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c"
+        ],
+        "reasoning": "Previously known supremum gamma(10)=12 and lifting are given full credit; neither entails that p=911 has high-power value4 or that precisely 24 exceptional prime-field layers occur. Positive-integer stable semigroup gaps are not residues mod all p^a.",
+        "searches": [
+          "Resultary semantic search: modular Waring number 10 tenth powers prime power exceptional prime classification",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Alnaser–Cochrane 2008 p=2/5 special cases and lifting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alnaser–Cochrane 2008 gamma(k,p^n) and gamma^*(k,p^n)",
+          "Arias–Borja–Anaya 2023 modular sums"
+        ],
+        "reasoning": "Equivalent modular Waring definitions (at-most vs zero padding) and nontrivial zero-sum lifting are credited; the exact k=10 prime exception table is additional explicit arithmetic, not a redefinition.",
+        "searches": [
+          "Resultary semantic search: modular Waring number 10 tenth powers prime power exceptional prime classification",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Alnaser–Cochrane 2008 gamma(k,p^n) and gamma^*(k,p^n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Arias–Borja–Anaya 2023 Table 3",
+          "Small 1977 primary bibliographic reference",
+          "Resultary stable tenth-power obstruction published record"
+        ],
+        "reasoning": "2023 table ends at global k=9; no complete 24+18 p exceptional table observed. The older Small article was not read and could be decisive if it tabulated exponent10, so retain residual risk.",
+        "searches": [
+          "Resultary semantic search: modular Waring number 10 tenth powers prime power exceptional prime classification",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Arias–Borja–Anaya 2023 Table 3"
+        ]
+      },
+      "rationale": "Arias–Borja–Anaya 2023 Table 3 addresses global k up through 9, not local tenth-power prime-power lists. Alnaser–Cochrane 2008 gives general upper bounds and lifts (indeed Small 1977 already offers prime-power procedures), plus special p=2/5 values; no inspected theorem gives this exact tenth-power 24/18 exceptional table. General algorithms and upper bounds do not automatically imply particular sharp finite classifications absent execution or a closed computation. Prior published SCOPE tenth-power stable obstruction semigroup concerns positive-integer Waring gaps rather than modular p^a. Small 1977 full text was inaccessible: a same-exponent local table could exist and is residual risk.",
+      "residual_risks": [
+        "Small 1977 original full text inaccessible; it could contain same prime-by-prime table or equivalent closed threshold, so originality is best-of-knowledge only.",
+        "The Hasse–Weil curve argument requires smooth Fermat curve for p>=6000 (automatically p does not divide10), and finite bitmask exhaustion must remain independently replayable; tests cannot prove Hasse–Weil."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not report a complete prime-power k=10 exception table in relevant definitions/table",
+          "evidence": [
+            "Table 3 gives selected global exponent values, stops at k=9; no p=11,31,71 etc tenth-power tower data reported in inspected table"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "Primary JIS 2023 full PDF; definitions and Table 3/global values for exponents 2 through 9 examined",
+          "method": "Journal full primary PDF text/page image inspection",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Same modular Waring invariant and previous k tables"
+        },
+        {
+          "assessment": "General bounds, p-adic reductions, exact p=2/5 special results and Small antecedent; no tenth-power full 24-prime exception list in inspected theorems",
+          "evidence": [
+            "Section 2 Lemma 1 supplies lift of nonzero-base representations; introduction explicitly credits Small 1977 general procedures, primarily details small k=2,3",
+            "Theorem 2 gives general sqrt(k)-scale bound, not exact gamma(10,p^a) for every p"
+          ],
+          "identifier_or_url": "https://www.math.ksu.edu/~cochrane/research/waringmodm.pdf",
+          "material_read": "Primary 8-page PDF abstract, Theorems 1–3, Section 2 lifting lemma and last bibliography; pages 1–3 and final references examined",
+          "method": "Full primary PDF text/page inspection",
+          "title": "Waring's number mod m",
+          "trigger": "Closest systematic treatment of same gamma(k,p^a) objects and lifting, potential exact coverage"
+        },
+        {
+          "assessment": "The general prime-power determination procedure is prior; whether it contains the same k=10 full exception table remains unverified and at risk",
+          "evidence": [
+            "Alnaser–Cochrane Section 1 PDF lines147–152 states Small gives procedure for gamma(k,p^n) and treats selected cases k=2,3; does not exclude further material in Small article"
+          ],
+          "identifier_or_url": "Charles Small, American Mathematical Monthly 84 (1977) 12–25; DOI:10.1080/00029890.1977.11994269",
+          "material_read": "Bibliographic title/year/pages, and Alnaser–Cochrane 2008 explicit account of Small prime-power method; complete Small manuscript NOT READ",
+          "method": "Bibliographic/publisher and secondary-primary cross-reference searches; no lawful accessible full PDF verified",
+          "title": "Waring's Problem Mod n",
+          "trigger": "Historical same exact invariant and possible unpublished tenth-power table"
+        },
+        {
+          "assessment": "Positive-integer stable Waring numerical semigroup, not all modular prime-power residue covering numbers",
+          "evidence": [
+            "Summary states semigroup generated by 1023,59048,25937424600 and stable gaps, no gamma(10,p^a) list"
+          ],
+          "identifier_or_url": "2026/9/17/SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c",
+          "material_read": "Resultary published-finding title/summary and link, NOT whole article",
+          "method": "Semantic published-finding comparison",
+          "title": "Exact tenth-power stable obstruction set via a numerical semigroup",
+          "trigger": "Resultary same exponent k=10 exact data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete local classification of an established natural modular Waring invariant for fixed exponent 10—including each exceptional prime and all power towers—fills exact arithmetic data beyond global bound12. The cutoff p>=6000 with Hasse–Weil plus an exhaustively checked finite prime range gives complete, not arbitrary sampled, classification; its local exceptions are independently reusable for composite moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Small 1977 original full text inaccessible; it could contain same prime-by-prime table or equivalent closed threshold, so originality is best-of-knowledge only.",
+    "The Hasse–Weil curve argument requires smooth Fermat curve for p>=6000 (automatically p does not divide10), and finite bitmask exhaustion must remain independently replayable; tests cannot prove Hasse–Weil.",
+    "All findings apply only to theorem's explicit hypotheses, parameter/graph/modulus ranges and quantifiers in pinned RESULT.md; finite tests not extrapolated to infinite theorem.",
+    "Source-derived numerical verification logs alone do not establish originality/value; no external independence, published audit certificate, or formal Lean/expert proof claimed."
+  ],
+  "schema_version": 1
+}
