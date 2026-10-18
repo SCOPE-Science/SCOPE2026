@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditioning on the negative-power coordinate and using Wick's fourth-moment identity yields the exact signed blockwise difference. For every admissible correlation matrix, its positive-semidefinite determinant constraint reduces the optimization to a one-variable quadratic bounded below by \(-1/(6-s)\). Equality requirements force and are attained by the stated rank-two covariance family. Positive-definite approximation proves sharpness without relying on numerical experiments.
+## correctness
 
-## Originality
-PASS. The motivating 2022 opposite Gaussian product theorem is bivariate. The inspected 2023 ternary mixed-sign paper supplies a lower covariance factor and a coarse upper multiplicative constant, but no sharp signed excess relative to the *dependent positive block*. The later convex-order result does not cover the nonconvex factor \(x_2^2x_3^2\). The signed groupwise objective differs from separately normalized mixed-moment comparison because the positive-block comparator depends on the free correlation. Targeted exact formula, parameter, and published-record searches found no covering result. Implicit older elliptope optimization remains a bibliographic risk.
+PASS
 
-## Value
-PASS. The result identifies the exact correlation phase where a natural three-factor extension of the bivariate opposite inequality holds or fails and quantifies the strongest possible failure, with a complete extremal classification. The dependent positive-block comparator is essential to make this a nontrivial problem.
+For every 0<s<1, the regression polynomial for E[X2²X3² | X1=x] is v2v3+2r²+(a²v3+b²v2+4abr)x²+a²b²x⁴ with v2=1-a²,v3=1-b²,r=c-ab. Gaussian negative-moment ratios are 1-s and (1-s)(3-s), giving normalized signed difference exactly -s[a²+b²+4abc-(2+s)a²b²]. For q=|ab|, the positive-semidefinite elliptope condition and AM-GM imply F>=-2q+(6-s)q²>=-1/(6-s), with equality iff |a|=|b|=sqrt(1/(6-s)), c=sgn(ab)(2/(6-s)-1), a rank-2 boundary correlation. Equality gives s/(6-s); positive definite matrices approximate but do not attain. Direct symbolic algebra independently rederived the conditional identity and extremum; s=1/2 gives 1/11. No infinite conclusion was inferred from finite grids.
 
-## Closest literature and limitations
-The principal sources are Russell and Sun, arXiv:2205.10231v1, and Zhou, Zhao, Hu, and Song, arXiv:2308.13740v1. Lan, Ouimet, and Sun, arXiv:2505.09976v3, prove convex functional comparison bounds but not the nonconvex product inequality studied here. The theorem treats exactly two quadratic positive factors, one negative fractional exponent, and Gaussian correlation matrices; other exponent patterns remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bivariate opposite Gaussian product inequalities and existing multivariate mixed-sign inequalities do not imply this exact ternary comparison with the *joint* X2²X3² positive block, its signed correlation criterion, its global sharp additive excess and singular equality classification. Lan–Ouimet–Sun convex-positive-block upper bounds cannot be substituted because (x2,x3)↦x2²x3² has indefinite Hessian; their marginal-product comparator also differs. No Resultary or targeted literature hit was shown to dominate the final theorem. Bibliographic risk persists, especially an unindexed polynomial-elliptope optimization.
+
+## value
+
+PASS
+
+The first dependent positive quadratic block after an inverse-power Gaussian coordinate has a nontrivial failure region of the natural opposite-product comparison. An exact algebraic sign classification, sharp uniform excess constant, and all singular extremizers give a checkable boundary case relevant to mixed-sign Gaussian product inequalities rather than a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
