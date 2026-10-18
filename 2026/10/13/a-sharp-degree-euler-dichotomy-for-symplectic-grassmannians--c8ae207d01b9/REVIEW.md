@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Plücker degree was reconstructed directly from Borel--Weil and the type-\(C\) Weyl dimension formula, not imported from a finite table. The contributing positive coroots give a root product that simplifies exactly to
-\[
-2^{\binom{k}{2}}d!
-\frac{\prod_{i=0}^{k-1}i!}
-{\prod_{i=1}^{k}(2n-2i+1)!}.
-\]
-The Bruhat decomposition gives
-\[
-\chi_{\mathrm{top}}(\operatorname{IG}(k,2n))
-=
-2^k\binom nk.
-\]
+## correctness
 
-For fixed \(k\ge2\), the normalized ratio of degree to Euler characteristic is strictly increasing in \(n\). The proof compares the exact adjacent quotients and reduces the key inequality to an explicit positive polynomial. On the boundary \(n=k\), the exact Lagrangian recurrence shows the normalized degree is already greater than one for every \(k\ge3\). The remaining \(k=1,2\) cases are explicit.
+PASS
 
-The bundled checker independently evaluates the root product, factorial product, Weyl-cell count, adjacent-\(n\) identity, and Lagrangian recurrence. Finite computation is regression evidence only.
+For X=IG(k,2n), 1<=k<=n, the Plucker degree formula follows from the leading Weyl-dimension coefficient with dimension d=k(4n-3k+1)/2; Bruhat cells give chi=2^k binomial(n,k). The printed proof compares R=deg/chi by an explicit strictly positive polynomial for n->n+1 at fixed k>=2. At n=k, LG(k,2k) normalized degrees are strictly increasing for k>=3 after L3=16; k=2 crosses between n=2 (2<4) and n=3 (14>12). Thus equality never occurs. Independently recomputed type-C coroot product, factorial degree and Euler count up to n=16, plus strict cases; finite checks are regression, not the infinite argument.
 
-## Originality
-PASS. The inspected primary archival source treats the same type-\(C\) isotropic Grassmannians and their Schubert calculus, but targeted full-text searches found no Euler-characteristic or degree-versus-Euler theorem. Searches using geometric, Weyl-cell, two-plane, and Lagrangian formulations did not locate the complete dichotomy.
+## originality
 
-Nearby results on degree arithmetic, Lagrangian degree identities, and ordinary Grassmannians do not imply the accepted type-\(C\) comparison. Residual risk remains because the final inequalities are elementary once both classical formulas are reconstructed.
+PASS
 
-## Value
-PASS. Plücker degree and Bruhat-cell count are two canonical measures of complexity for a foundational family of homogeneous varieties. The result completely orders them, proves there are no equality cases, and isolates the unique non-projective exception.
+The formulas are classical representation theory and Schubert calculus; the novelty claimed is the complete all-n,k ordering/equality exclusion, not computation of degree/Euler independently. The Buch–Kresch–Tamvakis primary source studies precisely isotropic Grassmannians and Schubert cells without the compared inequality in pertinent sections. Relevant Resultary semantic search returned other Grassmannian invariants but no exact type-C degree/Euler ordering. A possibly unindexed classical inequality remains credible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural sharp complete classification of how two central invariants—Plucker degree and Schubert-cell count—compare on the entire symplectic isotropic-Grassmannian family, with the unique nonprojective exception; more than a reformulation of either individual formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
