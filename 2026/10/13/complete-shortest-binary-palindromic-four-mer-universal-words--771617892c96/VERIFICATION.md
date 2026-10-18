@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the palindrome classification
+# Independent mathematical audit
 
-The scope is **linear indexed binary palindromes**, with all sixteen length-four contiguous non-wrapping factors required. The shortest length is 24; the six words are in `RESULT.md` and `solutions.txt`.
+## correctness
 
-`python3 verify_direct.py` enumerates all \(2^{\lceil L/2\rceil}\) palindromes of each length \(4\le L\le24\). It independently measures factor coverage and checks that the numbers of covering words are zero for lengths 4 through 23, and six at length 24, matching the six hard-coded witnesses. Its observed status was `DIRECT_OK`.
+PASS
 
-`python3 verify_orbit_dp.py` instead builds all length-fourteen prefixes by a last-three-bit/ten-orbit-mask dynamic program. Its invariants include generation of exactly \(2^j\) prefixes after \(j\) steps, for \(3\le j\le14\). It filters all-orbit coverage and palindromic center and obtains exactly six witnesses; its observed status was `ORBIT_DP_OK`, with 1,382 final states and 16,384 generated prefixes.
+Reversal partitions the sixteen binary 4-mers into ten classes, four fixed and six paired. The unoriented reflected binary de Bruijn graph on six reversal classes of 3-mers has vertex degrees 3,5,2,5,2,3, hence four odd vertices and no Euler trail through the ten edge classes once. Mirror factors exclude lengths ≤21 by cardinality, and at lengths 22 or 23 the first ten factor positions would require a ten-edge Euler trail, impossible. For length 24, each palindrome W=U rev(U), |U|=12, corresponds bijectively to its length-14 prefix P with palindromic terminal 4-mer; all sixteen 4-mers appear iff the eleven length-4 windows of P hit all ten reversal-orbits. Exhausting all 2^14 length-14 binary P once gives exactly six. Independently also enumerating every binary palindrome through length 24 recovers no smaller cover and precisely six at the optimum. The lower bound itself is explicitly credited to 2016 work; new claim is the full equality list.
 
-These programs check different presentations of the finite exhaustive claim. The mathematical minimum-length obstruction additionally follows from the four odd vertices of the reflected de Bruijn graph, independently of any computation. Completeness is finite, not extrapolated to larger factor length or alphabet size. No separate external audit is represented by this document.
+## originality
+
+PASS
+
+Burris–Motta–Shipman already derive the length-24 lower bound from an unoriented de Bruijn parity obstruction and construct an order-four instance; it does not enumerate all optimal globally palindromic binary words. The six exact equality cases, with three bit-complement pairs, are the contribution. Orenstein studies reversal-covering peptide templates, which do not require one linear word globally palindromic and do not specify this exact six-list.
+
+## value
+
+PASS
+
+The equality-case census closes the natural extremizer classification at the first non-Eulerian unoriented de Bruijn order. It gives explicit templates and the exact diversity of shortest palindrome covers, a natural finite combinatorial invariant beyond the known minimum length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

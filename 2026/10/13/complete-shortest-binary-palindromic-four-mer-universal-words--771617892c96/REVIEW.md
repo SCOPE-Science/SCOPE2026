@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four odd-degree vertices of the reflected order-four de Bruijn graph exclude a shortest orbit trail and therefore lengths 22 and 23; the number of mirror-paired windows excludes smaller lengths. A bijection reduces length-24 palindromic covers to length-14 prefixes ending in a palindromic four-mer and covering all ten reversal orbits. Independently implemented state-enumeration and direct-palindrome census procedures each obtain exactly the same six words. The enumeration covers every possible input within its claimed finite domain; it is not an extrapolation.
+## correctness
 
-**Originality — PASS, with residual historical-literature uncertainty.** Burris--Motta--Shipman (2016), arXiv:1608.08480, already imply the minimum 24 and supply one relevant unoriented prefix; neither fact is claimed new. They do not state all equality cases or their multiplicity. Anisiu--Anisiu--Kása (arXiv:1002.2723) count palindromic *factors*, not globally palindromic universal words. Orenstein--Shamir's reverse-complement coverage is a different observation model. Orenstein's subsequent reverse-peptide work is adjacent, but only its abstract was accessible; it remains a genuine overlap risk. Searches for global palindrome covers, exact sixfold multiplicity, and reversal-orbit classifications located no equivalent complete enumeration.
+PASS
 
-**Value — PASS.** The invariant is the complete set of optimum designs for the first binary factor length where the unoriented Euler-trail obstruction appears, not an arbitrary numerical slice. Knowing that the optimum length is 24 and knowing one witness do not identify whether the optimum design is unique, how many designs exist, or how solutions relate under complementation. The exact six-solution classification and three complement classes settle this natural equality-case question. The result does not assert a broader all-order theorem.
+Reversal partitions the sixteen binary 4-mers into ten classes, four fixed and six paired. The unoriented reflected binary de Bruijn graph on six reversal classes of 3-mers has vertex degrees 3,5,2,5,2,3, hence four odd vertices and no Euler trail through the ten edge classes once. Mirror factors exclude lengths ≤21 by cardinality, and at lengths 22 or 23 the first ten factor positions would require a ten-edge Euler trail, impossible. For length 24, each palindrome W=U rev(U), |U|=12, corresponds bijectively to its length-14 prefix P with palindromic terminal 4-mer; all sixteen 4-mers appear iff the eleven length-4 windows of P hit all ten reversal-orbits. Exhausting all 2^14 length-14 binary P once gives exactly six. Independently also enumerating every binary palindrome through length 24 recovers no smaller cover and precisely six at the optimum. The lower bound itself is explicitly credited to 2016 work; new claim is the full equality list.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Burris–Motta–Shipman already derive the length-24 lower bound from an unoriented de Bruijn parity obstruction and construct an order-four instance; it does not enumerate all optimal globally palindromic binary words. The six exact equality cases, with three bit-complement pairs, are the contribution. Orenstein studies reversal-covering peptide templates, which do not require one linear word globally palindromic and do not specify this exact six-list.
+
+## value
+
+PASS
+
+The equality-case census closes the natural extremizer classification at the first non-Eulerian unoriented de Bruijn order. It gives explicit templates and the exact diversity of shortest palindrome covers, a natural finite combinatorial invariant beyond the known minimum length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:05:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reversal partitions the sixteen binary 4-mers into ten classes, four fixed and six paired. The unoriented reflected binary de Bruijn graph on six reversal classes of 3-mers has vertex degrees 3,5,2,5,2,3, hence four odd vertices and no Euler trail through the ten edge classes once. Mirror factors exclude lengths ≤21 by cardinality, and at lengths 22 or 23 the first ten factor positions would require a ten-edge Euler trail, impossible. For length 24, each palindrome W=U rev(U), |U|=12, corresponds bijectively to its length-14 prefix P with palindromic terminal 4-mer; all sixteen 4-mers appear iff the eleven length-4 windows of P hit all ten reversal-orbits. Exhausting all 2^14 length-14 binary P once gives exactly six. Independently also enumerating every binary palindrome through length 24 recovers no smaller cover and precisely six at the optimum. The lower bound itself is explicitly credited to 2016 work; new claim is the full equality list.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Involution (reverse complement rather than reverse) and/or global palindrome requirement differs."
+        ],
+        "reasoning": "General reverse-covering walks do not automatically enumerate globally fixed palindrome 24-bit templates.",
+        "searches": [
+          "DOI:10.1093/bioinformatics/btt230",
+          "DOI:10.1089/cmb.2019.0448"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: shortest palindrome contains all binary words length four exactly six 24",
+        "arXiv:1608.08480 Burris Motta Shipman An Unoriented Variation on de Bruijn Sequences",
+        "DOI:10.1089/cmb.2019.0448 Orenstein Reverse de Bruijn Utilizing Reverse Peptide Synthesis",
+        "DOI:10.1093/bioinformatics/btt230 Orenstein Shamir shortest double-stranded DNA k-mers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published construction shows existence of one reversal-orbit covering sequence, not number of globally palindromic completions."
+        ],
+        "reasoning": "Optimal length does not imply exactly six extremizers or their explicit lexicographic list; independent finite state enumeration is required.",
+        "searches": [
+          "arXiv:1608.08480 Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An unoriented length-14 construction yields an achievable 24-bit palindrome and lower bound; the source does not resolve the exact equality-case count."
+        ],
+        "reasoning": "The optimal LENGTH is old and credited; equality-case classification of all six palindromic words is additional work.",
+        "searches": [
+          "arXiv:1608.08480 Theorem 4.3 and Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest returned palindrome/code entries concerned deletion/duplication or word attractors, not six full four-mer covers."
+        ],
+        "reasoning": "No matching six-word table was found; absence is recorded only as bounded best-of-knowledge evidence.",
+        "searches": [
+          "Resultary: shortest palindrome contains all binary words length four exactly six 24",
+          "arXiv:1608.08480"
+        ]
+      },
+      "rationale": "Burris–Motta–Shipman already derive the length-24 lower bound from an unoriented de Bruijn parity obstruction and construct an order-four instance; it does not enumerate all optimal globally palindromic binary words. The six exact equality cases, with three bit-complement pairs, are the contribution. Orenstein studies reversal-covering peptide templates, which do not require one linear word globally palindromic and do not specify this exact six-list.",
+      "residual_risks": [
+        "An earlier computational enumeration may have listed six palindromic extrema without keyword indexing.",
+        "The classification is strictly for binary linear k=4; no generalization to k≥5 or higher alphabets.",
+        "Reverse-complement DNA paper was not fully inspected, but its involution/model differs from ordinary reversal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_OPTIMAL_LENGTH_NOT_ALL_EQUALITY_WORDS",
+          "evidence": [
+            "Four odd vertices prevent an Euler trail for ten reversal orbits; the length-fourteen precursor in Section 5 gives a 24-bit palindrome.",
+            "No complete list or count of all globally palindromic 24-bit binary solutions in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+          "material_read": "Full public arXiv PDF including theorem on Euler-trail obstruction and Section 5 explicit order-four construction",
+          "method": "Lawful arXiv PDF text and screenshots for relevant pages",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Same unoriented reversal-orbit graph and binary order four"
+        },
+        {
+          "assessment": "DIFFERENT_REVERSE_COVERING_MODEL",
+          "evidence": [
+            "Circular/reversible-template coverage of k-mers is not equivalent to linear globally palindromic binary word classification; source does not supply six fixed-symmetry extremizers in checked text."
+          ],
+          "identifier_or_url": "https://journals.sagepub.com/doi/full/10.1089/cmb.2019.0448",
+          "material_read": "Accessible full HTML article, introduction, mathematical setup and construction/methods compared",
+          "method": "Lawful open full text on publisher site, not an abstract-only negative claim",
+          "title": "Reverse de Bruijn: Utilizing Reverse Peptide Synthesis to Cover All Amino Acid k-mers",
+          "trigger": "Possible earlier covering theorem for reversal 4-mer words"
+        },
+        {
+          "assessment": "DIFFERENT_REVERSE_COMPLEMENT_MODEL_AND_ACCESS_LIMITATION",
+          "evidence": [
+            "Reverse-complement double-stranded DNA coverage differs from ordinary reversal with an exact palindrome constraint."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+          "material_read": "Public indexing/abstract and bibliographic summary; full text not inspected",
+          "method": "Public source search only",
+          "title": "Design of Shortest Double-Stranded DNA Sequences Covering All k-mers",
+          "trigger": "Possible reverse-complement coverage dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equality-case census closes the natural extremizer classification at the first non-Eulerian unoriented de Bruijn order. It gives explicit templates and the exact diversity of shortest palindrome covers, a natural finite combinatorial invariant beyond the known minimum length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: shortest palindrome contains all binary words length four exactly six 24",
+    "arXiv:1608.08480 Burris Motta Shipman An Unoriented Variation on de Bruijn Sequences",
+    "DOI:10.1089/cmb.2019.0448 Orenstein Reverse de Bruijn Utilizing Reverse Peptide Synthesis",
+    "DOI:10.1093/bioinformatics/btt230 Orenstein Shamir shortest double-stranded DNA k-mers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier computational enumeration may have listed six palindromic extrema without keyword indexing.",
+    "The classification is strictly for binary linear k=4; no generalization to k≥5 or higher alphabets.",
+    "Reverse-complement DNA paper was not fully inspected, but its involution/model differs from ordinary reversal.",
+    "No GitHub write, dispatcher closeout or certificate publication was attempted; accepted C/O/V is best-of-knowledge scientific judgment, not formal or expert certification."
+  ],
+  "residual_risks": [
+    "An earlier computational enumeration may have listed six palindromic extrema without keyword indexing.",
+    "The classification is strictly for binary linear k=4; no generalization to k≥5 or higher alphabets.",
+    "Reverse-complement DNA paper was not fully inspected, but its involution/model differs from ordinary reversal."
+  ],
+  "schema_version": 1
+}
