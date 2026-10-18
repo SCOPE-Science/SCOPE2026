@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The defining conditional density is \(g_t(x)=f_Z(x)/F_Z(t)\) on \(0<x<t\), with \(\int_0^t g_t(x)\,dx=1\).
 
-Cauchy–Schwarz gives
-\[
-1\le t\int_0^t g_t(x)^2\,dx,
-\]
-hence
-\[
-\bar J(Z;t)=-\frac12\int_0^t g_t(x)^2\,dx\le-\frac1{2t}.
-\]
+# Independent mathematical audit
 
-Thus for every real \(M\) there exists sufficiently small \(t>0\) with \(\bar J(Z;t)<M\). In particular, for any fixed \(t_0>0\) with finite \(\bar J(Z;t_0)\), sufficiently small \(s<t_0\) satisfies \(\bar J(Z;s)<\bar J(Z;t_0)\), contradicting nonincreasing behavior.
+## correctness
 
-The target source was checked at the actual full-text theorem location: it requires the past-extropy functions to be well-defined and decreasing on \((0,\infty)\), and the paper states that “decreasing” is used in the non-strict sense.
+PASS
 
-No computation, asymptotic approximation, or finite experiment is needed. No claim is made about monotonicity on intervals bounded away from zero.
+PASS: For any absolutely continuous nonnegative law with F(t)>0 and finite squared normalized density on every (0,t), Cauchy–Schwarz gives (∫_0^t f/F(t))² ≤ t∫_0^t(f/F(t))², hence Jbar(t)≤−1/(2t) and Jbar(t)→−∞ as t↓0. A finite globally nonincreasing function on (0,∞) cannot have this left limit: at s<t0 it must satisfy Jbar(s)≥Jbar(t0). Publisher Theorem 2.9 has exactly the incompatible globally decreasing premise; no finite experiment is needed. The conclusion is vacuity of the characterization hypothesis, not a proof that all past-extropy monotonicity is impossible.
+
+## originality
+
+PASS
+
+PASS: Best-of-knowledge PASS as a mathematically decisive error diagnosis: the specific 2026 theorem requires a globally nonincreasing finite past extropy, whereas the sharp universal Cauchy–Schwarz left-bound renders that hypothesis empty. Universal C–S itself is elementary prior mathematics; novelty is identifying and fully proving the published characterization is vacuous, not rediscovering C–S.
+
+## value
+
+PASS
+
+PASS: A universally applicable obstruction pinpoints a genuinely empty premise in a named published distributional characterization, preventing mistaken use of that theorem and identifying the missing issue (global versus local or opposite monotonicity). Short proof does not make the specific mathematical correction vacuous in value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
