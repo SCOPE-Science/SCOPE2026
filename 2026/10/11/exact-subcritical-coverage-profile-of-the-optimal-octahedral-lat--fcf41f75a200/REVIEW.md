@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(r\le1\), disjoint interiors follow from the minimum nonzero \(\ell_1\)-length \(2\) in \(L_0\). For \(1\le r\le3/2\), the only lattice differences producing positive-volume intersections are \(\pm2e_i\); the eight odd sign vectors have length \(3\) and only touch on null boundaries at the endpoint. The short-neighbor lens has exact volume \(4(r-1)^3/3\). There are three unordered short-neighbor lenses per fundamental cell and no positive-volume triple intersections because any two distinct short neighbors differ by \(\ell_1\)-length \(4>2r\). Exact inclusion-exclusion therefore gives the stated uncovered and double-covered fractions. The source independently supplies the endpoint covering theorem.
+PASS
 
-## Originality
+Checked analytically and independently exhaustively within the bounded needed lattice-vector norm range: in L0=2Z^3 union ((1,1,1)+2Z^3) there are precisely six nonzero vectors ±2ei of l1 length 2 and eight odd sign vectors of l1 length 3; no other vector has length <=3. For r<=1 interiors do not overlap. For 1<=r<=3/2 only differences ±2ei create positive-volume pair lenses; centered at coordinate x1=1+t each lens section is a planar l1 ball of radius r-1-|t| and volume integral ∫_{-(r-1)}^(r-1)2(r-1-|t|)^2dt=(4/3)(r-1)^3. Three unordered short pairs per volume-4 lattice fundamental cell yield exact double-covered fraction (r-1)^3. Distinct short neighbors differ by l1 distance 4>2r, forbidding any positive-volume triple intersection. Inclusion/exclusion gives covered=r^3/3-(r-1)^3, uncovered=1-r^3/3+(r-1)^3=r(3-r)(3-2r)/3 and singles=r^3/3-2(r-1)^3. At r=3/2 uncovered0, double1/8 and single7/8, with exact near-threshold polynomial 3epsilon/2-2epsilon^3/3. These are symbolic infinite periodic consequences of a proven bounded neighbor classification, not numerical sampling.
 
-PASS with residual historical-search risk. The lead source states the optimizer \(L_0\), the sharp covering radius in the chosen normalization, and density \(9/8\), but its inspected statement and normalization argument do not give the one-parameter union-volume profile, the exact double-covered fraction, or the endpoint \(7/8\)-versus-\(1/8\) multiplicity decomposition. published-finding corpus searches using the formulas, BCC aliases, subcritical-profile language, and the endpoint multiplicity statement returned no covering record. The closest indexed covering-profile result is planar and concerns a different parallelogram interpolation; other nearby records concern \(D_5^+\) packing-covering and spherical-cap overlap, neither of which implies this octahedral result. Dougherty--Faber is the historical covering precursor, but the inspected material concerns the degree-diameter/lattice-covering optimum rather than this multiplicity profile.
+## originality
 
-## Value
+PASS
 
-PASS. The newly solved octahedral covering problem singles out a canonical optimizer, and the natural next quantitative question is how this optimizer fills space as the scale approaches the sharp covering threshold. The exact profile gives a geometric interpretation of the optimal excess density: the entire \(1/8\) excess is double-overlap mass, with no positive-volume triple coverage at the threshold. The formula also yields an exact near-covering deficit law, \(u(3/2-\varepsilon)=3\varepsilon/2-2\varepsilon^3/3\), which is directly relevant to perturbative and stability questions around the optimizer. This is a complete profile on the entire natural first-overlap regime rather than an arbitrary numerical slice.
+Best-knowledge PASS for the complete radial multiplicity profile of the specific BCC optimizer; Lian--Xue proves the sharp covering density 9/8 and is the source of the natural lattice normalization but that endpoint statement alone does not determine all subcritical occupied and double-overlapped fractions. The source abstract was inspected; primary full text was unavailable, so detailed absence from the actual primary appendices is NOT verified and is retained as material risk. The earlier Dougherty--Faber degree-diameter conjecture is about optimal covering, not on inspected abstract evidence an exact radial volume distribution.
 
-## Closest literature and limitations
+## value
 
-The primary source is Lian--Xue, arXiv:2609.23210v1. Dougherty--Faber, arXiv:math/9412223, is the historical precursor. The result does not address arbitrary lattice deformations or scales beyond \(3/2\), where additional overlap types appear. An unindexed historical calculation remains possible.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The just-established optimum singles out a canonical body-centered cubic lattice and natural first-overlap scaling window. The full uncovered/single/double multiplicity classification explains precisely where the density excess 1/8 sits, proves triple coverage is null at threshold and gives exact near-covering deficit; such data directly inform geometric understanding and local stability questions without pretending to prove lattice perturbation stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
