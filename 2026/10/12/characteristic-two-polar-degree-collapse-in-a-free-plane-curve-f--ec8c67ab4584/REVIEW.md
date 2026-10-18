@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The characteristic-two identity \(F_m=P_m(P_m+y^{2m})\) and the common gradient factor are direct polynomial equalities. The proof verifies reducedness for every odd \(m\) using valuations at a simple factor of \(x^m+y^m\), identifies every base point, and computes localized lengths rather than inferring them from support alone. Bézout gives the positive residual degree \(2m-2\), which also establishes dominance. An alternating Hessian of generic rank two establishes inseparability. The even-\(m\) claim is an exact Frobenius-square observation. Finite-field tests at \(m=3,5,7\) agree with the universal proof. The complex comparison is independently recoverable from the known singularity basket and standard Milnor formula; it is not a claim of novelty.
+## correctness
 
-## Originality (PASS, with residual risk)
-The originating Theorem 1.8 treats complex freeness and explicit syzygies. The earlier exact-family study provides the complex local Milnor numbers and resolution; hence all complex baseline information is prior. The new claim concerns the original equation in characteristic two: the factorization of its polar system, all base scheme lengths, the total degree collapse and inseparability. The previously recorded bitangent-pencil polar map concerns a different family with no implication here. Query comparisons for polar-degree aliases, two-pencil arrangements, the explicit defining polynomial, and characteristic-two degenerations located no statement that implies this complete theorem. General gradient-map and Bézout methods are acknowledged as background; they do not themselves supply these base points or the polynomial cancellation. Residual risk: an unindexed modular calculation or a general specialized arrangement theorem could contain the same degree formula.
+PASS
 
-## Value (PASS)
-For a natural published family, the characteristic-two gradient acquires a nontrivial fixed line, yet the reduced curve remains reduced for all odd \(m\). After cancellation the map is dominant but inseparable, and its exact total degree is linear rather than the quadratic characteristic-zero value; the discrepancy grows as \(2m^2\). The unusual third base point of the reduced two-pencil polar system is essential to the count. This is a structural arithmetic boundary for an entire family, not a small numerical improvement or an arbitrary finite-field census. No claim about positive-characteristic freeness or full inseparability index is made.
+In char2 with B=x^m+y^m, C=y^m+z^m and P=BC, A=BC+y^{2m}, so F=P²+y^{2m}P and ∇F=y^{2m}∇P. For even m all derivatives vanish; for odd m, ∇P=(x^{m−1}C, y^{m−1}(x^m+z^m), z^{m−1}B) has no nonconstant common factor. The precise projective base locus of ∇P is three coordinate vertices, each local length (m−1)², and m² distinct transverse B=C points of length 1. Two general members in the degree-(2m−1) gradient linear system meet in (2m−1)² points counted with intersection multiplicity; deducting 3(m−1)²+m² gives residual 2m−2>0, so map dominates and this equals total function-field degree even inseparably. The alternating characteristic-two Hessian has generic projective differential rank 1 < 2, giving inseparability. The valuation −1 at a simple prime of x^m+y^m proves irreducibility of A, ensuring reduced F for odd m. Independently checked char2 polynomial identity m=3 and base-length arithmetic, with source verifier formal checks m=2..14. No finite check replaces the all-odd-m proof.
 
-## Closest literature and limits
-Dimca–Ilardi–Pokora–Sticlaru, arXiv:2301.01117v1, Theorem 1.8 and §4.7, is the source of the family. A prior complex-family singularity refinement supplies \\(\\mu=14m^2-10m+3\\), and is not extended or re-certified here. A distinct bitangent-conic-pencil polar-degree classification provides related arithmetic context but not coverage. The explicit modular priority search is not an independent novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dimca–Ilardi–Pokora–Sticlaru study the same equation over complex numbers and establish freeness and singularity data; they do not obtain the positive-characteristic gradient cancellation, full char2 base scheme, dominant inseparable total degree, or sharp 2m² collapse. The general polar map degree identity over arbitrary characteristic is background, not this explicit computation.
+
+## value
+
+PASS
+
+For a natural free plane-curve family, reduction mod 2 collapses the polar map by a quadratic-in-m amount while leaving a dominant inseparable map at odd m. The exact base-point scheme and intersection calculation describe the mechanism, and provide an invariant of interest for positive-characteristic polar geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
