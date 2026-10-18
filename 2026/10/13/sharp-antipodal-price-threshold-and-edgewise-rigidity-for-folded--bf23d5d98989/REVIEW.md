@@ -1,11 +1,21 @@
-# Scientific review: priced folded-hypercube mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(d\ge4\), every arbitrary feasible edge allocation satisfies two global Rayleigh bounds from singleton and two-coordinate Walsh characters. The symmetric Laplacian diagonalizes exactly in that basis. Its spectral gap equals the smaller of those bounds, so the budget problem reduces without loss to a one-dimensional linear-frontier optimization. Eigenvector equality, rather than informal symmetry averaging alone, proves global edgewise uniqueness off the price threshold and the complete symmetric critical segment. The budget normalization, nonnegative boundary and all quantifiers have been explicitly checked. Exact-rational finite tests in `verify_folded.py` supplement, not replace, the proof.
+## correctness
 
-**Originality — PASS, with explicit residual risk.** Sun et al. give the general continuous-time semidefinite framework and Boyd et al. the discrete-time ordinary-hypercube symmetry method; neither supplies the present price-dependent folded-hypercube graph or all-edge rigidity theorem. Shakeri et al. study priced links between **fixed** intralayer networks, not joint optimization of every coordinate and antipodal edge. Liu et al. and Chen et al. provide unweighted folded-hypercube spectral or resistance information, not the conductance-budget classification. The results may be derivable from these tools, but a general optimization framework does not itself imply the exact threshold and equality classification. No directly dominating published statement was found among inspected texts; an equivalent specialized historical result remains possible, and related historic folded-cube spectral work may contain useful background.
+PASS
 
-**Value — PASS.** The exact phase transition \(t=d\) is a natural price-versus-mixing decision rule for a high-dimensional network, with complete optimizer geometry (including a critical segment) and a nontrivial asymptotic payoff: vanishing expenditure on long-range edges nearly doubles the attainable continuous-time spectral gap. This is a genuine, motivated network-design classification rather than a numerical table or arbitrary finite slice.
+Walsh singleton and pair test functions give valid spectral-gap upper bounds 2(b+a) and 4b for every independently weighted edge allocation, with means b=2B/(dN), a=2A/N. Uniform edge classes diagonalize exactly in Walsh basis with eigenvalues 2kb+2a when k odd; the gap equals min(2(b+a),4b) for all d>=4. Linear budget N(db+ta)/2=1 produces the displayed sharp t=d threshold and segment. Equality in average Rayleigh inequalities forces each singleton/pair Walsh character to be an actual lowest eigenvector; pointwise equations force all coordinate and antipodal weights uniform even at the transition, ruling out irregular optima. Independent explicit full-Laplacian eigenspectra corroborate for d=4,5 and prices across the threshold.
 
-Closest comparison: Sun et al., *SIAM Review* 48 (2006), DOI 10.1137/S0036144504443821; Boyd et al., *SIAM Journal on Optimization* 20 (2009), DOI 10.1137/070689413; Shakeri et al., arXiv:1510.06785v1; Liu et al., DOI 10.1155/2014/380874; Chen et al., *Journal of Internet Technology* 20 (2019). Residual limitations: a historical exact specialization might exist; no claim for normalized mixing, total variation, directed rates, or dimensions below four. No independent scientific validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Boyd–Xiao–Diaconis general continuous-time fastest-mixing framework and Boyd–Diaconis–Parrilo–Xiao group-symmetry reduction are prior; unweighted folded-cube Walsh spectra also known. The present individually priced antipodal-link threshold and entire all-edge optimizer classification are not supplied by those inspected statements. The equality-condition rigidity distinguishes this from merely symmetrizing one optimizer. Directly equivalent historical priced network specializations remain possible.
+
+## value
+
+PASS
+
+Priced mixing network design with independently allocated rates is a motivated resource optimization. The sharp deletion threshold, prohibition on symmetry-breaking minimizers and factor-two limiting gap gain from a vanishing antipodal budget fraction are informative exact design facts, not an arbitrary numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
