@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone program `verify.py` was executed against its actual embedded-package source and returned:
+# Independent mathematical audit
 
-```text
-VERIFY_OK symbolic_end_transitions=8 symbolic_partial_transitions=64 block_identity_T=0..19999 direct_prefixes_1..524288 defining_subsequence_test_N=0..29 dyadic_levels_m=3..19 discrepancy_range=-8..1 all_10_discrepancies_seen=yes
-```
+## correctness
 
-The verification includes symbolic checks of all possible two-state block transitions, finite direct checks of the defining subsequence predicate, and longer direct greedy-prefix comparisons. These finite computations corroborate but do not replace the all-prefix induction given in `RESULT.md`. No external or independent audit was performed.
+PASS
+
+The paperfolding odd-part normalization yields p_(2n)=p_n, p_(4n+1)=0 and p_(4n+3)=1, hence the exact block 001(t mod2)011p_(t+1). All 8 incoming-flag/parity/end-symbol cases give a completed-arch increment 3+q-z and outgoing flag z, so telescoping yields U(8T)=3T-p_T. All eight partial-block cases supply the displayed r=0..7 formula. Binary greedy arches characterize universality for all targets; the density of p_T=1 is 1/2 by parity recursion, giving sharp E in [-8,1] and the ten-point limit law. An independent 300000-prefix greedy computation matched the formula; it is corroboration, not the infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.
+
+## value
+
+PASS
+
+The exact universality profile of the regular-paperfolding automatic word is a natural combinatorics-on-words invariant, with sharp bounded discrepancy, an exact dyadic law, and a nontrivial ten-atom distribution. It is neither a restatement of generic arch factorization nor a finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
