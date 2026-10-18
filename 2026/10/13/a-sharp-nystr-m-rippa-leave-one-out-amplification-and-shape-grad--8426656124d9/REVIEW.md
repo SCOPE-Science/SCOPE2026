@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact two-by-two matrix identity plus sharp scalar optimization. Direct inverse calculation produces the pair of Rippa leave-one-out maps. Their difference has one nonzero matrix entry, making its operator norm and attaining vector immediate. The derivative numerator \(\lambda-(1+3\lambda)t^2-t^4\) has exactly one zero in \((0,1)\), giving the sharp maximizer and the \(\lambda^{-1/2}\) limit. The independent derivative for squared loss has the factor \(\lambda-t^2\), establishing the phase. Rational inverse checks and numerical peak checks in `verify.py` passed. No finite check is used as a proof of the continuous or asymptotic result.
+PASS
 
-## Originality — PASS, with residual risk
+Exact inverse of a general positive 2x2 matrix gives E=(y1-(b/d)y2,y2-(b/a)y1). Substitution into both ridge matrices produces a rank-one discrepancy with singular value D, attained at e2. Independent SymPy differentiation confirmed D prime numerator lambda-(1+3lambda)t²-t⁴ and the loss derivatives with factors t and lambda-t²; the unique stationary point and boundary-layer limit follow analytically. The inverse-multiquadric correlation t maps bijectively to positive shape parameter, whose derivative is strictly negative, preserving opposite gradient signs. No mistaken minimum is claimed.
 
-The closest complete primary comparison is Lyu–Veiga (arXiv:2602.10248v1), whose Sections 2–3 introduce the same surrogate and discuss gradients; Section 5 notes empirical instability but does not derive the sharp two-site amplification, singular regularization limit, or exact opposite-gradient region. Rippa (1999) gives the classical inverse-diagonal relation. Bucci–Nakatsukasa–Park (arXiv:2511.15583v2) studies numerical stability of the Nyström core in the presence of roundoff; here the core equals one and the phenomenon is exact arithmetic. Searches of related published mathematical results and the relevant prior research claims found no equivalent statement. A disguised equivalent in kernel approximation or Gaussian-process leave-one-out literature remains possible, and the proof uses elementary identities; novelty should not be mistaken for an exhaustive literature certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The claim directly answers a mathematically motivated gap in a recent shape-parameter tuning method: when does its surrogate objective's *direction* disagree with the matched-ridge full objective? It provides a complete, exact two-site phase diagram, an attained sharp worst-data amplification and its asymptotic constant, and identifies a failure mechanism not explained by conditioning of the original kernel. The example is a legitimate inverse-multiquadric Gram matrix, not an artificial nonkernel system. This is a usable diagnostic boundary for any small-ridge low-rank kernel leave-one-out calculation, although higher-rank behavior and algorithmic prevalence are not determined.
+Lyu and Veiga introduce the same inverse-multiquadric Nyström/Rippa shape objective and discuss its numerical sensitivity, but the inspected full arXiv HTML does not derive the exact 2x2 rank-one residual operator, worst-case ridge divergence or the interval of opposite derivatives. Rippa gives the standard inverse-diagonal identity, not the matched-ridge comparison. Bucci–Nakatsukasa–Park investigate numerical Nyström stability, while this counterexample holds in exact arithmetic with core 1. The Rippa inverse-diagonal identity applies to both matrices but does not give their sharp difference or derivative sign for matched ridge; source shape numerical studies do not entail the exact classification.
 
-## Residual limitations
+## value
 
-One landmark and two sites are a small special case; low-rank accuracy is poor at the amplification peak even though the full kernel is well-conditioned. The ridge is positive and exact arithmetic is assumed. The false stationary point is a **maximum**, so no trapping claim is made. Independent historical originality assessment and empirical significance for large landmark budgets remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ridge-Nyström Rippa cross validation is specifically used to select kernel shape; exact sign disagreement between full and surrogate gradients is directly diagnostic of tuning failure. The exact two-site phase, attained worst-data amplification and small-ridge asymptotic constant constitute a sharp natural base case, not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

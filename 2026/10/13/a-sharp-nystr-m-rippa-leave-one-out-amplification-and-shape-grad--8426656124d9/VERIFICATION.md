@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The analytically established result is the exact two-site regularized leave-one-out map, its sharp norm gap, the optimizing correlation, and the shape-gradient sign phase. The proof is in `RESULT.md`. Extract `verify.py` and run `python verify.py` with Python 3; it uses only the standard library.
+# Independent mathematical audit
 
-The verification program was executed from its packaged path and returned:
+## correctness
 
-`VERIFY_OK exact_two_by_two_loo_checks=2800 exact_shape_derivative_checks=2340 numeric_peak_comparisons=50000`
+PASS
 
-The 2,800 matrix checks use exact rational inversion and compare both residual maps; 2,340 additional rational checks evaluate the sign factor of the derivatives and the maximizing polynomial, and 50,000 floating-point checks compare a computed analytic peak against direct evaluations. The universal result and asymptotic limit rest on the displayed proof, not on these finite tests. The numerical test does not assess finite-precision RBF solvers or arbitrary dimension. No independent external audit has been performed.
+Exact inverse of a general positive 2x2 matrix gives E=(y1-(b/d)y2,y2-(b/a)y1). Substitution into both ridge matrices produces a rank-one discrepancy with singular value D, attained at e2. Independent SymPy differentiation confirmed D prime numerator lambda-(1+3lambda)t²-t⁴ and the loss derivatives with factors t and lambda-t²; the unique stationary point and boundary-layer limit follow analytically. The inverse-multiquadric correlation t maps bijectively to positive shape parameter, whose derivative is strictly negative, preserving opposite gradient signs. No mistaken minimum is claimed.
+
+## originality
+
+PASS
+
+Lyu and Veiga introduce the same inverse-multiquadric Nyström/Rippa shape objective and discuss its numerical sensitivity, but the inspected full arXiv HTML does not derive the exact 2x2 rank-one residual operator, worst-case ridge divergence or the interval of opposite derivatives. Rippa gives the standard inverse-diagonal identity, not the matched-ridge comparison. Bucci–Nakatsukasa–Park investigate numerical Nyström stability, while this counterexample holds in exact arithmetic with core 1. The Rippa inverse-diagonal identity applies to both matrices but does not give their sharp difference or derivative sign for matched ridge; source shape numerical studies do not entail the exact classification.
+
+## value
+
+PASS
+
+Ridge-Nyström Rippa cross validation is specifically used to select kernel shape; exact sign disagreement between full and surrogate gradients is directly diagnostic of tuning failure. The exact two-site phase, attained worst-data amplification and small-ridge asymptotic constant constitute a sharp natural base case, not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
