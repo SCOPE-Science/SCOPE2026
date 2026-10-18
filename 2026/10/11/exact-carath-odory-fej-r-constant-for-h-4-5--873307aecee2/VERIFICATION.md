@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The proof has two independent exact components. First, the upper bound is obtained from the positive combination \(\cos(\pi/9)T(\pi)+T(7\pi/9)\), in which the \(\cos(4\theta)\) and \(\cos(5\theta)\) coefficients cancel. Sum-to-product identities reduce the resulting bound to \(2\cos(\pi/18)/\sqrt3\).
+# Independent mathematical audit
 
-Second, with \(r=\cos(7\pi/9)\), the proposed extremizer is converted to a polynomial in \(x=\cos\theta\). The checker verifies the factorization modulo the exact relation \(8r^3-6r-1=0\), checks the contact and derivative identities, reduces the sharp coefficient to \(3A^3-3A-1=0\), and verifies that the residual quadratic has discriminant \(-64(80r^2-62r-13)\). On the intended root \(r\in(-1,-3/4)\), this discriminant is negative and the leading coefficient and denominator are positive, proving global nonnegativity.
+## correctness
 
-The replay command is `python artifacts/verify.py`. The expected terminal line is:
+PASS
 
-`VERIFY_OK r=-0.766044443118978 A=1.137158042603257 B=0.313660917291061 C=0.176502874687803 cubic=3A^3-3A-1 factor_mod_p=1`
+Let τ=cos(π/9), σ=cos(2π/9), θ0=7π/9. At θ=π the (cosθ,cos4θ,cos5θ) signs are (−1,1,−1), while at θ0 they are (−σ,−τ,τ). Thus for any globally nonnegative candidate, τT(π)+T(θ0)=1+τ−a(τ+σ)≥0, implying a≤(1+τ)/(τ+σ)=2 cos(π/18)/√3. The proposed a,b,c at r=cos(7π/9) satisfy 8r³−6r−1=0 and factor T(arccos x)=(x+1)(x−r)²R_r(x)/[(9/2)(8r²−6r−1)]. I independently reduced the identity modulo the cubic in exact symbolic arithmetic, verified the residual quadratic has positive leading coefficient and negative discriminant, and the denominator is positive for r∈(−1,−3/4). Thus T≥0 for every x∈[−1,1], not only on sampled θ. Both positive-weight contact points must vanish for equality; interior zero derivative forces a third independent linear equation and fixes b,c uniquely. Independent symbolic check gives 3a³−3a−1=0. Numerically sampled positivity is merely supplementary.
 
-The numerical decimals identify the intended real root only; no finite sampling is used as proof of nonnegativity or optimality.
+## originality
+
+PASS
+
+The primary sparse Carathéodory–Fejér works organize positive definite support and derive singleton/complement/parity/tail exact families, none algebraically yields H={4,5}. An actual published neighboring SCOPE record at 2026/10/04/exact-carath-odory-fej-r-constant-for-h-3-4--917b17d3814a/RESULT.md has M({3,4})=2cos(2π/7), different support and cubic; it does not imply {4,5}, since distinguished first harmonic is fixed and no support inclusion or dilation carries {3,4} to {4,5}. The present exact two-contact upper certificate and separate factorization are for a genuinely different sparse support.
+
+## value
+
+PASS
+
+M(H) for a natural two-element sparse harmonic support is an explicitly posed invariant in classical Carathéodory–Fejér support problems. The exact cutoff includes a unique extremal polynomial and an algebraic dual certificate, useful as a benchmark for sparse positive trigonometric polynomials and potential two-frequency classifications. The calculation is not a known-table recomputation, a pure substitution of H={3,4}, or an arbitrary angle slice: the contact frequencies determine new algebraic constraints and positivity factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
