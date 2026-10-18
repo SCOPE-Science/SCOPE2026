@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The digit-split recurrence is algebraically exact. Nonnegative symmetric even-block coefficients satisfy a tridiagonal recurrence including the cyclic seam; an even/odd prefix interval induction covers all q=2h+1, including q=3 and both exceptional seam residues. Strict zero-residue positivity follows from the lower-length first half and subtraction of a nonpositive adjacent-residue prefix in the second half. The increasing base-b digit embedding preserves digit parity and residues when b≡−1 (mod q). Exact tests check 122,865 finite prefixes across q=3..31 and complete blocks up to length 119 for eight moduli; finite computations are not presented as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1511.03236",
+        "https://www.dmg.tuwien.ac.at/drmota/newman.pdf"
+      ],
+      "reasoning": "Somu encompasses q divisible by b+1 asymptotically but its statements lack every-positive-cutoff signs. Drmota–Stoll gives all-prefix signs for q=3 under ordinary Thue–Morse but in other bases uses unrestricted digits; neither entails the universal sparse/alternating sign statement for every odd q.",
+      "searches": [
+        "\"Newman's phenomenon in higher bases\" Somu any positive N not sufficiently large 0 1 digit",
+        "Drmota–Stoll 2008, Theorems 1.1, 1.2, 1.5",
+        "Somu 2015, Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1511.03236",
+      "https://www.dmg.tuwien.ac.at/drmota/newman.pdf",
+      "https://www.researchgate.net/publication/2458835_Rarified_Sums_Of_The_Thue-Morse_Sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/1511.03236",
+        "https://www.dmg.tuwien.ac.at/drmota/newman.pdf",
+        "https://www.researchgate.net/publication/2458835_Rarified_Sums_Of_The_Thue-Morse_Sequence"
+      ],
+      "reasoning": "Eventual positive bias does not imply positivity at initial cutoffs. The existing all-prefix q=3 result is one modulus, whereas the new induction covers every odd q and signs at nonzero residues. The classical unrestricted sampling and sparse sampling match only at b=2; no deduction from the stronger-looking unrestricted general-base asymptotics is evident.",
+      "searches": [
+        "\"Newman's phenomenon for generalized Thue-Morse sequences\" Drmota Stoll pdf",
+        "arXiv:1511.03236v1, full text",
+        "Drmota–Stoll 2008, sections 1–2",
+        "Drmota–Skałba 2000, abstract and introductory scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1511.03236",
+        "https://www.dmg.tuwien.ac.at/drmota/newman.pdf"
+      ],
+      "reasoning": "Binary-alternating residue counts are identical, via b≡−1 mod q and order-preserving digit embedding, to sparse base-b q-residue counts. Checked both formulations; the source that studies the sparse embedding asserts eventual, not uniform prefix, positivity.",
+      "searches": [
+        "\"alternating digit sum\" \"Thue-Morse\" mod odd sign positivity \"all\"",
+        "arXiv:1511.03236v1, introduction and theorem",
+        "Drmota–Stoll 2008, pp.1–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Somu and Drmota–Stoll full-text theorem statements and introduction contain no exact odd-modulus all-prefix residue sign table."
+      ],
+      "reasoning": "The claim is a uniform infinite theorem rather than a finite tabulated invariant. The primary papers do not publish an exact table that already states all its cases. Residual database coverage is not claimed exhaustive.",
+      "searches": [
+        "\"alternating digit sum\" \"Thue-Morse\" mod odd sign positivity \"all\""
+      ]
+    },
+    "rationale": "Somu 2015, Theorem 1.1, treats the same restricted 0/1 base-b integer set and proves only sufficiently-large cutoff positivity; this proof gives all positive cutoffs and every residue for all odd divisors of b+1. Drmota–Stoll 2008 treats ordinary arithmetic progressions of full base-g integers, not the sparse 0/1 restriction except g=2, and its special q=3 finite-prefix result does not imply the arbitrary odd-modulus alternating-digit sign law. Distinct statements and absence of a dominating theorem in the inspected materials support best-knowledge novelty, with residual priority risk.",
+    "residual_risks": [
+      "The full text of Drmota–Skałba 2000 was not inspected; its stated scope is ordinary residue sums, not the sparse-base all-modulus theorem.",
+      "Unindexed or differently formulated priority results, especially finite automata descriptions of signed alternating-digit sums, could imply the theorem.",
+      "The result is verified by an ordinary self-review; it has not undergone independent peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object; published theorem only sufficiently-large cutoff positivity, no all-residue all-prefix sign law.",
+        "evidence": "2015-11-10 arXiv submission and Theorem 1.1 statement.",
+        "identifier_or_url": "https://arxiv.org/abs/1511.03236",
+        "material_read": "Relevant full-text portions: title, abstract, introduction, theorem statements and proof excerpts; not a claim that all fourteen pages were separately read",
+        "method": "Inspected accessible arXiv primary text and relevant theorem/proof excerpts; compared quantified cutoff and modulus conditions",
+        "title": "On Newman’s phenomenon in higher bases",
+        "trigger": "Exact sparse digit set and zero-residue sign statement"
+      },
+      {
+        "assessment": "q=3 all-prefix result known; higher bases use the full unrestricted base-g digit alphabet, not sparse 0/1 base-b expansions.",
+        "evidence": "Theorems 1.1,1.2,1.5 and definitions (1.3)–(1.5).",
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/drmota/newman.pdf",
+        "material_read": "Full primary PDF introductory scope and theorem statements, pages 1–4; definitions of full base-g digit sums and index arithmetic progressions",
+        "method": "Read source document text and page images, compare sampling sets and cutoffs",
+        "title": "Newman’s phenomenon for generalized Thue–Morse sequences",
+        "trigger": "Same phenomenon, possible broader all-residue coverage"
+      },
+      {
+        "assessment": "Different ordinary index residue sampling; full-text unavailability is a disclosed residual risk.",
+        "evidence": "Abstract states moduli divisible by 3 or q=4^N+1 yield ordinary binary-index positivity.",
+        "identifier_or_url": "https://www.researchgate.net/publication/2458835_Rarified_Sums_Of_The_Thue-Morse_Sequence",
+        "material_read": "Published abstract and introductory excerpts; full document unavailable",
+        "method": "Compared described unrestricted mod-q Thue–Morse sums to restricted alternating digit sums",
+        "title": "Rarified sums of the Thue–Morse sequence",
+        "trigger": "Early odd-modulus Newman-type positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32cb9162-9a87-4ccb-b966-53ad4798505f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pre-existing explicit sparse-base Newman problem provided only eventually-positive residue zero results, leaving initial cutoffs and all other residues unresolved. A universal sign pattern indexed by residue distance, and an every-cutoff strengthening for all even bases and odd q|b+1, is a structural classification applying to infinitely many naturally ordered digit sets and directly sharpens the motivating theorem.",
+    "status": "PASS"
+  }
+}
