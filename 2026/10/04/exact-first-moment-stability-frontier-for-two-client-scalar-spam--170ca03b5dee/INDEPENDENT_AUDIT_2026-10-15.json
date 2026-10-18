@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:54:40.660006Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Specialize the ACTUAL SPAM gradient-estimator-plus-shifted-proximal recursion (not Polyak momentum) to two equiprobable scalar quadratics with curvature h±=a±δ, a>0, 0≤ρ=δ/a≤1, stepsize γ>0, and refresh p in (0,1]. Because the current sampled client is independent of history, the 3-state vector (x_k,x_{k-1},g_{k-1}) has a legitimate closed FIRST-MOMENT linear recursion E[u_{k+1}]=M E[u_k]. An independent derivation of the exact two realized prox transition matrices gave M=[[α,(1-p)(1-α),-(1-p)γα],[1,0,0],[a,-(1-p)a,1-p]], where t=γa, α=(1+t)/((1+t)^2-ρ²t²); the characteristic polynomial factors exactly as (λ-1+p)[λ²-αλ+(1-p)ρ²t²/((1+t)^2-ρ²t²)]. Under the stated nonnegative-curvature range, denominator is strictly positive, and the real quadratic Jury inequalities reduce to (2-p)ρ²t²<(1+t)^2, strict at the stable boundary. Independent symbolic matrix construction and determinant factorization were completed and checked; p=1, ρ=0, ρ=1 limit cases are consistent. In particular t=20,ρ=1 has p_c=359/400=0.8975, explaining why p=0.1 and p=0.9 straddle the FIRST-MOMENT threshold. This does NOT certify bounded second moments, almost-sure iterates or stochastic algorithm convergence in the stronger norms studied in the original paper.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127 Theorem 3.2 gives sufficient expected-squared-gradient bounds under Hessian similarity; it does not evaluate the exact mean spectral radius on a two-client specialization.",
+          "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047 Propositions 2-4 give a PPAM deterministic quadratic stability region with β, but this is a distinct iterate momentum method.",
+          "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677 global convergence for random sketches/heavy-ball is not an exact characterization of SPAM's first moments."
+        ],
+        "reasoning": "A sufficient bound for a stronger criterion does not yield necessary-and-sufficient conditions for first moments; a similar optimizer acronym or proximal principle does not establish implication.",
+        "searches": [
+          "SPAM Karagulyan Shulgin Sadiev Richtarik 2024 arxiv 2405.20127",
+          "Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum Kim Toulis Kyrillidis 2022 pdf"
+        ]
+      },
+      "checked_sources": [
+        "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127",
+        "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047",
+        "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677",
+        "Resultary semantic exact first-moment SPAM, related STORM and loopless SVRG finding titles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127 derives sufficient nonconvex criteria and experiments, not this exact scalar necessary/sufficient mean Schur boundary.",
+          "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047 PPAM direct iterate momentum is a different stochastic process; its quadratic stability conditions cannot be directly specialized to this 3x3 expectation matrix.",
+          "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677 similarly does not include SPAM's gradient-memory variable g."
+        ],
+        "reasoning": "One must derive and average the ACTUAL SPAM state transition and factor its cubic; the earlier qualitative bounds and different momentum methods do not imply the final equality.",
+        "searches": [
+          "arXiv:2405.20127 full text Theorem 3.2 expected squared gradient",
+          "Kim Toulis Kyrillidis 2022 PMLR 168 quadratic PPAM Proposition 4",
+          "Loizou Richtarik 2017 heavy ball stochastic proximal point"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127 Algorithm 1 uses a momentum-VARIANCE-REDUCED gradient estimator and shifted client proximal map, defining the same exact algorithm.",
+          "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047 uses x_{t+1}=x_t-η[∇f(x_{t+1})+ε]+β(x_t-x_{t-1}), a different direct Polyak momentum step.",
+          "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677 heavy-ball sketch-and-project stochastic prox map differs from SPAM two-client estimator."
+        ],
+        "reasoning": "Equivalent names stochastic proximal momentum are overbroad; comparing transition matrices and gradient estimators excludes mere terminological identity.",
+        "searches": [
+          "sharp exact first moment stability of SPAM stochastic proximal point momentum variance reduction equiprobable two scalar quadratics refresh probability p",
+          "\"SPAM\" \"stochastic proximal point\" \"first moment\" \"two quadratics\"",
+          "Loizou Richtarik Momentum stochastic momentum stochastic gradient Newton proximal point subspace descent arxiv 1712.09677 pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127 reports qualitative p=0.1/0.9 behavior at large γδ, rather than the sharp p_c=359/400 20-step scalar frontier.",
+          "Resultary related exact mean-square stability of loopless SVRG and variance recurrences for STORM use different algorithms; the top self-hit is the target itself."
+        ],
+        "reasoning": "No prior table of the exact three-state SPAM characteristic factorization found; the new threshold quantitatively separates the displayed experiment's refresh values.",
+        "searches": [
+          "sharp exact first moment stability of SPAM stochastic proximal point momentum variance reduction equiprobable two scalar quadratics refresh probability p",
+          "Resultary: sharp exact first moment stability of SPAM stochastic proximal point momentum variance reduction equiprobable two scalar quadratics refresh probability p"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact sharp SPAM first-moment phase boundary for two scalar stochastic curvatures, not generic convex-proximal stability. The complete SPAM arXiv primary text was inspected at Algorithm 1, its nonconvex expected-squared-gradient theorem and p-dependent large-step experiment; it contains no such necessary-and-sufficient mean recursion. Full papers Kim–Toulis–Kyrillidis (PPAM) and Loizou–Richtarik (stochastic heavy ball) were inspected where their iteration maps are defined; both have different momentum state and update structure. The exact result is not a corollary of their convergence-region statements.",
+      "residual_risks": [
+        "An independent analysis of the same SPAM scalar toy model may exist under non-unique stochastic linear-system terminology.",
+        "First-moment spectral stability is strictly weaker than mean-square or almost-sure convergence and cannot be advertised as those.",
+        "The p=0.1 vs p=0.9 source experiment is higher-dimensional/nonconvex, so the toy-model p_c diagnoses a mechanism, not an exact explanation of every experimental outcome."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exact update; proves expected gradient bounds but no exact mean Schur frontier.",
+          "evidence": [
+            "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127",
+            "Algorithm 1, Theorem 3.2, experiments and page 4 screenshot"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.20127",
+          "material_read": "Full 27-page arXiv primary PDF accessed; Algorithm 1 and exact gradient-memory update on PDF p.4, Hessian similarity assumptions, Theorem 3.2 and experimental p sensitivity at large γδ, as well as related-work section.",
+          "method": "Read full PDF targeted theorem/algorithm/experiments and screenshot of Algorithm 1 page.",
+          "title": "Karagulyan, Shulgin, Sadiev and Richtarik (2024), SPAM, arXiv:2405.20127",
+          "trigger": "Same exact SPAM algorithm, potential decisive coverage"
+        },
+        {
+          "assessment": "Different Polyak-style momentum architecture; does not yield SPAM gradient-estimator recurrence.",
+          "evidence": [
+            "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047",
+            "Eq.(5), deterministic quadratic section and Proposition 4"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v168/kim22a/kim22a.pdf",
+          "material_read": "Full 14-page PMLR PDF accessed; definition x_{t+1}=x_t-η(∇f(x_{t+1})+ε)+β(x_t-x_{t-1}), deterministic quadratic Propositions 2-4 and stability diagrams.",
+          "method": "Read primary PDF update/propositions and screenshot p.4.",
+          "title": "Kim, Toulis and Kyrillidis (2022), Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum, PMLR 168:1034-1047",
+          "trigger": "Potential broader stochastic proximal momentum stability"
+        },
+        {
+          "assessment": "Momentum-enhanced sketch/project formulations are not algebraically equivalent to stochastic shifted-proximal SPAM; no implied frontier.",
+          "evidence": [
+            "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677",
+            "Sections 1-3 iteration architecture"
+          ],
+          "identifier_or_url": "https://www.pure.ed.ac.uk/ws/files/58994219/1712.09677v2.pdf",
+          "material_read": "Full 48-page institutional OA PDF accessed; foundational problem class random sketch linear systems, heavy-ball iteration description, abstract and method sections.",
+          "method": "Read original PDF methods/mathematical setup and screenshot p.4.",
+          "title": "Loizou and Richtarik (2017/2018), Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677",
+          "trigger": "Broad earlier stochastic proximal momentum and L1 mean-rate claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact necessary-and-sufficient refresh/stepsize/curvature balance is a natural stability frontier for a fully specified, widely analyzed stochastic proximal algorithm, and it is motivated by the SOURCE's conspicuous p=0.1 versus p=0.9 large-stepsize contrast. The quantitative t=20 threshold separates those settings at 0.8975. Precisely distinguishing first-moment stabilization from genuinely stronger convergence exposes a mathematically meaningful gap and avoids overstating the model. The invariant is not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only p∈(0,1], t>0, 0≤ρ≤1 with well-defined local quadratic proximal maps; p=0 may have a unit refresh eigenvalue.",
+    "No mean-square or pathwise convergence claim; source empirical high-dimensional behavior is not proved by scalar first moments.",
+    "Public metadata/review/verification files contain operational provenance; independent scientific PASS does not authorize their publication."
+  ],
+  "schema_version": 1
+}
