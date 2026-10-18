@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every odd n>=3, two odd rim cycles each force at least one slack edge, so <=3n-2 facet vertices. Equality forces all rungs tight and one slack on each rim; rung differences ±1 force the two slack edges to coincide, and all other gradients satisfy the exact T(z) transitions. The connected tight paths give every counted assignment a genuine facet. Closure is [z^0] of tr(T^(n-1)); eigenvalues z+z^-1±1 and parity yield 2n times the central trinomial. Local CLT gives the asymptotic. A standalone standard-library checker exhaustively generated all normalized edge-1-Lipschitz potentials for n=3,5,7, checked BFS connectedness and agreement with the independent transfer for n<=29. No finite check substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D'Alì et al. Proposition 4.33 counts bipartite planar facets through nowhere-zero flows, but odd prisms are nonbipartite.",
+        "Braun and Bruegge treat sparse few-cycle families; for odd prisms the number of independent cycles grows linearly with n."
+      ],
+      "reasoning": "No broader cited family theorem dominates the claim: the even-prism formula has disjoint parity; the bipartite-flow equivalence is inapplicable; general graph-facet criteria do not evaluate this family-specific extremal statistic.",
+      "searches": [
+        "facet count odd prism graph symmetric edge polytope C_{2k+1} square K2 circular ladder",
+        "even circular ladder facets Lipschitz-free ball balanced ternary flows n even",
+        "arxiv:1910.05193v1 §4.1 §4.5",
+        "Braun–Bruegge 2023 §3–4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1807.07678v1 (2018-07-20)",
+      "arxiv:1910.05193v1 (2019-10-11)",
+      "arxiv:2102.01219v1 (2021-02-01)",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Braun/braun6.pdf (2023-07-24)",
+      "Semantic mathematical-record queries for odd prisms, maximum facet vertex count, tight-edge and central-trinomial aliases",
+      "Published total-facet formulas for cycles, wheels and bipartite planar graphs are distinct from this maximally vertex-rich facet enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior facet criterion plus the odd-cycle parity observation gives a two-edge lower bound on slack, but does not ensure exact saturation nor the number of possible closed rung-sign patterns.",
+        "Our equality classification forces coincident slack rim edges and gives T(z) with eigenvalues z+z^-1±1, which is absent from inspected sources."
+      ],
+      "reasoning": "The new statement is not a direct special case of published facet counts: it evaluates a different, extremal incidence statistic and requires proving the sharpness, classifying equality, and computing the full count across all odd lengths.",
+      "searches": [
+        "arxiv:1807.07678v1 facet theorem",
+        "arxiv:1910.05193v1 Theorem 3.1 and Proposition 4.33",
+        "JIS 26 (2023) 23.7.2 Theorem 5 Lemma 6",
+        "facet count odd prism graph symmetric edge polytope C_{2k+1} square K2 circular ladder"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General facets are equivalently normalized 1-Lipschitz integer potentials with connected spanning tight-edge subgraphs (2018 and 2019).",
+        "The target statement is a sharp count of maximum-size facet supports, equivalently facet tight-edge sets of size 3n-2 with fiber multiplicity.",
+        "No inspected full-text specific odd-prism formula supplies this count."
+      ],
+      "reasoning": "A general criterion classifies which potentials define facets but leaves an exponential enumerative problem. It neither states the sharp extremal support size nor counts its admissible orientations. The two-state Laurent transfer provides an additional nontrivial evaluation.",
+      "searches": [
+        "maximum number of vertices of facets of symmetric edge polytope odd prism graph C_(2k+1) square K2 central trinomial",
+        "facets with maximal tight edge set 3n-2 odd circular ladder 2n central trinomial coefficient",
+        "\"circular ladder\" \"symmetric edge polytope\" \"facet\"",
+        "arxiv:1807.07678v1 §3",
+        "arxiv:1910.05193v1 Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A360408/A360409 and Braun–Bruegge (2023) tabulate aggregate minimum and maximum total facet counts by graph vertex/edge numbers, not this per-graph maximum-facet-vertex layer.",
+        "Indexed mathematical-record results concerned symmetry or inradius of unrelated graph polytopes and Rips/independence invariants of circular ladders, not this statistic."
+      ],
+      "reasoning": "Small numerical instances might be computable from a graph database, but the exact 2n-fold central-trinomial law for all odd n and the equality structure are not contained in the inspected tables.",
+      "searches": [
+        "maximum number of vertices of facets of symmetric edge polytope odd prism graph C_(2k+1) square K2 central trinomial",
+        "facets with maximal tight edge set 3n-2 odd circular ladder 2n central trinomial coefficient",
+        "odd prism graph vertex-rich facets saturated rim tight edge",
+        "Braun Bruegge graph maximum minimum facets tables OEIS A360408 A360409",
+        "arxiv:1807.07678v1 prism/ladder full-text search"
+      ]
+    },
+    "rationale": "The exact new quantity is the number of maximum-vertex facets on the nonbipartite odd-prism family, not the known general tight-graph characterization or any total facet formula. Direct full-text comparisons with Higashitani–Jochemko–Michałek, D'Alì–Delucchi–Michałek, Braun–Bruegge, and Aliaga show no matching all-odd-n maximum-support classification or the evaluated 2n central-trinomial count. Semantic mathematical-record queries were run for the family, coefficient sequence, aliases, maximal tight-edge count, and possible broader polytope statements. This is best-knowledge originality, not uniqueness certification.",
+    "residual_risks": [
+      "An unindexed or differently named source may have evaluated the odd-prism maximum-support layer using a general root-polytope incidence formula. Search absence does not prove uniqueness.",
+      "No independent human bibliographic verification has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general tight-potential characterization, but NOT the odd-prism maximum vertex count or central-trinomial multiplicity",
+        "evidence": [
+          "§3 general facet characterization of arbitrary connected graphs",
+          "Paper concentrates on Ehrhart information of complete bipartite and multipartite graphs; no prism or ladder occurrence identified in full-text search"
+        ],
+        "identifier_or_url": "arxiv:1807.07678v1",
+        "material_read": "Introduction and §3 facet description, and searched full 18-page PDF for prism and ladder",
+        "method": "Direct accessible arXiv full-text inspection and PDF term search",
+        "title": "Arithmetic aspects of symmetric edge polytopes",
+        "trigger": "Origin of the connected spanning tight-edge graph facet criterion and potential stronger facet-vertex results"
+      },
+      {
+        "assessment": "COVERS the general criterion and cycles/wheels; planar nowhere-zero-flow bijection explicitly requires bipartiteness and does not cover odd prisms",
+        "evidence": [
+          "Theorem 3.1 states integer 1-Lipschitz potential with connected spanning tight-edge graph",
+          "Proposition 4.33 applies to bipartite planar graphs only; odd circular ladders contain odd rim cycles"
+        ],
+        "identifier_or_url": "arxiv:1910.05193v1",
+        "material_read": "Definitions in §2, Theorem 3.1, §4.1 even cycles, §4.3 wheel graph, §4.5 bipartite planar flows; searched entire 35-page text for prism/ladder",
+        "method": "Direct full-text PDF inspection and exact term search",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Graph metric equivalences; potential flow or cycle formula covering odd prisms"
+      },
+      {
+        "assessment": "COVERS established general facet graph criterion and cycles, low-excess graphs; does not evaluate odd-prism top-support multiplicities",
+        "evidence": [
+          "Theorem 5 restates connected spanning graph criterion; Lemma 6 characterizes maximal spanning bipartite facet subgraphs",
+          "Sections 3–4 concern few edge-disjoint cycles and parallel-path graph constructions, not graphs with 2n vertices and 3n edges in the prism family"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Braun/braun6.pdf",
+        "material_read": "Introduction, §2 Theorem 5 and Lemma 6, §§3–4 description of classes; full-text search for prism/ladder",
+        "method": "Accessed publisher full PDF, read relevant results and searched for family names",
+        "title": "Facets of Symmetric Edge Polytopes for Graphs with Few Edges",
+        "trigger": "Possible stronger general sparse-graph formula or odd-prism enumeration"
+      },
+      {
+        "assessment": "Determines extreme points of Lipschitz-free balls over proper metric spaces, not combinatorial multiplicities of facets containing the largest number of extreme points",
+        "evidence": [
+          "Theorem 1 concerns extreme molecules, not counts of containing facets",
+          "2020 MSC lists primary 46B20 and secondary 46E27"
+        ],
+        "identifier_or_url": "arxiv:2102.01219v1",
+        "material_read": "Introduction and Theorem 1 in full text, including precise geometric extreme molecule result",
+        "method": "Direct accessible arXiv PDF inspection",
+        "title": "Extreme points in Lipschitz-free spaces over compact metric spaces",
+        "trigger": "Ownership MSC 46B20 and possibly stronger characterization of the ball"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce854776-b211-42bf-af35-49786f68d060",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum number of vertices on a facet and the number of attaining facets form an intrinsic face-incidence invariant of the real transportation unit ball. The odd-prism family is a canonical nonbipartite cylindrical metric, forcing an exact two-slack parity obstruction unlike bipartite planar flow cases. The theorem resolves the sharp upper bound, gives an equality classification and closed all-dimensional central-trinomial multiplicity, rather than an arbitrary finite census or an unevaluated general criterion.",
+    "status": "PASS"
+  }
+}
