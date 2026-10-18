@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A generic cocharacter of a maximal torus has pairwise distinct nonzero weights on every root space and weight zero on the Cartan. Therefore the ambient projective fixed locus is the Cartan projective space together with one point for each root line.
+## correctness
 
-The nilpotent cone meets the Cartan only at the origin, so no Cartan fixed point survives. The standard minimal-orbit theorem identifies the unique minimal nonzero nilpotent orbit with the orbit of a highest-root vector; the highest root is long, and every nonzero orbit closure contains this minimal orbit. Weyl conjugacy and torus rescaling therefore put every long-root line in every nonzero orbit closure. When two root lengths occur, all short-root vectors form one additional orbit, so either all or none of the short-root lines occur.
+PASS
 
-Euler localization for algebraic \(\mathbb C^*\)-actions gives the claimed count. The bundled checker independently verifies the root counts and separating-weight mechanism over all classical types through rank \(12\), together with explicit \(F_4\) and \(G_2\) root systems.
+A generic integral 1-parameter torus separates all nonzero root weights; fixed lines in P(g) are the Cartan projective component plus individual root lines. Nilpotent closure excludes all nonzero Cartan points. Minimal long-root nilpotent orbit lies in every nonzero nilpotent closure; short root vectors form one Weyl-conjugacy orbit. Euler characteristic of a projective C* variety equals that of its fixed locus, so chi is precisely the number of included root lines. Explicit B/C, F4, G2 root counts corroborate the type table; finite tests do not replace the all-rank proof. The theorem does not identify each short-orbit closure containment.
 
-## Originality
-PASS. Archival literature studies the same nilpotent orbit closures and, in one source, exactly their projectivizations, with emphasis on symplectic, crepant, contact, and minimal-model geometry. Targeted full-text searches found no ordinary Euler formula or matching maximal-torus fixed-point classification.
+## originality
 
-Targeted semantic and web searches did not locate the one-value simply-laced theorem or the two-value non-simply-laced theorem. The available historical research ledgers contain no projectivized nilpotent orbit closure claim.
+PASS
 
-Residual risk remains because the localization proof is short and may be folklore.
+Minimal long-root orbit, root conjugacy, and Euler localization are standard, but the claim packages them into a uniform explicit two-value Euler characteristic classification over all projectivized nilpotent orbit closures. Fu primary contact resolution paper addresses same class of varieties but the inspected full text did not yield this formula. A potential older fixed-point localization corollary or folklore result remains; lack of title matches does not establish priority.
 
-## Value
-PASS. The result is uniform across every nonzero nilpotent orbit closure in every simple Lie algebra. It shows that a potentially large and intricate orbit-closure poset becomes almost invisible to ordinary Euler characteristic: one value for all simply laced types and only two possible values otherwise.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two possible Euler characteristics over ALL nonzero projectivized nilpotent-orbit closures in a fixed simple Lie type are useful topological invariants beyond an individual finite table. The proof uses natural torus localization and orbit closure geometry; no arbitrary cutoff is selected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
