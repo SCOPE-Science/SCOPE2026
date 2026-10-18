@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The length lower bound follows from requiring \(aa\) for every letter. Overlapping first/last occurrence intervals force the two permutation halves. Successful cyclic cuts are exactly prefix-set coincidences, equivalently direct-sum boundaries of the relative permutation. The sole short rotation orbits are doubled permutations, handled separately. Formal generating functions and a uniform decomposability estimate establish all exact counts and asymptotics. A bundled standalone direct enumerator confirmed every double-occurrence word through alphabet size five (116016 words). The finite checks do not substitute for the general proof.
+
+**Originality — PASS, qualified.** Barker et al. (2020) and Fleischmann–Germann–Nowotka (2021) introduce and characterize circular subsequence universality and its repetition behavior; Adamson (2023) counts *linear* universal words. The relevant inspected sections do not give a complete arbitrary-alphabet cut-refined necklace distribution. A prior ternary enumeration includes the \(q=3\) value \(N_3=14\), which is explicitly not claimed as new. The claimed new result is the whole-variable alphabet classification, all phase multiplicities, periodic orbit correction, and rarity asymptotics. Risk: an unindexed equivalent count or implication from specialized necklace literature may exist; searched absence is not a uniqueness certificate.
+
+**Mathematical value — PASS.** The minimum length \(2q\) is forced by the scattering condition, so the family is canonical rather than an arbitrary slice. The exact classification solves the interaction among all possible cyclic phases, which is not recovered from separate fixed-phase counts. It identifies the distribution of witness cut-pairs and proves a nontrivial large-alphabet exponentially small universality probability with a sharp leading constant. The finite \(q=3\) overlap alone would not be valuable as an independent result.
+
+**Limitations.** Universality depth exactly two and minimum possible length only; the alphabet is labeled, and equivalence is rotation only. The proof covers every \(q\), while the checker covers only \(q\le5\). Possible unindexed literature overlap remains to be assessed independently.
+
+Self-review: passed. Independent audit: not yet performed.

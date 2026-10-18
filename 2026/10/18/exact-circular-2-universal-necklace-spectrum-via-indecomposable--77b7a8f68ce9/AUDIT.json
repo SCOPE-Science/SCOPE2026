@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "All \\(q\\ge2\\): every aa forces exactly double occurrences at minimum length; pairwise overlapping first-last intervals imply a common cut, hence two permutation blocks. Successful opposite cuts correspond bijectively to direct-sum boundaries of relative permutation. Only PP is imprimitive, and exact orbit-stabilizer counts produce the \\(b\\)-spectrum. Formal log identity and uniform decomposability bound yield the total and asymptotics. Reproducible checker exhausts 116016 double-occurrence words at \\(q\\le5\\) and separately tests raw subsequences at \\(q\\le4\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson counts linear fixed-length k-universal words algorithmically; that includes linear minimum-length words but does not directly count circularly universal words with a possible successful rotation.",
+        "2003.04629v1 Lemma 20 and Theorem 22 concern universality indices and powers, not necklace multiplicities.",
+        "a published fixed-binary-alphabet universality finding is a fixed size-two alphabet family and does not cover all q."
+      ],
+      "reasoning": "The target is the orbit quotient of a union of q rotating permutation-block conditions, refined by all possible phase-overlap multiplicities. Counting single-phase linear words or recognizing circular universality alone does not imply the distribution without an additional overlap classification. No checked stronger theorem supplies that missing step.",
+      "searches": [
+        "Counting circularly 2-subsequence-universal necklaces over arbitrary q-letter alphabet at minimum length 2q, permutation block direct-sum components and exact formulas",
+        "circular k-universality fixed-content necklaces q symbols twice each, labeled counts and primitive necklaces",
+        "circular universality index two minimum length 2q alphabet sigma distinct rotation necklaces exact enumeration indecomposable permutation components",
+        "arxiv:2304.04583v1 §§3–5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629v1",
+      "arxiv:2104.09063v1",
+      "arxiv:2304.04583v1",
+      "Published: Closed-form law for binary subsequence universality",
+      "Published: Fixed-content bracelet orbit profiles for Simon’s circular finite-cover quotients",
+      "Fleischmann, On Special k-Spectra (2021 thesis), German National Library persistent PDF https://d-nb.info/1231275863/34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior circular universality characterizations determine whether at least one rotation is universal; no reported statement counts number b of successful antipodal pairs.",
+        "Linear counting algorithms can compute a fixed phase but do not automatically provide the intersections among all q phases.",
+        "A prior ternary exact result covers \\(\\(q=3\\),k=2\\) and is explicitly excluded from the new novelty claim."
+      ],
+      "reasoning": "The implication gap is the new bijection between witness cuts and direct-sum permutation component boundaries, plus the proof that PP are the sole nonprimitive orbits. These steps yield all q, b and asymptotics and do not follow directly from the inspected statements. Independent literature verification could still uncover a specialized equivalent enumeration.",
+      "searches": [
+        "arxiv:2003.04629v1 §4 Theorem 22",
+        "arxiv:2104.09063v1 Theorems 44–45",
+        "arxiv:2304.04583v1 §3 counting",
+        "Counting circularly 2-subsequence-universal necklaces over arbitrary q-letter alphabet at minimum length 2q, permutation block direct-sum components and exact formulas",
+        "shortest circular scattered-factor universal necklaces for k=2 counting multiset words two letters each"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2003.04629v1 defines rotational circular universality and gives power-index relationships, rather than enumeration by qualifying antipodal cuts.",
+        "2104.09063v1 treats remainders and repetition indices; its counting unit is not rotation necklaces.",
+        "Known ternary count at \\(\\(q=3\\),k=2\\) gives 14 necklaces, agreeing with but not implying arbitrary-q formula."
+      ],
+      "reasoning": "Aliases searched included circular scattered-factor universality, two arch/permutation cut-pairs, double-occurrence necklaces and indecomposable direct-sum permutations. The prior ternary result yields only a specialization and no q-variable phase spectrum. The inspected primary claims address decision/repetition/ranking rather than the new cut-refined orbit enumeration.",
+      "searches": [
+        "shortest length 2q circular two-universal words pair of permutations, initial intervals decomposable permutation, number of valid cut phases",
+        "necklaces of double occurrence words consisting of two permutations after rotation with count log factorial generating series",
+        "indecomposable permutation blocks and cyclic arch decomposition of permutation-square words, word count by number of witnesses",
+        "arxiv:2003.04629v1 §4",
+        "arxiv:2104.09063v1 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The \\(q=3\\) specialization \\(L=78,N=14\\) is already recorded; new \\(q\\ge4\\) values include (1704,216) and (55320,5544).",
+        "The standard factorial and sum-indecomposable permutation enumerations are classical; the new assertion is their interpretation as exact witness cut counts of circularly universal necklaces."
+      ],
+      "reasoning": "A table of connected/indecomposable permutations alone does not encode successful cyclic rotations or the periodic PP orbit exception. No matching complete circular 2-universal necklace table or equivalent family was retrieved. Absence from search results is not a proof of global novelty.",
+      "searches": [
+        "necklaces of double occurrence words consisting of two permutations after rotation with count log factorial generating series",
+        "cyclic two arch permutation necklace direct sum decomposition counting log factorial series",
+        "Exact ternary necklace counts at minimum circular subsequence-universality length",
+        "permutations direct sum components q circular two universal necklaces count F(z) logarithm"
+      ]
+    },
+    "rationale": "The \\(q=3,k=2\\) numerical value is previously covered and not asserted new. The all-\\(q\\) distribution by successful cut-pairs, primitive/periodic orbit distinction, and asymptotic are not implied by inspected definitions, algorithms for recognizing circular universality, or linear word counts. Residual risk of unindexed equivalent literature is acknowledged.",
+    "residual_risks": [
+      "Not an independent audit; specialized or non-indexed necklace enumeration may imply the formula.",
+      "Some referenced primary full texts were inspected at relevant sections, not proven exhaustively absent from all appendices.",
+      "The logarithmic factorial generating function is a classical formal decomposition identity; novelty is the circular universality correspondence and orbit correction, not the standalone formal identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found definitions and index/power results, no cut-refined minimal necklace enumeration in inspected relevant statements",
+        "evidence": [
+          "arxiv:2003.04629v1, pp. 4–5, 13–14"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Definitions, minimum-length observation, circular section Lemmas 20–21 and Theorem 22 and surrounding proof/claims",
+        "method": "Direct reading of publicly available PDF text and page context",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Source introducing circular universality, minimum length, and links to repetitions"
+      },
+      {
+        "assessment": "Characterizes indices of powers and gives a circular universality algorithm, not a minimal-length necklace or witness-phase spectrum in material examined",
+        "evidence": [
+          "arxiv:2104.09063v1, pp. 1–4 and 18–19"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Abstract, introduction, definitions, Theorem 44/Proposition 45, and conclusion",
+        "method": "Direct reading of open-access PDF",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Likely stronger general-alphabet circular universality result"
+      },
+      {
+        "assessment": "Algorithms target all linear universal words and ranking; no cyclic equivalence or witness-cut multiplicities in inspected material",
+        "evidence": [
+          "arxiv:2304.04583v1, pp. 1–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Abstract, introduction, arch preliminaries, counting-section definition and approach",
+        "method": "Direct reading of arXiv original PDF with page inspection",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Published exact count of k-universal fixed-length linear words, potentially stronger than candidate"
+      },
+      {
+        "assessment": "Thesis covers circular universality and powers, not the alphabet-general minimal-necklace cut-refined enumerator in the relevant chapter materials examined",
+        "evidence": [
+          "Fleischmann 2021 PhD thesis, §§2.2 and 3.2, pp. 18–20 and 58–62, ch. 6 conclusion"
+        ],
+        "identifier_or_url": "https://d-nb.info/1231275863/34",
+        "material_read": "Table of contents and introduction, definitions of circular universality, Chapter 3 section 3.2 relevant rotation/index theorems, and final chapter conclusions",
+        "method": "Direct reading of a lawfully available open-access PhD thesis PDF, focusing on cited chapters.",
+        "title": "On Special k-Spectra, k-Locality, and Collapsing Prefix Normal Words",
+        "trigger": "Extended thesis treatment of circular scattered-factor universality that might dominate the published paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77b7a8f6-8ce9-4620-b282-090424ffddf8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum-length circular 2-universal words form a canonical, structurally motivated combinatorial class. Counting single-phase two-permutation concatenations does not solve cyclic phase overlaps; the direct-sum cut correspondence does and yields all witness multiplicities, a closed necklace series, unique period correction, and exponentially decaying random double-occurrence-word probability with its leading constant.",
+    "status": "PASS"
+  }
+}
