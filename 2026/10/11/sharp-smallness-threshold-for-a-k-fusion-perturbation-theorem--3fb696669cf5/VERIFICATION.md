@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The source definition and Theorem 9 were read from arXiv:1801.02785v2. The earliest public version was verified as 2018-01-09, and the source lists classification 42C15.
 
-For the failure witness, direct substitution with \(H=\mathbb C\), \(K=I\), \(W_1=H\), \(V_1=\{0\}\), \(w_1=a_1=b_1=1\), \(\lambda_1=\lambda_2=0\), and \(\mu=1\) gives equality in the perturbation hypothesis and zero perturbed frame energy.
+# Independent mathematical audit
 
-For the repaired theorem, the checked proof chain is:
-1. \(X^2\geq Aa_-^2\|K^*f\|^2\).
-2. The source perturbation hypothesis therefore implies \(D^2\leq pX^2+qY^2\), with \(p=\lambda_1+\mu/(Aa_-^2)\) and \(q=\lambda_2\).
-3. Direct-sum triangle inequalities give \(X\leq Y+D\) and \(Y\leq X+D\).
-4. Solving \((1-r)^2=p+qr^2\) yields \(r_\pm=(1\pm\sqrt{p+q-pq})/(1-q)\).
-5. When \(p<1\), \(r_->0\), and coefficient confinement converts \(r_-X\leq Y\leq r_+X\) into the displayed \(K\)-fusion-frame bounds.
-6. At \(p\geq1\), the scalar zero-subspace construction satisfies the perturbation inequality, proving sharpness of the universal threshold.
+## correctness
 
-A random symbolic-numeric stress test of \(100000\) pairs \((p,q)\) with \(0\leq p<1\) and \(0\leq q<1/2\) found no violation of the exact ratio interval. This finite test is auxiliary only; no infinite-dimensional conclusion depends on it.
+PASS
 
-Scientific limits: the theorem-level claim is tied to the fully inspected arXiv v2 statement. The later journal publication was identified bibliographically but not used as whole-document negative evidence. No independent audit has been performed.
+Full ar5iv HTML source arXiv:1801.02785 Theorem 9 lines 359–365 DOES state 0≤lambda1,lambda2<1/2 and arbitrary mu>0 for the exact weighted quadratic inequality. Explicit one-index H=C,K=I,W=H,V=0,w=a=b=1,lambda1=lambda2=0,mu=1 satisfies it but yields Y=0, disproving the published conclusion. For correction, weighted direct-sum analysis norms X,Y,D obey X²≥Aa_-²||K*f||² and D²≤pX²+qY² with p=lambda1+mu/(Aa_-²),q=lambda2. Reverse-triangle bounds |X−Y|≤D, and for X>0 r=Y/X lies between r±=(1±sqrt(p+q−pq))/(1−q); p<1 ensures positive r_- and q<1. Direct coefficient confinement converts to the displayed K-fusion bounds Aa_-²r_-²/b_+² and Ba_+²r_+²/b_-². For X=0, K*f=0; upper bound still follows D≤sqrt(q)Y then triangle. The boundary/supercritical one-index construction makes Y=0 whenever mu≥(1−lambda1)Aa_-², proving sharp UNIVERSAL sufficiency, not individual-family failure. Independently checked quadratic root identity and direct counterexample, not relying on finite stress logs.
+
+## originality
+
+PASS
+
+Theorem 9 in the complete lawful ar5iv transcription literally lacks a mu bound while Theorem 10 (same source, lines 396–402) uses a DIFFERENT norm-form perturbation and an explicit smallness constraint. Related 2018 approximately dual g-frame and 2020 K-g-fusion perturbation papers impose additive perturbation smallness but in inequivalent models and without this exact coefficient-weighted quadratic threshold or the sharp zero-subspace counterexample. Resultary search surfaces the exact current result and different K-frame counterexamples, not this same Theorem9 repair. The subsequent 2022 journal publication was bibliographically identified but not read and could differ; accepted claim is explicitly about arXiv v2. Best-of-knowledge O PASS.
+
+## value
+
+PASS
+
+A theorem advertised to preserve K-fusion frames can pass its published hypotheses while giving zero perturbed analysis, so the defect is substantive. The corrected universal threshold is exact and supported by a dimension-one sharpness example; explicit usable two-sided bounds repair the source theorem, rather than merely pointing out a missing constant or running a finite sanity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

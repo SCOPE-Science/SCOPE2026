@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The source theorem was reconstructed from its full text. The scalar counterexample satisfies every hypothesis by direct substitution. The repaired theorem follows from exact Hilbert direct-sum inequalities and an explicitly solved quadratic; the threshold sharpness is witnessed by a scalar one-index construction. The finite stress test is not used as proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The exact source theorem, its adjacent perturbation theorem, a 2018 \(g\)-frame perturbation result, and a 2020 \(K\)-\(g\)-fusion perturbation theorem were compared at statement and implication level. Targeted searches covered the source identifier, theorem number, positively confined coefficients, zero-subspace witness, exact \(\mu\)-threshold, and quadratic-root formulation. No inspected source contains or implies the accepted combined claim. Residual risk remains from unindexed corrections or informal notes, and the later journal version was not used as theorem-level negative evidence.
+## correctness
 
-## Value
-PASS. The finding changes a general stability theorem from false to quantitatively correct. It provides both a minimal-dimensional failure and the exact parameter-only smallness boundary, with explicit repaired lower and upper bounds.
+PASS
 
-## Closest literature and limitations
-The closest inspected literature imposes additive perturbation smallness in different \(g\)-frame or \(K\)-\(g\)-fusion models. Those results do not dominate the coefficient-weighted quadratic hypothesis of arXiv:1801.02785v2 Theorem 9. The sharpness statement concerns universal guarantees from the displayed parameters; it does not assert failure of every individual family above the threshold.
+Full ar5iv HTML source arXiv:1801.02785 Theorem 9 lines 359–365 DOES state 0≤lambda1,lambda2<1/2 and arbitrary mu>0 for the exact weighted quadratic inequality. Explicit one-index H=C,K=I,W=H,V=0,w=a=b=1,lambda1=lambda2=0,mu=1 satisfies it but yields Y=0, disproving the published conclusion. For correction, weighted direct-sum analysis norms X,Y,D obey X²≥Aa_-²||K*f||² and D²≤pX²+qY² with p=lambda1+mu/(Aa_-²),q=lambda2. Reverse-triangle bounds |X−Y|≤D, and for X>0 r=Y/X lies between r±=(1±sqrt(p+q−pq))/(1−q); p<1 ensures positive r_- and q<1. Direct coefficient confinement converts to the displayed K-fusion bounds Aa_-²r_-²/b_+² and Ba_+²r_+²/b_-². For X=0, K*f=0; upper bound still follows D≤sqrt(q)Y then triangle. The boundary/supercritical one-index construction makes Y=0 whenever mu≥(1−lambda1)Aa_-², proving sharp UNIVERSAL sufficiency, not individual-family failure. Independently checked quadratic root identity and direct counterexample, not relying on finite stress logs.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Theorem 9 in the complete lawful ar5iv transcription literally lacks a mu bound while Theorem 10 (same source, lines 396–402) uses a DIFFERENT norm-form perturbation and an explicit smallness constraint. Related 2018 approximately dual g-frame and 2020 K-g-fusion perturbation papers impose additive perturbation smallness but in inequivalent models and without this exact coefficient-weighted quadratic threshold or the sharp zero-subspace counterexample. Resultary search surfaces the exact current result and different K-frame counterexamples, not this same Theorem9 repair. The subsequent 2022 journal publication was bibliographically identified but not read and could differ; accepted claim is explicitly about arXiv v2. Best-of-knowledge O PASS.
+
+## value
+
+PASS
+
+A theorem advertised to preserve K-fusion frames can pass its published hypotheses while giving zero perturbed analysis, so the defect is substantive. The corrected universal threshold is exact and supported by a dimension-one sharpness example; explicit usable two-sided bounds repair the source theorem, rather than merely pointing out a missing constant or running a finite sanity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
