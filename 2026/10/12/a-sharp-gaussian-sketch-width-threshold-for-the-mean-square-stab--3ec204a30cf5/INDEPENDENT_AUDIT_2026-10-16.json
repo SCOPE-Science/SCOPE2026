@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:14:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every nonzero pivot of a nonsingular 2×2 input the rank-one cross residual has sole nonzero magnitude |det A|/|a_ij|, giving Z=s1/|a_ij|. Exact squared-entry sampling yields E Z²=N s1²/(s1²+s2²)≤4. For b>2 the Gaussian regression identity gives E[X_i/X_j]=(b−2ρ²)/(b−2)≤b/(b−2), and Cauchy–Schwarz bounds every sketch-pivot probability by that factor times a_ij²/||A||F², proving E Z_b²≤4b/(b−2). On D_e, the independent χ²_b ratio implies exactly E Z_1²=1/e, E Z_2²=−2 log(e)/(1−e²), and limit 1+b/(b−2) for b≥3. For H_h symmetric SPD, row-exchange invariance makes sketch and exact pivot distributions identical; off-diagonal probability h²/(1+h²) yields exact E Z^p=(1+h)^p(1+h^(2−p))/(1+h²), diverging as h→0 for every p>2 even though κ≤2. The strict tail envelope follows by maximizing increasing off-pivot probability over h<1/(T−1). Independently checked several rational h moment identities and b=2 integral expressions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Divan–Gilles Lemma 5.1 supplies a known b≥3 domination factor b/(b−2).",
+          "Gilles–Wilber analyze entry-squared RPLU and expected low-rank residuals, but do not provide the b=1,2 divergence and p>2 moment impossibility for the source sketch distribution."
+        ],
+        "reasoning": "The main upper bound reuses prior sufficiency and credits it; the new necessity and sharp limiting laws go beyond that available implication.",
+        "searches": [
+          "Gaussian sketch randomly pivoted LU rank one mean square block width b=3 chi square threshold b 1 2 high moments",
+          "arXiv:2609.06287v1 expected sketch pivot bounds",
+          "arXiv:2601.22344v1 squared-entry randomly pivoted LU"
+        ]
+      },
+      "checked_sources": [
+        "Divan and Gilles (2026), arXiv:2609.06287v1, primary sections on Gaussian-sketch RPLU",
+        "Gilles and Wilber (2026), arXiv:2601.22344v1, primary RPLU",
+        "Resultary semantic query: Gaussian sketch randomly pivoted LU rank one mean square block width b=3 chi square threshold b 1 2 high moments",
+        "Frozen source RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing b≥3 theorem does not logically imply divergence at b≤2; failure of its proof when inverse-chi-square moments diverge is not an impossibility theorem.",
+          "Positive-definite H_h with κ≤2 shows sketch width cannot save p>2 moments, using exact off-diagonal probability h²/(1+h²)."
+        ],
+        "reasoning": "Constructed diagonal and well-conditioned witnesses supply genuinely separate lower/impossibility results, not simply reformulating known upper bounds.",
+        "searches": [
+          "Gaussian sketch randomly pivoted LU rank one mean square block width b=3 chi square threshold b 1 2 high moments",
+          "arXiv:2609.06287v1 Lemma 5.1 and results",
+          "arXiv:2601.22344v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One Gaussian-sketch pivot is a row-sampled squared-entry pivot with random chi-square row weights; b denotes Gaussian projection block width.",
+          "The b=3 sufficiency uses inverse-chi-square E[1/χ²_b]=1/(b−2), while b=1,2 fail uniformity for a particular diagonal 2×2 family."
+        ],
+        "reasoning": "Equivalent formulations via size-biased chi-square ratios and leverage-score pivot selection were compared; the diagonal necessity is not the published general b≥3 sufficient bound in another notation.",
+        "searches": [
+          "Gaussian sketch randomly pivoted LU rank one mean square block width b=3 chi square threshold b 1 2 high moments",
+          "arXiv:2609.06287v1 §5.2, Lemma 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact E[Z_1²]=1/e and E[Z_2²]=−2 log(e)/(1−e²) hold continuously for all 0<e<1, not as numerical table entries.",
+          "The limit E[Z_b²]→1+b/(b−2) for b≥3 and p>2 blow-up are analytic."
+        ],
+        "reasoning": "A finite parameter table cannot establish the sharp sketch-width/moment phase boundary; no exact prior formula for the diagonal family was located in the inspected source.",
+        "searches": [
+          "Gaussian sketch randomly pivoted LU rank one mean square block width b=3 chi square threshold b 1 2 high moments",
+          "arXiv:2609.06287v1"
+        ]
+      },
+      "rationale": "The primary Gaussian-sketch LU article establishes sufficient b≥3 pivot-probability domination, not necessity of b≥3 under the exact two-by-two mean-square normalization. The diagonal chi-square-ratio formulas at b=1,2 and the uniformly-conditioned higher-moment/tail obstruction are distinct further conclusions. Earlier squared-entry RPLU analyses give the baseline but not the sharp moment threshold and explicit counterexample laws.",
+      "residual_risks": [
+        "An unindexed numerical-analysis supplement might already list chi-square-ratio diagonal divergences.",
+        "Necessity construction for b=1,2 allows ill-conditioned D_e; higher-moment obstruction uses well-conditioned matrices but does not imply divergence of second moments there.",
+        "Bound is first exact two-by-two pivot only, not multi-iteration or finite-precision behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of sufficiency only",
+          "evidence": "Original lemma gives b≥3 bound; no b=1,2 necessity or conditioned p>2 counterexample in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287",
+          "material_read": "Primary HTML section on sketch pivot-probability domination and expected-error theorem, including inverse-chi-square argument",
+          "method": "Read primary theorem/proof and compared parameter restrictions",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+          "trigger": "Introduces actual Gaussian sketch row pivoting and b≥3 assumption"
+        },
+        {
+          "assessment": "BACKGROUND_RPLU bound, not sharp Gaussian width threshold",
+          "evidence": "Entry-squared pivot distribution is covered; new claims concern Gaussian-induced row sampling and moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.22344",
+          "material_read": "Primary main results and setup checked for RPLU pivot sampling and expected residual",
+          "method": "Primary arXiv literature comparison",
+          "title": "Low-Rank Approximation by Randomly Pivoted LU",
+          "trigger": "Baseline exact entry-squared pivots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp necessity of three sketch columns for uniform normalized mean-square one-step LU accuracy and a separate universal higher-moment/tail obstruction quantify concrete stability properties of a published randomized algorithm. The diagonal and uniformly conditioned counterexample regimes are distinct, operationally meaningful boundaries, not arbitrary tiny test cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Real nonsingular 2×2 matrices, one exact rank-one update with independent Gaussian sketch.",
+    "Constants 4b/(b−2) not claimed optimal; no high-dimensional/multistep extension."
+  ]
+}

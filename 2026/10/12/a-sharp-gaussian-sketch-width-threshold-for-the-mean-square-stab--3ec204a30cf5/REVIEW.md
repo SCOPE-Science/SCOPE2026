@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any nonsingular real two-by-two input, the sole remaining LU cross residual is a determinant divided by its selected pivot. This gives the exact normalized squared-error identity for entry-squared pivoting. Cauchy–Schwarz and the independently reconstructed Gaussian conditional-regression and inverse-chi-square calculation show why the sketch distribution is dominated only for at least three Gaussian columns. Direct Beta integrations give the exact \(b=1\) and \(b=2\) failures. Row-exchange symmetry gives the same pivot law across all Gaussian sketch widths on a well-conditioned positive-definite family, establishing an exact sharp higher-moment obstruction and tail frontier. The embedded verifier exercises the stated finite checks; the proof, not experiments, establishes universal assertions.
+PASS
 
-## Originality — PASS, with limitations
+For every nonzero pivot of a nonsingular 2×2 input the rank-one cross residual has sole nonzero magnitude |det A|/|a_ij|, giving Z=s1/|a_ij|. Exact squared-entry sampling yields E Z²=N s1²/(s1²+s2²)≤4. For b>2 the Gaussian regression identity gives E[X_i/X_j]=(b−2ρ²)/(b−2)≤b/(b−2), and Cauchy–Schwarz bounds every sketch-pivot probability by that factor times a_ij²/||A||F², proving E Z_b²≤4b/(b−2). On D_e, the independent χ²_b ratio implies exactly E Z_1²=1/e, E Z_2²=−2 log(e)/(1−e²), and limit 1+b/(b−2) for b≥3. For H_h symmetric SPD, row-exchange invariance makes sketch and exact pivot distributions identical; off-diagonal probability h²/(1+h²) yields exact E Z^p=(1+h)^p(1+h^(2−p))/(1+h²), diverging as h→0 for every p>2 even though κ≤2. The strict tail envelope follows by maximizing increasing off-pivot probability over h<1/(T−1). Independently checked several rational h moment identities and b=2 integral expressions.
 
-Gilles–Wilber arXiv:2601.22344v1 proves expected Frobenius guarantees for the exact squared-entry randomized pivot law. Divan–Gilles arXiv:2609.06287v1 gives sufficient bounds for Gaussian sketch size at least three, without a converse small-sketch obstruction or a classification of higher moments on uniformly conditioned inputs. The present necessity proof, exact divergent second moments for widths one and two, and sharp polynomial tail lower bound are not consequences of either published expected-error *upper bound* alone; their sampling formulas are used as acknowledged starting definitions. Distinct adaptive randomized pivoting and deterministic complete-pivoting records do not dominate these Gaussian sketch-width statements. An equivalent unindexed prior derivation is a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-Gaussian sketch dimension is a practical algorithmic design choice. The minimal admissible width distinguishes a genuine uniform mean-square approximation guarantee from an algorithm with unbounded normalized mean-square error, even in dimension two. The higher-moment and sharp-tail theorem proves that mean-square guarantees cannot be automatically converted into faster-than-quadratic tail control, even on nearly identity matrices. This gives a motivated structural boundary for uncertainty quantification and robust randomized factorization, not simply a recomputation of a known expectation.
+The primary Gaussian-sketch LU article establishes sufficient b≥3 pivot-probability domination, not necessity of b≥3 under the exact two-by-two mean-square normalization. The diagonal chi-square-ratio formulas at b=1,2 and the uniformly-conditioned higher-moment/tail obstruction are distinct further conclusions. Earlier squared-entry RPLU analyses give the baseline but not the sharp moment threshold and explicit counterexample laws.
 
-## Scope and limitations
+## value
 
-Single update, real nonsingular two-by-two matrices, exact arithmetic, independent Gaussian sketch, Frobenius residual normalized by the smaller singular value. The width-one and width-two obstruction uses ill-conditioned diagonal matrices; the no-higher-moments obstruction uses well-conditioned SPD matrices. No long-run algorithmic, backward-stability, or runtime guarantee is asserted. Independent literature uniqueness has not been certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp necessity of three sketch columns for uniform normalized mean-square one-step LU accuracy and a separate universal higher-moment/tail obstruction quantify concrete stability properties of a published randomized algorithm. The diagonal and uniformly conditioned counterexample regimes are distinct, operationally meaningful boundaries, not arbitrary tiny test cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
