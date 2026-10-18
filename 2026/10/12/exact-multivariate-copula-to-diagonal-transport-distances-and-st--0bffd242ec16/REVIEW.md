@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the exact Euclidean squared cost, identifies the unique scalar comonotone optimum, and converts the distance to a centered absolute moment of \(2d\) uniforms. Irwin--Hall integration supplies the exact formula. A nonnegative sinc-squared Fourier kernel gives strict first-moment concavity, hence strict dimension convexity. The controlled characteristic-function expansion proves the sharp second-order rate. The companion checker reproduces all closed forms two independent rational ways for \(d\le8\), checks exact small dimensions and finite convexity through \(d=12\). These tests are not substitutes for universal proof.
+## correctness
 
-## Originality — PASS
-The closest full paper, Ansari arXiv:2609.23940v1, Proposition 3.1 and Corollary 1.4, already proves the scalar-sum optimal map and distance \(1/10\) in dimension two, as well as a global bivariate extremality theorem. None is claimed new. The present finding is an all-dimensional exact benchmark, strict convexity in dimension and a quantitative asymptotic law. The 2024 Abdellatif--Kuchling--Rüdiger--Ventura result presumes equal copulas, which the independent and comonotone pair does not have; a published simplex-projection calculation contains the ancillary Irwin--Hall moment but not these copula-distance conclusions. Searches cannot rule out a differently indexed equivalent, and the 2025 survey was not fully read.
+PASS
 
-## Value — PASS
-This completes a natural, parameter-free multivariate metric benchmark beyond the bivariate result, including an exact dimension law and a non-obvious strict-curvature property. It does not assert that the diagonal copula maximizes the distance among all copulas in higher dimension, and it does not extend to other costs or marginals.
+Rewrite squared cost for X∼Π_d, V uniform as 2d/3−2E[(ΣX_i)V]; Hardy–Littlewood rearrangement yields the unique comonotone coupling V=F_d(ΣX_i), since ΣX_i is continuous. Symmetrization gives Q_d=d/6−H_d/2 with H_d=E|Σ_i(U_i−U_i′)|. Sums of 2d uniforms and Irwin–Hall integration prove exact finite formula. The characteristic function of each difference is a(t)=sinc²(t/2)∈[0,1], so H_d=(2/π)∫(1−a^d)/t² and its strict first- and second-difference signs prove Q_d strictly convex and increasing from Q1=0. Controlled log-sinc expansion yields asymptotic Q_d=d/6−sqrt(d/(12π))(1+1/(40d)+O(d^−2)). Independently computed exact rational Q1..Q6: 0,1/10,181/840,1537/4536,373057/798336,22215929/37065600 and checked first/second finite differences, not a proof of for-all-d.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: primary bivariate d=2 value and map are known and not claimed. Novel surviving content is all-d exact metric benchmark together with strict dimension convexity and two-term asymptotic. Same-copula multivariate theorem cannot imply independent-to-comonotone transport. Full lead paper unavailable despite lawful access attempts: significant explicit coverage risk.
+
+## value
+
+PASS
+
+Completes a canonical high-dimensional Wasserstein dependence benchmark with computable rational all-d values, unique optimization map, a nontrivial strict curvature theorem and quantitative Gaussian-scale correction. Supports higher-d questions without claiming higher-d global maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
