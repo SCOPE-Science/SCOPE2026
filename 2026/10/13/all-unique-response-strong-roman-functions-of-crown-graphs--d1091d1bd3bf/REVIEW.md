@@ -1,12 +1,21 @@
-# Review of All unique-response strong Roman functions of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The unique-response condition forces the label-at-least-\(2\) set to be a \(2\)-packing. Crown geometry allows no such set larger than two, and the only two-vertex possibilities are deleted matched pairs. The cases of zero, one, and two strong vertices then force all remaining labels and the defender strengths exactly. The three cases are disjoint and exhaustive, giving the complete weight enumerator, total count, minimum value, and all minima. Exhaustive direct testing of \(1{,}114{,}841\) allowed labelings for \(3\le n\le5\) matches the classification exactly.
+## correctness
 
-## Originality
-PASS. The 2021 defining paper gives general \(2\)-packing theory and the complete-bipartite minimum but contains no crown occurrence. The 2026 ordinary strong-Roman crown theorem gives the same parity-dependent minimum weight and uses a deleted matched pair as a construction, but it does not classify unique-response functions or enumerate all feasible labelings. Targeted semantic and exact searches under crown and \(K_{n,n}\)-minus-matching aliases found no unique-response crown theorem. Current and prior scientific ledgers likewise contain crown Roman variants and strong-Roman results on other families, but no unique-response crown classification.
+PASS
 
-## Value
-PASS. The result determines every feasible unique-response strong Roman defense, not only the optimum, for a canonical dense regular bipartite family. It also exposes a notable perturbation phenomenon: deleting one perfect matching from \(K_{n,n}\) creates exactly \(n\) two-vertex \(2\)-packings, sharply reducing the unique-response cost and making the entire feasible family collapse to \(3n+1\) functions. This supplies structural information that neither the general \(2\)-packing theorem nor the ordinary strong-Roman crown value states.
+Unique-response conditions require vertices labeled ≥2 to form a graph-theoretic 2-packing (distance at least 3): adjacency contradicts positive-label exclusion, distance two gives a vertex with two defenders or a positive vertex adjacent to one. In crown graph all same-side pairs have distance two, cross-side pairs are adjacent except a deleted matched pair, so the strong set is ∅, a singleton, or exactly one deleted pair. Empty forces all ones. Singleton defender d forces all its n−1 neighbors zero, every other nond vertex one, and defender label exactly h. A matched pair forces remaining vertices zero and each strength h. These disjoint cases yield counts 1,2n,n and the weight formula. Fresh independent exhaustive all-(h+1)^(2n) labelings for n=3,4,5 produced weight tables {4:3,5:6,6:1}, {6:4,7:8,8:1}, {6:5,8:10,10:1}; arbitrary n follows from structural classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Mojdeh et al. (2021) prove a general 2-packing minimum formulation and complete-bipartite values; neither enumerates all feasible crown functions. A 2026 ordinary strong Roman crown value has same minimum scalar but does not impose unique-response conditions or count all three families. Relevant Resultary crown finding treats perfect Roman domination (fixed defender weight 2), not the high-label strong Roman variant.
+
+## value
+
+PASS
+
+Provides complete weight enumerator rather than only optimal value for a natural and highly symmetric family. Separates unique-response from ordinary strong Roman and quantifies rigidity of one-edge matching deletion from complete bipartite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

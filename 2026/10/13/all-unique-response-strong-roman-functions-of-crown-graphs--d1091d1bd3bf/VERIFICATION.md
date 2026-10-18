@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs every crown graph
-\[
-\operatorname{Cr}_n
-\]
-for
-\[
-3\le n\le5.
-\]
+# Independent mathematical audit
 
-For each permitted labeling, it directly checks both components of the definition: the unique-response restrictions on the number of strong neighbors, and the strong Roman defender inequality for every zero-labeled vertex.
+## correctness
 
-The direct result is compared with the three-family classification. It also independently compares the complete weight histogram with
-\[
-z^{2n}+2n z^{n+h}+n z^{2h},
-\qquad
-h=1+\left\lceil\frac{n-1}{2}\right\rceil.
-\]
+PASS
 
-Recorded output:
+Unique-response conditions require vertices labeled ≥2 to form a graph-theoretic 2-packing (distance at least 3): adjacency contradicts positive-label exclusion, distance two gives a vertex with two defenders or a positive vertex adjacent to one. In crown graph all same-side pairs have distance two, cross-side pairs are adjacent except a deleted matched pair, so the strong set is ∅, a singleton, or exactly one deleted pair. Empty forces all ones. Singleton defender d forces all its n−1 neighbors zero, every other nond vertex one, and defender label exactly h. A matched pair forces remaining vertices zero and each strength h. These disjoint cases yield counts 1,2n,n and the weight formula. Fresh independent exhaustive all-(h+1)^(2n) labelings for n=3,4,5 produced weight tables {4:3,5:6,6:1}, {6:4,7:8,8:1}, {6:5,8:10,10:1}; arbitrary n follows from structural classification.
 
-```text
-VERIFY_OK
-n=3: h=2, weight_counts={4: 3, 5: 6, 6: 1}, total_functions=10
-n=4: h=3, weight_counts={6: 4, 7: 8, 8: 1}, total_functions=13
-n=5: h=3, weight_counts={6: 5, 8: 10, 10: 1}, total_functions=16
-labelings_checked = 1114841
-URStRDFs_checked = 39
-all feasible functions matched the three-family classification and exact weight enumerator
-```
+## originality
 
-The finite enumeration is corroborative only. The theorem for all \(n\ge3\) follows from the crown \(2\)-packing classification and the forced-label argument in the proof.
+PASS
+
+Mojdeh et al. (2021) prove a general 2-packing minimum formulation and complete-bipartite values; neither enumerates all feasible crown functions. A 2026 ordinary strong Roman crown value has same minimum scalar but does not impose unique-response conditions or count all three families. Relevant Resultary crown finding treats perfect Roman domination (fixed defender weight 2), not the high-label strong Roman variant.
+
+## value
+
+PASS
+
+Provides complete weight enumerator rather than only optimal value for a natural and highly symmetric family. Separates unique-response from ordinary strong Roman and quantifies rigidity of one-edge matching deletion from complete bipartite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
