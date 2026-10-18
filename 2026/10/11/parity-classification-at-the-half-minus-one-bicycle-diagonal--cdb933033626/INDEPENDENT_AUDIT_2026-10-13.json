@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T01:45:54.490481Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md ed782ccc31eb108f06e57cc0aa6c656a99daf559; independent rederivation of paired trapezoid and parallelogram argument",
+        "Tabachnikov arXiv:math/0405445 Theorems 9–10 and Lemma 7.1 page images 19 and 22"
+      ],
+      "rationale": "Tabachnikov’s Lemma 7.1 for convex bicycle polygons, read in the original 2004 full preprint and page image, gives an isosceles trapezoid for each index i with bases ViVi+m and Vi+1Vi+m−1. Pair the trapezoids indexed i and i+m along their common long diagonal. Reflection of leg directions forces θ_i+θ_{i+m−1}≡θ_{i+m}+θ_{i−1} mod 2π, so strict exterior turning angles α_i and α_{i+m} agree (both in (0,π)). Total turn 2π gives a half-turn π per m edges and e_{i+m}=−e_i, hence Vi+m+Vi is constant. Center at zero; then Xi+m−1=−Xi−1, so equal side s and (m−1)-diagonal d yield s²+d²=2(||Xi||²+||Xi−1||²). Subtraction forces squared-radius period two. For odd m, the antipodal index shift swaps parity and equalizes all radii. Strict convexity gives consecutive central angle in (0,π), where equal chord length forces equal angle, hence regularity. For even m, original Theorem 10 gives nonregular one-parameter convex examples n even and k odd, with strict convex parameter choices. No finite experiment is invoked as an infinite proof.",
+      "risks": [
+        "Strict convexity is used both to exclude the parallelogram branch and to identify turning/central angles; degenerate polygons excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tabachnikov 2004 rigid families: k=2, odd n with k=3, n=2k+1, n=3k; none contains the n=2m,k=m−1 line in general.",
+          "Tabachnikov–Tsukerman 2012 classifies (4k,k), which cannot equal (2m,m−1) for m≥3."
+        ],
+        "reasoning": "Broader-looking old rigidity families and two-circle theorems do not cover the new infinite half-minus-one slice. The even-m existence branch is explicitly attributed to Tabachnikov Theorem 10.",
+        "searches": [
+          "strictly convex bicycle (2m,m-1) polygon central symmetry parity odd m regular Tabachnikov Theorem 9",
+          "arXiv:math/0405445 Theorem 9",
+          "arXiv:1211.2345 Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Tabachnikov arXiv:math/0405445 original Section 7, Lemma 7.1 / Theorems 9–10",
+        "Tabachnikov–Tsukerman arXiv:1211.2345 original Section 5 / Theorem 9",
+        "Resultary: 2026/10/4/SCOPE-global-rigidity-of-convex-bicycle-10-4-gons--aff7a9d454eb",
+        "Resultary searched exact half-minus-one parameter aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old trapezoid lemma is a nonstandard critical input but only a local quadrilateral shape statement; paired trapezoid turning periodicity is new proof work.",
+          "Old even-n odd-k flexibility construction proves one half; other old global families do not imply odd-m rigidity.",
+          "The new claim includes a central-symmetry/two-radius property for every m and infinitely many globally rigid cases, exceeding the isolated m=5 result and unrelated (4k,k) theorem."
+        ],
+        "reasoning": "The local trapezoid lemma and known flexible examples are credited as inputs. The new pairing across antipodal indices proves uniform central symmetry, alternating radii, and odd-m rigidity that neither input statement logically contains.",
+        "searches": [
+          "strictly convex bicycle (2m,m-1) polygon central symmetry parity odd m regular Tabachnikov Theorem 9",
+          "arXiv:math/0405445 Lemma 7.1, Theorems 9–10",
+          "arXiv:1211.2345 Theorem 9",
+          "Resultary: 2026/10/4/SCOPE-global-rigidity-of-convex-bicycle-10-4-gons--aff7a9d454eb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bicycle (n,k) uses equilateral sides and uniform k-neighbor diagonals. Equivalent parameterizations n=2k+2 and k=n/2−1 define the same line.",
+          "Previous published Resultary (10,4) proves only the m=5 special case, without a quantified all-m claim."
+        ],
+        "reasoning": "The equivalence aliases were considered. They do not reveal a prior all-m statement; the current proof adds an index-period and parity structural theorem.",
+        "searches": [
+          "strictly convex bicycle (2m,m-1) polygon central symmetry parity odd m regular Tabachnikov Theorem 9",
+          "arXiv:math/0405445v1",
+          "Resultary: 2026/10/4/SCOPE-global-rigidity-of-convex-bicycle-10-4-gons--aff7a9d454eb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary earlier (10,4) global result is one exact finite polygon-order case m=5.",
+          "The 2012 paper’s two-circle exact classification concerns (4k,k), not the target (2m,m−1)."
+        ],
+        "reasoning": "An infinite parity mechanism and universal symmetry lemma cannot be inferred from a one-case table; the present claim is not merely a recomputation of m=5.",
+        "searches": [
+          "strictly convex bicycle (2m,m-1) polygon central symmetry parity odd m regular Tabachnikov Theorem 9",
+          "Resultary: 2026/10/4/SCOPE-global-rigidity-of-convex-bicycle-10-4-gons--aff7a9d454eb",
+          "arXiv:1211.2345 Theorem 9"
+        ]
+      },
+      "rationale": "Tabachnikov’s foundational 2004 Theorem 9 rigid families do not cover the line (n,k)=(2m,m−1) for odd m≥7; his Theorem 10 already supplies the even-m flexible side and is explicitly credited. Connelly–Csikós examines local first-order flexibility, not global convex rigidity; Tabachnikov–Tsukerman 2012 Theorem 9 concerns the different line (4k,k). The previously published Resultary (10,4) theorem settles only m=5. The uniform new central-symmetry, alternating squared-radius structure, and parity-dependent global rigidity are not logical consequences of that isolated case or the listed neighboring parameter families.",
+      "residual_risks": [
+        "An unindexed note could contain the same easy but nontrivial paired-trapezoid symmetry observation.",
+        "Prior local rigidity tables were compared only as local evidence, not asserted to prove or disprove global all-m rigidity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INPUT_LEMMA_AND_EXISTENCE_NOT_ALL_M_RIGIDITY",
+          "evidence": [
+            "Lemma 7.1 proves each convex bicycle quadrilateral is an isosceles trapezoid. Theorem 9 lists four different rigidity families; Theorem 10 produces nonregular convex examples for even n, odd k."
+          ],
+          "identifier_or_url": "arXiv:math/0405445v1; https://arxiv.org/pdf/math/0405445",
+          "material_read": "Section 7 original pages 19–22, Lemma 7.1 proof and excluded parallelogram case, Theorems 9–10 proofs and figure",
+          "method": "ArXiv primary PDF text and checked page images",
+          "title": "Tire track geometry: variations on a theme",
+          "trigger": "Foundational exact bicycle definition; critical isosceles-trapezoid lemma and parity construction"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER_FAMILY",
+          "evidence": [
+            "Theorem 9 gives global classification for (4k,k), not n=2m,k=m−1 except excluded integer m=2."
+          ],
+          "identifier_or_url": "arXiv:1211.2345; https://arxiv.org/pdf/1211.2345",
+          "material_read": "Section 5 and Theorem 9 in full relevant text, theorem proof and parameter hypotheses",
+          "method": "Author arXiv original full paper relevant section and page image",
+          "title": "On the discrete bicycle transformation",
+          "trigger": "Potential broader two-circle/global bicycle classification"
+        },
+        {
+          "assessment": "COVERED_SPECIAL_CASE",
+          "evidence": [
+            "Previously established m=5 alone; do not infer failure of the all-m result from this covered example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-global-rigidity-of-convex-bicycle-10-4-gons--aff7a9d454eb",
+          "material_read": "Resultary search result full theorem summary and identifier; complete paper not reread in this run",
+          "method": "Resultary publication search summary only",
+          "title": "Global rigidity of convex bicycle (10,4)-gons",
+          "trigger": "Previously published exact m=5 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original bicycle classification asks exactly which arithmetic (n,k) parameter families permit nonregular convex polygons. The nearest-to-half diagonal k=n/2−1 is a natural infinitely varying line, and the theorem supplies a global central-symmetry/two-radius mechanism and complete parity threshold: infinitely many new odd-m rigid cases with an already-known flexible complementary half. It is not arbitrary low-order enumeration or mere title/parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every strictly convex equilateral 2m-gon (m≥3) with equal (m−1)-neighbor diagonals is centrally symmetric and has squared vertex radii periodic with index shift two; for odd m this forces regularity, whereas for even m Tabachnikov’s existing even-n odd-k construction yields nonregular strictly convex examples.",
+  "limitations": [
+    "Strict convexity essential; no classification of every nonregular even-m polygon.",
+    "Even-m flexibility existence is prior work, not claimed original."
+  ],
+  "schema_version": 1
+}
