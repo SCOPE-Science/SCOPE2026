@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit polynomial coordinate map has determinant \(-2\) and an explicit polynomial inverse. Direct differentiation gives two exact first integrals and the cubic scalar dynamics. The inward-pointing cubic guarantees forward completeness and boundedness; scalar monotonicity gives convergence and the complete leafwise heteroclinic census. The polynomial potential derivative is \(4y^2\), which annihilates every compact stationary state's off-equilibrium mass. The discriminant and fold/cusp asymptotics were symbolically checked, and the global steps are proved in `RESULT.md`. No finite experiment is used as an infinite-time proof.
+## correctness
 
-## Originality — PASS with literature-access uncertainty
-The original Pehlivan–Wei article, DOI 10.3906/elk-1103-14, supplies the identical vector field and discusses chaos, equilibria, parameter bifurcation, and controlled Hopf behavior. Its accessible extracted original pages 1229–1231 were read; they do not state the singular zero-coupling polynomial automorphism, its scalar cubic family, or the complete bounded-dynamics census. The remainder of that original article was not available for full-text inspection, a nontrivial priority risk rather than evidence of absence. Kalayci et al., DOI 10.1155/2021/6615856, was inspected in full as available HTML, especially its Pehlivan–Wei subsection; its \(a=2\) application study does not logically imply the \(a=0\) integrability theorem. Searches of mathematical research records for the model, equivalent conjugacies, first integrals, cusp, and stationary dynamics retrieved different systems and no directly covering statement. The novelty conclusion is conditional on the stated inaccessible-material risk and is not a claim of independent literature certification.
+PASS
 
-## Value — PASS
-This is a motivated singular parameter boundary within a canonical chaotic quadratic system, not an arbitrarily selected finite invariant. A global polynomial conjugacy and two integrals reveal a collapsed three-dimensional dynamics, while exact leafwise cusp/fold strata determine every bounded complete trajectory, all compact invariant measures, and algebraic convergence constants. The one-dimensional deductions are standard after the nontrivial system-specific reduction, but the complete classification has direct interpretive value for the studied chaotic model. The result makes no claim for nonzero coupling.
+At a=0, u=x+y has u-dot=2y and H=z+u²/4 has H-dot=−uy+(u/2)(2y)=0. K=2y−(1+H)u+u³/12 similarly has K-dot=0. Polynomial inverse y=(K+(1+H)u−u³/12)/2, x=u−y, z=H−u²/4, and globally constant Jacobian determinant −2 verify a polynomial automorphism. Scalar u-dot=P=K+(1+H)u−u³/12 has inward cubic tails, hence all initial finite trajectories bounded and forward-complete; scalar order gives convergence to roots. Potential G=Ku+(1+H)u²/2−u⁴/48 satisfies dG/dt=P²=4y², so compact stationary measures force y=0 support, all equilibria. Cubic equation discriminant 432[16(1+H)³−9K²] gives all 3-root, double-root and single-root regimes; between adjacent roots each bounded complete orbit forms one heteroclinic modulo time translations. At cusp P=−u³/12 yields u~sign(u0)√(6/t), and fold P=−(u−r)²(u+2r)/12 yields t(u−r)→4/r on approaching side. Independently checked both polynomial first integrals and det=−2 in SymPy; read complete package verifier code.
 
-## Scientific limitations and access risk
-The 2012 original article's remaining pages were not fully inspected; they may contain earlier equivalent observations. No result is asserted for \(a\ne0\), no two-sided completeness for all nonstationary trajectories, and no structural persistence across perturbations is proved.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The model’s original Pehlivan–Wei 2012 source introduces same three-dimensional system and generic chaotic/Hopf analysis; the accessible abstract/early preview do not provide a zero-coupling polynomial automorphism or complete leafwise invariant-measure/heteroclinic census. A 2021 mixing application uses a=2 numerical trajectories, not this integrable a=0 regime. Original 2012 remaining primary pages are inaccessible (publisher 403 and Oxford VPN disconnection), explicitly retained as significant uncertainty; inaccessible alone does not warrant O failure.
+
+## value
+
+PASS
+
+The exactly zero coupling is a mathematically motivated singular boundary of a canonical 3D chaotic model. Two independent polynomial integrals and a global polynomial conjugacy expose every invariant leaf, complete heteroclinic census and explicit cusp/fold relaxation rates, and forbid all nonstationary invariant probabilities. These structural model-specific statements are not routine after only observing the equilibrium plane, even though scalar gradient deductions afterward are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

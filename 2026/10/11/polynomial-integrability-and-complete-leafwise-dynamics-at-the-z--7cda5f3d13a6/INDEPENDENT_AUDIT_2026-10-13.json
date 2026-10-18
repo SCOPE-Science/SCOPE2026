@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T08:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a=0, u=x+y has u-dot=2y and H=z+u²/4 has H-dot=−uy+(u/2)(2y)=0. K=2y−(1+H)u+u³/12 similarly has K-dot=0. Polynomial inverse y=(K+(1+H)u−u³/12)/2, x=u−y, z=H−u²/4, and globally constant Jacobian determinant −2 verify a polynomial automorphism. Scalar u-dot=P=K+(1+H)u−u³/12 has inward cubic tails, hence all initial finite trajectories bounded and forward-complete; scalar order gives convergence to roots. Potential G=Ku+(1+H)u²/2−u⁴/48 satisfies dG/dt=P²=4y², so compact stationary measures force y=0 support, all equilibria. Cubic equation discriminant 432[16(1+H)³−9K²] gives all 3-root, double-root and single-root regimes; between adjacent roots each bounded complete orbit forms one heteroclinic modulo time translations. At cusp P=−u³/12 yields u~sign(u0)√(6/t), and fold P=−(u−r)²(u+2r)/12 yields t(u−r)→4/r on approaching side. Independently checked both polynomial first integrals and det=−2 in SymPy; read complete package verifier code.",
+      "risks": [
+        "No backward completeness for trajectories outside outer roots; no claims when a≠0.",
+        "Original 2012 article full text could not be read in this run and may contain a partial singular a=0 analysis."
+      ],
+      "sources": [
+        "Git RESULT.md SHA 2c2037814583d7a7552f35c8ef5891528d10c50b",
+        "Git checks/verify_conjugacy.py blob SHA 8f7ec556d45203c6cc556b0dc4fe9b643b0462e5",
+        "independent SymPy Lie derivatives and Jacobian"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original publisher bibliographic/abstract and first extracted pages do not mention polynomial a=0 conjugacy; entire paper could not be examined, hence no whole-article NOT_COVERING assertion.",
+          "2021 Kalayci et al application at a=2 is numerical and logically does not imply global a=0 classification."
+        ],
+        "reasoning": "Higher-level generic gradient dynamics applies after conjugacy but does not supply model-specific two integrals or discriminant strata.",
+        "searches": [
+          "https://doi.org/10.3906/elk-1103-14",
+          "https://doi.org/10.1155/2021/6615856"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3906/elk-1103-14",
+        "https://journals.tubitak.gov.tr/elektrik/vol20/iss8/",
+        "https://paperity.org/p/150891673/analysis-nonlinear-control-and-chaos-generator-circuit-of-another-strange-chaotic-system",
+        "https://doi.org/10.1155/2021/6615856"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chaotic attractor at a=2 and generic Hopf computations do not imply 2 polynomial first integrals at a=0 or invariant-measure rigidity.",
+          "At a=0 plane y=0 of equilibria is a direct substitution and could be prior/elementary; the new claimed content is full global polynomial reduction and leafwise census."
+        ],
+        "reasoning": "Partial source is insufficient to rule out a hidden prior a=0 theorem, but there is no specific verified published implication establishing all findings.",
+        "searches": [
+          "Pehlivan Wei 2012 DOI 10.3906/elk-1103-14 model equations",
+          "Kalayci et al 2021 DOI 10.1155/2021/6615856 Pehlivan section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjugacy reduces 3D vector field at a=0 to scalar cubic gradient potential with two invariant leaf labels, complete discriminant cusp/fold phase portrait.",
+          "Pehlivan–Wei original studies same vector field at parameter values supporting chaos, ordinary equilibria and Hopf."
+        ],
+        "reasoning": "The reduction is an exact polynomial conjugacy, not generic application of scalar gradient theory until two nontrivial polynomial integrals have been found.",
+        "searches": [
+          "Pehlivan Wei a=0 polynomial conserved first integrals cubic reduction complete dynamics",
+          "Pehlivan Wei quadratic chaos zero coupling integrable two invariants gradient cubic stationary measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned assigned record and different quadratic jerk, Sprott J, KCC Liu boundary records, no same a=0 model integrability record."
+        ],
+        "reasoning": "Nearby zero-damping reductions are different polynomial vector fields, not the identical Pehlivan–Wei equations.",
+        "searches": [
+          "Resultary: Pehlivan Wei a=0 polynomial conserved first integrals cubic reduction complete dynamics",
+          "Resultary: Pehlivan Wei system 2012 zero parameter singular equilibrium cubic first integral reduction"
+        ]
+      },
+      "rationale": "The model’s original Pehlivan–Wei 2012 source introduces same three-dimensional system and generic chaotic/Hopf analysis; the accessible abstract/early preview do not provide a zero-coupling polynomial automorphism or complete leafwise invariant-measure/heteroclinic census. A 2021 mixing application uses a=2 numerical trajectories, not this integrable a=0 regime. Original 2012 remaining primary pages are inaccessible (publisher 403 and Oxford VPN disconnection), explicitly retained as significant uncertainty; inaccessible alone does not warrant O failure.",
+      "residual_risks": [
+        "Original Pehlivan–Wei 2012 complete 11 pages not accessible; Oxford returned VPN disconnected after failed lawful OA attempts, so explicit unknown priority remains.",
+        "Equilibrium plane at a=0 is elementary; value lies in global polynomial conjugacy and complete invariant-measure/leaf classification, not bare equilibrium observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "Accessible material describes chaos/generic parameter Hopf and circuit; remainder may possibly contain target-conjugate facts."
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/elk-1103-14",
+          "material_read": "Original publisher issue and article metadata/abstract; Paperity extract first pages; not all pp1229–1239",
+          "method": "publisher OA PDF request returned HTTP403, DerGipark OA download unavailable, authorized Oxford job 3888aba8bba0af09a6f59c770af8bac8 status vpn_disconnected",
+          "title": "Analysis, nonlinear control, and chaos generator circuit of another strange chaotic system",
+          "trigger": "identical Pehlivan–Wei field; highest priority for singular limit"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER_APPLICATION",
+          "evidence": [
+            "Application does not imply a=0 conserved polynomials."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2021/6615856",
+          "material_read": "Author-reviewed source reference and same-model subsection reported for a=2 chaotic mixer, bibliographic/HTML content; full original PDF not retrieved during this run",
+          "method": "public HTML search and frozen source citations",
+          "title": "A New Chaotic Mixer Design Based on the Delta Robot and Its Experimental Studies",
+          "trigger": "later work reusing identical model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactly zero coupling is a mathematically motivated singular boundary of a canonical 3D chaotic model. Two independent polynomial integrals and a global polynomial conjugacy expose every invariant leaf, complete heteroclinic census and explicit cusp/fold relaxation rates, and forbid all nonstationary invariant probabilities. These structural model-specific statements are not routine after only observing the equilibrium plane, even though scalar gradient deductions afterward are standard.",
+      "risks": [
+        "No persistence, global convergence for a≠0, or backward completeness of all solutions is asserted."
+      ],
+      "sources": [
+        "2012 Pehlivan–Wei model",
+        "Git RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No backward completeness for trajectories outside outer roots; no claims when a≠0.",
+    "Original 2012 article full text could not be read in this run and may contain a partial singular a=0 analysis.",
+    "Original Pehlivan–Wei 2012 complete 11 pages not accessible; Oxford returned VPN disconnected after failed lawful OA attempts, so explicit unknown priority remains.",
+    "Equilibrium plane at a=0 is elementary; value lies in global polynomial conjugacy and complete invariant-measure/leaf classification, not bare equilibrium observation.",
+    "No persistence, global convergence for a≠0, or backward completeness of all solutions is asserted."
+  ]
+}
