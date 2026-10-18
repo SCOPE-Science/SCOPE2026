@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For an arbitrary positive contraction, spectral layer-cake decomposition reduces the operator-norm estimate to orthogonal projections. In dimension three rank-two projections have the negative strictly triangular part of a complementary rank-one projection. For rank-one inputs, diagonal-unitary conjugacy reduces the calculation to three nonnegative weights. The squared singular value is the larger root of an explicit quadratic; its derivative with respect to the first/third-coordinate product has a sign determined by the middle weight. This supplies the exhaustive maximum, not a finite sample. The one-variable maximum has a single critical point with the stated exact value, and a real rank-one projection realizes equality. Independent exact symbolic checks and a non-probative numerical stress test are documented in `VERIFICATION.md`.
+## correctness
 
-## Originality — PASS
-The closest inspected source, Zhou (2016, DOI:10.1002/nla.2045), analyzes unrestricted triangular-truncation multiplier norms and applications to Gauss–Seidel, not the sharp positive-cone norm for the first interacting three-index case. Oswald–Zhou (arXiv:1510.04727) derives bounds and permutation averages for positive semidefinite systems, with no fixed-order \(3\times3\) sharp cone-restricted formula in the relevant sections. Todorov–Turowska (arXiv:0911.0606), in the primary MSC 47L25 literature, describes operator and Schur multipliers and truncation patterns, not this explicit cone-restricted constant. Bhatia's complete 2000 article was read and concerns general matrix pinching/trimming bounds. Queries of indexed published mathematical claims for positive truncation, rank-one Gram matrices, and the exact constant returned adjacent but non-covering statements; negative search results alone are not evidence of novelty. The 1992 Angelos–Cowen–Narayan full text could not be accessed after normal lawful routes; it investigates unrestricted multiplier norms, and its unavailable complete contents remain a genuine risk. The 1970 foundational paper likewise was not available in a readable full-text form. There is no established stronger result among the reviewed accessible material that implies this exact restricted optimum.
+PASS
 
-## Value — PASS
-Positive semidefinite matrices are Gram matrices of finite vector systems and arise directly in sequential linear solves. The sharp inequality quantifies what strictly lower-triangular extraction can cost **on that positive cone**, rather than on all matrices. Dimension three is the first nontrivial coupled case: the positive-cone bound rises strictly from the exact two-dimensional value \(1/2\). The exact rank-one extremizer identifies the worst Gram geometry, and the scalar optimization makes the value reproducible without numerical optimization. The result is a motivated small-dimensional operator inequality, not an arbitrary slice of a table.
+Reconstructed spectral layer cake for 0<=A<=I (positive contractions): A=integral_0^1 1_{A>=t}dt; convexity reduces to projections; in dimension 3 T(I)=0 changes rank-two to negative rank-one. Diagonal gauge reduces v to nonnegative magnitudes x,y,z summing to one. The nonzero triangular block [[sqrt(xy),0],[sqrt(xz),sqrt(yz)]] has characteristic polynomial lambda^2-[y(1-y)+xz]lambda+xz*y^2. For y<1/2 the top lambda increases with xz (max x=z), for y>1/2 it decreases (max boundary <=1/4), and at y=1/2 top lambda=1/4. On x=z=t, 1/4<=t<=1/2, norm g(t)=[t+sqrt(4t-7t^2)]/2 maximizes uniquely at t=(4+sqrt2)/14, g=(1+2sqrt2)/7. Checked the rank-one attaining projection, endpoints y=0,1, rank-zero and full-rank projections. Independent numerical recomputation of this 1-variable optimum agreed to machine precision; finite tests only corroborate the exact proof.
 
-## Closest literature and limitations
-The 2009 Schur-multiplier survey fixes the operator-theoretic framework; the 2015/2016 triangular truncation works are closest for actual matrices, with different norms or breadth of input class. The 1992 unrestricted-multiplier article and 1970 triangular-projection article are incompletely checked due to access, and additional historical coverage is possible. The result does not give an unrestricted norm, a dimension-free constant, or higher-dimensional sharp values.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality for the sharp PSD-input fixed-order 3x3 spectral norm, not the classical unrestricted triangular Schur multiplier norm. Distinguishing the positive input cone and this exact dimension/normalization excludes false stronger-coverage identifications; historically inaccessible 1970/1992 sources remain priority risks.
+
+## value
+
+PASS
+
+Natural minimal nontrivial 3x3 exact threshold for a positivity-restricted nonpositive Schur operation, with an extremizing rank-one matrix and strict separation from dimension-two constant 1/2. This calibrates bounds in positive matrix truncation; not merely textbook rewriting of the unrestricted multiplier norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
