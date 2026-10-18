@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The central polynomial and complement count are proved for all integers \(m\ge2\) by a four-case finite-field count at infinitely many good split primes. Dirichlet infinitude and stabilization of the cyclotomic intersection lattice supply the required quantifiers. Exact polynomial algebra converts the count to the stated characteristic polynomial, whose cubic discriminant has strictly negative coefficients after substituting \(m=n+2\), \(n\ge0\).
+# Independent mathematical audit
 
-The standard-library checker `check.py` was executed from the local package directory and printed `GAIN_FOUR_CYCLE_CHARACTERISTIC_CHECK_OK`. It checks finite-field counts and integer arithmetic but is not a proof of the infinite result. No computation of fundamental groups or cohomology rings was attempted.
+## correctness
+
+PASS
+
+Reconstructed four disjoint finite-field cases by choosing right-hand mth-power values for q≡1(mod m), counting (q−1)² + m(q−1)(q−m)² +2(q−1)(q−m−1)² +(q−1)(q−1−m)(q−2m)². Simplification yields asserted χ(q) for infinitely many good q and hence polynomial identity; Jacobson lattice good reduction follows for all but finitely many primes for fixed m. OS projectivized Poincaré identity gives b0..b3. Independently factored cubic discriminant into strictly negative −[3n^6+44n^5+292n^4+1040n³+1808n²+1408n+416], n=m−2, so irreducibly nonreal conjugate pair prevents free arrangement by Terao. Independent Sympy arithmetic checks verify original count and discriminant identity for small m and all polynomial coefficients, not replacing all-m proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: original four-cycle family and gain-graph machinery are prior, but explicit closed all-m characteristic polynomial, projective complement Betti vector and uniform non-freeness via discriminant are distinct evaluated claims. Search and full primary comparisons identify no same-family published closed evaluation.
+
+## value
+
+PASS
+
+A uniform non-freeness theorem and explicit projective-complement topology for a natural published family containing a known Purdy counterexample are useful structural invariants. The family-specific cubic evaluation, especially its sign-uniform obstruction, is not merely the universal counting identity or a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

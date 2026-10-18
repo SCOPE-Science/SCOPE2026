@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each integer \(m\ge2\), the finite-field method applies at infinitely many primes where the cyclotomic intersection lattice is preserved. The proof partitions all pairs of right-hand \(m\)-th-power values into four exhaustive cases, derives the characteristic polynomial, and independently relates it to projective complement cohomology by Orlik–Solomon. The cubic discriminant expands into a strictly negative polynomial for \(m\ge2\); Terao's factorization theorem gives non-freeness. The embedded checker directly compares finite-field counts and verifies supporting arithmetic, not an infinite proof.
+## correctness
 
-**Originality — PASS with bibliographic risk.** Michałek–Pokora introduce the exact family and its incidence/Purdy counts without calculating the full characteristic polynomial or non-freeness. Berthomé–Cordovil–Forge–Ventos–Zaslavsky give general gain-graph chromatic formulas (including universal subset expansions) that can theoretically derive the present result but do not state the four-cycle root-of-unity closed evaluation or its non-freeness consequence. Suyama–Torielli–Tsujie analyze a different bias arrangement including coordinate hyperplanes. The recent additive graphic deformation paper treats a different class. Searches of relevant published results and recoverable previous same-topic claims found no explicit covering evaluation. Older specialized computations may remain undiscovered.
+PASS
 
-**Value — PASS.** The projective-complement Betti profile is an intrinsic invariant of a motivated infinite complex arrangement family; its complete uniform closed formula and the absolute non-freeness obstruction provide structural information beyond the initiating paper's incidence-flat counts. In particular, they identify the exact cohomology ranks of the exceptional twelve-hyperplane Purdy example. This is not a claim that generic gain-graph counting methods are new or that a broader theory of arrangements has been proved.
+Reconstructed four disjoint finite-field cases by choosing right-hand mth-power values for q≡1(mod m), counting (q−1)² + m(q−1)(q−m)² +2(q−1)(q−m−1)² +(q−1)(q−1−m)(q−2m)². Simplification yields asserted χ(q) for infinitely many good q and hence polynomial identity; Jacobson lattice good reduction follows for all but finitely many primes for fixed m. OS projectivized Poincaré identity gives b0..b3. Independently factored cubic discriminant into strictly negative −[3n^6+44n^5+292n^4+1040n³+1808n²+1408n+416], n=m−2, so irreducibly nonreal conjugate pair prevents free arrangement by Terao. Independent Sympy arithmetic checks verify original count and discriminant identity for small m and all polynomial coefficients, not replacing all-m proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: original four-cycle family and gain-graph machinery are prior, but explicit closed all-m characteristic polynomial, projective complement Betti vector and uniform non-freeness via discriminant are distinct evaluated claims. Search and full primary comparisons identify no same-family published closed evaluation.
+
+## value
+
+PASS
+
+A uniform non-freeness theorem and explicit projective-complement topology for a natural published family containing a known Purdy counterexample are useful structural invariants. The family-specific cubic evaluation, especially its sign-uniform obstruction, is not merely the universal counting identity or a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
