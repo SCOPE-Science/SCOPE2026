@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and rests on the exact polar decomposition of the centered Gaussian residual vector.
+# Independent mathematical audit
 
-The accompanying checker verifies two algebraic consequences over a grid of dimensions and homogeneity degrees.
+## correctness
 
-For integer even degree shifts it compares normalized even moments of the radially tilted \(\chi_d\) law against the moment sequence of \(\chi_{d+q}\).
+PASS
 
-For integer and noninteger shifts it evaluates gamma-ratio moments and verifies the covariance consequence
-\[
-\operatorname{Cov}(T,S^2)
-=
-\frac{q\sigma^2}{d}\mathbb ET
-\]
-at the radial-factor level.
+For σ²>0, n≥2 and admissible T=h(Y), centered Gaussian Y lives on a d=n−1-dimensional isotropic subspace, so Y=σ R U with independent R~χ_d and uniform direction U. Positive q-homogeneity gives h(Y)=σ^q R^q h(U); under size bias the joint law still factorizes. The χ_d radial density r^{d−1}e^(−r²/2) is multiplied by r^q and becomes exactly χ_{d+q}, including noninteger q. Hence dS²/σ²=R² is χ²_{d+q} under the biased law; the Laplace and gamma-moment formulas follow. Its first moment gives Cov(T,S²)=q σ² ET/d. Sample range and Gini difference depend only on Y and are nonnegative degree one. The proof works without smoothness, even for d=1 and q=0. Finite source code checks integer and fractional gamma moments but does not supply the universal factorization.
 
-It also checks the degree-one specialization corresponding to the sample range and Gini mean difference.
+## originality
 
-These computations are supplementary. The universal statement for arbitrary admissible \(h\) is proved by the exact factorization
-\[
-T=\sigma^qR^qh(U)
-\]
-with independent \(R\) and \(U\).
+PASS
 
-Independent audit has not been performed.
+The general homogeneous-statistic size-biased *radial* chi-square law and universal covariance consequence are not statements of the inspected normal-characterization literature. This is a distinct joint-law result from sample-mean independence, although the Gaussian polar decomposition and gamma power tilt are classical.
 
-Exact replay result: `VERIFY_OK exact_integer_moment_checks=700 gamma_moment_checks=560 covariance_checks=140 degree_one_checks=20`.
+## value
+
+PASS
+
+Provides an exact universal sampling law under a natural weighting operation, not only one new correlation: every χ² mixed moment under bias follows simultaneously for nonsmooth, nonparametric angular statistics. The covariance identity for sample range and Gini difference is an immediately useful, precisely motivated consequence; it is not presented as a new gamma-tilt method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

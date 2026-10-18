@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The centered normal sample is an isotropic Gaussian vector on an \((n-1)\)-dimensional subspace. Its residual norm and residual direction are independent, with normalized radius \(\chi_{n-1}\).
+PASS
 
-A degree-\(q\) homogeneous nonnegative statistic factors into \(R^q\) times a function of direction. Size-biasing therefore factors into an angular tilt and a radial tilt. Multiplication of the \(\chi_d\) radial density by \(r^q\) changes the power from \(r^{d-1}\) to \(r^{d+q-1}\), exactly a \(\chi_{d+q}\) density after normalization. The displayed Laplace, moment, and covariance identities follow.
+For σ²>0, n≥2 and admissible T=h(Y), centered Gaussian Y lives on a d=n−1-dimensional isotropic subspace, so Y=σ R U with independent R~χ_d and uniform direction U. Positive q-homogeneity gives h(Y)=σ^q R^q h(U); under size bias the joint law still factorizes. The χ_d radial density r^{d−1}e^(−r²/2) is multiplied by r^q and becomes exactly χ_{d+q}, including noninteger q. Hence dS²/σ²=R² is χ²_{d+q} under the biased law; the Laplace and gamma-moment formulas follow. Its first moment gives Cov(T,S²)=q σ² ET/d. Sample range and Gini difference depend only on Y and are nonnegative degree one. The proof works without smoothness, even for d=1 and q=0. Finite source code checks integer and fractional gamma moments but does not supply the universal factorization.
 
-No differentiability is used, so the proof applies to nonsmooth statistics such as range and Gini mean difference.
+## originality
 
-## Originality
+PASS
 
-PASS, with a residual risk from older spherical-distribution literature. The closest full inspected normal-sample sources focus on independence from the sample mean, studentized order statistics, or characterization of the normal law.
+The general homogeneous-statistic size-biased *radial* chi-square law and universal covariance consequence are not statements of the inspected normal-characterization literature. This is a distinct joint-law result from sample-mean independence, although the Gaussian polar decomposition and gamma power tilt are classical.
 
-The Hu--Lin full manuscript explicitly covers positively homogeneous residual statistics, including sample range and Gini mean difference, but targeted searches found no size-bias, covariance, chi-square dimension-shift, or polar-law statement. Hwang--Hu's 1994 full paper identifies scale-free residual directional structure and exact studentized-order-statistic distributions, but does not state the homogeneous size-bias law.
+## value
 
-Targeted database searches for the exact size-biased chi-square shift and for normal range/variance covariance did not locate a matching statement.
+PASS
 
-## Value
+Provides an exact universal sampling law under a natural weighting operation, not only one new correlation: every χ² mixed moment under bias follows simultaneously for nonsmooth, nonparametric angular statistics. The covariance identity for sample range and Gini difference is an immediately useful, precisely motivated consequence; it is not presented as a new gamma-tilt method.
 
-PASS. Range, Gini mean difference, mean absolute deviation, standard deviation, and many other dispersion measures are homogeneous functions of a centered sample. Their joint laws with sample variance are generally nontrivial.
-
-The theorem gives an entire weighted distribution, not merely one covariance: under weighting by any degree-\(q\) statistic, sample variance acquires exactly \(q\) additional chi-square degrees of freedom. It consequently supplies all mixed powers with sample variance from one structural identity, independently of the angular details of the dispersion statistic.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK exact_integer_moment_checks=700 gamma_moment_checks=560 covariance_checks=140 degree_one_checks=20`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
