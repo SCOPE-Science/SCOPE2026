@@ -1,0 +1,17 @@
+# Scientific review: role-free definite descriptions
+
+## Correctness (C): PASS
+
+The stated semantics match local singleton naming and global unique-object broadcast. Color-preserving automorphisms force every concept extension to be a union of complete color classes. A structural recursion on descriptions proves that the truncated color-count vector determines every nesting depth. At local nonsingleton points all local descriptions vanish; at a local singleton point depth-one tests detect the presence of other colors and depth-two tests distinguish one occurrence from at least two. In the global language, absent a singleton-color anchor all descriptions vanish, whereas one anchor allows depth-one tests to recover every truncated count. The proof explicitly constructs separating formulas, deduces exact profile counts, and establishes sharp minimal model sizes. Domain nonemptiness and the zero-predicate case are handled. The code directly checks the proposed signatures against original finite set semantics, without treating its finite checks as an unrestricted proof.
+
+## Originality (O): PASS, with residual historical-priority risk
+
+Primary comparison: Sochański, Wałęga and Zawidzki (arXiv:2512.06604; first public version 2025-12-07), especially semantics in Section 2, local/global bisimulation and expressive-power Theorems 6–7, bisimulation procedures in Theorem 10, the role-free example separating the operators, and finite-model Theorem 17. The paper proves general characterizations and role-bearing complexity results; none of the examined statements gives the exact role-free description-depth thresholds, pointed theory counts, concept-class counts, or the optimal predicate-only representative bound. The current theorem is a specialization with an additional explicit quantitative conclusion, not a claim that the general bisimulation results are invalid or incomparable.
+
+Second primary comparison: Artale, Mazzullo, Ozaki and Wolter (arXiv:2106.15513), especially its syntax and Section 4 bisimulations for a richer language with nominals and universal role. Its global count-up-to-one tests are a related stronger-language phenomenon; their expressivity results do not state the distinct local-versus-global restricted depth spectra. Additional bibliographic and published mathematical-record searches using aliases such as monadic singleton naming, unary color multiplicity, and role-free local/global descriptions did not reveal the exact statement. Search absence is not novelty proof; older monadic-model-theory or bisimulation literature may imply the theorem after specialization. No independent priority audit was conducted.
+
+## Value (V): PASS
+
+The primary paper leaves a natural, semantically smaller question: what definite descriptions actually observe if an ontology consists only of attributes, without relational navigation? The answer is a complete classification with sharply contrasting local depth two versus global depth one; an anchor/no-anchor structural dichotomy; explicit Boolean algebras of definable concepts; doubly exponential formulas for their sizes; and a uniform sharp finite-representative bound. It quantifies the exact expressive loss from the absence of navigation or the universal role. This is a motivated expressivity question in a newly introduced operator pair, not an arbitrary small parameter improvement. The result does not extend to unrestricted description logics and makes no unwarranted complexity claim.
+
+Self-review: passed. Independent audit: not yet performed.

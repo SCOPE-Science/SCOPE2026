@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Structural induction proves all concept extensions are color unions, whose singleton tests are determined by each color multiplicity truncated at two. Nonsingleton points locally cannot satisfy L(C), while singleton pointed colors recover other-color presence at depth one and multiplicity 0/1/2 at depth two using explicit formulas. Global G(C,D) vanishes in the absence of singleton colors; with a singleton anchor, depth-one tests recover all truncated counts. Counting realizable signatures gives every stated closed form; characteristic formulas give all Boolean combinations; 2T-1 is attained and necessary. Independent direct finite-semantic checker passed 1725 pointed signature cases and 48000 random nested-formula comparisons; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2512.06604, Theorem 17: exponential model bound in the input concept size for the unrestricted language.",
+        "arxiv:2512.06604, Theorem 7: global logic more expressive than local with general roles.",
+        "arxiv:2106.15513, Theorem 4.1 and Example 1: bisimulation and count-up-to-one in a language with universal role."
+      ],
+      "reasoning": "Theorem 17 bounds witness size depending on formula length and thus does not imply an optimal constant for a fixed unary vocabulary. Theorem 7 establishes an inequality of expressive powers, not sharp finite depths or counts. The earlier richer language can recognize multiplicities globally even without an available singleton anchor, unlike restricted role-free local/global languages. Stronger general-language results are not logically identical, though their machinery may underlie an alternative derivation.",
+      "searches": [
+        "\"local definite descriptions\" \"global definite descriptions\" monadic size",
+        "\"definite descriptions\" \"role-free\" \"theories\" singleton",
+        "role free monadic description logic singleton nominal global description saturation quantifier depth 2",
+        "finite-model small representative 2^(k+1)-1 unary concepts local global definite description"
+      ]
+    },
+    "checked_sources": [
+      "Sochański, Wałęga, Zawidzki, arxiv:2512.06604 (2025-12-07 first public version)",
+      "Artale, Mazzullo, Ozaki, Wolter, arxiv:2106.15513 (2021)",
+      "The one-variable cardinality syllogistic has exactly five finite spectra (published research record; different operators)",
+      "Sharp 2^q atom-visibility threshold for finite Boolean algebras (published research record; different structures and quantifier rank)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2512.06604, Definition 5 (Names_L and Names_G) and Theorem 6 relate bisimulation to equivalence, but provide no closed enumeration.",
+        "arxiv:2512.06604, Proposition 2 translates local concepts to global by copying a concept and checking its uniqueness; depth collapse for fixed role-free vocabularies and sharp counts are not stated.",
+        "arxiv:2106.15513, Theorem 4.1 bisimulation characterization is for nominals and universal role, and its Example 1 shows global singleton/at-least-two tests."
+      ],
+      "reasoning": "Specializing a broad characterization to a unary signature can in principle permit an alternate proof of the invariant, so the generic methods are not independent. The present claim adds explicit sufficient and necessary observable profiles, their characteristic concepts and enumeration, sharp depth stabilization, formula algebra size, and a uniform minimal representative bound. These additional conclusions are not entailed merely by a source statement of existence of a bisimulation test or of an exponential small-model bound without doing the profile-specific argument.",
+      "searches": [
+        "Description Logics with Two Types of Definite Descriptions Complexity Expressiveness Automated Deduction Sochanski Walega Zawidzki arxiv 2512.06604",
+        "On Free Description Logics with Definite Descriptions Artale Mazzullo Ozaki Wolter arxiv 2106.15513",
+        "local definite description global definite description no role finite depth singleton counts",
+        "role-free local definite descriptions pointed theories depth two 2^k colors singleton 3^2^k exact counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2512.06604, Section 2: L(C) singleton naming and G(C,D) unique-object broadcast are the same operators as in the claim.",
+        "arxiv:2512.06604, Theorems 6, 7 and 10: bisimulation/expressivity and finite-model bisimulation algorithms, not the enumerative color-profile statement.",
+        "arxiv:2106.15513, Section 4: singleton/non-singleton multiplicity recognition under the additional universal role and nominals."
+      ],
+      "reasoning": "The new finite monadic signature must be compared with role-bearing bisimulation semantics through the zero-role reduct: for local concepts a nonsingleton pointed color prevents access to remote singleton information; for global concepts a singleton anchor broadcasts global truncated multiplicities. Neither inspected source calculates these signatures and their enumeration or the sharp local versus global description-depth thresholds. The general bisimulation results are compatible with, but do not explicitly supply, the additional counting proof.",
+      "searches": [
+        "\"definite descriptions\" \"unary predicates\" \"no roles\" expressivity",
+        "\"iota\" \"role-free\" \"description logic\" singleton",
+        "\"description logic\" \"singleton\" \"role-free\" \"bisimulation\"",
+        "role-free local definite descriptions pointed theories depth two 2^k colors singleton 3^2^k exact counts",
+        "global definite descriptions unique color anchoring no singleton collapse finite model signature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact pointed-theory table found in arxiv:2512.06604 or arxiv:2106.15513 in their inspected sections; both papers discuss general expressiveness, not the indicated finite counts.",
+        "A mathematically different published record, The one-variable cardinality syllogistic has exactly five finite spectra, classifies a syllogistic with no definite-description operator.",
+        "A mathematically different published record, Sharp 2^q atom-visibility threshold for finite Boolean algebras, concerns first-order quantifier rank and Boolean-algebra atom counts."
+      ],
+      "reasoning": "The exact small cases k=0,1,2 were reconstructed directly by a semantic enumerator. No cited database entry or prior numeric table covering the same role-free local/global description language was identified. An unindexed table may exist; non-retrieval does not establish priority.",
+      "searches": [
+        "exact classification 2^k(1+3^(2^k-1)) local definite descriptions monadic",
+        "role-free local definite descriptions pointed theories depth two 2^k colors singleton 3^2^k exact counts",
+        "global definite descriptions unique color anchoring no singleton collapse finite model signature",
+        "\"description logics\" \"definite descriptions\" \"multiplicity\" bisimulation"
+      ]
+    },
+    "rationale": "The primary source establishes general local/global semantics, bisimulations and small-model existence, but not exact role-free depth spectra or formulas for pointed theory counts and the sharp predicate-uniform model bound. The older source establishes bisimulations in a strictly richer language using nominals and a universal role; its count-up-to-one phenomenon does not state the asymmetric restricted local/global depth profiles. Published mathematical-record queries and relevant full-text sections were compared by mathematical implication, not only by terminology. Generic monadic saturation theory might admit an equivalent specialization; this residual risk is explicitly retained.",
+    "residual_risks": [
+      "A general older theorem about monadic equivalence with uniqueness quantifiers might subsume the finite signature result after specialization, despite not using definite-description terminology.",
+      "Only relevant chapters/appendices of accessible source documents were inspected, not every item in their bibliographies.",
+      "Independent historical-priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant background and nearest primary work but no inspected claim equivalent to the full quantitative role-free theorem.",
+        "evidence": [
+          "Theorem 7 establishes strict global/local expressivity and Example 4 gives its witness; Theorem 17 bounds model size as a function of concept length; none states the color-signature counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.06604",
+        "material_read": "Accessible full-text HTML; inspected operator syntax and semantics in Section 2, bisimulation Definition 5 and Theorems 6 and 7 in Section 3, algorithms and Theorem 10, Appendix proof passages for the proposition and equivalence, and finite-model Theorem 17. These are the plausible coverage locations; full paper not assumed to be exhausted by keyword search.",
+        "method": "Read sections, checked implications of names conditions and global/local translation, searched for role-free, exact count, and depth classifications.",
+        "title": "Description Logics with Two Types of Definite Descriptions: Complexity, Expressiveness, and Automated Deduction",
+        "trigger": "Same local and global definite-description operators; potential direct coverage of the role-free fragment."
+      },
+      {
+        "assessment": "Motivating stronger language but does not state the specific local/global depth-collapse classification.",
+        "evidence": [
+          "Its universal-role Example 1 detects a singleton A globally without requiring an anchor, a feature absent from the role-free restricted global language when no singleton color is present."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.15513v1",
+        "material_read": "Accessible full-text HTML; inspected syntax/semantics, Section 4 bisimulation Theorem 4.1 and Example 1, relevant abstract and explanatory statements.",
+        "method": "Compared its language with nominals and universal role against the strictly role-free and nominal-free syntax; traced Example 1 count-up-to-one tests.",
+        "title": "On Free Description Logics with Definite Descriptions",
+        "trigger": "Earlier local-description bisimulation and count-up-to-one results might cover the proposed unary multiplicity classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3edc8a61-883b-482d-9fe1-6905fff776f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Definite descriptions were introduced to support reference without names; the natural attribute-only setting isolates exactly how uniqueness naming and global broadcasts differ. The theorem supplies a full exact invariant, sharp nesting-depth separation, exponential-sized families of pointed theories, corresponding Boolean algebra sizes and optimal model compression; these are not merely routine numeric recalculations, as the single-anchor dichotomy and local point invisibility require separate semantic arguments.",
+    "status": "PASS"
+  }
+}
