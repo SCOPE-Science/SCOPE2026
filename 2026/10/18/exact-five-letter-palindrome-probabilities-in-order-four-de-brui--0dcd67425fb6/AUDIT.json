@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each nonconstant palindrome abcba, the event is the ordered appearance of edges abcb and bcba in a cyclic Euler tour. Contracting their consecutive use yields a tagged edge in a balanced digraph and a bijection of Euler tours. BEST computes its probability by the ratio of directed spanning-tree cofactors divided by q-1. The Laplacian update is rank one, with exact group inverse L#=(I+P+P²-3J)/q because P³=J. Evaluating the bilinear form gives all four equality-pattern fractions, and summing all ordered triples yields E X=q²-2-2/q. Constant patterns cannot occur. Every step handles q=2 and parallel/loop contracted edges. A separate Python checker exhaustively enumerated all 16 binary order-four cycles and independently computed q=2,3 spanning-tree cofactors; all checked cases agree. No finite computation substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein (2018), DOI 10.1007/978-3-319-89929-9_10: accessible abstract and appendix concern construction of short reverse-covering sequences; chapter body could not be obtained.",
+        "Orenstein--Shamir (2013), DOI 10.1093/bioinformatics/btt213: accessible full technical text develops paired reverse-complement walks and shortest covering libraries, not all-Euler-tour probability distributions.",
+        "Fici--Gabory (2025), DOI 10.4230/LIPIcs.MFCS.2025.48, accessible paper covers generalized de Bruijn words, necklaces, and Burrows--Wheeler transforms."
+      ],
+      "reasoning": "A general edge-contraction identity is standard and could imply local probabilities if its cofactors are evaluated, but none of the inspected published comparisons supplies the evaluated four-equality-type law or the resulting exact mean. Prior graph machinery is correctly treated as an established input, not as novel.",
+      "searches": [
+        "de Bruijn Euler tours palindrome abcba local transition probability arborescence contraction Laplacian",
+        "exact expected palindrome count in order four de Bruijn cycles euler tours",
+        "doi:10.1007/978-3-319-89929-9_10",
+        "doi:10.1093/bioinformatics/btt213"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/chapter/10.1007/978-3-319-89929-9_10",
+      "https://journals.sagepub.com/doi/full/10.1089/cmb.2019.0448",
+      "https://doi.org/10.1093/bioinformatics/btt213",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2025.48"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orenstein (2018/2020) proves reverse-covering bounds and near-optimal constructions, not this uniform probability; 2020 technical sections were available for comparison.",
+        "The 2013 Orenstein--Shamir and 2025 Fici--Gabory papers address graph-based covering or BWT structure, rather than the distribution of length-five palindrome occurrences.",
+        "Classical BEST and directed matrix-tree theorems, combined with a rank-one update, do imply a computational expression; the new calculation evaluates the group inverse and all equality cases and performs the all-alphabet sum."
+      ],
+      "reasoning": "The claimed quantitative law does not follow from the stated results of these articles without the new nontrivial contraction and Laplacian calculation. The previous local-palindrome and local-square results for order-three de Bruijn words concern different order and motif classes, so neither statement implies this expectation.",
+      "searches": [
+        "doi:10.1007/978-3-319-89929-9_10",
+        "doi:10.1089/cmb.2019.0448",
+        "doi:10.1093/bioinformatics/btt213",
+        "doi:10.4230/LIPIcs.MFCS.2025.48",
+        "length five palindromes in de Bruijn sequences order 4 fixed points local transition permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 reverse-de-Bruijn article, DOI 10.1089/cmb.2019.0448, Sections 2, 3.1-3.4, 4 and 5, formulates short reverse covering paths and palindromic edge-count lower bounds; it neither chooses uniformly from ordinary order-four de Bruijn cycles nor evaluates probabilities of consecutive labeled edges.",
+        "The new result specifies a five-symbol palindrome as an ordered pair of consecutive length-four edge labels. This is not equivalent to the deterministic number of four-symbol palindromes."
+      ],
+      "reasoning": "Reverse-equivalence covering, fixed order-four palindrome counts, and reverse-complement reconstruction do not determine adjacency frequencies between the distinct four-mer edges abcb and bcba. Full binary enumeration gives both zero and two possible length-five palindrome counts, disproving a deterministic reduction.",
+      "searches": [
+        "random de Bruijn sequences palindromic expected number five letter factors",
+        "palindromic patterns in de Bruijn order 3 or 4 average and extrema",
+        "random de Bruijn cycles statistical expectation palindromic substrings all alphabet sizes length n plus 1",
+        "doi:10.1089/cmb.2019.0448"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant reverse-covering paper tabulates or benchmarks shortest reverse-covering sequence lengths and runtime (Table 1 and Table 2), not counts of length-five palindrome events among random order-four cycles.",
+        "Exhaustive independent enumeration of all sixteen binary order-four cycles is reproduced in check_pal_mean.py; it agrees with the evaluated theorem and supplies a small-case validation, not novelty evidence."
+      ],
+      "reasoning": "The construction and algorithmic benchmark tables inspected do not contain the four-type event probabilities, nor can a deterministic coverage table imply a uniform mean. No exact equivalent table was encountered in the targeted searches.",
+      "searches": [
+        "de Bruijn sequence order four length five palindrome probability table",
+        "complete palindrome spectrum de Bruijn order three cyclic length four palindrome abba",
+        "binary de Bruijn order five maximum palindromic factors",
+        "doi:10.1089/cmb.2019.0448"
+      ]
+    },
+    "rationale": "The quantitative law gives individual palindrome-pattern probabilities and a uniform-cycle mean for an exact motif/order combination; the closest inspected reverse-coverage publications address palindrome counts or graph constraints in different covering ensembles, while generalized-de-Bruijn and BWT work gives no dominating event-probability theorem. Existing BEST and matrix-tree facts are explicit premises, not claimed as discoveries. Remaining priority risk concerns inaccessible earlier chapter text and unindexed/general Euler-tour applications.",
+    "residual_risks": [
+      "The 2018 RECOMB chapter full body was inaccessible; its 2020 journal extension was compared using the available technical text, but journal/preprint versions can differ.",
+      "A closed-form implication hidden in unindexed literature or a different Euler-tour counting language could cover the new statement; absence from targeted searches is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different object (short reverse-covering sequences), no matching probability in accessible material; full chapter remains uninspected originality risk.",
+        "evidence": [
+          "Publisher First Online date 18 April 2018, DOI 10.1007/978-3-319-89929-9_10, abstract: reverse peptide synthesis permits each k-mer or its reverse; ReverseCAKE minimizes covering length.",
+          "Appendix presents algorithm runtime and covering-length benchmarks rather than uniform random Euler tour probabilities."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-319-89929-9_10",
+        "material_read": "Publisher landing page abstract and appendix, references, scope and online-publication metadata; full conference chapter restricted.",
+        "method": "Inspected publisher HTML, compared the stated combinatorial optimization object with uniform Euler tours; separately tried authorized institutional full-text retrieval after open-access routes were unsuccessful.",
+        "title": "Reverse de Bruijn: Utilizing Reverse Peptide Synthesis to Cover All Amino Acid k-mers (RECOMB 2018)",
+        "trigger": "Earliest public related work explicitly linking palindromes, de Bruijn graphs, and reverse-word coverage."
+      },
+      {
+        "assessment": "The journal treatment concerns shortest sequences covering each k-mer modulo reversal; it does not give uniform Euler-tour transition-pair probabilities or five-letter palindrome moments.",
+        "evidence": [
+          "Methods 3.1 palindrome-edge lower bound and Methods 3.2 necessary conditions for reverse-covering paths; Section 3.3 constructs near-optimal ReverseCAKE sequences.",
+          "Discussion asks about lengths and enumeration of optimal reverse-covering sequences, not five-letter palindrome probabilities."
+        ],
+        "identifier_or_url": "https://journals.sagepub.com/doi/full/10.1089/cmb.2019.0448",
+        "material_read": "Abstract, Introduction, Preliminaries, Methods 3.1-3.4 including Theorem 1 and algorithm, Results Section 4, Discussion Section 5 in accessible publisher full-article HTML/indexed text.",
+        "method": "Examined the problem definition, graph conditions, palindromic-edge count, algorithm, integer-program formulation, benchmark tables and closing open questions.",
+        "title": "Reverse de Bruijn: Utilizing Reverse Peptide Synthesis to Cover All Amino Acid k-mers (journal 2020)",
+        "trigger": "Potentially stronger journal extension of the same conference result."
+      },
+      {
+        "assessment": "Does not cover the present uniform probability or its equality-pattern resolution.",
+        "evidence": [
+          "Bioinformatics 29 (2013), i71-i79, graph-based reverse-complement covering libraries; different sample space and statistic."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt213",
+        "material_read": "Accessible original full-text problem setup and Sections 3.1-3.2 with graph-covering algorithms and proof context.",
+        "method": "Compared its reverse-complement paired-tour construction and optimization objective against tagged-edge event counting in uniform ordinary cycles.",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Related original full-text palindrome/reverse-complement de Bruijn Euler traversal construction."
+      },
+      {
+        "assessment": "Generalized de Bruijn/BWT correspondence does not assert the tested five-letter palindrome distribution.",
+        "evidence": [
+          "MFCS 2025, generalized de Bruijn necklace and transform characterization; no evaluated length-five palindromic adjacency probabilities."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2025.48",
+        "material_read": "Accessible full HTML including technical definitions, main statements and BWT-related constructions.",
+        "method": "Compared formal necklace and transform claims with event probabilities and Euler cofactor calculations.",
+        "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows--Wheeler Transform",
+        "trigger": "Recent full-text graph/necklace theory plausibly stronger than standard cycle enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0dcd6742-5fb6-4aaa-bd8b-2f861e392bc7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Five-letter palindromic motifs are the first natural reversal-symmetric factors beyond the forced four-mer content of an order-four de Bruijn cycle. Their frequency varies even in the binary case. The finding resolves the uniform exact expectation for every alphabet size and, more strongly, every possible equality type of a particular palindrome. The combinatorial value lies in translating local motifs into a nontrivial tagged-edge contraction and explicit low-step Markov-chain Green function, yielding exact all-alphabet rational laws. This is a motivated structural local-pattern statistic, not a normalization check or one isolated small computation.",
+    "status": "PASS"
+  }
+}
