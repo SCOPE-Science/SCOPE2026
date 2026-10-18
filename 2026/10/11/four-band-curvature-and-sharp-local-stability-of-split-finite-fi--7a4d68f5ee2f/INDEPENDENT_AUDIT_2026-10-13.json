@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T03:02:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md ed8985fa7cc0de1d514e779e0a2671de09771d0c and hessian_check.py 5412532b07268f09c94899a56f74f05b12e49ae9; source tests F3,F5,F7,F9.",
+        "Independent ordered-pair/Fourier calculation at q=3 actual=1.5142799530316882 predicted=1.5142799530316893 and at q=5 actual=1.5942057322769667 predicted=1.5942057322769663.",
+        "Gonzalez-Riquelme and Oliveira e Silva arXiv:2405.16647v2 Theorem 1.4 and Section 7 for sharp inequality and fiber sizes."
+      ],
+      "rationale": "The ordered two-point convolution of {(u,v,uv)} has r(w)=q-1+q*1_{w=0} points after translating by (S1/2,S2/2), giving Cq=1+q^-1-q^-2. Expanding f=1+th and summing over S with exact q^-5 normalization yields a real quadratic form. The finite-field Fourier transform of the kernel K_k(w)=sum_{xy=w}psi(k1x+k2y) is 0 at t=0 and modulus q at nonzero dual t, so the real/imaginary axis-vs-mixed coefficients are as printed. Independently computed the Taylor coefficient from all ordered pairs and the Fourier spectrum for nontrivial random complex h over F3 and F5; deviations below 1.2e-15. With q odd, all four positive eigenvalues and exact multiplicities follow; scalar directions are a two-real-dimensional kernel. The local bound uses the quartic remainder in a fixed finite-dimensional norm and correctly disclaims q-uniform radii.",
+      "residual_risks": [
+        "The positive coefficients are t^2 Taylor coefficients; usual Hessian eigenvalues are twice these numbers.",
+        "Uniformity only over perturbations at a fixed q, not an infinite-field uniform stability theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharp extension bound and equality phases by themselves do not yield quantitative four-frequency real transverse curvature.",
+          "Anisotropic paraboloid result has different geometry and only two bands."
+        ],
+        "reasoning": "Neither general extremizer characterization nor nonsplit surface formula implies this exact split Hessian matrix.",
+        "searches": [
+          "arXiv:2405.16647v2",
+          "Resultary two-band Hessian and sharp local gap for anisotropic finite-field paraboloid"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.16647v2 Theorem 1.4 §7",
+        "Resultary two-band anisotropic paraboloid record",
+        "Resultary semantic search: finite field hyperbolic paraboloid sharp L2 L4 extension real Hessian stability spectral curvature constants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fiber count is reused as premise, but the mode-dependent T_k axis character sum is an additional exact computation."
+        ],
+        "reasoning": "The asserted λmin and row-plus-column eigenspace are not direct restatements of known extremizers.",
+        "searches": [
+          "arXiv:2405.16647v2 Section 7",
+          "Resultary anisotropic finite-field Hessian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2405.16647v2 Theorem 1.4 and Section 7 compute sharp constant and r(w), but not the stated four-band spectrum."
+        ],
+        "reasoning": "Checked quadratic variations/Hessian local stability aliases, separating split uv from anisotropic norm forms.",
+        "searches": [
+          "finite field hyperbolic paraboloid sharp L2 L4 extension real Hessian stability spectral curvature constants",
+          "hyperbolic finite field extension second variation Hessian local stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Hessian spectrum or mode-multiplicity table found in inspected predecessor."
+        ],
+        "reasoning": "Known table is two-valued fiber sizes r(w), not the new four-band second variation.",
+        "searches": [
+          "finite field hyperbolic paraboloid sharp L2 L4 extension real Hessian stability spectral curvature constants",
+          "split finite field hyperbolic paraboloid Hessian eigenvalue 2-4/q+4/q2"
+        ]
+      },
+      "rationale": "The 2024 primary hyperbolic paraboloid paper already proves the sharp constant/extremizers and two-valued convolution; these prerequisites are fully credited. It does not present the four-band real Hessian, exact least curvature or two ruling-aligned weak perturbation directions. Related published SCOPE two-band anisotropic paraboloid Hessian covers a different nonsplit quadratic form.",
+      "residual_risks": [
+        "An unindexed equivalent Hessian calculation for the same split surface may exist despite direct primary reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISE_NOT_COVERING",
+          "evidence": "Sharp constant/character modulation and fiber formula provided; no second variation/Hessian four-band law",
+          "identifier_or_url": "arXiv:2405.16647v2",
+          "material_read": "Full HTML: Theorem 1.4, introductory hyperbolic case and proof Section 7 including convolution-fiber equation (7.1)",
+          "method": "Primary arXiv full HTML",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Exactly same split hyperbolic paraboloid sharp inequality"
+        },
+        {
+          "assessment": "DIFFERENT_QUADRATIC_FORM",
+          "evidence": "Nonsplit anisotropic paraboloid does not supply four bands of uv-surface",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-two-band-hessian-and-sharp-local-gap-for-anisotropic-finite-fiel--80ecd3989428",
+          "material_read": "Resultary published title and mathematical abstract: anisotropic paraboloid, positive bands 2-2/q and 2-2/q+4/q^2",
+          "method": "Indexed full summary only; not represented as full text",
+          "title": "Two-band Hessian and sharp local gap for anisotropic finite-field paraboloid extension",
+          "trigger": "Possible broader SCOPE same-family law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact four real bands and true two-dimensional scalar kernel",
+        "Sharp least band λ=2-4/q+4/q² and full least eigenspace; local O(||h||³) remainder."
+      ],
+      "rationale": "The least positive curvature is the sharp infinitesimal coercivity constant of a natural sharp endpoint Fourier inequality; exact multiplicities and the weakest row-plus-column perturbation geometry give a quantitative stability theorem rather than another extremizer list. Nonprime odd fields are included.",
+      "residual_risks": [
+        "No global deficit-distance stability or field-size-uniform neighborhood."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The positive coefficients are t^2 Taylor coefficients; usual Hessian eigenvalues are twice these numbers.",
+    "Uniformity only over perturbations at a fixed q, not an infinite-field uniform stability theorem.",
+    "An unindexed equivalent Hessian calculation for the same split surface may exist despite direct primary reading.",
+    "No global deficit-distance stability or field-size-uniform neighborhood."
+  ],
+  "schema_version": 1
+}
