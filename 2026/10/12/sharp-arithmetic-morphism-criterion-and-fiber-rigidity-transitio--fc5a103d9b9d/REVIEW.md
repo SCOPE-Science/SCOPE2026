@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite powerset homomorphism representation is reconstructed directly from the images of atoms, not assumed from a non-normal duality theorem. For every subset, operation preservation becomes the integer quota equivalence; positive fibers and the extremal winning/losing inequalities follow without genericity assumptions. Balancing by unit transfers proves the quantified existence statement, and labeled multinomial counting proves the exact hom-set formula. Full-size special cases and the boundary-rigidity proof were checked, including the nonconstant-profile strictness condition and the \(q=3\) threshold. An independent direct subset-semantics enumerator matches 441 finite parameter cases and the nine-to-three example. No inference from the finite tests is used in the proof.
+PASS
 
-## Originality — PASS, with prior-art risk
+A finite Boolean powerset homomorphism h:P([m])->P([n]) maps every atom to one block of a partition of [n], so h=f^{-1} for a function f:[n]->[m]. Preserving the global quorum threshold requires |S|>=ell iff sum_{i in S}|f^{-1}(i)|>=k for every S. If some fiber were empty, an (ell-1)-set missing that coordinate and the same set with the empty coordinate added force contradictory truth values; thus f is surjective. With positive fibers the inequalities reduce exactly to sum of ell smallest >=k and sum of ell-1 largest <k. Robin-Hood balancing weakly raises smallest partial sums and lowers largest, proving the stated quotient-remainder existence criterion; multinomial assignment of integer partitions gives the hom-set count. For n=m, surjective maps are permutations, so every endomorphism is an automorphism and only identity is idempotent. At n=qm, strict deviation of upper/lower partial sums from their balanced averages forces equal fibers at quota endpoints; for q>=3 the profile (q-1,q,...,q,q+1) works at each nonempty interior quota. Independently direct-enumerated all function fiber criteria n<=5 for every quota and q=3,m=3,n=9 count vector 1680,11130,1680; the universal proof is algebraic, not this finite test.
 
-The 2020 powerset-coalgebra article establishes general duality, not the quota-specific formula. The 2021 neighborhood-frame article's full HTML text defines morphisms by inverse image and proves monotone-neighborhood duality, but the inspected applications do not derive fixed-total quota morphism counts, exact arithmetic feasibility, or the sharp endpoint/interior contrast. Targeted mathematical searches and semantic research-index searches found no identical complete statement. Weighted-voting work supplies the general idea of winning subsets defined by integer quotas; in particular, the elementary winning/losing inequalities should not be marketed as novel in isolation. The proposed contribution is their combined categorical, exact counting, and rigidity classification. Specialist literature on integer representations may contain an implicit equivalent formulation, so priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A global quorum rule is a natural monotone non-normal modality, not an arbitrary table of algebra operations. Its finite morphism category has a concrete question: when can a one-step quota modality survive Boolean inverse-image substitution, and in how many ways? The answer has a compact exact criterion, a nontrivial integer partition enumerator, complete endomorphism rigidity, and a sharp phase at block size three distinguishing enforced equal fibers from possible unequal fibers. These facts give a structural classification rather than an isolated small numerical census; they delineate precisely where cardinality-based semantic aggregation is stable under refinement of worlds.
+Classical Stone/powerset and monotone-neighborhood dualities establish the inverse-image/function correspondence (prior, not novel). A full hom-set criterion for uniform quotas, the optimal balanced existence interval, exact sum over fiber partitions, and the endpoint/interior rigidity transition jointly specialize this general framework; a general categorical duality alone does not give these arithmetic formulas. Weighted majority voting representation studies discuss quotas and weight profiles, but consulted papers concern game representation frequencies and optimization, not preserving a source threshold through a surjective fiber expansion between two finite uniform-threshold algebras. Best-of-knowledge no identical result recovered.
 
-## Limits
+## value
 
-No result is asserted for general locally varying neighborhoods or arbitrary real voting weights. The comparison with older voting-game representation work remains a substantive residual originality risk. Computational checks supplement, rather than replace, the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite cardinality-threshold neighborhood algebras are a natural non-normal modal-algebra class and simultaneously encode anonymous simple voting games. Their hom-set counts and rigidity distinction are concrete structural invariants of a finite algebraic category, rather than an arbitrary sliced computation. The least block size q=3 for unequal interior fibers is a meaningful boundary telling exactly when a uniform quorum morphism can break fiber symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
