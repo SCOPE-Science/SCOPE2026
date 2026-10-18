@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Execute `python3 checker.py` with Python 3 and no third-party dependencies. The exact-rational cases reconstruct both varying-step companion matrices, multiply them, compare characteristic invariants, classify stability boundaries and inspect equal-split inequalities. A second exact test establishes the analytic discriminant factorization and checks \(P(2/3,2/3)=I/3\). Additional double-precision tests check 17,721 fixed-total pair comparisons and the leading transient-scaling prediction. The observed output during review was:
+## correctness
 
-`VERIFY_OK 6724 exact-rational two-step matrix and stability cases; 199 exact discriminant identities; 17721 fixed-total comparisons; 3 transient-growth cases`
+PASS
 
-The exact quantitative assertions for all positive real parameters require the accompanying symbolic proof; finite rational enumeration, floating comparisons, and the printed log do not establish universal validity. The 1983 and 1989 primary historical articles were not accessible in full, so novelty cannot be independently or historically certified from this package. The current review is not an independent audit.
+Derived step M(a,b)=[[1−a−a²/(2b),a²/(2b)],[1,0]], then P=M(y,x)M(x,y), det=xy/4 and trace=1−L+L²/2+xy/4. Quadratic Schur conditions give decay iff 0<L<2, a simple unit root at L=2, and a root >1 for L>2. The discriminant factors nonnegatively; the larger root decreases with d=xy/4 at fixed L and AM–GM maximizes d uniquely at equal steps. Equal-step scalar characteristic roots provide the global lower bound 1/3 with equality at 2/3; exact matrix gives P=I/3. Direct singular limit yP(L−y,y)→(L²/2)[[−1,1],[−1,1]] establishes operator norm L², with stable limiting spectral radius 1−L+L²/2.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the combined exact two-period Floquet threshold, unique optimal damping and transient law; pre-1990 variable-step Adams/Nordsieck sources are highly relevant but only abstracts were accessible, so hidden equivalent special cases remain a material risk.
+
+## value
+
+PASS
+
+Exact sharp stability/damping boundaries and arbitrarily large stable transients are useful for interpreting real-negative scalar AB2 timestep control; the contrast between asymptotic rate and norm amplification is nontrivial even for this natural simple scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

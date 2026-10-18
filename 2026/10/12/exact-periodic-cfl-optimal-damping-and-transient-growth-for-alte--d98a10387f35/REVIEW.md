@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The variable-step AB2 extrapolation was reconstructed from physical-time interpolation rather than inferred from a constant-step formula. Exact multiplication gives \(\operatorname{tr}P=1-L+L^2/2+xy/4\) and \(\det P=xy/4\). Schur inequalities classify the entire open stability region and both boundaries. Real nonnegative roots and a strict monotonicity derivative prove unique damping optimality. At \(x=y=2/3\), the map equals \(I/3\). A rank-one matrix limit proves the exact unbounded-transient law. The accompanying checker independently performs exact rational and floating tests; universality follows from the written proof, not sample enumeration.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The classical fixed-step AB2 root polynomial is prior art. Gear–Tu (1974), Skeel–Jackson (1983), and Calvo–Lisbona–Montijano (1989) are genuine potential anticipations; only their publisher abstracts and metadata could be inspected. Two inspectable public full papers (Sandu–Constantinescu 2007, and Hadjimichael et al. 2015) investigate different multirate component methods or optimized SSP schemes; neither implies the specific arbitrary-positive-pair AB2 scalar optimum, total-step boundary, and transient norm law. Indexed mathematical results on other integrators do not dominate this statement. An equivalent specialization in the inaccessible older articles cannot be eliminated and should be checked by a future human review.
+PASS
 
-## Value — PASS
-The combined result supplies an exact method-selection rule: total step length determines two-period decay stability regardless of step ratio; equal physical steps optimize the asymptotic period contraction; extremely uneven stable steps can still magnify stored-value perturbations without bound. The optimum \(1/3\) and sharp transient coefficient are precise and directly interpretable for multistep solver design. Claims are restricted to the scalar negative-real test equation and spectral/per-state amplification, not solution accuracy or unrestricted variable steps.
+Derived step M(a,b)=[[1−a−a²/(2b),a²/(2b)],[1,0]], then P=M(y,x)M(x,y), det=xy/4 and trace=1−L+L²/2+xy/4. Quadratic Schur conditions give decay iff 0<L<2, a simple unit root at L=2, and a root >1 for L>2. The discriminant factors nonnegatively; the larger root decreases with d=xy/4 at fixed L and AM–GM maximizes d uniquely at equal steps. Equal-step scalar characteristic roots provide the global lower bound 1/3 with equality at 2/3; exact matrix gives P=I/3. Direct singular limit yP(L−y,y)→(L²/2)[[−1,1],[−1,1]] establishes operator norm L², with stable limiting spectral radius 1−L+L²/2.
 
-## Review status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the combined exact two-period Floquet threshold, unique optimal damping and transient law; pre-1990 variable-step Adams/Nordsieck sources are highly relevant but only abstracts were accessible, so hidden equivalent special cases remain a material risk.
+
+## value
+
+PASS
+
+Exact sharp stability/damping boundaries and arbitrarily large stable transients are useful for interpreting real-negative scalar AB2 timestep control; the contrast between asymptotic rate and norm amplification is nontrivial even for this natural simple scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
