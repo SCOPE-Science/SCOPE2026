@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every signed one-real-digit/imaginary-repdigit input, exact signed base-B digits give S_B(z)=a^2-mt^2+2ati. The imaginary equality with t!=0 forces 2a=R_m(B); no integer a exists for m=1, and for m>=3 the repdigit R_m(B)>=B^2+B+1>2(B-1)>=2a. At m=2 the real and imaginary equations are equivalent to a=(B+1)/2 and B^2-8t^2=1. The digit inequalities are checked for all Pell solutions. A strict integer descent using (B,t)->(3B-8t,3t-B) verifies the full positive Pell parametrization, including t=1 boundary, while signed t supplies conjugate pairs. B_n=cosh(n log(3+sqrt8)) gives the exact base count. The standalone checker implements the signed digit map and independently verifies a finite exhaustive domain and twelve Pell solutions; no finite experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baker Swart et al., arXiv:2101.00560v1, Theorem 4/Corollary 5 bound possible cycles for a fixed B; Theorem 6 and Tables 1--2 classify B<=10.",
+        "Theorem 7 of that preprint supplies real fixed points in all odd bases, not nonreal repdigits."
+      ],
+      "reasoning": "A finite algorithm for any fixed base does not by itself imply an explicit infinite-base classification and exact logarithmic spectrum. The fixed points from the 2021 table at B=3 are a proper special case of the present pattern, not a coverage of all B or arbitrary imaginary-repdigit lengths.",
+      "searches": [
+        "arXiv 2101.00560 Theorem 6 fixed points Theorem 7 odd bases nonreal fixed Pell square triangular",
+        "integer base B digit squares Gaussian fixed point imaginary digits t t real one digit v classification",
+        "Gaussian Happy Numbers 2022 Pell fixed Swart"
+      ]
+    },
+    "checked_sources": [
+      "Baker Swart, Crook, Grundman and Hall-Seelig, arXiv:2101.00560v1 (full preprint: Definition 1, Theorem 6, Tables 1--2, Theorem 7).",
+      "Same authors, Rocky Mountain Journal of Mathematics 52 (2022), 415--429, DOI:10.1216/rmj.2022.52.415 (publication record and abstract; separate full text inaccessible).",
+      "Grundman and Hall-Seelig, Happy Numbers, Happy Functions, and Their Variations: A Survey, La Matematica 1(2), 404--430 (2022), DOI:10.1007/s44007-021-00010-x (abstract-only check).",
+      "Published result: Sharp coordinate-wise extraction bases for Pell solutions (comparison based on publicly provided mathematical statement).",
+      "Published result: Prime-power coordinate gaps in primitive solutions of x^2+y^2=z^3 (comparison based on publicly provided mathematical statement).",
+      "Targeted search queries for nonreal Gaussian happy-map fixed points, repeated imaginary digits, Pell parametrization, B=17 and B=99 instances."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 of arXiv:2101.00560v1: complete cycles and fixed points only for 2<=B<=10.",
+        "Theorem 7 there: two specified real fixed points for odd B; it neither forbids nor constructs nonreal points.",
+        "Published result titled Sharp coordinate-wise extraction bases for Pell solutions (2026): coordinate digit extraction for Pell solutions, a different dynamical map.",
+        "Published result titled Prime-power coordinate gaps in primitive solutions of x^2+y^2=z^3 (2026): Gaussian cube parametrization and prime-power gaps, a different equation."
+      ],
+      "reasoning": "The present quantified equivalence is over every integer B and every repdigit length m with signed digits, and includes a necessary as well as sufficient condition. None of the compared prior statements, even under conjugation, restriction, or substitution, imply both (i) m=2 rigidity and (ii) the precise infinite Pell base spectrum for the Gaussian digit-square map.",
+      "searches": [
+        "Gaussian Happy Numbers Baker Swart Crook Grundman Hall-Seelig nonreal fixed points base 3 repeated two-digit imaginary repdigit 11 recurrence base17 base99",
+        "arXiv 2101.00560 Theorem 6 fixed points Theorem 7 odd bases nonreal fixed Pell square triangular",
+        "base B Gaussian integer fixed points a+it(B+1) with sum of squares of Gaussian base digits, infinite Pell family 3 17 99 577",
+        "Gaussian Happy Numbers 2022 Pell fixed Swart"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equation a(a-1)=2t^2 is the classical square-triangular condition; B^2-8t^2=1 is a Pell equation.",
+        "The 2021 primary preprint Table 1 records the first B=3 Gaussian-map fixed point, but does not identify the Pell recurrence for all bases."
+      ],
+      "reasoning": "The classical equivalence between square-triangular numbers and the Pell equation covers only a Diophantine equation. It neither posits nor proves that the Gaussian digit-square map has precisely these fixed points within the one-real-digit/imaginary-repdigit class, nor does it rule out all other digit lengths.",
+      "searches": [
+        "Gaussian happy-number map complex digit-square map S_B non-real fixed point with imaginary two equal base-B digits, characterization via Pell equation B^2-8t^2=1",
+        "base B Gaussian integer fixed points a+it(B+1) with sum of squares of Gaussian base digits, infinite Pell family 3 17 99 577",
+        "Gaussian happy number non-real fixed points square triangular numbers unit equation x^2-8y^2=1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2101.00560v1 Table 1 gives the B=3 point 2+11i in base-3 notation (2+4i).",
+        "Targeted mathematical-result searches returned Pell digit-extraction threshold and Gaussian-cubic parametrization topics, neither naming this digit-square fixed-point theorem."
+      ],
+      "reasoning": "The known single table entry is acknowledged; the tables stop at B=10. The Pell number sequence is standard, but a table of its terms alone is not a table of Gaussian-map fixed points or a complete repdigit classification.",
+      "searches": [
+        "Gaussian Happy Numbers Baker Swart Crook Grundman Hall-Seelig nonreal fixed points base 3 repeated two-digit imaginary repdigit 11 recurrence base17 base99",
+        "integer base B digit squares Gaussian fixed point imaginary digits t t real one digit v classification",
+        "Gaussian happy-number map complex digit-square map S_B non-real fixed point with imaginary two equal base-B digits, characterization via Pell equation B^2-8t^2=1"
+      ]
+    },
+    "rationale": "The full open arXiv:2101.00560v1 specifies the same map and lists the first example 2+4i at base 3, but its Theorem 6 covers only bases 2 through 10, and its all-odd-base Theorem 7 produces real rather than nonreal fixed points. Known Pell parametrization and published unrelated digit-extraction results do not entail fixed points of this map. Targeted published-literature and result-record searches for the complete signed-repdigit pattern and Pell base spectrum yielded no stronger covering implication. The 2022 publisher version and search completeness remain explicit residual risks.",
+    "residual_risks": [
+      "The complete 2022 journal text of the originating paper was not accessible; the preprint was read in full and the journal abstract was checked, but uninspected additions could conceivably touch the claim.",
+      "The survey chapter was available only at abstract level; it cannot be used as proof of absence of related results.",
+      "Published-mathematics search indexing is incomplete, and absence of returned equivalent statements does not prove universal novelty.",
+      "The Pell/square-triangular parametrization is classical; novelty is restricted to the map-specific complete repdigit classification and its nonreal fixed-point base spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the base-3 seed, finite classification for bases up to 10, and all-odd real fixed points; does not state the claimed classification across all bases or forbid other repdigit lengths.",
+        "evidence": [
+          "Definition 1 at PDF page 3 establishes the exact signed-digit convention.",
+          "Theorem 6 and Table 1 at PDF page 6 give B=3 point 2+11i and a 2<=B<=10 bound.",
+          "Theorem 7 at pages 6--7 explicitly concerns real fixed points."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.00560",
+        "material_read": "Full 14-page PDF scientific sections, especially Definition 1, Lemma 1, Theorem 4, Corollary 5, Theorem 6, Tables 1--2, Theorem 7 and remaining sections; original page images for tables and general theorem.",
+        "method": "Full-PDF text read with page-image cross-checks.",
+        "title": "Gaussian Happy Numbers (open preprint)",
+        "trigger": "Identical Gaussian digit-square map and base-3 nonreal fixed point."
+      },
+      {
+        "assessment": "Same mathematical topic; journal abstract notes additional base -1+i discussion absent from the open preprint. Potential uninspected difference is retained as risk, with no positive evidence of this Pell-repdigit theorem.",
+        "evidence": [
+          "Rocky Mountain Journal of Mathematics 52(2) (2022), 415--429, DOI 10.1216/rmj.2022.52.415.",
+          "Institutional notice, 2022-06-16, mentions alternate base -1+i."
+        ],
+        "identifier_or_url": "https://doi.org/10.1216/rmj.2022.52.415",
+        "material_read": "Public 2022 bibliographic and institutional abstract records; journal PDF not available for direct inspection. The full 2021 open preprint of this work was inspected instead.",
+        "method": "Publication metadata and abstract compared with the open preprint.",
+        "title": "Gaussian Happy Numbers (2022 journal record, same originating work)",
+        "trigger": "Journal publication of the primary work could contain additional material."
+      },
+      {
+        "assessment": "Provides contextual risk only; cannot certify absence of the current theorem.",
+        "evidence": [
+          "Survey announcement and chapter abstract discuss digit-square and generalized happy functions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s44007-021-00010-x",
+        "material_read": "Available abstract and publication description only; survey full chapter unavailable.",
+        "method": "Abstract-level context check, not a full-text exclusion.",
+        "title": "Happy Numbers, Happy Functions, and Their Variations: A Survey",
+        "trigger": "Same authors survey generalized and Gaussian happy-function literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29edcc00-b9b0-43c1-b5a6-3e2829d94005",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classification closes a natural entire digit-structured family: any signed imaginary repdigit of arbitrary length and a one-digit real component, directly motivated by the B=3 fixed point listed in the source. The sharp statement that all lengths except two are impossible is structural, not a chosen numerical cutoff. It furnishes infinitely many previously untabulated nonreal fixed points in bases 17, 99, 577, etc. and an exact sparse base spectrum; these are meaningful uniform dynamics questions absent from finite fixed-base censuses. The Pell equation by itself is textbook material, but linking it by a necessary-and-sufficient digit-map theorem to the full natural repdigit class is not merely a renamed Pell sequence. No general all-fixed-points classification is claimed.",
+    "status": "PASS"
+  }
+}
