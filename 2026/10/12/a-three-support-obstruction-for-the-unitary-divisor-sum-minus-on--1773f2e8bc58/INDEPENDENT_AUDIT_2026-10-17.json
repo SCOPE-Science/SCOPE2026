@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:45:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_sigma_star.py",
+        "independent_checks.py"
+      ],
+      "rationale": "The infinite proof splits N into r=1,2,3 coprime prime-power blocks. r=1 gives (M-1)N=2; r=2 gives M=2 then (A-1)(B-1)=3, whose sole candidate blocks (2,4) are not coprime; r=3 bounds sigma*/N <=12/5 and N>=30, hence M=2. The linear equation C(AB-A-B-1)=AB+A+B+2 forces (for A=2) B-3|13 with B=4 or16 noncoprime; for A=3 an even denominator divides 13, impossible; and for A>=4,B>=5, monotone D(A,B)=AB^2-2AB-B^2-2B-A-2>=19 forces C<B, contradicting order. An independent factorization enumeration of 2<=N<=40000 found only N=2. This finite check supplements, not proves, the unbounded case.",
+      "residual_risks": [
+        "The conclusion does not bound support >=4 or establish existence of further solutions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada arXiv:2303.16853 Theorems 3–4 bound multipliers for sigma*(N)=MN±1 under nontrivial support conditions. Subbarao/Hasanalizade concern sigma*(N)=MN+1. Resultary iterated unitary sigma theorem studies (sigma*)^2(n)=4n."
+        ],
+        "reasoning": "A general upper multiplier bound, opposite-sign result, or second-iterate equation does not prove absence of M=2 with omega=3; each is not covering.",
+        "searches": [
+          "unitary divisor sum sigma star n equals m n minus one at most three distinct prime factors",
+          "Yamada 2023 Theorems 3 and 4 sigma star plus minus one",
+          "published Resultary 2026/9/20/SCOPE-iterated-unitary-sigma-multiplier-four-two-prime-rigidity--86dd6501721e"
+        ]
+      },
+      "checked_sources": [
+        "Yamada arXiv:2303.16853",
+        "Subbarao 1998 bibliographic plus-sign results",
+        "Hasanalizade 2023 Integers 23 A31",
+        "Resultary semantic unitary divisor sum sigma star n equals m n minus one at most three distinct prime factors",
+        "Resultary iterated sigma theorem 2026/9/20/...-86dd6501721e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 of the Yamada manuscript does not cover the needed total support <=3 boundary; Subbarao and Hasanalizade study the plus sign."
+        ],
+        "reasoning": "None of the checked prior implications forces the exact minus-sign r=3 exclusion. This is a bounded best-of-knowledge assessment, not an exhaustive historical guarantee.",
+        "searches": [
+          "arXiv:2303.16853 Yamada proof and Theorems 3–4",
+          "Subbarao A companion to a Lehmer problem 1998",
+          "Hasanalizade 2023 sigma* n 1+Mn"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N|sigma*(N)+1 is equivalent to sigma*(N)=MN-1 (M integral). Yamada addresses both signs analytically but has small-omega exclusions in its estimates."
+        ],
+        "reasoning": "Both additive minus-one and congruence formulations were checked; no equivalence to a known exact low-support classification was found, and the conclusion is not a simple sign change of the plus-sign problem.",
+        "searches": [
+          "unitary divisor sum sigma star n equals m n minus one at most three distinct prime factors",
+          "N divides sigma*(N)+1 at most 3 distinct prime factors",
+          "arXiv:2303.16853"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded independent factorization table through N=40000 contains only N=2 and cannot prove the universal statement; checked Resultary hits did not give an exact table of sigma*(N)=MN-1 with omega<=3."
+        ],
+        "reasoning": "The finite table is corroboration, not a published exhaustive database or dominating classification.",
+        "searches": [
+          "\"sigma*(n)\" \"-1\" \"omega\" unitary",
+          "Resultary semantic search unitary divisor sum sigma star n equals m n minus one at most three distinct prime factors"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the minus-sign small-support obstruction is not implied by the inspected plus-sign Lehmer analogues or Yamada large-support estimates. The congruence reformulation was compared; a generic bound on M does not eliminate M=2 for three factors.",
+      "residual_risks": [
+        "An older unitary minus-sign congruence small-support theorem may exist under different terminology; not all primary archives were exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The both-sign bounds have small-support restrictions and do not exclude M=2 at omega=3.",
+          "identifier_or_url": "https://www.researchgate.net/publication/369623778_On_Lehmer%27s_problem_and_related_problems",
+          "material_read": "Author-uploaded full text and theorems for multiplier/support bounds",
+          "method": "Full HTML text, focused on introduction and Theorems 3–4",
+          "title": "On Lehmer's problem and related problems",
+          "trigger": "Same sigma*(N)=MN±1 equation"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_RISK",
+          "evidence": "Plus-sign equation sigma*(N)=MN+1 is distinct; full older text not independently re-read in this execution.",
+          "identifier_or_url": "Publicationes Mathematicae Debrecen 52 (1998), 683–698",
+          "material_read": "Indexed statements and cited plus-sign theorem, not a renewed complete full-text read",
+          "method": "Literature indices and source citations",
+          "title": "A companion to a Lehmer problem",
+          "trigger": "Foundational plus-sign unitary Lehmer theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yamada arXiv:2303.16853",
+        "RESULT.md"
+      ],
+      "rationale": "The low-support barrier is motivated by the open unitary near-perfect/Lehmer-type minus-one equation. Exact elimination of all nontrivial three-factor candidates is an unbounded necessary structure theorem, not just a finite search or a renamed classical opposite-sign result; it sharply relocates any hypothetical counterexample to omega>=4.",
+      "residual_risks": [
+        "It does not establish existence of a solution for omega>=4."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For N>=2,M>=1 with omega(N)<=3, sigma*(N)=MN-1 iff (N,M)=(2,2); no assertion for omega>=4.",
+  "limitations": [
+    "Support range omega<=3 only; not a classification of all N.",
+    "Independent bound N<=40000 corroborates proof; it is not exhaustive evidence."
+  ],
+  "schema_version": 1
+}
