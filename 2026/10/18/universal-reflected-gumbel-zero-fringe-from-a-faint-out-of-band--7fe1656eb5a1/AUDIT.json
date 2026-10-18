@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Full analytic STFT-to-entire-function identity; normalized logarithmic Gaussian potential and Poincare-Lelong flux; all-frequency boundary Laplace limits; demodulated Gaussian mixing/Birkhoff; locally uniform tilted-moment convergence. Standalone quadrature checks supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Escudero et al, Theorem 1.1, general first intensity.",
+        "Escudero et al, Theorem 1.2, strictly positive slowly varying spectral tails.",
+        "Feldheim et al, arXiv:2406.20003 abstract, nonzero-mean charged zero count under Weyl-Heisenberg symmetry."
+      ],
+      "reasoning": "The first theorem dominates the local-intensity formula but does not explicitly give this all-frequency singular limit; the slow-tail hypothesis of their second theorem excludes compact spectral support. The Weyl-Heisenberg stationary model differs from the partial-time-stationary compact-bandwidth model here.",
+      "searches": [
+        "arXiv:2609.18689 Theorem 1.1 general colored noise noncentral deterministic signal",
+        "arXiv:2609.18689 Theorem 1.2 slowly varying PSD lower bound",
+        "arXiv:2406.20003 nonzero mean Weyl-Heisenberg zeros"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2609.18689",
+      "https://arxiv.org/html/1105.3929v3",
+      "https://arxiv.org/abs/2406.20003",
+      "https://arxiv.org/abs/1708.00082"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General first-intensity theorem implies the local formula after substitution and differentiation, not claimed as original.",
+        "Feldheim continuous-spectrum theorem implies the centered-noise time-averaged zero law, not the noncentral fixed-tone case or escape shape."
+      ],
+      "reasoning": "The contribution requires extracting endpoint flux, proving ergodicity of the phase-demodulated fixed-mean model, and controlling a singular weak-tone limit as an entire density packet escapes to infinity. These implications are not supplied by simply restating the prior general formulas.",
+      "searches": [
+        "Escudero Koliander Romero Gaussian spectrogram noncentral first intensity arXiv:2609.18689",
+        "Feldheim 2011 stationary Gaussian analytic functions horizontal limiting measure continuous spectral density",
+        "\"pure tone\" \"colored noise\" \"zero density\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.18689, Theorem 1.1 supplies pointwise noncentral first-intensity for any deterministic component.",
+        "arXiv:1105.3929, Theorem 1 gives centered stationary analytic-function zero density."
+      ],
+      "reasoning": "The noncentral pointwise density is indeed covered by the first paper and the centered long-time law is covered by the second, so neither is claimed independently. Their stated results do not specify an all-frequency noncentral spectral-hull count plus singular reflected-Gumbel weak-tone spectral fringe; no matching equivalence located.",
+      "searches": [
+        "\"Gumbel\" \"spectrogram\" \"zeros\" tone",
+        "\"zero density\" \"pure tone\" \"colored noise\" spectral",
+        "arXiv:2609.18689 Section 1 Theorems 1.1 and 1.2",
+        "arXiv:1105.3929 Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No listed exact numerical database or parameter table bears on a universal all-integrable-PSD asymptotic.",
+        "Full-text term searches of arXiv:2609.18689 returned no occurrences of Gumbel, compact support, monochromatic, bandlimited or tone."
+      ],
+      "reasoning": "The assertion ranges over every integrable compactly supported PSD and all exterior tone frequencies, so a finite table could only supply examples, not cover the claim. No exact recorded formula matching the singular profile was located.",
+      "searches": [
+        "\"spectrogram\" \"Gumbel\" \"zeros\" tone",
+        "\"bandlimited\" \"spectrogram\" \"faint tone\"",
+        "\"stationary gaussian\" \"spectral support\" \"zero density\"",
+        "arXiv:2609.18689 term searches: Gumbel, compact support, monochromatic, bandlimited"
+      ]
+    },
+    "rationale": "The central exact noncentral Gaussian spectrogram first-intensity formula and centered spectral zero law are attributed to Escudero--Koliander--Romero and Feldheim; the distinct result is an exact full-frequency noncentral spectral hull rate, ergodic law for fixed tone, and singular faint-tone reflected-Gumbel density fringe that is not present in the compared inspected theorems. Priority residual uncertainty is acknowledged.",
+    "residual_risks": [
+      "An unindexed paper may already state a spectral-endpoint count or reflected-Gumbel weak-tone profile; the novelty assessment is not an independent historical certification.",
+      "General noncentral pointwise formula in arXiv:2609.18689 subsumes the preliminary local-intensity identity, which is credited rather than claimed as new.",
+      "Additional relevant papers beyond the two principal full-text comparisons were only inspected by abstract."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General pointwise expected-zero formula is prior; asymptotic theorem addresses slowly varying positive-tail spectra, not the compact support weak-tone spectral escape.",
+        "evidence": [
+          "Theorem 1.1 Eq. (1.6)-(1.8), p.4",
+          "Theorem 1.2 Eq. (1.10)-(1.12), p.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.18689",
+        "material_read": "Abstract, introduction, Theorems 1.1 and 1.2, methodological proof context and targeted full-text searches for compact support/monochromatic/Gumbel terms",
+        "method": "Open-access arXiv full PDF, text and page rendering",
+        "title": "Zeros of the Spectrogram of Colored Noise",
+        "trigger": "Most relevant general noncentral STFT zero-intensity theorem and colored-noise asymptotics"
+      },
+      {
+        "assessment": "Centered analytic zero mean law is prior. Fixed nonzero deterministic exponential plus an absolutely continuous noise component is outside centered GAF theorem.",
+        "evidence": [
+          "Theorem 1, Section 2.1",
+          "Theorem 2, Edelman-Kostlan formula, Section 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1105.3929v3",
+        "material_read": "Definitions and stationary covariance model, main Theorem 1, centered-case zero density, atomic-spectrum discussion, sample proof/ergodic apparatus",
+        "method": "Open-access arXiv HTML full text",
+        "title": "Zeroes of Gaussian Analytic Functions with Translation-Invariant Distribution",
+        "trigger": "Potential stronger stationary entire zero-count result"
+      },
+      {
+        "assessment": "Concerns Weyl-Heisenberg symmetric model and charged/hyperuniformity counting; available abstract does not settle proposed spectral edge.",
+        "evidence": [
+          "Theorem 1.1 bounds charged-zero variance in disks for twisted stationary noise; it is not a frequency-edge or spectrogram-zero intensity result. The remaining full paper was not examined exhaustively."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.20003",
+        "material_read": "Abstract, Section 1.1 covariance/assumptions, and Theorem 1.1 on charged-zero variance",
+        "method": "Primary arXiv full PDF, introductory model and main theorem",
+        "title": "Hyperuniformity and non-hyperuniformity of zeros of Gaussian Weyl-Heisenberg Functions",
+        "trigger": "Nonzero-mean Gaussian STFT zero count"
+      },
+      {
+        "assessment": "White-noise case is different from compactly supported colored PSD and tone-induced spectral escape.",
+        "evidence": [
+          "Abstract discusses zero point processes of white Gaussian noise."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.00082",
+        "material_read": "Abstract and publication metadata",
+        "method": "Primary arXiv abstract",
+        "title": "On the zeros of the spectrogram of white noise",
+        "trigger": "Foundational Gaussian spectrogram zero model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fe1656e-b5a1-4b44-80f1-81d05048b386",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Explains a noncommuting signal-amplitude/frequency-window limit for natural bandlimited colored-noise STFT zeros; the spectrally exterior tone creates an exact nonzero count independent of its amplitude and a universal faint-tone crossover shape, with an all-frequency time-average law. This is a structural singular-limit and detection boundary rather than a numerical example.",
+    "status": "PASS"
+  }
+}
