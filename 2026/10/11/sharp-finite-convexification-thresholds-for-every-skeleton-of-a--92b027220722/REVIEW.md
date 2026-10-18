@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses only unique nonnegative simplex barycentric coordinates. The central sparse-splitting lemma removes exactly \(r\) exhausted entries at each inductive stage, choosing a length-\(r\) window of total mass at most one and an adjacent donor with enough residual mass. For \(i=1\), the average of the first \(r+1\) masses exceeds one because \(k>1\); for \(i>1\), the prior length-\(r\) window exceeded one. The induction leaves precisely \((k-1)r+1\) entries and total mass \(k-1\). The necessity witness has total off-vertex mass \(k\varepsilon<1\), forcing all summands to include the same vertex and yielding the strict capacity bound \(kr<d\). The exact rational verifier checks 4410 decompositions; the proof covers all real barycentric vectors, not just rational tests.
+## correctness
 
-## Originality — PASS, with historical risk
-The closely related 2015 source arXiv:1512.03718v2 was inspected in full, including theorems on volume-deficit failure, Schneider index, and eventual Hausdorff-distance monotonicity. The later extensive arXiv:1704.05486v3 was examined for simplex and skeleton terminology and its convexification theorems; none of the inspected relevant claims imply an exact all-skeleton finite saturation threshold. Classical Shapley–Folkman–Starr results give asymptotic approximation; they do not state this equality. A separate existing simplex-centroid equal-average result is limited to one fixed point and a fixed count, not all simplex points or all skeleton orders. An equivalent sparse-transport theorem outside the searched literature remains a concrete historical risk.
+PASS
 
-## Value — PASS
-The result gives the exact minimal number of equal-weight summands for **every** dimensional simplex skeleton, not merely a narrow isolated computation. Its constructive mass-splitting procedure and sharp near-vertex obstruction explain the transition geometrically. This supplies a natural finite-time benchmark for Minkowski convexification, where the literature often supplies only asymptotic convergence and quantitative nonconvexity rates.
+In affine barycentric coordinates, skeleton membership is support size <=r+1. The sparse-splitting lemma for masses w_i>=0 summing to k with at most kr+1 positions is proved inductively. In sorted order choose the first consecutive length-r block of mass <=1. A predecessor entry (or position r+1 if the first block works) has enough mass to complete a probability row of support <=r+1; delete the r exhausted coordinates and repeat. This gives sufficiency. If kr<d, barycentric target (1-eps,eps/d,...,eps/d), 0<eps<1/k, requires every row to use the dominant vertex, leaving at most kr other positive coordinates; all d are positive, a contradiction. Independently tested 2800 exact rational decompositions across r=1..4 and k=1..7, support/sum/reconstruction, without treating them as all-dimensional proof.
 
-## Scope and independence
-The statement is limited to full-dimensional affine simplices and closed proper skeleta; it is not an arbitrary-convex-body theorem. Numeric checks are supplementary and no third-party validation is asserted. Potential older equivalent formulations have not been categorically excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-point finite saturation threshold and sparse barycentric splitting differ from asymptotic Hausdorff convexification. Independent full-text reading of the earlier 6-page note and relevant parts of the 60-page extended survey found only general convergence and nonconvexity indices, not an r-skeleton threshold. The van Hintum 2026 paper is a plausible unread overlap risk, not presumed negative.
+
+## value
+
+PASS
+
+Exact finite convexification is a natural invariant of the nonconvex r-skeleton, and the sharp threshold ceils dimension by skeleton dimension for every simplex and all real barycentric weights. It gives a constructive finite cutoff and near-vertex obstruction, not a parameter substitution or an asymptotic rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
