@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:04:38.015577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prime p,k≥1, any n>1 with τ(n)|Φ_{p^k}(n) has Ω(n)≥p−1. For p=2, Ω≥1 trivially; prime equality witnesses must be odd q because Φ_{2^k}(q)=q^{2^{k−1}}+1 is even iff q odd. For odd p, Φ_{p^k}(n)=Σ_{j=0}^{p−1}n^{jp^{k−1}} is always odd; τ(n) therefore odd, forcing every prime exponent e_i even. If r≠p divides Φ_{p^k}(n), r∤n and the multiplicative order ord_r(n)=p^k (else the sum would be p mod r), so r>p. If Ω(n)<p−1 then any prime r|τ(n)=Π(e_i+1) satisfies r≤e_i+1≤Ω+1<p, contradicting cyclotomic order. At Ω=p−1 all primes in τ(n) must equal p, hence e_i+1=p and exactly one factor q^{p−1}; q≠p because Φ_{p^k}(q^{p−1})≡1 mod p if q=p. Conversely for q≠p, Fermat gives q^{p−1}≡1 mod p and Φ_{p^k}(q^{p−1})≡p≡0 mod p=τ(q^{p−1}). The proof is uniform in k and q. Independent divisibility checks for n up to 5000 on sampled p,k reproduced 2054 relative hits and 1384 boundary instances; they do not establish the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "If Q(1)=p>1, general construction yields witnesses q^{p−1} for suitable q, but does not exclude arbitrary n with smaller Ω.",
+          "The foundational 2002 broad infinitude claim had a gap and does not supply a multiplicity minimization theorem."
+        ],
+        "reasoning": "Generality for existence does not dominate a minimal-Ω classification; the latter requires the new multiplicative-order obstruction.",
+        "searches": [
+          "Abel–Lauer–Redi general Q(1)>1 construction, 2021",
+          "Zelinsky, Journal of Integer Sequences 5 (2002), Article 02.2.8"
+        ]
+      },
+      "checked_sources": [
+        "Abel, Lauer and Redi (2021), DOI 10.12697/ACUTM.2021.25.07",
+        "Zelinsky (2002), JIS Article 02.2.8",
+        "Resultary: 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00 (Φ_{2p^k}, not Φ_{p^k})",
+        "Resultary: 2026/10/4/SCOPE-the-least-nontrivial-divisor-count-for-tau-n-mid-n-2-n-1-is-209--ceb766b39c64 (different polynomial)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published construction from Φ_{p^k}(1)=p implies a subset of equality witnesses; that does not imply universal minimum or uniqueness.",
+          "The extra proof derives ord_r(n)=p^k for r≠p dividing Φ_{p^k}(n) and combines it with r≤Ω(n)+1 for primes r|τ(n)."
+        ],
+        "reasoning": "A nontrivial quantified lower bound is still needed beyond the prior existence theorem. The cyclotomic lemma is standard, not itself asserted novel.",
+        "searches": [
+          "Abel–Lauer–Redi 2021, Lemma 3 and Corollary 2",
+          "Classical cyclotomic prime divisor order lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source demonstrates infinitude for precisely the prime-power cyclotomic family Φ_{p^k} but not the all-solution lower Ω bound.",
+          "Resultary close title Unique relative tau-number for a cyclotomic prime-power family treats Φ_{2p^k} with odd p≡3 mod 4, not Φ_{p^k}."
+        ],
+        "reasoning": "Different index family and same-family witness existence are neither the quantified extremal classification nor an equivalent formulation of it.",
+        "searches": [
+          "Resultary: relative tau numbers cyclotomic polynomial Phi prime power minimum Omega prime factors p-1 q^(p-1)",
+          "Abel–Lauer–Redi 2021 Corollary 2, DOI:10.12697/ACUTM.2021.25.07"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No complete first-layer table or all-prime-q equality classification was found in the inspected source; the original relative-τ article offers an infinite existence criterion.",
+          "The independent n≤5000 regression is a finite test, not an exhaustive historical database."
+        ],
+        "reasoning": "The claim quantifies over all primes p, powers k, n and q; a finite enumeration or first example is not coverage.",
+        "searches": [
+          "Resultary: cyclotomic τ-relative Ω prime-power boundary",
+          "Abel–Lauer–Redi, 2021, cyclotomic corollary"
+        ]
+      },
+      "rationale": "Abel–Lauer–Redi (2021) Corollary 2 specifically gives infinitely many τ-numbers relative to Φ_{p^k} using the general condition Φ_{p^k}(1)=p. It constructs exponent p−1 witnesses from a congruence progression, but does not prove Ω≥p−1 for all nontrivial solutions, classify all equality cases, or allow every prime q≠p at the extremal layer. Zelinsky 2002 introduced polynomial-relative τ-numbers and an overbroad infinitude assertion later repaired. A related published SCOPE theorem for Φ_{2p^k} concerns a different cyclotomic family with a unique trivial solution, so it does not imply this one. Result is a sharp natural multiplicity boundary, with priority risk from classical cyclotomic order folklore.",
+      "residual_risks": [
+        "The cyclotomic order argument is short and could be known in arithmetic folklore or a source not indexed with relative τ terminology.",
+        "The classification addresses only the minimum Ω layer, not all solutions at larger multiplicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXISTENCE_NOT_SHARP_MULTIPLICITY",
+          "evidence": "Q(1)=p gives infinitude; proof selects witness primes in a residue class, not a classification of all n with Ω(n)=p−1.",
+          "identifier_or_url": "https://doi.org/10.12697/ACUTM.2021.25.07",
+          "material_read": "Lemma 3 Q(1)>1 construction and Corollary 2 for Φ_{p^k}, including congruence-based witnesses",
+          "method": "Read lawful primary open-access PDF and page image of corollary",
+          "title": "About the number of τ-numbers relative to polynomials with integer coefficients",
+          "trigger": "Same exact relative divisor-function property and prime-power cyclotomic polynomial family"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Cited for definition/history only; not used to assert all other results of the full 2002 paper do not cover the new theorem.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL5/Zelinsky/zelinsky4.html",
+          "material_read": "Foundational relative-τ statement and subsequently documented gap as quoted and discussed by Abel–Lauer–Redi",
+          "method": "Read accessible article metadata/related published citation and correction discussion, not a systematic full-text noncoverage claim",
+          "title": "Tau Numbers: A Partial Proof of a Conjecture and Other Results",
+          "trigger": "Foundational definition and earlier general infinitude claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prime-power cyclotomic polynomials are explicitly singled out in the original relative-τ literature, and Ω is the canonical complexity measure counting prime factors with multiplicity. The theorem proves that p−1 is an intrinsic minimum, not an artifact of a witness construction, and classifies every equality case for all k. It identifies an exact natural invariant over an infinite parameter family, with nonexistence below the boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Φ_{p^k}, not Φ_{2p^k} nor arbitrary integer polynomials.",
+    "The finite regression is not used as a general impossibility proof.",
+    "Publication withheld because original public metadata retain operational provenance and no audited sanitized replacements have been staged."
+  ],
+  "schema_version": 1
+}

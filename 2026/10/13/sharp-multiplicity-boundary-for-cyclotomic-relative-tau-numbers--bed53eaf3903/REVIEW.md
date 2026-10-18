@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separately handles \(p=2\). For odd \(p\), parity of \(\Phi_{p^k}(n)\) forces \(\tau(n)\) odd and hence \(n\) square. Every prime \(r\ne p\) dividing \(\Phi_{p^k}(n)\) has multiplicative order exactly \(p^k\), so \(r>p\). A prime divisor of \(\tau(n)\) would instead be at most \(\Omega(n)+1\). This contradiction gives the lower bound, and at equality it forces the unique exponent to be \(p-1\). The converse follows from Fermat's theorem. The packaged regression found no counterexample in its stated finite box.
+## correctness
 
-## Originality
-PASS. The focal 2021 paper proves infinitude for \(\Phi_{p^k}\) from \(\Phi_{p^k}(1)=p\), but the inspected cyclotomic corollary does not bound \(\Omega(n)\) or classify its minimum layer. Zelinsky's foundational 2002 relative-polynomial section gives a general infinitude claim later identified as having a proof gap and does not mention cyclotomic polynomials. Targeted semantic searches found the closest database record for \(\Phi_{2p^k}\), whose uniqueness theorem is about a different index family and has the opposite qualitative behavior. No checked source implied the sharp \(p-1\) boundary or its full equality classification.
+PASS
 
-## Value
-PASS. Prime-power cyclotomic polynomials are a natural family singled out explicitly in the focal source, and \(\Omega\) is the standard multiplicity measure of arithmetic complexity. The theorem gives the exact first nontrivial layer and all its extremizers, proving that the exponent \(p-1\) appearing in the source's construction is not an artifact of that construction. The fact that every prime \(q\ne p\) is an extremizer also removes an unnecessary congruence restriction from the extremal layer.
+For prime p,k≥1, any n>1 with τ(n)|Φ_{p^k}(n) has Ω(n)≥p−1. For p=2, Ω≥1 trivially; prime equality witnesses must be odd q because Φ_{2^k}(q)=q^{2^{k−1}}+1 is even iff q odd. For odd p, Φ_{p^k}(n)=Σ_{j=0}^{p−1}n^{jp^{k−1}} is always odd; τ(n) therefore odd, forcing every prime exponent e_i even. If r≠p divides Φ_{p^k}(n), r∤n and the multiplicative order ord_r(n)=p^k (else the sum would be p mod r), so r>p. If Ω(n)<p−1 then any prime r|τ(n)=Π(e_i+1) satisfies r≤e_i+1≤Ω+1<p, contradicting cyclotomic order. At Ω=p−1 all primes in τ(n) must equal p, hence e_i+1=p and exactly one factor q^{p−1}; q≠p because Φ_{p^k}(q^{p−1})≡1 mod p if q=p. Conversely for q≠p, Fermat gives q^{p−1}≡1 mod p and Φ_{p^k}(q^{p−1})≡p≡0 mod p=τ(q^{p−1}). The proof is uniform in k and q. Independent divisibility checks for n up to 5000 on sampled p,k reproduced 2054 relative hits and 1384 boundary instances; they do not establish the infinite theorem.
 
-## Residual limitations
-No claim is made about the classification or density of higher \(\Omega\)-layers. The literature comparison cannot logically prove absolute novelty, so unindexed or inaccessible work remains a residual risk; no decisive competing statement was found in the checked sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abel–Lauer–Redi (2021) Corollary 2 specifically gives infinitely many τ-numbers relative to Φ_{p^k} using the general condition Φ_{p^k}(1)=p. It constructs exponent p−1 witnesses from a congruence progression, but does not prove Ω≥p−1 for all nontrivial solutions, classify all equality cases, or allow every prime q≠p at the extremal layer. Zelinsky 2002 introduced polynomial-relative τ-numbers and an overbroad infinitude assertion later repaired. A related published SCOPE theorem for Φ_{2p^k} concerns a different cyclotomic family with a unique trivial solution, so it does not imply this one. Result is a sharp natural multiplicity boundary, with priority risk from classical cyclotomic order folklore.
+
+## value
+
+PASS
+
+Prime-power cyclotomic polynomials are explicitly singled out in the original relative-τ literature, and Ω is the canonical complexity measure counting prime factors with multiplicity. The theorem proves that p−1 is an intrinsic minimum, not an artifact of a witness construction, and classifies every equality case for all k. It identifies an exact natural invariant over an infinite parameter family, with nonexistence below the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
