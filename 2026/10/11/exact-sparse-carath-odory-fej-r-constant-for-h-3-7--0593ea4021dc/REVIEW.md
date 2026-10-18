@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-contact upper certificate is exact. The candidate factorization is exact, and positivity of the remaining quartic is certified by six strictly positive Bernstein coefficients. Equality conditions recover the unique coefficients. The standalone checker replays the identities with exact arithmetic in \(\mathbb Q(\sqrt5)\).
+## correctness
 
-## Originality
-PASS. Targeted exact-value, support-alias, positive-definite, and implication searches did not locate this support value. The closest primary source defines the same \(M(H)\) problem and gives several exact support families, but its inspected list does not contain \(H=\{3,7\}\); its complement duality does not determine the value. Closest exact published support results concern different supports or discrete sampling.
+PASS
 
-## Value
-PASS. The claim evaluates a natural sparse Carathéodory–Fejér invariant at a support singled out by a fifth-root resonance, with a sharp certificate and unique equality case. This is a structural exact fact in a classical harmonic-analysis extremal family.
+At π and 4π/5, cos3θ=cos7θ, and the positive two-point combination sT(π)+T(4π/5) eliminates b,c to bound a≤(5+3√5)/10. The proposed b,c give factorization C(x+1)(x+r)²R(x), C=64(5−2√5)/25>0 and r=(1+√5)/4. Exact independent Q(√5) polynomial expansion confirms the factorization, and all six degree-five Bernstein coefficients of R((2y−1)) were independently reconstructed and are positive, implying R>0 on [−1,1]. At equality both contact points vanish; derivative at x=−r with nonsingular two-coefficient linear system establishes uniqueness.
 
-## Closest literature and limitations
-The primary comparison is Kolountzakis–Révész (2003), which defines the arbitrary-support problem and lists exact families, together with Révész's earlier duality framework. The theorem is specific to the real even support \(H=\{3,7\}\), and an older equivalent formula under different notation remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the precise real-even continuous-circle support {1,3,7} exact optimal first-harmonic coefficient (5+3√5)/10 with unique optimizer. The primary general support papers and explicit exact families were compared statement-wise; general definitions/duality and adjacent nonnested supports do not supply this formula. This is not a novelty proof from failed searches: Resultary unavailable; hidden exact sparse polynomial literature remains a residual risk.
+
+## value
+
+PASS
+
+Sparse Carathéodory–Fejér coefficient extrema are canonical invariants of frequency support and positive-definite Fourier sequences. For {1,3,7}, Exact fifth-root resonance cos(3·4π/5)=cos(7·4π/5) yields a dual lower-dimensional contact geometry and an exact uniquely extremizing sequence; the sparse support is motivated by this harmonic coincidence. The exact optimizing value, a globally certified feasible extremizer and uniqueness are precise reusable mathematical benchmarks; no paper-sized downstream theorem is required for this motivated exact fact. It is not a routine evaluation of a full consecutive Fourier support problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
