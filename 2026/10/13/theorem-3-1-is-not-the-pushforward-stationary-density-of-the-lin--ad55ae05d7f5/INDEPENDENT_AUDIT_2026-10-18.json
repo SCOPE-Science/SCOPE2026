@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:11:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The printed Itô SDE dx=[mS/(a+S)-D]x dt+sigma*x dB gives dlog x=[mS/(a+S)-D-sigma^2/2]dt+sigma dB; Eq.(3.1) omits the -sigma^2/2 drift. For Y=log(S/S*), Z=log(x/x*), the inverse density change has determinant 1/(Sx), absent from source Thm3.1. Under the paper local affine OU approximation, stationary mean solves A mu+(0,-sigma^2/2)=0 and covariance solves A Sigma+Sigma A^T+diag(0,sigma^2)=0. At (S0,D,m,a)=(4,2,3,1), exact mu=(3sigma^2/4,-sigma^2) and Sigma=sigma^2[[9/16,-3/4],[-3/4,19/16]], both independently algebraically verified. Consequently Z~N(-sigma^2,19sigma^2/16), x is lognormal with E[x]=2exp(-13sigma^2/32) and mode=2exp(-35sigma^2/16). This concerns the linear approximation, never an exact nonlinear stationary law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic OU stationarity, Itô calculus and lognormal transforms are known but not the source-specific dual correction."
+        ],
+        "reasoning": "The general transformation theorems imply the corrected formulas once applied, but do not constitute a previously published result that detects both failures in the named source; their classical inputs are fully acknowledged.",
+        "searches": [
+          "stochastic chemostat lognormal stationary density Ito correction bivariate Gaussian pushforward"
+        ]
+      },
+      "checked_sources": [
+        "Yang, Zhao & Song, AIMS Mathematics 8 (2023), 1757–1769 DOI:10.3934/math.2023090, Sec3",
+        "Liu & Chen, Discrete Contin. Dyn. Syst. B 26 (2021), DOI:10.3934/dcdsb.2020291 (other-model background)",
+        "Resultary semantic query: stochastic chemostat stationary density Ito log transform Jacobian Yang Zhao Song 2023 formula error"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary diffusion dx=sigma x dB and logarithmic variables require -sigma^2/2, and pushforward density normalization requires 1/(Sx)."
+        ],
+        "reasoning": "Primary formulas lack two mandatory terms. A generic theorem alone cannot make an incorrectly printed paper-specific density correct.",
+        "searches": [
+          "DOI:10.3934/math.2023090 Theorem 3.1 equation (3.1) 2023",
+          "DOI:10.3934/dcdsb.2020291 stationary density stochastic SEIS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Eq.(3.1) prints dz without the stochastic Ito term; its joint density expression omits 1/(Sx)."
+        ],
+        "reasoning": "Checked both Itô and pushforward aliases; no inspected earlier repair of this theorem was found.",
+        "searches": [
+          "stochastic chemostat stationary density Ito log transform Jacobian Yang Zhao Song 2023 formula error",
+          "\"Statistical property analysis for a stochastic chemostat\" erratum lognormal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Continuous stationary density calculation is not a finite database/table census; searched source-specific amendments."
+        ],
+        "reasoning": "Not a table-invariant claim; the corresponding exhaustive-search concern is whether an explicit correction/erratum exists.",
+        "searches": [
+          "Yang Zhao Song chemostat 2023 Theorem 3.1 density correction 10.3934/math.2023090"
+        ]
+      },
+      "rationale": "Itô logarithm drift and change-of-variables Jacobians are classical and receive no novelty credit. The contribution identifies BOTH omitted terms in the specific Yang–Zhao–Song Theorem3.1, reconstructs the resulting stationary OU approximation, and supplies explicit corrected distribution statistics for the published parameter set. General Fokker–Planck analyses such as Liu–Chen 2021 treat different SEIS models and do not imply this particular published mismatch. No publication-specific correction located in available search.",
+      "residual_risks": [
+        "The plotted data may derive from an implementation different from the paper equations.",
+        "An inaccessible or unindexed erratum could already contain the same double correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Itô correction and physical-variable Jacobian absent in displayed derivation",
+          "evidence": [
+            "Eq.(3.1) prints dz=a21*y dt+sigma dB without -sigma^2/2; physical-space density lacks 1/(Sx)."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2023090",
+          "material_read": "Primary PDF mathematical sections 2–3, especially page 5 log-space equation (3.1), page 6 stationary density and transformed variables",
+          "method": "full PDF retrieved, relevant pages inspected as rendered images and text",
+          "title": "Statistical property analysis for a stochastic chemostat model with degenerate diffusion",
+          "trigger": "exact primary stochastic model and Theorem3.1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two transformations determine the actual normalized density, its stationary mean, mode and higher moments; their omission is not a harmless normalization convention. This model-specific correction affects the interpretation of the article’s stationary microbial abundance estimates and is mathematically motivated despite using classical calculus.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Yang, Zhao & Song, AIMS Mathematics 8 (2023), 1757–1769 DOI:10.3934/math.2023090, Sec3",
+    "Liu & Chen, Discrete Contin. Dyn. Syst. B 26 (2021), DOI:10.3934/dcdsb.2020291 (other-model background)",
+    "Resultary semantic query: stochastic chemostat stationary density Ito log transform Jacobian Yang Zhao Song 2023 formula error"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "OU law is local linearized stationary approximation, not exact nonlinear stationary distribution.",
+    "No claim on which software produced source plots.",
+    "Scientific review does not constitute an external formal theorem certification, and publication status is separately not_ready."
+  ],
+  "residual_risks": [
+    "The plotted data may derive from an implementation different from the paper equations.",
+    "An inaccessible or unindexed erratum could already contain the same double correction."
+  ],
+  "schema_version": 1
+}

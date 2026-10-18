@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the corrected local stationary approximation.
 
-It verifies the Itô logarithm identity
-\[
-d\log x
-=
-\left(
-\frac{mS}{a+S}-D-\frac{\sigma^2}{2}
-\right)dt+\sigma\,dB.
-\]
+# Independent mathematical audit
 
-For
-\[
-A=
-\begin{pmatrix}
-a_{11}&a_{12}\\
-a_{21}&0
-\end{pmatrix},
-\]
-it verifies that the stated mean solves the affine stationary equation and that the stated covariance solves
-\[
-A\Sigma+\Sigma A^T+
-\begin{pmatrix}
-0&0\\
-0&\sigma^2
-\end{pmatrix}
-=0.
-\]
+## correctness
 
-It verifies
-\[
-\left|
-\frac{\partial(\log(S/S^*),\log(x/x^*))}{\partial(S,x)}
-\right|
-=
-\frac{1}{Sx}.
-\]
+PASS
 
-For the source parameters
-\[
-S^0=4,\quad D=2,\quad m=3,\quad a=1,
-\]
-the checker obtains
-\[
-a_{11}=-\frac83,\quad
-a_{12}=-2,\quad
-a_{21}=\frac23,
-\]
-\[
-\mu_Z=-\sigma^2,
-\qquad
-\Sigma_{22}=\frac{19\sigma^2}{16}.
-\]
+The printed Itô SDE dx=[mS/(a+S)-D]x dt+sigma*x dB gives dlog x=[mS/(a+S)-D-sigma^2/2]dt+sigma dB; Eq.(3.1) omits the -sigma^2/2 drift. For Y=log(S/S*), Z=log(x/x*), the inverse density change has determinant 1/(Sx), absent from source Thm3.1. Under the paper local affine OU approximation, stationary mean solves A mu+(0,-sigma^2/2)=0 and covariance solves A Sigma+Sigma A^T+diag(0,sigma^2)=0. At (S0,D,m,a)=(4,2,3,1), exact mu=(3sigma^2/4,-sigma^2) and Sigma=sigma^2[[9/16,-3/4],[-3/4,19/16]], both independently algebraically verified. Consequently Z~N(-sigma^2,19sigma^2/16), x is lognormal with E[x]=2exp(-13sigma^2/32) and mode=2exp(-35sigma^2/16). This concerns the linear approximation, never an exact nonlinear stationary law.
 
-At \(\sigma=0.15\), it returns the corrected linearized microorganism mode and mean reported in the finding.
+## originality
 
-No nonlinear stationary-distribution claim is inferred from this replay.
+PASS
+
+Itô logarithm drift and change-of-variables Jacobians are classical and receive no novelty credit. The contribution identifies BOTH omitted terms in the specific Yang–Zhao–Song Theorem3.1, reconstructs the resulting stationary OU approximation, and supplies explicit corrected distribution statistics for the published parameter set. General Fokker–Planck analyses such as Liu–Chen 2021 treat different SEIS models and do not imply this particular published mismatch. No publication-specific correction located in available search.
+
+## value
+
+PASS
+
+The two transformations determine the actual normalized density, its stationary mean, mode and higher moments; their omission is not a harmless normalization convention. This model-specific correction affects the interpretation of the article’s stationary microbial abundance estimates and is mathematically motivated despite using classical calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
