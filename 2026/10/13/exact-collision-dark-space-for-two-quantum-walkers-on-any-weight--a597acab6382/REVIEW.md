@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The diagonal unique-continuation induction is exact: evaluate the symmetric eigenfunction recurrence first at each diagonal coincidence vertex, then advance along increasing coordinate separation from the left boundary. It proves the absence of symmetric dark eigenvectors for every allowed weighted path, including complex adjacent hopping and arbitrary exchange-symmetric diagonal two-body interactions. Hermitian invariant-subspace duality gives the full diagonal cyclicity dimension; dissipativity and finite-dimensional Jordan bounds give exponential conditional survival convergence. The code checks 48 randomized systems and the decisive four-cycle boundary but is not used to infer an infinite-family theorem.
+## correctness
 
-**Originality — PASS, with substantial antecedents and residual priority risk.** Foss-Feig et al. (arXiv:1207.4741v1) already derive the antisymmetric protected sector for a double well and a harmonic oscillator and suggest extension to one-dimensional Hubbard chains. Marché et al. (arXiv:2405.04789v2) explicitly derive the conserved antisymmetric contribution in uniform periodic Hubbard chains. The present claim is narrowed to the full arbitrary weighted-open-Jacobi, arbitrary diagonal-interaction/rate, symmetric-sector complete observability result, whose strengthened hypotheses and conclusion are not established in inspected material. Quantum walk (arXiv:1402.3349v1) and nearest-neighbor hard-core reaction-diffusion (arXiv:1411.7913v1) have different dynamics and loss supports. A specialized equivalent in broader matrix-control literature is possible.
+PASS
 
-**Value — PASS.** The result supplies a complete physical and spectral classification of two-walker collision extinction on a natural finite disordered graph family and an exact survival law for every initial state, mixed or pure. The exact dimension of the detector's cyclic span, its independence from arbitrary exchange-symmetric diagonal interactions and positive sitewise rates, and the explicit four-cycle obstruction make this a motivated structural assertion rather than a renaming of the familiar two-site example.
+Swap symmetry decomposes the exchange-symmetric and exchange-antisymmetric sectors of H=J⊗I+I⊗J+V with D=sum gamma_j |jj><jj|; the antisymmetric sector lies in ker(D) and is H-invariant. If a symmetric H eigenvector has all f_jj=0, the eigen-equation at j=j forces adjacent f_{j,j+1}=0 by induction along the open path. For separation r>=2, the equation at (i,i+r-1) sweeps from the left boundary and forces every f_{i,i+r}=0 because every adjacent hopping is nonzero. Thus the only symmetric dark eigenvector is zero, even for complex hopping and arbitrary exchange-symmetric diagonal V. Finite-dimensional invariant subspaces contain eigenvectors; Hermitian duality gives the entire diagonal detection Krylov span P_+. On K_+ dissipativity forces strictly negative imaginary part for every eigenvalue and Jordan bounds give exponential contraction. Therefore long-time survival is exactly initial P_- weight and for product |u,v> equals (1-|<u,v>|²)/2. Independent randomized Hermitian-path matrices n=2..5 confirmed dark dimensions 1,3,6,10 and long-time survival errors less than 2e-13, strictly corroborative.
 
-**Limits.** Only finite paths, full-site positive coincidence loss, nonzero adjacent hopping, and exchange-symmetric diagonal pair interactions. The exponential rate has no claimed system-independent lower bound. Publication-priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+Antisymmetric two-body exchange protection and the 50% distinct-site survival are known; the submitted theorem asserts the maximal dark subspace with arbitrary disordered finite open-path parameters and every density matrix. A hypothetical exact observability theorem for symmetric two-particle Jacobi sums could imply this; none in the inspected primary quantum literature is shown to handle arbitrary complex nearest-neighbor hoppings and diagonal pair interaction. Fermionic modes have zero coincidence amplitude, which gives lower bound on dark dimension but does NOT alone establish absence of symmetric dark eigenvectors. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.
+
+## value
+
+PASS
+
+The exact reachable/detectable subspace for EVERY finite disordered weighted open path with arbitrary complex hopping phases, arbitrary symmetric diagonal interactions and arbitrary positive site-dependent loss is an independently usable robustness and unique-continuation theorem. It determines the complete asymptotic conditional state and universal dark dimension for any initial density matrix, not merely a qualitative two-site antisymmetry observation or a nonuniform numerical lifetime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

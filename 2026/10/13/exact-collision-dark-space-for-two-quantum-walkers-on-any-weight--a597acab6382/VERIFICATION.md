@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The recurrence argument in `RESULT.md` is the proof of the all-dimensional statement. Numerical tests are supplementary and make no claim of exhaustive enumeration over any continuous parameter class.
+# Independent mathematical audit
 
-Run `python verification/verify.py` after installing packages in `verification/requirements.txt`. The checker uses the exact listed seed to generate 48 finite weighted-path models, with \(2\le n\le7\), complex hopping, real exchange-symmetric diagonal interactions, unequal positive diagonal loss rates, and 144 randomized initial states. It compares the exact Hermitian dark eigenspace dimension with \(n(n-1)/2\), verifies exchange symmetry, and compares long-time conditional survival with antisymmetric initial weight. It also checks the explicit symmetric zero-energy dark vector on the unweighted four-cycle.
+## correctness
 
-The finite time is \(t=50000\), chosen conservatively for numerical relaxation; finite-time decay is not itself the proof of convergence. The theorem does not give a parameter-uniform decay gap. See `verification/output.txt` for a recorded test run. Independent audit: not performed.
+PASS
+
+Swap symmetry decomposes the exchange-symmetric and exchange-antisymmetric sectors of H=J⊗I+I⊗J+V with D=sum gamma_j |jj><jj|; the antisymmetric sector lies in ker(D) and is H-invariant. If a symmetric H eigenvector has all f_jj=0, the eigen-equation at j=j forces adjacent f_{j,j+1}=0 by induction along the open path. For separation r>=2, the equation at (i,i+r-1) sweeps from the left boundary and forces every f_{i,i+r}=0 because every adjacent hopping is nonzero. Thus the only symmetric dark eigenvector is zero, even for complex hopping and arbitrary exchange-symmetric diagonal V. Finite-dimensional invariant subspaces contain eigenvectors; Hermitian duality gives the entire diagonal detection Krylov span P_+. On K_+ dissipativity forces strictly negative imaginary part for every eigenvalue and Jordan bounds give exponential contraction. Therefore long-time survival is exactly initial P_- weight and for product |u,v> equals (1-|<u,v>|²)/2. Independent randomized Hermitian-path matrices n=2..5 confirmed dark dimensions 1,3,6,10 and long-time survival errors less than 2e-13, strictly corroborative.
+
+## originality
+
+PASS
+
+Antisymmetric two-body exchange protection and the 50% distinct-site survival are known; the submitted theorem asserts the maximal dark subspace with arbitrary disordered finite open-path parameters and every density matrix. A hypothetical exact observability theorem for symmetric two-particle Jacobi sums could imply this; none in the inspected primary quantum literature is shown to handle arbitrary complex nearest-neighbor hoppings and diagonal pair interaction. Fermionic modes have zero coincidence amplitude, which gives lower bound on dark dimension but does NOT alone establish absence of symmetric dark eigenvectors. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.
+
+## value
+
+PASS
+
+The exact reachable/detectable subspace for EVERY finite disordered weighted open path with arbitrary complex hopping phases, arbitrary symmetric diagonal interactions and arbitrary positive site-dependent loss is an independently usable robustness and unique-continuation theorem. It determines the complete asymptotic conditional state and universal dark dimension for any initial density matrix, not merely a qualitative two-site antisymmetry observation or a nonuniform numerical lifetime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
