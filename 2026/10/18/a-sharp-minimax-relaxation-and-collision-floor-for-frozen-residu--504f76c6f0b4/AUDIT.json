@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The multinomial count marginal gives equation (1) exactly for each residual vector. A support-minimal maximizer and the pair-affine identity establish rigorously that a symmetric cubic moment penalty takes its maximum either at a simplex vertex or the full uniform distribution, without relying on sampled grids. Optimizing the maximum of two convex quadratics yields the unique piecewise step, exact sharp factor and boundary at k(d−1)=2d−1. The vertex witnesses necessity of 0<β<2/k and both witness quadratics show its sufficiency. The asymptotic floor and fixed-uniform comparison are algebraic limits. The standalone rational and Monte Carlo checker passed 98917 checks; these corroborate rather than establish the unrestricted assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tondji and Lorenz, DOI:10.1007/s11075-022-01473-x, Sections 4.1–4.2 and Corollary 4.14: minibatch-averaged fixed row-norm-based probabilities, with explicit relaxation bounds and a best guaranteed bound.",
+        "Its specialization to fixed-uniform sampling of identity rows corresponds to the comparison \\((d-1)/(d+k-1)\\) after matching relaxation normalization, but does not state the residual-dependent supremum or the positive collision floor."
+      ],
+      "reasoning": "An encompassing minibatch method may algebraically permit replacing fixed probabilities by a distribution computed from the current residual, but the fixed-probability convergence guarantee is not itself the sharp minimax result for an adversarially varying probability vector. The new cubic-simplex extremal step is not implied by the source bound without additional analysis.",
+      "searches": [
+        "\"randomized Kaczmarz with averaging\" \"optimal stepsize\" residual-based probabilities 2022",
+        "parallel randomized Kaczmarz residual weighted multiple simultaneous identical stale updates underrelaxation optimal",
+        "\"Faster randomized block sparse Kaczmarz by averaging\" optimal relaxation",
+        "arxiv:2203.10838"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.01232, full-text author copy, Sections 3–6",
+      "arxiv:2607.08313, accessible full paper text, Sections 2–6",
+      "DOI:10.1007/s11075-022-01473-x, open-access Sections 1, 4, 5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coleman 2026, arXiv:2606.01232: the IPR identity and collision-probability factor quantify selection concentration, but provide no maximization of \\(-a\\sum p_i^2+b\\sum p_i^3\\) over the simplex for a frozen batch.",
+        "Coleman 2026, arXiv:2607.08313: the collision cliff is measured under asynchronous hardware interleavings, not solved as a worst-initial-error finite-batch minimax problem.",
+        "Tondji and Lorenz 2022/2023: fixed-distribution minibatch averaging is analytically related but does not establish the positive \\(((d-1)/(d+1))^2\\) residual-conditioned limit."
+      ],
+      "reasoning": "None of the inspected named prior conclusions logically implies both the exact endpoint extremum across every probability vector and the unique piecewise minimax parameter. Conversely, the present identity-system frozen snapshot theorem makes no claim about the stronger or different practical asynchronous settings of those works. This is a best-knowledge originality assessment, not an independence or uniqueness certification.",
+      "searches": [
+        "\"residual-weighted\" \"simultaneous\" \"snapshot\" \"Kaczmarz\" optimal relaxation",
+        "\"asynchronous residual-weighted Jacobi\" exact collision batch",
+        "\"adaptive row selection\" \"minimax\" \"snapshot\" \"relaxation\" \"Kaczmarz\" squared residual",
+        "arxiv 2606.01232 residual-weighted randomized Jacobi IPR asynchronous collision minimax",
+        "arxiv 2607.08313 adaptive row selection asynchrony Kaczmarz analytic frozen snapshot batch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coleman 2026, arXiv:2606.01232, Sections 3–5: progress identity in a single randomly chosen coordinate and an IPR sharpened rate; the collision discussion does not supply a closed-form simultaneous-batch minimax.",
+        "Coleman 2026, arXiv:2607.08313, Sections 3 and 5: sampling exponent ℓ=2 and consistent-snapshot updates were studied via parallel experiments."
+      ],
+      "reasoning": "The frozen-batch multinomial update conditional on the same current residual differs from one-coordinate sampling and from live/asynchronous interleavings. Optimizing the resulting cubic symmetric moment over all residual distributions yields an exact endpoint law and phase transition not stated in the inspected mathematical sections. Both source papers motivate the model and collision issue, but coincidence of terminology is not coverage.",
+      "searches": [
+        "\"residual-weighted\" \"simultaneous\" \"snapshot\" \"Kaczmarz\" optimal relaxation",
+        "\"power-weighted\" \"Jacobi\" minimax simultaneous updates",
+        "minimax batch stale parallel randomized Kaczmarz exact d workers adaptive residual squared",
+        "arxiv:2606.01232",
+        "arxiv:2607.08313"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary papers give simulation and convergence-bound tables, not exact tabulated optimizers indexed by both dimension and snapshot batch size.",
+        "The exact sample values \\((d,k)=(2,4)\\mapsto(\beta_*,\\mathcal R_*)=(4/11,25/121)\\) and \\((3,3)\\mapsto(6/11,49/121)\\) follow from the analytical phase diagram rather than an identified prior table."
+      ],
+      "reasoning": "Queries did not uncover an exact table or parameterized database that already establishes the full sharp claim. A failed search does not certify novelty; an equivalent table in unindexed material remains a residual risk.",
+      "searches": [
+        "\"consistent snapshot\" \"minimax\" \"residual-weighted\" batch optimal relaxation",
+        "\"minimax\" \"frozen snapshot\" \"Kaczmarz\" worker",
+        "one-commit stale additive Kaczmarz identity fixed iid sampling mean square stability",
+        "Collision-limited convergence floor for power-weighted row sampling batched Jacobi exact worst-case contraction and optimal stepsize"
+      ]
+    },
+    "rationale": "The closest accessible primary studies motivate residual-power selection, collision pile-on, and minibatch relaxation; their inspected mathematical claims and assumptions do not establish the exact state-dependent frozen-snapshot simplex extremum, unique all-dimension batch minimax step, or nonzero best one-batch concurrency floor. Related published result summaries and accessible earlier claims involve sequential Kaczmarz, one-update stale recursion, or fixed sampling, and do not imply the candidate. Residual risk of unindexed equivalent results is acknowledged; review is not independent.",
+    "residual_risks": [
+      "A prior paper may have derived the same conditional moment under a generic distributed stochastic approximation or minibatch mirror-descent formulation without mentioning Kaczmarz or residual-weighted probabilities.",
+      "Literature searches and selected full-text inspections are not an exhaustive bibliographic uniqueness certificate.",
+      "The theorem does not compare to unknown stronger results for nonorthogonal systems or variable sampling policies; those would need a separate implication analysis if identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results derive one-coordinate progress and asynchronous bounds, and describe collision amplification; no exact all-dimensional frozen-multinomial minimax formula is stated in the material read.",
+        "evidence": "Theorem 5 uses the single-coordinate IPR progress identity, Section 6 gives collision probability proportional to the residual concentration and experiments on stale reads.",
+        "identifier_or_url": "arxiv:2606.01232; https://www.researchgate.net/publication/405683805_Residual-Weighted_Randomized_Jacobi_Sharpened_Bounds_via_Residual_Concentration_and_Asynchronous_Extension",
+        "material_read": "Openly accessible full-text HTML, introduction, central synchronous Section 4, asynchronous Section 5, and collision discussion and tables in Section 6.",
+        "method": "Direct reading of text with equation and section comparisons.",
+        "title": "Residual-Weighted Randomized Jacobi: Sharpened Bounds via Residual Concentration and Asynchronous Extension",
+        "trigger": "Closest primary treatment of power-weighted sampling, squared-residual IPR and asynchronous collisions."
+      },
+      {
+        "assessment": "The paper empirically maps a concurrency cliff and under-relaxation rescue; it does not give the exact minimax update under a simultaneous iid common snapshot.",
+        "evidence": "Section 3.1 defines probabilities proportional to residual magnitude to a power; Section 5 describes consistent-read pile-on and the observed stability cliff.",
+        "identifier_or_url": "arxiv:2607.08313; https://academ.us/article/2607.08313/",
+        "material_read": "Open full-text paper, especially problem setting and power-weighted algorithm in Section 3, experimental findings in Section 5, and conclusion in Section 6.",
+        "method": "Direct accessible article text inspection and mapping between its sampled update and frozen-snapshot idealization.",
+        "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+        "trigger": "Most directly related parallel Kaczmarz with consistent snapshots and residual-power sampling."
+      },
+      {
+        "assessment": "Its optimized minibatch rate uses fixed row-based probabilities, while the candidate optimizes the worst-start conditional ratio of the residual-dependent probability law. The fixed-uniform comparator agrees under an appropriate parameter mapping.",
+        "evidence": "Corollary 4.14 assumes the coupling of fixed probabilities and weights in its best relaxation bound; Section 5.2 experimentally explores overrelaxation.",
+        "identifier_or_url": "DOI:10.1007/s11075-022-01473-x; https://link.springer.com/article/10.1007/s11075-022-01473-x",
+        "material_read": "Open-access Sections 1 and 4 including Theorem 4.12 and Corollary 4.14; Section 5.2 on the relaxation parameter.",
+        "method": "Direct journal full-text comparison of probability assumptions and relaxation normalization.",
+        "title": "Faster randomized block sparse Kaczmarz by averaging",
+        "trigger": "Classical averaged simultaneous Kaczmarz algorithm with relaxation optimization potentially stronger than the candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "504f76c6-f0b4-42da-b8d8-b1434864c614",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model isolates the experimentally motivated pile-on of simultaneously committed corrections chosen from stale residual information. It resolves the robust step-design problem for every dimension and worker count, with a nontrivial branch threshold, a sharp stability window and a positive limiting contraction floor. The floor is compared with a fixed-uniform strategy whose best one-batch factor tends to zero, identifying a precise design failure of aggressive adaptivity under concurrency. The result is a structural sharp theorem, not merely a small fixed case, a known-table recomputation or a computational benchmark.",
+    "status": "PASS"
+  }
+}
