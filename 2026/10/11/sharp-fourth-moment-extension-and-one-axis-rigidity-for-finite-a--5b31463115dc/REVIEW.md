@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite abelian group \(H\) of order \(n\ge5\), Fourier orthogonality separates the two punctured coordinate axes into independent centered Fourier random variables. A sharp centered complex fourth-moment lemma follows from constrained maximization: the stationary solutions are collinear, three distinct stationary values contradict a three-coordinate invariant circle, and the two-value multiplicities optimize at \(1\) versus \(n-1\). The separate cubic correlation bound follows by Cauchy--Schwarz. In the two-axis expansion, the mixed-axis contribution loses \(2(\kappa_n-3)uv>0\) when both axis variances are positive; an exact sum-of-squares factorization controls the remaining scalar quantity. Thus the coefficient is at most \(n\), and equality forces one complete axis with character coefficients by the one-dimensional fourth-moment equality criterion. The proof covers all orders \(n\ge5\), including composite and even cases. Symbolic factorization and the packaged independent direct-character checker were run successfully; finite tests alone are not a universal proof.
+## correctness
 
-## Originality — PASS, subject to stated literature risk
-The closest published sources are the 2008 Iosevich--Koh extension results for *nonzero* quadratic levels, the 2018 Iosevich--Koh--Lee--Pham--Shen zero-radius restriction exponent ranges in different dimensions, and the 2024 González-Riquelme--Oliveira e Silva sharp inequalities for other surfaces. Comparison of hypotheses and conclusions in the relevant primary texts finds no exact \(n\ge5\) sharp fourth-power coefficient and all-complex-extremizer classification on an arbitrary finite abelian two-axis cross. The lower-order five-point cross is a distinct object that does not imply this all-group classification. Potential equivalence to a general unpublished or unindexed sharp inequality for additive Cartesian-square subspaces is a residual bibliographic risk; literature searches cannot certify uniqueness.
+PASS
 
-## Value — PASS
-The zero-radius split quadratic locus is a natural finite harmonic-analysis test surface. The finding solves its exact norm and complete equality geometry for every abelian order at least five, exhibits rigidity to a single axis rather than mixed-axis superposition, and detects a genuine small-order exception. It is a complete uniform sharp theorem rather than an ad hoc finite computation or a restatement of a nonzero-level result.
+The centered complex kurtosis lemma is proved by compact sphere maximization and Lagrange stationarity: nonzero multiplier forces collinear coordinates; a three-value maximizer would admit a fourth-distinct-value perturbation contradicting cubic stationarity, leaving one-outlier multiplicities. For independent centered axis Fourier arrays U,V, the fourth-moment and centered cubic bounds give a one-variable polynomial upper bound; the exact factor (rt−1)^2(r²t²+2r²+2rt−1)/r², r²=n−1, proves n for n≥5. κ_n>3 forces one punctured axis to vanish at equality; one-axis Hölder equality and Fourier inversion give a scalar character. Direct independent symbolic factorization and the published source verifier inspected; random finite checks not treated as proof.
 
-## Limitations and closest work
-Only the fourth moment on two transverse subgroups with trivial intersection is treated. No sharp values are claimed for orders less than five; the order-three ratio is a witness only. No near-equality stability is proved. Sources: Iosevich--Koh, arXiv:0804.4505; Iosevich et al., arXiv:1806.11387; González-Riquelme--Oliveira e Silva, arXiv:2405.16647. The public literature might contain an equivalent general functional-analytic formulation not recovered by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No checked stronger theorem implies the two-axis n≥5 sharp coefficient plus single-axis complex extremizer classification. The co-singleton κ_n is acknowledged as a prior lemma; smooth quadratic Fourier theorems and the n=3 singular-cone calculation concern different hypotheses.
+
+## value
+
+PASS
+
+The cross of two overlapping subgroups is a natural singular Fourier surface; a group-independent sharp operator coefficient and rigidity of all maximizers provide a structural endpoint classification beyond exponent bounds and the one-axis kurtosis lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

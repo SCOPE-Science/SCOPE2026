@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `artifacts/verify.py` was executed using Python 3 and NumPy. It independently constructs the character matrix for each test group and evaluates fourth moments from the full complex Fourier array. Results: \(4,400\) random complex Fourier inputs across eleven finite abelian groups of orders \(5\) through \(11\), \(178\) character-supported coordinate-axis equality examples, \(3,900\) random centered-moment inputs, thirteen exact two-level centered-moment extremizers, and the order-three strict witness \(77/25\). All checks passed. The sum-of-squares polynomial identity was separately confirmed symbolically to have zero residual. Run with `OPENBLAS_NUM_THREADS=1 python artifacts/verify.py` from the package root with NumPy installed.
+## correctness
 
-The complete all-order theorem follows from the analytic proof in RESULT.md, not from these finite checks. The numerical tests do not establish uniqueness of optimizers, rule out undiscovered equivalent published results, or certify independent correctness.
+PASS
+
+The centered complex kurtosis lemma is proved by compact sphere maximization and Lagrange stationarity: nonzero multiplier forces collinear coordinates; a three-value maximizer would admit a fourth-distinct-value perturbation contradicting cubic stationarity, leaving one-outlier multiplicities. For independent centered axis Fourier arrays U,V, the fourth-moment and centered cubic bounds give a one-variable polynomial upper bound; the exact factor (rt−1)^2(r²t²+2r²+2rt−1)/r², r²=n−1, proves n for n≥5. κ_n>3 forces one punctured axis to vanish at equality; one-axis Hölder equality and Fourier inversion give a scalar character. Direct independent symbolic factorization and the published source verifier inspected; random finite checks not treated as proof.
+
+## originality
+
+PASS
+
+No checked stronger theorem implies the two-axis n≥5 sharp coefficient plus single-axis complex extremizer classification. The co-singleton κ_n is acknowledged as a prior lemma; smooth quadratic Fourier theorems and the n=3 singular-cone calculation concern different hypotheses.
+
+## value
+
+PASS
+
+The cross of two overlapping subgroups is a natural singular Fourier surface; a group-independent sharp operator coefficient and rigidity of all maximizers provide a structural endpoint classification beyond exponent bounds and the one-axis kurtosis lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
