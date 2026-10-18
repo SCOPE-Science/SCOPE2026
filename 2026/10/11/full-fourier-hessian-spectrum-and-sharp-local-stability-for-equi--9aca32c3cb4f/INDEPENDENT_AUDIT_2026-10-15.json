@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:43:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/html/2609.21121v1",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f/check_spectrum.py"
+      ],
+      "rationale": "Using (2/pi)∫disk |z|^{2m}(1-|z|²)dA=2/[(m+1)(m+2)], the energy equals Σ_{n>=1} 2|Σ_j exp(inθj)|²/[n(n+1)]. Expanding pairs gives 2N+2Σ_{j<k} φ(θj−θk), φ=2Σ cos(nθ)/[n(n+1)]; away from collisions φ(θ)=∫_0^1 (1−t²)/(1−2t cosθ+t²)dt>0, justified by the Abel/closed-log representation. The full-angle Hessian is twice the weighted cycle Laplacian; exact Nth-root Poisson sums give λ_s=2N∫_0^1 [(1−t^s)(1−t^{N−s})/(1−t^N)]dt. Integrating the grouped convergent series gives stated digamma formula; positivity, Fourier modes, monotone mode extrema follow by strict convexity of t^s+t^{N−s}. Taylor in the rotation-orthogonal subspace proves sharp λ_1/2, attained asymptotically along a first real Fourier mode. Digamma expansion gives N−4ζ(3)/N²+12ζ(4)/N³ and dominated convergence gives max 2N−8 log2+o(1); ratio→2. Independently compared 2N integral against the digamma formula at 120 (s,N) instances for N=2,3,4,7,20,90 at 40-digit precision, agreement to <1e−27; the N=2 check gives 8log2−4. The integral proof, not finite quadrature, establishes arbitrary N.",
+      "residual_risks": [
+        "Only the 1−|z|² weight and angle metric in radians; fixed-N local o(norm²) is not uniform in N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2609.21121v1",
+          "https://arxiv.org/pdf/2009.01898",
+          "https://arxiv.org/abs/2609.03134"
+        ],
+        "reasoning": "Abakumov–Borichev–Fedorovskiy establish global minimizers and convexity; Corbett treats Hessian positivity and Bezrukov proves generalized global minimization. Stronger global minimization is not stronger second-order quantitative local eigenvalue coverage, hence none dominates λ_s or the limiting condition number.",
+        "searches": [
+          "equispaced Bergman poles Hessian Fourier eigenvalues weighted Chui second variation",
+          "https://arxiv.org/html/2609.21121v1",
+          "https://arxiv.org/pdf/2009.01898",
+          "https://arxiv.org/abs/2609.03134"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f/check_spectrum.py",
+        "https://arxiv.org/html/2609.21121v1",
+        "https://arxiv.org/pdf/2009.01898",
+        "https://arxiv.org/abs/2609.03134",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2609.21121v1",
+          "https://arxiv.org/pdf/2009.01898",
+          "https://arxiv.org/abs/2609.03134"
+        ],
+        "reasoning": "The prior Hessian is a weighted Laplacian and its positivity is explicit in Corbett, but a positive-definite Hessian/unique minimizer does not determine exact N-dependent eigenvalues, weakest mode, asymptotic gap or ratio 2. The independent Poisson root-of-unity summation and digamma reduction supply new quantitative content.",
+        "searches": [
+          "https://arxiv.org/html/2609.21121v1",
+          "https://arxiv.org/pdf/2009.01898",
+          "https://arxiv.org/abs/2609.03134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2609.21121v1",
+          "https://arxiv.org/pdf/2009.01898"
+        ],
+        "reasoning": "Corbett gives positive definite Hessian via positive second-derivative pair terms; the full N-angle Hessian here has one rotational zero mode. Corbett §2.3 does not diagonalize it in cyclic Fourier modes or state eigenvalues/digamma forms and sharp spectral gap.",
+        "searches": [
+          "equispaced Bergman poles Hessian Fourier eigenvalues weighted Chui second variation",
+          "Chui conjecture Bergman spaces Hessian Fourier eigenvalues local stability Corbett 2026",
+          "https://arxiv.org/html/2609.21121v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2609.21121v1",
+          "Resultary search equispaced Bergman poles Hessian Fourier eigenvalues weighted Chui second variation"
+        ],
+        "reasoning": "This is a continuous N-parameter energy, not an existing exact spectrum database; Resultary search returned identical self-hit and non-Bergman Hessians. No prior published table of the full mode spectrum was located.",
+        "searches": [
+          "equispaced Bergman poles Hessian Fourier eigenvalues weighted Chui second variation",
+          "Chui Bergman equispaced poles Hessian eigenvalue table"
+        ]
+      },
+      "rationale": "Originality is of full exact modal spectrum and local quantitative stability, not the known minimizer or mere positivity; substantial Corbett Hessian overlap is explicitly disclosed.",
+      "residual_risks": [
+        "An alternative unindexed second-variation calculation of weighted regular-polygon energy might already give exact spectrum.",
+        "Do not overstate that the global minimizer or Hessian positivity is new; Corbett gives these."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source gives stationary equispaced arrangement and positive-definite reduced Hessian, but not diagonal mode eigenvalues nor sharp condition number",
+          "evidence": "§2.3 lines 782–824: Hessian as diagonal plus positive pairwise matrices",
+          "identifier_or_url": "https://arxiv.org/html/2609.21121v1",
+          "material_read": "Complete accessible HTML, Introduction and §2.3 full Hessian positivity matrix argument, plus keyword searches eigenvalue/Fourier yielding no matches",
+          "method": "Arxiv public HTML full-text page review",
+          "title": "Two new proofs of Chui’s Conjecture in Weighted Bergman Spaces (Corbett)",
+          "trigger": "Same weighted pole energy and Hessian at equally spaced poles"
+        },
+        {
+          "assessment": "Global minimization and interaction strict convexity are pre-existing; this review does not attribute to 2020 paper any claim about a full Fourier spectrum",
+          "evidence": "Corbett Theorem 1 and Lemma 2 summarize original 2020 theorem and convexity",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01898",
+          "material_read": "Source theorem and Lemma 12 as reproduced with exact conditions in Corbett; independent full 2020 primary PDF not read in this execution",
+          "method": "Primary prior theorem through Corbett detailed quotations and 2020 source identifier",
+          "title": "Chui’s conjecture in Bergman spaces (Abakumov–Borichev–Fedorovskiy)",
+          "trigger": "Original weighted Bergman pair convexity and full minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2609.21121v1",
+        "https://arxiv.org/pdf/2009.01898",
+        "https://arxiv.org/abs/2609.03134"
+      ],
+      "rationale": "Computing the complete Fourier Hessian spectrum of a natural sharp regular-polygon minimizer identifies its least stable mode and optimal local stability constant; the nontrivial large-N condition number limit 2 quantifies near-optimal conditioning not provided by qualitative global minimization.",
+      "residual_risks": [
+        "Other weights and global quantitative stability remain open; no broader minimizer contribution asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The entire nonrotational Fourier spectrum of the fixed-weight Bergman equispaced boundary-pole energy, its exact positive extremal modes and digamma formula, sharp local quadratic coefficient λ_1/2, and asymptotic condition number 2 for N→∞.",
+  "limitations": [
+    "A numerical spectrum checker was inspected but not substituted for the exact proof; separate 40-digit integration checks are finite corroboration.",
+    "The original Corbett positivity argument has a different normalization and removes the simultaneous-rotation coordinate; this audit fixes the stated 2/pi full-Hessian normalization."
+  ],
+  "schema_version": 1
+}
