@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain and syntax are finite nonempty equivalence frames with Boolean term operations and fixed graded modalities \(D_1,\ldots,D_K\). A pointed input type is exactly its local propositional color and the vector of per-color multiplicities capped at \(K\). Explicit depth-one formulas isolate types. Uncapped histograms exist only at block sizes actually present; a capped histogram can be inflated in a largest block, giving the coefficient formula. For \(K\ge2\), the uncapped coefficient at size \(s\) is a polynomial of exact degree \(s-1\) in the alphabet size, while the capped contribution has degree at most \(M-K\). This separation proves recovery of the entire set of sizes after recovering their maximum. For \(K=1\), only the maximum remains in the expression. Full proof and reproducible finite cross-checks are provided. Computational enumeration is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-General graded bisimulation and expressive completeness are established background, including Otto (arXiv:1910.00039) and Chen–van Ditmarsch–Greco–Tzimoulis (arXiv:2105.09202). The existing clipped-histogram result for a single universal S5 component is acknowledged; it does not settle how the entire arity-wise operation-count profile separates arbitrary sets of several component sizes. The new implication is the sharp \(K=1\) versus \(K\ge2\) recovery theorem, not the underlying counting modality or single-component type lemma. Searches for modal clones, truncated histograms, class-size spectra, and graded equivalence models disclosed no exact dominating theorem, but a historical equivalent in the broader literature cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The question is natural: which parts of a finite epistemic partition can be recovered from the algebra's intrinsic term-operation statistics? The theorem completely classifies the information content of these profiles under bounded counting and exposes a sharp expressiveness discontinuity at threshold two. It does not rely on arbitrary finite slices or parameter choices, and it separates recoverable distinct sizes from unrecoverable multiplicities. The concise exact formula supports direct computation of the invariants.
+For each r-ary Boolean valuation, q=2^r colors encode atomic input minterms. Every graded-modal formula at a pointed equivalence class depends exactly on distinguished color c and truncated class-color counts t_i=min(K,m_i). All pointed types have depth-one characteristic formulas; nested D_j sees only a union of fixed colors per class, and the clamped count of such a union is determined by t. Types are realizable iff (no t_i=K and sum t_i is an actual class size s∈S) OR (some t_i=K and sum t_i<=M=max S), with t_c>=1. Therefore T(r)=2^{E(2^r)}, E/q=Σ_{s∈S}A_s(q)+R_{M,K}(q). For K>=2, deg A_s=s-1 with leading 1/(s-1)!, deg R<=M-K, so equality for infinitely many q=2^r recovers M and all S by maximal symmetric difference; for K=1 recover only M. Repeated class multiplicity is indeed invisible. Zero arity, M=1 and K=1 boundaries are included.
 
-## Limitations and closest work
-The theorem does not reconstruct multiplicities, does not concern isomorphism of the underlying powerset algebras, and uses the entire arity profile rather than one arity. It is restricted to finite S5 equivalence frames. The closest antecedents are the general graded-bisimulation theorems listed above and the known universal-cluster histogram census; possible earlier clone-classification literature remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graded bisimulation/type distinction is classical in Otto arXiv:1910.00039 and graded epistemic/S5 modalities in Chen–van Ditmarsch–Greco–Tzimoulis arXiv:2105.09202. Those source statements concern expressive equivalence and graded semantics, not the explicit all-arity Boolean term-operation *counts* of arbitrary finite equivalence-class unions nor the sharp K=1 versus K>=2 reconstructible class-size-set dichotomy. Resultary semantic searches produced general modal/finite algebra entries but no implication-equivalent polynomial fingerprint classification; older modal algebra clone literature is residual risk.
+
+## value
+
+PASS
+
+A complete explicit term-operation census and the threshold where a graded modality reveals every distinct S5 class size are natural algebraic expressiveness invariants. It specifies exactly which structural information is invisible, including class multiplicities, for a broad nontrivial family; it is not an arbitrary tiny finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
