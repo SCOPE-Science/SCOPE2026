@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,84 +19,24 @@
 }
 ---
 
-For
-\[
-a>0
-\]
-define
-\[
-\phi_a(z)=\max\{0,\log|z_1|+a\}.
-\]
+# Independent mathematical audit
 
-The two entries of the maximum are plurisubharmonic, so
-\[
-\phi_a
-\]
-is plurisubharmonic. It is identically zero on
-\[
-|z_1|\le e^{-a}
-\]
-and equals
-\[
-\log|z_1|+a
-\]
-outside that cylinder, proving boundedness and continuity.
+## correctness
 
-For a unit direction
-\[
-\xi,
-\]
-\[
-\phi_a(w\xi)
-=
-\max\{0,\log|w|+\log|\xi_1|+a\}.
-\]
-This is harmonic on the full unit disc exactly when
-\[
-|\xi_1|\le e^{-a}.
-\]
-Otherwise its radial derivative jumps at
-\[
-|w|=e^{-a}/|\xi_1|.
-\]
+PASS
 
-For normalized surface measure on
-\[
-S^{2n-1},
-\]
-the squared coordinate
-\[
-X=|\xi_1|^2
-\]
-has density
-\[
-(n-1)(1-x)^{n-2}
-\]
-on
-\[
-[0,1].
-\]
-Hence
-\[
-\begin{aligned}
-\sigma\{|\xi_1|>e^{-a}\}
-&=
-\int_{e^{-2a}}^1
-(n-1)(1-x)^{n-2}\,dx
-\\
-&=
-(1-e^{-2a})^{n-1}.
-\end{aligned}
-\]
+Both 0 and log|z_1|+a are plurisubharmonic, with the latter allowed -infinity only before the bounded maximum; local boundedness plus finite max ensures continuous finite psh phi_a. The first-coordinate disk restriction equals 0 until radius exp(-a), then log|w|+a; its radial derivative jumps, so nonharmonic. For direction xi, the ridge lies inside |w|<1 exactly when |xi_1|>exp(-a); boundary equality has identically-zero open-disk slice. For Haar-uniform xi on complex unit sphere, |xi_1|² has Beta(1,n-1) law, giving tail (1-exp(-2a))^(n-1); choosing a below the stated logarithmic epsilon threshold yields the assertion. Includes n=2 and epsilon endpoint restrictions. This is an exact construction, not experimental extrapolation.
 
-This quantity is positive for every
-\[
-a>0
-\]
-and tends to zero with
-\[
-a.
-\]
-Therefore every positive exceptional-measure tolerance admits a bounded continuous finite plurisubharmonic nonpluriharmonic example below that tolerance.
+## originality
 
-The verification is symbolic and exact; no finite experiment or numerical approximation is used.
+PASS
+
+Best-of-knowledge quantitative counterexample to a recently proved a.e.-direction threshold. A positively measured arbitrarily small exceptional set defeats any positive tolerance; direct source theorem controls only null sets. Original primary material inspected; generic absence of index hits is not treated as proof of global novelty.
+
+## value
+
+PASS
+
+The exact limiting boundary of a newly formulated almost-everywhere rigidity theorem is mathematically natural: zero measure is best possible even among bounded continuous finite psh functions, and the bad-direction fraction is explicit in every dimension. This gives a useful sharp obstruction to proposed positive-tolerance stability generalizations; it is not merely a recasting of the null-set theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

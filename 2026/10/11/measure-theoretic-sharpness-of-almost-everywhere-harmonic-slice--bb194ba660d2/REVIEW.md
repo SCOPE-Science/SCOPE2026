@@ -1,58 +1,21 @@
-# Review of Measure-theoretic sharpness of almost-everywhere harmonic-slice rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The candidate
-\[
-\phi_a(z)=\max\{0,\log|z_1|+a\}
-\]
-is finite, bounded, continuous, and plurisubharmonic. Its restriction to a direction
-\[
-\xi
-\]
-is
-\[
-\max\{0,\log|w|+\log|\xi_1|+a\}.
-\]
-This slice is identically zero exactly when
-\[
-|\xi_1|\le e^{-a},
-\]
-and otherwise has a radial derivative jump inside the unit disc, so it is not harmonic.
+PASS
 
-The full function is therefore not pluriharmonic, because the first coordinate slice is nonharmonic.
+Both 0 and log|z_1|+a are plurisubharmonic, with the latter allowed -infinity only before the bounded maximum; local boundedness plus finite max ensures continuous finite psh phi_a. The first-coordinate disk restriction equals 0 until radius exp(-a), then log|w|+a; its radial derivative jumps, so nonharmonic. For direction xi, the ridge lies inside |w|<1 exactly when |xi_1|>exp(-a); boundary equality has identically-zero open-disk slice. For Haar-uniform xi on complex unit sphere, |xi_1|² has Beta(1,n-1) law, giving tail (1-exp(-2a))^(n-1); choosing a below the stated logarithmic epsilon threshold yields the assertion. Includes n=2 and epsilon endpoint restrictions. This is an exact construction, not experimental extrapolation.
 
-For normalized surface measure on the complex unit sphere,
-\[
-|\xi_1|^2
-\]
-has the exact
-\[
-\operatorname{Beta}(1,n-1)
-\]
-law, yielding bad-direction measure
-\[
-(1-e^{-2a})^{n-1}.
-\]
-The parameter choice in the finding makes this smaller than any prescribed positive
-\[
-\varepsilon.
-\]
+## originality
 
-## Originality
+PASS
 
-PASS. The 2026 source proves that a zero-measure exceptional set is harmless but does not discuss sharpness when the exceptional set has positive measure.
+Best-of-knowledge quantitative counterexample to a recently proved a.e.-direction threshold. A positively measured arbitrarily small exceptional set defeats any positive tolerance; direct source theorem controls only null sets. Original primary material inspected; generic absence of index hits is not treated as proof of global novelty.
 
-Forelli's original result assumes every radial slice, while later Forelli generalizations alter the geometry of the disc family or vector field. The inspected statements do not provide a positive-measure sharpness construction.
+## value
 
-Searches under the exact source theorem, almost-everywhere slices, positive-measure exceptions, and the logarithmic-coordinate construction did not locate an implication-equivalent result.
+PASS
 
-A residual risk remains because the construction is elementary and could have appeared as an unindexed observation in older several-complex-variables literature.
+The exact limiting boundary of a newly formulated almost-everywhere rigidity theorem is mathematically natural: zero measure is best possible even among bounded continuous finite psh functions, and the bad-direction fraction is explicit in every dimension. This gives a useful sharp obstruction to proposed positive-tolerance stability generalizations; it is not merely a recasting of the null-set theorem.
 
-## Value
-
-PASS. The recent theorem strengthens classical Forelli rigidity from all slices to almost every slice. The natural boundary question is whether “almost every” can be relaxed quantitatively.
-
-The result answers that question exactly at the level of surface measure: no positive tolerance works, even for bounded continuous finite plurisubharmonic functions. The explicit formula also gives the complete exceptional-measure profile rather than a single counterexample.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
