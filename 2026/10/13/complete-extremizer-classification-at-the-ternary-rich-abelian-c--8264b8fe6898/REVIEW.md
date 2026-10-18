@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is an exact finite classification. A restricted-growth recursion gives one representative of every alphabet-permutation orbit. Richness is checked by the unioccurrent longest-palindromic-suffix criterion, and abelian-cube-freeness is checked for every newly created suffix factor at every extension. The exhaustive census has four canonical words at length \(180\) and none at length \(181\). Independent direct factor checks verify all four final representatives, and symmetry calculations give exactly \(24\) labeled words and two permutation-plus-reversal orbits.
+## correctness
 
-## Originality
-PASS. The direct paper reports the extremal length \(180\), but its inspected full text contains no equality-case count, representative list, or symmetry classification. Targeted semantic and exact-string searches did not locate a covering result. The cited 2024 undergraduate thesis could contain additional computational data, but its repository PDF was inaccessible, so that possibility is retained explicitly as residual risk rather than being treated as evidence of noncoverage.
+PASS
 
-## Value
-PASS. Equality-case classification is a natural structural refinement of an explicitly published finite extremum. The result shows that the boundary is highly rigid: only \(24\) labeled words survive, in four relabeling classes and two classes after reversal. This is substantially more informative than another finite existence witness or routine recomputation of the known maximum.
+A finite word is rich iff each prefix has a unique-occurrence palindromic suffix; for any new extension this is precisely its longest palindromic suffix and all earlier suffix occurrences can be searched exactly. Since the preceding prefix is abelian-cube-free, every newly introduced forbidden cube must end at the new final character, detectable by comparing the three consecutive Parikh vectors for each length. Restricted-growth normalization provides exactly one sequence per S3 alphabet orbit, including 1-/2-symbol words. Independent newly written compiled C++ code implemented this exhaustive recurrence (separately from packaged verify.c) and gave exactly four canonical 180-words with their complete strings matching RESULT.md, zero canonical 181-words. Each uses three symbols => 24 actual words; direct reversal re-canonicalization pairs 1↔3 and 2↔4. No infinite-family inference.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Andrade–Mol published the same natural extremal length 180 and avoidance definition; inspected complete main paper does not state four canonical equality cases or the two reversal-orbit classes. The cited undergraduate thesis was inaccessible and may contain enumeration details; best-of-knowledge positive with significant priority uncertainty.
+
+## value
+
+PASS
+
+Precisely classifying all extremizers of a sharp, independently motivated rich-word power-avoidance problem is a complete finite structural answer; distinguishes the 180 extremal witnesses and their reversal behavior beyond the formerly published maximum length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
