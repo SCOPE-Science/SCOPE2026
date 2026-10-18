@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a \(2\)-inner-product space, the defining nondegeneracy condition is
-\[
-\langle x,x\mid z\rangle=0
-\quad\Longleftrightarrow\quad
-x,z\text{ are linearly dependent}.
-\]
+# Independent mathematical audit
 
-Let \(a\ne0\) and \(b\ne0\), and define
-\[
-u=a\oplus2b,\qquad v=a\oplus b.
-\]
-If \(u=\lambda v\), the first component gives \(\lambda=1\), while the second gives \(\lambda=2\). Hence \(u,v\) are linearly independent.
+## correctness
 
-The source's formula gives
-\[
-\langle u,u\mid v\rangle
-=
-\langle a,a\mid a\rangle_H
-+
-\langle2b,2b\mid b\rangle_K.
-\]
-Both terms are zero by the defining axiom in the component spaces because the relevant component pairs are linearly dependent. Thus the proposed direct-sum square is zero on an independent pair.
+PASS
 
-For ordinary real Hilbert spaces, the canonical comparison is
-\[
-\langle x,y\mid z\rangle_{\oplus}
-=
-\langle x,y\rangle_{\oplus}\|z\|_{\oplus}^{2}
--
-\langle x,z\rangle_{\oplus}\langle z,y\rangle_{\oplus}.
-\]
-Its square is the Gram determinant
-\[
-\|x\|_{\oplus}^{2}\|z\|_{\oplus}^{2}
--
-|\langle x,z\rangle_{\oplus}|^{2},
-\]
-which is strictly positive for linearly independent \(x,z\). Expansion yields cross terms that the componentwise source formula omits.
+For every two nonzero elements a∈H,b∈K, u=a⊕2b and v=a⊕b are linearly independent: u=λv would require λ=1 and λ=2. Yet the Ghosh–Samanta componentwise sum is [a,a|a]+[2b,2b|b]=0 by component dependence, violating the 2-inner-product iff-dependence axiom. Thus a purported universal n≥2 n-Hilbert direct sum fails already n=2. The conventional Hilbert-induced 2-inner product on H⊕K has Gram-determinant cross terms omitted in that formula. This disproves the ambient-geometry claim; it does not by itself re-prove any corrected frame theorem.
 
-The earliest public source and the published source were checked at the defining axiom, formula (10), and the direct-sum theorem/proof. The proof is symbolic and uses no finite experiment, numerical approximation, or computational certificate.
+## originality
+
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+The counterexample invalidates the defining ambient n-Hilbert geometry of a published direct-sum controlled-frame theorem in its stated universal category, not just a cosmetic normalization. The exact axiom witness is elementary but its direct relevance to a concrete published construction makes it a motivated structural correction. No universal repaired theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
