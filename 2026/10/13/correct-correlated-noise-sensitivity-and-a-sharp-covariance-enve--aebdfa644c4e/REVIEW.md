@@ -1,15 +1,13 @@
-# Self-review
+# Scientific review of the narrowed final finding
 
 ## Correctness
-PASS. The correlated covariance forcing follows directly from Itô's product rule as \(GRG^\top\). In the source's diagonal-noise model, its printed \(Q\) is exactly that matrix, so retaining an additional \(GG^\top\) double-counts the marginal variances if the stated diagonal entries are used. The baseline independent covariance was reconstructed and agrees with the source. The adjoint Lyapunov trace identity and the Gram-vector optimization give the sharp correlation extrema analytically.
+The final claim is only the sharp trace envelope at the published SIRS numerical baseline, not independent discovery of the covariance equation. The endemic equilibrium and drift Jacobian are reconstructed from the source's deterministic equations, the real parts of the eigenvalues are negative, and the adjoint Lyapunov identity gives the affine trace. A Gram-vector optimization proves global attainability at the stated rank-one correlations. Numerical constants are explicitly approximate.
 
-## Originality
-PASS. The general linear-SDE covariance rule is prior knowledge and is not claimed as new. Direct inspection of the motivating paper, a full-text correlated SIS prior, and a full-text stochastic-sensitivity reference found no source that states this SIRS-specific correction or the sharp baseline covariance-trace interval. A prior ledger item on the same 2026 paper concerns the sign of its Milstein correction terms, a separate numerical-discretization issue that does not imply the present covariance result.
+## Originality and priority
+The October 4, 2026 published Resultary finding *The correlated-noise sensitivity formula double-counts Brownian variance* proves the same source-specific correction of Remark 3.8 and thereby fully covers that part of the earlier presentation. This fact is acknowledged explicitly and is not credited as a new theorem. The surviving distinct finding determines the **complete sharp trace interval at the exact published SIRS baseline**, an optimization not stated in that earlier work, the 2026 source, or the inspected correlated-SIS and stochastic-sensitivity reference models. An equivalent unindexed baseline study remains possible.
 
-## Value
-PASS. The paper explicitly presents confidence ellipsoids as monitoring and control benchmarks and says correlation changes their geometry. The literal correlated formula can inflate the total baseline covariance by about \(73.95\%\) under perfect positive correlation, while the corrected model shows a sharp factor-\(2.03\) range across admissible correlations. This is a substantive uncertainty-quantification correction rather than a notational change.
+## Mathematical value
+The motivating paper proposes confidence-ellipsoid geometry as an interpretation of model uncertainty. At fixed marginal noise amplitudes the possible total variance changes by a factor of approximately 2.03 as the joint correlations range over their complete feasible set. This gives model users a sharp, reproducible uncertainty envelope, beyond one arbitrary selected correlation choice. It is a narrow but motivated exact model-specific invariant; no general epidemic theorem is claimed.
 
-## Closest literature and limitations
-Cai, Cai, and Mao (2019), DOI 10.1007/s11071-019-05114-2, is the closest epidemic prior on correlated Brownian forcing. Yuan et al. (2020), DOI 10.1007/s11538-020-00733-y, gives the standard stochastic-sensitivity Lyapunov equation and confidence-domain framework. Neither source contains the three-dimensional SIRS baseline envelope. The result is restricted to the first-order weak-noise Gaussian approximation and optimizes trace only.
-
-Self-review: passed. Independent audit: not yet performed.
+## Limitations
+All covariance statements concern the stable-endemic weak-noise linearization only. Trace is not determinant or principal-axis shape. The endpoints are singular correlation matrices but are feasible and approximable by positive-definite matrices. The prior covariance correction is explicitly excluded from novelty. The earlier October 4 source establishes the priority boundary for the forcing correction; the sharply optimized baseline trace remains the claim in this note.

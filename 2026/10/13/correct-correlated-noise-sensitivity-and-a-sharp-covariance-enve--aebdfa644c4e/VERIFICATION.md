@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled checker reconstructs the source's baseline endemic equilibrium, analytic Jacobian, and diagonal weak-noise matrix from the printed parameters. It solves both the covariance and adjoint Lyapunov equations with an internal Gaussian-elimination routine and reproduces the independent covariance in Eq. (4.4) to the displayed precision.
+# Independent mathematical audit
 
-It verifies the affine law
-\[
-\operatorname{tr}W(R)
-=
-17.2747505624
-+5.39530312013\,\rho_{12}
-+0.537604148434\,\rho_{13}
-+0.152951296895\,\rho_{23},
-\]
-and evaluates the two rank-one endpoint correlation matrices
-\[
-R_+=\mathbf 1\mathbf 1^\top,\qquad
-R_-=(1,-1,-1)^\top(1,-1,-1).
-\]
-The resulting traces are approximately
-\[
-23.3606091279
-\quad\text{and}\quad
-11.4947945907,
-\]
-respectively.
+## correctness
 
-The global extremum proof is analytic: representing a correlation matrix as a Gram matrix reduces the minimum to a one-variable function whose derivative is strictly positive on \([-1,1]\).
+PASS
 
-Finally, the checker verifies that the literal printed Eq. (3.19) at \(R_+\) satisfies
-\[
-W_{\mathrm{printed}}=W(R_+)+W(I_3)
-\]
-and has trace approximately \(40.6353596903\).
+For the stable baseline SIRS model, independently recomputed S*=3.50361582597,I*=1.01641189180,R*=0.225869309288 and Hurwitz F. Solving F^TP+PF+I=0 gives trW(R)=17.274750562409+5.395303120131*r12+0.537604148434*r13+0.152951296895*r23 (rounded values). Gram vectors give max all +1 and min (-1,-1,+1) because a>bc/(b-c), proving the sharp interval [11.494794590740,23.360609127869]. Finiteness and uniqueness follow from Hurwitz stability; trace bounds refer only to the linearized weak-noise model.
 
-Unproved limits: the exact finite-noise nonlinear stationary covariance, determinant-extremizing correlations, and individual principal-axis extrema are not claimed.
+## originality
+
+PASS
+
+The originally submitted Brownian covariance correction fails originality: it is published in a same-model 2026-10-04 Resultary paper. The REPAIRED final finding excludes it and claims only the precise sharp three-correlation baseline envelope; after full earlier-paper comparison this narrower numerical theorem is a distinct motivated calculation.
+
+## value
+
+PASS
+
+Sharp attainable total-variance range for the original epidemiological model at its actual data baseline is a motivated, model-specific uncertainty invariant: keeping all marginal noise intensities fixed, correlations change trace by a factor of 2.032. The separate published covariance typo alone is not the value/novelty credited here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

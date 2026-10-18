@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:17:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stable baseline SIRS model, independently recomputed S*=3.50361582597,I*=1.01641189180,R*=0.225869309288 and Hurwitz F. Solving F^TP+PF+I=0 gives trW(R)=17.274750562409+5.395303120131*r12+0.537604148434*r13+0.152951296895*r23 (rounded values). Gram vectors give max all +1 and min (-1,-1,+1) because a>bc/(b-c), proving the sharp interval [11.494794590740,23.360609127869]. Finiteness and uniqueness follow from Hurwitz stability; trace bounds refer only to the linearized weak-noise model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SDE Lyapunov equations and Gram correlation representations are standard. October 4 note covers the source-specific corrected forcing."
+        ],
+        "reasoning": "General theory is necessary input but does not give the evaluated baseline H, strict a>bc/(b-c) condition or endpoint traces until model-specific calculation and constrained optimization.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md",
+          "doi:10.1007/s11538-020-00733-y adjoint Lyapunov trace",
+          "doi:10.1007/s11071-019-05114-2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026278",
+        "doi:10.1007/s11071-019-05114-2",
+        "doi:10.1007/s11538-020-00733-y",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier correction entails covariance formula and doubled independent limit, but not numeric (a,b,c) or optimization over all R.",
+          "At the source baseline H offdiagonals are approximately 2.69765,0.26880,0.07648; Gram minimization gives extrema 11.49479459,23.36060913."
+        ],
+        "reasoning": "The prior correction can be used to compute the new envelope, but the exact optimized range is not a direct published special case or stated consequence; it requires model-specific Lyapunov solving and a strict constrained extremal inequality.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md",
+          "doi:10.3934/math.2026278 Eq4.4",
+          "doi:10.1007/s11538-020-00733-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 4 Resultary note already supplies GRG^T for precisely the same stochastic SIRS model.",
+          "Submitted raw note also has trace W(R)=tr(HR) and numeric H at the baseline, absent from earlier note."
+        ],
+        "reasoning": "General noise correction is fully covered and excluded from repaired final claim; the surviving quantitatively sharp baseline trace envelope is not the same as merely writing the corrected Lyapunov equation.",
+        "searches": [
+          "stochastic SIRS Huang Du Liang 2026 correlated noise sensitivity Lyapunov covariance trace elliptope correction",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md",
+          "doi:10.3934/math.2026278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary exact same-paper result found and fully inspected; it has no numeric 3-by-3 correlation trace table or sharp end extrema."
+        ],
+        "reasoning": "Strong matching correction was discovered and credited; no complete baseline correlation-envelope table was located; no inference of novelty from an empty search alone.",
+        "searches": [
+          "stochastic SIRS Huang Du Liang 2026 correlated noise sensitivity Lyapunov covariance trace elliptope correction",
+          "SIRS Huang Du Liang 2026 trace covariance sharp envelope 11.49479459 23.36060913",
+          "Resultary SIRS covariance correction 2026-10-04"
+        ]
+      },
+      "rationale": "The originally submitted Brownian covariance correction fails originality: it is published in a same-model 2026-10-04 Resultary paper. The REPAIRED final finding excludes it and claims only the precise sharp three-correlation baseline envelope; after full earlier-paper comparison this narrower numerical theorem is a distinct motivated calculation.",
+      "residual_risks": [
+        "The general forcing correction is unequivocally prior, expressly not part of the repaired novelty.",
+        "A different unindexed paper may already evaluate this same baseline covariance envelope.",
+        "The endpoints are valid rank-one correlations but practical full-rank data may attain only interior points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ORIGINAL_CORRECTION",
+          "evidence": "Earlier proof explicitly derives GRG^T and duplicate GG^T, including independent-noise factor two; it gives no numeric baseline trace coefficients or sharp correlation extrema.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md",
+          "material_read": "Full published finding, proof, independent limit, verification, limitations and references",
+          "method": "Direct GitHub source file",
+          "title": "The correlated-noise sensitivity formula double-counts Brownian variance",
+          "trigger": "Exact earlier 2026-10-04 correction for same original SIRS equations and Remark 3.8"
+        },
+        {
+          "assessment": "SOURCE_BASELINE_NOT_ENVELOPE",
+          "evidence": "Independent covariance and correlated forcing stated; no optimization over correlation matrix at baseline.",
+          "identifier_or_url": "doi:10.3934/math.2026278",
+          "material_read": "Open publisher paper equations 3.14–3.19, Remark 3.8, Sections 4 baseline equilibrium/Jacobian and Eq (4.4); page 11 visually inspected",
+          "method": "Primary open PDF",
+          "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+          "trigger": "Identical 3-dimensional model, covariance interpretation and numeric parameters"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_MODEL",
+          "evidence": "Different two-Brownian SIS process, no three-dimensional baseline SIRS trace elliptope.",
+          "identifier_or_url": "doi:10.1007/s11071-019-05114-2",
+          "material_read": "Full previously examined relevant correlated-driver construction and epidemic conclusions, plus checked model distinction; no new complete full-text noncoverage assertion",
+          "method": "Open-access prior text retained in original source review and independent statement comparison",
+          "title": "A stochastic differential equation SIS epidemic model with two correlated Brownian motions",
+          "trigger": "Prior correlated Brownian epidemic forcing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp attainable total-variance range for the original epidemiological model at its actual data baseline is a motivated, model-specific uncertainty invariant: keeping all marginal noise intensities fixed, correlations change trace by a factor of 2.032. The separate published covariance typo alone is not the value/novelty credited here.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.2026278",
+    "doi:10.1007/s11071-019-05114-2",
+    "doi:10.1007/s11538-020-00733-y",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661/RESULT.md"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "Original source-specific forcing correction is covered by published October 4 Resultary and must not be certified new.",
+    "The scientific novelty rests entirely on the repaired baseline sharp trace envelope.",
+    "Other covariance criteria, finite-noise SIRS dynamics, and empirically observed correlations are not classified."
+  ],
+  "residual_risks": [
+    "The general forcing correction is unequivocally prior, expressly not part of the repaired novelty.",
+    "A different unindexed paper may already evaluate this same baseline covariance envelope.",
+    "The endpoints are valid rank-one correlations but practical full-rank data may attain only interior points."
+  ],
+  "schema_version": 1
+}
