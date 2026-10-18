@@ -1,0 +1,9 @@
+# Review
+
+**Correctness: PASS.** The statement concerns all primes congruent to one modulo three. For a word of three cubic-coset labels, character orthogonality and the classical complete multiplicative-character Weil bound give the uniform lower bound \(27N\ge p-28\sqrt p-27\), strictly positive for \(p\ge900\). The Python verifier uses an exhaustive sieve and two independently constructed coset-label tables for every eligible prime below \(900\). The boundary primes and complete list of thirteen exceptions are obtained by exact integer operations. The full infinite claim rests on the proven character-sum bound, not on extrapolation.
+
+**Originality: PASS, with residual risk.** The closest published predecessor is Lehmer et al. (1962), Theorem 1(a), which settles solely the all-cubes word \((0,0,0)\). The present all-\(27\)-word classification has additional exceptional primes \(151\) and \(163\), so the predecessor statement does not imply the full assertion. Rabung–Jordan establish same-class triples and Dietzel treats bounded consecutive pairs. Hu–Chen consider reciprocal shifts. Relevant mathematical-record comparisons did not identify the full mixed-word cutoff. Emma Lehmer's closely titled 1983 paper was not available in full text; an earlier equivalent or stronger theorem remains possible and merits independent inspection.
+
+**Value: PASS.** This is a natural, complete finite-alphabet correlation classification for the cubic power-residue partition of finite prime fields. It answers whether all twenty-seven local words appear simultaneously, specifies *all* exceptions, and reveals two obstructions invisible to the classical all-cubes theorem. Its sharp threshold is not presented as a new threshold for the already solved all-cubes question.
+
+Self-review: passed. Independent audit: not yet performed.

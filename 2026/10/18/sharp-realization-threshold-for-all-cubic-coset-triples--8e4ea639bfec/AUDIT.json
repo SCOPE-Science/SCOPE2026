@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For all primes p=1 modulo 3, an order-three character and its orthogonality relation count each prescribed three-coset word. Six vectors with one nonzero exponent have complete sum zero; twelve with two nonzero exponents contribute at most sqrt(p) apiece; eight with three contribute at most 2sqrt(p) apiece by the classical Weil bound on polynomials with distinct linear roots. Omitting zero arguments contributes at most 24 overall; hence 27N >= p-28sqrt(p)-27 >0 for p>=900. Independently, verify.py exhaustively sieves the 74 eligible primes below 900, enumerates all p-3 positions, and compares full discrete-log and cubic-coset constructions. It finds exactly thirteen exceptional primes, with 283 missing only the all-cubes word. Therefore the sharp iff p>=307 theorem holds without extrapolating from finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rabung and Jordan (1970), pp. 737-741, consider uniform single-class runs and A*(3,3), not every ordered mixed triple.",
+        "Hu and Chen (2020), Theorems 1-3, study a+a^{-1} and a-a^{-1}.",
+        "Emma Lehmer (1983), DOI 10.1016/0022-314X(83)90004-5, is only bibliographically inspected; its result could in principle dominate."
+      ],
+      "reasoning": "No inspected full-text theorem supplies the full all-27-class simultaneous realization and its exact exception set. The 1983 bibliographic record is not sufficient to decide coverage; that source is treated as a genuine unresolved risk, not as proof of noncoverage.",
+      "searches": [
+        "Lehmer Mills Selfridge triple cubic residues all 27 ternary class patterns and exceptional primes",
+        "Lehmer power residue patterns cubic three consecutive 27 character coset combinations 307 283",
+        "\"Patterns of power residues\" \"Emma Lehmer\" pdf 1983",
+        "https://www.cs.umd.edu/~gasarch/TOPICS/res/resRabungJordan.pdf",
+        "https://www.aimspress.com/aimspress-data/math/2020/6/PDF/math-05-06-388.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.7506v1 (full text)",
+      "DOI:10.2307/2003130 (full text)",
+      "Rabung–Jordan 1970 Mathematics of Computation 24:737–741 (full text)",
+      "DOI:10.3934/math.2020388 (full text)",
+      "DOI:10.1016/0022-314X(83)90004-5 (bibliography only)",
+      "OEIS A002225 (entry)",
+      "OEIS A330274 (entry)",
+      "semantic mathematics record searches for 27 cubic-coset triple patterns (result summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lehmer et al. (1962) prove that exactly eleven eligible primes have no three consecutive cubes: 7,13,19,31,37,43,61,67,79,127,283. They do not list the new mixed-word exceptions 151 and 163.",
+        "Dietzel (2013), Theorem 1 and Theorem 3, gives existence of adjacent pairs and a uniform bounded first pair for sufficiently large primes, not 27 consecutive cubic-class triples.",
+        "For p=151 and 163, the verified finite word support contains (0,0,0) but omits (2,0,2) for the specified least-primitive-root labeling."
+      ],
+      "reasoning": "The antecedent all-cubes existence follows from the new all-words existence, but the reverse implication is false at 151 and 163; existing first-pair or same-class statements are weaker in different dimensions. Thus the present theorem is not their direct special case, subject to the acknowledged inaccessible-source risk.",
+      "searches": [
+        "Consecutive cubic residue nonresidue triples length three every 3-adic multiplicative character word p 307",
+        "For every prime p congruent 1 mod 3 at least 307, each of 27 ordered triples of cubic residue classes occurs at three consecutive nonzero integers modulo p. Sharp p=283 exceptional.",
+        "all 27 patterns three consecutive cubic residues nonresidues primes 151 163 283",
+        "cubic residue characters three consecutive words all patterns 307",
+        "arXiv:1309.7506v1",
+        "doi:10.2307/2003130"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The character-word formulation and cubic-coset formulation are identical after fixing a primitive root and the order-three character.",
+        "Lehmer et al. (1962), Thm. 1(a), determines when the word (0,0,0) fails, not when every ordered word occurs."
+      ],
+      "reasoning": "Changing a primitive root interchanges the two nontrivial labels, hence the all-word condition is invariant. The mixed obstruction for p=151 and p=163 is absent from the 1962 all-cubes exception set, proving that earlier statement cannot imply the complete present classification.",
+      "searches": [
+        "All 27 ordered patterns of three consecutive cubic power-residue cosets modulo every prime p congruent to 1 mod 3, sharp universal threshold 307, exceptions 151 163 283",
+        "Cubic character words length three prime modulus sharp all patterns",
+        "https://arxiv.org/pdf/1309.7506",
+        "https://www.cs.umd.edu/~gasarch/TOPICS/res/llms.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002225 concerns primes for which the first few primes are cubes, not ordered triples of cosets.",
+        "OEIS A330274 concerns smallest quadratic-residue pairs with prescribed gaps and cites Lehmer (1983); it does not tabulate the 27 cubic-coset words."
+      ],
+      "reasoning": "No exact tabulation of the new 13 exceptional primes or complete length-three ternary support was encountered; these database searches are negative evidence only and do not independently prove novelty.",
+      "searches": [
+        "OEIS cubic residue patterns 3 consecutive coset 151 163 283 307",
+        "sequence primes all length three cubic power residue character coset patterns 27",
+        "https://oeis.org/A002225",
+        "https://oeis.org/A330274"
+      ]
+    },
+    "rationale": "Full-text comparison separates the established single-word theorem (Lehmer et al., 1962) from the all-27-word claim; 151 and 163 witness the nonimplication. Rabung and Jordan (1970) require all entries to lie in one class; Dietzel (2013) covers pairs; Hu and Chen (2020) treat reciprocal shifts. Searches of mathematical research records for cubic coset triples, 27 ternary words, and the claimed 307 threshold found no matching statement. The highly relevant but unavailable Emma Lehmer (1983) study remains a named residual risk: novelty is not certified by a failed search.",
+    "residual_risks": [
+      "Emma Lehmer (1983), Patterns of power residues, is a highly relevant plausible source whose substantive full text could not be checked.",
+      "A stronger unindexed cyclotomic-number evaluation or overlooked 27-pattern table might dominate the exact sharp threshold.",
+      "No external independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves only the all-cubes word, with last obstruction 283, not all 27 ordered words",
+        "evidence": [
+          "Theorem 1(a), p. 407: exception list 7,13,19,31,37,43,61,67,79,127,283 among eligible primes.",
+          "pp.408-409 define class labels 0,1,2 but ensuing theorem concerns simultaneous label 0."
+        ],
+        "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/llms.pdf",
+        "material_read": "full lawful OA PDF, pages 407-415, including Theorem 1(a) and class-vector discussion",
+        "method": "read extracted complete paper text and relevant page image",
+        "title": "Machine Proof of a Theorem on Cubic Residues",
+        "trigger": "Closest predecessor on three consecutive cubic residues and sharp last exception"
+      },
+      {
+        "assessment": "A*(3,3)=2499 concerns runs in one power-residue class, not arbitrary ordered triples of mixed classes",
+        "evidence": [
+          "p. 738 states A*(3,3)=2499; introduction defines sequences of same-class elements."
+        ],
+        "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/resRabungJordan.pdf",
+        "material_read": "full lawful OA PDF, pages 737-741",
+        "method": "read primary PDF text and first-page image; checked A*(3,3) result",
+        "title": "Consecutive Power Residues or Nonresidues",
+        "trigger": "Possible stronger same-class three-term theorem"
+      },
+      {
+        "assessment": "Pairs of consecutive power residues and bounds for first pair, not ternary three-word patterns",
+        "evidence": [
+          "arXiv:1309.7506v1 first public 2013-09-28; Theorem 3 establishes pair existence; pages 1-5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1309.7506",
+        "material_read": "entire five-page preprint",
+        "method": "read author preprint full text, Theorems 1 and 3 and concluding discussion",
+        "title": "A generalization of Schur's theorem and its application to consecutive power residues",
+        "trigger": "Precisely dated archive-aged primary starting source on consecutive power residues"
+      },
+      {
+        "assessment": "Studies cubic character of a plus or minus multiplicative inverse, rather than consecutive triples and all word support",
+        "evidence": [
+          "Theorems 1-3 involve N(p) for a+a^{-1} and a-a^{-1}; conclusion describes those objects."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2020/6/PDF/math-05-06-388.pdf",
+        "material_read": "full ten-page lawful OA PDF, including introduction, main Theorems 1-3 and conclusion",
+        "method": "read complete source PDF text, inspect specific object and variables",
+        "title": "On distribution properties of cubic residues",
+        "trigger": "Recent relevant full-text cubic character-sum distribution theorem"
+      },
+      {
+        "assessment": "UNRESOLVED; cannot infer noncoverage from title or metadata",
+        "evidence": [
+          "Emma Lehmer, Journal of Number Theory 17 (1983), 37-46, DOI recorded; no substantive theorem text acquired."
+        ],
+        "identifier_or_url": "doi:10.1016/0022-314X(83)90004-5",
+        "material_read": "not read; only bibliographic metadata and citing literature accessible",
+        "method": "checked arXiv and lawful OA leads, publisher text unavailable; authorized retrieval required unavailable interaction",
+        "title": "Patterns of power residues",
+        "trigger": "Highly plausible earlier same-subject title and citation network"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e4ea639-bfec-49bc-8023-07fe0c869402",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simultaneous occurrence of every one of 27 local words is a natural complete support invariant for the order-three multiplicative coset partition. The sharp universal threshold and thirteen-prime exception list capture mixed-character obstructions, specifically at 151 and 163, that the established triple-of-cubic-residues theorem cannot see. This is not just a renaming or an elementary special case of that prior theorem: the full 27-word statement has strictly stronger logical content and a distinct combinatorial obstruction.",
+    "status": "PASS"
+  }
+}
