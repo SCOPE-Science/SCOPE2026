@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged checker uses exact rational arithmetic and a small dependency-free polynomial algebra. It verifies the three printed equation-(3.5) numerators against the compact identity
-\[
-L^2\dot p=L^2B(q)-q\big(q\cdot B(q)+\|p\|^2\big),
-\]
-then verifies, after clearing \(L^2\),
-\[
-\dot S=-\frac{R}{L^2}\big(q\cdot B(q)+\|p\|^2\big),\qquad R=\|q\|^2-L^2,\quad S=q\cdot p.
-\]
-It also checks that each published configuration has \(\|q\|^2=L^2\) at \(L=0.01\), evaluates the three exact tangent defects, and evaluates \(\dot R(0)=2S(0)\).
+# Independent mathematical audit
 
-The checker is finite algebra supporting the stated identities; it is not a numerical simulation and does not test the existence or nonexistence of hyperchaotic invariant sets for correctly initialized data on \(R=S=0\). The scientific conclusion is limited to the incompatibility of the three published numerical initial conditions with the stated holonomic phase space.
+## correctness
+
+PASS
+
+For R=|q|^2-L^2 and qdot=p, exact differentiation yields Rdot=2 q dot p, a necessary tangency condition for every trajectory on the sphere. At L=1/100 all three printed triples q=(0,0,1/100),(0,1/100,0),(1/100,0,0) and p=(11/1000,51/1000,51/1000) satisfy R=0, but their exact S=q dot p are 51/100000,51/100000,11/100000, all positive. Thus Rdot(0)>0: every such smooth trajectory immediately leaves the sphere. Independently checked rational values; the printed field defect equations Rdot=2S, Sdot=-R(q dot B+|p|^2)/L^2 agree with substitution and show invariant true constrained manifold. No numerical chaotic-dynamics inference is claimed.
+
+## originality
+
+PASS
+
+The materially read Li-Cui primary PDF equations (3.1)-(3.5) defines q dot p=0 and lists the contradictory initial states without recognizing the incompatibility; its numerical plots do not prove the constraint. The general Udwadia constrained-motion requirement for admissible initial data is prior background, not a paper-specific exposure of these states. Searches for this exact Li-Cui mismatch found only the submitted record.
+
+## value
+
+PASS
+
+Although the arithmetic is elementary, the inconsistency invalidates the published numerical evidence for the specific headline holonomic hyperchaos, three sensitivity trajectories and associated Poincare diagram as evidence for constrained dynamics. The precise application-specific diagnostic has consequential mathematical significance while not claiming nonexistence of true constrained hyperchaos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
