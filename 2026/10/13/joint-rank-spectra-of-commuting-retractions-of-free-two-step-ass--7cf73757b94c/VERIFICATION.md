@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification and mathematical limits
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3.11 or newer. The program requires only the standard library and regenerates all endomorphisms from their generator images for \(n=1,2\) over \(\mathbb F_2\). It tests each map for composition idempotency, compares each ordered pair by exact composition for commutativity, computes binary linear ranks, and compares every pair-rank and pair-product-rank multiplicity with the theorem's separately derived orbit-and-shear formula. The observed individual retraction counts are \(2\) at \(n=1\) and \(98\) at \(n=2\); there are \(4\) ordered commuting pairs at \(n=1\), and \(868\) at \(n=2\).
+## correctness
 
-The program additionally computes the formula for \(1\le n\le4\), \(1\le k\le3\), and \(q\in\{2,3,4\}\) to test integer and nonnegative coefficients. These parameter checks do not directly enumerate all \(\mathbb F_3\) or \(\mathbb F_4\) algebra maps. No finite check proves the all-field theorem: that conclusion follows from the short-exact-sequence splitting, the shared-shear normal form, and the exact dimension of the intertwiner space. No independent mathematical audit or external certification has been performed.
+PASS
+
+For free nonunital 2-step associative algebra N(V)=V⊕(V⊗V), triples vanish and every algebra endomorphism has F(v+w)=Av+f(v)+(A⊗A)w because multiplication of generator images determines all degree-2 action. For commuting idempotent F_i, the induced A_i and B_i=A_i⊗A_i are commuting idempotents. Simultaneously splitting the short exact sequence 0→W→N→V→0 for the commutative semisimple algebra of k idempotents gives a shared equivariant section, realized by one algebra shear H_h, conjugating all F_i to graded E_i. Distinct quotient joint eigenspace multiplicities n_epsilon (epsilon∈{0,1}^k) classify conjugacy; joint eigenspace W_eta dimensions m_eta=sum_{epsilon∧delta=eta} n_epsilon n_delta. For each quotient decomposition GL_n/∏GL_n_epsilon, shared shear choices quotient Hom(V,W) by commuting intertwiners of dimension E=sum n_eta m_eta, yielding q^(n^3-E). Each nonempty composite rank r_I+r_I^2. This holds in every characteristic, with finite field q only for numerical counting. Independently recomputed n=k=q=2 orbit-sum count 868; single retraction total 98 and product-rank splitting agree in the explicit result; boundary n=1 checked algebraically. This finite arithmetic supports but cannot prove general splitting or count.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
+
+## value
+
+PASS
+
+Simultaneous algebra retractions of a naturally presented free nilpotent associative algebra carry coupling constraints between the generator space and its tensor-square multiplication ideal. The full k-family product-rank spectrum captures a nontrivial common-shear stabilizer q^(n^3-E) and all 2^k joint color dimensions, not available from counting single idempotents or simultaneous diagonalization alone. Even the minimal six-dimensional case exhibits pairs with identical individual ranks but distinct product rank, making the invariant useful for endomorphism monoid structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
