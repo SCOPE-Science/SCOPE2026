@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The graph-theoretic matching-complement equivalence is exact for cubic graphs; the first complete program enumerates all 60 matchings and all 276 Hamiltonian pairs, directly verifies all 24 BFS distance tables and the full S5 action, while a second program independently enumerates all 24 Hamilton tours in the GP(10,3) presentation and checks the same transition statistics. The algorithms branch over all possibilities, have deterministic finite termination and replayed VERIFY_OK outputs. No sampled computation is extrapolated to an infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The middle-levels Hamiltonicity theorem establishes existence for all middle-level graphs, not the transition graph among all Hamilton cycles of \\(Q_5(2,3)\\).",
+        "Ito et al. allow arbitrary alternating cycles through arbitrary perfect matchings; our vertices are only matchings whose complements are one Hamilton cycle, and the ten-cycle length is mandatory.",
+        "The 2014 flippable-path-pair construction connects cycles inside intermediate two-factors; it does not classify length-ten single-cycle exchanges of Hamilton cycles."
+      ],
+      "reasoning": "General Hamiltonicity does not give reconfiguration connectivity or diameter. General matching reconfiguration may pass through disconnected complementary two-factors, so its adjacency, shortest path results, and reachability do not imply the Hamilton-complement-restricted theorem. No stronger dominating theorem was found.",
+      "searches": [
+        "arxiv:1404.4442 theorems and flippable pair sections",
+        "arxiv:1907.01700 problem statement and introduction",
+        "Hamilton cycle switching by symmetric difference with 10-cycle on Desargues bipartite Kneser graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.2413",
+      "arxiv:1404.4442",
+      "arxiv:1907.01700",
+      "https://aeb.win.tue.nl/graphs/Desargues.html",
+      "Mod-2 homology of the Desargues matching complex",
+      "The Desargues matching complex is a mixed-dimensional wedge of spheres"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier 2011 and 2014 sources concern 2-factor constructions and Hamilton-cycle existence; they neither quantify our fixed twenty-four-state adjacency nor claim transitivity under these constrained flips.",
+        "The 2019 reconfiguration model does not restrict complements to Hamiltonian 2-factors or force flip length ten.",
+        "Related published Desargues matching-complex homology results concern the simplicial matching complex, not transitions between Hamiltonian complements."
+      ],
+      "reasoning": "One can derive existence of at least one state from middle-level theorems, but not a finite classification of all 24 states and all 276 pair relations. Neither unrestricted perfect-matching connectivity nor matching-complex homology entails seven-regularity, diameter two, the Sylow-five subgroup identification, or six square fibres. No covered corollary/instance has been identified.",
+      "searches": [
+        "arxiv:1111.2413 Construction of 2-factors in middle layer",
+        "arxiv:1404.4442 Proof of middle levels conjecture",
+        "arxiv:1907.01700 Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "Desargues graph Hamilton cycles 24 ten cycle flips alternating perfect matching symmetric difference reachability",
+        "Hamilton cycle switching by symmetric difference with 10-cycle on Desargues bipartite Kneser graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph \\(Q_5(2,3)\\) is the Desargues graph \\(GP(10,3)\\), equivalently the bipartite inclusion graph of 2- and 3-subsets of five labels. Both graph presentations were computed separately.",
+        "The intrinsic triangle-free-edge 6C4 decomposition is equivalent, under the checked transitive \\(S_5\\) action, to the partition of 24 five-cycles into six order-five subgroups.",
+        "Mütze–Weber 2011 constructs parameterized 2-factors rather than the graph of all 24 Hamilton cycles and length-ten exchanges."
+      ],
+      "reasoning": "Renaming the base graph as a middle-level graph, bipartite Kneser graph, or generalized Petersen graph does not produce a cited implication of the complete flip graph. Likewise, the five-cycle/Sylow-five description is an equivalent encoding of our same result, not an independent novelty assertion. Searches found no published equivalent assertion.",
+      "searches": [
+        "Desargues graph Hamilton cycles 24 ten cycle flips alternating perfect matching symmetric difference reachability",
+        "Hamilton cycles of middle levels graph H(5,2) local switches; 5-cycles of S5 six Sylow-5 subgroup squares",
+        "arxiv:1111.2413 sections 1,4,6",
+        "arxiv:1404.4442 flippable pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2011 parameter-sequence Table 1 covers a particular family of two-factors, not every pairwise alternating-flip adjacency among all Hamilton cycles.",
+        "A Desargues-graph Hamilton-cycle count, even if previously listed as 24, cannot determine the 84 flip edges, six intrinsic C4s, or distance spectrum."
+      ],
+      "reasoning": "No exact table or database entry covering the 24-state length-ten flip graph or six-Sylow-five square decomposition was located. This is not a universal nonexistence assertion; machine-readable supplementary data and unindexed tables remain a residual risk.",
+      "searches": [
+        "arxiv:1111.2413 Section 6 Table 1 n=2",
+        "Desargues graph Hamilton cycles 24 ten cycle flips alternating perfect matching symmetric difference reachability",
+        "Hamilton cycles Desargues graph reconfiguration 10-cycle hexagon eight cycle 24"
+      ]
+    },
+    "rationale": "The exact finite structural classification of the Hamiltonicity-preserving length-ten flip graph is not entailed by the cited 2011 two-factor constructions, 2014 Hamiltonian existence theorem, or 2019 unrestricted perfect-matching reconfiguration. Targeted mathematical-record queries and accessible internal claims returned no covering assertion. Distinctness rests on operation-specific scientific implication comparisons rather than failed matching keywords; an unindexed publication could still cover the result.",
+    "residual_risks": [
+      "An equivalent specialized Hamilton-cycle flip graph computation could exist in unindexed graph-theory papers or supplementary code.",
+      "The 24 Hamilton cycles and basic symmetry may be old; only the explicit minimum-length flip structure and fibre decomposition are treated as the potentially new contribution.",
+      "Only the indicated relevant primary sections have been materially inspected; this is not an exhaustive literature audit or independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected material",
+        "evidence": "The paper constructs and counts selected two-factors and examines their cycle lengths; Table 1 counts parameter choices, not the full configuration graph of length-ten swaps.",
+        "identifier_or_url": "https://arxiv.org/abs/1111.2413",
+        "material_read": "Accessible author full-text HTML: abstract; introduction and theorems; Sections 4 and 6 including Table 1 and its description.",
+        "method": "Scientific comparison of constructed family of two-factors and their parameter tables with the claim that every pair of all 24 Hamilton cycles is classified under a fixed alternating ten-cycle flip.",
+        "title": "Construction of 2-factors in the middle layer of the discrete cube",
+        "trigger": "Exactly the middle-level graph under study; parameterized two-factors and experimental Hamiltonian outputs."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material",
+        "evidence": "All-parameter existence and constructed path-pair transformations do not classify single alternating ten-cycle symmetric differences among all Hamiltonian 2-factors of \\(Q_5(2,3)\\).",
+        "identifier_or_url": "https://arxiv.org/abs/1404.4442",
+        "material_read": "Accessible full-text HTML: abstract/introduction, main result statement, and Sections 1.2.3 and 3 describing flippable pairs and path transformations.",
+        "method": "Compared definitions of flippable path pairs and their use in merging 2-factor cycles against the fixed-length alternating edge cycle and Hamilton-complement invariant.",
+        "title": "Proof of the middle levels conjecture",
+        "trigger": "Potentially stronger all-parameter Hamiltonicity theorem; contains flippable-pair techniques that might subsume constrained reconfiguration."
+      },
+      {
+        "assessment": "DIFFERENT_MODEL in inspected material",
+        "evidence": "Reconfiguration allows arbitrary alternating-cycle lengths and intermediates not constrained to have a connected complementary 2-factor; no exact Desargues length-ten classification found.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+        "material_read": "Accessible full-text HTML: abstract/introduction, reconfiguration-model definition, related-work discussion and shortest-path context.",
+        "method": "Compared allowable vertices (all perfect matchings versus Hamilton-complement matchings), allowable cycle lengths and exact Desargues specialization.",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Direct alternating-cycle operation on perfect matchings is an apparent broader framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d24ff06-7bad-48f0-ab0a-018b1361e12d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hamilton-cycle reconfiguration while retaining a spanning cycle is a motivated strengthening of Gray-code existence, here evaluated in the first nontrivial 20-vertex middle-level graph. The minimum possible useful flip length, exact diameter and intrinsic six four-cycles with an S5-equivariant Sylow-five explanation are useful reachability/structure invariants, not routine table enumeration or arbitrary slices. Finite rather than general scope is explicitly acknowledged.",
+    "status": "PASS"
+  }
+}

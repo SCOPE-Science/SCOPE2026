@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The complement of a Hamilton cycle in a cubic graph is a perfect matching, so exhaustive perfect-matching generation covers every state. Complete pairwise symmetric-difference tests yield exactly 84 ten-edge alternating single-cycle swaps, and graph traversal over all twenty-four states proves the distance distribution and intrinsic square decomposition. Two separate standard-library programs enumerate the graph in nonidentical presentations; the subset construction additionally verifies the full \(S_5\) action and Sylow-five correspondence. Actual source files and their recorded outputs agree. The proof does not infer an infinite statement from finite tests.
+
+**Originality — PASS, with residual risk.** The closest 2011 construction of middle-level two-factors, 2014 middle-level Hamiltonicity proof, and 2019 alternating-cycle perfect-matching reconfiguration work were compared on actual objects and operation definitions. Existence of one Hamilton cycle and unrestricted perfect-matching reachability do not imply the Hamiltonicity-constrained length-ten flip graph or its six-square architecture. Mathematical-record comparisons and accessible historical claim screening identified no covering theorem. A specialized unindexed study or supplementary dataset may contain these exact invariants, and publication priority is not independently established.
+
+**Value — PASS.** Reconfiguring Hamiltonian Gray codes while retaining the Hamiltonian property is a naturally motivated strengthening of mere Hamiltonicity. The Desargues graph is the first substantial nontrivial middle-level case. The minimum feasible flip length, diameter, and unexpected \(S_5\)/Sylow-five square system are structural invariants with direct meaning for constrained transformation algorithms. This is an exact finite classification, not a claim about larger cubes.
+
+Self-review: passed. Independent audit: not yet performed.
