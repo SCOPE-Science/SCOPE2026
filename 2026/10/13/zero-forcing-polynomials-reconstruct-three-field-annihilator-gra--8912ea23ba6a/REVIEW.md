@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published arbitrary-three-field decomposition gives six independent false-twin classes with triangular-prism quotient and the stated unequal class sizes. Because all six sizes are at least \(2\), forcing is exactly controlled by the six-type white profile. The complete profile census has admissible counts \(1,6,15,20,12,0,0\), producing the polynomial. A rank-\(4\) quotient adjacency witness plus \(M\le Z\) proves the exact minimum rank. The coefficient identities recover the three elementary symmetric functions of \(q_i-1\), hence all field orders.
+PASS
 
-## Originality
+For a product of exactly three finite fields with q_i>=3, Badawi annihilator adjacency yields six independent support classes of weights (x2*x3,x1*x3,x1*x2,x3,x2,x1), xi=q_i-1>=2, whose quotient is a triangular prism. At most one white per false-twin class; all classes retain a blue when at most one white. Independent direct enumeration of the 2^6 white-type patterns gives profile counts (1,6,15,20,12,0,0) for sizes 0..6; precisely bad 4-types 1256,1346,2345, each weighted product P^2. This proves polynomial (e4-3P^2)u^(N-4)+e3 u^(N-3)+e2 u^(N-2)+N u^(N-1)+u^N; quotient adjacency rank 4 and general M<=Z give real mr=4. Reconstruct xi by N=s1+s2, c2=s1*s2+s1*s3+s2, c4=s3(c2-3s3). Since xi>=2, s3 is the smaller root of 3t^2-c2t+c4; s1 is the smaller root of t^2-(N+s3-1)t+(c2-N); the cubic t^3-s1*t^2+s2*t-s3 has roots xi with multiplicity. An independent 216-triple exact integer test for xi=2..7 confirmed all coefficient identities and both root selections. The unrestricted argument is the exact six-type and algebraic derivation, not this bounded test.
 
-PASS. The exact-object literature gives the annihilator graph and its arbitrary-three-field support decomposition but not zero forcing. Generic modular compression already covers the twin-type reduction and is treated as prior. The closest forcing result covers only three equal fields. Targeted exact and semantic searches did not locate the unequal-field polynomial or the inverse theorem recovering all three field orders from it.
+## originality
 
-## Value
+PASS
 
-PASS. The finding upgrades an equal-parameter forcing computation to a complete inverse invariant on the natural three-field semisimple family. It distinguishes arbitrary unequal field factors and reconstructs the ring from a graph polynomial, while also giving every forcing coefficient near the top degree and exact maximum nullity/minimum rank.
+Badawi and Afkhami et al. already established the annihilator graph and arbitrary-3-field six-class prism decomposition. Wang 2026 generic modular compression also reduces twin profiles. The accepted remainder consists of this weighted exact forcing census and especially the polynomial-to-unordered-three-field-orders inverse theorem, not a claim that support decomposition/twin reduction itself is new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete weighted zero forcing polynomial plus recovery of the entire finite semisimple ring is a motivated inverse combinatorial classification. For products of arbitrary field orders at least three, the polynomial certifies not just a scalar rank but all field orders, an exact natural invariant researchers can use in ring-graph identification. Merely listing the 64 profiles would be modest; inverse reconstruction makes the result substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

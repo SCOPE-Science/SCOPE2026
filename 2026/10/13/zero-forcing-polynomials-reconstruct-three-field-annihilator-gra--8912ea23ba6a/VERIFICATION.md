@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It checks the complete six-type forcing census, exhaustively tests all \(2^{18}\) subsets in the small graph \(\operatorname{AG}(\mathbb F_3^3)\), and directly reconstructs annihilator adjacency in \(\mathbb F_3\times\mathbb F_3\times\mathbb F_5\) from coordinate multiplication and annihilator sets.
+## correctness
 
-It also checks exact rational rank \(4\) for the quotient and representative blowups, verifies the symmetric-coefficient identities, and replays field-order recovery on repeated and unequal examples.
+PASS
 
-Exact replay output:
+For a product of exactly three finite fields with q_i>=3, Badawi annihilator adjacency yields six independent support classes of weights (x2*x3,x1*x3,x1*x2,x3,x2,x1), xi=q_i-1>=2, whose quotient is a triangular prism. At most one white per false-twin class; all classes retain a blue when at most one white. Independent direct enumeration of the 2^6 white-type patterns gives profile counts (1,6,15,20,12,0,0) for sizes 0..6; precisely bad 4-types 1256,1346,2345, each weighted product P^2. This proves polynomial (e4-3P^2)u^(N-4)+e3 u^(N-3)+e2 u^(N-2)+N u^(N-1)+u^N; quotient adjacency rank 4 and general M<=Z give real mr=4. Reconstruct xi by N=s1+s2, c2=s1*s2+s1*s3+s2, c4=s3(c2-3s3). Since xi>=2, s3 is the smaller root of 3t^2-c2t+c4; s1 is the smaller root of t^2-(N+s3-1)t+(c2-N); the cubic t^3-s1*t^2+s2*t-s3 has roots xi with multiplicity. An independent 216-triple exact integer test for xi=2..7 confirmed all coefficient identities and both root selections. The unrestricted argument is the exact six-type and algebraic derivation, not this bounded test.
 
-```text
-PROFILE_CENSUS_OK {0: 1, 1: 6, 2: 15, 3: 20, 4: 12} [(1, 2, 5, 6), (1, 3, 4, 6), (2, 3, 4, 5)]
-FULL_BRUTE_F3_CUBE_OK {14: 864, 15: 504, 16: 132, 17: 18, 18: 1}
-DIRECT_UNEQUAL_F3_F3_F5_OK [8, 8, 4, 4, 2, 2] 28
-RANK_FOUR_OK
-RECOVER (3, 3, 3) -> (3, 3, 3) coeff_min 864
-RECOVER (3, 3, 5) -> (3, 3, 5) coeff_min 4160
-RECOVER (3, 5, 7) -> (3, 5, 7) coeff_min 48192
-RECOVER (4, 5, 9) -> (4, 5, 9) coeff_min 215040
-RECOVER (5, 7, 11) -> (5, 7, 11) coeff_min 1604160
-VERIFY_OK
-```
+## originality
 
-The finite calculations corroborate the proof. The arbitrary-field-order statement follows from the symbolic weighted-census and coefficient-inversion arguments.
+PASS
+
+Badawi and Afkhami et al. already established the annihilator graph and arbitrary-3-field six-class prism decomposition. Wang 2026 generic modular compression also reduces twin profiles. The accepted remainder consists of this weighted exact forcing census and especially the polynomial-to-unordered-three-field-orders inverse theorem, not a claim that support decomposition/twin reduction itself is new.
+
+## value
+
+PASS
+
+A complete weighted zero forcing polynomial plus recovery of the entire finite semisimple ring is a motivated inverse combinatorial classification. For products of arbitrary field orders at least three, the polynomial certifies not just a scalar rank but all field orders, an exact natural invariant researchers can use in ring-graph identification. Merely listing the 64 profiles would be modest; inverse reconstruction makes the result substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
