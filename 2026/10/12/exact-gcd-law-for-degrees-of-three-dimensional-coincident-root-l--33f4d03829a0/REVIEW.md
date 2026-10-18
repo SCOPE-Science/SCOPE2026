@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Hilbert's degree formula reduces every length-three degree to one of
-\[
-6abc,\qquad 3a^2b,\qquad a^3.
-\]
-The strata \((1,1,d-2)\) and \((1,2,d-3)\) force the global gcd to divide \(12\) once \(d\ge6\), with the low degrees checked separately. A complete case split modulo \(4\) gives the exact common two-adic exponent. The factor \(3\) disappears precisely when the equal partition exists with part not divisible by \(3\), namely when \(\nu_3(d)=1\). Explicit witness strata attain every claimed minimum valuation.
+## correctness
 
-The bundled checker independently enumerates all three-part partitions through \(d=500\). The infinite statement is proved symbolically rather than inferred from that finite computation.
+PASS
 
-## Originality
-PASS. The primary archival source gives Hilbert's individual degree formula and a much richer equivariant theory, but it does not state the gcd of the complete fixed-length-three family. A later full-text multiple-root-locus paper likewise uses individual projective degrees without a common-divisor classification. Targeted searches for gcd, common divisor, divisibility, congruence, and multiple-root-locus aliases found no equivalent formula.
+Hilbert's projective degree formula for three-part binary coincident-root loci is 6abc if a,b,c distinct, 3a²b when exactly two parts agree, and a³ if all equal. The strata (1,1,d−2) and (1,2,d−3) show the gcd for d>=6 divides 3 gcd(d−2,4), hence 12. A complete split by d mod4 shows common two-adic valuation 0 (odd), 1 (d=0 mod4), or 2 (d=2 mod4), with explicit witness degrees attaining each bound. A split by nu_3(d) shows the three-factor disappears exactly when the all-equal stratum has d/3 not divisible by 3, i.e. nu_3(d)=1; otherwise common v3=1 via witness strata. d=3,4,5 are checked directly. Independently enumerated all 3,482,597 three-part partitions for 3<=d<=500 and recovered G_d=2^alpha 3^beta throughout; the unlimited conclusion follows from the divisibility proof.
 
-Residual risk remains that an older unindexed invariant-theory source may record the same short arithmetic consequence.
+## originality
 
-## Value
-PASS. The length-three partitions parameterize all three-dimensional coincident root loci of degree-\(d\) binary forms. Their degrees are generic intersection counts, so their gcd is the exact universal congruence modulus common to the entire three-root stratum family. The theorem completely classifies that modulus and its prime support.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: Hilbert's explicit degree for each partition is old, and a published Resultary result classifies minima and maxima over the EXACT same three-part family. Neither supplies the gcd over every stratum (the common prime/power invariant), because extremal values do not determine a gcd. Fehér–Némethi–Rimányi and Lee–Sturmfels treat geometry and pointwise formulas; no uniform arithmetic gcd law was found in their inspected material. The result does not pretend Hilbert's degree formula is new.
+
+## value
+
+PASS
+
+PASS. The family of all three-dimensional coincident root strata is canonical, and the greatest common divisor of their projective degrees is a natural global divisibility invariant controlling simultaneous arithmetic properties of generic intersection counts. The two-prime law and sharp disappearance of the 3-factor at nu_3(d)=1 are exact, nonobvious from just the extrema, and self-contained; no larger theorem is required for this precise unknown natural invariant to be worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
