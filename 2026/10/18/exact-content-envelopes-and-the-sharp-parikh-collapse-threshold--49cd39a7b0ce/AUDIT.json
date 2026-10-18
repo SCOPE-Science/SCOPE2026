@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For nonempty feasible patterns the maximum symbol multiplicity h gives LCS>=h and |u|<=min(k,sum_i min(c_i,h)); a reverse-block u has LCS exactly h and can saturate the capacity bound. For the quotient plateau, LCS>=ceil(|u|/q) and pure-letter probes distinguish capped counts; balanced opposite blocks attain the threshold and force a strict split below it. The empty host and one-symbol alphabet are explicitly handled. Independent bounded exhaustive dynamic-programming tests passed 191852 plateau instances plus 34188 content-envelope host/pattern comparisons; the general proof is combinatorial and is not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04 Theorem on jumble index as length minus LCS and the general comparison with Simon equivalence",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13 Lemma 16 general LCS-based equivalence-test characterization",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 has an insertion distance to subsequence universality, not a maximum feasible-pattern LCS deficit"
+      ],
+      "reasoning": "A generic LCS test defines the equivalence but gives no sharp uniform parameter at which its LCS obstruction vanishes, nor an exact minimax expression for fixed multiplicities. An insertion radius to ordinary subsequence universality concerns adding symbols to one word and does not determine the maximum disorder over all patterns with fixed host content.",
+      "searches": [
+        "\"jumbled scattered factors\" \"ceil\" equivalence",
+        "\"longest common subsequence\" \"maximum frequency\" \"anagrams\" minimum",
+        "Jumbled scattered factors ordering becomes irrelevant for large number of jumbles, equivalence relation coincides with capped letter counts when ell >= k(1 - 1/q)",
+        "jumbled k-Simon congruence minimal jumble threshold for abelianization using pigeonhole longest common subsequence",
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949"
+      ]
+    },
+    "checked_sources": [
+      "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04",
+      "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04 Sections 3-6 derive the jumble/LCS equivalence, special finite classes, and leave class-count analysis open",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13 Proposition 10 and Corollary 11 establish a special ell=k-1 case; Lemma 16 is a decision criterion for arbitrary ell"
+      ],
+      "reasoning": "The general LCS identity is a needed premise but the sharp optimizer and parameter boundary require new inequalities and explicit reverse-block patterns. Proposition 10 is not a stronger theorem whose corollary gives the least budget. The complete quotient bound below the threshold additionally uses the fact that pure-letter probes separate all capped-content fibers.",
+      "searches": [
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13",
+        "Jumbled Simon congruence index (k+1)^alphabet size for ell >= k - ceil(k/alphabet size), Parikh characterization by longest common subsequence majority letter, sharp threshold",
+        "Jumbled scattered factors ordering becomes irrelevant for large number of jumbles, equivalence relation coincides with capped letter counts when ell >= k(1 - 1/q)",
+        "jumbled scattered factor longest common subsequence anagrams threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04 Section 3 LCS relation, Section 4 equivalence, Section 6 future work",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13 Definition 4 and Definition 9, Proposition 10 and Corollary 11"
+      ],
+      "reasoning": "The tested equivalent form is the least ell for which every Parikh-feasible pattern up to k is accepted, and hence the quotient equals capped-content equality. The later paper proves capped-content equality at ell=k-1 only. For q>1 and k>q, the new threshold k-ceil(k/q) is generally smaller; a balanced reversed-block pair proves its necessity. No equivalent assertion was located.",
+      "searches": [
+        "\"jumbled Simon\" \"alphabet\" \"k\" \"ell\" Parikh threshold",
+        "\"jumbled Simon\" number of equivalence classes",
+        "Jumbled Simon congruence index (k+1)^alphabet size for ell >= k - ceil(k/alphabet size), Parikh characterization by longest common subsequence majority letter, sharp threshold",
+        "jumbled Simon equivalence index sharp threshold Parikh vector counts",
+        "jumble index sigma alphabet Simon equivalence",
+        "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04",
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13 Corollary 11 gives exactly (k+1)^q at ell=k-1, not a table of least thresholds",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 enumerates binary subsequence-universality distributions",
+        "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c bounds counts of Parikh-matrix singleton fibers"
+      ],
+      "reasoning": "No exact index table or database entry was found that specifies the sharp threshold ell_*(q,k) or the full content-dependent F_k expression. A known index at ell=k-1 is compatible with, but does not imply, an earlier onset; general subsequence statistics and Parikh-matrix fibers do not classify the same equivalence relation.",
+      "searches": [
+        "\"jumbled Simon\" number of equivalence classes",
+        "jumbled Simon equivalence index sharp threshold Parikh vector counts",
+        "jumbled scattered factor longest common subsequence anagrams threshold",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c"
+      ]
+    },
+    "rationale": "Exact content extremum and sharp alphabet-dependent onset of capped-Parikh quotient do not occur in the two relevant complete primary texts inspected. The known ell=k-1 class count is a special case and cannot imply least possible ell without a separate necessity witness. The original 2025 paper explicitly motivates further index and fiber questions. Published research records for universality or Parikh-matrix questions do not cover these objects. Historical priority remains subject to an external audit.",
+    "residual_risks": [
+      "Equivalent extremal LCS formula or threshold may occur in unindexed or non-English combinatorics-on-words literature.",
+      "The 2025 and 2026 texts use slightly different conventions for the empty pattern; this package states and proves the modern nonnegative-budget convention explicitly.",
+      "No independent bibliographic or scientific review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes foundational equivalence and preliminary class results, but does not give F_k(c) or an exact smallest collapse threshold across all alphabets and parameters.",
+        "evidence": [
+          "Fleischmann, Huch, Kammholz, Koß, Jumbled Scattered Factors, arXiv:2506.03814v1, https://arxiv.org/html/2506.03814v1, 2025-06-04",
+          "Section 6 calls for further index determination and finer analysis of classes."
+        ],
+        "identifier_or_url": "arxiv:2506.03814v1; https://arxiv.org/html/2506.03814v1",
+        "material_read": "Full openly available HTML with particular attention to definitions, Section 3 jumble index, Section 4 equivalence class claims, Section 5 universality and Section 6 open questions.",
+        "method": "Read and compared mathematical definitions, quantifiers, statements and arguments with the exact domain and threshold",
+        "title": "Jumbled Scattered Factors",
+        "trigger": "Foundational 2025 model with identical objects; LCS identity and quotient-index motivation"
+      },
+      {
+        "assessment": "Proves equality with capped Parikh signatures at ell=k-1, but neither asserts optimality of that budget nor gives the exact least ell or sorted-word content envelope.",
+        "evidence": [
+          "Fleischmann, Huch, Kim, Koß, Wiards, Jumbled Simon’s Equivalence and Embeddings, arXiv:2610.17910v1, https://arxiv.org/html/2610.17910v1, 2026-10-13",
+          "Proposition 10, Corollary 11, Lemma 16, Section 3."
+        ],
+        "identifier_or_url": "arxiv:2610.17910v1; https://arxiv.org/html/2610.17910v1",
+        "material_read": "Full openly available HTML: introductory definitions and differences with the earlier convention, Section 3 equivalence-testing propositions and proofs, automaton construction and conclusions.",
+        "method": "Compared exact threshold and fixed-content envelope with Proposition 10, Corollary 11, Lemma 16 and Section 3 algorithms",
+        "title": "Jumbled Simon’s Equivalence and Embeddings",
+        "trigger": "Direct subsequent work naming same equivalence relation and potential stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "49cd39a7-b0ce-43b2-bf2b-1e4a05a3fe60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies equivalence-index and structure as open directions. This gives the exact minimal quotient index transition for all finite alphabets and all k, with explicit separating constructions, plus a sharp content-dependent minimax disorder invariant. These are natural exact classifications with a clear algorithmic simplification (counting capped Parikh vectors), not isolated small-parameter increments. The subthreshold exact index and per-word exact disorder remain outside scope.",
+    "status": "PASS"
+  }
+}
