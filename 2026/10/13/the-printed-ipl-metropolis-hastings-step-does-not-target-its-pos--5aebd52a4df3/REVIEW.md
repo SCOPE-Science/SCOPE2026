@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The conditional target in Eq. (3.5) is nonconstant and depends on \(\gamma,\eta,\xi\) and the data. For a symmetric normal random walk, the Metropolis–Hastings proposal ratio cancels and the acceptance probability must be the conditional-posterior density ratio. Eq. (3.10), as printed, either uses arguments not defined for the conditional posterior or, under the natural proposal-density reading, omits the target ratio. The detailed-balance calculation proves that a symmetric displacement-only acceptance cannot preserve a nonconstant target. The packaged checker reproduces a concrete target-ratio mismatch and flux imbalance.
+## correctness
 
-## Originality
-PASS. Five source-specific published-result searches, exact DOI correction searches, previous-result comparisons, and comparison with the foundational Metropolis–Hastings rule found no published IPL-specific correction. The closest sampling results concern other MCMC methods and do not imply the mismatch between Eqs. (3.5) and (3.10).
+PASS
 
-Residual risk remains that unavailable code already used a correct acceptance ratio or that Eq. (3.10) is only a transcription error.
+Eq. (3.5) fixes a nonconstant conditional posterior pi(nu|gamma,eta,xi). Eq. (3.10) instead shows pi*_nu(nu*,var(nuhat))/pi*_nu(nu_old,var(nuhat)). Read literally, its arguments are undefined as a posterior; read as a normal-proposal density, the posterior ratio disappears. For a symmetric normal random walk Hastings terms cancel and valid alpha=min(1,pi(new)/pi(old)). A symmetric displacement-only acceptor and symmetric proposal cannot satisfy detailed balance for this nonconstant target. Independent log-density evaluation on the stated five-point dataset gives ratio 3.844679306266 vs displacement factor .324652467358 at variance .04. Only the printed rule, not unavailable implementation, is assessed.
 
-## Value
-PASS. Algorithm 1 is used to obtain the article's Bayesian point estimates and credible intervals for reliability. A printed transition rule that does not preserve the stated posterior prevents scientific reproduction of that analysis. The exact corrected rule is therefore consequential rather than cosmetic, while the claim is limited to the published algorithm and does not infer what private code did.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hastings 1970 already proves the general acceptance formula; novelty is the source-specific contradiction between Eqs. (3.5) and (3.10). The actual 2025 article full text was compared at conditional posteriors, the normal proposal discussion, Algorithm 1 and its Bayesian-estimate dependence. Targeted DOI and name searches and Resultary semantic query did not disclose an IPL-specific published correction. This is a best-of-knowledge finding, not an independent invention of MH.
+
+## value
+
+PASS
+
+The algorithm underlies published Bayesian stress-strength point estimates and credible intervals. A printed transition rule that cannot be unambiguously executed as posterior-preserving changes reproducibility and interpretability; specifying exact MH correction and support handling is materially useful, despite elementary MH algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

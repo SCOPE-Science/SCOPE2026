@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-For a symmetric random-walk proposal
-\[
-q(v^*\mid v)=q(v\mid v^*),
-\]
-the Metropolis–Hastings acceptance probability for target \(\pi\) is
-\[
-\alpha(v,v^*)=
-\min\!\left\{1,\frac{\pi(v^*)}{\pi(v)}\right\}.
-\]
 
-The source's conditional posterior from Eq. (3.5) was implemented up to its normalizing constant. For
-\[
-(\gamma,\eta,\xi)=(1.2,1.8,0.9),
-\]
-\[
-x=(0.7,1.3,2.0),\qquad y=(0.8,1.7),
-\]
-and the move \(0.7\to1.0\), the packaged checker obtains a nonunit target ratio.
+# Independent mathematical audit
 
-It then compares the forward and reverse probability fluxes under a symmetric displacement-only acceptance rule. They differ by the target-density ratio, directly exhibiting failure of detailed balance.
+## correctness
 
-The finite example is supplemental. The general proof is the cancellation argument for symmetric proposal and acceptance kernels.
+PASS
+
+Eq. (3.5) fixes a nonconstant conditional posterior pi(nu|gamma,eta,xi). Eq. (3.10) instead shows pi*_nu(nu*,var(nuhat))/pi*_nu(nu_old,var(nuhat)). Read literally, its arguments are undefined as a posterior; read as a normal-proposal density, the posterior ratio disappears. For a symmetric normal random walk Hastings terms cancel and valid alpha=min(1,pi(new)/pi(old)). A symmetric displacement-only acceptor and symmetric proposal cannot satisfy detailed balance for this nonconstant target. Independent log-density evaluation on the stated five-point dataset gives ratio 3.844679306266 vs displacement factor .324652467358 at variance .04. Only the printed rule, not unavailable implementation, is assessed.
+
+## originality
+
+PASS
+
+Hastings 1970 already proves the general acceptance formula; novelty is the source-specific contradiction between Eqs. (3.5) and (3.10). The actual 2025 article full text was compared at conditional posteriors, the normal proposal discussion, Algorithm 1 and its Bayesian-estimate dependence. Targeted DOI and name searches and Resultary semantic query did not disclose an IPL-specific published correction. This is a best-of-knowledge finding, not an independent invention of MH.
+
+## value
+
+PASS
+
+The algorithm underlies published Bayesian stress-strength point estimates and credible intervals. A printed transition rule that cannot be unambiguously executed as posterior-preserving changes reproducibility and interpretability; specifying exact MH correction and support handling is materially useful, despite elementary MH algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

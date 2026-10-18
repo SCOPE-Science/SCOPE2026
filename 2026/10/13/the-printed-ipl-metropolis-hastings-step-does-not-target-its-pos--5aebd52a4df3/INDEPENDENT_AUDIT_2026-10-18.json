@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:11:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eq. (3.5) fixes a nonconstant conditional posterior pi(nu|gamma,eta,xi). Eq. (3.10) instead shows pi*_nu(nu*,var(nuhat))/pi*_nu(nu_old,var(nuhat)). Read literally, its arguments are undefined as a posterior; read as a normal-proposal density, the posterior ratio disappears. For a symmetric normal random walk Hastings terms cancel and valid alpha=min(1,pi(new)/pi(old)). A symmetric displacement-only acceptor and symmetric proposal cannot satisfy detailed balance for this nonconstant target. Independent log-density evaluation on the stated five-point dataset gives ratio 3.844679306266 vs displacement factor .324652467358 at variance .04. Only the printed rule, not unavailable implementation, is assessed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General MH theorem specifies alpha=min(1,pi(y)q(x|y)/(pi(x)q(y|x)))."
+        ],
+        "reasoning": "The general MH identity supplies the correction but does not itself identify the 2025 article error or validate its data-specific posterior. Distinguish classical method from source-specific observation.",
+        "searches": [
+          "W. K. Hastings 1970 Markov chains applications",
+          "Resultary: inverse power Lomax MCMC target posterior correction"
+        ]
+      },
+      "checked_sources": [
+        "Mustafa et al., AIMS Mathematics 10 (2025), DOI 10.3934/math.2025700, Algorithm 1 Eq 3.10 and Eqs 3.5-3.6",
+        "Hastings, Biometrika 57 (1970), DOI 10.1093/biomet/57.1.97",
+        "Resultary semantic query: inverse power Lomax MH acceptance ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (3.5) conditioned on gamma,eta,xi; Eq. (3.10) conditioned on var(nuhat)."
+        ],
+        "reasoning": "Although a posterior-preserving MH ratio is classical, no inspected theorem about this paper states or directly identifies its mismatched formula. The source itself supplies the contradictory pair; an unindexed erratum remains possible.",
+        "searches": [
+          "Mustafa Khan Ahmed 2025 conditional posterior Algorithm 1",
+          "Hastings 1970 acceptance ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Eq. (3.5) pi*_nu(nu|gamma,eta,xi); source Eq. (3.10) variance as argument; Hastings 1970 target times reverse/forward proposal acceptance."
+        ],
+        "reasoning": "A normal proposal may be full-line random walk or positive truncation. In the former proposal ratio is 1 and target remains; in latter the Hastings factor must remain. Neither interpretation gives the printed variance-conditioned pi* ratio as the correct target. No equivalent documented author correction located.",
+        "searches": [
+          "Resultary: Metropolis Hastings acceptance ratio inverse power Lomax stress strength Mustafa Khan Ahmed posterior conditional nu variance Eq3.10",
+          "DOI 10.3934/math.2025700 acceptance correction",
+          "Hastings 1970 Biometrika reversible kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The article reports simulation results, not a published finite exact acceptance-correction table."
+        ],
+        "reasoning": "Exact database/table coverage is inapplicable: the claim is a documented formula discrepancy and symbolic detailed-balance obstruction, not a finite numerical table or a novel data benchmark.",
+        "searches": [
+          "DOI 10.3934/math.2025700 Algorithm 1 Eq3.10 erratum",
+          "Resultary: Lomax Bayesian reliability MH acceptance"
+        ]
+      },
+      "rationale": "Hastings 1970 already proves the general acceptance formula; novelty is the source-specific contradiction between Eqs. (3.5) and (3.10). The actual 2025 article full text was compared at conditional posteriors, the normal proposal discussion, Algorithm 1 and its Bayesian-estimate dependence. Targeted DOI and name searches and Resultary semantic query did not disclose an IPL-specific published correction. This is a best-of-knowledge finding, not an independent invention of MH.",
+      "residual_risks": [
+        "Printed symbol pi* may be a typographical label rather than actual code; unpublished implementation may use correct MH.",
+        "No recomputation of the reported Bayesian estimates or intervals; source-specific correction could appear in recent unindexed errata.",
+        "Detailed balance obstruction shows it is not MH for the stated target; numerical comparison is illustrative, not a global mixing theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq. (3.10) as printed supplies var(nu-hat) where Eq. (3.5) uses gamma/eta/xi; direct defect corroborated.",
+          "evidence": "Source lines 689-740, 820-915; Eq (3.5), Eq (3.10).",
+          "identifier_or_url": "https://www.researchgate.net/publication/393544789_Estimating_the_stress-strength_reliability_parameter_of_the_inverse_power_Lomax_distribution",
+          "material_read": "Full accessible HTML rendering at Section 3: joint/conditional posterior Eq. (3.5), Eq. (3.6), normal proposal discussion, Algorithm 1 Eq. (3.10), point/interval estimators Eq. (3.11)-(3.13).",
+          "method": "read source text with native mathematical displays",
+          "title": "Estimating the stress-strength reliability parameter of the inverse power Lomax distribution",
+          "trigger": "same DOI and exact algorithm claimed defective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The algorithm underlies published Bayesian stress-strength point estimates and credible intervals. A printed transition rule that cannot be unambiguously executed as posterior-preserving changes reproducibility and interpretability; specifying exact MH correction and support handling is materially useful, despite elementary MH algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Printed symbol pi* may be a typographical label rather than actual code; unpublished implementation may use correct MH.",
+    "No recomputation of the reported Bayesian estimates or intervals; source-specific correction could appear in recent unindexed errata.",
+    "Detailed balance obstruction shows it is not MH for the stated target; numerical comparison is illustrative, not a global mixing theorem."
+  ],
+  "schema_version": 1
+}
