@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The verifier uses only exact integer and rational arithmetic.
+# Independent mathematical audit
 
-It reconstructs the identity
-\[
-D(\xi)^2G\!\left(\xi,\frac{N(\xi)}{D(\xi)}\right)=-J(\xi),
-\]
-where \(N(\xi)=5\xi^4-12\xi^2+3\) and \(D(\xi)=4\xi^3-6\xi\). It also constructs the numerator of \(P(N/D)\) after clearing \(D^{11}\) and verifies by exact polynomial division that \(J\) divides it.
+## correctness
 
-An exact Sturm implementation verifies one root of \(J\) on \((2,\infty)\), one root in \((2.07717459,2.07717460)\), and one root of \(P\) in \((1.894515,1.894516)\). Exact endpoint inequalities and positivity of the derivative of \(A(\xi)=N(\xi)/D(\xi)\) transfer the \(\xi\)-isolation to the stated \(\alpha\)-isolation.
+PASS
 
-Finally, exact polynomial arithmetic over \(\mathbb F_{41}\) applies the Rabin irreducibility criterion to the degree-\(11\) reduction of \(P\). The script checks
-\[
-\gcd(P,X^{41}-X)=1
-\]
-and
-\[
-X^{41^{11}}-X\equiv0\pmod{P}.
-\]
-Because \(11\) is prime and \(P\) is primitive over \(\mathbb Z\), this proves irreducibility over \(\mathbb Q\).
+For the source order-six |A|=6 I_3 branch, G(x,a)=x^5-a x^4-4x^3+3a x^2+3x+a^2-a. At the lower-branch minimum G_x=0 forces a=(5x^4-12x^2+3)/(4x^3-6x); exact substitution yields the displayed degree-11 J. Sturm theory proves exactly one x>2 and isolates it in (2.07717459,2.07717460); the lower endpoint a=2 and divergent upper endpoint make this critical point the global minimum. Elimination yields P(a) degree11; rational Sturm count isolates a in (1.894515,1.894516), and the finite-field irreducibility criterion modulo 41 establishes algebraic degree exactly 11. Independently reconstructed using SymPy rational resultant, Sturm and irreducibility, not floating-point certification.
 
-Expected successful output:
+## originality
 
-`VERIFY_OK J_gt2=1 J_tight=1 P_tight=1 elimination=exact irreducible_mod41=1`
+PASS
 
-The verifier does not re-prove the primary paper's Gibbs-measure correspondence or its phase-count theorem; those are cited premises. It verifies the new exact algebraic identification of the critical constant.
+The original arXiv:1707.01479 derives the same scalar G and defines the order-six critical parameter as a lower-branch minimum, but provides only approximately xi≈2.077 and alpha≈1.89 in Theorem 4. The claimed exact irreducible polynomial, root isolation and degree are additional; other order or p-adic Potts phase diagrams do not imply this particular real-Ising algebraic boundary.
+
+## value
+
+PASS
+
+This is a motivated exactification of the genuine phase-count threshold singled out by a published order-six theorem, replacing an approximate and plotted critical point with a certified algebraic number of precisely degree 11 and isolating intervals usable in rigorous later comparison. It does not claim the inherited measure counts as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduced source equation, stationary relation, exact substitution, root isolation, and irreducibility argument were reconstructed independently. Exact Sturm arithmetic shows that \(J\) has exactly one root on \((2,\infty)\), isolates it in \((2.07717459,2.07717460)\), and shows that \(P\) has exactly one root in \((1.894515,1.894516)\). The exact verifier also checks the elimination identities and the Rabin irreducibility criterion modulo \(41\). No infinite conclusion rests on finite numerical sampling.
+## correctness
 
-## Originality
-PASS. The primary paper is the closest source: it contains the same reduced \(k=6\) equation and defines the critical value through the minimum of the lower branch, but states only \(\xi_0\approx2.077\) and \(\alpha_c\approx1.89\). Targeted source-ID, equation, alias, decimal, exact-coefficient, published-record, and own-ledger searches found no covering exact algebraic characterization. Earlier real-Ising work is for smaller tree order, and a later p-adic Potts paper is implication-incomparable.
+PASS
 
-## Value
-PASS. The constant is not an arbitrary parameter sample: it is the phase boundary in the source's order-six theorem. The finding replaces a plotted/numerical critical value by an exact irreducible degree-\(11\) number with certified isolating intervals, while leaving the source phase-count theorem intact.
+For the source order-six |A|=6 I_3 branch, G(x,a)=x^5-a x^4-4x^3+3a x^2+3x+a^2-a. At the lower-branch minimum G_x=0 forces a=(5x^4-12x^2+3)/(4x^3-6x); exact substitution yields the displayed degree-11 J. Sturm theory proves exactly one x>2 and isolates it in (2.07717459,2.07717460); the lower endpoint a=2 and divergent upper endpoint make this critical point the global minimum. Elimination yields P(a) degree11; rational Sturm count isolates a in (1.894515,1.894516), and the finite-field irreducibility criterion modulo 41 establishes algebraic degree exactly 11. Independently reconstructed using SymPy rational resultant, Sturm and irreducibility, not floating-point certification.
 
-## Closest literature and limitations
-The closest literature is arXiv:1707.01479v1 itself. The claim is restricted to its \(k=6\), \(|A|=k\), \(I_3\) branch and does not classify weakly periodic states outside that branch or address extremality, stability, or thermodynamic dominance. A weakly indexed equivalent elimination remains a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original arXiv:1707.01479 derives the same scalar G and defines the order-six critical parameter as a lower-branch minimum, but provides only approximately xi≈2.077 and alpha≈1.89 in Theorem 4. The claimed exact irreducible polynomial, root isolation and degree are additional; other order or p-adic Potts phase diagrams do not imply this particular real-Ising algebraic boundary.
+
+## value
+
+PASS
+
+This is a motivated exactification of the genuine phase-count threshold singled out by a published order-six theorem, replacing an approximate and plotted critical point with a certified algebraic number of precisely degree 11 and isolating intervals usable in rigorous later comparison. It does not claim the inherited measure counts as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
