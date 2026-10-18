@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T04:18:41.656368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On real ℓ²(Z) let d0=1, d±n=n, D=diag(dj), u±n=e^{−3n²/2}, u0 chosen to normalize, v=Du, κ=⟨v,u⟩. The nonpositive self-adjoint A0=−D+(v⊗v)/κ has a simple top 0 eigenvalue at u; compact resolvent plus a spectral gap imply e^{tA0}→u⊗u in norm. Antisymmetric q_n=(e_n−e_{−n})/√2 are A0 eigenvectors with eigenvalue −n. Add B=Σ δ_n q_n⊗q_n, δ_n=n e^{−2n²}, then A=A0+B remains real self-adjoint nonpositive compact-resolvent and e^{tA}=e^{tA0}+Σ e^{−nt}(e^{δ_nt}−1)q_n⊗q_n. The Dyson expansion bounds a_n(t)=⟨e^{tA0}e_n,e_−n⟩ by n²e^{−3n²}(e^{2t}−1), using b=||v||²/κ<2. The correction is −(1/2)e^{−nt}(e^{δ_nt}−1), at most −(nt/2)e^{−2n²−nt}. For every REAL t>0 and integer n≥ceil(t+3), e^{n²−nt}≥e^{3n}>4ne^{2t}, giving strict negative off-diagonal entry. Duhamel positivity and e^{tA0}→u⊗u yield an eventual c_xu lower bound on each positive nonzero orbit; the antisymmetric perturbation has sup_t h_n(t)/u_n≤e^{−n²/2}/[e(1−e^{−2n²})]→0 and finitely many remaining n decay in time. Identity at t=0 is positive. Source verify.py was inspected and independent rational-time inequality checks corroborated estimates; none substitutes for the all-real-time proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Daners–Glück–Kennedy's known noneventually-uniformly positive C(K) examples differ in Hilbert self-adjoint compact-resolvent setting.",
+          "Separate indexed 3-spectral-value barrier studies limited spectral-level representations and cutoffs; this generator has infinitely many spectral levels."
+        ],
+        "reasoning": "A broad phenomenon's existence in a different operator class does not prove the all-time quantitative obstruction for the exact compact-resolvent self-adjoint operator. No implication via three-spectral-level theorem was identified.",
+        "searches": [
+          "self adjoint compact resolvent individually eventually strongly positive semigroup nowhere positive all real times Dobrick",
+          "semigroup compact resolvent selfadjoint negative kernel entries all positive times explicit coordinate cutoff eventually strongly positive",
+          "https://arxiv.org/abs/1511.09020",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.00425",
+        "https://arxiv.org/abs/1511.09020",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+        "self adjoint compact resolvent individually eventually strongly positive semigroup nowhere positive all real times Dobrick",
+        "semigroup compact resolvent selfadjoint negative kernel entries all positive times explicit coordinate cutoff eventually strongly positive"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original construction credited; its publicly accessible abstract asserts failure at arbitrarily large times, a weaker quantifier than every positive real time. The integer-time restriction is described by the submitted source, not established from the inaccessible full primary here.",
+          "Older C(K) nowhere-positive constructions have different lattice/operator geometry."
+        ],
+        "reasoning": "To obtain the submitted conclusion, one must bound positive reference semigroup entries against the antisymmetric correction uniformly for every real time; this implication is not supplied by isolated integer times or unrelated C(K) examples.",
+        "searches": [
+          "https://arxiv.org/abs/2609.00425",
+          "https://arxiv.org/abs/1511.09020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent exact claim is that for every t>0 the positive cone is not globally invariant under e^{tA}; a single negative matrix coefficient witnesses each failure.",
+          "Dobrick abstract states nonpositivity at arbitrarily large times without stating the all-time result; the submitted source attributes selected integer-time witnesses to its Theorem 1.1 and Proposition 3.5."
+        ],
+        "reasoning": "Failure at selected times cannot imply failure at every positive noninteger time via the semigroup law, which propagates positivity forward from an individual positive operator rather than negating it everywhere.",
+        "searches": [
+          "self adjoint compact resolvent individually eventually strongly positive semigroup nowhere positive all real times Dobrick",
+          "semigroup compact resolvent selfadjoint negative kernel entries all positive times explicit coordinate cutoff eventually strongly positive",
+          "https://arxiv.org/abs/2609.00425"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns this current indexed record and a separate spectral-barrier record but no identical explicit all-real-time coefficient cutoff for Dobrick A.",
+          "There is no finite database table: quantifier extends over uncountably many times."
+        ],
+        "reasoning": "Indexed similarity is not theorem coverage; all-time obstruction requires global analytic inequalities not time samples.",
+        "searches": [
+          "self adjoint compact resolvent individually eventually strongly positive semigroup nowhere positive all real times Dobrick",
+          "semigroup compact resolvent selfadjoint negative kernel entries all positive times explicit coordinate cutoff eventually strongly positive",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271"
+        ]
+      },
+      "rationale": "Dobrick's exact self-adjoint compact-resolvent generator and its individual eventual strong positivity are expressly PRIOR; available first-version abstract says operators fail positivity at arbitrarily large times without asserting an all-time obstruction. The submitted package attributes a stronger inspected-in-package theorem/proposition comparison only at certain large integer times, but the primary complete text could not be independently checked here. The submitted work's new analytic comparison supplies simultaneous negativity for EVERY t>0 and quantitative n≥ceil(t+3). The general nowhere-positive phenomenon in Daners–Glück–Kennedy 2016 is known on C(K), with different generators; no demonstrated theorem transfers all structural properties and the explicit cutoff to this particular Hilbert-lattice operator. Another Resultary spectral-level barrier treats limited spectral-level systems, not shown to imply this infinitely spectral diagonal-plus-rank-one case. Full primary Dobrick paper inaccessible in this execution, so unverified theorem/appendix or newer revision remains a significant but not independently decisive originality risk.",
+      "residual_risks": [
+        "Full original Dobrick v1 and possible revisions were not accessible; institutional retrieval blocked by disconnected VPN, not circumvented.",
+        "An unindexed quantitative all-real-time bound for the same operator may be contained in original appendices or later works.",
+        "Individual eventual positivity is input-dependent in time; no uniform eventual operator positivity is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_ACCESS_RISK: cannot exclude stronger all-positive-time theorem elsewhere in uninspected proof/appendix or revised version",
+          "evidence": [
+            "Abstract reports individual versus uniform eventual positivity for a self-adjoint example and nonpositive operators at arbitrarily large times; it does not claim all times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00425",
+          "material_read": "arXiv 2609.00425v1 accessible abstract and metadata, NOT entire manuscript. Lawful OA PDF/HTML unavailable; authorized institutional retrieval returned vpn_disconnected, job 0e78d6ddcad183b1e54e873410bd41f1.",
+          "method": "Read abstract, compared its advertised integer-time negative result and exact referenced operator identifiers; did not assert full text NOT_COVERING",
+          "title": "Individual and Uniform Eventual Positivity of Self-Adjoint Semigroups",
+          "trigger": "Exact originating semigroup and potential stronger all-real-time source"
+        },
+        {
+          "assessment": "RELATED: noneventually-positive C(K) semigroups known, self-adjoint compact-resolvent Hilbert quantitative claim not thereby entailed",
+          "evidence": [
+            "arXiv:1511.09020, Examples 5.7–5.8, 2016."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.09020",
+          "material_read": "Public abstract and cited Example 5.7/5.8 descriptions in available source material, not a complete independently read PDF",
+          "method": "Compared theorem scope by operator class and hypotheses",
+          "title": "Eventually Positive Semigroups of Linear Operators",
+          "trigger": "Known nowhere-positive phenomenon in different Banach lattice"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE: not evidence of coverage for countably infinite spectral levels or explicit Dobrick kernel cutoff",
+          "evidence": [
+            "Statement distinguishes three versus four eigenvalue levels and permits threshold infinity in countable dimension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Indexed Resultary theorem summary, NOT full primary theorem text",
+          "method": "Read returned summary and its hypotheses (at most three spectral levels)",
+          "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+          "trigger": "Topical published Resultary alternative on positivity-time sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact positivity-time set {0} is a natural sharp qualitative refinement of an eventual-positivity counterexample: infinitely many bad integer times do not prohibit isolated positive noninteger times. The explicit all-real-time cutoff demonstrates the extreme obstruction despite compact resolvent, self-adjointness and individual eventual strong positivity. This resolves a logically distinct question for a rigid operator class rather than rebranding the originating construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.00425",
+    "https://arxiv.org/abs/1511.09020",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+    "self adjoint compact resolvent individually eventually strongly positive semigroup nowhere positive all real times Dobrick",
+    "semigroup compact resolvent selfadjoint negative kernel entries all positive times explicit coordinate cutoff eventually strongly positive"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The cutoff n≥ceil(t+3) is sufficient, not proved minimal.",
+    "Specific real self-adjoint compact-resolvent semigroup, not an exhaustive classification of all semigroups."
+  ],
+  "residual_risks": [
+    "Full original Dobrick v1 and possible revisions were not accessible; institutional retrieval blocked by disconnected VPN, not circumvented.",
+    "An unindexed quantitative all-real-time bound for the same operator may be contained in original appendices or later works.",
+    "Individual eventual positivity is input-dependent in time; no uniform eventual operator positivity is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MATERIAL_ACCESS_RISK: cannot exclude stronger all-positive-time theorem elsewhere in uninspected proof/appendix or revised version",
+      "evidence": [
+        "Abstract reports individual versus uniform eventual positivity for a self-adjoint example and nonpositive operators at arbitrarily large times; it does not claim all times."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.00425",
+      "material_read": "arXiv 2609.00425v1 accessible abstract and metadata, NOT entire manuscript. Lawful OA PDF/HTML unavailable; authorized institutional retrieval returned vpn_disconnected, job 0e78d6ddcad183b1e54e873410bd41f1.",
+      "method": "Read abstract, compared its advertised integer-time negative result and exact referenced operator identifiers; did not assert full text NOT_COVERING",
+      "title": "Individual and Uniform Eventual Positivity of Self-Adjoint Semigroups",
+      "trigger": "Exact originating semigroup and potential stronger all-real-time source"
+    },
+    {
+      "assessment": "RELATED: noneventually-positive C(K) semigroups known, self-adjoint compact-resolvent Hilbert quantitative claim not thereby entailed",
+      "evidence": [
+        "arXiv:1511.09020, Examples 5.7–5.8, 2016."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1511.09020",
+      "material_read": "Public abstract and cited Example 5.7/5.8 descriptions in available source material, not a complete independently read PDF",
+      "method": "Compared theorem scope by operator class and hypotheses",
+      "title": "Eventually Positive Semigroups of Linear Operators",
+      "trigger": "Known nowhere-positive phenomenon in different Banach lattice"
+    },
+    {
+      "assessment": "DIFFERENT_SCOPE: not evidence of coverage for countably infinite spectral levels or explicit Dobrick kernel cutoff",
+      "evidence": [
+        "Statement distinguishes three versus four eigenvalue levels and permits threshold infinity in countable dimension."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+      "material_read": "Indexed Resultary theorem summary, NOT full primary theorem text",
+      "method": "Read returned summary and its hypotheses (at most three spectral levels)",
+      "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+      "trigger": "Topical published Resultary alternative on positivity-time sets"
+    }
+  ]
+}
