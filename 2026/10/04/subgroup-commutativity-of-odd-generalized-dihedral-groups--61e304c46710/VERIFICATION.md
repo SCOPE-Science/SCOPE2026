@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was reconstructed from the semidirect-product multiplication law and the definition of subgroup commutativity degree.
 
-Critical symbolic checks:
-- every subgroup outside an odd abelian kernel is uniquely \(H(B,x)=B\rtimes\langle xt\rangle\) for \(B\le A\) and \(x+B\in A/B\);
-- every \(B\le A\) is normal in the generalized dihedral group;
-- for \(H(B,x)\) and \(H(C,y)\), direct multiplication gives \(HK=KH\) exactly when \(x-y\in B+C\);
-- the odd-order condition is used precisely to exclude a nonzero order-two class in \(A/(B+C)\);
-- the number of compatible ordered coset pairs for fixed \(B,C\) is \(|A:B\cap C|\);
-- for \(A=(C_p)^r\), the displayed Gaussian-binomial sum counts subspace pairs by \((\dim B,\dim C,\dim(B\cap C))\);
-- the leading exponent in an \(\eta_r(p)\) summand is
-  \[
-  r+a(r-k-a)+b(r-k-b)+k(r-k-1),
-  \]
-  whose global maximum occurs at \(k=0\), yielding one leading term in even rank and three in odd rank.
+# Independent mathematical audit
 
-The packaged `artifacts/verify.py` directly constructs all classified subgroups for \(C_3\), \(C_5\), \(C_9\), and \(C_3\times C_3\), tests \(HK=KH\) for every ordered subgroup pair, and checks the formula against the direct count. It also evaluates the Gaussian-binomial specialization and the rank-one closed form. The replay returns `VERIFY_OK`.
+## correctness
 
-Finite computation is not used to establish the universal formula or the asymptotic statements.
+PASS
+
+For odd abelian A every subgroup either lies in A or is unique H(B,x)=B rtimes <xt>, parameterized by B<=A and x+B. All kernel subgroups are normal. Exact semidirect multiplication gives H(B,x)H(C,y)=H(C,y)H(B,x) iff x-y in B+C, since the odd quotient has no nonzero 2-torsion. For each B,C there are exactly |A:B intersect C| compatible coset pairs. This yields sd=(ell^2+2ell omega+eta)/(ell+omega)^2. The subspace-intersection counting identity gives the stated Gaussian triple sum and constrained exponent optimization yields parity: even r>=2 tends 1/4; odd r>=3 tends 3/p; r=1 is (7p+9)/(p+3)^2. Independent exact fractions for p=3 and r=1,2,3,4 were 5/6,34/49,3239/5618,18433/36963. Finite tests support but do not prove the general formulas.
+
+## originality
+
+PASS
+
+2018 relative subgroup-commutativity full texts and the 2023 polygroups context concern ordinary cyclic-kernel dihedral or general identities. A highly relevant full published dicyclic analogue treats generalized dicyclic groups with a nontrivial involution y in the abelian kernel; its even-kernel setting and its (xz^-1)^2 in BC criterion do not include odd generalized dihedral kernels directly. No dominating formula or identical fixed-rank parity asymptotic was found.
+
+## value
+
+PASS
+
+An exact subgroup-lattice formula for every finite odd abelian kernel and a natural odd/even rank asymptotic distinction supply substantial structural information about a classical family beyond the cyclic case. This is not an unmotivated finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

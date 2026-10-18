@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The subgroup classification is exhaustive: a subgroup either lies in the odd abelian kernel or projects onto the order-two quotient and is uniquely \(H(B,x)=B\rtimes\langle xt\rangle\) with \(x\) taken modulo \(B\). Every kernel subgroup is normal. Direct multiplication of two nonkernel subgroups shows that they permute exactly when \(x-y\in B+C\); odd order rules out the only additional possibility, a nonzero element of order \(2\) in \(A/(B+C)\). The resulting coset count is exactly \(|A:B\cap C|\). The elementary-abelian formula uses the standard exact count of pairs of subspaces with prescribed dimensions and intersection. The leading-degree optimization treats all feasible triples and separately handles rank one.
+## correctness
 
-## Originality
-PASS. The closest inspected literature computes subgroup commutativity degrees for ordinary dihedral groups and develops the relative invariant in general, but the ordinary dihedral kernel is cyclic. Full-text inspection of the 2018 family paper, the 2018 addendum, and later 2023 context found no arbitrary odd-abelian generalized-dihedral formula, no Gaussian-binomial specialization, and no even/odd rank asymptotic transition. Targeted searches under generalized-dihedral, semidirect-product, and invariant terminology found no stronger coverage.
+PASS
 
-## Value
-PASS. The result gives a uniform exact expression for an infinite family whose subgroup lattices vary with the entire abelian kernel, rather than one numerical case. For elementary abelian kernels it becomes a concrete Gaussian-binomial formula and yields a sharp qualitative phase transition: fixed even rank tends to \(1/4\), while fixed odd rank at least three tends to \(0\) at rate \(3/p\). This is a structurally motivated invariant calculation, not an arbitrary finite census.
+For odd abelian A every subgroup either lies in A or is unique H(B,x)=B rtimes <xt>, parameterized by B<=A and x+B. All kernel subgroups are normal. Exact semidirect multiplication gives H(B,x)H(C,y)=H(C,y)H(B,x) iff x-y in B+C, since the odd quotient has no nonzero 2-torsion. For each B,C there are exactly |A:B intersect C| compatible coset pairs. This yields sd=(ell^2+2ell omega+eta)/(ell+omega)^2. The subspace-intersection counting identity gives the stated Gaussian triple sum and constrained exponent optimization yields parity: even r>=2 tends 1/4; odd r>=3 tends 3/p; r=1 is (7p+9)/(p+3)^2. Independent exact fractions for p=3 and r=1,2,3,4 were 5/6,34/49,3239/5618,18433/36963. Finite tests support but do not prove the general formulas.
 
-The principal residual risk is bibliographic: an equivalent formula may exist in unindexed literature under different semidirect-product terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+2018 relative subgroup-commutativity full texts and the 2023 polygroups context concern ordinary cyclic-kernel dihedral or general identities. A highly relevant full published dicyclic analogue treats generalized dicyclic groups with a nontrivial involution y in the abelian kernel; its even-kernel setting and its (xz^-1)^2 in BC criterion do not include odd generalized dihedral kernels directly. No dominating formula or identical fixed-rank parity asymptotic was found.
+
+## value
+
+PASS
+
+An exact subgroup-lattice formula for every finite odd abelian kernel and a natural odd/even rank asymptotic distinction supply substantial structural information about a classical family beyond the cyclic case. This is not an unmotivated finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
