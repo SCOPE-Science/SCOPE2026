@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:17:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 40d4b59993b8edacbfb39f2d46a5f55dffbbe327",
+        "actual verify.py blob ee2cec3c93ffd9c3fd95949f21aed09a2ce832a0",
+        "Romano et al original ar5iv full text equations14-16 and Appendix A rank proof",
+        "independent continuous iid rank derivation with m=99 alpha=.1"
+      ],
+      "rationale": "For noiseless Y=c(X) and endpoints c±W, signed conformal scores satisfy E_i=max(-W_i,-W_i)=-W_i. The empirical quantile index k=ceil((1-alpha)(m+1))=m+1-r yields correction -W_(r) with r=floor(alpha(m+1)). Then the displayed lower endpoint exceeds the upper exactly when test W<W_(r), whereas otherwise the true center is covered. For iid continuous widths the rank of the test among m+1 is uniform, hence empty probability r/(m+1). Conditional on F(W)=u, the number of calibration widths below W is Bin(m,u), producing coverage P(Bin(m,u)>=r); LLN gives the 0/1 threshold for u≠alpha. Checked the actual verifier and reconstructed exact rank identity for m=99, alpha=.1. There is no finite-to-infinite inference gap in these standard calculations.",
+      "residual_risks": [
+        "No claim for data-dependent training errors or noncontinuous widths; boundary u=alpha not asserted.",
+        "Semantic-index search unavailable, but decisive direct same-paper implication is sufficient for O FAIL."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic distinct-score exchangeability rank theorem already entails the exact miscoverage probability r/(m+1) when empty=miss in this model.",
+          "The binomial tail conditional on the test quantile is the standard exact rank distribution under iid calibration widths."
+        ],
+        "reasoning": "The source method and its appendix dominate both the marginal probability and the conditional profile after substitution, irrespective of lack of empty-set terminology.",
+        "searches": [
+          "arXiv:1905.03222 original Theorem 1 and Appendix A exchangeability order-statistic lemma",
+          "arXiv:1903.04684 marginal vs conditional conformal validity"
+        ]
+      },
+      "checked_sources": [
+        "actual RESULT.md blob 40d4b59993b8edacbfb39f2d46a5f55dffbbe327",
+        "actual verify.py blob ee2cec3c93ffd9c3fd95949f21aed09a2ce832a0",
+        "Romano et al original ar5iv full text equations14-16 and Appendix A rank proof",
+        "independent continuous iid rank derivation with m=99 alpha=.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining E=-W, k=m+1-r and original exact rank law yields empty probability r/(m+1) without additional nonstandard lemma.",
+          "Given F(W)=u, the same iid ordering proof yields Bin(m,u)≥r; the limiting phase profile is direct LLN."
+        ],
+        "reasoning": "Every final asserted mathematical formula is forced by a routine substitution and conditional rank calculation in the foundational source; the implicit empty-set interpretation does not avoid prior implication.",
+        "searches": [
+          "Romano–Patterson–Candès arXiv:1905.03222 equations (14)-(16), Appendix A Lemma and Theorem1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original signed CQR score E=max(q_lo-Y,Y-q_hi) becomes exactly -W in the given noiseless centered construction.",
+          "Original source uses order statistic with rank k=ceil((m+1)(1-alpha)); reversing the width order gives the displayed correction."
+        ],
+        "reasoning": "Under the aliases negative-score CQR/negative conformal correction/degenerate overcoverage, the derived order statistic is not a new transformation; it follows by one substitution in original formulas.",
+        "searches": [
+          "Published-finding semantic query: signed conformalized quantile regression negative calibration correction empty prediction set probability conditional width [search not completed]",
+          "published SCOPE repository search: empty-set saturation signed CQR [zero indexed results]",
+          "Romano–Patterson–Candès arXiv:1905.03222 eqs (14)-(16), Appendix A",
+          "negative signed nonconformity scores and split CQR order statistic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a closed-form standard finite-sample rank law, not an independently unknown exact numerical invariant or database."
+        ],
+        "reasoning": "No same-title table is necessary: the original exact exchangeability formula covers all m and alpha directly.",
+        "searches": [
+          "published SCOPE repository search: empty-set saturation signed CQR [zero indexed results]",
+          "arXiv:1905.03222 equations (14)-(16) and Appendix A",
+          "arXiv:1909.05433"
+        ]
+      },
+      "rationale": "The final formulas are a direct specialization of the original CQR construction (Romano, Patterson, Candès, arXiv:1905.03222 equations (14)-(16) and Appendix A) and its standard distinct-score exchangeability/rank argument. Inserting exact noiseless center and fitted positive symmetric widths gives E=-W in one line; reversing order yields -W_(r), and event 'empty' equals event 'not covered', so Appendix A's exact uniform-rank law already fixes r/(m+1). Conditional-binomial tail is the elementary order-statistic conditional rank distribution and its step limit is the ordinary binomial law of large numbers. Although the paper does not use an 'empty CQR output' label, the required implication-based originality bar rejects renaming a direct specialized rank corollary as a new result. A full inspection of source's CQR definitions and rank lemma supplies decisive prior coverage.",
+      "residual_risks": [
+        "No claim for data-dependent training errors or noncontinuous widths; boundary u=alpha not asserted.",
+        "Semantic-index search unavailable, but decisive direct same-paper implication is sufficient for O FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE IMPLICATION COVERAGE",
+          "evidence": "E=max(q_lo-Y,Y-q_hi) and k-th signed-score order statistic; original exchangeability proof gives exact rank for continuous scores; in target example E=-W, so empty=rank miss.",
+          "identifier_or_url": "arXiv:1905.03222",
+          "material_read": "Accessible original ar5iv full text, specifically signed score and additive correction equations (14)-(16), Theorem 1, and Appendix A quantile/rank lemma; actual sections read.",
+          "method": "Primary full-text mathematical substitution and theorem-implication comparison",
+          "title": "Conformalized Quantile Regression",
+          "trigger": "Exact original signed CQR score/correction convention and finite-rank coverage"
+        },
+        {
+          "assessment": "LITERATURE ACCESS RISK, NOT BASIS FOR FAILURE",
+          "evidence": "Failure is based on original CQR source itself; no claim of noncoverage for unread comparison paper.",
+          "identifier_or_url": "arXiv:1909.05433",
+          "material_read": "Record citation and accessible abstract; full source not independently inspected this run.",
+          "method": "Contextual method comparison",
+          "title": "A comparison of some conformal quantile regression methods",
+          "trigger": "Possible same negative-correction/conditional-strata statement"
+        },
+        {
+          "assessment": "NOT NEEDED TO DERIVE SAME COROLLARY",
+          "evidence": "The exact conditional tail is elementary from iid width ranks; broad conditional impossibility is not needed.",
+          "identifier_or_url": "arXiv:1903.04684",
+          "material_read": "Publication statement, not full new primary read.",
+          "method": "Distinguish exact CQR conditional rank from broad impossibility result",
+          "title": "The limits of distribution-free conditional predictive inference",
+          "trigger": "Broader impossibility/conditional coverage context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "actual RESULT.md blob 40d4b59993b8edacbfb39f2d46a5f55dffbbe327",
+        "actual verify.py blob ee2cec3c93ffd9c3fd95949f21aed09a2ce832a0",
+        "Romano et al original ar5iv full text equations14-16 and Appendix A rank proof",
+        "independent continuous iid rank derivation with m=99 alpha=.1"
+      ],
+      "rationale": "The concrete construction motivates a practical warning: signed CQR may return an empty interval even with an exact noiseless center, while globally attaining its advertised nominal miscoverage concentrated on low-width test points. An explicit conditional profile offers a clear stress test. This motivation makes the example pedagogically and methodologically useful, although it is already implied by the foundational source, so it fails originality rather than correctness or potential relevance.",
+      "residual_risks": [
+        "No claim for data-dependent training errors or noncontinuous widths; boundary u=alpha not asserted.",
+        "Semantic-index search unavailable, but decisive direct same-paper implication is sufficient for O FAIL."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No claim for data-dependent training errors or noncontinuous widths; boundary u=alpha not asserted.",
+    "Semantic-index search unavailable, but decisive direct same-paper implication is sufficient for O FAIL."
+  ],
+  "schema_version": 1
+}
