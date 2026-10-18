@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:05:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md, source blob 8ae2e7fb9fbd92e549495dd112c590ea2facb854",
+        "pinned verify_tail.py, source blob 9ae3bacb8996f001e8c773e01c02a9b1f283fe62",
+        "independently executed independent_checks.py and independent_check_results.json: EBSH asymptotic ratios"
+      ],
+      "rationale": "The exact EBSH CDF is sinh(a(1-exp(-x^alpha))^theta)/sinh(a), a=pi/2, alpha,theta>0. Put u=exp(-x^alpha). The two Taylor expansions (1-u)^theta=1-theta*u+O(u^2) and sinh(a(1-theta*u+O(u^2)))=sinh(a)-a*theta*cosh(a)*u+O(u^2) give S(x)~(a*theta*coth(a))*exp(-x^alpha). Differentiating the published exact density supplies f(x)~C_theta*alpha*x^(alpha-1)*exp(-x^alpha); their ratio gives h(x)~alpha*x^(alpha-1). Direct exponential-integral comparison of exp(tx-x^alpha) gives the exact MGF trichotomy, including divergence at t=1 for alpha=1; log S(x+y)-log S(x) tends to zero for 0<alpha<1. Integrating powers and inverting the quantile give all positive polynomial moments and Q(1-q)~(log 1/q)^(1/alpha). Independent 80-digit evaluation of three distinct regimes corroborated all normalized asymptotic ratios; those evaluations are not the infinite proof.",
+      "residual_risks": [
+        "No global hazard monotonicity is established; a terminal asymptotic cannot constrain finite x.",
+        "Heavy/light tail labels vary by discipline; the precise positive-MGF domain is unambiguous."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Weibull tail is exp(-x^alpha) and has the familiar MGF phase transition.",
+          "The bounded BSH parent is supported on (0,1), whereas the EBSH transformation is unbounded."
+        ],
+        "reasoning": "Generic tail methods imply the model-specific MGF behavior only upon analyzing EBSH upper-endpoint transformation and constant. No general stronger published theorem inspected explicitly characterizes this full EBSH distribution, but mathematical novelty of the asymptotic technique itself is not claimed.",
+        "searches": [
+          "Aldawsari et al., DOI 10.3934/math.2026613, §§2.2,3.1,3.2",
+          "Saeed et al., DOI 10.1016/j.kjs.2025.100467, bounded BSH",
+          "stretched exponential Weibull alpha less than one positive MGF"
+        ]
+      },
+      "checked_sources": [
+        "Aldawsari et al., AIMS Mathematics 11 (2026) 14870–14914, DOI 10.3934/math.2026613",
+        "Saeed et al., Kuwait Journal of Science 52 (2025), DOI 10.1016/j.kjs.2025.100467",
+        "Resultary semantic search: EBSH tail alpha=1 and exact positive-MGF boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published CDF and density do imply the survival constant by a short but essential endpoint Taylor calculation.",
+          "Published conclusion nevertheless categorizes the entire EBSH model as light-tailed, which is false for alpha<1 under positive-exponential-moment terminology."
+        ],
+        "reasoning": "This is a direct new consequence/correction of a known distribution rather than a new probability family. The explicit contradiction with the paper’s parameter-independent conclusion and full MGF boundary are the claim’s independently motivated contribution.",
+        "searches": [
+          "DOI 10.3934/math.2026613, formulas (2.2),(2.12), §3.1, quantiles",
+          "DOI 10.1016/j.kjs.2025.100467, bounded parent law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned generalized tail and other endpoint findings, not an EBSH correction.",
+          "Aldawsari et al., AIMS Mathematics (2026), §3.1 explicitly calls EBSH light-tailed over alpha>0."
+        ],
+        "reasoning": "Searched Weibull/stretched-exponential, EBSH, moment-generating-function, and hazard formulations; the primary source states a materially different blanket conclusion, not an equivalent phase theorem.",
+        "searches": [
+          "Resultary semantic search: extended bounded sine hyperbolic EBSH Weibull tail alpha one heavy light moment generating function correction",
+          "web search: Aldawsari 2026 EBSH light tailed alpha DOI 10.3934/math.2026613"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The journal source supplies an exact CDF and an inconsistent all-light-tail interpretation, not a corrected table or exact MGF-domain enumeration."
+        ],
+        "reasoning": "This is an analytic classification correcting a model interpretation, not new output from a numerical table; the source formulas are the input.",
+        "searches": [
+          "DOI 10.3934/math.2026613: survival equation and §3.1 tail paragraph",
+          "EBSH alpha less than one MGF corrigendum light tailed"
+        ]
+      },
+      "rationale": "The 27 May 2026 defining EBSH paper provides the formula but explicitly labels the whole family light-tailed because it sees an exp(-x^alpha) factor. That statement is incorrect under the positive-MGF criterion when alpha<1. The inspected survival and density sections, Section 3.1 tail paragraph, and quantile section do not supply the C_theta equivalent, hazard equivalent, or exact alpha-dependent MGF domain. The bounded parent law cannot supply unbounded-tail asymptotics. Stretched-exponential generalities predict the phase after substitution but do not themselves correct this published parameter-uniform assertion.",
+      "residual_risks": [
+        "General upper-endpoint transformation theorems can imply the first-order expansion generically; this is an applied-source correction, not an independently deep asymptotic method.",
+        "A corrected preprint or later note of the journal paper might already state the same phase and affect priority.",
+        "Some applied definitions of “heavy-tailed” differ; only the mathematical MGF classification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_CORRECTED_PHASE; its explicit blanket light-tail classification conflicts with the proved 0<alpha<1 MGF domain",
+          "evidence": "§3.1 says exp(-x^alpha) makes PDF decay exponentially and hence EBSH is light-tailed; formula (2.12) yields stated endpoint expansion.",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2026613",
+          "material_read": "Accessible publisher full-text HTML: defining density/CDF, §§2.2 and 3.1 including tail paragraph, quantile equation (3.11), and conclusions",
+          "method": "Read publisher HTML mathematical equations and narrative, checked DOI/date against source",
+          "title": "A new extended distribution with monotonic and nonmonotonic failure rates: statistical properties and comparative predictive modeling in medical datasets",
+          "trigger": "Primary source defining exactly the EBSH law and claiming family-wide light-tailedness"
+        },
+        {
+          "assessment": "Inapplicable to unbounded terminal EBSH asymptotic without transformation",
+          "evidence": "Bounded parent has compact support; cannot directly have x->infinity survival behavior.",
+          "identifier_or_url": "doi:10.1016/j.kjs.2025.100467",
+          "material_read": "Bounded support (0,1), definition and model relationship described in source/reference and inspected package; full publisher text not independently fetched this turn",
+          "method": "Read accessible indexed abstract and compared parameter/support transformation; no full-document noncoverage claimed",
+          "title": "Bounded sine hyperbolic distribution with applications to real datasets",
+          "trigger": "Precursor transformation could have same upper-tail implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aldawsari et al., AIMS Mathematics 11 (2026) 14870–14914, DOI 10.3934/math.2026613",
+        "Saeed et al., Kuwait Journal of Science 52 (2025), DOI 10.1016/j.kjs.2025.100467",
+        "Resultary semantic search: EBSH tail alpha=1 and exact positive-MGF boundary"
+      ],
+      "rationale": "The all-light-tailed characterization is published for a model used in reliability, survival analysis and medical datasets, yet is false for the entire nonempty alpha<1 parameter region. The exact survival multiplier, the true domain of positive exponential moments, and hazard/quantile regimes together give a mathematically sharp and potentially necessary correction for selecting tail-risk models; their motivation is not merely an arbitrary asymptotic exercise.",
+      "residual_risks": [
+        "The endpoint Taylor calculation is elementary and its independent novelty lies principally in identifying an actual model-specific published misclassification; no broad new theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No assertion on full hazard curve or finite-sample model fit.",
+    "All alpha and theta positive and x>0; positive-exponential-moment criterion used precisely."
+  ]
+}
