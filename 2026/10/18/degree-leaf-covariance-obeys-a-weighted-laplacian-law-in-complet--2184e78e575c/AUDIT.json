@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Weighted Matrix–Tree cofactor evaluation gives the all-vertex excess-degree probability-generating polynomial. This factors into independent categorical occupancy trials. Conditioning on one trial proves the exact local mixed covariance; row-sum cancellation yields the weighted-Laplacian identity. The leaf probability increases strictly with part size, all pair weights are strictly positive for at least three parts, and a separate bipartite factorization handles stars and all other boundary cases. Exhaustive ordinary Prüfer enumeration and exact rational arithmetic confirm the formula for eight small multipartite graphs (up to seven vertices), and a larger parameter grid confirms the signs, 165 checks in total. The universal result is analytical rather than based on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Ge 2026, arXiv:2602.03602, Sections 1–3, gives forest-inclusion counts via a rank-part-size determinant; those counts could in principle recover moments by additional calculations.",
+        "Martin–Reiner 2003 provides methods for polynomial enumerators but does not state a domination result for mixed degree–leaf covariance."
+      ],
+      "reasoning": "Forest-inclusion formulas are broad enough to indirectly compute many moments. Their inspected statements do not evaluate the aggregate leaf count jointly with one degree or prove smallest/largest-part signs. Thus methodological scope is broad, but direct statement-level implication requires additional, nontrivial evaluation; no claimed originality for the underlying counting formula.",
+      "searches": [
+        "\"complete multipartite\" \"spanning trees\" \"degree generating function\" vertex",
+        "\"random spanning trees complete multipartite graph negative association degrees joint distribution\"",
+        "arxiv:2602.03602 fixed spanning forest complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0302213",
+      "https://doi.org/10.1137/0403039",
+      "https://arxiv.org/abs/2602.03602",
+      "https://doi.org/10.1007/978-3-642-46908-4_38"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aldous Proposition 5 supplies regular-graph leaf-probability bounds; Proposition 9 treats the degree of a specified vertex under strong vertex-transitivity, not covariance with the total leaves on general multipartite graphs.",
+        "Martin–Reiner introduces weighted Laplacian factorizations for Cartesian products, structurally different from the complete multipartite graph.",
+        "Wang–Ge proves fixed-forest inclusion formulas, not evaluated degree–leaf dependence signs.",
+        "Onadera 1972/73 could not be materially inspected, so no NOT_COVERING assessment is made for that article."
+      ],
+      "reasoning": "The new result specifies a marked degree and the full leaf count, an explicit positive-weight Laplacian of class leaf probabilities, and all-size opposite extreme-class signs. Marginal degrees, leaf counts or bipartite tree counts do not imply the sign without a joint calculation. A sufficiently general edge-forest enumerator can be specialized to compute such quantities, but no inspected cited theorem states the necessary simplification or sign classification.",
+      "searches": [
+        "Aldous 1990 \"Proposition 5\" leaves and \"Proposition 9\" degree",
+        "Martin Reiner 2003 weighted tree enumerator degree sequence full text",
+        "Wang Ge 2026 complete multipartite fixed forest full text",
+        "Onadera 1972/73 trees complete n-partite graph bibliographic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aldous 1990, DOI 10.1137/0403039, studies marginals and bounds for leaf probabilities and degree distribution, not this mixed covariance.",
+        "Martin–Reiner 2003, arXiv:math/0302213, treats weighted enumerators of Cartesian products of complete graphs, not the asserted multipartite mixed-moment sign."
+      ],
+      "reasoning": "Degree-minus-one is a categorical occupancy count, and leaf indicators are zero-count indicators. Both representations were compared in the searches. Neither located an equivalent all-parameter signed covariance identity for complete multipartite uniform spanning trees.",
+      "searches": [
+        "\"complete multipartite\" \"degree\" \"leaves\" \"uniform spanning tree\"",
+        "\"multipartite\" \"spanning trees\" \"leaf count\" \"covariance\"",
+        "\"random uniform spanning tree vertex degree and leaf count covariance multipartite graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching degree-versus-all-leaves table appeared in the targeted searches.",
+        "The exact finite values for \\(K_{1,2,3}\\) and \\(K_{1,2,4}\\) were independently reconstructed by Prüfer enumeration; these are not presented as lookup-table discoveries."
+      ],
+      "reasoning": "The contribution is an infinite parameter-family structural identity and sharp signs, not an isolated finite table entry. Search absence alone is not treated as novelty proof.",
+      "searches": [
+        "\"multipartite\" \"spanning trees\" \"leaf count\" \"covariance\"",
+        "\"complete multipartite\" \"degree\" \"leaves\" \"uniform spanning tree\"",
+        "\"random tree graph K_a_b_c marginal degree total leaves mixed second moment\""
+      ]
+    },
+    "rationale": "Direct comparison with the inspected weighted spanning-tree and fixed-forest enumerator literature found no stated finite all-class degree–total-leaf covariance law or extremal-part sign reversal. This statement is distinct from cross-part leaf-count covariance: it involves one marked degree, all leaves, and cancellation between a negative diagonal term and positive cross-vertex terms. Earlier generating functions might implicitly yield it after further differentiation; independent priority is not established.",
+    "residual_risks": [
+      "Onadera original full text not inspected.",
+      "Generic spanning-tree weighted-enumerator or fixed-forest inclusion formulas may implicitly contain an equivalent after further derivation.",
+      "The historical search is bounded; independent mathematical-priority verification is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses leaf bounds and marginal degrees in certain graph families; no inspected joint degree-versus-total-leaf covariance classification",
+        "evidence": [
+          "Proposition 5 provides regular-graph leaf bounds; Proposition 9 requires strong vertex-transitivity and gives a single-vertex degree distribution."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0403039",
+        "material_read": "Accessible full-text PDF extraction: introduction, Proposition 5 and proof, Proposition 9 and proof, complete-bipartite algorithm passages",
+        "method": "Primary open-access PDF textual content examined; independent page-image comparison was unavailable",
+        "title": "The random walk construction of uniform spanning trees and uniform labelled trees",
+        "trigger": "Direct earlier probability study of degrees and leaves in uniform spanning trees"
+      },
+      {
+        "assessment": "Relevant polynomial factorization method, but paper treats Cartesian products and threshold graphs, not the degree–total-leaf sign in complete multipartite UST",
+        "evidence": [
+          "Introduction specifies Cartesian products of complete graphs; Section 2 develops the weighted Laplacian method."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+        "material_read": "Full HTML text: Introduction, Cayley–Prüfer model, Sections 2–4, statement of Theorem 4",
+        "method": "Read arXiv open full text",
+        "title": "Factorizations of some weighted spanning tree enumerators",
+        "trigger": "Potential weighted degree-sequence enumeration that might dominate the proposed calculation"
+      },
+      {
+        "assessment": "General fixed-forest enumeration available, but the inspected results do not evaluate or sign-classify degree–leaf covariance",
+        "evidence": [
+          "Sections 1–3 define tau_F and derive rank-part-size Laplacian determinant formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.03602",
+        "material_read": "Open HTML full text: Introduction, Sections 2–3, determinant construction and statement of spanning-forest counting result",
+        "method": "Read arXiv open full text",
+        "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "Broader exact forest-inclusion formulas might cover mixed finite moments"
+      },
+      {
+        "assessment": "Coverage unresolved; no claim that article lacks the target result",
+        "evidence": [
+          "Hartsfield–Werth 1990 bibliographic reference to Onadera."
+        ],
+        "identifier_or_url": "Onadera, Matrix and Tensor Quarterly 23 (1972–1973), 142–146",
+        "material_read": "Bibliographic citation only; original article not accessible",
+        "method": "Checked reference in Hartsfield–Werth chapter; no full-text assessment",
+        "title": "On the number of trees in a complete n-partite graph",
+        "trigger": "Original multipartite counting result"
+      },
+      {
+        "assessment": "Bipartite spanning-tree total only; absence of a mixed covariance cannot be inferred from abstract alone",
+        "evidence": [
+          "Abstract states an alternate proof of the complete-bipartite spanning-tree count."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-46908-4_38",
+        "material_read": "Chapter abstract and reference list",
+        "method": "Publisher bibliographic page and abstract",
+        "title": "Spanning Trees of the Complete Bipartite Graph",
+        "trigger": "Relevant bipartite boundary case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2184e78e-575c-449a-a970-461e08719839",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mixed dependence of a local tree degree on the global number of leaves is a natural question in nonhomogeneous random spanning trees. An exact positive-weight Laplacian identity converts every such covariance into differences of leaf probabilities. It gives a complete unconditional sign classification for smallest and largest multipartite classes (and exact neutral bipartite and balanced boundaries), while intermediate classes can exhibit opposite signs at nearby natural part-size triples. This is a structural finite-family theorem, not merely a recomputation of spanning-tree counts or a new finite table.",
+    "status": "PASS"
+  }
+}
