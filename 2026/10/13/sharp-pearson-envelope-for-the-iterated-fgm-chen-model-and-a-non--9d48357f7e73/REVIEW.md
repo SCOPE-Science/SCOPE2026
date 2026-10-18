@@ -1,11 +1,21 @@
-# Review of the sharp Chen–IFGM Pearson envelope
+# Independent mathematical audit
 
-**Correctness: PASS.** From the normalized IFGM copula density, population covariance is exactly \(\gamma A^2+\omega B^2\), where the Chen quantile defines \(A\) and \(B\). Quantile monotonicity and integration by parts prove \(0<b<a\) for every positive Chen parameter pair. Optimization over the documented complete IFGM parameter domain reduces to a linear functional on a semicircle; Cauchy–Schwarz yields the unique maximum and direct inequalities the unique minimum. The strictly positive difference from the claimed corner maximum is algebraic. Two independent quadrature precisions reproduce the stated illustrations, but numerical output is not used to establish the universal theorem.
+## correctness
 
-**Originality: PASS for the source-specific correction, not for the general copula framework.** The principal 2026 source calls \((\gamma,\omega)=(1,1)\) the maximizer for Pearson correlation and supplies numerics at that corner; the proven corrected maximizing pair and systematic nonoptimality are absent from the examined Section 3.1 and associated discussion. Its separate Kendall optimization is for a different objective. Earlier IFGM papers provide the copula geometry and broader correlation ideas: those are not represented as newly discovered. Searches of the relevant public mathematical-result records, title/claim variants, corrections and historical claims found no covering *Chen-source-specific correction*. The full 1984 Huang–Kotz paper was inaccessible after lawful alternatives, so the general-optimization antecedent remains a priority risk; this review does not claim priority for a generic support-function method.
+PASS
 
-**Value: PASS.** Attainable Pearson dependence strength is a central measure of the 2026 proposed bivariate model's advantage over ordinary FGM. For the very parameter choice singled out in the source, the sharp maximum increases from the stated \(0.4181\) to \(0.442643\ldots\); the difference is far beyond numerical rounding and persists structurally for every positive Chen parameter pair. The characterization also supplies unique attaining copula parameters and the exact negative endpoint, allowing reproducible dependence-range calibration rather than an arbitrary fixed corner.
+With identical Chen quantile Q and IFGM density c=1+gamma(1-2u)(1-2v)+omega*u(2-3u)*v(2-3v), covariance separates as gamma A^2+omega B^2; Pearson rho=a gamma+b omega, a=A^2/Var(Q), b=B^2/Var(Q). Integration by parts gives A=-int Q'u(1-u), B=-int Q'u^2(1-u) and Q'>0, hence 0<b<a. The stated full admissible region has gamma in [-1,1], omega between -1-gamma and U(gamma)=(3-gamma+sqrt(9-6gamma-3gamma^2))/2. Lower bound rho=-a attained uniquely at (-1,0); maximizing the affine functional along U, set t=1+gamma and apply sharp circle Cauchy-Schwarz, obtaining -a+2b+sqrt((2a-b)^2+3b^2) uniquely at gamma*=-1+2(2a-b)/sqrt((2a-b)^2+3b^2), omega*=U(gamma*). At (1,1), rho=a+b strictly lower by sqrt((2a-b)^2+3b^2)-(2a-b). Independently computed high-precision Chen integral coefficients for theta=2,beta=1.5: a~0.32220220885248, b~0.09586239733703, corner ~0.4180646061895 and max ~0.4426431191991, gamma*~0.914229 and omega*~1.544677.
 
-**Closest literature and limitations.** Alawady et al. (2026), DOI 10.3934/math.2026222, Sections 1, 3 and 4; Huang–Kotz (1984), DOI 10.1093/biomet/71.3.633, abstract/metadata only; Chandra et al. (2024), DOI 10.1080/24754269.2024.2398987, relevant full-text sections; James et al. (2023), DOI 10.6092/issn.1973-2201/18225, relevant full-text sections. Numerical quadrature is not a computer-verified interval certificate. Unequal Chen margins, continuously optimized shape/rate grids and independent external validation are not assessed. A general stronger 1984 formula might imply the parameter-optimization step; it does not resolve the specifically documented 2026 incorrect Chen model claim without the margin-specific evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1984 Huang-Kotz primary abstract claims general IFGM maximum correlations and parameter region; this may already cover the generic linear-functional geometry and is explicitly not claimed as novel. Alawady et al 2026 make a specific incorrect Chen-margin Pearson maximizing-corner statement and numerical conclusion in their Section 3.1. The inspected primary full text supports that source-specific error, while this result supplies its exact corrected Chen-parameter optimizer and strict gap for all positive parameters. Neither earlier generic ingredients nor other marginal-specific studies are assumed absent; their possible implication is a residual risk. Accept as an explicitly motivated source-specific correction on best knowledge, not priority for generic support function.
+
+## value
+
+PASS
+
+Corrects a materially wrong published model-specific optimum and its reported dependence envelope. A universal strict corner shortfall, unique optimizer and concrete corrected Chen correlation are meaningful for interpretation/calibration of that model; generic optimization tools are credited to prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
