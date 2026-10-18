@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(G(n,p)=(1+\alpha p)n/[1+h_1(1+\alpha p)n]\) makes the consumed-prey flux in the prey equation exactly \(G(n,p)p\), while the predator equation receives the delayed copy multiplied by \(e^{-\beta\tau}\). Periodicity therefore makes the delayed integral identical to the current one and gives \(\overline{Gp}=e^{\beta\tau}\bar p\). Combining this with the integrated logistic prey balance proves the exact mean–variance law. Nonconstant periodicity forces \(\operatorname{Var}(n)>0\) because the prey equation is strictly monotone in \(p\) at fixed positive \(n\). Finally \(G<1/h_1\) yields the necessary condition \(h_1e^{\beta\tau}<1\).
+## correctness
 
-Risk: the theorem is intentionally limited to classical strictly positive periodic solutions; it does not extend the averaging argument to arbitrary invariant measures on the delay phase space.
+PASS
 
-## Originality
-PASS. The introducing 2024 paper was inspected in full HTML, including the delayed equations and its equilibrium/bifurcation discussion. It treats local stability, Hopf behavior, bistability and numerical coexistence collapse, but the inspected material does not state an exact period-mean/variance law or a universal mean-predator ceiling. Targeted published-literature searches for the source title, maturation-delay mean identities, variance formulations, and the equivalent no-positive-periodic condition returned only structurally different delay, PDE, recurrence, or feedback results. A 2025 closely titled full-text paper uses a different delay placement, and a 2021 seasonal fear/refuge/cooperation paper concerns a different nonautonomous system.
+For any positive T-periodic solution, integrate delayed predator recruitment over one period; time-shift invariance gives E(Gp)=e^{beta tau} pbar. Integrate the logistic prey equation to get pbar=sigma e^{-beta tau}[nbar(1−nbar/kappa)−Var(n)/kappa]. Nonconstant prey follows from strict monotonicity of fixed-n predation in p; then Var(n)>0 yields 0<nbar<kappa and strict pbar<sigma*kappa*exp(−beta*tau)/4. Saturation 0<G<1/h gives h exp(beta tau)<1 as a necessary condition. Checked algebra and saturation independently, and directly checked actual 2024 source delayed equations; the shift does not require tau/T rational.
 
-Risk: the proof is short, so an equivalent averaging identity could exist in unindexed ecological-dynamics literature; this residual risk is retained explicitly.
+## originality
 
-## Value
-PASS. The source's main biological conclusion is that maturation delay can drive predator decline and alter oscillatory coexistence. The exact law quantifies that effect at finite oscillation amplitude: delay suppresses the maximum possible mean predator density by the explicit factor \(e^{-\beta\tau}\), while prey variance subtracts a further exact amount. The separate condition \(h_1e^{\beta\tau}<1\) gives a simple parameter obstruction to any strictly positive nonconstant cycle. These are model-specific structural constraints on the oscillatory states studied in the source, not a recomputation of a local Hopf threshold.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS for the **surviving central exact period-mean–variance law and strict amplitude-sensitive mean-predator ceiling**, not for novelty of the handling-time no-cycle threshold. The published same-model global-extinction theorem definitively covers the latter by a stronger all-history result; this is explicitly acknowledged and the no-cycle corollary is not counted as original. The 2024 primary provides equilibria/Hopf statements, not the exact finite-amplitude mean law in inspected material. Different Bai–Zhang delay model has another period-mean law that does not imply this exact formula. This is a best-of-knowledge originality judgment with clear partial coverage.
+
+## value
+
+PASS
+
+The exact mean–variance law quantifies a real finite-amplitude predator-density deficit for positive delayed cooperation cycles, including an explicit maturation survival factor and uniform ceiling independent of cooperation strength. It is a natural ecological recurrence statistic beyond local Hopf/equilibrium arguments and remains mathematically meaningful even though the no-cycle parameter obstruction is already covered by stronger global extinction work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

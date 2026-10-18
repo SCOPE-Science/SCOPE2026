@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses SymPy to replay the algebra in the proof from the printed interaction term
-\[
-G(n,p)=\frac{(1+\alpha p)n}{1+h_1(1+\alpha p)n}.
-\]
-It verifies that the prey loss equals \(G(n,p)p\), that combining the integrated predator and prey balances gives
-\[
-\bar p=\sigma e^{-\beta\tau}\left(\bar n-\frac{\overline{n^2}}{\kappa}\right),
-\]
-and that rewriting \(\overline{n^2}=\bar n^2+\operatorname{Var}(n)\) produces the displayed variance defect.
+# Independent mathematical audit
 
-It also verifies symbolically that the fixed-prey loss function
-\[
-\Phi(p)=\frac{p(1+\alpha p)}{1+h_1n_0(1+\alpha p)}
-\]
-has derivative numerator
-\[
-(1+h_1n_0)(1+2\alpha p)+h_1n_0\alpha^2p^2,
-\]
-which is positive for the stated positive parameters, and that
-\[
-\frac1{h_1}-G(n,p)=\frac1{h_1[1+h_1(1+\alpha p)n]}>0.
-\]
-The stored checker output is `VERIFY_OK`.
+## correctness
 
-The delay-shift step is analytic: for every \(T\)-periodic integrable function \(q\),
-\[
-\int_0^T q(t-\tau)\,dt=\int_0^T q(t)\,dt
-\]
-for arbitrary real \(\tau\). No finite numerical experiment is used to infer an infinite-time conclusion.
+PASS
 
-The verification establishes only the stated necessary conditions for strictly positive nonconstant periodic solutions. It does not establish that such a cycle exists, nor its stability, uniqueness, basin, Hopf direction, or any claim about nonperiodic recurrent dynamics.
+For any positive T-periodic solution, integrate delayed predator recruitment over one period; time-shift invariance gives E(Gp)=e^{beta tau} pbar. Integrate the logistic prey equation to get pbar=sigma e^{-beta tau}[nbar(1−nbar/kappa)−Var(n)/kappa]. Nonconstant prey follows from strict monotonicity of fixed-n predation in p; then Var(n)>0 yields 0<nbar<kappa and strict pbar<sigma*kappa*exp(−beta*tau)/4. Saturation 0<G<1/h gives h exp(beta tau)<1 as a necessary condition. Checked algebra and saturation independently, and directly checked actual 2024 source delayed equations; the shift does not require tau/T rational.
+
+## originality
+
+PASS
+
+PASS for the **surviving central exact period-mean–variance law and strict amplitude-sensitive mean-predator ceiling**, not for novelty of the handling-time no-cycle threshold. The published same-model global-extinction theorem definitively covers the latter by a stronger all-history result; this is explicitly acknowledged and the no-cycle corollary is not counted as original. The 2024 primary provides equilibria/Hopf statements, not the exact finite-amplitude mean law in inspected material. Different Bai–Zhang delay model has another period-mean law that does not imply this exact formula. This is a best-of-knowledge originality judgment with clear partial coverage.
+
+## value
+
+PASS
+
+The exact mean–variance law quantifies a real finite-amplitude predator-density deficit for positive delayed cooperation cycles, including an explicit maturation survival factor and uniform ceiling independent of cooperation strength. It is a natural ecological recurrence statistic beyond local Hopf/equilibrium arguments and remains mathematically meaningful even though the no-cycle parameter obstruction is already covered by stronger global extinction work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
