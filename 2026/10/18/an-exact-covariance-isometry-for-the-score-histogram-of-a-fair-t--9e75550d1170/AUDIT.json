@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "checks": [
+      "Shared-edge conditional independence, all ordered vertex pairs",
+      "Finite binomial size-bias identity, including support boundaries",
+      "Exact diagonalization and Krawtchouk norm via generating function",
+      "Correct degenerate n=2 boundary",
+      "Reproducible standalone rational checker and exhaustive small cases"
+    ],
+    "rationale": "Independent pair edge conditioning gives (S_v,S_w)=(B_v+Z,B_w+1-Z), yielding cross covariance -delta_f delta_g/4. Binomial size bias gives Cov(f(R),R)=(n-1)delta_f/4, proving the all-function covariance residual identity for n>=2. Choosing indicators yields exact complete histogram covariance, normalization gives n(I-uu^T-ww^T), with two orthogonal constraints and rank n-2. Krawtchouk generating functions give a complete orthonormal variance basis. Reproduced 871 exact-rational checks, including all 33,866 tournaments at n=2..6; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2303.05138 full-text studied an undirected Erdős--Rényi network; shared edge contributes to both endpoint degrees with the same sign, unlike tournaments",
+        "arXiv:2009.09322v1 full text describes possible tournament scores, a geometric result not a probability covariance theorem",
+        "2026 Zegers thesis repository abstract concerning concentrations and local CLT for score-bin counts, complete thesis unread"
+      ],
+      "reasoning": "Broader joint-score or degree-frequency theorems could dominate the result even without matching a tournament-specific title. Existing inspected source theorems do not specify the required pairwise complementary game-edge covariance for an entire score histogram. The 2026 thesis is a named plausible coverage risk, not marked noncovering without its full text.",
+      "searches": [
+        "published-finding corpus: random tournament outdegree count histogram Pearson standardized covariance spectrum eigenvalues n",
+        "published-finding corpus: outdegree distribution random tournament variance of sum f(scores) orthogonal affine regression binomial variance",
+        "web: \"degree sequence of a random tournament\" covariance",
+        "web: \"random tournament\" \"degree distribution\" \"multinomial\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1811.06662v1 (complete HTML)",
+      "arXiv:2009.09322v1 (complete HTML)",
+      "arXiv:2209.03925 (complete HTML)",
+      "arXiv:2303.05138 (model/joint-degree HTML)",
+      "TU Delft thesis repository abstract (full text inaccessible)",
+      "DOI:10.1002/jgt.3190020307 (abstract/metadata)",
+      "published-finding corpus semantic search for tournament scores, degree histograms, Krawtchouk/Pearson directions",
+      "Earlier published mathematical findings identified by stable record IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier published item 47786364-31d0-4e90-b5c7-a50759a51eee: covariance spectrum of *directed independent-arc* degree-pair histograms",
+        "Earlier published item 5a1dbbab-7927-49c9-bc67-7208af8cfedd: optimal prediction of cyclic-triangle counts using one tournament player score",
+        "Earlier published item 3b4b1b16-fef5-4515-8a67-07bc96782f06: tournament cycle-count covariances",
+        "arXiv:1811.06662v1 full text, mean-score feasibility and Bradley--Terry representations"
+      ],
+      "reasoning": "The complete projector implies every score-bin covariance and every score-function variance; none of the listed preceding claims implies these. Independent directed edges cannot be substituted for pairwise complementary tournament orientations; a univariate score/triangle conditional expectation cannot determine the full histogram covariance; and the deterministic constraint on total wins gives only one null direction without enforcing all positive eigenvalues equal n.",
+      "searches": [
+        "published-finding corpus: random tournament outdegree count histogram Pearson standardized covariance spectrum eigenvalues n",
+        "published-finding corpus: score bin counts fair tournament shared game negative dependence variance covariance",
+        "published-finding corpus: joint covariance of random graph statistics conditional on degree, exact finite sample random graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1811.06662v1, full text; focuses on feasible mean scores rather than random histogram covariance",
+        "arXiv:2009.09322v1, full text; score vectors and permutahedral/zonotopal geometry",
+        "arXiv:2209.03925, full text; counting distinct score sequences, not their probabilities or covariances"
+      ],
+      "reasoning": "Equivalent statements could use second-moment projection, rank-deficient Pearson residuals, orthogonal score contrasts or Krawtchouk score modes. In the inspected primary results and retrieved semantic matches, no theorem supplies the complete covariance identity for every additive fair-tournament score statistic. Failure to retrieve a match is not taken as proof of priority.",
+      "searches": [
+        "published-finding corpus: random fair tournament exact score frequency covariance histogram Pearson chi square expectation n minus 2 projection",
+        "published-finding corpus: tournament degree sequence binomial Krawtchouk covariance eigenvalue n",
+        "web: \"Krawtchouk\" \"random tournament\" \"degree\"",
+        "web: \"score histogram\" \"Krawtchouk\" tournament"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "B. Alspach and K. B. Reid, Degree frequencies in digraphs and tournaments (1978), available abstract: deterministic degree-frequency feasibility, with no full text inspected",
+        "published-finding corpus nearby search result 2026/10/4/SCOPE-complete-seven-alternative-banks-uncovered-disparity-census--956fe67b3bf6 is a tournament social-choice census, not a score covariance table",
+        "arXiv:2209.03925 full text counts score vectors without a probability-weighted histogram covariance table"
+      ],
+      "reasoning": "An exhaustive database of score sequences alone does not yield the covariance under uniformly random labeled orientations without weights. No inspected exact table entails the all-n projector formula; older inaccessible tables or generating identities remain a finite risk.",
+      "searches": [
+        "published-finding corpus: score histogram random tournament covariance multinomial conditioned sum distribution",
+        "published-finding corpus: tournament score frequencies joint covariance binomial counts",
+        "web: \"degree frequencies\" \"random tournament\" variance",
+        "web: \"number of vertices with score\" \"random tournament\" variance"
+      ]
+    },
+    "rationale": "A full-text comparison with main random-tournament score-sequence papers finds mean-score feasibility, geometric zonotopes, and enumeration of distinct sequences rather than the uniform model full histogram covariance; the uninspected full text of a related 2026 thesis is explicitly retained as a residual risk. Actual published-finding corpus semantic matches and prior published claims concern different objects or experiments and do not imply the projector and universal variance theorem. No absolute historical-priority or uniqueness claim is made.",
+    "residual_risks": [
+      "A 2026 master thesis by S. P. C. Zegers addresses random-tournament degree-bin concentrations; only abstract read, full 12+ MB thesis not accessible for material overlap comparison. It might imply the theorem.",
+      "Older degree-frequency literature (including Alspach--Reid 1978), multivariate tournament generating functions, or equivalent conditioning formulas could contain the covariance projector implicitly; priority is not independently verified.",
+      "published-finding corpus returns ranked hits rather than an exhaustive mathematical novelty certificate; older publication records may be incomplete and only supported claims can be compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses feasible mean score sequences and Bradley--Terry representations, not fair tournament empirical score-frequency covariance",
+        "evidence": [
+          "Full-text theorem and proof sections of arXiv:1811.06662v1"
+        ],
+        "identifier_or_url": "arXiv:1811.06662v1 / https://arxiv.org/html/1811.06662v1",
+        "material_read": "Available complete HTML preprint including introduction, main theorem statements, proof and discussion",
+        "method": "Full-text scientific comparison of random experiment, score functionals and claimed implications",
+        "title": "To stay discovered: On tournament mean score sequences and the Bradley--Terry model",
+        "trigger": "Random-tournament mean score distribution, selected dated primary source"
+      },
+      {
+        "assessment": "Concerns possible score vectors, permutahedral geometry and zonotopes; does not give uniform-tournament histogram covariance projector",
+        "evidence": [
+          "Main geometric score-vector results of arXiv:2009.09322v1"
+        ],
+        "identifier_or_url": "arXiv:2009.09322v1 / https://arxiv.org/html/2009.09322v1",
+        "material_read": "Available complete HTML including score geometry and discussion sections",
+        "method": "Full-text theorem/assumption/implication comparison",
+        "title": "The geometry of random tournaments",
+        "trigger": "Closest general study of the full tournament score vector"
+      },
+      {
+        "assessment": "Counts distinct feasible score sequences without uniformly weighted tournament frequencies and joint second moments",
+        "evidence": [
+          "Introduction and score-sequence enumeration sections of arXiv:2209.03925"
+        ],
+        "identifier_or_url": "arXiv:2209.03925 / https://arxiv.org/html/2209.03925v2",
+        "material_read": "Available complete HTML including enumerative definitions, results and appendices",
+        "method": "Compared counted objects and weights to uniformly random oriented tournaments",
+        "title": "Counting tournament score sequences",
+        "trigger": "Possible exact table or enumeration of all tournament score frequencies"
+      },
+      {
+        "assessment": "Distinct graph model and sign of shared-edge dependence; does not dominate the exact tournament score projector",
+        "evidence": [
+          "Model and joint-node-degree distribution sections of arXiv:2303.05138"
+        ],
+        "identifier_or_url": "arXiv:2303.05138 / https://arxiv.org/html/2303.05138",
+        "material_read": "Available HTML abstract, model setup, joint degree expressions and conclusion",
+        "method": "Compared independent undirected edge law to complementary directed tournament game law",
+        "title": "The joint node degree distribution in the Erdős--Rényi network",
+        "trigger": "Potentially stronger exact joint degree dependence theorem"
+      },
+      {
+        "assessment": "Priority genuinely unresolved: could supply underlying bin-count covariances implicitly or explicitly",
+        "evidence": [
+          "TU Delft repository abstract describing concentration and local CLT for score-bin counts"
+        ],
+        "identifier_or_url": "https://repository.tudelft.nl/record/uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca",
+        "material_read": "Repository title and abstract; complete PDF inaccessible after open-access attempts",
+        "method": "Abstract-only comparison, explicitly not a full-text noncoverage assessment",
+        "title": "The Heat Capacity of Random Tournaments",
+        "trigger": "Very close random-tournament score-bin variance / concentration thesis"
+      },
+      {
+        "assessment": "Plausible historical mathematical relation remains uncertain without full text",
+        "evidence": [
+          "Alspach--Reid 1978 abstract/metadata"
+        ],
+        "identifier_or_url": "DOI:10.1002/jgt.3190020307",
+        "material_read": "Publisher/metadata abstract only; full text not inspected",
+        "method": "Compared stated deterministic degree-frequency subject to probabilistic covariance question",
+        "title": "Degree frequencies in digraphs and tournaments",
+        "trigger": "Early exact degree-frequency work with possibly related title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e75550d-1170-4c0b-a66d-7afb64f9131b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The score histogram is a natural probability statistic in a full round-robin tournament. All bin counts are dependent despite binomial vertex marginals. The exact covariance projector gives a complete, parameter-free (after normalization), rank-n-2 spectral classification and simultaneously sharp residual variance bounds for all score-additive statistics. Exact Pearson expectation, two constraint modes and Krawtchouk orthogonal contrasts are concrete consequences useful in uncertainty quantification; this is neither a mere marginal computation nor an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
