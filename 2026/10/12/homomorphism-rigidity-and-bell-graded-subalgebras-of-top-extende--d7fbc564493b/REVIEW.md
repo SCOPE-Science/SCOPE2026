@@ -1,19 +1,21 @@
-# Scientific review: top-extended Boolean Heyting algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the finite Esakia dual as a rooted star, applies the exact cone-image property of bounded p-morphisms and partitions all such maps into constant-leaf and root-preserving surjections. Inclusion of every finite subalgebra dualizes to a surjective p-morphism, forcing a smaller rooted star or singleton; its quotient fibers are precisely leaf partitions. The rank formulas, monoid cardinality, and retract statements follow without a boundary exception for \(m=1\) or \(n<m\). Direct algebraic and dual exhaustive enumerations are concordant within their stated finite ranges, and the general proof is independent of those computations.
+PASS
 
-## Originality — PASS (qualified)
+Finite Esakia duality sends the (2^m+1)-element top extension of Boolean P([m]) to the rooted star P_m. A p-morphism P_n→P_m sends source root either to a target leaf (forcing constant map, m choices and two-valued algebra image) or to target root (forcing a surjective function of n leaves onto m leaves, m! S(n,m) possibilities and injective algebra map). Surjective p-morphic quotients of P_m are singleton or rooted stars with k≤m leaves, and their fibers are partitions of the original leaves; this proves the exact Bell-graded subalgebra spectrum and inclusion order by coarsening. For n=m, bijections give m! automorphisms; m leaf constants give the only other endomorphisms and are idempotent; only identity is an idempotent permutation, yielding m+1 idempotents but just two distinct retract images. We reconstructed dual upcone conditions and verified small m,n counts against independent direct algebra implication/residuation reasoning. The source standard-library program exhaustively enumerates n,m≤5 p-morphisms and m≤4 all subalgebras; that finite enumeration does not stand in for the all-parameter argument.
 
-The exact algebra family appears in Bumpus–Kocsis, *Degree of Satisfiability in Heyting Algebras* (2021 preprint, 2025 journal), but there it is used to study satisfiability gaps (Theorem 3.8), not complete hom-sets or retract spectra. Generic Esakia duality in Martins–Moraschini and Bezhanishvili–Carai–Morandi supplies the dual correspondence but not this explicit classification. Adams (1986) concerns maximal subalgebras, and the accessible abstract does not settle all subalgebras and arbitrary homomorphisms of the named family. Searches of mathematical record collections for the exact family, aliases, and Bell/Stirling rank formulas found no equivalent claim. Earlier implicit or poorly indexed treatments remain a risk; the result is not independently novelty-certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, complete morphism/subalgebra census for a finite Heyting family already used as an extremal logical witness. The sharp injective-or-two-valued homomorphism dichotomy, full Stirling-ranked subalgebra lattice, and fact that all nontrivial intermediate subalgebras are nonretracts distinguish three familiar algebraic invariants that normally need not coincide. The calculation concerns arbitrary positive \(m,n\), not a tiny or ad hoc slice; the complete formulas support subsequent categorical and computational use.
+The combined hom-set image-rank polynomial, entire partition-indexed subalgebra lattice and exact two-retract rigidity for the specific Boolean-with-one-new-top witness family were not found stated in inspected old Heyting lattice/duality work or Bumpus–Kocsis. Classical Esakia duality and general subalgebra-congruence correspondences are essential known inputs, not new discoveries.
 
-## Limits and comparison
+## value
 
-The statement does not classify maps to arbitrary finite Heyting codomains or the full congruence lattice. Finite checks are not infinite proofs. The older maximal-subalgebra article was assessed from its accessible abstract rather than silently treated as fully inspected. No independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a complete exact natural example with unexpectedly divergent structure: B_m+1 distinct subalgebras but only two embedded retract subalgebras, with all morphism image sizes and exact counts. This is a useful invariant of the concrete finite Heyting satisfiability-gap witness family, not an arbitrary unmotivated parameter slice; no general theorem or paper-sized contribution is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

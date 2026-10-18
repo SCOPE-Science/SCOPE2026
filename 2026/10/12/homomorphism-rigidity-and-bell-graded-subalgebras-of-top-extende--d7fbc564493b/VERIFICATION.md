@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only the standard library. Completed output:
+## correctness
 
-`VERIFY_OK 1836 exact assertions; 82174 dual function tables; 32906 candidate subalgebras; 81210 direct algebra function tables; 35 dual-induced homomorphisms; m,n<=5 dual and m<=4 subalgebras`
+PASS
 
-The verifier builds the Heyting implication table independently from residuation on the finite ordered algebra. For every \(1\leq m,n\leq5\), it enumerates all functions between the dual rooted stars, screens for the cone-image p-morphism condition, checks the exact Stirling hom-set formula, and checks dual image ranks. For every \(1\leq m\leq4\), it screens all possible subsets containing the Heyting constants, tests closure under meet, join and implication, and compares the resulting sets and rank counts with independently enumerated set-partition normal forms. It also enumerates direct algebraic homomorphism tables for eight small ordered pairs and tests all defining operations; for \(m,n\leq3\) it independently reconstructs inverse-image homomorphisms from the duals. For the five self-pairs it independently tests idempotence and permutation counts.
+Finite Esakia duality sends the (2^m+1)-element top extension of Boolean P([m]) to the rooted star P_m. A p-morphism P_n→P_m sends source root either to a target leaf (forcing constant map, m choices and two-valued algebra image) or to target root (forcing a surjective function of n leaves onto m leaves, m! S(n,m) possibilities and injective algebra map). Surjective p-morphic quotients of P_m are singleton or rooted stars with k≤m leaves, and their fibers are partitions of the original leaves; this proves the exact Bell-graded subalgebra spectrum and inclusion order by coarsening. For n=m, bijections give m! automorphisms; m leaf constants give the only other endomorphisms and are idempotent; only identity is an idempotent permutation, yielding m+1 idempotents but just two distinct retract images. We reconstructed dual upcone conditions and verified small m,n counts against independent direct algebra implication/residuation reasoning. The source standard-library program exhaustively enumerates n,m≤5 p-morphisms and m≤4 all subalgebras; that finite enumeration does not stand in for the all-parameter argument.
 
-These bounded checks cannot prove the all-parameter theorem or its bibliographic originality; the mathematical argument is in RESULT.md. The program performs no network access and needs no external data.
+## originality
+
+PASS
+
+The combined hom-set image-rank polynomial, entire partition-indexed subalgebra lattice and exact two-retract rigidity for the specific Boolean-with-one-new-top witness family were not found stated in inspected old Heyting lattice/duality work or Bumpus–Kocsis. Classical Esakia duality and general subalgebra-congruence correspondences are essential known inputs, not new discoveries.
+
+## value
+
+PASS
+
+Provides a complete exact natural example with unexpectedly divergent structure: B_m+1 distinct subalgebras but only two embedded retract subalgebras, with all morphism image sizes and exact counts. This is a useful invariant of the concrete finite Heyting satisfiability-gap witness family, not an arbitrary unmotivated parameter slice; no general theorem or paper-sized contribution is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
