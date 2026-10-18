@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is analytic. No finite experiment or external certificate is used.
+# Independent mathematical audit
 
-For the lower Riesz estimate, define \(q=p_1+p_2\). The lattice condition on \(\Lambda_2\) gives \(p_2(x+a)=p_2(x)\). Because \(S_1\) and \(S_1+a\) are disjoint subsets of \(S_1\cup S_2\),
-\[
-\int_{S_1}|q(x+a)-q(x)|^2\,dx\le 2\|q\|_{L^2(S_1\cup S_2)}^2.
-\]
-The lower Riesz bound on \(S_1\), after multiplying coefficients by \(e^{2\pi i a\cdot\lambda}-1\), gives the factor \(A_1m^2\). The subsequent estimate of \(p_2=q-p_1\) on \(S_2\) uses exactly the cross Bessel bound \(C_{12}\). Algebraic addition yields
-\[
-L=\frac{A_1A_2m^2}{2(A_2+A_1m^2+2C_{12})}.
-\]
+## correctness
 
-For the upper estimate, \(p_1\) contributes at most \((B_1+C_{12})\|c_1\|_2^2\). Periodicity transfers the \(S_1\) energy of \(p_2\) into \(S_1+a\subset S_2\), so its total contribution is at most \(2B_2\|c_2\|_2^2\). Cauchy--Schwarz then gives
-\[
-U=B_1+C_{12}+2B_2.
-\]
+PASS
 
-Completeness was checked independently: an orthogonal \(f=f_1+f_2\) gives, after translating \(f_1\) into \(S_2\), a function orthogonal to \(E(\Lambda_2)\); it is therefore zero. The remaining \(\Lambda_1\) Fourier coefficients are multiplied by the nonzero phase factor \(1-e^{-2\pi i a\cdot\lambda}\), so completeness of \(E(\Lambda_1)\) forces \(f_1=0\) and then \(f_2=0\).
+Checked the dimension-independent two-region norm inequalities directly. Set q=p1+p2, with p2(x+a)=p2(x) from a·Lambda2 subset Z. Because S1 and S1+a⊂S2 are disjoint, ||q(·+a)-q||^2_{S1}<=2||q||^2_{S1∪S2}; the A1 Riesz bound and phase gap m yield ||c1||^2<=2||q||^2/(A1 m^2). On S2, ||p2||^2<=2||q||^2+2 C12||c1||^2 and A2 lower Riesz yields the displayed coefficient reciprocal L. Cauchy-Schwarz with energies (B1+C12)||c1||^2 and <=2 B2||c2||^2 gives U=B1+C12+2B2. Completeness is not inferred from boundedness: translate f1 to S1+a and apply Lambda2 completeness; the remaining Lambda1 Fourier factors (1-e^{-2pi i a·lambda}) are nonzero, so f1=f2=0. The phase gap is positive due to dist(Lambda1,Gamma_a)>0. This reconstructs a full Riesz basis, not just finite-coefficient bounds.
 
-Limits: the constants are sufficient rather than optimal; a numerical application needs an estimate of \(C_{12}\); the proof does not cover the source's multi-coset variants.
+## originality
+
+PASS
+
+Lee Theorem 4 establishes the same qualitative translated-domain union basis, and its quantitative formulas are not stated in the materially inspected theorem/proof. The candidate derives explicit conditional lower and upper bounds from a direct finite-coefficient difference calculation, with C12 as a data input. Nearby construction papers use different interval/rectangle structures. Best-of-knowledge quantitative distinctness is plausible, without implying qualitative basis existence itself is new.
+
+## value
+
+PASS
+
+A direct usable conditioning bound with deterioration as m→0 for a translated-domain Riesz basis union is a quantitatively motivated question, not a generic numerical slice. It upgrades Lee’s existence theorem to uniform estimates in arbitrary finite dimension when standard constituent constants and one cross-Bessel constant are available.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
