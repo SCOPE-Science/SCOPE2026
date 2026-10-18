@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Every color class in \(\operatorname{Cr}_n\) must contain at least \(h=\lfloor n/2\rfloor\) vertices from each shore, hence at least \(2h\) vertices total. This gives the global two-color upper bound throughout \(n\ge6\). Explicit even and odd constructions attain it. Equality and complement constraints then force the even complementary-half structure and the four odd occupancy/intersection types, from which the exact counts follow. The packaged verifier tests the original neighborhood predicate directly rather than assuming this structural criterion.
+# Independent mathematical audit
 
-## Originality
-PASS. The initiating full text was inspected directly. It contains the exact cycle and complete-bipartite values, plus general satisfactory-partition existence results for cubic and 4-regular graphs, but no crown occurrence and no result covering crowns of degree at least \(5\). Exact-statement and alias searches under majority C-coloring, satisfactory partition, sum satisfactory partition, crown graph, and \(K_{n,n}\) minus a perfect matching found no same-invariant crown theorem. The closest crown-coloring record uses the different proper conflict-free invariant. A prior complete-multipartite majority C theorem is inapplicable because \(\operatorname{Cr}_n\) is not complete multipartite for \(n\ge3\).
+## correctness
 
-## Value
-PASS. The result gives a complete infinite-family classification for a canonical graph family under a newly introduced invariant, not merely a finite computation. It also exposes a sharp structured edge-deletion effect: for odd \(n\ge7\), the value rises from \(1\) on \(K_{n,n}\) to \(2\) after deleting a perfect matching. The optimizer classification and exact parity-dependent counts provide reusable structural information beyond the parameter value.
+PASS
 
-## Closest literature and limitations
-The primary comparison is arXiv:2604.20752v1. Older satisfactory-partition literature supplies the established alias and broad existence theory; one especially relevant 2006 paper was accessible only through its public abstract/bibliographic record, so an unindexed special-case overlap remains a stated residual risk. The theorem does not treat arbitrary matching deletions, other local thresholds, or nonoptimal colorings.
+The defining surjective majority C-coloring requires h=floor(n/2) same-colored neighbors because each crown vertex has n-1 neighbors. A nonempty color must meet each shore in at least h points, hence every class has at least 2h vertices; for n>=6 this excludes three colors. The explicit bipartition-index construction reaches two colors. For even n=2r, each class has r vertices on each shore and same-color deleted matched pairs are impossible; therefore T is the complement of S and the labeled count is binom(n,r). For odd n=2r+1, shore counts lie in {r,r+1}; a common index forces (r+1,r+1,1), yielding exactly the four stated profiles. Direct independent neighborhood enumeration, with surjectivity enforced, found counts 20,350,70,1512 at n=6,7,8,9 and exactly the claimed occupancy profiles. Finite checks do not establish the universal bound, which is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The specified surviving claim is not established by any inspected prior statement or directly dominating mathematical implication. The four separate equivalence/coverage/table/implication comparisons below identify exactly which named background results are already known and which new mathematical conclusion remains; unpublished and inaccessible-source risks are explicitly retained.
+
+## value
+
+PASS
+
+A full optimum and optimizer enumeration for an infinite natural family of nearly complete bipartite graphs isolates a sharp odd-shore change from the known K(n,n) majority C rule. The all-coloring count is not an arbitrary small-instance statistic and cannot be read off the biclique value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

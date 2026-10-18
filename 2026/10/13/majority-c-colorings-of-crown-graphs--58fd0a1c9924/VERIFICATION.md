@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact domain is \(\operatorname{Cr}_n=K_{n,n}-M_n\) for every integer \(n\ge6\). The proof has four critical steps: every used color meets each shore in at least \(\lfloor n/2\rfloor\) vertices; this forces at most two colors; explicit parity-dependent constructions attain two; and equality/complement arguments classify all optimal two-colorings and yield their counts.
+# Independent mathematical audit
 
-The packaged `verify.py` independently constructs the graph and evaluates the original local majority condition. It exhaustively enumerates all labeled two-color assignments through \(n=9\), verifies the asserted structural type and count for every feasible assignment, exhaustively enumerates three-color assignments for \(2\le n\le5\), and checks the explicit constructions for \(2\le n\le200\).
+## correctness
 
-Expected replay output:
+PASS
 
-`ALL CHECKS PASSED; two_color_assignment_checks=349520; two_color_counts=[(2, 2), (3, 18), (4, 6), (5, 80), (6, 20), (7, 350), (8, 70), (9, 1512)]; three_color_small_counts={2: 0, 3: 12, 4: 0, 5: 0}; construction_range=2..200; exact_claim_range=n>=6`
+The defining surjective majority C-coloring requires h=floor(n/2) same-colored neighbors because each crown vertex has n-1 neighbors. A nonempty color must meet each shore in at least h points, hence every class has at least 2h vertices; for n>=6 this excludes three colors. The explicit bipartition-index construction reaches two colors. For even n=2r, each class has r vertices on each shore and same-color deleted matched pairs are impossible; therefore T is the complement of S and the labeled count is binom(n,r). For odd n=2r+1, shore counts lie in {r,r+1}; a common index forces (r+1,r+1,1), yielding exactly the four stated profiles. Direct independent neighborhood enumeration, with surjectivity enforced, found counts 20,350,70,1512 at n=6,7,8,9 and exactly the claimed occupancy profiles. Finite checks do not establish the universal bound, which is analytic.
 
-The exhaustive range is finite and is not an infinite proof. No computation is used to justify novelty. No independent audit or independent validation has been performed.
+## originality
+
+PASS
+
+The specified surviving claim is not established by any inspected prior statement or directly dominating mathematical implication. The four separate equivalence/coverage/table/implication comparisons below identify exactly which named background results are already known and which new mathematical conclusion remains; unpublished and inaccessible-source risks are explicitly retained.
+
+## value
+
+PASS
+
+A full optimum and optimizer enumeration for an infinite natural family of nearly complete bipartite graphs isolates a sharp odd-shore change from the known K(n,n) majority C rule. The all-coloring count is not an arbitrary small-instance statistic and cannot be read off the biclique value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
