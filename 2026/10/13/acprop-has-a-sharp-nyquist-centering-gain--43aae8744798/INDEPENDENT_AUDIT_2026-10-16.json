@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:09:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 05bcf3a95ca3e0acbe8acef708176606823e3fd8",
+        "Zhuang et al. NeurIPS 2021 ACProp paper architecture and sparse periodic signal analysis",
+        "Independent_checks.py ACPROP_NYQUIST_EXACT_TRANSIENT_AND_LIMIT_OK"
+      ],
+      "rationale": "On alternating g_t=(-1)^{t-1}G, the exact first moment unrolls to m_t=(-1)^{t-1}aG[1-(-beta1)^t], a=(1-beta1)/(1+beta1). Thus g_t-m_t=(-1)^{t-1}G[c+a(-beta1)^t] with c=2beta1/(1+beta1). The centered second-moment EMA s_t=(1-beta2)G^2 sum_{j=1}^t beta2^{t-j}[c+a(-beta1)^j]^2 tends to c^2 G^2 for 0<=beta2<1. One-step delay preserves the limit. Uncentered comparator v_t=G^2(1-beta2^t) tends to G^2, so update gain is (|G|+epsilon)/(c|G|+epsilon), and for epsilon=0 becomes (1+beta1)/(2beta1). Correct edge conditions beta1>0, beta2<1, G!=0, epsilon>=0; beta1=0 with epsilon=0 is singular. Independent exact rational 180-step recurrences verified transients and limiting residual/denominator for selected rational decay rates, supplementing the geometric proof.",
+      "residual_risks": [
+        "Externally prescribed alternating gradients, paper-form unrectified ACProp with raw numerator and lagged centered denominator only.",
+        "This is input-response/update-amplitude analysis, not convergence, instability or utility on a fixed objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ACProp source paper analyzes sparse periodic gradients with zero stretches and convergence conditions, not continuous pure sign flips and the exact asymptotic gain.",
+          "AdaMomentum uses a squared momentumized gradient in a different synchronous denominator; AdaShift uses a different lagged statistic and a fixed quadratic two-cycle."
+        ],
+        "reasoning": "General adaptive-method comparisons and alternate optimizer alternating-signal findings cannot be substituted for the exact ACProp-specific centered residual gain.",
+        "searches": [
+          "Zhuang Ding Tang et al. Momentum Centering and Asynchronous Update for Adaptive Gradient Methods arXiv:2110.05454",
+          "Resultary prior AdaMomentum alternating gradient frequency 2026/10/4/SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4",
+          "Resultary AdaShift exact period two 2026/10/4/SCOPE-exact-period-two-stability-window-for-asynchronous-adashift--97e595479a7e"
+        ]
+      },
+      "checked_sources": [
+        "Zhuang et al. 2021 arXiv:2110.05454v1 relevant algorithm and periodic-example sections",
+        "Original ACProp optimizer source implementation description",
+        "Resultary alternating AdaMomentum/AdaShift/A2Grad search",
+        "Assigned RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original ACProp source gives recurrence and motivating centered prediction error, from which the candidate formulas are derived, but its published principal theorems concern online-convex convergence over a different periodic input.",
+          "AdaMomentum gain factor (1+beta1)/(1-beta1) differs mathematically from ACProp factor (1+beta1)/(2beta1)."
+        ],
+        "reasoning": "Defining a recurrence is an ingredient rather than a theorem stating the exact high-frequency gain and its beta2 independence. The new result characterizes a natural worst-frequency input mechanism within ACProp specifically.",
+        "searches": [
+          "ACProp NeurIPS 2021 Algorithm 1 and sparse-gradient example",
+          "Resultary AdaMomentum alternating gradient exact law",
+          "Explicit alternating first moment and second EMA limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defining ACProp recurrence uses raw current gradient with previous centered second moment.",
+          "Exact alternating residual floor c=2beta1/(1+beta1) and a matching uncentered amplitude ratio are not asserted in the sections of the inspected primary paper on periodic sparse gradients."
+        ],
+        "reasoning": "A high-frequency gain may be described as a scalar filter frequency response; the distinctive two-stage centered adaptive denominator and delayed raw-gradient numerator must be matched to be implication-equivalent.",
+        "searches": [
+          "Resultary: ACProp centered adaptive optimizer alternating gradients Nyquist spectral gain pure sign alternating input",
+          "Search: ACProp alternating gradient high frequency centering gain momentum EMA denominator",
+          "Zhuang et al. arXiv:2110.05454v1 center innovation g-m frequency response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary hits for alternating A2Grad, AdaMomentum and AdaShift have distinct update formulas and do not tabulate ACProp gain.",
+          "Values 19/18 at beta1=.9 and 11/2 at beta1=.1 follow analytically from the new formula."
+        ],
+        "reasoning": "No matching ACProp coefficient table was found; no priority claim is based on this negative search alone.",
+        "searches": [
+          "Resultary ACProp Nyquist gain exact ratio (1+beta1)/(2beta1)",
+          "Resultary alternating gradient optimizer centered denominator ACProp",
+          "Search: centered asynchronous adaptive squared residual 19/18 5.5 gain"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp Nyquist-frequency centered-versus-uncentered gain for the paper-form ACProp recurrence; related algorithm response results have different denominators and different formulas.",
+      "residual_risks": [
+        "A broader signal-processing analysis of EMA innovation filters could implicitly yield the same formula; specific ACProp pairing may be a corollary not indexed.",
+        "The exact recurrence is an intentional simplified paper-form setting; optional implementation features change dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines recurrence and a different periodic example, does not explicitly give pure alternating Nyquist asymptotic gain in inspected sections",
+          "evidence": "Paper distinguishes asynchronous/centered denominator, previous centered variance, and raw-gradient numerator",
+          "identifier_or_url": "arXiv:2110.05454v1 / NeurIPS 2021",
+          "material_read": "Primary paper Algorithm 1 equations and periodic sparse-gradient example/convergence discussion, including relevant rendered PDF pages; not all appendices reread",
+          "method": "Public primary NeurIPS/arXiv full PDF with relevant page inspection",
+          "title": "Momentum Centering and Asynchronous Update for Adaptive Gradient Methods",
+          "trigger": "Exact original ACProp algorithm and a possible periodic-signal precursor"
+        },
+        {
+          "assessment": "Different adaptive optimizer with momentum-squared denominator and gain factor (1+beta1)/(1-beta1)",
+          "evidence": "Published summary gain 19 at beta1=0.9 versus ACProp 19/18",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4",
+          "material_read": "Search-index title, abstract and mathematical summary; complete RESULT.md not inspected",
+          "method": "Published Resultary semantic research search",
+          "title": "AdaMomentum cancels momentum attenuation at the alternating-gradient frequency",
+          "trigger": "Closest published Resultary alternating-gradient gain finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original ACProp algorithm and stated rationale for centering",
+        "Exact high-frequency response and matched lagged uncentered control"
+      ],
+      "rationale": "The Nyquist/period-two signal is the natural highest frequency for a discrete-time gradient stream. The exact centered denominator attenuation, beta2-independent asymptotic amplification and divergence for small beta1 expose a concrete tradeoff in an established adaptive optimizer; this is a sharp design diagnostic, not a merely arbitrary numerical test or claim of objective convergence.",
+      "residual_risks": [
+        "One-dimensional external forcing only; practical stability or optimization performance is not deduced."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is not an exhaustive historical-priority certification.",
+    "Finite checker tests only stated sampled cases; unrestricted C relies on reconstructed analytic proof.",
+    "Public transport not ready because privacy sanitization/complete recursive Git-tree validation remains missing.",
+    "A broader signal-processing analysis of EMA innovation filters could implicitly yield the same formula; specific ACProp pairing may be a corollary not indexed.",
+    "The exact recurrence is an intentional simplified paper-form setting; optional implementation features change dynamics."
+  ],
+  "schema_version": 1
+}
