@@ -1,32 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the claim to the sharp scalar inequality
-\[
-\frac{\lfloor n^2/4\rfloor}{n}\ge\frac{2n}{9}
-\]
-for every integer \(n\ge2\), with equality only at \(n=3\). The even and odd cases give exact defects
-\[
-\frac n{36}
-\]
-and
-\[
-\frac{n^2-9}{36n},
-\]
-respectively. Summation gives the universal bound.
+## correctness
 
-For odd \(\chi\), equality in the integer bound leaves total defect at most \(1/9\). The only nonzero defects small enough to matter are those of \(n=2,4,5\); the target residue modulo \(3\) then leaves exactly one \(4\) or two \(2\)'s. This proves the stated equality classification for all \(\chi\ge3\). Exact rational enumeration for \(3\le\chi\le8\) agrees with the proof but is not used as an infinite certificate.
+PASS
 
-## Originality
-PASS. The initiating source defines \(\delta(\pi)\) and \(N(\pi)\), identifies the polyhedral range \(\delta(\pi)\le\chi\), and constructs the \(\chi=3\) configuration \(I_4+3I_3+23I_1\). Its accessible primary abstract does not state a \(9\chi/2\) envelope or an equality classification. A detailed review of the full paper likewise reports the main parity, semiampleness, and counterexample results without this optimization.
+For every integer n>=2, d(n)=floor(n²/4)/n obeys d(n)-2n/9=n/36>0 for even n and (n²−9)/(36n)>=0 for odd n, with equality only n=3. Summing the actual source definitions gives delta>=2N/9, so N<=floor(9chi/2) under delta<=chi. When chi is even and N=9chi/2 all fibers must be I3, count 3chi/2. For odd chi at N=(9chi−1)/2 the entire positive defect is <=1/9. Only sizes 2,4,5 have nonzero defect within budget: e2=1/18,e4=1/9,e5=4/45. Since N=1 mod3 and fibers I3 contribute residue zero, only one 4 or two 2s have viable residue/defect. Remaining fibers are exactly 3(chi−1)/2 I3. The source geometrically realizes chi=3 pattern I4+3I3+23I1 at N=13. All other equality patterns are necessary numerical conditions, not asserted geometrically realized. Separate exact finite enumeration chi=3..8 is corroboration, not proof.
 
-The closest predecessor by Laface--Li--Liu was inspected in publicly readable full text. Its sharp thresholds concern one reducible fiber and do not imply the arbitrary-multiset optimization. Exact, alias, broader-coverage, and implication searches found no covering result.
+## originality
 
-A residual originality risk remains because the initiating preprint's full primary PDF was not accessible through the available public full-text route; an equivalent elementary observation in an unindexed body paragraph therefore cannot be ruled out absolutely.
+PASS
 
-## Value
-PASS. The finding computes a natural extremal invariant already central to the source: the largest total reducible multiplicity compatible with the polyhedrality inequality. It also classifies all numerical boundary configurations and shows that Laface--Li's explicit \(\chi=3\) non-Mori-dream surface sits exactly on the absolute reducible-fiber boundary. The result is a reusable structural constraint, not a one-off numerical example.
+The Laface–Li 2026 initiating abstract introduces delta,N and a chi=3 boundary example; its full manuscript remained unavailable from lawful open channels and authenticated Oxford reported disconnected VPN. The predecessor Laface–Li–Liu manuscript gives single-fiber geometric Mori/polyhedral thresholds, not the arbitrary-multiset sharp 9chi/2 envelope and exact equality pattern restriction. A best-of-knowledge comparison found no equivalent general statement; hidden remarks in inaccessible full Laface–Li text are a material residual risk, not automatically failure.
 
-The equality classification is necessary rather than an existence theorem for every \(\chi\), and it does not decide semiampleness or the Mori-dream property of every extremal configuration.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Both delta and N are central natural numeric invariants explicitly controlling the source paper’s polyhedral Mori cone and semiampleness criteria. Their sharp quantitative comparison is a motivated structural boundary; the complete necessary extremal fiber-size patterns identify the special role of I3 and show that the source’s chi=3 example attains the absolute numerical ceiling. Although the proof is elementary and gives no new existence theorem, it is a useful exact polyhedrality constraint, not an arbitrary unmotivated numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
