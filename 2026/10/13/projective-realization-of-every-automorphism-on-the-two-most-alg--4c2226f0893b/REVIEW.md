@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact symbolic substitution verifies every displayed projective generator against the exact sextic equation. Exact projective group closure gives order \(8\) with element-order profile \(1^1,2^5,4^2\) in type I and order \(24\) with profile \(1^1,2^9,3^8,4^6\) in type II. The source proves that the corresponding smooth Enriques surfaces have automorphism groups of exactly those orders. Since projective stabilizers lift injectively to automorphisms of the smooth minimal model, the constructed groups exhaust the full automorphism groups.
+PASS
 
-## Originality
+Actual sextic equations and exact generator matrices were inspected. Independent 4x4 projective-matrix closure checks reproduced 8 group elements (orders 1:1,2:5,4:2) for type I and 24 (1:1,2:9,3:8,4:6) for type II. The repository checker verifies each generator by exact symbolic polynomial substitution; the independent closure alone does not verify those substitutions. A projective stabilizer injects into Aut of the smooth minimal Enriques model; published orders 8 and 24 provide matching upper bounds. Thus full stabilizer and all-automorphism realization follow, assuming the displayed published Enriques models.
 
-**PASS.** The abstract groups \(D_8\) and \(S_4\) are known and are not claimed as new. The claim is the projective exhaustion for the two specific Shimada--Veniani sextic equations, together with explicit linear generators. The primary paper gives the two ingredients separately—lattice-theoretic group orders and explicit sextic models—and explicitly motivates a more geometric description. Later Brandhorst--Shimada work records the abstract finite groups but a full-text check found no treatment of these sextic equations or their projective stabilizers. Focused published-finding corpus queries and literature checks found no implication-equivalent statement.
+## originality
 
-Residual risk: an older or unindexed geometric treatment could contain the same equation-level realization.
+PASS
 
-## Value
+Published automorphism group orders and D8/S4 abstract groups are already known; the added mathematical statement is explicit projective realization by matrices on the named two sextic equations. The Shimada–Veniani primary group/order result and displayed equations do not visibly assert this projective surjectivity. No implication-equivalent statement was identified in focused Resultary comparison; earlier Kondō equation-level material was not fully read, so priority remains best-of-knowledge.
 
-**PASS.** The result answers, for the two most algebraic examples, the natural question of whether the published projective model sees the whole automorphism group. It replaces a lattice-only description with explicit projective matrices and shows that no automorphism is lost by passing to these sextic models.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact projective realization of all automorphisms on canonical Enriques sextics answers the geometrically natural question whether an abstract smooth-surface symmetry is visible linearly in its distinguished model; explicit finite generators are useful beyond abstract automorphism group orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
