@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:38:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact scalar Gaussian sketch factor is G=chi_p^2/p, with E G=1 and Var G=2/p, independent between steps. Deriving the covariance recursion yields the 3x3 M with rows (m²+2alpha²/p,omega²,-2omega m),(1,0,0),(m,0,-omega), m=1+omega-alpha. For alpha,omega>0, T(Q)=E[B(G)QB(G)^T] is a positive primitive map on 2x2 PSD matrices: T² sends every nonzero PSD matrix to PD, so the source-initialized rank-one covariance and positive first-coordinate observable see the Perron radius; omega=0 is direct. Independent symbolic determinants verify det M=omega³ and det(I-M)=alpha[2p(1-omega²)-alpha(p+2+(2-p)omega)]/p. Initial derivative of Perron root at alpha=0 is negative for omega<1, the unique unit crossing and growth at large alpha give iff stability. At rate r=2/(p+2), independent symbolic computation reproduced the discriminant 8p omega²[((p+2)omega)^2-4]/(p+2)^4; for 0<omega<r it is negative and the leading coefficient of det(rI-M) is negative, for omega=r determinant remains negative for positive alpha, and for omega>r the product eigenvalues omega³ precludes rho<r. At omega=0 minimizing the scalar quadratic gives unique alpha=p/(p+2). The exact p=1, alpha=omega=1/2 eight second moments and mean-versus-variance contrast were reconstructed. No finite numerical trial substitutes for the all-real-parameter Perron/discriminant proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie Theorem 4.7 gives a sufficient expected-square norm geometric bound for mBGK, not a tight iff scalar spectral boundary.",
+          "Loizou–Richtárik study normalized projector Hessians; Kidambi et al. show momentum lower bounds for other regression distributions."
+        ],
+        "reasoning": "General acceleration or sufficient stability results do not entail the exact one-dimensional unnormalized Gaussian-block variance recurrence, necessary stability threshold and unique rate optimum.",
+        "searches": [
+          "unnormalized Gaussian block Kaczmarz heavy ball scalar mean square stability chi square noise optimal momentum",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/abs/1712.09677",
+          "https://arxiv.org/abs/1803.05591"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.05437",
+        "https://arxiv.org/abs/1712.09677",
+        "https://arxiv.org/abs/1803.05591",
+        "https://arxiv.org/abs/2206.07553",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source uses a conservative q<1 bound for mean-square convergence while separately proving accelerated rates for norms of expected iterates.",
+          "The scalar variance recursion has a spectral radius that can exceed one despite stable roots of the first-moment recurrence."
+        ],
+        "reasoning": "The prior sufficient q<1 estimate does not imply a necessary threshold or sharp joint optimum; distinction between expectations and expectations of squares is logically decisive.",
+        "searches": [
+          "unnormalized Gaussian block Kaczmarz heavy ball scalar mean square stability chi square noise optimal momentum",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/abs/1712.09677"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized sketch-and-project Gaussian Kaczmarz scheme becomes a deterministic projector in dimension one, whereas the source unnormalized mBGK retains multiplicative chi-square noise.",
+          "Our exact covariance matrix is a random-coefficient AR(2) second-moment operator; existing abstract Lyapunov criteria do not directly give the stated optimized p frontier in inspected works."
+        ],
+        "reasoning": "Aliases momentum SGD and AR(2) must be compared at the stochastic Hessian law, not terminology; the chi-square multiplier is essential.",
+        "searches": [
+          "unnormalized Gaussian block Kaczmarz heavy ball scalar mean square stability chi square noise optimal momentum",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/abs/1712.09677"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Han–Xie §5.6 and numerical graphs compare algorithm performance but do not tabulate the tight alpha_crit(p,omega) and optimum.",
+          "A Resultary KGSM 2×2 orthonormal-system example yields a distinct mean-square frontier, not chi-square block sampling."
+        ],
+        "reasoning": "The exact all-width 3x3 determinant and global optimum are not a duplicate of inspected tables. Lack of a search hit alone is no proof of priority.",
+        "searches": [
+          "unnormalized Gaussian block Kaczmarz heavy ball scalar mean square stability chi square noise optimal momentum",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Han–Xie §5.6 defines exactly the raw unnormalized mBGK update and supplies sufficient second-moment bounds, not the scalar iff phase diagram or sharp joint alpha/omega minimum of the actual asymptotic second moment. Other stochastic heavy-ball theorems concern normalized projector sketches or different regression/noise models. A separate Resultary KGSM orthonormal 2×2 mean-square stability result concerns a different update distribution. An unindexed general random-coefficient AR(2) stability theorem may imply the matrix reduction, but no inspected prior provides both the exact p-dependent frontier and global no-momentum optimality for this method.",
+      "residual_risks": [
+        "Stability criterion for a random-coefficient autoregression may have an older equivalent presentation under Lyapunov theory; exact optimized formula could be implicit there.",
+        "The method uses unnormalized Gaussian blocks and one scalar equation; no general multidimensional no-acceleration theorem is claimed.",
+        "Equal-state nonoptimal initialization is used to identify the Perron factor; other specialized initial covariances are not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source defines stochastic law and sufficient q bounds but not exact scalar mean-square iff stability/unique joint optimum.",
+          "evidence": "§5.6 p.21 and Theorem 4.7, expected-norm-rate versus mean-square upper bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05437",
+          "material_read": "Full 47-page arXiv PDF accessible; materially inspected introduction, algorithms and Theorem 4.7, §5.6 pp.20–21 including the displayed raw A^TSS^T/(p||A||_F²) step and bound q, plus simulation discussion; page image examined.",
+          "method": "direct primary PDF text and screenshot",
+          "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+          "trigger": "Exact mBGK source algorithm, definition and theorem scope"
+        },
+        {
+          "assessment": "Normalized projector/Hessian specialization in one dimension is deterministic, so not identical to chi-square coefficient method.",
+          "evidence": "Loizou–Richtárik arXiv:1712.09677, projector/sketch framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.09677",
+          "material_read": "Article statement and method description compared with rank-one unnormalized Gaussian law; no claim of full manuscript read.",
+          "method": "primary abstract/methodology comparison",
+          "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+          "trigger": "Potential dominating general stochastic momentum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The initiating optimization paper contrasts accelerated expected-iterate norms with sufficient expected-square bounds. Determining exactly when actual squared error converges, and constructing a stable-mean/divergent-variance example, resolves a distinct and important stability question about the published random update. The all-p necessary/sufficient formula and unique optimum without momentum are a genuine natural algorithmic boundary, not a parameter-renaming gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the source-initialized one-dimensional unnormalized Gaussian block Kaczmarz heavy-ball recurrence with block size p>=1, step alpha>0 and 0<=omega<1, the mean-square convergence region is exactly alpha<2p(1-omega^2)/(p+2+(2-p)omega), with nonvanishing endpoint and exponential divergence above. The optimal asymptotic mean-square factor over all parameters is 2/(p+2), attained uniquely at omega=0, alpha=p/(p+2); positive momentum may enlarge stepsize stability for p>2 but never improve this optimum.",
+  "limitations": [
+    "Exact only for scalar consistent system, iid standard-Gaussian blocks of finite width p, equal-state nonoptimum initialization, fixed alpha and omega in [0,1).",
+    "The asymptotic rate is for mean-squared error, not mean error, almost-sure trajectories or time-varying steps.",
+    "A normalized projector sketch law is a different algorithm and is not covered."
+  ],
+  "schema_version": 1
+}

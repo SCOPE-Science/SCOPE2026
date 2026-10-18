@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise object is the pseudoinverse-free, *unnormalized* scalar Gaussian mBGK process in Han–Xie §5.6, with fixed positive stepsize, constant nonnegative momentum below one, independent blocks of arbitrary fixed finite width, and equal nonoptimal initial states. The full proof derives the covariance map from \(\chi_p^2/p\), proves primitivity (or handles zero momentum directly), establishes that the initial rank-one covariance sees the Perron eigenvalue, and checks all stability boundaries from \(\det(I-M)\). The global rate optimum is certified by an exact quadratic-discriminant calculation together with \(\det M=\omega^3\). The exact rational script replayed 1,890 determinant cases and all eight claimed example moments. These finite checks support, but are not substituted for, the universal algebraic and cone arguments. Mean-square and mean convergence are expressly distinguished.
+PASS
 
-## Originality — PASS with residual priority risk
+PASS: The exact scalar Gaussian sketch factor is G=chi_p^2/p, with E G=1 and Var G=2/p, independent between steps. Deriving the covariance recursion yields the 3x3 M with rows (m²+2alpha²/p,omega²,-2omega m),(1,0,0),(m,0,-omega), m=1+omega-alpha. For alpha,omega>0, T(Q)=E[B(G)QB(G)^T] is a positive primitive map on 2x2 PSD matrices: T² sends every nonzero PSD matrix to PD, so the source-initialized rank-one covariance and positive first-coordinate observable see the Perron radius; omega=0 is direct. Independent symbolic determinants verify det M=omega³ and det(I-M)=alpha[2p(1-omega²)-alpha(p+2+(2-p)omega)]/p. Initial derivative of Perron root at alpha=0 is negative for omega<1, the unique unit crossing and growth at large alpha give iff stability. At rate r=2/(p+2), independent symbolic computation reproduced the discriminant 8p omega²[((p+2)omega)^2-4]/(p+2)^4; for 0<omega<r it is negative and the leading coefficient of det(rI-M) is negative, for omega=r determinant remains negative for positive alpha, and for omega>r the product eigenvalues omega³ precludes rho<r. At omega=0 minimizing the scalar quadratic gives unique alpha=p/(p+2). The exact p=1, alpha=omega=1/2 eight second moments and mean-versus-variance contrast were reconstructed. No finite numerical trial substitutes for the all-real-parameter Perron/discriminant proof.
 
-Han–Xie's full original preprint specifies mBGK, sufficient second-moment bounds, and separate acceleration for norms of expected iterates; it does not supply the exact necessity-and-sufficiency scalar stability boundary or the global joint-parameter second-moment lower bound. Loizou–Richtárik treat projector-normalized sketch Hessians, which become deterministic in one dimension and do not imply the chi-square-multiplier result. Kidambi et al. analyze a distinct multi-directional random-regression distribution and derive broad lower bounds, not these sharp all-width identities. Bollapragada–Chen–Ward analyze finite-sum minibatches. Indexed studies of momentum, coordinate sampling, randomized Kaczmarz, and scalar random curvature have been checked for implication, not just wording. No inspected result dominates the exact claim; an unindexed specialized statement remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating source distinguishes faster *expected iterates* from bounds on expected squared solution error, so a sharp actual-risk frontier resolves a meaningful algorithmic uncertainty. The calculation provides a necessary-and-sufficient stability region at every Gaussian block width, a unique optimal fixed-parameter rate, and a concrete parameter choice for which the mean contracts yet the mean square diverges. This is a structural limitation of the published unnormalized randomized method, rather than an arbitrary parameter recomputation. It does not promise multidimensional or adaptive no-acceleration.
+Best-of-knowledge PASS: Han–Xie §5.6 defines exactly the raw unnormalized mBGK update and supplies sufficient second-moment bounds, not the scalar iff phase diagram or sharp joint alpha/omega minimum of the actual asymptotic second moment. Other stochastic heavy-ball theorems concern normalized projector sketches or different regression/noise models. A separate Resultary KGSM orthonormal 2×2 mean-square stability result concerns a different update distribution. An unindexed general random-coefficient AR(2) stability theorem may imply the matrix reduction, but no inspected prior provides both the exact p-dependent frontier and global no-momentum optimality for this method.
 
-## Closest literature and scientific limitations
+## value
 
-Primary comparisons: Han–Xie (arXiv:2208.05437), Loizou–Richtárik (arXiv:1712.09677), Kidambi et al. (arXiv:1803.05591), Bollapragada–Chen–Ward (arXiv:2206.07553). Exactness is restricted to one-dimensional consistent systems with independent standard-normal unnormalized sketches and fixed finite width; possible obscure identical analyses remain a priority risk. No independent audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The initiating optimization paper contrasts accelerated expected-iterate norms with sufficient expected-square bounds. Determining exactly when actual squared error converges, and constructing a stable-mean/divergent-variance example, resolves a distinct and important stability question about the published random update. The all-p necessary/sufficient formula and unique optimum without momentum are a genuine natural algorithmic boundary, not a parameter-renaming gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
