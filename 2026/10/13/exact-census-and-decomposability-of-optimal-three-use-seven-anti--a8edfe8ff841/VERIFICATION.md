@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-From the directory containing this file, run `sh reproduce.sh` with a C++17 compiler and Python 3. There are no downloaded data dependencies or third-party Python modules. The script compiles the two standalone C++ source files from their embedded contents, executes them, then executes `verify_small.py`.
+# Independent mathematical audit
 
-`count_ordered.cpp` enumerates all cliques containing the zero triple using increasing vertex indices in a 343-vertex compatibility graph formed from direct coordinatewise distinction. `count_coloring.cpp` instead derives adjacency by complementing coordinatewise confusability and visits cliques in greedy-color reverse order. Each complete recursion counts eight-word solutions and proves that no nine-word solution contains the zero triple. Both must report exactly `38259704` and `0`. Translational transitivity turns this rooted result into an exhaustive global proof, not a sampling estimate.
+## correctness
 
-`verify_small.py` checks each of the 211876 four-subsets of the two-use space, excludes two-use five-cliques by an independent exact recursion, checks the product construction and explicit indecomposable eight-word witness, and reproduces every decomposition and translation-orbit count using integer arithmetic. The program produces:
+PASS
 
-```
-ORDERED rooted_eight=38259704 rooted_nine=0
-COLORING rooted_eight=38259704 rooted_nine=0
-SMALL oneuse_pairs=7 twouse_maxima=1715 twouse_no_five=true
-STRUCTURE all=1640384809 decomposable=35329 indecomposable=1640349480 pure=343 translation_orbits=4782463
-WITNESS indecomposable_valid=true
-VERIFY_OK root8=38259704 root9=0 N3=1640384809 decomposable=35329 indecomposable=1640349480
-```
+The zero-error criterion is that any distinct triples differ by +/-1 mod 7 in at least one coordinate, i.e. cliques in the explicit 343-vertex distinguishability graph. Independent compiled C++ exhaustive increasing-index rooted-clique search, using a separately implemented adjacency predicate, found exactly 38,259,704 8-cliques and zero 9-cliques through 0; translation transitivity excludes every 9-code. Double-counting rooted pairs yields N3=343*38,259,704/8=1,640,384,809. Independent exhaustive two-coordinate enumeration found exactly 1715 four-cliques and no five-cliques. One-dimensional max-two independent pairs number seven; three coordinate-cut classes each have 7*1715=12005 and their pairwise/triple intersections are exactly 7^3=343, giving 35,329 decomposable and 1,640,349,480 indecomposable codes. An explicit size-eight indecomposable witness was checked pairwise and by its projections. Every nonzero translation has order seven, so cannot stabilize an eight-element set and the 4,782,463 orbit quotient is exact. All assertions are finite complete enumerations with independently inspected search logic; bounded program exhaustion is necessary for these exact finite counts, not extrapolation to larger use-counts.
 
-The code establishes exact finite statements only for the specified seven-symbol, three-use channel and one-versus-two-coordinate decomposition notion. It does not classify equivalence under all automorphisms or establish any infinite-length statement.
+## originality
+
+PASS
+
+The maximum eight was established earlier, and the exhibited product optimum is prior art. The newly assessed assertion is the *complete* labeled equality census and factorization/translation stratification, not the independence number. The 2015 primary strong-product paper was read through its methods, tables and witness; it reports maximum independence numbers and individual constructions, not this all-optimum count. Related two-factor independence papers address different/strictly smaller information. Exact large totals were not found in searched published records, and this is best-of-knowledge rather than certification of historical priority.
+
+## value
+
+PASS
+
+The complete equality layer and exact separation into Cartesian and non-Cartesian optimal zero-error codes is a natural capacity-achieving code invariant; it proves optimality does not imply product structure and counts inequivalent translation classes, beyond the already known scalar maximum. This is a complete, meaningful finite census for a canonical seven-symbol graph, not an arbitrary isolated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
