@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:40:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "Git source tree 2b3d1fce22e290c740464f6fd200529501c11359 RESULT.md, verify_radial.py; independent SymPy /mnt/data/scope09_independent_checks_20261015.py; original 2015 model equations (1)-(3)",
+      "rationale": "Direct Lie differentiation (rechecked independently with unrestricted symbolic a,b,c,d,r) gives L_F Phi=R^2-r^2 for Phi=z-dx^2/(2a), and L_F Psi=a z^2+x(R^2-r^2) for Psi=xz-dx^3/(3a). Invariance of compactly supported measure against h(Phi) for arbitrary C^1 h yields the conditional radial mean by measure disintegration. The second coboundary and E[R^2]=r^2 yield Cov(x,R^2)=-a E[z^2]. If E[z^2]=0 invariant support stays on z=0 and the vector field then forces R=r; otherwise variance and equality of mean require positive measure on both radial sides. Boundedness of Phi proves finite-time radial averages converge r^2. The supplied independent planar Hamiltonian oval at a=-1,b=c=d=0,r=1 establishes non-vacuity of non-equilibrium compact recurrence. Algebra identities rechecked with sympy; no numerical chaos proof assumed.",
+      "residual_risks": [
+        "Does not assert all bounded individual orbits have both radial excursions, only mean-square calibration; non-equilibrium compact stationary measures do.",
+        "No existence of chaotic invariant measures is proved for the published numerical parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary Shimizu–Morioka record is about E[x^2|z] in a different flow; other heightwise analogues have different equations and calibrating observables."
+        ],
+        "reasoning": "Neither related system nor a general published conditional-invariance theorem was found giving this particular corrected-height identity without the present differential-algebraic calculation.",
+        "searches": [
+          "quadratic chaotic flow circular equilibrium dot x=a z dot y=z(b x+c z squared) radial moment covariance invariant measure corrected height",
+          "Resultary: Shimizu-Morioka fiberwise amplitude calibration stationary measure; Lorenz-Stenflo heightwise feedback calibration"
+        ]
+      },
+      "checked_sources": [
+        "Gotthans and Petržela (2015), https://doi.org/10.1007/s11071-015-2056-7",
+        "Kingni et al. (2016), https://doi.org/10.1007/s00034-016-0259-x",
+        "Resultary own record 2026/10/11/...--884233502046",
+        "Resultary related record ...--e13b10e43966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full 2015 paper states vector field; its §2 derives a Jacobian and characteristic polynomial and §3 circuit tests; no invariant-probability conditional theorem.",
+          "2016 follow-up abstract and metadata only available; no claim of whole-document noncoverage is made."
+        ],
+        "reasoning": "The known circle of equilibria has R=r for stationary points; that fact alone is weaker than a universal conditional mean, non-equilibrium covariance, and strict crossing for arbitrary stationary distributions.",
+        "searches": [
+          "Gotthans and Petržela (2015), https://doi.org/10.1007/s11071-015-2056-7",
+          "Kingni et al. (2016), https://doi.org/10.1007/s00034-016-0259-x",
+          "quadratic chaotic flow circular equilibrium dot x=a z dot y=z(b x+c z squared) radial moment covariance invariant measure corrected height"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original (2015) §2 eqs. (1)-(6) give model and linearization, with simulations and local equilibrium analysis, not conditional measure identities."
+        ],
+        "reasoning": "The equilibrium-circle geometry by itself does not entail the conditional r^2 law for arbitrary compact invariant probability states; the polynomial corrected height is an additional exact balance.",
+        "searches": [
+          "quadratic chaotic flow circular equilibrium dot x=a z dot y=z(b x+c z squared) radial moment covariance invariant measure corrected height",
+          "web: Gotthans Petrzela circular equilibrium stationary moments invariant measures radius crossing",
+          "Gotthans and Petržela (2015), https://doi.org/10.1007/s11071-015-2056-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 source Fig.1/2 and parameter equation (3) record numerical attractors, not exact radial invariant-measure moment tables."
+        ],
+        "reasoning": "Numerical attractor cross-sections and local stability figures cannot imply a universal measure identity at arbitrary a!=0,b,c,d,r>0.",
+        "searches": [
+          "quadratic chaotic flow circular equilibrium dot x=a z dot y=z(b x+c z squared) radial moment covariance invariant measure corrected height",
+          "Gotthans and Petržela (2015), https://doi.org/10.1007/s11071-015-2056-7"
+        ]
+      },
+      "rationale": "Full open original circular-equilibrium paper gives this exact vector field and local spectra/chaos numerics, not invariant-measure conditional calibration, covariance sign or strict radial mass crossing; analogous Resultary calibrations concern different vector fields. The plausible 2016 follow-up full text is not available; that is recorded as priority risk, not automatically a failure.",
+      "residual_risks": [
+        "The 2016 Kingni–Pham–Jafari–Kol–Woafo complete paper is uninspected and could contain a stronger implication-equivalent theorem.",
+        "Other invariant-measure work on equilibrium manifolds might subsume the identity under different nomenclature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING stationary conditional radial constraints",
+          "evidence": "Eqs. (1)-(2) match flow; published work discusses simulations, eigenvalues and circuit realization, not integration of two global polynomial coboundaries.",
+          "identifier_or_url": "doi:10.1007/s11071-015-2056-7; https://link.springer.com/article/10.1007/s11071-015-2056-7",
+          "material_read": "Full open-access HTML §§1–3, equations (1)–(7), Jacobian Eq.(4), attractor figures and closing material",
+          "method": "Open-access publisher full text",
+          "title": "New class of chaotic systems with circular equilibrium",
+          "trigger": "Exact source of the model and circle equilibrium"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE — explicit residual originality risk, not negative full-text finding",
+          "evidence": "No full theorem/appendix was available to compare; lack of access alone does not establish prior coverage or noncoverage.",
+          "identifier_or_url": "doi:10.1007/s00034-016-0259-x",
+          "material_read": "Bibliographic record/abstract only; full mathematical paper not accessed",
+          "method": "Public metadata and limited abstract",
+          "title": "Related circular-equilibrium chaotic system study (Kingni et al.)",
+          "trigger": "Historically plausible follow-on paper for same equilibrium circle and possible stronger stationary constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gotthans and Petržela (2015), https://doi.org/10.1007/s11071-015-2056-7",
+        "RESULT.md radial proof"
+      ],
+      "rationale": "The exact height-conditioned radial calibration is a rigorous measure-level law for a physically studied continuum-equilibrium chaotic flow, and strict radial crossing excludes whole classes of purported recurrent states; the covariance measures genuinely non-equilibrium activity. It is object- and invariant-motivated rather than a gratuitous moment arithmetic check.",
+      "residual_risks": [
+        "Nonvacuity is established for selected coefficients, not as a theorem about chaos at the original example parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For dx/dt=a z, dy/dt=z(bx+c z^2), dz/dt=x^2+y^2-r^2+d xz with real b,c,d and a!=0, r>0, compact invariant measures obey E[x^2+y^2 | z-dx^2/(2a)]=r^2 and Cov(x,x^2+y^2)=-a E[z^2]; non-equilibrium compact stationary states charge both radial sides; bounded forward orbits have radial time-average r^2.",
+  "limitations": [
+    "Compact invariant measures only for conditional and crossing laws; bounded forward trajectories only for time-averaged radial mean.",
+    "Kingni et al. full text inaccessible, explicit novelty residual risk."
+  ],
+  "schema_version": 1
+}

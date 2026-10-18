@@ -1,11 +1,21 @@
-# Scientific review: conditional radial rigidity in a circular-equilibrium flow
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed system is the entire parameter family in the original open-access paper, restricted only by \(a\ne0\) and \(r>0\). Exact Lie derivatives of \(\Phi=z-dx^{2}/(2a)\) and \(\Psi=xz-dx^{3}/(3a)\) are proved in RESULT.md and verified independently by symbolic expansion in `verify_radial.py`. Compact support justifies integration of generators against stationary probabilities and lets the test functions span the corrected-height sigma-algebra. Compact invariance makes \(z=0\) almost surely equivalent to support on the full equilibrium circle. The radial mean-square balance, strict covariance, both-side mass and periodic-orbit crossing follow without numerical assumptions. The Hamiltonian witness with \(a=-1\), \(b=c=d=0\), \(r=1\) guarantees that the strict non-equilibrium conclusions have concrete realizations. Conditionality is almost sure, and bounded forward trajectory statements are limited to time averages.
+## correctness
 
-**Originality — PASS with residual priority risk.** The original complete 2015 Gotthans–Petržela article describes the exact flow, local equilibrium-circle eigenvalues, numerical bifurcations and an implementation, not a corrected-height conditional stationary law or signed covariance rigidity. The 2016 Gotthans–Sprott–Petržela circle/square-equilibrium paper presents a different vector field, including a simpler circle equation with \(\dot z=x^{2}+y^{2}-1\), but neither its parameter range nor its statements dominate the \(d\)-dependent identities here. Published research records with radial moment or conditional identities concern different systems; the difference in their ODEs blocks a claimed implication. The abstract of Kingni et al. (2016) was available but its complete equations and arguments were not; possible earlier equivalent findings there remain an explicit risk. Neither a failed index search nor a shared term such as “circle equilibrium” alone establishes novelty.
+PASS
 
-**Value — PASS.** The original circular equilibrium is a natural geometric threshold, but the appearance of a chaotic attractor in a numerical projection does not determine its stationary RMS radius at each corrected height. The conditional shell law fixes that quantity exactly at the equilibrium radius for every compact invariant state, independent of the nonlinear coefficients \(b,c\), and the second polynomial identity quantitatively relates radial skew to transverse activity. Non-equilibrium recurrence must sample both radial sides. These are substantive, reproducible obstructions to proposed invariant-state statistics, not a reformulation of the circle equilibrium condition. An explicit nonconstant periodic orbit in an integrable member makes the strict conclusion nonvacuous. The result is not a proof of chaos in the published parameter example.
+Direct Lie differentiation (rechecked independently with unrestricted symbolic a,b,c,d,r) gives L_F Phi=R^2-r^2 for Phi=z-dx^2/(2a), and L_F Psi=a z^2+x(R^2-r^2) for Psi=xz-dx^3/(3a). Invariance of compactly supported measure against h(Phi) for arbitrary C^1 h yields the conditional radial mean by measure disintegration. The second coboundary and E[R^2]=r^2 yield Cov(x,R^2)=-a E[z^2]. If E[z^2]=0 invariant support stays on z=0 and the vector field then forces R=r; otherwise variance and equality of mean require positive measure on both radial sides. Boundedness of Phi proves finite-time radial averages converge r^2. The supplied independent planar Hamiltonian oval at a=-1,b=c=d=0,r=1 establishes non-vacuity of non-equilibrium compact recurrence. Algebra identities rechecked with sympy; no numerical chaos proof assumed.
 
-**Closest sources and remaining limits.** Gotthans and Petržela (2015), doi:10.1007/s11071-015-2056-7, was inspected as complete open-access article; Gotthans, Sprott and Petržela (2016), doi:10.1142/S0218127416501376, was inspected as complete author-hosted PDF. The accessible Kingni et al. (2016) metadata and abstract, doi:10.1007/s00034-016-0259-x, do not resolve full-text priority. The finding makes no assertion about existence, uniqueness, or physical measure properties of the numerically observed attractor and does not independently classify all bounded solutions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full open original circular-equilibrium paper gives this exact vector field and local spectra/chaos numerics, not invariant-measure conditional calibration, covariance sign or strict radial mass crossing; analogous Resultary calibrations concern different vector fields. The plausible 2016 follow-up full text is not available; that is recorded as priority risk, not automatically a failure.
+
+## value
+
+PASS
+
+The exact height-conditioned radial calibration is a rigorous measure-level law for a physically studied continuum-equilibrium chaotic flow, and strict radial crossing excludes whole classes of purported recurrent states; the covariance measures genuinely non-equilibrium activity. It is object- and invariant-motivated rather than a gratuitous moment arithmetic check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

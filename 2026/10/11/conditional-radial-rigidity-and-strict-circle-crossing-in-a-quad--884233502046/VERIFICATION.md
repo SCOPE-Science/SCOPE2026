@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The exact vector field, \(\Phi=z-dx^{2}/(2a)\) and \(\Psi=xz-dx^{3}/(3a)\) are defined in RESULT.md. With SymPy installed, run `python3 verify_radial.py` from this directory. A successful run prints `VERIFY_OK`. The script expands the full Lie derivatives for symbolic \(a,b,c,d,r\), verifies their cancellations, checks the published parameter specialization, and checks both the planar Hamiltonian and its local minimum for the periodic example.
+## correctness
 
-**Analytical checks.** Flow invariance of a compactly supported probability implies integration of exact derivatives against the measure is zero. Applying this to every differentiable scalar function of \(\Phi\) establishes \(\mathbb E[R^{2}\mid\Phi]=r^{2}\) almost surely; integrating the derivative of \(\Psi\) gives the covariance identity. If the invariant support has \(z=0\), the vector field forces \(R^{2}=r^{2}\) throughout that support. Combining this equality case with the fixed radial second moment proves positive measure both inside and outside the equilibrium circle for non-equilibrium stationary states. Integrating \(\dot\Phi\) gives the finite-time bounded-orbit identity without assuming ergodicity.
+PASS
 
-**Limits.** The symbolic checker is not an independent mathematical audit and does not establish any infinite-time convergence numerically. The existence of chaotic recurrence at the source's numerical coefficients is not proved. The bibliographic originality assessment retains a documented uninspected full-text risk.
+Direct Lie differentiation (rechecked independently with unrestricted symbolic a,b,c,d,r) gives L_F Phi=R^2-r^2 for Phi=z-dx^2/(2a), and L_F Psi=a z^2+x(R^2-r^2) for Psi=xz-dx^3/(3a). Invariance of compactly supported measure against h(Phi) for arbitrary C^1 h yields the conditional radial mean by measure disintegration. The second coboundary and E[R^2]=r^2 yield Cov(x,R^2)=-a E[z^2]. If E[z^2]=0 invariant support stays on z=0 and the vector field then forces R=r; otherwise variance and equality of mean require positive measure on both radial sides. Boundedness of Phi proves finite-time radial averages converge r^2. The supplied independent planar Hamiltonian oval at a=-1,b=c=d=0,r=1 establishes non-vacuity of non-equilibrium compact recurrence. Algebra identities rechecked with sympy; no numerical chaos proof assumed.
+
+## originality
+
+PASS
+
+Full open original circular-equilibrium paper gives this exact vector field and local spectra/chaos numerics, not invariant-measure conditional calibration, covariance sign or strict radial mass crossing; analogous Resultary calibrations concern different vector fields. The plausible 2016 follow-up full text is not available; that is recorded as priority risk, not automatically a failure.
+
+## value
+
+PASS
+
+The exact height-conditioned radial calibration is a rigorous measure-level law for a physically studied continuum-equilibrium chaotic flow, and strict radial crossing excludes whole classes of purported recurrent states; the covariance measures genuinely non-equilibrium activity. It is object- and invariant-motivated rather than a gratuitous moment arithmetic check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
