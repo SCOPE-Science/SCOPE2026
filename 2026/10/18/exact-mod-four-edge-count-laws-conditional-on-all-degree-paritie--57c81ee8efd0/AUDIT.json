@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "With rank n-1 incidence, each feasible syndrome has exactly 2^(M-n+1) graphs. The character expansion yields equation (1) with the exact factor (1+i)^M/2^(M+1). Krawtchouk coefficients collapse to three even-n cases and one signed nonzero odd-n case. Triangle symmetric difference forces vanishing even-edge parity character. Four-point inversion yields exact residue laws. Independently checked integer Gaussian expectations and finite graph fibers: 45 symbolic/parameter pairs and 60 exhaustive fiber configurations totaling 33,864 graphs; the proof covers all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balister et al. arXiv:2105.12612 Theorems 4–7: counts of induced-partition patterns.",
+        "Lengler et al. arXiv:2305.02974 Section 1.1: edge-total divisibility, connectivity setting.",
+        "Ferber et al. arXiv:2107.06977 Theorems 1.1–1.3: induced-subgraph and partition existence."
+      ],
+      "reasoning": "The broadest related identified results concern asymptotic subgraph counts or connectivity, not exact conditional four-residue distributions. Generic code transforms require a new complete-graph coset evaluation; the source is not treated as direct support for novelty.",
+      "searches": [
+        "Conditioning G(n,1/2) on degree parities edges modulo 4 Ising partition roots of unity Krawtchouk",
+        "Uniform distribution of edge count modulo four conditional on entire vertex degree parity vector in Erdős–Rényi G(n, 1/2), n even and nontrivial odd-degree set; exact character formula",
+        "random graphs with prescribed odd degree vertices edge number modulo four distribution Eulerian graphs (mod 4)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.06977 (original theorems and Fourier lemma)",
+      "arXiv:2105.12612 (original partition theorems)",
+      "arXiv:2305.02974 and DOI:10.4230/LIPIcs.APPROX/RANDOM.2023.30 (edge-count congruence, connectivity)",
+      "Cameron (2002), Electronic Journal of Combinatorics 9 N2 (generic code weight enumerators)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferber et al. arXiv:2107.06977 Lemma 2.5 does not condition a fourth-root edge-count expectation on a fixed binary degree vector.",
+        "Cameron (2002) Greene identity applies generally but does not evaluate every complete-graph syndrome coset.",
+        "Balister et al. arXiv:2105.12612 derive partition-count distributions rather than exact edge-count congruence given a full degree-syndrome fiber."
+      ],
+      "reasoning": "Marginal degree-residue uniformity and generic Fourier/MacWilliams machinery do not state or logically imply this evaluated fiber-wise theorem without additional specialization. No compared source logically states a stronger classification from which this is an immediate listed corollary.",
+      "searches": [
+        "Uniform distribution of edge count modulo four conditional on entire vertex degree parity vector in Erdős–Rényi G(n, 1/2), n even and nontrivial odd-degree set; exact character formula",
+        "Weight enumerator of cycle space coset of complete graph K_n at fourth root i, Krawtchouk exact zeros for degree parity syndromes",
+        "Exact four residue edge-count enumeration of Eulerian or T-join spanning subgraphs by odd-degree vertex set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A graph with given odd-degree set is a coset of the binary cycle code of the complete graph.",
+        "Ferber et al. arXiv:2107.06977 Section 2 analyzes degree residues without the fourth-root edge weight.",
+        "Cameron (2002) Sections 2,4 treat generic code weight enumerators."
+      ],
+      "reasoning": "Translated the statement to coset weight-enumerator evaluation at i and to a joint Fourier law; neither explicit complete-graph coset expression nor the zero classification was located in inspected primary results. An older equivalent remains possible.",
+      "searches": [
+        "Exact distribution of the number of edges modulo four of a uniform labelled simple graph conditional on the complete degree parity sequence; even vertex count yields exact uniform mod4 when parity vector is neither all-even nor all-odd",
+        "Complete graph binary cycle space and graph T-join coset weight enumerator evaluated at fourth roots of unity, exact zero criterion parity of edge count modulo four",
+        "Weight enumerator of cycle space coset of complete graph K_n at fourth root i, Krawtchouk exact zeros for degree parity syndromes",
+        "number of edges modulo four conditioned on degree parity sequence uniformly random labelled graph exact enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cameron (2002) develops generic weight-enumerator relationships.",
+        "The independent integer enumerator in verify.py checks all 33,864 graphs on 3–6 vertices; it is new computational corroboration, not a known external table."
+      ],
+      "reasoning": "Searched for known exact tables of Eulerian graph edge residues and coset weight distributions. No directly matching exact database/table found, but finite enumeration and failed searches cannot prove absence of older data.",
+      "searches": [
+        "Exact distribution of the number of edges modulo four of a uniform labelled simple graph conditional on the complete degree parity sequence; even vertex count yields exact uniform mod4 when parity vector is neither all-even nor all-odd",
+        "Exact four residue edge-count enumeration of Eulerian or T-join spanning subgraphs by odd-degree vertex set",
+        "complete graph cycle space weight enumerator at imaginary unit Eulerian subgraphs exact generating polynomial",
+        "weight enumerator complete graph cycle code i evaluation zero conditional parity degrees"
+      ]
+    },
+    "rationale": "The comparison treats degree-syndrome cosets, fourth-root evaluations, global edge totals, and exact all-fiber formulas—not merely matching wording. The published frameworks cover related degree residues, partition counts, global edge-count side constraints, and generic code enumerators, but the inspected material does not supply the all-fiber mod-four formula or its parity-of-n zero criterion. Published mathematical-search returns have distinct objects or conclusions. Historical priority remains genuinely unverified against older cycle-code coset and Ising identities.",
+    "residual_risks": [
+      "Potential earlier explicit evaluations of complete-graph binary cycle-code coset weight enumerators at i.",
+      "Equivalent exact conditional laws may be embedded in older Ising partition-function, graph Eulerian subgraph, or roots-of-unity enumerator literature.",
+      "No independent historical-priority assessment; general code transforms are not themselves claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives asymptotic residue-congruence estimates and induced-subgraph/partition existence, not exact joint edge total mod-four versus all degree parities.",
+        "evidence": [
+          "Theorems 1.1–1.3 concern induced subgraphs/partitions; Lemma 2.5 concerns vertex degree vector residues alone.",
+          "Section 2 Fourier product is analogous but does not weight the total edge count by the fourth root of unity."
+        ],
+        "identifier_or_url": "arXiv:2107.06977",
+        "material_read": "Introduction, Theorems 1.1–1.3, Section 2 and Fourier proof of Lemma 2.5; full-document text search for edge count and modulus four.",
+        "method": "Original public arXiv full text and PDF pages; compared scopes and mathematical implications.",
+        "title": "On subgraphs with degrees of prescribed residues in the random graph",
+        "trigger": "Closest degree-residue Fourier framework for independent-edge random graphs."
+      },
+      {
+        "assessment": "Counts vertex partitions inducing residue-constrained subgraphs, not the number of graphs per full degree-parity syndrome and edge-count residue.",
+        "evidence": [
+          "Theorems 4–7 target asymptotic laws for number of good induced vertex partitions.",
+          "No theorem about conditional edge counts modulo four in inspected material."
+        ],
+        "identifier_or_url": "arXiv:2105.12612",
+        "material_read": "Abstract, introduction, Theorems 4–7 and proof setup in the full arXiv PDF; matched source theorem statements.",
+        "method": "Public open-access arXiv PDF, including direct viewing of theorem pages.",
+        "title": "Counting partitions of G(n,1/2) with degree congruence conditions",
+        "trigger": "Degree-congruence research on precisely the same random-graph model."
+      },
+      {
+        "assessment": "Considers total edge counts divisible by two or three as examples of dependent random graph models; derives connectivity bounds, not degree-parity-conditional edge-count laws.",
+        "evidence": [
+          "Section 1.1 contrasts edge-count congruence constraints.",
+          "Theorem framework concerns connectivity and notions of independence rather than the stipulated joint distribution."
+        ],
+        "identifier_or_url": "arXiv:2305.02974; doi:10.4230/LIPIcs.APPROX/RANDOM.2023.30",
+        "material_read": "Abstract, Section 1, Section 1.1 edge-total congruence examples, main connectivity threshold theorems of 22-page open-access conference text.",
+        "method": "Publisher open-access full text and searchable PDF with direct pages.",
+        "title": "On Connectivity in Random Graph Models with Limited Dependencies",
+        "trigger": "Natural edge-total congruence constraints in random graph dependence models."
+      },
+      {
+        "assessment": "General enumerator and Tutte specialization, but no complete-graph syndrome-coset fourth-root evaluation or zero/nonzero classification is explicitly stated.",
+        "evidence": [
+          "Section 2 defines general code weight enumerators.",
+          "Section 4 states Greene’s general specialization; its unshifted code enumeration alone does not give every prescribed nonzero syndrome coset."
+        ],
+        "identifier_or_url": "P. J. Cameron, Electronic Journal of Combinatorics 9 (2002), N2",
+        "material_read": "Accessible complete text, especially Sections 2 and 4 on binary code enumerators and Greene’s theorem.",
+        "method": "Open-access article full text inspected; implications compared algebraically.",
+        "title": "Cycle Index, Weight Enumerator, and Tutte Polynomial",
+        "trigger": "Classical coding theory may give an equivalent cycle-space weight-enumerator formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57c81ee8-efd0-49c7-941e-3057e0b7e7a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies a natural exact conditional-independence phenomenon: for every even graph order and any nonconstant feasible complete degree-parity pattern, four edge-count residue classes are exactly equal. Exhaustively classifies exceptional parity patterns and odd graph orders with explicit nonzero bias. The precise qualitative zero criterion is not inferred from standalone degree parity marginal uniformity or from generic finite verification; it is relevant to parity-constrained graph sampling, congruence leakage and cycle-space enumeration.",
+    "status": "PASS"
+  }
+}
