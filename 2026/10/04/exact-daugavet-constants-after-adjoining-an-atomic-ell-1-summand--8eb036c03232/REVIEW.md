@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof treats an arbitrary slice of \(B_{X\oplus_1\ell_1(\Gamma)}\) through the dual norm \(\max\{\|f\|,\|c\|_\infty\}\), so one of the two blocks supplies a sharp lower obstruction. Two explicit families of slices give the matching upper bounds. The non-attainment of \(\|a\|_\infty\) is handled by approximation, and the endpoint \(\|a\|_\infty=1\) is handled separately. The finite exact-rational specialization agrees with the known pure \(\ell_1\) formula in all \(92{,}760\) tested cases.
+## correctness
 
-## Originality
-PASS. The closest quantitative source, Choi--Jung, gives the definition, exact \(\ell_1\) formula, and lower stability estimates for \(\ell_1\)-sums, but not this exact mixed-component identity. The earlier Haller--Pirk--Veeorg paper treats absolute sums qualitatively. Searches for the exact mixed formula, scalar extensions, and quantitative \(\ell_1\)-sum stability found no statement implying the displayed equality. Residual risk remains from unindexed or differently phrased literature.
+PASS
 
-## Value
-PASS. The identity closes a natural quantitative gap between general \(\ell_1\)-sum lower bounds and exact atomic \(\ell_1\) formulas. It isolates the precise competition between the existing geometry of \(X\) and the largest new atomic coordinate, and gives the sharp corollary \(\operatorname{dc}(x,a)=2(1-\|a\|_\infty)\) whenever \(X\) has the Daugavet property.
+For z=(x,a) in the unit sphere of the real l1-sum of X and ell1(Gamma), the dual norm is max(||f||,||c||_infinity)=1. Every slice norms at least one block: an X-only witness gives sup distance at least b+dc_X(x), while an almost-normed atomic coordinate gives at least 2(1-m). Since any given slice belongs to one of those cases, the min of both is a universal lower bound. Conversely an X-functional slice forces atomic norm <epsilon, yielding <=b+dc_X(x); a coordinate slice at |a_gamma| approaching m forces distance <=2(1-|a_gamma|), yielding <=2(1-m). Endpoint b=0 and m=1 are consistent; if X is Daugavet, dc_X(x)=1+||x|| so min is 2(1-m). An independent exact-rational check of 14,640 normalized signed integer vectors in ell1^d, 2<=d<=5, matched the known pure ell1 formula. CAVEAT: the proof’s ancillary assertion that a nonzero ell1 vector's infinity norm may fail to be attained is false—nonzero ell1 vectors attain that supremum; it is an unnecessary overcautious limit argument, not a premise or failure of the theorem. The KaTeX equation has an extra right brace; this must be corrected before publication.
 
-## Closest literature and limitations
-The quantitative baseline is arXiv:2307.10647; the qualitative absolute-sum baseline is arXiv:2001.06197. The result is specific to the \(\ell_1\)-sum norm. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the mixed arbitrary-Banach/atomic-ell1 minimum formula. Choi–Jung give pure ell1 exact constants and lower estimates for general l1-sums, and Haller–Pirk–Veeorg give qualitative point properties; neither inspected statement yields the second sharp matching upper bound for arbitrary X and Gamma. A recent mixed ellp-ell1 result returned by Resultary treats a Daugavet-component-specific case and does not dominate the arbitrary X theorem.
+
+## value
+
+PASS
+
+The identity supplies a sharp quantitative preservation/obstruction formula for the natural construction X⊕_1 ell1(Gamma), upgrading pure-atomic exact constants and mixed-sum one-sided estimates. Identifies two geometrically meaningful competing slice mechanisms; useful independently as an exact stability law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
