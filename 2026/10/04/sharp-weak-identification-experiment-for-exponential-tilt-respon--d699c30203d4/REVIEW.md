@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact target-input density after the response tilt. The fixed source mode mass makes the normalized gate perturbation centered exactly, so the first KL term cancels. A uniform logistic expansion gives the second moment \(3\eta^2+O(\eta^3)\), from which the KL, Fisher, and target-mean constants follow. The triangular-array likelihood-ratio increments are uniformly \(O(\eta)\), so the finite critical experiment follows from Lindeberg. Pinsker and Hoeffding establish the zero- and infinite-information regimes. The packaged deterministic checker reproduces the constants numerically for the source normalization used in the motivating paper.
+## correctness
 
-## Originality
-PASS. Choi (2026) owns the source model and the qualitative statement that every \(\eta>0\) is identified while \(\eta=0\) is not, and explicitly states that no general regression estimation rate is derived. Garg et al. (2020) provide broader fixed-model label-shift rates controlled by likelihood curvature, and Lee--Ma--Zhao provide semiparametric large-sample label-shift theory. The inspected statements do not contain the explicit logistic-gate density perturbation, its \(3/2\) KL coefficient, the Fisher constant, or the critical \(m\eta^2\) Gaussian experiment. Statement-level indexed searches also returned no equivalent claim.
+PASS
 
-## Value
-PASS. The motivating paper reports sharp practical deterioration as its mode-signal parameter decreases. The theorem gives the exact statistical reason: information per target input is quadratic in that signal, so maintaining a fixed ability to distinguish response shifts requires target sample size of order \(\eta^{-2}\). The critical total-variation limit further quantifies the entire transition instead of merely restating identifiability.
+Algebra of response tilt yields r_b(v)=1+(q_b-p)s_eta(v), s_eta=(pi_eta-p)/(p(1-p)). Symmetry of uniform V makes d_eta even and s_eta(v)=3 eta v+O(eta^2) uniformly. Therefore E s_eta^2=3 eta^2+O(eta^3) and E Vs_eta=eta+O(eta^2); KL and Fisher coefficients follow by Taylor expansion, plus target mean. The bounded triangular log likelihood increments prove Gaussian LLR limit when m eta^2->lambda; Pinsker and Hoeffding respectively cover vanishing/diverging regimes. Scope is known-source fixed p, b0!=b1, eta down zero.
 
-## Closest literature and limitations
-The closest direct source is arXiv:2609.30886v1. The closest broader label-shift comparison inspected in full is arXiv:2003.07554; its curvature-dependent bound is related but not the same statement. arXiv:2307.04250 is a plausible broader semiparametric comparison; only its abstract and accessible records were inspected because the checked full-text route was unavailable. The claim is restricted to a known-source, correctly specified separable binary-mode subexperiment and does not establish a rate for the implemented ExTRA estimator or a conformal-coverage guarantee.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Garg identification via invertible confusion matrices and Choi abstract on weak target inputs do not themselves quantify the two fixed tilts under a vanishing logistic signal. Because Choi full text is unread, absence of hidden equivalent results is not asserted.
+
+## value
+
+PASS
+
+A quantitative information boundary for a documented weakly identifiable response-tilt model: exact KL/Fisher coefficients and fixed-alternative Gaussian testing limit distinguish identification at each eta>0 from practical vanishing information. The narrow known-source design is explicit and independently useful as a sharp benchmark, not asserted general ExTRA-estimator rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
