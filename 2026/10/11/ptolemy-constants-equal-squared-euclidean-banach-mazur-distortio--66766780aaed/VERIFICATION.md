@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked from the exact domain assumptions through both invariant calculations.
+# Independent mathematical audit
 
-For Banach--Mazur distance, an arbitrary Euclidean pullback is represented by a positive-definite quadratic form. After rescaling, its two-sided comparison with the target norm is squared and averaged over all signed coordinate permutations. The averaged form remains between the same two squared bounds and is forced to be a scalar multiple of the Euclidean form. This proves global optimality of the coordinate circle rather than only local or axis-aligned optimality.
+## correctness
 
-For the radial value, homogeneity identifies the norm-to-Euclidean ratio with \(\psi(t)/\psi_2(t)\) on \((1-t,t)\). The axis value is \(1\), and the stated midpoint hypothesis gives the opposite extreme. Hence the exact Banach--Mazur distortion is \(\sqrt2\psi(1/2)\) in the upper branch and \(1/(\sqrt2\psi(1/2))\) in the lower branch.
+PASS
 
-For the Ptolemy side, the open-access primary source's Theorems 2.2 and 2.3 were read in full surrounding context. They give the corresponding squared midpoint ratios. Therefore the two invariants agree exactly under the stated hypotheses.
+For every symmetric absolute normalized N_ψ, its full linear isometry group contains the eight signed coordinate permutations. If H=√q is any candidate Euclidean pullback with N_ψ≤H≤dN_ψ after scalar normalization, then N_ψ²≤q(gx)≤d²N_ψ² for each group element g. Averaging preserves both inequalities and yields a strictly positive scalar quadratic form c(x²+y²), showing no tilted or anisotropic ellipse improves over the coordinate Euclidean circle. The assumed one-sided Euclidean comparison with midpoint-maximal ratio implies the optimal BM distortion M is respectively √2 ψ(1/2) or 1/(√2 ψ(1/2)); the minimum ratio is 1 on axes. Zuo (2012) Theorems 2.2 and 2.3 state the matching Ptolemy value M² under the corresponding hypotheses. Direct source theorem and its normalization were inspected. Thus C_Pt=d_BM², including ψ=ψ₂ and ℓp² checks; no finite sampling is substituted for the finite-group averaging proof.
 
-No finite experiment, numerical fit, exhaustive enumeration, or external certificate is used. The unresolved limit is bibliographic rather than mathematical: a differently indexed prior formulation of the same general bridge cannot be ruled out absolutely by finite searching.
+## originality
+
+PASS
+
+The original Zuo formula computes the Ptolemy constant; the additional Banach–Mazur optimizer identification uses all linear isomorphisms and is not stated in the inspected primary text. Matching special families and the identical Resultary record do not constitute a stronger prior general theorem. Residual risk of an older Banach–Mazur averaging identity paired with Zuo is explicit.
+
+## value
+
+PASS
+
+A single structural symmetry-plus-midpoint test evaluates two conceptually different natural invariants on an infinite class of Banach planes. The proof certifies globally optimal Euclidean distortion over all linear maps, so it is a reusable geometric bridge rather than a one-off table recomputation. The required group averaging is elementary but yields a nontrivial cross-invariant identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
