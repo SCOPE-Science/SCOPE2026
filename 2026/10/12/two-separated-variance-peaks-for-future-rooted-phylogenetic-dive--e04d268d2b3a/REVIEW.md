@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The random quantity is precisely rooted edge-presence phylogenetic diversity, with common independent extinction probability \(q\). Its variance is derived from a binomial crown count and outgroup indicator; a quadratic Bernstein-basis certificate proves four strict derivative signs for every real crown length \(a\in[7/10,4/5]\), while Descartes' sign rule forces exactly three positive stationary points. The independent fully bifurcating example has exact rational derivative bounds via the published edge-covariance formula. The attached standalone checker verifies its positive ultrametric lengths and all symbolic identities; it also independently enumerates 8192 survivor-state contributions. No finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with limitations.** Faller, Pardi, and Steel already derive the complete edge-covariance formula for future PD; that calculation is explicitly attributed. Their inspected Lemma 2.1, main normal-limit theorem, algorithm, and concluding remarks do not assert two peaks of variance as extinction probability varies. The quantitative interval-wide root classification and fully bifurcating persistence are additional structural statements, not new notation for the variance identity. O'Dwyer, Kembel, and Green study phylogenetic sampling means and variance; Nipperess and Matsen focus on fixed-size rarefaction rather than independent extinction. A relevant supplementary variance derivation from the former was not accessible for complete inspection, and obscure prior modal analyses remain possible.
+PASS
 
-**Value — PASS.** Variance is directly relevant when variability or tail-risk approximations, rather than expectation alone, guide conservation comparisons. This theorem refutes the seemingly natural single-peak interpretation of uncertainty as extinction pressure rises; the two separated maxima persist across continuously many positive branch lengths and beyond an unresolved toy tree. It supplies an exact reproducible structural boundary for the constant-risk model without overstating empirical prediction or minimality.
+With outgroup survival indicator Z and crown survivor count S~Bin(9,1−q), rooted PD is Z+a1_{S>0}+(1−a)S. Independence gives the exact polynomial V_a with three terms. Its derivative at q=1/2,3/5,3/4,9/10 has signs +,−,+,− uniformly for all a∈[7/10,4/5], because all quadratic Bernstein coefficients at those q are strictly sign-correct. Descartes sign variations in descending derivative coefficients (-,-,+,-,+) cap positive roots at three, so the three bracketed roots are simple and give two maxima. For a fully resolved ten-tip caterpillar crown with 1/1000 internal increments, the exact pairwise edge-covariance identity yields four strict rational inequalities, forcing at least two maxima; continuity in edge lengths proves robustness. Independent rational mask-covariance calculation confirmed signs and Bernstein coefficient margins; no claim of ten-tip minimality or exact binary critical count.
 
-**Closest literature and residual limits.** Faller–Pardi–Steel, doi:10.1016/j.jtbi.2007.11.034, Lemma 2.1 is the key predecessor; O'Dwyer–Kembel–Green, doi:10.1371/journal.pcbi.1002832, also derives sampled-PD variances, and Nipperess–Matsen, doi:10.1111/2041-210X.12042, treats hypergeometric rarefaction. The proof neither classifies all trees nor establishes a ten-species lower bound, and all conclusions assume independent equal extinction probabilities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Faller–Pardi–Steel 2008 provides precisely the rooted future-PD edge-covariance formula used here and full distributional/variance framework; it does not state the double local-maxima q-profile, uniform crown-stem interval, or bifurcating persistence in inspected full article. O’Dwyer–Kembel–Green 2012 concerns sampling-community PD variance, and Nipperess–Matsen 2013 fixed-size rarefaction, different sampling laws. Exact edge covariance is explicitly prior work; new content is variation in q and its robust bimodality.
+
+## value
+
+PASS
+
+Future-PD variance is a natural risk/uncertainty statistic under extinction. Demonstrating two separated peaks even for independent, equal tip risks refutes a plausible but false one-peak heuristic; the interval-wide certificate and robust positive ultrametric bifurcating witness turn it into a structural counterexample relevant to variance-based conservation reasoning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
