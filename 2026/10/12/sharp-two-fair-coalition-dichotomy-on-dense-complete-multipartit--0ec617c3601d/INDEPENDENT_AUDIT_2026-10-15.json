@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:20:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every proper exact-two-fair dominating set S on r>=3 parts, each size>=3, cannot contain an entire part: an outside vertex from another part would see >=3 chosen vertices. Consequently every part has an outside vertex, the occupancies satisfy |S|-s_i=2 and all s_i=t, giving (r-1)t=2. Therefore proper eligible sets are precisely three-part one-per-part transversals, and none exists for r>=4. For r>=4 every coalition union must be V, permitting at most two blocks; any bipartition attains two by vacuity of V. For r=3, a hypothetical >=N-2-block partition has at most two cross-part pairs yet necessarily singleton vertices of all three part types requiring three pair types. Three AB/AC/BC pairs attain N-3. At ni>=4, every maximum consists of one of each pair type, 8 product binom(ni,2) choices, coalition graph three disjoint stars. Independent direct exhaustive partition enumeration finds maximum six among 21,147 partitions for K333 (558 optima); direct fair-set mask enumeration finds exactly 27 proper transversals for K333 and no proper 2-fair sets for K3333. Finite computations are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaneshiro defines outside domination by at least k neighbors, not exactly k.",
+          "3,2-domination is a different invariant even on the same graph family."
+        ],
+        "reasoning": "A larger admissible union class may bound but cannot characterize the absence of proper exactly-two unions for r>=4 or enumerate precise optima. Full Kaneshiro text unavailable; coverage risk stated.",
+        "searches": [
+          "Kaneshiro 2026 arXiv:2608.05403 abstract ordinary k-coalition",
+          "Brešar Henning Samadi 2025 arXiv:2507.18306 ordinary k-coalition",
+          "Resultary 2026/10/4/SCOPE-exact-3-2-domination-of-complete-multipartite-graphs--d5fe6eff1a9f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.11358v1 full HTML",
+        "arXiv:2608.05403 abstract and attempted full text",
+        "arXiv:2507.18306 ordinary coalition source abstract",
+        "Resultary semantic 2-fair multipartite search, 8 hits",
+        "Git result and verify_fair_coalition.py at assigned tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proper exact-two-fair union under ni>=3 is constrained to three-part transversals by (r-1)t=2.",
+          "Ordinary domination uses >=2 and may permit unions that exact fairness prohibits."
+        ],
+        "reasoning": "The no-proper-union result is not a formal corollary of an at-least-two optimum bound. The exact fair set lemma and block-excess obstruction are separate mathematical deductions.",
+        "searches": [
+          "arXiv:2509.11358v1 definitions and Theorem 3.3 on complete bipartite graphs",
+          "arXiv:2608.05403 abstract on ordinary k-coalition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact two-fair means every vertex outside S has exactly two selected neighbors.",
+          "A three-part transversal has one selected in each part and is exactly-two-fair."
+        ],
+        "reasoning": "The part-occupancy characterization is a reformulation of this exact predicate, but original complete-bipartite formula has only two parts; r>=3 is new domain.",
+        "searches": [
+          "arXiv:2509.11358v1 k-Fair Coalitions in Graphs, sections definitions and complete bipartite case",
+          "Resultary semantic: 2-fair coalition complete multipartite graphs exact two neighbors partition number transversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jafari and Alikhani main complete bipartite result is r=2, not r=3/4.",
+          "No found exact multipartite extremizer table matching 8 product binomial expression."
+        ],
+        "reasoning": "Neither same-object complete bipartite table nor distinct ordinary coalition table covers this particular exact-fair partition problem.",
+        "searches": [
+          "arXiv:2509.11358v1 primary full HTML Sections 1-6 and bipartite theorem",
+          "Resultary exact two-fair multipartite search"
+        ]
+      },
+      "rationale": "The initiators define exact-two-fair coalitions but work with complete/bipartite families; the 2026 Kaneshiro ordinary coalition requires at least two outside neighbors, mathematically weaker than exactly two. Those results do not force the four-part collapse or the exact extremizer count; full Kaneshiro text remained inaccessible despite arXiv, OA and authorized institutional attempts.",
+      "residual_risks": [
+        "Complete Kaneshiro 2026 paper inaccessible (authorized institutional VPN disconnected); it could imply some ordinary coalition bounds, although exact fairness differs.",
+        "The count and coalition-graph classification apply only when r=3, each ni>=4; smaller parts are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No r>=3 dense multipartite extremizer theorem in inspected source",
+          "evidence": "Definition of k-fair, complete bipartite Theorem 3.3 and subsequent graph families",
+          "identifier_or_url": "https://arxiv.org/html/2509.11358v1",
+          "material_read": "Complete accessible HTML, definitions and main case analyses including complete bipartite Theorem 3.3",
+          "method": "Read full accessible source text and compared domination/coalition definitions and covered graph classes",
+          "title": "k-Fair Coalitions in Graphs",
+          "trigger": "Introduces exactly the audited fairness rule"
+        },
+        {
+          "assessment": "Describes at-least-k ordinary coalition; cannot claim whole-paper noncoverage without reading complete article",
+          "evidence": "Abstract definition every outside vertex has at least k selected neighbors; institutional source status vpn_disconnected",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05403",
+          "material_read": "Author abstract and bibliographic details only; arXiv PDF/HTML and alternate OA retrieval unsuccessful; authorized institutional full text blocked by VPN",
+          "method": "Read original arXiv abstract, attempted full text and authorized institutional access, received vpn_disconnected",
+          "title": "On k-coalition partitions of graphs",
+          "trigger": "Newer complete-multipartite coalition treatment might dominate numeric claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp N-3 versus 2 drop between r=3 and 4 is a genuine structure transition on an infinite natural multipartite family. Full maximizer structure, counts, and three-star coalition graph solve more than a scalar threshold and can serve follow-on enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2509.11358v1 full HTML",
+    "arXiv:2608.05403 abstract and attempted full text",
+    "arXiv:2507.18306 ordinary coalition source abstract",
+    "Resultary semantic 2-fair multipartite search, 8 hits",
+    "Git result and verify_fair_coalition.py at assigned tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete Kaneshiro 2026 paper inaccessible (authorized institutional VPN disconnected); it could imply some ordinary coalition bounds, although exact fairness differs.",
+    "The count and coalition-graph classification apply only when r=3, each ni>=4; smaller parts are not classified.",
+    "No formal certificate, expert attestation, or automated publication is asserted.",
+    "Public-facing record METADATA.json includes operational scope_run_id and has not been sanitized under authorized owner supervision."
+  ],
+  "schema_version": 1
+}
