@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact \\(n^n\\) mapping space and loop conventions are fixed; cycle indicator conditioning produces \\(e_{n,k}\\) and the Binomial-plus-Bernoulli Palm law. One-step probability-generating-function subtraction establishes the fully quantified score-curvature formula; strict binomial-mass comparisons prove every sign with exact n=2,3 boundaries; the decreasing quadratic curvature produces at most one sign switch; the analytic limiting sign function has one interior positive root. Reproduction code passed 94602 exact/numerical finite assertions, explicitly not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:math/0603529 describes uniform maps conditional on exchangeable in-degrees and the marginals of cyclic-vertex and component counts.",
+        "doi:10.1239/aap/1208358892 treats the local predecessor and successor distributions.",
+        "arxiv:1803.02667 concerns six-length asymptotic moments under fixed degree sequences."
+      ],
+      "reasoning": "The random mapping model in the cited papers is broad enough to include uniform mappings. Their stated theorems do not dominate the dependence-sign conclusions: conditioning on an entire indegree sequence is different from computing an explicit unconditional cycle-size-weighted degree histogram, and none supplies the monotone discrete-curvature sign argument or the n-dependent zero transition. Possible implicit mixed GF coverage remains a risk.",
+      "searches": [
+        "random mapping cycle count in-degree statistics joint moments degree sequence combinatorial expectation",
+        "arxiv:math/0603529 joint degree-conditioned cyclic points",
+        "doi:10.1239/aap/1208358892 Theorem 3.1",
+        "arxiv:1803.02667 Theorems 2.1–2.3"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Odlyzko (1990), Random Mapping Statistics, Theorem 4",
+      "Hansen–Jaworski (2006), arxiv:math/0603529, Theorem 1 and Corollary 1",
+      "Hansen–Jaworski (2008), doi:10.1239/aap/1208358892, Theorem 3.1",
+      "Leckey–Wormald (2018), arxiv:1803.02667, Theorems 2.1–2.3",
+      "Hansen–Jaworski (2008), doi:10.1002/rsa.20187, bibliographic identity and preprint relation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously recorded theorem already proves the indegree-zero/cycle-count negative covariance: this special case is not claimed as new.",
+        "Flajolet–Odlyzko give marginal r-node/cycle-size means; the new result computes their mixed moment and identifies an r=2 sign reversal.",
+        "Hansen–Jaworski general conditional indegree constructions may facilitate derivation but do not state or prove the degree-two one-switch, positive r=1 or negative all r≥3 conclusions."
+      ],
+      "reasoning": "The new positive indegree-one relation, negative high-degree relations, all-k finite covariance formula, convex-score comparison, and nontrivial r=2 crossover require new comparisons of shifted binomial probabilities. The prior indegree-zero special case is covered. A general model admitting these objects is not alone a proved implication of the full sign theorem; a stronger unnoticed joint generating function is the specific unresolved risk.",
+      "searches": [
+        "uniform random mapping directed k cycles degree two indegree count covariance sign change unique threshold cycle length",
+        "arxiv:math/0603529 Corollary 1",
+        "arxiv:1803.02667 Theorem 2.1",
+        "Flajolet–Odlyzko Theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet–Odlyzko Theorem 4 separates marginal r-nodes and r-cycles.",
+        "Hansen–Jaworski arxiv:math/0603529 concerns cyclic-vertex count and component count.",
+        "Relevant mathematical-record matches concerned inversions in permutations rather than cycle-conditioned indegree histograms."
+      ],
+      "reasoning": "Under relabeling the exact mixed-moment formula is equivalent to a marked-vertex cycle-Palm indegree law. No statement matching this cycle-weighted Binomial-plus-Bernoulli law together with its finite sign classification was located in the inspected primary results. General generating functions could require an unexamined extraction, recorded below.",
+      "searches": [
+        "uniform random mapping directed k cycles degree two indegree count covariance sign change unique threshold cycle length",
+        "random functional digraph cycle length covariance indegree one indegree two histogram convex order",
+        "random mapping fixed cycle length size biased indegree distribution binomial Bernoulli covariance random mappings",
+        "Flajolet and Odlyzko 1990 Section 3.3 Theorem 4 r-nodes r-cycles",
+        "arxiv:math/0603529 Theorem 1 and Corollary 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 4 in Flajolet–Odlyzko tabulates expected r-node and r-cycle counts separately; no mixed covariance table appears in the passage read.",
+        "The searched mathematical record did not return an exact covariance matrix/table for all k and r."
+      ],
+      "reasoning": "The result is a uniform finite n,k,r parameter formula and a complete sign classification, not a recomputation of a known table. The lack of database hits is not a proof of novelty; the statement-level comparison with inspected primary sources is the material evidence.",
+      "searches": [
+        "random mappings covariance number of cycles of length k with count of vertices indegree 0 1 2 r exact sign threshold",
+        "uniform random mapping directed k cycles degree two indegree count covariance sign change unique threshold cycle length",
+        "Random Mapping Statistics Theorem 4 exact r-node r-cycle covariances",
+        "uniform random mappings covariance number of cycles of length k with count of vertices indegree 0 1 2 r exact sign threshold"
+      ]
+    },
+    "rationale": "The new claim is the complete, exact k-by-r cycle/indegree covariance-sign classification, the unique indegree-two crossover with its limiting constant, and the convex-score curvature ordering. Classical marginal results and the formerly known indegree-zero special case do not imply that complete classification without new binomial-Palm and one-switch arguments. The inspected general degree-sequence literature is mathematically relevant but its statements address different observables. Explicit residual historical-priority risks remain.",
+    "residual_risks": [
+      "Older multivariate enumerative generating functions may implicitly provide the mixed covariance identities; a complete historical-priority proof is not asserted.",
+      "The classical indegree-zero case is already established and explicitly excluded from the claimed new contribution.",
+      "Not every paper mentioning functional digraphs and degree sequences was exhaustively inspected; especially source approaches with unpublished joint-cycle-and-indegree formulae.",
+      "The crossover concerns rare macroscopic cycles and is a covariance sign classification, not a typical random-mapping phase transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4 states distinct asymptotic means for r-nodes and r-cycles, not their finite joint covariance, curvature comparison, or the degree-two cycle-length sign transition.",
+        "evidence": [
+          "Theorem 4 (r-configurations) lists the r-node mean and the r-cycle mean separately; printed page 339."
+        ],
+        "identifier_or_url": "Flajolet–Odlyzko (1990), https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+        "material_read": "Section 3, especially Section 3.1 and Theorem 4 in Section 3.3, rendered PDF page bearing printed p.339, and adjoining discussion.",
+        "method": "Full-text PDF passage and rendered page inspection.",
+        "title": "Random Mapping Statistics",
+        "trigger": "Marginal counts of cycle sizes and r-nodes may dominate a proposed mixed formula."
+      },
+      {
+        "assessment": "Joint degree-conditioned cyclic-vertex enumeration and marginal component laws provide general enumerative background, but do not assert the finite degree-class covariance-sign spectrum or one-switch law. Mathematical consequence via further derivation is a residual risk.",
+        "evidence": [
+          "Theorem 1 identifies the cyclic-vertex marginal; Corollary 1 identifies the component-count marginal; neither is a mixed cycle-length/degree-class sign theorem."
+        ],
+        "identifier_or_url": "arxiv:math/0603529, https://arxiv.org/pdf/math/0603529",
+        "material_read": "Full preprint relevant Introduction, Theorem 1 and proof (cyclic-vertex counts), Corollary 1 and proof (component counts), end-of-paper conclusions; full-document searches for covariance and cycle length.",
+        "method": "Read available original preprint extracted full text and inspected rendered title page.",
+        "title": "A new random mapping model",
+        "trigger": "A general fixed-indegree model may yield stronger mixed information."
+      },
+      {
+        "assessment": "The paper treats predecessors, successors, height and cycle length of a marked vertex. Its stated distributional formulas do not give global fixed-cycle-length versus all-indegree-class covariances.",
+        "evidence": [
+          "Section 3, Theorem 3.1 gives joint height and marked-vertex cycle-length distribution; degree histogram not an argument of the theorem."
+        ],
+        "identifier_or_url": "doi:10.1239/aap/1208358892, https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6993B104668C73703B9E57AF3DCC643E/S0001867800002433a.pdf/local-properties-of-random-mappings-with-exchangeable-in-degrees.pdf",
+        "material_read": "Original PDF abstract and rendered first page; Sections 1–2 and Section 3 Theorem 3.1, Corollaries 3.1–3.3, including their local-statistic definitions.",
+        "method": "Original mathematical PDF textual and visual inspection.",
+        "title": "Local properties of random mappings with exchangeable in-degrees",
+        "trigger": "Primary local indegree theory for the same functional graph objects."
+      },
+      {
+        "assessment": "Six-/tail-length limits under a fixed degree sequence do not specialize to the claimed mixed finite covariance-sign classification under random iid mapping images.",
+        "evidence": [
+          "Theorems 2.1–2.3 concern a marked vertex’s six-length and tail-length, not joint cycle-count/degree-frequency moments."
+        ],
+        "identifier_or_url": "arxiv:1803.02667, https://arxiv.org/abs/1803.02667",
+        "material_read": "Original submission metadata March 7, 2018; full-text introduction and Section 2 definitions/Theorems 2.1–2.3 and discussion of six-, tail- and cycle-length asymptotics.",
+        "method": "Open-access complete HTML article; inspected substantive mathematical theorems and setup.",
+        "title": "A limit theorem for the six-length of random functional graphs with a fixed degree sequence",
+        "trigger": "Middle-period primary source with random mappings and fixed in-degree sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afb5c532-ecc2-47ce-a4fb-6665925caca1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural globally defined cycle-size statistic and the complete local indegree histogram of a functional digraph have sharply class-dependent covariance signs. The indegree-two unique crossover is a natural finite-size and asymptotic cutoff, not an ad hoc parameter or just an improved decimal; the convex-score theorem provides a structural explanation organizing all occupancy scores. Earlier indegree-zero covariance is acknowledged, not repackaged as novelty. Applications involving long cycles are limited by event rarity, which is explicitly stated.",
+    "status": "PASS"
+  }
+}
