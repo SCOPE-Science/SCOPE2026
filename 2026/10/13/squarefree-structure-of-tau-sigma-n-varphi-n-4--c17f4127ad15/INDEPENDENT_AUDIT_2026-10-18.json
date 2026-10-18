@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:12:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete squarefree domain splits into n=1, odd prime, n=2, odd composite with at least two odd prime factors, and 2 times at least two odd prime factors, or 2q. The first two exceptional n=1,2 do not have four divisors after sigma+phi; odd primes do. For either composite with at least two odd prime factors, both multiplicative sigma and phi are multiples of 4, their sum exceeds 8, yet the only multiple of 4 with exactly four divisors is 8. For n=2q (q odd prime), sigma+phi=4q+2=2(2q+1), so tau=4 iff 2q+1 is prime. This proves the unbounded iff and bijection without assuming Sophie Germain infinitude. I separately recomputed exact arithmetic through n<=2000; the attached source verifier has a logically stronger but still finite cutoff of 500000, and its output was not treated as a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary top ranked records concern distinct divisor equations and tau-parametrizations, not tau(sigma+phi)=4.",
+          "De Koninck-Luca concerns extremal/average order of sigma(phi(n))/phi(sigma(n)), not this tau predicate."
+        ],
+        "reasoning": "No actually inspected stronger theorem entails the full iff; a negative search is not originality proof.",
+        "searches": [
+          "Resultary: divisor count tau(sigma(n)+Euler phi(n)) equals four squarefree Sophie Germain prime characterization",
+          "De Koninck and Luca 2007 DOI 10.4064/cm108-1-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: divisor count tau(sigma(n)+Euler phi(n)) equals four squarefree Sophie Germain prime characterization",
+        "OEIS:A067350",
+        "OEIS:A065387",
+        "OEIS:A097646",
+        "tau(sigma(n)+phi(n))=4 squarefree Sophie Germain primes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd squarefree composite with >=2 odd factors, sigma+phi is a multiple of 4 and >8; exactly four divisors and 4|N forces N=8.",
+          "For 2q the prime condition on 2q+1 follows at once."
+        ],
+        "reasoning": "Known semiprime arithmetic alone does not force the support exclusion; the complete statement contains an additional, albeit elementary, divisor-parity step.",
+        "searches": [
+          "OEIS:A065387",
+          "OEIS:A067350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A067350 is the exact predicate tau(sigma(n)+phi(n))=4; A065387 notes sigma(pq)+phi(pq)=2(pq+1) for squarefree semiprimes.",
+          "A097646 concerns n=phi(phi(n)+sigma(n)), a different equation with some of the same Sophie Germain examples."
+        ],
+        "reasoning": "Equivalent semiprime parameter statements cover the n=2q identity, but neither the different equation nor a database list implies all squarefree solutions and exclusion of 3-or-more prime support.",
+        "searches": [
+          "OEIS:A067350",
+          "OEIS:A065387",
+          "OEIS:A097646"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A067350 enumerates the ambient solutions including 22,25; A065387 gives sigma+phi values; A097646 records a different predicate."
+        ],
+        "reasoning": "The exact database object is known; its listed examples and semiprime formula are credited and no proof or exhaustive squarefree classification was located in the materials actually read.",
+        "searches": [
+          "OEIS:A067350",
+          "OEIS:A065387",
+          "OEIS:A097646"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact description of the squarefree portion of the OEIS A067350 predicate. Its published sequence and OEIS A065387 supply examples and the two-prime identity, and A097646 notes the Sophie Germain family for a DIFFERENT equation, but the audited iff excludes arbitrary larger squarefree supports using the modulus-four obstruction. Strongest risk is an elementary observation appearing in unindexed comments; no literature absence establishes priority.",
+      "residual_risks": [
+        "This short modulus-four argument could already appear in unindexed elementary number-theory notes, problem solutions or sequence comments.",
+        "Infinitude is conditional on the still-open infinitude of Sophie Germain primes; nonsquarefree domain not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_DATABASE, not explicit squarefree if-and-only-if",
+          "evidence": "The entry includes nonsquarefree solutions such as 25 and squarefree examples such as 22; no squarefree structure theorem in inspected comments.",
+          "identifier_or_url": "https://oeis.org/A067350",
+          "material_read": "Sequence definition, examples and comments describing composites and factorization possibilities",
+          "method": "Read public entry",
+          "title": "OEIS A067350",
+          "trigger": "Same tau(sigma+phi)=4 predicate"
+        },
+        {
+          "assessment": "PARTIAL_OVERLAP",
+          "evidence": "The two-prime identity is known; exclusion of larger squarefree support not stated.",
+          "identifier_or_url": "https://oeis.org/A065387",
+          "material_read": "Entry formula and squarefree semiprime comment",
+          "method": "Read public entry",
+          "title": "OEIS A065387",
+          "trigger": "Exact sigma+phi arithmetic underlying the predicate"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "n=phi(phi(n)+sigma(n)) is not equivalent to tau(sigma+phi)=4.",
+          "identifier_or_url": "https://oeis.org/A097646",
+          "material_read": "Definition and comments showing family n=2q",
+          "method": "Read public entry",
+          "title": "OEIS A097646",
+          "trigger": "Potential matching Sophie Germain family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The squarefree part is a canonical and exhaustive infinite arithmetic subclass of a public divisor-count sequence. Its exact classification and bijection with Sophie Germain primes resolve a real structural question and convert its infinitude into a classical open problem, rather than computing another finite prefix. The classification leaves nonsquarefree members untouched.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Classification only of squarefree n; neither full ambient predicate nor SG infinitude is solved."
+  ]
+}
