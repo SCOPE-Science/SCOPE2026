@@ -1,11 +1,21 @@
-# Scientific review: The square-price transition for fastest mixing on a weighted star
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(m\ge3\), the concavity argument guarantees a symmetric maximizer; the characteristic polynomial then gives the exact scalar rate map and the derivative with its unique crossover at \(t=(m-1)^2\). The two separate rigidity arguments—simple Fiedler eigenvector above the transition and positive-semidefinite contrast tests at or below it—establish uniqueness among all *asymmetric* feasible edge assignments. All zero-weight boundary assignments are disconnected. The analytic proof is independent of finite testing. The attached checker validates the derivative and substitutions symbolically and supplies 58 independent exact cases.
+## correctness
 
-**Originality — PASS, subject to residual historical risk.** Sun, Boyd, Xiao, and Diaconis's weighted-cost fastest-mixing Markov-process SDP already encompasses this case algorithmically. The new claim is restricted to the all-\(m\) closed-form priced-star solution, the exact squared price threshold, and full optimizer uniqueness. Their author full text gives examples for paths, cycles and another network, but no priced-star classification. Ghosh and Boyd establish the generic concavity/symmetry methods, which do not imply uniqueness of all asymmetric rates. The Shakeri et al. interlayer budget transition addresses a different network and feasible set. Specialized weighted-tree literature outside the sources inspected could conceivably contain an equivalent formula; an independent literature audit is still needed.
+PASS
 
-**Value — PASS.** A weighted star is a natural diffusion and consensus topology, and heterogeneous link costs arise directly in spectral network design. Uniform rates remain uniquely optimal until the exceptional edge becomes as expensive as the **square** of the ordinary-leaf count; beyond it a unique nonuniform phase appears although the bridge must remain positive. The formulas eliminate an SDP solve for this family and yield a sharp asymptotic mixing advantage.
+Courant–Fischer makes λ2 concave in edge rates; averaging the m−1 equal-priced leaves ensures symmetric maximizer. The symmetric star characteristic polynomial is X(X−u)^(m−2)[X²−(2w+mu)X+(m+1)wu]. Reparameterization z=λ−/u leads to derivative sign (m−1)[(m+1−2z)²−t z²], yielding threshold √t=m−1. Below threshold rates are all 1/(m−1+t). Above: h=√t, B=m t+2(m−1)(h+1), w=[m(h+1)−1]/(hB), u=(h+2)/B, gap=(m+1)/B. Global uniqueness beyond symmetric optimum uses Fiedler eigenvector equality for above threshold and orthogonal leaf-vs-exception PSD contrast vectors for below threshold. Independently computed numerical eigenvalues and budgets for (m,t)=(3,9),(5,5),(5,25),(7,36),(7,37), matching formula. Boundary zero-weight star disconnects. Source symbolic checker independently inspects these identities.
 
-**Scope and limits.** The result concerns the continuous-time symmetric Laplacian mixing gap for a unit linear cost budget, precisely one priced edge, and \(m\ge3\) leaves. It does not characterize arbitrary weighted trees, vertex-rate constraints, or discrete-time fastest mixing. Verification of finitely many rational cases is supplementary and does not certify the parameter continuum. Earlier Fiedler absolute-tree results treat the uniform-cost setting; their more specialized descendants remain a residual overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General fastest-mixing Markov-process SDP and graph-Laplacian concavity/symmetry reduction are known from Sun–Boyd–Xiao–Diaconis and Ghosh–Boyd; their inspected main worked examples do not supply this one-price star two-branch closed form and uniqueness over asymmetric weights. Resultary exact semantic search found no published equivalent; possibility of a specialized star formula under algebraic-connectivity design remains.
+
+## value
+
+PASS
+
+Provides an exact all-size parametric optimizer for a natural asymmetric cost design on a canonical graph, including non-obvious square-price transition, positive exceptional edge for any finite cost, rigorous uniqueness and asymptotic gain; useful to analyze spectral-gap allocation beyond generic numerical SDP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

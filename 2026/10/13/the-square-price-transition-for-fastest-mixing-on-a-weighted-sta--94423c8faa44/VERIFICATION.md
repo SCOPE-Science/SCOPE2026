@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact derivation in `RESULT.md` covers every integer \(m\ge3\), every real \(t>0\), and every nonnegative individual edge allocation subject to the specified budget. The low-dimensional quotient calculation can be independently verified by expanding
-\[
-\det(XI-L)=X(X-u)^{m-2}\bigl[X^2-(2w+mu)X+(m+1)wu\bigr].
-\]
-The derivative sign calculation then locates the unique symmetric optimum, and the two Rayleigh-quotient arguments establish uniqueness in the full feasible simplex, not only its symmetric slice.
+## correctness
 
-To replay auxiliary exact arithmetic, run `python star_optimum_check.py` using Python and SymPy. The program uses symbolic simplification for the derivative and branch formulas, computes rational characteristic polynomials for \(3\le m\le8\), and checks positive-semidefinite conditions and strict asymmetric perturbations in 40 exact-rational cases. Its expected output is `VERIFY_OK 58 exact cases`. These finite tests are corroboration, not an exhaustive replacement for the analytic argument.
+PASS
 
-Scientific limitations: The claim excludes \(m=2\), more than one exceptional edge price, nonuniform stationary distributions, discrete-time stochastic kernels, and non-star topologies. Whether some older specialized exact spectral-design treatment is logically equivalent remains an originality risk. Independent audit: not performed.
+Courant–Fischer makes λ2 concave in edge rates; averaging the m−1 equal-priced leaves ensures symmetric maximizer. The symmetric star characteristic polynomial is X(X−u)^(m−2)[X²−(2w+mu)X+(m+1)wu]. Reparameterization z=λ−/u leads to derivative sign (m−1)[(m+1−2z)²−t z²], yielding threshold √t=m−1. Below threshold rates are all 1/(m−1+t). Above: h=√t, B=m t+2(m−1)(h+1), w=[m(h+1)−1]/(hB), u=(h+2)/B, gap=(m+1)/B. Global uniqueness beyond symmetric optimum uses Fiedler eigenvector equality for above threshold and orthogonal leaf-vs-exception PSD contrast vectors for below threshold. Independently computed numerical eigenvalues and budgets for (m,t)=(3,9),(5,5),(5,25),(7,36),(7,37), matching formula. Boundary zero-weight star disconnects. Source symbolic checker independently inspects these identities.
+
+## originality
+
+PASS
+
+General fastest-mixing Markov-process SDP and graph-Laplacian concavity/symmetry reduction are known from Sun–Boyd–Xiao–Diaconis and Ghosh–Boyd; their inspected main worked examples do not supply this one-price star two-branch closed form and uniqueness over asymmetric weights. Resultary exact semantic search found no published equivalent; possibility of a specialized star formula under algebraic-connectivity design remains.
+
+## value
+
+PASS
+
+Provides an exact all-size parametric optimizer for a natural asymmetric cost design on a canonical graph, including non-obvious square-price transition, positive exceptional edge for any finite cost, rigorous uniqueness and asymptotic gain; useful to analyze spectral-gap allocation beyond generic numerical SDP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
