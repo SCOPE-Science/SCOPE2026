@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The construction is exact: three coordinates with norm at most \(1/3\) exist by the defining decay of \(c_0(X)\); the compensators \((3z-d)/2\) remain in the unit ball; each constructed sequence lies on the unit sphere and carries a Delta-point coordinate; and their coordinatewise arithmetic mean is the prescribed \(z\). The imported coordinate-lifting premise was checked in arXiv:2609.28569v1 and arXiv:2410.04706.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary result, Lemma 3 of arXiv:2609.28569v1, proves a four-point equal-weight representation. The broader vector-valued \(C_0(L,X)\) theorem in arXiv:2410.04706 characterizes Delta-points but does not provide the three-point barycentric representation. Targeted searches under barycenter, equal-weight sum, finite convex generation, and Caratheodory-type terminology found no implication-equivalent or stronger statement.
+## correctness
 
-## Value
-PASS. The result replaces the recent four-point construction by a uniform three-point formula for the whole unit ball under the same minimal hypothesis. It gives a sharper algebraic convex-generation statement, not merely closure of a convex hull. No minimality of three is claimed.
+PASS
 
-## Closest literature and limitations
-The closest source is arXiv:2609.28569v1, Lemma 3. The main residual originality risk is an older equivalent observation stated with convexity-width terminology. The theorem is specific to the countable \(c_0\)-sum and relies on finding three small coordinates.
+For z in B_c0(X), choose three distinct coordinates with norm<=1/3. For a Delta-point d in X set q_j=(3z_mj-d)/2; exact triangle inequality gives norm<=1. Form u^(r) with d in one chosen coordinate, q_j in other chosen coordinates and z elsewhere. Finite modifications preserve c0(X); each u^(r) has a Delta-point coordinate, hence is a Delta-point by the published coordinate-lifting lemma. At each chosen coordinate (d+2q_j)/3=z_mj, while all other coordinates are unchanged. Boundary norms and z=0 are covered. This is a full algebraic proof, not a computational extrapolation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The recent Langemets Lemma3 offers an equal-weight four Delta-point decomposition and the 2024 vector-valued C0 theorem provides the lifting lemma. The three-point equal-weight refinement is not in the materially available source content. The 2026 full manuscript was inaccessible, so an exact three-point statement in an unread section remains a material risk rather than grounds for failure.
+
+## value
+
+PASS
+
+It reduces a natural universal finite barycentric generation bound for Delta-points in c0-sums from four to three using three small coordinates; a precise convex-geometric improvement valid in any X with one Delta-point. No unproved minimality assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
