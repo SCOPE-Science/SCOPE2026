@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The projection classification follows from endpoint transpositions, vertex mean-zero normalization, and the three tensor identities m(a+nb)=1, n(c+md)=1, ma+nc=1. P_t is a true cut projection; Q_t=I-P_t^T, crucially not I-P_t, is a true cycle projection. Exact signed row/column counts yield four convex piecewise-linear norm objectives. On [0,1] the opposing affine branches cross at interior rational parameters. Exterior minimizers are excluded by clipping for cut and convex supporting slopes for cycle. Positive factorization proves strict endpoint separations. Packaged exact-rational checker passed 28,641 assertions, including idempotence and zero divergence; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.12582v1, Sections 2.1 and 2.6, Hamming graph defined as the same alphabet to the same power and invariant uniqueness; Section 2.7 studies the Hamming cube.",
+        "arXiv:1807.03814v1, Sections 1.3, 4.4 and 5.3, projections for recursive graphs and a nonunique Laakso example."
+      ],
+      "reasoning": "The 2023 paper supplies a general symmetry framework and covers a balanced subfamily but not the rectangular representation split or its four sharp norms. General averaging in 2018 is a method, not a strictly stronger quantitative result. No reviewed theorem yields this claim as a corollary.",
+      "searches": [
+        "cycle spaces invariant projections applications transportation cost Hamming graphs Dilworth Kutzarova Ostrovskii 2023",
+        "Lipschitz free spaces finite metric spaces Dilworth Kutzarova Ostrovskii 2018 invariant projections",
+        "graph K_m □ K_n transportation cost minimal projections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.12582v1, Sections 1,2.1,2.5–2.7",
+      "arXiv:1807.03814v1, Sections 1,4.4,5.3",
+      "arXiv:2311.14333v1, Section 4.2 and rook example",
+      "mathematical record searches for rook/rectangular Hamming/anisotropic edge-space projection norms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2305.12582v1 Theorem 43 requires the full automorphism group of a uniform-alphabet Hamming graph and concludes the orthogonal cycle projection is its unique invariant projection.",
+        "arXiv:1807.03814v1 concerns broader metric quotient machinery and averaging, but different named graph families.",
+        "arXiv:2311.14333 constructs orthogonal cycle-space encodings rather than globally minimizing cut or cycle projection norms."
+      ],
+      "reasoning": "The new domain has unequal alphabet sizes, so coordinate interchange is unavailable and the equivariant projection space is one-dimensional rather than unique. Its optimum occurs at four explicit parameters distinct from the Hilbertian parameter. The two strict endpoint inequalities contradict any implication from an unmodified orthogonal-projection argument. No stronger direct coverage was identified.",
+      "searches": [
+        "Cycle spaces invariant projections and applications to transportation cost Theorem 43 uniform Hamming graph",
+        "rook graph K_m square K_n minimal projection cut cycle space ℓ1 ℓ∞",
+        "Cycle Invariant Positional Encoding for Graph Representation Learning rook projector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.12582v1, Section 2.6, defines a fixed equal-size alphabet in every coordinate; Theorem 43 has full factor-interchange invariance.",
+        "arXiv:2311.14333, Section 4.2, uses a square rook graph orthogonal cycle projector in a graph-learning context."
+      ],
+      "reasoning": "Cut space is also the gradient space, cycle space is the circulation kernel, and rook graphs are Cartesian products of two complete graphs. The orthogonal Hodge projector is not the norm-minimizing endpoint operator when the axes have unequal sizes. Equal-alphabet results concern a symmetry-enlarged special case and do not prove the four unequal-axis values.",
+      "searches": [
+        "rook graph K_m square K_n minimal projection cut cycle space ℓ1 ℓ∞",
+        "Cartesian product unequal complete graphs projection constants cycle space",
+        "rectangular Hamming graph two unequal alphabet sizes nonorthogonal minimal projection to circulation kernel and gradient image"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2311.14333 Section 4.2 discusses the square rook graph Hodge projection in distinguishing graphs but supplies no endpoint minimum projection constant.",
+        "No matching four-constant rook-graph table was found in the inspected primary papers and the mathematical record search returns."
+      ],
+      "reasoning": "A numerical orthogonal projection matrix and a graph spectral table are not a table of optimal ℓ1 and ℓ∞ projections; independently optimized endpoint constants are different on unequal axes. Database search is not a uniqueness proof.",
+      "searches": [
+        "for rook graph K_m square K_n with m different n exact projection constants of cut space and cycle space in ℓ1 ℓinfinity different values",
+        "m n rook graph matrix edge projection norm minimization cycle space cut space one parameter",
+        "anisotropic Cartesian complete graph edge space minimum projection norms ℓ1 ℓ∞"
+      ]
+    },
+    "rationale": "The full relevant uniform-alphabet Hamming treatment proves equivariant uniqueness only when coordinate sizes are equal; no unequal-axis four-endpoint constants or strict endpoint asymmetry follow from its stated conclusions. The older general symmetrization paper deals with recursive diamond/Laakso families. A paper using orthogonal rook Hodge projectors establishes no Banach-space minimum norm. Record searches on equivalent formulations and all four parameter formulas did not produce matching mathematical implications. Residual indexing risk remains.",
+    "residual_risks": [
+      "Unindexed or differently named literature might contain the same four optimal constants.",
+      "The 2024 graph-learning paper was compared on its relevant application, not independently checked for every unrelated theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains uniform-alphabet Hamming symmetry uniqueness, but no unequal two-alphabet four-constant theorem",
+        "evidence": "Section 2.6 defines the common alphabet; Theorem 43, at PDF page 23, gives invariant uniqueness for that family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "Original 35-page arXiv version, abstract, Sections 1.1, 2.1, 2.5, 2.6 and the beginning of 2.7, including Lemmas 40–42 and Theorem 43",
+        "method": "Read extracted full-text sections and inspected PDF page images",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Closest full-text source: invariant and minimum projections for Hamming graphs"
+      },
+      {
+        "assessment": "General averaging and recursive diamond/Laakso graph methods; no rook-graph endpoint formulas in inspected results",
+        "evidence": "Section 1.3 summarizes the exact paper results, Section 5.3 constructs a distinct invariant projection for a Laakso graph.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.03814",
+        "material_read": "Original 34-page arXiv version, introductory setup and results, Section 4.4 and Section 5.3, with full-document structure checked",
+        "method": "Read extracted PDF text and viewed original title/contents page image",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Earlier projection constants and averaging machinery"
+      },
+      {
+        "assessment": "Addresses Hodge-cycle encodings for learning, not norm-minimal projections in endpoint edge Banach spaces",
+        "evidence": "The rook graph is used as a 4-by-4 equal-axis example in an orthogonal Hodge projector encoding.",
+        "identifier_or_url": "https://arxiv.org/html/2311.14333v1",
+        "material_read": "Full accessible HTML, relevant Section 4.2 and rook graph versus Shrikhande example",
+        "method": "Inspected full HTML text around the orthogonal projector construction and graph example",
+        "title": "Cycle Invariant Positional Encoding for Graph Representation Learning",
+        "trigger": "Explicit mention of a rook-graph orthogonal cycle projector"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e14221e8-997e-4a30-b6ef-c37f9452194f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The rook graph is a canonical two-parameter Cartesian graph metric with Banach-relevant cut and cycle kernels. Unlike the equal-axis family, unequal axes have four distinct norm-minimizing equivariant projection choices and provably opposite strict ℓ1-versus-ℓ∞ gaps for cut and cycle spaces. These exact natural projection invariants, all-dimensional formulae, and a nonorthogonality obstruction are motivated structural information, not merely one more finite example.",
+    "status": "PASS"
+  }
+}
