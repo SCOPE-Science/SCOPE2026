@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T00:06:58.701647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md SHA 25d60a70beabe554eef1f657336f576b3c9fe460",
+        "Frozen verify_identity.py SHA 6a83563c80b72217643a3aca9b09c4647c9756b7",
+        "Independent rational identities and covariance reconstruction"
+      ],
+      "rationale": "Log-v period integration fixes ubar=u* and lag invariance fixes E[uτ]=u*. Log-u average minus equilibrium gives predator mean deficit; expansion 1/(1+mx)=1/(1+mu*)−m(x−u*)/(1+mu*)²+m²(x−u*)²/[(1+mu*)²(1+mx)] gives the positive Q. Subtract u* times log-u average from undivided prey average to obtain αCov(u,v)+(r/K)Cov(u,uτ)=am Q/(1+mu*). Zero Q forces constant u and then v. Independently verified exact rational source specialization u*=5, v*=469/102, r/K=2/75, am/(1+mu*)=15/68, α(1+mu*)/m=17/15. Finite tests only corroborate algebra; proof covers all classical positive periodic orbits.",
+      "residual_risks": [
+        "Required strictly positive periodic solutions may not exist for arbitrary τ; theorem asserts only their necessary moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 delayed analysis concerns local Hopf, normal forms, and periodic numerical examples.",
+          "Later Smith growth/competition equations change right-hand sides and cannot be substituted to recover this exact algebra without extra restrictions."
+        ],
+        "reasoning": "Neither source’s known existence/stability statements nor changed nonlinearities mathematically imply the exact lagged covariance identity.",
+        "searches": [
+          "Resultary semantic query: Bai Zhang delayed additive predation period mean predator yield lagged covariance [attempted; temporarily_unavailable; no search result]",
+          "Bai–Zhang 2022 delayed Section 4 and nondelayed Eq. (15)",
+          "Bai–Zheng–Kang 2024 Smith growth",
+          "Bai et al 2025 predator competition"
+        ]
+      },
+      "checked_sources": [
+        "Bai–Zhang DOI:10.3390/math10040655 primary indexed full text Eq.(15), delayed Eq.(3), Section4",
+        "Bai–Zheng–Kang DOI:10.3934/dcdsb.2023161 abstract/model scope",
+        "Bai et al DOI:10.1137/24M1685997 abstract",
+        "Frozen RESULT.md and verify_identity.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean u*=d/β also holds nondelayed and is not claimed as novel independently.",
+          "Delay introduces −(r/K) E[u uτ] in the undivided u equation, and subtracting u* times the log-u average yields the new lagged covariance."
+        ],
+        "reasoning": "Nondelayed period-integral theorem cannot imply the lagged covariance for τ>0 without the new delayed equation; the precise delayed phase–yield law is nontrivial additional information.",
+        "searches": [
+          "Resultary semantic query: Bai Zhang delayed additive predation period mean predator yield lagged covariance [attempted; temporarily_unavailable; no search result]",
+          "Bai–Zhang primary Eq.(15) and delayed Eq.(3)",
+          "Exact algebraic identity 1/(1+m x) second-order remainder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Period integration of dlog v yields ubar=d/β, a mechanism already evident in nondelayed formulation.",
+          "With Q=E[(u−u*)²/(1+m u)], the exact new identity also gives v*−vbar=a m² Q/[α(1+m u*)²] and αCov(u,v)+(r/K)Cov(u,uτ)=a m Q/(1+m u*)."
+        ],
+        "reasoning": "The mean mechanism has a known close antecedent; equality with lagged covariance under density-feedback delay is the distinct statement assessed.",
+        "searches": [
+          "Resultary semantic query: Bai Zhang delayed additive predation period mean predator yield lagged covariance [attempted; temporarily_unavailable; no search result]",
+          "Bai–Zhang 2022 Eq. (15) nondelayed cycle integrals",
+          "queries phase-yield, lagged autocovariance, delay-invariant mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For (r,K,a,m,α,β,d)=(6/5,45,5/4,3/2,1/5,1/25,1/5), u*=5, v*=469/102, r/K=2/75, a m/(1+m u*)=15/68 and α(1+m u*)/m=17/15.",
+          "These are exact consequences of a derived all-parameter theorem, not a standalone recomputation of the source equilibrium table."
+        ],
+        "reasoning": "The source numerical parameters alone cannot establish the full Q and covariance balances for every periodic solution.",
+        "searches": [
+          "Resultary semantic query: Bai Zhang delayed additive predation period mean predator yield lagged covariance [attempted; temporarily_unavailable; no search result]",
+          "Source 2022 numerical example seven parameters",
+          "Independent rational evaluation of source coefficient identities"
+        ]
+      },
+      "rationale": "The exact primary 2022 paper has a nondelayed periodic-integral relation; it is expressly treated as partial prior coverage, not ignored. The new delayed model identities add strict rational Jensen deficit and weighted *lagged* phase covariance, with all-period amplitude validity. Different later model modifications are not stronger coverage of this specific balance.",
+      "residual_risks": [
+        "Resultary mathematical-record semantic search attempted; service returned temporarily_unavailable/search_internal_error and search_completed=false. This supplies NO positive or negative prior-art evidence.",
+        "Bai–Zhang direct publisher page was rate-limited in this run; indexed content was materially read but entire document was not certified against a fresh PDF.",
+        "Exact moment identities may have independently appeared under ecological phase–yield terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_MEAN_IDENTITY",
+          "evidence": "Non-delayed eq. (15) already integrates orbit means; the claimed delayed model’s precise predator deficit and lagged prey covariance identity are additional and not explicit in inspected source material.",
+          "identifier_or_url": "https://doi.org/10.3390/math10040655",
+          "material_read": "Accessible rich publisher full-text indexed content including nondelayed model and period-integral equation (15), delayed model (3), Hopf analysis and Case parameters; direct publisher page returned HTTP 429 during later opening.",
+          "method": "Read substantive indexed primary text and compare equation (15) with delayed average and covariance statement; independently derive from the printed equations.",
+          "title": "Dynamics of a Predator–Prey Model with the Additive Predation in Prey",
+          "trigger": "Exact same delayed logistic/additive-predation equations, equilibrium, source numerical benchmark"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL",
+          "evidence": "Replacing logistic growth changes period correlation balance; not the exact Bai–Zhang delayed model.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2023161",
+          "material_read": "Journal title, abstract and defining altered Smith prey growth in accessible results.",
+          "method": "Compared equation scope and availability of same logistic-delay specialization.",
+          "title": "Global dynamics of a predator-prey model with a Smith growth function and the additive predation in prey",
+          "trigger": "Later larger model with additive predation"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL",
+          "evidence": "Predator self-competition prevents direct same formula for ubar=d/β.",
+          "identifier_or_url": "https://doi.org/10.1137/24M1685997",
+          "material_read": "Abstract-level scope and additional predator competition, not full text.",
+          "method": "Compared structural predator equation; extra competition changes log-period identity.",
+          "title": "Impact of Intraspecific Competition of Predator on Coexistence of a Predator-Prey Model with Additive Predation on Prey",
+          "trigger": "Later stronger potential predator equation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bai–Zhang delayed Hopf coexistence setting",
+        "Exact strictly positive weighted variance and lagged phase balance"
+      ],
+      "rationale": "The delay is scientifically relevant because coexistence cycles have lagged phase correlations. An exact finite-amplitude mean-yield loss tied to both predator–prey and prey autocovariance provides a useful structural diagnostic beyond the nondelayed mean-balance motif and near-Hopf spectral calculations.",
+      "residual_risks": [
+        "Does not solve existence, bifurcation direction or stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive T-periodic Bai–Zhang delayed additive-predation coexistence orbits, ubar=d/β=u*; v*−vbar=am² Q/[α(1+m u*)²]>0; αCov(u,v)+(r/K)Cov(u,uτ)=a m Q/(1+m u*)=α(1+m u*)(v*−vbar)/m, Q=E[(u−u*)²/(1+m u)].",
+  "limitations": [
+    "Exact period and strictly positive prey/predator assumed; boundary v=0 and general recurrence excluded.",
+    "Near-Hopf or finite simulation not used as universal proof.",
+    "Resultary mathematical-record semantic search attempted; service returned temporarily_unavailable/search_internal_error and search_completed=false. This supplies NO positive or negative prior-art evidence.",
+    "Primary publisher direct page rate-limited; similar averaging identities remain a literature risk."
+  ],
+  "schema_version": 1
+}
