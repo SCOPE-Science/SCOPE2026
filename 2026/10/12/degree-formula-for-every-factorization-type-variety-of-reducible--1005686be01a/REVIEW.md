@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The archival source provides a finite multiplication morphism from the product of the factor projective spaces and states that a general point has irreducible factors. In at least three variables, unique factorization makes the generic fiber exactly the product of the permutation groups on equal-degree factors.
+## correctness
 
-The multiplication map pulls the ambient hyperplane class back to the sum of the factor hyperplane classes. The projection formula then turns the image degree into one multinomial top-intersection coefficient divided by the generic fiber size. The full reducible-locus formula uses the source's unique maximal-dimensional component of type \((d-1,1)\).
+PASS
 
-The bundled checker verifies all partitions through \(d=10\) for \(3\le m\le7\), the split-form specialization, and several standard small cases. These finite checks are regression evidence only.
+For complex m>=3 and any partition lambda=(d_i) with at least two parts, the finite multiplication map from product P(Sym^{d_i}V*) has pullback O(1,...,1) and generic degree prod_e(mu_e!), since generic factors are irreducible and their only ambiguity is permutation among equal degrees. Its source dimension D=sum_i[binom(m+d_i-1,m-1)-1], and the top intersection coefficient is D!/prod_i N_i!, so dividing by the generic degree proves the complete formula. The top-dimensional component for the full reducible locus is (d-1,1), as in Catalisano et al.; d=2 requires degree-two symmetry, d>=3 no symmetry. Independent integer checks reproduced projective degrees (m,d)=(3,2):3,(4,2):10,(3,3):21,(4,3):220,(3,4):55. No extension to binary forms, Chow rings or secant degrees is claimed.
 
-## Originality
-PASS. The primary archival source explicitly says that a degree formula was known for reducible plane curves but that no generalization to reducible hypersurfaces was available. Targeted semantic-database and web searches for the exact notation, multiplication-map formulation, and standard aliases did not locate a covering formula.
+## originality
 
-The completely decomposable case is already known and is treated only as a special case of the new all-partition statement. A prior same-object Euler-characteristic formula does not imply projective degree.
+PASS
 
-Residual risk remains because the proof is short and may have appeared under different terminology or as folklore.
+Best-of-knowledge PASS: the 2021 Catalisano et al. Section 9 explicitly poses the degree of reducible-hypersurface varieties beyond plane curves as an unavailable generalization and gives the finite multiplication parametrization. The present closed formula addresses all partitions by a generic-fiber quotient and top intersection. Previously known split forms and plane-curve instances are special cases rather than new claims; no checked stronger source supplies the all-partition formula. Because the derivation is short from classical intersection theory, unindexed folklore and post-2021 work are retained risks, not treated as disproved by negative search.
 
-## Value
-PASS. The theorem gives a closed projective-degree formula for every factorization type and therefore answers a natural gap explicitly stated in the archival literature. It also yields the degree of the entire reducible-hypersurface locus in every dimension covered by the source.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Projective degree is a natural enumerative invariant of each irreducible factorization-type locus, and the initiating geometry paper explicitly identifies its unknown generalization as a natural gap. The all-partition closed form and the degree of the full reducible-hypersurface locus are reusable exact invariants beyond isolated numerical special cases despite their concise proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
