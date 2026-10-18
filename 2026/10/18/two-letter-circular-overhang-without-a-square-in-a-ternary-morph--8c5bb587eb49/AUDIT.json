@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For the exact finite base u_{3,0}=0121021 and u_{3,1}=01021, all twelve circular overhang windows have explicit matching 0-based positions inside h^6(0), validated by the accompanying Python checker. For each cyclic phase, applying h to a full cyclic word plus two letters yields enough trailing length because every cyclic pair avoids 22, and a phase offset in a letter image is at most one: 3 >= 1+2. The image is a factor of p=h(p). All h-images avoid cyclic 22, enabling induction. From tile structure of the suffix code {01,21,0}, p has no 00,11,20,22; a square h^k(a)h^k(a) ending with 1 decodes right-to-left uniquely to h^{k-1}(a)h^{k-1}(a). This forces forbidden 00 or 11 at level zero. Each tower increases in length, giving infinitely many distinct Lie-positive lengths. Finite experiments do not replace the unlimited proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bell and Shallit arXiv:2102.03821v1 Theorem 1.1 and examples: generic bounds and squarefree ternary example use a distinct morphism; neither implies C_2(h^k(a)) coverage.",
+        "De Luca and Fici arXiv:2206.00995 treats binary Sturmian words; the target is ternary, complexity 2n+1, and is not Sturmian.",
+        "Currie et al. arXiv:2206.01776v1 Theorem 14 provides a forbidden-factor description, which does not by itself prove the required positive occurrences."
+      ],
+      "reasoning": "Broader factor-complexity characterizations constrain the number of factors; they do not imply every cyclic rotation, let alone an extension of each, occurs. Squarefree-word examples establish coexistence of Lie positivity and square avoidance elsewhere, not this exact all-iterate family. Generic automatic-sequence methods are techniques, not an instantiated theorem for these lengths.",
+      "searches": [
+        "cyclic factor language rotations of iterated substitutions circular power windows no square 68R15",
+        "Lie complexity period-doubling word exact lengths powers of two 3 times powers of two fully represented conjugacy classes",
+        "Web: \"Lie complexity\" \"ternary\" \"Pisot\" morphism 01 21 0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.01776v1",
+      "arXiv:2102.03821v1",
+      "arXiv:2206.00995",
+      "arXiv:1402.5843",
+      "Indexed study: automorphism rigidity and palindromic collapse in cyclic Sturmian lifts",
+      "Indexed study: component and fibre-rank law for a period-doubling lift",
+      "Published mathematical finding: exact Lie-complexity classification for binary period doubling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously published Lie-complexity classification for binary period doubling studies 0->01, 1->00, unlike the present three-symbol substitution.",
+        "Bell & Shallit Example 7.2 exhibits a different ternary squarefree word with positive Lie complexity, without the target word or two-letter overhang.",
+        "Currie et al. Theorem 14 characterizes an avoidance language for the target word; this is compatible with both positive and negative occurrence of a proposed cyclic factor unless additional argument is supplied."
+      ],
+      "reasoning": "The claim implies infinitely many positive Lie values for the target word plus a strictly stronger per-rotation length-(m+2) property; prior generic bounds and different substitutions do not imply it. The binary period-doubling result is neither a specialization nor a stronger coverage theorem. The new proof supplies the missing occurrence and exclusion statements directly.",
+      "searches": [
+        "Lie complexity of a morphic word, all conjugacy rotations appear without square factors, fixed-point substitutions",
+        "recurrent ternary 012102101021 fixed point of h 0 to 01 1 to 21 2 to 0 complete cyclic rotations",
+        "Published mathematical finding on the binary period-doubling fixed point and its Lie complexity",
+        "Currie et al. arXiv:2206.01776v1; Bell & Shallit arXiv:2102.03821v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.01776v1 sections 1, 3 and 11: exact fixed point, linear factor complexity and forbidden-factor criterion, no two-letter circular-overhang spectrum stated.",
+        "arXiv:2102.03821v1 sections 2 and 7: Lie complexity counts full conjugacy classes, not their two-letter extensions; morphic examples use different substitutions.",
+        "The nearest indexed paper on cyclic Sturmian lifts concerns a binary Sturmian-derived system, not the present morphism."
+      ],
+      "reasoning": "Replace cyclic-rotation language by all-conjugates-occurring, or by all length-(m+2) factors of the periodic extension occurring in p. The first is a weaker consequence of the claimed property; the second is its exact restatement. The inspected word-specific and Lie-complexity papers do not assert the stronger all-iterates extension. A generic upper bound cannot yield these lower witnesses.",
+      "searches": [
+        "combinatorics on words Lie complexity conjugacy complete factors of ternary fixed point 0->01 1->21 2->0, h^k(0) h^k(1), no squares",
+        "circular extensions all rotations of h-iterated ternary blocks occur in fixed point, two extra symbols but square does not occur",
+        "morphic word 012102101021 factors and squares, conjugates, cyclic length n+2 extension",
+        "Web: \"012102101021\" cyclic conjugates rotations factors",
+        "Web: \"Properties of a Ternary Infinite Word\" \"Lie complexity\" conjugacy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact word is indexed as OEIS A287072 in Currie et al. (arXiv:2206.01776v1, introduction), but the inspected article uses that index for the word rather than a complete cyclic-window table.",
+        "Indexed research-record searches did not return an exact two-letter-overhang profile for the specified substitution."
+      ],
+      "reasoning": "A table of letter values, word length recurrence, or factor counts does not contain the exact set of cyclic-overhang membership statements for all iterates. No matching exact entry or table was identified in searched sources; absence of a hit alone is not treated as proof.",
+      "searches": [
+        "combinatorics on words Lie complexity conjugacy complete factors of ternary fixed point 0->01 1->21 2->0, h^k(0) h^k(1), no squares",
+        "morphic word 012102101021 factors and squares, conjugates, cyclic length n+2 extension",
+        "Web: \"0 -> 01\" \"1 -> 21\" \"2 -> 0\" conjugacy rotations",
+        "Web: \"Lie complexity\" \"ternary\" \"Pisot\" morphism 01 21 0"
+      ]
+    },
+    "rationale": "The previously published definition and generic bound for Lie complexity do not entail nonzero values at the specific two substitution-tower lengths, much less that every cyclic phase has an occurring two-letter wraparound extension. The primary paper introducing this exact ternary word describes factor complexity, critical exponent, balance, Abelian complexity, bispecial factors, and a forbidden-factor characterization, without a statement equivalent to the exact simultaneous overhang inclusion. This new positive assertion is proved for all iterates rather than inferred from search failure. A previously published mathematical result concerns the different binary period-doubling morphism. The search cannot exclude unseen equivalences; the identified risks are recorded.",
+    "residual_risks": [
+      "Unindexed prior characterization of all conjugate powers and their short extensions might yield the same theorem.",
+      "Not all pages of every potentially relevant primary paper were exhaustively read; inspected material and terminology searches can miss an equivalent formulation.",
+      "Vector retrieval for the word Lie returns some unrelated Lie-algebra results; no-hit results are weak negative evidence and are not used as novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact target word, avoidance conditions, and factor-count are present. No all-cyclic-two-letter overhang statement identified in material read or searched text; not an assertion that every page was exhaustively read.",
+        "evidence": [
+          "arXiv:2206.01776v1 title/abstract",
+          "Theorem 14, section 11",
+          "Theorem 3 factor-complexity context"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.01776",
+        "material_read": "Full-text extracted PDF; title/abstract, introduction, factor complexity section, section 11 Theorem 14 and proof (PDF pages 1-2, 6-7, 19-20), with page images checked.",
+        "method": "Opened lawful arXiv full text and inspected relevant sections and theorem, searched whole extracted text for conjugacy, rotation, circular and Lie terminology.",
+        "title": "Properties of a Ternary Infinite Word",
+        "trigger": "Exact same fixed point and plausible stronger factor-characterization coverage"
+      },
+      {
+        "assessment": "Defines Lie class count and includes different substitutions; does not cover the 01/21/0 word with two-letter circular extensions. Positive Lie with square avoidance is a known phenomenon, not novelty.",
+        "evidence": [
+          "arXiv:2102.03821v1 Example 7.2",
+          "Theorem 1.1 and section 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.03821",
+        "material_read": "Full-text PDF opened; first page and sections 6-7 examples on pages 10-12 inspected including pages rendered as images.",
+        "method": "Inspected general definition, general bound, morphic examples including the squarefree ternary word.",
+        "title": "Lie Complexity of Words",
+        "trigger": "Foundational exact definition and potential dominating general theorem"
+      },
+      {
+        "assessment": "Sturmian words are binary, whereas the target is ternary with factor complexity 2n+1; no implication.",
+        "evidence": [
+          "arXiv:2206.00995 introductory definitions and abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00995",
+        "material_read": "Opened complete arXiv PDF; abstract, definitions and opening theorem context inspected with page image.",
+        "method": "Checked object class and scope against the target ternary morphism.",
+        "title": "On the Lie complexity of Sturmian words",
+        "trigger": "Possible exact combinatorial Lie-complexity implication"
+      },
+      {
+        "assessment": "Its cyclic-complexity statistic uses a different quantifier and does not directly imply the stronger property; full-text coverage risk remains.",
+        "evidence": [
+          "arXiv:1402.5843 abstract and topic"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+        "material_read": "ArXiv abstract and definition as indexed in literature searched; full paper not assessed.",
+        "method": "Compared counting presence of at least one representative with the all-rotations and two-letter extended requirement.",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Potential equivalence via cyclic-complexity terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c5bb587-eb49-43df-80c6-1094de6aa697",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a well-studied low-factor-complexity ternary Pisot-morphic word, the theorem simultaneously guarantees the appearance of every cyclic phase with TWO letters of periodic wraparound at every iterate in TWO natural substitution towers, despite the absence of each designated full square. It supplies a constructive infinite sequence of Lie-complexity witnesses with a stronger quantitative local cyclic property, separating near-periodic language realizability from exact-square occurrence. The exact object and invariant are intrinsically motivated by cyclic factor/Lie complexity and morphic recurrence; neither mere finite enumeration nor the already-known generic coexistence of Lie positivity with square avoidance is offered as the contribution.",
+    "status": "PASS"
+  }
+}
