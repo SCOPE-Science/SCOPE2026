@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Rowwise positivity and martingale constraint uniquely fix the two reflected conditional laws via their invariant endpoint product; direct column rescaling gives the scalar full-cycle recursion. Positive derivative <1, unique fixed point, monotone trapping, KL Taylor expansion and exact boundary expansion prove every stated quantifier. The standalone independently constructed finite-grid implementation passed 15,316 checks; universal results are analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.18850 Theorem on exponential entropy convergence assumes convex terminal support; the present target has a three-atom, nonconvex support.",
+        "arXiv:2407.14186 discusses exponential dual rate without a closed sharp support-specific factor.",
+        "arXiv:2502.20264 provides generic alternating-projection rates in terms of abstract conditioning."
+      ],
+      "reasoning": "The prior abstract theorems can explain qualitative convergence under their hypotheses but do not logically establish the sharp scalar factor or its leading convex-order-boundary coefficient. The source 2026 theorem’s convex-support assumption fails on this finite grid; no novelty is inferred from this mismatch alone.",
+      "searches": [
+        "martingale Sinkhorn 2x3 exact local convergence rate derivative sharp convex order boundary dual Hessian",
+        "Sinkhorn martingale optimal transport",
+        "\"martingale Sinkhorn\" \"linearization\" \"rate\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.18850",
+      "arxiv:2407.14186",
+      "arxiv:2502.20264",
+      "arxiv:2508.17641",
+      "arxiv:1812.11104",
+      "Relevant semantic mathematical findings and named source-search queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.18850: exponential rate without the present finite-state hypotheses.",
+        "arXiv:2407.14186: exponential convergence without the stated exact formula.",
+        "arXiv:2502.20264: abstract linear convergence, not model-specific optimal derivative.",
+        "arXiv:2508.17641: approximate martingale constraints, not these exact KL half-steps."
+      ],
+      "reasoning": "An abstract existence of some linear rate does not determine the exact Jacobian eigenvalue, the squared KL rate, or leading slowdown constant. The exact 2x3 dynamics is additionally outside the convex-terminal-support assumptions of the newest motivating theorem. An unexamined finite-chain spectral result could still imply the result and remains residual risk.",
+      "searches": [
+        "entropic martingale optimal transport three point finite support sharp linear convergence factor endpoint mass",
+        "martingale optimal transport 2 source atoms 3 target atoms exact alternating KL projection contraction convex order boundary",
+        "sharp convergence factor martingale Schrödinger Sinkhorn near convex order boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kazeykina–Ren–Wang, arXiv:2609.18850, Definition 2.2 and convergence sections.",
+        "Chen–Conforti–Ren–Wang, arXiv:2407.14186, convergence result and numeric sensitivity discussion."
+      ],
+      "reasoning": "The discrete projective invariant and scalar map can be expressed as rowwise exponential tilting or KL/Bregman projections. Compared these equivalent descriptions to full-text martingale Sinkhorn analyses; their broader rates did not supply the exact two-by-three map, its derivative, or the boundary coefficient.",
+      "searches": [
+        "martingale Sinkhorn 2x3 exact local convergence rate derivative sharp convex order boundary dual Hessian",
+        "finite discrete entropy martingale optimal transport Sinkhorn local contraction spectral rate two initial states three terminal states",
+        "Exact scalar recurrence local entropy convergence of 2x3 discrete martingale Sinkhorn symmetric ±a initial distribution and {-1,0,1} terminal distribution. contraction factor a²(1-t)/(t(t-a²)) at target endpoint mass t. Degeneration at strict convex-order boundary t=a.",
+        "\"martingale Sinkhorn\" \"two\" \"three\" \"rate\" discrete",
+        "\"entropy martingale\" \"2x3\" Sinkhorn local contraction",
+        "\"martingale Schrödinger\" \"three point\" Sinkhorn convergence rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Examined arXiv:2407.14186 numeric examples and arXiv:1812.11104 numerical algorithms; neither section inspected tabulates this factor."
+      ],
+      "reasoning": "No matching exact symbolic factor or boundary table was identified in the examined source sections and targeted mathematical records. This is limited negative evidence, not a proof of nonexistence in all literature.",
+      "searches": [
+        "finite discrete entropy martingale optimal transport Sinkhorn local contraction spectral rate two initial states three terminal states",
+        "discrete 2x3 martingale entropy iterative proportional fitting rate",
+        "\"entropy martingale\" \"2x3\" Sinkhorn local contraction"
+      ]
+    },
+    "rationale": "The exact finite-grid recurrence, its sharp derivative and exact boundary slowdown are not stated or implied by the inspected broad martingale-Sinkhorn rate theorems; relevant early sources and exact/equivalence searches were checked. The result remains subject to unindexed equivalent finite-state computations.",
+    "residual_risks": [
+      "Earlier finite-state IPFP/Sinkhorn martingale calculations could yield an equivalent scalar recurrence under different parameterization.",
+      "A sharper unpublished Friedrichs-angle calculation may imply the exact same local constant.",
+      "Literature and semantic search coverage is not exhaustive; priority is provisional pending independent assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative exponential convergence theorem requires convex terminal support; does not give exact discrete scalar map or its derivative",
+        "evidence": "Definition 2.2, convergence theorem hypotheses and proof sections of arXiv:2609.18850",
+        "identifier_or_url": "https://arxiv.org/abs/2609.18850",
+        "material_read": "HTML full-text relevant Definition 2.2 and analysis of terminal-support assumptions, convergence sections 5 and 6",
+        "method": "Compared exact update formulas and hypotheses to a three-atom target with exact martingale constraints",
+        "title": "Exponential convergence of Sinkhorn algorithm for entropy martingale optimal transport",
+        "trigger": "Motivating 2026 theorem; same entropy-projection algorithm"
+      },
+      {
+        "assessment": "Rates not explicit in this minimal grid; numerical effects motivate exact coefficient but do not cover it",
+        "evidence": "Remark 2.12 and section 3.1 of arXiv:2407.14186",
+        "identifier_or_url": "https://arxiv.org/abs/2407.14186",
+        "material_read": "HTML full text, convergence theorem in section 2, Remark 2.12 and section 3.1 numerical experiments",
+        "method": "Compared stated convergence rates and numerical convex-order sensitivity to exact discrete rate formula",
+        "title": "Convergence of Sinkhorn's Algorithm for Entropic Martingale Optimal Transport Problem",
+        "trigger": "Earlier full-fledged martingale Sinkhorn convergence and numerical separation effects"
+      },
+      {
+        "assessment": "Generic contraction estimate does not state the exact two-by-three martingale factor",
+        "evidence": "Theorem 3.17 and rate discussion, arXiv:2502.20264",
+        "identifier_or_url": "https://arxiv.org/abs/2502.20264",
+        "material_read": "HTML full text, abstract and Theorem 3.17 with Friedrichs-angle/strong-convexity bound",
+        "method": "Compared exact optimized multiplier to abstract existence of contraction and bounds",
+        "title": "Alternating information projections and linear convergence",
+        "trigger": "Possible generic stronger theorem subsuming rates"
+      },
+      {
+        "assessment": "Different constraint projection scheme; no exact factor found for this grid",
+        "evidence": "Sections 3–4, arXiv:2508.17641",
+        "identifier_or_url": "https://arxiv.org/abs/2508.17641",
+        "material_read": "HTML full-text sections 3–4 on approximate martingale constraints",
+        "method": "Compared inexact/approximate constraint updates with exact KL projections",
+        "title": "Approximate-martingale entropic Sinkhorn method",
+        "trigger": "Close algorithmic literature"
+      },
+      {
+        "assessment": "General numerical/martingale transport discussion, no examined full-statement coverage",
+        "evidence": "Algorithm and numerical sections of arXiv:1812.11104",
+        "identifier_or_url": "https://arxiv.org/abs/1812.11104",
+        "material_read": "HTML full-text algorithms, rate discussions and computational comparisons",
+        "method": "Inspected whether explicit symmetric two-by-three scalar rates are present",
+        "title": "Entropy-regularized martingale transport algorithms",
+        "trigger": "Early broad computational literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ca278b8-7d50-44a9-bce8-f7ac00a95d31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the smallest support cardinality where exact martingale Sinkhorn has nontrivial projective dynamics, and the exact multiplier resolves the rate as a function of convex-order slack. The sharp first-order boundary slowdown and different plan/KL factors are mathematically motivated diagnostics for numerical entropic martingale transport; no generalized runtime or higher-dimensional theorem is claimed.",
+    "status": "PASS"
+  }
+}
