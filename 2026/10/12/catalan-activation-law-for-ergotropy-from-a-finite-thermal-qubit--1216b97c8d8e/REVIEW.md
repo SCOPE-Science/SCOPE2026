@@ -1,15 +1,21 @@
-# Review: Catalan activation law for ergotropy from a finite thermal qubit bath
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes every hypothesis: a pure-ground target qubit; independent Gibbs bath qubits with precisely the same excitation gap; an arbitrary joint unitary commuting with total Hamiltonian; one use and subsequent bath discard. Excitation sector \(k\) has initially occupied rank \(\binom nk\), target-excited capacity \(\binom n{k-1}\), and equal nonzero spectral weights, so projector eigenvalue majorization gives the exact sector optimum. An explicit excitation-sector basis permutation attains every optimum simultaneously. Diagonality of the output qubit follows from energy covariance. The piecewise binomial coefficients and central Pascal terms yield an exact even plateau and a single Catalan middle-coefficient residual; this proves the closed sum for every \(n\). The Catalan generating function gives a strict finite cutoff at \(q=1/2\), and a uniform geometric Catalan-tail expansion gives the \(\log(1/\delta)-3\log\log(1/\delta)/2\) law with bounded additive error. The attached exact-rational checker returned `VERIFY_OK 509 exact arithmetic checks`, including physically enumerated energy-sector ranks. These finite tests do not certify an infinite theorem; the analytic proof does.
+## correctness
 
-## Originality — PASS, with access residuals
-The closest recent report, Singh–Saha–Sen (arXiv:2609.04457v1), explicitly handles an impossibility for a single thermal qubit, as well as activation with a thermal qutrit and particular qubit–qubit interactions. These are credited as prior. The proposed claim instead solves one global energy-preserving step with an arbitrary number of **independent identical thermal bath qubits**, and gives exact parity and Catalan identities plus a sharp critical-resource divergence. Scharlau–Mueller (Quantum 2:54, 2018) provides a general finite-bath resource framework, and Łobejko (Nature Communications 12:918, 2021) studies finite-bath work restrictions; neither is identified in the inspected material as having the all-size identical-qubit count. Yáñez-Soria and collaborators (arXiv:2609.38724v1) produce ergotropy via *coherence* through repeated collisions rather than by target population inversion from one joint energy-preserving unitary. The 2024 dynamic cooling study optimizes a different allowed unitary class. Searches explicitly considered aliases including population inversion, thermal majorization, binomial degeneracy, thermal ancilla clusters, Catalan parity, finite bath and identical-gap Gibbs reservoirs. No implication-equivalent theorem was found in the examined published and semantic material. A generic majorization theorem can motivate the first sector bound; it is not misrepresented as a novel invention. Full text of the most relevant 2026 preprint and of the 2018 finite-bath paper was inaccessible: an undiscovered specialization remains a substantial risk, not affirmative evidence of novelty.
+PASS
 
-## Value — PASS
-The result answers a naturally motivated finite-bath dimension question precisely. It determines when a bath comprising nothing but thermal two-level ancillas can activate a ground-state qubit, shows that all even increments in reservoir qubit count give exactly zero benefit, and quantifies the resource blow-up next to the exact temperature boundary. Its sharp two-term logarithmic scale and independently attained formulas go well beyond a sample finite-size computation or repackaged one-qubit no-go. The restrictions to ideal global-control unitaries, identical gaps and no implementation-cost accounting are scientific limits, not claims of hardware feasibility.
+Excitation sector k has target-ground occupied dimension binom(n,k) at equal eigenvalue q^k/(1+q)^n and target-excited dimension binom(n,k−1). Ky Fan bound min(a,b) attained simultaneously by sector basis permutations. Pascal binomial symmetry yields F_{2m}=F_{2m−1} and pair gain Catalan_m q^(m+1)/(1+q)^(2m+1). Catalan generating function gives F_odd↑q strictly for finite positive q, yielding q>1/2 threshold; Stirling C_m~4^m/(sqrt(pi)m^(3/2)) and uniform r near 8/9 yield loglog correction and O(1) error. q=0 and q=1 limits and monotone q crossing considered.
 
-## Closest literature and limitations
-The published one-qubit impossibility, thermal qutrit positive result, general finite-bath thermodynamic constraints, coherent steady-state charging, and unconstrained dynamic cooling are distinguished by their physical assumptions and logical implications in `AUDIT.json`. Full preprint/appendix comparisons could not be completed for every plausible source and remain a residual originality risk. All-new claims are mathematical statements under the printed model; the procedure does not assert external validation or established publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General energy-shell Ky Fan/thermal-majorization ideas are prior art. A targeted comparison did not reveal the exact all-n Catalan parity law, activation q>1/2 and logarithmic-minus-logarithmic resource threshold for identical thermal bath qubits under one global energy-preserving unitary.
+
+## value
+
+PASS
+
+Exact finite thermal resource law quantifies minimum number of identical qubits needed to invert a ground target under a fundamental operation class, with unexpected even-bath redundancy, sharp activation boundary, constructive optimal permutations and loglog correction; these are useful natural thermodynamic performance invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

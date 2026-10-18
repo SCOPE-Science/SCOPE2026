@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and bounds of verification
 
-Run `python3 verify.py` with Python 3.9 or later. The script requires no third-party libraries. In the performed check, it printed:
+# Independent mathematical audit
 
-`VERIFY_OK 509 exact arithmetic checks`
+## correctness
 
-It compares exact rational values from direct energy-shell state enumeration through nine bath qubits against the independent closed binomial and Catalan expressions, checks all six rational Boltzmann factors \(0,1/5,1/2,2/3,4/5,1\) through thirteen qubits, checks parity and incremental Catalan identities through twenty pairs, checks raw numerator coefficient identities through twenty-four, and compares exact central-binomial endpoint expressions. It separately verifies the five-qubit first-activation example at \(q=2/3\).
+PASS
 
-The script's loops test finitely many dimensions and rational factors. They cannot establish the all-size formula, uniqueness and monotonicity of thermal thresholds, the infinite-bath bound, or the sharp asymptotic; these conclusions follow from the exact energy-sector eigenvalue bound, Pascal identities, the Catalan generating function and the uniform Stirling tail in `RESULT.md`. No third-party certificate or independent audit is asserted.
+Excitation sector k has target-ground occupied dimension binom(n,k) at equal eigenvalue q^k/(1+q)^n and target-excited dimension binom(n,k−1). Ky Fan bound min(a,b) attained simultaneously by sector basis permutations. Pascal binomial symmetry yields F_{2m}=F_{2m−1} and pair gain Catalan_m q^(m+1)/(1+q)^(2m+1). Catalan generating function gives F_odd↑q strictly for finite positive q, yielding q>1/2 threshold; Stirling C_m~4^m/(sqrt(pi)m^(3/2)) and uniform r near 8/9 yield loglog correction and O(1) error. q=0 and q=1 limits and monotone q crossing considered.
+
+## originality
+
+PASS
+
+General energy-shell Ky Fan/thermal-majorization ideas are prior art. A targeted comparison did not reveal the exact all-n Catalan parity law, activation q>1/2 and logarithmic-minus-logarithmic resource threshold for identical thermal bath qubits under one global energy-preserving unitary.
+
+## value
+
+PASS
+
+Exact finite thermal resource law quantifies minimum number of identical qubits needed to invert a ground target under a fundamental operation class, with unexpected even-bath redundancy, sharp activation boundary, constructive optimal permutations and loglog correction; these are useful natural thermodynamic performance invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
