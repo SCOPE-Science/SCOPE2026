@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the crown graph \(\operatorname{Cr}_n\), computes all-pairs graph distances by breadth-first search, truncates them according to
-\[
-d_k(x,y)=\min\{d(x,y),k+1\},
-\]
-and tests both distance-\(k\) resolution and distance-\(k\) domination directly.
+# Independent mathematical audit
 
-For every \(5\le n\le8\) and \(k\in\{1,2,3\}\), it checks every candidate of size at most \(n-1\). Every smaller set fails, and every size-\(n-1\) set is compared with the structural theorem.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-crown_parameters_checked = 4
-parameters n = 5..8
-distance_ranges_checked = 1,2,3
-subset_trials = 104343
-minimum_bases_checked = 4884
-all smaller sets failed
-all minimum sets matched the structural classifications
-k=1 counts matched n(2^(n-1)-2n)
-k>=2 counts matched n*2^(n-1)
-```
+For same-side vertices a_i,a_j, only landmarks in P_i union P_j distinguish under d_k; hence all but at most one matched pair must meet S, forcing size at least n-1. Equality gives one-per-pair transversals with one omitted pair. A selected third pair resolves each cross-side pair for n>=4. With diameter three, k>=2 domination follows; for k=1 every omitted matched mate requires at least two selected vertices of its side, yielding p,q>=2 and binomial count 2^(n-1)-2n. Independent direct distance-code enumeration for n=5,6,7 and k=1,2,3 recovered all predicted counts (30,120,350 for k1; 80,192,448 for k2 or k3). Finiteness of these checks is not used for universal quantification.
 
-The finite enumeration is corroborative only. The theorem for all \(n\ge5\) and all \(k\ge1\) follows from the proof.
+## originality
+
+PASS
+
+The earlier crown edge-metric-basis theorem obtains the same n-1 and n*2^(n-1) numbers but resolves EDGES rather than VERTICES and does not impose distance-k domination; its implication does not determine the k=1 filtered family. Kang and Yi define the simultaneous vertex problem and prove bounds but do not give this crown family. No stronger same-parameter conclusion identified by targeted cross-name search.
+
+## value
+
+PASS
+
+Locating-domination is a natural joint vertex-identification and sensor-coverage problem. Crown graphs model the exact one-factor deletion boundary; the classification and all-bases counts expose a substantive range-one/range-two transition hidden by the invariant n-1, rather than just computing an isolated parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

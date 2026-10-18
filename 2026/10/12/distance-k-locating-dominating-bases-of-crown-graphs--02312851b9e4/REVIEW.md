@@ -1,12 +1,21 @@
-# Review of Distance-\(k\) locating-dominating bases of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For every same-side pair \(a_i,a_j\), the complete distance-\(k\) resolving neighborhood is \(P_i\cup P_j\), and similarly on the \(B\)-side. Hence every resolving set meets all but at most one matched pair, giving the sharp lower bound \(n-1\). Equality forces a one-endpoint transversal of all but one pair. For \(n\ge4\), direct pair-type comparisons show that every such transversal resolves the entire crown graph for every \(k\ge1\). When \(k\ge2\), all omitted vertices lie within distance two of the transversal. When \(k=1\), domination holds exactly when the transversal has at least two selected vertices in each bipartition class. The binomial counts follow immediately. Exhaustive computation for \(5\le n\le8\) and \(k=1,2,3\) matches every statement.
+## correctness
 
-## Originality
-PASS. The 2021 defining paper for distance-\(k\) location-domination was inspected at the definition, general-bound, extremal, and exact-family sections; it contains no crown occurrence and no \(K_{n,n}\) minus perfect matching specialization. The companion distance-\(k\) dimension paper supplies general truncated-distance theory and standard families, but no crown theorem. Semantic published-result searches and targeted literature searches under crown graph, perfect-matching-deleted complete bipartite graph, bipartite double cover, bipartite Kneser graph, adjacency dimension, and locating-dominating terminology did not locate the claimed phase transition or basis counts.
+PASS
 
-## Value
-PASS. The result completely determines all minimum detector configurations, not just the scalar optimum, for a standard distance-transitive family. It exhibits a clean range transition: increasing the sensing radius from one to two leaves the optimum size unchanged but restores exactly the orientation patterns excluded by one-step domination. This refines the general bound \(\gamma_L^k-\dim_k\in\{0,1\}\) with an explicit infinite family where equality with distance-\(k\) dimension holds for all ranges while the optimizer geometry changes sharply.
+For same-side vertices a_i,a_j, only landmarks in P_i union P_j distinguish under d_k; hence all but at most one matched pair must meet S, forcing size at least n-1. Equality gives one-per-pair transversals with one omitted pair. A selected third pair resolves each cross-side pair for n>=4. With diameter three, k>=2 domination follows; for k=1 every omitted matched mate requires at least two selected vertices of its side, yielding p,q>=2 and binomial count 2^(n-1)-2n. Independent direct distance-code enumeration for n=5,6,7 and k=1,2,3 recovered all predicted counts (30,120,350 for k1; 80,192,448 for k2 or k3). Finiteness of these checks is not used for universal quantification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The earlier crown edge-metric-basis theorem obtains the same n-1 and n*2^(n-1) numbers but resolves EDGES rather than VERTICES and does not impose distance-k domination; its implication does not determine the k=1 filtered family. Kang and Yi define the simultaneous vertex problem and prove bounds but do not give this crown family. No stronger same-parameter conclusion identified by targeted cross-name search.
+
+## value
+
+PASS
+
+Locating-domination is a natural joint vertex-identification and sensor-coverage problem. Crown graphs model the exact one-factor deletion boundary; the classification and all-bases counts expose a substantive range-one/range-two transition hidden by the invariant n-1, rather than just computing an isolated parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
