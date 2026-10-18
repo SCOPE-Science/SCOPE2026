@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Recomputed common-increment Euler and stochastic-Heun updates: their difference equals -(lambda^2 h^2/2)x+(lambda g h^(3/2)/2)Z. Scaling gives noncentral chi-square df=d with Delta=lambda^2 h ||x||^2/g^2. Monotone inverse-power mapping yields exact raw survival and cap atoms. Noncentral chi-square gamma/Poisson mixture has nonzero small-ball density constant, yielding regular-variation exponent d/k and sharp moment cutoff. Central chi-square Cramer theorem gives both dimension-rate limits. check_distribution.py empirically verifies laws and finite-d thresholds. No finite computation substitutes for the analytic proof. All quantified boundaries include d>=1, h/lambda/g/T>0 and k>0; clipping bounds m,M finite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper designs an adaptive generative sampler and reports sampling performance; this theorem is a distinct fixed-step conditional exact law.",
+        "Ilie-Jackson-Enright derive PI controller dynamics for Milstein schemes, and Lamba-Seaman derive mean-square stability for multiplicative SDEs."
+      ],
+      "reasoning": "A general numerical-stability or adaptive-computation theorem would dominate a narrow conditional law only if its assumptions and conclusion imply the full noncentral chi-square law and sharp moment/clipping thresholds; no inspected result does so.",
+      "searches": [
+        "2026 source Sections 4, B.1, main experiments and limitations",
+        "Ilie-Jackson-Enright 2014 Sections 3–4",
+        "Lamba-Seaman 2006 stability error controls",
+        "adaptive SDE PI step size controller inverse local error heavy polynomial tail clipping noncentral chi distribution"
+      ]
+    },
+    "checked_sources": [
+      "Kemperman and Ambrogioni, arXiv:2610.03034v1, Sections 4 and Appendix B.1, equations (3)–(4) and Algorithm 1",
+      "Ilie, Jackson and Enright, 2014 public preprint / 2015 Numerical Algorithms, Section 3.1 and equations (10)–(18)",
+      "Lamba and Seaman, 2006, Sections 1–2 and error-control definitions",
+      "Jolicoeur-Martineau et al. arxiv:2105.14080 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating paper prescribes shared-noise Euler–Heun difference and capped PI step, but studies empirical sample quality, not the exact Gaussian OU transition law.",
+        "Original PI paper studies closed-loop roots and accepted/rejected steps, with different Milstein estimators.",
+        "Closest indexed one-step error-estimator resonance results address deterministic Runge–Kutta methods, not Gaussian noncentral chi laws."
+      ],
+      "reasoning": "The source recursions and classical probability principles are acknowledged premises; their combination with the OU shared-noise discrepancy requires the proved noncentral Gaussian transformation, small-ball asymptotics, integrability argument and clipping-event large deviations. No inspected stronger published claim implies this whole statement without those additional steps.",
+      "searches": [
+        "arxiv:2610.03034v1 Equations (3),(4), Algorithm 1, Appendix B.1",
+        "Ilie et al., Section 3.1 equations (16)-(18)",
+        "Exact one-step Gaussian stochastic Heun PI adaptive timestep controller conditional noncentral chi-square error law clipped gain atom heavy tail moment threshold",
+        "2610.03034 Kemperman Ambrogioni noise normalized PI controller clipping probability exact Gaussian Ornstein Uhlenbeck"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source gives the estimator and PI recurrence but no chi-square transformed gain law or moment threshold.",
+        "The 2014 public preprint treats Milstein error and controller characteristic roots, not the stochastic Euler–Heun OU increment distribution."
+      ],
+      "reasoning": "Normal-norm transforms, inverse-chi powers, noncentral chi-square survival laws and raw/capped gain laws are mathematical aliases of the present assertion. These were compared as statements; the inspected primary papers state their underlying algorithms, not this distributional classification.",
+      "searches": [
+        "Gaussian stochastic Heun Euler local extrapolation error norm PI adaptive step size multiplier inverse chi distribution critical moment dimension d/(k_i+k_p)",
+        "Exact one-step Gaussian stochastic Heun PI adaptive timestep controller conditional noncentral chi-square error law clipped gain atom heavy tail moment threshold",
+        "primary arXiv:2610.03034v1 sections 4,B.1; Ilie-Jackson-Enright Section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed stochastic integrator records concern UBU/Langevin covariance errors and deterministic embedded-estimator resonances, not this PI gain law.",
+        "No inspected primary paper reports the clipping atoms or their large-dimension rates as a table or formula."
+      ],
+      "reasoning": "Checked for an existing special-function/table equivalence, not a numerical value alone. The chi-square CDF and its large-deviation rate are known tools; the object-specific full law is not exhibited in compared publications.",
+      "searches": [
+        "adaptive time stepping Euler Heun Ornstein Uhlenbeck error estimate probability of huge step inverse gaussian norm moment",
+        "Euler Heun predictor corrector Ornstein Uhlenbeck additive noise local error proportional integral step size inverse chi squared tail",
+        "2610.03034 Kemperman Ambrogioni noise normalized PI controller clipping probability exact Gaussian Ornstein Uhlenbeck",
+        "Published original papers arxiv:2610.03034v1 and doi:10.1007/s11075-014-9872-6"
+      ]
+    },
+    "rationale": "Primary-source full texts and relevant indexed mathematical findings were compared for equivalent Gaussian norm/inverse-power laws, broader coverage, exact tabulations and logical implication. Closest works specify adaptive controllers or other SDE stability laws, without the theorem’s complete OU conditional gain distribution, moment threshold and clipping large-deviation rates. Basic noncentral chi-square and Cramer theory are not claimed original; unindexed sources and inaccessible adjacent material remain risks.",
+    "residual_risks": [
+      "Equivalent inverse-chi controller-tail analysis may occur in unindexed or inaccessible publications.",
+      "Full manuscript arxiv:2105.14080 was not read; available abstract and motivating source comparison do not resolve every conceivable overlap.",
+      "The classification is a conditional OU benchmark, not an empirical assertion about general diffusion sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same estimator/controller but does not state the noncentral chi-square conditional gain law, moment threshold, or high-d clipping rates",
+        "evidence": [
+          "arxiv:2610.03034v1, Sec. 4 lines 127–170 and App. B.1 lines 363–378"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.03034v1",
+        "material_read": "Full article HTML including Section 4 equations (3),(4), Algorithm 1, Appendix B.1, experiments/limitations and references",
+        "method": "Read the primary openly available full text, comparing formula domains, randomness, probabilities and reported outputs",
+        "title": "Adaptive Second-Order Solvers for Fast Stochastic Diffusion Sampling",
+        "trigger": "Direct motivating paper, exact PI recurrence, Euler–Heun and mixed-noise normalization"
+      },
+      {
+        "assessment": "Provides known PI recurrence and deterministic root stability, but not this stochastic Euler–Heun OU gain distribution",
+        "evidence": [
+          "Ilie, Jackson and Enright, 2014 public preprint pages 9–11 (printed), equations (16)–(18)"
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf",
+        "material_read": "Primary preprint introduction and Section 3.1, especially equations (10)–(18), controller stability and numerical method descriptions",
+        "method": "Inspected full-text extracted page ranges and visually inspected the original PDF Section 3.1",
+        "title": "Adaptive time-stepping for the strong numerical solution of stochastic differential equations",
+        "trigger": "Prior derivation of proportional-integral step-size recursion and clipping"
+      },
+      {
+        "assessment": "Mean-square stability on linear multiplicative-noise systems using separate controls does not imply the clipped noncentral chi-square conditional gain law",
+        "evidence": [
+          "Lamba and Seaman, 2006, Sections 1–2, paper pp. 1–5"
+        ],
+        "identifier_or_url": "https://math.gmu.edu/~harbir/stochstab.pdf",
+        "material_read": "Full-text introduction and Sections 1–2 including multiplicative-noise test model and drift/diffusion error tests",
+        "method": "Inspected PDF text and page image showing the distinct Milstein drift/diffusion error controls",
+        "title": "Mean-square stability properties of an adaptive time-stepping SDE solver",
+        "trigger": "Potentially stronger moment and adaptive-stability results for linear test SDEs"
+      },
+      {
+        "assessment": "Material insufficient for a whole-paper not-covering assertion; unresolved but no direct documented dominating implication",
+        "evidence": [
+          "arxiv:2105.14080 abstract; arxiv:2610.03034v1, Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.14080",
+        "material_read": "Abstract and accessible bibliographic synopsis only; full arXiv PDF/HTML inaccessible",
+        "method": "Attempted open-access arXiv HTML and PDF; inspected abstract and 2026 primary paper’s Section 2 comparison",
+        "title": "Gotta Go Fast When Generating Data with Score-Based Models",
+        "trigger": "Adjacent adaptive diffusion-sampling method with two function evaluations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10786210-5735-4512-8f17-62d3113e01dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stochastic noise-normalized PI step controller has a natural, operationally important exact invariant: probability of hitting either hard step multiplier cap. The theorem classifies this for all states, dimensions, step sizes and nonnegative PI gains in an OU benchmark, additionally locating the exact moment integrability boundary of the raw proposal and giving sharp high-dimensional exponential cap-frequency laws. Those concrete thresholds quantify why clipping changes the probabilistic behavior, and supply a directly reproducible test for stochastic adaptive-step implementations. No general sampler convergence/quality theorem is claimed; the fact is still a motivated complete classification, not a chosen numerical slice or textbook identity alone.",
+    "status": "PASS"
+  }
+}
