@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Each maximal independent set of P(n,2), n≥5, is uniquely a cyclic 0/1/2 word where 1 selects an outer vertex, 2 an inner vertex and 0 neither. Independence and domination at coordinate i are precisely the five-symbol centred conditions supplied in the proof: c=1 forbids adjacent outer selections, c=2 forbids inner step-two selections, c=0 needs both an outer neighbour 1 and an inner step-two neighbour 2. Closing the 81-state de Bruijn transfer gives the cardinality polynomial tr(T^n). The identified 27-state cyclic core has 47 weighted directed edges, with acyclic remainder, so its determinant via polynomial Newton identities is exactly D(t,z)=1-2z²t³-3z³t⁴-(2z³+z⁴)t⁵-4z⁴t⁶-z⁵t⁷+2z⁵t⁸+z⁶t⁹+z⁶t¹⁰. The exact transition potentials supplied with the package certify 3n≤5|S|≤4n on all closed walks; explicit five-residue closed-walk witnesses prove both bounds attained for every n≥5. The formal log derivative is the unlimited all-size enumerator and its low-deficit coefficient extraction yields all ten polynomial extremal multiplicity formulas, not interpolation. Independently constructed local transitions and polynomial Newton determinant through n=16; brute independent graph subsets for n=5,6,7,8 yielded 10z³+5z⁴, 36z⁴, 49z⁵, and 16z⁵+52z⁶ respectively. Independently propagated the exact D recurrence to n=100, matching all ten residue formulas and both sharp support endpoints. Direct finite experiments alone do not prove all n.
+
+## originality
+
+PASS
+
+Earlier Besharati–Ebrahimi–Azadi give alpha(P(n,2))=floor(4n/5), hence the maximum support endpoint is prior-known. Maximal independent sets are precisely independent dominating sets and complements of inclusion-minimal vertex covers, so these alternatives were searched, not treated as distinct results. Dod defines the generic independent domination polynomial; Nagy treats different k-dominating counts. A 2009 same-family paper on MINIMUM vertex covers has inaccessible full text and remains an explicit priority risk for extremal multiplicities, not assumed silent. No inspected broader theorem yields this complete polynomial denominator and every extremal coefficient.
+
+## value
+
+PASS
+
+The graph family is classical and the distribution of ALL inclusion-maximal independent sets by cardinality is a natural invariant with direct minimal-cover interpretation. The exact all-order rational/logarithmic transfer and ten extremal coefficient formulas refine the previously known scalar maximum, providing genuinely finer enumeration valuable to extremal enumeration and algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
