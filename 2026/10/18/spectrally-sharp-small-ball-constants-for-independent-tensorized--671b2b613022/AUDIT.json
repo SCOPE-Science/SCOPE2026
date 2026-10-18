@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The SVD yields the product characteristic function; \\(r\\ge2\\) has integrable Fourier transform and hence continuous positive origin density. Joint iid-density ball scaling yields the exact leading constant. At \\(r=1\\), the K0 origin expansion with an integrable product-of-logarithms dominator gives the exact log-power coefficient. The p-th moment tail-integral criterion proves the boundary including \\(p=\\ell\\). Jensen strict concavity for squared singular-value weights gives the exact unique fixed-rank minimizer, while \\(\\log(1+u)<u\\) gives strict full-Gaussian comparison. The flat-spectrum beta integral and Laplace rank-two example were reconstructed. The packaged verifier passed 38 finite checks; infinite assertions rest on proof, not experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao–Nakatsukasa arXiv:2607.10377 Lemma 2.4/Remark 2.5 gives an order bound and says a second singular direction removes the logarithm.",
+        "Their Theorem 2.7 concerns the FULL matrix Ω_L^T M Ω_R and correlated crossed probes, bounding it via independent diagonal entries; it yields big-O bounds only.",
+        "Güttel–Kressner–Vandereycken Theorem 3.4 proves a bound for one tensor probe and explicitly leaves improved multiple-probe estimates open."
+      ],
+      "reasoning": "A full crossed-block observable involves \\(b^2\\) entries reusing factors and is not distributionally equal to b independent bilinear coordinates. The 2026 independent-diagonal upper bound is compatible with, but does not imply, the present exact coefficient or spectral Jensen extremality. No full-function adaptive-approximation guarantee is claimed.",
+      "searches": [
+        "published-finding corpus: rank matrix tensor sketch probability norm many independent bilinear probes Fourier density at zero",
+        "Web: convergence analysis nonlinear eigensolver rational resolvent Shao Nakatsukasa 2026 Theorem 2.7",
+        "Web: randomized sketching of nonlinear eigenvalue problems Güttel Kressner 2022 tensorized probing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2211.12175v1,v2",
+      "arxiv:2004.06433v1,v2",
+      "arxiv:2607.10377v1",
+      "arxiv:2403.20192v1",
+      "published-finding corpus published record 2026/9/20/SCOPE-exact-block-product-small-ball-constants--cf3421945354",
+      "published-finding corpus published record 2026/9/18/SCOPE-signed-chaos-maxima-sign-sensitive-gaussianization--948f406a92ce",
+      "Relevant previously documented numerical least-squares coefficient-error tail calculation, compared only for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 source: bound O(log τ/τ) for one tensor test and statement that improved ℓ>1 rates remain open.",
+        "2020 source: single-probe bound and multiple-probe trace confidence underestimation, not asymptotically exact rank-r failure rate.",
+        "2026 source: \\(r\\ge2\\) logarithmic removal already described, and global crossed-block \\(O((\\varepsilon\\log(1/\\varepsilon))^b)\\) bound, without fixed-M leading coefficient or spectrum balancing.",
+        "2024 tensor small-ball theorem: arbitrary subspace projection upper bounds, not constants of independent probes of one fixed matrix."
+      ],
+      "reasoning": "Prior 2026 qualitative rank dichotomy is acknowledged, so novelty is NOT claimed for that dichotomy alone. One-probe and big-O consequences cannot determine exact multi-probe constants; the strict unique minimizer among all positive singular spectra requires a separate Jensen extremality argument. The inverse-moment iff criterion follows from the newly established exact tails for every independent-probe count; it is not inferred from a one-sided bound.",
+      "searches": [
+        "Güttel–Kressner–Vandereycken arXiv:2211.12175v2 Theorem 3.4 and Section 3.3",
+        "Bujanović–Kressner arXiv:2004.06433v2 Theorems 2.2, 3.1",
+        "Shao–Nakatsukasa arXiv:2607.10377v1 Lemma 2.4, Remark 2.5, Theorem 2.7",
+        "Hu–Paouris arXiv:2403.20192v1 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest public database record: 2026/9/20/SCOPE-exact-block-product-small-ball-constants--cf3421945354 concerns bounded random-block product concentration, not Gaussian bilinear matrix sketches.",
+        "Güttel–Kressner–Vandereycken arXiv:2211.12175 Section 3.3 analyzes the same tensor probing mechanism, but only gives a one-probe bound.",
+        "A separate earlier numerical finding derives tails of a sketched least-squares coefficient ratio, which has a random numerator and fixed rank-one coefficient directions."
+      ],
+      "reasoning": "A simple variable renaming does not identify a coefficient-error random ratio with the deterministic Frobenius norm divided by the norm of multiple independent Gaussian bilinear tests. The scalar rank-one Bessel mechanism is common prior knowledge; the present claim adds exact rank-two-and-higher spectral leading coefficients and a unique minimizer. No inspected equivalent identity gives these together.",
+      "searches": [
+        "published-finding corpus: independently resampled tensor sketch Gaussian product-normal logarithmic tails multiple probes inverse moments",
+        "published-finding corpus: Gaussian bilinear test u transpose M v small-ball constant rank two singular value flat spectrum",
+        "Web: bilinear Gaussian zero density singular values Fourier small ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned public Gaussian-chaos maximum and bounded-product concentration records, no exact table of rank-dependent independent bilinear norm failure constants.",
+        "Bujanović–Kressner arXiv:2004.06433 Theorem 3.1 gives a nonasymptotic trace lower-confidence bound \\(\\exp(-\\ell\\varepsilon^2/18)\\), not the small-ball coefficient at vanishing threshold.",
+        "Shao–Nakatsukasa numerical Figure 2.2 treats a different block observable and does not list exact independent-probe coefficients."
+      ],
+      "reasoning": "The finding is an exact integral and gamma-function classification, not a recomputation of an inspected database table. Searches do not certify absence of all unindexed equivalent tables.",
+      "searches": [
+        "published-finding corpus: Gaussian bilinear forms independent rank r small-ball asymptotic Euclidean norm product normal log",
+        "published-finding corpus: independently resampled tensor sketch Gaussian product-normal logarithmic tails multiple probes inverse moments",
+        "Web: norm trace estimation random rank-one vectors Bujanović Kressner 2020 Theorem 3.1"
+      ]
+    },
+    "rationale": "The inspected numerical-analysis papers establish tensor-probe estimators, general nonasymptotic bounds, the one-probe product-normal obstruction, and the qualitative disappearance of its logarithmic singularity at matrix rank at least two. They do not supply the exact multi-probe Euclidean-ball coefficients indexed by all nonzero singular values, the unique spectrum-constrained minimizer, or the sharp inverse-moment classification for this precise independent-pair observable. A related earlier coefficient-error ratio involves a random numerator and does not imply the full matrix-rank constant theorem. Priority outside inspected sources remains uncertain.",
+    "residual_risks": [
+      "An exact Fourier-density small-ball formula or equivalent extremality theorem may have appeared in probability literature under decoupled Gaussian chaos or variance-gamma terminology; no independent priority audit was performed.",
+      "The rank-one logarithmic mechanism and \\(r\\ge2\\) qualitative log removal are already known; novelty rests on the explicit all-rank all-ell constants, spectral extremality, and resulting inverse-moment classification for independent probes.",
+      "The analysis is restricted to independent real factor pairs and fixed separable residuals; it cannot be transferred unmodified to the 2026 shared-factor matrix-block statistic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same tensorized probes and fixed-independent residual setting; single-probe rate bound only, no exact multi-probe singular-spectrum constants.",
+        "evidence": [
+          "Section 2 equation (11) defines ell distinct factor-vector pairs.",
+          "Section 3.3 states the existing proof is limited to \\(\\ell=1\\) and improved \\(\\ell>1\\) rates remain open."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.12175v2",
+        "material_read": "Sections 2 and 3; the statements, normalizations, and proof of Theorem 3.4 and the open-problem sentence in Section 3.3.",
+        "method": "Lawful open-access full-text HTML",
+        "title": "Randomized sketching of nonlinear eigenvalue problems",
+        "trigger": "Original 2022 source introduces tensorized probing and identifies an \\(\\ell>1\\) problem."
+      },
+      {
+        "assessment": "Provides single-probe big-O and multiple-probe moderate-deviation nonasymptotic bounds, not exact small-ball constants or spectral minimax.",
+        "evidence": [
+          "Theorem 2.2 bounds miss probability by (2/pi)(2+ln(1+2theta))/theta.",
+          "Theorem 3.1 bounds estimator undershoot at fixed relative error by exp(-k epsilon^2/18)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2004.06433v2",
+        "material_read": "Theorem 2.2 and proof in Section 2, Theorem 3.1 and proof in Section 3, and related comparison with full Gaussian probing.",
+        "method": "Lawful open-access full-text HTML",
+        "title": "Norm and trace estimation with random rank-one vectors",
+        "trigger": "Original high-confidence Gaussian tensor norm estimator for arbitrary matrices."
+      },
+      {
+        "assessment": "The known \\(r\\ge2\\) no-log fact is prior, and fully crossed block-probe bounds are not the independent-pair Euclidean norm observable. No leading constants or spectral extremizer are derived.",
+        "evidence": [
+          "Remark 2.5 explicitly says the log factor can be removed using a positive second singular value.",
+          "Theorem 2.7 uses the Frobenius norm of Omega_L^H S Omega_R and bounds its small-ball probability by \\(O((\\varepsilon\\log(1/\\varepsilon))^b)\\) in the real case.",
+          "Its proof bounds the full block by only its independent diagonal entries, leaving room for exact independent-probe constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10377",
+        "material_read": "Full author-hosted open text mirrored as HTML at ResearchGate: Section 2.2, Lemma 2.4 and proof, Remarks 2.5/2.6, Theorem 2.7 and its proof, and related Figure 2.2.",
+        "method": "Lawful author-provided public full text rendered as HTML",
+        "title": "Convergence analysis of a nonlinear eigensolver based on rational approximation of the resolvent",
+        "trigger": "Directly overlapping two-sided Gaussian bilinear anti-concentration and rank-dependent logarithmic behavior."
+      },
+      {
+        "assessment": "General dimension/projection upper estimates for one tensor-valued random input; does not imply the exact iid-probe ball asymptotic or singular-spectrum minimizer.",
+        "evidence": [
+          "Theorem 1.1 addresses a projection of one simple random tensor on a fixed subspace.",
+          "No exact fixed-matrix singular-value leading constant occurs in the inspected theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.20192v1",
+        "material_read": "Full-text abstract, Theorem 1.1 and related theorem scope, and selected proof discussion of tensorized projection concentrations.",
+        "method": "Lawful open-access full-text HTML",
+        "title": "Small Ball Probabilities for Simple Random Tensors",
+        "trigger": "General small-ball results for tensor products could dominate the present special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "671b2b61-3022-4a15-b53c-bd215e421702",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating independent validation-sketch problem asks how many cheap tensor-factor probes are needed not to miss a fixed residual. An exact leading probability coefficient and sharp inverse-moment threshold determine this numerical reliability beyond loose confidence bounds; the singular-spectrum optimizer describes a nontrivial worst-case dependence and a provable factor pi cost at rank two with two probes compared with dense probing. The previously known qualitative logarithmic rank transition is not alone the value: the new finite-rank constants, strict extremal matrix classification, and spectral-collapse nonuniformity form a motivated complete asymptotic calculation. The spatial operator of the separable residual has stable rank one even when its reshaped coefficient matrix has rank at least two, so the matrix-rank-sensitive leading constants address information absent from stable-rank-only guarantees.",
+    "status": "PASS"
+  }
+}
