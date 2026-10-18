@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,64 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the one-point example,
-\[
-F_1=F_2=1,
-\qquad
-G_1=G_2=-1.
-\]
-Thus for every scalar \(z\),
-\[
-q_i(z)
-=
-\langle z,1\rangle\langle-1,z\rangle
-=
--|z|^2.
-\]
-No positive lower biframe inequality is possible.
+# Independent mathematical audit
 
-On the tensor product,
-\[
-F_1\otimes F_2=1,
-\qquad
-G_1\otimes G_2=1,
-\]
-hence
-\[
-q_{\otimes}(z\otimes w)
-=
-|z|^2|w|^2
-=
-\|z\otimes w\|^2.
-\]
-The tensor pair is therefore Parseval.
+## correctness
 
-For the phase classification, suppose
-\[
-A\|f\|^2\|g\|^2
-\le
-q_1(f)q_2(g)
-\le
-B\|f\|^2\|g\|^2.
-\]
-Fix unit \(g_0\) and let
-\[
-\zeta=\frac{q_2(g_0)}{|q_2(g_0)|}.
-\]
-Then
-\[
-\zeta q_1(f)
-=
-\frac{q_1(f)q_2(g_0)}{|q_2(g_0)|}
-\]
-is positive and obeys the factor biframe bounds obtained by dividing by \(|q_2(g_0)|\). Fixing a unit \(f_0\) gives the reciprocal bounds for \(\zeta^{-1}q_2(g)\). Conversely,
-\[
-(\zeta G_1)\otimes(\zeta^{-1}G_2)
-=
-G_1\otimes G_2,
-\]
-so positive rotated factor inequalities multiply to the original tensor inequality.
+PASS
 
-The target theorem and its complete proof were inspected in the first public full text, including the step that divides by a merely nonzero factor integral. The later Hilbert-\(C^*\)-module tensor theorem was inspected as a broader comparison. No numerical experiment or finite search is used as mathematical evidence.
+The exact unit-measure one-point example H1=H2=C, Fi=1, Gi=-1 gives each mixed quadratic form q_i(z)=-|z|^2, violating any positive biframe lower bound. Their tensors have G1 tensor G2=(+1) and F1 tensor F2=+1, so q_tensor(z tensor w)=|z|^2|w|^2, a Parseval biframe. This refutes the unrotated converse of the printed 2023 theorem without any measure-theoretic caveat. Under explicitly assumed Fubini product factorization, tensor inequalities imply q_i never vanish for nonzero arguments; fixing a unit g0 and setting ζ=q2(g0)/|q2(g0)| rotates ζ q1(f) onto the positive real axis with positive two-sided bounds, and fixing f0 similarly gives bounds for ζ^{-1}q2(g). Reciprocal phases cancel in the tensor; the converse follows by multiplying positive rotated bounds. The convention is the source convention that scaling the second vector by ζ scales the mixed form by ζ. No integrability claim beyond the stated hypotheses.
+
+## originality
+
+PASS
+
+The exact original Ghosh–Samanta Theorem 4.2 and its full converse proof were materially inspected: it divides by a nonzero mixed scalar without establishing its positive real phase. The counterexample exposes that precise false implication. Resultary returns a nearby sign-cancellation correction in **controlled g-fusion frames** rather than continuous biframes; it does not state this theorem or a reciprocal complex-phase criterion. Targeted searches found no already-published correction of the exact biframe theorem; informal/unindexed corrections remain possible.
+
+## value
+
+PASS
+
+Correcting a published universal if-and-only-if theorem is substantively useful even when its smallest counterexample is one-dimensional. The exact reciprocal phase equivalence isolates the missing hypothesis and preserves the useful tensor product direction; it is not merely a cheap counterexample without mathematical motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
