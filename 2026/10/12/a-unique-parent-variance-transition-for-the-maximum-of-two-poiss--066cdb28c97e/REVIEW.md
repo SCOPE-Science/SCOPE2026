@@ -1,19 +1,21 @@
-# Scientific review: a unique parent-variance transition for two Poisson counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \(M=(S+|D|)/2\), the symmetric Skellam mass function, and the modified-Bessel recurrence give \(\mathbb EM=\lambda+h\) and \(\operatorname{Var}(M)=\lambda+\lambda k-h^2\), with \(k=e^{-2\lambda}I_0(2\lambda)\) and \(h=\lambda e^{-2\lambda}(I_0(2\lambda)+I_1(2\lambda))\). The crucial global step is a direct strictly positive logarithmic derivative of \(R=h^2/(\lambda k)\) and its two endpoint limits, which prove existence and uniqueness of the crossing for all real \(\lambda>0\). The maximum's own-mean underdispersion follows from a separate strictly positive exact difference. The verification script checks but does not replace these analytic deductions.
+PASS
 
-## Originality — PASS, with residual risk
+Independent identical Pois(lambda), lambda>0: M=(X+Y+|X-Y|)/2. Skellam series yields k=e^{-2lambda}I_0(2lambda) and h=lambda e^{-2lambda}(I_0+I_1), E[M]=lambda+h and Var(M)=lambda+lambda*k-h^2. Derive h'=k from Bessel derivatives and Cov(S,|D|)=2lambda*k; for r=I_1/I_0, R=h^2/(lambda*k)=lambda*k*(1+r)^2 has (log R)'=(1-r)[2+1/(lambda(1+r))]>0 as 0<r<1. The small- and large-lambda Bessel asymptotics give R->0 and R->infinity, hence exactly one crossover, root 1.16679740191840365086656...; sign before/after follows from lambda*k*(1-R). E[M]-Var(M)=h^2+lambda*exp(-2lambda)*I_1>0. Independent direct finite Poisson-max probability mass summation verified exact-moment formulas at six intensities; this finite check is not the crossing proof. Asymptotic Var(M)/lambda->1-1/pi is consistent. No claim for unequal rates or more than two counts.
 
-The full text of Badiella–del Castillo–Puig (DOI:10.1016/j.spl.2023.109900), including its last-page corollary and references, establishes the different relation \(\operatorname{Var}(M)<\mathbb EM\); it does not classify the sign of \(\operatorname{Var}(M)-\lambda\). Classical Skellam and Bessel identities, and previously available exact moments of two Poisson extremes, are acknowledged inputs, not the novelty claim. Those identities determine a function but do not by themselves state or prove that it has one and only one positive zero. The positive derivative identity supplies the extra comparison. Searches for variance crossover, Skellam aliases, and modified-Bessel formulations found no explicitly covering unique-crossing theorem; unindexed equivalent results remain a real risk.
+## originality
 
-## Value — PASS
+PASS
 
-This answers a natural statistical design question left distinct by underdispersion theory: whether selecting the larger of two replicated Poisson counts increases or decreases the variance relative to one unselected count with the same intensity. It proves a global two-regime phase diagram with an exact, unique transition, not merely a local expansion or an isolated computed example. The direction reversal matters because the own-mean Fano criterion would otherwise misleadingly suggest variance reduction at every intensity. The result is restricted to two matched counts, so no higher-sample conclusion is implied.
+The published own-mean ultra-log-concavity theorem and classical Skellam/Bessel identities are credited. The question here is parent variance lambda rather than E[M]; strict monotonicity of R and unique sign switch is not an immediate restatement of own-mean underdispersion. No equivalent parent-crossing theorem was identified among targeted primary and Resultary records, but older order-statistic/Bessel work could contain an equivalent special case.
 
-## Limits and closest published sources
+## value
 
-The nearest directly relevant published theorem is Badiella–del Castillo–Puig's Poisson order-statistic underdispersion corollary (2023). Standard Skellam literature and NIST's Bessel references furnish the identities underlying the proof. Neither a machine-assisted text search nor this review rules out older equivalent expressions for the sharp crossing. The verification uses finite precision and supports only computation claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Whether taking the larger of two replicate counts raises dispersion relative to a single parent Poisson count is a natural statistical benchmark, distinct from the Fano ratio relative to the selected maximum's own mean. The unique global positive-intensity phase transition is a meaningful complete classification, not a point estimate or routine lower/upper bound; generalizations to unequal means remain unproved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

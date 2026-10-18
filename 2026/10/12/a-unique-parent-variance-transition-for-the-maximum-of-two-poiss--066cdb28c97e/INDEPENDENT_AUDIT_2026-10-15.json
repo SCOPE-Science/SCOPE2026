@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:07:26.939915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/a-unique-parent-variance-transition-for-the-maximum-of-two-poiss--066cdb28c97e/RESULT.md",
+        "2026/10/12/a-unique-parent-variance-transition-for-the-maximum-of-two-poiss--066cdb28c97e/VERIFICATION.md",
+        "scope_worker_08_1283_checks.py"
+      ],
+      "rationale": "Independent identical Pois(lambda), lambda>0: M=(X+Y+|X-Y|)/2. Skellam series yields k=e^{-2lambda}I_0(2lambda) and h=lambda e^{-2lambda}(I_0+I_1), E[M]=lambda+h and Var(M)=lambda+lambda*k-h^2. Derive h'=k from Bessel derivatives and Cov(S,|D|)=2lambda*k; for r=I_1/I_0, R=h^2/(lambda*k)=lambda*k*(1+r)^2 has (log R)'=(1-r)[2+1/(lambda(1+r))]>0 as 0<r<1. The small- and large-lambda Bessel asymptotics give R->0 and R->infinity, hence exactly one crossover, root 1.16679740191840365086656...; sign before/after follows from lambda*k*(1-R). E[M]-Var(M)=h^2+lambda*exp(-2lambda)*I_1>0. Independent direct finite Poisson-max probability mass summation verified exact-moment formulas at six intensities; this finite check is not the crossing proof. Asymptotic Var(M)/lambda->1-1/pi is consistent. No claim for unequal rates or more than two counts.",
+      "residual_risks": [
+        "Finite high-precision direct-mass tests do not constitute uniform proof; the analytic derivative and endpoints are decisive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ultra-log-concavity of Poisson order statistics yields Var(max)<E(max) rather than the parent lambda comparison.",
+          "DLMF recurrences and asymptotics supply analytic ingredients but no stated parent-variance phase diagram."
+        ],
+        "reasoning": "Neither a broader own-mean inequality nor classical Bessel identities dominate this all-lambda comparison; cannot infer uniqueness solely from moment representation.",
+        "searches": [
+          "Badiella, del Castillo & Puig 2023 full article (Statistics & Probability Letters 201,109900)",
+          "DLMF 10.29 and 10.40"
+        ]
+      },
+      "checked_sources": [
+        "immutable Git tree c33477dc2d0a9002a619cabee92bf6dcdcbc2499 and RESULT.md, REVIEW.md, VERIFICATION.md, METADATA.json at commit 3483f65...",
+        "Badiella et al. 2023, DOI:10.1016/j.spl.2023.109900 (material theorem read)",
+        "NIST DLMF §§10.29,10.40",
+        "Gan/Kolaczyk arXiv:1708.04018 (background metadata)",
+        "Resultary 18 semantic hits under Poisson maximum parent variance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing Poisson order-statistic underdispersion gives Var(M)<lambda+h, compatible with Var(M)>lambda for small lambda.",
+          "Skellam moments recover k,h, while the additional monotonicity of R proves exactly one parent-variance switch."
+        ],
+        "reasoning": "Prior results supply inputs and non-equivalent inequality, but no identified stronger statement implies the whole parent-variance phase diagram.",
+        "searches": [
+          "Badiella et al. DOI:10.1016/j.spl.2023.109900",
+          "NIST DLMF §§10.29,10.40",
+          "Gan & Kolaczyk arXiv:1708.04018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson maximum is (S+|D|)/2; Skellam absolute first moment gives the same exact variance formula.",
+          "Badiella et al. 2023 corollary uses Var(M)<E[M], which does not decide sign of Var(M)-lambda."
+        ],
+        "reasoning": "Equivalent moment parametrizations (Poisson extremes, Skellam, Bessel ratios) were considered, including parameter scaling z=2lambda. An identity for a variance is not an explicit/global one-zero theorem; no located source implies the strict derivative sign and crossing.",
+        "searches": [
+          "Resultary semantic search: maximum of two independent identical Poisson random variables variance crosses parent lambda unique transition Bessel",
+          "web: Poisson max order statistic parent variance sign-crossing modified Bessel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The critical value is defined by a transcendental Bessel equation; no matching standard table or exact single-crossing classification was found."
+        ],
+        "reasoning": "The root is not just a new decimal entry: the novel candidate is its uniqueness and strict sign classification. Absence in search is not evidence of exhaustive priority.",
+        "searches": [
+          "Resultary semantic search: maximum of two independent identical Poisson random variables variance crosses parent lambda unique transition Bessel",
+          "Skellam distribution and NIST special-function reference tables"
+        ]
+      },
+      "rationale": "The published own-mean ultra-log-concavity theorem and classical Skellam/Bessel identities are credited. The question here is parent variance lambda rather than E[M]; strict monotonicity of R and unique sign switch is not an immediate restatement of own-mean underdispersion. No equivalent parent-crossing theorem was identified among targeted primary and Resultary records, but older order-statistic/Bessel work could contain an equivalent special case.",
+      "residual_risks": [
+        "Possibility of historical specialized Bessel-ratio uniqueness theorem not indexed with matching terminology.",
+        "Finite high-precision direct-mass tests do not constitute uniform proof; the analytic derivative and endpoints are decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING_PARENT_VARIANCE",
+          "evidence": "Own-mean underdispersion statement is Var(M)<E(M); lambda is smaller than E(M).",
+          "identifier_or_url": "DOI:10.1016/j.spl.2023.109900; https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Full accessible ScienceDirect article text, Poisson order-statistic corollary and own-mean variance inequality",
+          "method": "article HTML and cited theorem",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Same distribution and dispersion theorem"
+        },
+        {
+          "assessment": "CLASSICAL_TECHNICAL_INPUTS",
+          "evidence": "Standard I0,I1 recurrence/asymptotic, not parent variance sign-change classification.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.29; https://dlmf.nist.gov/10.40",
+          "material_read": "Relevant special-function recurrence, derivative and fixed-order asymptotic formulas",
+          "method": "reference entries",
+          "title": "NIST Digital Library of Mathematical Functions",
+          "trigger": "Bessel recurrences and asymptotics needed in proof"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_NOT_WHOLE_DOCUMENT_NEGATIVE",
+          "evidence": "Skellam concerns differences and supplies known distributional identities; full-document noncoverage not asserted.",
+          "identifier_or_url": "arXiv:1708.04018",
+          "material_read": "Title, abstract and Skellam-law context, not a complete primary manuscript reading",
+          "method": "public summary",
+          "title": "Approximation of the difference of two Poisson-like counts with Skellam",
+          "trigger": "Skellam alias and exact moment tools"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/a-unique-parent-variance-transition-for-the-maximum-of-two-poiss--066cdb28c97e/RESULT.md",
+        "Resultary 18 semantic hits under Poisson maximum parent variance query"
+      ],
+      "rationale": "Whether taking the larger of two replicate counts raises dispersion relative to a single parent Poisson count is a natural statistical benchmark, distinct from the Fano ratio relative to the selected maximum's own mean. The unique global positive-intensity phase transition is a meaningful complete classification, not a point estimate or routine lower/upper bound; generalizations to unequal means remain unproved.",
+      "residual_risks": [
+        "Possibility of historical specialized Bessel-ratio uniqueness theorem not indexed with matching terminology.",
+        "Finite high-precision direct-mass tests do not constitute uniform proof; the analytic derivative and endpoints are decisive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possibility of historical specialized Bessel-ratio uniqueness theorem not indexed with matching terminology.",
+    "Finite high-precision direct-mass tests do not constitute uniform proof; the analytic derivative and endpoints are decisive."
+  ],
+  "schema_version": 1
+}
