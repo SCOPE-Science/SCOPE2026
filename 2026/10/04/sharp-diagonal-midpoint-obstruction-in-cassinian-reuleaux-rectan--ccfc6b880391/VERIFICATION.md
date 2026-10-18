@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic. The bundled `verify.py` checks only exact algebraic identities and an exact rational witness; it is not a numerical certification of an infinite statement.
+## correctness
 
-For \(r=a/\sqrt{1+a^2}\), the squared ratio between the diagonal-midpoint triple product and the three-corner product is
-\[
-R(r)^2=\frac{1+r-\sqrt{r^2+4r-1}}{1-r^2}.
-\]
-On the admissible range \(r\ge1/4\), \(R(r)>1\) is equivalent to
-\[
-(r+r^2)^2>r^2+4r-1.
-\]
-The checker expands and factors the exact polynomial difference as
-\[
-(r-1)\bigl((r+1)^3-2\bigr).
-\]
-Since \(r<1\), this is positive exactly for \(r<2^{1/3}-1\).
+PASS
 
-The lower endpoint is checked from
-\[
-\frac{1/\sqrt{15}}{\sqrt{1+1/15}}=\frac14.
-\]
-The upper endpoint is obtained by solving \(a/\sqrt{1+a^2}=2^{1/3}-1\).
+For 1/sqrt(15)<=a<alpha, s=sqrt(1+a^2), q=4as, u=sqrt(q-1), the explicitly displayed P=(0,u-a) satisfies the lower and upper horizontal Cassinian constraints and the two vertical ones: the latter are sqrt(q(q-4a(u-a)))<=q<4s. Every three-corner triple has product 8as=2q. For r=a/s>=1/4, the squared ratio for (A,C,P) equals (1+r-sqrt(r^2+4r-1))/(1-r^2), strictly above 1 iff (r-1)((r+1)^3-2)>0, i.e. r<2^(1/3)-1; squaring is sign-safe. The increasing a->r mapping yields the exact interval and witness equality at its upper endpoint. Independent SymPy polynomial check and exact a=69/260 (s=269/260,r=69/269) reproduce strict ratio 1.020645150198... . This proves only a particular triple lower bound, not the exact global three-diameter.
 
-For the exact example \(a=69/260\), the checker verifies \(s=269/260\), hence \(r=69/269\), together with
-\[
-276>269
-\]
-and
-\[
-338^3=38614472<38930218=2\cdot269^3.
-\]
-Thus \(1/4<69/269<2^{1/3}-1\), so the strict obstruction follows without floating-point arithmetic.
+## originality
 
-Limit: the checker does not search for the global maximizing triple and therefore does not establish the exact value of \(d_3(E_a)\) or constant \(3\)-diameter.
+PASS
+
+Source question 6.2 asks whether all Cassinian Reuleaux rectangles have constant 3-diameter; theorem 6.1 handles the square. The new result establishes a sharp explicit opposite-corner/diagonal-midpoint obstruction to the square corner-value certificate on an interval. No equivalent witness inequality was located in targeted semantic index and public searches. This is NOT a negative answer to constant 3-diameter itself, and the possibility of another previously unindexed witness remains a residual risk.
+
+## value
+
+PASS
+
+A sharp explicit counter-obstruction to transferring the corner-controlled square 3-diameter proof to a naturally posed one-parameter rectangle family isolates a mathematically meaningful boundary in a live geometric question. The narrower comparison is useful even without resolving the global constant-3-diameter question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

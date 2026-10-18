@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:53:41.079992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1/sqrt(15)<=a<alpha, s=sqrt(1+a^2), q=4as, u=sqrt(q-1), the explicitly displayed P=(0,u-a) satisfies the lower and upper horizontal Cassinian constraints and the two vertical ones: the latter are sqrt(q(q-4a(u-a)))<=q<4s. Every three-corner triple has product 8as=2q. For r=a/s>=1/4, the squared ratio for (A,C,P) equals (1+r-sqrt(r^2+4r-1))/(1-r^2), strictly above 1 iff (r-1)((r+1)^3-2)>0, i.e. r<2^(1/3)-1; squaring is sign-safe. The increasing a->r mapping yields the exact interval and witness equality at its upper endpoint. Independent SymPy polynomial check and exact a=69/260 (s=269/260,r=69/269) reproduce strict ratio 1.020645150198... . This proves only a particular triple lower bound, not the exact global three-diameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 treats a square rather than 0<a<1 rectangles, and Question 6.2 explicitly leaves rectangle constant three-diameter open.",
+          "Ibragimov–Le considers ordinary sets of constant width, rather than this Cassinian four-intersection construction."
+        ],
+        "reasoning": "Neither inspected theorem gives a global three-diameter estimate for this family that implies the specific sharp witness threshold.",
+        "searches": [
+          "Hästö–Ibragimov–Minda accepted manuscript Theorem 6.1 and Question 6.2",
+          "Ibragimov–Le 2012 n-diameter of ordinary constant-width planar sets"
+        ]
+      },
+      "checked_sources": [
+        "https://www.problemsolving.fi/pp/transdiamFinal.pdf",
+        "https://msp.org/involve/2012/5-3/involve-v5-n3-p.pdf",
+        "Resultary semantic search: Cassinian Reuleaux rectangle corner triple 3 diameter midpoint sharp ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square case a=1 is outside the strict interval and does not interpolate through the corner certificate because four Cassinian constraints change with aspect ratio.",
+          "The later ordinary constant-width analysis does not supply the required (A,C,P) inequality."
+        ],
+        "reasoning": "The current sharp endpoint requires the new parameterized Cassinian membership/product calculation; it is not a parameter substitution into the square theorem.",
+        "searches": [
+          "Hästö–Ibragimov–Minda Question 6.2 and Theorem 6.1 2010 accepted manuscript",
+          "Ibragimov–Le ordinary constant-width n-diameter 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper Question 6.2 is a problem about constant three-diameter; it does not assert the strict corner-vs-midpoint triple comparison or alpha endpoint.",
+          "The semantic search retrieved the exact candidate plus other ordinary Reuleaux shape questions, not an equivalent Cassinian rectangle threshold."
+        ],
+        "reasoning": "The same statement in distance-product terminology is a threshold for a particular boundary witness beating all three-corner triple products; it is not simply the original open question or its resolution.",
+        "searches": [
+          "Resultary: Cassinian Reuleaux rectangle corner triple 3 diameter midpoint sharp ratio",
+          "web: Hasto Ibragimov Minda constant 3 diameter Cassinian Reuleaux rectangles diagonal midpoint sharp counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known exact table in the inspected published index supplies the threshold alpha or rational witness 69/260."
+        ],
+        "reasoning": "The analytic interval is not an enumerated small-parameter case; the searched constants serve as collision tests only, not proof of novelty.",
+        "searches": [
+          "Resultary: Cassinian Reuleaux rectangle corner triple 3 diameter midpoint sharp ratio",
+          "public web search 2^(1/3)-1 Cassinian Reuleaux rectangles"
+        ]
+      },
+      "rationale": "Source question 6.2 asks whether all Cassinian Reuleaux rectangles have constant 3-diameter; theorem 6.1 handles the square. The new result establishes a sharp explicit opposite-corner/diagonal-midpoint obstruction to the square corner-value certificate on an interval. No equivalent witness inequality was located in targeted semantic index and public searches. This is NOT a negative answer to constant 3-diameter itself, and the possibility of another previously unindexed witness remains a residual risk.",
+      "residual_risks": [
+        "Only the indicated diagonal-midpoint witness is optimized; existence of a larger global three-diameter does not settle constant three-diameter of E_a.",
+        "Unindexed geometric computations under another Cassinian/3-diameter nomenclature might have the same threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Square proven; rectangular constant-3-diameter posed as question, no stated midpoint threshold",
+          "evidence": [
+            "Question 6.2: vertices (±1,±a), Cassinian arcs; asks if rectangles always have constant three-diameter"
+          ],
+          "identifier_or_url": "https://www.problemsolving.fi/pp/transdiamFinal.pdf",
+          "material_read": "Accessible 22-page manuscript; materially read definitions, square theorem and concluding section 6 incl. Figure 8 and Question 6.2",
+          "method": "direct public full PDF textual extraction plus page inspection",
+          "title": "Convex Sets of Constant Width and 3-Diameter",
+          "trigger": "Source of the construction, theorem 6.1 and question 6.2"
+        },
+        {
+          "assessment": "Different ordinary constant-width problem; no shown coverage of the explicit threshold",
+          "evidence": [
+            "The ordinary constant-width setting and its n-point extremals differ from the source Question 6.2 sets"
+          ],
+          "identifier_or_url": "https://msp.org/involve/2012/5-3/involve-v5-n3-p.pdf",
+          "material_read": "Relevant scope, introduction, definitions and theorem statements inspected; not the Cassinian four-oval rectangle construction",
+          "method": "public manuscript/PDF indexed full text",
+          "title": "The n-diameter of planar sets of constant width",
+          "trigger": "Plausible follow-up on n-diameter/width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp explicit counter-obstruction to transferring the corner-controlled square 3-diameter proof to a naturally posed one-parameter rectangle family isolates a mathematically meaningful boundary in a live geometric question. The narrower comparison is useful even without resolving the global constant-3-diameter question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a strict corner-value obstruction on the stated interval; not a counterexample to all rectangles having constant three-diameter."
+  ],
+  "schema_version": 1
+}

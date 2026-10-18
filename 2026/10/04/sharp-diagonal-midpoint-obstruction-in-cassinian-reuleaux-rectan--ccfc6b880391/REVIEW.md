@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to an explicit boundary point \(P_a\) and exact inequalities. Membership \(P_a\in E_a\) is checked against all four Cassinian constraints. The distance-product comparison reduces, after the monotone substitution \(r=a/\sqrt{1+a^2}\), to
-\[
-(r-1)\bigl((r+1)^3-2\bigr)>0,
-\]
-with the squaring step valid because \(r\ge1/4\). This gives exactly \(1/4\le r<2^{1/3}-1\), equivalent to the stated interval in \(a\). The checker independently verifies the factorization and an exact rational instance. Risk: none identified in the algebra; the result deliberately stops short of a global maximizer classification.
+## correctness
 
-## Originality
-PASS. The primary paper was read through its definitions, Theorem 6.1, and Question 6.2. It proves only the square and poses the rectangle family as a question; it does not state the diagonal-midpoint obstruction or the threshold. The later Ibragimov--Le paper studies a different \(n\)-diameter problem for ordinary constant-width sets and contains no Cassinian-rectangle treatment. Four targeted published-finding corpus searches returned no covering finding; the closest records concern ordinary constant-width stability or unrelated geometric thresholds. Targeted public-literature searches for “Reuleaux rectangle” with Cassinian/3-diameter terminology returned the source question itself but no solution or equivalent threshold. Residual risk: unindexed or differently phrased literature may exist.
+PASS
 
-## Value
-PASS. The source’s square theorem is controlled by the common three-corner product. The new interval proves that this exact mechanism cannot be transported even to a nearby natural rectangular subfamily: a closed-form boundary witness overtakes the corner value, with an exact sharp transition for that witness. This is a motivated structural obstruction to a published open construction rather than an arbitrary parameter slice. It narrows the strategy space for Question 6.2 without claiming to solve it.
+For 1/sqrt(15)<=a<alpha, s=sqrt(1+a^2), q=4as, u=sqrt(q-1), the explicitly displayed P=(0,u-a) satisfies the lower and upper horizontal Cassinian constraints and the two vertical ones: the latter are sqrt(q(q-4a(u-a)))<=q<4s. Every three-corner triple has product 8as=2q. For r=a/s>=1/4, the squared ratio for (A,C,P) equals (1+r-sqrt(r^2+4r-1))/(1-r^2), strictly above 1 iff (r-1)((r+1)^3-2)>0, i.e. r<2^(1/3)-1; squaring is sign-safe. The increasing a->r mapping yields the exact interval and witness equality at its upper endpoint. Independent SymPy polynomial check and exact a=69/260 (s=269/260,r=69/269) reproduce strict ratio 1.020645150198... . This proves only a particular triple lower bound, not the exact global three-diameter.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Source question 6.2 asks whether all Cassinian Reuleaux rectangles have constant 3-diameter; theorem 6.1 handles the square. The new result establishes a sharp explicit opposite-corner/diagonal-midpoint obstruction to the square corner-value certificate on an interval. No equivalent witness inequality was located in targeted semantic index and public searches. This is NOT a negative answer to constant 3-diameter itself, and the possibility of another previously unindexed witness remains a residual risk.
+
+## value
+
+PASS
+
+A sharp explicit counter-obstruction to transferring the corner-controlled square 3-diameter proof to a naturally posed one-parameter rectangle family isolates a mathematically meaningful boundary in a live geometric question. The narrower comparison is useful even without resolving the global constant-3-diameter question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
