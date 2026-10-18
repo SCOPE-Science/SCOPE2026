@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The theorem uses explicit zero-based occurrence conventions and includes the order-one boundary. The valuation formula proves palindromicity and linear Abelian-square avoidance. Equality of two Parikh vectors at any off-center crossing would force a length-\(2x\) factor to have twice the letter counts of the prefix of length \(x\). The former necessarily contains a larger ruler symbol, a contradiction. The unique occurrence intervals give the precise cut profile; uniqueness also excludes all Abelian cubes. Two independent exhaustive tests through order eight agree, but the infinite statement rests on the proof.
+
+**Originality (PASS, best-knowledge only).** The closest inspected primary paper is Cummings–Mays (2001), DOI `10.37236/1571`, whose Section 2 establishes linear Zimin Abelian-squarefreeness and whose later sections focus on shorter maximal linear words. Bullock (2004), DOI `10.37236/1770`, studies lengths of maximal linear Abelian-squarefree words. Glen–Halldórsson–Kitaev (2010), DOI `10.46298/dmtcs.513`, treats crucial Abelian-powerfree constructions. Those conclusions do not imply the exact circular Abelian-square occurrence set or the rotation counts. A separate earlier classification of ordinary circular tandem squares is not an Abelian-square classification: equal Parikh vectors permit further occurrences. Searches found no exact coverage; unindexed equivalent formulations remain possible.
+
+**Value (PASS).** This is a complete all-order circular repetition classification for the original Zimin construction, including the exact full rotation histogram and cyclic Abelian-cube exclusion. Circularizing the classic linearly Abelian-squarefree words creates one Abelian square at *every* possible half-length, yet in the most rigid manner possible. An independently checked Abelian-squarefree palindrome counterexample shows the uniqueness is genuinely a two-adic structural feature, not a tautological palindrome argument.
+
+**Limits.** Alphabet labels remain distinct and circular factors make no more than one full traverse. The research does not classify arbitrary squarefree palindromes or make claims about longer repeated windings. Historical priority and external correctness remain open to independent examination.
+
+Self-review: passed. Independent audit: not yet performed.
