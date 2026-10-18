@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The original Algorithm 1 is algebraically reduced to its exact full two-state matrix. Three exact Jury expressions yield necessary and sufficient global stability; positivity of first from F>P, strict inequalities for the other two, and boundary eigenvalues establish the complete window. Symbolic factorization proves the Jordan collision u_c(v); AM-GM yields 17. Endpoint monotonicity gives the exact common-relaxation cutoff. The nonlinear witness has exact weak-concavity modulus 5/8, objective curvature >=5, beta=1<=8/5, Jacobian M(20,5,tau), and its spectral radius >1 for all tau. Verification from the included code checked these identities and 1200 independent sample cases, with the universal conclusions proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primary article proves descent/subsequential convergence under sufficient step restrictions; paper distinguishes beta=infinity when L_p=0.",
+        "Later public source describes corresponding sufficient conditions and larger safe ranges but not sharp unrestricted scalar spectral stability.",
+        "Related double-relaxation paper provides convergence criteria for a neighboring splitting class."
+      ],
+      "reasoning": "Sufficient small-step convergence can cover a subset of the derived window but does not imply the exact maximal window or impossibility beyond u=17. The smooth witness intentionally uses alpha beyond source safe step range so no contradiction with existing guarantees.",
+      "searches": [
+        "arXiv:2406.16025v1 Sections 3.1–3.3",
+        "arXiv:2406.16025v3 Sections 3.1–3.3",
+        "doi:10.1137/24M1672067 public abstract and MSC",
+        "arXiv:2405.08485v1 Sections 3–4",
+        "quadratic difference-of-convex splitting sharp relaxation spectral radius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.16025v1",
+      "arXiv:2406.16025v3",
+      "doi:10.1137/24M1672067",
+      "arXiv:2405.08485v1",
+      "2026/10/4/SCOPE-critical-damping-relaxation-for-scalar-strictly-contractive-peac--25b033956fe0",
+      "2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900",
+      "2026/10/4/SCOPE-sharp-local-stability-frontier-for-fixed-parameter-proximal-augm--b8117b8b15ed",
+      "2026/10/4/SCOPE-coercive-scalar-reversal-of-reflection-tuning-in-generalized-frb--d4929a21d2f4",
+      "2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published theorem uses sufficient inequalities/merit descent, without necessary spectral conditions for all tau.",
+        "This proof requires simultaneous strict inequalities for the memory-state determinant and negative-unit-circle characteristic value; its global thresholds follow minimization over v.",
+        "Published beta=infinity convention at zero weak-concavity is explicitly outside the finite-beta quadratic specialization; a positive weak-concavity smooth witness is supplied separately."
+      ],
+      "reasoning": "The prior sufficient theorem neither forces instability for all tau at a globally strongly convex smooth minimizer nor determines the universal u=17 and u=(5+sqrt57)/2 cutoffs. The state and parameter assumptions are explicitly matched, including what is not matched.",
+      "searches": [
+        "arXiv:2406.16025v1 Algorithm 1, sufficient stepsize analysis",
+        "doi:10.1137/24M1672067 Sections 3 and 4 as legally accessible",
+        "arXiv:2405.08485v1 convergence sections",
+        "Four operator splitting 2024 Alcantara Lee Takeda quadratic exact spectral Schur stability thresholds characteristic roots overrelaxation weak concavity",
+        "Alcantara Lee Takeda four-operator splitting on f(x)=F x^2/2 p(x)=-P x^2/2 alpha beta 1 tau sharp Schur stability Fcrit=17",
+        "four operator splitting concave quadratic memory mode relaxation lower threshold no feasible parameter negative concavity P"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original four-term update is displayed at arXiv:2406.16025v1 p.5; y and z are both state variables.",
+        "Related Dao–Pham–Tung, arXiv:2405.08485v1, algorithm and convergence sections use different multi-relaxation form.",
+        "Published findings on critical-damping Peaceman–Rachford and averaged proximal reflected gradient study different recurrence matrices."
+      ],
+      "reasoning": "Equivalent formulations would need to imply the full two-by-two characteristic Jury inequalities with finite alpha=beta=eta and p negative quadratic, or the general weakly concave nonlinear local Jacobian. Generic two-operator eigenvalue arguments and differently parameterized finite results do not by themselves imply the specific universal thresholds.",
+      "searches": [
+        "Four operator splitting 2024 Alcantara Lee Takeda quadratic exact spectral Schur stability thresholds characteristic roots overrelaxation weak concavity",
+        "Alcantara Lee Takeda four-operator splitting on f(x)=F x^2/2 p(x)=-P x^2/2 alpha beta 1 tau sharp Schur stability Fcrit=17",
+        "four operator splitting concave quadratic memory mode relaxation lower threshold no feasible parameter negative concavity P",
+        "strongly convex quadratic objective four operator splitting unrelaxable instability critical double negative unit eigenvalue",
+        "arXiv:2406.16025v1 Algorithm 1 equations (3.1)-(3.3)",
+        "arXiv:2405.08485v1 doubly relaxed forward Douglas Rachford"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Comparisons with published neighboring splitting entries did not reveal the exact finite equal-proximal four-operator stability window or thresholds.",
+        "Related published entries for Peaceman–Rachford, averaged proximal reflected gradient and generalized FRB concern different update maps."
+      ],
+      "reasoning": "This is a continuous parameter theorem and strong-convexity witness, not the recomputation of an existing finite database constant. Absence of a returned record is an access-bounded negative search, never a mathematical uniqueness certificate.",
+      "searches": [
+        "Four operator splitting 2024 Alcantara Lee Takeda quadratic exact spectral Schur stability thresholds characteristic roots overrelaxation weak concavity",
+        "Alcantara Lee Takeda four-operator splitting on f(x)=F x^2/2 p(x)=-P x^2/2 alpha beta 1 tau sharp Schur stability Fcrit=17",
+        "four operator splitting concave quadratic memory mode relaxation lower threshold no feasible parameter negative concavity P",
+        "strongly convex quadratic objective four operator splitting unrelaxable instability critical double negative unit eigenvalue",
+        "four-operator splitting",
+        "Alcantara Lee Takeda 2024 four-term operator splitting",
+        "quadratic difference-of-convex splitting sharp relaxation spectral radius",
+        "2026/10/4/SCOPE-critical-damping-relaxation-for-scalar-strictly-contractive-peac--25b033956fe0",
+        "2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900",
+        "2026/10/4/SCOPE-sharp-local-stability-frontier-for-fixed-parameter-proximal-augm--b8117b8b15ed"
+      ]
+    },
+    "rationale": "Comparison of explicit recurrences and implication domains: Algorithm 1 in arXiv:2406.16025v1 sets the operator update and proves sufficient global convergence under chosen small parameters, but neither its original nor later inspected analysis supplies the exact finite-equal-proximal Schur window, two different universal curvature barriers, or the smooth positive-weak-concavity unstable minimizer. Related arXiv:2405.08485v1 studies a distinct doubly relaxed splitting scheme and sufficient descent. Closest mathematical records concern other recurrence matrices. No original-priority guarantee is inferred solely from failed searches.",
+    "residual_risks": [
+      "Equivalent scalar recursion in older multistep fixed-point, damped splitting or Jury-stability literature could imply the window without same algorithm name.",
+      "The complete final publisher PDF and every subsequent paper were not exhaustively searched; publisher abstract alone cannot establish noncoverage.",
+      "Later published records and mathematical database retrieval are bounded and not absolute uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "algorithm and sufficient bounds prior; no discovered necessary-and-sufficient scalar spectral classification",
+        "evidence": [
+          "v1 p.1 earliest arXiv 2024-06-23; p.5 Algorithm 1 (3.1)–(3.3)",
+          "v1 methods take alpha,beta positive/infinite with reciprocal relation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.16025v1",
+        "material_read": "header, assumptions, original displayed Algorithm 1, and relevant source convergence overview/step-bounds material",
+        "method": "inspected publicly accessible original PDF and compared displayed operator update and hypothesis to derived recurrence",
+        "title": "A four-operator splitting algorithm for nonconvex and nonsmooth optimization",
+        "trigger": "exact motivating algorithm and earliest scope date"
+      },
+      {
+        "assessment": "source permits finite beta but favors beta=infinity at Lp=0; no covering exact scalar two-threshold claim discovered",
+        "evidence": [
+          "Algorithm 1 lines 168–193; Remark 3.10 near line 476 on sufficient alpha bounds",
+          "search for spectral radius and contraction yielded no source match"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.16025v3",
+        "material_read": "Sections 1, 2 and 3.1–3.3 including exact update, parameter remarks and later sufficient conditions; conclusion and references",
+        "method": "read HTML material and searched for spectral-radius and contraction language, compared implications not just titles",
+        "title": "A four-operator splitting algorithm for nonconvex and nonsmooth optimization (later public text)",
+        "trigger": "plausible later strengthened or renamed result"
+      },
+      {
+        "assessment": "published methods and sufficient global guarantees; journal full text not used as proof of no hidden equivalent theorem",
+        "evidence": [
+          "SIAM J. Optim. 35(3), 1846–1872 (2025); first listed MSC 90C26; online 2025-08-22"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/24M1672067",
+        "material_read": "journal public title, abstract, keywords, MSC and publication history; companion open author/preprint method material",
+        "method": "compared journal abstract and MSC to preprint technical statements",
+        "title": "A Four-Operator Splitting Algorithm for Nonconvex and Nonsmooth Optimization",
+        "trigger": "journal version and primary MSC ownership"
+      },
+      {
+        "assessment": "related sufficient convergence for different method; no demonstrated coverage of this specific split and thresholds",
+        "evidence": [
+          "arXiv:2405.08485, Dao–Pham–Tung, doubly relaxed forward–Douglas–Rachford splitting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.08485",
+        "material_read": "lawfully accessible full PDF algorithm pages and convergence/stepsize sections, plus abstract",
+        "method": "checked recurrence definition and conditions against exact two-by-two matrix and universal inequalities",
+        "title": "Doubly relaxed forward-Douglas–Rachford splitting for the sum of two nonconvex and a DC function",
+        "trigger": "plausible closely related multi-relaxation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1201ae31-b393-42ad-86be-e2fe8b6026cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Separates existence of an individually stable relaxation from robustness of one relaxation across a continuum of weakly concave curvatures; the exact universal thresholds 17 and (5+sqrt57)/2 are structural tuning boundaries, not arbitrary isolated numerics. The smooth strongly convex witness with positive and admissibly bounded weak-concavity parameter shows objective strong convexity and beta weak-concavity safety are insufficient for relaxation-only local stability at large alpha. These provide a motivated restriction to consider when applying four-operator splitting, beyond routine restatement of published sufficient convergence bounds.",
+    "status": "PASS"
+  }
+}
