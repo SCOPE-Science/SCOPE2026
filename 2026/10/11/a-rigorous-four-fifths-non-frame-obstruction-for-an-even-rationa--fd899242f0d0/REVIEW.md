@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument derives the relevant Gabor fiber matrix from modulation Parseval and polyphase Fourier series, identifies a reflection decomposition with even block \(B(\beta)\), and proves that a zero of its determinant forces rank deficiency. The periodic Cauchy identity supplies a finite closed form. The standalone standard-library verifier rigorously encloses \(D(3/20)\) and \(D(7/20)\) with opposite signs, so the intermediate-value step is justified without extrapolating finite numerical experiments. Critical assumptions are continuity and fourth-order decay of the fixed rational window.
+## correctness
 
-**Originality — PASS, with residual risk.** Ghosh's September 2026 paper works with precisely the same even window and already supplies a symmetry reduction, numerical determinant evidence through index \(200\), and proofs at indices \(1,2,3\). It explicitly leaves the numerical determinant signs as unproved; the present claim concerns the first new rigorously proved index, \(4\), not the reduction or the general conjecture. The August 2026 Ghosh comparison uses a different odd generator. Searches of related published mathematical findings on Gaussian-derivative Gabor frames, prime-field Gabor windows, and rational non-frame criteria showed no implication for the exact even rational window. An equivalent unpublished or poorly indexed treatment remains possible.
+PASS
 
-**Value — PASS.** The natural finite cutoff \(4\) is the smallest unresolved integer in a precisely stated conjectural family and had numerical evidence but lacked a rigorous certificate. An explicit exact-arithmetic existence proof is a meaningful new step despite not establishing the whole conjecture or uniqueness of the parameter. It also provides a reproducible alternative rank-deficiency fiber for this density.
+For the stated even rational window g(x)=(x^2-1)/((x^2+1)(x^2+4)(x^2+9)) and alpha beta=4/5, the modulus-integer fiberization yields a continuous 4-by-5 matrix M_{j,t}=sum_m g((j+4m-4t/5)/beta). Reflection j->4-j, t->5-t decomposes row space into dimensions 3 and 1, and its even 3-by-3 block B has exactly the supplied h_beta coefficients; recomputed the reflection basis entries. The absolutely convergent Cauchy-series partial fractions give h_beta. Independently evaluated determinant at beta=3/20 as +2.1035333493165e-6 and beta=7/20 as -5.68237067634317e-6; the pinned verify_gabor_4_5.py uses rational interval bounds for pi, exp, cosine and the determinant, and its rational truncation/tail arguments were inspected. IVT yields a singular fiber for an intermediate beta. Local uniform convergence ensures continuity of fibers, hence singularity forces arbitrarily small singular values on positive-measure neighborhoods and excludes a positive Gabor frame lower bound. Proof establishes existence at one beta, not all beta at this product.
 
-**Scientific limits.** Existence for density \(4/5\) only; no parameter classification, no general all-index theorem, and no independently conducted scientific audit. Main literature comparison: arXiv:2609.19232v1, Theorem 1.4 and Sections 4–4.1; arXiv:2608.10568v2 for the odd-generator distinction.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with material residual risk. The primary Ghosh 2026 abstract and identified statements treat exactly this window, prove the indices through p=3, and report numerical evidence for p=4; a numerical plot/sign scan is not a rigorous sign certificate. Existing parity/fiber reduction is acknowledged as prior art, but certified opposite determinant signs and consequent actual 4/5 non-frame theorem are distinct. The full Ghosh preprint was not accessible through attempted public copies; the authorized institutional download returned a disconnected-VPN blocker, so no whole-paper noncoverage is asserted. A previously unnoticed proof in that paper would alter originality; the assessment depends on the stated index separation and observed primary abstract.
+
+## value
+
+PASS
+
+PASS. Rigorously settling the first remaining index in a naturally stated rational-density Gabor non-frame conjecture for the exact studied generator is a motivated advance. The exact sign certificate converts tentative numerical evidence into a theorem, while the finding expressly stops short of all p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

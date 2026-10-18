@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:18:45.963910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated even rational window g(x)=(x^2-1)/((x^2+1)(x^2+4)(x^2+9)) and alpha beta=4/5, the modulus-integer fiberization yields a continuous 4-by-5 matrix M_{j,t}=sum_m g((j+4m-4t/5)/beta). Reflection j->4-j, t->5-t decomposes row space into dimensions 3 and 1, and its even 3-by-3 block B has exactly the supplied h_beta coefficients; recomputed the reflection basis entries. The absolutely convergent Cauchy-series partial fractions give h_beta. Independently evaluated determinant at beta=3/20 as +2.1035333493165e-6 and beta=7/20 as -5.68237067634317e-6; the pinned verify_gabor_4_5.py uses rational interval bounds for pi, exp, cosine and the determinant, and its rational truncation/tail arguments were inspected. IVT yields a singular fiber for an intermediate beta. Local uniform convergence ensures continuity of fibers, hence singularity forces arbitrarily small singular values on positive-measure neighborhoods and excludes a positive Gabor frame lower bound. Proof establishes existence at one beta, not all beta at this product.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh Theorem 1.4 covers p=1,2,3 only; the odd rational window of arXiv:2608.10568 and Gaussian derivative Gabor results use different generators."
+        ],
+        "reasoning": "Those general fiber methods do not imply that this concrete determinant has opposite endpoint signs; no found broader certified theorem dominates p=4 for this specific window.",
+        "searches": [
+          "Resultary: Ghosh even rational Gabor window density four fifths 4/5 rigorous determinant non-frame"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2609.19232",
+          "scope": "Primary arXiv abstract and bibliographic/theorem-index information identifying proven p=1,2,3 and later numerically observed p=4; complete manuscript could not be read.",
+          "title": "Gabor Frame Regions and Non-Frame Obstructions for an even Rational Window"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2608.10568",
+          "scope": "Title and public bibliographic/abstract comparison; full source not read in this execution.",
+          "title": "Gabor Frame for a Rational Window with Symmetric Poles"
+        },
+        {
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-arithmetic-safety-for-gaussian-derivative-gabor-frames--e72833b9fbe0",
+          "scope": "Published semantic summary concerning Gaussian derivatives and irrational/rational density arithmetic; not full text.",
+          "title": "Arithmetic safety for Gaussian-derivative Gabor frames"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parity reduction of Ghosh and standard Zak/fiber criterion produce a finite determinant whose vanishing suffices for non-frame."
+        ],
+        "reasoning": "The determinant and criterion are not by themselves nonvanishing/vanishing theorems; new certified sign change supplies the crucial extra premise for p=4.",
+        "searches": [
+          "Resultary: Ghosh even rational Gabor window density four fifths 4/5 rigorous determinant non-frame"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh 2026 arXiv:2609.19232 uses alpha beta=p/(p+1), even rational generator and parity rank reduction; p=4 corresponds exactly to 4/5."
+        ],
+        "reasoning": "The matching p and window demand an implication check: the identified prior theorem proves p up to 3, whereas its p>=4 statements are conjectural/numeric; the signed interval proof supplies the missing 4/5 case.",
+        "searches": [
+          "Resultary: Ghosh even rational Gabor window density four fifths 4/5 rigorous determinant non-frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ghosh Section 4.1 reports numerical evidence across p including 4; the published indexing does not show a rational sign table for p=4."
+        ],
+        "reasoning": "Numerical determinant tables are not rigorous signs at designated rational beta; this work uses interval enclosures with strict positive/negative bounds.",
+        "searches": [
+          "Resultary: Ghosh even rational Gabor window density four fifths 4/5 rigorous determinant non-frame"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with material residual risk. The primary Ghosh 2026 abstract and identified statements treat exactly this window, prove the indices through p=3, and report numerical evidence for p=4; a numerical plot/sign scan is not a rigorous sign certificate. Existing parity/fiber reduction is acknowledged as prior art, but certified opposite determinant signs and consequent actual 4/5 non-frame theorem are distinct. The full Ghosh preprint was not accessible through attempted public copies; the authorized institutional download returned a disconnected-VPN blocker, so no whole-paper noncoverage is asserted. A previously unnoticed proof in that paper would alter originality; the assessment depends on the stated index separation and observed primary abstract.",
+      "residual_risks": [
+        "Directly relevant Ghosh 2026 complete manuscript inaccessible owing to institutional VPN disconnection; abstract/theorem description is not full-paper novelty clearance.",
+        "An unindexed erratum, version update, or independently certified p=4 determinant may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE SOURCE INCOMPLETELY INSPECTED; no whole-text NOT_COVERING conclusion; best-of-knowledge p=4 proof not located.",
+          "evidence": "arXiv:2609.19232v1, claimed Theorem 1.4 and Sec.4.1 as identified in target, abstract distinguishes proved indices and numerical evidence.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19232",
+          "material_read": "Primary arXiv abstract and bibliographic/theorem-index information identifying proven p=1,2,3 and later numerically observed p=4; complete manuscript could not be read.",
+          "method": "ArXiv public abstract checked; public PDF/HTML and lawful mirrors attempted; authorized institutional full-text request returned vpn_disconnected without circumvention.",
+          "title": "Gabor Frame Regions and Non-Frame Obstructions for an even Rational Window",
+          "trigger": "Same window and parameter family; highest-risk direct prior comparator"
+        },
+        {
+          "assessment": "Generator is odd with a different pole set; no direct theorem establishing required even-window 4/5 determinant sign found.",
+          "evidence": "Distinct odd window x/((x^2+1)(x^2+4)); not identical hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.10568",
+          "material_read": "Title and public bibliographic/abstract comparison; full source not read in this execution.",
+          "method": "Public arXiv/semantic-source review.",
+          "title": "Gabor Frame for a Rational Window with Symmetric Poles",
+          "trigger": "Parity-based Gabor obstruction might subsume window"
+        },
+        {
+          "assessment": "Different window, only background bound; no proved implication to this even rational function.",
+          "evidence": "Resultary same-query result distinguishes Gaussian derivatives from rational pole window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-arithmetic-safety-for-gaussian-derivative-gabor-frames--e72833b9fbe0",
+          "material_read": "Published semantic summary concerning Gaussian derivatives and irrational/rational density arithmetic; not full text.",
+          "method": "Resultary query.",
+          "title": "Arithmetic safety for Gaussian-derivative Gabor frames",
+          "trigger": "Potential broader arithmetic Gabor non-frame classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Rigorously settling the first remaining index in a naturally stated rational-density Gabor non-frame conjecture for the exact studied generator is a motivated advance. The exact sign certificate converts tentative numerical evidence into a theorem, while the finding expressly stops short of all p.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One non-frame lattice at alpha beta=4/5 is proved, not non-frame for all such lattices; no root uniqueness or all-index classification.",
+    "Complete related 2026 preprint not accessible in this run; O is best-of-knowledge with explicit primary-source risk."
+  ],
+  "schema_version": 1
+}
