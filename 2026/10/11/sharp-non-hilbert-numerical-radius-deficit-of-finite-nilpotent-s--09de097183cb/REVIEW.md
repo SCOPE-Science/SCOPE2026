@@ -1,19 +1,21 @@
-# Scientific review: finite-shift numerical-radius deficit
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The norming-functional reduction is an equality for both scalar fields, and summing weighted Young deficits gives an exact finite-dimensional minimization. The homogeneous ratio \(F_p\) has positive finite endpoints and quadratic diagonal limit \(2(p-1)/p^2\); hence its energy is uniformly comparable to squared increments of \(u=x^{p/2}\). The sine trial proves the sharp upper bound. The discrete Dirichlet bound, exact mass quadrature, compact Sobolev interpolation, positive-set localization, and one-dimensional Dirichlet Poincaré inequality prove the matching lower bound. The proof handles zeros and finite endpoints; no numerical enumeration is used to infer the universal claim.
+PASS
 
-## Originality — PASS, with risk
+Reconstructed the norming functional J_p(x), exact nonnegative scalar variational maximum, and finite energy identity with first penalty x_1^p/p and final penalty (p-1)x_n^p/p. After u=x^(p/2), homogeneous Young deficit ratio is globally bounded by positive constants, including 0 and infinity; second-order limit at equal adjacent positive entries is c_p=2(p-1)/p^2. The normalized Dirichlet sine sequence gives the limsup. The minimizing sequence has discrete Dirichlet energy O((n+1)^-2), yielding H_0^1 weak compactness and L2/uniform convergence; the exact mass quadrature tends to one. Localized weak lower semicontinuity on the positive limit set and vanishing Sobolev gradient on its zero set supply liminf c_p int|w'|², at least c_p pi² by Poincare. Independent sine recovery evaluations at n=100,500,2000 for p=1.5,2,3,4 approached the asserted coefficient, with no inference from finite tests to the limit. Real/complex, zeros, both endpoints and fixed-p quantifier checked.
 
-Gaaya (arXiv:1202.3963) gives Hilbert-space truncated-shift numerical radius results but no general Banach \(\ell_p\) leading coefficient. Müller--Tomilov (arXiv:2606.22693) actually studies truncated \(\ell_p\) shifts, but Proposition 4.16 concerns polynomial functional-calculus norms, not the spatial numerical-radius deficit. The published powered-Bohr shift record concerns disk-contractivity rather than numerical radius. Relevant literature and research-record searches used numerical radius, truncated shifts, \(\ell_p\), nonlinear Poincaré asymptotics, and the coefficient. No dominant theorem was located, but an unindexed historical nonlinear-shift theorem remains a real risk. The older and new subject matter overlap at the operator without the same functional or asymptotic conclusion.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical finite shift is a standard sharpness-testing operator in Banach-space numerical-range theory. The exact coefficient simultaneously covers every non-Hilbert exponent and both scalar fields; it identifies a nonlinear Dirichlet spectral-gap mechanism and exhibits the \(p\leftrightarrow p'\) symmetry. It provides the genuinely non-Hilbert sharp boundary correction, not a routine restatement of finite-dimensional Hilbert cosine calculations.
+The exact published antiperiodic cyclic-shift RESULT.md has the SAME Young curvature c_p and spectral-gap asymptotic on real signed cycles, but its antiperiodic boundary condition and operator differ from finite nilpotent Dirichlet shifts; its stated theorem does not logically imply the present real/complex Dirichlet limit without an unprovided reduction. Gaaya handles the Hilbert p=2 truncation, which is explicitly known; Müller–Tomilov addresses ell_p polynomial norm ratios, but its full source was inaccessible in this execution. Related Resultary records for three-site shifts, powered-Bohr functional calculus and Schatten radii concern different invariants or finite dimensions. Non-Hilbert finite-shift coefficient survives as best-of-knowledge novel, subject to the serious close signed-cycle analogy and inaccessible full text.
 
-## Boundaries
+## value
 
-The result is the leading \(n^{-2}\) term at each fixed interior exponent, not a finite-\(n\) closed formula or uniform endpoint estimate. Independently verifying coverage against all older nonlinear eigenvalue and numerical-radius literature remains necessary.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The finite nilpotent shift is a canonical test operator for Banach-space spatial numerical radius. The exact non-Hilbert n^-2 correction and the nonlinear Dirichlet curvature mechanism form a useful, natural invariant across a continuum of exponents and both scalar fields, not a routine Hilbert cosine restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
