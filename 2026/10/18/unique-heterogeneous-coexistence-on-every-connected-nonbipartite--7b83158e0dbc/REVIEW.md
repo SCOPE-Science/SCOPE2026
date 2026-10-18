@@ -1,0 +1,15 @@
+# Scientific review of heterogeneous social-pressure equilibria
+
+## Correctness — PASS
+The finite-dimensional proof uses the exact odds identity for the fractional-linear response, strict Jensen equality, and even-walk connectivity to rule out two interior fixed points. A positive Perron subsolution and a positive complementary supersolution give existence; weighted reciprocal convexity gives necessity of both strict spectral inequalities. Convex/concave odds barriers prove global deterministic attraction. The stochastic conclusion explicitly depends on the independently established equilibrium-set convergence and boundary-repulsion theorems of Tang, Adler, Ajorlou and Jadbabaie (arXiv:2308.09275, Theorems 3 and 4). It does not claim an original proof of those stochastic results. The bipartite reciprocal-bias continuum directly checks the sharpness of the graph assumption. Exact arithmetic and numerical checks in `verify.py` exercise the concrete examples and order bounds, not the universal proof.
+
+## Originality — PASS, conditional on further priority review
+The closest source, Tang et al. (arXiv:2308.09275), explicitly calls uniqueness and isolation of interior equilibria on arbitrary networks unresolved (Section III-B and conclusion). Its boundary spectral and convergence theorems do not give the missing uniqueness; they are credited where used. Tang et al., *Estimating True Beliefs* (arXiv:2310.17171), analyzes estimation of hidden parameters rather than the number of equilibria. Jadbabaie et al. (arXiv:2104.11172) treats a complete-graph homogeneous regime. Previously available special complete-network one-dissenter analyses do not cover arbitrary heterogeneous weighted graphs. Searches for general nonlinear Perron and interacting-urn fixed-point formulations returned no verified same-strength implication. A general fixed-point theorem outside these inspected sources may still cover the result; priority is not certified.
+
+## Value — PASS
+This closes a concrete gap named by the source, upgrading convergence to an unspecified equilibrium set into an exact three-equilibrium classification and a deterministic limit under the coexistence spectral regime. The proof reveals why odd cycles eliminate nonuniqueness and why the reciprocal-bias bipartite exception is sharp. The additional deterministic global attraction statement is useful for stable computation of heterogeneous equilibrium proportions and for identifying whether a stochastic network can exhibit persistent coexistence.
+
+## Limitations and residual risks
+Finite connected undirected nonbipartite support, fixed positive biases, and the particular fractional-linear response are essential. The stochastic claim uses two prior published theorems rather than reproving them. General nonlinear positive-map uniqueness results could supply an equivalent implication and require independent priority review. The stated global attraction is for the expected map and deterministic diminishing-step process; it does not assert a quantitative stochastic convergence rate or a result for directed networks.
+
+Self-review: passed. Independent audit: not yet performed.
