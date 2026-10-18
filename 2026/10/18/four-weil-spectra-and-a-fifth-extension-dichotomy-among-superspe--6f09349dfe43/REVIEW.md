@@ -1,0 +1,15 @@
+# Scientific review: trigonal genus-five Weil spectra
+
+## Correctness — PASS
+The result specifies the smooth normalization of a geometrically integral degree-five plane curve, all admissible primes, all nonzero diagonal coefficients, and a precise fifteenth-power residue parameter. Riemann--Hurwitz verifies genus five. Kudo's theorem supplies the maximal untwisted Frobenius scalar, while the complete tame differential-character computation produces the exact twist eigencharacters. Cyclotomic multiplication establishes all four degree-ten polynomials without interpolation. Exact tests reproduce the character product for every residue and direct rational-point counts over \(\mathbf F_{121}\), \(\mathbf F_{841}\), and \(\mathbf F_{11^4}\) for the indicated coefficient types. The tests provide consistency evidence; the universal and degree-five-extension statements follow from the algebraic proof, not finite sampling. Reliance on standard tame comparison, semisimplicity, and Kudo's published maximality theorem is explicit.
+
+## Originality — PASS (subject to priority uncertainty)
+The closest inspected source is Kudo's 2018 *A note on certain superspecial and maximal curves of genus 5* (arXiv:1807.04394, Theorems 1.1--1.3). It covers the coefficient family and maximality of the untwisted curve, but does not state the four Weil polynomials or the fifth-extension separation. Kudo--Harashita (arXiv:1804.11277, Theorem B and Section 5) classify curves over \(\mathbf F_{11}\) and record some \(\mathbf F_{121}\) point counts; that base-field coefficient restriction only reaches fifteenth-power exponents divisible by three over \(\mathbf F_{121}\), unlike the full fifteen-class statement. Meagher--Top (2010, *Twists of genus three curves over finite fields*) supplies the general Galois-cohomological technique for twists, not this genus-five character calculation or its Weil polynomial census. No inspected work gave an equivalent full specialization. A direct earlier table obtained from classical Jacobi sums, or an unindexed computation, remains a genuine priority risk; a negative search is not proof of uniqueness.
+
+## Value — PASS
+The naturally defined family already appears in the superspecial genus-five literature. Complete Weil polynomials, rather than only maximality or the first point count, distinguish its Jacobian isogeny types. The fact that twelve coefficient classes show exactly \(q^n+1\) points for each \(1\le n\le4\), yet split into two distinct isogeny spectra first visible over the fifth extension, identifies a genuine arithmetic limitation of short point-count samples. The exact distribution among all diagonal coefficients is a complete intrinsic arithmetic classification within the stated natural family, not a chosen small numerical slice.
+
+## Boundaries
+The result makes no claim about non-diagonal forms, all geometric twists, curve-isomorphism classes, or other prime residues. The relevant prior theory is credited rather than repackaged as new. Independent mathematical verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
