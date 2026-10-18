@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim has fixed parameter \(0<\gamma<1\), a normalized invariant probability density and explicit right-hand values at \(1/2\). The density identity follows from the exact neutral inverse-branch renewal formula in [1], Section 6. The Abel coordinate has a controlled differentiable expansion through the first \(x^\gamma\) coefficient ([1], Theorem 2.1); Euler--Maclaurin is applied to a function whose first four derivatives have proved inverse-power bounds. The Bernoulli term gives \((\gamma+1)2^\gamma q_0 x^\gamma/12\), and the Abel correction cancels it to the displayed coefficient. The remainder follows for every fixed parameter. Symbolic substitution verifies all coefficients; finite computations are not used as an infinite proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The focal 2026 paper [1] provides the inverse-branch series and bounded error after its singular density approximation, and gives the \(x^{1-\gamma}\) term already. It neither states nor deduces as a concluded limit the finite constant \((\gamma+2)H/4\), the neutral \(x^\gamma\) coefficient, or their parameter crossover. The 2025 work [2] establishes statistical stability and linear response, not these local coefficients. The leading-order asymptotics discussed in [3] and the infinite-measure operator-iterate problem [4] do not imply the stated finite-regime expansion. The published computation framework makes this a closely related refinement: a differently formulated old expansion remains a genuine literature risk.
+PASS
 
-## Mathematical value: PASS
-The unresolved bounded term in a canonical neutral-density estimate is replaced by an exact intercept and an explicit signed next correction. The competition between exponents \(\gamma\) and \(1-\gamma\) is a natural parameter boundary affecting the local regularity and precision of density approximation. The coefficient is universally nonzero for \(0<\gamma<1/2\), so it is not just a normalization restatement. No downstream mixing or memory-loss theorem is asserted.
+For normalized standard LSV invariant density and fixed 0<gamma<1, branch renewal h(x)=sum_n q(g^n(x))(g^n)′(x) with q(u)=h((1+u)/2)/2, q0=H/2, q1=H1/4. Abel coordinate A(f(x))=A(x)-1 has expansion x^(-gamma)/(gamma b)-(gamma+1)log(x)/2 + [(gamma+1)(2gamma+1)b/(12gamma)]x^gamma+..., b=2^gamma. I independently expanded the Abel equation in z=x^gamma and checked coefficients 0, z, z² vanish identically in symbolic gamma,b. Euler--Maclaurin on W=-q(X)X′ yields integral +W(t)/2-W′(t)/12 plus bounded higher derivative tail, hence h=-A′∫_0^xq +q/2+qA′′/(12A′²)-q′/(12A′)+..., the Bernoulli sign and x^gamma coefficient match the exact RESULT proof. This gives H x^-gamma/2^(gamma+1) +(gamma+2)H/4 +H1 x^(1-gamma)/2^(gamma+3) -gamma(gamma+1)2^gamma H x^gamma/12 +O(x^min(1,2gamma)); the two corrections coincide gamma=1/2. The derivative bounds for W and differentiable Abel remainder were asserted based on Korepanov--Wei--Wormell but its full primary text was inaccessible this run, making that critical imported regularity lemma a recorded verification risk. No parameter-endpoint uniformity or nonzero H1 for gamma>1/2 is claimed.
 
-## Scope and limits
-Fixed finite-measure LSV parameters only; no general perturbed neutral maps, no uniform parameter control, and no claimed strict nonvanishing of the right-branch derivative for \(\gamma>1/2\). Closest source: [1], Section 6, especially equation (6.3) and Lemma 6.5.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest Korepanov--Wei--Wormell 2026 preprint supplies an analytic Abel coordinate, exact density renewal and leading terms M0x^-gamma plus M1x^(1-gamma) with bounded residual according to the inspected source package; the proposed independent extraction of constant intercept and x^gamma term is more specific. However its original source full text could not be retrieved, so its Section 6 was not newly reread; if their omitted bound actually encodes these coefficients, coverage could change. Bonanno--Lenci addresses leading density order, not these coefficients. Resultary query returned only focal same-formula record, not independently prior. This is conditional best-of-knowledge priority with a material explicitly named high-relevance access risk.
+
+## value
+
+PASS
+
+The constant intercept and sign-fixed fractional neutral term refine the singular invariant density and mark a universal exponent collision at gamma=1/2 in a canonical intermittent dynamical system. These local coefficients are natural invariants of neutral transfer asymptotics and may be needed to calibrate refined density computation and error estimates, even without a general map theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:02:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized standard LSV invariant density and fixed 0<gamma<1, branch renewal h(x)=sum_n q(g^n(x))(g^n)′(x) with q(u)=h((1+u)/2)/2, q0=H/2, q1=H1/4. Abel coordinate A(f(x))=A(x)-1 has expansion x^(-gamma)/(gamma b)-(gamma+1)log(x)/2 + [(gamma+1)(2gamma+1)b/(12gamma)]x^gamma+..., b=2^gamma. I independently expanded the Abel equation in z=x^gamma and checked coefficients 0, z, z² vanish identically in symbolic gamma,b. Euler--Maclaurin on W=-q(X)X′ yields integral +W(t)/2-W′(t)/12 plus bounded higher derivative tail, hence h=-A′∫_0^xq +q/2+qA′′/(12A′²)-q′/(12A′)+..., the Bernoulli sign and x^gamma coefficient match the exact RESULT proof. This gives H x^-gamma/2^(gamma+1) +(gamma+2)H/4 +H1 x^(1-gamma)/2^(gamma+3) -gamma(gamma+1)2^gamma H x^gamma/12 +O(x^min(1,2gamma)); the two corrections coincide gamma=1/2. The derivative bounds for W and differentiable Abel remainder were asserted based on Korepanov--Wei--Wormell but its full primary text was inaccessible this run, making that critical imported regularity lemma a recorded verification risk. No parameter-endpoint uniformity or nonzero H1 for gamma>1/2 is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Preprint abstract addresses effective invariant measure numerics and Abel asymptotics",
+          "2025 random/sequential response work focuses perturbation response"
+        ],
+        "reasoning": "No inspected publication statement implies all displayed subprincipal coefficients; source full-text access limitation bars whole-paper noncoverage certification.",
+        "searches": [
+          "Liverani Saussol Vaienti map invariant density asymptotic subleading constant neutral fixed point Korepanov Wei Wormell Euler Maclaurin fractional correction",
+          "arxiv:2610.01879",
+          "doi:10.1112/jlms.70150"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 96932657cf1ba4b6f42a0e0b64b912b3125a068a, RESULT.md blob 8209dadbedd290c64f1b29538fe67c3e1b711913, AUDIT/metadata/slogan/review/verification",
+        "Independent exact symbolic Abel coefficients in independent_math_checks.py",
+        "Korepanov Wei Wormell arXiv:2610.01879 public abstract; full text retrieval failed",
+        "Bonanno Lenci arXiv:1911.02913",
+        "Dragičević González-Tokman Sedro DOI:10.1112/jlms.70150",
+        "Resultary Liverani Saussol Vaienti map invariant density asymptotic subleading constant neutral fixed point Korepanov Wei Wormell Euler Maclaurin fractional correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source-package quotation of KWW Section 6 gives M0 and M1 with bounded remainder",
+          "A bounded O(1) residual can contain a nonzero finite constant and fractional terms"
+        ],
+        "reasoning": "An O(1) remainder by itself does not yield the limit constant, the x^gamma coefficient, or gamma=1/2 competition; if full KWW expansion elsewhere includes them, priority must be reconsidered.",
+        "searches": [
+          "Liverani Saussol Vaienti map invariant density asymptotic subleading constant neutral fixed point Korepanov Wei Wormell Euler Maclaurin fractional correction",
+          "arxiv:2610.01879",
+          "arxiv:1911.02913"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korepanov--Wei--Wormell uses Abel coordinates/inverse-branch density; leading coefficients share H=h(1/2)",
+          "New finite intercept is the limit of the bounded residual after singular subtraction, not a different density normalization"
+        ],
+        "reasoning": "Explicitly align normalization and two-branch LSV formula; the present extra constant and x^gamma coefficient are not equivalent to mere O(1) remainder.",
+        "searches": [
+          "Liverani Saussol Vaienti map invariant density asymptotic subleading constant neutral fixed point Korepanov Wei Wormell Euler Maclaurin fractional correction",
+          "arxiv:2610.01879",
+          "arxiv:1911.02913"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only exact Resultary returned claim is its own same-title item",
+          "Other hits concern unrelated invariant measures/dynamical systems"
+        ],
+        "reasoning": "The source record itself is not external independent priority. No inspected mathematical table supplies the claimed H/H1 finite-intercept formula.",
+        "searches": [
+          "Liverani Saussol Vaienti map invariant density asymptotic subleading constant neutral fixed point Korepanov Wei Wormell Euler Maclaurin fractional correction",
+          "Resultary:2026/10/11/SCOPE-subprincipal-density-asymptotics-at-an-intermittent-neutral-fixe--c2ddb25c5fdb"
+        ]
+      },
+      "rationale": "The nearest Korepanov--Wei--Wormell 2026 preprint supplies an analytic Abel coordinate, exact density renewal and leading terms M0x^-gamma plus M1x^(1-gamma) with bounded residual according to the inspected source package; the proposed independent extraction of constant intercept and x^gamma term is more specific. However its original source full text could not be retrieved, so its Section 6 was not newly reread; if their omitted bound actually encodes these coefficients, coverage could change. Bonanno--Lenci addresses leading density order, not these coefficients. Resultary query returned only focal same-formula record, not independently prior. This is conditional best-of-knowledge priority with a material explicitly named high-relevance access risk.",
+      "residual_risks": [
+        "CRITICAL ACCESS: complete KWW preprint 2610.01879 was not read; it may state an equivalent constant/coefficient elsewhere, so novelty assessment is best-of-knowledge only",
+        "Differentiable Abel remainder and W derivative bounds are imported technical lemmas not independently verified from full original primary paper",
+        "Oxford authorized academic lookup returned vpn_disconnected; no authentication bypass attempted",
+        "Remainder O(x^min(1,2gamma)) may mask coincident powers for certain gamma; theorem avoids asserting universal H1 nonzero"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS-LIMITED HIGH-RISK comparison, not certified NOT_COVERING",
+          "evidence": "Abstract discusses effective numerics using Abel functions; source package claims bounded error after M0/M1; cannot verify full Section 6 from primary",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01879",
+          "material_read": "Public arXiv abstract and source-package quoted Section 6 math; primary HTML/PDF fetch attempts failed, no full text independently read",
+          "method": "arXiv abstract; inaccessible arXiv HTML/PDF; authorized Oxford attempt returned vpn_disconnected without source text",
+          "title": "Rigorous and effective numerics for Liverani--Saussol--Vaienti maps",
+          "trigger": "Exact same family and Abel/renewal method; strongest plausible coverage"
+        },
+        {
+          "assessment": "NO DIRECT DISPLAYED SUBPRINCIPAL FORMULA IN READ MATERIAL; whole-source coverage not determined",
+          "evidence": "Leading neutral invariant density order is older background",
+          "identifier_or_url": "https://arxiv.org/abs/1911.02913",
+          "material_read": "Abstract and contextual claims only, no full proof inspected this run",
+          "method": "Public metadata/abstract and source references",
+          "title": "Pomeau--Manneville maps are global--local mixing",
+          "trigger": "Older leading density asymptotics for neutral maps"
+        },
+        {
+          "assessment": "NOT SHOWN TO COVER coefficient theorem",
+          "evidence": "Studies response/stability rather than fixed-map exact local expansion",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70150",
+          "material_read": "Bibliographic information and research scope, no full text",
+          "method": "Publisher metadata and source references",
+          "title": "Linear response for random and sequential intermittent maps",
+          "trigger": "Same intermittent family but perturbation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The constant intercept and sign-fixed fractional neutral term refine the singular invariant density and mark a universal exponent collision at gamma=1/2 in a canonical intermittent dynamical system. These local coefficients are natural invariants of neutral transfer asymptotics and may be needed to calibrate refined density computation and error estimates, even without a general map theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted standard LSV with 0<gamma<1; nonuniform as gamma approaches endpoints",
+    "At gamma>1/2 H1 coefficient may vanish; not classified",
+    "Unretrieved primary full source is an explicit originality and imported-regularity risk."
+  ],
+  "schema_version": 1
+}
