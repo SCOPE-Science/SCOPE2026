@@ -1,12 +1,21 @@
-# Review of the dodecahedral induced-forest classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a precisely defined 20-vertex graph and every one of its 1,048,576 labelled vertex subsets. The union-find verifier checks cyclicity edge by edge, while a separately written component-search verifier checks the equivalent Euler forest condition; both reproduce all fifteen nonzero polynomial coefficients and six trailing zeros. Both establish the 2,520 size-14 forests and 1,120 inclusion-maximal size-13 forests. The group search enumerates all adjacency-preserving bijections and verifies disjoint coverage by the 25 orbit certificates. For six deleted vertices the independent cubic degree-sum identity \(c=2-|E(D[T])|\) also checks the component classification. Only the finite labelled graph is established; the programs do not prove generalizations to all generalized Petersen graphs.
+## correctness
 
-## Originality — PASS, with priority risk
-Bau (arXiv:math/0703544v1, 2007) sets out the decycling framework. Kowalik–Lužar–Škrekovski (DMTCS 2010, DOI 10.46298/dmtcs.487) expressly state the known 14-vertex forest and the 7/10 dodecahedral extremal example. Wei–Li (2013, DOI 10.12386/A2013sxxb0022) and Gao et al. (2015, DOI 10.1016/j.dam.2014.09.005) concern decycling numbers for generalized Petersen graphs. The novelty claim explicitly excludes the minimum forest order and scalar decycling number. Searched equivalents include feedback vertex sets, decycling, maximum induced forests, all-subset forest polynomial and symmetry quotients. Available primary full text and research-indexed results did not cover the finer polynomial and orbit theorem. The full texts of the two generalized-Petersen papers remained inaccessible; their contents are a documented residual priority risk, as is an unindexed earlier enumeration. Search failure alone is not a proof of novelty.
+PASS
 
-## Value — PASS
-The dodecahedron is an established natural extremal example for proposed induced-forest bounds on planar girth-five graphs. The exact all-subset generating function, 25 inequivalent optimum configurations and precise connected/disconnected classification characterize *how* its known extremal bound is attained, not just the old bound itself. The complete inclusion-minimal feedback vertex spectrum is a useful finite structural benchmark for exact algorithms and provides mathematically motivated information beyond a routine numerical check. No general theorem is claimed.
+The literal GP(10,2) adjacency has 20 vertices, 30 edges, degree three. Exhaustive independent BFS/Euler acyclicity analysis tested all 2^20=1,048,576 vertex masks and obtained exact k=0..14 forest coefficients [1,20,190,1140,4845,15492,38580,76260,120540,151920,150480,113400,60620,19600,2520], with zero k≥15 and sum 755,608. Exactly 2520 forests have order14; 1860 are trees, 660 have component sizes (1,13):280,(2,12):180,(4,10):120,(6,8):60,(7,7):20. All inclusion-maximal induced forests have order 13 (1120) or 14 (2520). Independent adjacency-preserving bijection enumeration found exactly 120 automorphisms. The 25 literal CSV representatives generate disjoint orbits covering all 2520 optimum masks, orbit sizes 120×18+60×5+40+20. These computations exhaust the FINITE graph only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical 14-vertex induced forest and decycling number six are already in literature and explicitly NOT claimed as new. Prior survey/planar/girth-five works and generalized Petersen decycling-number papers emphasize a single extremal size, not the full coefficient polynomial, inclusion-maximal profile, component partition or 25 orbit classes. Resultary returned dodecahedral independence/matching complex invariants but no same induced-forest polynomial. Full Gao and Wei–Li articles were inaccessible; residual priority risk retained.
+
+## value
+
+PASS
+
+The dodecahedron is the canonical 20-vertex cubic girth-five graph and a sharpness case for induced-forest bounds; its complete induced-forest polynomial, exact optimum component distribution, minimal feedback set profile and automorphism orbit census form a natural, reusable extremal benchmark. Exhaustive independently verified enumeration is a legitimate finite classification, not merely recomputation of already-known α_f=14.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:00:54.059826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The literal GP(10,2) adjacency has 20 vertices, 30 edges, degree three. Exhaustive independent BFS/Euler acyclicity analysis tested all 2^20=1,048,576 vertex masks and obtained exact k=0..14 forest coefficients [1,20,190,1140,4845,15492,38580,76260,120540,151920,150480,113400,60620,19600,2520], with zero k≥15 and sum 755,608. Exactly 2520 forests have order14; 1860 are trees, 660 have component sizes (1,13):280,(2,12):180,(4,10):120,(6,8):60,(7,7):20. All inclusion-maximal induced forests have order 13 (1120) or 14 (2520). Independent adjacency-preserving bijection enumeration found exactly 120 automorphisms. The 25 literal CSV representatives generate disjoint orbits covering all 2520 optimum masks, orbit sizes 120×18+60×5+40+20. These computations exhaust the FINITE graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known generalized Petersen results determine decycling number, not an evidenced complete forest generating polynomial or symmetry partition; the exact dodecahedral graph is GP(10,2)."
+        ],
+        "reasoning": "A broad formula for all GP(n,k) full induced-forest polynomials would dominate, but none found in inspected sources. The 14-vertex optimum is deliberately excluded from novelty.",
+        "searches": [
+          "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets",
+          "Gao et al. 2015 generalized Petersen decycling number DOI:10.1016/j.dam.2014.09.005",
+          "Wei–Li 2013 generalized Petersen DOI:10.12386/A2013sxxb0022"
+        ]
+      },
+      "checked_sources": [
+        "Kowalik–Lužar–Škrekovski DMTCS 12(1) (2010) primary PDF",
+        "Bau arXiv:math/0703544 survey",
+        "Wei–Li 2013 DOI:10.12386/A2013sxxb0022 abstract",
+        "Gao et al. 2015 DOI:10.1016/j.dam.2014.09.005 abstract",
+        "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximum 14-vertex induced forest guarantees at least one optimum mask and minimal feedback set size6 but does not determine that there are 2520 optimum masks or 25 group orbits."
+        ],
+        "reasoning": "Known scalar forest/decycling bounds and symmetry order do not imply the enumerator; exhaustive all-subset classification adds independent nontrivial finite facts.",
+        "searches": [
+          "Kowalik–Lužar–Škrekovski 2010 DMTCS 12(1) pp.87–100",
+          "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets",
+          "Gao et al. Discrete Applied Math. 181 (2015)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced forests are complements of feedback vertex sets. k=14 optimum corresponds to decycling number 6, already known; a full polynomial counts every acyclic induced vertex set, not just the minimum deletion size."
+        ],
+        "reasoning": "Terminology induced forest/acyclic vertex subset/decycling set/minimal feedback vertex set was compared. The polynomial and 25 G-orbits are strictly finer than known extremal scalar.",
+        "searches": [
+          "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets",
+          "Bau The Decycling Number of a Graph, arXiv:math/0703544",
+          "Kowalik–Lužar–Škrekovski DMTCS 2010 Figure 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives a 14-vertex dodecahedral induced forest as girth-five sharpness; complete coefficients and orbit certificate are not tabulated in inspected source."
+        ],
+        "reasoning": "Exact polynomial and component/orbit table are separately checked for 20-vertex GP(10,2). No exact published table was identified; inaccessible full papers retain priority risk.",
+        "searches": [
+          "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets",
+          "Search exact dodecahedral induced forest 755608 2520 25 orbits",
+          "DMTCS 2010 induced-forest Figure 1"
+        ]
+      },
+      "rationale": "The classical 14-vertex induced forest and decycling number six are already in literature and explicitly NOT claimed as new. Prior survey/planar/girth-five works and generalized Petersen decycling-number papers emphasize a single extremal size, not the full coefficient polynomial, inclusion-maximal profile, component partition or 25 orbit classes. Resultary returned dodecahedral independence/matching complex invariants but no same induced-forest polynomial. Full Gao and Wei–Li articles were inaccessible; residual priority risk retained.",
+      "residual_risks": [
+        "Complete 2013 Wei–Li and 2015 Gao generalized Petersen papers could include small-case detailed tables; uninspected bodies are not declared noncovering.",
+        "Finite census proves only the labeled 20-vertex dodecahedron, not all generalized Petersen graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers optimum order14 but not the fine polynomial, maximality spectrum, or orbit classification in inspected section.",
+          "evidence": "Dodecahedral graph appears as sharpness graph for 7/10 induced-forest fraction.",
+          "identifier_or_url": "https://dmtcs.episciences.org/487/pdf",
+          "material_read": "Original primary PDF introduction pp.1–2 and Figure 1 describing a 14-vertex induced forest and sharpness example",
+          "method": "Read original primary PDF relevant section and image",
+          "title": "An improved bound on the largest induced forests for triangle-free planar graphs",
+          "trigger": "Direct known dodecahedron optimum"
+        },
+        {
+          "assessment": "Defines decycling number and complement-to-forest equivalence, not an explicit detailed GP(10,2) orbit table in accessible material.",
+          "evidence": "Min feedback vertex sets correspond to complements of maximal induced forests.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0703544",
+          "material_read": "Primary arXiv survey abstract/definitions and literature discussion",
+          "method": "Open-access survey inspection",
+          "title": "The Decycling Number of a Graph",
+          "trigger": "Equivalent feedback vertex set viewpoint"
+        },
+        {
+          "assessment": "Possible detailed results inaccessible; cannot assert whole-document noncoverage.",
+          "evidence": "Published scalar generalized Petersen decycling result, risk for extra exact counts.",
+          "identifier_or_url": "https://actamath.cjoe.ac.cn/Jwk_sxxb_cn/EN/10.12386/A2013sxxb0022",
+          "material_read": "Bibliography and abstract only; full paper not obtained",
+          "method": "Publisher bibliographic page inspection",
+          "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+          "trigger": "Potential same graph generalized family"
+        },
+        {
+          "assessment": "Scalar decycling coverage documented; uninspected appendices may contain finer GP(10,2) counts.",
+          "evidence": "No claim that inaccessible full article omits all enumerators.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.09.005",
+          "material_read": "Abstract and bibliographic pages only; full primary text inaccessible",
+          "method": "Lawful public search/abstract inspection",
+          "title": "The decycling number of generalized Petersen graphs",
+          "trigger": "Potential broader GP(n,k) theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dodecahedron is the canonical 20-vertex cubic girth-five graph and a sharpness case for induced-forest bounds; its complete induced-forest polynomial, exact optimum component distribution, minimal feedback set profile and automorphism orbit census form a natural, reusable extremal benchmark. Exhaustive independently verified enumeration is a legitimate finite classification, not merely recomputation of already-known α_f=14.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kowalik–Lužar–Škrekovski DMTCS 12(1) (2010) primary PDF",
+    "Bau arXiv:math/0703544 survey",
+    "Wei–Li 2013 DOI:10.12386/A2013sxxb0022 abstract",
+    "Gao et al. 2015 DOI:10.1016/j.dam.2014.09.005 abstract",
+    "Resultary semantic search: dodecahedral graph induced forest polynomial maximal induced forests 25 automorphism orbits feedback vertex sets"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete 2013 Wei–Li and 2015 Gao generalized Petersen papers could include small-case detailed tables; uninspected bodies are not declared noncovering.",
+    "Finite census proves only the labeled 20-vertex dodecahedron, not all generalized Petersen graphs.",
+    "Scientific acceptance does not imply exhaustive historical priority, formal-proof attestation or publication.",
+    "Potentially public METADATA.json and AUDIT.json contain operational scope_run_id; publication withheld until semantically reviewed neutral replacements exist."
+  ],
+  "residual_risks": [
+    "Complete 2013 Wei–Li and 2015 Gao generalized Petersen papers could include small-case detailed tables; uninspected bodies are not declared noncovering.",
+    "Finite census proves only the labeled 20-vertex dodecahedron, not all generalized Petersen graphs."
+  ],
+  "schema_version": 1
+}
