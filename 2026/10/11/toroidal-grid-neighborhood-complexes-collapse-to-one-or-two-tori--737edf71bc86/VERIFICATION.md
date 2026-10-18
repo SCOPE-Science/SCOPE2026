@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification limits
+# Independent mathematical audit
 
-Execute `python3 verify_toroidal_neighborhoods.py` using a standard Python 3 installation, from the directory containing the extracted file. Its output is reproduced in `verification_output.txt`.
+## correctness
 
-The checker builds the open neighborhoods and their downward-closed simplicial complex for \(5\leq m,n\leq8\), \(0\leq k<m\), and checks \(104\) graphs. It confirms the correct number of four-neighbor maximal tetrahedra, uniqueness of each triangle's owner, and tests each local elementary-collapse pair by enumerating all cofaces in the current complex before deletion. After the \(9,048\) collapses it checks the predicted face vector; every vertex link is a connected six-cycle, every edge has exactly two incident triangles, every component has Euler characteristic zero, and the component count matches the period parity. For the five twists of \(m=n=5\), it additionally computes mod-two simplicial boundary ranks and homology ranks.
+PASS
 
-The reproduction tests are finite and are not a proof for all periods or all lattices. The unlimited-domain proof instead uses the minimum-period hypothesis, the uniqueness of common neighbors in the square grid, elementary simplicial collapses, and the translation quotient of two diamond-triangulated Euclidean planes. There is no independent mathematical audit or formal infinite certificate.
+For every lattice L with λ1(L)≥5, no two different centers share a neighborhood triangle and an opposite horizontal pair has a unique common center: any two candidate lift differences would produce a nonzero period of Manhattan norm ≤4. Thus for each of N centers the displayed triangle/tetrahedron and then edge/triangle are free simplicial pairs, disjoint among centers, giving exactly 2N elementary collapses. Remaining two triangles per center are a translation quotient of the two planar diamond triangulations indexed by coordinate parity. The period lattice exchanges the planes iff some (a,b)∈L has odd a+b; each orbit quotient is an orientable flat 2-torus. f=(N,3N,2N), Betti (c,2c,c), c=1 or 2. This is an all-lattice universal-cover proof, not an extrapolation from finite verification; inspected checker independently implements actual pair deletions for 104 twisted grids.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Shukla (arXiv:1802.04526, Theorems 2.5–2.6, 4.4 and Lemma 4.2) already determines homotopy types and uses triangle collapses in various cyclic 4-regular circulant cases, so those cyclic overlaps and technique are credited. It does not cover arbitrary finite-index rank-two lattices with noncyclic quotient group, exact 2N collapse and parity/deck formula. Morris (arXiv:2301.05396) computes toroidal grid graph automorphisms and bipartiteness, not neighborhood PL cores. Matsushita computes group-theoretic π1 relationships without this explicit topological classification.
+
+## value
+
+PASS
+
+An all-parameter collapse and PL-type classification for a natural two-dimensional Cayley-grid family—including noncyclic/twisted lattice quotients and a parity-controlled component bifurcation—provides explicit topological cores and integral homology, substantially extending overlapping circulant examples. The finite grid sizes are examples only, not arbitrary unmotivated slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

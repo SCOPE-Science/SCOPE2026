@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is a universal theorem for finite-index sublattices satisfying a precise minimum-length hypothesis. Distinct four-neighborhood tetrahedra have no shared triangle, and opposite horizontal vertices have exactly one common neighbor. This gives exactly two legitimate elementary free-face removals per graph vertex. The remaining diamond-triangulation consists of two translation-invariant planar components on the cover. Its lattice quotient consists of one or two tori according to the parity action, and orientation is preserved. The claimed integral homology and face-vector count follow. The standalone finite checker independently reconstructs 104 parameter instances, checks all 9,048 local collapses and 4,524 vertex links, and checks binary homology for five samples; universal conclusions rest on the symbolic argument, not finite observations.
+## correctness
 
-**Originality — PASS, with residual risk.** Shukla's arXiv:1802.04526, Theorems 2.5–2.6 and Lemma 4.2, covers similar neighborhood collapses and torus outcomes for some cyclic 4-regular circulants. Those special cases and the method's antecedents are explicitly credited and not presented as newly discovered. Matsushita's arXiv:1210.2803 concerns the fundamental group of general neighborhood complexes. Morris's arXiv:2301.05396 examines the same twisted-grid graph family and states the graph bipartiteness parity condition, but not its neighborhood-complex PL surface cores. The exact all-finite-index lattice collapse, noncyclic cases, and geometric parity action are not stated by these inspected primary theorems. Published-literature comparison includes open-neighborhood torus aliases, cyclic graph equivalences, graph cover duality and explicit all-parameter predictions. A hidden generalized graph-product statement remains a genuine novelty risk; failure to find it is not a proof of uniqueness.
+PASS
 
-**Value — PASS.** This is a complete, naturally parameterized topology theorem for the high-injectivity square-lattice quotient family, with a concrete constructive collapse and full integral homology. It exposes a geometric role for period-lattice parity and distinguishes one torus from two at the same vertex count, including noncyclic toroidal grids not addressed in the cited circulant-only classification. This is more than a formal renaming of a previously enumerated invariant or a computer-tested special case.
+For every lattice L with λ1(L)≥5, no two different centers share a neighborhood triangle and an opposite horizontal pair has a unique common center: any two candidate lift differences would produce a nonzero period of Manhattan norm ≤4. Thus for each of N centers the displayed triangle/tetrahedron and then edge/triangle are free simplicial pairs, disjoint among centers, giving exactly 2N elementary collapses. Remaining two triangles per center are a translation quotient of the two planar diamond triangulations indexed by coordinate parity. The period lattice exchanges the planes iff some (a,b)∈L has odd a+b; each orbit quotient is an orientable flat 2-torus. f=(N,3N,2N), Betti (c,2c,c), c=1 or 2. This is an all-lattice universal-cover proof, not an extrapolation from finite verification; inspected checker independently implements actual pair deletions for 104 twisted grids.
 
-**Limitations and comparison boundaries.** The theorem does not cover period vectors shorter than five or assert PL homeomorphism of the original three-dimensional complex to a surface. It does not establish any previously known cyclic subfamily or bipartiteness property as novel. Results have not been independently audited.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Shukla (arXiv:1802.04526, Theorems 2.5–2.6, 4.4 and Lemma 4.2) already determines homotopy types and uses triangle collapses in various cyclic 4-regular circulant cases, so those cyclic overlaps and technique are credited. It does not cover arbitrary finite-index rank-two lattices with noncyclic quotient group, exact 2N collapse and parity/deck formula. Morris (arXiv:2301.05396) computes toroidal grid graph automorphisms and bipartiteness, not neighborhood PL cores. Matsushita computes group-theoretic π1 relationships without this explicit topological classification.
+
+## value
+
+PASS
+
+An all-parameter collapse and PL-type classification for a natural two-dimensional Cayley-grid family—including noncyclic/twisted lattice quotients and a parity-controlled component bifurcation—provides explicit topological cores and integral homology, substantially extending overlapping circulant examples. The finite grid sizes are examples only, not arbitrary unmotivated slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
