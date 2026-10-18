@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The main analytical identity is \(G(x)=\min_{v\ne0}(\|v\|^2-2\langle x,v\rangle)\) for points with nearest lattice site at the origin. The shortest pair \(\pm s\) makes the exact upper endpoint \(\lambda\); reducing to finitely many Voronoi-relevant constraints controls all other vectors. In the orthogonal split along the span of shortest vectors, the feasible set collapses with Jacobian \(\varepsilon^r\), while complementary sections converge to a nondegenerate bounded polytope. Finite affine halfspace families have a stable small-positive-parameter combinatorial type, proving an exact endpoint polynomial with the asserted first degree and coefficient. The exact rational program `check_lattice_margin.py` passed, including two nonorthogonal examples, area/covolume identities, and independent three-dimensional nearest-neighbor checks. Finite checks do not substitute for the analytic proof.
+
+## Originality — PASS, with priority limits
+Sloane and Beferull-Lozano (2002) provide lattice quantization and Voronoi background. McKilliam, Grant and Clarkson (2014) provide Voronoi-relevant halfspaces. Baake, Scharlau and Zeiner (2013) define well-roundedness and count sublattices. Koçak and Ratiu (2010) already prove piecewise polynomial Euclidean inner-polytope volume; that general property is **not** new here. A published 2026 BCC/FCC Voronoi-clearance calculation gives exact laws for two canonical cells and can imply particular equal-facet-length examples, but its Euclidean boundary clearance is not the same general invariant as the squared nearest-neighbor margin. None of the materially inspected results supplies the arbitrary-dimensional shortest-vector-rank exponent and explicit mixed-dimensional coefficient. A separate tetrahedral spherical score-gap result concerns a different sampling space and a fixed four-site set. Specialized historical priority remains a risk.
+
+## Mathematical value — PASS
+The central result is a universal geometric-statistical identification theorem: the extreme upper tail of a scalar decision-confidence statistic recovers the dimension of the span of shortest lattice vectors. This is a classical geometric property that distinguishes well-rounded and non-well-rounded lattices. The positive coefficient gives a computable intrinsic-volume characterization. The theorem is substantially stronger than an elementary rectangular-lattice factorization and does not require a paper-sized downstream application to motivate this inverse invariant.
+
+## Limitations and comparison boundaries
+The theorem uses squared Euclidean distances and uniform sampling modulo a fixed lattice. It does not recover the complete lattice from the distribution, claim finite-sample stability, or cover unsquared distance differences. Some individual symmetric lattice examples follow from established clearance formulas, and generic piecewise polynomiality follows from classical polytope geometry. Independent replication of the all-lattice proof and definitive priority analysis remain open.
+
+Self-review: passed. Independent audit: not yet performed.
