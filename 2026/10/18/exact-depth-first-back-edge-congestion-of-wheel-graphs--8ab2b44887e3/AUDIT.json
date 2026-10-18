@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, if the hub is a DFS root or leaf its incident tree cut contains n spokes and yields DTC>=n-1>=ceil(n/2)+1. Otherwise its strict ancestors are a contiguous rim path of length 1<=a<=n-1; the connected complementary rim path is wholly in the unique DFS child subtree of the hub. The incoming and outgoing hub tree cuts have a+2 and n-a+2 graph edges, so their crossing non-tree counts are a+1 and n-a+1, forcing the sharp lower bound. A Hamiltonian DFS path with a=floor(n/2) rim vertices before the hub has no enveloping arcs and its maximum cut-minus-one is exactly ceil(n/2)+1, proving KLX=DTC. The hub star shows ordinary spanning tree congestion 3, with the lower bound from 3-edge-connectivity; a four-vertex bag path decomposition and a K_4 minor show treewidth 3. A standalone contour-based verifier exhausts 2380 ordered DFS traversals for rim n=3..9 and separately checks the explicit construction through n=500. Finite tests are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourotte et al. establish DTC at most KLX and a maximum-degree lower bound for biconnected graphs; these do not determine the exact linear KLX value for wheels.",
+        "The exact complete-graph theorem applies to K_n only. The wheel with three rim vertices is K_4 and is excluded from the new theorem.",
+        "The exact biclique theorem requires complete bipartite graphs. Wheels have triangles.",
+        "The balanced complete multipartite theorem requires all parts equal and at least two vertices per part, and no wheel with at least four rim vertices belongs to this family."
+      ],
+      "reasoning": "The cited broader-looking results were compared by logical hypotheses and implications, not by titles. Their domains exclude the wheels in the claim, or their bounds are too weak to force equality. Ordinary spanning-tree congestion is a different relaxation and equals three on these wheels.",
+      "searches": [
+        "KLX kissing loop crossing number complete bipartite graphs DFS simultaneous open back-edge congestion",
+        "minimum KLX depth first traversal complete graphs and bipartite graph examples",
+        "2026/9/19/record b27f97da8029",
+        "2026/10/4/record d7d7a1fe0f08"
+      ]
+    },
+    "checked_sources": [
+      "Bourotte et al., A Congestion Parameter for Depth-First Graph Traversals, arXiv:2606.24675v1, full text (2026-06-23).",
+      "Published exact KLX record b27f97da8029, complete RESULT.md.",
+      "Published exact KLX record d7d7a1fe0f08, complete RESULT.md."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source states DTC(G) <= KLX(G), characterizes KLX <= 1 and <= 2, and gives a degree-derived lower bound. For the n-rim wheel these do not imply KLX=ceil(n/2)+1.",
+        "The previously published K_4 value applies only to the excluded n=3 boundary wheel.",
+        "For n>=4 the wheel is neither complete nor bipartite nor equal-part-size complete multipartite.",
+        "The hub-centered star establishes stc(W)=3, whereas the wheel-specific restriction to DFS trees creates a growing cost."
+      ],
+      "reasoning": "The new theorem requires proving that every DFS tree has either a large hub-isolating cut or two hub-adjacent cuts with values a+1 and n-a+1; this implication is not supplied by the inspected general degree bound, clique/biclique formula, multipartite theorem, or unrestricted spanning-tree-congestion formulas. The upper bound additionally uses the balanced Hamiltonian traversal.",
+      "searches": [
+        "wheel graph KLX number formula ceil(n/2)+1 simultaneous open back edges",
+        "apex cycle KLX kissing loop crossing n rim wheel exact",
+        "KLX kissing loop crossing number complete bipartite graphs DFS simultaneous open back-edge congestion",
+        "https://arxiv.org/html/2606.24675",
+        "published exact KLX record b27f97da8029",
+        "published exact KLX record d7d7a1fe0f08"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 definition counts simultaneously open non-tree-edge arcs during the reverse DFS contour; crossing-only congestion is a lower bound.",
+        "The two closest examined published KLX calculations give clique/biclique and balanced multipartite formulas, not wheel formulas.",
+        "The wheel theorem supplies an exact expression for KLX and DTC, not merely a bound on classical congestion."
+      ],
+      "reasoning": "Searches used KLX, kissing-loop crossing, DFS-tree congestion, wheel, and apex-cycle variants. None of the examined exact statements equates to the claimed wheel formula for rim order at least four. A classical wheel cutwidth formula, if known, would concern linear vertex layouts; it would not by itself lower-bound the optimum over all possibly branching DFS trees without the new two-hub-cut argument.",
+      "searches": [
+        "wheel graph KLX number formula ceil(n/2)+1 simultaneous open back edges",
+        "apex cycle KLX kissing loop crossing n rim wheel exact",
+        "wheel graph path DFS tree cut profile optimal congestion",
+        "KLX wheel",
+        "DFS-tree congestion wheel",
+        "kissing-loop wheel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact published records identified for KLX are b27f97da8029 and d7d7a1fe0f08. Their complete scientific results were inspected.",
+        "The accessible 46 current-week original claims were screened for the KLX/wheel invariant; no matching own claim was recovered.",
+        "The initiating 2026 paper contains no wheel calculation in its searched full text."
+      ],
+      "reasoning": "Neither the accessible own historical claims nor the queried mathematical finding records yielded an exact wheel-KLX table or theorem. Absence from a finite database is not proof of global novelty, so priority relative to unindexed literature remains a stated risk.",
+      "searches": [
+        "wheel graph KLX number formula ceil(n/2)+1 simultaneous open back edges",
+        "KLX DFS traversal congestion of fan graphs K1 join path wheel graph cycle",
+        "apex cycle KLX kissing loop crossing n rim wheel exact",
+        "wheel graph path DFS tree cut profile optimal congestion",
+        "KLX wheel",
+        "DFS-tree congestion wheel"
+      ]
+    },
+    "rationale": "The initiating full text defines the parameter and gives a general degree lower bound but no exact wheel value. Full published records for complete/bipartite and balanced multipartite exact KLX have non-covering graph domains for n>=4; only the explicitly excluded W_4=K_4 boundary is covered. The wheel theorem is not implied by ordinary spanning-tree congestion, whose value is 3. Targeted graph-name, DFS-crossing, apex-cycle, and alias searches found no competing exact wheel theorem, although unindexed reformulations remain possible.",
+    "residual_risks": [
+      "Older literature could use a different name such as DFS-normal spanning-tree congestion or a specialized wheel layout formula and might be incompletely indexed.",
+      "Searches and full-text inspections do not establish priority over every inaccessible or unpublished source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes parameter and general lower bounds, not an exact evaluation for wheel graphs.",
+        "evidence": [
+          "Definition 2.2 counts back-edge arcs on reverse traversal of a DFS tree edge.",
+          "Definition 2.5 and Proposition 2.6 identify the cut-crossing lower bound.",
+          "Lemma 3.8 imposes a degree-based lower bound; no wheel specialization gives the new exact value."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.24675",
+        "material_read": "Complete accessible article text, including introduction, Definitions 2.2 and 2.5, Proposition 2.6, Lemmas 3.6 and 3.8, low-KLX characterizations and appendix context; searched the full text for wheel/fan and complete-bipartite examples.",
+        "method": "Read arXiv full-text HTML and compared mathematical definitions and theorems.",
+        "title": "A Congestion Parameter for Depth-First Graph Traversals",
+        "trigger": "The first public source defining KLX and DFS-tree congestion; candidate must use its precise contour convention."
+      },
+      {
+        "assessment": "Evaluates K_n and K_{a,b}; for n>=4, wheel K_1 join C_n is neither class. The already-covered K_4 boundary is excluded.",
+        "evidence": [
+          "Exact K_n formula floor(n^2/4)-1 and biclique formulas are limited to those domains.",
+          "Its unrestricted spanning-tree comparison does not determine the wheel DFS optimum."
+        ],
+        "identifier_or_url": "published mathematical record b27f97da8029",
+        "material_read": "Complete RESULT.md, including domain statements, spanning-tree-congestion comparison and proof.",
+        "method": "Read the published scientific statement and its full comparison/proof section.",
+        "title": "Exact KLX numbers of complete and complete bipartite graphs",
+        "trigger": "A high-similarity published exact KLX theorem potentially dominating the wheel claim."
+      },
+      {
+        "assessment": "Requires r>=3 equally sized parts with m>=2; wheel graphs with n>=4 are outside the domain.",
+        "evidence": [
+          "Hypothesis G=K_{m,...,m}, r>=3, m>=2.",
+          "The proof and conclusion do not extend by implication to an apex cycle."
+        ],
+        "identifier_or_url": "published mathematical record d7d7a1fe0f08",
+        "material_read": "Complete RESULT.md, including assumptions, Hamiltonian-spine proof and limitations.",
+        "method": "Read full published scientific statement and compared the quantifiers and graph classes.",
+        "title": "Exact KLX number of balanced complete multipartite graphs",
+        "trigger": "A stronger-looking KLX theorem covering multipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ab2b448-87e3-45df-b9fa-fea04dae47ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a natural infinite exact benchmark for the 2026 KLX parameter: all wheel graphs with n>=4 rim vertices, not an arbitrary finite slice. It shows an unbounded gap between depth-first traversal congestion ceil(n/2)+1 and classical spanning-tree congestion 3, even while the graphs remain planar, 3-connected, and have treewidth 3. The hub-cut bottleneck identifies why the DFS restriction has this cost and improves the general degree-based lower bound from nonsharp growth to a precise linear law. Both the crossing-only equality and attaining traversal have a clear algorithmic interpretation.",
+    "status": "PASS"
+  }
+}
