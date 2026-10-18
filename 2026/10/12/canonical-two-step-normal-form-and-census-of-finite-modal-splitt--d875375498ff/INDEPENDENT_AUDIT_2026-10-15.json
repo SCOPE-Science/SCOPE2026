@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite normal modal algebras on powerset of n Boolean atoms correspond uniquely to relations R with Box_R(A)={x:R[x]⊆A}. Box_R^3(0)=1 iff no directed walk of three edges, which forces acyclicity. Congruence ideals P(U) stable under Diamond_R correspond precisely to predecessor-closed U. In any finite DAG, nonempty predecessor-closed sets contain a source; the least nonzero such ideal exists iff there is a unique source. A single source reaches all vertices. For n≥2, classify nonroot vertices into B reachable by one step but never a two-step path and C endpoints of two-step paths: r connects to every b∈B; each c∈C has an arbitrary nonempty B-parent subset plus independent optional r shortcut, and C is terminal; converse has no three-walk and unique source. Canonical partition is intrinsic. Choose r, B size k≥1, and independent parents/shortcut per other vertex to obtain labeled count L_n=n∑C(n−1,k)[2(2^k−1)]^(n−1−k). For isomorphism, S_k acts on T_k=(nonempty subsets[k])×{shortcut bit}; unlabeled C vertices are multisets of T_k and Burnside coefficient ∏cycles(1−t^length)^(-1), giving stated U_n. Independently enumerated all binary relations for n=1,2,3,4, evaluated all predecessor-closed ideals and isomorphism orbits, obtaining (L,U)=(1,1),(2,1),(15,3),(124,8). Separately implemented multiset Burnside cycle computation for all n=1..8 and reproduced L=(1,2,15,124,1525,26106,618695,20279288), U=(1,1,3,8,24,77,283,1182). These checks support the formulas; the general proof is structural.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takahashi, Theorem 2.7/§3 describes the general finite-height SI modal-algebra splitting context, not these exact height≤2 n-atom multiset orbit counts; Venema provides general dual SI criterion without a census."
+        ],
+        "reasoning": "The source general SI characterization is explicitly a premise; neither generic DAG enumeration nor splitting decidability alone yields these specialized fixed-atom-height counts without deriving the canonical parent/shortcut structure.",
+        "searches": [
+          "Resultary: finite subdirectly irreducible modal algebras Box cubed zero 1 height two rooted DAG enumeration isomorphism Burnside",
+          "Takahashi arXiv:2510.14520 2025 finite height splitting templates",
+          "Venema ILLC PP-2002-10",
+          "McKay random acyclic digraph enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Yde Venema ILLC PP-2002-10 primary PDF text and relevant pages",
+        "Tenyo Takahashi arXiv:2510.14520 and Cambridge 2026 full HTML",
+        "McKay DOI:10.1017/S0305004100068195 metadata",
+        "Resultary semantic exact query",
+        "source RESULT.md, SLOGAN.txt, verify.py, AUDIT.json, METADATA.json",
+        "Independent n<=4 full relation enumeration and n<=8 Burnside numeric evaluation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Venema gives rootedness, Takahashi gives applications to finite-height splitting templates, neither states the k-layer parent-subset plus optional-shortcut enumeration or the S_k fixed-multiset Burnside expression."
+        ],
+        "reasoning": "The prior dual characterization plus the easy Box³ semantics permit derivation of the new formula, but do not themselves state or mechanically supply the exact orbit counts; the nontrivial canonical partition/Burnside work is the additional finite classification. No distinct splitting-logics count is claimed.",
+        "searches": [
+          "Venema Duals of subdirectly irreducible modal algebras (2002) §3",
+          "Takahashi Decidability of Being a Union-splitting (2026), Theorem 2.7 and §3",
+          "Resultary semantic query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Venema (2002) characterizes finite subdirect irreducibility via rooted dual frames; the present identity Box³0=1 specializes to no length-three directed walks, and the data classify optional root shortcuts and positive parent sets."
+        ],
+        "reasoning": "Compared rooted DAGs, modal splitting templates, finite-height SI modal complex algebras, height-two directed acyclic frames, and hypergraph parent-set/multiset representations. Rootedness is prior, but the explicit normal form and orbit count were not recovered from any stated prior classification.",
+        "searches": [
+          "Resultary: finite subdirectly irreducible modal algebras Box cubed zero 1 height two rooted DAG enumeration isomorphism Burnside",
+          "Web: rooted height two acyclic digraph exact unlabeled numbers 1 1 3 8 24 77",
+          "Venema Duals of subdirectly irreducible modal algebras 2002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source finite verifier lists n=1..8 sequences; independent Burnside evaluation matches, and n≤4 exhaustive relation/isomorphism checks match. A keyword/indexed-sequence search did not locate the same height-two SI modal-algebra enumeration under an external exact table."
+        ],
+        "reasoning": "Numerical sequence coincidence is not originality proof; absence of a known height-restricted rooted-DAG OEIS or isomorphism table is a residual risk. The result provides general explicit symbolic formulas beyond eight entries.",
+        "searches": [
+          "Web: \"1, 2, 15, 124, 1525, 26106\" rooted acyclic directed graphs height two",
+          "Web: \"1, 1, 3, 8, 24, 77, 283, 1182\" directed acyclic graphs",
+          "Resultary: finite subdirectly irreducible modal algebras Box cubed zero 1 height two rooted DAG enumeration isomorphism Burnside"
+        ]
+      },
+      "rationale": "The rootedness criterion for finite subdirectly irreducible modal complex algebras is already known, as are Jankov splitting templates and general DAG-count machinery. The precise no-three-walk, two-step parent-set/shortcut canonical normal form and full labeled/isomorphism enumeration for this natural height-restricted SI class are the claim to priority.",
+      "residual_risks": [
+        "A graph-enumeration database may index identical rooted height-two relation numbers under a nonmodal alias; a negative search is not a novelty certificate.",
+        "Rootedness and modal algebra duality are known; originality is confined to this canonical two-step structure and its counts.",
+        "Template algebra isomorphism classes do not necessarily count distinct splitting logics; no such conclusion is made.",
+        "The McKay full paper was not inspected, so exclude only what the inspected scope/evidence supports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general rooted dual characterization; not priority for the fixed-height-two multiset enumeration",
+          "evidence": "§3 root/finite complex-algebra criterion, distinguish as prior theorem.",
+          "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/74/2/PP-2002-10.text.pdf",
+          "material_read": "Accessible 2002 full PDF text with §§2–3 and corollary relating SI finite algebra to rooted frames, plus visual page inspection",
+          "method": "primary text and PDF page inspection",
+          "title": "Duals of subdirectly irreducible modal algebras",
+          "trigger": "Direct finite SI duality and root criterion"
+        },
+        {
+          "assessment": "Uses broader template families for decidability, not explicit n-atom height-two layer counts",
+          "evidence": "Theorem 2.7 and Section 3 finite-height SI family, no parent set/shortcut orbit formula in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1017/jsl.2026.10187",
+          "material_read": "Full available Cambridge HTML, Theorem 2.7 and related sections on finite-height and splitting templates",
+          "method": "primary full-text reading",
+          "title": "Decidability of Being a Union-splitting",
+          "trigger": "Same finite SI modal algebra Jankov/splitting objects"
+        },
+        {
+          "assessment": "General asymptotic acyclic digraphs do not by title/abstract establish an exact height-two SI count, but no exclusion of full text asserted",
+          "evidence": "Title and scope of unrestricted random acyclic digraph versus exact rooted height-two classes.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100068195",
+          "material_read": "Journal bibliographic/abstract evidence only; no full paper inspection",
+          "method": "metadata-only inspection",
+          "title": "On the shape of a random acyclic digraph",
+          "trigger": "Potential dominating enumerative DAG results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonstar finite-height layer of subdirectly irreducible modal algebras supplies natural bounded Jankov splitting templates. Canonical parent-set/shortcut parameters and complete labeled and unlabeled enumerators give directly usable finite model/type libraries rather than isolated tiny examples, with separate independent exhaustive low-atom validation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Yde Venema ILLC PP-2002-10 primary PDF text and relevant pages",
+    "Tenyo Takahashi arXiv:2510.14520 and Cambridge 2026 full HTML",
+    "McKay DOI:10.1017/S0305004100068195 metadata",
+    "Resultary semantic exact query",
+    "source RESULT.md, SLOGAN.txt, verify.py, AUDIT.json, METADATA.json",
+    "Independent n<=4 full relation enumeration and n<=8 Burnside numeric evaluation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A graph-enumeration database may index identical rooted height-two relation numbers under a nonmodal alias; a negative search is not a novelty certificate.",
+    "Rootedness and modal algebra duality are known; originality is confined to this canonical two-step structure and its counts.",
+    "Template algebra isomorphism classes do not necessarily count distinct splitting logics; no such conclusion is made.",
+    "The McKay full paper was not inspected, so exclude only what the inspected scope/evidence supports."
+  ],
+  "schema_version": 1
+}
