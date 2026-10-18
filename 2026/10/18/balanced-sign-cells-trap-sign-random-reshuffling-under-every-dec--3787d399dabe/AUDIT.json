@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each balanced-sign coordinate every prefix sum of a permutation is bounded by p. Abel summation bounds each epoch increment by p times the first-to-last stepsize decrease and hence by a telescoping subsequence decrease. Interior prefixes are bounded by p times the first step, preserving the sign cell and proving the full sequence converges. In the exact quadratic witness, the sign cell holds for every iterate, the limit is >=1, and F derivative is x. The random two-row epoch increments are independent Rademacher times adjacent step differences, giving exactly variance sum delta squared; harmonic difference-square identity is pi squared over 6 minus twice log 2. Exact-rational and numerical checks are included but infinite statements follow from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2310.15976, Proposition 3.3 and Remark 3.4",
+        "arxiv:2305.13187, Introduction, explicit preexisting generic nonconvergence observation",
+        "arxiv:1802.04434, stochastic minibatch signSGD",
+        "2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1"
+      ],
+      "reasoning": "Generic nonconvergence of signSGD is older and not claimed as new, but does not give this all-order, all-monotone-step strongly convex witness with a computable nondegenerate limit law. Variance-reduced or additive-noise convergence theorems use different gradients and do not imply the present plain SignRR pathology. Standard RR convergence applies to uncompressed gradients, not signs.",
+      "searches": [
+        "2023 sign based random reshuffling sign SGD scalar quadratic permanent cycling period stationary bias strongly convex",
+        "random reshuffling sign method exact infinite-horizon trapping nonstationary strong convex quadratic all Robbins Monro stepsizes",
+        "Qin Liu Xu 2023 SignRR counterexample nonconvergence sign-balanced cells paths alternating step differences",
+        "arxiv:2310.15976, Sections 3-5 and Appendix A",
+        "arxiv:2305.13187, Sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.15976",
+      "arxiv:2305.13187",
+      "arxiv:1802.04434",
+      "2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+      "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e",
+      "2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qin–Liu–Xu obtain an upper bound involving a potentially nonvanishing conditional-gradient variance error and supply SignRVR to remove it; an upper bound with positive residual does not prove nonstationary convergence.",
+        "Chzhen–Schechtman acknowledge qualitative vanilla signSGD finite-sum failure but their proofs treat variance-reduced/noise-corrected updates and do not provide the quantified exact reshuffle law."
+      ],
+      "reasoning": "The new theorem implies actual pathwise nonstationary convergence for every shuffle path and any monotone vanishing schedule, a stronger positive assertion than failure of an upper bound to certify stationarity; the harmonic variance equality is a distinct exact distributional conclusion. It is not implied by the previously read results.",
+      "searches": [
+        "arxiv:2310.15976 Algorithm 1 Proposition 3.3 Remark 3.4 Appendix A",
+        "arxiv:2305.13187 Introduction Sections 2 and 4",
+        "SignRR balanced sign cells arbitrary decreasing Robbins Monro steps random reshuffling gradient never vanishes scalar strongly convex quadratics exact Bernoulli series harmonic variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2310.15976, Algorithm 1 and Section 3.2",
+        "arxiv:2305.13187, Introduction and Section 2",
+        "2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+        "2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e"
+      ],
+      "reasoning": "Potential aliases include alternating-sign cancellation, balanced gradient-sign cells, signSGD failure, nonstationary stalling and Rademacher limit series. The source provides a generic nonvanishing error term but no universal deterministic cancellation inequality or exact random law; indexed hits have different update mechanisms.",
+      "searches": [
+        "SignRR signSGD random reshuffling scalar quadratic constant stepsize exact periodic orbits stationary cycles permutation sign gradient cancellation",
+        "SignRR strongly convex two quadratic sign random reshuffling diminishing stepsizes k power alpha pathwise convergence nonstationary random limit alternating sum Bernoulli series",
+        "signSGD without replacement paired gradients cancellation epoch absorbing nonoptimal intervals power law diminishing step random reshuffling",
+        "SignRR balanced sign cells arbitrary decreasing Robbins Monro steps random reshuffling gradient never vanishes scalar strongly convex quadratics exact Bernoulli series harmonic variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches returned no record with balanced-sign SignRR trapping and harmonic Rademacher-series variance; closest are listed in checked_sources.",
+        "The finite-sum sign dynamics are analytic; no external enumerated value table is used."
+      ],
+      "reasoning": "This is an infinite-horizon analytic theorem, not a lookup of a finite classification table. Semantic retrieval and literature checks found no exact stored parameter combination or stronger encompassing theorem; a failed search is not itself a novelty proof.",
+      "searches": [
+        "SignRR strongly convex two quadratic sign random reshuffling diminishing stepsizes k power alpha pathwise convergence nonstationary random limit alternating sum Bernoulli series",
+        "signSGD without replacement paired gradients cancellation epoch absorbing nonoptimal intervals power law diminishing step random reshuffling",
+        "SignRR balanced sign cells arbitrary decreasing Robbins Monro steps random reshuffling gradient never vanishes scalar strongly convex quadratics exact Bernoulli series harmonic variance"
+      ]
+    },
+    "rationale": "The claim is the quantitative every-permutation, every-monotone-vanishing-step trapping criterion and the explicit two-quadratic random-limit formula, not the already-known general possibility of vanilla signSGD nonconvergence. The original 2023 SignRR full text (Algorithm 1, Proposition 3.3, Remark 3.4, appendices) gives a potentially nonvanishing upper-bound error but not this positive lower bound or all-path limit law. A 2023 SignSVRG full text explicitly mentions generic signSGD failure but studies a different variance-reduced/noisy update. No statement implying the quantified theorem appeared in the queried published records or accessible own claims; uncertain older equivalent lemmas remain a real risk.",
+    "residual_risks": [
+      "Older stochastic approximation/pseudogradient literature may contain the same balanced-sign summation-by-parts lemma or two-component counterexample under different terminology.",
+      "Semantic search cannot establish absolute novelty, and published indexing may be incomplete.",
+      "The qualitative statement that vanilla signSGD can fail is known and intentionally not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the quantified all-schedule pathwise trapping and exact nonstationary random-limit distribution; source notes possible nonvanishing error in an upper bound",
+        "evidence": [
+          "Algorithm 1 update rule, Proposition 3.3, Remark 3.4, Appendix A.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.15976",
+        "material_read": "Full web-extracted article, particularly Algorithm 1, Section 3.2 Proposition 3.3 and Remark 3.4, Sections 4-5 and Appendix A.1",
+        "method": "Read publicly accessible arXiv extracted full text including mathematical statements and appendices",
+        "title": "Convergence of Sign-based Random Reshuffling Algorithms for Nonconvex Optimization",
+        "trigger": "Defines the exact same plain sign reshuffling algorithm and the nonvanishing error term"
+      },
+      {
+        "assessment": "QUALITATIVE PRIOR only: generic signSGD failure is known; no matching plain SignRR every-decreasing-step pathwise trapping theorem or harmonic law",
+        "evidence": [
+          "Introduction paragraph stating vanilla signSGD does not generally converge; Section 2 noise correction; Algorithm 1 SignSVRG"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.13187",
+        "material_read": "Full web-extracted introduction, Sections 2-4, Algorithm 1 and theorem statements, portions of appendices",
+        "method": "Read publicly accessible arXiv extracted full text and inspect stated algorithm",
+        "title": "SignSVRG: fixing SignSGD via variance reduction",
+        "trigger": "Explicitly notes generic nonconvergence of vanilla signSGD on finite sums"
+      },
+      {
+        "assessment": "Uses sign stochastic-gradient and minibatch sampling bounds; does not imply the all-permutation finite-sum trapped limit proved here",
+        "evidence": [
+          "Sampling/noise modeling and signSGD convergence statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.04434",
+        "material_read": "ArXiv extracted abstract, introduction, relevant statements about sampling/noise, search for counterexample discussion",
+        "method": "Read public arXiv text and relevant sections",
+        "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+        "trigger": "Foundational signSGD theory and noise hypotheses"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3787d399-dabe-4a29-b2c5-a281737c5bee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nonvanishing error term in an expected stationarity upper bound does not establish an actual convergent yet nonstationary trajectory. Here a structurally defined balanced-sign region forces finite total epoch drift for any monotone diminishing schedule and all shuffle orders. Smooth 1-strongly-convex components eliminate nonconvex/nonsmooth explanations; Robbins-Monro compliant steps rule out a stepsize summability artifact. The exact harmonic limit variance characterizes residual randomization and provides a concrete stress test for sign-only optimization.",
+    "status": "PASS"
+  }
+}
