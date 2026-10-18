@@ -1,15 +1,21 @@
-# Scientific review of the cuboctahedral matching-complex computation
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph model \(C=L(Q_3)\) is explicit and matches the independently documented 12-vertex, 24-edge, quartic planar cuboctahedron. Exhaustive face enumeration gives 2648 nonempty faces. An explicit 1287-pair acyclic matching is checked against all 9936 directed face incidences. The resulting critical dimensions are one zero-cell, 65 three-cells, and eight four-cells. The signed integral Morse boundary is independently specified as a terminating gradient-path recursion, and eight named rows form \(-I_8\). Since \(\pi_3(\bigvee^{65}S^3)\cong\mathbb Z^{65}\), this primitive degree matrix gives precisely 57 three-spheres after cellular cancellation. A separate combinatorial enumerator and mod-two chain reduction reproduce the face vector and reduced Betti ranks. The proof does not infer an integral homotopy type from mod-two data.
+## correctness
 
-## Originality — PASS, with residual risk
-Engström's claw-free connectivity estimates do not classify this exact matching complex. Matsushita's strip-graph recursion, the polygonal-line-tiling theorem, and Bayer--Jelić Milutinović--Vega's outerplanar theorem do not cover the quartic cuboctahedral graph. In particular, the 2024 outerplanar paper states the general planar wedge claim as Conjecture 11 and does not provide this graph-specific homotopy type. published-finding corpus hits for Heawood and Möbius--Kantor matching complexes study distinct graphs; the Euclidean cuboctahedral Rips complex uses a different vertex set and simplices. No matching exact-object theorem was located by searches under the graph, double-line-graph and homology aliases. Search coverage cannot exclude unindexed results.
+PASS
 
-## Value — PASS
-Matching complexes encode disjoint edge configurations, and a conjecture explicitly asks whether planar graphs always have contractible or sphere-wedge matching complexes. The cuboctahedron is a canonical nonouterplanar Archimedean graph and the line graph of the three-cube. Its exact 57-sphere homotopy type is a substantive positive instance beyond the known outerplanar theorem. The integral unimodular calculation eliminates possible torsion and potential four-dimensional attachments, information not supplied by face counts or field Betti ranks.
+Independently built C=L(Q3) with 12 vertices and 24 edges, enumerating all 2648 matching faces f=(24,204,744,1116,528,32). Replayed 1287 Morse pairs and checked all 9936 directed Hasse incidences are acyclic. There are one critical 0-cell, 65 critical 3-cells and eight critical 4-cells. A separate exact signed integral gradient-path recurrence recomputed their 65×8 Morse boundary; row indices (2,15,5,40,42,19,51,56) form precisely the diagonal matrix -I8, so the attaching vectors span a primitive rank-8 summand and cancel eight 3-spheres. Using π3(∨S3)≅H3 and absence of lower cells proves ∨57 S3, not merely mod-2 homology.
 
-## Closest literature and limits
-Engström (arXiv:math/0512420), Matsushita (arXiv:1812.11000), Bayer--Jelić Milutinović--Vega (arXiv:2411.04601; doi:10.1016/j.disc.2023.113428), and Kozlov (arXiv:math/0503613) were compared at the level of mathematical hypotheses and conclusions. The result is only for the specified graph, not a general resolution of planar matching-complex conjectures. Unindexed or unpublished equivalent work remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+The cuboctahedron is a canonical planar nonouterplanar cubic-polyhedral-derived graph; its ordinary matching complex is a natural instance outside outerplanar matching-complex theorems. Determining the full integral sphere-wedge homotopy with primitive attaching-degree certificate is a substantive exact invariant, not simply a tabulated mod-2 Betti number. A separate published icosahedral planar counterexample precludes claiming the broader planar-wedge conjecture remains open, but does not imply the specific 57-sphere result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

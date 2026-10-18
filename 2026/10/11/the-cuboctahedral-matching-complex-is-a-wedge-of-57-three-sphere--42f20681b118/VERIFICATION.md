@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify_cubocta_morse.py` and `python3 verify_cubocta_mod2.py` with Python 3.10 or later from the directory containing these two programs. No third-party packages, external data, or online requests are needed. Both executables fully reconstruct the graph and compute the claimed results; they terminate with an assertion failure rather than printing `VERIFY_OK` if a required invariant is false.
+## correctness
 
-`verify_cubocta_morse.py` checks the 12-vertex and 24-edge graph, the complete 2648-face census, the 1287 Morse pairs, all 9936 oriented Hasse incidences, the acyclic topological ordering, and the exact signed 65-by-8 Morse attaching matrix. Its eight selected row masks yield a diagonal unimodular minor, proving rank eight and primitiveness over the integers.
+PASS
 
-`verify_cubocta_mod2.py` independently enumerates faces by combinations of the 24 graph edges and independently reduces the full mod-two simplicial boundary matrices. Expected consecutive boundary ranks are 23, 181, 563, 496 and 32. The resulting reduced Betti ranks are zero except 57 in degree three; these are a consistency check only.
+Independently built C=L(Q3) with 12 vertices and 24 edges, enumerating all 2648 matching faces f=(24,204,744,1116,528,32). Replayed 1287 Morse pairs and checked all 9936 directed Hasse incidences are acyclic. There are one critical 0-cell, 65 critical 3-cells and eight critical 4-cells. A separate exact signed integral gradient-path recurrence recomputed their 65×8 Morse boundary; row indices (2,15,5,40,42,19,51,56) form precisely the diagonal matrix -I8, so the attaching vectors span a primitive rank-8 summand and cancel eight 3-spheres. Using π3(∨S3)≅H3 and absence of lower cells proves ∨57 S3, not merely mod-2 homology.
 
-The proof uses standard discrete-Morse CW equivalence and degree classification of maps to wedges of 3-spheres. Neither executable proves general statements about arbitrary planar graphs or scans all published literature. No independent scientific audit is represented by these checks.
+## originality
+
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+The cuboctahedron is a canonical planar nonouterplanar cubic-polyhedral-derived graph; its ordinary matching complex is a natural instance outside outerplanar matching-complex theorems. Determining the full integral sphere-wedge homotopy with primitive attaching-degree certificate is a substantive exact invariant, not simply a tabulated mod-2 Betti number. A separate published icosahedral planar counterexample precludes claiming the broader planar-wedge conjecture remains open, but does not imply the specific 57-sphere result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
