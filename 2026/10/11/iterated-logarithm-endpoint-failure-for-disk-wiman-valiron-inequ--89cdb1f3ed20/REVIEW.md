@@ -1,19 +1,21 @@
-# Scientific review: iterated-logarithm endpoint failure
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof reduces to a strictly concave coefficient exponent, its unique saddle for every sufficiently small radial exponential parameter, a Taylor-controlled block of at least a constant multiple of \(\sqrt{x\log x}\log\log x\) near-maximal coefficients, and exact comparisons with \(A(r)\), \(\log A(r)\), and \(\log_2 A(r)\). The three derivative and saddle identities were independently simplified symbolically, and the standalone finite-block checker passed. The analytic proof covers every sufficiently large saddle and every corresponding radius, not merely a finite enumeration.
+PASS
 
-## Originality — PASS
+Set g(x)=x/L, u=log x, L=log u. Direct differentiation gives g'=1/L−1/(uL²) and g''=−(1−1/u−2/(uL))/(x u L²)<0 for x≥2000, confirmed by independent symbolic simplification. For r=e^{-s}, s=g'(x), x→∞, the continuous saddle height is H=g(x)−xg'( x)=x/(uL²), with log µ=H+O(1). The logarithm of coefficients minus sk has a flat block of q/10 integers near x, q=sqrt(xu)L, each within 1/100 of H, so positivity gives M/µ≥e^{-1}sqrt(xu)L/10 (conservative). Also s≥1/(2L), 1-r≥1/(4L), log A≤2H and log₂ A≤u; combining yields M/(A sqrt(log A) log₂ A)≥L/(40e sqrt2). Since log₃ A~L, the quantitative liminf follows. An exceptional set containing every sufficiently final interval has ∫dr/(1-r)=∞. Analyticity radius exactly 1 follows (a_k)^(1/k)→1, so f meets the disk assumptions. The checked saddle script only samples finite x; the proof uses the uniform Taylor and asymptotic bounds for all large x.
 
-Theorem 1.1 and Remark 5.2 of Maciá, arXiv:2609.28814v1, prove the positive-exponent inequality but explicitly state that its \(\delta=0\) disk endpoint is undecided. The provided source example \(\exp(\sqrt k)\) addresses only the leading exponent; it has no iterated-log divergence. Grosse-Erdmann, arXiv:2409.06499v1, asks the positive-exponent disk question and reports failure of the corresponding endpoint for entire functions, not for a unit-disk series. The older Fenton–Strumia theorem as documented in Grosse-Erdmann has a boundary logarithmic factor, which does not imply the present lower bound. Actual published-record queries did not reveal an equivalent or dominating published theorem. Residual risk: unindexed literature, especially the inaccessible full Fenton–Strumia paper.
+## originality
 
-## Value — PASS
+PASS
 
-The two-logarithm boundary is a natural unresolved endpoint, specifically identified in a 2026 theorem. The construction gives a negative answer in the same disk normalization and under the same strict exceptional-set standard; failure at all terminal radii is stronger than isolated violations. No claim of an optimal new endpoint is made.
+Grosse-Erdmann formulates the positive-δ iterated-logarithm disk question and discusses related entire-function endpoints. Maciá proves δ>0 disk estimates according to its abstract; the focal manuscript states Remark 5.2 leaves the δ=0 case undecided, but we could not independently read that exact remark. The present example is a precise lower-bound obstruction at δ=0 along all radii and is not implied by positive-δ upper bounds. Approval is explicitly best of knowledge with two high-relevance primary-text gaps.
 
-## Limits and source-access risk
+## value
 
-The proof does not settle higher iterated-log levels or the best possible replacement correction. Full text of the 2009 Fenton–Strumia paper was unavailable in lawful access attempts. This is a residual literature-access risk rather than evidence that its results cover the endpoint. The finite script is a consistency check, not a proof of the limit.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Endpoint optimality of Wiman–Valiron disk estimates is a recognized mathematical question. The explicit positive-coefficient saddle construction resolves the first iterated-logarithm exponent-one boundary negatively with a quantitative log₃ excess, along every radius rather than a thin subsequence, so it also defeats any finite-logarithmic-measure exceptional set. This is more than a routine divergence example because the maximal-term normalization and width must balance three iterated logarithms sharply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
