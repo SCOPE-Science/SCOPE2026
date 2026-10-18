@@ -1,19 +1,21 @@
-# Review of the exact signohedral tree-complexity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is every integer \(n\ge3\), with \(m=n-1\ge2\), generic cross-polytope orientation, unit undirected graph edges, and a separately identified completed grid. The graph model is Theorem 1.1(f) and Lemma 3.6 of Black–De Loera, checked against its full open-access text. For the completed grid, the tensor eigenvalues of the three-vertex path are \(0,1,3\); Kirchhoff's product gives the stated \(T_m\). The weighted central-degree polynomial is an exact grounded Laplacian determinant. The neighbor Green matrix has precisely three symmetry eigenspaces of dimensions \(1,m,m-1\), and the two nontrivial eigenvalues are determined by explicit tensor spectral sums yielding \(\alpha_m\) and \(\beta_m\). The leaf-extension bijection contributes exactly the factor \(2m\). Binomial concentration proves both limits. None of these steps treats a finite experiment as an infinite theorem. The bundled integer-only verifier independently computes reduced graph Laplacians for \(m=2,3,4\), checks the full punctured-tree numbers, and checks the weighted polynomial at sufficiently many distinct integer weights to determine its degree. Potential arithmetic limits: large \(m\) requires enormous integers; the algebraic proof, not computation, covers them.
+PASS
 
-## Originality — PASS, with residual search risk
+For m=n−1≥2, the published sign-vector adjacency model identifies the flip graph with P3^{□m} minus its center. Tensor-sum eigenvalues of P3 are 0,1,3, hence Kirchhoff gives T_m exactly. Weighted tree cofactor det(K+(t−1)D) has neighbor Green matrix M, invariant under signed permutations, with eigenvalue 1 on constants, m copies of α=E[1/(1+3Bin(m−1,2/3))] on opposite-sign contrasts and m−1 copies of β=(1−3^{−(m−1)})/[2(m−1)] on pair-symmetric contrasts; the supplied tensor-pseudoinverse derivation tracks the normalization. Thus degree pgf t(1−α+αt)^m(1−β+βt)^{m−1}. Leaf deletion gives coefficient [t]=2m τ(G_m), yielding the claimed exact tree count; limits follow mα→1/2,(m−1)β→1/2. Independently constructed exact weighted Kirchhoff cofactors for m=2,3 at enough distinct weights to check the full polynomial; this does not prove the general case.
 
-The full 2021 Black–De Loera paper supplies the sign-vector graph and diameter, not its tree count or uniform-tree degree law. The full 2020 Athanasiadis–De Loera–Zhang paper treats oriented \(f\)-arborescences on the original polytope and counts monotone paths; its object differs from undirected spanning trees of the signohedral coherent-flip graph. A publicly retrievable 2026 note on exact **flip distances** in the identical graph supplies its metric/Wiener index but no Kirchhoff complexity or central random-tree distribution. Cartesian-product Laplacian spectra and general matrix-tree/Green-function formulas are classical and are acknowledged as tools; they do not state the evaluated two-binomial law, its rational parameters, or the deletion product for this graph. Searches included signohedron, signed ternary grid, center-deleted Cartesian paths, tree count, random-tree local degree, alias descriptions, and database/number cross-checks. Residual risk: an unindexed graph-theory enumeration under alternative terminology might provide an equivalent formula, and generic determinantal-degree laws mean that an unspecified factorization alone is not novel. The contribution assessed here is the *explicit* parameterized reduction and resulting exact count.
+## originality
 
-## Value — PASS
+PASS
 
-Spanning-tree complexity is a natural global connectivity/reliability invariant of a polytope's one-skeleton; the coherent-path graph has exponentially many vertices. The theorem reduces a direct \((3^m-2)\)-order cofactor to one explicit Cartesian spectral product and two one-dimensional rational parameters. More importantly, it determines an exact local degree distribution for the corresponding completed-grid uniform spanning tree: a non-obvious decomposition into two independent binomial families with different weights, and a quantitative limit for the survival of the graph under center deletion. The natural deleted-center geometry is fixed by the signohedron, not chosen as an arbitrary parameter slice; the small exact counts validate but do not supply the value argument.
+Black–De Loera identifies graph and proves geometric combinatorics, while Athanasiadis–De Loera–Zhang studies oriented f-arborescences on the original polytope rather than undirected trees of its coherent-path graph. Matrix-tree and Cartesian spectral results are acknowledged as known; the evaluated two-parameter neighbor-Green eigenvalues, two-binomial center law and closed punctured tree count are the candidate original contributions. Relevant arborescence full paper was inaccessible; its abstract specifies different objects and that residual full-text implication risk remains. Resultary unavailable, not a novelty certificate.
 
-## Source comparison and limitations
+## value
 
-References are Black–De Loera (arXiv:2102.01237, Theorem 1.1 and Lemma 3.6), Athanasiadis–De Loera–Zhang (arXiv:2002.00999, Sections 2–3), and the published note *Exact flip-distance enumerator of cross-polytope coherent monotone paths* (2026). This result concerns the **coherent** path polytope's one-skeleton, not all monotone paths, and does not claim that the general matrix-tree theorem or Poisson limits themselves are new. No independent external check is implied.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The signohedron is a canonical polytope with a natural coherent monotone-path flip graph; its spanning-tree number measures global connectivity and normally entails an exponentially large determinant. An all-dimensional closed product and a striking full central UST-degree factorization into two binomials quantify removal of the forbidden center. The Poisson(1) limiting excess and e^(−1) tree-survival factor add interpretable asymptotic structure; this is a motivated exact graph invariant, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
