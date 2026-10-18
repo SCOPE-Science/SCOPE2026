@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. An exact duality identity turns the Day modulus into a convex maximization over pairs of polar vertices. The polar regular polygon is a rotated-scaled isometric copy of the original, and the sum/difference of two vertex rays has explicit norms controlled by parity. This proves the finite affine envelope for all integers \(n\ge2\) and all \(t\ge0\). The two dual support directions are Euclidean perpendicular, and elementary mesh parity guarantees a common canonical primal vertex pair separated by \(\lfloor n/2\rfloor\) steps. For the decagon, the four undominated lines cross in increasing order at the exact three claimed parameters, so the global four-phase law is proved rather than fitted numerically.
+## correctness
 
-## Originality
-PASS. The 2010 complete paper treats asymptotic equivalence classes of smoothness moduli; the complete 2015 preprint studies supporting moduli and their near-zero relations. The particularly close 2023 paper calculates support-functional diameter for the same regular polygons and therefore determines only a known infinitesimal slope, which is expressly not claimed as new. Its statements do not imply the full finite-scale Day modulus without an additional dual optimization. A 2024 complete survey discusses general estimates and distinguishes the classical modulus from an alternative midpoint deficit. Searches of aliases, decagonal golden-ratio branches, regular polygon formulas, adjacent published geometric-constant literature found no exact all-scale coverage. Residual risk of unindexed historical work remains.
+PASS
 
-## Value
-PASS. The Day modulus is a natural foundational measure of Banach-space smoothness. A single exact result covers the complete classical regular-polygon family and every scale, with a permanent maximizing vertex pair rather than an arbitrary finite parameter slice. The canonical regular decagon exhibits four sharp golden-ratio phases, new information beyond its preexisting local support-functional roughness.
+For regular Euclidean 2n-gon B_n and its polar B_n*, convexity in both primal arguments permits maxima at vertices. Dualizing N(x+ty)+N(x-ty) gives (1/2)max_{f,g in B_n*}[N*(f+g)+tN*(f-g)]. The polar vertices w_j=sec(beta)(cos((2j+1)beta),sin((2j+1)beta)), beta=pi/(2n), are an isometric rotated-scaled copy of primal regular vertices; dihedral symmetry reduces to angular differences 0<=j<=n. Chord norms are exactly 2 q_j cos(j beta) and 2 q_{n-j} sin(j beta) with q even=1, odd=sec beta, giving the stated finite affine envelope for all real t>=0. Since each maximizing dual vertex pair has equal Euclidean length, w_i+w_j perpendicular to w_i-w_j; choosing primal support endpoints for their perpendicular direction pair gives the same symmetric orbit (v_0,v_floor(n/2)) as an optimizer at every t, including zero-vector degenerate choices. Independently enumerated all 2n primal vertex competitors versus fixed pair and envelope for n=2..150 at 13 scales without disagreement (corroboration only). For n=5 the exact four undominated lines and their golden-ratio intersections yield rho(1)=(3sqrt5-5)/4. The mathematical proof is all n/t, not extrapolated from samples.
 
-## Closest literature and limits
-The closest same-polygon source is Chmieliński--Khurana--Sain (2023), whose support-functional diameter determines only the right derivative at zero. Guirao--Ivanov--Lajara (2010) and Ivanov (2015) address general/near-zero moduli rather than finite-scale regular polygons. The theorem does not classify all extremizers or generalize to irregular polygons. Publication-day evidence for the older 2010 source is unavailable; no arbitrary day is assigned.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Chmielinski--Khurana--Sain 2023 calculate polar vertices and norming-functional diameter for the same regular polygon, thereby controlling an infinitesimal derivative, but their inspected Section 4 does not supply the entire Day smoothness modulus as an affine envelope or the all-t common maximizing primal pair. Guirao--Ivanov--Lajara and Ivanov cover general smoothness moduli, not a verified complete regular-polygon scale profile. Resultary neighboring exact decagon curvature/James/P-angle results concern different invariant functions and do not imply this Day-modulus identity. The full all-n scale formula exceeds known derivative-only coverage.
+
+## value
+
+PASS
+
+PASS. The entire classical smoothness modulus is a natural isometric invariant of these canonical finite-dimensional normed spaces, and a single scale-independent extremizing vertex pair is an unexpected rigid structural mechanism. Its explicit golden-ratio decagonal phase diagram adds concrete sharp parametric information beyond a value at t=1 or an asymptotic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

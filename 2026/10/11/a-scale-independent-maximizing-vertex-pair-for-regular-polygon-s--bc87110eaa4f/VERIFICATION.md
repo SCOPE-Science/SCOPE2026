@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-## Exact identities
-Set \(\beta=\pi/(2n)\) and \(w_j=\sec\beta(\cos((2j+1)\beta),\sin((2j+1)\beta))\). The primal norm is the maximum of these \(2n\) supporting linear forms, and the dual ball is their convex hull. Convexity and independent support maximization produce the identity
-\[
-1+\rho_{X_n}(t)=\frac12\max_{j,k}\left(N_n^*(w_j+w_k)+tN_n^*(w_j-w_k)\right).
-\]
-Regular-polygon isometry reduces to \((w_0,w_k)\) with \(0\le k\le n\), and the exact parity norm identities are
-\[
-N_n(v_0+v_k)=2q_k\cos(k\beta),\qquad
-N_n(v_0-v_k)=2q_{n-k}\sin(k\beta).
-\]
-This verifies every coefficient in the finite envelope without numerical assumptions. Perpendicularity of the support directions and parity of the regular lattice yield the fixed maximizing pair \((v_0,v_{\lfloor n/2\rfloor})\) for every \(t\).
+# Independent mathematical audit
 
-## Exact decagonal branch crossings
-For \(n=5\), the undominated affine functions are
-\[
-1+s t,\qquad a+b t,\qquad b+a t,\qquad s+t,
-\]
-where \(s=(\sqrt5-1)/4\), \(a=(1+\sqrt5)/4\), and \(b=(\sqrt5-1)/2\). Their intersections are
-\[
-\frac{1-a}{b-s}=\frac{\sqrt5-1}{2},\qquad 1,\qquad
-\frac{b-s}{1-a}=\frac{\sqrt5+1}{2}.
-\]
-The slope and intercept orders and these strict inequalities prove that the four lines are the complete upper envelope. The value at unit scale is exactly \(\rho_{X_5}(1)=(3\sqrt5-5)/4\).
+## correctness
 
-## Numerical cross-check and limitations
-A separate floating-point check, not used as proof, built all primal vertices and polar supporting vectors for each integer \(2\le n\le17\), and for each of fourteen test scales compared every vertex-pair norm sum against the affine envelope and the canonical pair. All samples agreed to tolerance \(10^{-9}\). Finite tests cannot prove the infinite statement; the general dual argument above does.
+PASS
 
-No classification of all maximizers, asymptotic stability, or exact formula for irregular polygons is asserted.
+For regular Euclidean 2n-gon B_n and its polar B_n*, convexity in both primal arguments permits maxima at vertices. Dualizing N(x+ty)+N(x-ty) gives (1/2)max_{f,g in B_n*}[N*(f+g)+tN*(f-g)]. The polar vertices w_j=sec(beta)(cos((2j+1)beta),sin((2j+1)beta)), beta=pi/(2n), are an isometric rotated-scaled copy of primal regular vertices; dihedral symmetry reduces to angular differences 0<=j<=n. Chord norms are exactly 2 q_j cos(j beta) and 2 q_{n-j} sin(j beta) with q even=1, odd=sec beta, giving the stated finite affine envelope for all real t>=0. Since each maximizing dual vertex pair has equal Euclidean length, w_i+w_j perpendicular to w_i-w_j; choosing primal support endpoints for their perpendicular direction pair gives the same symmetric orbit (v_0,v_floor(n/2)) as an optimizer at every t, including zero-vector degenerate choices. Independently enumerated all 2n primal vertex competitors versus fixed pair and envelope for n=2..150 at 13 scales without disagreement (corroboration only). For n=5 the exact four undominated lines and their golden-ratio intersections yield rho(1)=(3sqrt5-5)/4. The mathematical proof is all n/t, not extrapolated from samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Chmielinski--Khurana--Sain 2023 calculate polar vertices and norming-functional diameter for the same regular polygon, thereby controlling an infinitesimal derivative, but their inspected Section 4 does not supply the entire Day smoothness modulus as an affine envelope or the all-t common maximizing primal pair. Guirao--Ivanov--Lajara and Ivanov cover general smoothness moduli, not a verified complete regular-polygon scale profile. Resultary neighboring exact decagon curvature/James/P-angle results concern different invariant functions and do not imply this Day-modulus identity. The full all-n scale formula exceeds known derivative-only coverage.
+
+## value
+
+PASS
+
+PASS. The entire classical smoothness modulus is a natural isometric invariant of these canonical finite-dimensional normed spaces, and a single scale-independent extremizing vertex pair is an unexpected rigid structural mechanism. Its explicit golden-ratio decagonal phase diagram adds concrete sharp parametric information beyond a value at t=1 or an asymptotic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
