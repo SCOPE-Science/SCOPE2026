@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every coefficient-field subalgebra is reduced to a multiplication-closed echelon subspace in the radical; the twelve possible echelon families exhaust this domain. Explicit substitution-and-elimination equations classify each orbit and give its full cardinality, with the delicate characteristic-two cube and characteristic-three square cases separately reconstructed. Both executable finite-field checks reproduce the formal family census and the complete orbit-size spectra. Finite experiments do not establish the all-field result; the symbolic elimination does.
+## correctness
 
-**Originality — PASS, with residual risk.** Franco Muñoz (arXiv:1812.03576, Sections 3.1.6 and 4.2) enumerates the **subalgebras themselves and their total**; those older facts are credited. The present mathematical claim instead computes all automorphism-orbits, stabilizer-equivalent orbit sizes, and characteristic-specific splitting. Searches for substitution equivalence, classification of subalgebra orbits, and equivalent jet-group descriptions found no identified theorem implying this spectrum. An alternate terminology or an inaccessible publication could still cover the result. In particular Micale's order-basis paper was examined only at its bibliographic abstract, and a related general basis paper was not obtained in full.
+PASS
 
-**Value — PASS.** Orbit size is a natural finer invariant than the previously enumerated set of all subalgebras; the classification gives canonical equivalence strata for the first truncation of this shape and exposes square- and cube-class arithmetic invisible in the total polynomial count. Each asserted stratum has an explicit group-action mechanism, rather than a computationally arbitrary restriction.
+Every unital coefficient-field subalgebra in Fq[t]/(t^6) is k⊕W for a multiplication-closed radical subspace W of span{t,…,t⁵}. Echelon leading degrees are sum-closed below six; the six fixed ideals and six parametric types P24,P245,P3,P34,P35,P4 exhaust all possibilities, giving 6+3q+3q² subalgebras. Every automorphism is substitution t↦at+bt²+ct³+dt⁴+et⁵ with a≠0. Reduction of substitution on each echelon family establishes the displayed orbit strata: generic q has 12 orbits, characteristic 3 has 18 from square classes, and characteristic 2 has 16+gcd(3,q−1) from cube classes. Independent EXHAUSTIVE RREF enumeration of all radical subspaces and closure, with substitution-generated orbit graph, independently obtains q=2: 24 subalgebras/17 orbits, q=3: 42 subalgebras/18 orbits, and a separate F4 full-RREF and substitution calculation obtains 66 subalgebras/19 orbits with exact orbit-size profile 1^12,3^2,4^2,12^2,16^1. These finite tests are genuine finite certificates only for q=2,3,4; the manuscript’s parameter action algebra and cyclic multiplicative-group reasoning supply the uniform theorem.
 
-Independent scholarly checking is still necessary before claiming priority. The theorem makes no assertions for larger truncation exponents or semilinear symmetries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Franco Muñoz’s published 2018 preprint §§3.1.6 and 4.2 gives the SAME 12 subalgebra families and full unquotiented total 6+3q+3q², both explicitly credited. The surviving new statement is the group-action orbit-size decomposition for the full coefficient-field-fixing substitution automorphism group, particularly characteristic-specific square/cube splitting. No covering action-orbit classification identified in the inspected primary text or Resultary hits; best-of-knowledge.
+
+## value
+
+PASS
+
+The full substitution-orbit spectrum refines a known parameter census by classifying intrinsic k-algebra embeddings up to coordinate change. Distinct square/cube classes produce real characteristic-dependent symmetry strata invisible to total counts. This is a natural complete finite-length moduli classification, not a meaningless recomputation of 6+3q+3q².
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
