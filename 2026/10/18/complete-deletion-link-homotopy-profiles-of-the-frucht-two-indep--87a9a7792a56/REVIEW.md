@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two independent enumerators agree on all 824 nonempty faces and all 25 homology profiles. The complete matched Hasse diagrams have no directed cycles. Integer cancellation records only unit pivots, gives square-zero Morse boundaries, and reduces each CW attaching map to a primitive coordinate. There are no hidden mod-two-to-integral inferences; the cofibration long exact sequence proves the distinct inclusion behavior at vertices 3, 6 and 8.
+
+**Originality — PASS with uncertainty.** Actual published-finding corpus and published-source searches included the Frucht two-independence complex, its alias as a 3-path-free complex, the twelve deletion/link profiles and possible stronger higher-independence graph-family theorems. The nearest same-graph full-text results address ordinary independence, strictly a different simplicial complex, and neither contain nor imply the new statements. Sawant's full accessible paper treats trees, while the Frucht graph contains an induced four-cycle. No matching or stronger coverage was detected; incompletely indexed work remains a bibliographic risk.
+
+**Mathematical value — PASS.** This is not a restatement of an ordinary independence calculation: a canonical cubic graph with trivial automorphism group exhibits a precise topological jump from ordinary \(\bigvee^3S^2\) to two-independence \(S^3\). The complete deletion–link classification reveals a substantive distinction between homotopy-equivalent deletions: two inclusions annihilate third homology while another is a homotopy equivalence. Such inclusion maps are essential for recursive deletion–link methods, and the results supply exact tests for those methods on a nonchordal planar cubic graph.
+
+**Closest sources and limits.** R. Sawant, arXiv:2605.25150v1 (full text, 2026); Deshpande–Singh, arXiv:2001.05448 (listed graph families); and the publicly available ordinary Frucht independence/deletion classification (full RESULT text). This remains a one-graph classification, and absence of a database match is not a universal novelty certificate. The finite proof is reproducible in the two scripts and their output files.
+
+Self-review: passed. Independent audit: not yet performed.
