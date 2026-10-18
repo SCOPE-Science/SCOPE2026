@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Finite connected Moran birth-death chain absorption yields rational first-/second-moment equations (I-Q)a=1, (I-Q)b=2a-1. Uniform-seed mixture variance formula is correct. Full labeled enumeration 2<=n<=5 covered exactly 0,3,84,3140 edge comparisons; every exact difference product >=0. Two explicit six-vertex connected graph-edge pairs yield strict rational differences of opposite sign in each direction. Replaying the standalone exact-fraction checker establishes each claim, not just sampled examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hindersin--Traulsen inspect all connected four-vertex graph topologies but analyze conditional mean fixation times; Hathcock--Strogatz derive higher cumulants for conditioned fixation on the regular circle and complete graph rather than single-edge unconditioned variance."
+      ],
+      "reasoning": "General transition-matrix methods can compute these quantities, but algorithms alone do not imply the two strict sign witnesses or the sharp size obstruction. Neither the conditional mean comparison nor the ring/complete distribution formulas dominate this exact edge-perturbation claim.",
+      "searches": [
+        "web: Moran process \"variance\" \"absorption time\" \"edge\" graph",
+        "web: Moran process \"variance\" \"mean\" \"network\" \"edge\"",
+        "arXiv:1406.4415, Sections 1.3 and 2.1.3",
+        "arXiv:1812.05652, Sections I-II"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1406.4415 (model, mean conditional fixation comparisons, figures, sojourns)",
+      "https://arxiv.org/pdf/1311.7631 (mean absorption-time bounds and theorems)",
+      "https://arxiv.org/pdf/1812.05652 (conditional fixation higher moments)",
+      "https://www.nature.com/articles/nature03204 (2005 publisher abstract, preview only)",
+      "Published mathematical research-record index: queries preserved above, no direct match"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One paper establishes counterintuitive mean **conditional** fixation-time edge effects; one gives expected absorption-time bounds (assuming fitness r>1 for its main theorems); one studies the variance/cumulants of **conditioned** fixation, mainly for complete/ring graphs and large size. The original evolutionary-graph paper defines the model and fixation behavior."
+      ],
+      "reasoning": "None of those statements imply a six-vertex sharp cutoff for the product of changes in **unconditioned** mean and variance under one missing-edge insertion. In particular, no direct monotonic relationship translates conditional time variances to unconditioned absorption variances. The model and routine moment recurrence are expressly not claimed as novel.",
+      "searches": [
+        "arXiv:1406.4415 Eq. (9)-(10), Sections 2.1.3 and 2.1.4",
+        "arXiv:1311.7631 Sec. 1.1 Theorems 1-4",
+        "arXiv:1812.05652 pp. 1-4",
+        "doi:10.1038/nature03204 Abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is also an invasion/updating process dual to neutral voter-type dynamics, but birth-death versus death-birth conventions, counting null steps, and mixing starting vertices change time laws. Hindersin--Traulsen, arXiv:1406.4415, Section 1.3 provides Markov-matrix notation."
+      ],
+      "reasoning": "Search terms covered fixation/absorption/consensus-time variance, edge addition, mutant invasion and neutrality. An equivalent assertion would have to compare full unconditioned variance and mean for the same update rule under one-edge insertion, including exclusion through five vertices. No examined text provides this.",
+      "searches": [
+        "Published research-record query: neutral Moran birth-death process absorption time variance link addition graph first five vertices mean variance move opposite directions",
+        "Published research-record query: evolutionary graph dynamics variance of extinction fixation absorption time opposite response to edge insertion",
+        "Published research-record query: two moments of absorption hitting time covariance graph rewiring birth-death mutant Markov chain",
+        "Published research-record query: fixation time distribution Moran variance Braess paradox link removal six vertices",
+        "web: Moran neutral absorption time graph edge addition increases time four vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hindersin--Traulsen Fig. 1 enumerates six graph topologies on four vertices and Sec. 2.1.3 reports first-moment conditional fixation results; no found table lists the joint unconditioned mean/variance edge signs up to six vertices."
+      ],
+      "reasoning": "The source four-vertex topology census is not a census of first/second *unconditioned* absorption-time changes, and does not assert their minimum. No actual database record found with the exact five-vertex obstruction and both six-vertex examples.",
+      "searches": [
+        "Published research-record query: Moran process",
+        "Published research-record query: neutral fitness",
+        "Published research-record query: fixation time distribution",
+        "Published research-record query: absorption time variance",
+        "web: \"absorption time\" \"variance\" \"edge insertion\" \"Moran\"",
+        "arXiv:1406.4415 Fig. 1 and Sec. 2.1"
+      ]
+    },
+    "rationale": "The present comparison is of the two signs of unconditioned hitting-time first and second moments following one missing-edge insertion and a sharp six-vertex threshold. The directly overlapping primary studies address conditional fixation mean, unconditioned mean bounds, or conditioned fixation distributions on rings and complete graphs; the exact combined phenomenon is not entailed by their stated results. Published-record search returned no scientifically equivalent claim; residual unindexed/terminological risk remains.",
+    "residual_risks": [
+      "Unindexed or differently named consensus-time/first-passage variance literature may cover the same exact finite cutoff.",
+      "Foundational Nature 2005 full text and some supplementary material were not examined beyond accessible abstract/preview.",
+      "No independent assessment of the exhaustive code or global novelty has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THE_CLAIM",
+        "evidence": "Section 2.1.3 compares expected fixation time conditioned on successful fixation; the paper defines unconditional absorption expectation but does not analyze its variance under edge addition or a six-vertex joint-moment cutoff.",
+        "identifier_or_url": "https://arxiv.org/pdf/1406.4415",
+        "material_read": "Abstract, model and absorbing-chain definitions pp.1--5; the small-network setup, fixation-time formulas, sojourn analysis and interpretation pp.9--16; complete-text search for variance",
+        "method": "Primary PDF text and relevant page image inspection",
+        "title": "Counterintuitive properties of the fixation time in network-structured populations",
+        "trigger": "same update rule and edge-deletion paradox in the very smallest networks"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_DOMINATING_RESULT",
+        "evidence": "Theorems 1--4 provide expected absorption-time bounds primarily in the r>1 regime and directed/regular graph classes; no variance theorem was identified.",
+        "identifier_or_url": "https://arxiv.org/pdf/1311.7631",
+        "material_read": "Abstract, introduction and theorem statements in sections 1--1.1, plus document-wide occurrence check for variance",
+        "method": "Primary PDF text and first-page image, key theorem passages inspected",
+        "title": "Absorption Time of the Moran Process",
+        "trigger": "unconditional absorption-time literature with same graph-valued model"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_CLAIM",
+        "evidence": "Paper studies successful-fixation-conditioned distributions for cycle and complete network, not exact unconditioned absorption second-moment changes for edge-marked heterogeneous graphs.",
+        "identifier_or_url": "https://arxiv.org/pdf/1812.05652",
+        "material_read": "Abstract, Introduction and Section II cumulant/moment setup, plus first-page visual inspection",
+        "method": "Primary PDF text and page-image inspection",
+        "title": "Fitness dependence of the fixation-time distribution for evolutionary dynamics on graphs",
+        "trigger": "closest systematic treatment of fixation-time variance on networks"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_FULL_TEXT_UNREAD",
+        "evidence": "The accessible abstract establishes graph-dependent fixation probability and selection effects; no precise second-moment edge-perturbation claim is apparent. Full-text limitation recorded.",
+        "identifier_or_url": "https://doi.org/10.1038/nature03204",
+        "material_read": "Publisher abstract, dated bibliographic record, and publicly accessible preview only",
+        "method": "Publisher webpage text inspected; subscription full text not available in this inspection",
+        "title": "Evolutionary dynamics on graphs",
+        "trigger": "foundational 2005 birth-death Moran graph model and earliest verified archival anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c096b5d-710b-44d3-b95d-e7cecc7d44cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "First-passage duration uncertainty is distinct from expected waiting time; the results establish a natural sharp size threshold for opposing risk and average effects of a network intervention in a classical evolutionary process. Both qualitative directions are realized by small graphs, explaining why average speed alone can mislead. No general dynamics conclusion beyond the stated finite result is asserted.",
+    "status": "PASS"
+  }
+}
