@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** The argument reconstructs the focal source's Hilbertian-obstruction construction with a free parameter. The only nonstandard imported lemma is the exact identity between \(d_+(T)\) and the least norm of a perturbation producing an infinite-dimensional kernel, which is proved as Lemma 3.1 in the focal paper. For \(s<c\varepsilon\), the map \(P|_M\) is bounded below by \(1-s\), so its image is closed and the inverse estimate used in the proof is valid. The Neumann-series step is justified by \(\varepsilon<1/(c(1+c))\), and the projection-norm contradiction is justified by the second explicit bound on \(\varepsilon\). Direct differentiation gives the positive numerator \(\varepsilon(1-s)^2+s^2\), so the monotonicity step has no hidden sign case.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The closest statement is Theorem 5.1 and Section 6 of Azzouz's focal paper, which give the same Hilbertian obstruction with coefficient \(1/2\), not coefficient \(1\). The full focal text was compared at the level of statements and implications. The full text of Oikhberg--Spinu was also inspected for uniform subprojectivity and its badly complemented Hilbertian examples; it does not supply an upper semi-Fredholm radius/profile formula. The 1995 and 2012 González--Martinón papers are the closest operational-quantity background; the accessible material inspected does not state the coefficient-one projection-profile inequality. The 2012 full text was not available in the materials inspected, so an equivalent older formulation remains an explicit residual risk rather than being treated as disproved by search failure.
+## correctness
 
-## Value
-**PASS.** The source itself introduces \(\Lambda_{\mathrm{SF}}\), records only a factor-two weaker reverse estimate, and asks for a quantitative relationship with uniform subprojectivity. Optimizing the witness to coefficient \(1\) therefore sharpens the principal quantitative obstruction attached to the new invariant. The coefficient is not merely improved numerically: \(1\) is the largest possible universal coefficient because Hilbert space gives equality on both sides.
+PASS
 
-## Closest literature and limitations
-The result does not solve the general comparison problem between \(\Lambda_{\mathrm{SF}}\) and \(\Lambda_{\mathrm{usp}}\), and it only detects complemented Hilbertian witnesses. It does not claim attainment of any infimum or supremum. The strongest unresolved originality risk is an older equivalent statement hidden under alternate perturbation-radius terminology.
+Fix complemented infinite-dimensional Hilbertian H⊂X, with projection constant profile Γ=inf_{infinite closed H0⊂H} λ_X(H0). For c<Γ select sufficiently small ε and Tε=(εP,I−P):X→H⊕∞ker(P), invertible with in(Tε)≤ε. If a perturbation F of norm s<cε makes ker(Tε−F) infinite-dimensional, the projection P maps it isomorphically onto a closed infinite-dimensional H0. The inverse graph map J=h+k(h) has ||k||≤s/(1−s); the orthogonal Q:H→H0 makes A=ε⁻¹ Q F1|H0 within θ=s²/[ε(1−s)]<1 of I. The projection R=A⁻¹ ε⁻¹ QF1:X→H0 has ||R||≤s(1−s)/[ε(1−s)−s²]<Γ, impossible. Independent exact symbolic differentiation of the rational bound verified its monotonicity in s and checked stated ε restrictions; the infinite-kernel distance formula is a named primary-source premise. Thus Λ_SF(X)≥Γ_Hilb(X) by c↑Γ; Γ=1, infinite Γ, and Hilbert-space sharpness handled. No finite experiment is offered as a theorem proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution scoped to the exact theorem, not its already-known ingredients. Originality comparisons explicitly distinguish full prior statements, their implications and residual access risks; inaccessible articles alone were not used as proof of novelty or as automatic rejection.
+
+## value
+
+PASS
+
+The coefficient-two loss in the focal Hilbertian-witness obstruction is removed exactly, resolving its sharp constant while retaining full complemented-subspace generality. Projection constants and semi-Fredholm perturbation radii are natural operator invariants; coefficient 1 is a meaningful boundary, and Hilbert spaces witness universal optimality. This is an optimization of a real nontrivial proof mechanism, not relabeling a known numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

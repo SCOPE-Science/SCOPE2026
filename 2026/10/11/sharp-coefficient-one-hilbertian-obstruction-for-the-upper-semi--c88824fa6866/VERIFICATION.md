@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The focal paper's Lemma 3.1 was checked for the exact identity between \(d_+(T)\) and the least perturbation norm producing an infinite-dimensional kernel. Theorem 5.1 and Section 6 were checked for the published coefficient \(1/2\) and for the definitions of the quantitative invariants.
 
-For the new proof, the following points were recomputed directly:
+# Independent mathematical audit
 
-- From \(\|(I-P)x\|\le s\|x\|\), the restriction \(P|_M\) is bounded below by \(1-s\), so its image is closed and \(\|(P|_M)^{-1}\|\le(1-s)^{-1}\).
-- The error operator satisfies \(\|A-I\|\le s^2/(\varepsilon(1-s))\). The condition \(\varepsilon<1/(c(1+c))\) makes this strictly less than \(1\) whenever \(s<c\varepsilon\).
-- The resulting projection obeys
-\[
-\|R\|\le B_\varepsilon(s)=\frac{s(1-s)}{\varepsilon(1-s)-s^2}.
-\]
-Direct differentiation gives
-\[
-B_\varepsilon'(s)=\frac{\varepsilon(1-s)^2+s^2}{\bigl(\varepsilon(1-s)-s^2\bigr)^2}>0.
-\]
-- Substituting \(s=c\varepsilon\) gives
-\[
-B_\varepsilon(c\varepsilon)=\frac{c(1-c\varepsilon)}{1-c(1+c)\varepsilon},
-\]
-and the second stated bound on \(\varepsilon\) is algebraically equivalent to this quantity being less than \(\Gamma\).
-- Therefore every perturbation of norm below \(c\varepsilon\) avoids an infinite-dimensional kernel, so the focal infinite-kernel formula gives \(d_+(T_\varepsilon)\ge c\varepsilon\).
+## correctness
 
-The proof is symbolic. It does not rely on numerical sampling, finite enumeration, or an unverified limiting computation. The literature comparison does not eliminate the stated residual risk from inaccessible older full text.
+PASS
+
+Fix complemented infinite-dimensional Hilbertian H⊂X, with projection constant profile Γ=inf_{infinite closed H0⊂H} λ_X(H0). For c<Γ select sufficiently small ε and Tε=(εP,I−P):X→H⊕∞ker(P), invertible with in(Tε)≤ε. If a perturbation F of norm s<cε makes ker(Tε−F) infinite-dimensional, the projection P maps it isomorphically onto a closed infinite-dimensional H0. The inverse graph map J=h+k(h) has ||k||≤s/(1−s); the orthogonal Q:H→H0 makes A=ε⁻¹ Q F1|H0 within θ=s²/[ε(1−s)]<1 of I. The projection R=A⁻¹ ε⁻¹ QF1:X→H0 has ||R||≤s(1−s)/[ε(1−s)−s²]<Γ, impossible. Independent exact symbolic differentiation of the rational bound verified its monotonicity in s and checked stated ε restrictions; the infinite-kernel distance formula is a named primary-source premise. Thus Λ_SF(X)≥Γ_Hilb(X) by c↑Γ; Γ=1, infinite Γ, and Hilbert-space sharpness handled. No finite experiment is offered as a theorem proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution scoped to the exact theorem, not its already-known ingredients. Originality comparisons explicitly distinguish full prior statements, their implications and residual access risks; inaccessible articles alone were not used as proof of novelty or as automatic rejection.
+
+## value
+
+PASS
+
+The coefficient-two loss in the focal Hilbertian-witness obstruction is removed exactly, resolving its sharp constant while retaining full complemented-subspace generality. Projection constants and semi-Fredholm perturbation radii are natural operator invariants; coefficient 1 is a meaningful boundary, and Hilbert spaces witness universal optimality. This is an optimization of a real nontrivial proof mechanism, not relabeling a known numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
