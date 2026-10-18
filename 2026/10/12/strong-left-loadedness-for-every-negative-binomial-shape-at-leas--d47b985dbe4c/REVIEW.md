@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The mass-ratio quotient is derived by canceling adjacent negative-binomial coefficients, and its comparison with one reduces to the monotone sign factor \(i(i+1)-rt(t+1)\). Thus the centered tail-difference vector is U-shaped. The exact mean-balance identity has strictly positive total and the endpoint is strictly negative: its requisite inequality is proved for every integer \(r\ge3\), \(t\ge1\) by Vandermonde supermultiplicativity with exact finite seeds and an analytic bound when \(t\ge6\). All four parameter regimes and boundary seeds were checked independently with rational arithmetic. The finite verifier is an auxiliary check, not a proof of the unbounded parameter claim.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** The motivating publication gives negative-binomial right-skewness about the mode (Lemma 3.3) and only expresses an expectation of left-loadedness for reciprocal failure probabilities. Its Poisson left-loadedness proof and Perrin–Redside's center-tail inequalities do not imply the claimed all-\(i\), all-shape negative-binomial classification. Candidate-specific searches covered the named literature and known closely related mathematical records; the closest uncovered prior treatment is the one-index Simmons extension by Perrin–Redside, whose full text could not be obtained. An older equivalent theorem under a different name remains possible; absence of a search hit is not treated as a novelty proof.
+PASS
 
-**Value — PASS.** The result addresses a specific natural family and a literature-identified unproved stochastic-ordering property, not an arbitrary support slice. The important part is the full sign pattern across \(rt\) tail comparisons, needed to apply the published mixed-summand monotonicity theorem. The proof gives a uniform all-shape result and identifies the nontrivial global endpoint inequality, including its genuinely exceptional small-shape seeds. It does not purport to resolve arbitrary-parameter negative-binomial orders.
+For NB integer r>=3 and success p=t/(t+1), m=rt integer, the exact ratio beta_i=w_{m+i}/w_{m-i} satisfies beta_(i+1)/beta_i=(t/(t+1))^2 (m+i+r)(m-i+r-1)/((m+i+1)(m-i)); its cross difference is (2t+1)[i(i+1)-rt(t+1)] (independently expanded symbolically to zero). Thus the centered alpha_i differences w_{m+i}-w_{m-i} have one-turn U-shape. The universal integer-mean identity sum_{i=1}^m alpha_i=E[(X-2m)_+]>0 implies alpha1>0 when endpoint alpha_m<0. Endpoint is P(X>=2rt)>P(X=0): exact Vandermonde amplification covers t<=5 from quoted rational seeds (including direct tail bases), and for t>=6 a geometric-sum event gives comparison (t/(t+1))^(2rt)>(t+1)^-r from monotonic h(t). This supplies strict endpoints and one ordered positive-to-negative crossing for all stated integers, not only a finite sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. The same distribution/parameter aliases were checked, but a one-index center-tail inequality or modal right-skewness does not decide the entire (alpha_i) sign vector. Full Perrin text unavailable: no whole-paper claim of noncoverage. Neither inspected full Fokkink article nor the accessible Perrin abstract logically imply full L1 for every integral shape r>=3 and t>=1. Inaccessible Perrin full text remains a named priority risk.
+
+## value
+
+PASS
+
+Fokkink et al introduce strong left-loadedness L1 to transfer centered tail inequalities, and explicitly leave non-Poisson families difficult. The theorem supplies the full L1 sign pattern in a substantial naturally parametrized negative-binomial family, not merely one center-tail inequality, allowing this distribution as a right-skewed convolution increment. The Vandermonde all-parameter endpoint mechanism addresses the hard obstruction, so its value is independent of any universal theorem outside this range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

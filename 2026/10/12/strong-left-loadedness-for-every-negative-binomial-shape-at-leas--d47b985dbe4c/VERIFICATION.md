@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the analytic claim
+# Independent mathematical audit
 
-The supplied `verify_negative_binomial.py` is a standalone standard-library checker. On a fresh invocation (`python3 verify_negative_binomial.py`) it completed with:
+## correctness
 
-`VERIFY_OK exact_tail_sign_cases=105 adjacent_quotients=2142 finite_vandermonde=343`
+PASS
 
-The check uses exact `fractions.Fraction` arithmetic to reproduce all finite endpoint seeds quoted in RESULT.md, the sample negative-binomial mass ratios, the sign sequence for all \((r,t)\) in the finite grid \(3\le r\le17\), \(1\le t\le7\), and a finite grid of Vandermonde comparisons. This is not exhaustive for unbounded \(r,t\).
+For NB integer r>=3 and success p=t/(t+1), m=rt integer, the exact ratio beta_i=w_{m+i}/w_{m-i} satisfies beta_(i+1)/beta_i=(t/(t+1))^2 (m+i+r)(m-i+r-1)/((m+i+1)(m-i)); its cross difference is (2t+1)[i(i+1)-rt(t+1)] (independently expanded symbolically to zero). Thus the centered alpha_i differences w_{m+i}-w_{m-i} have one-turn U-shape. The universal integer-mean identity sum_{i=1}^m alpha_i=E[(X-2m)_+]>0 implies alpha1>0 when endpoint alpha_m<0. Endpoint is P(X>=2rt)>P(X=0): exact Vandermonde amplification covers t<=5 from quoted rational seeds (including direct tail bases), and for t>=6 a geometric-sum event gives comparison (t/(t+1))^(2rt)>(t+1)^-r from monotonic h(t). This supplies strict endpoints and one ordered positive-to-negative crossing for all stated integers, not only a finite sample.
 
-The infinite proof is mathematical: exact cancellation yields the one-turn \(\beta_i\) ratios; the identity for the sum of \(\alpha_i\) holds for every finite-mean nonnegative-integer law; the endpoint inequality is established by exact seeds and combinatorial induction for \(t\le5\) and an analytic monotonicity bound for \(t\ge6\). The proof covers all positive integer shapes at least three and all positive integer \(t\) without numerical inference. It does not check any noninteger parameter regime.
+## originality
 
-The external literature comparison is limited to materials actually available for inspection. The later published full text and earlier arXiv manuscript were read; the 2007 center-tail article was only accessible by abstract. The result has undergone self-review, not independent validation.
+PASS
+
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. The same distribution/parameter aliases were checked, but a one-index center-tail inequality or modal right-skewness does not decide the entire (alpha_i) sign vector. Full Perrin text unavailable: no whole-paper claim of noncoverage. Neither inspected full Fokkink article nor the accessible Perrin abstract logically imply full L1 for every integral shape r>=3 and t>=1. Inaccessible Perrin full text remains a named priority risk.
+
+## value
+
+PASS
+
+Fokkink et al introduce strong left-loadedness L1 to transfer centered tail inequalities, and explicitly leave non-Poisson families difficult. The theorem supplies the full L1 sign pattern in a substantial naturally parametrized negative-binomial family, not merely one center-tail inequality, allowing this distribution as a right-skewed convolution increment. The Vandermonde all-parameter endpoint mechanism addresses the hard obstruction, so its value is independent of any universal theorem outside this range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
