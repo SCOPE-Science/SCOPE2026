@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs every crown graph
-\[
-\operatorname{Cr}_n
-\]
-for
-\[
-3\le n\le8.
-\]
-For each subset \(C\), it computes every closed-neighborhood identifying set \(I(C;u)\), tests the defining solid condition by domination and all ordered identifying-set differences, and tests the self condition by the exact closed-neighborhood intersection criterion.
+# Independent mathematical audit
 
-The direct decisions are compared with both omission classifications, every coefficient of both displayed polynomials, both minimum values, and both minimum-code counts.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-n=3: DLD_min=3, DLD_bases=2, SLD_min=3, SLD_bases=2
-n=4: DLD_min=4, DLD_bases=8, SLD_min=4, SLD_bases=2
-n=5: DLD_min=5, DLD_bases=22, SLD_min=5, SLD_bases=2
-n=6: DLD_min=6, DLD_bases=52, SLD_min=6, SLD_bases=2
-n=7: DLD_min=7, DLD_bases=114, SLD_min=7, SLD_bases=2
-n=8: DLD_min=8, DLD_bases=240, SLD_min=8, SLD_bases=2
-vertex_subsets_checked = 87360
-```
+For n>=3 use selected shores C_A,C_B and omitted-index sets P,Q. Each omitted a_i has I(C;a_i)=C_B\{b_i}, and omitted b_j has I(C;b_j)=C_A\{a_j}. Ordered difference of same-shore identifying sets forces P∩Q=∅ except P=Q={i}; the two disjoint size-n complement patterns leave a noncodeword undominated. For SLD, intersection of neighbors of identifying codewords forces all omissions to a single shore or one matched omitted pair. Counting per matched index gives D_DLD=z^n(z+2)^n-2n z^n+n z^(2n-2) and D_SLD=2z^n(1+z)^n-z^(2n)+n z^(2n-2). Both minima n; minimum counts 2^n-2n and 2. Checked n=3..6 by independently built graph neighborhood and literal definitions; n>=7 follows analytically, not from finite sampling.
 
-The finite enumeration is corroborative only. The arbitrary-\(n\) theorem follows from the exact identifying-set formulas in the proof.
+## originality
+
+PASS
+
+The full cardinality enumerators are not a mere restatement of the known complete bipartite SLD rigidity; deleting a perfect matching changes all identifying sets. The published general code characterizations are used as tools rather than covering the crown-family polynomials.
+
+## value
+
+PASS
+
+Crown graphs K_{n,n}-M are a canonical infinite, highly symmetric family where a small edge deletion changes self-location-domination dramatically. The complete all-code polynomials and two distinct basis distributions provide natural exact invariants and a benchmark for stronger error-identifying codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

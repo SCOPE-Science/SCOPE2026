@@ -1,12 +1,21 @@
-# Review of Self- and solid-locating-dominating code polynomials of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact identifying sets for omitted crown vertices reduce both stronger location-domination conditions to index-set relations. The solid classification follows from ordered identifying-set differences plus two domination boundary cases. The self classification follows by comparing omitted vertices against codewords, forcing one-sided omissions unless a single matched pair is omitted. Both converse directions are proved. Exhaustive verification of all \(87{,}360\) vertex subsets for \(3\le n\le8\) agrees with both classifications and every polynomial coefficient.
+## correctness
 
-## Originality
-PASS. The 2018 introducing paper studies rook graphs and binary Hamming spaces rather than crowns. The later full-text primary treatment develops general characterizations, trees, Cartesian products, and realization theorems; no crown occurrence was found. It discusses complete bipartite extremality for self-location-domination, but that does not imply the graph obtained after deleting a perfect matching. Exact and semantic literature searches under crown and deleted-perfect-matching aliases did not locate the two crown polynomials.
+PASS
 
-## Value
-PASS. The theorem gives complete feasible-set classifications and full cardinality polynomials for two stronger location-domination models on a standard dense regular bipartite family. It exposes a sharp perturbative effect of deleting one perfect matching and quantitatively separates the self and solid notions through their radically different minimum-code counts.
+For n>=3 use selected shores C_A,C_B and omitted-index sets P,Q. Each omitted a_i has I(C;a_i)=C_B\{b_i}, and omitted b_j has I(C;b_j)=C_A\{a_j}. Ordered difference of same-shore identifying sets forces P∩Q=∅ except P=Q={i}; the two disjoint size-n complement patterns leave a noncodeword undominated. For SLD, intersection of neighbors of identifying codewords forces all omissions to a single shore or one matched omitted pair. Counting per matched index gives D_DLD=z^n(z+2)^n-2n z^n+n z^(2n-2) and D_SLD=2z^n(1+z)^n-z^(2n)+n z^(2n-2). Both minima n; minimum counts 2^n-2n and 2. Checked n=3..6 by independently built graph neighborhood and literal definitions; n>=7 follows analytically, not from finite sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full cardinality enumerators are not a mere restatement of the known complete bipartite SLD rigidity; deleting a perfect matching changes all identifying sets. The published general code characterizations are used as tools rather than covering the crown-family polynomials.
+
+## value
+
+PASS
+
+Crown graphs K_{n,n}-M are a canonical infinite, highly symmetric family where a small edge deletion changes self-location-domination dramatically. The complete all-code polynomials and two distinct basis distributions provide natural exact invariants and a benchmark for stronger error-identifying codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
