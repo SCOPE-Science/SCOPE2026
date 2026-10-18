@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:14:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD A and candidate direction d, η*=−(dᵀA²e)/(dᵀA²d), so the smoothed error is oblique projection P_d e=(I−d(dᵀA²)/(dᵀA²d))e. Its exact Euclidean norm is ||d|| ||A²d||/(dᵀA²d). Applying the sharp positive-definite antieigenvalue/Kantorovich extremal inequality to B=A² with eigenvalues m=λmin(A)² and M=λmax(A)² yields ||P_d|| <=(m+M)/(2√mM)=(κ²+1)/(2κ). Endpoint-eigenspace weights attain equality for A=diag(1,κ) and d=(κ,1). Independently recomputed exact rational P, singular norm and equality errors for five κ. Residual contraction is automatic in A² norm; κ>1 admits strictly increasing Euclidean error. All scope and one-dimensional exception checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "Gustafson develops operator trigonometry for minimum-residual methods; general SPD antieigenvalue bound applies to any positive operator B, a broader setting than squared SPD system matrices.",
+        "reasoning": "The frozen factor is a literal instance of the general sharp angle inequality, not a new parameter frontier requiring separate mathematical treatment. The 2D endpoint case is the standard equality mechanism.",
+        "searches": [
+          "K. Gustafson, Operator trigonometry of preconditioning, ... minimum residual schemes (2003), DOI:10.1002/nla.289",
+          "Kantorovich–Wielandt/antieigenvalue inequality"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 86d7fb2287e105c9592530f1a025dbeb0eb762e3",
+        "Zhou and Walker 1994 full paper DOI:10.1137/0915021",
+        "Gustafson 2003 DOI:10.1002/nla.289 publisher abstract",
+        "Rao 2005 institutional abstract",
+        "Classical positive-operator antieigenvalue sharp cosine inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Zhou–Walker defines real-line minimal residual smoothing and proves nonincreasing residual; classical SPD antieigenvalue theory gives the exact extreme angle and equality weights, and the rank-one projection formula is elementary.",
+        "reasoning": "The two prior statements combined entail the output factor and witness through B=A²; adding a standard direct corollary cannot support O PASS under the stronger-coverage rule.",
+        "searches": [
+          "Zhou–Walker (1994), Residual Smoothing Techniques for Iterative Methods, DOI:10.1137/0915021",
+          "Gustafson (2003), DOI:10.1002/nla.289",
+          "Rao (2005), Antieigenvalues and antisingularvalues of a matrix and applications to problems in statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Sharp operator antieigenvalue identity inf_x <Bx,x>/(||Bx||||x||)=2√(mM)/(m+M) for SPD B. The frozen smoothing error map is rank n−1 oblique projection with norm reciprocal of this cosine.",
+        "reasoning": "A change of variables B=A² and κ(B)=κ(A)² turns the general inequality into exactly (κ(A)²+1)/(2κ(A)). This is not merely title resemblance: antecedent hypothesis and conclusion directly imply the sharp formula.",
+        "searches": [
+          "Resultary semantic search: minimal residual smoothing SPD Euclidean error oblique projection Kantorovich sharp condition number",
+          "public web primary-source search: antieigenvalue inequality operator cosine SPD m M minimum residual projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "No exact database lookup is needed to subsume an analytic all-κ factor; lookup yielded other solver methods but not this object-specific stored table.",
+        "reasoning": "Coverage comes from a universal inequality, not the presence or absence of a matching numerical table or literal search string.",
+        "searches": [
+          "public web primary-source search: minimal residual smoothing sharp amplification condition number numerical table",
+          "Resultary semantic search: minimal residual smoothing SPD Euclidean error oblique projection Kantorovich sharp condition number"
+        ]
+      },
+      "rationale": "FAIL on prior implication, not mathematical correctness: the boxed extremal factor is exactly the classical sharp antieigenvalue operator-cosine law for an SPD B=A², combined with the standard norm of a codimension-one oblique projection. Preexisting operator-trigonometry literature explicitly addresses minimum-residual iterative schemes. The frozen proof itself explicitly performs this standard substitution and has no further distinct mathematical classification beyond its two-endpoint equality witness. The exact error statement is a direct corollary of this stronger prior framework without a separate nonstandard theorem.",
+      "residual_risks": [
+        "General antieigenvalue theorem source full original proof was not accessed, but its standard exact formula directly implies present extremal factor.",
+        "The sharp solver-specific operational warning is useful, but under the claimed contribution it is mathematically a direct specialization of the stronger operator inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original smoothing setup and residual monotonicity are already established",
+          "evidence": "Zhou and Walker, SIAM J Sci Comput 15 (1994), sections 2–3",
+          "identifier_or_url": "https://users.wpi.edu/~walker/Papers/residual_smoothing%2CSISC_15%2C1994%2C297-312.pdf",
+          "material_read": "Full accessible paper; read definitions, smoothing updates and principal monotonicity results",
+          "method": "author-hosted full PDF and page inspection",
+          "title": "Residual Smoothing Techniques for Iterative Methods",
+          "trigger": "Defining algorithm and residual metric"
+        },
+        {
+          "assessment": "Abstract explicitly connects operator trigonometry and minimum-residual methods; not claimed whole paper contains displayed specific factor",
+          "evidence": "Gustafson, Numerical Linear Algebra with Applications 10 (2003), 291–315",
+          "identifier_or_url": "https://doi.org/10.1002/nla.289",
+          "material_read": "Publisher abstract and reference list only; full text not obtained",
+          "method": "publisher landing page",
+          "title": "Operator trigonometry of preconditioning, domain decomposition, sparse approximate inverses, successive overrelaxation, minimum residual schemes",
+          "trigger": "Antieigenvalue/minimum residual broader relationship"
+        },
+        {
+          "assessment": "Provides external provenance of the classical antieigenvalue framework, not falsely marked as inspected full text",
+          "evidence": "R. Rao (2005) abstract and Gustafson–Rao Numerical Range (1997)",
+          "identifier_or_url": "https://mro.massey.ac.nz/items/511fbcd4-f392-4f66-bc04-76ef5da4c421",
+          "material_read": "University repository bibliographic abstract describing min-angle of x and Ax and Gustafson–Rao theory; complete PDF not read",
+          "method": "institutional abstract",
+          "title": "Antieigenvalues and antisingularvalues of a matrix and applications to problems in statistics",
+          "trigger": "Published generic SPD minimum-angle theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The solver interpretation is substantively motivated: residual improvement can conceal Euclidean error growth; a sharp κ-dependent bound and two-dimensional witness can be useful to practitioners. This mathematical usefulness does not remedy covered originality, so the decision is failed. Whether the synthesis is sufficiently routine for independent publication is a secondary risk, not relied upon for rejection.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md blob 86d7fb2287e105c9592530f1a025dbeb0eb762e3",
+    "Zhou and Walker 1994 full paper DOI:10.1137/0915021",
+    "Gustafson 2003 DOI:10.1002/nla.289 publisher abstract",
+    "Rao 2005 institutional abstract",
+    "Classical positive-operator antieigenvalue sharp cosine inequality"
+  ],
+  "disposition": "failed",
+  "limitations": "Scientific rejection concerns prior implication, not correctness. One exact unrestricted-direction residual-smoothing step on real SPD matrices; no nonsymmetric, finite-precision or model-constrained conclusions.",
+  "residual_risks": [
+    "General antieigenvalue theorem source full original proof was not accessed, but its standard exact formula directly implies present extremal factor.",
+    "The sharp solver-specific operational warning is useful, but under the claimed contribution it is mathematically a direct specialization of the stronger operator inequality."
+  ],
+  "schema_version": 1
+}
