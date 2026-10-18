@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each order 4 through 10, all unlabeled rooted trees arise uniquely as multisets of smaller rooted trees. Canonical one- or two-center codes identify all unlabeled free trees. For each one of the 106 ten-vertex trees the checker enumerates all 2^9 spanning-edge subsets and obtains integer component-size histograms independently via union-find and graph traversal. The rank-five signatures have exactly one two-element collision class; rank six has no collision. The two explicit representatives have diameters 6 and 7 and rank-six component partition (4,2,2,2) counts 1 and 0. Counts for lower orders certify the first strict boundary. No large-order theorem follows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zeng, arXiv:2608.18179, Theorem 1.1 and Section 4 proves reconstruction in multiplicity-isolated proper trees and gives a diameter-six canonical model using the full component table.",
+        "Awan, arXiv:2609.13464 Theorem 3 proves lower bounds but no upper cutoff for tau(10)."
+      ],
+      "reasoning": "Stronger full-CSF reconstruction in a restricted subclass cannot give a statement about all 106 trees at truncation level five. Neither inspected preprint settles which shallow rank separates every ten-vertex tree. In particular, the two diameters of the colliding pair do not imply an equality of complete chromatic symmetric functions.",
+      "searches": [
+        "arxiv:2608.18179 full text Sections 3–5",
+        "arxiv:2609.13464 full text including conclusion and Section 4",
+        "\"chromatic symmetric\" reconstruction ten vertex trees cut partition table",
+        "\"rank 5\" \"rank 6\" \"10-vertex trees\" connected partitions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.13464 full primary text",
+      "arXiv:2608.18179 full primary text",
+      "Stanley 1995 cited in the primary manuscripts for the power-sum component formula",
+      "Published mathematical research-record searches targeting component-partition rank, graph spectra, and forest matching polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Awan Theorem 3 implies only tau(10)>=5, so the strict equality tau(10)=6 is not a corollary.",
+        "The published generalized-cospectral-tree study compares adjacency/complement spectra, not component-size partitions of edge subsets; no inference from its twelve-vertex pair settles tau(10).",
+        "The published matching-support character-polynomial work aggregates matching numbers over edge supports rather than the complete component-size partition histogram."
+      ],
+      "reasoning": "The proposed result refines a precise previously published lower bound into a first strict cutoff and exactly one obstructing isomorphism pair. Existing reconstruction data for more restricted classes, full-invariant conjectures, and non-equivalent spectral/matching invariants do not imply this finite rank-six discrimination.",
+      "searches": [
+        "\"Awan\" \"tau(10)\" \"connected partition\" trees",
+        "\"first strict gap Awan connected partition truncation tau(10) rank 5 versus 6 trees\"",
+        "\"first generalized-cospectral pair of trees at n=12\"",
+        "\"tree graphical groups matching-support character polynomial\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Awan, arXiv:2609.13464, pp. 2–3 defines the exact connected-partition vector sigma_t and tau(k), with tau(5)=2 and lower bound floor(k/2).",
+        "Stanley power-sum component formula (as cited and used in Awan and Zeng) is the untruncated form, not an equality of shallow ranks."
+      ],
+      "reasoning": "The edge-subset-component multiset, the truncated power-sum coefficient sequence, and sigma_t all encode the same rank-layer counts for trees because signs are fixed by the number of selected edges. Awan is therefore a direct-equivalence match for the definition and prior lower bound, but its inspected Section 4 does not compute order ten or the first strict rank. Searches of those equivalent terms did not locate the exact finite gap.",
+      "searches": [
+        "\"tau(10)\" \"tree\" \"connected partitions\" chromatic symmetric",
+        "\"Awan\" \"rank truncated\" tree \"tau(10)\"",
+        "\"connected partition\" \"trees\" \"truncation\" chromatic symmetric function 2026",
+        "arxiv:2609.13464 Section 4 and Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exhaustive reproducible 106-tree table generated in the accompanying exact verifier has one rank-five collision and none at rank six.",
+        "The inspected source manuscripts contain no 106-tree sigma5 collision table or tau(10) computation; Zeng notes a separate supplemental full-invariant cut-partition evaluator."
+      ],
+      "reasoning": "The exact value and uniqueness claim may appear in an unindexed precomputed dataset even without an accompanying theorem. Targeted numerical and alias searches did not uncover such coverage; these searches do not prove its absence.",
+      "searches": [
+        "\"tau(10)\" \"connected partition\" trees",
+        "\"connected partition\" \"trees\" \"truncation\" chromatic symmetric function 2026",
+        "\"tree connected partition truncation rank five order ten unique pair\"",
+        "\"two nonisomorphic 10 vertex trees same connected forest component counts through five edges but different at six\""
+      ]
+    },
+    "rationale": "Awan, arXiv:2609.13464, defines exactly this invariant and proves tau(k)>=floor(k/2) (k>=4), giving tau(5)=2, but not the first strict value. Zeng, arXiv:2608.18179, supplies full component-table reconstruction for particular proper-tree classes, not rank-six injectivity across all 106 ten-vertex trees. Exact-boundary and equivalent-formulation queries, plus published-record comparisons, found no covering statement. Residual risk from unindexed or supplementary computation is genuine.",
+    "residual_risks": [
+      "A previously published but unindexed numerical census, code supplement, or a differently named truncated power-sum table might include the exact ten-vertex obstruction.",
+      "The claim covers only finite tree orders through ten and says nothing about all larger orders.",
+      "No independent external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical invariant, proves half-order lower bound, records tau(5)=2; no determination of first strict order or sigma5 collision at order ten.",
+        "evidence": [
+          "arXiv:2609.13464 pp. 2–3, Theorem 3, and Section 4 pp. 12–15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.13464",
+        "material_read": "Complete fifteen-page PDF, including abstract, theorem statements, Section 4 (definitions, lower bound, proof), final text, and references; page image also inspected.",
+        "method": "Rendered PDF text and page-image verification of the formal definition and Theorem 3.",
+        "title": "First-Derivative Chromatic Symmetric Reconstruction For Proper Trees",
+        "trigger": "Defines precisely sigma_t and tau(k), hence could subsume a sharpness computation."
+      },
+      {
+        "assessment": "Provides sufficient conditions for reconstruction using full chromatic symmetric data and a cut-partition evaluator for special trees; no order-ten universal sigma5/sigma6 collision threshold.",
+        "evidence": [
+          "arXiv:2608.18179 Theorem 1.1, Section 4 and data-and-code paragraph."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.18179",
+        "material_read": "Complete five-page PDF including theorem, canonical diameter-six model, data-and-code paragraph, and references; page image of Section 4 inspected.",
+        "method": "Full PDF text and rendered-page reading.",
+        "title": "Multiplicity-Isolated Cores and Chromatic Symmetric Reconstruction of Trees",
+        "trigger": "Studies same spanning-edge-set connected-component counts and computer computations, possible stronger table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86111ac4-a977-4fb3-baf2-1ad2b198fb41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first order at which a recent, mathematically motivated lower bound ceases to be sharp is a natural finite cutoff, not an arbitrary parameter slice. The unique colliding ten-vertex pair identifies the precise obstruction to rank-five reconstruction and illustrates that even tree diameter can be hidden by low-rank connected-partition data. The complete 106-object classification supplies a reproducible benchmark for future reconstruction-depth work; no general theorem is claimed.",
+    "status": "PASS"
+  }
+}
