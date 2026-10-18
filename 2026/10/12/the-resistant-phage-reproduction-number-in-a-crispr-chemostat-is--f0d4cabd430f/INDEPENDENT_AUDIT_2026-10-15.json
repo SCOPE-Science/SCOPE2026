@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original mathematical conclusion (missing k and counterexample) survives a necessary precision repair: with F=[[0,kappa k M2],[0,0]] and V=[[D+delta,0],[-b delta,D+kM2]], direct multiplication yields rho(FV^-1)=b delta kappa k M2/((D+delta)(D+kM2)), NOT its square root as stated in original RESULT. Final replacement RESULT.md correctly distinguishes cycle spectral radius and source-convention square-root R, preserving threshold at one. Independently sympy-checked matrix identity and exact witness: rho=5/22, printed-square=250/11, Jacobian [[-2,1/20],[10,-11/10]] trace -31/10 and determinant 17/10. E3 would require M3=200/3 but resource balance forces M3<10. No unsupported claim of full five-dimensional stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard next-generation theorem predates; the exact source-specific factor omission is not addressed in that general framework."
+        ],
+        "reasoning": "Earlier formalism enables computation but does not pre-identify a later printed mistake or exact violating parameter witness.",
+        "searches": [
+          "van den Driessche–Watmough 2002 next-generation method",
+          "Shu–Fu–Wang 2017"
+        ]
+      },
+      "checked_sources": [
+        "A bacteriophage model based on CRISPR/Cas immune system in a chemostat; DOI:10.3934/mbe.2017070; Mathematical Biosciences and Engineering 14 (2017) 1361–1377",
+        "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission; DOI:10.1016/S0025-5564(02)00108-6",
+        "Bacteriophage-resistant and bacteriophage-sensitive bacteria in a chemostat; DOI:10.3934/mbe.2012.9.737",
+        "Resultary semantic search on exact objects, aliases and dominating coverage; five searches in this audit."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2017 model itself implies corrected k coefficient algebraically, but printed theorem uses different numerical expression and is refuted by a positive witness."
+        ],
+        "reasoning": "Corrected general threshold is standard; novelty is detection and formal disproof of the exact *printed* 2017 formula. The repaired text no longer falsely equates rho to sqrt(rho).",
+        "searches": [
+          "DOI:10.3934/mbe.2017070 source equation (1), Theorem 2.3, equation (6)",
+          "DOI:10.1016/S0025-5564(02)00108-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear infection block determinant sign changes at rho=b delta kappa k M2/((D+delta)(D+kM2))=1."
+        ],
+        "reasoning": "The equivalent linearization, next-generation spectral radius and equilibrium G(lambda2) all require factor k; corrected root R=sqrt(rho) has identical threshold. Source printed R lacks k.",
+        "searches": [
+          "DOI:10.3934/mbe.2017070 infected equations and Theorem 2.3",
+          "web: Shu Fu Wang CRISPR chemostat reproduction number kappa adsorption k factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational parameter witness printed square 250/11 versus correct 5/22; none is a database lookup."
+        ],
+        "reasoning": "Finite exact witness is motivated by falsifying a universal threshold implication, not by arbitrary parameter search or tabulation.",
+        "searches": [
+          "DOI:10.3934/mbe.2017070",
+          "Resultary: CRISPR/Cas phage chemostat basic reproduction R0 kappa adsorption factor"
+        ]
+      },
+      "rationale": "This is not a general new theorem on next-generation matrices; van den Driessche and Watmough provide that theory. The inspected published 2017 source defines k’=kappa k and uses infected gain kappa k M P but drops k in the printed resistant reproduction number. The later equilibrium coefficient A2 and G(lambda2) rely on k, establishing a source-specific inconsistency not previously corrected in accessible literature. The strict admissible witness is a new explicit counterexample to using printed threshold literally.",
+      "residual_risks": [
+        "The corrected factor follows from the 2017 authors’ own later equilibrium identity, so new science is strictly a published-formula correction, not a new threshold theory.",
+        "A nonindexed source erratum/author clarification could anticipate this correction.",
+        "Source E2 may be unstable to susceptible-bacteria invasion; repaired claim proves only the resistant/phage infection block and absence of specified E3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TARGET_THRESHOLD_FALSE_AS_PRINTED",
+          "evidence": "The model uses k’=kappa k in infective gain but printed R0^M numerator lacks k; later G(lambda2) algebra contains it.",
+          "identifier_or_url": "DOI:10.3934/mbe.2017070; Mathematical Biosciences and Engineering 14 (2017) 1361–1377",
+          "material_read": "Entire 17-page freely accessible publisher PDF with original equations (1), E2, printed R_0^M, Theorem 2.3, and algebra in equation (6); read screenshots pp.4–5",
+          "method": "primary PDF full text and page-image mathematical comparison",
+          "title": "A bacteriophage model based on CRISPR/Cas immune system in a chemostat",
+          "trigger": "Primary target infection coefficient, resistant reproduction number, existence theorem and equilibrium proof"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Framework supplies rho(FV^-1), but not the source-specific 2017 inconsistency.",
+          "identifier_or_url": "DOI:10.1016/S0025-5564(02)00108-6",
+          "material_read": "Bibliographic reference and standard next-generation F V^-1 definition, without separate full-text reading",
+          "method": "exact algebra and established framework comparison",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+          "trigger": "Next-generation spectral-radius normalization and threshold formalism"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Earlier chemostat model does not print the 2017 CRISPR-specific reproduction number.",
+          "identifier_or_url": "DOI:10.3934/mbe.2012.9.737",
+          "material_read": "Citation and model scope from original 2017 article; not independently read in full",
+          "method": "primary target introduction/reference comparison",
+          "title": "Bacteriophage-resistant and bacteriophage-sensitive bacteria in a chemostat",
+          "trigger": "Predecessor bacteria-phage chemostat system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A literal reproduction threshold in a published bifurcation/existence theorem changes from supercritical to subcritical at an admissible positive parameter point. Independent linear stability and equilibrium nonexistence demonstrate mathematically consequential rather than cosmetic normalization error. The repaired claim carefully separates spectral radius and its square-root convention and limits implications to source statements actually affected.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For Shu–Fu–Wang 2017 resistant CRISPR chemostat at E2, the printed square-root threshold omits k: corrected threshold sqrt(b delta kappa k M2/((D+delta)(D+kM2))); the true next-generation spectral radius is its square. Strict admissible exact-parameter witness has printed squared threshold 250/11>1 but true squared threshold 5/22<1 and no positive E3. Repaired RESULT.md removes an erroneous original identification of rho(FV^-1) with its square root.",
+  "limitations": [
+    "The corrected factor follows from the 2017 authors’ own later equilibrium identity, so new science is strictly a published-formula correction, not a new threshold theory.",
+    "A nonindexed source erratum/author clarification could anticipate this correction.",
+    "Source E2 may be unstable to susceptible-bacteria invasion; repaired claim proves only the resistant/phage infection block and absence of specified E3.",
+    "Repository interface exposed frozen individual blobs but not recursive tree enumeration; assigned tree SHA is an exact importer guard, not an independently rehashed tree."
+  ],
+  "schema_version": 1
+}

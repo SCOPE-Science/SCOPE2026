@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,76 +18,25 @@
   "schema_version": 1
 }
 ---
-The correction is established analytically from the published model.
 
-At the resistant-only equilibrium, the exact two-coordinate invasion block is
-\[
-J_{IP}
-=
-\begin{pmatrix}
--(D+\delta)&\kappa kM_2\\
-b\delta&-(D+kM_2)
-\end{pmatrix}.
-\]
-The corresponding two-stage next-generation product gives
-\[
-(\widehat{\mathcal R}_0^M)^2
-=
-\frac{b\delta\kappa kM_2}
-{(D+\delta)(D+kM_2)}.
-\]
+# Independent mathematical audit
 
-For the exact witness
-\[
-D=\delta=1,\quad
-b=10,\quad
-k=\frac1{100},\quad
-\kappa=\frac12,\quad
-\mu=\frac12,\quad
-m=4,\quad
-a=1,\quad
-R^0=11,
-\]
-the bundled checker verifies
-\[
-\lambda_2=1,\qquad M_2=10,
-\]
-\[
-(\mathcal R_{0,\mathrm{print}}^M)^2=\frac{250}{11}>1,
-\]
-\[
-(\widehat{\mathcal R}_0^M)^2=\frac5{22}<1,
-\]
-\[
-\operatorname{tr}J_{IP}=-\frac{31}{10}<0,
-\qquad
-\det J_{IP}=\frac{17}{10}>0.
-\]
+## correctness
 
-It also checks the source's later identity
-\[
--D+kA_2M_2
-=
-(D+kM_2)
-\bigl((\widehat{\mathcal R}_0^M)^2-1\bigr)
-=
--\frac{17}{20},
-\]
-while substituting the printed definition gives
-\[
-(D+kM_2)
-\bigl((\mathcal R_{0,\mathrm{print}}^M)^2-1\bigr)
-=
-\frac{239}{10},
-\]
-which is unequal.
+PASS
 
-Finally, the source's positive-equilibrium condition forces
-\[
-M_3=\frac{200}{3},
-\]
-whereas its nutrient balance and positivity condition force
-\[
-M_3<10.
-\]
-No simulation or finite enumeration is used to infer the general missing-factor statement.
+The original mathematical conclusion (missing k and counterexample) survives a necessary precision repair: with F=[[0,kappa k M2],[0,0]] and V=[[D+delta,0],[-b delta,D+kM2]], direct multiplication yields rho(FV^-1)=b delta kappa k M2/((D+delta)(D+kM2)), NOT its square root as stated in original RESULT. Final replacement RESULT.md correctly distinguishes cycle spectral radius and source-convention square-root R, preserving threshold at one. Independently sympy-checked matrix identity and exact witness: rho=5/22, printed-square=250/11, Jacobian [[-2,1/20],[10,-11/10]] trace -31/10 and determinant 17/10. E3 would require M3=200/3 but resource balance forces M3<10. No unsupported claim of full five-dimensional stability.
+
+## originality
+
+PASS
+
+This is not a general new theorem on next-generation matrices; van den Driessche and Watmough provide that theory. The inspected published 2017 source defines k’=kappa k and uses infected gain kappa k M P but drops k in the printed resistant reproduction number. The later equilibrium coefficient A2 and G(lambda2) rely on k, establishing a source-specific inconsistency not previously corrected in accessible literature. The strict admissible witness is a new explicit counterexample to using printed threshold literally.
+
+## value
+
+PASS
+
+A literal reproduction threshold in a published bifurcation/existence theorem changes from supercritical to subcritical at an admissible positive parameter point. Independent linear stability and equilibrium nonexistence demonstrate mathematically consequential rather than cosmetic normalization error. The repaired claim carefully separates spectral radius and its square-root convention and limits implications to source statements actually affected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
