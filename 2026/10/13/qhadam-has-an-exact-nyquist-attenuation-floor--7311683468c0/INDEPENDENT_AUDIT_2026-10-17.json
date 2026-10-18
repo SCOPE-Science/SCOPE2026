@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:49:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:1810.06801v1 full primary",
+        "Resultary QHAdam and alternative optimizer alternating-input semantic queries",
+        "Frozen RESULT.md blob a40d811a38496311e30b38dd6776308b80fb8bd7",
+        "Frozen verify.py blob 0a7f94aa361cbd337ba7dc8e2288a1cb6e1b6854"
+      ],
+      "rationale": "Unrolling the first EMA for (-1)^(t-1)G gives mhat_t/g_t = (1-beta1)/(1+beta1) * [1-(-beta1)^t]/[1-beta1^t]. It equals a on every even step and a(1+beta1^t)/(1-beta1^t) on odd steps. Constant g_t^2 forces v_t=G^2(1-beta2^t) and vhat_t=G^2. Thus the denominator is |G|+epsilon independent of nu2,beta2. Differentiation yields d q_inf/d beta1=-2nu1/(1+beta1)^2, which is zero at nu1=0 and strictly negative only if nu1>0. The source RESULT.md wrongly said strictly decreasing for all fixed nu1, contradicting its own derivative. The full replacement RESULT.md corrects this boundary while retaining and proving the Nyquist response and sharp floor. Independent recurrence/limit checks corroborate but do not establish the analytic proof.",
+      "residual_risks": [
+        "Equivalent simple Nyquist signal calculation may appear in unpublished frequency-response notes.",
+        "The theorem is a prescribed-input diagnostic and cannot be promoted to convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma--Yarats discusses a worst-case update bound where second-moment discount matters; that does not determine exact behavior when g^2 is constant."
+        ],
+        "reasoning": "The general algorithm update bound is broader in allowed gradients but logically weaker for this precise input; cancellation requires specializing both recurrences.",
+        "searches": [
+          "arXiv:1810.06801v1 QHAdam general update bound immediate discount",
+          "QHAdam WMT16 nu2 beta2 parameter sweep"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.06801v1 full primary",
+        "Resultary QHAdam and alternative optimizer alternating-input semantic queries",
+        "Frozen RESULT.md blob a40d811a38496311e30b38dd6776308b80fb8bd7",
+        "Frozen verify.py blob 0a7f94aa361cbd337ba7dc8e2288a1cb6e1b6854"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defining paper contains QHAdam recurrences, damping interpretations and WMT16 parameters, not an exact period-two solution in inspected text.",
+          "Strictness at nu1=0 is false in original RESULT despite derivative already identifying zero slope."
+        ],
+        "reasoning": "The recurrence is a published premise, not a published attenuation theorem. The corrected statement is a nontrivial precise parameter cancellation inferred by direct specialization and now includes the missing boundary.",
+        "searches": [
+          "Ma Yarats Quasi hyperbolic momentum and Adam for deep learning arXiv 1810.06801 source equation QHAdam",
+          "Resultary published QHM exact scalar rate and AdaMomentum alternating gradient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Section 5 mixes raw and EMA gradients; full source RESULT.md period-two recurrence has q_inf=(1-nu1)+nu1(1-beta1)/(1+beta1).",
+          "Resultary AdaMomentum alternating-gradient restoration refers to a distinct adaptive denominator."
+        ],
+        "reasoning": "An equivalent formulation is the input-output Nyquist gain or period-two EMA response for exactly QHAdam with bias correction; nearby results on other optimizers do not imply the same double cancellation.",
+        "searches": [
+          "Resultary: quasi-hyperbolic Adam QHAdam alternating gradients Nyquist frequency attenuation immediate gradient β1 ν1 exact",
+          "Ma--Yarats arXiv:1810.06801v1 QHAdam alternating response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published hits include SCOPE AdaMomentum alternating gradient and A2Grad-inc alternating scaling, different algorithms."
+        ],
+        "reasoning": "No returned Resultary table gives QHAdam-specific exact Nyquist gain; a semantic search alone cannot establish absolute priority.",
+        "searches": [
+          "Resultary query: QHAdam alternating gradients Nyquist frequency attenuation immediate gradient β1 ν1 exact"
+        ]
+      },
+      "rationale": "The source Ma--Yarats QHAdam formula establishes the algorithm and motivation for immediate gradient mixing; its broad norm bounds and WMT16 sweep do not give the exact period-two bias-corrected parity, second-moment erasure and sharp first-discount Nyquist gain. Published Resultary comparisons with AdaMomentum and A2Grad alternating diagnostics concern different algorithms, not an implication for QHAdam. The exact analysis may be elementary but is not located as a prior statement.",
+      "residual_risks": [
+        "Equivalent simple Nyquist signal calculation may appear in unpublished frequency-response notes.",
+        "The theorem is a prescribed-input diagnostic and cannot be promoted to convergence.",
+        "Exact second-moment parameter erasure fails when the input has varying magnitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_STATE_THE_EXACT_ALTERNATING_SIGNAL_RESPONSE",
+          "evidence": "Section 5 moment interpolation and WMT16 parameters are the premises; source has general bounds, no exact parity / denominator erasure.",
+          "identifier_or_url": "arXiv:1810.06801v1",
+          "material_read": "Full open-access manuscript: QHAdam update formula, immediate-discount motivation, general bound, parameter sweep and WMT16 experiment.",
+          "method": "Read full text and targeted QHAdam formulas; compared exact formulas to source-package RESULT.md.",
+          "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+          "trigger": "Defining algorithm and potentially dominating input-response estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1810.06801v1 full primary",
+        "Resultary QHAdam and alternative optimizer alternating-input semantic queries"
+      ],
+      "rationale": "Stale gradients and immediate-gradient discounts are precisely why quasi-hyperbolic momentum was introduced. Exact alternating-signal response distinguishes first and second moment roles at a natural highest temporal frequency; the nu1=0 correction matters for the complete hyperparameter boundary, and WMT16 calibration yields a concrete interpretable gain. Narrow signal diagnostic, not convergence theorem.",
+      "residual_risks": [
+        "Equivalent simple Nyquist signal calculation may appear in unpublished frequency-response notes.",
+        "The theorem is a prescribed-input diagnostic and cannot be promoted to convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For the bias-corrected QHAdam scalar recurrence with zero state, 0<=beta1,beta2<1, 0<=nu1,nu2<=1, alpha>0, epsilon>=0, and nonzero alternating constant-magnitude gradient, vhat=G^2 exactly, q_inf=1-2 nu1 beta1/(1+beta1) with sharp inf 1-nu1; q_inf is strictly decreasing in beta1 only if nu1>0, constant 1 if nu1=0. Odd/even transients satisfy the exact parity law.",
+  "limitations": [
+    "Original literal strict-decrease statement failed at nu1=0; repair supplies complete corrected RESULT.md for exactly the same claim with correct endpoint qualification.",
+    "No statement about convergence on a fixed objective.",
+    "Third-party literature priority best of knowledge."
+  ],
+  "schema_version": 1
+}

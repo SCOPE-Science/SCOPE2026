@@ -1,435 +1,74 @@
 # QHAdam has an exact Nyquist attenuation floor
+
 ## Finding
+Consider the scalar, bias-corrected quasi-hyperbolic Adam (QHAdam) rule with zero initial moments,
+\[
+ m_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad
+ \widehat m_t=m_t/(1-\beta_1^t),
+\]
+\[
+ v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2,\qquad
+ \widehat v_t=v_t/(1-\beta_2^t),
+\]
+\[
+ \Delta\theta_t=-\alpha\,
+ \frac{(1-\nu_1)g_t+\nu_1\widehat m_t}
+ {\sqrt{(1-\nu_2)g_t^2+\nu_2\widehat v_t}+\varepsilon}.
+\]
+Assume \(0\le\beta_1,\beta_2<1\), \(0\le\nu_1,\nu_2\le1\), \(\alpha>0\), \(\varepsilon\ge0\), and a constant-magnitude alternating input \(g_t=(-1)^{t-1}G\), \(G\ne0\).
 
-QHAdam applies quasi-hyperbolic immediate discounts to both Adam moment estimators. On the highest-frequency constant-magnitude signal, the second-moment discount disappears entirely, while the first-moment discount creates an exact attenuation floor.
-
-Consider one coordinate of the bias-corrected source QHAdam recurrence:
+Then \(\widehat v_t=G^2\) exactly for every \(t\), so the entire denominator is \(|G|+\varepsilon\), regardless of \(\nu_2\) and \(\beta_2\). Put \(a=(1-\beta_1)/(1+\beta_1)\). The first moment obeys the exact parity law
 \[
-m_t
-=
-\beta_1m_{t-1}
-+
-(1-\beta_1)g_t,
+ \frac{\widehat m_t}{g_t}=a\frac{1-(-\beta_1)^t}{1-\beta_1^t}
+ =\begin{cases}
+ a,&t\text{ even},\\[2pt]
+ a(1+\beta_1^t)/(1-\beta_1^t),&t\text{ odd}.
+ \end{cases}
 \]
+Consequently the first-step update magnitude is \(\alpha|G|/(|G|+\varepsilon)\), every even step already has the limiting attenuation factor, and the odd-step factors decrease *weakly* to it:
 \[
-\widehat m_t
-=
-\frac{m_t}{1-\beta_1^t},
-\]
-\[
-v_t
-=
-\beta_2v_{t-1}
-+
-(1-\beta_2)g_t^2,
-\]
-\[
-\widehat v_t
-=
-\frac{v_t}{1-\beta_2^t},
-\]
-with update
-\[
-\Delta\theta_t
-=
--\alpha
-\frac{
-(1-\nu_1)g_t+\nu_1\widehat m_t
-}{
-\sqrt{
-(1-\nu_2)g_t^2+\nu_2\widehat v_t
-}
-+
-\varepsilon
-}.
-\]
-Assume
-\[
-0\le\nu_1,\nu_2\le1,
+ |\Delta\theta_t|=\alpha\frac{|G|}{|G|+\varepsilon}
+ \left[(1-\nu_1)+\nu_1\frac{\widehat m_t}{g_t}\right],
 \qquad
-0\le\beta_1,\beta_2<1,
-\qquad
-\alpha>0,
-\qquad
-\varepsilon\ge0,
+ q_\infty=1-\frac{2\nu_1\beta_1}{1+\beta_1}.
 \]
-zero initial moment states, and
+For each fixed \(\nu_1\in[0,1]\), \(q_\infty\) is nonincreasing in \(\beta_1\), and it is **strictly decreasing if and only if** \(\nu_1>0\). For \(\nu_1=0\), it is identically one. In all cases,
 \[
-g_t=(-1)^{t-1}G,
-\qquad
-G\ne0.
+ \boxed{\inf_{0\le\beta_1<1}q_\infty=1-\nu_1}.
 \]
-
-Because
-\[
-g_t^2=G^2
-\]
-for every \(t\),
-\[
-v_t
-=
-G^2(1-\beta_2^t)
-\]
-and therefore
-\[
-\boxed{
-\widehat v_t=G^2
-}
-\]
-exactly at every step. The complete QH second-moment term is consequently
-\[
-(1-\nu_2)g_t^2+\nu_2\widehat v_t
-=
-G^2.
-\]
-Thus
-\[
-\nu_2
-\]
-and
-\[
-\beta_2
-\]
-have no effect at all on the update magnitude for this signal.
-
-Now define
-\[
-a
-=
-\frac{1-\beta_1}{1+\beta_1}.
-\]
-The first moment is
-\[
-m_t
-=
-(-1)^{t-1}
-aG
-\left[
-1-(-\beta_1)^t
-\right],
-\]
-so
-\[
-\frac{\widehat m_t}{g_t}
-=
-a
-\frac{
-1-(-\beta_1)^t
-}{
-1-\beta_1^t
-}.
-\]
-
-This ratio has an exact parity law. For even \(t\),
-\[
-\frac{\widehat m_t}{g_t}=a.
-\]
-For odd \(t\),
-\[
-\frac{\widehat m_t}{g_t}
-=
-a
-\frac{1+\beta_1^t}{1-\beta_1^t},
-\]
-which decreases to \(a\) as \(t\to\infty\), and at \(t=1\) equals \(1\).
-
-Therefore the QHAdam numerator always has the current gradient's sign and can be written as
-\[
-(1-\nu_1)g_t+\nu_1\widehat m_t
-=
-q_t g_t,
-\]
-where every even step already has the limiting factor
-\[
-\boxed{
-q_\infty
-=
-(1-\nu_1)
-+
-\nu_1
-\frac{1-\beta_1}{1+\beta_1}
-=
-1-
-\frac{2\nu_1\beta_1}{1+\beta_1}
-}
-\]
-and the odd-step factors decrease from
-\[
-q_1=1
-\]
-to the same limit.
-
-The exact update magnitude is therefore
-\[
-|\Delta\theta_t|
-=
-\alpha
-\frac{|G|}{|G|+\varepsilon}
-q_t,
-\]
-with
-\[
-\boxed{
-|\Delta\theta_t|
-\longrightarrow
-\alpha
-\frac{|G|}{|G|+\varepsilon}
-q_\infty
-}.
-\]
-
-For fixed
-\[
-\nu_1,
-\]
-the limiting factor decreases strictly with
-\[
-\beta_1.
-\]
-Its sharp high-frequency floor over
-\[
-0\le\beta_1<1
-\]
-is
-\[
-\boxed{
-\inf_{\beta_1<1}q_\infty
-=
-1-\nu_1
-}.
-\]
-Thus the immediate first-moment discount protects a fixed fraction
-\[
-1-\nu_1
-\]
-of the current alternating gradient from arbitrarily slow momentum.
-
-When
-\[
-\nu_1=1,
-\]
-QHAdam reduces to Adam in the numerator and the attenuation becomes
-\[
-\frac{1-\beta_1}{1+\beta_1},
-\]
-which can approach zero as
-\[
-\beta_1\uparrow1.
-\]
-Any
-\[
-\nu_1<1
-\]
-prevents that complete high-frequency suppression.
-
-For the paper's WMT16 QHAdam setting
-\[
-\nu_1=0.8,
-\qquad
-\beta_1=0.95,
-\qquad
-\nu_2=0.7,
-\qquad
-\beta_2=0.98,
-\]
-the asymptotic factor is
-\[
-q_\infty
-=
-0.220512820512\ldots.
-\]
-The second-moment choices
-\[
-\nu_2=0.7,
-\qquad
-\beta_2=0.98
-\]
-do not affect this constant-magnitude alternating response.
+Thus, whenever \(\nu_1<1\), QHAdam retains a guaranteed nonzero fraction of the current alternating gradient, whereas the Adam-numerator choice \(\nu_1=1\) has a factor approaching zero as \(\beta_1\uparrow1\). At the paper's WMT16 setting \((\nu_1,\beta_1,\nu_2,\beta_2)=(0.8,0.95,0.7,0.98)\), the limiting factor is \(0.220512820512\ldots\).
 
 ## Assumptions and scope
-
-The recurrence is the bias-corrected QHAdam update in the defining paper.
-
-The parameter ranges
-\[
-0\le\nu_1,\nu_2\le1
-\]
-are the interpolation regime relevant to the algorithm's immediate-discount interpretation.
-
-The gradient sequence is an externally prescribed input-response diagnostic. It need not arise from a single fixed objective.
-
-The result uses a constant gradient magnitude and alternating sign. This is the real Nyquist-frequency input.
-
-The theorem concerns the QHAdam update before any additional weight decay or clipping not present in the displayed source rule.
+The result concerns precisely the displayed bias-corrected source recurrence, without extra clipping, decay, or other update modifications. The gradient is a prescribed signal; it need not be the gradient sequence along any fixed objective. Its constant squared magnitude is essential for the exact disappearance of second-moment parameters. The immediate discounts are restricted to the natural interpolation interval \([0,1]\), even though the defining paper discusses wider conventions. The parameter \(\beta_1=1\) is excluded; the infimum at this boundary need not be attained. No general optimization convergence conclusion follows.
 
 ## Proof
+Unrolling the geometric first-moment recurrence, for every \(t\ge1\),
+\[
+ m_t=(1-\beta_1)\sum_{j=1}^{t}\beta_1^{t-j}(-1)^{j-1}G
+ =(-1)^{t-1}G\frac{1-\beta_1}{1+\beta_1}[1-(-\beta_1)^t].
+\]
+Divide by \((1-\beta_1^t)g_t\) to obtain the stated ratio and parity decomposition. When \(\beta_1=0\), both parity ratios are one; otherwise odd powers \(\beta_1^t\) strictly decrease with odd \(t\), while \(x\mapsto(1+x)/(1-x)\) increases for \(0\le x<1\). Mixing with \((1-\nu_1)g_t\) gives the scalar attenuation \(q_t=(1-\nu_1)+\nu_1\widehat m_t/g_t\). Hence \(q_t\ge q_\infty>0\) for every finite \(t\). Every even \(t\) has \(q_t=q_\infty\); odd factors approach that value from above, with equality identically in degenerate cases \(\nu_1=0\) or \(\beta_1=0\).
 
-Unrolling the first moment gives
+For the second moment, the constant squared input implies
 \[
-m_t
-=
-(1-\beta_1)
-\sum_{j=1}^{t}
-\beta_1^{t-j}g_j.
+ v_t=(1-\beta_2)G^2\sum_{j=0}^{t-1}\beta_2^j
+ =G^2(1-\beta_2^t),\qquad\widehat v_t=G^2.
 \]
-For
+Thus \((1-\nu_2)g_t^2+\nu_2\widehat v_t=G^2\), and the claimed exact update magnitude follows. Finally,
 \[
-g_j=(-1)^{j-1}G,
+ \frac{\partial q_\infty}{\partial\beta_1}
+ =-\frac{2\nu_1}{(1+\beta_1)^2}\le0,
 \]
-factor out the current sign:
-\[
-m_t
-=
-(-1)^{t-1}
-(1-\beta_1)G
-\sum_{r=0}^{t-1}
-(-\beta_1)^r.
-\]
-The finite geometric sum yields
-\[
-m_t
-=
-(-1)^{t-1}
-\frac{1-\beta_1}{1+\beta_1}
-G
-\left[
-1-(-\beta_1)^t
-\right].
-\]
-Dividing by the bias-correction factor and by \(g_t\) gives the exact ratio.
-
-If \(t\) is even, then
-\[
-(-\beta_1)^t=\beta_1^t,
-\]
-so the bias-correction factors cancel and
-\[
-\widehat m_t/g_t=a.
-\]
-If \(t\) is odd, then
-\[
-(-\beta_1)^t=-\beta_1^t,
-\]
-giving the stated larger ratio. Its monotone decrease follows because
-\[
-x\longmapsto
-\frac{1+x}{1-x}
-\]
-is increasing for \(0\le x<1\), while
-\[
-\beta_1^t
-\]
-decreases with odd \(t\).
-
-For the second moment,
-\[
-v_t
-=
-(1-\beta_2)
-\sum_{j=1}^{t}
-\beta_2^{t-j}G^2
-=
-G^2(1-\beta_2^t).
-\]
-Bias correction therefore gives
-\[
-\widehat v_t=G^2.
-\]
-Substitution into the quasi-hyperbolic second-moment interpolation gives \(G^2\) exactly.
-
-The limiting numerator factor is
-\[
-q_\infty
-=
-(1-\nu_1)+\nu_1a.
-\]
-Differentiating with respect to
-\[
-\beta_1
-\]
-gives
-\[
-\frac{\partial q_\infty}{\partial\beta_1}
-=
--\frac{2\nu_1}{(1+\beta_1)^2}
-\le0,
-\]
-with strict inequality when
-\[
-\nu_1>0.
-\]
-Taking
-\[
-\beta_1\uparrow1
-\]
-proves the sharp floor
-\[
-1-\nu_1.
-\]
+with strict inequality exactly for \(\nu_1>0\). Taking \(\beta_1\uparrow1\) proves the sharp floor including both endpoint cases \(\nu_1=0,1\). The WMT16 value is direct substitution.
 
 ## Verification
-
-The accompanying `verify.py` directly replays the source QHAdam moment recurrences under alternating gradients.
-
-It checks the exact first-moment transient, the parity law after bias correction, exact erasure of \(\nu_2\) and \(\beta_2\) from the denominator, the limiting attenuation factor, and the WMT16 numerical value.
-
-The finite calculations are transcription guards. The formulas and sharp floor are proved analytically above.
+The source-package checker `verify.py` directly replays the two moment recurrences for alternating gradients, checking the exact parity ratio, denominator cancellation, attenuation factor, boundary behavior, and WMT16 number. Independent spot checks can substitute these parameters into the closed formulas for any positive integer \(t\). Such checks corroborate transcription; the finite geometric sums above prove the all-time identities and the sharp global floor.
 
 ## Relationship to prior work
-
-Ma and Yarats introduced quasi-hyperbolic momentum as a weighted average between a current gradient and a momentum estimate, then applied the same immediate-discount idea to both moment estimators of Adam to obtain QHAdam.
-
-Their paper explicitly interprets
-\[
-\nu_1
-\]
-as controlling how much immediate unbiased gradient enters the update relative to the momentum estimate. It motivates this as a way to reduce the staleness introduced by slow momentum. For QHAdam's second moment, the paper also notes that lowering
-\[
-\nu_2
-\]
-can tighten a worst-case per-step update bound.
-
-The inspected full text derives general update bounds and extensive parameter sweeps, but it does not state the response to a persistent alternating constant-magnitude gradient, the exact parity law, or the fact that
-\[
-\nu_2
-\]
-and
-\[
-\beta_2
-\]
-are completely erased on this signal.
-
-The paper's WMT16 case study uses
-\[
-(\nu_1,\beta_1,\nu_2,\beta_2)
-=
-(0.8,0.95,0.7,0.98).
-\]
-The exact theorem here shows that its highest-frequency constant-magnitude response is controlled only by the first-moment pair.
-
-Focused published-record searches for QHAdam alternating gradients, high-frequency attenuation, periodic inputs, and immediate-discount frequency response did not identify an implication-equivalent result.
+Jerry Ma and Denis Yarats, *Quasi-hyperbolic momentum and Adam for deep learning* (arXiv:1810.06801v1; ICLR 2019), define the QHAdam update and motivate immediate-gradient discounts as protection against stale first-moment information. The defining paper analyzes worst-case update bounds and empirical parameter choices, including its WMT16 setting. Those statements do not themselves give the alternating-input parity identity, the exact disappearance of both second-moment hyperparameters at every time, or the sharp Nyquist attenuation floor. The present result is an elementary, input-specific frequency-response diagnostic built from that published recurrence; its contribution is the joint exact parameter dependence, not the invention of immediate discounting or a general convergence guarantee.
 
 ## Limitations
+A real Nyquist alternating gradient is a special, externally prescribed input, not a model of general stochastic optimization. Any departure from constant squared magnitude typically restores dependence on \(\beta_2\) and \(\nu_2\). The attenuation floor concerns the scalar QHAdam update and does not imply a universal performance improvement. Equivalent input-response calculations may exist in technical notes outside the inspected literature.
 
-The constant-magnitude alternating signal is an extreme high-frequency diagnostic.
-
-The theorem does not imply that changing
-\[
-\nu_2
-\]
-or
-\[
-\beta_2
-\]
-is irrelevant on general stochastic gradients; only this constant-magnitude signal erases them exactly.
-
-The result concerns the optimizer's input response rather than convergence on a fixed nonlinear objective.
-
-The source allows broader real values of the immediate discounts, while the sharp-floor interpretation here is restricted to the interpolation range
-\[
-[0,1].
-\]
-
-## References
-
-1. Jerry Ma and Denis Yarats, “Quasi-hyperbolic momentum and Adam for deep learning,” arXiv:1810.06801v1, 2018; ICLR 2019.
+## Reference
+Ma, Jerry, and Denis Yarats. *Quasi-hyperbolic momentum and Adam for deep learning*. arXiv:1810.06801v1 (2018), ICLR 2019.
