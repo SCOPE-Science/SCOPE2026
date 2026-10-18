@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The self-contained checker `verify.py` uses rational coefficient dictionaries in four variables and exact integer/rational arithmetic. Run it with `python3 verify.py` from the directory containing this document. A successful run reports:
+## correctness
 
-`PASS: 3 exact polynomial identities; 20474 rational simplex points; positive witness; sharpness cases`
+PASS
 
-The three verified polynomial identities are the displayed factorizations of \(u_j-P\) for \(j=1,2,3\). Each certificate has nonnegative monomial coefficients in nonnegative probability variables. The proof that the first three masses control all later renewal masses follows by induction from the displayed convex-combination recurrence and does not depend on numerical tests.
+At pinned RESULT.md, the renewal recursion u_n=sum_{j=1}^4 p_j u_{n−j} with u0=1 makes every n>=4 a convex combination of its preceding four values, so the global positive-time minimum is min(u1,u2,u3). Independently expanded the three displayed nonnegative residual factorizations u_j−P and reduced under a+b+c+d=1: all polynomial differences vanish identically. At c=0, u3−(Q4+lambda abd)=ab[b+(2−lambda)d]; an exact rational witness a=49/100,b=1/100,d=1/2 makes lambda=21/10 already fail, while lambda=2 is safe. The cumulative-coordinate restriction proves membership in both classes. Verified actual verify.py coefficient structure, not just its output.
 
-The checker also evaluates every nonnegative integer quadruple whose coordinates sum to a denominator from 1 through 24 after normalization, verifies the nonnegative lower-envelope inequalities at each rational point, and checks an interior strict witness. A separate polynomial identity on the face \(c=0\) plus explicit rational choices shows why any perturbation coefficient greater than \(2\) is impossible. The finite grid does not establish continuum validity: the exact polynomial identities do.
+## originality
 
-The bibliography and originality comparison are reviewed against the full preprint and the publisher-hosted journal text. Independent audit and independent publication-priority verification have not been performed. No general extremal classification for larger supports is asserted.
+PASS
+
+The 2024 primary article Conjecture 3.7 asserts exactly the opposite of this constructed admissible polynomial: Q_4 maximal in A_4 and largest in restricted hat A_4. Its Proposition 3.5 proves only Q_4 is a lower bound; Proposition 3.8 treats k=3. The present P=Q_4+2abd strictly dominates in the interior and belongs to both classes, an explicit new counterexample with sharp directional coefficient; no equivalent counterexample found.
+
+## value
+
+PASS
+
+Constructive falsification of two clauses of a named published conjecture at the first previously unsettled support size, supplying an exact positive perturbation and a sharp one-parameter coefficient; the finite-degree minorant problem is naturally motivated by renewal probabilities rather than arbitrary coefficient improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
