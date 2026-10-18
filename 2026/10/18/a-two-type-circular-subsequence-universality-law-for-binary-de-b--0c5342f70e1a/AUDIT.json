@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, occurrence counts of the two length-(L+2) equal-end, alternating-interior factors give E_L=2^(n-L-1) for 1<=L<=n-2. The count of repeat events and exactly two alternating n-factors force either (n,n) or (n-1,n+1) as the remaining gaps. Reading equal pairs synchronizes the three-state greedy scanner; each gap contributes floor(L/2) arches and, for each even gap, exactly L/2 cuts with one missing arch. The two finite sums give K=floor(2^n/3) or ceil(2^n/3) and H=D_n or D_n+n, with all index and cyclic-boundary cases included. This was independently checked against all 2+16+2048 de Bruijn cycles of n=3,4,5, 105 additional random Eulerian cycles and FKM orders 3..10. Direct subsequence search independently checks n=3 and n=4. The proof, not finite tests, covers all orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general greedy criterion for k-omni words, Abraham et al. Lemma 3.1, is used in the proof but gives no de Bruijn-specific value for k.",
+        "An unrestricted binary-word finite-length generating function does not classify de Bruijn-conditioned cyclic cuts: it aggregates words without retaining the n-factor uniqueness constraint."
+      ],
+      "reasoning": "The prior criteria are broader in domain but weaker in asserted output: they require new computation of the repeat-gap law to imply the complete conditional histogram. No inspected stronger theorem determines both K and the lower-root count for this class.",
+      "searches": [
+        "published-finding corpus query: Among all binary de Bruijn cycles of order n, the circular subsequence universality index is floor or ceiling 2^n/3; exact distribution of indices across cyclic rotations",
+        "arxiv:0905.4517 (Sections 2-4, 6, 8)",
+        "arxiv:1510.08748 (abstract and automaton bounds)",
+        "doi:10.1137/100808782 (abstract and construction scope)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0905.4517",
+      "doi:10.1137/100808782",
+      "arxiv:1510.08748",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "debruijnsequence.org/db/home (construction/background website)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Waddle Lemma establishes universality equals greedy full-alphabet arches; it does not evaluate that count on circular de Bruijn words.",
+        "The 2012 fixed-weight constructions cover selected n-bit words as contiguous windows, rather than determining the number of completed scattered-subsequence arches in every unrestricted binary n-order de Bruijn cycle."
+      ],
+      "reasoning": "Applying the known greedy lemma still leaves an all-order structural problem. The exact exceptional gap patterns (n,n) versus (n-1,n+1) and the H(B) count are not logical corollaries of these prior results without the new argument.",
+      "searches": [
+        "arxiv:0905.4517 Waddle Lemma de Bruijn Section 2",
+        "doi:10.1137/100808782 fixed-weight de Bruijn sequences",
+        "published-finding corpus query: Binary universal cycles shortest absent subsequence order, greedy arch throughput one third and exceptional alternating windows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abraham et al., arxiv:0905.4517, pp. 2-5, juxtaposes de Bruijn cycles and omnisequences but derives no per-rotation de Bruijn index formula.",
+        "Public mathematical record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 concerns the unconditional number of all binary words of each finite index, not de Bruijn-conditioned cyclic cuts."
+      ],
+      "reasoning": "An equivalent theorem must force the two exact values K and K-1 with the counts D_n and D_n+n for every de Bruijn cycle; the closest inspected index enumerator has no de Bruijn constraint or alternating-factor adjacency dichotomy.",
+      "searches": [
+        "\"de Bruijn\" \"subsequence universality\" cyclic (public literature search)",
+        "\"de Bruijn\" \"omnisequence\" subsequences (public literature search)",
+        "published-finding corpus query: Binary de Bruijn sequences greedy arch universality spectrum, shortest absent scattered subsequences",
+        "published-finding corpus query: Rooted scattered-subsequence universality histogram of de Bruijn sequences: two alternating n-factors adjacent versus disjoint, gap repeat autocorrelation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "debruijnsequence.org describes constructions and circular n-factor coverage, not a table of scattered-subsequence universality indices of every cut.",
+        "Complete direct census of the 2048 order-five cycles in verify.py gives two types with 512 and 1536 cycles; no claim that these proportions extend beyond order five."
+      ],
+      "reasoning": "No inspected table contains the all-order rooted-universality count formulas. The finite data are independently reproduced and are not substituted for the infinite proof.",
+      "searches": [
+        "published-finding corpus query: Exact subsequence universality index arch factorization of binary de Bruijn sequences cyclic shifts, all orders, sharp lower bounds",
+        "de Bruijn sequences subsequence universal scattered subsequence k universal arch factorization (public literature search)",
+        "de Bruijn Sequences and Universal Cycles constructions website, debruijnsequence.org/db/home"
+      ]
+    },
+    "rationale": "In the primary full text of Abraham et al. (arxiv:0905.4517), Sections 2-4, de Bruijn cycles are introduced as contiguous universal cycles, while their Waddle Lemma characterizes scattered universality for general words and their subsequent theorems count/estimate random or unrestricted omnibus words. No statement there conditions on de Bruijn cycle membership and classifies universality of all cyclic cuts. The inspected Ruskey-Sawada-Williams 2012 construction targets fixed-weight cyclic substring coverage rather than scattered universality profiles. Bille-Gortz-Skjoldjensen 2015 investigate subsequence automata and size/delay bounds rather than this arithmetic histogram. Searches of publicly published mathematical findings found a full binary-word index generating function, not a conditional two-type de Bruijn theorem. Residual risk of unindexed equivalent formulation remains.",
+    "residual_risks": [
+      "Search results and accessible full text cannot exclude a differently named, unindexed prior theorem.",
+      "A full comparison with the publisher-only parts of the 2012 fixed-weight construction was not possible; its stated problem is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The Waddle Lemma is a necessary building block and explicitly acknowledged. The existing estimates and counting theorems concern general or random omnibus words; no cyclic de Bruijn two-type rooted distribution in the inspected statements.",
+        "evidence": [
+          "Section 2, pp.2-3, treats de Bruijn cycles as contiguous-factor universal and observes the shorter minimal omnibus lengths.",
+          "Lemma 3.1 on p.5 gives greedy decomposition into completed alphabet collections; Section 4 gives unconditional and random omnisequence counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0905.4517",
+        "material_read": "Title, abstract, full text of Sections 2 and 3, theorem and proof material from Sections 4 and 6, and section map to conclusions/references; searched complete PDF text for de Bruijn and rotations.",
+        "method": "Lawful open arXiv PDF text, and visual inspection of PDF pages 2 and 5.",
+        "title": "Omnibus Sequences, Coupon Collection, and Missing Word Counts",
+        "trigger": "Single paper combines de Bruijn cycles and scattered-subsequence universality in one treatment."
+      },
+      {
+        "assessment": "The inspected construction specializes to fixed-weight contiguous word coverage and does not state the rooted scattered-subsequence distribution. Limited access leaves some residual comparison risk.",
+        "evidence": [
+          "Abstract specifies constructions of fixed-weight binary cyclic substring covers by cool-lex algorithms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Published abstract, MSC/keywords, and accessible author-uploaded opening statement; the complete publisher full text was not obtained.",
+        "method": "Open bibliographic publisher page and accessible author-supplied introduction/abstract, not represented as complete document inspection.",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Same canonical cyclic de Bruijn objects and word-combinatorics domain."
+      },
+      {
+        "assessment": "The automaton-theoretic size/delay results are not an exact de Bruijn-cycle rooted universality histogram.",
+        "evidence": [
+          "Theorem discussion and Lemma 2 bound subsequence automata by size O(n log sigma) and delay O(log sigma); de Bruijn is not discussed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.08748",
+        "material_read": "Abstract, introduction, Sections 2-3 transition definitions and principal size/delay bounds, complete text search for de Bruijn.",
+        "method": "Open arXiv PDF; first page visually inspected and relevant main statements read.",
+        "title": "Subsequence Automata with Default Transitions",
+        "trigger": "Closest subsequence-automaton treatment in the archival period."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c5342f7-0e1a-4b56-832f-11806c534314",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The statement determines a natural, precisely defined quantitative bridge between contiguous universality and scattered-subsequence coverage in every binary de Bruijn cycle. Despite exponentially many possible cycles, every cyclic cut has one of two neighboring indices near one-third of cycle length, and the complete histogram depends only on parity and the position relation of two alternating n-factors. The two-state gap obstruction and exact count are structural all-order information, neither an arbitrary slice nor a known-table recomputation.",
+    "status": "PASS"
+  }
+}

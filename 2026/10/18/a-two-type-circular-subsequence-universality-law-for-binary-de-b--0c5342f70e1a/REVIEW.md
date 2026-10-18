@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite-factor bijection fixes all short repeat gaps; the two remaining gaps are forced to be either \((n,n)\) or \((n-1,n+1)\) by the two alternating length-\(n\) factors. The deterministic greedy scanner yields exact throughput and exactly \(L/2\) deficient rooted cuts for each even repeat gap. The geometric-arithmetic sums give the claimed formulas. Complete de Bruijn cycle enumerations for orders 3–5, direct scattered-subsequence enumeration for orders 3–4, and independent larger constructions confirm every quantitative prediction. The proof, not these finite computations, supplies the unbounded quantifiers.
+
+**Originality — PASS against inspected evidence, with residual risk.** The closest primary source is Abraham et al., arXiv:0905.4517, whose greedy omnisequence lemma supplies the criterion and whose Section 2 discusses de Bruijn cycles only to contrast contiguous and scattered coverage. Ruskey–Sawada–Williams (DOI:10.1137/100808782) address fixed-weight cycle construction, not rooted subsequence universality. Bille–Gørtz–Skjoldjensen (arXiv:1510.08748) treat subsequence-automaton size/delay. Searches of published mathematical findings identified a full binary-word universality generating function but no type-sensitive complete rooted histogram for binary de Bruijn cycles. The possibility of an earlier unindexed formulation remains.
+
+**Mathematical value — PASS.** A de Bruijn cycle is a canonical exact contiguous-factor universal object. It is not obvious that all its linear cuts have scattered-subsequence universality essentially equal to one-third of the cycle length, or that the *entire* cut histogram depends only on a two-valued local alternation configuration. The all-orders classification and exact cut counts quantify a natural contrast between contiguous coverage and scattered coverage; the result is not a single finite table.
+
+**Limitations.** Only binary cycles of order at least three and length-one-period linear cuts are classified. The proof makes no statement about larger alphabets or the relative number of de Bruijn cycles in each class. Earlier equivalent work could be unindexed. The review is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
