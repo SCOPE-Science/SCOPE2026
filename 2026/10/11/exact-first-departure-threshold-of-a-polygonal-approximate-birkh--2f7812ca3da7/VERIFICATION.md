@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof reduces the improving-pair region to two affine cells already isolated by the focal paper. On each surviving cell, monotonicity in \(u\) puts the maximum on an explicit boundary, and a one-variable derivative sign gives the global cell maximum. The mixed-cell boundary value is
-\[
-D_* = \frac{18910336411}{19465125400},
-\qquad
-1-D_* = \frac{554788989}{19465125400}.
-\]
-A strict-feasibility perturbation of the boundary point approaches \(D_*\), so the value is a supremum of actual improving pairs rather than merely a formal boundary upper bound.
 
-`activation_threshold_check.py` replays the rational arithmetic with Python's standard-library `Fraction`. It checks the branch endpoints, the derivative-sign tests on both cells, the strict comparison between the two cell maxima, the cutoff identity, and one exact rational point in the sharpness family. Its SHA-256 digest is `2861b4e3c591a6dc2287a398df59da8ca9d7aba34a6c5151bcee82090d2ad146`.
+# Independent mathematical audit
 
-No numerical sample is used to infer a global inequality. The checker supports arithmetic reproducibility; the infinite-dimensional quantifiers in the profile statement are discharged by the source's exhaustive two-dimensional facet reduction plus the analytic optimization and limiting family in the proof.
+## correctness
 
-The result does not verify the full post-activation profile, the companion plane \(Y\), or a general polygonal-space theorem.
+PASS
+
+The same polygonal norm and Example 6 facet parameterization were checked in Fang et al. For every pair improving m>331/206 the focal reduction puts u>=v and u+v>c, S(u)+S(v)>7c/5; S3/S3 is infeasible. On S2/S2 and S3/S2, the displayed rational D(u,v) increases with u; the active boundaries and derivative quadratic signs yield cell suprema 29270497/30250300 and 18910336411/19465125400 respectively. The latter is larger. Exact rational reconstruction of the boundary pair (u0,v0) verifies both unit norms, m=c, and its independently optimized directed distance D*=18910336411/19465125400. The strict-feasible perturbation approaches D*, proving equality as a supremum, so the endpoint plateau is closed and sharp.
+
+## originality
+
+PASS
+
+Fang et al. 2026 Example 6 computes the same norm and demonstrates only the interior value J_B^(1/40)=331/206 and saturation 100999/3009900. It bounds every improving pair by 39/40, not the exact maximum directed distance D*; the exact first-departure fraction is not implied by those two values. Earlier other-space James constants cannot imply the initial plateau for this norm.
+
+## value
+
+PASS
+
+The focal comparison was designed to show that endpoint and saturation data do not determine the approximate-orthogonality profile. Its sharp onset at 554788989/19465125400 is a natural missing boundary: a complete interval of equality followed by strict gain, rather than an arbitrary parameter slice or a tiny unmotivated decimal adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
