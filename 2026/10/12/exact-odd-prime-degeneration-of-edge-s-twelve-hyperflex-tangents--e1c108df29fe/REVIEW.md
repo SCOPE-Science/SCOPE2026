@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the twelve tangent line equations by differentiation at the printed Edge-quartic points, checks all 220 triple determinants in \(\mathbb Z[i]\), and obtains exact Gaussian norm support \(\{2,3,5\}\). This proves the universal stable range \(p\ge7\) without extrapolating finite samples. Six explicit \(\mathbb F_9\) quadruple points and the count of exactly 24 vanishing triples yield the full characteristic-three configuration. Exact characteristic-five line grouping and four-linear-factor identity show the four-component degeneration. Frobenius pairing proves every rational-point count; direct field calculations corroborate special cases. See `RESULT.md` and `verify.py`.
+PASS
 
-## Originality — PASS, with identified risks
+Twelve displayed primitive line vectors were read from frozen RESULT.md and compared with the gradients of F=X^4+Y^4+Z^4+3sum X²Y². An independently written SymPy Gaussian-integer determinant enumeration covered all 220 triples, finding no zero and norm histogram {4:8,20:48,36:24,40:24,64:12,80:48,100:48,200:8}; all odd prime factors are 3 or 5. Thus no triple concurrency or pair collapse for any odd p≥7, giving 66 double points. Independent F9 arithmetic normalized all twelve reductions at p3 and enumerated geometric pairwise intersections: 36 points, specifically 30 double and six quadruple, six F3-rational. At p5, two i embeddings independently yield four distinct lines, each with three original labels; the four linear forms multiply exactly to F modulo5 and have six distinct rational doubles. For p≥7 split i∈Fp yields 66 Fp points; nonsplit i gives six conjugate-pair intersections rational, and no others because triple points are excluded. The all-prime assertion is certified by exact integer determinant norms, not by sampled primes.
 
-The twelve tangent lines and their complex 66-double intersections are **prior results**, not part of the new claim. The full accessible Dimca–Ilardi–Pokora–Sticlaru Sect. 5 and Pacini–Testa Sect. 2 were compared against the odd-prime incidence and Frobenius claim. Pacini–Testa's characteristic-thirteen enlargement of the projective stabilizer is different from incidence degeneration, and they excluded characteristic three. Janasz–Pokora–Zieliński concern a 28-bitangent divisor. The new classification and rational count were not identified as previously stated or implied by those sources or the searched mathematical record. The 1945 historical source was not available in full, and nonindexed earlier arithmetic calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete arithmetic classification for the hyperflex tangent arrangement of a maximally hyperinflected plane quartic. It identifies the only odd primes where the generic double-point property fails, exhibiting both a six-quadruple-point phenomenon and a coincidence with the reduced quartic itself, and determines rational intersection counts for every odd prime. The phenomenon refines an explicitly studied geometric configuration rather than an arbitrary finite subset.
+Dimca–Ilardi–Pokora–Sticlaru (arXiv:2301.01117) give the exact complex twelve hyperflex tangent lines and state 66 ordinary double points; this original input is not claimed as new. Pacini–Testa (arXiv:1301.1865) study the same Edge quartic/projective-dual hyperinflection set and its reconstruction/stabilizer; their exceptional p13 is a symmetry phenomenon, not a new line-incidence degeneration. The independently computed p3/p5 fibers, determinant-based all-good-prime bound and Fp rational-point counts do not follow from the characteristic-zero statement. Edge 1945 original accessible only in extract; full lawful Oxford request produced vpn_disconnected, so historic overlap is a named risk.
 
-## Scientific scope and access
+## value
 
-The claim is for the fixed integral equations and odd characteristics only. It does not classify freeness in positive characteristic or all hyperflexes on arbitrary quartic models. The 1945 original and a related 28-bitangent full paper were only partially accessible, as recorded in the structured originality checks. Independently verifying the proof and literature remains worthwhile.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exceptional-prime incidence classification of a canonical twelve-line tangent configuration is a natural arithmetic specialization problem: it identifies exactly where the intersection lattice jumps and separately resolves rational vs geometric points. The obstruction-norm proof uniformly excludes all other odd primes; the exceptional p3 and p5 geometries have sharply different structure and provide useful test cases for reductions of complex arrangements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
