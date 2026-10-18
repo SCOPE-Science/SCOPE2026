@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The claim follows from four exact Lie-derivative identities for the printed autonomous QPP vector field. Compact support inside \(z>0\) justifies integration of \(L(\log z)\), while invariance gives zero mean Lie derivative. Eliminating \(\int y^2z\,d\mu\) and \(\int y^2\,d\mu\) yields the pressure–activity law, and an exact reciprocal-mean identity yields the fluctuation decomposition. The bundled symbolic checker independently reconstructs these algebraic steps. The zero-activity rigidity argument is dynamical rather than numerical.
+## correctness
 
-## Originality
-The same-model source was read materially through its model derivation, autonomous bifurcation results, delayed-feedback section, numerical-chaos discussion, non-integrability program, and dynamics at infinity. Text searches for average, mean, invariant measure, and recurrence do not locate the claimed pressure–activity law. The original QPP and later qualitative/fractional literature were compared by implication: they study the same physical equations or extensions through oscillations, bifurcations, chaos, and control, but do not supply the invariant-measure relation. Semantic searches returned only balance laws for different vector fields; those analogies do not imply this source-specific identity. A direct fetch of the 2011 introducing paper was rate-limited, so its full text remains a residual access risk.
+PASS
 
-## Value
-The source explicitly uses periodic and chaotic QPP regimes to model recurrent plasma perturbations. The new law converts the pressure coordinate alone—through its arithmetic mean and reciprocal mean—into the exact stationary mean-square magnetic-field velocity, independently of \(\delta\) and \(\eta\). It therefore gives a parameter-robust consistency check for any periodic or chaotic recurrent computation and a rigorous separator between equilibrium-supported and genuinely active ergodic states. This is a structural finite-amplitude invariant, not a local linearization or a recomputation of a displayed trajectory.
+For any compact invariant probability measure supported in z>0, all needed smooth observables are legitimate. Exact Lie derivatives L(y²/2)=xy, L(xy)=x²+y²(z−1)−δxy, Lz=η(h−z−y²z), Llogz=η(h/z−1−y²). Their zero stationary integrals eliminate xy and y²z to give E[x²]=E[z]+h E[1/z]−(h+1) and E[y²]=hE[1/z]−1. The exact centered-reciprocal identity yields the nonnegative defect decomposition. If E[x²]=0, continuity and support imply x=0 throughout the invariant support; then y constant, y(z−1)=0. For y≠0, z=1 forces h=1+y², equilibrium; for y=0 the scalar pressure z′=η(h−z) has only equilibrium invariant compact probability z=h. Conversely equilibria have x=0. For non-equilibrium ergodic measures activity strictly positive. Independent symbolic differentiation was performed; no numerical trajectory is claimed as proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full material of Zhang–Yang same ODE was inspected through model, bifurcations, delay, chaos and infinity and does not supply the exact ensemble reciprocal-pressure statistic. Other published recurrence laws have different ODEs. Four co-boundary identities yield an exact invariant measure constraint beyond sampled phase portraits, albeit a modest algebraic derivation; introducing 2011 QPP article not fully accessed is explicitly residual risk.
+
+## value
+
+PASS
+
+For a motivated plasma oscillator, the exact relation between physically meaningful pressure distribution and velocity activity is a structural necessary law for every compact recurrent statistical state. The equality/strictness at equilibrium gives a usable consistency test for periodic or chaotic simulations; it is not a finite-time curve fit, even though the analytic stationarity steps are elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
