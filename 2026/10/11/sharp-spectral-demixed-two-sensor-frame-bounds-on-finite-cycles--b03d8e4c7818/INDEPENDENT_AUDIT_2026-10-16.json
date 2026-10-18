@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:46:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/VERIFICATION.md"
+      ],
+      "rationale": "Diagonalizing the cycle normalized Laplacian gives distinct low-pass lambda_k=1-cos(2*pi*k/N); each pair of conjugate Fourier eigenspaces has two-site 2x2 Gram eigenvalues (2/N)(1±|cos(2*pi*k*s/N)|), the constant block gives 2/N. This proves exactly the demixed frame constants (not those of raw trajectories). The map u=(2/g)s modulo M is surjective with fibers g; the K+1 cyclic residues 0,u,...,Ku have a gap <=q=floor(M/(K+1)), yielding min_{k<=K}||ku/M||<=q/M; u=q attains equality for all k. Divisibility forces equal gaps and generator u=aq (gcd(a,K+1)=1), giving g*phi(K+1) winning separations. Distinct eigenvalues make K+1 temporal Vandermonde powers invertible and 2K observations from K times insufficient in dimension 2K+1. Independently exhaustively tested ALL s for 1,558 (N,K) instances with 5<=N<=80, including all divisible equality counts; finite testing complements the all-integer pigeonhole proof.",
+      "residual_risks": [
+        "These A/B bounds apply to spectrally demixed P_k outputs, NOT the raw Euclidean time-trajectory observations; temporal Vandermonde conditioning is separate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bulai et al. arXiv 2609.25472 abstract: graph finite frames and path-graph numerical study, complete text unavailable; Yang et al. full text ring-size 1000 numerical test."
+        ],
+        "reasoning": "Generic graph spectral projectors subsume the *setup* but no inspected theorem supplies the exact sharp constants for the cycle. The full 2026 preprint is a plausible potential stronger source, explicitly a residual priority risk.",
+        "searches": [
+          "graph Paley Wiener normalized Laplacian dynamical sampling frames finite graph all bandwidths; Vandermonde node placement cyclic graph",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+        "https://doi.org/10.1016/j.sigpro.2021.108211",
+        "https://arxiv.org/abs/2609.25472",
+        "https://arxiv.org/abs/2411.12670"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2x2 Gram eigenvalues and integer-gap pigeonhole force the claimed exact maximin coefficient, whereas cited earlier work supplies general framework without corresponding q or equality classification in read sections."
+        ],
+        "reasoning": "Classical lemmas make the proof short; mathematical implication from an abstract qualitative frame theorem would require its unpublished or unread sections to contain this specific optimal cycle arithmetic. That is a stated risk, not asserted absent.",
+        "searches": [
+          "Bulai et al. finite graph spectral dynamical frames path experiment; Yang et al. 2021 graph node selection ring",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Yang–Huang 2021 ring graph is a sensor-selection numerical model; Bulai et al. 2026 graph Paley–Wiener description includes general finite-graph dynamical frames."
+        ],
+        "reasoning": "The demixed block operator has a different norm from raw time-trajectory frames. Prior general recoverability conditions or ring simulations do not by themselves imply the sharp q/M spacing law or g*phi(K+1) count.",
+        "searches": [
+          "two-point cyclic Fourier harmonic frame optimal separation; normalized-Laplacian bandlimited dynamical samples; spectral projector sampling demixing",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first hit is identical claim only; Yang et al. report ring numerical experiments, not a complete exact N,K arithmetic table."
+        ],
+        "reasoning": "A numerical sensor ranking on a single graph size does not dominate an exact arithmetic formula for all N,K. No identified exact database/table covers the claimed spectrum, but a negative search is not priority proof.",
+        "searches": [
+          "Resultary semantic: finite cycle graph dynamical sampling two sensors demixed spectral frame optimal separation eigenvectors Fourier; cyclic trigonometric spacing q floor M/(K+1)",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+        ]
+      },
+      "rationale": "The exact problem is spectral-projector-demixed sensor geometry, not the raw graph frame operator. Bulai et al. arXiv:2609.25472 (Sept 21, 2026) gives general graph Paley–Wiener dynamical sampling and path-graph numerical frame design in its accessible abstract; the full 31-page manuscript could not be retrieved and Oxford access returned VPN disconnected. Yang–Yang–Huang (2021) materially read graph signal sampling/node selection including undirected ring numerical experiments; no exact all-parameter two-site demixed cyclic maximin and totient equality theorem was identified in the inspected material. Aldroubi et al. (arXiv:2411.12670) treat noisy dynamical graph reconstruction. Resultary similarity searches locate other finite Fourier and path problems but not a stronger statement implying these exact cycle demixed constants. Classical Fourier diagonalization/pigeonhole principles are credited, leaving bounded unindexed/cycle manuscript coverage risk.",
+      "residual_risks": [
+        "Full 31-page Bulai et al. primary source not accessible; arXiv/OA retrieval unsuccessful and authorized Oxford attempt returned vpn_disconnected; no bypass or automated approval.",
+        "These A/B bounds apply to spectrally demixed P_k outputs, NOT the raw Euclidean time-trajectory observations; temporal Vandermonde conditioning is separate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_SAMPLING_OBJECTIVE",
+          "evidence": "Node partitioning and aggregation numerical tests do not give exact per-eigenspace 2x2 demixed arithmetic optimum.",
+          "identifier_or_url": "https://doi.org/10.1016/j.sigpro.2021.108211",
+          "material_read": "Author-posted full manuscript, setup and frame/node optimization sections including undirected size-1000 ring numerical experiment",
+          "method": "author-hosted primary manuscript text, relevant sections",
+          "title": "An Orthogonal Partition Selection Strategy for the Sampling of Graph Signals with Successive Local Aggregations",
+          "trigger": "Original node-selection problem has ring numerical tests and graph frames"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_UNREAD",
+          "evidence": "Abstract describes dynamical graph GPW frame construction and path graph numeric design; cannot assert entire 31-page paper lacks a cyclic specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Public abstract, author list, date, stated path-graph finite numerical scope; complete body inaccessible",
+          "method": "arXiv public abstract; attempted authorized fulltext, VPN disconnected",
+          "title": "Dynamical Sampling in Graph Paley--Wiener Spaces",
+          "trigger": "Recent directly relevant graph-spectral frame study"
+        },
+        {
+          "assessment": "GENERAL_NOT_DECISIVE",
+          "evidence": "Qualitative sampling condition could underlie recoverability, not inspected exact cyclic condition-number arithmetic.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.12670",
+          "material_read": "Public abstract on noisy dynamical graph sampling and node selection",
+          "method": "arXiv bibliographic abstract",
+          "title": "Reconstructing Graph Signals from Noisy Dynamical Samples",
+          "trigger": "General temporal/spatial recovery comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+        "https://doi.org/10.1016/j.sigpro.2021.108211",
+        "https://arxiv.org/abs/2609.25472"
+      ],
+      "rationale": "The low-pass graph Fourier band and two-site placement are natural sensing design choices; exact worst-eigenspace recovery and the finite-grid arithmetic loss quantify conditional stability for all cycle lengths and cutoffs, including an equality classification. The theorem expressly does not optimize the raw time-trajectory norm, which also suffers Vandermonde conditioning; within its defined demixed norm it is a complete meaningful natural finite spectral design invariant, not a cherry-picked tiny grid.",
+      "residual_risks": [
+        "These A/B bounds apply to spectrally demixed P_k outputs, NOT the raw Euclidean time-trajectory observations; temporal Vandermonde conditioning is separate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For C_N normalized Laplacian, H_K=span e_0,e_±1,...,e_±K, 1<=K<N/2, the per-eigenspace demixed two-site frame satisfies A_s=(2/N)(1-C_s), B_s=(2/N)(1+C_s), C_s=max_{1<=k<=K}|cos(2*pi*k*s/N)|. With M=N/gcd(N,2) and q=floor(M/(K+1)), maximum lower bound is (2/N)(1-cos(pi*q/M)) and minimum condition ratio cot²(pi*q/(2*M)); optimal offsets and, if divisible, their totient count are classified.",
+  "limitations": [
+    "Full 31-page Bulai et al. primary source not accessible; arXiv/OA retrieval unsuccessful and authorized Oxford attempt returned vpn_disconnected; no bypass or automated approval.",
+    "These A/B bounds apply to spectrally demixed P_k outputs, NOT the raw Euclidean time-trajectory observations; temporal Vandermonde conditioning is separate."
+  ],
+  "schema_version": 1
+}
