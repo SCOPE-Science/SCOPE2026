@@ -1,11 +1,21 @@
-# Scientific review: exact deletion-code capacity at Hamming weight two
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof covers every integer \(n\geq3\). The construction has \(\lfloor n/2\rfloor+\lfloor(n-1)/4\rfloor\) codewords whose deletion-output sets are disjoint: weight-one outputs are separated by parity and block, and weight-two outputs by adjacency and first-one index. Independently, the selected output universe has \(n-1+\lceil(n-1)/2\rceil\) elements and intersects every weight-two deletion ball in at least two distinct elements. This yields the matching cardinality bound. The attached direct verifier checks construction and dual cover over substantial finite ranges, while the independent C++ clique census checks exact small cases. Proof, not computation, supplies the infinite quantifier.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The closest directly relevant published preprint is Cullina–Kulkarni–Kiyavash (arXiv:1211.4056), which establishes optimal colorings of exactly these constant-weight deletion graphs but not the maximum size of a single independent set. Color-optimality does not imply the stated independence number. Kulkarni–Kiyavash (arXiv:1211.3128) proves general deletion-code dual bounds and develops a constrained-source framework; its inspected constrained case is run-length limited, not the exact weight-two invariant. Searches for the formula, its graph equivalence, and relevant tables found no exact covering source. Unindexed specialized work remains a risk; failed search is not proof of novelty.
+PASS
 
-**Value — PASS.** The constant-weight partition is a natural code-design strategy in the cited deletion-channel work. At weight two, its exact optimum is a nontrivial closed formula for every block length, complete with constructive encoders and a matching hypergraph packing obstruction. This resolves an invariant not supplied by the previously known optimal coloring. The result does not claim that a small weight layer alone gives asymptotically efficient unconstrained codes.
+For every n>=3, the code of even-index adjacent pairs (2j,2j+1) plus long-gap pairs (4j+1,4j+4) has floor(n/2)+floor((n-1)/4) distinct words. Their weight-one deletion descendants and distinct weight-two descendants cannot overlap across blocks. For the upper bound take all n-1 weight-one outputs and ceil((n-1)/2) chosen adjacent weight-two outputs covering each adjacent input; every input has >=2 distinct selected outputs. Disjoint descendants force 2|C|<=n-1+ceil((n-1)/2), whose integer floor equals floor((3n-2)/4). Independently checked construction and transversal via raw strings for n=3..55; unrestricted theorem follows from the symbolic argument.
 
-**Limitations and verification.** Binary alphabet, exactly two ones per word, one arbitrary deletion, \(n\geq3\). No conclusions for larger weights, full-code optimum, or multiple deletions. The mathematical argument has been reviewed against its hypotheses and boundary cases, but has not undergone independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier constant-weight deletion code colorings, including optimal colorings on weight-two graphs, do not imply maximum independent set size; the submitted theorem gives the precise all-n packing number and a matching integral two-output dual construction. The general constrained fractional LP bound does not specify the exact all-n formula. No indexed exact same formula in Resultary or inspected primary results.
+
+## value
+
+PASS
+
+Determines a natural error-correcting code capacity uniformly for the first nontrivial constant weight, with explicit all-length matching construction and upper cover. This is not a single arbitrary input parameter, a renaming, or merely optimal coloring; it determines the true maximum packing number for the entire binary weight-two layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

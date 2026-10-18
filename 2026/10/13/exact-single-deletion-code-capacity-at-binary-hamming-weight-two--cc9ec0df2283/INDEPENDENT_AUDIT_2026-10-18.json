@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:49:56.544376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3, the code of even-index adjacent pairs (2j,2j+1) plus long-gap pairs (4j+1,4j+4) has floor(n/2)+floor((n-1)/4) distinct words. Their weight-one deletion descendants and distinct weight-two descendants cannot overlap across blocks. For the upper bound take all n-1 weight-one outputs and ceil((n-1)/2) chosen adjacent weight-two outputs covering each adjacent input; every input has >=2 distinct selected outputs. Disjoint descendants force 2|C|<=n-1+ceil((n-1)/2), whose integer floor equals floor((3n-2)/4). Independently checked construction and transversal via raw strings for n=3..55; unrestricted theorem follows from the symbolic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior broad constructions on constant-weight graphs, general deletion LP upper bounds, but no matching all-n n,w=2 formula in material read."
+        ],
+        "reasoning": "The specialized explicit construction plus integral two-output transversal attain equality and add information beyond general lower coloring classes or generic LP constraint statements.",
+        "searches": [
+          "https://arxiv.org/abs/1211.4056",
+          "https://arxiv.org/abs/1211.3128",
+          "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+          "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 296c94b434c834403c8a34cb59770f0f0dcac470 fully read",
+        "verify.py blob d8449c29053c007adab5e0d11f45a102dc986a32 inspected",
+        "verify.cpp blob 6bb455b07773c8e52feea24cf23127c132a7be64 inspected",
+        "https://arxiv.org/abs/1211.4056",
+        "https://arxiv.org/abs/1211.3128",
+        "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+        "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original modified-VT colorings bound chromatic number, not independent-set cardinality. The proposed dual covers every input by >=2 outputs with total n-1+ceil((n-1)/2)."
+        ],
+        "reasoning": "Neither optimal coloring nor generic LP framework logically forces equality with floor((3n-2)/4), whereas the complete matched constructive upper/lower pair does. A prior implicit alternate derivation remains conceivable.",
+        "searches": [
+          "https://arxiv.org/abs/1211.4056",
+          "https://arxiv.org/abs/1211.3128",
+          "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+          "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weight-two code capacity equals graph independence number under one-deletion confusability; distinct from known chromatic number."
+        ],
+        "reasoning": "Translated the claim to maximum independent set of constant-composition deletion confusability graph. Prior optimal coloring results do not determine the independence number for all lengths.",
+        "searches": [
+          "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+          "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set",
+          "https://arxiv.org/abs/1211.4056"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is quantified for all n>=3 rather than a finite table; finite checks n=3..55 support but do not prove it."
+        ],
+        "reasoning": "Unindexed tables for small n might agree with evaluated terms; they cannot by themselves cover all lengths. Actual targeted searches found no same closed form.",
+        "searches": [
+          "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+          "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set",
+          "https://arxiv.org/abs/1211.4056"
+        ]
+      },
+      "rationale": "The earlier constant-weight deletion code colorings, including optimal colorings on weight-two graphs, do not imply maximum independent set size; the submitted theorem gives the precise all-n packing number and a matching integral two-output dual construction. The general constrained fractional LP bound does not specify the exact all-n formula. No indexed exact same formula in Resultary or inspected primary results.",
+      "residual_risks": [
+        "Older specialized combinatorics literature on weight-two deletion graph maximum independent sets could give this formula under other language.",
+        "Independent direct checks n=3..55 corroborate but the all-n theorem rests on the symbolic matching bounds, not finite extrapolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Chromatic statement and modified VT classes not equivalent to all-n maximum independent set",
+          "evidence": "arXiv:1211.4056, graph-coloring results",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+          "material_read": "Full accessible preprint including statements on optimal chromatic number and weight partitioning",
+          "method": "Open primary arXiv full-text reading",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Introduces exact same constant-weight deletion confusability graph"
+        },
+        {
+          "assessment": "General fractional transversal techniques, no stated sharp all-n weight-two capacity formula in inspected text",
+          "evidence": "arXiv:1211.3128, LP methodology",
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "Full preprint and constrained-source examples",
+          "method": "Open primary arXiv full-text reading",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Potential dominating LP packing upper bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural error-correcting code capacity uniformly for the first nontrivial constant weight, with explicit all-length matching construction and upper cover. This is not a single arbitrary input parameter, a renaming, or merely optimal coloring; it determines the true maximum packing number for the entire binary weight-two layer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob 296c94b434c834403c8a34cb59770f0f0dcac470 fully read",
+    "verify.py blob d8449c29053c007adab5e0d11f45a102dc986a32 inspected",
+    "verify.cpp blob 6bb455b07773c8e52feea24cf23127c132a7be64 inspected",
+    "https://arxiv.org/abs/1211.4056",
+    "https://arxiv.org/abs/1211.3128",
+    "Resultary semantic search: binary one deletion constant Hamming weight two maximum code floor (3n-2)/4 exact independent set",
+    "Resultary semantic search: maximum one deletion correcting code all binary length n Hamming weight 2 floor 3n/4 explicit independent set"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Older specialized combinatorics literature on weight-two deletion graph maximum independent sets could give this formula under other language.",
+    "Independent direct checks n=3..55 corroborate but the all-n theorem rests on the symbolic matching bounds, not finite extrapolation."
+  ],
+  "schema_version": 1
+}
