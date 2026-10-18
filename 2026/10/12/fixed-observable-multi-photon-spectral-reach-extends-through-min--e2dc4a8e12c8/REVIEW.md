@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is quantified over all \(m\ge2\), \(L\ge1\), and \(n\ge1\). The proof separately treats \(d=1\), then constructs an interior point and degree-
-\(d\) polynomial for \(d\ge2\). Direct differentiation gives the stated frequency multipliers, and product-to-sum identities prove surjectivity onto \(\mathcal P_{dL}\). The open-mapping step used is exactly the finite-dimensional implication already required by the source framework. The finite checker is corroborative only.
+## correctness
 
-## Originality
-PASS. The source itself attempts only \(\min\{n,m-2\}L\). The closest public correction, Pith record YVIQVUCG, gives a single \(m=3,n=2,L=1\) counterexample and says that \(m-1\) appears to be the right scale; it does not prove the general inclusion. Targeted semantic searches using the source identifier, fixed-observable aliases, the degree formula, and Chebyshev terminology found no equivalent all-parameter result. The current and prior owned ledgers contain no source-specific or equivalent claim.
+PASS
 
-## Value
-PASS. The result supplies a general constructive replacement for the source's failed fixed-observable step and shows that guaranteed spectral improvement continues through the \(m-1\)-st photon. It also cleanly separates what is proved from what remains open: no saturation theorem is claimed, and the scalar-rescaled hypothesis family is distinguished from the physical unrescaled output family.
+Checked constructive basepoint with a=1/m, 0<epsilon<a/sqrt(2): y1=a+epsilon cos(Lx), y2=a+epsilon sin(Lx), y3..y_{m-1}=a, ym=a-epsilon(cos+sin) is interior of the simplex. The degree-d polynomial g=(x1-a)^2+(x2-a)^2-epsilon^2+sum_{j=3}^d(xj-a)T_{j-1}((x1-a)/epsilon) vanishes at y and its tangent derivative has multipliers cos Lx,sin Lx,cos(2Lx)..cos((d-1)Lx) because the Chebyshev prefactors vanish there; d<=m-1 allows an independent balancing coordinate ym. Fourier product-to-sum gives the FULL real space P_{dL}; independently reconstructed Laurent complexifications and verified exact ranks 2dL+1 for every 1<=d<=5,1<=L<=3, without using the source checker. In finite-dimensional tangent coordinates submersion yields a neighborhood of zero and the scalar multiplier built into H_g yields all of P_{dL}; this does not establish saturation or an unrescaled physical claim.
 
-## Closest literature and limitations
-The closest item is the public technical review Pith:YVIQVUCG, whose explicit circle construction is the \(d=2,L=1\) seed of the present mechanism but does not include the Chebyshev ladder needed for arbitrary \(d\) and \(L\). The primary preprint's Sard count is an upper obstruction, not a constructive coverage theorem. Residual novelty risk is limited to an unindexed independent generalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
+
+## value
+
+PASS
+
+Corrects a mathematically meaningful quantifier/constructive threshold in a current expressivity problem: a uniform polynomial template increases the certified fixed-observable Fourier reach from min(n,m-2)L to min(n,m-1)L, rather than merely one exceptional instance. The distinction between physical outputs and rescaled mathematical hypothesis class is essential and explicitly maintained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
