@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduced signed fixed-face identity is proved orbit by orbit, rotations fold to shorter polygons (with the two small quotients counted separately), and reflections fold to bidirectional paths. The top cycles are explicit boundaries of the two excluded full directed polygons; known homology concentration then permits subtraction of their traces. The resulting character identifies the complete rational modules. Direct face-level boundary-rank and signed-trace checks through eight vertices, orbit enumeration through thirteen, and algebraic comparisons through eighty returned `VERIFY_OK`. No finite check is used to assert an all-length theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The January 2026 original paper determines underlying homology groups, not the dihedral character or the order-four square summand; its full text was inspected, including the homology computation and concluding discussion. The 2007 complete-digraph cycle-free chessboard paper addresses a different complex with broader arrow support and no decomposition implying this subcomplex's homology action. Searches for equivariant, dihedral, cycle-free, sparse cyclic-board, and bidirectional multipath formulations did not expose the stated all-length module classification. Search nonappearance does not exclude unindexed prior work.
+PASS
 
-**Value — PASS.** This resolves the full rational representation carried by every nonzero reduced homology group of a natural infinite family investigated in a current mathematical paper. The sharp transition at polygon lengths divisible by four—the emergence of a rotation-order-four plane—is not implied by the published Betti numbers and distinguishes the equivariant topology of otherwise comparably small homology groups.
+PASS. X_m is the face complex of directed arc subsets with at most one incoming and one outgoing at each vertex and no directed cycles. The augmented signed fixed-face trace is minus the alternating orbit-choice sum, since an orbit of r arcs supplies Euler sign (-1)^r and orientation sign (-1)^(r-1). For a rotation of shift a, invariant faces reduce to the bidirected gcd(m,a)-polygon, apart from quotient lengths d=1,2 which have direct orbit counts; thus Lefschetz is 3 if d=2 mod 4 and -1 otherwise. Reflections suppress every orbit forcing a reverse pair or duplicate source/target at a fixed rim vertex, leaving a bidirected path of t edges as defined in the proof. The exact cited polygon and path homology give concentrated degrees j(m) and m-2. The two boundary cycles of the forbidden consistently oriented m-gons are independent top classes; their orientation signs give rotation (-1)^(m-1) and reflection exchange. Subtract top character from the Lefschetz trace and use semisimplicity to recover every lower module, with the delicate m=3 zero-degree convention included. I independently enumerated every group element's invariant orbit subsets for each m=3,...,11, verifying BOTH rotation and reflection Lefschetz values; finite enumeration corroborates, does not prove the m-uniform orbit-fold lemma.
 
-**Limitations.** No integral representation or equivariant homotopy splitting is claimed. The all-length homology concentration is used as a published input; the new character proof is independent of its spectral-sequence calculation. A mathematically equivalent but unindexed result remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on inspected evidence. The Caputi–Collari–Smith theorem classifies ordinary integral homology and proves the bidirected-line sphere, but supplies no graded D_m-character matrices. No rule from the nonequivariant ranks determines the nontrivial order-four rotation eigenvalues. The sparse bidirected polygon is not equivariantly homologically equivalent to the full cycle-free chessboard complex merely by inclusion. Our exhaustive m<=11 check is not literature proof; Resultary was unavailable and unindexed equivariant computations remain a risk.
+
+## value
+
+PASS
+
+PASS. Exact D_m-module structure is mathematically finer than the cited nonequivariant ranks: it distinguishes the new order-four square action in the 4|m family from mere dimension three, and determines all reflection signs. Such equivariant homology is a natural invariant of an intrinsically dihedrally symmetric family used in multipath/chessboard topology, not an arbitrary small enumeration or reparametrized Betti formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
