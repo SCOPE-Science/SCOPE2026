@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:13:32.408961Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git source RESULT.md blob feca2776f75c18b51e66a4924be7916cc88ae500",
+        "AIMS Mathematics 11 (2026), DOI:10.3934/math.2026577, actual Eq2.5 and Theorem2.1",
+        "Independent symbolic second derivative in independent_checks.py"
+      ],
+      "rationale": "The source EBR density yields ℓ(t)=C+log x−x²/2+(β−1)log(1−e^{−x²/2})−λG(x)^β−e^λ(1−e^{−λG(x)^β}), x=t/α. As x->0, logG=2logx−log2−x²/4+O(x⁴), H=2^{−β}x^{2β}(1+O(x²)); for β≠1/2 this gives ℓ″(t)=−(2β−1)/t²+o(t^{-2}). Every 1/4<β<1/2 therefore violates the cited global log-concavity theorem near zero. At β=1/2 cancellation yields finite limiting curvature α^{-2}(λ²e^λ/2−3/4) and unique λ0≈0.814884. At β=1, direct differentiation at x=1 gives α^{-2}(λ²exp(−1+λ exp(−1/2))−2), which is positive at λ=2 (~2.94984); the unique crossing is λ1≈1.485829. This independently disproves any β-only global theorem. Symbolic differentiation of the published log-density for β=1 and exact λ=2 positivity were verified; the asymptotic powers provide a separate analytic proof.",
+      "residual_risks": [
+        "The complete valid global log-concavity region is not classified.",
+        "The source model validity/estimation or heavy tails are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Rayleigh/Bell-G distribution constructions do not imply this parameter-specific second-derivative phase.",
+          "AIMS paper Eq2.13 supplies density leading order, but its stated theorem contradicts the derived curvature."
+        ],
+        "reasoning": "Broad generator-family methods cannot substantiate the false β>0.25 conclusion; source-specific derivative is decisive.",
+        "searches": [
+          "DOI:10.3934/math.2026577 Eq2.5, Eq2.8, Eq2.13",
+          "compounded Bell-G log concavity distribution density"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026577 (primary PDF and publisher metadata, published 2026-05-18)",
+        "Published mathematics semantic search for EBR logarithmic curvature/corrigendum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source asserts β>0.25 global log-concavity and later reports w(t)~Ct^{2β−1}.",
+          "Differentiation of the correct log from Eq2.5 exposes the wrong sign and missing factor in Eq2.8, contradicting its theorem."
+        ],
+        "reasoning": "An explicit positive curvature at admissible β=1,λ=2 refutes the theorem; this is a source-specific correction rather than reuse of the original false claim.",
+        "searches": [
+          "DOI:10.3934/math.2026577 Eq2.5 versus Eq2.8 and Theorem2.1",
+          "DOI:10.3934/math.2026577 Eq2.13 origin behavior"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AIMS original Theorem2.1 claims global log-concavity for β>0.25; Figure5 shows β=0.3 as purported example.",
+          "No correction appears in inspected publisher article record."
+        ],
+        "reasoning": "Searches of exact DOI/model aliases, local concavity, curvature and erratum found primary source and unrelated distribution results, not this complete correction. Negative search is not a priority certificate.",
+        "searches": [
+          "10.3934/math.2026577 log-concavity beta 0.25 EBR corrigendum",
+          "exponentiated Bell Rayleigh distribution log concavity beta threshold incorrect theorem correction",
+          "published mathematics semantic query: exponentiated Bell Rayleigh distribution log concavity beta threshold incorrect theorem correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original theorem and Figure5 are opposite to the audited counterexample, not existing tabulations of it.",
+          "No matching corrected λ0/λ1 thresholds were found in publisher listing."
+        ],
+        "reasoning": "The displayed local and slice thresholds are newly calculated from the published source equation; incomplete indexing remains possible.",
+        "searches": [
+          "DOI:10.3934/math.2026577 Theorem2.1 and Figure5",
+          "10.3934/math.2026577 correction erratum"
+        ]
+      },
+      "rationale": "The primary source makes the contrary β>0.25 theorem and its proof employs a log-density not equal to the displayed density. The exact β=1/2 origin phase, λ-dependent boundary curvature and explicit β=1 global obstruction are corrections, not previously stated consequences. The source itself has t^{2β−1} asymptotic, an ingredient but not the curvature correction.",
+      "residual_risks": [
+        "Unindexed very recent correction could supersede this result.",
+        "No complete global β,λ log-concavity classification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_LOG_CONCAVITY_ASSERTION_REFUTED",
+          "evidence": "Theorem2.1 requires β>0.25; Eq2.5 logarithm differs from Eq2.8 in proof; Eq2.13 gives a t^{2β−1} asymptotic.",
+          "identifier_or_url": "DOI:10.3934/math.2026577",
+          "material_read": "Lawful publisher full PDF pages containing Eq2.4–2.13, the EBR density, Theorem2.1 and its proof, Figure5, and publication page/abstract",
+          "method": "Direct rendered PDF and publisher HTML with mathematical expression comparison",
+          "title": "Applications of the novel extended Rayleigh distribution in statistical quality, censored data with application for engineering materials",
+          "trigger": "Published theorem directly contradicted"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Published DOI:10.3934/math.2026577 Theorem2.1, Eq2.5, Figure5",
+        "Independent symbolic β=1 positive-curvature check"
+      ],
+      "rationale": "This is a mathematically motivated correction of an explicit published theorem used to justify a probability-density shape claim. It rules out an entire parameter interval rather than one isolated numerical point, identifies a sharp β=1/2 local phase with λ-dependent boundary, and proves that a simple β-threshold repair cannot salvage global concavity.",
+      "residual_risks": [
+        "The result does not invalidate the statistical model itself or other unrelated inferential formulas."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete valid global log-concavity region is not classified.",
+    "The source model validity/estimation or heavy tails are outside the claim.",
+    "Unindexed very recent correction could supersede this result.",
+    "No complete global β,λ log-concavity classification claimed."
+  ],
+  "schema_version": 1
+}

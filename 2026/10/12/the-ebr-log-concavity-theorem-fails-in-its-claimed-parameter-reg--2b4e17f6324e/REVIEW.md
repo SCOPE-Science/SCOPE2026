@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the logarithm of the published EBR density rather than the altered expression used in the source's proof. The origin expansion gives \(\ell''(t)=-(2\beta-1)t^{-2}+o(t^{-2})\) away from \(\beta=1/2\), and the boundary expansion gives \(\alpha^{-2}(\lambda^2e^\lambda/2-3/4)\). A separate exact calculation at \(\beta=1\) and \(t=\alpha\) gives \(\alpha^{-2}[\lambda^2e^{-1+\lambda e^{-1/2}}-2]\). The bundled checker independently reproduces these values and both numerical roots.
+## correctness
 
-## Originality
-PASS. The target full PDF was inspected at the density, Theorem 2.1, its proof, Figures 5-6, and the later origin asymptotic. Five focused published-result searches, exact DOI/correction searches, general Bell-G searches, and current/prior owned-ledger checks found no covering correction. The source itself states the opposite conclusion, so this is not a special case of a prior theorem.
+PASS
 
-Residual risk remains from a very recent unindexed author correction.
+The source EBR density yields ℓ(t)=C+log x−x²/2+(β−1)log(1−e^{−x²/2})−λG(x)^β−e^λ(1−e^{−λG(x)^β}), x=t/α. As x->0, logG=2logx−log2−x²/4+O(x⁴), H=2^{−β}x^{2β}(1+O(x²)); for β≠1/2 this gives ℓ″(t)=−(2β−1)/t²+o(t^{-2}). Every 1/4<β<1/2 therefore violates the cited global log-concavity theorem near zero. At β=1/2 cancellation yields finite limiting curvature α^{-2}(λ²e^λ/2−3/4) and unique λ0≈0.814884. At β=1, direct differentiation at x=1 gives α^{-2}(λ²exp(−1+λ exp(−1/2))−2), which is positive at λ=2 (~2.94984); the unique crossing is λ1≈1.485829. This independently disproves any β-only global theorem. Symbolic differentiation of the published log-density for β=1 and exact λ=2 positivity were verified; the asymptotic powers provide a separate analytic proof.
 
-## Value
-PASS. The false theorem is used by the source as a central shape classification and is tied to claims about unimodality and inferential stability. The correction excludes the entire \(1/4<\beta<1/2\) band from local log-concavity and gives a distinct global obstruction even at \(\beta=1\). This is a structural correction, not a numerical edge case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary source makes the contrary β>0.25 theorem and its proof employs a log-density not equal to the displayed density. The exact β=1/2 origin phase, λ-dependent boundary curvature and explicit β=1 global obstruction are corrections, not previously stated consequences. The source itself has t^{2β−1} asymptotic, an ingredient but not the curvature correction.
+
+## value
+
+PASS
+
+This is a mathematically motivated correction of an explicit published theorem used to justify a probability-density shape claim. It rules out an entire parameter interval rather than one isolated numerical point, identifies a sharp β=1/2 local phase with λ-dependent boundary, and proves that a simple β-threshold repair cannot salvage global concavity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
