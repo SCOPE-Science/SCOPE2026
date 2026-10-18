@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exhaustive generation covers every binary \(\frac{8}{3}\)-free word through length \(30\). No word below length \(30\) survives every insertion, while exactly two length-\(30\) words do. A separate least-period implementation verifies the displayed witnesses directly and verifies all \(124\) one-letter extensions of the two witnesses contain a forbidden factor.
+## correctness
 
-## Originality
-PASS. The direct source proves arbitrarily long extremal \(\frac{8}{3}\)-free binary words but does not state a shortest length or classify the shortest examples. Its displayed endpoint family starts at length \(86\). The nearest length-classification paper concerns ternary square-free words. Targeted index, literature, exact-phrase, and exact-witness searches found no covering result.
+PASS
 
-Residual risk: an unindexed computational note may contain the same length-\(30\) pair.
+Every exponent-at-least-8/3 factor with least period p has a period-p threshold subfactor of length ceil(8p/3). Prefix generation rejecting newly created forbidden suffixes is exhaustive: a newly invalid word must have a forbidden suffix. Independently compiled and ran a separate C++ period-threshold generator for lengths 1..30. It reproduced all 30 populations (ending 34,880;48,020;66,102), found no extremal word below 30, and exactly the two stated length-30 words. Both words were independently checked under every one-letter insertion. Exhaustion proves this finite minimum, but neither larger-length classification nor higher-threshold existence.
 
-## Value
-PASS. The boundary \(\frac{8}{3}\) is the upper endpoint of the published existence theorem and the conjectured value of the binary extremal repetition threshold. The exact minimum and complete shortest-word classification are therefore a natural finite invariant, not an arbitrary census cutoff.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mol–Rampersad–Shallit prove arbitrarily long extremal words at threshold 8/3 by morphic constructions, not a sharp shortest length, exhaustive short-length census, or the exact unique complementary pair. Their Prop. 4.2(e) construction starts at a substantially longer length under the prescribed nonempty source. Existence of long instances does not imply the least length.
+
+## value
+
+PASS
+
+The endpoint 8/3 is the upper explicitly established general extremal-freeness threshold in the motivating source. Its first extremal binary witness and the uniqueness/symmetry classification are independently useful finite boundary data, not an arbitrary cutoff; full exhaustive search is mathematically substantive here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

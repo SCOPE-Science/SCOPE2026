@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Compile and run `verify.cpp` beside `certificate.json`.
+# Independent mathematical audit
 
-The checker enumerates every binary \(\frac{8}{3}\)-free word through length \(30\) by exact suffix pruning. For every retained word it directly tests all insertion positions and both inserted letters. It confirms zero extremal words through length \(29\), exactly two at length \(30\), and the complete population vector recorded in `certificate.json`.
+## correctness
 
-For the two final witnesses, an independent routine computes the least period of every factor from the definition rather than using the suffix-pruning criterion. It confirms both original words are free and all \(124\) inserted extensions are not free.
+PASS
 
-Expected output:
+Every exponent-at-least-8/3 factor with least period p has a period-p threshold subfactor of length ceil(8p/3). Prefix generation rejecting newly created forbidden suffixes is exhaustive: a newly invalid word must have a forbidden suffix. Independently compiled and ran a separate C++ period-threshold generator for lengths 1..30. It reproduced all 30 populations (ending 34,880;48,020;66,102), found no extremal word below 30, and exactly the two stated length-30 words. Both words were independently checked under every one-letter insertion. Exhaustion proves this finite minimum, but neither larger-length classification nor higher-threshold existence.
 
-`VERIFY_OK shortest=30 free30=66102 extremal30=2 symmetry_orbits=1`
+## originality
 
-The claim is finite and exhaustive. No claim is made about longer lengths or thresholds above \(\frac{8}{3}\).
+PASS
+
+Mol–Rampersad–Shallit prove arbitrarily long extremal words at threshold 8/3 by morphic constructions, not a sharp shortest length, exhaustive short-length census, or the exact unique complementary pair. Their Prop. 4.2(e) construction starts at a substantially longer length under the prescribed nonempty source. Existence of long instances does not imply the least length.
+
+## value
+
+PASS
+
+The endpoint 8/3 is the upper explicitly established general extremal-freeness threshold in the motivating source. Its first extremal binary witness and the uniqueness/symmetry classification are independently useful finite boundary data, not an arbitrary cutoff; full exhaustive search is mathematically substantive here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
