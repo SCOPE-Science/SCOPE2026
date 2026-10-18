@@ -1,32 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Stationarity against arbitrary antiderivatives of \(s=x+y\) gives
-\[
-\mathbb E[x\mid s]=A.
-\]
-Stationarity against arbitrary antiderivatives of \(y\) gives
-\[
-B\mathbb E[x\mid y]=y\mathbb E[x^2\mid y].
-\]
-These imply the conditional-variance and activator-size-biased nullcline formulas. A backward-time differential inequality rules out \(s\le A\) on any bounded complete positive orbit. Orthogonality of \(x-A\) to functions of \(s\), together with \(\dot s=A-x\), gives the covariance-speed identity. Zero defect forces the unique positive equilibrium.
+## correctness
 
-Risk: compact support in the strictly positive quadrant is used to avoid integrability and boundary issues in the conditional formulas.
+PASS
 
-## Originality
-PASS. The complete 1971 same-object article is the decisive prior comparison: it explicitly derives
-\[
-\frac{d}{dt}(X+Y)=A-X
-\]
-and, after one-period averaging, obtains
-\[
-\langle X\rangle=A.
-\]
-That global result is treated as prior and excluded from the originality claim. The surviving theorem keeps arbitrary slice test functions and obtains the stronger conditional law, an independent inhibitor-fiber relation, a size-biased nullcline calibration, the recurrent barrier, and an equality-rigid covariance-speed defect. Complete classical and modern same-object sources inspected did not state those surviving assertions.
+For the positive Brusselator, s=x+y satisfies sdot=A-x=(A-s)+y; bounded complete positive trajectories obey s(t)-A=∫_{-∞}^t exp(-(t-u)) y(u)du>0. Invariance tested against all smooth antiderivatives of s gives E[x|s]=A; against all antiderivatives of y gives B E[x|y]=y E[x²|y]. Positivity yields the conditional variance formula m(B/y-m), with m=E[x|y]>0. Bias dν=(x/A)dμ leads to Eν[x|y]=B/y. E[x|s]=A implies Cov(x,s)=0, hence Var(y)-Var(s)=Var(x)=E[(sdot)²]. If zero, x=A throughout invariant support, and xdot=0 forces y=B/A. Other invariant measures must have positive mass on both sides of x=A. Correctness for compact support in strictly positive quadrant; no extrapolation to boundary or stochastic model.
 
-Risk: the generator calculations are short, so an equivalent observation could remain in unindexed chemical-oscillation literature.
+## originality
 
-## Value
-PASS. The result turns two natural Brusselator coordinates—the total concentration and inhibitor level—into exact stationary calibration variables. It gives a direct nullcline-based diagnostic for stationary data, a strict recurrent geometry \(x+y>A\), and a fluctuation identity that vanishes only at equilibrium. These statements remain meaningful on the classical stable limit cycle and refine the known global average rather than repeating it.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 1971 classical work already obtains E[x]=A for periodic orbits; that is expressly excluded from novelty. The stronger conditional E[x|x+y]=A, inhibitor-fiber identity, biased nullcline and variance-speed equality require additional test functions and do not follow from the single unconditional average alone. A best-of-knowledge novelty conclusion is limited to the complete final theorem, not prior equations/local lemmas/classical parameters. Targeted original searches were undertaken but Resultary returned temporarily_unavailable/search_completed:false, not zero matches; full-text access gaps are candid risks.
+
+## value
+
+PASS
+
+The two conditional slice calibration laws are stronger than the classical unconditional period mean and identify a size-biased nullcline relation. Together with a backward recurrent barrier and exact variance/speed identity, they supply nontrivial stationary orbit constraints for the canonical positive oscillating chemical model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
