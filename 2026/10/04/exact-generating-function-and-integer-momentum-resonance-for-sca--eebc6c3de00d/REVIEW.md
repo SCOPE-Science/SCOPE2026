@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Equal averaging gives \(z_t=t x_t-(t-1)x_{t-1}\), which reduces the scalar Schedule-Free SGD state to an exact second-order nonautonomous recurrence. Summation yields
-\[
-(1-q)(1-Aq)G'(q)+s\beta G(q)=x_1.
-\]
-The displayed generating function satisfies this equation and the initial condition. For \(|A|<1\), singularity analysis at \(q=1\) gives the noninteger polynomial tail, while integer \(r=\beta/(1-\beta)\) removes that branch and leaves a rational pole, giving geometric decay. At \(A=0\) the generating function is a finite polynomial and the binomial termination formula follows exactly. The strict full-state frontier is \(|A|<1\), or \(0<s<2/(1-\beta)\); the \(A=-1\) boundary is excluded because the base sequence fails to converge even when averaging can make \(x_t\to0\).
+PASS
 
-Risks: the theorem uses exact real arithmetic and exact parameter identities. It does not claim robustness of finite termination to floating-point or stochastic perturbations.
+Reconstructed t*x_t=sum_{j<=t} z_j and z_t=t*x_t-(t-1)*x_{t-1}; the update z_{t+1}=[1-s(1-beta)]z_t-s*beta*x_t yields (1-q)(1-Aq)G_prime+s*beta*G=x_1 and the claimed closed form. Analytic coefficient transfer at q=1 for noninteger r, pole order m for integer r, and the singularity at 1/A establish rates and strict full-state boundary |A|<1 (beta=0 checked separately). At integer m=3,beta=3/4,s=4 independently iterated exact Fractions: x_1..x_4=(1,-1,1/3,0), with all later x zero and z=0 from t=5. These finite checks corroborate but do not replace the singularity proof.
 
-## Originality
+## originality
 
-PASS. The primary Schedule-Free SGD paper gives the exact update and an empirical quadratic stability diagram showing that interpolation permits larger learning rates, but its inspected text does not provide the scalar generating function, exact stability ceiling, arithmetic rate dichotomy, or finite-termination resonance. The later nonconvex theory paper proves optimal complexity and parameter guidance without this constant-step scalar classification.
+PASS
 
-Focused semantic searches over schedule-free quadratic stability, exact learning-rate ceilings, generating functions, rational momentum, and finite termination returned nearby results on other averaging, momentum, and quadratic methods but no statement implying the complete claim. The principal residual risk is equivalent analysis under older primal-averaging or special-function terminology.
+The novel candidate is the exact beta-dependent scalar generating function, full-state boundary, and polynomial/geometric/finite-termination arithmetic trichotomy. The original Schedule-Free SGD paper supplies the update and empirical quadratic learning-rate enlargement, rather than this exact coefficient and resonance classification. A targeted Resultary semantic comparison identified the target itself and other scalar optimizer stability results, not a prior implication-equivalent theorem. Historical primal-averaging polynomial recurrence aliases remain a genuine risk.
 
-## Value
+## value
 
-PASS. The source paper explicitly highlights enlarged quadratic learning-rate stability as an empirical feature of Schedule-Free momentum. The exact ceiling \(2/(1-\beta)\) resolves that scalar phenomenon, while the generating function explains a qualitatively unexpected arithmetic transition: the common exact values \(\beta=0.8,0.9,0.95,0.99\) correspond to integer \(r\) and therefore replace the generic polynomial tail by geometric decay. The special midpoint \(s=1/(1-\beta)\) even gives finite termination in exact arithmetic. These statements provide a sharp benchmark for implementations and broader theory rather than an arbitrary scalar invariant.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact stability ceiling and fragile finite annihilation conditions resolve a natural open quantitative question suggested by the base algorithm's quadratic experiments. It is a nontrivial asymptotic classification of a practical three-state update, with operationally important distinction between average x_t and full optimizer state; not an arbitrary parameter slice or mere transcription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

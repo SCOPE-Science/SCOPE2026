@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:53:17.098658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed t*x_t=sum_{j<=t} z_j and z_t=t*x_t-(t-1)*x_{t-1}; the update z_{t+1}=[1-s(1-beta)]z_t-s*beta*x_t yields (1-q)(1-Aq)G_prime+s*beta*G=x_1 and the claimed closed form. Analytic coefficient transfer at q=1 for noninteger r, pole order m for integer r, and the singularity at 1/A establish rates and strict full-state boundary |A|<1 (beta=0 checked separately). At integer m=3,beta=3/4,s=4 independently iterated exact Fractions: x_1..x_4=(1,-1,1/3,0), with all later x zero and z=0 from t=5. These finite checks corroborate but do not replace the singularity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahn–Magakyan–Cutkosky concerns nonconvex stationarity guarantees rather than exact scalar linear nonautonomous recurrence.",
+          "Finite resonance requires beta=m/(m+1), s=m+1, not implied by generic stochastic SGD rate theorems."
+        ],
+        "reasoning": "General iteration-complexity bounds do not specify the precise parameter-dependent singularity cancellation and full-state iff frontier; equivalence under older deterministic averaging analysis remains possible.",
+        "searches": [
+          "arXiv:2411.07061",
+          "Resultary query: schedule-free SGD scalar quadratic exact generating function momentum parameter beta integer resonance finite termination stability boundary"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md/verify.py/METADATA.json at tree 4475c130c1c4dd4125979ec232d210e788c1bddd",
+        "arXiv:2405.15682 (algorithm/quadratic sections)",
+        "arXiv:2411.07061 (title/theory scope)",
+        "Resultary query schedule-free SGD scalar quadratic exact generating function momentum parameter beta integer resonance finite termination stability boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary prior work defines recurrence and shows qualitatively that beta<1 admits larger learning rates.",
+          "Audited r integer finite polynomial identity is an additional exact statement absent from the inspected primary analysis."
+        ],
+        "reasoning": "A prior recurrence definition enables the derivation but is not itself the all-parameter theorem, full-state boundary, or finite-annihilation formula. Explicit exact coverage would change the conclusion.",
+        "searches": [
+          "arXiv:2405.15682 section 2 and quadratic experiment",
+          "arXiv:2411.07061; schedule-free SGD scalar quadratic exact generating function momentum parameter beta integer resonance finite termination stability boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defazio et al. define same x,y,z interpolation and constant eta; its quadratic plot is empirical.",
+          "The audited coefficient generating function G(q) and r=beta/(1-beta) integer resonance are not in the inspected source sections."
+        ],
+        "reasoning": "The exact recurrence could be expressed as primal averaging or a hypergeometric/orthogonal-polynomial generating function, so name matching alone cannot settle coverage; inspected primary algorithm and finite-time results do not imply the claimed integer coefficient collapse.",
+        "searches": [
+          "schedule-free SGD scalar quadratic exact generating function momentum parameter beta integer resonance finite termination stability boundary",
+          "The Road Less Scheduled arXiv:2405.15682"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No fixed finite table/database controls a continuous beta,s exact generating-function statement.",
+          "No distinct tabulation with this cancellation criterion identified among returned optimizer findings."
+        ],
+        "reasoning": "This is a parametric analytical classification rather than a database invariant; absence of matches is a residual-risk constraint, not a proof of novelty.",
+        "searches": [
+          "Resultary query: schedule-free SGD scalar quadratic exact generating function momentum parameter beta integer resonance finite termination stability boundary",
+          "web: schedule-free SGD scalar quadratic generating function exact finite termination"
+        ]
+      },
+      "rationale": "The novel candidate is the exact beta-dependent scalar generating function, full-state boundary, and polynomial/geometric/finite-termination arithmetic trichotomy. The original Schedule-Free SGD paper supplies the update and empirical quadratic learning-rate enlargement, rather than this exact coefficient and resonance classification. A targeted Resultary semantic comparison identified the target itself and other scalar optimizer stability results, not a prior implication-equivalent theorem. Historical primal-averaging polynomial recurrence aliases remain a genuine risk.",
+      "residual_risks": [
+        "No exhaustive review of classical scalar primal-averaging/orthogonal-polynomial literature; equivalence under another name possible.",
+        "Infinite-time all-parameter theorem is analytic, not certified by finite verifier; exact rational parameter resonance is fragile.",
+        "Read-only comparison did not produce publication-safe source replacements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_UPDATE_NOT_STATEMENT_EQUIVALENT",
+          "evidence": [
+            "Three-variable x,y,z update and quadratic stability experiment; no exact integer-r generating-function classification identified in inspected sections."
+          ],
+          "identifier_or_url": "arXiv:2405.15682",
+          "material_read": "Algorithm and parameter interpolation, quadratic experiment and accompanying discussion, including empirical learning-rate observation.",
+          "method": "Read relevant primary full-text sections with equations; compared theorem hypotheses and conclusions, not just titles or abstracts.",
+          "title": "The Road Less Scheduled",
+          "trigger": "Identical original three-variable algorithm and scalar quadratic stability motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact stability ceiling and fragile finite annihilation conditions resolve a natural open quantitative question suggested by the base algorithm's quadratic experiments. It is a nontrivial asymptotic classification of a practical three-state update, with operationally important distinction between average x_t and full optimizer state; not an arbitrary parameter slice or mere transcription.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional deterministic quadratic, equal averaging and fixed step only.",
+    "Full-state convergence is stricter than averaged iterate behavior at the boundary.",
+    "Arithmetic resonance requires exact beta and s; no stochastic/nonquadratic robustness claimed."
+  ],
+  "schema_version": 1
+}
