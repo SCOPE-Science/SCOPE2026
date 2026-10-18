@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For independent noisy endpoint norms, a noncentral Gaussian small-ball expansion gives exact denominator negative-moment cutoff at d and sharp polynomial-tail coefficient. Independence yields q<dw. Joint convergence to two central chi norms gives a beta-prime CDF and gamma moment identity; reciprocal symmetry proves 50% oversized steps and mean-square gain >1. A bounded-mean Gaussian Borel-Cantelli argument proves the full-history a.s. limit. Each proof handles all positive integer d,w, all positive sigma, and prescribed deterministic residuals tending to zero; one-step versus trajectory scope is explicit. The packaged numerical program passed 852 independently repeatable algebraic and seeded Gaussian checks, used only as supplemental evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. study stochastic-gradient algorithms with heavy-tailed gradient perturbations.",
+        "Hu et al. analyze adaptive GD for exact residual measurements."
+      ],
+      "reasoning": "The prior heavy-tail convergence analyses concern different noise locations and algorithm dynamics. Their general conclusions neither supply nor dominate an exact distribution and all-moment classification for independent noise contaminating the residual norm ratio in Eq. (3).",
+      "searches": [
+        "gradient residual ratio estimator additive noise chi square F distribution finite moment step size",
+        "stochastic gradient step-size residual norm ratio unbounded noise Gaussian heavy tail moment divergence",
+        "arxiv:2102.10346"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2602.13620v1 (full-text primary source)",
+      "https://arxiv.org/abs/2102.10346 (abstract-level context)",
+      "Independent Gaussian ratios, standard central chi-square and beta transformation (classical identities)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hu et al. Section 2.1: \\\\(\\\\alpha_{k+1}=1+\\\\rho_k\\\\) and rho_k^l equal geometric product of exact residual norm ratios.",
+        "Their Lemma 4 bounds rho by 1-mu under exact-gradient dynamics.",
+        "The present model assumes additive independent observation errors, in which the rate statistic has unbounded support and a distinct moment spectrum."
+      ],
+      "reasoning": "The original exact-data bound rho<=1-mu cannot entail the heavy-tailed unbounded support under independent Gaussian measurement noise, whereas this theorem does not invalidate the exact-data result. Known chi-ratio identities are admitted as ingredients. No stronger published implication covering the joint finite-step, noise-floor, and full-history claims was established.",
+      "searches": [
+        "An adaptive framework for first-order gradient methods Hu Pollock Xue Zhu Eq 3 Algorithm 1 full text",
+        "Convergence Rates of Stochastic Gradient Descent under Infinite Noise Variance 2021",
+        "residual norm quotient noisy Gaussian ratio window step size infinite variance alpha one plus rate estimate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For independent central Gaussian norms, the squared ratio is classically an F ratio and the beta transform gives its CDF.",
+        "The 2026 paper derives the geometric empirical residual-rate estimate for exact residual vectors."
+      ],
+      "reasoning": "The beta and F identities alone recover the central distribution but do not, without an additional transfer argument, give the noncentral finite-step tail threshold or the exact relation to the unbounded 1+rho step and full-history limit. Those derivations are supplied explicitly; these identities are not claimed as new.",
+      "searches": [
+        "adaptive convergence rate noisy residual ratio norm random variables gamma beta distribution optimization",
+        "noisy residual ratio geometric mean beta prime F chi square degrees freedom adaptive gradient descent",
+        "arxiv:2602.13620v1 Eq. (3) and Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper states the adaptive residual ratio without an additive-Gaussian measurement-noise table or distribution.",
+        "Relevant indexed descriptions addressed noiseless two-eigenspace parameter identification, general F distribution bounds, or other adaptive rules, rather than this full noise-window distribution."
+      ],
+      "reasoning": "The exact mean-square threshold dw>2 and fixed-versus-growing window comparison were not found as a listed special-case table or a stated corollary in the sources consulted. Negative search evidence is not a proof of novelty; residual bibliographic risk is recorded.",
+      "searches": [
+        "residual ratio adaptive gradient stepsize Gaussian measurement noise beta prime stability window F distribution",
+        "adaptive gradient descent 2026 Hu Pollock Xue Zhu geometric mean residual ratio additive observation noise heavy tail Cauchy step size",
+        "Hu Pollock Xue Zhu 2602.13620 residual noise floor F distribution geometric sliding ratio update"
+      ]
+    },
+    "rationale": "The primary full text defines the exact-data geometric window (Eq. (3)) and the 1+rho step (Algorithm 1), but its convergence theorems do not take independent Gaussian errors in observed residuals. Classical beta-prime/F laws imply isolated central ratio subformulas; the assessed contribution is their finite-k noncentral moment boundary, exact heavy-tail coefficient, fixed-window mean-square stability consequence, and pathwise full-history contrast for this particular adaptive feedback. Relevant random-gradient heavy-tail papers concern noise entering gradients and do not imply this measurement-statistic classification. No dominating statement identified; prior specialized ratio-analysis overlap remains a residual risk.",
+    "residual_risks": [
+      "An older or uncatalogued work on noisy ratios of successive residual norms may contain an equivalent application.",
+      "No independent bibliographic audit has been performed.",
+      "A general theorem for adaptive gradient dynamics with correlated measurement and direction noise is outside the present model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the noiseless ratio and 1+rho step; establishes bounds under exact residual recurrence, but does not derive the Gaussian-noise law, moment cutoff, one-step noise-floor amplification, or full-history observation-noise limit.",
+        "evidence": [
+          "Eq. (3) geometric residual estimator telescopes to ||r_k||/||r_{k-l}||.",
+          "Algorithm 1: alpha_{k+1}=1+rho_k.",
+          "Lemma 4: exact-information bound on successive residual ratios."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.13620v1",
+        "material_read": "Full HTML paper: Sections 1 and 2.1 including Algorithm 1, Theorem 1, Lemma 4 and Theorem 5; other sections, numerical results, and reference list skimmed for measurement-noise treatment.",
+        "method": "Direct full-text HTML inspection of published preprint",
+        "title": "An adaptive framework for first-order gradient methods",
+        "trigger": "Exact same algorithm, same sliding-window norm-ratio estimator, original parameter rule"
+      },
+      {
+        "assessment": "Studies gradient-noise optimization dynamics, not visibly this residual-telemetry statistic. Not used as whole-document negative-coverage proof.",
+        "evidence": [
+          "The published abstract addresses strong-convexity convergence under state-dependent infinite-variance gradient noise."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.10346",
+        "material_read": "Abstract and public record; full text not materially reviewed.",
+        "method": "Abstract-level relevance screening only",
+        "title": "Convergence Rates of Stochastic Gradient Descent under Infinite Noise Variance",
+        "trigger": "Potential broader results on stochastic-gradient heavy-tail stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37d2a5f0-d36f-4147-9740-467dcc7f3711",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The diagnosed quantity is exactly the residual-rate feedback used to set the gradient step in a recent first-order method, not an arbitrary Gaussian ratio. The sharp observation dimension-times-window boundary decides whether a step statistic has a finite second moment, while a distinct distribution-free reciprocal-symmetry mechanism prevents noise-floor mean-square contraction in the top eigendirection for any fixed window. The full-history window has a contrasting almost-sure critical-step limit. These structural constraints motivate noise safeguards and explain why light-tailed measurement noise can become heavy-tailed parameter selection; no downstream general convergence theorem is asserted.",
+    "status": "PASS"
+  }
+}
