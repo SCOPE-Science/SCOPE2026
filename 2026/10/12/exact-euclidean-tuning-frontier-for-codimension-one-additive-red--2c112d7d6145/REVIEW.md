@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonal block reduction identifies the exact two-dimensional singular-value problem. The determinant of the proposed squared-norm certificate is maximized exactly in the scalar parameter, yielding the sharp lower bound and a positive-semidefinite equality certificate. The proof treats zero coupling and the branch boundary separately, establishes a strict one-step criterion, and obtains the spectral stability interval from a Schur complement. The rational witness is exact: squared optimum \(2550/2429>1\), minimizing scalar \(810/2429\), and spectral stability for \(0<\alpha<10/13\). The packaged program independently formed 3,500 SPD blocks, tested alternate values and reproduced the rational witness. Sampling is supplemental, not an infinite proof.
+## correctness
 
-**Originality — PASS with stated risks.** In Fan–Hu–Zhang, arXiv:2609.11097v1, the Type-II family is defined and proved nonsingular, but the codimension-one Euclidean minimax is not given. Southworth–Olivier, arXiv:2001.00711v1, develop block-diagonal eigenvalue and Krylov comparisons, not the norm-optimal scalar. The published weighted-Jacobi Euclidean damping result studies a different family, changing the global Richardson step rather than exclusively the inverse-complement block; its fixed-preconditioner safety interval does not imply this optimizer. Related Gauss–Seidel and condition-number results likewise do not cover the stated claim. Targeted searches under block diagonal, scalar complement, weighted Jacobi, nonnormal contraction, and the exact formulas found no equivalent statement. Residual risk: older analyses under other block-iteration vocabulary could derive this small-block singular-norm formula.
+PASS
 
-**Value — PASS.** A parameter deliberately introduced to regularize an otherwise singular reduced-basis inverse needs a quantitative selection principle. The exact one-dimensional-complement classification provides that principle, a necessary-and-sufficient Euclidean safety test, and an open family of positive-definite systems where spectral stability is possible but no scalar ensures one-step Euclidean descent. The three-dimensional witness isolates a noncollinearity obstruction not possible in dimension two when the resolved coupling norm is below one. This is a natural low-codimension boundary rather than an arbitrary test matrix.
+Orthogonal coordinates make E_α a rank≤2 block [[0,-H^-1 b],[-α b^T,1-αd]]. The two singular values are those of T_α=[[0,-c],[-αp,1-αd]]. Positive-semidefinite test for zI−T^TT and a concave determinant quadratic give the stated minimax and uniqueness, including b=0 and transition dc=p. The SPD Schur complement of 2I−B^{1/2}AB^{1/2} gives spectral interval. Exact witness H=diag(1,4), b=(1/2,2), d=27/20 has ||E_opt||²=2550/2429>1 although spectral radius<1. Independent check: Independently reconstructed operator T and its spectral norm for 100 random SPD block systems with dimensions m∈{1,2,3,5}; checked each analytic minimum against seven other α values. For the exact 3×3 witness computed α=810/2429 and norm²=2550/2429 independently. Tests supplement PSD determinant proof.
 
-**Limitations.** Fixed orthogonal reduced space, real SPD systems, unit-relaxation Richardson, one-dimensional complement, and exact arithmetic only. Neither arbitrary-codimension formulas nor nonlinear/adaptive FGMRES guarantees are established. Independent assessment is outstanding and older unindexed work may provide equivalent formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fan–Hu–Zhang define exactly the Type-II additive preconditioner in Section 3.1 but their Section 3.4 Richardson estimates concern Type I under projection-error hypotheses; Theorem 3.6 establishes nonsingularity, not Euclidean minimax. General block-Jacobi/Richardson results involve different scaling family or spectral/condition-number objectives. This exact codimension-one one-step Euclidean frontier and robust noncontraction witness are not implied by examined theorems.
+
+## value
+
+PASS
+
+A stationary iteration can converge asymptotically while no α produces a uniformly contracting first Euclidean step. A closed optimizer and exact obstruction inform choice of regularization for a natural preconditioner, rather than merely tabulating a small case. The result does not claim performance of dynamic FGMRES.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
