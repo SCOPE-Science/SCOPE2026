@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:13:43.179772Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For letters a=i+1 mod k and b=(k-1 to 0; all other states fixed), simultaneous reset is equivalent to reaching singleton pair in the finite subset product graph. Breadth-first search gives exact minimal word length, not only a witness. A separately implemented exhaustive bitmask BFS checked all 45 pairs (2<=m<n<=11), matching every reported threshold, including L(10,11)=108, and independently verified each shortest witness. The observed adjacent-size overhead n-3 is limited to n<=11; the universal m=2 or m|n baseline follows from the classical Černý word and is credited as prior mathematics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shortest individual reset length (n-1)^2 and generic BFS are prior; one-machine rank thresholds cannot determine intersection word distances"
+        ],
+        "reasoning": "The separate C_n lower bound is in the claim as baseline, while actual pair distances exceed it for some m.",
+        "searches": [
+          "Kisielewicz Kowalski Szykula arXiv:1203.2822 shortest reset words",
+          "Resultary: Cerny reset word early deficiency profile"
+        ]
+      },
+      "checked_sources": [
+        "Maslennikova arXiv:1405.3576 full PDF product/intersection and language complexity (not table)",
+        "Kisielewicz–Kowalski–Szykuła arXiv:1203.2822 one-machine reset search",
+        "Resultary query: two Černý automata common synchronizing reset word minimal length pairs product automata; related 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 treats one automaton"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior intersection-language decidability and Cerny (n-1)^2 do not imply e.g. L(10,11)=108 by statement alone"
+        ],
+        "reasoning": "New finite exhaustive product-state computation supplies the missing pairwise optimization step; no reported stronger table was found.",
+        "searches": [
+          "Maslennikova 2014 primary full PDF",
+          "Kisielewicz et al. 2012 generic shortest reset algorithms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common reset for C_m,C_n is reset for C_m×C_n and a word in Syn(C_m)∩Syn(C_n), a known equivalence"
+        ],
+        "reasoning": "The reduction is old; the exact 45 distances for two distinct canonical dimensions are not supplied by the cited complexity/closure equivalence.",
+        "searches": [
+          "Maslennikova arXiv:1405.3576 synchronizing language intersection and product",
+          "search two Cerny automata common synchronizing word simultaneous shortest"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matched 45-entry table or published dataset found in targeted searches; generic algorithmic results and per-machine tables cover different quantities"
+        ],
+        "reasoning": "Negative search is not proof of unique discovery; a published pairwise exact table or software supplement could change priority.",
+        "searches": [
+          "search Cerny automata product pair shortest reset lengths 2..11 exact table",
+          "Resultary 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.",
+      "residual_risks": [
+        "An unindexed automata-library benchmark might tabulate the exact 45 values; the interval n<=11 is not an infinite pattern theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives language intersection/product relationships, not the 45 finite optimal lengths for differently sized Černý automata",
+          "evidence": "Maslennikova (2014), product/regular-language synchronization complexity",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3576",
+          "material_read": "Full twelve-page arXiv article, definitions, product reduction, and complexity statements",
+          "method": "Primary PDF full-text inspection with rendered page",
+          "title": "Complexity of checking whether two automata are synchronized by the same language",
+          "trigger": "Same intersection-of-synchronizing-languages construction and direct product"
+        },
+        {
+          "assessment": "General single-automaton BFS/search procedures, not an evaluated pair-specific 45-cell table; whole-paper noncoverage not inferred",
+          "evidence": "Kisielewicz–Kowalski–Szykuła (2012), general shortest reset-word algorithms",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2822",
+          "material_read": "Available abstract and relevant algorithm statement; not entire paper",
+          "method": "arXiv search and abstract",
+          "title": "A Fast Algorithm Finding the Shortest Reset Words",
+          "trigger": "Shortest-word search could subsume individual Černý reset lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pairwise exact finite threshold landscape quantifies a natural shared-control problem for two canonical slowly synchronizing automata and supplies first exact overhead transitions and certified witnesses. Size eleven is a motivated feasible complete cutoff, with no unsupported all-n extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Maslennikova arXiv:1405.3576 full PDF product/intersection and language complexity (not table)",
+    "Kisielewicz–Kowalski–Szykuła arXiv:1203.2822 one-machine reset search",
+    "Resultary query: two Černý automata common synchronizing reset word minimal length pairs product automata; related 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 treats one automaton"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed automata-library benchmark might tabulate the exact 45 values; the interval n<=11 is not an infinite pattern theorem."
+  ],
+  "schema_version": 1
+}

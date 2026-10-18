@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-The Python and C++ programs each enumerate all 45 ordered integer pairs \(2\le m<n\le11\). For every pair, a FIFO breadth-first search begins with both complete state sets, applies the two declared transition functions to subsets, records newly discovered states and their predecessor, and stops at the first dequeued pair of singletons. The returned distance is minimal because the entire reachable search frontier at smaller distances was exhausted before the first goal could be dequeued. Each program then replays its witness against both complete automata.
+## correctness
 
-Run in the directory with the embedded source files:
+PASS
 
-```sh
-python3 verify_python.py
-g++ -O2 -std=c++17 verify_cpp.cpp -o verify_cpp
-./verify_cpp
-```
+For letters a=i+1 mod k and b=(k-1 to 0; all other states fixed), simultaneous reset is equivalent to reaching singleton pair in the finite subset product graph. Breadth-first search gives exact minimal word length, not only a witness. A separately implemented exhaustive bitmask BFS checked all 45 pairs (2<=m<n<=11), matching every reported threshold, including L(10,11)=108, and independently verified each shortest witness. The observed adjacent-size overhead n-3 is limited to n<=11; the universal m=2 or m|n baseline follows from the classical Černý word and is credited as prior mathematics.
 
-The programs create `table_python.csv` and `table_cpp.csv`, respectively. Use a CSV parser to compare all records against `table.csv`, allowing for system-specific line endings. Each row includes the exact length, a lexicographically earliest shortest word, and the count of subset-pair states discovered before goal dequeue. Equality on all 45 rows was observed. The largest pair has 10 and 11 states, and a finite subset-pair universe with fewer than \(2^{21}\) vertices. There is no timeout-based nonexistence inference and no reliance on a partial enumeration.
+## originality
 
-The exhaustive claim is restricted to \(2\le m<n\le11\). Independent mathematical audit is not performed. The all-size divisible-size zero-overhead lemma follows separately from the classical Černý reset word, and is not contingent on the finite computation.
+PASS
+
+Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.
+
+## value
+
+PASS
+
+The pairwise exact finite threshold landscape quantifies a natural shared-control problem for two canonical slowly synchronizing automata and supplies first exact overhead transitions and certified witnesses. Size eleven is a motivated feasible complete cutoff, with no unsupported all-n extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
