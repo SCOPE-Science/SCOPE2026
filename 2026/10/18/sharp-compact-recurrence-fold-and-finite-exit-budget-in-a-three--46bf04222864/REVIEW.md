@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The map, parameter domain and boundedness quantifiers are specified in RESULT.md. Direct substitution gives the exact identity \(H(Fp)-H(p)=(x-c)^2+\varepsilon\). Summation bounds escape time for \(\varepsilon>0\), forces square-summability and coordinate convergence for bounded forward orbits at \(\varepsilon=0\), and excludes every nontrivial bounded complete orbit by equal endpoint heights. Integrating against an invariant probability gives the exact stationary moment identity. Both fixed points below the fold are explicitly exhibited. The 498 rational tests check the algebra independently of the exposition, but the analytic proof carries the infinite claims.
+
+## Originality — PASS (subject to independent historical priority assessment)
+The closest paper, Hampton–Meiss (2022; arXiv:2206.07855), establishes the fixed-point fold and a bounding cube for bounded two-sided dynamics, not the claimed global bounded-future rigidity at the fold, quantitative escape bound beyond it, or fixed-parameter invariant-measure moment law. Lomelí–Meiss (1997; arXiv:chao-dyn/9706001) studies enclosure under different positivity/determinant hypotheses; Zheng et al. (2018; DOI:10.1186/s13662-018-1622-y) studies a different quadratic-coordinate placement and local bifurcations. Indexed findings on planar Hénon stationary moments or quadratic ODE recurrence do not logically imply a forward-orbit theorem for this cubic-delay map. The fixed-point threshold itself is prior and is not claimed as new. Residual risk: an unindexed general theorem or alternate formulation could subsume this result.
+
+## Mathematical value — PASS
+The coexistence of attracting periodic, quasiperiodic and chaotic sets in the model makes the fixed-point saddle-node alone insufficient, without proof, to classify bounded recurrence. The exact nonnegative height increment resolves that natural gap for the entire three-dimensional phase space: a sharp exclusion region, a fully rigid critical two-sided dynamics, a stationary second-moment shell, and a finite exit budget. The result is neither a local center-manifold bifurcation statement nor an arbitrary parameter slice; it covers the full real \((\alpha,\sigma)\)-plane for every prescribed \(0<\delta<1\). It does not classify the dynamics below the fold and makes no optimal escape-time claim.
+
+Self-review: passed. Independent audit: not yet performed.
