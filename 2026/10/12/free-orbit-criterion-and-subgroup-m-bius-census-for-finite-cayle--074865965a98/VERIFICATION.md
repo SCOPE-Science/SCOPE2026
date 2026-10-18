@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-Use Python 3 standard library with `python3 verify.py`. The exact command was executed against the attached source and returned:
+# Independent mathematical audit
 
-```
-VERIFY_OK single_modal_partition_checks 7992 multi_component_checks 9193 direct_boolean_closures 352 subgroup_mobius_and_dihedral_cases 12 symmetric4_random_checks 600 symmetric4_subgroups 30
-EXAMPLES D2 q2 free 8 D3 q2 free 42 S4 q2 free 16740024
-```
+## correctness
 
-The program implements finite groups from multiplication tables, constructs all subgroups and their Möbius coefficients, checks the primitive-word dihedral formula, evaluates partition refinement for colored named-agent S5 frames, compares the orbit criterion for all enumerated small component colorings, and directly builds Boolean modal closures for 352 examples. Its test corpus includes \(D_1\), \(D_2\), \(D_3\), \(D_4\) and \(S_4\), including 600 seeded random checks for the non-dihedral group \(S_4\). It also verifies the 30-subgroup count of \(S_4\).
+PASS
 
-All examples are finite and the random tests are not exhaustive on \(S_4\). The general proof is supplied independently in `RESULT.md`, including modal-equivalence propagation, inversion on every subgroup of \(G\), and rotation/reflection inclusion-exclusion in \(D_m\). Neither code nor mathematical prose asserts external independent certification.
+Reconstructed finite modal equivalence on named two-element equivalence blocks: if x and y agree on every modal formula, their matching neighbor-class unordered pairs force agreement of the unique opposite endpoints, and iteration forces equality of all left-multiplied rooted color functions. The converse relation is a bisimulation; finite partition refinement defines each class. Singleton atoms therefore require free, pairwise disjoint right-color orbits. Subgroup-lattice Mobius inversion of q^[G:H] then counts free colors and falling factorial gives ordered tuple count; dihedral rotation-reflection disjointness proves P_{q²}(m)-mP_q(m). Independently counted 8 free binary colorings of the Klein four group, and verified that two component representatives give 8*(8-4)=32. The attached script source was inspected but not used as authority for the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the exact finite Boolean-modal generating-tuple criterion on disjoint regular two-element-agent Cayley components and subgroup-Mobius enumeration is not supplied by the inspected general Cayley S5 framework or generic distinguishing-coloring results. Bisimulation partitions and Mobius inversion are established tools, explicitly credited. Neither the Resultary similarity hits nor abstract/bibliographic prior text implies the full algebra-generation statement; an implicit classical antecedent in modal algebras remains possible.
+
+## value
+
+PASS
+
+Determining the minimum number and complete count of generating valuations of a finite Boolean multi-agent modal algebra is a motivated exact invariant; the if-and-only-if orbit criterion and subgroup-Mobius closed census for all finite involution-generated groups and any number of components go beyond a small computational table. It identifies precisely which color labels separate modal states and when modal generation fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each named S5 class is a two-world involution fiber; equality of modal types propagates along all generators, and conversely equal rooted-color functions form a bisimulation. Finite partition refinement yields exactly the Boolean algebra whose atoms are these types. Orbit-stabilizer and subgroup-lattice Möbius inversion give the count; the dihedral reflection subtraction is valid because two distinct reflections multiply to a nontrivial rotation. Verified independently via exhaustive small cases and direct Boolean modal-algebra closures. Residual risk: the code tests finite cases only; the general result depends on the written abstract proof.
+## correctness
 
-**Originality — PASS, with residual historical uncertainty.** Canavoi and Otto (LICS 2017, full text inspected, §III.C) already give the identical involution-generated epistemic Cayley structures, their homogeneity, and their bisimulation-covering program; the result does not reclaim these. Canavoi's 2018 dissertation (material inspected in the Cayley and expressivity chapters) develops the background more comprehensively. Wißmann–Milius–Schröder (2021/2022) supply general modal distinguishing formulas; group-action and necklace papers supply related combinatorial tools. None of the inspected claims states the full finite-group modal-generation criterion or exact subgroup-Möbius generating-tuple count with the dihedral reduction. Relevant semantic-record searches likewise found related but non-covering results. An older group-action or modal-algebra formulation may have equivalent strength and remains a real priority risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete classification and exact natural enumeration for a large, structurally motivated class of named-agent finite epistemic frames. Its criterion transforms modal generation to an explicit regular-group invariant and handles any number of connected components; the subgroup polynomial and dihedral specialization permit sharp generator-rank questions and quantitative examples without enumerating all formulas. Classical ingredients are acknowledged; the contribution is their full structural synthesis rather than an isolated numerical curiosity.
+Reconstructed finite modal equivalence on named two-element equivalence blocks: if x and y agree on every modal formula, their matching neighbor-class unordered pairs force agreement of the unique opposite endpoints, and iteration forces equality of all left-multiplied rooted color functions. The converse relation is a bisimulation; finite partition refinement defines each class. Singleton atoms therefore require free, pairwise disjoint right-color orbits. Subgroup-lattice Mobius inversion of q^[G:H] then counts free colors and falling factorial gives ordered tuple count; dihedral rotation-reflection disjointness proves P_{q²}(m)-mP_q(m). Independently counted 8 free binary colorings of the Klein four group, and verified that two component representatives give 8*(8-4)=32. The attached script source was inspected but not used as authority for the universal proof.
 
-**Independence and limits.** These assessments have not received independent mathematical or originality review. The numerical verifier is corroborative, not an infinite proof, and no historical uniqueness claim is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the exact finite Boolean-modal generating-tuple criterion on disjoint regular two-element-agent Cayley components and subgroup-Mobius enumeration is not supplied by the inspected general Cayley S5 framework or generic distinguishing-coloring results. Bisimulation partitions and Mobius inversion are established tools, explicitly credited. Neither the Resultary similarity hits nor abstract/bibliographic prior text implies the full algebra-generation statement; an implicit classical antecedent in modal algebras remains possible.
+
+## value
+
+PASS
+
+Determining the minimum number and complete count of generating valuations of a finite Boolean multi-agent modal algebra is a motivated exact invariant; the if-and-only-if orbit criterion and subgroup-Mobius closed census for all finite involution-generated groups and any number of components go beyond a small computational table. It identifies precisely which color labels separate modal states and when modal generation fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
