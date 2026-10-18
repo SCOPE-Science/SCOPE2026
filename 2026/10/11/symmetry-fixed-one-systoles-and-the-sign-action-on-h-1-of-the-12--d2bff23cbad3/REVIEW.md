@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the exact 54 published tetrahedra. The complete face enumeration gives \(f=(12,66,108,54)\) and a complete one-skeleton. In the star-tree cycle basis, a displayed \(55\times55\) minor of the triangle-boundary matrix has determinant \(-3\), while the matrix has rank \(54\) modulo \(3\); this proves \(H_1\cong\mathbb Z/3\). Every one of the \(112\) missing triangles has nonzero quotient evaluation. Group generation and all orbit statements are exhaustive, and the two generator actions are explicitly evaluated.
+## correctness
 
-Risk: the computation assumes the transcribed facet list and symmetry permutations are faithful to the source. This is mitigated by direct comparison with the dissertation's exact list and by reproducing the published face vector and group order.
+PASS
 
-## Originality
-PASS. Searches covered the exact labeled complex, missing/empty-triangle terminology, shortest homology-cycle language, the numerical value \(112\), the invariant triples, automorphism orbits, and the induced \(S_3\)-action on \(H_1\). The closest prior finding concerns a different 14-vertex cyclic triangulation of the same lens space and does not imply any 12-vertex orbit or symmetry-action statement. The inspected exact-object sources provide construction, face vector, topology, and symmetry generators but not this systolic census or sign representation.
+Using the exact 54 tetrahedra from the inspected verify.py, independently reconstructed 12 vertices, all 66 edges and 108 distinct triangles. The fundamental cycle lattice relative to the vertex-1 star has 55 edges. An independent SymPy exact integer determinant of the source specified 55-column triangular boundary minor is -3. Independent modulo-three elimination of the full 55x108 boundary matrix has rank 54, so integral H1 is Z/3, not merely a mod-three lower bound. Its nonzero dual cocycle evaluates the 112 missing triangles nontrivially, with class counts 56 and 56; complete one-skeleton makes these exactly all length-three nonzero simple 1-cycles and minimizes length. Independently generated all six published S3 automorphisms, checked preservation of the 54 tetrahedra and obtained 15 size-six, six size-three, one size-two and two singleton orbits. Exactly (7,8,9),(10,11,12) are globally invariant triples, and the two generator actions on mod-three homology are -1 and +1. These are exhaustive checks of this finite complex, not a claim about other lens-space triangulations.
 
-Risk: an unindexed historical computation could contain the same finite census. No decisive unresolved comparison remains among the inspected exact-object sources.
+## originality
 
-## Value
-PASS. The result connects three natural structures of a canonical small lens-space triangulation: shortest integral homology, full combinatorial symmetry, and the induced action on torsion homology. The two globally invariant triples give canonical shortest generators, while the sign representation identifies exactly how odd and even simplicial symmetries act on the lens-space generator. This is a structural classification rather than an arbitrary parameter slice.
+PASS
 
-## Closest literature and limitations
-Lutz's dissertation is the decisive exact-object source: it prints all facets and the full \(S_3\) symmetry generators. The 2003 preprint places the object in the small-lens-space program and verifies MSC 57Q15. Broader minimal-triangulation work studies different invariants and does not imply the present claim. Scope is limited to this exact complex and to shortest simple integral \(1\)-cycles.
+Lutz gives the 12-vertex facet table, face vector, lens-space identity and full S3 generators; these data do not themselves state that all 112 missing triangles are essential nor enumerate orbit-size distributions and induced H1 sign action. Another published same-complex result concerns **dual degree-one cohomology cosystole support 28 and 18 minima**, not primal shortest homology cycles and the 112 triangle supports. The 14-vertex cyclic L(3,1) spectrum has a distinct facet set, automorphism group and orbit spectrum. No earlier statement with the same 112-carrier census and character was found in the materially inspected public texts.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact labeled 12-vertex Lutz lens-space triangulation is a canonical minimal-vertex model, and shortest nonzero integral H1 carriers with their S3 orbit spectrum are natural invariants of its triangulation. Identifying the only globally invariant cycles and nontrivial sign action is a specific topological–combinatorial symmetry fact, not an arbitrary slice or mere recomputation of the known face vector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
