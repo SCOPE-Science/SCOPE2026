@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` after installing `requirements.txt` (`numpy` and `scipy`). The file reconstructs the output Wigner polynomial, independently performs two-dimensional midpoint integration of its negative part, and compares with the Bessel-form polar integral, including the vacuum and one-photon boundary, mixed-input strict photon bound, and the thermal Wigner-positivity threshold.
+# Independent mathematical audit
 
-The executable was run successfully: `VERIFY_OK all_checks=112`. The direct numerical spatial integrals have an absolute comparison tolerance of 0.00002. Finite grids are evidence of numerical consistency only. The arbitrary-parameter assertions follow instead from the exact Gaussian Fourier inversion, strict convexity at fixed population, and a strictly centered-maximal convolution of radial functions.
+## correctness
 
-The following are not verified here: higher Fock-level inputs, squeezed or phase-sensitive channels, independent publication-priority review, and external audit. The one-dimensional Bessel integral is exact, not a numerical certificate of uniqueness.
+PASS
+
+Checked density-matrix positivity |c|^2<=p(1-p), Gaussian characteristic-function channel multiplication and normalized output Wigner polynomial. Completing the square yields a negative disk iff 2 eta p/A+|c|^2/p>1; if A>=2 eta this cannot hold for any input, whereas every pure p>0 state has a disk when A<2 eta. For fixed p in (0,1) any mixed coherence can be written as a strict convex mixture of opposite-coherence pure states. Their disks differ on positive-area subsets, making the negative-part convexity strict. For pure states, shifting the negative disk gives convolution of the radially decreasing Gaussian with a centered radially decreasing positive paraboloid; layer-cake disk intersection shows it is strictly maximized at zero shift (p=1), so N<p N_Fock when p<1. Angular integration produces the given I0 Bessel integral; radial Fock integration gives (2 eta/A)exp(-1+A/(2 eta))-1. Independent fresh 16 phase-space radial/Bessel quadrature cases compared the formula to the Fock limit and checked strict photon-budget inequalities. These finite quadratures corroborate, but universal extremality follows from strict convexity/rearrangement. At p=0, eta=0, A=2eta boundary negativity is zero, and uniqueness is claimed only for A<2eta.
+
+## originality
+
+PASS
+
+The lossless one-photon negative volume, single-rail Wigner profiles and broad thermal-channel death threshold already appear in primary literature and are credited. The surviving claim is the exact constrained mixed-input optimization for every fixed p in a thermal attenuator, unique pure maximizers, the exact shifted-disk Bessel integral, strict p-scaled bound and global capacity. Li 2008 proves a universal thermal threshold for states with zero vacuum component; that statement is not claimed novel. No inspected primary source supplies the complete fixed-population mixed-qubit negative-volume optimizer, but related numerical pure curves and a possible unlocated convex ordering theorem remain priority risks.
+
+## value
+
+PASS
+
+Integrated Wigner negative volume is a natural optical nonclassicality resource for experimentally realizable vacuum/one-photon inputs subject to thermal attenuation. Determining optimal output resource under a fixed mean-photon excitation constraint and over the complete mixed Bloch ball is a motivated exact invariant and channel capacity, not simply demonstrating negativity of one prepared state. The strict pure-state equality class and Fock global optimizer are useful for constrained preparation and thermal-loss benchmarking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: thermal attenuation of optical single-rail qubits
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gaussian-channel characteristic-function calculation determines the Wigner polynomial and its exact negative disk, including the positivity boundary. Every fixed-excitation mixed input is a nontrivial convex combination of two pure inputs with opposite coherences, and their displaced negative disks force strict Jensen inequality. A radial Gaussian intersection argument proves the strict energy-volume bound and uniqueness of the one-photon global maximizer. The disk-centered polar integral and elementary Fock specialization agree numerically with independent phase-space quadrature. Boundary cases \(p=0\), \(p=1\), \(A=2\eta\), \(\eta=0\) are treated.
+PASS
 
-## Originality — PASS, with residual priority risk
+Checked density-matrix positivity |c|^2<=p(1-p), Gaussian characteristic-function channel multiplication and normalized output Wigner polynomial. Completing the square yields a negative disk iff 2 eta p/A+|c|^2/p>1; if A>=2 eta this cannot hold for any input, whereas every pure p>0 state has a disk when A<2 eta. For fixed p in (0,1) any mixed coherence can be written as a strict convex mixture of opposite-coherence pure states. Their disks differ on positive-area subsets, making the negative-part convexity strict. For pure states, shifting the negative disk gives convolution of the radially decreasing Gaussian with a centered radially decreasing positive paraboloid; layer-cake disk intersection shows it is strictly maximized at zero shift (p=1), so N<p N_Fock when p<1. Angular integration produces the given I0 Bessel integral; radial Fock integration gives (2 eta/A)exp(-1+A/(2 eta))-1. Independent fresh 16 phase-space radial/Bessel quadrature cases compared the formula to the Fock limit and checked strict photon-budget inequalities. These finite quadratures corroborate, but universal extremality follows from strict convexity/rearrangement. At p=0, eta=0, A=2eta boundary negativity is zero, and uniqueness is claimed only for A<2eta.
 
-The lossless single-photon negative volume is explicitly reported by Kenfack and Życzkowski (arXiv:quant-ph/0406015). Earlier optical-scissors studies derive single-rail Wigner profiles (arXiv:quant-ph/0107048), and Miranowicz et al. explicitly plot negative volume for pure qudit coherent-state families (arXiv:1307.6950), including the qubit case. Miranowicz et al. (arXiv:1502.04523) solve different nonclassicality orderings and depth thresholds for mixed single-rail states. None of their materially inspected results gives the strict mixed-input fixed-population Wigner-negative-volume optimum after arbitrary thermal attenuation and the evaluated universal capacity. The new theorem does not re-claim the already-known noiseless Fock number or pure-state profile. Residual risk: an unlocated general convex ordering theorem, or another thermal-channel Wigner-volume study, could already imply it; independent publication-priority audit is outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-For an experimentally meaningful optical-qubit family, the theorem solves the exact constrained optimization over **every** density matrix, not merely a selected pure-state curve: it distinguishes pure and mixed inputs at fixed mean excitation, determines the sharp resource capacity under ambient thermal noise, and proves a strict photon-population upper bound. This directly informs non-Gaussian optical state preparation when thermal attenuation is unavoidable. It requires no downstream application to qualify as a natural closed classification.
+The lossless one-photon negative volume, single-rail Wigner profiles and broad thermal-channel death threshold already appear in primary literature and are credited. The surviving claim is the exact constrained mixed-input optimization for every fixed p in a thermal attenuator, unique pure maximizers, the exact shifted-disk Bessel integral, strict p-scaled bound and global capacity. Li 2008 proves a universal thermal threshold for states with zero vacuum component; that statement is not claimed novel. No inspected primary source supplies the complete fixed-population mixed-qubit negative-volume optimizer, but related numerical pure curves and a possible unlocated convex ordering theorem remain priority risks.
 
-## Limitations and reproducibility
+## value
 
-Numerical quadrature cannot prove all-parameter extremality; the analytic strict-convexity and radial-rearrangement arguments provide that proof. The theorem does not address higher Fock levels, non-phase-insensitive channels, success probabilities, or independent novelty verification. Run `python verify.py` with `requirements.txt`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Integrated Wigner negative volume is a natural optical nonclassicality resource for experimentally realizable vacuum/one-photon inputs subject to thermal attenuation. Determining optimal output resource under a fixed mean-photon excitation constraint and over the complete mixed Bloch ball is a motivated exact invariant and channel capacity, not simply demonstrating negativity of one prepared state. The strict pure-state equality class and Fock global optimizer are useful for constrained preparation and thermal-loss benchmarking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
