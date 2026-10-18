@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a complete multipartite graph, every vertex in one part has the same open neighborhood, namely the complement of that part. Therefore the neighborhood-sum condition is exactly \(W-s_i\ge1\). A \(-1\)-vertex in part \(i\) has a \(2\)-neighbor exactly when a \(2\) occurs outside that part. These conditions are necessary and sufficient.
+PASS
 
-Fixed part-count triples contribute the product of multinomial coefficients, so summing over the feasible count arrays gives the exact weight enumerator. Summing all neighborhood inequalities gives \(W\ge2\). Exhaustive adjacency-level checking through total order eight agrees coefficientwise.
+For connected complete multipartite K_{n1,...,nr} and f∈{−1,1,2}^V, every vertex in part i has open-neighborhood sum W−s_i, so total signed neighborhood condition is iff W−s_i>=1 for all parts. Every minus-one vertex in i sees a label 2 iff C−c_i>=1, needed only when a_i>0. Counting each feasible part count triple by product n_i!/(a_i!b_i!c_i!) proves the full weight enumerator with no duplicate functions. Summing all r inequalities yields (r−1)W>=r; integer W therefore >=2 for all r>=2, so no negative powers. Independent direct vertex-adjacency and part-count feasibility agreed for every nondecreasing multipartite profile with total 2..6; in particular K_{2,2} polynomial is 4x²+9x⁴+8x⁵+6x⁶+4x⁷+x⁸. This is all graph sizes, not inferred from finite tests.
 
-## Originality
+## originality
 
-PASS, with a documented access risk. The fresh 2026 preprint on the identical invariant and graph family states that it determines the signed total Roman domination and domatic numbers. Targeted published-finding corpus and web searches found no all-function weight enumerator. The closest database theorem enumerates signed Roman functions, not signed total Roman functions; its closed-neighborhood condition is not implication-equivalent to the open-neighborhood condition here.
+PASS
 
-Direct full-text inspection of arXiv:2606.27175 was blocked by transport, and the institutional fallback required an interactive step unavailable in this execution. This leaves a residual risk that the paper contains a closely related intermediate part-count lemma. The accessible material does not expose the final enumerator.
+The source Koster–Volkmann–Wehrmann 2026 concerns signed total Roman domination and domatic minima for complete multipartite graphs; abstract-accessible material does not state all-function weight enumerator, but full text was unavailable (Oxford VPN disconnected), a substantial residual risk for an intermediate part-count lemma. Related full published Resultary result on signed Roman domination uses CLOSED neighborhoods W−s_i+μ_i>=1, unlike required OPEN W−s_i>=1; the complete multipartite total Roman enumerator instead labels {0,1,2} and imposes no-isolated-positive rather than −1 open sum. These closely related formulas neither equal nor algebraically imply this exact STRD distribution merely by relabeling. An especially similar exact partwise profile suggests methodology is elementary; novelty is narrow to the signed-total all-weights enumeration.
 
-## Value
+## value
 
-PASS. The polynomial gives the full weight distribution of a newly active domination variant on a canonical graph family. It strictly refines the scalar minimum and supplies exact multiplicities of both optimal and nonoptimal functions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The signed total Roman domination number is only the minimum exponent; the exact polynomial counts all feasible signed-total functions at each weight on an arbitrary connected complete multipartite profile. That natural enumerative invariant is useful for multiplicities, distributional comparisons and extremizer counts and is not supplied by scalar domination/domatic numbers. Although the proof is a short transparent specialization of partwise neighborhoods and related variants exist, the exact all-weights invariant is mathematically motivated; no general theorem beyond this complete natural family is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
