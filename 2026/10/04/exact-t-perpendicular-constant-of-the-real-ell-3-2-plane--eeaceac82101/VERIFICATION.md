@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_tperp_l3.py`. The script returns `VERIFY_OK` and prints the isolated algebraic parameter and the reconstructed value of \(T_{\perp}(\ell_3^2)\).
+# Independent mathematical audit
 
-The exact checks are:
+## correctness
 
-1. The transition polynomial \(8u^3+7u-1\) has exactly one zero in \((0,7/50)\).
-2. The small positive-orientation derivative resultant factor has no zero in \((0,7/50)\), and the actual implicit derivative is positive at \(t=2/5\).
-3. The large positive-orientation resultant factor is the degree-seventeen polynomial \(Q\) in `RESULT.md`; it has exactly one zero in \((0,1)\), isolated in \((0.7578975,0.7578976)\). The actual implicit derivative is positive at \(t=4/5\) and negative at \(t=19/20\).
-4. The negative-orientation derivative resultant factor has exactly one zero in \((0,1)\); actual derivative signs at \(t=1/10\) and \(t=1/5\) show that zero is a minimum. Its endpoint maximum is \(56^{1/6}\).
-5. The explicit positive-orientation witness at \(u=3/4\) has sixth-power objective strictly larger than \(56\), so the positive interior maximum dominates the entire negative orientation.
-6. Bisection inside the exact isolating interval reconstructs \(u_*\) and the stated value to high precision.
+PASS
 
-The Sturm calculations use exact rational arithmetic. Decimal arithmetic is used only after the algebraic root has been uniquely isolated, and for derivative sign checks with wide margins; it is not a finite-grid substitute for the global proof.
+For real ell_3² the smooth Birkhoff–James condition is x_1|x_1|y_1+x_2|x_2|y_2=0. Signed coordinate symmetries yield x=(1,t)/(1+t³)^(1/3) and y=±(-t²,1)/(1+t⁶)^(1/3), t in [0,1]. Splitting at 8u³+7u−1=0 for u=t³ separates absolute-value branches. Independently rederived the degree-17 positive upper-branch Q from the resultant of implicit derivative of P_+(u) with F=(1+u²)^2*r³-u(1+u)^2, obtaining -27(u+1)^3(u²+1)^4*Q. Re-derived small-plus and negative resultant factors and checked exact Sturm root counts: Q one root in (0,1), small-plus zero in (0,7/50), negative one in (0,1). Actual derivative signs certify upper plus interior max and negative orientation only interior minimum, whose endpoints max 56^(1/6) is dominated by plus witness u=3/4. Thus exact isolated value 1.9639614189192027...; finite algebraic root counts and analytic global parametrization prove, not floating point.
+
+## originality
+
+PASS
+
+Ahmad–Xie–Li 2022 defines T_perp and bounds it on Banach spaces, calculating Hilbert/max-norm examples, not the real non-Hilbert ell_3² value. Ni–Liu–Zhou 2025 skew constants are different objectives. Resultary hits for later ell_4², octagon and other orthogonality constants neither reduce to ell_3² nor dominate a p=3 result. Best-of-knowledge original with mathematical alias risk.
+
+## value
+
+PASS
+
+A canonical smooth non-Hilbert ell_p benchmark fills the source’s concrete-space exact-value gap. Nontrivial interior optimizing direction encoded by degree-17 polynomial makes the exact geometric invariant genuinely informative, not direct Hilbert-value substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
