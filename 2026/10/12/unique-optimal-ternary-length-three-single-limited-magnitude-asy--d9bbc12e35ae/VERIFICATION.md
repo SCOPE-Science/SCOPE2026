@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier uses only the Python standard library. It performs these finite checks:
+## correctness
 
-1. Generates all \(27\) words of \(\{0,1,2\}^3\).
-2. Reconstructs every one-error non-wraparound output ball in two independent ways and requires equality.
-3. Verifies that the nine stated triples partition the ambient space and that every pair inside each triple is confusable.
-4. Verifies that \(\{0,2\}^3\cup\{111\}\) has nine words with pairwise disjoint output balls.
-5. Enumerates every maximal compatibility clique with an exact Bron--Kerbosch traversal and requires maximum size \(9\) with exactly one maximum.
-6. Independently counts all compatible nine-subsets by fixed-size recursive search and requires count \(1\).
-7. Reconstructs the modulo-\(2\) lift of the binary repetition code and requires it to equal the unique maximum.
+PASS
 
-The expected terminal line is:
+PASS: The 27 ternary words under at-most-one nonwrap +1 coordinate error have exact balls of size 1..4. Nine explicitly displayed three-word conflict blocks partition all 27 and are pairwise incompatible within each block, giving |C|<=9. The parity-corner eight plus 111 achieves nine with disjoint balls. Independent search rebuilt the balls, verified every pair in all nine blocks, and found exactly one labeled compatible nine-code; this is finite EXHAUSTIVE over all 27 words. It matches Cassuto et al residue-mod-2 lift of binary {000,111}.
 
-`VERIFY_OK maximum=9 labeled_maxima=1 unique_code=corners_plus_center`
+## originality
 
-The computation is exhaustive only for the stated finite channel.
+PASS
+
+PASS best-of-knowledge: Cassuto-Schwartz-Bohossian-Bruck 2007 explicitly gives the modulo-2 lifted construction and its correction property, so the nine-word code is preexisting and NOT novel. Its inspected entire five-page preprint discusses construction, general decoding, perfect wraparound cases and length7 Hamming instance, but states no nonwrap ternary length3 sharp bound or unique labeled maximum. Exact finite classification is not implied by construction alone; residual risk of an unindexed enumeration.
+
+## value
+
+PASS
+
+PASS, narrowly: This is the exact complete extremal classification for the smallest ternary length-three nonwrap one-up-error flash model; it establishes optimality and uniqueness, which the classical modular construction by itself does not, and supplies a concise human-checkable nine-part upper-bound certificate. It does not claim a general coding family advance or priority over the known optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

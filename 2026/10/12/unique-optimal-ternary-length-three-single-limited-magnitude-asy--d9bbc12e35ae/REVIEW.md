@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The nine displayed conflict triples partition all \(27\) ternary words and each triple is pairwise confusable, giving the search-free upper bound \(9\). The displayed nine-word code has disjoint output balls. The finalized verifier independently reconstructs the channel twice and exhaustively confirms that exactly one size-\(9\) code exists.
+## correctness
 
-## Originality
-PASS. The primary literature already constructs the nine-word set as a modulo-\(2\) lift of the binary repetition code, so that construction is not claimed as new. The inspected full text, exact-parameter searches, and indexed literature searches did not locate the all-code upper bound or uniqueness statement. Residual risk remains for an obscure unindexed finite enumeration.
+PASS
 
-## Value
-PASS. This closes the complete equality layer at a natural first odd-alphabet boundary instance of the asymmetric limited-magnitude construction. The unique corners-plus-center optimizer and explicit nine-triple obstruction give a compact benchmark for finite boundary effects that are not captured by construction size alone.
+PASS: The 27 ternary words under at-most-one nonwrap +1 coordinate error have exact balls of size 1..4. Nine explicitly displayed three-word conflict blocks partition all 27 and are pairwise incompatible within each block, giving |C|<=9. The parity-corner eight plus 111 achieves nine with disjoint balls. Independent search rebuilt the balls, verified every pair in all nine blocks, and found exactly one labeled compatible nine-code; this is finite EXHAUSTIVE over all 27 words. It matches Cassuto et al residue-mod-2 lift of binary {000,111}.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Cassuto-Schwartz-Bohossian-Bruck 2007 explicitly gives the modulo-2 lifted construction and its correction property, so the nine-word code is preexisting and NOT novel. Its inspected entire five-page preprint discusses construction, general decoding, perfect wraparound cases and length7 Hamming instance, but states no nonwrap ternary length3 sharp bound or unique labeled maximum. Exact finite classification is not implied by construction alone; residual risk of an unindexed enumeration.
+
+## value
+
+PASS
+
+PASS, narrowly: This is the exact complete extremal classification for the smallest ternary length-three nonwrap one-up-error flash model; it establishes optimality and uniqueness, which the classical modular construction by itself does not, and supplies a concise human-checkable nine-part upper-bound certificate. It does not claim a general coding family advance or priority over the known optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
