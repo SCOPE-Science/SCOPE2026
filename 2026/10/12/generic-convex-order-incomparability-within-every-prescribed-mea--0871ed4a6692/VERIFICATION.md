@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof does not depend on numerical search. The essential deterministic formulas are the equal-mean identity
-\[
-C_\mu(t)-P_\mu(t)=m-t,
-\]
-the explicit endpoint laws
-\[
-B_m^{\mathrm{upper}}=\frac{2(1-m)}{2-m}\delta_{m/2}+\frac{m}{2-m}\delta_1,
-\]
-\[
-B_m^{\mathrm{lower}}=\frac{1-m}{1+m}\delta_0+\frac{2m}{1+m}\delta_{(1+m)/2},
-\]
-and the mean-preserving compression \(T_\delta(x)=m+(1-\delta)(x-m)\).
+# Independent mathematical audit
 
-Run the standalone `verify.py` in Python 3 with no third-party packages. It constructs exact rational measures for several interior means (including near-boundary means), verifies every mean and the opposite signs of the low-/high-strike stop-loss inequalities, and checks perturbations of a strict convex-order pair. For \(m=1/2\), the symmetric exact witness yields
-\[
-C_F(1/8)-C_G(1/8)=-1/240,
-\qquad
-C_F(7/8)-C_G(7/8)=1/240.
-\]
-Successful output is exactly:
-`VERIFY_OK mean=1/2 low_gap=-1/240 high_gap=1/240 smooth_margin_positive=true`.
+## correctness
 
-The checks establish these finite algebraic identities only. Weak compactness, empty relative interior for every comparable pair, and exact-mean smoothing are proved analytically in `RESULT.md`; an infinite claim is not inferred from the finite replay.
+PASS
+
+PASS: Stop-loss functions C_mu(t)=E(X-t)_+ characterize one-dimensional convex order at equal mean and depend continuously on weakly convergent probability measures on [0,1], so the union of both oriented orders is closed. For a distinct comparable pair, mixing one member with the mean-m endpoint Bernoulli and compressing the other toward m retains an interior strict inequality yet reverses a high-strike inequality. For an equal pair, the explicit upper two-point law ((2(1-m)/(2-m)) at m/2; m/(2-m) at 1) and lower two-point law ((1-m)/(1+m) at 0; 2m/(1+m) at (1+m)/2), both mixed with a compressed common law, have opposed endpoint put/call inequalities. These perturbations approach their originals in weak topology and keep mean exactly m. Smooth convolution after compression and an arbitrarily small smooth positive exponential-tilt mixture preserve exact mean and strict incomparability. At m=0,1 the theorem is correctly excluded. Independently checked endpoint law means and m=1/2 rational stop-loss gaps ±1/240. The all-law density is analytic, not deduced from finite checks.
+
+## originality
+
+PASS
+
+PASS (best knowledge): Durante, Fernández-Sánchez and Ignazzi prove nowhere density for ordered pairs in the full weak space for increasing convex order, but their argument permits changing the mean and the ambient nowhere-density conclusion does not imply the relative claim on its closed mean fiber. Wiesel–Zhang provides convex-order criterion rather than fiber-category theorem. A copula fixed-marginal Baire result concerns a different bivariate state space. Search of Resultary and exact mean-fiber/stop-loss aliases found no theorem subsuming this precise univariate fixed-barycenter conclusion; older majorization/measure-topology equivalence remains an explicit risk.
+
+## value
+
+PASS
+
+PASS: The mean constraint is forced by convex-order comparability, so the ambient genericity statement fails to answer the natural relative-category question. The theorem handles every interior mean, diagonal and strict pairs, as well as positive smooth representatives, and exposes a sharp topological distinction from totally ordered fixed-support three-point fibers. This is a complete motivated structural result, not a renamed textbook criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
