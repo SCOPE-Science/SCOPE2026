@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For k>=2 the compulsory edge imbalances are exactly -1 at N_i and +1 at P_i (1<=i<=k-2). Any balancing flow decomposes into paths from N_i to P_j, and a path from N_i needs >=i shifts before its vertex can begin with zero, proving >=sum_i i extra edges even for arbitrary hosts. Equality forces j=i by suffix-zero overlap, and then appending exactly i ones. These forced paths balance a strongly connected mandatory graph, giving an optimal Euler circuit. The BEST formula for rooted circuits with designated 0^k edge reduces to t_Z because every outdegree is <=2. An in-tree cannot select append-one at any N_i without a directed cycle; then each P_i gives an independent binary choice, hence t_Z=2^(k-2). All cases k>=2, including k=2, are addressed. Packaged verifier independently corroborates exact constructions, assignment minima, rooted Eulerian counts and bounded exhaustive host enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanca–Godbole (arxiv:1008.2251), introduction and fixed-weight-universal-cycle statements, inspected complete PDF.",
+        "Ruskey–Sawada–Williams, DOI:10.1137/100808782, title/abstract and accessible excerpt only."
+      ],
+      "reasoning": "Fixed-weight exact cycles cover all placements of weight j, whereas the present compulsory set has one run of ones across every weight. General Eulerian and fixed-weight constructions do not prove shortest unrestricted length or force an extra-word multiset, nor give the specific BEST count. A published stronger theorem on this exact compulsory family was not found.",
+      "searches": [
+        "shortest superstring binary strings one block of consecutive ones cyclic universal cycle",
+        "de Bruijn cycle binary words circularly consecutive 1s count Euler tours",
+        "arxiv:1008.2251",
+        "doi:10.1137/100808782"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0711.1695 (full preprint)",
+      "arxiv:0808.1309 (full preprint)",
+      "arxiv:1008.2251 (full preprint)",
+      "doi:10.1137/100808782 (abstract and accessible excerpt only)",
+      "OEIS:A016031 (different enumeration target)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0711.1695 proves an algorithmic construction for already-Eulerian forbidden-substring languages.",
+        "arxiv:0808.1309 covers separate families of restricted-word universal cycles.",
+        "arxiv:1008.2251 analyzes weight-restricted classes rather than linearly one-run words."
+      ],
+      "reasoning": "An upper-bound construction from an Eulerian enlargement does not force every shorter cycle to fail, and it does not establish uniqueness of the appended word spectrum. The degree-deficit path lower bound and the arborescence enumeration are specific additional content not implied by the cited construction and existence results.",
+      "searches": [
+        "arxiv:0711.1695",
+        "arxiv:0808.1309",
+        "arxiv:1008.2251",
+        "universal cycles for all binary strings having consecutive ones, circular-ones property"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala (arxiv:0711.1695), sections defining admissible Eulerian languages and greedy minimum-label construction; inspected full preprint.",
+        "Leitner–Godbole (arxiv:0808.1309), introduction and restricted-word-family sections; inspected complete preprint."
+      ],
+      "reasoning": "A fixed set of words with a single linear run of ones is NOT the same language as circularly contiguous ones: the latter has extra 1^a0^b1^c words. A de Bruijn sequence on the larger family would give an upper bound, not by itself the nontrivial lower bound or classification of all optimizers on the smaller compulsory family. Neither primary text supplies that implication.",
+      "searches": [
+        "universal cycle for cyclic intervals of binary words, circularly consecutive ones binary necklace, Eulerian de Bruijn",
+        "universal cycles for all binary strings having consecutive ones, circular-ones property",
+        "arxiv:0711.1695",
+        "arxiv:0808.1309"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A016031 counts unrestricted full binary de Bruijn cycles; its interpretation covers every binary word of length k, not the one-run compulsory subset.",
+        "The elementary polynomial k²-k+2 is also the count of circular-one-run length-k words, so numerical coincidence alone is NOT a novelty argument."
+      ],
+      "reasoning": "A familiar numeric polynomial or power-of-two sequence does not imply the optimization and classification. The meaningful facts here are (i) equality of an unrestricted shortest-cover optimum to that circular language cardinality, (ii) the uniquely forced added windows, and (iii) a count of every optimal rotation class. No matched database entry with all three claims was identified.",
+      "searches": [
+        "OEIS 2 4 8 14 22 32 44 58 binary necklaces consecutive ones cyclic words",
+        "OEIS 1 2 4 8 16 optimal de Bruijn restricted one run words",
+        "OEIS:A016031"
+      ]
+    },
+    "rationale": "Primary literature on forbidden-language de Bruijn sequences and universal cycles was compared by mathematical implication, including the distinction between linearly one-run compulsory windows and circularly one-run complete Eulerian spectra, and between exact universal cycles and unrestricted shortest covers. No inspected source gives the sharp unrestricted quadratic optimum together with the forced completion and 2^(k-2) complete optimum multiplicity. This is best-knowledge originality, not an absolute uniqueness certification.",
+    "residual_risks": [
+      "An unindexed or differently phrased circular-interval universal-cycle result could give the same multiplicity indirectly.",
+      "The full text of the fixed-weight survey/publication was not inspected, though its stated scope does not directly dominate this claim.",
+      "Computer checks are finite and cannot rule out hidden mistakes in the written infinite proof; no independent expert audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different problem: lexicographic selection of exact admissible de Bruijn Eulerian cycles; no theorem on minimum repetition overhead or all optimal circuits for the compulsory one-run language.",
+        "evidence": [
+          "arxiv:0711.1695",
+          "The abstract explicitly describes a minimum-label unvisited-arc strategy on a digraph, conditional on ending in an Eulerian cycle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+        "material_read": "Accessible preprint full text, including definitions of admissible languages, graph conditions, construction, and conclusions; full PDF text read.",
+        "method": "Read arXiv preprint PDF and compare hypotheses and goal against unrestricted minimum cyclic covering.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Closest language-restricted de Bruijn graph construction potentially dominating the cover"
+      },
+      {
+        "assessment": "Does not state the present linearly one-run compulsory family, its forced circular completion, or shortest-cover multiplicities.",
+        "evidence": [
+          "arxiv:0808.1309"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0808.1309",
+        "material_read": "Full accessible arXiv preprint including introduction and individual restricted-family sections.",
+        "method": "Read source PDF text and compare enumerated word classes and exact-once cycle requirement.",
+        "title": "Universal Cycles of Classes of Restricted Words",
+        "trigger": "Plausible universality theorem for a differently described restricted word class"
+      },
+      {
+        "assessment": "The weight constraints do not imply the shortest *cyclic* superstring optimum of the linearly one-run family, much less all optimal rotation classes.",
+        "evidence": [
+          "arxiv:1008.2251"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+        "material_read": "Full accessible arXiv preprint including weight-related statements.",
+        "method": "Read the paper PDF and check whether its fixed-weight cycle statements dominate the one-run language across all weights.",
+        "title": "On Universal Cycles for New Classes of Combinatorial Structures",
+        "trigger": "Potential fixed-weight universal-cycle coverage of one-run subfamilies"
+      },
+      {
+        "assessment": "No matching result found in accessible material. Unread full-text content remains a residual risk; its stated fixed-weight domain is different.",
+        "evidence": [
+          "doi:10.1137/100808782"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Bibliographic record, abstract and accessible excerpt only; no claim to have read the full text.",
+        "method": "Compare stated fixed-Hamming-weight scope against all-weights one-run positional restriction.",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Related binary constrained de Bruijn construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bd5f7ee-b014-41ba-ad19-ef5fffb30537",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural compulsory language comprises all length-k binary words with one linear run of ones. Its minimal cyclic completion is not obvious because arbitrary extra windows are allowed; the proof establishes an exact quadratic optimum, identifies uniquely every forced extra window, and classifies/counts all shortest cyclic hosts for every k. This is a complete structural covering result, not an arbitrary finite-table increment or a restatement of a known sequence.",
+    "status": "PASS"
+  }
+}
