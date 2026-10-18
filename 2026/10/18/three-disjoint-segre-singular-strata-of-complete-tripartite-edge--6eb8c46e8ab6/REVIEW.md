@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every projective edge-coordinate chart is proved, not inferred numerically, to be a smooth affine factor times the rank-one \(2\times w\) determinantal cone. The explicit generating ratios and semigroup-exponent equivalence show that there are no omitted relations. Local Jacobian ranks give precisely one singular Segre stratum per omitted part of size at least two, and the three relevant coordinate supports are disjoint. Standard Segre geometry gives degree, multiplicity, divisor class group, and Gorenstein boundary. Exact finite tests provide separately implemented computational checks of the claimed chart identities, not an infinite proof.
+
+**Originality — PASS (qualified).** Ohsugi–Hibi (2000) treats complete multipartite edge rings, toric ideals, faces, Hilbert functions and Gorensteinness; its abstract was available but full original text could not be examined. Higashitani–Matsushita (2020) was materially inspected in HTML and investigates affine ring class groups, divisorial ideals and resolutions, not a disjoint projective singular-stratum classification. Indexed mathematical comparisons found analogous Segre cones for different varieties and related graph polytopes, not an implication of this complete statement. The already-known Gorenstein cutoff is acknowledged rather than presented as new. A full-text overlap hidden in the 2000 paper or elsewhere remains a genuine risk.
+
+**Mathematical value — PASS.** This is a natural three-parameter Segre–Veronese edge family. The theorem classifies every projective singular point and its transverse analytic geometry, proving the unexpectedly disjoint nature of all components. It also gives exact dimensions, degrees, multiplicities, the non-\(\mathbb Q\)-factorial locus, and a geometric explanation of the Gorenstein threshold. In unbalanced part sizes the singular locus is non-equidimensional, a useful structural distinction not captured by graded Hilbert data.
+
+**Limitations.** Only complete tripartite graphs and the reduced singular locus are covered; no four-part extension or full Jacobian scheme is claimed. An inaccessible full original source remains an originality uncertainty. Numerical checker samples cannot replace the proof.
+
+Self-review: passed. Independent audit: not yet performed.
