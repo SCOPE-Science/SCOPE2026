@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the hierarchy to the exact identity \(d_r(D)=\min\{{|X|:|X|-\operatorname{{rank}}_2(G_X)\ge r\}}\) for the published Wagner generator matrix. The bundled verifier exhausts all \(2^{{23}}\) coordinate subsets with exact binary rank arithmetic and reproduces all nine claimed values, ending in `VERIFY_OK`. No finite sample is extrapolated to an unenumerated case.
+## correctness
 
-## Originality
-PASS. The closest recent generalized-weight paper leaves the binary dimension-eight layer outside its determination. CodeTables supplies the matrix and ordinary distance only. Simonis supplies equivalence-class uniqueness. The Sidon literature already implies the specific plane-cap consequence \(m_2^{{(2)}}(8,3)=23\); that covered fact is explicitly excluded from the originality claim. Searches for the full hierarchy, its exact sequence, the dual Wagner code, and equivalent projective formulations found no source stating all nine values. The unresolved access to the full Simonis article remains a documented residual risk.
+PASS
 
-## Value
-PASS. The result determines every generalized support threshold of a unique classical optimal code's dual and supplies an exact benchmark at the first dimension beyond the recent binary tables. This is a natural complete invariant, not an arbitrary slice or a recomputation of a known table.
+The exact CodeTables 14-by-23 Wagner generator, retrieved at the assigned Git blob, has rank 14 and independently verified primal minimum distance 5 (all 2^14 primal words). Its dual is ker(G), dimension 9. For every coordinate set X, dim ker(G_X)=|X|-rank(G_X), so d_r=min{|X|:nullity>=r}. A separately written exact XOR-rank implementation exhausted all 2^23=8,388,608 subsets and gave d_1..d_9=(8,12,15,17,18,20,21,22,23), proving both minima and exclusions without sampling; no statement is made about other [23,9] codes.
 
-## Closest literature and limitations
-Kurz–Landjev–Rousseva (2026) is the closest recent framework; Simonis (2000), Nagy (2025), and CodeTables control the uniqueness, Sidon consequence, and concrete matrix. The result does not claim a full dimension-eight extremal table or generalized-weight optimality among all \([23,9]\) codes. Older unindexed computations remain a literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct original scientific result is the ENTIRE nine-coordinate generalized-weight hierarchy for the dual of the unique binary [23,14,5] Wagner code. A known 24-point Sidon maximum implies the d_6=20/projective-plane consequence, explicitly excluded from the novel part; remaining hierarchy entries are not established by the CodeTables ordinary-distance entry, Simonis uniqueness, or Kurz–Landjev–Rousseva dimension<=7 extremal bounds. Best-of-knowledge only: complete Simonis 2000 text inaccessible (institutional VPN disconnected), unindexed earlier exact hierarchy remains possible.
+
+## value
+
+PASS
+
+The code is the unique extremal [23,14,5] binary object, and its dual generalized weights quantify all support thresholds for information access, puncturing/shortening, and projective multisets. Nine simultaneous exact minima constitute a natural complete invariant of a motivated nontrivial code, not an arbitrary tiny instance or a recomputation of the ordinary distance; the already known Sidon consequence is separately credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

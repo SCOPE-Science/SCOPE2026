@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The file `verify.cpp` is a standalone exact checker. It embeds the 14-by-23 binary generator matrix from the public CodeTables Wagner-code entry. For each nonempty coordinate subset it computes the column rank over \(\mathbb F_2\), then applies
-\[
-\dim D(X)=|X|-\operatorname{rank}_2(G_X).
-\]
-It examines all \(2^{23}-1\) nonempty subsets and checks the expected minima for every \(r=1,\ldots,9\).
+# Independent mathematical audit
 
-Replay from the package directory with a standard C++17 compiler:
+## correctness
 
-`g++ -O3 -std=c++17 verify.cpp -o verify && ./verify`
+PASS
 
-The run used for this package is preserved in `verification_output.txt` and ends with `VERIFY_OK`. The computation uses only integer bit operations and exact XOR elimination. It does not use randomness, floating point, heuristic pruning, timeout conclusions, or an external certification service.
+The exact CodeTables 14-by-23 Wagner generator, retrieved at the assigned Git blob, has rank 14 and independently verified primal minimum distance 5 (all 2^14 primal words). Its dual is ker(G), dimension 9. For every coordinate set X, dim ker(G_X)=|X|-rank(G_X), so d_r=min{|X|:nullity>=r}. A separately written exact XOR-rank implementation exhausted all 2^23=8,388,608 subsets and gave d_1..d_9=(8,12,15,17,18,20,21,22,23), proving both minima and exclusions without sampling; no statement is made about other [23,9] codes.
 
-The certificate proves only the hierarchy of the displayed code. Equivalence of linear codes preserves generalized Hamming weights; Simonis's uniqueness theorem is used only to identify this hierarchy with the Wagner equivalence class.
+## originality
+
+PASS
+
+The distinct original scientific result is the ENTIRE nine-coordinate generalized-weight hierarchy for the dual of the unique binary [23,14,5] Wagner code. A known 24-point Sidon maximum implies the d_6=20/projective-plane consequence, explicitly excluded from the novel part; remaining hierarchy entries are not established by the CodeTables ordinary-distance entry, Simonis uniqueness, or Kurz–Landjev–Rousseva dimension<=7 extremal bounds. Best-of-knowledge only: complete Simonis 2000 text inaccessible (institutional VPN disconnected), unindexed earlier exact hierarchy remains possible.
+
+## value
+
+PASS
+
+The code is the unique extremal [23,14,5] binary object, and its dual generalized weights quantify all support thresholds for information access, puncturing/shortening, and projective multisets. Nine simultaneous exact minima constitute a natural complete invariant of a motivated nontrivial code, not an arbitrary tiny instance or a recomputation of the ordinary distance; the already known Sidon consequence is separately credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
