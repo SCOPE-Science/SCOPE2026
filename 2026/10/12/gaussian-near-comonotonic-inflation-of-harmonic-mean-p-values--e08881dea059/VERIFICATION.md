@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The analytic proof in `RESULT.md` establishes the finding. It requires no unproved numerical lemma, no infinite extrapolation from finite tests, and no unavailable auxiliary data. The conditional threshold is unique by strict monotonicity; Taylor remainders are controlled on the event \(\max_i|E_i|\le(1-r)^{-1/4}\), whose complement has exponentially small probability relative to the claimed first-order scale. The exact normal moments and strict Mills inequality then determine the coefficient and its sign.
+# Independent mathematical audit
 
-The standalone `VERIFY.py` uses Python 3 with NumPy and SciPy and evaluates a deterministic one-dimensional integral for the bivariate Gaussian case. Execute `python VERIFY.py` in the same directory. It checks 12 level/weight/correlation combinations: four pairs and three correlations \(r=0.99,0.997,0.999\), comparing finite quotients with the closed-form derivative and requiring observed convergence. These are quadrature comparisons with floating-point error and test no dimension above two. They are corroboration, not a proof of the analytic universal statement.
+## correctness
 
-The theorem is pointwise at fixed \(p\), dimension and weights. Independent validation has not been performed.
+PASS
+
+Conditional on E, the reciprocal-mean event is Z<=z*(E,h); the equation in f=1/Phi has a unique threshold. With h=sqrt(1-r), recenter m=sum wE and v=sum w(E-m)^2. Taylor implicit solving yields z*=q-hm+(h²/2)(q+[q+2phi(q)/p]v)+O_p(h³(1+max|E|)^3). Gaussian-max truncation max|E|<=h^-1/2 plus its exponentially small complement justifies integrating the order-h² formula. E(m²)=sum w² and E(v)=1-sum w² give the claimed derivative; strict Mills inequality q+phi(q)/Phi(q)>0 gives sign. The degenerate one-weight case is exactly uniform; no p->0 or n->infinity interchange claimed. Independently checked the p=1/2, w=(1/2,1/2) coefficient 1/(2pi). The inspected 12-case bivariate quadrature program is only corroborative.
+
+## originality
+
+PASS
+
+Compared the fixed-level r->1 derivative (both weights and exact pairwise-correlation normalization) against Chen et al. positive Gaussian open/conjectural regime and Liu/Chakraborty small-level fixed-dependence expansions. None of the inspected passages implies the displayed exact first-order derivative. Best-of-knowledge originality, not absolute priority certification.
+
+## value
+
+PASS
+
+Gaussian-copula positive association was a specific open calibration regime; an explicit positive first-order excess probability valid for any fixed level, dimension and nondegenerate weights supplies a quantitative local answer. It delineates the comonotonic validity boundary without claiming global correlation monotonicity. This is a motivated structural calibration law, not a bare numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

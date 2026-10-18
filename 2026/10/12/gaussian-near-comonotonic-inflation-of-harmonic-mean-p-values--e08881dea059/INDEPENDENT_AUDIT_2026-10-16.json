@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned record 1 RESULT.md Git blob 9d96e3d1023c34353cf9340a692aece133405c9b",
+        "Chen et al., Sub-uniformity of harmonic mean p-values, arXiv:2405.01368v2, Section 7 and conclusion, https://arxiv.org/html/2405.01368v2",
+        "Chakraborty et al., On the Universal Calibration of Heavy-tailed Combination Tests, arXiv:2509.12066v3",
+        "T. Liu, Copula Geometry and Second-Order Calibration of Heavily Right Aggregation, arXiv:2609.29658v1, Sec. 7"
+      ],
+      "rationale": "Conditional on E, the reciprocal-mean event is Z<=z*(E,h); the equation in f=1/Phi has a unique threshold. With h=sqrt(1-r), recenter m=sum wE and v=sum w(E-m)^2. Taylor implicit solving yields z*=q-hm+(h²/2)(q+[q+2phi(q)/p]v)+O_p(h³(1+max|E|)^3). Gaussian-max truncation max|E|<=h^-1/2 plus its exponentially small complement justifies integrating the order-h² formula. E(m²)=sum w² and E(v)=1-sum w² give the claimed derivative; strict Mills inequality q+phi(q)/Phi(q)>0 gives sign. The degenerate one-weight case is exactly uniform; no p->0 or n->infinity interchange claimed. Independently checked the p=1/2, w=(1/2,1/2) coefficient 1/(2pi). The inspected 12-case bivariate quadrature program is only corroborative.",
+      "residual_risks": [
+        "Gaussian tail truncation constants are p-specific; neither finite quadrature nor source VERIFY_OK alone proves quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published dependence-class calibration is for independence/negative orthant or specified copulas; heavy-tail second-order papers send p->0 at a fixed dependence model."
+        ],
+        "reasoning": "Neither fixed-correlation tail asymptotics nor a Gaussian numerical conjecture dominates the all-fixed-p, r->1 analytic derivative; limit order noncommutes without extra uniform estimates.",
+        "searches": [
+          "arXiv:2405.01368v2",
+          "arXiv:2509.12066v3",
+          "arXiv:2609.29658v1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned record 1 RESULT.md Git blob 9d96e3d1023c34353cf9340a692aece133405c9b",
+        "Chen et al., Sub-uniformity of harmonic mean p-values, arXiv:2405.01368v2, Section 7 and conclusion, https://arxiv.org/html/2405.01368v2",
+        "Chakraborty et al., On the Universal Calibration of Heavy-tailed Combination Tests, arXiv:2509.12066v3",
+        "T. Liu, Copula Geometry and Second-Order Calibration of Heavily Right Aggregation, arXiv:2609.29658v1, Sec. 7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original theorem explicitly concerns fixed p and correlation tending to one; the cited results concern other dependence classes or p tending to zero."
+        ],
+        "reasoning": "No cited prior theorem establishes the same derivative by specialization; routine Gaussian Taylor is a tool, not a prior stated distributional bound.",
+        "searches": [
+          "Chen et al. arXiv:2405.01368 sec7",
+          "Liu arXiv:2609.29658 sec7",
+          "Chakraborty arXiv:2509.12066"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. investigate Gaussian copula positive-dependence numerically; the returned Resultary records concern independent or zero/negative edges, not the r->1 fixed-level derivative."
+        ],
+        "reasoning": "Potential aliases are Gaussian common-factor small idiosyncratic noise, Gaussian-copula diagonal perturbation and inverse-CDF weighted reciprocal means; no compared record supplies the same derivative.",
+        "searches": [
+          "harmonic mean p-values equicorrelated Gaussian copula near comonotonic upper tail probability first derivative correlation approaches one weighted harmonic mean local inflation",
+          "Chen et al. arXiv:2405.01368 Section 7",
+          "Resultary: independent weighted harmonic mean calibration, mixed zero-negative Gaussian edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include two independent uniforms exact calibration and 3-variate mixed zero-negative correlations, but no tabulated Gaussian near-comonotonic first derivative."
+        ],
+        "reasoning": "The invariant is an analytic local size derivative over n,w,p, not a finite tabulated number. Found no equal-parameter row or encompassing exact formula in returned records; nonhit alone is not priority proof.",
+        "searches": [
+          "harmonic mean p-values equicorrelated Gaussian copula near comonotonic upper tail probability first derivative correlation approaches one weighted harmonic mean local inflation",
+          "Resultary exact two-test harmonic-mean calibration",
+          "Resultary mixed zero-negative Gaussian edge law"
+        ]
+      },
+      "rationale": "Compared the fixed-level r->1 derivative (both weights and exact pairwise-correlation normalization) against Chen et al. positive Gaussian open/conjectural regime and Liu/Chakraborty small-level fixed-dependence expansions. None of the inspected passages implies the displayed exact first-order derivative. Best-of-knowledge originality, not absolute priority certification.",
+      "residual_risks": [
+        "An equivalent near-comonotonic derivative could have appeared under Gaussian perturbation, delta-method or risk-aggregation terminology.",
+        "Rigor of the theorem is fixed-p, fixed-n, fixed-weights: neither a uniform level/correlation interval nor arbitrary copula validity is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positively correlated Gaussian law treated numerically, not as an established endpoint derivative",
+          "evidence": [
+            "Section 7 figures/remarks and conclusion distinguish positive Gaussian correlation from proven classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.01368v2",
+          "material_read": "Relevant dependence-class theorems, Section 7, Gaussian numerics and conclusion",
+          "method": "Primary HTML text inspection",
+          "title": "Sub-uniformity of harmonic mean p-values",
+          "trigger": "Same aggregate and Gaussian dependence family"
+        },
+        {
+          "assessment": "Fixed Gaussian correlations and p->0 corrections do not give fixed-level r->1 derivative",
+          "evidence": [
+            "Different noncommuting asymptotic limits; independent finite-correlation regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.29658",
+          "material_read": "Abstract, Section 7 and indicated appendices/second-order regime material",
+          "method": "Primary-paper relevant material inspection",
+          "title": "Copula Geometry and Second-Order Calibration of Heavily Right Aggregation",
+          "trigger": "Gaussian dependence, heavy reciprocal tails"
+        },
+        {
+          "assessment": "Only independent bivariate uniforms; no near-comonotonic Gaussian limit",
+          "evidence": [
+            "Exact independent bivariate null CDF is not the correlation derivative."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-two-test-calibration-and-weight-extremum-for-independent-h--31866efab67e",
+          "material_read": "Resultary indexed result title/summary (not complete primary manuscript)",
+          "method": "Published-record semantic comparison",
+          "title": "Exact two-test calibration and weight extremum for independent harmonic-mean p-values",
+          "trigger": "Possible calibrated special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned record 1 RESULT.md Git blob 9d96e3d1023c34353cf9340a692aece133405c9b",
+        "Chen et al., Sub-uniformity of harmonic mean p-values, arXiv:2405.01368v2, Section 7 and conclusion, https://arxiv.org/html/2405.01368v2",
+        "Chakraborty et al., On the Universal Calibration of Heavy-tailed Combination Tests, arXiv:2509.12066v3",
+        "T. Liu, Copula Geometry and Second-Order Calibration of Heavily Right Aggregation, arXiv:2609.29658v1, Sec. 7"
+      ],
+      "rationale": "Gaussian-copula positive association was a specific open calibration regime; an explicit positive first-order excess probability valid for any fixed level, dimension and nondegenerate weights supplies a quantitative local answer. It delineates the comonotonic validity boundary without claiming global correlation monotonicity. This is a motivated structural calibration law, not a bare numerical check.",
+      "residual_risks": [
+        "No uniform-in-level or away-from-one correlation conclusions; calibration implications are strictly local."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned record 1 RESULT.md Git blob 9d96e3d1023c34353cf9340a692aece133405c9b",
+    "Chen et al., Sub-uniformity of harmonic mean p-values, arXiv:2405.01368v2, Section 7 and conclusion, https://arxiv.org/html/2405.01368v2",
+    "Chakraborty et al., On the Universal Calibration of Heavy-tailed Combination Tests, arXiv:2509.12066v3",
+    "T. Liu, Copula Geometry and Second-Order Calibration of Heavily Right Aggregation, arXiv:2609.29658v1, Sec. 7"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One-sided r->1 only, p,n,w fixed; finite numerical examples are not a universal proof."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Positively correlated Gaussian law treated numerically, not as an established endpoint derivative",
+      "evidence": [
+        "Section 7 figures/remarks and conclusion distinguish positive Gaussian correlation from proven classes."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2405.01368v2",
+      "material_read": "Relevant dependence-class theorems, Section 7, Gaussian numerics and conclusion",
+      "method": "Primary HTML text inspection",
+      "title": "Sub-uniformity of harmonic mean p-values",
+      "trigger": "Same aggregate and Gaussian dependence family"
+    },
+    {
+      "assessment": "Fixed Gaussian correlations and p->0 corrections do not give fixed-level r->1 derivative",
+      "evidence": [
+        "Different noncommuting asymptotic limits; independent finite-correlation regime."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2609.29658",
+      "material_read": "Abstract, Section 7 and indicated appendices/second-order regime material",
+      "method": "Primary-paper relevant material inspection",
+      "title": "Copula Geometry and Second-Order Calibration of Heavily Right Aggregation",
+      "trigger": "Gaussian dependence, heavy reciprocal tails"
+    },
+    {
+      "assessment": "Only independent bivariate uniforms; no near-comonotonic Gaussian limit",
+      "evidence": [
+        "Exact independent bivariate null CDF is not the correlation derivative."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-two-test-calibration-and-weight-extremum-for-independent-h--31866efab67e",
+      "material_read": "Resultary indexed result title/summary (not complete primary manuscript)",
+      "method": "Published-record semantic comparison",
+      "title": "Exact two-test calibration and weight extremum for independent harmonic-mean p-values",
+      "trigger": "Possible calibrated special case"
+    }
+  ]
+}
