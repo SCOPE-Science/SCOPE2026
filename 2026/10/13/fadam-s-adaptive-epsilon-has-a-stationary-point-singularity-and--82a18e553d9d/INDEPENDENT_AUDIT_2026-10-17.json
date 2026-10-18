@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:15:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At t=1, beta2-hat=0 in printed Algorithm 1 so Fisher f1=theta0^2 even when f0=1; for 0<|theta0|<1e-6, epsilon_hat=.01|theta0| and f1^(1/2)+epsilon_hat=(1.01)|theta0|. Both clipped directions are unclipped sign(theta0)/1.01. Thus theta1=theta0-eta1/10 sign(theta0). At theta0=0 both fractions read 0/0, while on 0<|theta0|<min(1e-6,eta1/20) the squared objective increases with amplification (eta1/(10|theta0|)-1)^2 unbounded as theta0 tends to 0. Verified independently with exact fractions and the actual source equations. Only mathematical paper-form first step is covered, not safeguarded implementations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2003.02395 convergence for Adam uses a fixed positive stabilizer; its denominator is nonzero at zero gradient",
+          "Resultary SCOPE epsilon local stability frontiers for AdaBelief, MADGRAD, AdaBound and diffGrad are distinct update rules"
+        ],
+        "reasoning": "Earlier stronger/generic theory was compared at the statement-and-implication level: The FAdam paper supplies exactly the bias correction and adaptive-epsilon formula but does not give the stationary-point undefined update and nonvanishing local jump. Related Resultary epsilon/stability papers concern different optimizers and do not imply this FAdam update. The observation is an algebraic consequence of a published algorithm, so discovery may be implicit/known in engineering implementations; scoped best-of-knowledge originality.",
+        "searches": [
+          "Resultary semantic: FAdam adaptive epsilon stationary zero gradient singularity fixed jump strongly convex quadratic first step Fisher bias correction",
+          "arXiv:2405.12807v11"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/fadam-s-adaptive-epsilon-has-a-stationary-point-singularity-and--82a18e553d9d/RESULT.md",
+        "arXiv:2405.12807v11 Algorithm 1, Appendix B.3",
+        "arXiv:2003.02395",
+        "Resultary earlier optimizer epsilon frontiers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From printed Hwang Algorithm 1 (arXiv:2405.12807v11) the claimed first-step local identity follows by substituting a scalar quadratic; the source does not state the local singularity or amplification theorem"
+        ],
+        "reasoning": "The prior theorem(s) supply background or part of the result, but the surviving accepted claim is not the published scalar/corollary alone.",
+        "searches": [
+          "Resultary semantic: FAdam adaptive epsilon stationary zero gradient singularity fixed jump strongly convex quadratic first step Fisher bias correction",
+          "arXiv:2405.12807v11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "FAdam Algorithm 1; Adam adaptive diagonal empirical Fisher; epsilon_hat=min(epsilon,epsilon2*RMS(g)); scalar natural-gradient step",
+          "arXiv:2405.12807v11 Algorithm 1, Appendix B.3"
+        ],
+        "reasoning": "Checked synonymous parameter definitions, dual descriptions and normalization: The FAdam paper supplies exactly the bias correction and adaptive-epsilon formula but does not give the stationary-point undefined update and nonvanishing local jump. Related Resultary epsilon/stability papers concern different optimizers and do not imply this FAdam update. The observation is an algebraic consequence of a published algorithm, so discovery may be implicit/known in engineering implementations; scoped best-of-knowledge originality.",
+        "searches": [
+          "Resultary semantic: FAdam adaptive epsilon stationary zero gradient singularity fixed jump strongly convex quadratic first step Fisher bias correction",
+          "arXiv:2405.12807v11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches of FAdam zero-gradient and adaptive epsilon returned optimizer-analogue records but no FAdam identity or fixed-jump table"
+        ],
+        "reasoning": "Checked whether earlier tables, finite classifications or complete-family formulas already determine the final claim; no exhaustive global priority certification is claimed.",
+        "searches": [
+          "Resultary semantic: FAdam adaptive epsilon stationary zero gradient singularity fixed jump strongly convex quadratic first step Fisher bias correction",
+          "arXiv:2405.12807v11"
+        ]
+      },
+      "rationale": "The FAdam paper supplies exactly the bias correction and adaptive-epsilon formula but does not give the stationary-point undefined update and nonvanishing local jump. Related Resultary epsilon/stability papers concern different optimizers and do not imply this FAdam update. The observation is an algebraic consequence of a published algorithm, so discovery may be implicit/known in engineering implementations; scoped best-of-knowledge originality.",
+      "residual_risks": [
+        "The instability is an elementary but previously unstated consequence of the source formulas; undocumented zero-zero conventions or known implementations may handle it already.",
+        "This assessment does not claim general algorithm failure, empirical significance, or applicability to variants imposing denominator floors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_EQUATIONS_COVERED; singular local quadratic theorem not present in inspected material",
+          "evidence": [
+            "Algorithm 1 computes epsilon_hat as min(epsilon, epsilon2 RMS(g)) and beta2_hat(1)=0; appendix describes avoiding division by zero"
+          ],
+          "identifier_or_url": "arXiv:2405.12807v11",
+          "material_read": "Inspected primary arXiv HTML Algorithm 1, first Fisher bias correction, adaptive epsilon lines, and Appendix B.3 discussion of epsilon",
+          "method": "Full accessible original HTML, relevant algorithm and appendix sections",
+          "title": "FAdam: Adam is a natural gradient optimizer using diagonal empirical Fisher information",
+          "trigger": "The exact original algorithm whose zero-gradient denominator is analyzed"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete source-defined singularity plus arbitrarily large relative objective amplification in a neighborhood of a strongly convex minimizer is a mathematically substantive optimizer-behavior and numerical-safety boundary. It affects whether convergence arguments for positive-fixed stabilizers can apply verbatim; the exact phenomenon is stronger than an isolated formal 0/0 notice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/fadam-s-adaptive-epsilon-has-a-stationary-point-singularity-and--82a18e553d9d/RESULT.md",
+    "arXiv:2405.12807v11 Algorithm 1, Appendix B.3",
+    "arXiv:2003.02395",
+    "Resultary earlier optimizer epsilon frontiers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The instability is an elementary but previously unstated consequence of the source formulas; undocumented zero-zero conventions or known implementations may handle it already.",
+    "This assessment does not claim general algorithm failure, empirical significance, or applicability to variants imposing denominator floors."
+  ],
+  "residual_risks": [
+    "The instability is an elementary but previously unstated consequence of the source formulas; undocumented zero-zero conventions or known implementations may handle it already.",
+    "This assessment does not claim general algorithm failure, empirical significance, or applicability to variants imposing denominator floors."
+  ],
+  "schema_version": 1
+}
