@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The Frobenius norm of a row prefix of length j is sqrt(j), and of a column prefix of length i is sqrt(i); translating the exact Heuer–Striker halfspaces gives necessary-and-sufficient ball containment. First-row length-one column prefixes and the row-total upper bound force (n+sqrt(n))r<=1 when m<=n. The constant matrix rho attains equality. Saturation forces the first row, and also the first column when m=n. Explicit small perturbation constructions strictly satisfy all other prefix inequalities and therefore prove the complete affine hull and exact universal tangent facets. The standalone 70-digit checker passed 1521 shapes 2<=m,n<=40 with 45682 labeled active inequalities; finite tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2012.09901, §4.1, Theorems 4.6–4.8 and proofs, includes all defining halfspaces but no optimization over Euclidean balls",
+        "Published mathematical finding titled “Exact John ellipsoid of the doubly substochastic matrix polytope” concerns a nonnegative matching polytope, unlike the sign-changing partial-ASM polytope"
+      ],
+      "reasoning": "The general facet description is a premise, not a stronger metric theorem: deriving the radius requires a sharp bound and attaining center, and deriving the full center locus requires equality and strict-slack analysis. A largest-volume ellipsoid of a nonnegative assignment polytope neither specifies Chebyshev centers nor covers the sign-changing matrix family.",
+      "searches": [
+        "Heuer Striker 2020 PASM(m,n) partial alternating sign matrices prefix-sum polytope Euclidean Chebyshev radius max(m,n)+sqrt maximum",
+        "partial ASM polytope largest Euclidean ball center row column prefix sum",
+        "Alternating sign matrix polytope John ellipsoid maximum volume inscribed ellipsoid"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2012.09901 (2020-12-17 first posted, exact source)",
+      "https://arxiv.org/pdf/2403.02204 (2024-03-04 first posted, follow-up special-face source)",
+      "Indexed published finding “A Birkhoff-polytope family of incenters for partial assignment polytopes” (different fixed-cardinality nonnegative rook polytope)",
+      "Indexed published finding “Exact Euclidean inradius of partial permutohedra” (projection is not isometric to original matrix polytope)",
+      "Accessible same-topic historical claim ledger samples from 2026-09 and 2026-10, used only to avoid duplicates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heuer–Striker 2020 §4.1 proves 0≤all row/column initial sums≤1 and gives their facet list; no inradius or center-locus statement appears in inspected relevant sections",
+        "Heuer–Solhjem–Striker 2024 constructs proper subpolytope faces and studies face dimensions, volume and Ehrhart properties; no Frobenius insphere analysis in inspected statements"
+      ],
+      "reasoning": "The previous halfspace theorem makes this question tractable but does not itself assert the sharp Frobenius optimization or its equality geometry. The 2024 special-face theorem is not a metric-preserving reduction to all full-dimensional PASM(m,n). The present proof supplies both a new sharp dual bound and strict relative-interior witnesses, rather than merely renaming a listed facet.",
+      "searches": [
+        "arxiv:2012.09901 full PDF §§4.1–4.2",
+        "arxiv:2403.02204 full PDF introduction and theorems 3.2, 4.5, 5.4",
+        "partial ASM first row saturated Chebyshev centers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heuer–Striker arXiv:2012.09901 Theorems 4.6 and 4.8: row/column partial-sum inequalities and irredundant facets",
+        "Heuer–Solhjem–Striker arXiv:2403.02204 Theorems 3.2, 4.5, 5.4: proper zero-pattern faces and their order/flow models"
+      ],
+      "reasoning": "Direct geometry and Chebyshev-center aliases were compared. An affine reparameterization using the cumulative row/column sums changes the Frobenius metric and so does not immediately identify an existing radius formula. Neither inspected source states the universal contact or center-dimension classification.",
+      "searches": [
+        "\"partial alternating sign matrix polytope\" \"inradius\"",
+        "\"PASM(m,n)\" Chebyshev center",
+        "partial ASM prefix row column inequalities universal tangent facets affine dimension of Chebyshev centers",
+        "partial alternating sign matrix polytope all incenter centers column row first equality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed geometric records returned partial permutohedron inradius and partial-assignment incenter families but no exact matching partial-ASM radius/center classification"
+      ],
+      "reasoning": "No exact radius/contact table was found for this two-parameter full-dimensional partial-ASM family. This is bounded indexed evidence, not a completeness proof.",
+      "searches": [
+        "PASM(m,n) partial alternating sign matrix polytope exact Euclidean inradius insphere Chebyshev center",
+        "partial alternating sign matrix polytope maximum inscribed ball radius",
+        "\"partial alternating sign matrix\" \"inscribed\" ball"
+      ]
+    },
+    "rationale": "The Heuer–Striker 2020 preprint supplies the exact prefix inequalities and facet identities, but does not compute Euclidean inballs, determine the affine hull of every largest-ball center, or classify common tangent facets. The 2024 follow-up concerns special zero-pattern faces and order/flow equivalences. Indexed results on partial assignment and partial permutohedra concern different convex bodies or metrics. Multiple title, alias, parameter, and equivalent-statement searches found no covering published result; novelty remains qualified by inaccessible/unindexed material.",
+    "residual_risks": [
+      "An older unpublished or poorly indexed equivalent optimization of these prefix constraints is possible.",
+      "Full text of all indexed related partial-assignment findings was not available for direct implication inspection; their indexed objects and invariants differ.",
+      "The intended scientific contribution is the complete center-locus and universally tangent-facet classification, rather than the short standalone radius formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives required geometric halfspaces and facet list, but inspected material does not cover largest Euclidean balls or full center-locus dimensions",
+        "evidence": [
+          "Theorem 4.6 (pp. 8–9) defines the prefix-sum polytope",
+          "Theorem 4.8 (pp. 10–12) distinguishes genuine facets from redundant prefix inequalities"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+        "material_read": "Abstract, introductory theorem statements, §4.1 pp. 7–12 including the proof of the defining inequality system and minimal facet description",
+        "method": "Primary open-access PDF text and page-image reading, with targeted theorem and keyword inspection",
+        "title": "Partial permutation and alternating sign matrix polytopes",
+        "trigger": "Exact same full-dimensional polytope and potential stronger facet theorem"
+      },
+      {
+        "assessment": "Its results are about special faces and order/flow equivalences, not the full-dimensional Frobenius insphere or its contacts",
+        "evidence": [
+          "Theorem 4.5 gives dimension of zero-pattern face",
+          "Theorem 5.4 gives integral equivalence with an order polytope, which is not a Euclidean isometry"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.02204",
+        "material_read": "Abstract and introduction pp. 1–3, statements of Theorems 3.2, 4.5 and 5.4, with targeted searches for metric terms",
+        "method": "Primary open-access PDF text inspection; targeted terms “inradius” and “inscribed” absent",
+        "title": "On ν Faces of Partial Alternating Sign Matrix Polytopes",
+        "trigger": "Follow-up by same authors about faces of the same matrix family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abf9e85f-1a6b-489d-9ae0-0aaf1876eefb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family is a canonical and explicitly defined generalization of assignment polytopes. Exact Euclidean incenter *sets*, not simply a scalar radius, are natural canonical geometry: their affine dimensions rise quadratically while a change in matrix aspect ratio forces an additional family of universally tangent facets. The result resolves the full two-parameter family, supplies generic and special contact counts, and distinguishes it from the nonnegative assignment-polytope geometry; these are nontrivial structural data not directly provided as a theorem by the facet list. Its scope is intentionally limited to the standard Frobenius realization.",
+    "status": "PASS"
+  }
+}
