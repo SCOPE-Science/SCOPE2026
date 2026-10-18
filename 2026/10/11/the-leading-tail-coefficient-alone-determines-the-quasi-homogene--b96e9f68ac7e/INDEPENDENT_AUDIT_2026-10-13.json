@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:15:31.850692Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the stated closed formula C=a(A(r)-B(r)log r), where a=min(k,l), r=max(k,l)/a>1, A=r(r+1)/(r-1)^2 and B=2r²/(r-1)^3, equality of two coefficients yields q=αlog r−βlog s with q,α,β rational and α,β positive. Multiplication by a common denominator gives integer Q=m log r−n log s, so e^Q=r^m/s^n is rational. Hermite–Lindemann forbids any nonzero integer Q; thus q=0 and the rational and logarithmic parts agree separately. Their quotient gives h(log r)=h(log s) with h(x)=x/sinh x, strictly decreasing on x>0, hence r=s, then a=c and b=d. Independent algebra confirmed B/A=1/sinh(log r) and representative coefficient integrals. Finite high-precision stress testing is not used as infinite proof. The conclusion is exact, not stable numerical inversion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Companion work recovers unordered exponents from full numerical-invariant sequence.",
+          "Focal work reports a two-datum sufficient recovery theorem."
+        ],
+        "reasoning": "More observed information recovering parameters does not logically imply the designated single datum suffices; existing broader sequence theorems are not dominating statements.",
+        "searches": [
+          "quasi homogeneous bidisk numerical invariant leading tail coefficient injectivity recover parameters z^k-w^l",
+          "arXiv:2609.25640 parameter recovery full sequence",
+          "arXiv:2609.36516 asymptotic rigidity"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-leading-tail-coefficient-alone-determines-the-quasi-homogene--b96e9f68ac7e/RESULT.md",
+        "arXiv:2609.36516v1",
+        "arXiv:2609.25640v1",
+        "Hermite–Lindemann/Lindemann–Weierstrass theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior C + first-descent ⇒ (k,l).",
+          "Current argument C alone ⇒ (k,l) via q=0 and x/sinh x strict decrease."
+        ],
+        "reasoning": "Two-datum recovery is strictly weaker than this one-datum statement; no implication from the former to latter has been established.",
+        "searches": [
+          "quasi homogeneous bidisk numerical invariant leading tail coefficient injectivity recover parameters z^k-w^l",
+          "Liu Lu Yang arXiv:2609.36516 abstract",
+          "Liu Lu Yang arXiv:2609.25640"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source identity: C_{k,l}=lim j Sigma_j=lim_(t→1)(1−t)P′(t).",
+          "Prior uses leading coefficient with first descent, not a single scalar."
+        ],
+        "reasoning": "The asymptotic and boundary coefficients are equivalent formulations of the same datum; the new injectivity applies to both.",
+        "searches": [
+          "quasi homogeneous bidisk numerical invariant leading tail coefficient injectivity recover parameters z^k-w^l",
+          "Yang numerical invariants log boundary coefficient first strict descent injectivity z^k-w^l",
+          "arXiv:2609.36516"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The domain is all distinct positive integer exponent pairs and the proof exploits Hermite–Lindemann, not an exhaustive finite table.",
+          "Small-pair numerical stress tests cannot prove injectivity over all integers."
+        ],
+        "reasoning": "No complete table can certify infinite injectivity by finite enumeration; an exact closed formula plus transcendence proof is essential.",
+        "searches": [
+          "quasi homogeneous bidisk numerical invariant leading tail coefficient injectivity recover parameters z^k-w^l",
+          "quasi homogeneous bidisk tail leading coefficient exact parameter table collision"
+        ]
+      },
+      "rationale": "The focal Liu–Lu–Yang abstract gives recovery from first strict descent PLUS asymptotic leading coefficient, while their companion full-invariant work recovers parameters from the entire sequence. A theorem that two statistics recover parameters does not imply injectivity of either statistic individually; this proof uses an additional transcendence separation and monotonicity. Public full text of the recent preprints could not be inspected owing to access failures; the precise Remark 3.3 attribution is retained as unverified manuscript evidence and overlap remains material. Nothing inspected decisively implies single-leading-coefficient recovery.",
+      "residual_risks": [
+        "Full text of focal 2026 primary manuscript not accessible; Oxford authorized access returned vpn_disconnected without bypass, so precise remark and hidden equivalent results are unverified.",
+        "Exact uniqueness without a separation lower bound does not give stable finite-precision inverse recovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract announces two-datum parameter recovery, does not itself assert single-scalar result; possible additional full-text coverage remains risk",
+          "evidence": [
+            "Claimed asymptotic rigidity uses first strict descent and C; complete theorem proof not independently read"
+          ],
+          "identifier_or_url": "arXiv:2609.36516v1",
+          "material_read": "Public abstract and bibliographic theorem descriptions only; complete PDF unavailable from attempted lawful OA, arXiv routes and institutional access",
+          "method": "Bounded abstract-level statement comparison, NOT whole-document noncoverage",
+          "title": "Asymptotic Rigidity and Boundary Structure of Yang’s Numerical Invariants for the Bidisk Submodules [z^k−w^l]",
+          "trigger": "Source of the leading coefficient and prior two-datum recovery"
+        },
+        {
+          "assessment": "Complete sequence recovery not sufficient to infer single coefficient injectivity",
+          "evidence": [
+            "Recoverability from a full sequence is weaker information-theoretically"
+          ],
+          "identifier_or_url": "arXiv:2609.25640v1",
+          "material_read": "Public abstract and accessible bibliographic description only",
+          "method": "Statement and logical-strength comparison",
+          "title": "Numerical Invariants and Parameter Recovery for Quasi-Homogeneous Submodules [z^k−w^l]",
+          "trigger": "Earlier full-sequence parameter recovery"
+        },
+        {
+          "assessment": "e^Q transcendental for nonzero integer Q, contradicts rational r^m/s^n",
+          "evidence": [
+            "Integer Q after clearing denominators, positive rational r,s"
+          ],
+          "identifier_or_url": "classical theorem, Lindemann–Weierstrass",
+          "material_read": "Classical stated theorem applied exactly to integer Q",
+          "method": "Checked applicability and integer denominator clearing",
+          "title": "Hermite–Lindemann theorem",
+          "trigger": "Proof hinges on transcendence of nonzero algebraic exponentials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reducing a natural analytic classification from two distinct asymptotic statistics to a single leading tail coefficient is a mathematically motivated minimal-data rigidity result, not a numerical scan. The proof uncovers a nontrivial arithmetic independence of rational and logarithmic portions. This exact-identifiability theorem does not imply robust reconstruction from noisy finite-precision coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-leading-tail-coefficient-alone-determines-the-quasi-homogene--b96e9f68ac7e/RESULT.md",
+    "arXiv:2609.36516v1",
+    "arXiv:2609.25640v1",
+    "Hermite–Lindemann/Lindemann–Weierstrass theorem"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed actual frozen RESULT.md, METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt and VERIFICATION.md in assigned repository and inspected source verifier files as applicable; published source material treated as evidence only.",
+    "A bounded independent mathematical review does not imply full priority coverage, formal Lean verification or expert attestation; computations check only their enumerated finite domains.",
+    "No GitHub writes, source-tree mutations, dispatcher closeout calls or publication occurred."
+  ],
+  "residual_risks": [
+    "Full text of focal 2026 primary manuscript not accessible; Oxford authorized access returned vpn_disconnected without bypass, so precise remark and hidden equivalent results are unverified.",
+    "Exact uniqueness without a separation lower bound does not give stable finite-precision inverse recovery."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Abstract announces two-datum parameter recovery, does not itself assert single-scalar result; possible additional full-text coverage remains risk",
+      "evidence": [
+        "Claimed asymptotic rigidity uses first strict descent and C; complete theorem proof not independently read"
+      ],
+      "identifier_or_url": "arXiv:2609.36516v1",
+      "material_read": "Public abstract and bibliographic theorem descriptions only; complete PDF unavailable from attempted lawful OA, arXiv routes and institutional access",
+      "method": "Bounded abstract-level statement comparison, NOT whole-document noncoverage",
+      "title": "Asymptotic Rigidity and Boundary Structure of Yang’s Numerical Invariants for the Bidisk Submodules [z^k−w^l]",
+      "trigger": "Source of the leading coefficient and prior two-datum recovery"
+    },
+    {
+      "assessment": "Complete sequence recovery not sufficient to infer single coefficient injectivity",
+      "evidence": [
+        "Recoverability from a full sequence is weaker information-theoretically"
+      ],
+      "identifier_or_url": "arXiv:2609.25640v1",
+      "material_read": "Public abstract and accessible bibliographic description only",
+      "method": "Statement and logical-strength comparison",
+      "title": "Numerical Invariants and Parameter Recovery for Quasi-Homogeneous Submodules [z^k−w^l]",
+      "trigger": "Earlier full-sequence parameter recovery"
+    },
+    {
+      "assessment": "e^Q transcendental for nonzero integer Q, contradicts rational r^m/s^n",
+      "evidence": [
+        "Integer Q after clearing denominators, positive rational r,s"
+      ],
+      "identifier_or_url": "classical theorem, Lindemann–Weierstrass",
+      "material_read": "Classical stated theorem applied exactly to integer Q",
+      "method": "Checked applicability and integer denominator clearing",
+      "title": "Hermite–Lindemann theorem",
+      "trigger": "Proof hinges on transcendence of nonzero algebraic exponentials"
+    }
+  ]
+}
