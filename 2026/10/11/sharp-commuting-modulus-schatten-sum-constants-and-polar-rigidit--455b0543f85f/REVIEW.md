@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Simultaneous diagonalization makes every column of the sum a weighted average of left-polar directions. For \(1\le p\le2\), strict Schur--Horn concavity and column bounds prove the unit constant; equality below \(2\) forces orthogonal common-polar directions. For \(p\ge2\), the diagonal multiplier map has sharp-purpose endpoint bounds \(1\) in Hilbert--Schmidt norm and \(\sqrt m\) in operator norm, yielding the interpolated constant. Explicit examples attain both phases. Boundary cases \(p=1,2,\infty\), zero supports and all dimensions are addressed. Numerical checks are supplementary.
+## correctness
 
-**Originality (PASS, residual risk noted).** Tang and Zhang, arXiv:2510.16846, determine unrestricted constants that are strictly larger at the Hilbert exponent; the synopsis inspected does not contain the restricted phase diagram. Zeng, Liu and Ratnavelu, arXiv:2608.15558, provide a noncommuting counterexample below \(2\), rank-one sharp results above \(2\), and an unrestricted fourth-order two-summand bound. Their accessible full text gives no commuting-modulus theorem or lower-exponent polar equality classification. Zhang, arXiv:2603.01046, treats different symmetrized moduli. Search and own-claim comparisons did not identify a covering result. The original Tang--Zhang PDF and potentially unindexed operator-ideal identities remain the main risks; lack of a hit alone does not establish originality.
+PASS
 
-**Mathematical value (PASS).** A common-spectral hypothesis restores coefficient one for every Schatten exponent below two, identifies a sharp power-law penalty above two, and rigidly classifies low-exponent extremizers. This answers an exact natural restricted form of the recent general matrix-modulus problem, with meaningful structural differences from the unrestricted results; it is not a relabeling or a dimension-specific routine computation.
+For m≥2 matrices and commuting positive moduli P_k, choose a common orthonormal eigenbasis e_j with P_ke_j=p_kj e_j. Each column v_j=(Σ A_k)e_j has norm≤s_j=Σp_kj. For 1≤p≤2, Schur–Horn and concavity t^{p/2} give Tr[(T*T)^{p/2}]≤Σ||v_j||^p≤Σs_j^p=||ΣP_k||_p^p. At 1≤p<2, strict concavity forces orthogonality of the nonzero output columns and Euclidean triangle equality forces the same polar direction for each j, giving exactly a common left partial isometry V on supp S; converse immediate. At p=2 only within-column alignment is necessary. For p≥2 write T=(ΣU_k W_k)S, where W_k are normalized diagonal weights; the linear map from diagonal D to (ΣU_kW_k)D has ℓ2→S2 norm≤1 and ℓ∞→S∞ norm≤√m. Complex interpolation gives m^(1/2−1/p) for all p≥2. Taking A_k=e1 e_k* with n=m and the positive aligned witness attains optimal constants. A separate independently generated bounded random SVD test (m=2,3,4; n=2,5; p=1,1.3,2,3,5,9) passed; it does not prove the general theorem.
 
-**Scientific limitations.** Only complex finite-dimensional matrices with commuting positive moduli are covered. No general noncommuting claim or full higher-exponent equality classification is asserted. Numerical experiments cannot substitute for proofs and do not certify originality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution scoped to the exact theorem, not its already-known ingredients. Originality comparisons explicitly distinguish full prior statements, their implications and residual access risks; inaccessible articles alone were not used as proof of novelty or as automatic rejection.
+
+## value
+
+PASS
+
+Identifies a sharp all-p phase diagram under a natural structural restriction on positive moduli and a rigid lower-exponent polar equality condition. The p=2 threshold, optimized dimension-free loss m^(1/2−1/p) and distinction between columnwise and global polar alignment answer a motivated intermediate case between positive sums and the unrestricted noncommuting problem, not a tiny parameter adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
