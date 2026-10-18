@@ -1,0 +1,11 @@
+# Scientific assessment: slow-return telegraphic search
+
+**Correctness — PASS.** Radice's first-passage density and renewal expression are explicitly identified as prior premises, and the new result is established by a globally convergent nonnegative-coefficient series, strict convexity, existence/uniqueness of large-return-cost minimizers, and a three-regime stationary-point analysis. A standalone checker has executed 70 checks, including numerical solution of the new optimizer equations, killed-resolvent integration, and independent event-driven simulation. Numerical checks do not prove infinite-dimensional or continuum statements; that burden is carried by the displayed analysis.
+
+**Originality — PASS in the present self-review, with residual priority risk.** The exact mean first-passage expression (Radice, arXiv:2106.00670, Eq. (129)) is not new and mathematically contains all finite return speeds. The contribution being assessed is the nontrivial, global return-cost strict-convexity lemma and the sharp slow-return threshold with exponents \(2/5\) and \(2/3\) and explicit amplitudes. Radice reports numerical optimizer curves and a ballistic limit, not this slow-return phase trichotomy. Tucci et al. (arXiv:2203.16066) analyze a different reset protocol with a stationary randomized position law, not constant-speed return from the particle's alarm position. A general or implicit equivalent treatment elsewhere remains possible; published formulas could be used to derive the present claim, so independent priority determination is needed.
+
+**Scientific value — PASS.** The analysis resolves which persistent-search parameters retain a nonzero optimal reset rate even with extremely slow return transport, and supplies two distinct tuning exponents exactly at and above a computable critical value. This is a model-motivated optimization phase transition, rather than a parameter-free restatement of the published mean-time formula.
+
+Limitations: fixed positive reversal rate, Poisson alarms, symmetric direction renewal, deterministic constant-speed returns, and an infinite-time first-passage mean. The result does not classify finite return-speed optimizers for every parameter or extend to general correlated reset protocols.
+
+Self-review: passed. Independent audit: not yet performed.
