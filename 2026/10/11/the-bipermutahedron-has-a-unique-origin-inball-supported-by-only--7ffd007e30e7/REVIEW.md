@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the published minimal H-description, the proof computes the intrinsic norm of every facet normal after projection to \(M_n\times M_n\). If \(u\) and \(v\) are the two complement sizes, the origin slack is \(n^2-(u-v)^2\). For \(|u-v|\le n-2\), the normalized distance has a strict lower bound above the claimed value; the only minimizing types are \((n-1,0)\) and \((0,n-1)\). Orthogonal permutation averaging turns any feasible inball center into the origin without reducing its radius, proving global optimality. The \(2n\) tangent facets then force both zero-sum coordinate blocks of any optimal center to vanish. The \(n=2\) system is solved separately and yields the stated segment.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the bisubset definition, complete facet description, facet count, and deformation theory. It contains no inradius, circumradius, Euclidean-radius, or sphere theorem. Candidate-specific database and literature searches covered inradius, insphere, largest-inscribed-ball, Chebyshev-center, and facet-distance formulations. The closest same-object results concern graph distance, combinatorial structure, or vertex-radial information, none of which implies normalized facet clearance or the incenter theorem.
+PASS
 
-## Value
-PASS. The bipermutahedron is a canonical matroid-geometric polytope with \(3^n-3\) facets. The theorem gives its exact Euclidean inradius for every dimension and explains geometrically why only \(2n\) facets matter. The exceptional \(n=2\) center segment also records a sharp uniqueness transition. This provides a natural metric invariant complementary to the established face, Ehrhart, triangulation, and deformation theory.
+PASS. From Ardila Proposition 2.8 every bisubset has origin slack sigma=n^2-(u-v)^2 and squared intrinsic normal [u(n-u)+v(n-v)]/n. Hence D^2=n sigma^2/[u(n-u)+v(n-v)]. For |u-v|<=n-2 the denominator bound places D strictly beyond n(2n-1)^2/(n-1); the remaining (n-1,0) and (0,n-1) give the optimum, 2n facets. Averaging under the full symmetry makes the origin optimal; inequalities of these tangent facets force x_j,y_j>=0 and sum zero, yielding unique center. n=2 six facets give the exceptional incenter interval. Independent enumeration all 3^n-3 valid bisubsets for n=2..7 gave radii squared 16,75/2,196/3,405/4,726/5,1183/6 and counts 2,6,8,10,12,14. Finite checks corroborate the full algebraic argument.
 
-## Closest literature and limitations
-The closest primary source gives the exact H-description but does not normalize the facets in the Euclidean metric or optimize an inscribed ball. The result is specific to the standard realization; general deformations of the same normal fan can have different radii. A broader symmetric-deformed-permutahedron Chebyshev theorem remains the principal residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. Ardila arXiv:2008.02295 Proposition 2.8 (primary full PDF opened and exact facet page visually inspected) proves the H-facet description and maximal symmetry, not the normalized facet-clearance minimum or exactly 2n tangent facets. Searches checked inradius/insphere/Chebyshev-center and radial/circumscribed variants; the closest same-object public metric record treats vertex radial shells and does not imply inradius. Generic deformed-permutahedron facet work lacks this specialized offset/radius comparison. A missing old metric table remains an acknowledged risk.
+
+## value
+
+PASS
+
+PASS. This is a natural exact intrinsic Euclidean inball of the maximally symmetric bipermutahedron, with complete global facet-distance comparison, all-n uniqueness and exceptional n=2 center freedom. It adds a metric constraint to known combinatorial facet theory not extractable from face counts or vertex shells. It is not the routine normalization of one selected facet: all 3^n-3 facet orbits and optimizer uniqueness matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
