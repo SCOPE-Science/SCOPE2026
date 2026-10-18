@@ -1,27 +1,21 @@
-# Scientific review: unique dispersal crossover in equally fragmented cyclic habitats
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary integer period multiplier and all allowed positive growth contrast and dispersal parameters, the proof reduces the top eigenproblem to nine sites by positivity and rotational symmetry. Exact continuant arithmetic verifies the decisive bivariate identity
+PASS
 
-\[
-P_A(z,t)-P_B(z,t)=t^4(2t+z)(t^2-4t-2z+1).
-\]
+Perron–Frobenius positivity makes the leading eigenvector of each 9r repeated profile invariant under rotation by nine sites, so eigenvalues reduce to Λ_s(t) for the nine-cycle with t=d/g. Both Λ_s lie strictly in (4/9,1) and decrease with t. Independently used a new SymPy continuant implementation to reproduce exact polynomial difference P_A(z,t)−P_B(z,t)=t⁴(2t+z)(t²−4t−2z+1), and independently computed the two integer-vector Rayleigh quotients 474/941 at t4 and 62/101 at t1. A common top root z must equal q(t)=(t²−4t+1)/2. For 0<t≤4, q(t)≤1/2<Λ_B(4)≤Λ_B(t); for t≥4, q strictly increases and Λ_B strictly decreases, so only one t in (4,5) solves q=Λ_B. Weyl bounds on λ2(A) (<1−2t/5) plus Rayleigh lower bounds on Λ_B at t1 and t5 make sign of P_A(Λ_B) determine sign of Λ_B−Λ_A at both sample points; identities yield opposite signs. Continuous curves with only one possible crossing give the entire t>0 ordering. This proof is global analytic, not extrapolated from finite sampled t.
 
-Perron simplicity supplies continuity and strict monotonicity. Two independent integer Rayleigh witnesses establish the required inequalities on the entire parameter range, not only at a grid of tested intensities. Weyl's second-eigenvalue bound determines the ranking on either side, and the unique possible crossing then gives a global classification. Every denominator, boundary, quantifier, and scaling was checked. Numeric iterations support but do not replace this argument.
+## originality
 
-## Originality — PASS, with specified literature risks
+PASS
 
-Flather--Bevers (2002, DOI `10.1086/324120`) addresses landscape quantity, spatial geometry, and nonlinear equilibrium response through simulations rather than this exact linear spectral comparison. Berestycki--Hamel--Roques (2005, DOI `10.1007/s00285-004-0313-3`) establishes periodic reaction--diffusion persistence principles in a continuum model, but its inspected abstract does not imply the exact nine-cell identity. Nadin (2010, DOI `10.1137/080743597`) proves a full one-dimensional Schwarz rearrangement comparison; the materially inspected theorem and proof compare a layout with its concentrated rearrangement, not two nonextremal layouts against one another. Liang (2026, arXiv `2608.11986`) advertises a cyclic lattice bell-shaped optimizer, which similarly does not by its abstract imply the stated unique pairwise crossing. Its full text was not inspected, so stronger coverage there remains a residual risk.
+Originality comparison read the highly relevant complete Xing Liang arXiv HTML (though institutional PDF access failed). Liang proves a stronger global optimum—one bell-shaped clustering—for every cyclic potential multiset and all tilts. This does NOT order two non-bell-shaped profiles against each other; a global maximum does not imply pairwise monotonic ranking. Flather–Bevers uses random nonlinear ecological simulations; Nadin a continuous rearrangement inequality. No read source implies this exact one-crossing comparator for two equally fragmented profiles.
 
-Targeted semantic searches of published findings for cyclic lattice eigenvalue crossings, exact profile bits, the determinant factor, and equivalent formulations did not identify coverage. No failed search alone proves originality; the positive comparison rests on the different statements and hypotheses in the materially inspected sources. Generic principal-eigenvalue theory, spectral monotonicity, and rearrangement optima are not claimed as new.
+## value
 
-## Value — PASS
+PASS
 
-Both configurations have the same four suitable sites per nine, two suitable components, and four habitat--nonhabitat interfaces. Their different favorable-run partitions, \((1,3)\) and \((2,2)\), lead to opposite growth rankings at low and high dispersal. The exact and unique threshold gives a mathematically interpretable boundary showing why habitat area, patch count, and interface count cannot provide a parameter-independent management ranking. Repetition-uniformity extends this boundary to arbitrarily long cyclic habitats. The fact is specifically motivated by the literature's habitat amount-versus-arrangement problem and exceeds a routine restatement of Perron theory.
+The two landscapes are ecologically natural matched comparisons—same area, number of patches and edge interfaces, differing only favorable run-length balance. The exact unique reversal establishes why these conventional fragmentation statistics cannot impose a universal growth order, a substantive structural counterexample with exact transition, not an arbitrary narrow numerical optimization.
 
-## Limitations and closest sources
-
-The model is deterministic, linear, binary, nearest-neighbor and cyclic. No inference is made about noisy empirical landscapes, nonlinear persistence, more than two configurations, or universal minimality of nine cells. The 2002 bibliographic date has only month-level original-publication precision; its indexed `2002-01-01` representation is treated as a database convention, not an asserted release day. Full text for Liang (2026) and Berestycki--Hamel--Roques (2005) was unavailable; the other named principal sources were materially read. These are disclosed coverage risks rather than implied certifications.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

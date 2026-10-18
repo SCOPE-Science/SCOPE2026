@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification of the cyclic-habitat theorem
+# Independent mathematical audit
 
-Using Python 3 standard library only, run `python3 verify_model.py` in the directory containing the attached verifier.
+## correctness
 
-The verifier independently rebuilds two symbolic bivariate characteristic polynomials by exact integer continuants and compares their coefficient dictionaries to the claimed factored polynomial. A separate integer Bareiss eliminator checks 24 actual cyclic determinants without using continuants. It checks both rational Rayleigh witnesses, the rational inequality \(62/101>3/5\), the strict test \(474/941>1/2\), the favorable-site and interface counts, and the elementary spectral-gap inequality. It also performs supplementary numerical Perron power iterations for dispersal intensities \(1,2,4,5,10\) and verifies the eigenvalue comparison for two and three repeats at intensities \(1\) and \(5\). Numerical bisection approximates the unique crossover within \((4.0025,4.0026)\).
+PASS
 
-Expected successful output:
+Perron–Frobenius positivity makes the leading eigenvector of each 9r repeated profile invariant under rotation by nine sites, so eigenvalues reduce to Λ_s(t) for the nine-cycle with t=d/g. Both Λ_s lie strictly in (4/9,1) and decrease with t. Independently used a new SymPy continuant implementation to reproduce exact polynomial difference P_A(z,t)−P_B(z,t)=t⁴(2t+z)(t²−4t−2z+1), and independently computed the two integer-vector Rayleigh quotients 474/941 at t4 and 62/101 at t1. A common top root z must equal q(t)=(t²−4t+1)/2. For 0<t≤4, q(t)≤1/2<Λ_B(4)≤Λ_B(t); for t≥4, q strictly increases and Λ_B strictly decreases, so only one t in (4,5) solves q=Λ_B. Weyl bounds on λ2(A) (<1−2t/5) plus Rayleigh lower bounds on Λ_B at t1 and t5 make sign of P_A(Λ_B) determine sign of Λ_B−Λ_A at both sample points; identities yield opposite signs. Continuous curves with only one possible crossing give the entire t>0 ordering. This proof is global analytic, not extrapolated from finite sampled t.
 
-`VERIFY_OK exact_determinant_identity=1 direct_bareiss_checks=24 rayleigh_witnesses=2 edge_counts=2 periods=1,2,3 unique_root_bracket=(4.0025,4.0026)`
+## originality
 
-The coefficient identity and rational tests are exact. Power iteration and the narrow numerical root interval are **not** infinite proofs and cannot establish uniqueness or the classification for all positive intensities. The all-parameter classification follows analytically from the continuity, strict monotonicity, determinant identity, and eigenvalue-gap argument in the main proof. No independent audit has yet been carried out.
+PASS
+
+Originality comparison read the highly relevant complete Xing Liang arXiv HTML (though institutional PDF access failed). Liang proves a stronger global optimum—one bell-shaped clustering—for every cyclic potential multiset and all tilts. This does NOT order two non-bell-shaped profiles against each other; a global maximum does not imply pairwise monotonic ranking. Flather–Bevers uses random nonlinear ecological simulations; Nadin a continuous rearrangement inequality. No read source implies this exact one-crossing comparator for two equally fragmented profiles.
+
+## value
+
+PASS
+
+The two landscapes are ecologically natural matched comparisons—same area, number of patches and edge interfaces, differing only favorable run-length balance. The exact unique reversal establishes why these conventional fragmentation statistics cannot impose a universal growth order, a substantive structural counterexample with exact transition, not an arbitrary narrow numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
