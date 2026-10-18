@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact residual product, scalar moment recurrence, rank-one perpendicular martingale, conditional covariance, orthogonal increments, and summable squared increments establish all finite and limiting assertions. The algebra yields \\(q<1\\) if and only if \\(0<\\eta<\\eta_c\\) and the exact risk-phase threshold. The conservative-step counterexample gives \\(q=65/128\\) and \\(F=17/126\\). The packaged standard-library program directly propagates rational first and second moments and enumerates sample paths (5579 comparisons); proof, not finite tests, justifies universal limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han--Xie 2022 provides general randomized linear-system convergence bounds.",
+        "Jin--Liu 2024 provides broad random-coordinate convergence to feasible solutions."
+      ],
+      "reasoning": "The broad earlier results control residual behavior or expected iterates but do not imply this specific exact second-moment risk and covariance of an independently row-and-coordinate sampled rank-one solver. Existence of broader algorithms is not automatically stronger coverage of the new claim.",
+      "searches": [
+        "doubly stochastic Gauss-Seidel rank-one two sampling nullspace phase transition mean square residual converges reconstruction error grows",
+        "randomized block coordinate descent minimum norm linear inverse problems residual optimal step nullspace variance",
+        "arxiv:2208.05437",
+        "arxiv:2405.13340"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.15399v1, full accessible HTML, Algorithm 1, Assumption 2.1, Theorems 2.1/3.1, proofs and relevant rates",
+      "arxiv:1503.08235, accessible primary full text on ordinary versus extended randomized Gauss-Seidel",
+      "arxiv:2405.13340, accessible primary full text on randomized block coordinate descent convergence",
+      "arxiv:2208.05437, accessible primary full text on pseudoinverse-free randomized linear systems",
+      "Published mathematical findings returned by direct searches of risk, covariance, rank one, DSBGD, aliases and residual phase transitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xia--Zhou 2026 Theorem 3.1 asserts zero asymptotic minimum-norm risk under Assumption 2.1(i); the exact example under that condition has limiting risk \\(17/126\\).",
+        "Ma--Needell--Ramdas 2015 already gives a qualitative underdetermined warning but not the independent two-index exact risk frontier."
+      ],
+      "reasoning": "The new exact quantitative formula contradicts the unqualified minimum-norm convergence implication of the source in a concrete covered case; earlier qualitative failure alone does not imply the value \\(17/126\\), the full covariance or the sharp threshold. The source step bound is checked separately from the larger mean-square-residual-stable interval used for the risk-reversal example.",
+      "searches": [
+        "arxiv:2610.15399v1",
+        "arxiv:1503.08235",
+        "rank-one doubly stochastic gradient descent exact finite-time reconstruction risk q^k nullspace error covariance row fourth moments source 2610.15399",
+        "finite horizon reconstruction risk doubly stochastic row column sampling rank one inverse problems critical stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma--Needell--Ramdas 2015 explicitly recognizes ordinary randomized Gauss-Seidel minimum-norm failure.",
+        "Jin--Liu 2024 derives a random feasible limit and additional selection assumptions."
+      ],
+      "reasoning": "Qualitative random-nullspace selection is known and excluded from the novelty claim. The compared full texts do not yield the explicit doubly sampled rank-one finite-horizon reconstruction moment identity, full limiting covariance, and sharp step-size transition together. Generalized reduced-coordinate and row-sampling aliases were searched.",
+      "searches": [
+        "exact covariance rank-one randomized block coordinate descent random nullspace limit variance reconstruction risk residual contraction",
+        "expected squared distance minimum norm solution randomized Gauss Seidel underdetermined explicit covariance constant step rank one",
+        "arxiv:1503.08235",
+        "arxiv:2405.13340"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned unrelated Gauss-Seidel delay-law, randomized subspace-descent fourth-moment bounds, and stochastic-recursion residual floors, not a matching table of rank-one DSBGD exact reconstruction moments."
+      ],
+      "reasoning": "The result is a parameterized stochastic iteration identity, not a finite tabulated invariant. Search of accessible public mathematical records did not reveal the identical covariance/risk phase diagram; this negative search alone does not establish priority.",
+      "searches": [
+        "exact covariance rank-one randomized block coordinate descent random nullspace limit variance reconstruction risk residual contraction",
+        "finite horizon reconstruction risk doubly stochastic row column sampling rank one inverse problems critical stepsize",
+        "expected squared distance minimum norm solution randomized Gauss Seidel underdetermined explicit covariance constant step rank one"
+      ]
+    },
+    "rationale": "Full-text comparison recognizes the older qualitative limitation of underdetermined randomized Gauss-Seidel. The original contribution is the exact finite-time joint residual/reconstruction law, complete limiting covariance, sharp risk threshold inside the residual-stable interval, and a conservative-step explicit failure example for the independently doubly sampled current update. Related general convergence results do not entail these sharp second-moment quantities. Bibliographic priority remains subject to independent expert review.",
+    "residual_risks": [
+      "An unindexed previous exact rank-one martingale computation or a specialized stochastic coordinate-projection covariance formula could imply the quantitative theorem despite no matched source found.",
+      "Qualitative nonminimum-norm convergence failure is prior knowledge and does not establish quantitative novelty by itself.",
+      "Source proof comparison is not an independent verification of all the source claims; only the precisely quantified two-row model has been proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source states minimum-norm convergence under only step bounds. Its proof identifies a feasible limit as the minimum-norm solution without a nullspace-selection argument. No finite-horizon exact rank-one reconstruction-risk and covariance identity appears in the inspected material.",
+        "evidence": [
+          "arxiv:2610.15399v1, equations (1.2) and (2.1); Theorems 2.1,3.1; Assumptions 2.1,2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15399v1",
+        "material_read": "Algorithm 1; Assumption 2.1; Theorems 2.1 and 3.1 with proofs; rate assumptions and related work",
+        "method": "Read accessible primary full HTML and compared update, quantifiers, reference solution, and proof implications",
+        "title": "On the convergence of doubly stochastic block gradient descent method for linear inverse problems",
+        "trigger": "Identical sampled row-coordinate gradient update and source regularization claims"
+      },
+      {
+        "assessment": "Already establishes the qualitative failure of minimum-norm selection. It does not give the present independent two-index rank-one exact covariance and risk-step frontier.",
+        "evidence": [
+          "arxiv:1503.08235, introduction and method/convergence sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.08235",
+        "material_read": "Full accessible text, including discussion of minimum-norm failure for ordinary randomized Gauss-Seidel and extended remedy",
+        "method": "Primary full-text comparison with exact statements and algorithms",
+        "title": "Convergence properties of randomized extended Gauss-Seidel and Kaczmarz methods",
+        "trigger": "Qualitative underdetermined Gauss-Seidel minimum-norm selection limitation"
+      },
+      {
+        "assessment": "Gives general randomized block descent weak convergence and extra minimum-norm conditions, rather than the displayed exact two-index rank-one finite-time Euclidean risk law and full covariance.",
+        "evidence": [
+          "arxiv:2405.13340, Theorem 2.4 and subsequent minimum-norm discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.13340",
+        "material_read": "Full accessible text, including Theorem 2.4 and discussion of additional selection requirements",
+        "method": "Primary full-text comparison of convergence conclusions, assumptions, and iteration updates",
+        "title": "Randomized block coordinate descent method for linear ill-posed problems",
+        "trigger": "Random feasible limit and conditions for minimum-norm identification"
+      },
+      {
+        "assessment": "General residual/expectation bounds do not directly entail the exact joint finite-time second moment, limiting covariance, and risk phase boundary for the specified sampled update.",
+        "evidence": [
+          "arxiv:2208.05437, general convergence theorems for pseudoinverse-free randomized methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05437",
+        "material_read": "Full accessible text, unified iteration framework and convergence theorems",
+        "method": "Primary full-text comparison of mean versus mean-square guarantees and random nullspace behavior",
+        "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+        "trigger": "Broader stochastic linear inverse solvers might subsume the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d1d6f35-455a-48da-a877-147fac298b48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural stochastic regularization gap is the distinction between data consistency and minimum-norm reconstruction. The theorem supplies a precise quantitative transition where better expected residual fit masks increasing solution risk, a full limit covariance for analyzing nullspace leakage, and a simple noise-free example under source assumptions. The result is structurally motivated and not merely a numerical instance or textbook restatement of known qualitative underdetermined failures.",
+    "status": "PASS"
+  }
+}
