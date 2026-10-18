@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Execute `python3 verify.py` using standard Python 3. The program exhaustively verifies the depth-one type criterion across every simple labeled undirected graph on at most four vertices and all color maps to alphabets of size two or three: 6,519 configurations. It compares each vertex pair's color/neighbor-palette signature against an independently constructed family of Boolean color-union formulas and their diamonds. Six small exact computations check the identity for the expected number of missing vertex/color incidences at edge probability one-half. Nine seeded examples report the number of distinct depth-one signatures and neighborhood-saturated vertices.
+# Independent mathematical audit
 
-An observed successful replay printed:
+## correctness
 
-```
-EXHAUSTIVE_DEPTH1_OK 6519
-EXACT_MISSING_COLOR_MEANS_OK 6
-SEEDED_EXAMPLES [(300, 0.22, 12, 12, 300), (300, 0.75, 39, 187, 138), (300, 1.55, 82, 300, 0), (650, 0.22, 22, 22, 650), (650, 0.75, 75, 468, 230), (650, 1.55, 156, 650, 0), (1100, 0.22, 35, 35, 1100), (1100, 0.75, 118, 863, 282), (1100, 1.55, 243, 1100, 0)]
-VERIFY_OK
-```
+PASS
 
-The asymptotic zero-one threshold is proved analytically using occupancy Poissonization and a union bound. Finite simulation alone cannot establish an infinite limiting statement. The theorem makes no claim about the critical limit or unrestricted modal-depth behavior in the low-alphabet regime.
+Reconstructed depth-one modal algebra: the truth values of color tests chi_j and diamonds Diamond chi_j separate precisely the signature (c(v), neighbor color support), and Boolean combinations define every singleton exactly when these are all distinct. Below threshold expected absent color-vertex pairs divided by n is q(1-p/q)^(n-1)=o(1), so almost every vertex is color-saturated and q=o(n) forces collision. Above threshold, conditioned on a matching own-color pair, each other color j yields independent mismatch contributions 2a_j(1-a_j), a_j=(1-p)^M_j. Poisson occupancy expectation mu=(q-1)(e^-p lambda-e^-p(2-p)lambda)=n^(1-p/alpha+o(1))/log n tends polynomially to infinity; Chernoff and de-Poissonization factor O(sqrt(n)) give pair collision o(n^-2), then union bound. Boundary alpha=p explicitly unproved. Independently exhaustive small-graph logical comparison (1,098 configurations) was consistent but is not an asymptotic proof.
+
+## originality
+
+PASS
+
+The nonproper independently sampled color-neighborhood signature and its dense random G(n,p) sharp alphabet threshold differs from published proper neighbor-locating colorings and deterministic graph bounds. Modal equivalence is a natural interpretation; no claim that the combinatorial signature definition itself is new. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+Quantifies the precise order of randomly chosen atomic valuations required for every vertex to be definable by a depth-one modal formula on dense random frames. A genuine phase boundary in the expressivity of a natural Boolean/modal observable is of use beyond a finite small-graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

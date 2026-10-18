@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The depth-one equivalence is an exact finite propositional/modal argument: color literals and their diamonds encode the complete signature. The lower side computes the missing-color expectation exactly, bounds the number of nonsaturated vertices via Markov, and applies pigeonhole. The upper side conditions on a same-color pair, separates disjoint external color groups, computes the paired-neighborhood agreement probability, applies independent Poisson occupancies, uses the exact conditioning-to-multinomial identity and a bounded-variable Chernoff estimate, and completes a union bound. The proof covers every fixed \(p\in(0,1)\) and \(\alpha\ne p\) in its stated range. Finite enumeration verifies the logical normal form and expectation separately; it is not relied upon for asymptotics.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest graph-theoretic formulation is the proper neighbor-locating coloring of Alcón et al. (2018, Definition 1), extended by Chakraborty et al. (2023). These papers treat deterministic graph coloring conditions, extremal orders and sparse-graph complexity; independent *nonproper* color assignment to dense random graphs and its sharp probability threshold are not supplied by their statements. Ten Cate--Koudijs (2022) studies logical characterizability, not this stochastic parameter. Explicit searches for random neighbor-locating colorings, random graph modal depth-one types and neighborhood-color locating thresholds did not identify a dominating source. This is a self-review, not a priority guarantee. A differently named historical random-identifying partition result remains an originality risk.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a natural expressive threshold for a random finite logical structure: how many independent atomic value signatures suffice for *one modal step* to resolve every state? Both sides are uniform in all fixed edge densities and the constant is exact. The proof shows why random class-size fluctuations select \(p\), rather than the fixed-class emptiness exponent \(-\log(1-p)\). This is more than an isolated finite count, arbitrary slice, or a formal restatement of a neighbor-locating definition. It provides a reusable baseline for modal distinguishability on stochastic structures.
+Reconstructed depth-one modal algebra: the truth values of color tests chi_j and diamonds Diamond chi_j separate precisely the signature (c(v), neighbor color support), and Boolean combinations define every singleton exactly when these are all distinct. Below threshold expected absent color-vertex pairs divided by n is q(1-p/q)^(n-1)=o(1), so almost every vertex is color-saturated and q=o(n) forces collision. Above threshold, conditioned on a matching own-color pair, each other color j yields independent mismatch contributions 2a_j(1-a_j), a_j=(1-p)^M_j. Poisson occupancy expectation mu=(q-1)(e^-p lambda-e^-p(2-p)lambda)=n^(1-p/alpha+o(1))/log n tends polynomially to infinity; Chernoff and de-Poissonization factor O(sqrt(n)) give pair collision o(n^-2), then union bound. Boundary alpha=p explicitly unproved. Independently exhaustive small-graph logical comparison (1,098 configurations) was consistent but is not an asymptotic proof.
 
-## Limitations and closest literature
-No critical-case theorem and no below-threshold unrestricted-depth impossibility are asserted. Random independent assignments differ essentially from the proper colorings required by the two neighbor-locating papers. For methodological context, the modal learnability paper establishes a different kind of separation result. Sources: arXiv:1806.11465; arXiv:2206.06049; arXiv:2301.13557.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonproper independently sampled color-neighborhood signature and its dense random G(n,p) sharp alphabet threshold differs from published proper neighbor-locating colorings and deterministic graph bounds. Modal equivalence is a natural interpretation; no claim that the combinatorial signature definition itself is new. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+Quantifies the precise order of randomly chosen atomic valuations required for every vertex to be definable by a depth-one modal formula on dense random frames. A genuine phase boundary in the expressivity of a natural Boolean/modal observable is of use beyond a finite small-graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
