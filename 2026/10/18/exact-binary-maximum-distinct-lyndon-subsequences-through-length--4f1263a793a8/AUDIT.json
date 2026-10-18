@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact E(wc) recurrence and injective heap encoding prove the running-set invariant. Every binary word of every tested length is visited once; strict rotation comparisons decide Lyndon status, and new flags are counted once. The 2^20 final-depth leaves yield exact maxima and tie counts; the separate greedy-matcher implementation independently checks all lengths up to 15 and each longer maximizing witness. Both actual source files were compiled and run.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 Theorem 1 maximizes total occurrences with multiplicity; Table 2 labels maximum distinct MDS open.",
+        "Bannai et al. 2023 solve longest-subsequence length algorithmically, not the maximum number of distinct subsequences.",
+        "At length 6, the 2021 total-occurrence extremizer 000111 has 11 distinct Lyndon subsequences, versus 13 for 001011."
+      ],
+      "reasoning": "Maximum total counts imply an upper bound but cannot imply exact distinct maxima or all maximizers; the optimizing hosts already differ at length six.",
+      "searches": [
+        "web: \"Counting Lyndon Subsequences\" Table 2 MTS MDS",
+        "web: \"Computing Longest Lyndon Subsequences\" maximal number",
+        "published-finding corpus: Counting Lyndon Subsequences Hirakawa Nakashima Inenaga Takeda 2021 open problem maximum distinct"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.01190 (v1 date 2021-06-02; v2 full HTML read)",
+      "doi:10.1007/s00453-023-01125-z (full open text read)",
+      "OEIS:A290743 (relevant factor comparison)",
+      "published-finding corpus search records nearest: 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b, 2026/9/8/SCOPE079; scientifically inapplicable invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper states a general maximum-total formula but leaves MDS open; one sample already separates the optimizing words.",
+        "The 2023 paper computes one longest Lyndon subsequence and not the cardinality of their distinct family.",
+        "Closest published-finding corpus hits concerned ordinary distinct substrings, string attractors and non-overlapping codes, not maxima of distinct Lyndon scattered subsequences."
+      ],
+      "reasoning": "Exact maximization over all 2^n input hosts at n<=20 and exhaustive tie classifications is not a corollary of the known MTS, EDS, MDF, or longest-Lyndon algorithms; the program supplies the missing optimization.",
+      "searches": [
+        "arxiv:2106.01190 Sections 1,3,4,5",
+        "doi:10.1007/s00453-023-01125-z Sections 1,4,7",
+        "published-finding corpus: Exact binary maximum distinct Lyndon subsequences MDS(2,n) through length 20: 1 3 4 6 8 13 18 28 41 63 96 141 225 335 538 803 1292 1941 3132 4701"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lyndon words represent lexicographically least primitive cyclic conjugates, but the optimum is over which representatives occur as scattered subsequences of one linear word.",
+        "Hirakawa et al. explicitly name MDS(sigma,n) as open in Table 2."
+      ],
+      "reasoning": "Representing distinct Lyndon subsequences as primitive necklace representatives is equivalent, not a prior covering formula. Contiguous Lyndon-factor counts and longest-Lyndon-subsequence lengths are different optimizations.",
+      "searches": [
+        "published-finding corpus: Maximum distinct Lyndon subsequences MDS sigma n binary strings exact values optimizers",
+        "published-finding corpus: Binary words maximizing number distinct Lyndon scattered subwords length n",
+        "web: \"maximum number of distinct Lyndon subsequences\"",
+        "arxiv:2106.01190 Table 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290743 is explicitly for Lyndon factors (contiguous substrings); its length-six value is 11, while the scattered-subsequence maximum is 13.",
+        "The primary 2021 tables include MTS and EDS, not exact MDS values."
+      ],
+      "reasoning": "Neither the adjacent factor database nor the inspected primary numerical tables contain the claimed scattered-subsequence maximum-and-optimizer table.",
+      "searches": [
+        "web: site:oeis.org \"maximum number of distinct Lyndon subsequences\"",
+        "web: \"13, 18, 28, 41, 63, 96, 141\" subsequences",
+        "OEIS:A290743"
+      ]
+    },
+    "rationale": "The original 2021 counting paper explicitly leaves the maximum number of distinct Lyndon scattered subsequences open; later longest-Lyndon subsequence work and the classic maximum-distinct-factor formula concern different optimization problems. Exact 20-term maxima and full optimizer sets are not supplied by those statements. The search is finite, indexed, and not a proof against all prior private or unindexed work.",
+    "residual_risks": [
+      "Unindexed exact earlier maximum-distinct tables could exist",
+      "Finite cutoff at 20 is not a general solution of MDS(sigma,n)",
+      "Semantic database search is not a uniqueness guarantee"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the exact finite maximum-distinct values or maximizing words; explicit Table 2 open entry",
+        "evidence": [
+          "Table 2: MDS(sigma,n) open",
+          "Theorem 1 concerns MTS (with multiplicity)",
+          "Theorem 4 and Table 5 concern expectation of distinct counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.01190v2",
+        "material_read": "Full HTML mathematical text, sections 1-5, theorem statements, Tables 1-5, references",
+        "method": "Read the accessible primary HTML version and compared definitions, theorems, tables, and open statement",
+        "title": "Counting Lyndon Subsequences",
+        "trigger": "Direct source defining MDS and marking it open"
+      },
+      {
+        "assessment": "Studies longest length and algorithms for finding it, not the maximum number of distinct Lyndon subsequences",
+        "evidence": [
+          "Abstract specifies the longest (common) Lyndon subsequence",
+          "Conclusion reiterates algorithmic length focus"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-023-01125-z",
+        "material_read": "Open-access full-text HTML, abstract, Sections 1, 4 and 7, algorithmic results",
+        "method": "Read primary open-access article with section and term comparison",
+        "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+        "trigger": "Plausible later algorithmic work on same objects"
+      },
+      {
+        "assessment": "Covers contiguous factors, not scattered subsequences",
+        "evidence": [
+          "Entry title explicitly specifies factors",
+          "At length six published factor maximum 11 differs from scattered maximum 13"
+        ],
+        "identifier_or_url": "https://oeis.org/A290743",
+        "material_read": "Displayed entry title, formula, initial terms, and references",
+        "method": "Compared object definitions and first nontrivially divergent term",
+        "title": "OEIS A290743",
+        "trigger": "Exact table for similarly titled distinct Lyndon factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f1263a7-93a8-4e5e-a2b1-eb1475387970",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper explicitly lists maximum DISTINCT Lyndon subsequences as an open extremal quantity. Twenty exact binary cases, including complete optimizer lists and the one-million-host length-twenty instance, provide nontrivial benchmark data for that specific natural invariant. They demonstrate differing extremizers from the multiplicity-weighted theorem already at length six, not a renamed textbook quantity.",
+    "status": "PASS"
+  }
+}
