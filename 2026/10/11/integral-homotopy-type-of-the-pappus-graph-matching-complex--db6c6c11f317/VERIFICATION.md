@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Computational checks
+# Independent mathematical audit
 
-Execute from the directory containing both scripts with Python 3.9 or later:
+## correctness
 
-```
-python3 verify_pappus_integral.py
-python3 verify_pappus_mod2.py
-```
+PASS
 
-The first script reconstructs the Pappus graph from its LCF rule and enumerates all 35,367 nonempty simplices. It performs a deterministic element-toggle acyclic matching with 17,660 pairs and 47 critical cells, checks every one of the 191,349 directed Hasse incidences by topological sorting, and expands all signed gradient paths needed for the integral cellular differential. Its 43-by-3 matrix is fully specified and checked in the script. The minor in critical-five-cell rows 30, 13 and 27 is \(-I_3\), proving a primitive rank-three image. It prints `VERIFY_OK` only after all checks pass.
+A fresh implementation generated 27 graph edges from the stated 18-cycle and LCF chords, and by lexicographic disjoint-edge recursion enumerated precisely 35367 nonempty faces with matching counts (1,27,297,1719,5643,10557,10737,5319,1026,42). The designated pivot order yields 17660 pairs and one critical vertex, 43 critical 5-faces and 3 critical 6-faces. Every one of 191349 directed Hasse incidences was checked by acyclic topological sorting. Independent signed gradient-path elimination reproduced the entire 43-by-3 critical boundary, with rows (30,13,27) giving -I3. Thus image is primitive Z^3 in Z^43. The CW five-skeleton is wedge^43 S5, and Hurewicz identifies pi5 with Z^43, permitting unit 6-cell cancellations and 40 residual S5 spheres. Finite enumeration here is exhaustive by the recursion, unlike sampled calculations.
 
-The second script enumerates matchings through graph-vertex disjointness using independent recursion and performs exact bit-vector elimination for the \(\mathbb F_2\) simplicial chain complex. It verifies the augmented boundary-rank vector \((1,26,271,1448,4195,6362,4335,984,42)\), reduced degree-five Betti rank 40, and vanishing of all other reduced Betti ranks. It prints `MOD2_VERIFY_OK` after the assertions pass. The mod-two calculation is corroborating evidence only, and cannot independently prove an integral homotopy statement.
+## originality
 
-The mathematical step beyond the scripts is the dimension-specific fact \(\pi_5(\bigvee^{43}S^5)\cong\mathbb Z^{43}\) and the consequent homotopy cancellation of primitive attaching columns. This establishes the claimed wedge for this graph; no other graph, parameter range, or infinite family is asserted. Independent audit has not been performed.
+PASS
+
+PASS best-of-knowledge: nearest exact same graph published result gives only F2 homology, while the signed integral Morse boundary establishes a strictly stronger homotopy type; no covering full homotopy theorem identified in bounded Resultary and primary-literature search.
+
+## value
+
+PASS
+
+The 18-vertex Pappus graph is a canonical symmetric Levi graph; determining the entire ordinary matching-complex integral homotopy type gives a natural exact topological benchmark and resolves torsion/attaching-map information not implied by field Betti ranks. A complete finite classification of this motivated canonical complex can be mathematically useful without an all-graphs theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

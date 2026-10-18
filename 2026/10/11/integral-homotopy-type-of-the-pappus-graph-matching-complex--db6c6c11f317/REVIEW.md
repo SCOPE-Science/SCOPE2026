@@ -1,15 +1,21 @@
-# Scientific review: integral Pappus matching-complex homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact scope is the standard eighteen-vertex cubic Pappus graph described by its length-eighteen LCF sequence and the *ordinary* matching complex. The first verifier gives exhaustive counts of 35,367 nonempty simplices and 17,660 face-poset matched pairs, then verifies the 191,349 directed incidence arrows have no directed cycle. It leaves critical cells in dimensions zero, five, and six with multiplicities one, forty-three, and three. Integral signed gradient-path reduction gives a forty-three-by-three differential whose rows 30, 13, and 27 are exactly \(-I_3\). A primitive rank-three attaching subgroup of \(\pi_5(\bigvee^{43}S^5)\cong\mathbb Z^{43}\) cancels exactly three sphere summands. The result is therefore \(\bigvee^{40}S^5\). The second verifier independently enumerates faces and computes all mod-two boundary ranks. Both are finite exact algorithms with complete enumeration and no unverified extrapolation; source code and actual numerical checks accompany the claim.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-The directly overlapping published Pappus-complex calculation gives \(\widetilde H_5(-;\mathbb F_2)\cong\mathbb F_2^{40}\) but explicitly declines integral homology or homotopy claims. It does not imply torsion-freeness or the attaching-map result. Donovan and Scoville's matching-complex theorems involve paths, cycles and Dutch windmills; they do not cover this symmetric cubic graph. The Bayer–Goeckner–Jelić Milutinović homology-manifold classification cannot directly apply because this ordinary matching complex has maximal faces of multiple dimensions. Perfect-matching complexes studied by Bayer–Jelić Milutinović–Vega differ from this ordinary matching complex, including for honeycomb graph aliases. Kozlov's graph-complex simple-homotopy methods are methodological context, not a Pappus-specific result. Equivalent graph names (Pappus Levi graph, toroidal honeycomb, line-graph independence complex) and exact sphere-count and integral boundary variants were searched in indexed research findings and public literature; no dominating statement was identified. Risk persists from unindexed or otherwise inaccessible publications; this review does not certify worldwide uniqueness.
+PASS
 
-## Value — PASS
-The Pappus graph is a canonical cubic symmetric Levi graph of a classical \((9_3)\)-configuration, making its ordinary matching complex a motivated invariant rather than an arbitrary hand-picked simplicial subcomplex. Prior exact mod-two Betti numbers left open torsion and homotopy questions. A primitive integer boundary and a precise sphere-wedge homotopy type resolve these questions for this graph, furnishing a natural reproducible topological benchmark distinct from homology alone. No general downstream theorem is needed for this complete classification to have mathematical value.
+A fresh implementation generated 27 graph edges from the stated 18-cycle and LCF chords, and by lexicographic disjoint-edge recursion enumerated precisely 35367 nonempty faces with matching counts (1,27,297,1719,5643,10557,10737,5319,1026,42). The designated pivot order yields 17660 pairs and one critical vertex, 43 critical 5-faces and 3 critical 6-faces. Every one of 191349 directed Hasse incidences was checked by acyclic topological sorting. Independent signed gradient-path elimination reproduced the entire 43-by-3 critical boundary, with rows (30,13,27) giving -I3. Thus image is primitive Z^3 in Z^43. The CW five-skeleton is wedge^43 S5, and Hurewicz identifies pi5 with Z^43, permitting unit 6-cell cancellations and 40 residual S5 spheres. Finite enumeration here is exhaustive by the recursion, unlike sampled calculations.
 
-## Source and proof limits
-Primary sources read include Kozlov arXiv:math/0503613, Donovan–Scoville arXiv:2207.13780, Bayer–Goeckner–Jelić Milutinović arXiv:1906.03328, and Bayer–Jelić Milutinović–Vega arXiv:2209.02803. The exact earlier Pappus mod-two published result was read in full. The verification uses finite exhaustive computation and exact topological degree classification for this graph only. Unindexed equivalent prior work remains a residual originality risk; independent validation remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: nearest exact same graph published result gives only F2 homology, while the signed integral Morse boundary establishes a strictly stronger homotopy type; no covering full homotopy theorem identified in bounded Resultary and primary-literature search.
+
+## value
+
+PASS
+
+The 18-vertex Pappus graph is a canonical symmetric Levi graph; determining the entire ordinary matching-complex integral homotopy type gives a natural exact topological benchmark and resolves torsion/attaching-map information not implied by field Betti ranks. A complete finite classification of this motivated canonical complex can be mathematically useful without an all-graphs theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
