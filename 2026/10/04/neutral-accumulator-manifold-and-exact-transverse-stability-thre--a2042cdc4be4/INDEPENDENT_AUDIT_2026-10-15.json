@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:51:53.599410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At (x,m,v)=(0,0,V), gradient and first moment are zero so v+=V for all V≥0. For V>0, v>lambda²x² locally fixes the Yogi sign branch and v+=v-(1-beta2)lambda²x² has derivative dv+=dv. Because m+=0 at equilibrium, denominator variation in x-update contributes no first-order term. The 2×2 transverse block has trace 1+beta1-(1-beta1)chi_V and determinant beta1; Jury conditions with 0<beta1<1 give exactly 0<chi_V<2(1+beta1)/(1-beta1), equivalently V>Vc when qstar>eps. At V=Vc>0 the roots are -1,-beta1; beta2 enters only quadratic drift; at V→∞ a transverse eigenvalue approaches +1. Independently checked the symbolic trace/determinant in SymPy. No differentiable V=0 assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NeurIPS original gives additive second-moment rule and stochastic convergence theorem without sharp deterministic linear stability classification by V.",
+          "Related optimizer periodic-orbit analyses concern Lion, AdaShift or different recurrences and do not imply this Yogi spectrum."
+        ],
+        "reasoning": "The parent optimizer theory supplies the recurrence only; a local dynamical systems computation is necessary to obtain the exact threshold.",
+        "searches": [
+          "NeurIPS 2018 Zaheer et al convergence analysis",
+          "Resultary: Yogi optimization quadratic fixed point equilibrium manifold accumulator transverse stability Jacobian Jury"
+        ]
+      },
+      "checked_sources": [
+        "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3 primary PDF",
+        "Resultary:2026/10/4/SCOPE-neutral-accumulator-manifold-and-exact-transverse-stability-thre--a2042cdc4be4 (same record mirror)",
+        "pytorch-optimizer Yogi documentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source update is an exact premise; at x=m=0 all V≥0 are algebraically fixed and the first-order roots follow from the derivative, not from the source’s stochastic theorem.",
+          "Documentation exposing initial_accumulator does not imply that the transverse roots cross -1 at qstar or that beta2 drops out of the Jacobian."
+        ],
+        "reasoning": "This is a motivated local stability refinement of known dynamics, not a novel optimization rule or proof of global convergence from the published default initialization.",
+        "searches": [
+          "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3 Algorithm 2",
+          "pytorch-optimizer Yogi initial_accumulator documentation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original recurrence directly contains v^+=v at g=0, but its convergence theorem concerns stochastic stationarity of model iterates, not local full optimizer-state eigenvalues.",
+          "The claimed nonhyperbolic fixed manifold has a tangent eigenvalue 1, distinguishing parameter-space convergence from full-state asymptotic stability."
+        ],
+        "reasoning": "Checked alternative terms residual second-moment neutral fixed manifold, scalar quadratic adaptive optimizer Jacobian, flip threshold and initialization sensitivity.",
+        "searches": [
+          "Resultary: Yogi optimization quadratic fixed point equilibrium manifold accumulator transverse stability Jacobian Jury",
+          "Resultary: Yogi fixed manifold moment parameter local transverse bifurcation flip spectral",
+          "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3 Adaptive Methods for Nonconvex Optimization Yogi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database record with the same one-parameter residual accumulator bifurcation table was identified outside the mirror of the assigned finding.",
+          "The parameter-free nonconvex stationary bounds of the original are not a tabulation of transverse characteristic roots."
+        ],
+        "reasoning": "An absent table is not proof of novelty; scope remains a deterministic scalar fixed-step Yogi variant.",
+        "searches": [
+          "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3",
+          "Resultary: Yogi fixed manifold moment parameter local transverse bifurcation flip spectral"
+        ]
+      },
+      "rationale": "The original Yogi method and sensitivity to moment initialization were published, but the scalar optimizer-state fixed ray, exact sharp transverse Jury boundary, beta2 linear decoupling and asymptotically slow normal rates are not stated in the inspected defining paper or identified indexed later records.",
+      "residual_risks": [
+        "Asymptotic convergence from default v0=0 is unproved by this local analysis.",
+        "Alternative bias correction/weight decay variants change the dynamics.",
+        "Other optimizer dynamical-systems literature may contain an equivalent Jacobian calculation not surfaced by indexed searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Update rule agrees; no claimed fixed-ray/Jury-threshold theorem in materially read sections.",
+          "evidence": [
+            "Algorithm 2: v+=v-(1-beta2)sign(v-g²)g², x+=x-eta m+/(sqrt(v+)+eps).",
+            "Primary paper discusses initialization sensitivity and stochastic stationarity, not complete-state local eigenvalues."
+          ],
+          "identifier_or_url": "NeurIPS 2018, paper ID 90365351ccc7437a1309dc64e4db32a3",
+          "material_read": "Primary PDF Algorithm 2, convergence theorem discussion and relevant initial-accumulator experiment; not every appendix reviewed.",
+          "method": "Opened original primary PDF and checked the precise Yogi update and theorem type.",
+          "title": "Adaptive Methods for Nonconvex Optimization",
+          "trigger": "Defining Yogi recurrence, proposed moment initialization and possible already-known local dynamics."
+        },
+        {
+          "assessment": "Supports practical motivation, not a prior proof of exact stability threshold.",
+          "evidence": [
+            "Configurable nonzero initial_accumulator is distinguished from a unique fixed second moment."
+          ],
+          "identifier_or_url": "pytorch-optimizer Yogi initial_accumulator documentation",
+          "material_read": "Reference in assigned package and search-index description; not entire implementation source.",
+          "method": "Compared high-level documented initial-accumulator feature to mathematical theorem.",
+          "title": "Yogi optimizer implementation documentation",
+          "trigger": "Implementation terminology and possibility of a nonzero initialized moment."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The analysis identifies a non-isolated continuum of optimizer-state equilibria and a sharp initialization-dependent normal-stability threshold for a widely studied adaptive method; it quantifies the tradeoff between moment inertia and arbitrarily slow local rates and distinguishes state stability from parameter convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic scalar non-debiased Yogi at positive residual second moments only; V=0 is nonsmooth.",
+    "Normal attraction is local; no full state point is asymptotically stable because of neutral tangent v direction.",
+    "No global convergence or basin assertion from the default v0=0 or under weight decay and bias correction."
+  ],
+  "schema_version": 1
+}
