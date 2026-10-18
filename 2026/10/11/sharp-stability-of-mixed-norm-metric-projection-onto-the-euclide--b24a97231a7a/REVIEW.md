@@ -1,15 +1,21 @@
-# Review of the sharp mixed-norm disk-projection modulus
+# Independent mathematical audit
 
-## Correctness
-PASS. Strict convexity gives a unique projection. Convex first-order optimality proves the positive normal-coordinate representation, whose two-by-two Jacobian yields the exterior derivative with an explicit positive denominator. Its maximum occurs as the normal displacement vanishes, and piecewise integration along arbitrary segments converts that local bound to the exact global bound. The quartic substitution reduces the remaining maximum to a one-variable rational function with a unique critical point. The standard-library checker verifies the displayed polynomial identity and independently samples the metric projection. Finite checks are corroborative, not a proof.
+## correctness
 
-## Originality
-PASS with historical risk. The 2014 half-space/subspace paper gives general projection representations but does not treat projection onto the Euclidean disk under a differing ambient norm. The 2024 ball-derivative paper treats balls in their own Banach norms, not Euclidean disks viewed in \(\ell_4^2\). Literature and mathematical-record searches for cross-norm disk projection, equivalent tangent-hyperplane formulations, and the specific quartic constant did not reveal a stronger encompassing result. An older equivalent convex-approximation calculation cannot be ruled out.
+PASS
 
-## Value
-PASS. Nearest-point stability of a canonical smooth convex target depends on both its shape and the norm used for approximation. The theorem exactly identifies the cross-norm amplification, supplies a closed-form sharp non-Hilbert example, and proves a complete nonexpansivity boundary across all strictly convex real \(\ell_p^2\) metrics. The exact invariant answers a natural robustness question independently of any downstream theorem.
+For real 1<p<∞ let q=p/(p−1), project every x∈R² onto fixed Euclidean closed unit disk in ambient ℓp metric. Strict convexity yields uniqueness; exterior KKT gives x=y+s J_q(y), y on Euclidean unit circle, s>0. Differentiating normal coordinates produces rank-one tangential derivative with operator norm ||v||_p||J_q(y)||_q divided by |y_1|^q+|y_2|^q+s(q−1)(|y_1|^(q−2)|y_2|^q+|y_1|^q|y_2|^(q−2)). Denominator increases with s; letting s→0 and writing t=|y_2/y_1| yields claimed one-variable supremum. Integrating local bounds over line segments split at disk boundary/coordinate axes gives the global bound; exterior near-boundary tangent derivatives give matching lower bound. For p=4, z=t^(4/9), u=z+1/z, exact fourth-power ratio (u³−3u−1)/(u−1)³ maximized at u=1+sqrt3 to give 1+2/sqrt3. Small-t exponent comparison proves strict amplification for all p≠2; p=2 recovers Hilbert nonexpansivity. Scope excludes p=1,∞ and dimensions beyond two.
 
-## Limits
-Real two dimensions; \(1<p<\infty\); special closed form only at \(p=4\). This is not a statement about the radial retraction onto the ambient \(\ell_p\) ball.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+Best approximation onto a Euclidean disk using a different Banach norm is a natural curved-target/non-Hilbert metric projection model. The exact global Lipschitz profile and sharp quartic amplification reveal when projectors can expand despite uniqueness, and furnish a reusable stability invariant beyond standard Hilbert nonexpansivity. The special constant matching a separate simplex problem is not a proof of coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

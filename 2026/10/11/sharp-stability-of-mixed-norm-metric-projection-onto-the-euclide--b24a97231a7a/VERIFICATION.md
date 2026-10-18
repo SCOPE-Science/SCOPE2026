@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The attached `verify.py` is a standalone standard-library script. Execute `python3 verify.py` from the package directory. It checks the exact polynomial identity used for the quartic critical-point calculation using integer coefficient arrays; evaluates 200 deterministic exterior/interior pairs via independent angular golden-section minimization; and checks three tangential finite-difference derivatives against the displayed Jacobian formula. The run returned `VERIFY_OK polynomial_identity=1 random_pairs=200 tangential_derivatives=3 exact_constant= 1.211565031277261`.
+## correctness
 
-The mathematical proof is the KKT parametrization, exact derivative norm, monotonicity with outward distance, segment integration, and rational critical-point optimization in RESULT.md. Numerical optimization does not certify the global supremum or general-exponent assertions. The test's angular optimizer is restricted to the positive quadrant, exploiting the coordinatewise sign preservation proved in RESULT.md. No independent mathematical audit has been performed.
+PASS
+
+For real 1<p<∞ let q=p/(p−1), project every x∈R² onto fixed Euclidean closed unit disk in ambient ℓp metric. Strict convexity yields uniqueness; exterior KKT gives x=y+s J_q(y), y on Euclidean unit circle, s>0. Differentiating normal coordinates produces rank-one tangential derivative with operator norm ||v||_p||J_q(y)||_q divided by |y_1|^q+|y_2|^q+s(q−1)(|y_1|^(q−2)|y_2|^q+|y_1|^q|y_2|^(q−2)). Denominator increases with s; letting s→0 and writing t=|y_2/y_1| yields claimed one-variable supremum. Integrating local bounds over line segments split at disk boundary/coordinate axes gives the global bound; exterior near-boundary tangent derivatives give matching lower bound. For p=4, z=t^(4/9), u=z+1/z, exact fourth-power ratio (u³−3u−1)/(u−1)³ maximized at u=1+sqrt3 to give 1+2/sqrt3. Small-t exponent comparison proves strict amplification for all p≠2; p=2 recovers Hilbert nonexpansivity. Scope excludes p=1,∞ and dimensions beyond two.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+Best approximation onto a Euclidean disk using a different Banach norm is a natural curved-target/non-Hilbert metric projection model. The exact global Lipschitz profile and sharp quartic amplification reveal when projectors can expand despite uniqueness, and furnish a reusable stability invariant beyond standard Hilbert nonexpansivity. The special constant matching a separate simplex problem is not a proof of coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
