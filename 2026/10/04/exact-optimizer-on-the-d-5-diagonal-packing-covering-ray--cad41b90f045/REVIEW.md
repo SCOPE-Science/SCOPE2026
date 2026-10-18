@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The minimum-distance formula is reconstructed for every positive parameter from the parity structure of \(D_5\) and from half-integrality between cosets. Four explicit covering witnesses give global lower bounds that meet \(81/40\) only at \(\tau=4/15\). At the equality parameter, an independent exact-rational replay of the finite chamber certificate recovers \(41\) vertices and maximum squared norm \(27/50\), while the explicit hole gives the matching lower bound. The proof distinguishes this finite certificate from the analytic argument covering all \(\tau>0\).
+## correctness
 
-## Originality
-PASS with a stated residual risk. The closest source, arXiv:2609.30513v1, proves only the exact point \(\tau=4/15\) and says that numerical optimization of a three-parameter family led to it; it does not state or imply an exact unique global minimizer along the entire diagonal ray. The principal older packing-covering reduction papers treat lattices or lattice Delone-form families rather than this fixed non-lattice two-coset set. Exact and alias searches for the ray theorem, the coefficient, and the record value did not produce a covering statement. A companion note cited by the lead paper was not publicly inspectable and remains the main literature risk.
+PASS
 
-## Value
-PASS. The result turns a numerically discovered coefficient in a current record construction into a closed, exact, globally certified optimizer on the natural symmetry-preserving one-parameter deformation. The piecewise proof also identifies why moving to either side of \(4/15\) necessarily worsens the packing-covering ratio, which is useful structural information rather than a recomputation of the already published point value.
+The piecewise minimum squared distance λ²=min(4τ,1+τ,2,1+τ/4) follows from even-parity same-coset and half-coordinate cross-coset differences. Four explicit test-hole regimes imply γ²>81/40 except τ=4/15. At τ=4/15 a separately implemented exact Fraction intersection/feasibility enumeration yields 41 vertices with max q=27/50, with each chamber bisector linked to a valid X-site and signed-permutation/inversion symmetry proving its covering relevance; explicit h₀ attains that bound, λ²=16/15.
 
-## Closest literature and limitations
-The exact lead record is Ahrend--Dutour Sikirić (2026), arXiv:2609.30513v1. Schürmann--Vallentin (2006) and Dutour Sikirić--Schürmann--Vallentin (2008) provide the closest lattice/reduction-theory context. The theorem here does not address arbitrary deformations of the metric or point set, and the inaccessible companion note remains an explicit originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ahrend–Dutour Sikirić already prove the exact record configuration at τ=4/15, but an optimum at one parameter does not establish a strict inequality for every τ>0 or uniqueness along the diagonal ray. The accessible abstract/metadata do not announce that theorem; the recent complete lead paper and referenced companion are outstanding originality access risks, not established negative comparisons.
+
+## value
+
+PASS
+
+The natural symmetry-preserving metric ray of a recent five-dimensional nonlattice packing-covering example gets an exact unique optimizer and rigorous piecewise hole mechanism, explaining rather than only evaluating a distinguished coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
