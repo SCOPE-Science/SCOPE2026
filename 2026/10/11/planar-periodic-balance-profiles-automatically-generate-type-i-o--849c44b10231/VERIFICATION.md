@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The argument is analytic and uses no finite experiment as proof.
+# Independent mathematical audit
 
-The source identities checked directly are:
+## correctness
 
-1. The balance law is
-\[
-Y_0'=-\frac1k\Lambda_\alpha Y_0+f_{\alpha,k}(Y_0).
-\]
-2. Quasi-homogeneity gives, componentwise,
-\[
-f_{\alpha,k}(s^{\Lambda_\alpha}Y)=s^k s^{\Lambda_\alpha}f_{\alpha,k}(Y).
-\]
-3. Under full rank of \([Y_0',\Lambda_\alpha Y_0]\), the source's Corollary 4.5 gives multipliers \(1\) and \(e^{T_\eta}>1\).
-4. The source's Theorem 5.1 converts a simple unit multiplier and absence of any other unit-circle multiplier into a finite-time type-I periodic blow-up.
+PASS
 
-For the new rank step, suppose dependence holds for every time. Positivity of \(p_\alpha(Y_0)\) implies \(\Lambda_\alpha Y_0\neq0\), hence \(Y_0'=a\Lambda_\alpha Y_0\). Integration gives \(Y_0=s^{\Lambda_\alpha}Y_0(0)\). Evaluating the balance law at the initial point gives \(f_{\alpha,k}(Y_0(0))=b\Lambda_\alpha Y_0(0)\). Quasi-homogeneity then makes the entire scaling ray invariant and reduces the profile to
-\[
-u'=-\frac1k+b e^{ku},\qquad u=\log s.
-\]
-A nonconstant periodic orbit of this scalar autonomous equation is impossible. Because the original profile is periodic and has a nonzero positively weighted coordinate, its scaling factor must return to \(1\) after one period. Therefore persistent dependence contradicts nonconstancy.
+Assume an asymptotically quasi-homogeneous planar balance equation Y′=-(1/k)Λ_αY+f_{α,k}(Y), k>0, has a nonconstant T-periodic solution with p_α(Y)>0 and the cited source’s Assumption 4.2. Positivity makes the weighted scaling vector Λ_αY nonzero on the orbit. If phase Y′ and scaling Λ_αY were dependent at every time, continuity gives Y′=a(t)Λ_αY, hence Y=s(t)^{Λ_α}Y(0) with s>0. At the initial ray point the balance equation forces the principal vector field tangent to the scaling ray; weighted homogeneity f_{α,k}(s^{Λ_α}Y)=s^k s^{Λ_α}f_{α,k}(Y) then reduces log s to autonomous scalar u′=-1/k+b exp(ku). A nonconstant scalar autonomous orbit cannot be periodic, and periodicity of Y with a positive-weight nonzero coordinate forces periodicity of u. Contradiction establishes some full rank; the source’s propagation property makes rank full throughout. In dimension exactly two the distinguished phase/scaling invariant subbundle fills the variational space, giving precisely multipliers 1 and e^{T_η}>1. The focal conditional blow-up criterion then applies. This does not construct any periodic profile or prove analogues in dimension greater than two.
 
-Once independence occurs at one time, the source propagates it to all times. In two dimensions the distinguished invariant subbundle is the whole variational space, so no unexamined quotient multiplier remains.
+## originality
 
-Limit: this verification does not prove existence of the periodic balance profile and does not extend the spectral exhaustion to dimensions greater than two.
+PASS
+
+Best-of-knowledge originality concerns the new universally automatic full phase–scaling rank for all nonconstant positive-radius *planar* periodic balance profiles. Matsue’s paper supplies distinguished multiplier and type-I machinery under a rank/Floquet condition, and its accessible abstract does not assert this dimension-two rank obstruction. That pre-existing machinery is openly credited; the accepted extra implication is the scalar-ray argument. No independently indexed equivalence was identified among Resultary near-neighbors. This is a provisional source-limited comparison, not a claim that the focal full text has been cleared.
+
+## value
+
+PASS
+
+For the planar specialization of the new oscillatory blow-up correspondence, the result removes a genuinely nontrivial rank/Floquet verification stage: once a nonconstant positive-radius periodic profile satisfying the source hypotheses exists, the complete spectrum is known. The obstruction has dynamical content because it applies to any such nonlinear quasi-homogeneous balance law, rather than substituting a fixed parameter. No existence of profiles, stability of arbitrary systems or higher-dimensional quotient multiplier theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
