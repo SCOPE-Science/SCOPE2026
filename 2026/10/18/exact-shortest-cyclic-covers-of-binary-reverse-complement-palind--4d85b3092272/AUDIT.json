@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each m=1..4, the exact product-state BFS is a finite exhaustive shortest-walk dynamic program over all binary edges and all required-word masks, anchored at the first required edge. Closure at the original suffix makes the enumeration bijective with distinct indexed cyclic hosts beginning in P_m. Distances give minima and shortest-path counts give rooted multiplicities, without floating point or heuristic pruning. An independent complete overlap Held–Karp tour dynamic program reproduces minima (2,9,26,67); direct witness window testing confirms constructions. The source code compiles and prints VERIFY_OK. The claim explicitly stops at m=4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein–Shamir, DOI:10.1093/bioinformatics/btt230: include one of each RC pair for all four-letter k-mers; a different larger required set and no rooted cyclic subset count.",
+        "Cazaux–Cánovas–Rivals, DOI:10.1109/DCC.2016.79, §§1–2: objective is the total length of a possibly multiple-cycle cover with optional RC orientation, which is weaker than a single mandatory oriented cycle."
+      ],
+      "reasoning": "The generic RC-complete construction imposes additional nonfixed required classes; it gives no tight bound for the isolated fixed-point subset. The optimal collection-of-cycles objective of Cazaux et al. is not the connected one-cycle objective: costs and multiplicities can differ.",
+      "searches": [
+        "Design of shortest double-stranded DNA sequences covering all k-mers Orenstein Shamir 2013",
+        "Shortest DNA Cyclic Cover in Compressed Space Cazaux Canovas Rivals 2016",
+        "2016 Cazaux Canovas Rivals shortest DNA cyclic cover reverse complement fixed point subset"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0711.1695v1",
+      "doi:10.1093/bioinformatics/btt230 (partial publisher indexed material)",
+      "arxiv:1511.08431",
+      "doi:10.1109/DCC.2016.79"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moreno–Matamala 2007 requires each restricted-language length-k word once on an Eulerian cycle; Fici et al. 2015 permits reversal choices for a linear superstring, not mandatory fixed-point coverage on a cyclic host."
+      ],
+      "reasoning": "Ordinary-palindrome and anti-palindrome claims are not equivalent via rotation/reversal or bit complement. The existing paper statements are neither explicit solutions of the compulsory fixed-point subset one-cycle problem nor stronger claims that numerically determine the new results.",
+      "searches": [
+        "arXiv:0711.1695; arXiv:1511.08431",
+        "DOI:10.1093/bioinformatics/btt230; DOI:10.1109/DCC.2016.79",
+        "binary anti-palindrome all words of even length shortest cyclic cover 2 9 26 67"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A published mathematical record on two palindromic duplications at length eight studies error-correcting codes, not covering fixed-point words.",
+        "Relevant web search returned RC-complete string problems, no exact table."
+      ],
+      "reasoning": "The target words are the fixed points of reversal followed by symbol complement. Their coverage is compulsory and distinct from reverse-complement OR orientation of arbitrary words, and distinct from ordinary palindromes under reversal.",
+      "searches": [
+        "antipalindromic reverse-complement binary words optimal cyclic shortest covering superstring length six eight antipalindrome",
+        "optimal cyclic binary superstring of all eight bit reverse complement palindromes 67 rooted 1232",
+        "shortest cyclic superstring all binary antipalindromes length 8 67 reverse complement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table identified in searches. Orenstein–Shamir 2013 Table 1 instead tabulates four-letter, all-k-mer, RC-OR sequence lengths, e.g. k=8 optimum 33,262, not binary fixed-point-only cycles."
+      ],
+      "reasoning": "A coincidentally similar integer or a generic algorithm is not an exact table of the present invariant. Absence of a match is only limited negative evidence.",
+      "searches": [
+        "binary anti-palindrome all words of even length shortest cyclic cover 2 9 26 67",
+        "\"2, 9, 26, 67\" reverse complement superstring palindromic",
+        "\"1232\" \"antipalindrome\" \"cycle\""
+      ]
+    },
+    "rationale": "Exact comparison of objectives and quantifiers: the 2007 Eulerian language-cycle theorem, the 2013 RC-complete all-k-mer theorem, the 2015 linear SCS-with-reversals approximation theorem, and the 2016 possibly multi-cycle RC cover theorem do not imply the single cyclic host optimum of the RC-fixed binary subset or the rooted enumeration. Ordinary palindromes have a distinct defining relation and required set. Searches found no same exact table. An indexed full text remained incompletely accessible, so the residual risk is recorded rather than omitted.",
+    "residual_risks": [
+      "The continuous full text of Orenstein–Shamir 2013 was not retrieved; an institutional source required a disconnected VPN. Its abstract, introduction and indexed table do not indicate the exact fixed-point-only rooted invariant, but a hidden supplementary table cannot be excluded.",
+      "An unindexed specialized enumeration or exact benchmark may duplicate some or all finite values; database search is negative evidence, not a proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different objective: Eulerian sequence for entire irreducible forbidden-block language, with one occurrence of each admissible word. No 2m binary RC-fixed subset enumeration in material read.",
+        "evidence": [
+          "Section 2 specifies each admissible word exactly once, arXiv:0711.1695 pp.1–3",
+          "Source first public date 2007-11-12"
+        ],
+        "identifier_or_url": "arxiv:0711.1695v1",
+        "material_read": "ArXiv PDF including problem formulation, graph definitions, main theorems and concluding algorithm sections.",
+        "method": "arXiv public PDF text extraction and page inspection",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Classical constrained de Bruijn cycle result potentially covering cyclic words"
+      },
+      {
+        "assessment": "Compulsory RC-fixed-point patterns occur as part of the all-k-mer RC-OR universe, but the reported objective is not a single cycle covering only that fixed-point set; the identified numerical tables are for the four-letter all-k-mer problem. Full-document exclusion is not asserted.",
+        "evidence": [
+          "DOI:10.1093/bioinformatics/btt230 introduction and Table 1",
+          "Online public date 2013-06-19",
+          "Residual risk: continuous full text unavailable"
+        ],
+        "identifier_or_url": "doi:10.1093/bioinformatics/btt230",
+        "material_read": "Publisher-indexed introduction, formal motivation, proof-lemma extracts, algorithms, Table 1 and summary. Continuous publisher full text was unavailable through the accessible route.",
+        "method": "Publisher-indexed lawful public text and DOI records; institutional attempt returned unavailable access",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Closest RC-palindrome application and risk of stronger coverage"
+      },
+      {
+        "assessment": "Linear shortest superstring with optional reversal and approximation guarantee; neither exact cyclic mandatory RC-fixed points nor numeric table.",
+        "evidence": [
+          "arXiv:1511.08431 §§1–3",
+          "First arXiv public version 2015-11-26"
+        ],
+        "identifier_or_url": "arxiv:1511.08431",
+        "material_read": "ArXiv PDF introduction, formal SCS-with-reversals definition, overlap construction, approximation results and conclusion.",
+        "method": "Read full arXiv PDF text and inspected introductory pages",
+        "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+        "trigger": "Overlap-graph and optional reversal generalization"
+      },
+      {
+        "assessment": "Problem 1 minimizes aggregate length of an arbitrary *set* of cycles, allowing either orientation of each input. Its Theorem 1 does not force a single cycle or enumerate rooted hosts, so no implication of the claimed finite table.",
+        "evidence": [
+          "DOI:10.1109/DCC.2016.79, pp. 536–541",
+          "Problem 1 and Theorem 1 on page 539"
+        ],
+        "identifier_or_url": "doi:10.1109/DCC.2016.79",
+        "material_read": "Ten-page open PDF text, particularly §§1–2 and explicit formulation Problem 1 and Theorem 1; visual screenshot retrieval timed out",
+        "method": "Public-author-hosted PDF text extraction through web",
+        "title": "Shortest DNA Cyclic Cover in Compressed Space",
+        "trigger": "Possibly dominating exact cyclic RC cover theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d85b309-2272-45dd-91a5-90a88f03b487",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reverse-complement fixed words are the unavoidable oriented k-mers in double-stranded probe design. A single connected periodic probe must cover all of them; the cost of only the fixed-point subset is not determined by existing whole-k-mer RC-OR or multi-cycle constructions. The natural first four orders include the first 16-pattern case, with a non-obvious exact optimum 67 and an exact 1232-fold multiplicity of rooted optima. These figures give a finite structural baseline for studying constrained oriented test cycles; no speculative general theorem is claimed.",
+    "status": "PASS"
+  }
+}
