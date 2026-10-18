@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:16:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m,n>=3 the only distance-3 vertex from a root in A is its matched deleted-edge partner in B; all other opposite-side vertices are distance 1, same-side vertices distance 2. Every last move to a permanently occupied root originates as a 1-,2-, or (once) 3-packet. An A-origin cup not at the root requires a distinct B-origin cup in its final packet, except one 3-packet may carry two A-origin cups, giving m-1 <= n+1_{i<=t}; symmetrically for B. The sharp construction uses a 3-stack at a deleted partner (built from two other A singleton neighbors), then Hall matching of each remaining A cup to a distinct B cup; n-1>=2 handles the small boundary. For unmatched root, direct Hall matching suffices. Checking unmatched opposite-side singleton moves and all distances verifies the construction and indicator total S(m,n,t). Independent analysis of m=5,n=3,t=1 yields only its large-side matched endpoint and all three small-side roots, as stated. The packaged exhaustive small instances support but do not prove the infinite characterization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2310.06192 Lemma 10 establishes iff a matching saturates N2(r) only when ecc(r)=2",
+          "https://arxiv.org/abs/2401.06189 treats Hamiltonian paths and global stackability"
+        ],
+        "reasoning": "Global Hamiltonian-path existence can certify special cases but cannot classify target profiles for m=n+2 non-Hamiltonian bicliques with deletion edges; t=0 case is explicitly covered by Corollary 12.",
+        "searches": [
+          "Fay Hurlbert Tennant Lemma 10 Corollary 12",
+          "Gregor Merino Mütze Verciani Hamiltonian path cup stacking"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2310.06192",
+        "https://arxiv.org/abs/2401.06189",
+        "Resultary semantic search: cup stacking matching-deleted complete bipartite graph rooted target stackability classification eccentricity three"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2310.06192 complete-bipartite root criterion m<=n+1 when t=0",
+          "https://arxiv.org/pdf/2310.06192 Lemma 10 requires eccentricity exactly 2"
+        ],
+        "reasoning": "The new result agrees with t=0 and extends to roots whose deleted opposite-edge partner is at distance 3; earlier criteria neither imply nor refute the m=n+2,t>0 exceptional root transition.",
+        "searches": [
+          "K_{m,n} geodesic cup stacking Corollary 12",
+          "eccentricity 3 cup stacking matching condition",
+          "Hamilton path sufficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2310.06192 Corollary 12 treats complete multipartite, not deleted-edge family",
+          "https://arxiv.org/pdf/2310.06192 discussion p18 asks for eccentricity-three target characterization"
+        ],
+        "reasoning": "The deleted-edge endpoint is distance three, not covered by the eccentricity-two matching criterion; a nongeodesic frog-jumping variant cannot be identified without comparing move rules.",
+        "searches": [
+          "cup stacking matching-deleted complete bipartite graph rooted target stackability classification eccentricity three",
+          "geodesic cup stacking frog jumping crown graph matching removed rooted vertex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2310.06192 Corollary 12 gives full t=0 subfamily",
+          "Resultary hit about CIS pairs for matching-deleted bicliques is a different invariant"
+        ],
+        "reasoning": "Earlier counting tables for other graph invariants and finite cup-stacking examples are not exact rooted classifications for all m,n,t.",
+        "searches": [
+          "Resultary cup stacking matching-deleted complete bipartite graph rooted target stackability classification eccentricity three",
+          "matching-deleted complete bipartite target stackability table"
+        ]
+      },
+      "rationale": "The target-resolved characterization for K_{m,n} minus an arbitrary matching, with the exceptional eccentricity-3 endpoints and explicit all-target counts, is not supplied by the predecessor complete-multipartite result or Hamiltonicity criterion.",
+      "residual_risks": [
+        "A nonstandard equivalent rooted frog-jumping result might appear under alternate move terminology; the different move rule must be checked.",
+        "Only source Fay full text was read; Gregor primary full body not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Corollary 12 covers t=0; eccentricity-three roots are beyond Lemma 10 and highlighted in open problems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.06192",
+          "material_read": "Full PDF, definitions, Lemma 10, Corollary 12, concluding open questions",
+          "method": "Primary PDF text p0-p18 and explicit statement matching",
+          "title": "Cup Stacking in Graphs",
+          "trigger": "Foundational move rules and complete multipartite classifications"
+        },
+        {
+          "assessment": "PARTIAL_NOT_DOMINATING",
+          "evidence": "Hamiltonian-path criterion cannot give additional roots in K_{n+2,n}-M_t, which has no Hamilton path due bipartition imbalance.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.06189",
+          "material_read": "Abstract and cited theorem statements, not full PDF",
+          "method": "arXiv abstract and package comparison",
+          "title": "Graphs that admit a Hamilton path are cup-stackable",
+          "trigger": "Potential dominating sufficient condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a natural complete parametric graph-family classification and a sharp boundary effect: deleting even one edge creates an additional stackable eccentricity-three root without making the whole bipartite graph stackable. Such explicit target profiles address a cited eccentricity-three gap, not an arbitrary small graph recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2310.06192",
+    "https://arxiv.org/abs/2401.06189",
+    "Resultary semantic search: cup stacking matching-deleted complete bipartite graph rooted target stackability classification eccentricity three"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Matching deletions only, m,n>=3, initially one cup per vertex, geodesic move length equal to current stack size and occupied target.",
+    "Exhaustive finite checks are not used to infer the infinite classification."
+  ],
+  "schema_version": 1
+}
