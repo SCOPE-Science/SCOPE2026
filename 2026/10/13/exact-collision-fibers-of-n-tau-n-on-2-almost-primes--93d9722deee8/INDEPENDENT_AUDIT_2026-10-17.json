@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:11:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob e95d48cea89857167f09af959e0aac6c323f7f69",
+        "pinned verify.py Git blob 0093b3db9076bd50e0d053f3ebd18d5a9c15465a",
+        "independent mathematical reconstruction and bounded code in /mnt/data/scope05_independent_checks.py"
+      ],
+      "rationale": "On inputs n>=2 with Omega(n)<=2, tau(n) can only be 2 (prime), 3 (prime square), or 4 (squarefree product of two distinct primes). In a collision F(m)=F(n) with m<n we require n-m=tau(m)-tau(n)>0. Thus possible pairs of divisor counts are exactly (3,2), (4,2), (4,3). The first forces (m,n)=(4,5) because p²+1 prime only for p=2; the second gives exactly m=qr with distinct odd primes q<r and n=qr+2 prime, and the converse is immediate; the third would force qr=p²−1 divisible by 8 for odd p, impossible for squarefree qr of v2<=1 (p=2 also impossible). Distinct possible pairs share no third value in the restricted domain, so max fiber cardinality is 2. Independent sieve over 2<=n<=100000 computed all F-fibers on Omega<=2, finding 2,961 nontrivial fibers and no counterexample; symbolic case exhaustion, not finite scan, proves infinite assertion.",
+      "residual_risks": [
+        "No collisions with Omega>=3 inputs classified; full fibers may be larger outside the restricted domain.",
+        "Does not prove infinitely many primes qr+2 with q,r distinct odd primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An all-input injectivity or full collision classification would dominate the restricted result, but the cited image/additive-energy theorems provide bounds rather than an iff description and do not logically imply it.",
+          "No reduction from the general average collision energy estimate to a full pointwise multiplicity-two classification of each sparse input was identified."
+        ],
+        "reasoning": "Checked whether the strongest inspected existing theorem logically entails this result, including its exact domain and sharp conclusion. Established input background is explicitly credited.",
+        "searches": [
+          "Resultary semantic search: n plus tau(n) divisor function collision fibers semiprimes prime squares Omega at most 2",
+          "Resultary semantic search: n+τ(n) collisions semiprimes qr+2 prime fibers n+divisor-count function",
+          "Primary-source comparison: Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2",
+        "Gabdullin, Iudelevich and Luca, Numbers of the form k+f(k), arXiv:2306.16035 (2023), Theorem 1.2 and Section 3.1",
+        "OEIS A062249, sequence n+tau(n)",
+        "Resultary: SCOPE-a-semiprime-sieve-for-the-iterated-divisor-sum-mersenne-equation--7f22f0d3984d (different statistic)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A lower/upper density bound for the image or additive-energy estimate does not rule out one rare triple fiber, and hence cannot imply maximum restricted fiber 2.",
+          "The three divisor-count types plus parity/p-adic arguments determine all collisions, which is stronger at this natural sparse layer than sampled overlap statistics."
+        ],
+        "reasoning": "Compared the conclusion itself with strongest relevant prior statements and specializations; documented nonimplications and acknowledged genuine overlap.",
+        "searches": [
+          "Resultary semantic search: n plus tau(n) divisor function collision fibers semiprimes prime squares Omega at most 2",
+          "Resultary semantic search: n+τ(n) collisions semiprimes qr+2 prime fibers n+divisor-count function",
+          "Primary-source comparison: Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The studied map is exactly n+tau(n) from Pollack–Troupe and Gabdullin–Iudelevich–Luca; those papers study statistical output and image size rather than exact low-Omega fibers.",
+          "Resultary semiprime-sieve result concerns sigma(sigma(n))=2n+1, not equality of n+tau(n) values."
+        ],
+        "reasoning": "Compared exact definitions, parameters, and translation to the named existing frameworks; topical overlap without a mathematical iff implication is not prior coverage.",
+        "searches": [
+          "Resultary semantic search: n plus tau(n) divisor function collision fibers semiprimes prime squares Omega at most 2",
+          "Resultary semantic search: n+τ(n) collisions semiprimes qr+2 prime fibers n+divisor-count function",
+          "Primary-source comparison: Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A062249 tabulates some n+tau(n) repeated values and can confirm (4,5),(15,17),(21,23), not infinite exhaustiveness over sparse prime factors.",
+          "The exact Omega<=2 fiber classification is not a known data-table recomputation: symbolic divisor-count arithmetic proves the iff statement."
+        ],
+        "reasoning": "A numerical entry is prior coverage only if it states the exact all-parameter assertion or genuinely exhausts the specified finite domain; finite observations alone cannot prove these universal claims.",
+        "searches": [
+          "Resultary semantic search: n plus tau(n) divisor function collision fibers semiprimes prime squares Omega at most 2",
+          "Resultary semantic search: n+τ(n) collisions semiprimes qr+2 prime fibers n+divisor-count function",
+          "Primary-source comparison: Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2"
+        ]
+      },
+      "rationale": "The studied map is exactly n+tau(n) from Pollack–Troupe and Gabdullin–Iudelevich–Luca; those papers study statistical output and image size rather than exact low-Omega fibers. An all-input injectivity or full collision classification would dominate the restricted result, but the cited image/additive-energy theorems provide bounds rather than an iff description and do not logically imply it. A lower/upper density bound for the image or additive-energy estimate does not rule out one rare triple fiber, and hence cannot imply maximum restricted fiber 2. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.",
+      "residual_risks": [
+        "No collisions with Omega>=3 inputs classified; full fibers may be larger outside the restricted domain.",
+        "Classical arithmetic casework is short; an older elementary observation could duplicate the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes normal order/prime-factor statistical law of output values; does not state low-Omega equality-fiber classification in the sections inspected.",
+          "evidence": "arXiv 2106.10756 Section 4.2",
+          "identifier_or_url": "arXiv:2106.10756",
+          "material_read": "Public full PDF, section about shifted divisor-count values and theorem statements",
+          "method": "Read public arXiv PDF text and located Section 4.2",
+          "title": "Sums of proper divisors follow the Erdos–Kac law",
+          "trigger": "Section 4.2 treats exactly the shifted arithmetic map n+tau(n)"
+        },
+        {
+          "assessment": "Bounds image and estimates collision counts on a dense family; not a statement that specializes to the exact three-case Omega<=2 iff classification.",
+          "evidence": "arXiv 2306.16035 Theorem 1.2, Section 3.1",
+          "identifier_or_url": "arXiv:2306.16035",
+          "material_read": "Public full 22-page PDF, Theorem 1.2 and Section 3.1 on many-prime odd squarefree inputs and collision energy",
+          "method": "Read arXiv PDF including source sections, text and visual PDF inspection",
+          "title": "Numbers of the form k+f(k)",
+          "trigger": "Exactly the map k+tau(k) and collision/additive-energy analysis"
+        },
+        {
+          "assessment": "Table displays early repeats but no theorem about all Omega<=2 restricted fibers.",
+          "evidence": "OEIS A062249 initial table",
+          "identifier_or_url": "https://oeis.org/A062249",
+          "material_read": "Sequence description and initial terms, rather than claimed proof of a complete sparse-domain theorem",
+          "method": "OEIS page/available indexed entry",
+          "title": "OEIS A062249, n+tau(n)",
+          "trigger": "Potential exact database or table of repeated values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pollack and Troupe, Sums of proper divisors follow the Erdos–Kac law, arXiv:2106.10756 (2021), Section 4.2",
+        "actual reviewed 2026/10/13/exact-collision-fibers-of-n-tau-n-on-2-almost-primes--93d9722deee8/RESULT.md"
+      ],
+      "rationale": "The natural low-prime-factor filtration Omega(n)<=2 is the first layer where a shifted multiplicative divisor statistic n+tau(n) can collide; the complete exact fiber description and maximum multiplicity give a concrete combinatorial input to studying injectivity, images and additive energy of this specifically studied arithmetic map. It is an elementary but exact, self-contained full classification of a natural sparsity class, not an arbitrary search cutoff, claimed only for the restricted domain.",
+      "residual_risks": [
+        "Classical arithmetic casework is short; an older elementary observation could duplicate the classification.",
+        "The value judgment concerns this exactly stated object/invariant and does not claim an unstated general theorem or priority beyond inspected sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No collisions with Omega>=3 inputs classified; full fibers may be larger outside the restricted domain.",
+    "Does not prove infinitely many primes qr+2 with q,r distinct odd primes.",
+    "Classical arithmetic casework is short; an older elementary observation could duplicate the classification."
+  ]
+}
