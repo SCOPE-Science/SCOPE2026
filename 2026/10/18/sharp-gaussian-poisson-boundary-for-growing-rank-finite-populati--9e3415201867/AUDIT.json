@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact beta-binomial mass and moments are derived from finite-population counts. The sufficiency proof combines a two-gamma CLT with a conditional triangular binomial CLT; beta-relative fluctuation is o(1) even for endpoint p via alpha,beta→∞; conditional characteristic functions imply joint independence, and compact subsequences handle changing mixing weights. For bounded excluded-side mean, total variation is bounded by mp/sqrt(alpha)+mp^2, yielding Poisson and excluding a Gaussian subsequential limit. Exhaustive exact finite checks are performed by verify.py, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatterjee 2011 doi:10.1007/s10463-008-0210-4 full scholarly PDF, intro/theorem regime",
+        "Li and Ding arXiv:1610.04821 full PDF, finite-population sample-mean and rank-statistic sections pp.2–11"
+      ],
+      "reasoning": "Sample-mean/randomization rank CLTs require linear-statistic regularity and do not directly imply a necessary-and-sufficient boundary for one discrete order statistic. The continuous superpopulation quantile result assumes a fixed interior quantile level, which fails on p→0 or p→1. No checked stronger theorem dominates the full candidate.",
+      "searches": [
+        "finite population central limit theorem rank statistic sample quantile moving rank",
+        "arxiv:1610.04821 theorem finite population rank statistic",
+        "doi:10.1007/s10463-008-0210-4 asymptotic sample quantile"
+      ]
+    },
+    "checked_sources": [
+      "O’Neill 2022 arXiv:2207.00270 full 30-page preprint, esp. pp.2–7 and appendices pp.23–28",
+      "O’Neill 2025 doi:10.1007/s44199-025-00125-y full 36-page version, esp. pp.3–8 and appendix",
+      "Chatterjee 2011 doi:10.1007/s10463-008-0210-4 full scholarly PDF, intro/theorem regime",
+      "Li and Ding arXiv:1610.04821 full PDF, finite-population sample-mean and rank-statistic sections pp.2–11",
+      "Khan (1994) bibliographic/citing context, original full text not read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "O’Neill 2022 arXiv:2207.00270 full 30-page preprint, esp. pp.2–7 and appendices pp.23–28",
+        "O’Neill 2025 doi:10.1007/s44199-025-00125-y full 36-page version, esp. pp.3–8 and appendix",
+        "Theorem 7 cites Khan (1994) for a particular near-census case."
+      ],
+      "reasoning": "Theorem 6 covers fixed interior limiting fractions, automatically making both expected excluded-side counts diverge. Theorem 7 covers a subset of p→0 and near-census cases satisfying the same divergent condition, but neither gives the converse for bounded mean or arbitrary oscillating ratios. The 1994 source is a material residual priority risk.",
+      "searches": [
+        "O’Neill Theorem 6 interior sample fraction rank fraction",
+        "O’Neill Theorem 7 near census k(N-n)/N",
+        "Khan 1994 negative hypergeometric generating function central limit theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O’Neill 2022 arXiv:2207.00270 full 30-page preprint, esp. pp.2–7 and appendices pp.23–28",
+        "O’Neill 2025 doi:10.1007/s44199-025-00125-y full 36-page version, esp. pp.3–8 and appendix",
+        "Negative-hypergeometric waiting-time count is exactly the beta-binomial variable Y under a shift."
+      ],
+      "reasoning": "Explicitly converted the shifted rank law into beta-binomial/negative-hypergeometric parameters, and compared limiting implications. Theorems 6 and 7 require specific convergent ratios; the candidate includes all paths with both expected excluded-side counts diverging, including ratios approaching zero or oscillating. No full equivalent theorem observed in inspected texts.",
+      "searches": [
+        "finite-population order statistic beta-binomial representation asymptotic normality all parameters",
+        "negative hypergeometric Gaussian if and only if mean missing positions diverges",
+        "arxiv:2207.00270 Theorems 6 and 7",
+        "doi:10.1007/s44199-025-00125-y Theorems 6 and 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "O’Neill 2022 distribution/normal-limit formulas and 2025 update inspected; no tabulated sharp iff Gaussian/Poisson boundary there.",
+        "Khan (1994) title and citation inspected through O’Neill bibliography; complete source unavailable."
+      ],
+      "reasoning": "The result is an asymptotic regime classification, not a finite numeric table. No pre-existing exact classification was identified in inspected full texts or indexed abstracts; an undiscovered classical theorem is possible.",
+      "searches": [
+        "negative hypergeometric normal approximation beta binomial triangular arrays",
+        "Poisson beta-binomial triangular finite populations finite rank quantile",
+        "Poisson approximation near-census order statistics"
+      ]
+    },
+    "rationale": "O’Neill establishes the beta-binomial identification and two strictly narrower sufficient CLT parameter regimes, but its inspected original and journal statements do not give a sharp iff expected-exclusions criterion, nor the explicit Poisson boundary in these growing-rank paths. The compared general finite-population CLT treats means/rank tests, and fixed-interior-quantile work does not cover moving rank fractions. Full historical coverage is not established: the 1994 Khan paper and earlier negative-hypergeometric literature remain residual risks.",
+    "residual_risks": [
+      "Khan (1994) original full text was not available; it might provide a broader limit law than its citation in O’Neill suggests.",
+      "Earlier negative-hypergeometric/beta-binomial triangular-array central limit theory might contain an equivalent statement.",
+      "Finite numerical tests are not an infinite proof or independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms identity and narrower Gaussian limits; does not state the general iff classification or the Poisson finite-mean boundary in inspected material.",
+        "evidence": [
+          "Theorems 6–7 impose two specific ratio paths; beta-binomial identity page 2 and mixture page 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.00270",
+        "material_read": "Full PDF pages 1–10, Theorems 6–7 page 7, appendix proofs pages 23–28 and references",
+        "method": "Accessible preprint full-text search, page reading and theorem-page image inspection",
+        "title": "The distribution of order statistics under sampling without replacement",
+        "trigger": "Exact same order-statistic model and beta-binomial mixture"
+      },
+      {
+        "assessment": "2025 journal update retains two explicit sufficient normal regimes; does not supply the proposed necessary-and-sufficient Gaussian/Poisson classification in inspected theorem/appendix material.",
+        "evidence": [
+          "Theorems 6–7 on PDF page 7, journal pages 669–670."
+        ],
+        "identifier_or_url": "https://d-nb.info/1382323751/34",
+        "material_read": "Full PDF 36 pages, especially numbered Theorems 6–7 and Appendix, mathematical reference list",
+        "method": "Full open-access journal PDF textual inspection",
+        "title": "The Distribution of Order Statistics Under Sampling Without Replacement",
+        "trigger": "Potentially stronger peer-reviewed update to exact same model"
+      },
+      {
+        "assessment": "Continuous superpopulation/fixed interior quantile assumptions do not give the discrete all-path criterion.",
+        "evidence": [
+          "Quantile level held fixed within the unit interval."
+        ],
+        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/10463_2008_Article_210.pdf",
+        "material_read": "Introductory assumptions, statements concerning fixed interior sample quantiles",
+        "method": "Full available PDF with relevant sections examined",
+        "title": "Asymptotic properties of sample quantiles from a finite population",
+        "trigger": "Possible broader survey-quantile CLT"
+      },
+      {
+        "assessment": "Normal limits for sample averages and functions of ranks; not the exact law of a moving order statistic with sharp necessity.",
+        "evidence": [
+          "Theorem 2 concerns random partition averages and section on pooled-rank statistics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.04821",
+        "material_read": "PDF early theorems on sample averages and randomization rank tests, pages 2–11",
+        "method": "Full open-access PDF with relevant theorem sections examined",
+        "title": "General forms of finite population central limit theorems with applications to causal inference",
+        "trigger": "Could be a broader finite-population normal limit"
+      },
+      {
+        "assessment": "Coverage NOT resolved; no claim that it omits a general theorem.",
+        "evidence": [
+          "O’Neill appendix gives “Proof of Theorem 7: See Khan (1994).”"
+        ],
+        "identifier_or_url": "Khan, Sankhyā Ser. B 56(3), 309–313 (1994)",
+        "material_read": "Bibliographic citation and description in O’Neill; original full text unavailable",
+        "method": "Search for accessible original and referenced account",
+        "title": "A note on the generating function of a negative hypergeometric distribution",
+        "trigger": "Cited source for the closest near-census CLT"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e341520-1867-4620-b3d0-b7ed31b30140",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete and sharp criterion for Gaussian feasibility in rank sampling with jointly varying sampling and rank fractions fills the modeling gap between the sufficient interior and near-census results in the selected primary literature. Explicit Poisson alternatives, with quantitative finite-row TV error, identify the natural failure mechanism. This classification applies to moving extreme quantiles in finite-population survey inference, beyond simple parameter substitution or isolated examples.",
+    "status": "PASS"
+  }
+}
