@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact sampled 3x3 proximal maps produce a positive 6x6 covariance operator with determinant \\(\\det(I-C)=-tF(t)/(16(2t+1)^3)\\). The positive Lyapunov matrix at \\(t=1/2\\) proves one stable side; \\(\\det(I-C(2))=-13/125\\) and cone Perron continuity identify the unique positive root of F as the exact transition. Positive 2-step covariance and observability determinants transfer nondecay and exponential growth to the primal squared iterate for a compatible initialization; the included checker verifies all determinant identities, direct state steps and polynomial witnesses. Finite tests are algebra checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "SPAM source Theorem 3.2 and Appendix A provide a small-step sufficient gradient-stationarity analysis under a uniform variance assumption; the present quadratic mixture has gradient variance proportional to the square of position.",
+        "The published SPAM first-moment record gives an exact Schur criterion for averaged states and explicitly disclaims all mean-square assertions.",
+        "Loizou and Richtárik (2017) address stochastic heavy-ball momentum variants, not the estimator-corrected shifted client prox defined here."
+      ],
+      "reasoning": "The source general convergence bounds do not dominate the present complete all-positive-stepsize classification because their stochastic-gradient bounded-variance hypothesis fails here, and their stepsize restriction is only sufficient. The general first-moment result is weaker in moment order. Related heavy-ball proximal theorems are not automatically transferable to this state update.",
+      "searches": [
+        "published-finding corpus: SPAM stochastic proximal point momentum variance reduction exact two-client quadratic stability noise floor phase transitions Karagulyan Shulgin Sadiev Richtarik",
+        "Web: \"Karagulyan\" \"Shulgin\" \"Sadiev\" \"mean square\" SPAM",
+        "Web: Loizou Richtarik momentum and stochastic momentum stochastic proximal point sketch and project 2017 mean square convergence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2405.20127v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee",
+      "https://proceedings.mlr.press/v168/kim22a/kim22a.pdf",
+      "https://arxiv.org/abs/1712.09677",
+      "published-finding corpus mathematical research search (specific actual queries recorded in named comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier SPAM record: the averaged-state Schur inequality involves the first moment and states explicitly that the calculation is not about second moments.",
+        "At half refresh and stepsize two, the earlier inequality holds but the new lifted covariance characteristic polynomial has a real root 1.0993506508... greater than one.",
+        "Source convergence theorem invokes bounded uniform gradient variance; for the benchmark distribution the variance equals the square of position, so the premises are not satisfied."
+      ],
+      "reasoning": "The novel assertion is the sharp threshold for decay of all initial-state second moments, plus the provable compatible-initialization mean-square obstruction. This is not a special case of the first-moment condition, a corollary of general sufficient small-step bounds, or a recomputation of the same momentum scheme studied in older heavy-ball proximal papers.",
+      "searches": [
+        "published-finding corpus record 2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee; fetched RESULT.md full text",
+        "SPAM arXiv:2405.20127v1 Algorithm 1, Sections 2–3 and Appendices A/E",
+        "PMLR 168:kim22a (2022) original PDF pp. 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2405.20127v1, Algorithm 1, defines a same-sample momentum-variance-reduced gradient estimator followed by a shifted proximal map.",
+        "The inspected 2026/10/4 published first-moment SPAM RESULT.md explicitly excludes statements about expected squared error.",
+        "Direct heavy-ball proximal momentum in PMLR 168 (2022) uses momentum on iterates, not SPAM gradient-estimator memory."
+      ],
+      "reasoning": "The covariance recursion has a six-dimensional lift, not the averaged three-dimensional first-moment matrix. The first-moment criterion is satisfied at half refresh and stepsize two while the squared-error operator has eigenvalue greater than one. Thus the earlier first-moment formula neither is equivalent to nor implies the new mean-square threshold; direct heavy-ball proximal algorithms are distinct updates.",
+      "searches": [
+        "published-finding corpus: SPAM two client scalar quadratic exact mean square stability boundary Karagulyan Shulgin sample state second moments",
+        "Web: \"SPAM\" \"mean-square stability\" \"quadratic\" \"proximal\" momentum variance",
+        "published-finding corpus: mean square stability random products 3x3 proximal variance reduced momentum exact two-point quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus searches returned the first-moment SPAM record and related, different-loop algorithms but no exact quintic second-moment table.",
+        "The accessible 97 prior claims contain no exact-SPAM or SPAM-plus-variance-reduction claim.",
+        "The included SymPy checker constructs the quintic from the exact algorithm matrices rather than reading a table."
+      ],
+      "reasoning": "No covering exact database entry or known tabulation was located in the resources actually queried. Absence from indexed searches is not treated as a proof of universal novelty; an unindexed table remains a residual risk.",
+      "searches": [
+        "published-finding corpus: SPAM (stochastic proximal point and momentum) two-client quadratic mean-square second moment Perron 1.797142 3t5+19t4",
+        "Web: \"3 t^5\" \"19 t^4\" \"54 t^2\" momentum proximal",
+        "Own accessible claim texts: spam; stochastic proximal; variance reduction; covariance; second moment"
+      ]
+    },
+    "rationale": "The exact all-positive-stepsize mean-square classification is not stated by the inspected SPAM source or the full previously published first-moment SPAM record. The closest record expressly excludes second moments. Related proximal heavy-ball methods use different stochastic updates; no covering result found in searched records, although priority risk remains.",
+    "residual_risks": [
+      "An equivalent mean-square analysis could appear in an unindexed or not fully inspected specialized stochastic momentum/proximal paper.",
+      "Only the abstract/overview, not full text, of Loizou--Richtárik (2017) was reviewed; update schemes appear different.",
+      "The benchmark violates the source global uniform gradient-variance assumption, so no contradiction to the source convergence theorem is implied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm matches; no exact sharp two-client second-moment phase boundary; bounds require uniformly bounded stochastic-gradient variance.",
+        "evidence": [
+          "arXiv:2405.20127v1, 2024-05-30, Algorithm 1, lines 189–201",
+          "Section 2, bounded-variance Assumption 1; Section 3, Theorem 3.2; Appendix A.2, lines 477–486"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.20127v1",
+        "material_read": "HTML Algorithm 1, assumptions in Section 2, Section 3 theorem, and Appendix A and E proof passages.",
+        "method": "Targeted full-text HTML inspection, including iteration formula, assumptions, main theorem and proof appendices.",
+        "title": "SPAM: Stochastic Proximal Point Method with Momentum Variance Reduction for Non-convex Cross-Device Federated Learning",
+        "trigger": "Primary source defining the exact gradient memory and proximal recurrence; possible source of a stronger result."
+      },
+      {
+        "assessment": "Same state matrices and exact signed first-moment boundary; explicitly not a second-moment assertion. At stepsize two the first-moment criterion holds while second-moment decay fails.",
+        "evidence": [
+          "Complete published RESULT.md, 2026-10-04; explicit statement “It is not a claim about second moments.”",
+          "Its determinant factorization concerns 3x3 averaged state matrix, not 6x6 covariance operator."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee",
+        "material_read": "Complete RESULT.md, including full statement, proof, relationship and limitations.",
+        "method": "Direct read of published RESULT.md repository file.",
+        "title": "Exact first-moment stability frontier for two-client scalar SPAM",
+        "trigger": "Closest same-object quadratic SPAM theorem; potential exact implication of new claim."
+      },
+      {
+        "assessment": "SPPAM adds heavy-ball iterate difference to a proximal update, unlike SPAM same-sample gradient-memory estimator and shifted proximal rule.",
+        "evidence": [
+          "PMLR 168 (2022), equation (5) on printed page 3: iterate heavy-ball momentum \\(\beta(x_t-x_{t-1})\\)."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v168/kim22a/kim22a.pdf",
+        "material_read": "Original PDF introduction and method definition on pages 1–3; theorem overview.",
+        "method": "PDF text inspection with a rendered screenshot of page 3.",
+        "title": "Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum",
+        "trigger": "Related stochastic proximal momentum with potential stability theorems."
+      },
+      {
+        "assessment": "Deals with heavy-ball/stochastic momentum rather than the SPAM correction map, but unseen full text remains a priority risk.",
+        "evidence": [
+          "arXiv:1712.09677 abstract and University of Edinburgh research overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.09677",
+        "material_read": "Public abstract and bibliographic overview; full text not inspected.",
+        "method": "Abstract and overview inspection only.",
+        "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+        "trigger": "Earlier momentum proximal-point literature for possible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52c0ad88-065f-40c7-baaf-e131e0d6f7ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two convex clients are a natural minimal maximally heterogeneous sample while their average is strongly convex. The sharp quintic boundary classifies an entire stepsize axis and exposes exponentially growing expected squared primal error despite signed-mean convergence, giving a meaningful analytical benchmark for moment stability of variance-reduced proximal stochastic methods. Narrow scope and no extrapolation to general problems are expressly recorded.",
+    "status": "PASS"
+  }
+}
