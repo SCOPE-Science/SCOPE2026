@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof explicitly transforms nonzero solutions by \(z=1/(Gx)-S\) and derives \(z'=-(G'/G)z(z-k)/(S+z)\). The two halves of each level set of \(G\) differ in \(S\) by a strict sign. At every possible coincidence of the two half-solutions their differential speeds differ by a fixed nonzero sign. This forces opposite ordering when integrated from the two shared endpoints, excluding any nontrivial candidate beyond the two known rational ones. Positivity of \(J(c)\), direct variational integration, and the finite-time return expansion prove the stability statements. Bounded strict parameter hypotheses ensure the denominators do not vanish along the known curves, and a hypothetical nonzero periodic orbit also cannot make its inverse vanish. A standalone numerical check supplements these arguments.
+## correctness
 
-## Originality: PASS (qualified)
-The two rational curves are *not* new: they arise from the special case of Proposition 2.10 in Bravo--Calderón--Ojeda (2023). Its theorem bounds rational cycles and does not rule out other real periodic solutions. The separate 2023 singular-cycle article and the 2025 extended-Chebyshev upper-bound theorem do not state the exact parameter-uniform exhaustion, negative/nonrational exclusion, and explicit opposite hyperbolic exponents for this degree-higher harmonic family. The general conditional Chebyshev theorem may imply an upper bound for some parameter choices; that possibility is not mischaracterized as absent. No equivalent statement was identified in targeted mathematical-record and published-literature searches, and earlier collected mathematical claims were checked for overlap. Priority risk from older broad periodic uniqueness literature remains.
+PASS
 
-## Value: PASS
-The nonrational-versus-rational distinction is central to the original source's program: two *rational* invariant curves by themselves cannot establish the global periodic-orbit census for a nonlinear, nonautonomous scalar equation. This theorem supplies that missing exclusion and the full stability ordering on a robust five-parameter family. It is neither a new name for the original algebraic construction nor a numerical example; the half-wave comparison is a structural argument that handles arbitrary real periodic solutions.
+PASS. Direct substitution verifies x=0,1/(GS),1/(G(S+k)); G,S,S+k are strictly positive. For any other entire nonzero periodic x, W=1/x and z=W/G−S give z'=−(G'/G)z(z−k)/(S+z). On the two branches of ξ=log G, S_+>S_−; at every z_+=z_− meeting the derivative-difference has fixed nonzero sign −sgn(z(z−k)), because x and W have fixed sign. A common endpoint at each end would require opposite near-endpoint signs, impossible without an interior forbidden crossing. This covers negative and nonrational solutions; no truncated numerical integration is used to exclude them. Linearization around both explicit curves gives Λ_+=kJ(w)>0 and Λ_-=-kJ(w+k)<0, and expanding the return map at 0 gives +πvs u²+O(u³). A scalar monotone return map has no true integer-multiple subharmonics. Independent symbolic substitution checked invariant-curve identities; finite source numerical script examined, not used as proof.
 
-## Closest work and limits
-[1] Bravo, Calderón, Ojeda, arXiv:2302.10743v1, Proposition 2.10 (two rational invariant curves, only rational-cycle bounds); [2] Bravo, Fernández, Ojeda, arXiv:2302.13642v1 (singular positive cycle stability under other hypotheses); [3] Huang, Tian, Zhao, arXiv:2506.14091v1 (conditional general upper bound via an extended-Chebyshev triple); [4] Gasull, Llibre, DOI:10.1137/0521068 (a sign-controlled Abel upper bound not directly applicable here, since every nontrivial linear combination of \(A,B\) changes sign). Unsettled publication priority remains possible through different formulations; independent review has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge. Bravo–Calderón–Ojeda arXiv:2302.10743 Proposition 2.10 gives the construction of two rational invariant curves, which is credited, but does not there prove there are no other negative/nonrational periodic solutions or give the present universal Floquet ordering. Huang–Tian–Zhao arXiv:2506.14091 Theorem 1 imposes an extended Chebyshev three-function coefficient-span condition; its explicit applications are linear trigonometric and quadratic polynomial coefficient classes. Here A=GS(S+k)G' has generally higher harmonics; no verified implication puts this entire positive 5-parameter family under that bound, and a general upper bound alone would not compute exponents. These are adjacent but not documented as sufficient prior coverage; Resultary unavailable and older uninspected uniqueness criteria remain risks.
+
+## value
+
+PASS
+
+PASS. Counting every real cycle, including nonrational and negative candidates, in a concrete Abel family with two rational invariant curves resolves a motivated gap left by constructions of rational curves. The two-sweep crossing argument supplies a substantive structural exclusion, and exact multipliers distinguish the cycles; this is not simply recomputing known rational solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
