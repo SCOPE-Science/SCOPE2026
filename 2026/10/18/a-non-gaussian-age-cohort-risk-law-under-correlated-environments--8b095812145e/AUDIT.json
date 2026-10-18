@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For the exact stationary two-state environment and off-diagonal two-stage matrices, multiplication over even times yields the exact sum c S_N+log(x1 exp(d D_N)+x2 exp(-d D_N)); the log-sum term differs from |d D_N| uniformly by a fixed constant for positive initial cohorts. Bounded martingale differences yield a joint diagonal two-dimensional CLT for S_N and D_N, with uniform fourth moments securing convergence of means and variances. Positive centered third moment of the folded-normal term proves nonnormality; strict convexity of c^2/t+(1-2/pi)d^2 t gives the unique optimizer and exact boundary cases. The bundled standalone verifier checks the finite product identities, exact Markov second moments and numerical convergence, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sanz and Bravo de la Parra (2020), https://arxiv.org/abs/2402.03888, Appendix A positivity condition and Gaussian result",
+        "Unterberger (2021), https://arxiv.org/abs/2111.04167, model and main variance theorem"
+      ],
+      "reasoning": "The most plausible broad Gaussian/lognormal theorem uses a primitive positivity hypothesis absent here: all even products of the semelparous matrices remain diagonal and all odd products off-diagonal, so no fixed-length product is strictly positive. The continuous-time stochastic-phenotype switching framework has a mixing composition variable; it does not cover the period-two stage-selection mechanism or its folded limit. General finite-state Markov CLTs cover individual additive sums, but not by themselves the log-sum cohort reduction, moment limits and risk optimization.",
+      "searches": [
+        "\"nonprimitive\" \"lognormal\" \"population\" \"random matrices\"",
+        "doi:10.1016/j.ecolmodel.2019.108829",
+        "arxiv:2402.03888"
+      ]
+    },
+    "checked_sources": [
+      "L. Sanz (2019), DOI 10.1016/j.ecolmodel.2019.108797, inspected primary manuscript",
+      "L. Sanz and R. Bravo de la Parra (2020), DOI 10.1016/j.ecolmodel.2019.108829, inspected primary manuscript",
+      "J. Unterberger (2021), arxiv:2111.04167, inspected primary manuscript",
+      "S. Tuljapurkar and S. H. Orzack (1980), Population dynamics in variable environments I: historical mathematical context, bibliography only",
+      "V. Yu. Protasov (2013), nonnegative random matrix asymptotics, abstract-level relevance only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "L. Sanz, 2019, DOI 10.1016/j.ecolmodel.2019.108797, Section 3 and two-stage examples",
+        "L. Sanz and R. Bravo de la Parra, 2020, DOI 10.1016/j.ecolmodel.2019.108829, Section 2 and Appendix A",
+        "J. Unterberger, 2021, arXiv 2111.04167, Sections 1--3"
+      ],
+      "reasoning": "A generic almost-sure growth exponent or standard primitive-product Gaussian result neither implies the centered non-Gaussian finite-horizon law nor its positive square-root-time correction; the first has strictly weaker quantifiers and the second excludes off-diagonal stage projections. Other random-environment variance work presupposes a different mixing composition structure. The exact optimizer is an application of the newly derived two-component coefficient, not reported by the inspected sources.",
+      "searches": [
+        "\"semelparous\" \"non-Gaussian\" \"Markov\" growth",
+        "arxiv:2111.04167",
+        "doi:10.1016/j.ecolmodel.2019.108829"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sanz (2019) DOI 10.1016/j.ecolmodel.2019.108797, Sections 2--3 and Appendix A of https://arxiv.org/abs/2402.03827",
+        "Sanz and Bravo de la Parra (2020) DOI 10.1016/j.ecolmodel.2019.108829, Appendix A of https://arxiv.org/abs/2402.03888"
+      ],
+      "reasoning": "A folded-normal component can alternatively be written as the maximum of two correlated Gaussian cohort log-abundances; the old papers describe long-run growth/variance for primitive products but do not supply an exact two-dimensional parity-cohort joint limit with a max/fold or the same minimization. No equivalent two-cohort assertion was found in the inspected sections. Absence from searches alone is not treated as a proof of originality.",
+      "searches": [
+        "\"semelparous\" \"folded normal\" population growth",
+        "\"Leslie matrix\" \"half normal\" fluctuations",
+        "arxiv:2402.03827",
+        "doi:10.1016/j.ecolmodel.2019.108797"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary age-structured stochastic-model articles above include analytic estimates and variance methods rather than a database of exact non-Gaussian semelparous risk coefficients.",
+        "The explicit exact coefficient is derived from the joint environmental covariance and folded-normal variance."
+      ],
+      "reasoning": "This is a symbolic theorem for all real vital-rate sensitivities and all interior binary-environment switching probabilities, not a tabulated special-case value. No located exact database/table subsumes the complete parameter result. Search absence alone has not been elevated into an originality proof.",
+      "searches": [
+        "\"semelparous\" \"folded normal\" population growth",
+        "\"semelparous\" \"non-Gaussian\" \"Markov\" growth",
+        "\"Leslie matrix\" \"half normal\" fluctuations",
+        "\"nonprimitive\" \"lognormal\" \"population\" \"random matrices\"",
+        "doi:10.1016/j.ecolmodel.2019.108797",
+        "doi:10.1016/j.ecolmodel.2019.108829"
+      ]
+    },
+    "rationale": "The selected scientific question targets log-abundance fluctuation *laws* and optimal correlation in the exactly period-two, nonprimitive, two-cohort model, rather than only the almost-sure growth exponent. The primary applied population sources analyzed do not imply this claim: the most relevant Gaussian and scaled-logarithmic-variance theorem requires eventual positive matrix products, whereas every product here has two structural zeros. A continuous-time phenotype-switching variance formula applies to mixing, unlike persistent parity cohorts. Classical general martingale CLT ingredients are not claimed new. Possible earlier specialized nonprimitive-matrix equivalents remain an acknowledged material priority risk.",
+    "residual_risks": [
+      "The mathematically equivalent form involving the maximum of two correlated normals may occur in older nonprimitive random matrix products or semelparous life-cycle texts not exhaustively inspected.",
+      "Historical general random-matrix and population-periodicity literature was not exhaustively checked at full-text level; priority remains provisional.",
+      "No independent mathematical review or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Growth-rate bounds and parameter-dependent stage example; no corresponding two-component folded-normal law and minimax correlation; its positive-retention case differs in eventual primitivity.",
+        "evidence": [
+          "DOI 10.1016/j.ecolmodel.2019.108797",
+          "Universidad Politecnica de Madrid publication record https://oa.upm.es/79005/ dates original release 2019-11-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.03827",
+        "material_read": "Sections 2.1, 3, 7, and Appendix A of the accessible author manuscript, including hypotheses on random matrix products and the juvenile/adult illustration",
+        "method": "Primary manuscript text and mathematical hypothesis/result comparison",
+        "title": "Conditions for growth and extinction in matrix models with environmental stochasticity",
+        "trigger": "Original applied Leslie population family, switching environment and growth rates"
+      },
+      {
+        "assessment": "Gaussian/lognormal theorem explicitly uses eventual positive products; all semelparous products retain structural zeros and are excluded. No covering non-Gaussian two-cohort optimizer shown.",
+        "evidence": [
+          "DOI 10.1016/j.ecolmodel.2019.108829",
+          "2020 publication record https://oa.upm.es/79012/"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.03888",
+        "material_read": "Sections 1--3 and Appendix A of accessible author manuscript, notably positivity/ergodicity premises of the normal limit and scaled logarithmic variance",
+        "method": "Full relevant primary theorem statements and premise-by-premise implication comparison",
+        "title": "Stochastic matrix metapopulation models with fast migration: re-scaling survival to the fast scale",
+        "trigger": "Strongest plausible scaled-logarithmic-variance and lognormal population theorem"
+      },
+      {
+        "assessment": "Continuous-time population with switching between phenotypes and mixing composition; different mathematical population model and no parity-cohort folded-normal law or interior switching optimizer.",
+        "evidence": [
+          "Arxiv 2111.04167 initial public upload 2021-11-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.04167",
+        "material_read": "Sections 1--3, model setup and principal variance statements",
+        "method": "Primary open manuscript with comparison of state spaces, composition mixing and target statistics",
+        "title": "Exact computation of growth-rate fluctuations in random environment",
+        "trigger": "Exact long-run growth-rate variance in Markov fluctuating biological populations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b095812-145e-4e45-be2e-6a00dd92a757",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Semelparous zero-retention stage structure is a biologically natural boundary of standard primitive-population lognormal theory. The exact joint limit finds an intrinsically nonnormal log-abundance uncertainty distribution even when the almost-sure exponential growth rate is independent of environment autocorrelation, and it provides both the sharp mean-square-root-time effect and a unique explicit variance-minimizing switching probability. This informs the mathematical interpretation of population risk under correlated environmental forcing. A mere alternate parameterization or small numerical improvement cannot account for this combination; the statement holds across a full continuous parameter family.",
+    "status": "PASS"
+  }
+}
