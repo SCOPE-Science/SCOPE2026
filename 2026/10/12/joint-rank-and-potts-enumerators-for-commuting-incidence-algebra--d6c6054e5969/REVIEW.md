@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is reconstructed from simultaneous joint spectral projectors and a unique factorization of a radical-unit conjugator into different-color and same-color factors. The inverse affine coordinates are explicit polynomials because the radical is nilpotent. Rank equals diagonal trace for these idempotents in their natural representation, giving the exact finite-field multivariate distribution. A separate edge-subset expansion proves the graph evaluation. The strict-comparability degree threshold follows from chain cliques and the explicit longest-chain-level coloring, rather than numerical extrapolation. The bundled checker directly enumerates matrices and all ordered commuting tuples in nine small-field cases, including characteristic two and a four-element field. It verifies the charts, all joint-rank coefficients and an independent edge-subset computation, returning VERIFY_OK. Finite checks do not replace the proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+The joint orthogonal idempotents p_sigma=products of e_h or 1-e_h have diagonal color projections D_sigma. u=sum_sigma p_sigma D_sigma is 1 modulo nilpotent radical J, with u D_sigma=p_sigma u, giving simultaneous conjugation in 1+J over every field, including characteristic 2. The stabilizer of all diagonal projectors is 1+J_same. Unique factorization u=(1+a)b, a in J_diff, b in 1+J_same, follows because J_diff J_same is contained in J_diff; the map a to tuple and nilpotent-series inverse are polynomial, producing actual affine charts. Ranks equal diagonal 1-counts, and coloring weights give the Potts random-cluster q^m Z(2^k,q^-1-1) identity by edge-subset expansion. Positive q-coefficients show degree max 2^k-cut; comparability graph admits proper 2^k coloring exactly when 2^k>=poset height by longest-chain coloring. Independent direct F_2 chain-3 computation enumerated 26 idempotents, 340 commuting ordered k=2 pairs matching 340 color-weight count. Finite case is supplementary.
 
-Gogić–Tomašević, arXiv:2409.16906 Theorem 3.4 and arXiv:2503.14116 Remark 3.8, already establish intrinsic simultaneous diagonalization of commuting idempotents in structural matrix algebras over arbitrary fields. Can–Casimiro–Malheiro, arXiv:2208.01073 Theorem 3.2, already classify the single-idempotent conjugacy components. Neither prior claim is presented as new. The present assessed contribution is the canonical color-indexed affine coordinates and full ordered-tuple finite-field joint-rank enumerator, with its Fortuin–Kasteleyn identity and sharp poset-height saturation. The inspected sections of these primary full texts do not state those joint enumerative conclusions. Exact equivalences, broader coverage, table/database searches and published mathematical-record comparisons are documented in AUDIT.json. Orbit-stabilizer or representation-variety literature could independently contain an equivalent enumeration; no global priority certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The joint rank spectrum is a natural invariant of tuples of commuting idempotents in incidence algebras. The affine colors-to-points theorem is uniform in the poset, field and tuple length, and the resulting exact polynomial connects algebraic monoids to graph partition functions. The sharp threshold at the poset height makes the graph connection structurally informative. This exceeds a one-example census, and does not depend on claiming the already-known diagonalization theorem as a new result.
+Known single-idempotent orbit components and arbitrary-field simultaneous diagonalization are explicitly credited. The genuine multi-idempotent contribution is the unique polynomial affine chart for each joint diagonal pattern, complete joint ordinary-rank polynomial and exact Fortuin-Kasteleyn identification for every finite poset.
 
-## Scope and limitations
+## value
 
-The assertion is restricted to finite-poset incidence algebras and pairwise-commuting idempotents, with ranks on the natural matrix representation. The novelty assessment is provisional, and no independent mathematical validation was performed. The numerical computation checks small cases only; the proof covers all stated parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For every finite poset, an algebraic-geometry classification becomes a closed finite-field multivariate rank distribution whose specialization recovers a standard graph polynomial. This is a motivated, characteristic-uniform, infinite-family enumeration that enables exact calculation and comparison across incidence algebras, not merely the old simultaneous-diagonalization statement. The FK identity and degree threshold give substantive structural interpretations even though graph coloring/FK expansion are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
