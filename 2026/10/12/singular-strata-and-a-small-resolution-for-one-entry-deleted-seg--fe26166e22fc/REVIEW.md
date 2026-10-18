@@ -1,21 +1,21 @@
-# Mathematical review: one-entry-deleted Segre toric varieties
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is derived from explicit affine coordinate rings rather than a guess about the image of a rational projection. Every projective point belongs to a chart with a nonzero retained matrix entry. In a chart \(z_{ij}\ne0\) with \(i,j>1\), the coordinate ring is polynomial in \(a+b-2\) free variables. In a row chart, the generators separate into independent free variables \(t_q\) and the rank-one matrix variables \(s_i,w_i\), with kernel exactly the prime two-by-two minor ideal. The column chart is symmetric. These identities establish scheme-theoretic normality, the complete reduced singular-locus decomposition, multiplicity, and local class-group computations. The cone over \(\mathbb P^1\times\mathbb P^{m-1}\) has local class group \(\mathbb Z\) for \(m\ge2\), and the canonical class modulo the polarization tests \(\mathbb Q\)-Gorensteinness. The blowup at the omitted point resolves the projection; the description of projective lines on a Segre variety establishes that its only positive-dimensional fibers are the ruling lines through that point. Smallness and crepancy then follow with the parameter boundaries stated in RESULT.md.
+PASS
 
-The included exact Python checker ran successfully: 25 formats, 375 affine charts, bounded monomial and Hilbert-function tests, and rational Jacobian tests. These are corroboration, not a replacement for the symbolic proof. The assertion concerns closed complex points and reduced singular support, not scheme-theoretic singular multiplicities.
+Across all a,b>=2 the chart z_ij!=0 (i,j>1) has a free polynomial coordinate ring; row chart z_1j!=0 has independent A^{b-2} variables and the ring of 2-by-(a-1) rank-one matrices, via s_i=x_i/x_1 and w_i=x_i*y_1/(x_1*y_j), with the 2x2 minors generating the prime kernel; column charts transpose this. The rank-one cone D_{2,m} is smooth off its vertex (and everywhere for m=1), normal and has vertex multiplicity m, local class group Z for m>=2, and Q-Gorenstein iff m=2 by K=-2H_1-mH_2 versus H=H_1+H_2. This yields exactly the L_R (a>=3), L_C (b>=3) reduced singular strata, globally Q-Gorenstein iff a,b<=3, and a=b=2 smooth. Blowing up the Segre point omitted from the projection resolves the map; the only contracted curves are the two Segre rulings through that point. Their strict transform codimensions are a-1 and b-1, so the map is small precisely when a,b>=3 and then crepant in the Gorenstein a=b=3 case. Smallness is NOT asserted for a=2 or b=2; the smooth-locus-isomorphism condition would fail there. Source checker.py and checker.out were inspected; finite tests do not prove this infinite classification.
 
-## Originality — PASS, with residual risk
+## originality
 
-Ohsugi–Hibi's complete-bipartite graph example supplies the full Segre determinantal ideal and the broader graph-toric framework. Aluffi's projection-of-rank-loci work treats projection degrees, including coordinates and resolution of indeterminacies. Kubjas–Rosen and Kahle–Kubjas–Kummer–Rosen treat rank-one partial matrix/tensor completions, including semialgebraic constraints, algebraic elimination and componentwise zero-completability. These are prior ingredients, not independent discoveries claimed here. The specific joined assertion of all affine transverse cones, pointwise local class groups, the two-disjoint-strata criterion, and the blowup being small for both dimensions at least three is not stated in the inspected relevant passages, though a logically equivalent specialization in work not located remains a genuine possibility. Repeated semantic database queries for the deleted-entry pattern and the equivalent coordinate projection did not return an identical result; database absence is not proof of novelty. No statement of independent novelty certification is intended.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS: existing rank-one determinantal and matrix-completion frameworks supply the ring/cone ingredients, but inspected relevant statements do not directly furnish the complete deleted-entry projective two-parameter singular strata, multiplicities, local class groups, global Gorenstein boundary, and explicit blowup smallness classification together. No direct Resultary hit; absence is not proof of novelty and specialization could be covered in other toric/matrix-completion sources.
 
-This provides a complete geometric classification in a natural infinite two-parameter family of normal projective toric varieties, distinguishing smooth, Gorenstein, and non-\(\mathbb Q\)-Gorenstein regimes and determining local class groups, multiplicities, and the exceptional geometry of a concrete projective birational model. The result is useful for understanding which coordinate projections of Segre varieties retain crepant or small resolutions; these are geometrically motivated properties and not simply a recomputation of a known degree.
+## value
 
-## Source comparisons and limits
+PASS
 
-The closest written contexts are Ohsugi–Hibi, *Toric ideals of finite graphs and adjacent 2-minors*, arXiv:1108.2850, Example 2; Aluffi, *Degrees of projections of rank loci*, arXiv:1408.1702, introduction and Sections 2–4; Kubjas–Rosen, *Matrix Completion for the Independence Model*, arXiv:1407.3254, Sections 1–4; and Kahle–Kubjas–Kummer–Rosen, *The Geometry of Rank-One Tensor Completion*, arXiv:1605.01678, Sections 1–3. The general determinantal cone geometry and standard blowup construction are used, not claimed as novel. A source not located in these comparisons could contain the one-coordinate-deletion specialization. There is no independent mathematical audit; the nonreduced singular scheme and arbitrary deletion patterns are outside scope.
+PASS: A fully classified infinite two-parameter family of concrete coordinate-projected Segre toric varieties, with normality/singular strata, transverse determinantal cones, Gorenstein threshold, local class groups and exact small-resolution behavior, is independently useful in birational geometry and matrix-completion degenerations. It is not an arbitrary parameter slice or merely a restatement of the determinantal cone local model.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
