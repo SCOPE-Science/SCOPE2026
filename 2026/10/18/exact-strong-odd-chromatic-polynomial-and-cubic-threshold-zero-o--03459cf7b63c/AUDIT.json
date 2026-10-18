@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The local condition at a degree-three cycle vertex has exactly two possibilities (all three neighbor colors equal or pairwise distinct), giving leaf multiplicities 1 and k-3. The trace on directed color arcs follows bijectively. Its invariant decomposition has multiplicities 1, 2(k-1), k(k-3)/2, and (k-1)(k-2)/2, summing to k(k-1); the 2x2 block has trace recurrence U_j. Polynomial extension covers k=0,1,2. For odd cycles, the distance-two equality graph excludes fewer than three defects; sign-walk counting proves exact leading coefficient n(n^2-1)/4. Direct enumeration of 1,185,894 vertex colorings, 224 separate transfer evaluations, six odd defect counts, and parity boundary checks all passed from the supplied verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro et al., Section 2 Proposition 2.2: every connected unicyclic graph except the bare C5 has strong-odd chromatic number at most four; its proof uses extension of cycle colorings but does not count sunlet colorings.",
+        "Kwon and Park, arXiv:2401.11653v2, Sections 1-4: strong-odd definition and maximum-average-degree coloring bounds, not all-palette enumerators.",
+        "Nearby indexed strong-odd papers on crown graphs and odd-chromatic (weaker) multipartite colorings do not cover the sunlet enumeration."
+      ],
+      "reasoning": "The general unicyclic four-color upper bound implies one inequality for the odd sunlet threshold but does not fix a polynomial in the palette variable, its recurrence, the exact count at four colors, or the order of its zero at three. Results for pure cycles have a different local neighborhood degree and cannot be substituted for sunlets.",
+      "searches": [
+        "strong odd coloring corona of cycle exact enumeration",
+        "\"odd coloring\" \"corona\" \"cycle\" polynomial",
+        "Caro Petruševski Škrekovski Tuza strong odd unicyclic Proposition 2.2 arxiv:2410.02336v1",
+        "Kwon Park strong odd coloring of sparse graphs arxiv:2401.11653v2"
+      ]
+    },
+    "checked_sources": [
+      "Kwon and Park, Strong odd coloring of sparse graphs, arXiv:2401.11653v1/v2, first public 2024-01-22; accessed arxiv HTML and history.",
+      "Caro, Petruševski, Škrekovski, and Tuza, On strong odd colorings of graphs, arXiv:2410.02336v1, public 2024-10-03; accessed arxiv HTML.",
+      "Research-record identifiers 2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248 and 2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec, semantically compared.",
+      "Research-record identifier 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2, different weaker neighborhood-odd coloring on multipartite graphs.",
+      "Previously accessible scientific statements were compared for mathematical overlap, without reauditing prior work."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact claim specifies every integer cycle length n>=3 and every palette k>=0, including a fixed-order polynomial recurrence and a cubic zero with leading coefficient n(n^2-1)/4.",
+        "The 2024 unicyclic result supplies a four-color feasibility bound, not a count of colorings; the earlier introductory paper proves graph-density bounds.",
+        "The nearest indexed strong-odd crown-graph identity has a different vertex-adjacency structure and no transfer-count implication."
+      ],
+      "reasoning": "A known bound chi_so<=4 is weaker than an exact all-k enumeration; bare-cycle formulas cannot be reused because each cycle vertex has an extra leaf neighbor. The new trace and defect count must be proved separately, and no inspected stronger statement covers them.",
+      "searches": [
+        "strong odd coloring perfect graph leaf cycle chromatic spectrum",
+        "\"strong odd\" \"cycle corona\" coloring",
+        "\"strong odd\" \"pendant\" \"cycle\" coloring",
+        "arxiv:2410.02336v1 Section 2 unicyclic graphs",
+        "arxiv:2401.11653v2 Sections 1-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact finite coloring count is also a weighted closed-walk trace on nonloop directed arcs of a complete graph, with weight one for reversals and k-3 for other transitions.",
+        "Closest indexed scientific record 2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248 concerns crown graphs and a scalar invariant, not sunlet color counts.",
+        "Caro et al., arXiv:2410.02336v1, Section 2 proves only an upper bound for unicyclic strong-odd chromatic numbers."
+      ],
+      "reasoning": "Compared the coloring count, the trace equivalent, the order-five recurrence, and the triple zero as statements. No inspected record states the weighted cyclic coloring count or an equivalent sunlet specialization. Transfer matrices for local constraints are a generic tool, not an automatically covering enumeration formula.",
+      "searches": [
+        "strong odd coloring sunlet graph cycle corona pendant leaf chromatic polynomial trace transfer matrix",
+        "weighted nonbacktracking matrix complete graph strong odd coloring cycle with leaves",
+        "\"sunlet\" \"strong odd coloring\"",
+        "\"strong odd chromatic polynomial\" sunlet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible previously examined scientific statements contains sunlet power-domination and two-rainbow-dominating counts but no strong-odd sunlet claim.",
+        "No matching sunlet strong-odd coloring enumerator or table was surfaced by the actual research-record and web searches; negative retrieval is not a proof of uniqueness."
+      ],
+      "reasoning": "The exact coefficients and optimum counts were compared against accessible own claims and search outputs rather than titles alone. Related sunlet results concern distinct optimization rules and cannot imply the strong-odd coloring polynomial.",
+      "searches": [
+        "sunlet graph strong odd chromatic number 2 even 4 odd",
+        "strong odd coloring corona of cycle exact enumeration",
+        "\"sunlet\" \"strong odd coloring\"",
+        "\"sunlet graph\" \"strong odd chromatic\"",
+        "\"strong odd chromatic polynomial\" sunlet"
+      ]
+    },
+    "rationale": "Both relevant primary full texts were inspected at materially relevant sections, and actual mathematical-record and literature searches were compared for equivalences, broader coverage and exact enumerators. They establish the notion and a general unicyclic upper bound, but do not cover the full strong-odd sunlet palette polynomial, transfer spectrum, or cubic zero. Own current-week claims on sunlets concern other invariants. This is best-knowledge originality, not a claim of exhaustive bibliographic uniqueness.",
+    "residual_risks": [
+      "An unindexed or terminology-divergent strong-odd chromatic enumerator could cover the claim; search failure alone does not certify novelty.",
+      "Other later full texts were not exhaustively inspected; bibliographic priority and independent audit remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible material develops sparse-graph coloring bounds and does not state a sunlet counting polynomial; generic definition is acknowledged.",
+        "evidence": [
+          "arXiv:2401.11653 submission history lists v1 on 2024-01-22; HTML v2 lines 34-98 define strong odd and give density bounds.",
+          "In-document searches for sunlet, corona, polynomial returned no occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.11653v2",
+        "material_read": "HTML introduction, preliminaries, stated bounds, and later proof-section material; searched page for sunlet, corona, and polynomial.",
+        "method": "Full-text HTML sections and in-document term search; checked arXiv submission history at https://arxiv.org/abs/2401.11653.",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original definition and strongest potentially covering older approach; arXiv first public 2024-01-22."
+      },
+      {
+        "assessment": "Unicyclic four-color feasibility upper bound and exact bare-cycle strong-odd chromatic numbers are relevant but do not enumerate sunlet colorings or imply a cubic zero.",
+        "evidence": [
+          "arXiv:2410.02336v1, Section 2 Proposition 2.2 and proof, HTML lines 70-100.",
+          "Section 4 addresses products, not the corona vertex attachment; no occurrence of sunlet, corona, or polynomial in HTML search."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.02336v1",
+        "material_read": "HTML introduction; Section 2 full proof of Proposition 2.2; Section 4 on graph products; searched page for sunlet, corona, and polynomial.",
+        "method": "Open access full-text HTML and section-specific reading, plus in-document term search.",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Published primary source dealing explicitly with strong-odd colorings of unicyclic graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03459cf7-b63c-4eca-b6c2-7eba76d3c086",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-palette strong-odd coloring polynomial is a natural graph-coloring enumerator of a canonical unicyclic family; prior literature mostly supplies scalar bounds. A fixed order-five length recurrence replaces exponentially many vertex assignments. The exact order-three zero at palette size three quantifies a nontrivial obstruction, while the parity 2-versus-4 threshold and exact multiplicities distinguish optimal configurations. These are structural and enumerative results, not arbitrary finite cuts or a bare repetition of the known unicyclic four-color bound.",
+    "status": "PASS"
+  }
+}
