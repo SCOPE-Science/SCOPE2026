@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is proved algebraically in `RESULT.md`; numerical checks are cross-checks, not substitutes for an infinite proof.
+## correctness
 
-Run `python3 verify_dynamic.py` to count **every** input word through exact subset-image dynamic programming at lengths \((n-1)^2\) and \((n-1)^2+1\) for each \(2\le n\le12\). The program checks that the shorter layer contains one reset word and that the next layer contains \(n^2-4n+7\).
+PASS
 
-Run `python3 verify_insertion.py` to construct every possible one-letter insertion into the displayed word and independently simulate each initial state for all \(2\le n\le30\). All claimed counts pass. The expected outputs, including terminal success markers, are preserved in `verification_dynamic.txt` and `verification_insertion.txt`. Execution requires only Python 3 standard library.
+Follow each of the n initial states. Each a increments modulo n; each effective b encountered at state n−1 also increments the state modulo n. A reset word with A cyclic letters must have pairwise distinct event-count residues B_i mod n, since final state equals i+A+B_i mod n; hence one initial state experiences at least n−1 effective b events. Between successive events it must encounter at least n−1 a letters (the only letter moving it from 0 toward n−1). Thus the specified W occurs as an unavoidable scattered subsequence. Direct image induction shows W reduces Q through S_j={0,…,n−j−1} to {0}; shortest length follows, and no distinct word of equal length can contain W. At one additional symbol every candidate is a single a or b insertion. Endpoint a insertions are good (2), doubled b sites are good (n−1), and in each of n−2 internal a runs all n−3 sites except t=j are good, giving n²−4n+7; n=2 handled separately. The boundary t=j cycle preserves final rank two. Independent separately coded subset-transition DP exhausted both length layers for n=2,…,9; shortest count=1 and excess-one counts all matched formula. An additional product-state BFS search n≤10 found no resetting word avoiding W; this is corroboration not proof for all n.
 
-No computation establishes novelty relative to unread literature. Independent audit has not been performed.
+## originality
+
+PASS
+
+The Černý family and the known optimal (n−1)^2 reset length are classic, not claimed. Volkov 2022 survey details the automaton and classical threshold proof but not an all-reset-word scattered subsequence theorem or one-step multiplicity count in inspected Chapter 3. The 2013/15 Kisielewicz–Kowalski–Szykuła shortest-word algorithms, published Resultary k-avoiding thresholds, and published Černý early deficiency profile address different quantifiers (lengths/avoided target sets). Mandatory W subsequence for every reset input and first-excess literal word count appear not implied by those, subject to substantial older-language combinatorics priority risk.
+
+## value
+
+PASS
+
+Černý is a canonical extremal synchronizing automaton, and the result characterizes a necessary pattern shared by ALL reset inputs, not merely one shortest witness. The exact first-excess multiplicity quantifies one-symbol slack and distinguishes redundancy/multiplicity from classical reset threshold. The count is valid for arbitrary n and precisely the natural next-length layer, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

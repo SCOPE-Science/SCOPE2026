@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:47:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Follow each of the n initial states. Each a increments modulo n; each effective b encountered at state n−1 also increments the state modulo n. A reset word with A cyclic letters must have pairwise distinct event-count residues B_i mod n, since final state equals i+A+B_i mod n; hence one initial state experiences at least n−1 effective b events. Between successive events it must encounter at least n−1 a letters (the only letter moving it from 0 toward n−1). Thus the specified W occurs as an unavoidable scattered subsequence. Direct image induction shows W reduces Q through S_j={0,…,n−j−1} to {0}; shortest length follows, and no distinct word of equal length can contain W. At one additional symbol every candidate is a single a or b insertion. Endpoint a insertions are good (2), doubled b sites are good (n−1), and in each of n−2 internal a runs all n−3 sites except t=j are good, giving n²−4n+7; n=2 handled separately. The boundary t=j cycle preserves final rank two. Independent separately coded subset-transition DP exhausted both length layers for n=2,…,9; shortest count=1 and excess-one counts all matched formula. An additional product-state BFS search n≤10 found no resetting word avoiding W; this is corroboration not proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published avoiding result gives at_k(C_n)=kn for worst target sets, and the early-deficiency profile gives least prefix length for rank drop; neither counts all whole reset words at L+1.",
+          "Volkov offers several proofs of shortest length but no equivalent all-word pattern in the inspected survey section."
+        ],
+        "reasoning": "These sources have related n-wide quantifiers but about different invariants; their statements do not logically force this necessary scattered subsequence and insertion classification.",
+        "searches": [
+          "Resultary: Cerny automaton count reset words length shortest plus one subsequence",
+          "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+          "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+          "Volkov 2022 section 3 classical threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mathnet.ru/eng/rm10005",
+        "https://doi.org/10.1007/s10878-013-9682-0",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/synchronizing-words-and-monoid-factorization-yielding-a-new-parameterized-complexity-class/2910A2134026357AC684F256DB5C0349"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical fact L=(n−1)^2 remains a direct corollary of new pattern, but the implication in the opposite direction is false in general; knowledge of L does not imply all reset words embed W.",
+          "The new proof counts effective per-trajectory b events to force W and then enumerates surviving one-symbol insertions, neither present in compared claims."
+        ],
+        "reasoning": "No inspected prior statement strongly covers the exact all-words event subsequence or n²−4n+7 enumeration. Existing threshold and avoiding results are credited, as are obvious implications.",
+        "searches": [
+          "Volkov 2022, Proposition 3.1 and proof",
+          "Kisielewicz–Kowalski–Szykuła 2015, shortest algorithms",
+          "Resultary published k-avoiding Černý theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Volkov states the classic automaton with switched letter names and proves minimal length (n−1)²; it does not assert every reset word has the chosen minimum word as a scattered subsequence in examined sections.",
+          "The literal-word count is for exactly length L+1, not the known reset threshold or count of automata."
+        ],
+        "reasoning": "A shortest witness or lower bound is weaker than a mandatory pattern across every word, and does not determine exact near-optimal multiplicity. Automaton label reversal from the survey is explicitly accounted for.",
+        "searches": [
+          "Resultary: Cerny synchronizing automaton mandatory scattered subsequence unique shortest reset word count second shortest length n^2-4n+7",
+          "Volkov 2022 Synchronization of finite automata, Proposition 3.1",
+          "Kisielewicz–Kowalski–Szykuła 2013/2015, DOI:10.1007/s10878-013-9682-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior first-excess literal-word count table or this quadratic formula found among reviewed index hits. Published reset word multiplicity records concerned other automata (Wielandt, deficiency-two) and do not cover C_n."
+        ],
+        "reasoning": "This is a complete uniform n-formula, not a small database recomputation. Lack of an exact search hit is weak originality evidence only.",
+        "searches": [
+          "Resultary: Cerny synchronizing automaton mandatory scattered subsequence unique shortest reset word count second shortest length n^2-4n+7",
+          "Web exact: \"n^2-4n+7\" \"reset\" \"Černý\" automata",
+          "Web exact: \"Cerny automaton\" \"shortest reset word\" \"subsequence\" all reset words"
+        ]
+      },
+      "rationale": "The Černý family and the known optimal (n−1)^2 reset length are classic, not claimed. Volkov 2022 survey details the automaton and classical threshold proof but not an all-reset-word scattered subsequence theorem or one-step multiplicity count in inspected Chapter 3. The 2013/15 Kisielewicz–Kowalski–Szykuła shortest-word algorithms, published Resultary k-avoiding thresholds, and published Černý early deficiency profile address different quantifiers (lengths/avoided target sets). Mandatory W subsequence for every reset input and first-excess literal word count appear not implied by those, subject to substantial older-language combinatorics priority risk.",
+      "residual_risks": [
+        "Unindexed historical transition-semigroup / piecewise-testable reset language work may already imply the mandatory subword pattern or counting formula.",
+        "The necessary subsequence condition is NOT sufficient for arbitrary longer words; first-excess calculation does not describe all excess lengths.",
+        "The 2026 published k-avoiding record is a distinct invariant and should not be misread as novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers family and length (n−1)², not mandatory scattered subsequence or one-extra-letter count in inspected primary discussion.",
+          "evidence": "Proposition 3.1 and construction C_n; historical proofs and bound.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/rm10005",
+          "material_read": "Open survey full text, Chapter 3.1/Proposition 3.1 and surrounding shortest-word proof; compares letter-renamed convention",
+          "method": "Publisher full-text HTML, targeted search and mathematical proof reading",
+          "title": "Synchronization of finite automata",
+          "trigger": "Broad modern survey with original Černý proofs and aliases"
+        },
+        {
+          "assessment": "Algorithmic threshold problem rather than exact near-threshold word-set enumeration.",
+          "evidence": "Shortest-word search and complexity sections.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Publisher accessible primary HTML: problem formulation, shortest word algorithms and Černý examples",
+          "method": "Read main research sections and related empirical reset distributions",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "Primary shortest-word computation with same automaton family"
+        },
+        {
+          "assessment": "Different k-set avoidance invariant, does not imply arbitrary-word scattered-pattern inclusion or L+1 count.",
+          "evidence": "Claim exact kn and unique hardest k-subset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+          "material_read": "Available published finding summary and relevant claim at_k(C_n)=kn; compared worst target avoidance statement",
+          "method": "Published research index and linked record inspection",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Closest published result on same labeled automaton"
+        },
+        {
+          "assessment": "Works on general language complexity rather than the complete C_n near-shortest language count.",
+          "evidence": "Section 6.2 sequence complexity and Černý general context.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/synchronizing-words-and-monoid-factorization-yielding-a-new-parameterized-complexity-class/2910A2134026357AC684F256DB5C0349",
+          "material_read": "Open Cambridge research HTML: synchronizing/Černý introductions and subsequence complexity section",
+          "method": "Read relevant technical passages",
+          "title": "Synchronizing words and monoid factorization, yielding a new parameterized complexity class?",
+          "trigger": "Potential strong language and subsequence coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Černý is a canonical extremal synchronizing automaton, and the result characterizes a necessary pattern shared by ALL reset inputs, not merely one shortest witness. The exact first-excess multiplicity quantifies one-symbol slack and distinguishes redundancy/multiplicity from classical reset threshold. The count is valid for arbitrary n and precisely the natural next-length layer, not an arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the precisely labeled n-state Černý automaton n≥2 with a cyclic increment and b collapsing n−1 to 0, every reset word has W=b(a^(n−1)b)^(n−2) as a scattered subsequence, W alone is the unique shortest reset word of length (n−1)^2, and exactly n²−4n+7 literal reset words occur at one extra symbol.",
+  "limitations": [
+    "No classification for arbitrary automata or greater-than-one excess lengths.",
+    "Reversing a and b versus some standard citations is a relabeling and must be normalized when comparing predecessors."
+  ],
+  "schema_version": 1
+}
