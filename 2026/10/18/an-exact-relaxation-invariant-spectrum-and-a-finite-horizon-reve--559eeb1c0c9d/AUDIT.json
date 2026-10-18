@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Rotation conjugation yields L_j=Q^j L_0 Q^{-j}, and L_0 Q is the explicitly verified lower triangular K. Since Q^m=-I, M=-K^m, exact triangular powers supply every eigenvalue and iteration. Eigenvalues lie within the unit disk and imply unique affine fixed points. For λ<1, the nonzero shear maps unit e1 to a vector with strictly larger norm than c^{mk}; λ=1 has norm c^{mk}. Standalone reconstructed maps passed 5528 finite checks but infinite claims depend on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dinh–Jansen–Luke Theorem 4.1 is a conditional local rate estimate, not an explicit optimal planar rate or uniform λ comparison.",
+        "Borwein–Tam treats the λ=1 endpoint; Bauschke–Moursi treats two affine subspaces."
+      ],
+      "reasoning": "General convergence theorems cover the admissible instances qualitatively but do not explicitly imply the sharper exact spectral identities or the λ=1 unique optimum for every k.",
+      "searches": [
+        "arxiv:2502.12285",
+        "doi:10.1007/s10957-026-02996-2",
+        "arxiv:1303.1859",
+        "arxiv:1504.03721",
+        "doi:10.1007/s10589-018-9989-y"
+      ]
+    },
+    "checked_sources": [
+      "Dinh–Jansen–Luke, arxiv:2502.12285 and open JOTA 2026 article, full HTML",
+      "Borwein–Tam, arxiv:1303.1859, original abstract",
+      "Bauschke–Moursi, arxiv:1504.03721, original abstract",
+      "Nguyen Hieu Thao, 2018, DOI 10.1007/s10589-018-9989-y, full open-access PMC article",
+      "Published research on a two-variable basis-pursuit Douglas–Rachford transient: different algorithmic instance and conclusion.",
+      "Published research on two-row Kaczmarz finite-horizon norm: different iteration."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "This paper gives a two-eigenvalue identity and strict norm inequality for all m≥3 and 0≤λ≤1; published transient DR concerns another problem, and finite two-row Kaczmarz bounds another algorithm."
+      ],
+      "reasoning": "Only the general/global convergence portion is already implied by familiar affine contraction theory; that is not presented as a separate novelty claim. The nonimplied contribution is the explicit parameter-uniform spectrum and exact all-horizon norm optimum.",
+      "searches": [
+        "arxiv:2502.12285",
+        "doi:10.1007/s10957-026-02996-2",
+        "arxiv:1303.1859",
+        "arxiv:1504.03721"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new closed matrix simultaneously gives characteristic polynomial (z+c^m)(z+c^m λ^m) and all powers; no inspected source contains an equivalent full-parameter claim."
+      ],
+      "reasoning": "Comparisons include cyclic projections at λ=0, cyclic DR at λ=1, rotation conjugacy and angle/Friedrichs equivalents. Endpoint claims alone cannot imply λ-invariance and the strict finite-norm ordering.",
+      "searches": [
+        "arxiv:2502.12285",
+        "doi:10.1007/s10957-026-02996-2",
+        "arxiv:1303.1859",
+        "arxiv:1504.03721",
+        "doi:10.1007/s10589-018-9989-y"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published records include 2026/10/4 exact transient two-variable basis pursuit and a finite-horizon two-row Kaczmarz bound, neither of which tabulates this ordered regular m-line spectrum."
+      ],
+      "reasoning": "This exact family is a continuously parametrized rotation-product identity, not a database lookup or one finite tabulated invariant; checked published records did not show an identical matrix classification.",
+      "searches": [
+        "arxiv:2502.12285",
+        "doi:10.1007/s10957-026-02996-2",
+        "arxiv:1303.1859",
+        "arxiv:1504.03721"
+      ]
+    },
+    "rationale": "The defining source provides fixed-point/local-rate results rather than the present closed m-line all-relaxation operator spectrum and uniquely sharp finite-cycle norm optimum. The cyclic endpoint and two-set affine results do not by themselves establish the result. Relevant published research summaries on Kaczmarz and two-variable Douglas–Rachford have different hypotheses and conclusions. Residual risk of an older specialized spectral calculation is explicit.",
+    "residual_risks": [
+      "A specialized older article or thesis could already derive the same rotation-product spectrum, despite full reading of the defining 2026 article and original 2013 cyclic endpoint paper.",
+      "The symmetric line-fan setting is special and finite-horizon comparison is relative to λ-dependent fixed points; do not extrapolate to feasibility objective values.",
+      "The Luke–Martins–Tam 2018 ICML workshop manuscript on relaxed cyclic Douglas–Rachford was identifiable by title but its complete mathematical content was not obtained here; an exact specialized angle computation there cannot be excluded solely from the cited subsequent paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the investigated map and gives local rates, but does not calculate the planar regular-fan exact matrix/eigenvalues or compare relaxation parameters at all finite horizons.",
+        "evidence": [
+          "Equations (2)–(3) define T_{i,j} and ordered cyclic T.",
+          "Section 4 Theorem 4.1 supplies conditional local rates via subregularity, not exact spectral radius for a regular line fan.",
+          "Conclusion contrasts numerical behavior as λ tends to one in nonconvex settings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10957-026-02996-2",
+        "material_read": "Full open-access Springer HTML and full arXiv HTML: algorithm equations (2)–(3), Sections 3–4 (fixed points and quantitative convergence), conclusion and bibliography.",
+        "method": "Read original mathematical statements, definitions, proofs of local rate theorems, and reference discussion.",
+        "title": "Cyclic Relaxed Douglas-Rachford Splitting for Inconsistent Nonconvex Feasibility",
+        "trigger": "Exact operator definition, general fixed points and convergence for possibly inconsistent sets."
+      },
+      {
+        "assessment": "Treats λ=1 cyclic Douglas–Rachford and norm convergence for consistent affine subspaces (Theorem 4.1); no exact all-λ line-fan matrix or finite-horizon norm optimum in the mathematical sections.",
+        "evidence": [
+          "Theorem 4.1 of Section 4 states norm convergence for affine subspaces with nonempty intersection.",
+          "Section 4 Remark 4.1 compares cyclic and averaged endpoints for N=2; no λ-sweep spectral formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1859",
+        "material_read": "Full open-access arXiv HTML: introduction, cyclic operators in Section 3, Section 4 affine constraints including Theorem 4.1 and Remark 4.1, and numerical examples.",
+        "method": "Read original mathematical definitions and exact affine-subspace convergence results, comparing their set quantifiers and parameters.",
+        "title": "A Cyclic Douglas-Rachford Iteration Scheme",
+        "trigger": "Original cyclic Douglas–Rachford endpoint for m sets."
+      },
+      {
+        "assessment": "Two-subspace DR and shadow convergence do not logically cover ordered cyclic relaxed maps of m≥3 and sharp all-λ matrix powers.",
+        "evidence": [
+          "Original abstract describes two affine subspaces and convergence of shadow sequences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.03721",
+        "material_read": "Accessible arXiv abstract and bibliographic description; not complete full text.",
+        "method": "Compare number of sets, operator and parameter quantifiers at the result level.",
+        "title": "The Douglas-Rachford Algorithm for Two (Not Necessarily Intersecting) Affine Subspaces",
+        "trigger": "Closest classical sharp affine-subspace DR theory."
+      },
+      {
+        "assessment": "Develops relaxed Douglas–Rachford for two sets, including an affine member, rather than an m-set cyclic regular-line-fan eigenvalue calculation.",
+        "evidence": [
+          "The abstract and Introduction define the two-set relaxed operator with one affine constraint and conditional local rates.",
+          "Paper does not formulate cyclic composition over m≥3 uniformly rotated lines."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6445491/",
+        "material_read": "Accessible full open-access PMC article: Introduction, general convergence statements, Section 4 on two-set feasibility, conclusion.",
+        "method": "Compare two-set local convergence with m-set exact ordered maps.",
+        "title": "A convergent relaxation of the Douglas-Rachford algorithm",
+        "trigger": "Early relaxation methods for two sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "559eeb1c-0c9d-408f-8da8-c951d9c03e73",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating cyclic relaxation is designed for inconsistent feasibility, and this natural maximally symmetric m-line case tests how its regularization affects true linear convergence. The exact result separates parameter-invariant spectral rate from strictly worse finite-horizon nonnormal amplification and supplies a sharp reference family for future generic angle or parameter-dependent rate analyses.",
+    "status": "PASS"
+  }
+}
