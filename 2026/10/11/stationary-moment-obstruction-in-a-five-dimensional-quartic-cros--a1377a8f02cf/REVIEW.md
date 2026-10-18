@@ -1,21 +1,21 @@
-# Review of Stationary moment obstruction in a five-dimensional quartic cross-product flow
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For each coordinate, differentiating the quadratic observable gives an exact identity with the same quartic monomial \(P=xyzuv\). Invariance of a compactly supported probability measure makes the mean Lie derivative vanish, yielding the common-moment chain. The sign arguments for \(e<0\), \(e=0\), and \(e>0\) then use only nonnegativity of coordinate squares and the hypotheses \(a,b,c,d>0\). The exact polynomial identities were replayed from the packaged checker.
+PASS
 
-Risk: the result does not rule out every nonrecurrent compact invariant set or every unbounded trajectory, and the claim is explicitly limited accordingly.
+Independently expanded the five quadratic Lie derivatives using exact SymPy polynomial arithmetic and inspected packaged verify.py at its pinned blob: for P=xyzuv, L(x²/2)=a x²−P and L(y²/2)=−b y²+P, similarly z,u,v. Invariance of compactly supported μ makes every average Lie derivative zero, so a E[x²]=b E[y²]=c E[z²]=d E[u²]=e E[v²]=E[P]. With e<0 the common nonnegative/nonpositive value must vanish and all coordinates vanish, hence δ_0. With e=0 x,y,z,u vanish and v arbitrary on a fixed equilibrium line; all laws on this line are invariant. With e>0, the positive common value yields weighted RMS ratios. The claim does not exclude unbounded or nonrecurrent solutions.
 
-## Originality
+## originality
 
-PASS. The primary article was inspected at the equations, parameter regimes, equilibrium analysis, and Lyapunov-exponent tables. It states a Lyapunov function for a different sign regime and reports numerical hyperchaotic/chaotic attractors at \(e=0\) and \(e=-0.1\), but the inspected material does not state the invariant-measure moment chain or its sign obstruction. Targeted exact-vector-field and alias searches in the literature index found only analogous identities for different systems.
+PASS
 
-The closest indexed results concern stationary moment constraints, recurrence obstructions, or slaved directions in other chaotic flows. None implies the five-way equality here because their vector fields and monomials differ.
+The exact 31-page original Yang–Feng–Liu article (2021) was retrieved by authorized Oxford and inspected at the model Eq (2.1), source sign regimes, numerical figures/tables and later analytical sections. Its e=0 and e<0 reported multiple attractors do not state a five-way invariant-measure moment chain. The e<0 and e=0 results are a mathematical obstruction to their claimed compact recurrent attractors, not an assertion that every numerical orbit converges. The general Lyapunov-function calculation in the source assumes a<0, different from the advertised a>0 examples.
 
-Residual risk: later pages of the primary article were unavailable in the same access attempt, so an equivalent observation there cannot be excluded solely by direct page inspection. Exact-title and exact-equation searches did not surface such an observation.
+## value
 
-## Value
+PASS
 
-PASS. The result supplies an infinite-time consistency test exactly at two headline parameter regimes of the source. It shows that the \(e=0\) six-attractor regime and the \(e=-0.1\) four-attractor regime cannot be compact non-equilibrium recurrent statistical attractors, while the \(e>0\) regime obeys exact RMS ratios. This is structurally informative and materially changes the mathematical interpretation of the reported numerical dynamics rather than merely recomputing a known table.
+Decisive exact obstruction to compact recurrent chaotic/hyperchaotic invariant dynamics in two headline published numerical parameter regimes; separates rigorous infinite-time dynamical constraints from finite numerical traces. e>0 adds exact RMS calibration.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
