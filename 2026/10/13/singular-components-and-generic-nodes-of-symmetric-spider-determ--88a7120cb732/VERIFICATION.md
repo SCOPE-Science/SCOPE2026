@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 spider_checker.py` from the directory containing that file, using Python 3 and its standard library only. Compare every output line against `spider_checker_output.txt`. The finite-field loops enumerate 218,700 assignments of values in `{-1,0,1}` in characteristic 101 for the indicated small spider shapes, comparing exact modular rank with the proposed union of equations. The rational-witness stage checks exact nullity two and a rank-three map to quadratic forms on its kernel for every claimed component of five small shapes. Neither finite enumeration nor rational witnesses prove the infinite family.
+## correctness
 
-The mathematical argument in `RESULT.md` proves the rank criterion, decomposition with all zero-edge strata, primeness and degrees, generic transverse nodes, and normality for every complex spider satisfying its stated assumptions. The unreduced Jacobian scheme away from generic component points, larger tree classes, and singularities at intersections remain unproved.
+PASS
+
+For generic complex symmetric sparse matrix on a spider T, differentiation in independent diagonal variables makes Sing(det M=0) exactly corank>=2. Path blocks with all nonzero edge parameters have nullity <=1, and if s singular arms attach at center, global nullity=s-1, yielding Z_{ijk} for triples. If some edge parameter vanishes, cut-forest ranks put the point either in Y_e (singular components on opposite sides) or in a centered truncated spider with three singular arms, again Z. Irreducibility follows from leaf expansion and primitive linear-polynomial Gauss; Y_e and Z_{ijk} have disjoint-variable prime complete-intersection defining equations. Their codim3 degrees are |A_e||B_e| and ell_i ell_j ell_k; rank-three restriction to Sym² of the two-dimensional kernel yields generic transverse uv-w² ordinary nodes, and Serre R1/S2 yields normality. Independently checked aggregate degree identity for 5,440 arm-length profiles; source script inspected, its claimed finite ranks are not universal proof.
+
+## originality
+
+PASS
+
+General symmetric corank-two degeneracy and aggregate degree are old; the reviewed result is the explicit irreducible Y_e and arm-triple Z_ijk decomposition, component degrees and generic analytic local models for all genuinely non-star spiders, which inspected general determinantal and Parter-type results do not state as such. Possible older starlike sparse-matrix formulation remains.
+
+## value
+
+PASS
+
+The complete reduced singular-component and generic-transverse classification, with explicit degrees under changing arm lengths, is a natural algebro-geometric invariant of sparse determinant hypersurfaces. It resolves coordinate degenerations and nontrivial branching, exceeding a classical aggregate degree or an arbitrary finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

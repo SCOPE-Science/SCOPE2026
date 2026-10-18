@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The singular rank criterion follows from the free diagonal parameters and the symmetric rank-one adjugate. Exhaustiveness is proved using the path-kernel recurrence on each nonzero-edge forest component; this handles every boundary stratum rather than only the open edge torus. The leaf-variable primitivity argument proves irreducibility of the connected subtree determinants, while independent-variable regular sequences prove the listed component ideals prime. Exact degrees follow from complete-intersection degrees; the generic three-dimensional deformation spaces yield a nondegenerate \(2\times2\) determinant, and Serre's criterion yields normality. The separate standard-library checker exhaustively tested 218,700 small finite-field configurations and exact-rational transverse witnesses. These tests are supporting checks, not a replacement for the general proof.
+PASS
 
-## Originality — PASS with residual historical risk
+For generic complex symmetric sparse matrix on a spider T, differentiation in independent diagonal variables makes Sing(det M=0) exactly corank>=2. Path blocks with all nonzero edge parameters have nullity <=1, and if s singular arms attach at center, global nullity=s-1, yielding Z_{ijk} for triples. If some edge parameter vanishes, cut-forest ranks put the point either in Y_e (singular components on opposite sides) or in a centered truncated spider with three singular arms, again Z. Irreducibility follows from leaf expansion and primitive linear-polynomial Gauss; Y_e and Z_{ijk} have disjoint-variable prime complete-intersection defining equations. Their codim3 degrees are |A_e||B_e| and ell_i ell_j ell_k; rank-three restriction to Sym² of the two-dimensional kernel yields generic transverse uv-w² ordinary nodes, and Serre R1/S2 yields normality. Independently checked aggregate degree identity for 5,440 arm-length profiles; source script inspected, its claimed finite ranks are not universal proof.
 
-The general symmetric determinantal corank-two framework and total cycle-degree formula are classical (Kerner--Vinnikov, arXiv:0906.3012). Parter-type tree spectral theory supplies the qualitative three-branch intuition for real Hermitian matrices; it does not provide the integral irreducible complete-intersection decomposition of the complex projective singular locus, individual weighted component degrees, or every generic nodal model. Previous special-case star/arrowhead and path/tridiagonal formulas do not themselves classify spiders with internal arm edges or arbitrary zero-edge degenerations. Huang's 2013 thesis concerns generic symmetric determinantal multilinear forms, not the present sparse tree-coordinate linear sections. Search cannot establish absolute novelty; an unindexed result for spider matrices remains the principal risk.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical infinite family of sparse determinantal hypersurfaces, the theorem identifies every reduced singular component, including those meeting on exceptional coordinate strata, as a concrete prime complete intersection. It supplies degrees assigned to those individual components and their generic local analytic singularity types, finer than the previously known aggregate symmetric degeneracy degree. Arm lengths affect the degrees, even though the number of components depends only on their number and total vertices. This is a natural complete geometric classification, not an arbitrary small numerical example.
+General symmetric corank-two degeneracy and aggregate degree are old; the reviewed result is the explicit irreducible Y_e and arm-triple Z_ijk decomposition, component degrees and generic analytic local models for all genuinely non-star spiders, which inspected general determinantal and Parter-type results do not state as such. Possible older starlike sparse-matrix formulation remains.
 
-## Closest work and limits
+## value
 
-The literature most closely concerns general symmetric determinantal representations, the Parter--Wiener branch phenomenon for real tree-matrix spectra, and special path/star matrices. No statement is made about the global nonreduced Jacobian scheme or intersections of distinct singular components. Independent verification has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete reduced singular-component and generic-transverse classification, with explicit degrees under changing arm lengths, is a natural algebro-geometric invariant of sparse determinant hypersurfaces. It resolves coordinate degenerations and nontrivial branching, exceeding a classical aggregate degree or an arbitrary finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
