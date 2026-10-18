@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:01:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source rational stability map has an analytic Jordan Taylor expansion R(hJ_n)=sum_{k=0}^{n-1}(h^k/k!)R^(k)(-h)N_n^k. The shift powers occupy disjoint subdiagonals, making each derivative sign necessary and sufficient. The explicit derivative bracket is 1+sqrt(2)-k+(3+2sqrt(2))h, strictly decreasing in k, so the last k=n-1 gives the iff including n<=3 and h=0 boundary. Independent symbolic coefficient/surd checks confirmed n=4 h=1/20 negative and h4=10-7sqrt(2), not merely a sampled experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SSP absolute monotonicity general methods does not imply positivity of this specific family at arbitrary h; 2015 paper only first three derivative discussion."
+        ],
+        "reasoning": "Claim-versus-prior comparison: SSP absolute monotonicity general methods does not imply positivity of this specific family at arbitrary h; 2015 paper only first three derivative discussion. Search absence alone is not novelty proof.",
+        "searches": [
+          "Rosenbrock ROS2 serial chain Jordan block positivity n step threshold reentrant gamma 1+1/sqrt2 absolute monotonicity",
+          "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+          "arXiv:1510.04303"
+        ]
+      },
+      "checked_sources": [
+        "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+        "arXiv:1510.04303",
+        "Resultary semantic search: Rosenbrock ROS2 serial chain Jordan block positivity n step threshold reentrant gamma 1+1/sqrt2 absolute monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar R(-h)>=0 does not imply R(hJ_n)>=0 in nonnormal Jordan case; three derivative signs alone insufficient for arbitrary n."
+        ],
+        "reasoning": "Claim-versus-prior comparison: Scalar R(-h)>=0 does not imply R(hJ_n)>=0 in nonnormal Jordan case; three derivative signs alone insufficient for arbitrary n. Search absence alone is not novelty proof.",
+        "searches": [
+          "Rosenbrock ROS2 serial chain Jordan block positivity n step threshold reentrant gamma 1+1/sqrt2 absolute monotonicity",
+          "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+          "arXiv:1510.04303"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "weak absolute monotonicity of Rosenbrock ROS2",
+          "matrix Jordan-block derivative positivity"
+        ],
+        "reasoning": "Claim-versus-prior comparison: weak absolute monotonicity of Rosenbrock ROS2 Search absence alone is not novelty proof.",
+        "searches": [
+          "Rosenbrock ROS2 serial chain Jordan block positivity n step threshold reentrant gamma 1+1/sqrt2 absolute monotonicity",
+          "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+          "arXiv:1510.04303"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact tabulation of 10-7sqrt(2) or h_n identified in relevant sources; claims symbolic identity, not known-table replay."
+        ],
+        "reasoning": "Claim-versus-prior comparison: No exact tabulation of 10-7sqrt(2) or h_n identified in relevant sources; claims symbolic identity, not known-table replay. Search absence alone is not novelty proof.",
+        "searches": [
+          "Rosenbrock ROS2 serial chain Jordan block positivity n step threshold reentrant gamma 1+1/sqrt2 absolute monotonicity",
+          "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+          "arXiv:1510.04303"
+        ]
+      },
+      "rationale": "Original ROS2 source gives scalar R and positive negative-real values; later work identifies the first two positive derivatives and a third derivative obstruction, so these ingredients are prior. Neither known general absolute-monotonicity statement implies the exact Jordan-subdiagonal iff plus re-entrant h>0 recovery; best-of-knowledge searched equivalents absent.",
+      "residual_risks": [
+        "Exact phase law could be classical Jordan functional calculus folklore; avoid claiming general SSP radius."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: gives scalar stability function but no identified serial-chain dimension-step theorem",
+          "evidence": "R(z)=(1-(1+sqrt(2))z)/(1-(1+1/sqrt(2))z)^2.",
+          "identifier_or_url": "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+          "material_read": "Stability-function formula, chemistry motivation and negative-real scalar stability/positivity discussion; source report was examined by accessible text excerpts and references, not a documented cover-to-cover read",
+          "method": "Report and bibliographic source comparison",
+          "title": "A Second Order Rosenbrock Method Applied to Photochemical Dispersion Problems",
+          "trigger": "Original L-stable ROS2 stability function and scalar positivity"
+        },
+        {
+          "assessment": "PARTIAL: derivative obstruction, not complete all-dimensional iff or reentrant threshold",
+          "evidence": "Third derivative changes sign; absolute-monotonicity radius zero while lower derivatives positive.",
+          "identifier_or_url": "arXiv:1510.04303",
+          "material_read": "Relevant Section 5.2 treatment of R,R prime,R double prime and third-derivative obstruction",
+          "method": "Public arXiv PDF relevant section inspected",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Closest original ROS2 derivative/weak monotonicity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Motivated sharp positivity frontier for an exact positive serial-decay semigroup and widely used stiff integrator. Shows a genuine state-count threshold and counterintuitive restoration at large steps, not a numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "CWI MAS-R9717; doi:10.1137/S1064827597326651",
+    "arXiv:1510.04303"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only fixed unit-rate Jordan serial Metzler matrices and larger L-stable ROS2 gamma; no general Metzler, nonlinear, stage or W-method assertion.",
+    "Older unindexed weak absolute-monotonicity/Jordan-chain statements may already package the same sign law."
+  ]
+}
