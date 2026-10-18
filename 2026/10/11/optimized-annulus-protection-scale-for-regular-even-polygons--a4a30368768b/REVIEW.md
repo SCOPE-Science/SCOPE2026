@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The argument uses the published quantitative inequalities from the positive polygonal-annulus proof and specializes every geometric input for a regular even polygon of minimal width \(1\). All sides are special, the overlap parameter is \(c=\tan(\pi/N)\), and the first and third source inequalities reduce to one decreasing and one increasing function of the free parameter. Their unique intersection yields the displayed quadratic and closed root. The source's fourth inequality is proved nonbinding by a uniform regular-polygon angle estimate, while its second inequality is vacuous. The source proof explicitly permits replacing a diameter bound on the hole by side-normal width bounds, so the theorem's domain matches the published lemma exactly. Symbolic and numerical package checks replay the algebra but are not used to replace the proof.
+## correctness
 
-## Originality
-**PASS, with an elementary-specialization residual risk.** The closest primary full text was materially inspected through the positive theorem, Lemma 3, all four quantitative inequalities, the side-normal-width observation, and the square calculation. It explicitly says that quantitative bounds are not needed for the theorem except to obtain the square estimate, and it does not state an all-\(N\) regular-even formula. A later full-text note again records the qualitative regular-even result and the square bound without the formula here. Searches under polygonal-annulus terminology, regular-even and regular-hexagon aliases, explicit-threshold language, and the exact asymptotic/formula fingerprints did not locate a covering statement. The residual risk is that the optimization is elementary enough to have circulated without indexing.
+PASS
 
-## Value
-**PASS.** Regular even polygons are the canonical infinite positive family singled out in the original annulus literature. Turning their existence statement into a closed, optimized quantitative certificate provides a reproducible benchmark for the open annulus problem, covers arbitrary holes controlled in the relevant side-normal widths, and exposes a precise quadratic collapse \(\delta_N\asymp N^{-2}\) as the polygons approach the circle. The theorem does not inflate the certificate into an unsupported claim of true optimality.
+Every edge is special, inradius=1/2 and overlap side length c=tan(pi/N). The source first and third sufficient bounds specialize to A(lambda)=(1-lambda)s and B(lambda)=[1-sqrt(1-lambda^2 tan^2(pi/N))]/2, decreasing and increasing, respectively. Equality yields (1+4s-4s^2)u^2+(4s-6)u+1=0 with u=1-lambda, discriminant 32(1-s)^2 and unique admissible root. The fourth source bound >=tan^2(pi/N)/2 exceeds su because u<1/2; second vacuous. Primary source explicitly permits side-normal width instead of diameter. The analytic argument establishes every even N>=6; finite sweep is supplementary, and delta is not claimed truly optimal for Bezdek annulus.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete White-Wisewell published PDF was independently materially read at its positive polygon theorem, case m>=3 Lemma 3, four epsilon inequalities, and side-normal-width remark. It proves qualitative regular-even positivity and an explicit square bound, but gives no regular-even all-N closed optimization in the read material. A later Zhang-Ding source repeats the qualitative class and square. No dominating published formula was located; risk is an unindexed elementary calculation.
+
+## value
+
+PASS
+
+A natural classical family singled out in the source now has an exact reproducible optimized certificate, including arbitrary side-normal-width holes, with a meaningful N^-2 degeneracy quantified as polygons approach the circle. Does not pretend to solve truly sharp possible hole width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
