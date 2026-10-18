@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every 0<=a,b<1, all 16 flip rates are positive, so the limiting tilted eigenvalue and its first two derivatives exist. Four exact generator identities close the U,V,W,P moments. The explicit h=(U+bV-aW)/8-E[(U+bV-aW)/8] obeys Lh=j-f, providing the centered Poisson solution for the second heat cumulant. Direct symbolic substitution proves the polynomial coefficient and the fixed-mean noise identity, including normalization by 4J and the boundary-crossing condition. The standalone proof checker establishes the generator and Poisson identities symbolically on all 16 states and independently reproduces both cumulants from full rational Markov matrices at eight parameter pairs; the analytic proof, not finite sampling, establishes the all-parameter claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "cond-mat/0212616, Abstract, §IV, Appendix A: exact all-order stationary equal-time spin functions and finite-periodic representation",
+        "cond-mat/9811220, §2.1: general finite-state jump-generator and fluctuation symmetry",
+        "cond-mat/0206345, §V Eq. (44): exact mean-bath entropy-production expression"
+      ],
+      "reasoning": "The all-size stationary-correlations paper strongly covers all static moments; the previously derived mean heat flow covers the first-cumulant ingredient. It does not provide the time-integrated covariance, tilted-generator second derivative, or exact evaluated heat-noise polynomial. General large-deviation theory offers the method but leaves the model-specific nonperturbative calculation to be done. Broader claims therefore do not directly imply the new evaluated second-cumulant identity without this substantive computation.",
+      "searches": [
+        "Stationary correlations for a far-from-equilibrium spin chain exact representation finite-ring appendix arxiv cond-mat/0212616",
+        "A Gallavotti-Cohen Type Symmetry in the Large Deviation Functional for Stochastic Dynamics arxiv cond-mat/9811220",
+        "two temperature Ising spin chain heat exchange cumulants large deviations exact finite ring"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0206345",
+      "https://arxiv.org/pdf/cond-mat/0212616",
+      "https://arxiv.org/pdf/cond-mat/9811220",
+      "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.66.046130",
+      "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.49.139"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2002 model article explicitly gives the mean heat flux and entropy production but no second-cumulant rate.",
+        "The companion 2002 paper provides exact stationary equal-time correlations, not integrated time correlations.",
+        "The 1998/1999 general fluctuation article develops jump-process large deviations and symmetry but not the evaluated four-spin result."
+      ],
+      "reasoning": "The physical model, normalization, mean current and static stationary moments are not claimed as new; they are either defined or already derivable from cited sources. The contribution is an exact finite-time-correlation response, yielding a quadratic noise identity at arbitrary drive and a strict unit-dispersion boundary. This is not a mere change of names, parameter substitution, or numeric instance of a prior evaluated statement.",
+      "searches": [
+        "arxiv:cond-mat/0206345 Section V heat flux entropy production",
+        "arxiv:cond-mat/0212616 Appendix A stationary correlations",
+        "two-temperature Glauber four-spin Ising ring exact heat-current variance second cumulant of hot-bath energy flow gamma even gamma odd",
+        "Lebowitz Spohn finite state current cumulant tilted generator 1998"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:cond-mat/0206345 §V studies entropy production from mean energy flow",
+        "arxiv:cond-mat/0212616 §II–IV and App. A express equal-time stationary correlations",
+        "No equivalent dynamic second-cumulant claim identified among relevant returned research records or the focused search results."
+      ],
+      "reasoning": "Search terms cover noise, diffusion coefficient, integrated heat-current covariance, full counting statistics, and the original author/model aliases. The first cumulant and static distribution are expressly recognized as prior. A static correlation formula does not specify the temporal Poisson corrector needed for the second cumulant; the checked sources do not contain that further calculation.",
+      "searches": [
+        "two-temperature Glauber four-spin Ising ring exact heat-current variance second cumulant of hot-bath energy flow gamma even gamma odd",
+        "Schmuser Schmittmann alternated-temperature Glauber chain tilted generator full counting statistics heat exchange noise",
+        "two-temperature Glauber current fluctuations Ising finite ring",
+        "two temperature Glauber spin chain heat flux fluctuations finite size Glauber model counting noise variance",
+        "Schmuser Schmittmann two temperature Glauber Ising chain heat current variance full counting statistics 4 spins"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical evaluated variance polynomial or four-site heat-noise table was found in the accessible indexed search results.",
+        "The relevant primary sources lack an explicit second heat cumulant or Fano threshold."
+      ],
+      "reasoning": "The exact coefficient combination and model-specific variance aliases were queried; nonmatches are only evidence about checked records, not a complete table census or proof of novelty.",
+      "searches": [
+        "finite Ising Glauber ring exact heat count second cumulant mean half gamma difference variance 8-a^2-6ab-b^2",
+        "Glauber two temperature heat noise (8-a^2-6ab-b^2)/16",
+        "two-temperature kinetic Ising model stationary heat fluctuations 4 spins"
+      ]
+    },
+    "rationale": "The distinctive claim is the signed heat-current second cumulant, its exact nonlinear mean–variance relation, and the infinite-temperature dispersion crossing, not the previously known mean or stationary spin correlations. The primary model and exact stationary-correlation sources were materially examined. Neither their stated dynamical or static results nor the general finite-state fluctuation-theorem framework contains the displayed evaluated heat-noise polynomial. Targeted semantic-record and literature queries did not find a covering statement; the nonexhaustive bibliographic risk is stated explicitly.",
+    "residual_risks": [
+      "Historical finite-state full-counting or heat-diffusion calculations may have derived an equivalent variance formula under a different indexing or model name.",
+      "The full four-site SCGF and higher cumulants were not evaluated; the source comparison must not be read as establishing their novelty.",
+      "Relevant publication repositories and non-English older literature were not exhaustively searched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_AND_MEAN_PRIOR_ONLY",
+        "evidence": "§V computes mean energy transfer and entropy production; no tilted second heat cumulant is evaluated.",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0206345",
+        "material_read": "Full HTML text around model §II, perturbative distribution §III, detailed-balance discussion §IV, heat flow §V and conclusions.",
+        "method": "Primary arXiv article text, including Eq. (1), Eq. (37) and Eq. (44).",
+        "title": "Non-equilibrium stationary state of a two-temperature spin chain",
+        "trigger": "Same alternating bath rates and known mean heat/entropy-production formula."
+      },
+      {
+        "assessment": "STATIC_CORRELATIONS_PRIOR_ONLY",
+        "evidence": "Appendix A gives arbitrary equal-time finite-ring spin correlations; no time-integrated heat-current variance or the polynomial in the claim is exhibited.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0212616",
+        "material_read": "Primary PDF introductory analysis and finite-ring Appendix A, including Eq. (A4); inspected terms for heat fluctuation and variance.",
+        "method": "ArXiv PDF text and page-image inspection of the finite-ring appendix.",
+        "title": "Exact stationary correlations for a far-from-equilibrium spin chain",
+        "trigger": "Potential stronger all-parameter, finite-volume results for the same model."
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXPLICIT_EVALUATION",
+        "evidence": "The paper defines Markov jump rates, action functionals and long-time generating functions but gives no alternating-bath four-site Ising heat-noise evaluation.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9811220",
+        "material_read": "Primary PDF abstract, introduction and §2.1 on finite-state continuous-time jump processes.",
+        "method": "ArXiv PDF text inspection of the jump-process setup and generating-function framework.",
+        "title": "A Gallavotti-Cohen Type Symmetry in the Large Deviation Functional for Stochastic Dynamics",
+        "trigger": "General current-counting and fluctuation method may dominate the claimed result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "812dab86-545a-4aa4-8e96-d84b73c923ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The noise of signed heat transfer is a physically natural and mathematically informative trajectory observable that the static Ising solution and mean entropy production do not determine. The smallest nondegenerate alternating-temperature simple ring admits a closed Poisson corrector yielding an exact nonlinear current/variance identity for all permitted bath contrasts, and the infinite-hot-bath case has a sharp, unique unit-dispersion threshold. These are exact nonperturbative finite-size kinetic benchmarks, not an arbitrary single parameter substitution; no thermodynamic extension is asserted.",
+    "status": "PASS"
+  }
+}
