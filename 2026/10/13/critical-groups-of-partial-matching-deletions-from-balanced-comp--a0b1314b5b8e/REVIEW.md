@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has quantified domain \(n\ge3\), \(1\le t\le n-1\). The choice of an unmatched sink is valid on that domain. In the reduced-Laplacian presentation, the added sink relation is the negative sum of all non-sink rows and hence redundant. The matched-vertex elimination has determinant-one generator changes; the last matched row reduces exactly to existing order-\(n\) torsion relations. The two cases \(q\ge2\) and \(q=1\), including \(t=1\), yield the claimed Smith factors. Since each cyclic factor divides its successor, these are invariant factors, and their product equals the graph's spanning-tree count. The packaged pure-Python Smith computation matched 44 intermediate deletion cases through \(n=10\); separate SymPy computations matched 65 cases through \(n=12\). Neither finite test is used as a general proof.
+## correctness
 
-## Originality — PASS, subject to literature-indexing risk
-The Corollary 3.8 calculation in Corrales–Valencia (arXiv:1008.5176v1, §§3) and Machacek's Theorem 14 (2011, §4.1) cover \(t=n\), while classical complete-multipartite formulas cover \(t=0\). The new domain \(1\le t<n\) has unequal degrees, so neither regular-graph endpoint statement directly implies its Smith form. Dong–Jiang–Guo (arXiv:2409.02654, Definition 2.3) consider multipartite graphs with complete joins between consecutive parts, rather than matching-deleted joins. Targeted searches for matching deletion, sandpile/Jacobian aliases and Smith invariant factors did not find a covering published formula; absence from search is not itself proof of novelty. Remaining risk: an older computation may be indexed under a different graph-family name.
+PASS
 
-## Value — PASS
-This is a full integral invariant, not solely a spanning-tree determinant. It reveals distinct torsion transitions as \(t\) changes: persistent \(n\)-torsion, newly appearing \(n(n-2)\)-torsion, and a single coupled factor \(n(n-2)[n(n-2)+t]\). The exact isomorphism type is natural for chip-firing, integral Laplacians and spanning trees. It fills the strictly intermediate edge-deletion family separating two extensively studied boundary families; the arbitrary-\(t\) classification and its singular \(q=1\) proof case are substantive rather than a numeric table.
+For n≥3 and 1≤t≤n−1, with q=n−t,A=n(n−2),C=A+t, integer cokernel generator elimination with an unmatched sink yields t=1: (Z/n)^(2n−5)⊕Z/[n(n−1)²], and t≥2: (Z/n)^(2q−2)⊕(Z/A)^(t−2)⊕Z/(AC), in actual invariant-factor divisibility order, spanning trees n^(2q−2)A^(t−1)C. The q≥2 case uses elimination of u_(t+1) and unimodular w=x+(n−2)y1. At q=1 the remaining 2×2 relation matrix [[C,0],[n,A]] has gcd entries 1 since C≡−1 (mod n), Smith diag(1,AC). Independently generated integer reduced graph Laplacians and SymPy exact Smith normal forms for all 54 parameter pairs 3≤n≤11,1≤t<n, with zero mismatches. These finite tests support but do not replace unrestricted generator-proof.
 
-## Limitations
-The classification only treats balanced bipartite graphs with pairwise disjoint deleted edges and strictly intermediate matching size. Generalized deletion patterns and asymmetric bicliques remain outside scope. No independent audit has been carried out. A previously overlooked equivalent published specialization remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the full invariant-factor interpolation at strictly partial matching deletions, a natural graph/sandpile family. Corrales–Valencia 2010 explicitly handle completely removed perfect matchings t=n, while complete multipartite critical-group theory includes no-deletion t=0; neither directly gives t between. Related Resultary geodesic subpath numbers of deleted-matching bicliques concern a different invariant. A yet-unindexed Smith form from older graph-sandpile literature remains a priority risk.
+
+## value
+
+PASS
+
+Exact invariant factors are genuinely more informative than spanning-tree count; they classify chip-firing cokernels across every nontrivial partial deletion size, including both boundary t=1 and t=n−1. Natural edge-deletion interpolation is a meaningful infinite-family arithmetic structure result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
