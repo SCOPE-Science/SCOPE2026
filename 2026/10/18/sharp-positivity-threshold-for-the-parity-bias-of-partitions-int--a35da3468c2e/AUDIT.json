@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Exact signed partition product equals the distinct subset generating product, as verified algebraically from geometric series. All 1024 subsets of the ten-element base are enumerated and independently polynomial-counted, proving all n=65..201 representable and precisely the 17 zeros below 65. For m>=7, the two interval unions overlap because margin T_(m-1)-129-2m² starts at 39 and increases by 2m²-4m-2>0. Therefore all n>=65 are represented. No finite check substitutes for the infinite induction; the standalone checker passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1806.00708, Theorem 1: parity inequality strictly for n sufficiently large, without bound; Remark 4: 65 is a conjectured cutoff.",
+        "arXiv:2002.05682, Theorem 3: parity-adjusted nonnegativity for general power-partition families, not sharp strict cutoff."
+      ],
+      "reasoning": "A stronger all-n strictness statement cannot hold because 64 is a zero. Eventual strictness and all-n weak inequality do not imply positivity at each n>=65; the new finite-to-infinite interval argument supplies exactly this missing implication.",
+      "searches": [
+        "equidistribution and inequalities for partitions into powers effective sharp positivity threshold square parity imbalance",
+        "\"partitions into squares\" \"n ≥ 65\" inequalities Ciolan proven"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.00708, initial 2018-06-02; publicly accessible v2 2019-10-01; Theorem 1 and Remark 4.",
+      "arXiv:2002.05682, initially 2020-02-13; revised 2021-02-02; §§2–3, especially (9), Theorems 2–3.",
+      "Published mathematical finding comparisons by title and content found nearest work on Kronecker coefficient parity, Zumkeller divisor partitions, and weighted-representation asymptotics; none concerns the same square-partition parity-bias threshold or implies the theorem."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1806.00708, Remark 4: 'strongly believe' inequalities hold for n>=65 after checking n<=50000.",
+        "arXiv:2002.05682, §3 proof: equation (9) gives nonnegative product; Theorem 2 remains strict for all sufficiently large n rather than exact n>=65."
+      ],
+      "reasoning": "The earlier formal-series identity supplies the existence interpretation but leaves the covering problem open. The exact finite coverage 65..201 and persistent overlap of successive translated intervals are additional proof steps not implied by asymptotic positivity or generic product factorization alone.",
+      "searches": [
+        "Ciolan partitions into squares parity difference strict for all n at least 65 exact equality exceptions 4 5 6 7 13 14 15 16 22 23 24 31 39 47 48 56 64",
+        "equidistribution and inequalities for partitions into powers effective sharp positivity threshold square parity imbalance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.05682, §3 equation (9): coefficients are nonnegative and represented by distinct odd squares plus doubled squares.",
+        "The proposed exact strictness is equivalent to subset-sum coverage by {odd squares} union {twice squares} at every n>=65, not merely general nonnegativity."
+      ],
+      "reasoning": "Any existing theorem establishing eventual subset-sum coverage starting at 65 would imply the entire claimed strictness. The inspected source contains the product but neither the 10-factor certificate nor this exact threshold; targeted equivalent searches found no matched stronger statement.",
+      "searches": [
+        "partitions into square parts with even versus odd number of parts equality zero set distinct square and twice square subset sums complete 65",
+        "equidistribution and inequalities for partitions into powers effective sharp positivity threshold square parity imbalance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1806.00708, Remark 4 reports computer checks through n=50000 and lists precisely 17 observed equalities.",
+        "Explicit base certificate support 233 values among 0..266, includes 65..201; subsequent growing intervals proven symbolically."
+      ],
+      "reasoning": "The seventeen equalities and suggested 65 threshold were already observed, so the list itself is not new. The publication's finite table/computation does not establish an unbounded theorem, whereas the present proof does.",
+      "searches": [
+        "Ciolan partitions into squares parity difference strict for all n at least 65 exact equality exceptions 4 5 6 7 13 14 15 16 22 23 24 31 39 47 48 56 64",
+        "partitions into square parts with even versus odd number of parts equality zero set distinct square and twice square subset sums complete 65"
+      ]
+    },
+    "rationale": "The 2018/2019 Ciolan square-partition study explicitly states the strict-positivity threshold 65 as a belief checked numerically, not a theorem (Remark 4). The 2020/2021 Ciolan general-power paper provides a full positive product but proves only nonnegativity and eventual strict positivity, not exact 65. A complete subset-sum interval propagation and explicit seventeen-zero classification were not found in inspected texts or mathematical finding searches; residual unindexed coverage is possible.",
+    "residual_risks": [
+      "An unindexed earlier solution to the precise sharp cutoff conjecture or a theorem about eventual subset sums of odd squares and twice squares could cover the claim.",
+      "The equality set was explicitly reported in the original paper; originality consists of unconditional proof of its completeness and the sharp cutoff, not its first observation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EVENTUAL STRICTNESS ONLY; exact 65 threshold explicitly conjectural.",
+        "evidence": "Theorem 1 asserts inequality for sufficiently large n. Remark 4 lists the seventeen equality indices and reports check n<=50000, saying the author strongly believes strictness for n>=65.",
+        "identifier_or_url": "https://arxiv.org/pdf/1806.00708",
+        "material_read": "Theorem 1 in introductory pages and Remark 4 in final page (page 17), with intervening analytic proof structure examined by text search; the public full PDF was accessible.",
+        "method": "Read source PDF extracted text and directly inspected first and last page renderings; compared theorem with Remark 4 conjecture.",
+        "title": "Asymptotics and inequalities for partitions into squares",
+        "trigger": "Exact conjectured 65 cutoff and equality set in original problem"
+      },
+      {
+        "assessment": "STRONG PRECURSOR for nonnegativity, NOT exact sharp cutoff coverage.",
+        "evidence": "Equation (9) is precisely the odd-square and doubled-square distinct-subset product at exponent two; proof establishes nonnegativity, while the strict finite bound 65 is absent.",
+        "identifier_or_url": "https://arxiv.org/pdf/2002.05682",
+        "material_read": "Relevant Sections 2 and 3 of the publicly accessible full preprint, including equation (9), Theorem 3 and its proof; page renderings of pages 3-5 inspected.",
+        "method": "Compared detailed formal product, coefficient interpretation, general theorem hypotheses and stated inequality conclusion.",
+        "title": "Equidistribution and inequalities for partitions into powers",
+        "trigger": "Possible dominant general theorem or exact subset representation identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a35da346-8c2e-4207-8d01-89542cfc6d95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ciolan (arXiv:1806.00708, Remark 4) explicitly proposed the sharp n>=65 positive square-partition parity bias after checking up to 50,000. Proving this exact infinite cutoff and classifying every equality settles that motivated question and is mathematically stronger than generic eventual inequalities or computational data. The 64 boundary demonstrates sharpness.",
+    "status": "PASS"
+  }
+}
