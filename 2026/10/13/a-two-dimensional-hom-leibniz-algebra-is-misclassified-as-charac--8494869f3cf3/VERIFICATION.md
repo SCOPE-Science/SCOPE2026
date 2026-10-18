@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-For
-\[
-[e_2,e_2]=e_1,
-\]
-a general derivation
-\[
-D(e_1)=a e_1+c e_2,
-\qquad
-D(e_2)=b e_1+d e_2
-\]
-must satisfy
-\[
-c=0,
-\qquad
-a=2d.
-\]
-Thus the derivation algebra is spanned by
-\[
-H=\begin{pmatrix}2&0\\0&1\end{pmatrix},
-\qquad
-E=\begin{pmatrix}0&1\\0&0\end{pmatrix}.
-\]
-The exact matrix commutator is
-\[
-[H,E]=E,
-\]
-so the lower central series cannot terminate.
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` verifies the derivation identity for \(H\), \(E\), and representative linear combinations, checks the commutator exactly, and confirms repeated commutation with \(H\) leaves \(E\) nonzero.
+## correctness
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite parameter samples are consistency checks only; the symbolic calculation in the proof establishes the full derivation space.
+Over C with alpha=id and the sole bracket [e2,e2]=e1, D(e1)=a e1+c e2 and D(e2)=b e1+d e2 obey c=0 and a=2d. No other basis pair adds a constraint. Thus Der consists exactly of [[2d,b],[0,d]]. Independently multiplying H=diag(2,1) and E=E12 gives HE-EH=E, and [Der,Der]=C E=[Der,C E], so the lower central series is never zero. The source defines characteristic nilpotence by nilpotence of Der_{alpha^0}, equal here to ordinary derivations. Its CN=Yes table cell must be CN=No; the displayed derivation family is itself correct. The argument covers only this complex alpha=id row.
+
+## originality
+
+PASS
+
+The published table gives the false CN label despite printing a derivation family which contradicts it. The genuinely new component is the explicit erratum/diagnosis; there is no claim to a novel derivation-algebra computation.
+
+## value
+
+PASS
+
+Correcting membership in a specifically tabulated structural class changes the classification of a published algebra; this exact obstruction is directly tied to the paper’s stated classification objective. Although the two-by-two calculation is elementary, the resulting correction is a substantive erroneous label, not an arbitrary normalization or rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

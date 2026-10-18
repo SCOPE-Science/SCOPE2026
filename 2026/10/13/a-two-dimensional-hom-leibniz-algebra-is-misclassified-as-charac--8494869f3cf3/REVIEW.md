@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct application of the derivation identity to \([e_2,e_2]=e_1\) gives exactly the source's triangular derivation family. Its basis matrices \(H=\operatorname{diag}(2,1)\) and \(E\) satisfy \([H,E]=E\), so the lower central series stabilizes at \(\mathbb C E\) and the derivation Lie algebra is not nilpotent. Under the source's own definition, the CN entry must therefore be No.
+PASS
 
-## Originality
+Over C with alpha=id and the sole bracket [e2,e2]=e1, D(e1)=a e1+c e2 and D(e2)=b e1+d e2 obey c=0 and a=2d. No other basis pair adds a constraint. Thus Der consists exactly of [[2d,b],[0,d]]. Independently multiplying H=diag(2,1) and E=E12 gives HE-EH=E, and [Der,Der]=C E=[Der,C E], so the lower central series is never zero. The source defines characteristic nilpotence by nilpotence of Der_{alpha^0}, equal here to ordinary derivations. Its CN=Yes table cell must be CN=No; the displayed derivation family is itself correct. The argument covers only this complex alpha=id row.
 
-PASS. The primary table explicitly says CN=Yes, while the later published chapter retains the same derivation basis and CN framework. Focused searches for the exact algebra label, matrix family, affine-Lie reformulation, correction, and erratum did not locate a published correction. An unindexed author correction remains the principal bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. The error changes membership in a named structural class that the source explicitly sets out to compute. The correction is minimal, exact, and independently derivable from the multiplication table; it does not merely adjust notation or presentation.
+The published table gives the false CN label despite printing a derivation family which contradicts it. The genuinely new component is the explicit erratum/diagnosis; there is no claim to a novel derivation-algebra computation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Correcting membership in a specifically tabulated structural class changes the classification of a published algebra; this exact obstruction is directly tied to the paper’s stated classification objective. Although the two-by-two calculation is elementary, the resulting correction is a substantive erroneous label, not an arbitrary normalization or rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
