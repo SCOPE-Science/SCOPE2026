@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:09:15.511794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 3214f717d4530276498ed13dcb495c36dcefe282",
+        "Clarkson (1936) Uniformly Convex Spaces, Trans. AMS 40 pp.396-414",
+        "Hanner (1956) On the Uniform Convexity of Lp and lp, Arkiv for Matematik 3 pp.239-244",
+        "frozen VERIFICATION.md Git blob ccc54c43c952125b35d0100d72608cbde7fa76d8"
+      ],
+      "rationale": "The precise real L^p(mu) assertion requires two disjoint measurable finite positive-measure sets and 0<=lambda<=1, including p=1 and p=infinity. Write m=1-lambda. For 1<p<=2, apply Clarkson to lambda x and m y: the sum of q-th powers of their plus/minus norms is <=2(lambda^p+m^p)^(q/p), q=p/(p-1); thus their minimum is <=(lambda^p+m^p)^(1/p). For 2<=p<infinity, Hanner gives the sum of p-th powers <=(lambda+m)^p+|lambda-m|^p=1+|2lambda-1|^p; dividing by two bounds the minimum. At p=1 and infinity the triangle inequality bounds by 1. Normalize disjoint indicators e,f. For 1<=p<=2, x=e,y=f are unit, satisfy ||e+t f||_p>=(||e||=1) for every t, and have both chord norms (lambda^p+m^p)^(1/p). For 2<=p<infinity, x=2^(-1/p)(e+f),y=2^(-1/p)(e-f) are unit and their Lp smooth norming-integral cancels exactly, so x is Birkhoff-James orthogonal to y. The plus/minus p-th powers equal [1+|2lambda-1|^p]/2. For infinity x=e+f,y=e-f are norm-one, ||x+t y||_infinity=max(|1+t|,|1-t|)>=1 and both weighted norms =1. Endpoints lambda=0,1 are included and p=2 branches agree. This is a universal inequality plus explicit sharp pairs, not a finite experiment.",
+      "residual_risks": [
+        "No classification of all norming pairs. Two-disjoint-finite-positive-measure-piece hypothesis is essential; one-dimensional Lp is excluded. No statement for complex Lp or generic Banach lattices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Clarkson/Hanner inequalities imply unrestricted upper bounds for all real Lp; they do not themselves impose Birkhoff-James orthogonality or exhibit restricted sharpness. Sequence-space version is a special case of Lp theorem."
+        ],
+        "reasoning": "Broader Hanner/Clarkson inequalities and previously computed unrestricted weighted James constants dominate the inequality portion. They do not automatically imply equality under a nonlinear orthogonality constraint; the two-piece witnesses supply additional sharpness and measure-space generality.",
+        "searches": [
+          "Hanner 1956 Lp and lp sharp inequalities",
+          "Clarkson 1936 uniform convexity",
+          "Qi et al arXiv:2606.01068v1",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01068v1 accessible metadata and secondary review (full original body unavailable)",
+        "Clarkson 1936 inequality",
+        "Hanner 1956 inequality",
+        "frozen package RESULT.md, REVIEW.md and VERIFICATION.md",
+        "SCOPE repository keyword search without dependable negative-index coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical inequalities bound the norm minimum but the BJ-restricted maximizing condition is a separate existence assertion. Direct indicators and balanced pair prove this under the explicit two-set hypothesis."
+        ],
+        "reasoning": "Prior classical theorems yield a short argument once the orthogonal witnesses are recognized; the source preprint could conceivably contain precisely this corollary. Without body evidence of identical all-p Lp statement, this risk is documented rather than a fabricated prior-coverage conclusion.",
+        "searches": [
+          "Qi et al arXiv:2606.01068v1",
+          "Clarkson 1936",
+          "Hanner 1956",
+          "weighted Lp general measure-space same invariant search",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition J_lambda^perp uses x perpendicular_B y and minimum of plus/minus weighted norms. Source RESULT explicitly derives unrestricted Clarkson/Hanner upper bounds and sharp Birkhoff orthogonal witnesses. Qi source abstract alone cannot rule out identical result in body."
+        ],
+        "reasoning": "Unrestricted weighted James and restricted orthogonal weighted James are not formally equivalent for general spaces. Here equality is proved from witnesses, not by a change in definition; full Qi primary text remains an overlap risk.",
+        "searches": [
+          "Qi et al arXiv:2606.01068v1 weighted Birkhoff orthogonal James constant abstract and secondary discussion",
+          "search phrase weighted Birkhoff James Lp Clarkson Hanner exact generalized James",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known unrestricted generalized James lp sequence formula has the same two branches; published comparison described lp^n lower bound of J_lambda^perp, not a tabulated full Lp(mu) equality."
+        ],
+        "reasoning": "An exact unrestricted sequence-space table covers a narrower object/invariant; no verified same-object/all-measures BJ-orthogonal table was located. Unsuccessful searches are not novelty proof; the inaccessible preprint body remains the significant risk.",
+        "searches": [
+          "query exact weighted BJ constant lp two-dimensional tables",
+          "GitHub SCOPE2026 code search (current default branch): returned zero matches; index limitations, NOT negative novelty evidence",
+          "Qi et al arXiv:2606.01068v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinction is between the new Birkhoff-James-restricted weighted minimum functional on general real Lp(mu) and the known unrestricted weighted James formula on sequence spaces. The latter is NOT asserted novel; the positive result is that an orthogonal sharp pair exists in each branch on any real measure Lp with two finite positive disjoint sets. The defining Qi-Yin-Liu-Li 2026 paper is a high-priority possible overlap; accessible abstract and secondary review indicate a finite-dimensional lp lower bound, not necessarily the full Lp equality, but its full body was not read. This remains a material risk, NOT negative search evidence.",
+      "residual_risks": [
+        "High-priority Qi et al 2026 original full body was unavailable; abstract/snippets cannot show it lacks the exact Lp equality.",
+        "Resultary query failed with transient search_internal_error; no successful database comparison.",
+        "Existing unrestricted generalized James lp value covers that special case and narrows the originality to all-measure and BJ sharpness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIAL_OVERLAP_UNVERIFIED",
+          "evidence": "The accessible material defines the weighted BJ invariant and mentions lp^n lower-bound calculations; no whole-paper non-coverage claim.",
+          "identifier_or_url": "arXiv:2606.01068v1",
+          "material_read": "Original abstract/metadata plus available secondary report describing its finite-dimensional lp bounds; NOT complete original body",
+          "method": "Open preprint abstract and available indexed secondary assessment",
+          "title": "A weighted Birkhoff orthogonal James-type constant",
+          "trigger": "Exact invariant and overlap risk"
+        },
+        {
+          "assessment": "CLASSICAL_UPPER_BOUND_COVERS_UPPER_ONLY",
+          "evidence": "Clarkson estimates ||u+v||_p^q+||u-v||_p^q for p<=2, not BJ orthogonality witnesses.",
+          "identifier_or_url": "J. A. Clarkson, Trans. AMS 40 (1936) 396-414",
+          "material_read": "Identified classical Clarkson inequality and applied its full quantified form in the audited proof; no assertion of fresh full historical source inspection",
+          "method": "Read actual inequality as quoted in complete primary-result package and independently checked exponents",
+          "title": "Uniformly convex spaces",
+          "trigger": "Critical p<=2 upper bound and dominating general inequality"
+        },
+        {
+          "assessment": "CLASSICAL_UPPER_BOUND_COVERS_UPPER_ONLY",
+          "evidence": "Sharp norm inequality gives upper 1+|2lambda-1|^p, while BJ-orthogonality and equality require a witness.",
+          "identifier_or_url": "O. Hanner, Arkiv for Matematik 3 (1956), DOI:10.1007/BF02589410",
+          "material_read": "Exact Hanner p-power inequality and equality construction as read in complete package; did not claim full original 1956 paper read",
+          "method": "Independently substitute weighted unit vectors and check balanced disjoint extremizer",
+          "title": "On the uniform convexity of Lp and lp",
+          "trigger": "Critical p>=2 upper bound and possible coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "definition from Qi et al arXiv:2606.01068v1",
+        "constructed disjoint and balanced BJ-extremal pairs",
+        "classical Clarkson and Hanner geometry"
+      ],
+      "rationale": "The weighted Birkhoff-James restriction is a natural newly defined geometric invariant, and Lp(mu) are canonical Banach spaces. Its EXACT all-parameter/all-p answer is useful because a priori BJ orthogonality could reduce the maximum; the result identifies the precise p=2 change in extremizer geometry and proves no restriction loss despite the nonsmooth p=1/infinity boundaries. The ordinary unrestricted formula and classical inequalities are not counted independently as new; the value rests on the orthogonal extremality across a genuine space class, not a renamed inequality or finite arithmetic sample.",
+      "residual_risks": [
+        "A specialist could view the equality witness as an immediate corollary of standard Lp symmetries; value is moderate and restricted to the specified natural family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification of all norming pairs. Two-disjoint-finite-positive-measure-piece hypothesis is essential; one-dimensional Lp is excluded. No statement for complex Lp or generic Banach lattices.",
+    "High-priority Qi et al 2026 original full body was unavailable; abstract/snippets cannot show it lacks the exact Lp equality.",
+    "Resultary query failed with transient search_internal_error; no successful database comparison.",
+    "Existing unrestricted generalized James lp value covers that special case and narrows the originality to all-measure and BJ sharpness.",
+    "A specialist could view the equality witness as an immediate corollary of standard Lp symmetries; value is moderate and restricted to the specified natural family.",
+    "The complete assessment is not an external attestation or a change to existing Lean/expert-verification channels. The scientific PASS is not an import/publication authorization."
+  ],
+  "schema_version": 1
+}

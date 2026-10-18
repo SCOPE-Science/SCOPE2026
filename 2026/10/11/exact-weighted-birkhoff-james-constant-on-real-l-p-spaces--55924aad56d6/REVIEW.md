@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-\(p\) upper bounds are direct consequences of the sharp Clarkson inequality for \(1<p\le2\) and Hanner inequality for \(2\le p<\infty\). The endpoint cases \(p=1\) and \(p=\infty\) are direct triangle-inequality arguments. In every regime an explicit two-piece pair is checked to be Birkhoff--James orthogonal and to attain the corresponding upper bound. The proof covers \(0\le\lambda\le1\), including both weight endpoints and the common \(p=2\) boundary.
+## correctness
 
-Risk: the argument depends on the standard forms of Clarkson's and Hanner's inequalities. Their statements and parameter directions were checked against the classical literature.
+PASS
 
-## Originality
-PASS, with an explicit access risk. The focal 2026 preprint introduces the invariant. Its accessible abstract and detailed review were inspected; the latter reports only a lower bound on \(\ell_p^n\) among the concrete examples. Direct full-text access was unavailable, and the authorized institutional fallback required human verification, so the review does not claim whole-document noncoverage.
+The precise real L^p(mu) assertion requires two disjoint measurable finite positive-measure sets and 0<=lambda<=1, including p=1 and p=infinity. Write m=1-lambda. For 1<p<=2, apply Clarkson to lambda x and m y: the sum of q-th powers of their plus/minus norms is <=2(lambda^p+m^p)^(q/p), q=p/(p-1); thus their minimum is <=(lambda^p+m^p)^(1/p). For 2<=p<infinity, Hanner gives the sum of p-th powers <=(lambda+m)^p+|lambda-m|^p=1+|2lambda-1|^p; dividing by two bounds the minimum. At p=1 and infinity the triangle inequality bounds by 1. Normalize disjoint indicators e,f. For 1<=p<=2, x=e,y=f are unit, satisfy ||e+t f||_p>=(||e||=1) for every t, and have both chord norms (lambda^p+m^p)^(1/p). For 2<=p<infinity, x=2^(-1/p)(e+f),y=2^(-1/p)(e-f) are unit and their Lp smooth norming-integral cancels exactly, so x is Birkhoff-James orthogonal to y. The plus/minus p-th powers equal [1+|2lambda-1|^p]/2. For infinity x=e+f,y=e-f are norm-one, ||x+t y||_infinity=max(|1+t|,|1-t|)>=1 and both weighted norms =1. Endpoints lambda=0,1 are included and p=2 branches agree. This is a universal inequality plus explicit sharp pairs, not a finite experiment.
 
-The closest published indexed comparison gives the exact unrestricted generalized James constant on real \(\ell_p\) with the same two Hanner branches. That result is treated as covering the entire sequence-space special case. The accepted contribution is the theorem for general measure-space \(L^p(\mu)\), together with the exact conclusion that the unrestricted optimum always has a Birkhoff--James orthogonal maximizer. Searches using weighted-James, Birkhoff, Lebesgue-\(L^p\), Hanner, Clarkson, and equivalent unrestricted formulations found no statement covering that measure-space theorem.
+## originality
 
-Residual risk: an older or inaccessible source may contain the same \(L^p\) extension under different terminology, and the inaccessible body of the focal preprint remains the most important unresolved comparison.
+PASS
 
-## Value
-PASS. A full exact formula on \(L^p\) is a natural benchmark for a new Banach-space geometric constant. The theorem also detects a genuine extremal-geometry transition at \(p=2\): disjoint indicators are sharp below the Hilbert exponent, while balanced Hanner pairs are sharp above it. Showing that the orthogonality restriction is inactive throughout the class makes the formula structurally informative, not merely a recomputation of one numerical constant.
+Best-of-knowledge distinction is between the new Birkhoff-James-restricted weighted minimum functional on general real Lp(mu) and the known unrestricted weighted James formula on sequence spaces. The latter is NOT asserted novel; the positive result is that an orthogonal sharp pair exists in each branch on any real measure Lp with two finite positive disjoint sets. The defining Qi-Yin-Liu-Li 2026 paper is a high-priority possible overlap; accessible abstract and secondary review indicate a finite-dimensional lp lower bound, not necessarily the full Lp equality, but its full body was not read. This remains a material risk, NOT negative search evidence.
 
-## Closest literature and limitations
-The closest direct source is Qi--Yin--Liu--Li, arXiv:2606.01068v1. Classical sharp input comes from Clarkson and Hanner. Yang--Wang (2012) treats a different James-type invariant on concrete sequence spaces. The nearest published indexed exact formula is for the unrestricted generalized James constant on real \(\ell_p\), which covers the sequence-space corollary and is not claimed as new here.
+## value
 
-The theorem assumes two disjoint measurable sets of finite positive measure, does not classify every maximizing pair, and does not extend automatically to general Banach lattices.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The weighted Birkhoff-James restriction is a natural newly defined geometric invariant, and Lp(mu) are canonical Banach spaces. Its EXACT all-parameter/all-p answer is useful because a priori BJ orthogonality could reduce the maximum; the result identifies the precise p=2 change in extremizer geometry and proves no restriction loss despite the nonsmooth p=1/infinity boundaries. The ordinary unrestricted formula and classical inequalities are not counted independently as new; the value rests on the orthogonal extremality across a genuine space class, not a renamed inequality or finite arithmetic sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
