@@ -1,15 +1,21 @@
-# Review of exact factorial thresholds and reversible lcm tower-height records
+# Independent mathematical audit
 
-## Correctness
-PASS. The least-height lemma is reconstructed by induction. Legendre's formula and the dominance of the \(2\)-adic factorial valuation yield exact first hits with no finite truncation. The lcm valuation formula gives a full interval on which \(h\) is constant, and a separate argument certifies the drop at its double: an odd-height obstruction proves the upper bound while explicit primes for \(k=3,4\) and Bertrand's postulate for every \(k\ge5\) prove the matching lower bound. The standalone verifier checks small and moderately large boundary instances. The only external number-theoretic theorem required is the classical Bertrand postulate.
+## correctness
 
-## Originality
-PASS, subject to a normal literature-coverage risk. The directly relevant De Koninck–Verreault paper defines \(h\) and identifies the least height-\(k\) integer but addresses density, means and runs, not factorial/lcm first indices or record reversal. Their companion factorial-arithmetic-function paper covers other functions. OEIS A288636 uses a different gcd-of-exponents height (with coincident minimum tower thresholds). Searches for exact, equivalent, and broader formulations in primary literature, sequence tables and published research records gave no statement implying the complete factorial/lcm theorem; the closest same-object facts supply an ingredient, not the combined conclusions. Existing small thresholds are not represented as novel by themselves.
+PASS
 
-## Value
-PASS. The standard factorial and initial-lcm sequences are natural contrasting tests of a nonmonotone recursive arithmetic invariant. The theorem gives exact all-level hitting laws and a striking unbounded family of full-length lcm record intervals followed by immediate decreases, requiring an odd-prime exponent witness and a genuine prime-in-interval argument. This is a structural behavior not reducible to finite numerical examples. Later return times and full trajectories remain open.
+PASS. The least integer with h(m)≥k is E_k (E_1=2, E_{k+1}=2^{E_k}) by induction on the largest prime-power exponent. For factorials ν_p(N!)≤ν₂(N!); Legendre gives ν₂((E_{k−1}+1)!)=E_{k−1}−1 and ν₂((E_{k−1}+2)!)=E_{k−1} for k≥3, hence first hits F_k=E_{k−1}+2, F_1=2,F_2=4. For initial LCM, ν_p L(N)=floor(log_p N) gives first hits G_k=E_k and entire [E_k,2E_k) constant plateau. At 2E_k the 2-adic exponent is E_{k−1}+1, whose recursive height is too small; all odd-prime exponents <E_{k−1}. Exact lower bound at drop follows from prime p with ν_p L(2E_k)=a=E_{k−2}, by explicit p=5 for k3 and p=11 for k4, and Bertrand in (N^(1/(a+1)),N^(1/a)) for k≥5. The proof handles all k without enumerating impossible huge tower indices. Independently calculated factorial and LCM heights at all reachable first-hit and double endpoints through k4, and factorial k5=65538; computations corroborate, not replace the induction.
 
-## Limitations and closest prior literature
-The shortest unrestricted integer of tower height \(k\) was already known to be \(E_k\), and the proof uses that input explicitly. No conclusion is asserted about every subsequent factorial or lcm height, and an unindexed equivalent result is an originality risk. Sources: De Koninck–Verreault, *On the tower factorization of integers*, arXiv:2308.09149v1 (especially Sections 1, 6, 7); De Koninck–Verreault, *Arithmetic functions at factorial arguments*, arXiv:2308.09761; OEIS A288636.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge for the exact first-hit laws on factorials/LCMs AND unbounded disappearing LCM plateaux. De Koninck–Verreault 2023/2024 define this exact max-over-exponents height and establish general minimal E_k, which is credited. Their primary paper covers distribution, means and runs rather than this special-sequence record structure. Their separate work on arithmetic functions of factorials studies other functions. OEIS A288636 uses a different gcd-based recursive height, so coinciding minimal E_k data do not settle these max-height laws.
+
+## value
+
+PASS
+
+PASS. Factorials and initial least common multiples are canonical multiplicative sequences exhibiting contrasting valuations. The nonmonotone height theorem gives exact all-level thresholds and arbitrarily long record intervals that vanish immediately at 2E_k, a mathematically motivated surprising phenomenon requiring a genuine prime-gap witness, rather than low-level numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

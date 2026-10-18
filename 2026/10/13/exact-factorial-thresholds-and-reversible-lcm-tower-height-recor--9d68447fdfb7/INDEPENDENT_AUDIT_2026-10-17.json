@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:56:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The least integer with h(m)≥k is E_k (E_1=2, E_{k+1}=2^{E_k}) by induction on the largest prime-power exponent. For factorials ν_p(N!)≤ν₂(N!); Legendre gives ν₂((E_{k−1}+1)!)=E_{k−1}−1 and ν₂((E_{k−1}+2)!)=E_{k−1} for k≥3, hence first hits F_k=E_{k−1}+2, F_1=2,F_2=4. For initial LCM, ν_p L(N)=floor(log_p N) gives first hits G_k=E_k and entire [E_k,2E_k) constant plateau. At 2E_k the 2-adic exponent is E_{k−1}+1, whose recursive height is too small; all odd-prime exponents <E_{k−1}. Exact lower bound at drop follows from prime p with ν_p L(2E_k)=a=E_{k−2}, by explicit p=5 for k3 and p=11 for k4, and Bertrand in (N^(1/(a+1)),N^(1/a)) for k≥5. The proof handles all k without enumerating impossible huge tower indices. Independently calculated factorial and LCM heights at all reachable first-hit and double endpoints through k4, and factorial k5=65538; computations corroborate, not replace the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minimal integer E_k with height k is known; the primary density and mean results supply no factorial/lcm first hitting or exact lcm drop law."
+        ],
+        "reasoning": "The general least-value lemma is an ingredient, not a statement about values on factorials and LCMs; unrelated factorial arithmetic functions cannot imply these recursive heights.",
+        "searches": [
+          "De Koninck–Verreault arXiv:2308.09149 Section 6",
+          "De Koninck–Verreault arXiv:2308.09761"
+        ]
+      },
+      "checked_sources": [
+        "Pinned LCM RESULT.md (blob 4968743f…) and reviewed verification, normalization, boundary cases",
+        "Independent exact exponent-map heights at F1..F5 and G1..G4 (reachable), plus G3/G4 double drops",
+        "De Koninck–Verreault 2023 author-posted full text, arxiv 2308.09149; 2308.09761 abstract; OEIS A288636",
+        "Resultary semantic search: tower factorization height lcm(1,...,n) factorial first hitting thresholds 2 power towers disappearing records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E_k minimality plus Legendre and a *new* prime in (N^(1/(a+1)),N^(1/a)) yield the exact double-index fall."
+        ],
+        "reasoning": "Prior minimum height threshold alone does not specify h(LCM(2 E_k)); a separate number-theoretic witness is essential, giving genuine additional content.",
+        "searches": [
+          "De Koninck–Verreault 2023 Section 6 on least-height integers",
+          "Bertrand prime-between-x-and-2x lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recursion h(n)=1+max h(ν_p(n)) differs from OEIS gcd/exponent height; minimal E_k coincidence is not functional identity."
+        ],
+        "reasoning": "Checked tower factorization aliases and the two distinct recursive conventions; only the maximum-based original invariant is assessed on N! and LCM(1,...,N).",
+        "searches": [
+          "Resultary: tower factorization height lcm(1,...,n) factorial first hitting thresholds 2 power towers disappearing records",
+          "De Koninck–Verreault On the tower factorization of integers",
+          "OEIS A288636 alternative height"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS uses gcd-based tower height, while isolated small values do not establish the all-k plateau or drop."
+        ],
+        "reasoning": "Recorded known small-value coincidences and tested their definition; no exact same-definition all-level table or recurrence implying this record behavior was found.",
+        "searches": [
+          "OEIS A288636",
+          "Resultary: tower factorization height lcm(1,...,n) factorial first hitting thresholds 2 power towers disappearing records",
+          "queries F_3=6 F_4=18 F_5=65538 G_3=16 G_4=65536"
+        ]
+      },
+      "rationale": "PASS, best of knowledge for the exact first-hit laws on factorials/LCMs AND unbounded disappearing LCM plateaux. De Koninck–Verreault 2023/2024 define this exact max-over-exponents height and establish general minimal E_k, which is credited. Their primary paper covers distribution, means and runs rather than this special-sequence record structure. Their separate work on arithmetic functions of factorials studies other functions. OEIS A288636 uses a different gcd-based recursive height, so coinciding minimal E_k data do not settle these max-height laws.",
+      "residual_risks": [
+        "Published or unindexed special-sequence recursions may already encode some of the exact thresholds; current literature search is not an exhaustive proof of priority.",
+        "Numerical checks cover finite reachable levels only; all-level result relies on induction and Bertrand’s postulate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum E_k; no factorial/lcm record plateau given in inspected full text",
+          "evidence": "Original Section 6 height threshold and separate distribution/average-height results.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.09149",
+          "material_read": "Full lawful author-hosted eight-page PDF, especially definitions and Section 6 minimal-height tower sequence",
+          "method": "Read full text; searched factorial/lcm and inspected Section 6",
+          "title": "On the tower factorization of integers",
+          "trigger": "Defines precisely same recursive maximum-based tower height"
+        },
+        {
+          "assessment": "No full-document noncoverage claim; possible unindexed formula retained as literature risk",
+          "evidence": "Reported factorial arithmetic functions differ from this exact recursive height.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.09761",
+          "material_read": "Public abstract/metadata and description of studied arithmetic functions; full article not read",
+          "method": "Abstract-level scope comparison",
+          "title": "Arithmetic functions at factorial arguments",
+          "trigger": "Same authors and factorial title, possible stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Factorials and initial least common multiples are canonical multiplicative sequences exhibiting contrasting valuations. The nonmonotone height theorem gives exact all-level thresholds and arbitrarily long record intervals that vanish immediately at 2E_k, a mathematically motivated surprising phenomenon requiring a genuine prime-gap witness, rather than low-level numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Factorial and least-common-multiple tower-height threshold and drop laws",
+  "limitations": [
+    "Published or unindexed special-sequence recursions may already encode some of the exact thresholds; current literature search is not an exhaustive proof of priority.",
+    "Numerical checks cover finite reachable levels only; all-level result relies on induction and Bertrand’s postulate.",
+    "Repository record tree was fully retrieved, sha-matched, and nontruncated; complete repository-root ancestry was not separately recomputed."
+  ],
+  "schema_version": 1
+}
