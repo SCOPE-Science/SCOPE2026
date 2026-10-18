@@ -1,0 +1,11 @@
+# Scientific review: linear backward-orbit growth in discrete Huygens stars
+
+**Correctness — PASS.** The original star map is reduced by translating the all-opposition sink. The difference map \(v\mapsto v-h\sin v\) is invertible for the complete stated range, so no off-diagonal predecessor is omitted. Explicit fold locations \(\pmrccos(1/c)\) yield the exact three-to-one scalar inverse region. The fixed central branch at zero creates precisely two new ancestors per depth, giving \(2n+1\); nonzero targets encounter only finitely many folds, with the quantified logarithmic boundary from Taylor expansion and summable geometric error. The proof counts coincident critical roots once and treats the endpoint. Supplementary checker tests 12 dimension/parameter combinations.
+
+**Originality — PASS, with an explicitly unresolved literature risk.** The full Huygens primary paper, arXiv:2610.10993v1, discusses invertibility and Morse--Smale behavior in the smaller parameter interval, not backward fiber counts in the present interval. The full Schaeffer--McCalla gradient-descent paper supplies a broader saddle-avoidance principle, which is not claimed as novel. Searching Huygens star, sine circle-map, inverse-branch counts and logarithmic accumulation in published records did not find the present result. Older circle-map kneading theory may contain an equivalent fiber law; only the 1986 abstract was accessible. Searches alone are not definitive novelty certification.
+
+**Value — PASS.** The count is exact for every iteration and every star dimension, detects a sharp loss-of-injectivity threshold and identifies an unbounded yet only logarithmic inverse multiplicity boundary near the physical phase-opposition sink. This answers a natural reconstruction question not addressed by forward stability or convergence results.
+
+**Limits.** Results concern equal-weight stars and diagonal targets; no claims are made about general trees, off-diagonal fibers, global Morse--Smale dynamics beyond invertibility, or uniform constants at coupling endpoints. Finite diagnostics are not infinite proofs. Relevant old circle-map literature remains a bibliographic risk.
+
+Self-review: passed. Independent audit: not yet performed.
