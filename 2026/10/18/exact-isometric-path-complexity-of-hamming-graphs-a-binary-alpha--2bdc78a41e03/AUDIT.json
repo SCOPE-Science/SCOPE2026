@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Graph distance is Hamming distance. For q>=3 a length-d geodesic entirely in the radius-d sphere requires d+1 distinct rooted paths, meeting the diameter bound. For q=2 every edge has endpoints in adjacent root layers, allowing consecutive pairs of every geodesic to be covered one per rooted path; an alternating two-layer diametral geodesic proves the matching ceil((d+1)/2) lower bound. The d=1 endpoints are included. An exhaustive verifier checks 7,210 small-case path sets but is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv:2301.00278v5 Theorems 2–4 treat algorithmic complexity and boundedness for hyperbolic, three-path-configuration-free and outerstring classes; the 2022 ISAAC Theorem 2 lists bounds for interval, chordal and bounded-treelength classes.",
+        "The general trivial diameter-plus-one bound is attained when q>=3 but leaves a factor approaching two in the binary case."
+      ],
+      "reasoning": "A class theorem that directly bound ipco(Q_d) above by ceil((d+1)/2) or provided a matching two-layer antichain lower bound could subsume the claim; the relevant inspected general theorems do not do so. Ordinary diameter/treelength/chordality bounds cannot determine the exact family-specific formula.",
+      "searches": [
+        "shortest path antichain complexity of Cartesian products of complete graphs, hypercube binary vs ternary Hamming graph",
+        "rooted geodesic cover for any geodesic in Q_d and H(d,q), exact extremal geodesics two distance layers",
+        "\"isometric path complexity\" \"Cartesian product\" Q_n",
+        "doi:10.4230/LIPIcs.MFCS.2023.32"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.ISAAC.2022.12",
+      "arXiv:2301.00278v5",
+      "doi:10.4230/LIPIcs.MFCS.2023.32",
+      "Published records on hypercube Rips independence complexes, dominant edge metric dimension and distance-limited mutual visibility, all compared for distinct parameter domains."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ISAAC 2022 §1 reports that global shortest-path cover numbers of hypercubes and Cartesian products of complete graphs were determined previously, while its Definition 9 concerns a different antichain parameter.",
+        "ArXiv:2301.00278v5 defines ipco as minimizing the worst rooted cover number of a single geodesic; its highlighted theorems compute the parameter in polynomial time or bound it for three broad classes."
+      ],
+      "reasoning": "Covering all vertices by unrestricted geodesics is not the same quantifier pattern as minimizing, over roots, the maximum number of rooted geodesics needed to cover one varying path. Thus prior global cover formulas cannot be relabeled as this claim. The present binary and q>=3 lower-bound witnesses are not corollaries of the generic upper bounds.",
+      "searches": [
+        "isometric path complexity ipco(G) isometric path antichain cover number of hypercube Q_d equals ceiling((d+1)/2), Hamming graphs K_q Cartesian power equals d+1",
+        "Exact isometric path complexity ipco of hypercube Q_d and Hamming graph H(d,q) in rooted geodesic covering; ipco(Q_d)=ceil((d+1)/2), ipco(H(d,q))=d+1 for q>=3",
+        "doi:10.4230/LIPIcs.ISAAC.2022.12",
+        "arXiv:2301.00278"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 ISAAC paper defines ipacc through antichains in the BFS-geodesic reachability order (Definition 9, Lemma 10).",
+        "The expanded arXiv:2301.00278v5 paper (Definition 1 and Lemma 7) identifies rooted isometric-path complexity with that antichain invariant; its inspected full text contains no Hamming-family exact values."
+      ],
+      "reasoning": "The correct equivalence is ipco(G)=ipacc(G), so searches were made for both formulations. An earlier antichain or rooted geodesic formula for the Hamming family would dominate the present claim, but none was identified in the inspected primary text or searches; absence of hits alone is not a proof of novelty.",
+      "searches": [
+        "isometric path complexity ipco(G) isometric path antichain cover number of hypercube Q_d equals ceiling((d+1)/2), Hamming graphs K_q Cartesian power equals d+1",
+        "Exact isometric path complexity ipco of hypercube Q_d and Hamming graph H(d,q) in rooted geodesic covering; ipco(Q_d)=ceil((d+1)/2), ipco(H(d,q))=d+1 for q>=3",
+        "\"isometric path antichain cover\" \"hypercube\" \"lower bound\"",
+        "\"ipacc\" hypercube value",
+        "doi:10.4230/LIPIcs.ISAAC.2022.12",
+        "arXiv:2301.00278"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantically close records encountered include a Hamming Rips/independence-complex result, an edge-metric-dimension result and low-distance mutual-visibility formulas for hypercubes; all optimize different objects.",
+        "The 2022 paper references known global isometric path cover values in hypercubes, but does not tabulate this rooted local complexity."
+      ],
+      "reasoning": "No checked database entry or table supplied ipco(H(d,q)) or ipacc(H(d,q)) exact values. In particular, global path-cover tables are not ipco tables. An indexed table omission does not certify uniqueness; historical coverage remains a recorded uncertainty.",
+      "searches": [
+        "Exact isometric path complexity ipco of hypercube Q_d and Hamming graph H(d,q) in rooted geodesic covering; ipco(Q_d)=ceil((d+1)/2), ipco(H(d,q))=d+1 for q>=3",
+        "\"isometric path complexity\" \"Hamming graph\"",
+        "\"ipco\" \"Hamming graphs\"",
+        "isometric path complexity ipco(G) isometric path antichain cover number of hypercube Q_d equals ceiling((d+1)/2), Hamming graphs K_q Cartesian power equals d+1"
+      ]
+    },
+    "rationale": "The rooted single-geodesic invariant was defined before this result, but full-text review of the two closest foundational studies finds no exact ipco(H(d,q)) calculation. The original 2022 work cites global geodesic-cover results on Hamming products, whose statements and quantifiers differ. Neither the general diameter bound nor published class bounds implies the sharp binary value or the uniform alphabet threshold. Published-record searches and direct published-text searches reveal no covering result; unindexed historical overlap remains possible.",
+    "residual_risks": [
+      "Indexed results cannot rule out unpublished or unindexed prior equivalent statements under another name.",
+      "The 2001 article on globally covering hypercubes by isometric paths is cited by the 2022 primary paper but its full text was not independently examined here; its stated object is the global covering number, and exact implication to rooted local complexity was not established.",
+      "The 2022 original PDF was searched and its relevant definitions and sections inspected; every passage of unrelated material was not reviewed individually."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the antecedent ipacc parameter and analyzes approximation bounds, but the inspected exact cube/product mention is about global isometric path cover, not the claimed ipco scalar.",
+        "evidence": [
+          "PDF pp.2–3: known global path-cover values of hypercubes and Cartesian clique-products are cited.",
+          "PDF p.6 Definition 9: ipacc is a maximum antichain size along one isometric path minimized over BFS roots.",
+          "PDF pp.7–8 Lemmas 11–14 bound ipacc for general graph classes, without an exact Hamming formula."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol248-isaac2022/LIPIcs.ISAAC.2022.12/LIPIcs.ISAAC.2022.12.pdf",
+        "material_read": "Parsed 17-page open-access PDF: introduction pp.1–4, Definitions 9 and Lemmas 10–14 pp.5–8, bound statements and reference entries; document-level searches for hypercubes and ipacc.",
+        "method": "Publisher PDF opened and its page image inspected; parsed mathematical statements and relevant full-text occurrences compared to the new local rooted-cover formula.",
+        "title": "Complexity and Algorithms for ISOMETRIC PATH COVER on Chordal Graphs and Beyond",
+        "trigger": "Foundational introduction of isometric-path antichain parameter and explicit reference to global cube and Cartesian clique-product path-cover results."
+      },
+      {
+        "assessment": "Establishes equivalence and general bounds but does not state the exact binary/nonbinary Hamming formulas in the inspected primary text.",
+        "evidence": [
+          "Definition 1 introduces rooted single-path covering.",
+          "Theorems 2, 3 concern computing ipco and its boundedness on designated classes.",
+          "Theorem 4 constructs other graphs with large ipco, not these Cartesian powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.00278v5",
+        "material_read": "Open-access extended article, §§1–6: Introduction and Definition 1; preliminary observations; algorithm and bounded-class theorem statements and proof structure; counterexample constructions and conclusion, with full-text searches for Hamming, hypercube and Cartesian.",
+        "method": "Read HTML primary text and mathematical statements, compared exact quantifiers and checked for named product-graph specializations.",
+        "title": "Isometric Path Complexity of Graphs",
+        "trigger": "Exact named invariant ipco and its equivalence to earlier isometric-path antichain-cover number."
+      },
+      {
+        "assessment": "Bibliographic corroboration only; the no-coverage conclusion relies on inspected full extended article, not the abstract.",
+        "evidence": [
+          "MFCS 2023 DOI and abstract identify ipco, algorithms and boundedness classes."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2023.32",
+        "material_read": "Publisher abstract, definitions in summary, DOI and bibliographic metadata; later complete preprint version inspected separately.",
+        "method": "Compared proceedings abstract to extended open-access article for common scope and source identity.",
+        "title": "Isometric Path Complexity of Graphs (MFCS 2023 proceedings record)",
+        "trigger": "Published proceedings version of the second primary source; journal revisions are not used to infer the original 2022 arXiv posting date."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bdc78a4-1e03-487b-8771-482017c87eb4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent natural metric-graph parameter receives a full exact evaluation on all Cartesian powers of uniform complete graphs. The dichotomy between a two-layer binary zigzag and a diametral farthest-sphere path at alphabet three yields a discontinuous factor-two asymptotic change, clarifies the source of unboundedness and supplies reusable extremal geodesic witnesses. This is not a routine numerical small-graph census or rephrasing of known global isometric path covers.",
+    "status": "PASS"
+  }
+}
