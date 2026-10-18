@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:50:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For J²=-I, the predictor–corrector update is [(1-η²XY)I−ηYJ]z. Its transpose times itself is exactly [(1-uXY)²+uY²]I. With iid outer pairs this gives the exact all-iterations power identity. The joint two-point marginal law has one free t and its mixed moments are M2−t(b−a)² and M4−t(b²−a²)², making ρ affine in t, with derivative u(b−a)²[2−u(a+b)²]. Positivity E[X²Y²]>0 gives the necessary/sufficient strict stability interval and neutral boundary. Recomputed the sample a=1,b=2,p=1/2,u=1/3 yielding 10/9,37/36,17/18 and ceilings 5/17,8/25,3/8. Strict endpoint cases and equal-marginal constraint are explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorbunov general convergence bounds may address arbitrary marginal sampling but compare same and independent stages, not extremize dependence over all couplings."
+        ],
+        "reasoning": "General algorithm/model coverage is not an implication of this sharp exact phase transition, with fixed marginals and strict optimality.",
+        "searches": [
+          "stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size",
+          "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+        "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "Resultary semantic published-results search: stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published same-sample stability results cannot imply that at a larger step the optimal matched-marginal coupling is anticorrelated and the same-sample method diverges."
+        ],
+        "reasoning": "The exact positivity/affinity calculation is an additional proposition; it is not a corollary of conventional upper convergence estimates.",
+        "searches": [
+          "stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size",
+          "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+          "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mishchenko Algorithm 1 fixes X=Y, only t=0, while new theorem classifies continuum 0≤t≤min(p,1−p)."
+        ],
+        "reasoning": "Equivalent covariance parameter is joint-discordance mass t, not a new name for independent or reused samples.",
+        "searches": [
+          "stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size",
+          "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed rational example gives ρ=10/9,37/36,17/18 at t=0,1/4,1/2; these are direct exact consequences of the universal formula."
+        ],
+        "reasoning": "No specific parameter table is required for novelty; indexed near research results involve deterministic degree-two minimax or different SGD schemes.",
+        "searches": [
+          "stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size",
+          "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf"
+        ]
+      },
+      "rationale": "The exact optimization over all dependent predictor/corrector Bernoulli couplings is not a mere restatement of same-sample, independent-sample or variance-reduced analyses. The sign reversal at η²=2/(a+b)² and feasible antithetic rescue example are new to best knowledge on inspected primary results; no absolute priority certification.",
+      "residual_risks": [
+        "Unindexed specialized antithetic stochastic extragradient derivations may contain the same scalar two-point law.",
+        "No extension to general noise, unequal steps, or multidimensional/nonlinear games is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact stage reuse; no free joint coupling optimization",
+          "evidence": "Algorithm 1 samples ξ once and reuses ξ for predictor and corrector; deterministic two-stage formula is separate.",
+          "identifier_or_url": "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+          "material_read": "PDF introductory sampling discussion pp.1–2; Algorithm 1 and comparator Algorithm 2 p.3; theoretical scope",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "Revisiting Stochastic Extragradient",
+          "trigger": "Same-stage-sample policy and bilinear convergence"
+        },
+        {
+          "assessment": "Broader convergence-rate guarantees, not an exact fixed-marginal dependency frontier",
+          "evidence": "Same-sample and independent-sample families are distinguished; no general optimized Bernoulli pair-coupling theorem found in inspected scope.",
+          "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+          "material_read": "Primary paper introduction, definitions and convergence statements on conventional two-call samplers; inspected mathematical text",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+          "trigger": "Potential broader SEG analysis and arbitrary sampling"
+        },
+        {
+          "assessment": "Studies same-sample averaging/restarts; no full coupling optimization in inspected theorem scope",
+          "evidence": "Published bilinear analysis assumes the sampled matrix is reused at both stages.",
+          "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+          "material_read": "Primary paper introduction, bilinear same-sample update and averaging framework; inspected stated results",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+          "trigger": "Closest scalar/bilinear game context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal sampling dependence is a motivated algorithmic choice with fixed one-call marginals and oracle call count. A provable crossover and a regime where antithetic stages converge while two conventional choices diverge are substantive structural design facts rather than an arbitrary numeric example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+    "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+    "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+    "Resultary semantic published-results search: stochastic extragradient bilinear games optimal correlated oracle pair coupling within iteration sample reuse antithetic mean square step size"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed specialized antithetic stochastic extragradient derivations may contain the same scalar two-point law.",
+    "No extension to general noise, unequal steps, or multidimensional/nonlinear games is established."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Prior exact stage reuse; no free joint coupling optimization",
+      "evidence": "Algorithm 1 samples ξ once and reuses ξ for predictor and corrector; deterministic two-stage formula is separate.",
+      "identifier_or_url": "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+      "material_read": "PDF introductory sampling discussion pp.1–2; Algorithm 1 and comparator Algorithm 2 p.3; theoretical scope",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "Revisiting Stochastic Extragradient",
+      "trigger": "Same-stage-sample policy and bilinear convergence"
+    },
+    {
+      "assessment": "Broader convergence-rate guarantees, not an exact fixed-marginal dependency frontier",
+      "evidence": "Same-sample and independent-sample families are distinguished; no general optimized Bernoulli pair-coupling theorem found in inspected scope.",
+      "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+      "material_read": "Primary paper introduction, definitions and convergence statements on conventional two-call samplers; inspected mathematical text",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+      "trigger": "Potential broader SEG analysis and arbitrary sampling"
+    },
+    {
+      "assessment": "Studies same-sample averaging/restarts; no full coupling optimization in inspected theorem scope",
+      "evidence": "Published bilinear analysis assumes the sampled matrix is reused at both stages.",
+      "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+      "material_read": "Primary paper introduction, bilinear same-sample update and averaging framework; inspected stated results",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+      "trigger": "Closest scalar/bilinear game context"
+    }
+  ]
+}

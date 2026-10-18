@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any allowed joint distribution, the update is a scaled rotation with exactly computable squared norm multiplier. Its two-point joint law has one scalar degree of freedom, and independent pairs between iterations give the exact power identity. The factor is affine in joint-discordance mass, giving a global endpoint optimum with strict inequalities. Positivity of the quartic moment proves the if-and-only-if stability boundary, and differentiating the rational ceiling proves the endpoint comparison. The rational witness was recomputed directly from the joint table. A standalone exact-arithmetic checker passed 2,467 tests; the universal claim is proved analytically, not by enumeration.
+## correctness
 
-**Originality — PASS with residual priority risk.** Full primary-text comparisons were made against Chavdarova et al.'s stochastic-bilinear divergence theorem, Mishchenko et al.'s same-sample stochastic extragradient method, Li et al.'s bilinear same-sample and averaging theorems, Gorbunov et al.'s same/independent general analysis and arbitrary single-sample distributions, and Yoon–Loizou's later monotone-VI treatment of the two standard sampling schemes. Their results do not give a globally optimized *within-iteration* coupling with fixed two-point oracle marginals or the sharp direction reversal and the exact witness. Named aliases and stronger general SEG bounds were checked. The claim is not asserted to have independent priority, and unindexed specialized derivations cannot be ruled out.
+PASS
 
-**Value — PASS.** Reusing a sampled gradient is standard advice motivated by known independent-sample failures. The exact reversal is a genuine stability-design distinction: at fixed oracle cost and preserved one-call marginals, maximizing anticorrelation can make the method contract when the two conventional choices both expand. The theorem also identifies the precise condition under which anticorrelation truly expands the stable step interval, rather than merely reducing an already unstable multiplier. This is a complete parameter classification for the natural two-point oracle model, not an arbitrary finite slice. Scope is limited to a real one-mode bilinear game, exact arithmetic, iid iteration pairs and equal steps; no runtime or high-dimensional extrapolation is made.
+For J²=-I, the predictor–corrector update is [(1-η²XY)I−ηYJ]z. Its transpose times itself is exactly [(1-uXY)²+uY²]I. With iid outer pairs this gives the exact all-iterations power identity. The joint two-point marginal law has one free t and its mixed moments are M2−t(b−a)² and M4−t(b²−a²)², making ρ affine in t, with derivative u(b−a)²[2−u(a+b)²]. Positivity E[X²Y²]>0 gives the necessary/sufficient strict stability interval and neutral boundary. Recomputed the sample a=1,b=2,p=1/2,u=1/3 yielding 10/9,37/36,17/18 and ceilings 5/17,8/25,3/8. Strict endpoint cases and equal-marginal constraint are explicit.
 
-The closest published literature investigates the two conventional couplings but does not compare the complete set of dependent joint laws. The included verifier uses exact rational arithmetic but cannot establish independence of the claim from all published work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact optimization over all dependent predictor/corrector Bernoulli couplings is not a mere restatement of same-sample, independent-sample or variance-reduced analyses. The sign reversal at η²=2/(a+b)² and feasible antithetic rescue example are new to best knowledge on inspected primary results; no absolute priority certification.
+
+## value
+
+PASS
+
+The optimal sampling dependence is a motivated algorithmic choice with fixed one-call marginals and oracle call count. A provable crossover and a regime where antithetic stages converge while two conventional choices diverge are substantive structural design facts rather than an arbitrary numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
