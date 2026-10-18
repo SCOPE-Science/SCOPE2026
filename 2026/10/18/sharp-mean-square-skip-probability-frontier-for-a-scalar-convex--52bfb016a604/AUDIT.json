@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Substitution into the source algorithm yields exactly the displayed Bernoulli matrices. The symbolic identity \\(W-\\mathcal L_p(W)=2D(p)I_2\\) holds as a rational-polynomial equality for every \\(p>0\\); Sylvester minors show \\(W\\succ0\\); the sole positive zero of \\(D\\) is \\((\\sqrt{73}-7)/12\\). Conditional expectation with the correctly signed positive forms proves geometric contraction, geometric growth, or exact critical conservation for all deterministic nonzero starts. The embedded verifier rechecked 111 exact identities/finite-horizon path cases but those are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 of arXiv:2207.12891 requires \\(\\gamma\tau/p\\le1\\) in its Bernoulli-skip instance; with \\(\\gamma=\tau=1\\), this sufficient region is only \\(p=1\\).",
+        "The reduction to ProxSkip in Appendix A.1 explicitly imposes \\(\tau=p/\\gamma\\); the analyzed family instead holds \\(\tau=1\\) fixed.",
+        "ProxSkip, arXiv:2202.09357, Algorithm 1 and Theorem 3.6, analyzes its own probability-scaled correction and a different two-state map."
+      ],
+      "reasoning": "The primary theorem does not imply either the convergence interval strictly below probability one or an instability statement. The specialized ProxSkip guarantee has a different \\(p\\)-dependent proximal operator; general stochastic primal-dual convergence conditions cannot be substituted without proving map equivalence.",
+      "searches": [
+        "randomized proximal primal dual stochastic Bernoulli skip parameter mean squared spectral radius Lyapunov phase transition",
+        "ProxSkip fixed stepsizes mean square divergence stable threshold scalar quadratic",
+        "Correlated dual batches can reverse mean square stability stochastic primal dual hybrid gradient marginal sampling q",
+        "Stochastic Primal-Dual Hybrid Gradient Algorithm with Arbitrary Sampling and Imaging Applications",
+        "arXiv:2207.12891 Theorem 1 Appendix A.1"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus published record 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6: scalar random-curvature stochastic step-size optimization, not proximal dual-skip matrices; summary examined, full paper not inspected.",
+      "published-finding corpus published record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac: delayed Gauss–Seidel scalar recurrence, not Bernoulli dual correction; summary examined, full paper not inspected.",
+      "Condat and Richtárik, arXiv:2207.12891, Algorithm 5, Theorem 1, and Appendix A.1, relevant source sections directly inspected.",
+      "Mishchenko et al., arXiv:2202.09357, Algorithm 1 and Theorem 3.6, relevant source sections directly inspected."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Algorithm 5 permits positive independent \\(\\gamma,\tau\\), but the published sufficient proof imposes a probability-dependent upper bound on their product.",
+        "A related stochastic primal-dual hybrid-gradient example studies correlated batches of two dual blocks; its transition operators and sampling parameters are mathematically different.",
+        "A related stochastic proximal-quadratic example studies uncorrected component proximal selections and stationary bias, not a dual-corrected two-state recursion."
+      ],
+      "reasoning": "The proposed three-regime classification is neither an instance of the \\(p=1\\)-only sufficient theorem nor a corollary of probability-scaled ProxSkip. The other checked research claims use different recurrence matrices and objective quantities.",
+      "searches": [
+        "RandProx Skip primal dual scalar quadratic unit primal dual stepsize iid Bernoulli update probability mean square stability threshold",
+        "ProxSkip fixed stepsizes mean square divergence stable threshold scalar quadratic",
+        "Correlated dual batches can reverse mean square stability stochastic primal dual hybrid gradient marginal sampling q",
+        "A sharp sampling-collapse transition for constant-step stochastic proximal quadratics stationary risk",
+        "Condat Richtarik RandProx-Skip Algorithm 5 Theorem 1",
+        "Mishchenko ProxSkip Algorithm 1 convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Condat–Richtárik, arXiv:2207.12891, Algorithm 5 and Appendix A.1: two-path dual proximal rule, with the normalized parameter \\(\tau\\) independent of the random coin.",
+        "The exact second-moment lift has \\(\\det(I_3-B(p))=(6p^2+7p-1)/16\\); none of the inspected passages states this specialization or its positive-definite critical invariant."
+      ],
+      "reasoning": "Compared the precise Bernoulli state map, fixed-step normalization and moment-spectrum boundary, not just similar titles. The searched literature did not exhibit an equivalent formulation, but a failed semantic search alone cannot establish priority.",
+      "searches": [
+        "RandProx Skip primal dual scalar quadratic unit primal dual stepsize iid Bernoulli update probability mean square stability threshold",
+        "randomized proximal primal dual stochastic Bernoulli skip parameter mean squared spectral radius Lyapunov phase transition",
+        "randprox skip sqrt 73 probability threshold quadratic",
+        "Bernoulli sampling randomized primal-dual proximal operator unit gamma tau exact critical mean-square probability 0.1287",
+        "\"RandProx-Skip\" quadratic divergence threshold probability",
+        "\"RandProx-Skip\" mean-square stability gamma tau probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-radical, polynomial and probability-threshold searches did not surface a matching published mathematical table or calculation.",
+        "The result determines the signs of the full continuous probability interval, not a numerically tabulated finite set of parameter values."
+      ],
+      "reasoning": "No exact previously tabulated boundary was identified; unrelated uses of the same radical and generic Bernoulli thresholds do not cover the stated update matrices. Absence of a table is not independent novelty proof.",
+      "searches": [
+        "randprox skip sqrt 73 probability threshold quadratic",
+        "Bernoulli sampling randomized primal-dual proximal operator unit gamma tau exact critical mean-square probability 0.1287",
+        "\"sqrt(73)\" \"prox\" randomized primal dual"
+      ]
+    },
+    "rationale": "Algorithm 5 and Theorem 1 in arXiv:2207.12891 were inspected and compared directly. The published sufficient theorem covers only \\(p=1\\) in this fixed-unit-step specialization; its ProxSkip reduction requires the different choice \\(\tau=p\\). The full-text ProxSkip source and searches of published research records do not yield the exact fixed-parameter three-regime theorem. Existing related stochastic primal-dual and uncorrected proximal claims have different recurrences. Literature priority remains subject to external verification.",
+    "residual_risks": [
+      "The semantic research index does not establish uniqueness or cover unpublished or unindexed results; an equivalent Bernoulli random-matrix calculation under different terminology could exist.",
+      "published-finding corpus comparisons to some published records were based only on returned summaries, never used to certify whole-document absence of a specialized result.",
+      "The theorem is intentionally limited to the exact fixed-parameter scalar quadratic; no full-class or almost-sure claim is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the two-branch algorithm and a broader sufficient convergence theorem; inspected material does not derive this fixed-unit-step exact threshold. The optional ProxSkip reduction instead requires a probability-scaled dual stepsize.",
+        "evidence": [
+          "arXiv:2207.12891, pp. 6, 8, 15: Theorem 1, Theorem 3 and Algorithm 5/Appendix A.1.",
+          "Theorem 1 probability-adjusted condition reduces to \\(1/p\\le1\\) for the present parameters."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.12891",
+        "material_read": "PDF primary text and visual pages: problem formulation, Theorem 1 and its parameter bound, Algorithm 5, Appendix A.1, reduction to ProxSkip, Theorem 3 specialization, and targeted searches of subsequent appendices.",
+        "method": "Read the publicly accessible full-paper PDF, directly inspected relevant page images and mathematical equations, and compared update maps and sufficient hypotheses.",
+        "title": "RandProx: Primal-Dual Optimization Algorithms with Randomized Proximal Updates",
+        "trigger": "Exact source of the Bernoulli proximal-update rule and the most plausible dominating theorem."
+      },
+      {
+        "assessment": "It does not supply the fixed-\\(\tau\\) two-branch map. Equivalence in the RandProx paper explicitly requires \\(\tau=p/\\gamma\\), which differs for \\(p<1\\).",
+        "evidence": [
+          "arXiv:2202.09357, pp. 4–5 and 13: Algorithm 1, Theorem 3.6, Appendix B.",
+          "Selected correction is through \\(\\operatorname{prox}_{\\gamma\\psi/p}\\), not a fixed \\(\\operatorname{prox}_{h^*}\\) with \\(\tau=1\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.09357",
+        "material_read": "Accessible full-paper PDF sections on Algorithm 1, its control-variate updates, Section 3 assumptions and contraction theorem, and Appendix B proximal operator definition.",
+        "method": "Read source mathematical text and inspected relevant PDF page images for the actual proximal scaling and correction.",
+        "title": "ProxSkip: Yes! Local Gradient Steps Provably Lead to Communication Acceleration! Finally!",
+        "trigger": "Potential equivalence to the better-known proximal-skip specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52bfb016-a604-4af8-b756-c7fb35ede8a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The update-frequency parameter and fixed primal/dual steps are central tuning quantities for primal-dual splitting. The canonical equal-curvature unit-step test is a structurally natural simplest nondegenerate convex model, not an arbitrary data slice. The result gives an exact continuous-parameter frontier, exhibiting a strictly larger mean-square-stable probability interval than the known sufficient condition as well as exponential rare-update instability and a conserved critical energy. This is a useful sharp benchmark for deciding whether update probability can be reduced while proximal scaling is held fixed; no generic solver or computational-cost advantage is asserted.",
+    "status": "PASS"
+  }
+}
