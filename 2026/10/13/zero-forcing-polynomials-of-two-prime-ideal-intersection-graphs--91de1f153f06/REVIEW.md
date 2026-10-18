@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ideals of \(\mathbb Z/(p^\alpha q^\beta)\) are indexed by exponent pairs, and intersection is given by coordinatewise maxima. This yields exactly three vertex classes and only one missing complete bipartite block, so the graph is \(K_{\alpha\beta-1}\vee(K_\alpha\dot\cup K_\beta)\). The three classes are true-twin classes. Three white representatives, one from each class, stall; every two white representatives from different classes force. This proves the complete three-term polynomial. The explicit two-dimensional Gram construction has exactly the required zero pattern and rank \(2\). The polynomial-collision theorem follows from an exact quadratic identity in the exponent sum and a finite Diophantine reduction, not from computation.
+PASS
 
-The packaged verifier independently reconstructs the graphs, exhaustively checks small polynomials, verifies the rank witness exactly, and corroborates the two collision pairs.
+The nonzero proper ideals of Z/(p^a q^b) are exponent pairs excluding (0,0),(a,b); I_ij ∩ I_kl is zero iff max(i,k)=a and max(j,l)=b. This gives the complete 3-class decomposition K_(ab-1) join (K_a disjoint_union K_b), with (1,1) exactly 2 isolates. True twins prevent two initial whites in the same class; one white in every class stalls; all pairs in distinct classes force, giving E=ab+(a+b)(ab-1) minimum sets and polynomial E u^(N-2)+N u^(N-1)+u^N. The vectors (1,0),(0,1),(1,1) yield rank-two real Gram pattern and connected noncomplete excludes rank one. At equal degree N and coefficient E, writing s=a+b,t=ab forces (s-s')(N-1-s-s')=0; unequal sums give t'=s+2,s'=t-2 and the all-exponents>=2 bounds or (gamma-1)(delta-1)=6 when an exponent is 1, leaving only pairs (1,9)~(3,4),(1,11)~(2,7). Independently simulated every initial zero forcing set for pairs (1,1),(1,2),(1,3),(2,2),(2,3); coefficient vectors matched, and checked both collision formulas. The finite tests are not the infinite Diophantine argument.
 
-## Originality
+## originality
 
-PASS. The 2009 exact-object paper determines the structure and isomorphism classification of \(G(\mathbb Z_n)\) but does not study zero forcing or graph minimum rank. The 2013 commutative-algebra paper, with primary MSC \(13A15\), also contains no zero-forcing or minimum-rank occurrence. Generic zero-forcing-polynomial theory supplies extremal coefficient tools but does not state the two-prime ideal family or its collision classification.
+PASS
 
-A broader finite-principal-ideal-ring theorem already covers the numerical equality \(Z=M=N-2\) and minimum rank \(2\) here. Those values are therefore not treated as standalone novelty. The new scientific content is the complete counting polynomial, classification of all minimizers, and proof that only two nonisomorphic exponent pairs collide.
+The graph decomposition is classical, and the scalar Z=N-2 and real minimum rank 2 are covered by earlier general principal-ideal-ring results. The surviving exact three-term polynomial with all minimum white pairs and especially the complete two-collision recognizability theorem is not implied by those scalar formulas or the published coefficient extrema. Best-of-knowledge PASS, with an older graph-polynomial equivalence a residual risk.
 
-## Value
+## value
 
-PASS. The result gives a complete forcing-count invariant on a classical algebraic graph family and answers a natural recognizability question exactly. The two exceptional collisions are mathematically informative: the polynomial almost recovers the unordered exponent factorization, but fails at precisely two Diophantine coincidences. This is substantially stronger than recomputing the zero forcing number.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete enumerator and sharp two-collision failure of graph reconstruction are motivated natural invariants of a standard algebraic graph family. The exact two nonisomorphic collision pairs can be used to test limits of zero-forcing-polynomial identification. They are not routine restatements of the already-known scalar zero forcing rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

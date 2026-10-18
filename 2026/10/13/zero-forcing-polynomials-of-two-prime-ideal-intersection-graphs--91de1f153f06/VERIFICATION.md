@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,44 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-The checker constructs the ideal-intersection graph directly from exponent pairs
-\[
-(i,j)
-\]
-using the exact rule
-\[
-I_{i,j}\cap I_{k,\ell}\ne0
-\quad\Longleftrightarrow\quad
-\max(i,k)<\alpha
-\ \text{or}\
-\max(j,\ell)<\beta.
-\]
+## correctness
 
-It verifies the three canonical class sizes and the fact that the only missing edges form the complete bipartite block between the two boundary classes.
+PASS
 
-For every small exponent pair with graph order at most \(15\), all vertex subsets are exhaustively enumerated and the full zero forcing polynomial is compared with the closed form.
+The nonzero proper ideals of Z/(p^a q^b) are exponent pairs excluding (0,0),(a,b); I_ij ∩ I_kl is zero iff max(i,k)=a and max(j,l)=b. This gives the complete 3-class decomposition K_(ab-1) join (K_a disjoint_union K_b), with (1,1) exactly 2 isolates. True twins prevent two initial whites in the same class; one white in every class stalls; all pairs in distinct classes force, giving E=ab+(a+b)(ab-1) minimum sets and polynomial E u^(N-2)+N u^(N-1)+u^N. The vectors (1,0),(0,1),(1,1) yield rank-two real Gram pattern and connected noncomplete excludes rank one. At equal degree N and coefficient E, writing s=a+b,t=ab forces (s-s')(N-1-s-s')=0; unequal sums give t'=s+2,s'=t-2 and the all-exponents>=2 bounds or (gamma-1)(delta-1)=6 when an exponent is 1, leaving only pairs (1,9)~(3,4),(1,11)~(2,7). Independently simulated every initial zero forcing set for pairs (1,1),(1,2),(1,3),(2,2),(2,3); coefficient vectors matched, and checked both collision formulas. The finite tests are not the infinite Diophantine argument.
 
-The real symmetric rank-two Gram witness is checked entry-by-entry and by exact rational row reduction.
+## originality
 
-Finally, the two polynomial collisions are verified directly and shown to have different degree multisets. A finite exponent census through \(79\) corroborates that no other collisions appear there; the proof of global uniqueness uses the symbolic Diophantine argument in `RESULT.md`, not this finite scan.
+PASS
 
-Exact replay output:
+The graph decomposition is classical, and the scalar Z=N-2 and real minimum rank 2 are covered by earlier general principal-ideal-ring results. The surviving exact three-term polynomial with all minimum white pairs and especially the complete two-collision recognizability theorem is not implied by those scalar formulas or the published coefficient extrema. Best-of-knowledge PASS, with an older graph-polynomial equivalence a residual risk.
 
-```text
-(1,1): N=2, polynomial={2: 1}, witness_rank=0
-(1,2): N=4, polynomial={2: 5, 3: 4, 4: 1}, witness_rank=2
-(1,3): N=6, polynomial={4: 11, 5: 6, 6: 1}, witness_rank=2
-(1,4): N=8, polynomial={6: 19, 7: 8, 8: 1}, witness_rank=2
-(2,2): N=7, polynomial={5: 16, 6: 7, 7: 1}, witness_rank=2
-(2,3): N=10, polynomial={8: 31, 9: 10, 10: 1}, witness_rank=2
-(2,4): N=13, polynomial={11: 50, 12: 13, 13: 1}, witness_rank=2
-(3,3): N=14, polynomial={12: 57, 13: 14, 14: 1}, witness_rank=2
-(3,4): N=18, predicted={16: 89, 17: 18, 18: 1}, witness_rank=2
-(4,4): N=23, predicted={21: 136, 22: 23, 23: 1}, witness_rank=2
-collision (1,9) ~ (3,4): polynomial={16: 89, 17: 18, 18: 1}, degree_multisets_differ
-collision (1,11) ~ (2,7): polynomial={20: 131, 21: 22, 22: 1}, degree_multisets_differ
-COLLISION_CENSUS_OK
-VERIFY_OK
-```
+## value
+
+PASS
+
+A complete enumerator and sharp two-collision failure of graph reconstruction are motivated natural invariants of a standard algebraic graph family. The exact two nonisomorphic collision pairs can be used to test limits of zero-forcing-polynomial identification. They are not routine restatements of the already-known scalar zero forcing rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
