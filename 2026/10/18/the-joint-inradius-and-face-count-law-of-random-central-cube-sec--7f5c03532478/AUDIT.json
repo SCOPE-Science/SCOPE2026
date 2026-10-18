@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For a centrally symmetric section, any inscribed disk can be centered by averaging; the six half-plane distances give R=(1-min|u_i|²)^(-1/2). A section is six-sided iff the three absolute normal coordinates satisfy strict triangle inequalities. A full 48-sector spherical parametrization has exactly unit area element dz dt; splitting the allowed angle at pi/4-phi(z) yields the stated two joint densities and their sharp junction z=1/sqrt(6). The continuous ratio is strictly increasing. The actual packaged independent polygon-hull verifier passes 2500 sections, normalization and unconditional face-count marginal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full all-box hexagon law https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md gives an unconditional face-type probability depending on box dimensions but states no metric-conditioned joint distribution.",
+        "Lonke Proposition 2.5 gives expected face counts, not inradius-conditioned probabilities."
+      ],
+      "reasoning": "The all-box result is broader in body class but strictly coarser in observables: knowing a polygon-type marginal for each box does not determine a joint law with the continuous Euclidean section inradius even for the cube.",
+      "searches": [
+        "joint distribution inradius and polygon type of central planar cube sections hexagon rectangle",
+        "cube central plane section inradius conditional on six vertices four vertices exact law",
+        "cube central plane section inradius conditional on six vertices four vertices exact law"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.06348 (public primary full-text searchable transcription and abstract)",
+      "arXiv:math/9812123 (author full text available in HTML transcription)",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+      "https://oeis.org/A349605"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lonke arXiv:math/9812123, Proposition 2.5 dimension-three remark",
+        "Full all-box RESULT.md https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "Full polar-octahedron RESULT.md https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md"
+      ],
+      "reasoning": "Face-count expected value is a single marginal scalar; inradius of the projected octahedron determines cube-section circumradius via polarity, not its Euclidean inradius. Even their combination does not imply the joint law, because marginal distributions do not determine correlations or conditional laws. The new exact conditioning requires an independent spherical-triangle chamber calculation.",
+      "searches": [
+        "diameter distribution uniformly random central plane section of three dimensional cube exact law solid angle",
+        "inradius distribution random central plane section of cube and circumradius random orthogonal projection of regular octahedron",
+        "joint distribution inradius and polygon type of central planar cube sections hexagon rectangle",
+        "cube central plane section inradius conditional on six vertices four vertices exact law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cube-section inradius is the reciprocal of the largest norm of a projected coordinate normal, unlike the polar-octahedron projected inradius, which is the inverse cube-section circumradius.",
+        "Full RESULT.md of https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md gives an octahedron projection inradius law; no cube-section inradius plus face-count joint statement."
+      ],
+      "reasoning": "Polarity exchanges section and projection and swaps inradius with reciprocal circumradius, not inradius with inradius. No dual reformulation of the published polar metric gives the present joint density.",
+      "searches": [
+        "diameter distribution uniformly random central plane section of three dimensional cube exact law solid angle",
+        "inradius distribution random central plane section of cube and circumradius random orthogonal projection of regular octahedron",
+        "joint distribution inradius and polygon type of central planar cube sections hexagon rectangle",
+        "random central cube section inradius law minimum absolute coordinate normal exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A349605 https://oeis.org/A349605 tabulates 1-6/pi*arcsin(1/3), matching the integrated six-sided marginal only."
+      ],
+      "reasoning": "The tabulated marginal is explicitly attributed and recovered for normalization, not claimed new; no observed table contains conditional inradius density or the sharp threshold.",
+      "searches": [
+        "joint distribution inradius and polygon type of central planar cube sections hexagon rectangle",
+        "cube central plane section inradius conditional on six vertices four vertices exact law",
+        "cube central plane section inradius conditional on six vertices four vertices exact law"
+      ]
+    },
+    "rationale": "This is the joint inradius/type measure, whereas published face-count statements are count marginals and the published polar octahedron-projection inradius law is dual to cube-section circumradius, not inradius. Matching the underlying cube, metric, conditioning, and implications distinguishes the claims; a priority risk from unindexed formulas remains.",
+    "residual_risks": [
+      "Unindexed older stereological formulas may express an equivalent joint law.",
+      "Self-review do not replace an independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the face-count marginal and related expected counts, not a joint distribution with Euclidean section inradius",
+        "evidence": [
+          "Proposition 2.5 and remark after equation (14): the expected vertices of the 3-cube planar section and parallelogram-versus-hexagon comparison."
+        ],
+        "identifier_or_url": "arXiv:math/9812123; https://www.researchgate.net/publication/225671896_On_Random_Sections_of_the_Cube",
+        "material_read": "Introduction setting and formulas; Section 2 Proposition 2.5, dimension-three remark; Sections 2–3 face-count statements as accessible webpage full-text",
+        "method": "Read the accessible author-supplied transcription of the primary article and compare objects and quantities",
+        "title": "On random sections of the cube",
+        "trigger": "same cube, centered Haar section and polygon-face count"
+      },
+      {
+        "assessment": "Proves unconditional hexagon probability for positive orthogonal boxes, but no inradius variable or conditional joint density",
+        "evidence": [
+          "Theorem p6(a,b,c)=4/pi arctan(2abc/Q), proof via triangle inequalities, stated limitation on distributions of other section metrics."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "material_read": "Entire accessible RESULT.md with Finding, Assumptions and scope, proof, relationship and limitations",
+        "method": "Fetched published primary full mathematical text via repository file reader",
+        "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+        "trigger": "directly matching face-count chamber, stronger rectangular-box family"
+      },
+      {
+        "assessment": "Its projected octahedron inradius equals reciprocal cube-section circumradius. This is a different metric invariant from the present cube-section inradius and does not give joint face count.",
+        "evidence": [
+          "Polar reduction explicitly: projected octahedron polar is cube section, rho=1/R where R is cube-section circumradius."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+        "material_read": "Entire accessible RESULT.md, including the polar reduction, complete law, proof and prior-work discussion",
+        "method": "Fetched published primary full mathematical text via repository file reader",
+        "title": "Exact inradius law for random planar projections of the regular octahedron",
+        "trigger": "polarity and possible equivalent radial metric"
+      },
+      {
+        "assessment": "Studies random widths of orthotopes and zonotopes rather than the Euclidean inradius of central cube sections jointly conditioned on face count; no relevant term matched in accessible transcription",
+        "evidence": [
+          "arXiv v1 posted 2026-08-06; title and abstract concern random width-law moments and spectral geometric reconstruction."
+        ],
+        "identifier_or_url": "arXiv:2608.06348, https://www.researchgate.net/publication/411823813_Width_Laws_and_Spectral_Geometry",
+        "material_read": "Primary abstract, opening description and searchable author-posted publicly accessible text; checked for inradius, hexagon, central cube section with no matching occurrences",
+        "method": "Read public arXiv metadata and inspected searchable public full-text transcription for relevant metric terms",
+        "title": "Width Laws and Spectral Geometry",
+        "trigger": "recent geometric random width laws for orthotopes motivating shape-resolved distributions"
+      },
+      {
+        "assessment": "Records exactly the known hexagon marginal and not the joint probability density.",
+        "evidence": [
+          "p6=1-6*arcsin(1/3)/pi."
+        ],
+        "identifier_or_url": "https://oeis.org/A349605",
+        "material_read": "Entry title, comment, formula, attribution and date of earlier solution",
+        "method": "Read public sequence record",
+        "title": "OEIS A349605",
+        "trigger": "known exact cube-section polygon-count probability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f5c0353-2478-4768-8b0a-fe56387f6a9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete exact joint law for a canonical random polytope section and two distinct natural observables (inradius, side count). It yields a sharp nontrivial topological phase threshold sqrt(6/5), strictly monotone conditional six-sided probability and positive association of inradius with type, none of which is contained in the known face-count marginal. The explicit unit-Jacobian spherical chamber decomposition is reusable for joint stereological calculations.",
+    "status": "PASS"
+  }
+}
