@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:50:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Pairwise error-ball disjointness equals exclusion of differences E+E. Every difference supported on the last four coordinates can be split into allowed burst patterns on {3,4} and {5,6}; first-two-coordinate projection is injective, proving code size<=4 even for nonlinear codes. Independently re-created all 64 error balls, graph adjacency and enumerated all four-cliques, obtaining exactly 192 and verifying closure under XOR after translating a chosen word; exactly 12 distinct direction subspaces and 16 cosets each. Translation-plus-reversal action has 7 orbits with sizes 16,16,32,32,32,32,32. Finite exhaustive enumeration is a complete proof for this specific 64-vertex problem, not a mere partial sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published work on systematic constructions and perfect adjacent-error codes addresses related channel families, not a demonstrated complete census at n=6; here 4 balls of size12 cover only 48/64, hence no perfect packing."
+        ],
+        "reasoning": "Perfect-code classification in a different parameter and a general burst-distance bound do not subsume a nonperfect fixed-blocklength equality orbit classification.",
+        "searches": [
+          "Resultary semantic search: length 6 binary SEC DAEC adjacent double error correcting codes equality all size 4 codes",
+          "Abramson 1958/1959 published model",
+          "Sharma and Dass, Adjacent-error correcting binary perfect codes (1977)"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md, verify.py, directions.json tree reference",
+        "Abramson 1958 report and 1959 DOI:10.1109/TIT.1959.1057524 (abstract)",
+        "Bridwell and Wolf DOI:10.1002/j.1538-7305.1970.tb01806.x (available description)",
+        "Resultary semantic search: length 6 binary SEC DAEC adjacent double error correcting codes equality all size 4 codes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abramson introduced systematic adjacent double-error correcting codes; here all 192 codebooks are non-assumed-linear and prove the 12-plane plus 7-orbit classification by exhaustive finite combinatorics."
+        ],
+        "reasoning": "An error-correcting construction implies existence/lower bound but not uniqueness, completeness or affine structure of all equality cases; no stronger full enumeration was established in available source material.",
+        "searches": [
+          "Abramson DOI:10.1109/TIT.1959.1057524",
+          "Resultary semantic search: length 6 binary SEC DAEC adjacent double error correcting codes equality all size 4 codes",
+          "Bridwell--Wolf DOI:10.1002/j.1538-7305.1970.tb01806.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical SEC-DAEC codes allow single-bit and adjacent double-bit flips, and disjoint error balls; the exact equality census for arbitrary length-six codebooks is not contained in inspected accessible abstracts."
+        ],
+        "reasoning": "Error-ball compatibility is the standard equivalent description, but a model definition or linear construction does not give the all-nonlinear optimal-code classification.",
+        "searches": [
+          "Resultary semantic search: length 6 binary SEC DAEC adjacent double error correcting codes equality all size 4 codes",
+          "Abramson, A Class of Systematic Codes for Non-Independent Errors, DOI:10.1109/TIT.1959.1057524",
+          "Bridwell and Wolf, Burst Distance and Multiple-Burst Correction, DOI:10.1002/j.1538-7305.1970.tb01806.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches found length-six asymmetric one-error and deletion code censuses, with different channels. No accessible exact table for the 12-error-vector noncyclic SEC-DAEC ball at n=6 was found."
+        ],
+        "reasoning": "Identical binary length and similar words “one error” are insufficient: asymmetric and deletion metrics have different confusability graphs; their tables cannot imply 192 SEC-DAEC maxima.",
+        "searches": [
+          "Resultary semantic search: length 6 binary SEC DAEC adjacent double error correcting codes equality all size 4 codes",
+          "Resultary:2026/10/4/SCOPE-complete-classification-of-optimal-binary-length-six-asymmetric--6b3b72dd21d8",
+          "Resultary:2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the Abramson SEC/DAEC model and linear constructions, later burst-distance bounds and perfect-code discussions are prior. Their accessible statements do not include the complete arbitrary (including nonlinear) length-six equality census, affine rigidity and specific seven subgroup orbits. Older 1958/1959 full text could not be accessed and priority risk remains.",
+      "residual_risks": [
+        "Full original Abramson report and early adjacent-error classification literature were not accessible; a prior length-six census may exist.",
+        "Seven orbit count uses only stated subgroup, not the full compatibility-graph automorphism group."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and constructions prior; full source does not permit categorical exclusion of n=6 enumeration",
+          "evidence": "Original constructs systematic adjacent error correcting codes; Oxford VPN disconnected (job 38258385b5ca5d5a4a3406da59d04954), full article not examined.",
+          "identifier_or_url": "DOI:10.1109/TIT.1959.1057524; Stanford SEL-TR-51 (1958)",
+          "material_read": "Available publication abstract and bibliographic description; no full paper",
+          "method": "web scholarly metadata and abstract; authorized institutional text attempted",
+          "title": "A Class of Systematic Codes for Non-Independent Errors",
+          "trigger": "Original SEC–DAEC model for exact channel"
+        },
+        {
+          "assessment": "Not covering; different asymmetric error channel",
+          "evidence": "Classification has 30 labeled maxima for an asymmetric bit-flip model, whereas present SEC–DAEC forbids adjacent double flips.",
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-complete-classification-of-optimal-binary-length-six-asymmetric--6b3b72dd21d8",
+          "material_read": "Resultary returned short scientific summary and title",
+          "method": "Resultary semantic search",
+          "title": "Complete classification of optimal binary length-six asymmetric 1-codes",
+          "trigger": "Same block length and equality-classification type"
+        },
+        {
+          "assessment": "Different deletion channel",
+          "evidence": "A single deletion has different output alphabet and confusability than adjacent substitution burst.",
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c",
+          "material_read": "Resultary returned short scientific summary",
+          "method": "Resultary search",
+          "title": "Complete census of maximum binary length-six single-deletion codes",
+          "trigger": "Other natural length-six code census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This is the first small nontrivial blocklength at which a sharp projection upper bound coexists with multiple optimal codes; classifying all nonlinear optima and proving unexpected affine rigidity is a mathematically natural exact finite boundary, not merely recomputing a known scalar capacity. The 12 direction planes and symmetry types provide benchmark structure for SEC-DAEC constructions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary strings of length 6 correcting a single noncyclic burst of length at most two (E={0,e_i,e_i+e_{i+1}}), the maximum code size is 4, and there are exactly 192 labeled maximum codes; all are affine 2-flats, from 12 direction planes with 16 cosets each, forming seven orbits (two size16 and five size32) under binary translations and coordinate reversal.",
+  "limitations": [
+    "Noncyclic adjacent burst, length exactly 6, binary alphabet, at most two adjacent flipped positions.",
+    "No claim concerning the full graph automorphism group or longer codes."
+  ],
+  "schema_version": 1
+}
