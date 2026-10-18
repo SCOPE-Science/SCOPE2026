@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The generator on the disagreement-count state k has rates k to k-1 and ck/n to n-k. Dividing its exact finite backward equations by k and summing gives τ_n=nH_n/(n+c); its k=n boundary gives τ_{n-1}=H_{n-1}, and k=1 gives τ_1=(n+cH_{n-1})/(n+c). All states are transient except 0 and mean absorption finite for c>0. The martingale with weights degree/flip rate gives the two exact fixation probabilities. Difference numerators are affine in c with unique roots. The independently implemented full binary-state generator and lumped generator agree exactly for 28 and 77 rational examples respectively; infinite quantifiers are established by the proof, not code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2011 star-game paper's general formulas do range over fitness parameters and updating rules, but its mutable fitness-based rates differ from node-intrinsic \\(c\\).",
+        "The 2014 numerical graph extremal comparisons fix equal per-node clock rates; they do not dominate a rate-dependent theorem."
+      ],
+      "reasoning": "A stronger theorem for arbitrary star Markov generators would cover this claim, but the inspected exact star results have specific transition probabilities not reducible to the rate \\(c\\) case except the homogeneous \\(c=1\\) slice. No covering full-generator statement was located.",
+      "searches": [
+        "\"star\" \"heterogeneous voter model\" \"consensus\" center rate mean",
+        "\"hub\" \"leaf\" \"consensus time\" \"voter model\"",
+        "doi:10.1007/s13235-011-0022-7 full text Sections 2 and 4",
+        "doi:10.1103/PhysRevE.90.012816 full text Sections II and III"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0712.4288 (full primary text; first public 2007-12-27)",
+      "arXiv:1003.0768 (full primary text; first public 2010-03-03)",
+      "doi:10.1007/s13235-011-0022-7 (author-manuscript main text and table)",
+      "doi:10.1103/PhysRevE.90.012816 (full accessible primary text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 star \\(1/2\\) fixation special case agrees with this theorem at \\(c=1\\) but does not entail \\(T_{\\mathrm C}\\) or \\(T_{\\mathrm L}\\) when \\(c\ne1\\).",
+        "The 2010 intrinsic rate model is defined, but no exact star threshold is derived.",
+        "The 2011 formula concerns a different rate law; the 2014 finite graph census fixes per-node update rates."
+      ],
+      "reasoning": "The proposed result holds uniformly over two independent dimensions, star size and center response rate, and makes an exact comparison of two initial placements. Existing fixation laws alone imply neither absorption time nor its crossing; asymptotic consensus-time laws cannot imply the exact finite-\\(n\\) threshold.",
+      "searches": [
+        "arXiv:0712.4288 Eq. (15) and Section IV.A",
+        "arXiv:1003.0768 Eqs. (1)-(8)",
+        "doi:10.1007/s13235-011-0022-7 Sections 2 and 4",
+        "doi:10.1103/PhysRevE.90.012816 Sec. III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0712.4288 exhibits \\(P_{\\mathrm C}=1/2\\) only for uniform-rate star and gives an asymptotic bipartite time reduction.",
+        "arXiv:1003.0768 gives flip-rate HVM but does not analyze the star \\(K_{1,n}\\) with a position-dependent center rate.",
+        "DOI 10.1007/s13235-011-0022-7 gives absorption times for state-dependent fitness mechanisms, not fixed vertex rate."
+      ],
+      "reasoning": "The exact state generator requires leaf realignment at rate \\(k\\) and center flip at rate \\(ck/n\\), leading to \\(k\\mapsto n-k\\). None of the inspected published models imposes this position-fixed two-rate generator and derives the two stopping-time rankings; an abstract word match on 'star consensus' cannot establish implication.",
+      "searches": [
+        "\"voter model\" \"star\" \"H_n\" \"consensus\" expected time",
+        "\"voter model\" star \"harmonic number\" \"consensus time\"",
+        "\"star graph\" \"single mutant\" \"mean absorption time\" voter",
+        "For a continuous-time heterogeneous voter model on star K_1,n, center copies random leaf at intrinsic rate c and each leaf copies center at rate one. Compare starting one dissenting center versus one dissenting leaf: exact harmonic-number expected consensus times n H_n/(n+c) and (n+c H_(n-1))/(n+c), reversal rate n(H_n-1)/H_(n-1), and fixation probabilities 1/(1+c) and c/(n(1+c)).",
+        "arXiv:0712.4288 Sections II and IV.A; arXiv:1003.0768 Sections HVM and consensus time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2011 Table 1 compares evolutionary update protocols and strategy fitness, with no tabulation of center Poisson clock-rate thresholds."
+      ],
+      "reasoning": "No exact tabulation of the all-size, all-positive-center-rate mean-time threshold appears in the inspected source/table. These searches do not establish exhaustive absence from the literature.",
+      "searches": [
+        "\"star graph\" \"voter model\" \"consensus time\" \"harmonic\" update rate",
+        "Evolutionary Games on Star Graphs Under Various Updating Rules Table 1"
+      ]
+    },
+    "rationale": "The four highly relevant primary texts were compared at the level of their rate generators, graph class, initial conditions, and exact versus asymptotic conclusions. Sood–Antal–Redner (2007/2008) cover uniform-rate degree heterogeneity, Masuda–Gibert–Redner (2010) intrinsic rates mainly on regular graphs, Hadjichrysanthou–Broom–Rychtař (2011) type-dependent fitness on stars, and Iwamasa–Masuda (2014) unit-rate graph-topology comparisons. This is a best-knowledge claim with residual bibliographic risk, not proof of absolute uniqueness.",
+    "residual_risks": [
+      "Another mathematically equivalent finite-state hitting-time identity may be recorded in less visible stochastic-process literature under a different notation.",
+      "Supplementary appendices and non-open materials beyond the examined principal papers were not exhaustively inspected.",
+      "No independent specialist bibliographic or mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies homogeneous vertex update rates and degree heterogeneity. The exact rate-dependent center-vs-leaf consensus-time crossing and separate fixation-probability threshold are not given or implied by the large-network approximation.",
+        "evidence": [
+          "Preprint equation (15) gives the homogeneous voter fixation conservation law; the star central mutant probability is one half.",
+          "Section IV.A derives an asymptotic complete-bipartite mean-time formula after density reduction, not the finite position-rate law."
+        ],
+        "identifier_or_url": "arXiv:0712.4288; https://arxiv.org/pdf/0712.4288",
+        "material_read": "Full accessible 14-page preprint, especially Sections II, IV.A, and star comparison around the conservation law and bipartite mean-time approximation.",
+        "method": "Examined the model transition rules, the star fixation example, degree-weighted conservation, and the complete-bipartite consensus-time derivation.",
+        "title": "Voter Models on Heterogeneous Networks",
+        "trigger": "Classical voter-model fixation and consensus time on a star or complete bipartite graph could subsume the present formula."
+      },
+      {
+        "assessment": "Equation (1) assumes constant vertex degree for the stated HVM conservation law; analyzed consensus-time scalings for complete graphs and rings. It does not compute the exact two initial-location absorption times on a heterogeneous-degree star.",
+        "evidence": [
+          "The paper introduces intrinsic update rates and weight \\(1/r\\) for regular networks.",
+          "Its stated time calculations are asymptotic complete-graph/ring rates, not exact \\(K_{1,n}\\) formulas."
+        ],
+        "identifier_or_url": "arXiv:1003.0768; https://arxiv.org/pdf/1003.0768",
+        "material_read": "Accessible complete four-page paper, including equations (1)-(8), regular-network conservation and complete-graph/ring consensus-time analyses.",
+        "method": "Compared the generator's degree normalization and full text's graph classes and scope of rate-distribution results.",
+        "title": "Heterogeneous Voter Models",
+        "trigger": "Intrinsic Poisson copying-rate heterogeneity is the most direct conceptual antecedent."
+      },
+      {
+        "assessment": "Studies strategy-dependent fitness and four evolutionary update rules, without the fixed, opinion-independent spatial rate \\(c\\) at the center and unit rate at leaves; no all-\\(n\\) joint threshold of the present kind follows directly.",
+        "evidence": [
+          "Model has baseline fitness plus neighbor-game payoffs and uniform or fitness-weighted selection.",
+          "The exact star formulas concern strategy-dependent evolutionary updates; Table 1 compares different update rules and fitness regimes."
+        ],
+        "identifier_or_url": "doi:10.1007/s13235-011-0022-7; https://openaccess.city.ac.uk/id/eprint/2164/1/Paper.pdf",
+        "material_read": "Accessible 21-page author manuscript, Sections 1, 2, and 4, including transition-probability and fixed-fitness models and Table 1.",
+        "method": "Compared the actual birth-death/death-birth fitness-selection rates, initial-state definitions, and star absorption formulas with node-specific copying clocks.",
+        "title": "Evolutionary Games on Star Graphs Under Various Updating Rules",
+        "trigger": "Exact single-mutant absorption-time formulas for stars could include this claim as a special case."
+      },
+      {
+        "assessment": "Optimizes over graphs with unit per-vertex update rate, not over position-specific clock rates on one star. No equivalent sharp two-threshold result identified.",
+        "evidence": [
+          "Section II specifies a node chosen uniformly and an update time \\(1/N\\).",
+          "Section III treats exact finite configuration calculations under homogeneous update rules."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.90.012816; https://naokimas.github.io/naokimasuda.github.io/papers/IwamasaMasuda2014PhysRevE.pdf",
+        "material_read": "Accessible full 13-page paper; specifically Sections I-III on stochastic dynamics, full configuration backward equations, and graph-topology comparisons.",
+        "method": "Compared its unit-rate VM per-node update rule and graph search with the proposed fixed graph and variable center rate.",
+        "title": "Networks Maximizing the Consensus Time of Voter Models",
+        "trigger": "Exact initial-state absorption calculations could cover the specific finite star and provide a general bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e6657bf-e811-4f70-a3d3-ead51acd7cf6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Intrinsic response-rate heterogeneity is a substantive social-dynamics variable. The all-n comparison reveals a nonempty interval in which hub-seeded opinion is more likely to win yet yields faster unconditional consensus than leaf-seeded opinion. The two thresholds are explicit and separated by (n-1)/H_{n-1}~n/log n, and the penultimate discordance state's mean duration is invariant under arbitrarily changing center rate. This is a complete structural rate-size classification, beyond a routine one-parameter numeric sweep.",
+    "status": "PASS"
+  }
+}
