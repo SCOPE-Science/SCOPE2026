@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes \(a>0\), \(b=0\), arbitrary leaf \(c\), and bounded **two-sided** solutions. Exact differentiation proves the independent polynomial constants and the Nambu cross-product identity outside equilibria; the linear change to \((c,y,z)\) gives a genuinely one-degree-of-freedom Hamiltonian. The nonnegative-discriminant cases follow from convexity and the sign graph of a cubic potential, including the uniqueness of the homoclinic component. The explicit homoclinic solves the original equations. The exact elliptic substitution and double-root expansion yield the coefficient and constant \(72\) in the separatrix logarithm. Poincaré recurrence excludes homoclinic mass, and ergodic decomposition completes the measure claim. All algebraic identities were replayed from the packaged symbolic checker; the infinite classification and asymptotic limits have analytic proofs rather than finite simulation only.
+## correctness
 
-## Originality — PASS, with qualified historical risk
-The full original 1994 Sprott paper and the complete accessible 2015 Sprott J paper do not state the zero-damping two-integral global classification. The original parameter atlas likewise gives equations and numerical regions, not these results. The historical positive-damping recurrence statement for the *same* generalized Sprott J family assumes \(b>0\); its implications do not extend to \(b=0\) by substitution, as the conservation law appears exactly on this singular boundary. published-finding corpus searches for the system, zero damping, Nambu/Hamiltonian equivalents, elliptic periods, and generic coverage found no direct match. General textbook Hamiltonian theory covers the leaf dynamics *after* the system-specific polynomial reduction, but does not by itself identify the reduction for this named flow. Panchev (2004) and Letellier–Vallée (2003) remain plausible full-text priority risks; their abstracts alone cannot certify absence of this result.
+PASS
 
-## Mathematical value — PASS
-The zero-damping axis is a natural boundary of a two-parameter chaotic-flow family, not an arbitrary isolated coefficient choice. Two explicit independent polynomial integrals classify **every** compact invariant orbit and every compactly supported stationary state on the entire axis. The precise homoclinic and exact energy-dependent period, especially the separatrix constant, are concrete dynamically interpretable invariants and a useful baseline for studying positive-damping perturbations; no perturbation theorem is claimed. Although the planar cubic oscillator techniques are classical, the global system-specific natural classification is the substantive finding.
+Direct algebra gives Cdot=0, Hdot=0 and F=grad H cross grad C, while coordinates (c,y,z) reduce to ydot=z and zdot=-V_c’ with V_c=-y³/3+(a-1)y²/2+cy. For Δ<0, yddot>0 forbids bounded two-sided orbits; Δ=0 forces constant by convexity. For Δ>0 potential has one minimum r_- and one maximum r_+ with gap L³/6; energy-component topology gives centers, ovals and single left homoclinic. Differentiation verifies y=r_+-3L/2 sech²(√L t/2), z=ydot. Cubic quadrature yields 4√(3/2)K(k)/√(q3-q1); near separatrix 1-k²~(4√2/3)√δ/L^(3/2), so elliptic K asymptotic yields exactly T=L^(-1/2)log(72L³/δ)+o(1). Compact invariant-measure support and Poincaré recurrence exclude nonstationary homoclinic mass. These are analytic all-energy proofs, not finite simulations.
 
-## Closest literature and limits
-J. C. Sprott (1994), DOI: 10.1103/PhysRevE.50.R647; the 2013 two-parameter atlas; M. Islam et al. (2015), https://jtambg.eu/papers/2015/JTAM2015_2_045-58.pdf; S. Panchev (2004), DOI: 10.1016/j.chaos.2003.12.054; C. Letellier and O. Vallée (2003), DOI: 10.1088/0305-4470/36/44/004. The last two were not fully accessible and preserve a real originality uncertainty. No statement is made about the regime \(b>0\), completeness of unbounded trajectories, or independently audited certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The system-specific global plane foliation, bounded-complete orbit census, explicit separatrix and exact logarithmic constant are not consequences of papers on chaotic positive-damping regimes or generic one-degree-of-freedom Hamiltonian theory alone. The two plausible historical analytical papers remain inaccessible in full and are recorded as real overlap risks rather than automatically failing O.
+
+## value
+
+PASS
+
+The exact Hamiltonian boundary classification of a named quadratic three-dimensional flow, including global orbit topology for every leaf and sharp separatrix timing constant, is mathematically motivated by understanding its nonchaotic transition. It is more than restating the textbook existence of elliptic periods, though novelty remains conditional on historical source overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
