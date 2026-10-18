@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Multiplicativity reduces a preimage of \(\ell^t\) to prime-power blocks whose values are powers of \(\ell\). If a source prime \(p\ne\ell\) occurred with exponent at least two, then \(p\mid\ell^t\), impossible; hence such blocks are squarefree and satisfy \(p-r=\ell^j\). The only possible repeated source prime is \(p=\ell=r+1\), since \(0<\ell-r<\ell\). These alternatives give an explicit bijection with subset sums and, in the exceptional case, one geometric exponent choice. Boundary cases \(j=0\), \(t=1\), odd orders, and the classical Euler specialization were checked separately. The packaged verifier independently agrees throughout its stated finite window.
+## correctness
 
-## Originality
-PASS. The closest full primary source is Subbarao--Yip 1989, which was inspected page by page. It explicitly gives the special zero-fiber implication for \(S_2(x)=p\) when \(p+2\) is composite, but it does not state the complementary exact multiplicity, the all-order prime-target theorem, or the prime-power generating coefficient. The 1991 full paper formulates general multiplicity questions without this classification. The \(r=1\) power-of-two specialization is classical and is excluded from the originality claim. Targeted searches for prime-power fibers, inverse images, prime targets, fixed gaps, and equivalent coefficient formulations found no stronger indexed result. The main residual risk is the unavailable full text of Yip's 1989 thesis.
+PASS
 
-## Value
-PASS. Exact inverse multiplicities \(N_r(m)\) are the central invariant in the archival Schemmel analogue of Carmichael's and Sierpiński's problems. Prime powers are the first multiplicatively atomic target class. The theorem gives all of their fibers in closed finite form, recovers the classical Euler power-of-two structure, sharpens the published order-\(2\) prime-target obstruction to an exact count, and identifies a direct fixed-gap prime-pair equivalence for prime values. This is a natural complete classification rather than an arbitrary slice.
+Multiplicativity of S_r and its prime-power rule S_r(p^a)=p^(a-1)(p-r) for p>r force every factor in any preimage of ell^t to be a power of ell. Each p≠ell can occur only once, and then p=r+ell^j, with j>=0; the j=0 case is the optional unit factor r+1. A repeated p=ell is possible only if ell-r is a positive ell-power less than ell, hence ell=r+1 prime, and its contribution is 1 for a=1 and ell^(a-1) for a>=2. Therefore the exact generating factor is (1+1_{r+1 prime})∏_{j>=1,r+ell^j prime}(1+x^j) for ell≠r+1, or (2+x+x²+...)∏... when ell=r+1; extracting x^t gives all preimages with no hidden repeats. The prime-target t=1 cases, exceptional ell=r+1 case, classical phi fibers, parity of r and equivalence with fixed-gap prime pairs for even r all follow. No claim of proving infinitude of prime pairs. Independent exact factorization enumeration supports 648 (r,ell,t) finite-window comparisons but the factor argument proves the general formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact inverse fiber N_r(m) is a classical object from Subbarao–Yip. Full primary text of the 1989 article has a special r=2, t=1 zero-fiber observation: if odd p+2 is composite then S_2(x)=p has no preimage. The classical Euler phi power-of-two case is also known; those pieces are prior. The present result determines complementary exact multiplicities, every order r, all exponents t and the full subset-sum coefficient with exceptional source prime ell=r+1, which do not follow from the specifically inspected archival statements. A 1989 Yip doctoral thesis is topically very close and could contain implicit prime-power formulas; complete thesis was unavailable, so PASS is explicitly best-of-knowledge and does not claim comprehensive historical priority.
+
+## value
+
+PASS
+
+Inverse multiplicities N_r(m) are central objects in the Schemmel analogues of Carmichael and Sierpiński problems. Prime powers form the first natural multiplicatively atomic target class; a complete all-r, all-ell,t fiber formula is useful without tackling arbitrary targets. The explicit generating polynomial gives counts and actual preimages, explains the exceptional ell=r+1 factor, recovers Euler examples and sharpens an archival obstruction to exact multiplicity. The fixed-gap prime-pair equivalence for even orders connects the image question to a standard open family without claiming resolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

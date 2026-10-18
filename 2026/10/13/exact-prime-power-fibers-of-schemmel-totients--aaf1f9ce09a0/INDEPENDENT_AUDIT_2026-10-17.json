@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 2303c3246a70fb9c60e9910f4f5546e199aa9306",
+        "Pinned verify.py 20e081c4472cd99b4788e4c8be9de653e80181f8",
+        "Independent 648 finite-window comparisons for n≤30000 including odd/even r, ell=r+1",
+        "Subbarao–Yip 1989 primary N_r(m) definitions"
+      ],
+      "rationale": "Multiplicativity of S_r and its prime-power rule S_r(p^a)=p^(a-1)(p-r) for p>r force every factor in any preimage of ell^t to be a power of ell. Each p≠ell can occur only once, and then p=r+ell^j, with j>=0; the j=0 case is the optional unit factor r+1. A repeated p=ell is possible only if ell-r is a positive ell-power less than ell, hence ell=r+1 prime, and its contribution is 1 for a=1 and ell^(a-1) for a>=2. Therefore the exact generating factor is (1+1_{r+1 prime})∏_{j>=1,r+ell^j prime}(1+x^j) for ell≠r+1, or (2+x+x²+...)∏... when ell=r+1; extracting x^t gives all preimages with no hidden repeats. The prime-target t=1 cases, exceptional ell=r+1 case, classical phi fibers, parity of r and equivalence with fixed-gap prime pairs for even r all follow. No claim of proving infinitude of prime pairs. Independent exact factorization enumeration supports 648 (r,ell,t) finite-window comparisons but the factor argument proves the general formula.",
+      "residual_risks": [
+        "The theorem classifies target prime powers only, not arbitrary composite values with multiple distinct primes.",
+        "Fixed-gap prime-pair equivalence does not prove Polignac or infinitely many such pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The archival papers investigate general multiplicity and Carmichael/Sierpiński analogues; 1989 complete paper discusses N_r(m) and r=2 prime zero-side, not this prime-power complete coefficient."
+        ],
+        "reasoning": "General multiplicity questions are not blanket classification theorems dominating formulas (1)–(2); however the same-theme thesis remains a material uninspected source.",
+        "searches": [
+          "Subbarao–Yip 1989 DOI 10.1515/9783110852790.928",
+          "Subbarao–Yip 1991 DOI 10.4153/CMB-1991-064-3",
+          "Yip 1989 thesis bibliographic references"
+        ]
+      },
+      "checked_sources": [
+        "Subbarao & Yip, Carmichael’s conjecture and some analogues, De Gruyter 1989 pp928–941, full public 14-page scanned article",
+        "Subbarao & Yip, On Sierpinski’s Conjecture Concerning the Euler Totient, Can. Math. Bull. 34 (1991), accessible abstract/citation",
+        "Defant, On Schemmel Nontotient Numbers, arXiv:1412.3089",
+        "Resultary Schemmel prime-power fibers semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=2 and odd prime p, 1989 gives no preimage when p+2 composite; the new t=1 formula also supplies the full positive side and multiplicities (1+unit factor)."
+        ],
+        "reasoning": "The known zero-side is only one branch and no unrestricted prime-power result follows from it alone; explicit p-adic prime-block support reasoning is the needed addition.",
+        "searches": [
+          "Subbarao–Yip 1989 Section 5 order-2 prime fibers",
+          "Subbarao–Yip 1991 abstract and multiplicity conjecture",
+          "Defant arXiv:1412.3089"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical r=1 target 2^t follows from prime factors of Fermat-prime form; Subbarao–Yip 1989 covers one zero-count conditional when p+2 composite for r=2."
+        ],
+        "reasoning": "These are genuine special-case precedents; no inspected source implies complete all-r all-prime-power counting polynomial. The generalization is not merely relabeling phi.",
+        "searches": [
+          "Resultary semantic search: Schemmel totient fixed order prime power target multiplicity generating function r+ell^j subset sums",
+          "Subbarao–Yip 1989 prime-value obstruction for S_2(x)=p",
+          "Euler phi inverse powers of two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical numeric examples and OEIS-style small inverse lists do not encode the all-order coefficient theorem."
+        ],
+        "reasoning": "The theorem is a parametric closed generating formula rather than a finite known-table recomputation; exact multiplicity examples alone are not the scientific novelty.",
+        "searches": [
+          "Resultary Schemmel prime-power fiber queries",
+          "specific S_2^-1(3),S_2^-1(9) and Euler phi inverse 2,4 literature"
+        ]
+      },
+      "rationale": "The exact inverse fiber N_r(m) is a classical object from Subbarao–Yip. Full primary text of the 1989 article has a special r=2, t=1 zero-fiber observation: if odd p+2 is composite then S_2(x)=p has no preimage. The classical Euler phi power-of-two case is also known; those pieces are prior. The present result determines complementary exact multiplicities, every order r, all exponents t and the full subset-sum coefficient with exceptional source prime ell=r+1, which do not follow from the specifically inspected archival statements. A 1989 Yip doctoral thesis is topically very close and could contain implicit prime-power formulas; complete thesis was unavailable, so PASS is explicitly best-of-knowledge and does not claim comprehensive historical priority.",
+      "residual_risks": [
+        "Yip 1989 doctoral thesis on Schemmel inverse images not obtained in full; possible unpublished/classical equivalent formula.",
+        "Special case r=1 and power-of-two Euler totient fibers and r=2 t=1 zero-side already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_R2_PRIME_ZERO_SIDE",
+          "evidence": "The paper says S_2(x)=p has no solution if p+2 composite, but inspected statements do not enumerate all prime-power preimages for arbitrary r and t.",
+          "identifier_or_url": "https://doi.org/10.1515/9783110852790.928",
+          "material_read": "Accessible 14-page scanned publication inspected page-by-page through Section 5 p935 and conclusions; direct r=2 odd-prime obstruction and N_r notation compared",
+          "method": "primary scan PDF full body screenshots",
+          "title": "Carmichael’s conjecture and some analogues",
+          "trigger": "Original defining inverse multiplicity N_r(m) and strongest direct prior"
+        },
+        {
+          "assessment": "RELATED_MULTIPLICITY_NOT_FULLY_INSPECTED",
+          "evidence": "Abstract discusses the multiplicity conjecture/general orders, not verified to contain a complete prime-power coefficient theorem.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1991-064-3",
+          "material_read": "Accessible journal abstract and bibliography; complete 1991 paper not reread in this run",
+          "method": "publisher abstract",
+          "title": "On Sierpinski’s Conjecture Concerning the Euler Totient",
+          "trigger": "General N_r multiplicities and possible domination"
+        },
+        {
+          "assessment": "INACCESSIBLE_RESIDUAL_RISK",
+          "evidence": "No claims of whole-document NOT_COVERING; this is the principal residual priority risk.",
+          "identifier_or_url": "thesis cited in Subbarao–Yip 1989/1991",
+          "material_read": "Bibliographic citation only; full thesis not accessible via bounded public searches",
+          "method": "primary bibliography and title search",
+          "title": "1989 doctoral thesis by L. W. Yip on Schemmel analogues",
+          "trigger": "Highly plausible hidden full inverse fiber classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Subbarao–Yip 1989 multiplicity problem motivation",
+        "Exact subset-sum classification with exceptional geometric factor",
+        "S_2(3) preimages 5,9,15 and S_2(9) preimages 11,27,33,45"
+      ],
+      "rationale": "Inverse multiplicities N_r(m) are central objects in the Schemmel analogues of Carmichael and Sierpiński problems. Prime powers form the first natural multiplicatively atomic target class; a complete all-r, all-ell,t fiber formula is useful without tackling arbitrary targets. The explicit generating polynomial gives counts and actual preimages, explains the exceptional ell=r+1 factor, recovers Euler examples and sharpens an archival obstruction to exact multiplicity. The fixed-gap prime-pair equivalence for even orders connects the image question to a standard open family without claiming resolution.",
+      "residual_risks": [
+        "Subset-sum form does not solve primality of r+ell^j or fixed prime-pair infinitude; classification is of target fibers, not of admissible primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "r≥1, ell prime and t≥1, target ell^t only; no classification for multiply supported targets and no prime-pair infinitude assertion."
+  ]
+}
