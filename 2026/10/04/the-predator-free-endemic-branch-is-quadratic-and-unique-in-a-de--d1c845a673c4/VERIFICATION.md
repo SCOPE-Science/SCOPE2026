@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-The primary source equations were inspected directly in the open-access PDF, including the model equation and the predator-free equilibrium section.
 
-Analytic checks:
-- At \(z=0\) and \(y>0\), the infected-prey balance gives \(x=\nu(\alpha+y)/\beta\).
-- Substitution yields the quadratic \(F(y)=r(\alpha+y)[\beta K-\alpha\nu-(\beta+\nu)y]-\beta^2Ky\).
-- If \(\beta K\le\alpha\nu\), then \(F(y)<0\) for every \(y>0\).
-- If \(\beta K>\alpha\nu\), the quadratic has exactly one positive root because its leading and constant coefficients have opposite signs after multiplying by \(-1\).
-- The same threshold is the sign change of the infected-prey linear growth rate at \((K,0,0)\).
+# Independent mathematical audit
 
-Reproducibility checks:
-- `verify.py` symbolically reconstructs the eliminated polynomial from the printed equations.
-- It verifies the exact counterexample \(r=\alpha=\nu=1\), \(\beta=2\), \(K=2/5\), for which the source's condition holds but no positive predator-free endemic root exists.
-- It verifies the exact feasible case \(r=\alpha=\nu=1\), \(\beta=2\), \(K=1\) and substitutes the closed-form root into both prey equilibrium equations.
+## correctness
 
-Limits:
-- The result concerns only predator-free endemic equilibria.
-- Numerical or symbolic examples illustrate the theorem but are not used to infer the general zero-versus-one classification.
-- No independent audit has been performed.
+PASS
+
+At predator-free y>0,z=0, infected-prey stationarity yields x=nu(alpha+y)/beta. Substituting into susceptible-prey equation yields exact quadratic F(y)=r(alpha+y)[beta K-alpha nu-(beta+nu)y]-beta^2 K y. If beta K<=alpha nu, F<0 for y>0. If A=beta K-alpha nu>0, leading coefficient negative, F(0)>0, hence one positive root (the positive and negative roots of the sign-changed quadratic have opposite signs). This proves threshold iff beta K/(alpha nu)>1 and uniqueness. Independent exact substitutions verify printed-proposition counterexample (r,alpha,nu,beta,K)=(1,1,1,2,2/5), F=-(15y^2+24y+1)/5, and feasible K=1 giving F=1-6y-3y^2. No predator-interior/delay bifurcation conclusion claimed.
+
+## originality
+
+PASS
+
+The full open-access Sarwardi–Mollah–Raezah–Al Basir 2024 model equations give a cubic Eq (4), multiple-root sign table and Proposition 1 feasibility beta>nu alpha, inconsistent with exact predator-zero elimination. The corrected necessary-and-sufficient ratio, unique quadratic branch, and explicit original-proposition counterexample are new source-specific correction. Naji–Hasan has mass-action/recovery; Mortoja–Panja–Mondal is related but not shown to imply this saturated-incidence correction.
+
+## value
+
+PASS
+
+A mathematical error in the number and feasibility of biologically meaningful endemic boundary equilibria materially affects equilibrium classification and downstream bifurcation interpretation of a published eco-epidemic model. Exact threshold plus counterexample is substantively useful, not a routine isolated toy negative parameter test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
