@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier reconstructs the fixed point from
-\[
-0\mapsto01,\qquad 1\mapsto21,\qquad 2\mapsto0.
-\]
-For each \(1\le n\le8\), it verifies that the generated prefix realizes exactly \(2n+1\) distinct length-\(n\) factors. Combined with the published factor-complexity theorem, this certifies that each such factor set is complete.
+## correctness
 
-It independently recomputes the reflection-class counts
-\[
-3,3,6,7,10,12,15,17,
-\]
-confirms that \(1012101\) is the only length-\(7\) factor whose reversal occurs, and confirms that it is a palindrome. It checks the complete \(17\)-element length-\(8\) list stored in `certificate.json` and verifies that none of those factors has its reversal in the list.
+PASS
 
-As a nonessential regression check, the script directly verifies the absence of reversed factor pairs through length \(40\). The theorem for every larger length is instead obtained from the exact length-\(8\) cutoff by the prefix/suffix argument in `RESULT.md`.
+The fixed point of 0->01,1->21,2->0 has complete n-factor sets for n<=8 because independently regenerated prefixes attain rho(n)=2n+1, which is the published all-n factor-complexity theorem. Independent generation yielded rho 3,5,7,9,11,13,15,17 and reflection classes 3,3,6,7,10,12,15,17. Its full 17-element length-8 set contains no reverse pair; length 7 has only reversible 1012101, a palindrome. Any longer reverse pair would induce a reversed length-8 prefix/suffix pair, giving the all-n cutoff without extrapolation. Scope: only this morphic ternary word, not all low-complexity sequences.
+
+## originality
+
+PASS
+
+Compared exact morphism/prefix, older reversed-subword nomenclature, factor complexity, and eventual reflection avoidance. The published ternary-word study proves rho(n)=2n+1 and shows 02 but not 20, not the complete length-8 obstruction. The general reflection-complexity theorem only guarantees a sufficiently large unspecified bound; the sharp threshold and low-length profile remain additional exact facts, subject to unindexed-older-work risk.
+
+## value
+
+PASS
+
+Reflection complexity is a natural, introduced sequence invariant; the exact complete profile and minimal reversal-free length for a canonical morphic word instantiate and sharpen a general eventual-avoidance result. The finite factor census is made rigorous for all lengths by an external published complexity theorem and the prefix/suffix argument, rather than an arbitrary finite string computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

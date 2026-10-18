@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published factor-complexity theorem gives exactly \(2n+1\) factors at every positive length. The generated prefix reaches that exact count through length \(8\), so the factor lists used in the proof are exhaustive rather than empirical lower bounds. No length-\(8\) factor has its reversal in the complete list. Any longer reflected pair would force a reflected length-\(8\) pair, so the cutoff propagates to all larger lengths. The shorter reflection-class counts are recomputed exactly from complete factor sets.
+## correctness
 
-## Originality
-PASS. The primary reflection-complexity paper proves only eventual disappearance of reflected factors for uniformly recurrent non-reversal-closed sequences and does not analyze this fixed point. The direct paper on the ternary word proves its factor complexity and notes one failure of reversal closure, but it predates the reflection-complexity invariant and gives no sharp cutoff. Older reversed-factor literature treats general constructions and enumeration, not this sequence's threshold.
+PASS
 
-The closest conceptual prior result is the general eventual-avoidance theorem; it implies that some cutoff exists but does not determine that the minimum cutoff is \(8\), nor the exceptional reflection values at lengths below it. Residual risk remains that an unindexed computation observed the same cutoff.
+The fixed point of 0->01,1->21,2->0 has complete n-factor sets for n<=8 because independently regenerated prefixes attain rho(n)=2n+1, which is the published all-n factor-complexity theorem. Independent generation yielded rho 3,5,7,9,11,13,15,17 and reflection classes 3,3,6,7,10,12,15,17. Its full 17-element length-8 set contains no reverse pair; length 7 has only reversible 1012101, a palindrome. Any longer reverse pair would induce a reversed length-8 prefix/suffix pair, giving the all-n cutoff without extrapolation. Scope: only this morphic ternary word, not all low-complexity sequences.
 
-## Value
-PASS. A sharp cutoff for a canonical uniformly recurrent ternary word of minimal linear factor-complexity type is a natural structural datum for the newly introduced reflection measure. It determines the entire reflection-complexity function and shows that, despite very low factor complexity, reversal equivalence ceases to identify any distinct factors after a short exact boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact morphism/prefix, older reversed-subword nomenclature, factor complexity, and eventual reflection avoidance. The published ternary-word study proves rho(n)=2n+1 and shows 02 but not 20, not the complete length-8 obstruction. The general reflection-complexity theorem only guarantees a sufficiently large unspecified bound; the sharp threshold and low-length profile remain additional exact facts, subject to unindexed-older-work risk.
+
+## value
+
+PASS
+
+Reflection complexity is a natural, introduced sequence invariant; the exact complete profile and minimal reversal-free length for a canonical morphic word instantiate and sharpen a general eventual-avoidance result. The finite factor census is made rigorous for all lengths by an external published complexity theorem and the prefix/suffix argument, rather than an arbitrary finite string computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
