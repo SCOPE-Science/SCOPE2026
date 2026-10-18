@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For positive gamma summing to one, the rank-one matrix Q=1 gamma^T satisfies Q^2=Q, yielding exact centered opinions Cx/(1+h). Enumerating the one empty forest, six one-arc forests and nine trees proves Z=(1+h)^2 and mixed-root total mass [1+h(1+gamma_3)]/Z. Therefore the single-draw polarization expectation and iid 1/T correction are exact for all positive real parameters. The centered U-statistic is unbiased by independence across distinct complete forest draws. Bounded-difference concentration uses a rigorously bounded kernel and a per-sample difference m/T. A standalone independent Fraction enumerator plus Gaussian solver passed 1230 rational assertions; the infinite-range proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neumann–Dong–Peng (arXiv:2404.16464v1) deals with local-query opinion estimation/PageRank mechanisms, not the full directed-hyperedge rooted-forest plug-in bias.",
+        "Sun–Sun–Zhou–Zhang (NeurIPS 2025), sections 4–5 and Algorithm 1, considers the undirected FJ estimator and additive-error control; it does not assert the exact directed three-vertex factor."
+      ],
+      "reasoning": "Generic quadratic-estimator unbiasedness and additive estimation results need not include this exact directed social-hyperedge counterexample. The later NeurIPS scheme is not the identical population of sampled full directed forests and does not identify influence-fraction artifacts for a single directed hyperedge.",
+      "searches": [
+        "Hypergraph Friedkin Johnsen projected directed weights w_ij=h gamma_j: one hyperedge true polarization independent of contribution, but forest-sampled polarization depends linearly on influence weight",
+        "Sun Sun Zhou Zhang 2025 Fast Computation Optimization Opinion Based Quantities rooted forests polarization sampled mean bias",
+        "arXiv:2404.16464v1 Sublinear-Time Opinion Estimation Friedkin–Johnsen",
+        "NeurIPS 2025 Fast Computation and Optimization for Opinion-Based Quantities of Friedkin-Johnsen Model"
+      ]
+    },
+    "checked_sources": [
+      "Xu and Zhang arXiv:2310.05689v1, HTML, model/Algorithm 1",
+      "Neumann, Dong and Peng arXiv:2404.16464v1, PDF introduction and estimator pages",
+      "Sun, Sun, Zhou and Zhang NeurIPS 2025 PDF sections 4–5",
+      "published-finding corpus search result 2026/10/4/SCOPE-rooted-forests-collapse-m-bius-convex-order-to-hockey-stick-test--4da8e7971b39",
+      "published-finding corpus search result 2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2023 paper gives the network model, forest-root sampling and unbiased opinion coordinates; these imply how to calculate sample polarization but do not directly state its expectation or contribution-invariant true polarization.",
+        "2025 NeurIPS paper gives a squared plug-in approximation and its additive error bound, but not the exact h/T relative inflation or gamma_3 dependence."
+      ],
+      "reasoning": "Our exact equality can be derived from existing model machinery and elementary probability, but is not an immediate special case of the cited published theorems as stated. This distinguishes a mathematically new consequence from claiming ownership of the starting definitions, matrix-forest identities or generic unbiased cross-products. A broader mathematical sampling theorem might imply the general portion and remains a priority risk.",
+      "searches": [
+        "Monte Carlo plug-in polarization estimator over rooted spanning forests upward bias for directed Friedkin Johnson opinions; cross-sample unbiased U-statistic",
+        "Sun Sun Zhou Zhang 2025 Fast Computation Optimization Opinion Based Quantities rooted forests polarization sampled mean bias",
+        "arXiv:2310.05689v1 complete HTML Algorithm 1 and projection",
+        "NeurIPS 2025 3660799b242a69dbc9cb8685cdf5ad64-Paper-Conference.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu–Zhang, arXiv:2310.05689v1, Algorithm 1 explicitly averages forest-root opinions before squaring the centered sample mean; sections II and VI provide the directed projection and sampler.",
+        "The sample-mean squared norm has a generic positive covariance-trace bias, but no reviewed source gives the exact contribution-dependent three-person factor."
+      ],
+      "reasoning": "Rewritten as a covariance-trace/U-statistic statement, the general correction is classical, not new. The specific claim instead evaluates the covariance of the full directed-hyperedge forest-root law exactly and shows that the sampling expectation depends on an influence parameter that cancels from the true centered equilibrium. These mathematical statements are not supplied by generic variance identities without computing this forest law.",
+      "searches": [
+        "Three-agent directed heterogeneous hyperedge Friedkin–Johnsen weighted spanning rooted forest polarization Monte Carlo estimator bias exact 1 + h(1+gamma_3)/sample_count; divergence of relative bias at high group influence",
+        "Monte Carlo plug-in polarization estimator over rooted spanning forests upward bias for directed Friedkin Johnson opinions; cross-sample unbiased U-statistic",
+        "arXiv:2310.05689v1 Algorithm 1; equation (4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/10/4/SCOPE-rooted-forests-collapse-m-bius-convex-order-to-hockey-stick-test--4da8e7971b39 concerns Möbius convex order on poset forests, not sampled FJ rooted forests.",
+        "published-finding corpus 2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4 concerns stopping-rule bias for sign increments, not network polarization."
+      ],
+      "reasoning": "No exact table or database entry with the same three-person directed weights, intrinsic opinion pattern, estimator and h/gamma/T bias factor was encountered. Index coverage is incomplete; an unsuccessful database query is not proof of uniqueness.",
+      "searches": [
+        "Three-agent directed heterogeneous hyperedge Friedkin–Johnsen weighted spanning rooted forest polarization Monte Carlo estimator bias exact 1 + h(1+gamma_3)/sample_count; divergence of relative bias at high group influence",
+        "Xu Zhang 2023 Linear Opinion Dynamics Model with Higher-Order Interactions polarization forest sampling bias",
+        "published-finding corpus semantic search: Monte Carlo plug-in polarization estimator over rooted spanning forests upward bias for directed Friedkin Johnson opinions; cross-sample unbiased U-statistic"
+      ]
+    },
+    "rationale": "Primary motivating model and forest sampler have been directly checked; the distinct exact property is that true polarization cancels influence fractions but sampled plug-in expected polarization retains gamma_3 with a sharp factor 1+h(1+gamma_3)/T. This is more than an unlabeled generic U-statistic: it supplies a directional measurement distortion in an explicit nonuniform group-interaction model. All direct and alias searches yielded no covering result; priority uncertainty is retained.",
+    "residual_risks": [
+      "Generic U-statistic unbiasedness, variance decomposition and matrix-forest identities are established mathematics, not claimed novel.",
+      "A specialized preexisting estimator-bias identity for this hyperedge may exist in uninspected or unindexed work; no independent originality attestation.",
+      "Second and third papers have been inspected in relevant material but not exhaustively every appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact expectation identity for the centered-square plug-in estimator.",
+        "evidence": "Weighted directed projection and forest method are prior art; unbiasedness is given for sampled opinion coordinate, not the nonlinear polarization functional.",
+        "identifier_or_url": "arXiv:2310.05689v1; https://arxiv.org/html/2310.05689",
+        "material_read": "HTML primary text: model definitions, equations (2), (4), (10)–(13), section VI and Algorithm 1 including polarization plug-in step.",
+        "method": "Read accessible HTML paper text and compared formulas and stated assertions against the new claim.",
+        "title": "Linear Opinion Dynamics Model with Higher-Order Interactions",
+        "trigger": "Identical directed hyperedge FJ model and forest-root sampling estimator"
+      },
+      {
+        "assessment": "Related additive opinion-estimation problem, not covering exact three-person directed hyperedge forest-plug-in polarization law.",
+        "evidence": "Personalized PageRank/local-query estimators rather than identical iid complete directed forest-root opinions.",
+        "identifier_or_url": "arXiv:2404.16464v1; https://arxiv.org/pdf/2404.16464",
+        "material_read": "PDF introduction and model/algorithm pages (first two pages, including graphical page inspection); searched statements about polarization and sampling.",
+        "method": "Read PDF full-page material and compared sampling mechanisms and target quantities.",
+        "title": "Sublinear-Time Opinion Estimation in the Friedkin–Johnsen Model",
+        "trigger": "Potentially stronger opinion-estimation theorem might cover the claimed bias"
+      },
+      {
+        "assessment": "Not identified as covering the exact directed three-agent coefficient or its influence-fraction invariance distinction.",
+        "evidence": "Undirected network/additive approximation scope; no exact expected centered-square contribution bias claim in inspected material.",
+        "identifier_or_url": "NeurIPS2025:3660799b242a69dbc9cb8685cdf5ad64; https://proceedings.neurips.cc/paper_files/paper/2025/file/3660799b242a69dbc9cb8685cdf5ad64-Paper-Conference.pdf",
+        "material_read": "PDF sections 4–5, especially the pages describing opinion quantities, rooted-forest estimator and Algorithm 1.",
+        "method": "Read accessible PDF material and inspected relevant rendered pages; compared theorem assumptions and estimator against the new directed hyperedge case.",
+        "title": "Fast Computation and Optimization for Opinion-Based Quantities of Friedkin-Johnsen Model",
+        "trigger": "A close later algorithm also estimates squared opinion quantities from partial forest samples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82647318-c9a1-47b0-898a-441dd724e11a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 published social-hyperedge estimator is designed to compare contribution heterogeneity and opinion polarization. In the smallest genuine three-member hyperedge, the underlying polarization is independent of every contribution fraction, yet a finite forest sampling budget creates a false expected contribution response, and for any fixed budget its relative inflation grows without bound as group coupling increases. The exact law specifies an actionable budget and cross-forest correction, while honestly noting absolute bias vanishes at strong coupling and the general unbiasedness ingredient is classical. This motivated estimator limitation, tied to model interpretation, is not an arbitrary finite-count exercise.",
+    "status": "PASS"
+  }
+}
