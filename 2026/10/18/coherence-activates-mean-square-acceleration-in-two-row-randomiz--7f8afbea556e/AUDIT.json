@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact 4x4 random state update gives two independently verified covariance blocks. At zero momentum the even and odd roots are L=(1+c²)/2 and (1-c²)/2. Implicit differentiation gives a(c)=-2c²(1-c²)/(1+c²)², and second differentiation b(0)=1. The orthogonal cubic at t=1/2 has strictly negative value, proving a root >1/2. Spectral separation, positivity of the initial-error functional, implicit-function theory and the compactness exclusion of remote momenta prove unique optimal M=c²+O(c⁴) and minimum L-c⁴+O(c⁶). Exactly 285 standalone verifier assertions passed; numerical checks are not treated as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bollapragada–Chen–Ward arXiv:2206.07553: large-minibatch stochastic heavy-ball acceleration estimates and generic random-transition analysis",
+        "arXiv:2401.09415: signed-error result with open norm-analysis questions"
+      ],
+      "reasoning": "Generic stochastic heavy-ball bounds may show acceleration in other regimes but do not specify the exact pairwise coherence derivative and unique weak-coherence global optimum for the source iid single-row update. In particular, guarantees with large minibatches or different sampling do not dominate the batch-one statement.",
+      "searches": [
+        "published-finding corpus: Randomized Kaczmarz geometrically smoothed momentum mean-square acceleration two rows coherence asymptotic optimal M",
+        "published-finding corpus: two-row randomized Kaczmarz heavy ball momentum squared error angle correlation optimize mean square asymptotic spectral radius",
+        "arXiv:2206.07553: minibatch heavy ball convergence on quadratics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.09415v1, source article and v3 revised HTML",
+      "arXiv:2206.07553v1, related minibatch heavy-ball article",
+      "published-finding corpus:2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+      "published-finding corpus:2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "published-finding corpus:2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior identity-system KGSM result explicitly restricts to A=I2 and disclaims nonorthogonal systems",
+        "The motivating source controls signed expected error, which can decay in regimes where squared error fails to decay",
+        "Two-row cyclic overrelaxation studies a different nonrandom product operator"
+      ],
+      "reasoning": "A theorem on signed expectation cannot imply squared-moment contraction, and orthonormal or diagonal covariance models cannot imply overlap derivatives for noncommuting row projections. The present perturbative derivative changes sign at zero coherence and its quartic optimality is not a corollary of the published comparator statements.",
+      "searches": [
+        "published-finding corpus: KGSM two nonorthogonal rows angle coherence mean-square error convergence momentum derivative small M expected squared error",
+        "published-finding corpus: nonorthogonal KGSM two-row independent sampling expected squared norm asymptotic derivative coherence -2c²(1-c²)/(1+c²)² small momentum global optimum c²",
+        "arXiv:2401.09415v1: main theoretical claim and open questions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.09415: source studies expected signed singular-vector error, not the exact two-row covariance spectrum",
+        "published-finding corpus:2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209: orthonormal 2x2 mean-square stability, no nonorthogonal systems"
+      ],
+      "reasoning": "A change of state from geometrically smoothed velocity to ordinary heavy-ball displacement at beta=0 is algebraically incorporated; the finding concerns the second-moment spectral radius, not signed mean convergence. The closest identity-system covariance theorem lacks the nonorthogonal overlap and the rate derivative. No implication-equivalent statement was observed in the actually inspected material.",
+      "searches": [
+        "published-finding corpus: KGSM two nonorthogonal rows angle coherence mean-square error convergence momentum derivative small M expected squared error",
+        "published-finding corpus: nonorthogonal KGSM two-row independent sampling expected squared norm asymptotic derivative coherence -2c²(1-c²)/(1+c²)² small momentum global optimum c²",
+        "arXiv:2401.09415v1 original and v3 HTML"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published record 2026/10/4 on orthonormal KGSM gives an exact stability phase boundary but not the continuous angle-sensitive squared-error rate",
+        "Closest returned two-row cyclic Kaczmarz overrelaxation record measures finite-sweep Euclidean norms under fixed alternating order"
+      ],
+      "reasoning": "The searches showed no exact table or precomputed angle-dependent derivative for this stochastic momentum model. This is evidence only of the searched records, not a claim of exhaustive global novelty.",
+      "searches": [
+        "published-finding corpus: Geometrically smoothed momentum randomized Kaczmarz exact mean-square stability diagonal orthogonal rows contraction noise",
+        "published-finding corpus: geometrically smoothed momentum randomized Kaczmarz two angled nonorthogonal rows mean square rate optimal momentum O(coherence squared)",
+        "published-finding corpus: 2024 Alderman Luikart Marshall KGSM mean square rate ℓ2 norm 2x2 line angle variance"
+      ]
+    },
+    "rationale": "The motivating original paper studies signed mean, an existing KGSM second-moment theorem treats orthonormal rows, and an existing unequal-sampling extension assumes diagonal rows. The new nonorthogonal coherence derivative and weak-coherence uniquely optimal momentum are not implied by those statements. Primary full text and closest exact prior full text were read; precise source-by-source residual risk of older stochastic heavy-ball equivalences remains.",
+    "residual_risks": [
+      "Equivalent mean-square spectral perturbation may exist under an older stochastic heavy-ball or second-moment operator terminology that the source and record searches did not retrieve.",
+      "Some adjacent exact two-row cyclic work was located through record summaries rather than complete primary text; its different update prevents direct implication but leaves a low residual terminology risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The article supplies the correct stochastic recurrence but not the stated nonorthogonal covariance spectrum, first derivative, or asymptotic optimum.",
+        "evidence": [
+          "https://arxiv.org/abs/2401.09415",
+          "https://arxiv.org/html/2401.09415"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.09415v1",
+        "material_read": "Public v1 original full HTML, algorithm statement, expected directional error argument, and discussion of critical momentum and Euclidean-norm behavior; revised v3 HTML also consulted",
+        "method": "Full source text section-by-section comparison of algorithm equations and claimed conclusions",
+        "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+        "trigger": "Exact motivating update, singular-direction theory, and purported unsolved norm question"
+      },
+      {
+        "assessment": "A related broader methodology, but no exact parameter derivative in two-row KGSM or proof of its quartic optimal rate emerges from the inspected theorem.",
+        "evidence": [
+          "https://arxiv.org/abs/2206.07553"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+        "material_read": "Full public HTML, introductory setup, quadratic convergence statement and random transition analysis in the main proof",
+        "method": "Compare minibatch assumptions and bounds with fixed batch-one two-unit-row exact squared-moment matrix",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Potential stronger generic stochastic heavy-ball rate theorem"
+      },
+      {
+        "assessment": "Confines its exact result to identity/orthonormal rows and explicitly leaves nonorthogonal systems unclassified; its sharp stability claim is distinct from the current rate sensitivity.",
+        "evidence": [
+          "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "material_read": "Complete publicly available RESULT.md, including exact orthonormal covariance proof, literature comparison, and limitations",
+        "method": "Source statement and quantifier-by-quantifier implication comparison, not title-only matching",
+        "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+        "trigger": "Closest directly related prior mean-square analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f8afbea-556e-4ba9-ad25-a6040cd20904",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source separately motivates squared norm behavior. The mathematically natural two-row nonorthogonal family shows a qualitative transition: momentum hurts at exact orthogonality yet helps for every positive overlap. The exact normalized derivative and c² optimal tuning/c⁴ improvement identify a sharp geometric mechanism, a reproducible benchmark, and a surprising singular weak-coherence optimizer; not a tautological stability check.",
+    "status": "PASS"
+  }
+}
