@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:51:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published closed SIR model has f_dist=(-βSI,βSI−γI,γI) and therefore 1^T f_dist=0 identically. For hybrid xdot=f_dist+λf_NN, differentiating M=1^Tx gives Mdot=λ1^Tf_NN; unconstrained three-output residual cannot guarantee conservation. For training targets Y=d x_obs^SG/dt−f_dist(x_obs), direct summation and linearity of Savitzky–Golay differentiation give 1^T Y=d(1^Tx_obs^SG)/dt. The source perturbs and clips observations separately; it does not enforce fixed observed totals, so preprocessing may inject unnecessary normal-to-simplex learning signal. In the controlled same-structure parameter-mismatch setup r=f_true−f_dist has 1^Tr=0. P=I−(1/3)11^T is orthogonal projection onto that tangent plane; P²=P=P^T and 1^TP=0, so its use for NN outputs ensures mass invariance, and ||PY−r||²=||Y−r||²−||(I−P)Y||²≤||Y−r||² pointwise. Independent exact rational checks verified P²=P, 1^TP=0 and representative zero-sum residuals. This establishes a guarantee, not empirical mass drift or performance improvement in source figures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior neural-ODE preservation papers motivate constraint-by-construction, including SIR examples, and cover generic projection onto conservation tangent spaces.",
+          "The motivating source explicitly leaves physics-based constraints for future research; published residual target includes an unprojected derivative of noisy observed state."
+        ],
+        "reasoning": "The general linear projection guarantee is already textbook, limiting novelty; the actionable identification of nonconservative training signal under this precise preprocessing and a source-specific error inequality is an additional documented correction, not a novel broad theorem.",
+        "searches": [
+          "2026 invariant compiler neural ODE DOI arXiv:2603.23861",
+          "Zinihi Ehrhardt Sidi Ammi arXiv:2607.10858 structure-preserving neural ODE SIR",
+          "2023 neural ODE invariance and conservation manifold projection literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math14142472 published 9 July 2026, source methods and discussion",
+        "arXiv:2603.23861",
+        "arXiv:2607.10858",
+        "Resultary SIR conservation/residual neural network query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states closed SIR mechanics and adds a free neural residual; it does not establish tangency of that residual or of derivative targets in its displayed experiment.",
+          "The generic prior can imply how to project a neural field, but without the source-specific observed-total identity it does not alone identify where source training data learn an unnecessary normal component."
+        ],
+        "reasoning": "The correction is elementary but targeted to a real, current scientific modeling oversight; no fabricated simulated drift or net improvement claim is made.",
+        "searches": [
+          "DOI:10.3390/math14142472 source hybrid equation and observations pipeline",
+          "arXiv:2603.23861 general invariant compiler",
+          "arXiv:2607.10858 structure preserving Neural ODE SIR"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General invariant-preserving neural modeling enforces 1^T f=0, but does not identify the particular source target-normal identity 1^TY=d(1^Tx_obs^SG)/dt.",
+          "Resultary nearby SCOPE fractional SIAQR population conservation bug 2026/10/4/SCOPE-the-printed-fractional-siaqr-recovery-update-breaks-exact-popula--94f0c21e42b3 affects a different printed numerical recurrence."
+        ],
+        "reasoning": "The projection itself is standard; the novel-specific finding is the concrete 2026 hybrid data pipeline mismatch and exact non-worsening correction in its same-SIR parameter-bias experiment.",
+        "searches": [
+          "DOI:10.3390/math14142472 Annuš Kmeť original hybrid SIR Eq 2–4",
+          "arXiv:2603.23861 invariant compiler for neural ODEs",
+          "Resultary closed-population SIR neural network residual projection zero-sum exact target error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns other SIR/SIAQR mass-balance and model-consistency defects rather than this paper and target-normal equation.",
+          "No exact source-pipeline conservation diagnostic or projection error-correction table found; a database of standard projections would not directly supply this paper-specific failure."
+        ],
+        "reasoning": "This is a concrete analytic consistency check and repair, not a tabulated quantity; existing generic projections are credited.",
+        "searches": [
+          "Resultary SIR neural correction conservation projection residual same-structure problem query",
+          "Published neural SIR mass drift clipping observations Savitzky Golay",
+          "DOI:10.3390/math14142472 full paper keywords methods"
+        ]
+      },
+      "rationale": "General invariant-preserving neural ODE architectures, projection of vector fields into conservation tangent spaces, and Pythagorean nonexpansiveness are established background; none is claimed invented here. The reviewed July 2026 Annuš–Kmeť specific hybrid method adds an unrestricted learned three-vector and trains on componentwise perturbed/clipped observations; its own discussion proposes physics constraints as future work. The exact combination of the source residual-target sum diagnostic and non-worsening projection on its known parameter-bias residual is a model-specific identified omission and correction, not an assertion that zero-sum projection is a new general algorithm. Literature priority remains best-of-knowledge.",
+      "residual_risks": [
+        "The orthogonal projection and Pythagorean nonexpansiveness are standard; the originality and value are narrowly tied to identifying this source-specific pipeline defect and guarantee.",
+        "Direct MDPI full HTML request returned HTTP429, but substantial primary indexed sections were inspected; no empirical claim about actual published trajectory drift is made.",
+        "Projection alone does not enforce componentwise positivity; real observed epidemics may have demographic turnover; non-worsening error is pointwise to exact same-structure residual, not automatically a trained-network generalization guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_EQUATIONS_CONFIRM_NO_MASS_GUARANTEE",
+          "evidence": "Model uses closed SIR, distorted mechanistic field plus three-output neural residual, Savitzky–Golay processing, independent clipping; Discussion proposes physics constraints as future work. No observed drift amount established.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/14/2472",
+          "material_read": "Full accessible publisher-indexed 2026 primary sections including Abstract, Materials and Methods, Discussion and Conclusions; direct expanded HTML request returned HTTP429, so do not imply full PDF inspection",
+          "method": "Read indexed publisher HTML sections/representations and source mathematical equations as quoted in current Git source, direct web page attempted",
+          "title": "Controlled Adaptation of a Hybrid Neural–Mechanistic Framework to Correct Parameter-Distorted SIR Dynamics Through Coupling Optimization",
+          "trigger": "Exact criticized source; check model, preprocessing and conservation handling"
+        },
+        {
+          "assessment": "GENERAL_INVARIANT_METHODOLOGY_PRIOR",
+          "evidence": "Conservation manifold drift and invariant-by-construction neural fields established generally; no evaluated diagnosis of Annuš–Kmeť 2026 pipeline.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.23861",
+          "material_read": "Primary abstract and published overview of invariant neural ODE compiler",
+          "method": "Public arXiv metadata/abstract",
+          "title": "An Invariant Compiler for Neural ODEs in AI-Accelerated Scientific Simulation",
+          "trigger": "Potential broad stronger invariant by construction prior"
+        },
+        {
+          "assessment": "GENERIC_SIR_PRESERVATION_PRIOR",
+          "evidence": "This work studies exact conservation in nonlinear neural numerical dynamics; no exact target sum from the particular SIR residual training pipeline.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10858",
+          "material_read": "Primary preprint abstract and available high-level SIR structural guarantee summary",
+          "method": "Public arXiv metadata/abstract",
+          "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+          "trigger": "SIR-specific structure preserving neural dynamics prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a concrete recent controlled epidemic-modeling pipeline, violation of the fundamental closed-population invariant is scientifically consequential: the correction identifies exactly which component of the learned target can be pure preprocessing artifact and gives a guaranteed non-worsening tangent estimate of the known true same-structure residual. The argument is algebraically simple and uses textbook orthogonal projection, but it diagnoses and resolves a substantive structural model/data mismatch rather than an arbitrary tiny numerical check or a generic rebranding of projection. Scope is carefully bounded and no claimed empirically improved predictions are invented.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A zero-sum projection restores the conservation law in neural-corrected SIR dynamics",
+  "limitations": [
+    "Guarantees exact continuous-time conservation only for projected vector field (not arbitrary solver floating-point path).",
+    "Projection may violate state positivity; for demographic SIR models non-constant total may be correct.",
+    "Generic projection method known; contribution narrowed to this particular source pipeline diagnostic."
+  ],
+  "schema_version": 1
+}
