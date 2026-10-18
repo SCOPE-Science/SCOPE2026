@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Every multiple N < \\(2^{3m}\\) corresponds to three m-bit blocks. Modulo Q=\\(2^m-1\\), their sum is 0,Q,2Q or 3Q. Excluding N=0, pairing sums Q and 2Q by complement, and treating the all-one 3Q singleton yields the exact enumerator. For sum Q, a 2-state carry automaton has exact transitions with weights (3z,z^3,1,3z^2). Carry excursions exhaust and sharply bound all weights m,...,2m-1; complemented weights and singleton yield the total support m,...,2m,3m. Boundary coefficients follow counting 0/one full or length-2 excursion; recurrence is Cayley-Hamilton. Two-block obstruction proves the first \\(m+1\\)-weight multiplier is \\(2^m+3\\). Reproducible exact direct enumeration agrees with transfer computation for 8 exponents, 87898 positive multiples; this finite corroboration is not used as proof of arbitrary m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clokie et al. 2020 Theorem 4, Corollary 7, Theorems 13–14 (https://arxiv.org/html/2002.02731v1) prove global properties and decidability.",
+        "Elsholtz 2016 (https://arxiv.org/abs/1602.05974) emphasizes small-weight multiples of primes rather than exact finite-window counts."
+      ],
+      "reasoning": "Unrestricted existence of higher-weight multiples says nothing about which weights occur before \\(2^{3m}\\), their counts, the forbidden upper interval or their first multiplier. Sturdiness establishes the lower bound m, not the full distribution. None logically covers the full theorem.",
+      "searches": [
+        "Mersenne number modulus 2^m-1 binary multiples below 2^(2m) Hamming weights only m and 2m first gap",
+        "Hamming weight distribution multiples Mersenne number interval [0,2^(2m)) cyclic codes first two blocks",
+        "Computational Aspects of Sturdy and Flimsy Numbers theorem 4 larger digit sums reachable",
+        "Almost all primes have a multiple of small Hamming weight Theorem 5 minimum binary weight"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1602.05974",
+      "https://arxiv.org/html/2002.02731v1",
+      "https://geodesic.mathdoc.fr/articles/10.4064/aa-38-2-117-128/",
+      "https://www.tandfonline.com/doi/abs/10.1080/10586458.2001.10504447",
+      "https://oeis.org/A308732"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Clokie et al. 2020 (https://arxiv.org/html/2002.02731v1), general digit-weight attainability and automata.",
+        "Stolarsky (1980) (https://geodesic.mathdoc.fr/articles/10.4064/aa-38-2-117-128/), verified bibliography but full text not accessible; later literature specifically cites its minimum-weight theorem.",
+        "Wagstaff (2001) (https://www.tandfonline.com/doi/abs/10.1080/10586458.2001.10504447), partial text on prime numbers with fixed bit counts, not multiples of a fixed Mersenne number."
+      ],
+      "reasoning": "None of the inspected primary statements yields the exact polynomial through an obvious specialization or corollary. The 1980 original could conceivably contain more detailed finite-length counts, but later explicit uses only the minimum-weight result, and no decisive covering assertion was established; this is disclosed as an unresolved access risk.",
+      "searches": [
+        "Exact binary Hamming weight enumerator of the positive multiples of 2^m-1 below 2^(3m), transfer matrix 3z z^3 1 3z^2, support interval m to 2m plus 3m, counts 3^m",
+        "three consecutive m-bit blocks sum 2^m-1 or 2(2^m-1) 3-color carry paths Mersenne digit sum distribution",
+        "least positive multiple of 2^m-1 with binary weight m+1 is (2^m+3)(2^m-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clokie et al., arXiv:2002.02731v1 Sections 2, 3 and 6–7 (https://arxiv.org/html/2002.02731v1); its general automata calculate minimum weight and do not state the exact three-block histogram.",
+        "Elsholtz 2016, arXiv:1602.05974v1 (https://arxiv.org/abs/1602.05974), minimum-weight discussion for Mersenne numbers."
+      ],
+      "reasoning": "The triple-of-m-bit-words all-one carry formulation, ordinary Mersenne-multiple digit spectrum, and weight enumerator of the finite residue kernel are equivalent via disjoint bit blocks; comparisons target each. Generic finite-state reachability is not an exact symbolic all-weight formula uniform in m, and no returned matched finding states these assertions.",
+      "searches": [
+        "Exact binary Hamming weight enumerator of the positive multiples of 2^m-1 below 2^(3m), transfer matrix 3z z^3 1 3z^2, support interval m to 2m plus 3m, counts 3^m",
+        "three consecutive m-bit blocks sum 2^m-1 or 2(2^m-1) 3-color carry paths Mersenne digit sum distribution",
+        "binary weight multiples 2^n-1 exactly three blocks weight enumerator 3z transfer matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A308732 (https://oeis.org/A308732) lists primes with minimum weight three, not weight histograms for all Mersenne-number multiples or the \\(3m\\)-bit cutoff.",
+        "Exact arithmetic VERIFY.py enumerates the claimed entire finite intervals for 1 <= m <= 8 and prints all weight counts."
+      ],
+      "reasoning": "Searches and the inspected named OEIS entry did not yield an exact table of these parameterized histograms. Some numeric coefficients, such as \\(3^m\\), may belong to generic enumerations, but no database entry was found implying the uniform recurrence, spectral gap and first occurrence jointly.",
+      "searches": [
+        "Exact binary Hamming weight enumerator of the positive multiples of 2^m-1 below 2^(3m), transfer matrix 3z z^3 1 3z^2, support interval m to 2m plus 3m, counts 3^m",
+        "least positive multiple of 2^m-1 with binary weight m+1 is (2^m+3)(2^m-1)",
+        "binary low weight multiples of repunit 2^n-1 length 2n all digits complement enumeration",
+        "OEIS minimum Hamming weight multiples Mersenne numbers 2^m-1"
+      ]
+    },
+    "rationale": "The new claim uniformly and exactly enumerates every binary weight of every positive multiple of \\(2^m-1\\) below \\(2^{3m}\\), with explicit gap and boundary counts. Full-text comparisons with Elsholtz 2016 and Clokie et al. 2020 identify only global least-weight / unrestricted attainment and algorithmic results, which do not imply a uniformly parameterized exact three-block polynomial or first next-weight multiplier. Actual broad and alias searches in published-result records yielded unrelated nearby binary-code, sparse-digit, and Mersenne-arithmetic findings, none whose statements imply this finite-window histogram. The old Stolarsky paper was not accessible in full, an explicit residual risk rather than a false no-overlap certification.",
+    "residual_risks": [
+      "Stolarsky 1980 full text inaccessible, so a historically phrased three-block count not entirely excluded.",
+      "Negative search results cannot prove absolute priority; an undiscovered equivalent coding-theoretic or additive-digit formulation remains possible.",
+      "Independent external scientific validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert full distribution for multiples of 2^m-1 below 2^(3m)",
+        "evidence": "https://arxiv.org/abs/1602.05974",
+        "identifier_or_url": "arxiv:1602.05974v1",
+        "material_read": "Full arXiv article, including statements of its low-weight multiple results and relevant minimum-weight discussion",
+        "method": "Lawfully public arXiv full text reading and theorem implication comparison",
+        "title": "Almost all primes have a multiple of small Hamming weight",
+        "trigger": "2016 archival digit-sparsity literature and classical Mersenne minimum-weight use"
+      },
+      {
+        "assessment": "Proves unbounded attainability and least-weight algorithms, not the exact uniform three-block weight polynomial or first next-weight multiplier",
+        "evidence": "https://arxiv.org/html/2002.02731v1",
+        "identifier_or_url": "arxiv:2002.02731v1",
+        "material_read": "Full openly readable HTML text, especially Theorems 4,5,13,14, Corollary 7 and supporting proof paragraphs",
+        "method": "Full-text section inspection and direct comparison of quantifiers and cutoff",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "General least Hamming weight of multiples, Mersenne sturdiness, automata"
+      },
+      {
+        "assessment": "Cannot certify noncoverage of inaccessible full text; material-access risk explicitly retained",
+        "evidence": "https://geodesic.mathdoc.fr/articles/10.4064/aa-38-2-117-128/",
+        "identifier_or_url": "doi:10.4064/aa-38-2-117-128",
+        "material_read": "Bibliographic entry plus precise later theorem attribution; original full text not accessible through attempted public PDF links",
+        "method": "Verified metadata and downstream theorem references; attempted lawful open PDF retrieval",
+        "title": "Integers whose multiples have anomalous digital frequencies",
+        "trigger": "Original theorem on binary-digit minima cited in later sources"
+      },
+      {
+        "assessment": "Studies primes with fixed digit counts, not every multiple of one Mersenne number; uninspected sections not claimed excluded",
+        "evidence": "https://www.tandfonline.com/doi/abs/10.1080/10586458.2001.10504447",
+        "identifier_or_url": "doi:10.1080/10586458.2001.10504447",
+        "material_read": "Abstract and selected early pages, not entire paper",
+        "method": "Accessible partial text and topic/statement check",
+        "title": "Prime Numbers with a Fixed Number of One Bits or Zero Bits in Their Binary Representation",
+        "trigger": "Possible overlap through finite binary weight counts"
+      },
+      {
+        "assessment": "Contains prime-minimum-weight sequence, not the finite-window enumerator",
+        "evidence": "https://oeis.org/A308732",
+        "identifier_or_url": "https://oeis.org/A308732",
+        "material_read": "Complete publicly displayed sequence title, definition, references and sample terms",
+        "method": "Targeted web database inspection",
+        "title": "OEIS A308732",
+        "trigger": "Database/table check for minimal Hamming weight of a multiple"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06058ed8-a306-4e62-a344-89a58d8b0a91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines a complete natural length-constrained digit-sparsity spectrum, the nontrivial terminal gap, and quantitative rarity/first appearance of next-to-minimum Hamming weight for the classic Mersenne multiple problem, uniformly for all \\(m\\ge2\\). A fixed two-state polynomial recurrence replaces nonuniform computations and exposes structural carry geometry. It extends established minimum-weight statements by answering a different meaningful exact counting and finite-cutoff question.",
+    "status": "PASS"
+  }
+}
