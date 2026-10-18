@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the multiplication, both structure maps, simultaneous commutation equations, and both Rota–Baxter-system defects.
 
-Symbolically it verifies the commuting normal form
-\[
-R=\begin{pmatrix}r&\frac ba(r-t)\\0&t\end{pmatrix},
-\qquad
-S=\begin{pmatrix}s&\frac ba(s-v)\\0&v\end{pmatrix}.
-\]
+# Independent mathematical audit
 
-It verifies that for \(a\ne1\) the complete field-valued solution set is governed by
-\[
-rs=0,
-\qquad
-tv=0,
-\qquad
-t(r-s-t)=0,
-\qquad
-v(r-s+v)=0,
-\]
-and that at \(a=1\) the last condition disappears.
+## correctness
 
-Direct enumeration is then performed for every \(b\) and every nonzero \(a\) over
-\[
-\mathbf F_2,
-\quad
-\mathbf F_3,
-\quad
-\mathbf F_5,
-\quad
-\mathbf F_7.
-\]
-For every parameter pair, direct evaluation of the original Rota–Baxter identities agrees exactly with the claimed geometric locus and count.
+PASS
 
-The checker returns `VERIFY_OK`.
+From the exact two-dimensional multiplication and alpha,beta of Example 1 over any field K with a !=0, direct simultaneous commutation forces R=[[r,b(r-t)/a],[0,t]] and S=[[s,b(s-v)/a],[0,v]]. Evaluate both Rota–Baxter system equations on all four ordered basis pairs; the defining ideal has field-valued zero locus rs=0, tv=0, t(r-s-t)=0, (a-1)v(r-s+v)=0. Independent symbolic SymPy reconstruction verified the basis defects and the remaining independent scalar constraints rather than trusting VERIFY_OK. If a!=1, case-splitting t,v gives six lines meeting at origin; when a=1 the v equation drops, giving two planes meeting in v-axis plus two additional lines meeting at origin. Inclusion-exclusion gives 6q-5 and 2q^2+q-2; extension fields replace q by q^m, producing displayed reduced zeta functions. Checked finite rational examples plus the original four prime-field enumerations as secondary evidence; equality of polynomial conditions is the all-field proof.
 
-Finite enumeration is replay evidence. The arbitrary-field theorem is the symbolic case analysis in `RESULT.md`.
+## originality
+
+PASS
+
+The originating Guo–Liu–Lü–Shen–Wang paper defines and exhibits a system on exactly this family, but its inspected Example 1/Example 3 do not enumerate the entire commuting solution locus or distinguish the a=1 dimension jump. Classical general and Hom-associative systems supply definitions, not this exact six-line/two-plane classification.
+
+## value
+
+PASS
+
+A natural finite-dimensional algebra example has a nontrivial moduli-space stratification: six lines jump to two planes and lines at a=1, with exact point counts and zeta functions. This is a complete classification of all compatible operator pairs, not a routine single substituted example, and is independently useful as a singular/degenerate test case for BiHom Rota–Baxter theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
