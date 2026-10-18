@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:50:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real r>0 and N>=1, increment Δ_N=a_r(N)-a_r(N-1)=P_{r,N}(1-int_0^1 R_{r,N}(t)dt), with P=Gamma(N+r+1)/(Gamma(r)Gamma(N+1)) r^r N^N/(N+r)^(N+r+1), R=(1+t/N)^N/(1+t/(N+r))^(N+r+1). Beta integral and source Lemma 2.2 yield identity. Ratio P_{N+1}/P_N=(1+1/N)^N((N+r)/(N+r+1))^(N+r+1)<1. R(t) in (0,1) and strictly increases in N because x log(1+t/x) has strictly negative second derivative and the additional logarithm derivative is positive. Thus positive H=1-int R strictly decreases, and Δ_{N+1}<Δ_N. This establishes strict ordinary discrete concavity for every integer n>=0, without extending to arbitrary cutoff or continuous index.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior beta/F results are log-concavity or fixed-argument parameter comparisons.",
+          "Published source integral identity and positivity of Δ are used openly."
+        ],
+        "reasoning": "Neither positive increments nor log-concavity at fixed beta x implies the claimed strict decrease of ordinary increments at the moving cutoff.",
+        "searches": [
+          "Karp normalized incomplete beta function arXiv:1509.05120 theorem 1",
+          "Finner–Roters Statistica Sinica 1997",
+          "Guo–Tao–Hu arXiv:2311.06877 Lemma 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Tree c9c3413402a415e87d467ef6bf29d3a1f5e0f650 RESULT blob a55380cfd8ae32d53950aa5c73406877547585a6",
+        "Guo source full PDF, Karp primary PDF",
+        "Resultary 15 nearest hits reviewed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotone sequence a_r from source does not imply Δ decreasing (counterexamples exist for general monotone sequences).",
+          "Derivative sign of R and product factorization is the new step."
+        ],
+        "reasoning": "The proof requires a separate monotonicity comparison for H_{r,N}; no inspected stronger theorem directly supplies it.",
+        "searches": [
+          "arXiv:2311.06877 Section 2 beta integral Lemma 2.2",
+          "arXiv:1509.05120 fixed argument theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo et al. local minimum is a_r(n), source proves strict increase.",
+          "Karp fixed-CDF-argument parameter log-concavity is not ordinary discrete concavity with moving beta argument."
+        ],
+        "reasoning": "Alias in normalized F distribution is F_{2r,2N}(1), but source fixed cutoff in original incomplete beta parameterization moves; relevant alternative literature search yielded no equivalent theorem.",
+        "searches": [
+          "Resultary semantic: negative binomial Chvatal mean tail beta moving cutoff strict concavity increasing sequence difference",
+          "Guo–Tao–Hu arXiv:2311.06877 full PDF",
+          "Finner–Roters fixed-argument F/beta CDF inequalities",
+          "Karp arXiv:1509.05120"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching full table of all increment curvature at every real r.",
+          "A short numerical grid checks Δ but is not an exact database of infinite shape parameters."
+        ],
+        "reasoning": "This is a universal continuous-shape inequality, not a recomputed finite table. Failed search is not proof of absence from normalized F reliability literature.",
+        "searches": [
+          "Resultary moving-beta cutoff search (top ranked records: negative multinomial, beta-tail etc.)",
+          "arXiv:2311.06877 displayed local-minimum sequence"
+        ]
+      },
+      "rationale": "Guo–Tao–Hu establish Δ_N>0 via the same integral and a monotonicity lemma, but not Δ_{N+1}<Δ_N. Finner–Roters and Karp results for log-concavity in beta/F parameters usually fix the CDF argument, unlike moving cutoff r/(n+r+1); log-concavity is not equivalent to ordinary concavity. No direct covering Resultary record found.",
+      "residual_risks": [
+        "An equivalent strictly concave normalized F CDF with variable denominator df may exist in prior statistics literature.",
+        "Finite mpmath verification confirms sample parameter values but is not unrestricted proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR positive-increment theorem; no published diminishing-increment theorem identified",
+          "evidence": "Original beta integral and positivity of Δ are used; new proof differentiates R across N.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.06877",
+          "material_read": "Full arXiv PDF text and page images for Lemma 2.2 and difference proof (near pp.7–8)",
+          "method": "arXiv open PDF and page inspection",
+          "title": "A study on the negative binomial distribution motivated by Chvátal’s theorem",
+          "trigger": "Exact original a_r(n), source inequality and beta integral"
+        },
+        {
+          "assessment": "NOT DIRECTLY COVERING moving-x ordinary discrete concavity",
+          "evidence": "Fixed argument and log-concavity cannot be simply substituted with moving beta cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05120",
+          "material_read": "Full arXiv PDF; first theorem and parameter scope inspected by page image",
+          "method": "arXiv open PDF and visual inspection",
+          "title": "Normalized incomplete beta function: log-concavity in parameters and other properties",
+          "trigger": "Possible stronger parameter-curvature theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Diminishing increment is a meaningful strengthening of the exact sequence governing Chvátal-inspired negative-binomial mean-tail lower bounds; curvature is useful for interpolation and finite truncation estimates and is not forced merely by positivity of increments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tree c9c3413402a415e87d467ef6bf29d3a1f5e0f650 RESULT blob a55380cfd8ae32d53950aa5c73406877547585a6",
+    "Guo source full PDF, Karp primary PDF",
+    "Resultary 15 nearest hits reviewed"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An equivalent strictly concave normalized F CDF with variable denominator df may exist in prior statistics literature.",
+    "Finite mpmath verification confirms sample parameter values but is not unrestricted proof."
+  ],
+  "schema_version": 1
+}
