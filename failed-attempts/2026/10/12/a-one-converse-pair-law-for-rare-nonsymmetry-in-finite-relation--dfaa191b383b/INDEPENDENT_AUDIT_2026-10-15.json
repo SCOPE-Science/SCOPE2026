@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:13:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The asserted asymptotic is mathematically valid under the explicitly uniform Maddux/Koussas formula: Q(n,n−2k)−Q(n,n)=−k(n−1), P(n,n−2k)=(n−2k−1)!k!2^k. Hence R_{n,k}=(n−1)!/[(n−2k−1)!k!2^k]·2^{−k(n−1)}, k<=floor((n−1)/2). The successive ratio is (n−2k−1)(n−2k−2)/[(k+1)2^n]; bounding it by n²/2^(n+1) controls tail/R_{n,1}=O(n²2^(−n)). R_{n,1}=(n−1)(n−2)/2^n, yielding both overall probability and conditional one-pair concentration. Uniform relative error is essential and present in the source. Fresh exact rational checks for n=7,10,15 corroborate the quotient and tail but do not validate the external asymptotic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published uniform asymptotic for every admissible n,s contains all k simultaneously"
+        ],
+        "reasoning": "This is decisive dominating-parameter coverage, not merely thematically related prior literature.",
+        "searches": [
+          "arXiv:2202.01959 Proposition 14",
+          "Maddux 1985 uniform finite integral relation algebra F(n,s)"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob 9671825b767eebe20abab4afd34625c18289694d",
+        "Koussas arXiv:2202.01959 Proposition 14 full mathematical statement",
+        "Maddux 1985 front matter and attribution",
+        "Resultary semantic search for one-converse pair"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct ratio R_{n,k} computed by cancelling source Q,P; elementary bound on R_{k+1}/R_k is at most n²/2^(n+1)"
+        ],
+        "reasoning": "Source theorem plus factorial algebra immediately implies Pr(K>=1)~(n−1)(n−2)2^(−n) and conditional mass 1−O(n²2^(−n)); no new difficult lemma is necessary.",
+        "searches": [
+          "arXiv:2202.01959 Proposition 14",
+          "Maddux Koussas relation algebra asymptotic one non self converse pair probability symmetric integral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defect K=(n-s)/2 is simply a reparametrization of the number s of self-converse atoms already varied by the source theorem"
+        ],
+        "reasoning": "The entire uniform defect profile is in the prior theorem after direct substitution.",
+        "searches": [
+          "Integral finite relation algebras probability exactly one nonself converse pair rare nonsymmetry Maddux Koussas",
+          "Maddux Koussas relation algebra asymptotic one non self converse pair probability symmetric integral",
+          "Koussas Proposition 14 F(n,s)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact distribution is not a finite-table claim; predecessor gives an asymptotic closed formula over the complete range of s"
+        ],
+        "reasoning": "An exact database comparison is inapplicable to the asymptotic tail; published analytic formula already covers it.",
+        "searches": [
+          "Integral finite relation algebras probability exactly one nonself converse pair rare nonsymmetry Maddux Koussas",
+          "finite relation algebra number with s symmetric atoms table"
+        ]
+      },
+      "rationale": "FAIL. The complete quantitative statement is a parameter specialization and elementary summation of the already published UNIFORM formula F(n,s) for EVERY admissible s. This theorem directly dominates all k-strata, and the tail ratio needed for conditional one-pair concentration is an immediate factorial quotient; absence of the exact phrase in titles does not restore originality. Under the rule that corollaries and special cases of stronger work are covered, this is covered rather than an independent new mathematical claim.",
+      "residual_risks": [
+        "Original Maddux (1985) full body not independently read; however Koussas (2021/23) expressly states the uniform theorem and this alone suffices to prove prior coverage.",
+        "No explicit source error rate for the overall Pr(K>=1), which correctly remains asymptotic only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "This source is a decisive broader-coverage theorem: substitution s=n-2k and a one-line ratio produces the claimed defect weights, and a geometric tail gives the conditional statement",
+          "evidence": [
+            "F(n,s)=(1+o(1))2^{Q(n,s)}/P(n,s) UNIFORMLY in admissible s; Q=(n-1)((n-1)^2+3s-1)/6; P=(s-1)!((n-s)/2)!2^((n-s)/2)"
+          ],
+          "identifier_or_url": "arXiv:2202.01959 / DOI:10.1017/jsl.2021.81",
+          "material_read": "Proposition 14 formulas for Q(n,s), P(n,s) and their uniform asymptotics, plus almost-all-symmetric conclusion",
+          "method": "primary arXiv PDF with inspected actual rendered p.4 and neighboring mathematical context",
+          "title": "Finite Relation Algebras",
+          "trigger": "Same F(n,s) counts and asymptotic for all numbers of symmetric atoms"
+        },
+        {
+          "assessment": "Attribution of uniform predecessor is consistent; no claim whole Maddux paper lacks the defect law",
+          "evidence": [
+            "1985 abstract defines F(n,s) with exactly s symmetric atoms; Koussas explicitly records Maddux uniform formula"
+          ],
+          "identifier_or_url": "Roger Maddux, Lecture Notes in Mathematics 1149 (1985), pp. 175–197",
+          "material_read": "Public author-uploaded front matter and abstract/extract plus Koussas attribution; complete original 1985 paper not read",
+          "method": "ResearchGate accessible text and Koussas proposition reference",
+          "title": "Finite Integral Relation Algebras",
+          "trigger": "Original stronger asymptotic and definitional F(n,s)"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first-order rare-nonsymmetry mass and typical defect type are meaningful quantitative interpretation for readers of finite relation-algebra asymptotics, beyond the qualitative phrase almost all symmetric. The formula is useful as a derived corollary but has no independent new counting argument; this value observation does NOT rescue O failure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 RESULT.md blob 9671825b767eebe20abab4afd34625c18289694d",
+    "Koussas arXiv:2202.01959 Proposition 14 full mathematical statement",
+    "Maddux 1985 front matter and attribution",
+    "Resultary semantic search for one-converse pair"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Unlabelled integral relation algebra counts only; no representability result.",
+    "Original statement is correct but directly implied by prior uniform asymptotic theorem.",
+    "Original Maddux (1985) full body not independently read; however Koussas (2021/23) expressly states the uniform theorem and this alone suffices to prove prior coverage.",
+    "No explicit source error rate for the overall Pr(K>=1), which correctly remains asymptotic only."
+  ],
+  "schema_version": 1
+}
