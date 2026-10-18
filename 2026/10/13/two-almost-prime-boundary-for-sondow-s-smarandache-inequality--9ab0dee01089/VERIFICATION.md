@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem is verified symbolically by an exhaustive factorization split on \(\Omega(n)\le2\): prime, prime square, or squarefree semiprime. The critical identities \(S(p)=p\), \(S(p^2)=2p\), and \(S(pq)=q\) are proved from prime divisibility of factorials. The only explicit small semiprime boundaries are larger prime factors \(3\) and \(5\); all larger cases are closed by the monotonicity of \(m!/(m^2(m-2)^2)\) for \(m\ge7\).
+# Independent mathematical audit
 
-The bundled `verify.py` independently factors every integer through 200000, computes the Smarandache function from Legendre valuations, and uses exact capped factorial arithmetic. It reports `VERIFY_OK` and exactly the exceptions 2, 3, 6, 15 among 63214 tested integers with \(\Omega(n)\le2\). This finite replay is regression evidence only; it is not used as an infinite proof.
+## correctness
 
-No claim is made for the full exceptional set when \(\Omega(n)\ge3\).
+PASS
+
+Every Ω(n)≤2 integer n≥2 is prime p, p², or pq with distinct p<q. Factorial divisibility gives S(p)=p, S(p²)=2p (including p=2), and S(pq)=q. For p≥5, p!>p²; for prime squares (2p)!>p⁴ including n=4; for distinct pq, the cases q=3,5 yield exceptions 6,15 only, while for q≥7 the ratio F(q)=q!/(q²(q−2)²) exceeds F(7)>1 and increases, hence q!>p²q². Together 2,3 are the prime exceptions. Independent exact least-factorial valuation and comparison checked 17,243 Ω≤2 values through 50,000 with precisely [2,3,6,15]; no infinite conclusion inferred from cutoff.
+
+## originality
+
+PASS
+
+Li–Sha establish the almost-all Sondow inequality, not the exact Ω≤2 exceptions. Search on Kempner alias and semiprime formula did not find equivalent classification. Resultary hit naming unique semiprime 15 addresses Tóth’s unrelated abundancy set 2n/σ(n)−1=1/x, not the Smarandache function. A short elementary calculation could have appeared unindexed.
+
+## value
+
+PASS
+
+The first nontrivial multiplicative-complexity layer Ω≤2 is mathematically motivated by the unknown global exceptional set of Sondow’s inequality. Exactly identifying all four low-layer failures shows every other exception has Ω≥3. Although the proof is elementary, it is an exact structural boundary not a numerical cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
