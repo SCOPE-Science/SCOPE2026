@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The accompanying `verify.py` is a self-contained Python/SymPy script; `requirements.txt` records its external mathematical dependency. Run `python verify.py` in a clean directory containing both files after installing the stated dependency.
+## correctness
 
-The checker tests the equilibrium-elimination identity and all four stationary equations, exact quadratic and linear coefficient expansions, the delicate positive-factor polynomial identity, the derivative formula for the scalar equation, and the two independent-feedback derivative factorizations. It additionally checks 80 exact-rational parameter choices using 110 rational bisection steps each, covering \(\sigma=0\) and \(\sigma=1\), zero feedback, unequal feedback, and relatively high feedback. Expected terminal lines are:
+PASS
 
-```
-EXACT_SYMBOLIC_IDENTITIES=11
-EXACT_RATIONAL_CASES= 80
-ALL_CHECKS_PASS
-```
+At positive equilibrium I=z, infected balance fixes S+σC=(μ+α)/β=q, forcing β>μ+α. Solve the positive linear R,C stationary subsystem for C=αδ(1+ε₁z)z/D and R=αz(βz+μ+γ(1+ε₂z))/D with D>0. Conservation gives H(z)=z+αzK(z)/D(z)=1−q with quadratic D=d₀+d₁z+d₂z² and linear K=k₀+k₁z. The derivative H_z=1+α[k₀d₀+2k₁d₀z+(k₁d₁−k₀d₂)z²]/D² is >1 because the last coefficient is the sum of six manifestly nonnegative products including strictly positive β²(μ+σδ). Since H(0)=0,H(1−q)>1−q, exactly one interior root exists. Reconstructed S,R,C are strictly positive even at σ=0 or 1. Quotient differentiation gives ∂(K/D)/∂G₁=−δ(βz+γG₂+μ)(σβz+γG₂+σμ)/D²<0, and ∂(K/D)/∂G₂=−δγG₁(1−σ)(βz+δG₁+μ)/D²; implicit differentiation yields the claimed strict/zero prevalence response. At β≤μ+α only the disease-free equilibrium. Real-analytic I* follows from H_z>0 with local continuation near ε_j=0.
 
-The machine checks verify exact symbolic identities and finite parameter examples, not independently that every term is positive over every allowed parameter value. The universal inequalities are proved algebraically in RESULT.md by (2)–(4). The global dynamical stability or numerical forecasting performance of the ODE is not covered. Independent audit and independent experimental validation have not been performed.
+## originality
+
+PASS
+
+The exact prevalence-driven SIRCm model, independently varied immune-escape feedback coefficients, and full rectangular nonnegative domain differ from the source paper’s weak/strong asymptotic or diagonal sufficient regimes. Independent channel-derivative factorizations and the σ=1 sharp equality boundary are additional statement-level content.
+
+## value
+
+PASS
+
+The model’s original publication explicitly leaves intermediate feedback uniqueness insufficiently covered, and the result supplies a natural complete classification across independently varying feedback strengths while distinguishing two mechanisms and the exact σ=1 boundary. It rules out spurious algebraic multistability in an identifiable nonlinear epidemic system, an independently useful structural fact rather than a mere symbolic reformatting; no biological efficacy is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

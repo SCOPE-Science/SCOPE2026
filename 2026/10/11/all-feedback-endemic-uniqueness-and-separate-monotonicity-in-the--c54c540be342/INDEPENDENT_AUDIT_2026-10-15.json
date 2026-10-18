@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:14:45.101807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At positive equilibrium I=z, infected balance fixes S+σC=(μ+α)/β=q, forcing β>μ+α. Solve the positive linear R,C stationary subsystem for C=αδ(1+ε₁z)z/D and R=αz(βz+μ+γ(1+ε₂z))/D with D>0. Conservation gives H(z)=z+αzK(z)/D(z)=1−q with quadratic D=d₀+d₁z+d₂z² and linear K=k₀+k₁z. The derivative H_z=1+α[k₀d₀+2k₁d₀z+(k₁d₁−k₀d₂)z²]/D² is >1 because the last coefficient is the sum of six manifestly nonnegative products including strictly positive β²(μ+σδ). Since H(0)=0,H(1−q)>1−q, exactly one interior root exists. Reconstructed S,R,C are strictly positive even at σ=0 or 1. Quotient differentiation gives ∂(K/D)/∂G₁=−δ(βz+γG₂+μ)(σβz+γG₂+σμ)/D²<0, and ∂(K/D)/∂G₂=−δγG₁(1−σ)(βz+δG₁+μ)/D²; implicit differentiation yields the claimed strict/zero prevalence response. At β≤μ+α only the disease-free equilibrium. Real-analytic I* follows from H_z>0 with local continuation near ε_j=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Section 4 and Remark 4.4 give some sufficient conditions and conjectural aspects, not general positive H_z factorization (3) nor both derivatives (4)"
+        ],
+        "reasoning": "Published source does not mathematically dominate the all-feedback theorem. The new positivity expansion closes its uncovered intermediate parameter region; broader generic scalar monotonicity alone lacks the needed sign proof.",
+        "searches": [
+          "arxiv:2610.01111v1 Sections 4.1 and Appendix 8",
+          "Resultary: immune escape endemic uniqueness all feedback"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.01111v1",
+        "https://doi.org/10.1016/j.mbs.2005.12.029",
+        "https://arxiv.org/abs/2604.21065"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source sufficient diagonal feedback bound is not a proof for independently large ε₁ and ε₂; at σ=1, ∂I*/∂ε₂=0 is sharp"
+        ],
+        "reasoning": "Derived H_z positivity and quotient factorizations are needed to pass from earlier existence/partial uniqueness to complete all-feedback uniqueness and separate strict signs. No broader prior implication found in checked sources.",
+        "searches": [
+          "arxiv:2610.01111v1 Section 4.1 Remark 4.4",
+          "Resultary: all feedback endemic uniqueness separate monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original paper derives endemic existence and weak/strong uniqueness; the diagonal feedback sufficient condition does not assert uniform all-parameter uniqueness"
+        ],
+        "reasoning": "Aliases SIRCm/SIRC infection-driven immune escape, prevalence feedback g=I, and autonomous endemic branches were considered. Diagonal or perturbative uniqueness is not equivalent to uniqueness for arbitrary independent (ε₁,ε₂)≥0.",
+        "searches": [
+          "Resultary: prevalence driven SIRCm endemic equilibrium uniqueness feedback monotonicity immune escape",
+          "arxiv:2610.01111v1 Section 4 Remark 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database for continuum of independently varying feedback coefficients; nearest result involves different SIR and SIRS dynamics"
+        ],
+        "reasoning": "This is a global symbolic scalar-equilibrium theorem, not lookup of numerical equilibria; a table of sample parameters could not imply the universal response signs.",
+        "searches": [
+          "Resultary: prevalence driven SIRCm uniqueness immune-escape equations",
+          "web: Ramírez-Gutiérrez Lóczi Muñoz-Moncayo Ketcheson 2026 endemic equilibrium"
+        ]
+      },
+      "rationale": "The exact prevalence-driven SIRCm model, independently varied immune-escape feedback coefficients, and full rectangular nonnegative domain differ from the source paper’s weak/strong asymptotic or diagonal sufficient regimes. Independent channel-derivative factorizations and the σ=1 sharp equality boundary are additional statement-level content.",
+      "residual_risks": [
+        "Claim is about equilibrium number and prevalence sensitivity, not stability or Hopf absence",
+        "An unindexed treatment of the same prevalence-driven model could supply equivalent global monotonicity",
+        "At σ=1 the ε₂ sign is equality, not strict; parameter restrictions must remain visible"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general existence and partial/diagonal uniqueness; does not establish unconditional independent ε₁,ε₂ uniqueness or independent monotonicity",
+          "evidence": "arXiv:2610.01111v1, Section 4.1, Remark 4.4, Appendix 8",
+          "identifier_or_url": "https://arxiv.org/html/2610.01111v1",
+          "material_read": "Open arXiv full HTML: model Eq (1), epidemic threshold, all Section 4 uniqueness/feedback discussion, Remark 4.4 and relevant Appendix 8 algebra",
+          "method": "Read original primary full HTML and compared hypotheses line by line",
+          "title": "Compartmental epidemiological models with infection-driven immune escape",
+          "trigger": "Same equations and parameters, highest priority direct ancestor"
+        },
+        {
+          "assessment": "Unforced ε₁=ε₂=0 limiting model; limited inspection not grounds for whole-paper noncoverage",
+          "evidence": "Casagrandi et al. 2006, SIRC influenza A",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2005.12.029",
+          "material_read": "Article identity and model lineage from 2026 source references; no full older full-text read",
+          "method": "Reference/abstract comparison",
+          "title": "The SIRC model and influenza A",
+          "trigger": "Underlying SIRC model without infection-responsive immune escape"
+        },
+        {
+          "assessment": "Different network fixed-transition SIRS process, not this SIRCm equilibrium with two infection-response rates",
+          "evidence": "Different compartments and parameter feedback",
+          "identifier_or_url": "https://arxiv.org/abs/2604.21065",
+          "material_read": "Abstract/description and model categories only; no full content claim",
+          "method": "Open abstract and source citation comparison",
+          "title": "On the dynamic behavior of the network SIRS epidemic model",
+          "trigger": "Potential stronger epidemic uniqueness theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model’s original publication explicitly leaves intermediate feedback uniqueness insufficiently covered, and the result supplies a natural complete classification across independently varying feedback strengths while distinguishing two mechanisms and the exact σ=1 boundary. It rules out spurious algebraic multistability in an identifiable nonlinear epidemic system, an independently useful structural fact rather than a mere symbolic reformatting; no biological efficacy is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only autonomous normalized prevalence-driven g=I SIRCm model and fixed β; no stability claims",
+    "ε_j≥0 and rate μ,α,β,δ,γ>0, 0≤σ≤1 are necessary hypotheses",
+    "Tests of 80 rational parameter choices corroborate algebra but are not universal proof",
+    "Claim is about equilibrium number and prevalence sensitivity, not stability or Hopf absence",
+    "An unindexed treatment of the same prevalence-driven model could supply equivalent global monotonicity",
+    "At σ=1 the ε₂ sign is equality, not strict; parameter restrictions must remain visible"
+  ],
+  "schema_version": 1
+}

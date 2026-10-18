@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the positive-rate, constant-contact prevalence-driven SIRCm equations on the unit simplex. The infected equilibrium condition gives \(S+\sigma C=(\mu+\alpha)/\beta\), excluding endemic equilibria at or below threshold. The recovered/cross-immune stationary subsystem has a positive determinant and yields explicit rational formulas for both coordinates. The mass balance reduces exactly to \(H(I)=1-(\mu+\alpha)/\beta\). Equations (2) and (3) in RESULT.md give \(H'(I)>1\) for the full rectangular parameter domain, guaranteeing exactly one positive root. Reconstructing all compartments proves positivity and the remaining differential equations. The two explicit quotient-rule identities (4) prove independent-parameter monotonicity and the \(\sigma=1\) exception. Analytic simplicity gives analytic parameter dependence. The embedded symbolic checker confirms these identities and tests 80 rational parameter tuples; numerical checks are not used as a universal proof.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+At positive equilibrium I=z, infected balance fixes S+σC=(μ+α)/β=q, forcing β>μ+α. Solve the positive linear R,C stationary subsystem for C=αδ(1+ε₁z)z/D and R=αz(βz+μ+γ(1+ε₂z))/D with D>0. Conservation gives H(z)=z+αzK(z)/D(z)=1−q with quadratic D=d₀+d₁z+d₂z² and linear K=k₀+k₁z. The derivative H_z=1+α[k₀d₀+2k₁d₀z+(k₁d₁−k₀d₂)z²]/D² is >1 because the last coefficient is the sum of six manifestly nonnegative products including strictly positive β²(μ+σδ). Since H(0)=0,H(1−q)>1−q, exactly one interior root exists. Reconstructed S,R,C are strictly positive even at σ=0 or 1. Quotient differentiation gives ∂(K/D)/∂G₁=−δ(βz+γG₂+μ)(σβz+γG₂+σμ)/D²<0, and ∂(K/D)/∂G₂=−δγG₁(1−σ)(βz+δG₁+μ)/D²; implicit differentiation yields the claimed strict/zero prevalence response. At β≤μ+α only the disease-free equilibrium. Real-analytic I* follows from H_z>0 with local continuation near ε_j=0.
 
-The nearest same-model source [1] establishes existence for arbitrary feedback, uniqueness in weak and strong regimes, and a diagonal sufficient condition in Remark 4.4. Its statements do not entail the all-strength uniqueness assertion for arbitrary independent feedback values. The present proof establishes a globally strictly increasing scalar elimination function and two parameter-sensitivity factorizations that are not given there. The zero-feedback SIRC results [2] and fixed-transition-rate network SIRS results [3] do not cover the same two-channel prevalence-responsive dynamics. Searches for alternate terminology and stronger coverage did not reveal an equivalent statement, but priority cannot be proved by search; earlier implicit derivations remain a risk. The publication record of [2] was accessible only via bibliography and abstract rather than full manuscript, which limits that particular comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source leaves intermediate-strength and off-diagonal feedback uniqueness unclassified. Eliminating possible endemic multiplicity **for every** admissible feedback pair is a substantial extension on a naturally defined model, rather than an arbitrary parameter slice. Separate positive response of endemic prevalence to the two immune-escape channels and exact degeneracy at \(\sigma=1\) give an interpretable equilibrium sensitivity law. The result does not inflate uniqueness to claims about stability or forecast ability.
+The exact prevalence-driven SIRCm model, independently varied immune-escape feedback coefficients, and full rectangular nonnegative domain differ from the source paper’s weak/strong asymptotic or diagonal sufficient regimes. Independent channel-derivative factorizations and the σ=1 sharp equality boundary are additional statement-level content.
 
-## Closest literature and limitations
+## value
 
-[1] Ramírez-Gutiérrez et al., arXiv:2610.01111v1, Sections 2–4 and Appendix 8 (full text read); [2] Casagrandi et al., Mathematical Biosciences 200 (2006), original zero-feedback SIRC model (abstract/bibliography available); [3] Gatti–Como, arXiv:2604.21065, network SIRS with fixed transition rates (full-text equations and results inspected). Remaining risk: possible equivalent reductions in earlier immune-escape or SIRC equilibrium literature. Independent review, clinical validation, and stability analysis have not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The model’s original publication explicitly leaves intermediate feedback uniqueness insufficiently covered, and the result supplies a natural complete classification across independently varying feedback strengths while distinguishing two mechanisms and the exact σ=1 boundary. It rules out spurious algebraic multistability in an identifiable nonlinear epidemic system, an independently useful structural fact rather than a mere symbolic reformatting; no biological efficacy is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
