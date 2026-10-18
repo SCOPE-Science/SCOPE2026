@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic replay in `verify.py` reconstructs the Lie derivatives of \(x^2/2\), \(z\), \(w^2/2\), \(xw\), \(y^2/2\), and \(z^2/2\) directly from the displayed vector field. It checks the elimination chain leading to \(\int z^2\,d\mu=B\bar z\), and it evaluates \(B=2973/400\) and \(B/\phi=2973/4000\) exactly at the source parameters. The replay returns `VERIFY_OK`.
+# Independent mathematical audit
 
-The compact-support endpoint arguments are mathematical deductions rather than computational certificates. No numerical time integration, finite enumeration, or timeout is used as evidence for the universal claim. The verification does not establish existence or uniqueness of a nontrivial invariant measure.
+## correctness
+
+PASS
+
+Assume rho,delta,phi,k>0 and B=(a+k/rho)/delta>0, compact invariant mu. Stationarity of x^2/2 gives E[xy]=E[x^2]=q, and z gives zbar=phi*q. From w^2/2 and x*w obtain E[xw]=0, E[yw]=(k/rho)q. From y^2/2, E[xyz]=((a+k/rho)/delta)q=B*q. From z^2/2, E[z^2]=phi*B*q=B*zbar; hence Var(z)=zbar(B-zbar) and 0<=zbar<=B. If zbar=0 then x=0 support, invariance forces y=w=0, and only compact complete orbit of z prime=-z is z=0: origin Dirac. If zbar=B, variance zero forces z=B and xy=B/phi>0 on support. Compactness and continuity give x sign constant and |x| bounded below, forcing w prime=-k*x to be unbounded, contradiction. At source parameters rho=10,a=296.5,delta=40,phi=10,k=8, B=2973/400 and q<2973/4000. This is an exact necessary stationary law and does not claim a nontrivial stationary measure exists.
+
+## originality
+
+PASS
+
+Best-of-knowledge: distinct exact theorem or implication not supplied by the materially inspected primary results; the same Resultary indexed SCOPE entry is the audited work, not prior independent coverage. Earlier attractor/circuit/chaos descriptions specify the equations but do not imply a published result on all compact invariant measures. The audited derivation needs additional stationary moment elimination and compact-support endpoint rigidity.
+
+## value
+
+PASS
+
+The exact variance-versus-mean parabola and exclusion of its upper endpoint are useful natural constraints on stationary statistics of an explicitly studied four-dimensional chaotic flow. The parameter-specific upper bound on mean-square x is a reproducible quantitative barrier independent of simulated attractor choice; the invariant law is not a mere parameter renaming of a published theorem on another flow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

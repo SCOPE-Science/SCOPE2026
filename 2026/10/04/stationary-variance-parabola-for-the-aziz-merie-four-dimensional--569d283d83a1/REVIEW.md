@@ -1,15 +1,21 @@
-# Review of Stationary variance parabola for the Aziz–Merie four-dimensional flow
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses only invariant-measure generator identities that are valid on compact support, followed by exact algebra. The endpoint cases are handled separately: the lower endpoint collapses the invariant support to the origin, while the upper endpoint would force a nonzero fixed-sign \(x\) and hence unbounded monotone drift in \(w\), contradicting compactness. The symbolic checker independently replays every Lie derivative and the exact rational source-parameter constants.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the introducing 2020 article and the 2021 same-system circuit paper did not locate a stationary moment identity, invariant-measure variance law, or the strict mean-square bound. Equation- and alias-based searches returned closest results for other flows, including Rössler, Rabinovich–Fabrikant, and Halvorsen systems. Those results demonstrate related techniques but do not imply this vector-field-specific chain or coefficients. Residual risk remains that an equivalent derivation exists in poorly indexed literature.
+PASS
 
-## Value
-PASS. The variance parabola is a global statistical constraint applying to every compact stationary regime of the flow. Its strict endpoint analysis distinguishes the equilibrium measure from any nontrivial recurrence and supplies an exact benchmark for simulations or circuit realizations. The statement does not rely on a single numerical orbit.
+Assume rho,delta,phi,k>0 and B=(a+k/rho)/delta>0, compact invariant mu. Stationarity of x^2/2 gives E[xy]=E[x^2]=q, and z gives zbar=phi*q. From w^2/2 and x*w obtain E[xw]=0, E[yw]=(k/rho)q. From y^2/2, E[xyz]=((a+k/rho)/delta)q=B*q. From z^2/2, E[z^2]=phi*B*q=B*zbar; hence Var(z)=zbar(B-zbar) and 0<=zbar<=B. If zbar=0 then x=0 support, invariance forces y=w=0, and only compact complete orbit of z prime=-z is z=0: origin Dirac. If zbar=B, variance zero forces z=B and xy=B/phi>0 on support. Compactness and continuity give x sign constant and |x| bounded below, forcing w prime=-k*x to be unbounded, contradiction. At source parameters rho=10,a=296.5,delta=40,phi=10,k=8, B=2973/400 and q<2973/4000. This is an exact necessary stationary law and does not claim a nontrivial stationary measure exists.
 
-## Closest literature and limitations
-The closest retrieved literature contains invariant-measure moment laws for other classical flows, not this one. The theorem is necessary rather than existential: it does not prove that a nontrivial invariant measure exists, is unique, is ergodic, or is chaotic, and it does not describe the full attractor. Extension beyond compact support would require separate integrability hypotheses.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: distinct exact theorem or implication not supplied by the materially inspected primary results; the same Resultary indexed SCOPE entry is the audited work, not prior independent coverage. Earlier attractor/circuit/chaos descriptions specify the equations but do not imply a published result on all compact invariant measures. The audited derivation needs additional stationary moment elimination and compact-support endpoint rigidity.
+
+## value
+
+PASS
+
+The exact variance-versus-mean parabola and exclusion of its upper endpoint are useful natural constraints on stationary statistics of an explicitly studied four-dimensional chaotic flow. The parameter-specific upper bound on mean-square x is a reproducible quantitative barrier independent of simulated attractor choice; the invariant law is not a mere parameter renaming of a published theorem on another flow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
