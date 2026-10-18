@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The complete proof for every finite tree on \(n\ge2\) vertices is in `RESULT.md`.
 
-Check the exact affine identities
-\[
-LL^\dagger=I-\mathbf1\mathbf1^{\mathsf T}/n,
-\qquad
-\lambda_i(x)=1/n+\langle L^\dagger e_i,x\rangle.
-\]
-Each facet is the zero set of one barycentric coordinate. A radius-\(\rho\) inscribed ball requires
-\[
-\lambda_i(c)\ge\rho\|L^\dagger e_i\|,
-\]
-so summing yields a global radius bound attained by the displayed unique barycentric center.
+# Independent mathematical audit
 
-For the two tree inequalities, verify the chain
-\[
-S_T\le\sqrt{n\operatorname{tr}((L^\dagger)^2)}
-\le\sqrt n\operatorname{tr}(L^\dagger)
-=\frac{W(T)}{\sqrt n}
-\le\frac{(n^2-1)\sqrt n}{6}
-\]
-and the branch-current bound for each vertex of degree at most two
-\[
-\|L^\dagger e_i\|\ge\frac{n-1}{2\sqrt2\,n}.
-\]
-The number of such vertices is at least \((n+2)/2\).
+## correctness
 
-For the exact witnesses, check the pseudoinverse zero-sum column solutions in equations (19)--(21) of `RESULT.md`, the quartic squared norm and the positive Riemann-sum limit. The finite verification file `verify.py` uses only the Python standard library, performs exact rational matrix inversion for labeled trees, checks all labeled tree graphs on up to six vertices, tests larger deterministic trees, and checks the star and path formulas through order 40. It does **not** establish the all-order theorem by enumeration and is not an originality or independent-audit certificate.
+PASS
+
+For every tree n≥2, LL†=L†L=I−11^T/n gives barycentric facet map lambda_i(x)=1/n+<L†e_i,x>, whose unit normalized facets have clearance lambda_i/||L†e_i||. Summing clearances yields inradius rho=1/S and the unique barycentrically weighted center. For the all-tree lower radius bound, Cauchy and Σmu^-2≤(Σmu^-1)^2 bound S≤sqrt(n)tr L†=W(T)/sqrt(n), and the tree leaf-distance inductive bound W≤n(n²−1)/6 yields rho≥6/[sqrt(n)(n²−1)]. For upper radius bound at least (n+2)/2 vertices have degree≤2 and each has a neighboring branch size≥(n−1)/2; the pseudoinverse Poisson equation gives adjacent potential jump b/n and norm≥b/(sqrt(2)n); summing obtains S≥(n+2)(n−1)/(4sqrt(2)n). Exact path potentials/norm quartic independently checked for every 2≤n≤45 and vertex and star KKT/norm algebra checked. Riemann-sum limit gives path n^-5/2, star n^-1. No fixed-n exact extremal ordering claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
+
+## value
+
+PASS
+
+Shows large asymptotic Euclidean geometric differences among lattice-unimodularly equivalent canonical tree Laplacian simplices. Sharp n^-5/2 and n^-1 universal exponents plus path/star witnesses give a structural metric-vs-lattice distinction beyond pseudoinverse table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
