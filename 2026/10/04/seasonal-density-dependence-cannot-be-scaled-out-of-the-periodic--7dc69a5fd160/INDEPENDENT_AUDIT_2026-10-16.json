@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:53:30.632683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive periodic mosquito recurrence w_(n+1)=w_n*(r_n+mu_n*eta_n*w_n)/(1+eta_n*w_n), setting z_n=eta_n*w_n gives z_(n+1)=(eta_(n+1)/eta_n)*z_n*(r_n+mu_n*z_n)/(1+z_n), not the ratio-free equation when eta varies. Ratio cancellation for every positive state is iff eta_(n+1)=eta_n each step. Global common multiplier eta->c eta can be absorbed by w->w/c; seasonal relative eta cannot. Linearized one-period multiplier alpha=product r_n is unchanged by telescoping. Independent sympy exact composition for eta=(1/4,3/4), r=6/5,mu=1/2 verifies H(x)=3x(5x+48)(5x²+80x+128)/(20(x+4)(15x²+184x+160)), positive fixed point root of 225x³+2960x²+4480x-5632, x~.8039743679, next~.8705842366. Source-implied back-scaled (8/5,8/15) immediately fails because first step from 8/5 returns 8/5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elaydi–Sacker establish periodic environments can alter attracting periodic populations",
+          "Periodically forced Beverton–Holt analyses do not determine the missing algebraic factor in this particular mosquito model"
+        ],
+        "reasoning": "The prior general importance of seasonal coefficients is acknowledged. The precise false assertion and exact corrected recurrence in the named source are more specific than those broad phenomena.",
+        "searches": [
+          "DOI:10.1016/j.mbs.2005.12.021",
+          "DOI:10.1155/2017/5963594",
+          "Resultary: periodic mosquito density dependence eta_n seasonal Beverton Holt normalization eta_{n+1}/eta_n"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.mbs.2005.12.021",
+        "DOI:10.3934/dcdsb.2024051"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The publisher abstract and figure confirm a model with periodic environmental parameters and numerical figure using eta_n identically 1",
+          "The exact phase factor follows from algebra of the recurrence recorded in the frozen package, not from generic persistence theory"
+        ],
+        "reasoning": "If the source text indeed omits eta_(n+1)/eta_n as the package reports, its normalization is invalid for nonconstant seasonal eta; direct source statement remains access-limited and is a recorded originality and premise-verification risk. Existing general periodic population theory does not supply this exact counterexample.",
+        "searches": [
+          "DOI:10.3934/dcdsb.2024051",
+          "DOI:10.1016/j.mbs.2005.12.021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ratio eta_(n+1)/eta_n is forced by time-dependent coordinate conjugation z_n=eta_n*w_n",
+          "A common constant rescale remains valid but cannot remove relative phase shape"
+        ],
+        "reasoning": "Compared periodic Beverton–Holt, stage-season carrying capacity, and nonautonomous change-of-variable descriptions; these general observations do not automatically state the claimed exact source-specific correction.",
+        "searches": [
+          "Resultary: periodic mosquito density dependence eta_n seasonal Beverton Holt normalization eta_{n+1}/eta_n",
+          "DOI:10.3934/dcdsb.2024051"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit reproduces exactly this assigned correction; other seasonal ENSO normalization hits concern different equations",
+          "No indexed independent correction note found for DOI:10.3934/dcdsb.2024051"
+        ],
+        "reasoning": "Not a table-lookup claim; source-specific symbolic normalization and exact two-season orbit obstruction rather than finite database enumeration.",
+        "searches": [
+          "Resultary: periodic mosquito density dependence eta_n seasonal Beverton Holt normalization eta_{n+1}/eta_n",
+          "Resultary published 2026/10/4/SCOPE-seasonal-density-dependence-cannot-be-scaled-out-of-the-periodic--7dc69a5fd160"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Seasonal density dependence cannot be scaled out of the periodic mosquito map. Risks and partial readings disclosed.",
+      "residual_risks": [
+        "Complete original 2024 article not independently read: paywall for publisher HTML/PDF and authorized Oxford tool returned vpn_disconnected. Thus its alleged printed scaling step remains a material unverified attribution, despite exact conditional mathematics.",
+        "The outcome is a correction to finite-density rescaling, not an attack on alpha=product r or on simulations actually using constant eta."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL ACCESS LIMITATION—cannot independently verify verbatim Section 5 scaling assertion",
+          "evidence": [
+            "Published publisher caption confirms constant eta numerical experiment; actual unscaled recurrence and claimed ratio-free source sentence taken from frozen package only"
+          ],
+          "identifier_or_url": "DOI:10.3934/dcdsb.2024051",
+          "material_read": "Publisher bibliographic page, abstract and Figure 1 caption indicating eta(n) identically 1; the full mathematical article was not available",
+          "method": "publisher abstract and authorized full-text attempted; Oxford returned vpn_disconnected",
+          "title": "Periodic solutions and stability of a discrete mosquito population model with periodic parameters",
+          "trigger": "Primary article whose Section 5 allegedly omits nonautonomous coordinate ratio"
+        },
+        {
+          "assessment": "CONTEXT; general periodic environmental effects, not decisive source-specific correction",
+          "evidence": [
+            "General seasonal effects do not supply missing phase ratio for this 2024 model"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.mbs.2005.12.021",
+          "material_read": "Published metadata and indexed mathematical subject summary; entire paper not read",
+          "method": "bibliographic index and cross-referenced primary source",
+          "title": "Periodic difference equations, population biology and Cushing-Henson conjectures",
+          "trigger": "Potential general stronger seasonal carrying-capacity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original ecology application explicitly studies seasonal density dependence yet sets eta=1 to simulate on a claimed normalization. The corrected scaling shows the seasonal profile changes the actual attracting two-cycle while preserving the origin stability threshold. An admissible, exact counterexample prevents interpreting constant-eta simulations as universally rescalable; not just a dimensionless-units observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The source-specific printed-claim attribution cannot be independently resolved without original full text.",
+    "No general sensitivity theorem beyond scaling identity; finite-density counterexample is exact for the two-season setting.",
+    "Complete original 2024 article not independently read: paywall for publisher HTML/PDF and authorized Oxford tool returned vpn_disconnected. Thus its alleged printed scaling step remains a material unverified attribution, despite exact conditional mathematics.",
+    "The outcome is a correction to finite-density rescaling, not an attack on alpha=product r or on simulations actually using constant eta."
+  ],
+  "schema_version": 1
+}

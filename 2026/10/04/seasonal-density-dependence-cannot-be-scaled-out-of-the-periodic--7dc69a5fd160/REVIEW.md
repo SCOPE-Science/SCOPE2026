@@ -1,34 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution of
-\[
-z_n=\eta_nw_n
-\]
-into the printed mosquito recurrence gives
-\[
-z_{n+1}
-=
-\frac{\eta_{n+1}}{\eta_n}
-\left(
-\frac{r_n+\mu_nz_n}{1+z_n}
-\right)z_n.
-\]
-The omitted phase ratio disappears for all positive states exactly when the periodic density-dependence sequence is constant. The source's threshold remains correct because the phase ratios telescope over one period. The bundled checker reproduces the exact two-season contradiction and the positive return-map fixed point.
+PASS
 
-## Originality
+For positive periodic mosquito recurrence w_(n+1)=w_n*(r_n+mu_n*eta_n*w_n)/(1+eta_n*w_n), setting z_n=eta_n*w_n gives z_(n+1)=(eta_(n+1)/eta_n)*z_n*(r_n+mu_n*z_n)/(1+z_n), not the ratio-free equation when eta varies. Ratio cancellation for every positive state is iff eta_(n+1)=eta_n each step. Global common multiplier eta->c eta can be absorbed by w->w/c; seasonal relative eta cannot. Linearized one-period multiplier alpha=product r_n is unchanged by telescoping. Independent sympy exact composition for eta=(1/4,3/4), r=6/5,mu=1/2 verifies H(x)=3x(5x+48)(5x²+80x+128)/(20(x+4)(15x²+184x+160)), positive fixed point root of 225x³+2960x²+4480x-5632, x~.8039743679, next~.8705842366. Source-implied back-scaled (8/5,8/15) immediately fails because first step from 8/5 returns 8/5.
 
-PASS. The primary source contains the ratio-free transformed equation and the associated simulation-rescaling statement. Searches of the exact DOI, title, correction aliases, density-dependence scaling, and periodic Beverton-Holt literature found no source-specific correction. General literature already establishes that periodic environmental coefficients can influence finite-density population dynamics, and that background is treated as prior rather than novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The source introduces \(\eta_n\) specifically as a periodic environmental parameter, yet its numerical section fixes it to one on the premise that arbitrary seasonal profiles can be recovered by rescaling. The correction separates the valid threshold invariance from the invalid finite-density conjugacy. An exact admissible two-season example shows that the error changes the trajectory immediately and changes the positive periodic orbit, so seasonal simulations cannot generally be transferred without recomputation.
+Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Seasonal density dependence cannot be scaled out of the periodic mosquito map. Risks and partial readings disclosed.
 
-## Closest literature and limitations
+## value
 
-Elaydi and Sacker, DOI 10.1016/j.mbs.2005.12.021, and Bilgin and Kulenović, DOI 10.1155/2017/5963594, treat periodically forced Beverton-Holt population dynamics and show that periodic environmental quantities can affect attracting populations. They do not contain the source-specific change-of-variables correction.
+PASS
 
-The finding does not dispute the source's threshold \(\alpha\) or the published figure computed with constant \(\eta_n\). It corrects only the claim that a genuinely nonconstant periodic density-dependence profile can be removed by phasewise rescaling.
+The original ecology application explicitly studies seasonal density dependence yet sets eta=1 to simulate on a claimed normalization. The corrected scaling shows the seasonal profile changes the actual attracting two-cycle while preserving the origin stability threshold. An admissible, exact counterexample prevents interpreting constant-eta simulations as universally rescalable; not just a dimensionless-units observation.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
