@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes all norms and exact domain, reconstructs the spectral/Lorentz projection map, explicitly differentiates the indefinite open sector, and uses affine endpoint interpolation to control every Jacobian. Absolute row and column sums give the sharp 3/2 in independent-entry infinity and sum norms; the oblique rank-one Hilbert projection calculation gives squared Euclidean norm at most 9/8. Integrating on generic segments and applying continuity gives the global bound; one exact finite pair and two families of smooth approaching points give the lower bounds. Python stdlib verification replayed 15731 assertions, including exact rational identities, without pretending finite tests prove continuum inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shapiro, On Differentiability of Symmetric Matrix Valued Functions (2002), original theorem for differentiability of matrix functions; https://optimization-online.org/2002/07/499/",
+        "Sun and Sun (2002), generalized Jacobian and strong semismoothness of positive semidefinite projection."
+      ],
+      "reasoning": "The classical broader calculus provides Jacobians, not a sharp optimization of their operator norms under independent-entry ell_p metrics. A theorem bounding this map in every norm with an exact best operator norm would be a stronger covering result, and the examined primary works did not provide such a statement.",
+      "searches": [
+        "\"semidefinite projection\" \"maximum norm\" \"Lipschitz\"",
+        "\"2x2\" \"positive semidefinite cone\" \"Lipschitz constant\" infinity",
+        "Lorentz cone Euclidean projection under anisotropic max norm diagonal entries symmetric matrices crossnorm Lipschitz",
+        "projection onto semidefinite positive cone nearest positive matrix coordinatewise Lipschitz constants Frobenius spectral positive part"
+      ]
+    },
+    "checked_sources": [
+      "Sun and Sun (2002), Mathematics of Operations Research 27, 150–169; DOI 10.1287/moor.27.1.150.342",
+      "Shapiro (2002), Optimization Online paper 499",
+      "Andreev (2014), Applied Mathematics E-Notes 14, 43–44",
+      "Earlier published standard-coordinate Lorentz projection bounds, distinct from the nonisometric independent-entry norm formulation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun and Sun, Proposition 4.2: nonexpansivity in Frobenius norm, which counts offdiagonal elements twice.",
+        "Shapiro (2002) differentiability of symmetric spectral matrix functions.",
+        "Andreev (2014) equality of Hilbert norms of complementary oblique projections."
+      ],
+      "reasoning": "Frobenius nonexpansivity gives only non-sharp coordinate comparison estimates, not the asserted equal sharp l1/linfty 3/2 and l2 3/(2sqrt2). Differentiability and complementary projection identities are important cited premises but do not imply the complete global sharp estimates without this proof’s scalar endpoint optimization. Dimension-2 Lorentz results in the standard Cartesian norms cannot be substituted, because the coordinate transform is nonisometric for all independent-entry norms.",
+      "searches": [
+        "\"positive semidefinite\" \"entrywise\" \"Lipschitz\" \"projection\" 2x2",
+        "\"semidefinite projection\" \"maximum norm\" \"Lipschitz\"",
+        "\"2x2\" \"positive semidefinite cone\" \"Lipschitz constant\" infinity",
+        "Lorentz cone Euclidean projection under anisotropic max norm diagonal entries symmetric matrices crossnorm Lipschitz",
+        "projection onto semidefinite positive cone nearest positive matrix coordinatewise Lipschitz constants Frobenius spectral positive part"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun and Sun 2002, positive-part spectral formula and Frobenius projection nonexpansivity; doi:10.1287/moor.27.1.150.342",
+        "The Frobenius identification of symmetric 2x2 PSD matrices with a 3D Lorentz cone changes the coordinate ell_p metrics."
+      ],
+      "reasoning": "The spectral positive part, PSD nearest projection, and Lorentz cone clipping are equivalent as maps. But independent-entry norms of (a,c,b) are not the standard Lorentz-coordinate ell_1 or ell_infinity norms, and for p=2 differ from Frobenius. Existing map identities do not by themselves give these three optimized induced constants.",
+      "searches": [
+        "\"positive semidefinite\" \"entrywise\" \"Lipschitz\" \"projection\" 2x2",
+        "\"positive part\" matrix \"independent entries\" Lipschitz constant",
+        "sharp entrywise maximum-norm Lipschitz constant of positive semidefinite cone metric projection 2x2 real symmetric 3/2",
+        "spectral positive part map real symmetric 2 by 2 matrices induced infinity norm and one norm 3/2",
+        "Lorentz cone Euclidean projection under anisotropic max norm diagonal entries symmetric matrices crossnorm Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant primary papers supply Frobenius-norm properties and matrix derivative formulas, not a table of the three independent-entry constants.",
+        "No identified published constant table or database entry states 3/2, 3/(2sqrt(2)), 3/2 for this particular map and norm convention."
+      ],
+      "reasoning": "The object is a continuous nonlinear matrix-valued map rather than a finite classified combinatorial entry; checking finite matrix examples or computing numerical maxima would not establish the three global constants. The direct query checks yielded no identical exact table.",
+      "searches": [
+        "\"positive part\" matrix \"independent entries\" Lipschitz constant",
+        "\"PSD projection\" \"maximum norm\" two by two Lipschitz",
+        "\"positive part\" \"entrywise\" \"1.5\" \"symmetric\" matrices",
+        "sharp entrywise maximum-norm Lipschitz constant of positive semidefinite cone metric projection 2x2 real symmetric 3/2",
+        "spectral positive part map real symmetric 2 by 2 matrices induced infinity norm and one norm 3/2"
+      ]
+    },
+    "rationale": "The inspected Sun–Sun 2002 and Shapiro 2002 full-text treatments state Frobenius spectral projection, semismoothness and matrix derivative ingredients, and Andreev 2014 supplies a general oblique-projection lemma, but none supplies the optimized independent-entry coordinate Lipschitz constants. Natural standard-coordinate Lorentz-cone constants are inequivalent because its Frobenius isometry is not an isometry for independent matrix-entry norms. Searches for alias statements and stronger claims found no direct covering result. A more general historical theorem might still imply the three constants; no exhaustive priority claim.",
+    "residual_risks": [
+      "An older general exact operator-norm theorem for spectral positive-part maps or non-Hilbert metric projections may imply the result without referring explicitly to 2x2 PSD matrices or independent-entry coordinates.",
+      "Web indexing and mathematical-literature databases are not exhaustive; matching formulas under other matrix coordinate conventions may have been missed.",
+      "The numeric program is finite and cannot independently certify the analytic proof or absence of prior art."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the spectral projection and Hilbert/Frobenius Lipschitz foundation; does not state the three optimized independent-entry constants",
+        "evidence": "Proposition 4.2 Frobenius nonexpansivity; Proposition 4.5 positive-part spectral formula. Original DOI and verified publication metadata.",
+        "identifier_or_url": "doi:10.1287/moor.27.1.150.342",
+        "material_read": "Available author full text: section on semidefinite projection, especially Proposition 4.2 and Proposition 4.5 and strong-semismoothness treatment",
+        "method": "Full-text mathematical reading of relevant statements, definitions and proof passages",
+        "title": "Semismooth Matrix-Valued Functions",
+        "trigger": "Same PSD positive-part projection and Frobenius nonexpansivity; originating 2002 source"
+      },
+      {
+        "assessment": "Differentiability framework and spectral divided-difference derivatives; no globally optimized independent-entry ell_1, ell_2, ell_infinity constants found",
+        "evidence": "Original 2002 open-access document, derivative calculus for functions of real symmetric matrices.",
+        "identifier_or_url": "https://optimization-online.org/2002/07/499/",
+        "material_read": "Open-access paper including main definitions and derivative formulas for symmetric matrix functions; inspected PDF content and representative page",
+        "method": "Full accessible primary document and scanned mathematical theorem comparison",
+        "title": "On Differentiability of Symmetric Matrix Valued Functions",
+        "trigger": "Possible stronger spectral-function derivative theorem giving sharp non-Hilbert norms"
+      },
+      {
+        "assessment": "Directly supports the complementary-projection Euclidean norm lemma, but no PSD map or independent-entry constants",
+        "evidence": "Norm of a nontrivial idempotent equals norm of its complement in Hilbert space.",
+        "identifier_or_url": "https://www.math.nthu.edu.tw/~amen/2014/131012(final).pdf",
+        "material_read": "Complete two-page note on Hilbert oblique projection norm equality, including proof and hypotheses",
+        "method": "Primary full-text mathematical reading and first-page inspection",
+        "title": "A Note on the Norm of Oblique Projections",
+        "trigger": "Nonstandard lemma that a rank-one idempotent and its complement have equal Hilbert operator norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b499f22-28aa-4614-a306-a793c35dd158",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent symmetric entries are the naturally observed degrees of freedom in 2x2 matrix reconstruction and constrained spectral truncation. Their ell_p error norms differ from Frobenius, making exact stability beyond Hilbert nonexpansivity a substantive question. The theorem completely determines the globally optimal constants for three canonical norms, exhibits 50% sensitivity inflation in two of them, supplies sharp extremal configurations, and derives an oblique-projector mechanism which may inform higher-dimensional studies. It does not claim higher-dimensional or all-exponent extensions.",
+    "status": "PASS"
+  }
+}
