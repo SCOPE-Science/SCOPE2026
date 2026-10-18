@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` starts from the six published facet-orbit representatives for the affine \(13{:}3\) action and expands them independently.
+# Independent mathematical audit
 
-It verifies orbit sizes \(39,39,39,13,13,13\), reconstructs the full face vector \((13,78,286,533,468,156)\), and checks that all \(286\) vertex triples are triangular faces.
+## correctness
 
-Over \(\mathbf F_2\), it computes triangle-to-edge rank \(66\) and tetrahedron-to-triangle rank \(219\), hence \(\dim H_2=1\). It then evaluates all \(182\) missing tetrahedral boundaries and requires every one to be nonzero.
+PASS
 
-Finally, it acts with all \(39\) affine maps on the complete missing-four-set family, obtaining six orbits with sizes \(13,13,39,39,39,39\) and the stated representatives. It independently computes the two affine pair types and all six pair-type signatures.
+The six Köhler–Lutz 6-vertex facet representatives expanded under translations x->x+a and multipliers 1,3,9 mod13 produce 156 facets and f=(13,78,286,533,468,156), hence every vertex triple is a triangle and 715-533=182 four-sets are missing tetrahedra. Independent exact F2 elimination on every triangle-to-edge boundary gives rank 66 and tetra-to-triangle rank 219, so H2(K;F2)=F2. All 182 tetrahedral boundaries of missing four-sets are nonzero modulo the span of 533 existing tetrahedral boundaries, whereas the present tetrahedra are boundaries. Any simplicial nonzero 2-cycle needs at least 4 vertices. From published integral H1=0 and H2=Z/2, universal coefficients identify the mod-two generator with the unique integral torsion class, with no illicit F2-to-integral inference. Independently formed all 39 affine action permutations and computed exactly 6 missing-four-set orbits (13,13,39,39,39,39), the six claimed representatives and pair signatures 3:3,3:3,4:2,3:3,3:3,2:4. Exhaustiveness is finite exact, not a sampling argument.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=13,78,286,533,468,156 H2_F2_dim=1 missing4=182 all_missing4_nonzero=yes affine_orbits=13,13,39,39,39,39 reps=12410|12911|12311|1246|12412|1278 pair_signatures=3:3|3:3|4:2|3:3|3:3|2:4`
+PASS
 
-The integral interpretation uses the published homology \(H_2\cong\mathbb Z/2\), \(H_1=0\) and the universal coefficient theorem; no unsupported integer-homology inference is made from a mod-two calculation alone.
+The primary Köhler–Lutz paper gives the exact Wu manifold facet presentation, affine group, face vector and integral homology, but its facet-orbit table is not a table of essential missing-tetrahedral 2-sphere carriers. Tightness literature makes four-support homology generators natural, possibly implicit, but the complete 182-carrier essentiality check and six affine-orbit representatives/signatures are an exact combinatorial classification not found in material inspected. Similar published SCOPE Wu-manifold short-link tetrahedron orbits concern existing facets with short links, not missing tetrahedra representing H2 torsion.
+
+## value
+
+PASS
+
+The unique torsion class in a celebrated minimal 13-vertex 5-manifold is a natural place to ask for the shortest integral simplicial cycle. The complete set of shortest carriers and their symmetry orbit taxonomy is an exact finite classification useful for combinatorial topology and computational triangulation benchmarks, rather than an unmotivated small enumeration. Value attaches to the complete essential-carrier result; the published f-vector alone is not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
