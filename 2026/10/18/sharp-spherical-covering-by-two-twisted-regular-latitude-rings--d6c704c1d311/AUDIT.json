@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Complete facet classification: two cap planes at distance h and 2n lateral triangles (n rectangles at aligned twist), all at common explicit distance D; centered hull-inradius equals cosine of spherical mesh norm since origin is interior. Squaring D>=h yields x<=ct/(1+ct). In the other branch D^2 is decreasing beyond the switch because its maximum is at (t-c)/(2+t-c) strictly below ct/(1+ct) for c>=1/2. This proves the unique optimum at each twist and at half-step twist globally. 245 independent convex hull comparisons, 300000 random directions and 25 local-optimum checks passed. Quantifiers cover n>=3, 0<h<1 and all twists in a full period. Finite checks are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fowler et al. (2002), pp. 2277–2285: their five-pair antipodal covering optimum breaks fivefold antiprism symmetry; their antiprism is a packing-stage configuration. No symbolic restricted-family optimization is given.",
+        "The octahedron is known globally optimal for six cap centers (Fowler et al., 2002, Section 3(a)), and is excluded from the new claim of novelty.",
+        "Brauchart et al. (2014), arXiv:1407.8311, Section 1 and Theorem 1.2: covering-radius bounds in terms of cubature worst-case error, not an equality solving a fixed antiprism family."
+      ],
+      "reasoning": "General asymptotic bounds, numerical unrestricted global covering tables, and the special known octahedral optimum do not logically provide the exact radius at every latitude and twist, a phase boundary, or the unique ring-wise optimizer for every n.",
+      "searches": [
+        "spherical covering radius antiprism equal circles sphere exact optimized antiprism height latitude two rings",
+        "spherical antiprism covering sphere equal caps optimal ring rotation polygonal prism covering",
+        "triangular antiprism six points unit sphere covering radius spherical 6 points optimal octahedron 2015",
+        "From circle packing to covering on a sphere with antipodal constraints Fowler Tarnai Gáspár 2002"
+      ]
+    },
+    "checked_sources": [
+      "Fowler–Tarnai–Gáspár, Proc. R. Soc. A 458 (2002), DOI:10.1098/rspa.2002.0990",
+      "Brauchart et al., arXiv:1407.8311 (2014)",
+      "Brauchart et al., arXiv:1512.07470 (2015)",
+      "Every uniform antiprism has X-ray number three, published geometry note 8163a250996c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fowler et al. (2002), Sections 3(a), 3(c), 3(b)(i): they establish the known six-point special case and investigate five antipodal pairs numerically; they do not state a universal phase law in arbitrary twists.",
+        "Published \"Every uniform antiprism has X-ray number three\", full RESULT.md: explicitly restricts to equal-edge realization and calculates X-ray number, with no covering-radius theorem and no nonuniform antiprism calculations.",
+        "Brauchart et al. (2015), Sections 1-2: facet-induced cap radius correspondence is treated as established geometry; the deterministic minimax aspect-ratio optimization is absent."
+      ],
+      "reasoning": "The general facet correspondence and octahedral instance are prior art and are not presented as new. The claim requires evaluating a complete two-parameter family and proving a sharp phase transition and all-n uniqueness. Neither the published X-ray theorem nor prior statistical spherical covering results imply those assertions. An unlocated classical antiprism inradius calculation is a residual risk.",
+      "searches": [
+        "n-gonal antiprism with two interlaced equiangular rings on unit sphere exact geodesic covering radius, optimal latitude h square cos(pi/n)/(1+cos(pi/n))",
+        "Voronoi geometry triangular antiprism spherical codes covering radius and optimal six point covering configurations",
+        "width and separation extrema of triangular antiprism inscribed in sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brauchart et al. (2015), arXiv:1512.07470, introduction and Section 2: largest empty cap radius corresponds to the closest facet of a vertex hull, but the paper analyzes random, not two-ring deterministic configurations.",
+        "Fowler, Tarnai and Gáspár (2002), DOI:10.1098/rspa.2002.0990, Sections 2-3: antipodal spherical-cap covering optimization, explicitly including pentagonal antiprism deformations, not this symbolic two-parameter profile."
+      ],
+      "reasoning": "The geodesic mesh norm, largest empty cap, spherical Voronoi circumradius and centered hull-inradius describe the same invariant for origin-interior configurations. Searching those aliases exposed the general equivalence but no pre-existing explicit all-integer, all-twist formula with the optimal latitudes.",
+      "searches": [
+        "n-gonal antiprism with two interlaced equiangular rings on unit sphere exact geodesic covering radius, optimal latitude h square cos(pi/n)/(1+cos(pi/n))",
+        "two parallel equally populated latitude rings rotated twist pi/n minimize largest empty spherical cap optimal aspect ratio h^2=cos(pi/n)/(1+cos(pi/n))",
+        "\"antiprism\" \"covering radius\" sphere",
+        "\"spherical covering\" \"antiprism\" \"latitude\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fowler et al. (2002), Table 2 gives best-known global numerical covering radii at a few finite site counts, and Section 3 treats selected antipodal cases; no table of this parameterized invariant.",
+        "The geometric research record entitled \"Every uniform antiprism has X-ray number three\" (opaque reference 8163a250996c), whose full result text was read, studies X-ray illumination of the whole polyhedron, not angular proximity to its vertices."
+      ],
+      "reasoning": "Exact two-parameter values and all-integer unique optima were not identified in checked tables or geometric records. A numerical table for one globally optimized value cannot dominate a closed expression over all configurations in a constrained family.",
+      "searches": [
+        "inscribed n-gonal antiprism spherical covering radius unique minimizer over height and phase",
+        "staggered polygonal antiprisms geodesic mesh norm exact formula facet distance latitude radius spherical Voronoi",
+        "\"spherical covering\" \"two rings\" \"staggered\""
+      ]
+    },
+    "rationale": "Searches under spherical covering radius, largest empty spherical cap, antiprism facet inradius, twisted two latitude rings, and exact optimum; compared published spherical covering and X-ray literature by mathematical implication. The octahedral instance and facet/hole correspondence are known and not novel. Neither the directly relevant pentagonal antiprism coverage paper nor deterministic published records checked supply the two-parameter closed law, all-twist unique latitude optimum and all-n shape contrast. Historical priority remains provisional, especially under classical inradius language.",
+    "residual_risks": [
+      "Classical polyhedral or spherical lattice-covering tables could contain an algebraically equivalent all-n inradius computation under different vocabulary.",
+      "The spherical-packing/covering literature is extensive, and search incompleteness cannot certify historical priority.",
+      "Some source texts were inspected as accessible manuscript HTML rather than original page images."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains prior octahedral covering and a specific antipodal pentagonal-antiprism path, not the all-integer twisted regular-ring formula; broad global optimization is different, and published numerical values are not asserted proven globally",
+        "evidence": [
+          "Sections 3(a), 3(c) and 3(b)(i): octahedron and five-pair antiprism deformation; Table 2 finite numerical values."
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2002.0990",
+        "material_read": "Accessible long-form article text, introduction, Sections 2 and 3(a)-(d), covering section and Table 2, especially the pentagonal antiprism transition and numerical covering radii",
+        "method": "Read web full-text HTML extraction from publisher-authorized preview, plus targeted section and term searches",
+        "title": "From circle packing to covering on a sphere with antipodal constraints",
+        "trigger": "Directly related spherical cap covering problem includes an equilateral pentagonal antiprism and an octahedron"
+      },
+      {
+        "assessment": "General dimension-dependent cubature error estimates, not exact covering of two regular latitude rings",
+        "evidence": [
+          "Introduction Eq. (1.1), Theorem 1.2 and discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.8311",
+        "material_read": "Accessible full manuscript extraction, introduction, Theorem 1.2, spherical-design discussion, and keyword/antiprism checks",
+        "method": "Read full-text rendering and searched for antiprism and two-latitude families",
+        "title": "Covering of spheres by spherical caps and worst-case error for equal weight cubature in Sobolev spaces",
+        "trigger": "Contains an exact covering-radius definition and potentially stronger geometric inequalities"
+      },
+      {
+        "assessment": "Facet correspondence is an established tool; probabilistic random-site asymptotics do not imply deterministic two-ring sharp optimization",
+        "evidence": [
+          "Introduction and Section 2; Section 4 proof relating cap radii to facet distances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.07470",
+        "material_read": "Accessible full manuscript extraction, introduction, Section 2, facet/covering correspondence and associated proofs; searched for antiprism",
+        "method": "Read manuscript rendering with targeted term and theorem inspection",
+        "title": "Random Point Sets on the Sphere—Hole Radii, Covering, and Separation",
+        "trigger": "Defines covering via maximal facet-induced holes, matching the geometric reduction"
+      },
+      {
+        "assessment": "X-ray directions of the uniform antiprism, a different invariant; specifically does not cover nonuniform antiprisms",
+        "evidence": [
+          "Finding X(A_n)=3 and limitations excluding nonuniform aspect ratios."
+        ],
+        "identifier_or_url": "published geometry result 8163a250996c",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, verification and limitations",
+        "method": "Read published full-text through authorized repository read",
+        "title": "Every uniform antiprism has X-ray number three",
+        "trigger": "Same antiprism objects, possible stronger published geometric statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6c704c1-d311-4d7e-b5a6-f993d3e367ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest empty cap (mesh norm) of two regular sampling rings is a natural geometric design invariant. The theorem provides a complete two-parameter phase diagram and optimizes both latitude and phase for every ring cardinality, distinguishing polar holes from side holes. It unexpectedly proves all edge-uniform antiprisms with n>=4 are suboptimal within their own two-ring class, and that even as 2n grows the best two-ring mesh norm has a nonzero limiting angle pi/4; these structural features motivate the exact values beyond a textbook one-off computation.",
+    "status": "PASS"
+  }
+}
