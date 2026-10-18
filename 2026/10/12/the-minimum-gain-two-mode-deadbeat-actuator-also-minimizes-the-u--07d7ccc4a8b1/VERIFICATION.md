@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem is analytic. The standalone checker replays exact identities and the rational equality example.
 
-For
-\[
-a=\frac45,
-\qquad
-d=\frac35,
-\qquad
-b=\left(\frac45,\frac35\right)^{\mathsf T},
-\qquad
-k=(4,-3)^{\mathsf T},
-\]
-it verifies
-\[
-A-bk^{\mathsf T}
-=
-\frac{12}{5}
-\begin{pmatrix}
--1&1\\
--1&1
-\end{pmatrix}
-\]
-and
-\[
-(A-bk^{\mathsf T})^2=0.
-\]
-Because this matrix has rank one, its spectral norm equals its Frobenius norm, which the exact entries give as
-\[
-\frac{24}{5}.
-\]
-The feedback norm is exactly
-\[
-5,
-\]
-matching
-\[
-\frac{a^2+d^2}{a-d}.
-\]
+# Independent mathematical audit
 
-The checker also verifies the trace/determinant pole equations and the closed-loop norm identity on several rational choices of \(a,d,b_1^2,b_2^2\). These finite checks are corroborative only; the all-parameter minimizers follow from the two sharp inequalities in `RESULT.md`.
+## correctness
+
+PASS
+
+The characteristic polynomial trace/determinant conditions force b1k1=a²/(a−d), b2k2=−d²/(a−d) for every admissible b. With x=b1², squared gain equals [a⁴/x+d⁴/(1−x)]/(a−d)², minimized exactly at x=a²/(a²+d²) by Cauchy. Nilpotent nonzero 2×2 closed loop is rank one, so spectral norm equals Frobenius norm. Its squared norm equals [a²(1−x)+d²x]²/[x(1−x)(a−d)²], minimized at the SAME x using [a√(1−x)−d√x]²≥0. Exact rational witness a=4/5,d=3/5,b=(4/5,3/5),k=(4,−3) gives a nilpotent matrix (12/5)[[-1,1],[-1,1]] with spectral norm 24/5 and gain norm5; algebra independently checked on rational values. Blow-up is at fixed coalescence s∈(0,1); no universality for diagonalization by nonorthogonal similarities.
+
+## originality
+
+PASS
+
+Feedback-gain minimization for fixed (A,b) and deadbeat pole assignment are classical. The assessed theorem instead optimizes the unit actuator *direction* jointly for exact two-step nilpotency, finding that the minimizer of required feedback gain equals the minimizer of one-step transient norm. Full available later fixed-input pole-placement and input-co-design sources do not give this result; the inaccessible 1988 Amin–Elabdalla primary full text remains a particular overlap risk, not proof of coverage.
+
+## value
+
+PASS
+
+Two-step deadbeat pole placement is a natural minimal control objective and nonnormal transient amplification is a distinct practical criterion. Solving the first nontrivial continuous actuator-direction co-design determines a previously unstated common optimizer and exact reciprocal-gap blow-up. The result supplies a precise counterintuition: zero closed-loop poles and minimum gain do not prevent a factor-24/5 one-step amplification for a stable open-loop plant. It is motivated structural optimization rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

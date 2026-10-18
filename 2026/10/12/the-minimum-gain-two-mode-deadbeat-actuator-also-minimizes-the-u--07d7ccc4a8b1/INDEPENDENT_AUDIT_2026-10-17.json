@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Original frozen RESULT.md blob 6ba40e55164e198baba870819011258c473737e9",
+        "Actual verify.py blob af1ee148846258441aeecdbaaff2bb66a415ed4a",
+        "Schmid et al arXiv:1405.1516 fixed-input pole placement setting"
+      ],
+      "rationale": "The characteristic polynomial trace/determinant conditions force b1k1=a²/(a−d), b2k2=−d²/(a−d) for every admissible b. With x=b1², squared gain equals [a⁴/x+d⁴/(1−x)]/(a−d)², minimized exactly at x=a²/(a²+d²) by Cauchy. Nilpotent nonzero 2×2 closed loop is rank one, so spectral norm equals Frobenius norm. Its squared norm equals [a²(1−x)+d²x]²/[x(1−x)(a−d)²], minimized at the SAME x using [a√(1−x)−d√x]²≥0. Exact rational witness a=4/5,d=3/5,b=(4/5,3/5),k=(4,−3) gives a nilpotent matrix (12/5)[[-1,1],[-1,1]] with spectral norm 24/5 and gain norm5; algebra independently checked on rational values. Blow-up is at fixed coalescence s∈(0,1); no universality for diagonalization by nonorthogonal similarities.",
+      "residual_risks": [
+        "No extension is proved for nonnormal coordinates or higher-dimensional control systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Amin–Elabdalla literature concerns minimum-gain minimum-time deadbeat control and is historical priority risk.",
+          "Schmid et al treat optimization over feedback matrices for given reachable (A,B).",
+          "Yasukata et al design input assignment plus feedback for shifting a dominant network eigenvalue while retaining remaining eigenstructure, not two-zero-pole nilpotence."
+        ],
+        "reasoning": "A general fixed-input optimum does not imply an optimum over the actuator unit sphere; the alternative co-design objective has a different spectral constraint and does not logically dominate the assessed statement.",
+        "searches": [
+          "Amin Elabdalla minimum gain minimum time deadbeat controllers DOI:10.1016/0167-6911(88)90061-8",
+          "Schmid Ntogramatzidis Nguyen Pandey arXiv:1405.1516",
+          "Yasukata et al DOI:10.1002/rnc.6720 input assignment feedback gain"
+        ]
+      },
+      "checked_sources": [
+        "Amin–Elabdalla 1988 DOI:10.1016/0167-6911(88)90061-8 (abstract only)",
+        "Schmid et al arXiv:1405.1516 (full text)",
+        "Yasukata et al DOI:10.1002/rnc.6720 (full text)",
+        "Lam–Tso–Tsing DOI:10.1109/CDC.1996.573597",
+        "Resultary semantic co-design/deadbeat search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier fixed-input theorems optimize F holding B fixed; no stated comparison of optimal actuator b for nilpotent transient.",
+          "The input co-design paper preserves non-dominant eigenvalues instead of assigning both poles zero."
+        ],
+        "reasoning": "The restriction (A diagonal two positive modes, b unit variable, k variable) is not obtained by substitution into the inspected fixed-(A,B) optimization; minimizing over b is the missing mathematical step.",
+        "searches": [
+          "doi:10.1016/0167-6911(88)90061-8",
+          "arXiv:1405.1516 repeated pole placement",
+          "doi:10.1002/rnc.6720 input-assignment co-design",
+          "hdl:10722/46599 robust deadbeat regulators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known minimum-gain pole placement chooses k for given input b; present theorem chooses b under bᵀb=1.",
+          "Feedback-gain and nilpotent transient minimization are distinct objectives though they share optimizer in this two-mode case."
+        ],
+        "reasoning": "Equivalent formulations using reachable input coordinate design, controlled eigenstructure, nilpotent closed-loop spectral norm and robust-deadbeat transient were compared; the inspected literature does not state their joint optimizer.",
+        "searches": [
+          "arXiv:1405.1516 arbitrary pole placement fixed B",
+          "minimum gain minimum time deadbeat actuator direction and transient norm 2x2",
+          "Resultary: two mode diagonal stable discrete system unit actuator deadbeat pole placement minimize feedback norm closed loop transient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No natural discrete database/table records this continuum-of-actuators optimizer.",
+          "The exact formulas are derived symbolically rather than inferred from a finite sample."
+        ],
+        "reasoning": "The exact potential coverage is by analytical control theorems, not a known classification table; older unindexed work cannot be ruled out from snippets.",
+        "searches": [
+          "1988 Minimum-gain minimum-time deadbeat controllers bibliographic indexing",
+          "arXiv:1405.1516 minimum gain repeated poles",
+          "Resultary deadbeat actuator transient gain search"
+        ]
+      },
+      "rationale": "Feedback-gain minimization for fixed (A,b) and deadbeat pole assignment are classical. The assessed theorem instead optimizes the unit actuator *direction* jointly for exact two-step nilpotency, finding that the minimizer of required feedback gain equals the minimizer of one-step transient norm. Full available later fixed-input pole-placement and input-co-design sources do not give this result; the inaccessible 1988 Amin–Elabdalla primary full text remains a particular overlap risk, not proof of coverage.",
+      "residual_risks": [
+        "The 1988 minimum-gain deadbeat paper full text was unavailable; a possibly equivalent older co-design parameterization is not definitively excluded.",
+        "The joint optimizer is unique only in b_i²; actuator component signs change orientation but not the objectives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_INPUT_NOT_COVERING_CO_DESIGN",
+          "evidence": [
+            "The input matrix B is given; optimization variable is the gain, not unit actuator direction."
+          ],
+          "identifier_or_url": "arXiv:1405.1516v1",
+          "material_read": "Full accessible arXiv HTML, problem formulation, given reachable (A,B), objective feedback Frobenius norm, arbitrary prescribed eigenstructure and related statements",
+          "method": "Primary full-text reading and direct parameter/variable comparison",
+          "title": "A unified method for optimal arbitrary pole placement",
+          "trigger": "Plausible broader theorem for minimum feedback gain with repeated zero poles"
+        },
+        {
+          "assessment": "DIFFERENT_SPECTRAL_OBJECTIVE",
+          "evidence": [
+            "Shifts one dominant eigenvalue, preserving others, unlike both-zero poles."
+          ],
+          "identifier_or_url": "doi:10.1002/rnc.6720",
+          "material_read": "Full public HTML formulation and dominant-eigenvalue re-stabilization objective; relevant conclusions",
+          "method": "Primary full-text reading with deadbeat/nilpotent terminology checks",
+          "title": "Design of input assignment and feedback gain for re-stabilizing undirected networks with High-Dimension Low-Sample-Size data",
+          "trigger": "Source with explicit input-and-gain co-design"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "1988 paper describes minimum-gain minimum-time deadbeat feedback; cannot exclude an unindexed actuator-co-design subsection from unseen full text."
+          ],
+          "identifier_or_url": "doi:10.1016/0167-6911(88)90061-8",
+          "material_read": "Indexed abstract, bibliographic and keyword descriptions; complete article text not obtained",
+          "method": "Bibliographic/abstract inspection only; no whole-paper noncoverage inference",
+          "title": "Minimum-gain minimum-time deadbeat controllers",
+          "trigger": "Historically closest title with minimum gain and minimum settling time"
+        },
+        {
+          "assessment": "FIXED_INPUT_ROBUSTNESS",
+          "evidence": [
+            "Deadbeat nilpotency and sensitivity are prior, but not the joint b-optimization."
+          ],
+          "identifier_or_url": "doi:10.1109/CDC.1996.573597",
+          "material_read": "Read accessible repository article discussion of nilpotent Jordan closed-loop and robustness setting (as surfaced in primary material)",
+          "method": "Read relevant principal formulation; compared whether B is variable",
+          "title": "On the Design of Robust Deadbeat Regulators",
+          "trigger": "Potential precursor on nilpotent transient sensitivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Classical robust-deadbeat context Lam–Tso–Tsing 1996",
+        "Schmid et al fixed-input pole placement arXiv:1405.1516"
+      ],
+      "rationale": "Two-step deadbeat pole placement is a natural minimal control objective and nonnormal transient amplification is a distinct practical criterion. Solving the first nontrivial continuous actuator-direction co-design determines a previously unstated common optimizer and exact reciprocal-gap blow-up. The result supplies a precise counterintuition: zero closed-loop poles and minimum gain do not prevent a factor-24/5 one-step amplification for a stable open-loop plant. It is motivated structural optimization rather than an arbitrary parameter slice.",
+      "residual_risks": [
+        "Minimal two-mode diagonal setting only; not a general input design theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real diag(a,d), 0<d<a<1, freely oriented unit scalar actuator b with b1 b2≠0 and feedback u=−kᵀx with both closed-loop poles zero, the unique actuator squared components a²/(a²+d²), d²/(a²+d²) simultaneously minimize ||k||₂=(a²+d²)/(a−d) and ||A−bkᵀ||₂=2ad/(a−d); both blow up as modes coalesce at fixed positive value.",
+  "limitations": [
+    "Only stable diagonal two-mode real plants with distinct positive modes; Euclidean modal coordinate norms and unit actuator.",
+    "No observer, uncertainty, noise, saturation or more than two states."
+  ],
+  "schema_version": 1
+}

@@ -1,32 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Matching the closed-loop trace and determinant to the deadbeat polynomial gives a unique feedback for each admissible scalar actuator. The feedback-norm minimization is a sharp Cauchy--Schwarz inequality. The closed-loop matrix is rank-one nilpotent, so its single nonzero singular value equals its Frobenius norm, and a second sharp square inequality minimizes that transient norm. Both equality conditions give the same squared actuator coordinates.
+## correctness
 
-The exact rational witness
-\[
-A=\operatorname{diag}\!\left(\frac45,\frac35\right),
-\qquad
-b=\left(\frac45,\frac35\right)^{\mathsf T},
-\qquad
-k=(4,-3)^{\mathsf T}
-\]
-replays all identities exactly and gives
-\[
-\|A-bk^{\mathsf T}\|_2=\frac{24}{5},
-\qquad
-(A-bk^{\mathsf T})^2=0.
-\]
+PASS
 
-## Originality
-PASS with explicit residual risk. Minimum-gain minimum-time deadbeat control is classical, and the 1988 article with that title is treated as prior work rather than novelty. Full inspection of later robust-deadbeat and arbitrary-pole-placement sources shows that they optimize feedback or robustness for a fixed reachable pair. A later input-assignment/gain paper does co-design the input matrix, but for a different objective that shifts one dominant eigenvalue while preserving the remaining eigenstructure.
+The characteristic polynomial trace/determinant conditions force b1k1=a²/(a−d), b2k2=−d²/(a−d) for every admissible b. With x=b1², squared gain equals [a⁴/x+d⁴/(1−x)]/(a−d)², minimized exactly at x=a²/(a²+d²) by Cauchy. Nilpotent nonzero 2×2 closed loop is rank one, so spectral norm equals Frobenius norm. Its squared norm equals [a²(1−x)+d²x]²/[x(1−x)(a−d)²], minimized at the SAME x using [a√(1−x)−d√x]²≥0. Exact rational witness a=4/5,d=3/5,b=(4/5,3/5),k=(4,−3) gives a nilpotent matrix (12/5)[[-1,1],[-1,1]] with spectral norm 24/5 and gain norm5; algebra independently checked on rational values. Blow-up is at fixed coalescence s∈(0,1); no universality for diagonalization by nonorthogonal similarities.
 
-Targeted searches did not locate the joint two-mode statement that the actuator minimizing deadbeat gain also exactly minimizes the nilpotent one-step transient, nor the sharp formulas or modal-gap asymptotic. The inaccessible body of the 1988 paper remains the main residual risk and is not treated as whole-document noncoverage.
+## originality
 
-## Value
-PASS. Minimum feedback gain and transient robustness are standard concerns in pole assignment, and deadbeat matrices can be strongly nonnormal despite having all poles at zero. The finding solves the minimal continuous actuator-direction problem exactly and identifies an unavoidable reciprocal modal-gap cost. The example shows a large transient even for a stable diagonal plant and even after optimizing the actuator direction, so the fact is more than a routine pole-placement calculation.
+PASS
 
-## Closest literature and limitations
-The closest literature includes classical minimum-gain deadbeat design, robust deadbeat regulation, minimum-gain exact pole placement, and later joint input-assignment/gain design. The theorem is restricted to two orthogonal stable modes, one unit scalar actuator, exact state feedback, and Euclidean norms. Higher-dimensional, nonnormal, constrained, noisy, and finite-precision settings are not covered.
+Feedback-gain minimization for fixed (A,b) and deadbeat pole assignment are classical. The assessed theorem instead optimizes the unit actuator *direction* jointly for exact two-step nilpotency, finding that the minimizer of required feedback gain equals the minimizer of one-step transient norm. Full available later fixed-input pole-placement and input-co-design sources do not give this result; the inaccessible 1988 Amin–Elabdalla primary full text remains a particular overlap risk, not proof of coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two-step deadbeat pole placement is a natural minimal control objective and nonnormal transient amplification is a distinct practical criterion. Solving the first nontrivial continuous actuator-direction co-design determines a previously unstated common optimizer and exact reciprocal-gap blow-up. The result supplies a precise counterintuition: zero closed-loop poles and minimum gain do not prevent a factor-24/5 one-step amplification for a stable open-loop plant. It is motivated structural optimization rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
