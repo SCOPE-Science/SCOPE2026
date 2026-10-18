@@ -1,0 +1,15 @@
+# Scientific review of the pole–ring frame projection functional
+
+## Correctness (C): PASS
+The geometric fourth-moment identity is derived from exact trigonometric quadrature (harmonics through order four) and proves Parseval normalization. The strictly positive absolute Gram matrix has a unique positive Perron eigenvector; ring cyclic symmetry reduces it without loss to a positive two-by-two matrix. Its explicit leading eigenvalue proves the all-index formula. The finite cosine-sum computation is exact, including the proof that no sample lies at an absolute-value cusp. Piecewise Fourier integration provides a uniform summable cubic remainder; the two cusp jumps give the negative Bernoulli correction. The irrationality argument and density of fractional parts establish the sharp two-sided subsequential limits. The bundled checker passed all finite tests; infinite statements are proven rather than inferred from those tests.
+
+## Originality (O): PASS, subject to priority risk
+The closest motivating source, Deręgowska–Lewandowska (arXiv:2608.08695v1), studies projection-functionals, tight frames and weighted designs, but its inspected statements and worked examples do not cover the pole–ring family at arbitrary cardinality or its second-order arithmetic asymptotic. The separately inspected seven-vector manuscript of Hu–Tang evaluates a sign-pattern-optimized counterexample with six ring vectors: that functional involves an additional maximization and is not the absolute Gram Perron functional evaluated here. published-finding corpus semantic searches for the pole–ring design, projection Gram radius, all-size polygon spectra, and Bernoulli lattice phase yielded related but non-implying results about other geometries (planar Parseval volume) and other projections (cyclic Fourier blocks or Walsh chaos). Established Fourier quadrature theory explains the asymptotic method but not the specific identified frame quantity. Priority risk remains from earlier general frame/spherical design formulas or unnoticed equivalent cyclic-kernel spectral evaluations; the searches are not a uniqueness certificate.
+
+## Mathematical value (V): PASS
+Weighted spherical designs are concrete candidates in projection-constant theory. The one-pole latitude construction interpolates a five-point ring/equiangular example and a prominent seven-vector counterexample. Quantifying its particular Gram-based frame functional for every cardinality identifies how that canonical invariant responds to increasing sampling density; the sharp arithmetic second term detects nonmonotone finite-size behavior invisible in continuous-density estimates. The result is a natural structural exact evaluation and asymptotic boundary, not a claim to global optimization.
+
+## Limitations
+No result is claimed for a universally optimal projection constant, for the sign-optimized Hu–Tang invariant, or for arbitrary weighted designs. The general Fourier tools are classical. Independent assessment of publication priority and proof remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
