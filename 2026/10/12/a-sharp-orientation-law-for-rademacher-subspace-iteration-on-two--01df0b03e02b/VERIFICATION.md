@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-**Exact proof.** The identity is derived from an exhaustive symbolic event partition into both sign lines, all first line, and all second line. This is a complete partition for arbitrary \(\ell\), rather than finite-case enumeration. The pivotal exact formulas for a rank-one event are \(\rho=(b/a)^{4q+2}\) and the captured energy quotient in `RESULT.md`. Strict concavity of \(g(t)=t/(\rho+(1-\rho)t)\) proves equality locations and global sharpness.
+## correctness
 
-**Executable diagnostics.** Execute `python3 verify.py` from this package directory. The program uses only Python standard-library rational fractions, forms symmetric and nonsymmetric exact matrices with rational orthonormal singular frames, exhaustively enumerates sign-line sequences up to five columns, and recomputes the projected rank-one error directly from matrix powers. It verifies **410 exact-rational identities and inequality cases** over two spectral pairs and multiple orientations, power counts, sketch widths, and Hadamard extrema. Observed output: `Verified 410 exact-rational identities and inequality cases.` No numerical tolerance is involved.
+PASS
 
-**Verification limits.** The finite program cannot certify the infinitely many parameter choices; those follow from the mathematical proof. For \(\ell>2\), the sketch is a redundant-column extension with rank-revealing orthonormalization, not a claim about a non-rank-revealing thin-QR implementation. All statements concern exact arithmetic, real full-rank \(2\times2\) matrices with separated singular values, and the expected **squared** Frobenius norm. This package has not undergone an independent audit.
+Every Rademacher column has exactly one of the orthogonal projective lines s_+=(1,1)/sqrt(2), s_-=(1,-1)/sqrt(2); both observed => Y rank two and post-truncation optimal error b². All columns of one line, each event probability 2^-l, give rank-one errors b²+(a²-b²)rho(1-c)/(c+rho(1-c)) or the swapped expression. With rho=(b/a)^(4q+2), summation proves the exact all-q,all-l law. Strict concavity of g(t)=t/(rho+(1-rho)t) proves extrema. At c=0/1 a sign line is exactly trailing right singular, so even q->infinity leaves excess (a²-b²)/2^l. Independently enumerated sign-line scenarios and extremal rational matrices; verified sample A=[[2,1],[1,2]], l=2 has mean squared error 3. Distinct singular values and exact range-revealing convention are essential.
+
+## originality
+
+PASS
+
+Published randomized subspace-iteration theory already covers Gaussian or general non-Gaussian error bounds and rank-revealing method but not the exact rank-two rank-one-truncated Rademacher orientation distribution and nonvanishing worst-frame omission atom. The novelty is not the observation that discrete sketches can be rank deficient; it is the full exact expected risk and optimizing geometry.
+
+## value
+
+PASS
+
+The obstruction shows why more power steps cannot substitute for sampling additional independent sign vectors in worst orientation, even for the smallest invertible sketching instance. The exact relative-risk necessary/sufficient width criterion is a mathematically motivated boundary for a prominent algorithmic approximation class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
