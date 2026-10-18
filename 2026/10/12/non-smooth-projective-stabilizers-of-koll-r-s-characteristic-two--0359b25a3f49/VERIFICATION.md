@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible checks
-Run `python3 check_stabilizers.py` using Python 3 with no nonstandard dependencies. The expected success marker is `STABILIZER_CHECK_OK` followed by \((q,\#\mathbb F_{q^2},\#\text{stabilizers})=(2,4,12),(4,16,5),(8,64,9)\).
+# Independent mathematical audit
 
-The program enumerates normalization changes \(t\mapsto at+b\) and explicitly checks preservation of the pulled-back plane linear series. Its finite-field arithmetic is implemented without external packages; the modulus polynomials are \(u^2+u+1\), \(u^4+u+1\) and \(u^6+u+1\). It also checks that the five exponent vectors in the infinitesimal variation are distinct for the tested degrees.
+## correctness
 
-## Logical boundaries
-The proof of completeness uses the unique cuspidal normalization preimage and classification of automorphisms of \(\mathbb P^1\) fixing it, not exhaustive enumeration. The all-degree constraints on \(a,b\) and the dimension-three tangent-space computation are symbolic identities in characteristic two. Finite checks cannot establish them for all \(n\). The full nonreduced group scheme, including its nilpotent structure, has not been computed; only its geometric reduced subgroup and tangent dimension are determined.
+PASS
+
+At the unique cuspidal normalization preimage, every projective stabilizer lifts to t -> at+b. The pulled-back linear system is span{1,t^q,t^(q+2)+t}. Frobenius expansion contains the otherwise-forbidden a^2 b^q t^2 term for q>=4, enforcing b=0 and a^(q+1)=1; in q=2 the t^2 terms cancel and a^3=1 while b is arbitrary. These conditions give the stated explicit projective matrices, not just necessary relations. Infinitesimally, F_X=Z^(q+1), F_Y=0, F_Z=X Z^q, so coefficient comparison imposes B=C=J=K=0 and A=L, with D_X,Y,Z parameters four-dimensional before quotienting by scalar matrices: Lie dimension 3 for all q. Reduced dimensions 0 (q>=4), 1 (q=2), hence non-smooth/nonreduced over perfect k. Independent GF(2) coefficient linear algebra for q=2,4,8,16,32 reproduces rank 6 in the ten-variable linearization. The direct symbolic proof handles all q=2^n; finite checks are not infinite proof.
+
+## originality
+
+PASS
+
+The original Kollár construction establishes this family and its cusp but the checked material does not calculate full projective stabilizer or scheme tangent. A different positive-characteristic embedding or automorphism-scheme classification could cover the result, so priority remains best of knowledge.
+
+## value
+
+PASS
+
+Computing the actual linear stabilizer of a specific newly studied family of cuspidal rational plane curves reveals a non-smooth symmetry scheme in every power-of-two degree. The one-dimensional-versus-zero-dimensional exceptional q=2 jump and persistent three-dimensional tangent distinguish genuine geometric and infinitesimal automorphisms. This structural classification is not a renaming or routine single numeric check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

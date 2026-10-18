@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete claim follows from a finite birational normalization map supplied by the initiating source and a direct test of the three-dimensional plane linear series under all affine normalization automorphisms. The exceptional \(q=2\) cancellation is accounted for separately. Differentiating the defining homogeneous polynomial gives five independent monomial constraints on nine infinitesimal matrix entries, leaving a three-dimensional projective tangent space. The code checks small fields but does not replace this proof. The group-scheme conclusion is restricted to non-smoothness, not a guessed infinitesimal group structure.
+## correctness
 
-**Originality — PASS, with risk.** The initiating paper treats unique double cusps, characteristic-dependent liftings and singularities, not the projective stabilizer or its Lie algebra. The directly inspected positive-characteristic linear-automorphism paper classifies curves invariant under selected maximal finite groups, with no implication for this specific family or its nonreduced scheme. Focused mathematical-search and published-result comparisons located other curve stabilizers but no same-object or dominating claim. The possibility of an implicit equivalent result in earlier literature on strange curves or positive-characteristic automorphism schemes remains.
+PASS
 
-**Value — PASS.** The family is central to a characteristic-two construction exhibiting unexpectedly severe cusp geometry; its projective symmetry is therefore an intrinsic, natural geometric invariant. Determining every symmetry for all degrees reveals a sharp quartic-to-higher-degree group jump and a persistent three-dimensional infinitesimal stabilizer invisible to the geometric-point group. This is a structural phenomenon, not an arbitrary finite computation. The full nonreduced scheme and abstract curve automorphisms are outside scope.
+At the unique cuspidal normalization preimage, every projective stabilizer lifts to t -> at+b. The pulled-back linear system is span{1,t^q,t^(q+2)+t}. Frobenius expansion contains the otherwise-forbidden a^2 b^q t^2 term for q>=4, enforcing b=0 and a^(q+1)=1; in q=2 the t^2 terms cancel and a^3=1 while b is arbitrary. These conditions give the stated explicit projective matrices, not just necessary relations. Infinitesimally, F_X=Z^(q+1), F_Y=0, F_Z=X Z^q, so coefficient comparison imposes B=C=J=K=0 and A=L, with D_X,Y,Z parameters four-dimensional before quotienting by scalar matrices: Lie dimension 3 for all q. Reduced dimensions 0 (q>=4), 1 (q=2), hence non-smooth/nonreduced over perfect k. Independent GF(2) coefficient linear algebra for q=2,4,8,16,32 reproduces rank 6 in the ten-variable linearization. The direct symbolic proof handles all q=2^n; finite checks are not infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original Kollár construction establishes this family and its cusp but the checked material does not calculate full projective stabilizer or scheme tangent. A different positive-characteristic embedding or automorphism-scheme classification could cover the result, so priority remains best of knowledge.
+
+## value
+
+PASS
+
+Computing the actual linear stabilizer of a specific newly studied family of cuspidal rational plane curves reveals a non-smooth symmetry scheme in every power-of-two degree. The one-dimensional-versus-zero-dimensional exceptional q=2 jump and persistent three-dimensional tangent distinguish genuine geometric and infinitesimal automorphisms. This structural classification is not a renaming or routine single numeric check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
