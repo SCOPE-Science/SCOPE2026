@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Rank-n and rank-(n+1) projector elementary symmetric sums, exact KKT hard-constraint cost, a rank-one determinant lemma, and a nonnegative singular-minor subtraction give the claimed identity and bounds for every admissible real design. Vandermonde and zero-row constructions attain both extremes. Exact rational checker reproduced 6,275 finite identities; universality follows from the symbolic argument, not the finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dereziński–Warmuth, JMLR 2018, Theorems 5 and 6 require sampled rows at least the full model dimension for unregularized regression, while Theorem 16 treats a separate regularized estimator.",
+        "Epperly, arXiv:2510.02513v2, Theorem 1.1: error of rank-k interpolative decomposition based on a fixed k-dimensional basis; not hard constraints within a full rank-n regression.",
+        "Fanuel–Schreurs–Suykens, arXiv:2011.06964v2, Theorem 5.8 is a noise-averaged regularized Nyström prediction-risk inequality, rather than a full-data deterministic least-squares loss with hard equality constraints."
+      ],
+      "reasoning": "A standard label-subset regression bound cannot imply the present \\(k<n\\) result: the objective in the definition of x_S uses ALL response values, and so does not have the information restriction of the earlier task. A low-rank approximation of an arbitrary matrix onto a chosen row span also has different optimization variables and risk. Neither searched broader family was seen to contain the full all-design singular-minor identity.",
+      "searches": [
+        "volume sampled hard constraints least squares k row fewer columns expected objective residual incomplete interpolation",
+        "\"expected\" \"hard constraints\" \"volume sampling\" squared residual",
+        "\"k/(n-k+1)\" determinantal projection DPP",
+        "arxiv:2510.02513v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.29304v1",
+      "https://jmlr.org/papers/volume19/17-781/17-781.pdf",
+      "arxiv:2510.02513v2",
+      "https://proceedings.mlr.press/v89/derezinski19a.html",
+      "https://arxiv.org/pdf/2011.06964"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. (2026), Section 6: explicitly calls inconsistent systems a future direction, after analyzing fixed-row equalities for consistent systems.",
+        "Dereziński–Warmuth (2018), Theorem 8: full-loss bound (d+1) at sample size \\(s=d\\) and correction for rank-degenerate samples; Theorem 6 covers \\(s\\ge d\\).",
+        "Epperly (2025/2026), Theorem 1.1: k-row interpolation of A using an independently specified rank-k basis Q and its column-subset approximation error.",
+        "Fanuel et al. (2022), Theorems 4.1/5.8: DPP-averaged semiparametric interpolator or projected Nyström estimator, not \\(k<n\\) hard constraints on all-data quadratic regression."
+      ],
+      "reasoning": "The \\(s=d\\) interpolation theorem shares the boundary phenomenon but does not immediately determine the risk for k<d under a full-data objective; its proof involves a unique interpolant, absent here. The motivating 2026 paper supplies no inconsistent-data risk calculation, and the randomized-pivoting theorem concerns matrix approximation rather than constraints on a full-data least-squares optimizer. Claimed scope is specifically the subdimension full-data risk law; no claim that principal minors or sampling itself is new. The 2022 partial-projection DPP work adds nonlinear kernel or parametric interpolators and regularized prediction risk; its loss functional and algorithm are not the present full-data equality-constrained quadratic.",
+      "searches": [
+        "arxiv:2605.29304v1",
+        "https://jmlr.org/papers/volume19/17-781/17-781.pdf",
+        "arxiv:2510.02513v2",
+        "arxiv:2011.06964v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., arXiv:2605.29304v1, introduction/Sections 3 and 6: fixed-row equality mechanism analyzed on consistent equations.",
+        "Dereziński–Warmuth, JMLR 2018, Theorem 8 and proof pp.13, 18–19: full response loss for exact interpolation on subsets of size equal to model dimension.",
+        "Fanuel et al., arXiv:2011.06964v2, pp.9 and 16: a different DPP implicit regularization estimator and noise risk."
+      ],
+      "reasoning": "The constraints of dimension \\(k<n\\) determine an affine family; the NEW estimator minimizes the full-data quadratic inside that family. This is neither the interpolation-only solution with k=n nor the least-squares solution based solely on k observed labels. Both the projected hat matrix and rank-one residual augmentation must be compared to avoid superficial novelty by notation.",
+      "searches": [
+        "\"volume sampling\" \"constrained least squares\" \"interpolation\" subspace exact rows",
+        "\"det\" \"projector\" \"constrained least squares\" \"volume sampling\" expectation",
+        "rank-one augmentation determinant projector principal minors expected inverse Schur complement DPP",
+        "arxiv:2605.29304v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The principal-minor normalization is a classical projector identity, not a novelty claim.",
+        "The checked hard-constraint and ordinary volume-sampling papers do not supply a table or exact \\(k<n\\) full-data hard-constraint risk distribution."
+      ],
+      "reasoning": "There is no finite classification table whose entries automatically imply the arbitrary m,n,k theorem. Literature checks also sought parameter-equivalent formulas, not merely matching titles. The absence of retrieved coverage is treated as limited evidence rather than proof of uniqueness.",
+      "searches": [
+        "partial volume sampling projected residual exact risk k < d full-data constrained regression",
+        "\"determinantal\" \"hard constraints\" \"least squares\" rank sample",
+        "k determinantal sample projector expected quadratic inverse row residual constrained least squares singular minors",
+        "arxiv:2011.06964v2"
+      ]
+    },
+    "rationale": "Current primary comparisons cover consistent hard-row enforcement, ordinary interpolation from at least the parameter dimension, and projection-DPP interpolation in a prescribed smaller approximation subspace. None of those inspected statements directly implies the exact risk of minimizing the FULL n-parameter regression objective subject to \\(k<n\\) selected exact rows. The determinant ingredients are standard; a hidden equivalent Schur-complement result remains possible.",
+    "residual_risks": [
+      "An equivalent result may be embedded in older determinantal projection, generalized Schur-complement or subspace interpolation literature under terminology not recovered in searches.",
+      "The universal identity is an elementary new application of established determinant facts, not a claim of a new general determinant theorem.",
+      "No independent literature or mathematical audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The analysis enforces equations of consistent systems and does not derive the expected global constrained least-squares cost for \\(k<n\\) under inconsistent responses.",
+        "evidence": "2026-05-28 arXiv v1; MSC2020 65F10 listed; Section 6 says extending to inconsistent systems is a possible future direction.",
+        "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+        "material_read": "Abstract; Sections 1 and 3 on fixed row blocks and convergence scope; Section 6 future inconsistent-systems remark; MSC classification and initial-publication header.",
+        "method": "Read primary arXiv HTML and inspected the mathematical problem formulation and selected convergence statements.",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "New source proposing permanently enforced row constraints"
+      },
+      {
+        "assessment": "Contains d-row interpolation risk (d+1) and singular-degeneracy inequalities, but unregularized results require sampling at least d rows. The new model enforces fewer than d rows while retaining the full-data least-squares objective.",
+        "evidence": "Theorem 8 is explicitly for size d sample; Theorems 5–6 for s in {d,...}; Section 3.4 notes labels limited to observed subset; Theorem 16 handles regularization instead.",
+        "identifier_or_url": "https://jmlr.org/papers/volume19/17-781/17-781.pdf",
+        "material_read": "Abstract, introduction, Theorems 5–8 and statements/proofs on pp.8–13 and 18–19, and Theorem 16 scope on p.22; also its singular-support example and discussion.",
+        "method": "Read primary JMLR PDF parsed text and visually inspected cover page; compared its estimators and sample-size quantifiers to the present one.",
+        "title": "Reverse Iterative Volume Sampling for Linear Regression",
+        "trigger": "Classical volume sampling theorem with sharp full-data expected risk"
+      },
+      {
+        "assessment": "Proves rank-k row interpolative-decomposition expected approximation error with an externally given k-dimensional basis, distinct from imposing \\(k<n\\) hard equations on a full n-parameter least-squares fit.",
+        "evidence": "Theorem 1.1 and equation (1.1) concern matrix approximation A-hat=QQ(S,:)^{-1}A(S,:) or orthogonal projection.",
+        "identifier_or_url": "https://arxiv.org/pdf/2510.02513",
+        "material_read": "Abstract, Section 1 and Theorem 1.1 with definition of the rank-k input basis and row interpolative decomposition.",
+        "method": "Read primary arXiv PDF first two pages and inspect theorem hypotheses and loss form.",
+        "title": "Adaptive randomized pivoting and volume sampling",
+        "trigger": "Projection determinantal sampling and interpolation may dominate a k-subset claim"
+      },
+      {
+        "assessment": "Theorem 4.1 is an average interpolator/regularized inverse identity; Theorem 5.8 is a kernel/Nyström noise-averaged prediction-risk bound. Neither evaluates full-data constrained quadratic loss after imposing \\(k<n\\) exact linear row equations.",
+        "evidence": "arXiv:2011.06964v2, pp.0–2 (setup), 9 (Theorem 4.1), and 16 (Theorem 5.8).",
+        "identifier_or_url": "https://arxiv.org/pdf/2011.06964",
+        "material_read": "Primary arXiv PDF abstract and Sections 1, 4 and 5.5: projection/partial-projection DPP definitions, Theorem 4.1, Corollary 4.2, Theorem 5.8 and stated estimator objectives.",
+        "method": "Compared full primary preprint mathematical quantities: DPP support law, semiparametric interpolator, expected inverse block matrix and Nyström prediction risk.",
+        "title": "Determinantal Point Processes Implicitly Regularize Semi-parametric Regression Problems",
+        "trigger": "A closely titled DPP semiparametric regression risk identity might subsume the hard-row constraint claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5548d007-6f18-427c-abff-93cc9d870676",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The analysis resolves a natural previously unquantified tension in noisy row-fixed solvers: enforce k exact equations while optimizing all residuals. It supplies a sharp budget-dependent all-design loss factor, characterizes the full-support extremizer, identifies a genuine singular-matroid correction, and distinguishes sharply between full-data constrained fitting and response-subsampled regression. Such an exact benchmark is useful despite not furnishing a faster algorithm.",
+    "status": "PASS"
+  }
+}
