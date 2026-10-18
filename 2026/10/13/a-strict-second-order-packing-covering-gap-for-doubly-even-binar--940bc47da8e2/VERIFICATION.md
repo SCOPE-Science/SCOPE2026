@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is symbolic and applies to every binary doubly-even code in the stated admissible range. The key exact steps are:
+## correctness
 
-1. A minimum-support two-dimensional subcode has three nonzero binary projective column classes with multiplicities \(a,b,c\).
-2. Doubly-evenness gives \(a+c\equiv b+c\equiv a+b\equiv0\pmod4\), hence \(a,b,c\) are even.
-3. Every projective class can therefore be split exactly in half.
-4. Under a hypothetical \(d_2\ge2R_2+2\), the generalized covering approximation and its complement have support below \(d_2\), so both have rank one.
-5. The induced rank-one idempotent has distinct image and kernel projective points and can erase at most half of the minimum-support columns, contradicting the definition of \(R_2\).
+PASS
 
-Run `python3 verify.py` for finite consistency checks. It exhausts all two-dimensional binary subspaces for lengths \(4\) through \(7\), filters the doubly-even codes, computes \(R_2\) directly from the defining minimax problem, and verifies both claimed inequalities. It also checks the projective-multiplicity parity implication for every \(0\le a,b,c\le20\).
+For a minimum support 2-dimensional binary subcode D, its nonzero projective generator-column multiplicities a,b,c satisfy a+c,b+c,a+b divisible by four, hence all a,b,c even. Splitting each projective column class in equal halves creates a test matrix X. If d2>=2R2+2, covering supplies Y with support less than d2; M-Y also has support less than d2. Both are rank one. Because their row spaces span the row space of rank-two M, Y=PM, M-Y=(I-P)M with complementary rank-one 2x2 maps. Over F2 P is an idempotent of trace 1; its image and kernel are distinct nonzero binary column types, so X-Y vanishes on at most d2/2 support positions. This contradicts its covering radius. Thus d2<=2R2+1, and parity sharpens to d2<=2R2. Independently checked modular half-split and an explicit doubly-even [6,2] code with (d2,R2)=(6,4).
 
-Expected output includes:
+## originality
 
-`n=6 subspaces2=651 doubly_even=15 pairs=[(6, 4)]`
+PASS
 
-`n=7 subspaces2=2667 doubly_even=105 pairs=[(6, 5)]`
+Yu–Schwartz establish the order-two general inequality d2<=2R2+2, and Alfarano et al. establish the corresponding all-orders universal bound. Neither implies d2<=2R2 even when doubly-evenness forces d2 even. Essayag–Zabokritskiy give a conditional +1 inequality for q>=R, insufficient for arbitrary binary covering radii. Best-of-knowledge PASS after comparison, but full recent source text was not newly accessible in this run.
 
-and ends with `VERIFY_OK`.
+## value
 
-The finite census does not certify arbitrary lengths; that role is supplied by the symbolic proof.
+PASS
+
+The generalized packing–covering inequality was an active exact question in coding theory. A global strict one-unit packing-radius gap for the infinite natural class of 4-divisible binary linear codes refines the universal solved inequality in a structural, application-relevant subclass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

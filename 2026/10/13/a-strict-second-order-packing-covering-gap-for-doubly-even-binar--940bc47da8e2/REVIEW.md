@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Let \(D\le C\) attain \(d_2(C)\), and write the three nonzero binary projective column multiplicities of a generator of \(D\) as \(a,b,c\). Doubly-evenness gives \(a+c\equiv b+c\equiv a+b\equiv0\pmod4\), hence \(a,b,c\) are even. Splitting every projective class exactly in half and repeating the order-two covering argument forces a contradiction from \(d_2\ge2R_2+2\): the covering approximation and its complement both have support below \(d_2\), hence rank one, while the associated rank-one idempotent can erase at most half of the minimum-support columns. Therefore \(d_2\le2R_2+1\), and the evenness of \(d_2\) sharpens this to \(d_2\le2R_2\). The generalized packing-radius inequality follows exactly. The bundled finite verifier is supplementary, not the infinite proof.
+## correctness
 
-## Originality
-PASS with residual literature risk. The closest general order-two theorem of Yu--Schwartz gives only \(d_2\le2R_2+2\). Essayag--Zabokritskiy give \(d_t\le2R_t+1\) under \(q\ge R_t\), which for binary codes covers only \(R_t\le2\), and their bounded-redundancy result gives the conjectured \(+2\) inequality. The later full proof of the generalized packing--covering conjecture likewise proves the universal \(+2\) bound. Full-text searches of the two recent 94B05 papers found no doubly-even or divisible-code specialization. Focused exact-claim and equivalent-formulation searches returned the general packing--covering records but no statement implying a strict class-wide second-order gap for doubly-even binary codes.
+PASS
 
-## Value
-PASS. Doubly-even binary codes are a standard structural class, including many Type-II and highly symmetric constructions. The result is not a parameter-table recomputation: it gives a uniform structural strengthening of the generalized packing--covering relation, excludes equality \(\delta_2=R_2\) throughout the class, and identifies a reusable mechanism—divisibility forcing even projective multiplicities—that is invisible in the general order-two proof.
+For a minimum support 2-dimensional binary subcode D, its nonzero projective generator-column multiplicities a,b,c satisfy a+c,b+c,a+b divisible by four, hence all a,b,c even. Splitting each projective column class in equal halves creates a test matrix X. If d2>=2R2+2, covering supplies Y with support less than d2; M-Y also has support less than d2. Both are rank one. Because their row spaces span the row space of rank-two M, Y=PM, M-Y=(I-P)M with complementary rank-one 2x2 maps. Over F2 P is an idempotent of trace 1; its image and kernel are distinct nonzero binary column types, so X-Y vanishes on at most d2/2 support positions. This contradicts its covering radius. Thus d2<=2R2+1, and parity sharpens to d2<=2R2. Independently checked modular half-split and an explicit doubly-even [6,2] code with (d2,R2)=(6,4).
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.19098, arXiv:2609.14477, and arXiv:2609.34910. They establish general generalized packing--covering bounds but do not state the doubly-even refinement. The present theorem is limited to binary doubly-even codes and generalized order two; it neither determines exact covering radii nor claims a higher-order analogue. An older equivalent statement under different divisible-code terminology remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yu–Schwartz establish the order-two general inequality d2<=2R2+2, and Alfarano et al. establish the corresponding all-orders universal bound. Neither implies d2<=2R2 even when doubly-evenness forces d2 even. Essayag–Zabokritskiy give a conditional +1 inequality for q>=R, insufficient for arbitrary binary covering radii. Best-of-knowledge PASS after comparison, but full recent source text was not newly accessible in this run.
+
+## value
+
+PASS
+
+The generalized packing–covering inequality was an active exact question in coding theory. A global strict one-unit packing-radius gap for the infinite natural class of 4-divisible binary linear codes refines the universal solved inequality in a structural, application-relevant subclass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
