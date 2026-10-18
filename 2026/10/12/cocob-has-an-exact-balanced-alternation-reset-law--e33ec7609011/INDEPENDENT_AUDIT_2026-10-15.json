@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/cocob-has-an-exact-balanced-alternation-reset-law--e33ec7609011/RESULT.md",
+        "Pinned full actual Git tree object 9fe15b1d981a048397991e2d2e8127365f0fe7de",
+        "Private independent check /mnt/data/scope_worker04_checks.py"
+      ],
+      "rationale": "Original theoretical COCOB, not COCOB-Backprop, known bound L>0: G_t=G_(t-1)+|g_t|, theta_t=theta_(t-1)+g_t, Reward_t=Reward_(t-1)+(w_t-w_1)g_t, beta_t=L^-1 tanh(theta_t/(G_t+L)), w_(t+1)=w_1+beta_t(L+Reward_t). Balanced external negative-gradient input g_odd=L,g_even=-L yields theta_odd=L,theta_even=0, G_(2n-1)+L=(2n+1)L. Thus beta_(2n-1)=a_n/L, beta_even=0, a_n=tanh(1/(2n+1)); all w_(2n+1)=w1 and odd-round wealth unchanged. Even reward step consumes a_n fraction: W_n=W_(n-1)(1-a_n), P_n=prod(1-a_k), and w_(2n)-w1=a_n P_(n-1)=P_(n-1)-P_n. Averaging first T iterates gives exactly (1-P_floor(T/2))/T. Product identity 1-tanh x=e^-x/cosh x and harmonic sum H_(2n+1)-1-H_n/2 = (1/2)log n+log2+gamma/2-1+o establish P_n~C/sqrt n with convergent product C=e^(1-gamma/2)/(2prod cosh(1/(2k+1))); excursion ~C/(2n^1.5). The constant is independent of L. Independently replayed first five pairs for L=3 and nonzero starting iterate w1=1.2, all reset/wealth identities agree numerically. This is an externally prescribed sequence, not asserted realizable by one fixed objective.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original COCOB paper Algorithm 1 and theory establish update and scale-free bounds, emphasizing same-sign growth; no exact balanced period-two reset, telescoping average and n^-3/2 envelope was found in inspected algorithm/source discussion. Chen–Langford–Orabona later derive ODE-based parameter-free method, not the same discrete COCOB update. Resultary focused semantic search returned no matching COCOB periodic-outcome theorem, but absence is not priority proof."
+        ],
+        "reasoning": "The original COCOB paper Algorithm 1 and theory establish update and scale-free bounds, emphasizing same-sign growth; no exact balanced period-two reset, telescoping average and n^-3/2 envelope was found in inspected algorithm/source discussion. Chen–Langford–Orabona later derive ODE-based parameter-free method, not the same discrete COCOB update. Resultary focused semantic search returned no matching COCOB periodic-outcome theorem, but absence is not priority proof.",
+        "searches": [
+          "COCOB coin betting algorithm balanced alternating gradient exact reset wealth decay stronger general theorem dominated corollary",
+          "https://arxiv.org/pdf/1705.07795"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/cocob-has-an-exact-balanced-alternation-reset-law--e33ec7609011/RESULT.md",
+        "https://arxiv.org/pdf/1705.07795",
+        "https://arxiv.org/abs/2006.07507",
+        "https://arxiv.org/abs/2006.07507"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset beta_even=0 is a direct observation from the recursion but does not alone determine wealth product, exact full-horizon output average or decay exponent/constant; combining reward timing and harmonic asymptotics gives the complete stated law. Standard regret convergence upper bounds do not algebraically imply the sharp period-two response."
+        ],
+        "reasoning": "The reset beta_even=0 is a direct observation from the recursion but does not alone determine wealth product, exact full-horizon output average or decay exponent/constant; combining reward timing and harmonic asymptotics gives the complete stated law. Standard regret convergence upper bounds do not algebraically imply the sharp period-two response.",
+        "searches": [
+          "COCOB coin betting algorithm balanced alternating gradient exact reset wealth decay published result implies exact claim",
+          "https://arxiv.org/pdf/1705.07795"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original COCOB paper Algorithm 1 and theory establish update and scale-free bounds, emphasizing same-sign growth; no exact balanced period-two reset, telescoping average and n^-3/2 envelope was found in inspected algorithm/source discussion. Chen–Langford–Orabona later derive ODE-based parameter-free method, not the same discrete COCOB update. Resultary focused semantic search returned no matching COCOB periodic-outcome theorem, but absence is not priority proof."
+        ],
+        "reasoning": "The reset beta_even=0 is a direct observation from the recursion but does not alone determine wealth product, exact full-horizon output average or decay exponent/constant; combining reward timing and harmonic asymptotics gives the complete stated law. Standard regret convergence upper bounds do not algebraically imply the sharp period-two response.",
+        "searches": [
+          "COCOB coin betting algorithm balanced alternating gradient exact reset wealth decay",
+          "https://arxiv.org/abs/2006.07507"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One infinite exact adversarial input sequence and asymptotic product, not a fixed finite experimental table; source numerical curves do not supply closed C or telescoping average law."
+        ],
+        "reasoning": "One infinite exact adversarial input sequence and asymptotic product, not a fixed finite experimental table; source numerical curves do not supply closed C or telescoping average law.",
+        "searches": [
+          "COCOB coin betting algorithm balanced alternating gradient exact reset wealth decay exact table database classification",
+          "https://arxiv.org/abs/2006.07507"
+        ]
+      },
+      "rationale": "Best-of-knowledge surviving original contribution; compare mathematical implication rather than titles/parameters. The original COCOB paper Algorithm 1 and theory establish update and scale-free bounds, emphasizing same-sign growth; no exact balanced period-two reset, telescoping average and n^-3/2 envelope was found in inspected algorithm/source discussion. Chen–Langford–Orabona later derive ODE-based parameter-free method, not the same discrete COCOB update. Resultary focused semantic search returned no matching COCOB periodic-outcome theorem, but absence is not priority proof.",
+      "residual_risks": [
+        "Analysis is only theoretical COCOB under externally imposed exact ±L, not COCOB-Backprop, realistic stochastic objective, arbitrary balanced sequences or convergence guarantee.",
+        "Potential alternate coin-betting lecture notes could derive same period-two response; Resultary/published focused search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit balanced ±L exact product and return-average identity found in inspected treatment",
+          "evidence": [
+            "Algorithm 1 has G cumulative absolute gradients, theta signed gradients, reward, sigmoidal beta and average of w_t."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.07795",
+          "material_read": "Accessible full arXiv PDF, Algorithm 1 (inspected original PDF page), same-sign behavior and convex averaging material",
+          "method": "Read algorithm and relevant technical discussion in complete primary manuscript",
+          "title": "Training Deep Networks without Learning Rates Through Coin Betting",
+          "trigger": "Original COCOB Algorithm 1 exact update and theorem"
+        },
+        {
+          "assessment": "Different ODE-derived update, not equivalent to original discrete COCOB recurrence",
+          "evidence": [
+            "No whole-paper noncoverage finding; method mismatch is specific."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.07507",
+          "material_read": "Accessible arXiv abstract and method summary; not asserted full-text entire theorem inspection",
+          "method": "Read public abstract/summary",
+          "title": "Better Parameter-Free Stochastic Optimization with ODE Updates for Coin-Betting",
+          "trigger": "Subsequent coin-betting variant potentially covering alternating input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/cocob-has-an-exact-balanced-alternation-reset-law--e33ec7609011/RESULT.md",
+        "https://arxiv.org/pdf/1705.07795",
+        "https://arxiv.org/abs/2006.07507"
+      ],
+      "rationale": "Period-two zero-drift input is a canonical stress test for a coin-betting optimizer and contrasts with the method paper’s same-sign growth example. The full exact reset, wealth and averaged-iterate laws quantify algorithm behavior and normalization independent of gradient scale; meaningful exact optimizer diagnostic beyond a vacuous zero-gradient check, despite narrow signal family.",
+      "residual_risks": [
+        "Analysis is only theoretical COCOB under externally imposed exact ±L, not COCOB-Backprop, realistic stochastic objective, arbitrary balanced sequences or convergence guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Analysis is only theoretical COCOB under externally imposed exact ±L, not COCOB-Backprop, realistic stochastic objective, arbitrary balanced sequences or convergence guarantee.",
+    "Potential alternate coin-betting lecture notes could derive same period-two response; Resultary/published focused search is not exhaustive."
+  ],
+  "schema_version": 1
+}
