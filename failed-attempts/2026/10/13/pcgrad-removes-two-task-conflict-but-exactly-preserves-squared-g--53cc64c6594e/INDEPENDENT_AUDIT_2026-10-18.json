@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:19:05.146593Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a=||g1||,b=||g2|| and c=abρ<0, published PCGrad directions are gi−(c/||gj||²)gj. Their sum d yields g1·d=a²−c²/b²=a²(1−ρ²), and g2·d=b²−c²/a²=b²(1−ρ²), hence ratio a²/b²; raw sum is common descent iff −ρ<a/b<−1/ρ and norm²=(1−ρ²)(a²+b²−2abρ). At antiparallelity both projected vectors are zero. Direct finite independently constructed vector tests verified 12 cases. Proof is elementary algebra and correct within precisely two-task first-order branch.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original already analyzes gradient conflict plus norm disparity and near-antiparallel degeneracy; later RotoGrad motivates explicit magnitude homogenization."
+        ],
+        "reasoning": "Prior full vector update is stronger than the new directional-derivative identities, which can be computed pointwise without new structural argument.",
+        "searches": [
+          "Yu et al 2020 Algorithm1 and two-task appendix",
+          "Javaloy–Valera RotoGrad arXiv:2103.02631"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2001.06782",
+        "https://arxiv.org/abs/2103.02631"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published two-task PCGrad sum d= g1+g2−c g1/a²−c g2/b²; dot with gi instantly gives ai²−c²/aj², exactly advertised ratios. Original also gives (1−ρ²)(a²+b²) combined progress."
+        ],
+        "reasoning": "Stronger published formula entails claimed result for all permitted gradients; this is direct deduction, not an independently original exact invariant. Rewriting does not repair the covered statement.",
+        "searches": [
+          "Yu et al original NeurIPS/arXiv PCGrad two-task Appendix exact formula",
+          "RotoGrad 2021 gradient magnitude conflict"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu et al arXiv:2001.06782 Appendix displays the exact projected two-task aggregate and cosine-squared progress factor; the taskwise identities are direct dot products of that same published vector."
+        ],
+        "reasoning": "A nonstandard name like squared imbalance does not change the mathematical content: prior vector equality implies each scalar equality for arbitrary a,b,ρ by one operation.",
+        "searches": [
+          "PCGrad two tasks projected gradient cosine squared taskwise directional derivative norm imbalance ratio first order common descent",
+          "PCGrad gradient conflict relative progress",
+          "Yu et al arXiv:2001.06782 Algorithm 1 Appendix",
+          "Javaloy Valera RotoGrad arXiv:2103.02631"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table is material: a 2-vector algebraic identity fully determined by the published projection formula."
+        ],
+        "reasoning": "The check is genuinely inapplicable to claimed originality because a continuous-parameter vector identity, not exact finite data, is at issue; structural prior implication is decisive.",
+        "searches": [
+          "PCGrad two tasks projected gradient cosine squared taskwise directional derivative norm imbalance ratio first order common descent",
+          "PCGrad gradient conflict relative progress"
+        ]
+      },
+      "rationale": "FAIL: the defining two-gradient PCGrad projection formula is explicitly present in Yu et al (2020) Algorithm1 and appendix, which also derives overall cosine-squared angular attenuation and identifies gradient-magnitude imbalance and near-antiparallel slowdown. The presented taskwise dot products are immediate single-line consequences of those published formulas, and the raw-sum inequality is direct dot-product rearrangement. As mathematical implications, not only wording matches, the old exact projection already determines every claimed identity. No distinct new theorem survives without merely calculating published vector identities.",
+      "residual_risks": [
+        "None affecting rejection: stronger prior exact vector formula mathematically entails the entire stated two-task claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR IMPLICATION: explicit projected aggregate implies all taskwise formulas",
+          "evidence": "Appendix contains cosine-squared sum progress, near-antiparallel conflict slowdown, magnitude imbalance setting",
+          "identifier_or_url": "https://arxiv.org/abs/2001.06782",
+          "material_read": "Accessible complete ar5iv HTML, Algorithm1 and two-task Appendix including equations around lines 325–379",
+          "method": "Lawful ar5iv full HTML",
+          "title": "Gradient Surgery for Multi-Task Learning",
+          "trigger": "Defines PCGrad and full two-task algebra already"
+        },
+        {
+          "assessment": "Supports existence of earlier magnitude/direction distinction; not independent decisive source",
+          "evidence": "RotoGrad distinguishes norm homogenization from conflict direction",
+          "identifier_or_url": "https://arxiv.org/abs/2103.02631",
+          "material_read": "Abstract and introductory context; not complete proof",
+          "method": "arXiv summary",
+          "title": "RotoGrad: Gradient Homogenization in Multitask Learning",
+          "trigger": "Nearby magnitude balancing technique"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the two-task gradient ratio statement and simple strict-descent interval are routine algebraic deductions from the already-explained PCGrad projection and the definition of directional derivative. No additional genuine motivated obstruction, classification, method, or nontrivial boundary is proved beyond the source algorithm geometry. Correctness and a catchy quantitative restatement are not independent mathematical value under the uniform criterion.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2001.06782",
+    "https://arxiv.org/abs/2103.02631"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "None affecting rejection: stronger prior exact vector formula mathematically entails the entire stated two-task claim.",
+    "Independent bounded checks corroborate only tested finite cases; unrestricted statements evaluated from source proofs.",
+    "All publication plans not_ready pending confidentiality safeguards."
+  ],
+  "residual_risks": [
+    "None affecting rejection: stronger prior exact vector formula mathematically entails the entire stated two-task claim."
+  ],
+  "schema_version": 1
+}
