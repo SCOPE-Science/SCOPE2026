@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:53:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed from actual RESULT.md and verify.py: substitute y=x^n and clear positive denominator to obtain E_n(y)=(n+1)(4n^2+5n+2)y^3+2(n+1)(4n+3)y^2+(-n^2+7n+6)y+2. Independent SymPy discriminant exactly 4n^6(n+1)(4n^2-63n-59)>0 on n>=18; coefficient signs show exactly one negative and two positive simple roots. The source critical-value inequality Q_n(c)<-c separates the positive solutions. At smaller root E_n'<0 so Q_n'<-1. For outer root H=n y E_n'-4((n+1)y+1)^3 controls Q_n'-1; independent resultant is 8n^9(n+1)^2(16n^4-216n^3-815n^2-931n-356) and quartic is positive for n>=18. At n=18, E(1/28)=-113/5488<0, E(1/27)=2720/19683>0, H(1/28)=293023/5488>0 and H' increases on bracket. Continuous outer branch cannot cross multiplier +1, so Q_n'(x_+)>1. Oddness squares Q_n' for 2-cycle; neither is attracting or parabolic. Exact polynomial checks do not prove other periods/nonreal cycles absent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nayak--Pal symmetry work treats general invariant structures; Gutiérrez--Varona cubic Chebyshev cycles arise from other polynomials"
+        ],
+        "reasoning": "General symmetry or other-family cycles do not imply these multiplier inequalities for this p_n family.",
+        "searches": [
+          "arXiv:2208.11322 Chebyshev symmetry dynamics",
+          "doi:10.1007/s12346-020-00390-5 extraneous n cycles cubic Chebyshev"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob e38c355060fce6926d0968a9341333f7ff731464",
+        "Frozen verify.py blob efb8491effbcafa89e5fe2fbbd4d7506b9d1cff1",
+        "Git tree 1d0b54350b28f7f388717a4bd4ce6208fbfd153e",
+        "arXiv:2609.02884v1 primary theorem/proposition",
+        "arXiv:2208.11322",
+        "doi:10.1007/s12346-020-00390-5",
+        "Resultary semantic search: even Chebyshev maps p_n(z)=z(z^n-1) Q_n(x)=-x symmetric two-cycles repelling odd invariant lines"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known inner orbit and critical point yield a crossing; nontrivial algebra excludes other symmetric solutions and shows both Q_n' values have modulus >1"
+        ],
+        "reasoning": "Prior existence and symmetry alone do not supply the full multiplier classification. The claim correctly disclaims arbitrary nonreal/nonsymmetric dynamics.",
+        "searches": [
+          "arXiv:2609.02884v1 Proposition 4.3 Table 1",
+          "Nayak and Phogat Q_n derivative free critical point"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.02884v1 displays Q_n and a single inner symmetric two-cycle, but not the second-root multiplier theorem",
+          "Resultary search top hit is the same submitted finding; Chebyshev-like polynomial zero study is a different object"
+        ],
+        "reasoning": "Checked root equation, second periodic orbits, and derivative multipliers rather than relying on title matching; nearest originating theorem does not supply global count and repulsion.",
+        "searches": [
+          "even Chebyshev maps p_n(z)=z(z^n-1) Q_n(x)=-x symmetric two-cycles repelling odd invariant lines",
+          "arXiv:2609.02884v1 Proposition 4.3 symmetric period two Q_n",
+          "even Chebyshev method z(z^n-1) repelling outer two cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Table 1 gives the nearest/inner radius for selected degrees, not two roots or both multipliers"
+        ],
+        "reasoning": "The all-even-degree exhaustive classification cannot be read off finite tables.",
+        "searches": [
+          "arXiv:2609.02884v1 Table 1 closest period-two point",
+          "Nayak Phogat critical lines even 18 Figure 4"
+        ]
+      },
+      "rationale": "The original Nayak--Phogat manuscript constructs only the inner centrally symmetric two-cycle and labels it the closest in its table. The audited global two-root exhaustion and strict repelling inequalities are not established by that original claim; the second branch and uniform outer multiplier need a cubic/resultant argument. Similar Chebyshev symmetry papers treat other families. Searches for Q_n(x)=-x and invariant-line multipliers found no equivalent pre-existing theorem. Best-of-knowledge with explicit recent-preprint risk.",
+      "residual_risks": [
+        "The source calls the inner orbit closest, possibly indicating unpublished knowledge of the outer orbit; later revision/unindexed theorem may cover both.",
+        "The exact result only addresses centrally symmetric period-two real cycles on odd critical lines and not basin convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "One inner symmetric two-cycle and critical threshold are covered; exact outer root/count and both repelling multipliers not found.",
+          "identifier_or_url": "arXiv:2609.02884v1",
+          "material_read": "Primary PDF sections with Q_n formula/critical-line conjugacy and Proposition 4.3 with inner cycle/Table 1, including relevant page images",
+          "method": "Full PDF textual reading of relevant mathematics and screenshots",
+          "title": "Chebyshev’s method applied to polynomials with rotational symmetry",
+          "trigger": "Exact same family p_n and odd critical-line conjugacy"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "General symmetry does not give the exact two-root multiplier bounds.",
+          "identifier_or_url": "arXiv:2208.11322",
+          "material_read": "Accessible descriptive mathematical statements; no full proof read",
+          "method": "Abstract/reference-level comparison",
+          "title": "Symmetry and dynamics of Chebyshev’s method",
+          "trigger": "Potential general symmetry dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating 2026 dynamical investigation leaves convergence for even n>=18 open; the theorem removes the precise centrally symmetric real period-two candidates from its attracting-obstruction list on every invariant critical line. This is a natural exhaustive dynamical boundary result rather than a numerical orbit sample; it does not solve general convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The source calls the inner orbit closest, possibly indicating unpublished knowledge of the outer orbit; later revision/unindexed theorem may cover both.",
+    "The exact result only addresses centrally symmetric period-two real cycles on odd critical lines and not basin convergence."
+  ],
+  "schema_version": 1
+}

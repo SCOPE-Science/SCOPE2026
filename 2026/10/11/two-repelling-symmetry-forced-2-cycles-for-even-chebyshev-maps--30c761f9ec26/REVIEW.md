@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the symmetric two-cycle equation to a cubic in \(y=x^n\), counts its positive roots exactly by discriminant and sign arguments, and derives both multiplier inequalities from exact algebra. The nontrivial discriminant, resultant, rational bracket, and positivity identities were replayed from `verify.py` with exact arithmetic.
+## correctness
 
-## Originality
-PASS. The closest source constructs the inner cycle and labels it the closest period-two point to the origin, but the inspected version does not state the exact two-cycle exhaustion or prove that both branches are repelling for every even \(n\ge18\). Targeted equivalent-formulation and broader-coverage searches did not locate a covering theorem. The claim intentionally does not present the already-known inner-cycle existence as new.
+PASS
 
-## Value
-PASS. The source leaves convergence for even \(n\ge18\) open and explicitly does not exclude attracting or parabolic periodic domains. The theorem removes both symmetry-forced real period-two cycles on every critical line from that list of possible obstructions.
+Recomputed from actual RESULT.md and verify.py: substitute y=x^n and clear positive denominator to obtain E_n(y)=(n+1)(4n^2+5n+2)y^3+2(n+1)(4n+3)y^2+(-n^2+7n+6)y+2. Independent SymPy discriminant exactly 4n^6(n+1)(4n^2-63n-59)>0 on n>=18; coefficient signs show exactly one negative and two positive simple roots. The source critical-value inequality Q_n(c)<-c separates the positive solutions. At smaller root E_n'<0 so Q_n'<-1. For outer root H=n y E_n'-4((n+1)y+1)^3 controls Q_n'-1; independent resultant is 8n^9(n+1)^2(16n^4-216n^3-815n^2-931n-356) and quartic is positive for n>=18. At n=18, E(1/28)=-113/5488<0, E(1/27)=2720/19683>0, H(1/28)=293023/5488>0 and H' increases on bracket. Continuous outer branch cannot cross multiplier +1, so Q_n'(x_+)>1. Oddness squares Q_n' for 2-cycle; neither is attracting or parabolic. Exact polynomial checks do not prove other periods/nonreal cycles absent.
 
-## Closest literature and limitations
-The closest literature is arXiv:2609.02884v1 itself. Generic cubic Chebyshev-cycle work and general symmetry results concern different parameter families or broader symmetry structure. The theorem does not classify higher-period, nonsymmetric, or nonreal cycles and therefore does not settle the convergence question.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original Nayak--Phogat manuscript constructs only the inner centrally symmetric two-cycle and labels it the closest in its table. The audited global two-root exhaustion and strict repelling inequalities are not established by that original claim; the second branch and uniform outer multiplier need a cubic/resultant argument. Similar Chebyshev symmetry papers treat other families. Searches for Q_n(x)=-x and invariant-line multipliers found no equivalent pre-existing theorem. Best-of-knowledge with explicit recent-preprint risk.
+
+## value
+
+PASS
+
+The motivating 2026 dynamical investigation leaves convergence for even n>=18 open; the theorem removes the precise centrally symmetric real period-two candidates from its attracting-obstruction list on every invariant critical line. This is a natural exhaustive dynamical boundary result rather than a numerical orbit sample; it does not solve general convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
