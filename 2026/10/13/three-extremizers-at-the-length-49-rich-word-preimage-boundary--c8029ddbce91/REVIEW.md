@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite search is exhaustive because both defining failures are permanent under extension: a forbidden power persists, and palindromic defect cannot return to zero after a non-rich prefix. Two exact richness tests—direct distinct-palindrome counting and the unioccurrent longest-palindromic-suffix criterion—produce identical prefix-tree levels. The final four levels have \(11,6,3,0\) survivors at ternary lengths \(47,48,49,50\), and exact least-period scans directly recheck every binary boundary image.
+## correctness
 
-## Originality
-PASS. The 2020 source publishes the scalar cutoff \(49\) for the \(\mathtt{0121012}\) row but not its equality cases. A 2024 follow-up reuses the same obstruction and length-\(50\) backtracking cutoff without a boundary census. Exact-string, equivalent-formulation, broader-coverage, and record-overlap searches found no publication or indexed data source stating the three length-\(49\) preimages.
+PASS
 
-Residual risk remains that unpublished source-author backtracking output or an unindexed auxiliary file already contains the same three words.
+For f(0)=0,f(1)=01,f(2)=011 and required ternary prefix 0121012, consider all preimages u for which f(u) is palindromically rich and avoids every exponent >=14/5. Both properties are hereditary under taking prefixes: forbidden powers persist and palindromic defect is nondecreasing under appending a letter. Every extension therefore belongs to a finite prefix tree whose root is 0121012 and alphabet branches 0,1,2, and pruning never removes a valid descendant. Independently written incremental palindrome-suffix and forbidden new-suffix tests produced level survivor counts n=47:11,48:6,49:3,50:0, proving the maximum 49 and the exact three stated words with common 47-letter prefix. Independent final full palindrome-factor and period tests found binary image lengths 94,95,96, all rich, with critical exponents 46/17,46/17,95/34 (each <14/5). The complete level-by-level enumeration through 50, not an arbitrary cutoff or timeout, certifies the exhaustiveness, subject to the elementary hereditary proof.
 
-## Value
-PASS. This is the complete equality classification at the largest finite cutoff in the source's obstruction table, hence at the bottleneck of a structure theorem proving the binary-rich repetition threshold. The three extremizers' shared length-\(47\) prefix supplies a rigid boundary description rather than an arbitrary finite census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Currie–Mol–Rampersad (2020) Table 1 already gives the numerical maximal length 49 for the exact prefix 0121012 in their infinite-rich-word obstruction analysis; that scalar cutoff is explicitly prior. The later Currie–Rampersad 2024 proof, Lemma 5, reuses the same forbidden factor among backtracking exclusions with length-50 cutoff. Accessible primary pages include the 2020 Table 1 and 2024 Lemma 5 and show no complete identities/multiplicity of the length-49 surviving preimages. New content is the three-word equality-case census and common-prefix rigidity, not the cutoff, theorem on infinite rich words or a new repetition threshold. Searches for exact full strings and alias eligibility terminology found no published equality table, but unpublished authors' search outputs remain a material priority risk.
+
+## value
+
+PASS
+
+This finite equality-case classification is naturally motivated: the length-49 row is the *largest* finite obstruction length in a published structure-theorem proof, so every longest legal preimage at that bottleneck has structural significance. The three explicit maximizers and their forced common 47-letter prefix refine a published bound by uniquely identifying how boundary obstruction manifests. Value does not depend on extending the overall infinite repetition-threshold theorem, and the exhaustive certificate is nontrivial rather than a tiny arbitrary binary-word census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

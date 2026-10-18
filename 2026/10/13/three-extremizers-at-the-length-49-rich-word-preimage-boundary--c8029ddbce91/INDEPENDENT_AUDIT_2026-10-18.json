@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:16:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(0)=0,f(1)=01,f(2)=011 and required ternary prefix 0121012, consider all preimages u for which f(u) is palindromically rich and avoids every exponent >=14/5. Both properties are hereditary under taking prefixes: forbidden powers persist and palindromic defect is nondecreasing under appending a letter. Every extension therefore belongs to a finite prefix tree whose root is 0121012 and alphabet branches 0,1,2, and pruning never removes a valid descendant. Independently written incremental palindrome-suffix and forbidden new-suffix tests produced level survivor counts n=47:11,48:6,49:3,50:0, proving the maximum 49 and the exact three stated words with common 47-letter prefix. Independent final full palindrome-factor and period tests found binary image lengths 94,95,96, all rich, with critical exponents 46/17,46/17,95/34 (each <14/5). The complete level-by-level enumeration through 50, not an arbitrary cutoff or timeout, certifies the exhaustiveness, subject to the elementary hereditary proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2020 structure theorem uses finite backtracking to eliminate factors from infinite preimages; its Table 1 includes 49 but not a census of longest finite survivors.",
+          "2024 Lemma 5 again asserts length-50 extension exclusion for 0121012 and other factors; it does not state three concrete length-49 survivors or their common prefix in the inspected proof."
+        ],
+        "reasoning": "An infinite-word factor obstruction bounds finite extensions but does not specify the number/identities of optimizers. A full equality-count result would cover this work but was not found.",
+        "searches": [
+          "arxiv:1908.03169 structure theorem rich binary power avoiding",
+          "2024 Currie Rampersad full PDF Lemma5",
+          "Resultary:binary rich word repetition threshold finitary classification"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 8ae936d4cfef97d0521a47a882d6502204bcaaf8",
+        "Git verify.py 4ca20dc118551c59d903b0e77d9ea62fff3b5955",
+        "Git certificate.json 38cd650f3ec02c93abe52a0b8826608d75089a4b",
+        "Currie Mol Rampersad arxiv:1908.03169 Table1",
+        "Currie Rampersad EJC 31(4) P4.77 Lemma5",
+        "Resultary rich word boundary topics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both primary proofs use the existence of a finite cutoff length 50 to preclude infinite extensions, independent of how many words survive at 49.",
+          "The three exact extremizers share a 47-symbol prefix and distinct two-symbol suffixes; these additional facts do not follow from merely knowing an upper bound 49."
+        ],
+        "reasoning": "No cited prior statement mathematically forces the multiplicity or explicit equality words without the new complete bounded search/proof.",
+        "searches": [
+          "arxiv:1908.03169 Table1 and surrounding proof",
+          "The Electronic Journal of Combinatorics 31(4) P4.77 Lemma5",
+          "Git certificate.json 38cd650f3ec02c93abe52a0b8826608d75089a4b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 2024 terminology an eligible word is exactly a rich 14/5-free binary word; f matches the claimed morphism.",
+          "2020 table lists cutoff 49 for the same forbidden preimage prefix; no equality-class count supplied in that table."
+        ],
+        "reasoning": "The same predicate and morphism were aligned before novelty assessment, so only the equality classification remains; the scalar maximum is not claimed original.",
+        "searches": [
+          "Currie Mol Rampersad arxiv:1908.03169 Table1 factor 0121012 cutoff49",
+          "Currie Rampersad DOI:10.37236/12464 Lemma5 eligible words",
+          "Resultary:rich word f preimage 0121012 length49 three extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The *length 49* scalar is a published table entry; this review treats it as known.",
+          "Independent exhaustive prefix enumeration gives 3 survivors at 49, none at 50, and an exact list of all 3; no published/source table of these equality words was located."
+        ],
+        "reasoning": "A known numerical maximum does not automatically determine its equality cases; the new finite classification is the complete and structurally distinguished optimizer set, not recomputation of the cutoff.",
+        "searches": [
+          "Currie Mol Rampersad Table1 largest 49",
+          "web:exact strings 0121012101101210121210121011012101212101210110100",
+          "Resultary:length49 rich binary morphism preimage classification"
+        ]
+      },
+      "rationale": "Currie–Mol–Rampersad (2020) Table 1 already gives the numerical maximal length 49 for the exact prefix 0121012 in their infinite-rich-word obstruction analysis; that scalar cutoff is explicitly prior. The later Currie–Rampersad 2024 proof, Lemma 5, reuses the same forbidden factor among backtracking exclusions with length-50 cutoff. Accessible primary pages include the 2020 Table 1 and 2024 Lemma 5 and show no complete identities/multiplicity of the length-49 surviving preimages. New content is the three-word equality-case census and common-prefix rigidity, not the cutoff, theorem on infinite rich words or a new repetition threshold. Searches for exact full strings and alias eligibility terminology found no published equality table, but unpublished authors' search outputs remain a material priority risk.",
+      "residual_risks": [
+        "The authors may retain unindexed backtracking outputs or supplementary data containing the same three words.",
+        "Maximality is for extensions of this exact ternary prefix under this morphism and exact 14/5-free test; it is not a global rich-word extremal theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_BOUND_ALREADY_KNOWN",
+          "evidence": [
+            "Table 1 records prefix 0121012 cutoff 49 but does not list 3 maximizing finite preimages in the inspected table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03169",
+          "material_read": "Primary 2020 PDF Table 1 and accompanying proof of rich power-free preimage exclusion, examined via PDF page image",
+          "method": "arXiv primary PDF targeted text and page screenshot",
+          "title": "The repetition threshold for binary rich words",
+          "trigger": "Originating structure theorem and largest forbidden-prefix cutoff"
+        },
+        {
+          "assessment": "NO_EQUALITY_CENSUS_IN_INSPECTED_LEMMA",
+          "evidence": [
+            "Lemma 5 employs backtracking length-50 nonextendibility, without providing a count or list of all 49-length survivors in the inspected lemma."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v31i4p77/pdf/",
+          "material_read": "Primary 8-page 2024 PDF Section 3, Lemma 5 on page 5 (PDF page index 4) and its proof explicitly naming 0121012 as a 50-extension forbidden factor; page screenshot inspected",
+          "method": "Publisher-authorized freely available primary PDF and actual page image",
+          "title": "The Lexicographically Least Binary Rich Word Achieving the Repetition Threshold",
+          "trigger": "High-priority follow-up explicitly reuses same prefix and length50 cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This finite equality-case classification is naturally motivated: the length-49 row is the *largest* finite obstruction length in a published structure-theorem proof, so every longest legal preimage at that bottleneck has structural significance. The three explicit maximizers and their forced common 47-letter prefix refine a published bound by uniquely identifying how boundary obstruction manifests. Value does not depend on extending the overall infinite repetition-threshold theorem, and the exhaustive certificate is nontrivial rather than a tiny arbitrary binary-word census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The numerical cutoff 49 is not new; only equality cases, common-prefix rigidity, and critical exponent witnesses are new.",
+    "No classification of other Table 1 rows or infinite rich threshold words is established."
+  ],
+  "schema_version": 1
+}
