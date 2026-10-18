@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,74 +18,25 @@
   "schema_version": 1
 }
 ---
-For a normalized Venn signature
-\[
-(a,b,c),
-\qquad
-a>0,\quad b\le c,
-\]
-define
-\[
-u=\frac{b+c}{a},
-\qquad
-v=\frac{bc}{a^2}.
-\]
 
-Then
-\[
-J=\frac1{1+u}
-\]
-and
-\[
-O^2=\frac1{1+u+v}.
-\]
+# Independent mathematical audit
 
-The embedded `verify_jaccard_ochiai_minimal_reversal.py` independently constructs all signatures through the first boundary in two ways:
-- integer Venn-count enumeration;
-- all nonempty subset pairs of a finite species universe followed by canonical Venn reduction.
+## correctness
 
-It verifies exact signature counts
-\[
-1,\ 3,\ 7,\ 13,\ 22
-\]
-through gamma-richness bounds \(1\) to \(5\), weak-order mismatch counts
-\[
-0,\ 0,\ 1,\ 5,\ 12,
-\]
-and strict-reversal counts
-\[
-0,\ 0,\ 0,\ 0,\ 1.
-\]
+PASS
 
-The unique first strict reversal is
-\[
-(1,0,4)
-\quad\text{versus}\quad
-(1,1,2),
-\]
-with
-\[
-J=\frac15,\frac14
-\]
-and
-\[
-O^2=\frac15,\frac16.
-\]
+PASS: For positive-overlap Venn signature (a,b,c), J=1/(1+u) and Ochiai²=1/(1+u+v), where u=(b+c)/a and v=bc/a². Two pairs strictly reverse iff (u-U)(u+v-U-V)<0. Exact independent rational enumeration of all b<=c triples a>=1 and a+b+c<=N gives no strict reversal for N<=4 and precisely ((1,0,4),(1,1,2)) at N=5; the first weak mismatch is ((1,0,2),(1,1,1)) at N=3. The family ((1,0,r+2),(1,1,r)) is a strict reversal for every r>=2 by positive algebraic difference.
 
-The replay also verifies the exact ordering-key criterion on every checked pair and checks the structural family
-\[
-(1,0,r+2)
-\quad\text{versus}\quad
-(1,1,r)
-\]
-for every integer \(2\le r\le500\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_jaccard_ochiai_minimal_reversal.py`
+PASS qualified: Pavoine–Ricotta discusses both coefficients and pointwise Jaccard<=Ochiai and empirical ranking, and Jackson–Somers–Harvey compares occurrences and coefficient behavior; these do not give the exact two-pair sign criterion, earliest weak split and uniquely sharp N=5 threshold. The arithmetic key identity is elementary and itself receives little novelty credit; the exhaustive minimum counterexample plus infinite family constitute the surviving claim.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The algebraic criterion and infinite family are proved in `RESULT.md`; the finite replay is the exhaustive certificate for the sharp first boundary.
+The cutoff has a specific scientific motivation: established ecological presence–absence similarities can reorder comparisons despite high empirical agreement. The exact minimal five-species witness and infinite extension give compact adversarial test cases for ecological similarity ranking. This is a sharply motivated counterexample and boundary, not an arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

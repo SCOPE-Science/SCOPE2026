@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** With \(u=(b+c)/a\) and \(v=bc/a^2\), Jaccard is \(1/(1+u)\) and squared Ochiai is \(1/(1+u+v)\), so the necessary-and-sufficient reversal criterion follows immediately from strict monotonicity. The complete positive-overlap Venn-signature domain through gamma richness \(5\) is generated independently from integer triples and from actual subset pairs. Exact rational comparison proves no strict reversal through \(4\), one unique reversal at \(5\), and the packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the result is a pairwise binary-presence theorem and does not extend automatically to abundance or functional/phylogenetic generalizations.
+PASS
 
-## Originality
-**PASS.** Jackson, Somers and Harvey already compare Jaccard and Ochiai empirically and explain their different sensitivity to occurrence-frequency structure. Pavoine's full text gives the same coefficient family and compares their behavior in a broader community-similarity framework. Those sources do not state the exact two-comparison reversal criterion, the gamma-richness-three first tie split, the gamma-richness-five first strict reversal, uniqueness of the first pair, or the infinite witness family. Semantic-result and exact-pattern searches found no covering statement.
+PASS: For positive-overlap Venn signature (a,b,c), J=1/(1+u) and Ochiai²=1/(1+u+v), where u=(b+c)/a and v=bc/a². Two pairs strictly reverse iff (u-U)(u+v-U-V)<0. Exact independent rational enumeration of all b<=c triples a>=1 and a+b+c<=N gives no strict reversal for N<=4 and precisely ((1,0,4),(1,1,2)) at N=5; the first weak mismatch is ((1,0,2),(1,1,1)) at N=3. The family ((1,0,r+2),(1,1,r)) is a strict reversal for every r>=2 by positive algebraic difference.
 
-Risk: the criterion is an elementary algebraic consequence of standard formulas. A specialist exercise, software regression example, or unindexed note could contain an equivalent observation even though the sharp discrete boundary was not found.
+## originality
 
-## Value
-**PASS.** Jaccard and Ochiai are established ecological presence–absence similarities whose differing response to occurrence frequency has been documented empirically. The theorem turns that qualitative distinction into a direct exact diagnostic for ranking disagreement, identifies the smallest possible strict reversal, and supplies a persistent family. The five-species witness is compact enough to serve as a benchmark for interpretation and software validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS qualified: Pavoine–Ricotta discusses both coefficients and pointwise Jaccard<=Ochiai and empirical ranking, and Jackson–Somers–Harvey compares occurrences and coefficient behavior; these do not give the exact two-pair sign criterion, earliest weak split and uniquely sharp N=5 threshold. The arithmetic key identity is elementary and itself receives little novelty credit; the exhaustive minimum counterexample plus infinite family constitute the surviving claim.
+
+## value
+
+PASS
+
+The cutoff has a specific scientific motivation: established ecological presence–absence similarities can reorder comparisons despite high empirical agreement. The exact minimal five-species witness and infinite extension give compact adversarial test cases for ecological similarity ranking. This is a sharply motivated counterexample and boundary, not an arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
