@@ -1,0 +1,15 @@
+# Scientific assessment: renewal-direction efficiency threshold
+
+## Correctness — PASS
+The claim is explicitly limited to bounded independent renewal cycles and Bernoulli direction signs independent of the full cycle pair. The completed-cycle current's mean and variance rates follow by a stopped-martingale argument; the variance decomposition is independently reproduced by finite-support enumeration. The global optimization reduces to a strictly increasing integral quotient \(g(m)\), with exact endpoint values \(1/3\) and \(1\). This proves the sharp threshold \(b=2/3\), the uniqueness of the interior maximum, and both limiting cases. The 424-check reproducibility script provides finite sanity checks; none is substituted for the global proof. Endpoint divergences are explicitly limits.
+
+## Originality — PASS, with stated residual uncertainty
+Karimi and Jafarpour, arXiv:2606.16339, Section II and Appendix A, already give the exact renewal-reward variance decomposition and the auxiliary Bernoulli reversal divergence. These are **not** newly claimed. Shreshtha and Harris, arXiv:1903.01972, analyze related run-and-tumble uncertainty. Pietzonka and Coghi, arXiv:2305.15392, optimize related Markov-network precision costs under different observables and constraints. The new statement is the complete finite-bias optimizer classification for arbitrary fixed cycle-pair law, including a globally sharp \(2/3\) mismatch threshold and a unique interior optimum. Closely related published records searched under renewal, KL bias, reward-duration variance and optimizer aliases did not show a covering theorem. The base formula being known makes implicit coverage by an unlocated optimization or convexity treatment a genuine residual risk; search absence is not treated as uniqueness proof.
+
+## Value — PASS
+The parameter \(b=\mathbb E[(R-\rho N)^2]/\mathbb E R^2\) measures disagreement of cycle reward with its duration-predicted transport. It is directly estimable from cycle data and governs a genuine qualitative design transition: in low-mismatch systems a nonzero directional preference minimizes reversal information per unit achieved current precision, whereas at high mismatch weak bias alone is asymptotically optimal. The existence and uniqueness of the interior optimum is not a predetermined finite search slice and does not require a particular motor implementation. The numerical example with \(b=1/5\) produces a strict efficiency gain of approximately \(1.879\) over weak bias.
+
+## Risks and boundaries
+The cost here is **marginal directional reversal-information KL**, not an assumed equality with full physical entropy or heat. The renewal model is not claimed to realize every microscopic implementation. The source's equations imply the objective algebraically, so possible prior global optimization of that objective remains a novelty risk. The result does not extend without proof to bias-dependent cycle laws or correlated signs.
+
+Self-review: passed. Independent audit: not yet performed.
