@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For a three-person SIR chain starting (2,1,0), the exact triangular forward equations for A,B,D yield the displayed explicit probabilities. The at-risk pair masses W1=2A+D and W2=2B imply the covariance identity. The h ratio has uniformly positive lambda derivative at sufficiently small t and uniformly negative log derivative at sufficiently large t on any fixed [a,b] with a>0. Covariance strictness follows from the independent-copy integral under the nondegenerate positive measure Q_t. Continuity gives a crossing. Standalone seven-state uniformization agreed with every closed form in 126 comparisons; 217 assertions passed. Computational checks are corroboration rather than infinite-distribution proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.13358 Sec. 4.5 derives a general SIR master equation for coupled higher-order networks, but does not give the time-uniform eventual strict negative conditional-rate sign for a closed three-person group.",
+        "arXiv:2101.07229 Sec. Universal infection kernel uses temporally variable dose and minimal-infective-dose threshold rather than Markov SIR recovery with fixed linear group hazards."
+      ],
+      "reasoning": "A general SIR master equation contains the present model as a specialization, but the reverse-sign inequality for the pair-weighted observable is not a logical corollary of the displayed master equation without the new finite-state analysis and asymptotics. The nonlinear dose model has distinct assumptions.",
+      "searches": [
+        "https://arxiv.org/html/2302.13358v2 section 4.5 SIR",
+        "https://arxiv.org/html/2101.07229v3 universal nonlinear infection kernel",
+        "conditional infection rates time dependent epidemic heterogeneity susceptible depletion superlinear to sublinear effective contagion"
+      ]
+    },
+    "checked_sources": [
+      "St-Onge, Hébert-Dufresne, Allard 2023, arXiv:2302.13358v2 main text",
+      "St-Onge et al. 2021, arXiv:2101.07229v3 main text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work establishes early superlinear effective rates from heterogeneity and notes that early-time rate extrapolation eventually fails; new theorem gives opposite ordering, not merely loss of approximation, for every fixed non-point-mass compact positive heterogeneity law."
+      ],
+      "reasoning": "The prior paper suggests qualitative calibration risk but does not determine the sign of the late-time pair-weighted conditional rate. The complete exact state probabilities and uniform monotonicity of B/(2A+D) are needed. A broader unavailable source could still subsume the theorem.",
+      "searches": [
+        "https://arxiv.org/html/2302.13358v2 Eq. 5, Sec. 4.5",
+        "three-person SIR group at-risk susceptible-infectious pair weighted posterior transmission rate changes from superlinear to sublinear as time grows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.13358, Sec. 2.2, Eq. (5) and Fig. 2 and Sec. 4.5: conditional group-rate averaging and effective surviving size are considered, but no theorem states strict late-time reversal of the particular original-size, susceptible–infectious-pair-weighted observable."
+      ],
+      "reasoning": "The early moment-ratio result gives increasing rates under one limiting regime; eventual failure of that approximation does not entail a strict reversal. The original study conditions differently, while the present observable weights all at-risk pairs and pools over removed counts.",
+      "searches": [
+        "three-person SIR group at-risk susceptible-infectious pair weighted posterior transmission rate changes from superlinear to sublinear as time grows",
+        "https://arxiv.org/html/2302.13358v2 sections 2.2, 3, 4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical database or catalogued three-person conditional-rate formula was located in the checked main-text material or searches. This is a theorem in a continuum of heterogeneity laws, not the lookup of one number."
+      ],
+      "reasoning": "Source Fig. 2 depicts time-dependent effective rates for other settings; it does not tabulate the exact universal sign switch here. Non-detection does not prove novelty.",
+      "searches": [
+        "finite three node SIR stochastic Markov model 3-person group asymptotic conditional transmissibility moment selection reversal",
+        "heterogeneous fixed infection hazards conditional group infection count recovery at large times hazard posterior sign reversal covariance",
+        "https://arxiv.org/abs/2302.13358"
+      ]
+    },
+    "rationale": "The closest primary study demonstrates early heterogeneous-group superlinearity and eventual invalidity of early-time extrapolation but neither proves a strict opposite late sign nor uses this at-risk-pair-weighted original-size conditional observable. The result holds uniformly for any nondegenerate compactly supported positive group-rate distribution. Priority remains subject to uninspected supplements and literature.",
+    "residual_risks": [
+      "Ancillary supporting_information.pdf of arXiv:2302.13358 was not fully examined.",
+      "An unlocated broad filtering or phase-type Markov theorem could imply the particular reversal.",
+      "The qualitative late-window caveat in the motivating source is anticipated; originality applies only to the precise strict reversal theorem and observable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Early superlinearity and subsequent failure of early approximation covered; strict late reversal of the specific at-risk-pair-weighted original-size three-person rate not found in read main text",
+        "evidence": [
+          "Sec 2.2 Eq (5) conditions on effective group state; Sec 4.5 Eq (28c) has removed-stage transitions; Discussion says superlinear effective rate eventually breaks."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.13358v2",
+        "material_read": "Full HTML main paper, notably model and rate averaging Sections 2.1–2.2; Discussion; SIR master equations Section 4.5; effective-rate figure text; References",
+        "method": "Direct reading of full-text HTML and equation-by-equation comparison of observables, assumptions, and predictions",
+        "title": "Nonlinear bias toward complex contagion in uncertain transmission settings",
+        "trigger": "Same fixed heterogeneous group-rate model and inferred nonlinear effective contagion"
+      },
+      {
+        "assessment": "Different temporally varying exposure and threshold-dose mechanism, no exact pair-weighted SIR conditional reversal in read material",
+        "evidence": [
+          "Its kernel derives from integrating a minimum infective dose over participation-time distributions, unlike rate-one Markov SIR recovery and fixed per-pair hazards."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.07229v3",
+        "material_read": "Full-text HTML abstract, introduction and universal infection-kernel derivation through nonlinear dose/exposure formula",
+        "method": "Direct reading and comparison of stochastic mechanism",
+        "title": "Universal nonlinear infection kernel from heterogeneous exposure on higher-order networks",
+        "trigger": "Earlier nonlinear contagion mechanism in heterogeneous groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90f29dbf-a66d-4043-a2df-c7a22a9e8531",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest closed population permitting one and two infectious persons alongside susceptibles admits a universal sign reversal of inferred per-pair transmissibility for every nondegenerate bounded positive heterogeneity law. Unlike a routine numerical example, the theorem establishes a structural observation-window effect, showing that fixed microscopically linear hazards can appear increasingly then decreasingly dependent on concurrent infectious count. It clarifies why late-time depletion/recovery confounds naive nonlinear contagion inference; late at-risk data are rare and no empirical power guarantee is claimed.",
+    "status": "PASS"
+  }
+}
