@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,136 +19,24 @@
 }
 ---
 
-Let
-\[
-A=k-\frac1k,
-\qquad
-\mu=4k-\frac5k.
-\]
-The source coefficient identities are
-\[
-a_2=-Ac_1,
-\qquad
-a_3=-\frac A4(c_2-\mu c_1^2).
-\]
-The exact Schwarz coefficient body
-\[
-|c_2|\le1-|c_1|^2
-\]
-therefore becomes
-\[
-|a_2|\le A
-\]
-and
-\[
-\left|
-a_3-\frac{\mu}{4A}a_2^2
-\right|
-\le
-\frac A4
-\left(
-1-\frac{|a_2|^2}{A^2}
-\right).
-\]
+# Independent mathematical audit
 
-Conversely, any point of this disk gives
-\[
-c_1=-a_2/A
-\]
-and an admissible
-\[
-c_2.
-\]
-If
-\[
-|c_1|<1,
-\]
-the Schur function
-\[
-w(\zeta)
-=
-\zeta
-\frac{c_1+\eta\zeta}
-{1+\overline{c_1}\eta\zeta},
-\qquad
-\eta=\frac{c_2}{1-|c_1|^2},
-\]
-has the prescribed first two coefficients. The boundary case
-\[
-|c_1|=1
-\]
-reduces to a disk rotation.
+## correctness
 
-The source differential relation reconstructs
-\[
-q=g/(zg')
-\]
-from this
-\[
-w.
-\]
-Its positive-real dominant for
-\[
-1<k<k_0
-\]
-makes
-\[
-q
-\]
-zero-free, so the integral formula for
-\[
-g
-\]
-is analytic and realizes the desired coefficient pair in the original class.
+PASS
 
-For the marginal problem, at fixed
-\[
-r=|c_1|,
-\]
-the disk permits exactly
-\[
-\max|c_2-\mu c_1^2|
-=
-1+(|\mu|-1)r^2.
-\]
-Thus the optimizer is
-\[
-r=0
-\]
-for
-\[
-|\mu|<1
-\]
-and
-\[
-r=1
-\]
-for
-\[
-|\mu|>1.
-\]
-Since
-\[
-\mu(k)
-\]
-is strictly increasing and
-\[
-\mu(5/4)=1,
-\]
-the transition occurs exactly at
-\[
-k=5/4.
-\]
+The article supplies a2=-A c1 and a3=-A(c2-mu c1^2)/4 for a Schwarz map. The sharp two-coefficient Schur constraint |c2|<=1-|c1|^2 yields exactly the fiber disks. Every allowed pair is realized by a degree-two Schur map w, and the source positive-real-part subordination for q=g/(zg prime) guarantees an analytic zero-free q for 1<k<k0, allowing an explicit holomorphic integral to reconstruct g. Maximizing 1+(|mu|-1)|c1|^2 gives quadratic or linear extremizers, and mu=1 at k=5/4 gives Blaschke continuum; all parameter restrictions and endpoints are respected.
 
-At the transition, the displayed degree-two Blaschke products have
-\[
-c_1=re^{i\theta},
-\qquad
-c_2=-(1-r^2)e^{2i\theta},
-\]
-so they attain equality for every
-\[
-0\le r\le1.
-\]
+## originality
 
-Symbolic substitutions and randomized points in the coefficient disk were used to check the transformations and equality family. These checks are supplementary; exactness follows from the analytic reconstruction above.
+PASS
+
+The full 2026 Haq–Sokół source gives separate coefficient bounds and Fekete–Szegő estimates but does not provide an exact two-variable coefficient body with a surjective reconstruction for all fiber points. A known Keogh–Merkes Schur inequality supplies the necessary coefficient disk but does not by itself solve class-specific realization. The threshold and all extremizers clarify sharpness beyond separately listed templates. Originality passes for exact class-specific sufficiency and full joint body, not for general Schur lemma or separate source bounds.
+
+## value
+
+PASS
+
+The full coefficient region is a canonical invariant of a normalized analytic-function class, and knowing the entire disk fiber gives sharp bounds for every functional combining a2 and a3; the k=5/4 continuous extremizer bifurcation is structurally informative. Analytic class-member sufficiency prevents the finding from being just a formal substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

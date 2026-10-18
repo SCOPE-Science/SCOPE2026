@@ -1,81 +1,21 @@
-# Review of Exact second–third coefficient body and extremizer bifurcation in the Mocanu–Robertson class
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source coefficient identities reduce the first two nontrivial coefficients to
-\[
-a_2=-Ac_1
-\]
-and
-\[
-a_3=-\frac A4(c_2-\mu c_1^2).
-\]
-The exact Schwarz coefficient constraint
-\[
-|c_2|\le1-|c_1|^2
-\]
-therefore gives the displayed disk fiber immediately.
+PASS
 
-The converse is not only formal. Every admissible pair
-\[
-(c_1,c_2)
-\]
-is realized by an explicit Schur function. Integrating the source differential relation gives
-\[
-q=g/(zg'),
-\]
-and the positive-real dominant valid for
-\[
-1<k<k_0
-\]
-ensures that
-\[
-q
-\]
-has no zeros. This produces an analytic normalized
-\[
-g
-\]
-satisfying the defining Mocanu–Robertson inequality with precisely the requested coefficients.
+The article supplies a2=-A c1 and a3=-A(c2-mu c1^2)/4 for a Schwarz map. The sharp two-coefficient Schur constraint |c2|<=1-|c1|^2 yields exactly the fiber disks. Every allowed pair is realized by a degree-two Schur map w, and the source positive-real-part subordination for q=g/(zg prime) guarantees an analytic zero-free q for 1<k<k0, allowing an explicit holomorphic integral to reconstruct g. Maximizing 1+(|mu|-1)|c1|^2 gives quadratic or linear extremizers, and mu=1 at k=5/4 gives Blaschke continuum; all parameter restrictions and endpoints are respected.
 
-The extremizer classification follows from the exact fixed-radius maximum
-\[
-1+(|\mu|-1)r^2.
-\]
-Since
-\[
-\mu(k)=4k-5/k
-\]
-is strictly increasing and
-\[
-\mu(5/4)=1,
-\]
-the quadratic, transition, and linear regimes are exactly as claimed.
+## originality
 
-## Originality
+PASS
 
-PASS. The full 2026 primary article was inspected through its differential-subordination construction, positive-real dominant, coefficient theorem, Fekete–Szegő theorem, and sharpness discussion. It gives separate projected coefficient estimates but no joint
-\[
-(a_2,a_3)
-\]
-body and no converse showing that every point of a coefficient fiber occurs.
+The full 2026 Haq–Sokół source gives separate coefficient bounds and Fekete–Szegő estimates but does not provide an exact two-variable coefficient body with a surjective reconstruction for all fiber points. A known Keogh–Merkes Schur inequality supplies the necessary coefficient disk but does not by itself solve class-specific realization. The threshold and all extremizers clarify sharpness beyond separately listed templates. Originality passes for exact class-specific sufficiency and full joint body, not for general Schur lemma or separate source bounds.
 
-Public searches were made for joint Mocanu–Robertson coefficient regions, second–third coefficient fibers, the
-\[
-k=5/4
-\]
-transition, and equivalent Schur-parameter formulations. No implication-equivalent result was located.
+## value
 
-The Keogh–Merkes theorem supplies the classical Schwarz coefficient constraint used as a tool, but it does not contain the differential-class reconstruction that makes the body exact.
+PASS
 
-## Value
+The full coefficient region is a canonical invariant of a normalized analytic-function class, and knowing the entire disk fiber gives sharp bounds for every functional combining a2 and a3; the k=5/4 continuous extremizer bifurcation is structurally informative. Analytic class-member sufficiency prevents the finding from being just a formal substitution.
 
-PASS. Joint coefficient bodies are strictly more informative than separate sharp coefficient bounds: they encode how one coefficient constrains the next and identify all possible boundary fibers.
-
-Here the exact body reveals a qualitative extremal phenomenon hidden by the projected estimates. The sharp
-\[
-|a_3|
-\]
-extremizer changes from a quadratic Schwarz map to a linear one, and at the exact transition a continuum of degree-two Blaschke products fills the equality locus. This gives a natural geometric classification for a fresh differential class rather than a routine re-evaluation of one coefficient bound.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
