@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Bloch H(z) with H_AB=p+sz,H_BA=p+sz^{-1}, H_AC=r,H_BC=q and diagonals QA,QB,QC, the exact Laurent coefficient of z+z^-1 in det(H−E) is s(qr−p(QC−E)); as s,p>0, a flat band forces E=QC−g, g=qr/p>0. At that energy, the Schur complement of C is [[alpha,sz],[sz^-1,beta]] with alpha=QA−QC+g−pr/q and beta=QB−QC+g−pq/r. Its determinant alpha*beta−s² gives iff flat locus. With alpha*beta=s² both have same nonzero sign. Sylvester inertia with positive g places zero eigenvalue at bottom for alpha>0 and middle for alpha<0; rank 2 for all Bloch phases and compact unit circle imply positive isolation. Exact Laurent nullvector (−sz,alpha,(rsz−q alpha)/g) is nowhere zero and provides two-cell CLS spanning the infinite eigenspace by Laurent polynomial density. Independent SymPy determinant, nullvector and polynomial equalities passed.",
+      "risk": [
+        "Isolation bound depends on fixed parameters; no uniform gap over full quadric; finite Bloch samples alone would be insufficient."
+      ],
+      "sources": [
+        "Sabri and Youssef, Flat bands of periodic graphs, arXiv:2304.06465",
+        "Faust and Kachkovskiy, Absence of flat bands for discrete periodic graph operators with generic potentials, arXiv:2509.01927",
+        "assigned RESULT.md and verify_triangle_bridge.py",
+        "independent_audit1603_checks.py",
+        "Git immutable tree 826c385ee22661f4ccdc4eb712a04b003fc1abb4"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sabri and Youssef, Flat bands of periodic graphs, arXiv:2304.06465 proves flat-band locus semialgebraic and top band never flat for positive weights; Faust and Kachkovskiy, Absence of flat bands for discrete periodic graph operators with generic potentials, arXiv:2509.01927 gives generic absence for connected graphs."
+        ],
+        "reasoning": "Prior general results cover non-topness/generic absence and compact eigenstate principles, all credited; they do not force an exact nonempty smooth hyperbola for this graph, its two components, or strict spectral order.",
+        "searches": [
+          "arXiv:2304.06465 §7",
+          "arXiv:2509.01927 Theorem 1.4 and §3.4"
+        ]
+      },
+      "checked_sources": [
+        "Sabri and Youssef, Flat bands of periodic graphs, arXiv:2304.06465",
+        "Faust and Kachkovskiy, Absence of flat bands for discrete periodic graph operators with generic potentials, arXiv:2509.01927",
+        "Schulze–Bercioux–Urban 2012 arXiv:1208.6113 two-orbital triangle chain",
+        "Diamond-necklace 2023 DOI:10.1007/s44214-023-00026-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems say algebraicity/semialgebraicity or generic disappearance; they do not entail the nonempty criterion or isolation. Non-topness is prior Sabri–Youssef and acknowledged."
+        ],
+        "reasoning": "Solving the actual 3×3 determinant and establishing positivity/inertia adds the exact graph-specific all-weights/all-potentials classification rather than specializing a previously explicit universal formula.",
+        "searches": [
+          "arXiv:2304.06465 Problems 1–2/Lemma 7.1/Proposition 7.5",
+          "arXiv:2509.01927 Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sabri and Youssef, Flat bands of periodic graphs, arXiv:2304.06465 §7 studies semialgebraic exceptional potential sets; Faust and Kachkovskiy, Absence of flat bands for discrete periodic graph operators with generic potentials, arXiv:2509.01927 Theorem 1.4 proves containment in a proper algebraic subvariety."
+        ],
+        "reasoning": "Equivalent Bloch determinant and unit-cell descriptions were sought; neither inspected general theorem fixes the defining polynomial for this precise weighted graph.",
+        "searches": [
+          "Resultary semantic: triangle bridge periodic graph weighted flat band onsite energy hyperbola spectral gap chain",
+          "web: triangle bridge periodic graph weighted flat band onsite energy hyperbola spectral gap chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sabri–Youssef Proposition 7.5 has a hyperplane Q1=Q2, arising from twin neighborhoods, not nonlinear alpha*beta=s². Faust–Kachkovskiy examples include Lieb and alternative 3×3 families, not exact triangle-bridge matrix with weights p,q,r,s."
+        ],
+        "reasoning": "No exact database or physics phase diagram on this graph retrieved. Graph identity requires matrix/equivalent unit cell, not a shared triangle label.",
+        "searches": [
+          "Resultary semantic: triangle bridge periodic graph weighted flat band onsite energy hyperbola spectral gap chain",
+          "arXiv:2304.06465 Section 7 exact motif examples",
+          "arXiv:2509.01927 Section 3.4 examples"
+        ]
+      },
+      "rationale": "For the exact three-orbit, four-edge triangle-plus-bridge motif, the equation alpha*beta=s², unique energy, strict positive spectral gap and bottom/middle-band split are derived from a specific Laurent coefficient and Schur complement. The inspected general semialgebraic/generic-nonexistence theorems cannot identify this complete exceptional quadric or the band-order dichotomy. Other named triangle/diamond lattices use different matrices. Best-of-knowledge original motif-specific classification.",
+      "residual_risks": [
+        "The same graph may appear with a shifted unit cell, reversed edges or a tight-binding name absent from searched titles.",
+        "Compact-state existence and top-band nonflat are known general mechanisms, not new separate claims.",
+        "Source self-reviews were not used as independent originality proof; bounded current primary literature comparisons are recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_GENERAL_COVERAGE",
+          "evidence": "Semialgebraic exceptional set and top band nonflat are covered, but their example loci are different and no stated exact triangle-bridge quadric or band-order theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.06465",
+          "material_read": "Full arXiv PDF: introduction Problems 1–2, theorem summary, Section 7 Lemma 7.1, Proposition 7.5 and examples inspected.",
+          "method": "Public full PDF text and targeted sections.",
+          "title": "Flat bands of periodic graphs",
+          "trigger": "Strong prior theorem on exceptional potential varieties, non-top flat bands, compact localization."
+        },
+        {
+          "assessment": "GENERIC_ABSENCE_ONLY",
+          "evidence": "Theorem 1.4 says the exceptional set is contained in some proper algebraic subvariety, not its graph-specific defining equation, existence, band gap or order.",
+          "identifier_or_url": "https://arxiv.org/html/2509.01927v1",
+          "material_read": "Open arXiv HTML, Theorem 1.4, Remarks 1.5–1.6, spectral/compact-localization preliminaries, section 3.4 examples.",
+          "method": "Open full-text HTML, theorem and concrete examples read.",
+          "title": "Absence of flat bands for discrete periodic graph operators with generic potentials",
+          "trigger": "Later general result might imply the full geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact parameter-tuning locus and strict gap and band placement for a minimal three-site connected triangle-bridge motif is a motivated complete phase diagram. It identifies a curved exceptional surface with two distinct localized-state regimes, rather than a single tuned example or generic absence.",
+      "risk": [
+        "Scope restricted to positive weights and this precise connectivity; no universal flat-band classification claimed."
+      ],
+      "sources": [
+        "Sabri and Youssef, Flat bands of periodic graphs, arXiv:2304.06465",
+        "Faust and Kachkovskiy, Absence of flat bands for discrete periodic graph operators with generic potentials, arXiv:2509.01927"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive real p,q,r,s, real periodic onsite energies; no magnetic phases or vanishing weights.",
+    "Unweighted criterion (QA−QC)(QB−QC)=1; unweighted zero potentials have no flat band.",
+    "General compact-state and top-band facts credited to literature; no external attestation.",
+    "The reviewed Git source contains operational provenance in metadata; not_ready is a publication/transport state, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}

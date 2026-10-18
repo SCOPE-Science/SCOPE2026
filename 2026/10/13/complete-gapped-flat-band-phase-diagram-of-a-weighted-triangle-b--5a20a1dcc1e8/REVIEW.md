@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all strictly positive real hoppings and all real onsite potentials, the Bloch determinant is a Laurent polynomial whose nonconstant coefficient is exactly \(s(qr-p(Q_C-E))\). It forces the only candidate energy \(Q_C-qr/p\). The positive Schur pivot gives the exact two-dimensional matrix with determinant \(\alpha\beta-s^2\). Its inertia determines band rank, a nonvanishing principal minor proves simplicity at all phases, and compactness gives a strictly positive spectral separation. The explicitly checked polynomial nullvector has support on two cells, and Floquet scalar multiplication proves the translate-span assertion. Symbolic identity checks and sample matrices replay; the proof does not use finite sampling for infinite claims.
+PASS
 
-## Originality — PASS
+For Bloch H(z) with H_AB=p+sz,H_BA=p+sz^{-1}, H_AC=r,H_BC=q and diagonals QA,QB,QC, the exact Laurent coefficient of z+z^-1 in det(H−E) is s(qr−p(QC−E)); as s,p>0, a flat band forces E=QC−g, g=qr/p>0. At that energy, the Schur complement of C is [[alpha,sz],[sz^-1,beta]] with alpha=QA−QC+g−pr/q and beta=QB−QC+g−pq/r. Its determinant alpha*beta−s² gives iff flat locus. With alpha*beta=s² both have same nonzero sign. Sylvester inertia with positive g places zero eigenvalue at bottom for alpha>0 and middle for alpha<0; rank 2 for all Bloch phases and compact unit circle imply positive isolation. Exact Laurent nullvector (−sz,alpha,(rsz−q alpha)/g) is nowhere zero and provides two-cell CLS spanning the infinite eigenspace by Laurent polynomial density. Independent SymPy determinant, nullvector and polynomial equalities passed.
 
-The closest primary work [1] proves that exceptional potentials are semialgebraic, but its examples do not supply the exact curved variety and spectral ordering for this specified three-site bridge graph. The broader 2025 generic-potential theorem [2] implies only a proper algebraic exceptional locus; its statements do not determine this nonempty quadric, its two connected components, or the existence of a uniform-in-phase spectral gap at each admissible parameter. The two-orbit triangle-chain work [3] and four-orbit diamond-necklace work [4] have different Bloch matrices. Scientific semantic searches for the exact hyperbolic potential condition and equivalent weighted triangle-chain formulations recovered no implication-equivalent prior result. A weakly indexed equivalent tight-binding calculation remains possible; negative search results alone do not establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete natural flat-band and gap classification on a connected triangular-chain motif with the smallest cell size beyond the source's fully analyzed two-site case. It identifies a smooth but nonaffine, codimension-one tuning surface, a sharp bifurcation into bottom- and middle-band placements, and explicit compact localization for every positive hopping configuration. The exact parameter surface and isolation are relevant to controlling localized states; the statement is not merely generic absence, a single numerical instance, or a cosmetic normalization.
+For the exact three-orbit, four-edge triangle-plus-bridge motif, the equation alpha*beta=s², unique energy, strict positive spectral gap and bottom/middle-band split are derived from a specific Laurent coefficient and Schur complement. The inspected general semialgebraic/generic-nonexistence theorems cannot identify this complete exceptional quadric or the band-order dichotomy. Other named triangle/diamond lattices use different matrices. Best-of-knowledge original motif-specific classification.
 
-## Closest literature and scientific limitations
+## value
 
-[1] Sabri–Youssef (2023), Sections 1 and 7; [2] Faust–Kachkovskiy (2025), Theorem 1.4 and Section 3.4; [3] Schulze–Bercioux–Urban (2012), two-site Bloch Hamiltonian; [4] four-site diamond-necklace model (2023). The proof is restricted to strictly positive real hoppings and this fixed motif, with no uniform positive gap constant as parameters vary. No independent literature-wide priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact parameter-tuning locus and strict gap and band placement for a minimal three-site connected triangle-bridge motif is a motivated complete phase diagram. It identifies a curved exceptional surface with two distinct localized-state regimes, rather than a single tuned example or generic absence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
