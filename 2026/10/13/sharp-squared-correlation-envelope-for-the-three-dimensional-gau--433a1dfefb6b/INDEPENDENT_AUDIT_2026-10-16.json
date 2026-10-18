@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:10:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wick/Isserlis pairing gives Δ=2(a²+b²+c²)+8abc=2S+8P for standardized centered jointly Gaussian triples. PSD determinant 1+2P−S>=0 and AM-GM |P|<=(S/3)^{3/2} yield P>=max((S−1)/2, −(S/3)^{3/2}), crossing only at S=3/4. The a=b=t,c=−t matrix is PSD for t<=1/2 and attains the lower branch; a=b=t,c=2t²−1 is singular PSD for t∈[1/2,1], maps monotonically over S∈[3/4,3] and attains the upper branch. Equality classes follow from strict AMGM/determinant. Minimizing Δ/S on the two branches yields sharp 2/3 at S=3/4 and Δ=0 at independence. Independent exact symbolic/rational checks corroborate endpoint, PSD and equality; proof works for all singular and nonsingular Gaussian correlation matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Herry–Malicet–Poly Theorem1.1 proves Δ>=0 (and analogous all-even exponent statements); Hu–Zhao–Zhou 2023 prove quantitative bivariate inequalities and ask explicitly for 3D."
+        ],
+        "reasoning": "A qualitative ≥0 theorem for any exponent cannot imply the sharp positive lower function of S or its equality classes except at S=0; broader exponent hypotheses do not provide stronger correlation-dependent conclusions.",
+        "searches": [
+          "arXiv:2211.07314 Theorem1.1 complete 5-page proof",
+          "arXiv:1905.04279 statement",
+          "arXiv:2609.20234 all-exponent strong Gaussian product inequality"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1186/s13660-022-02906-w",
+        "https://arxiv.org/pdf/2211.07314",
+        "https://arxiv.org/abs/1905.04279",
+        "https://spectrum.library.concordia.ca/992526/1/Russell_PhD_F2023.pdf",
+        "Resultary: 3 dimensional Gaussian product squared correlations E[X1^2 X2^2 X3^2] fixed total correlation squared sharp bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Herry et al. prove nonnegativity and unique equality at independence but do not constrain deficit at fixed nonzero S. Hu et al. pose a quantitative 3D extension as an open question."
+        ],
+        "reasoning": "The determinant and AMGM comparison plus constructive rank-two Gram family add information strictly stronger than the available qualitative theorem and solve a motivated base case of the stated quantitative question.",
+        "searches": [
+          "arXiv:2211.07314 Theorem1.1 and proof",
+          "J. Inequal. Appl. 2023 article2 Conclusions Question1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deficit is a degree-three symmetric polynomial of off-diagonal correlations, with S the Frobenius off-diagonal energy; other vocabularies include covariance elliptope, hafnian and Gaussian moment optimization."
+        ],
+        "reasoning": "The moment polynomial is elementary/known, but optimizing at fixed S over the full 3x3 correlation elliptope and specifying all sharp equality cases is the substantive claim.",
+        "searches": [
+          "Resultary: 3 dimensional Gaussian product squared correlations E[X1^2 X2^2 X3^2] fixed total correlation squared sharp bound",
+          "Hu–Zhao–Zhou 2023 §5 Question1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected source tabulates the two-piece Δ_min(S) with a breakpoint S=3/4 or the sharp 2/3 coefficient; relevant thesis file remained inaccessible, and negative search is not proof."
+        ],
+        "reasoning": "This is not a lookup of a numerical constant alone; the full continuum of feasible S and the changing optimizer geometry is classified.",
+        "searches": [
+          "Resultary Gaussian correlation squared product fixed S query, 12 hits",
+          "Hu–Zhao–Zhou 2023 §5",
+          "Russell 2023 thesis repository result"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the fixed total squared-correlation *sharp quantitative envelope*, equality characterization and 2/3 global stability constant are not implied by the general three-dimensional qualitative GPI. The 2023 Hu–Zhao–Zhou paper treats bivariate quantitative inequalities and explicitly poses the 3D quantitative problem. A 2023 thesis on Gaussian products was identified but its complete PDF could not be retrieved and its abstract did not advertise the exact S-envelope; keep as originality risk.",
+      "residual_risks": [
+        "Russell 2023 thesis is a highly relevant plausible historical source; accessible abstract was read but full PDF retrieval failed (timeout/502), so no exhaustive noncoverage assertion.",
+        "The exact equality with coefficient 2/3 includes singular joint laws; if one only permits positive definite covariance, the boundary equality is an unattained infimum instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly leaves three-dimensional quantitative versions as a question; no fixed-S trivariate envelope in the work",
+          "evidence": "§5 Question1: requests quantitative versions of 3-dimensional inequalities; main theorems are dimension 2.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-022-02906-w",
+          "material_read": "Complete open-access article HTML including main bivariate Theorems 2.1–2.2, proofs §3, and conclusion §5 Question1",
+          "method": "lawful OA publisher full HTML",
+          "title": "Quantitative versions of the two-dimensional Gaussian product inequalities",
+          "trigger": "Explicit published question asking quantitative three-dimensional GPI"
+        },
+        {
+          "assessment": "Establishes qualitative strong GPI for trivariate even exponents, no piecewise sharp fixed-S dependence-sensitive envelope",
+          "evidence": "Theorem1.1 inequalities and equality iff independence; covariance minimization only unconstrained by fixed S.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.07314",
+          "material_read": "All five pages of arXiv PDF: Theorem1.1, Lemma2.1 and full optimization proof and references",
+          "method": "arXiv lawful open-access PDF",
+          "title": "A short proof of the strong three dimensional Gaussian product inequality",
+          "trigger": "Same trivariate Gaussian product with general even exponents; potentially stronger coverage"
+        },
+        {
+          "assessment": "Unresolved prior-coverage risk limited by actual material seen: abstract concerns qualitative 3D and SOS proofs",
+          "evidence": "Abstract summarizes mixed-exponent 3D product inequalities and four-/five-dimensional sums of squares but not fixed-S sharp envelope.",
+          "identifier_or_url": "https://spectrum.library.concordia.ca/992526/1/Russell_PhD_F2023.pdf",
+          "material_read": "Repository title, complete thesis abstract and table of described contributions read; full PDF could not be retrieved or inspected; no claim of whole-document absence.",
+          "method": "institutional repository public abstract; lawful PDF retrieval unsuccessful",
+          "title": "On the Gaussian Product Inequality (PhD thesis)",
+          "trigger": "Same objects/possibly quantitative appendix despite broad title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantitative lower envelope addresses an explicit published question in the easiest nontrivial 3D even-exponent case and identifies a sharp singularity transition at S=3/4, exact optimizer geometry, and a global best stability constant. The result is finite-dimensional but naturally motivated, not arbitrary parameter slicing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only squared variables in dimension 3, with standardized marginals; no higher powers or complete multivariate GPI.",
+    "Thesis full text unavailable, so noncoverage of that plausible source has not been established."
+  ]
+}

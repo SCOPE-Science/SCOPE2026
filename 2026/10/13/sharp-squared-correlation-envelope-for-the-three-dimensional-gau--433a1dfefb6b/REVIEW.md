@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Wick's formula gives the exact identity \(\Delta=2S+8P\), where \(P=\rho_{12}\rho_{13}\rho_{23}\). Positive semidefiniteness gives \(P\ge(S-1)/2\), while arithmetic-geometric mean gives \(P\ge-(S/3)^{3/2}\). Their unique crossover is \(S=3/4\). Explicit positive-semidefinite families attain each branch for every feasible \(S\), and the equality conditions follow from equality in the determinant and arithmetic-geometric mean bounds. The sharp linear coefficient follows by minimizing the ratio of the exact envelope to \(S\). Risk is limited to transcription or literature comparison; the analytic argument itself covers all correlation matrices, including singular ones.
+## correctness
 
-## Originality
-**PASS.** The closest direct quantitative source, Hu--Zhao--Zhou (arXiv:2207.09921), proves two-dimensional quantitative inequalities and explicitly asks for a quantitative version in three dimensions, reporting only partial results. Lan--Hu--Sun (arXiv:1905.04279) and Herry--Malicet--Poly (arXiv:2211.07314) establish qualitative three-dimensional product inequalities, while Ouimet--Greaves (arXiv:2609.20234) proves the all-dimensional positive-exponent inequality and several consequences. None of the inspected full texts states the exact fixed-\(S\) square-product envelope, the \(S=3/4\) phase transition, or the sharp global coefficient \(2/3\). Targeted database and web searches using formula, determinant, stability, and hafnian aliases did not locate a covering result. Residual risk: the elementary optimization may exist under older covariance-matrix terminology.
+PASS
 
-## Value
-**PASS.** The 2022 quantitative-GPI paper explicitly identifies the three-dimensional quantitative problem as a natural next question. The finding supplies an exact answer for the basic square-product case: not merely positivity, but the full best deficit as a function of a natural dependence scalar, complete extremal geometry, and a sharp universal stability constant. The result also distinguishes two qualitatively different extremizer mechanisms, making it a structural refinement rather than a routine recomputation.
+Wick/Isserlis pairing gives Δ=2(a²+b²+c²)+8abc=2S+8P for standardized centered jointly Gaussian triples. PSD determinant 1+2P−S>=0 and AM-GM |P|<=(S/3)^{3/2} yield P>=max((S−1)/2, −(S/3)^{3/2}), crossing only at S=3/4. The a=b=t,c=−t matrix is PSD for t<=1/2 and attains the lower branch; a=b=t,c=2t²−1 is singular PSD for t∈[1/2,1], maps monotonically over S∈[3/4,3] and attains the upper branch. Equality classes follow from strict AMGM/determinant. Minimizing Δ/S on the two branches yields sharp 2/3 at S=3/4 and Δ=0 at independence. Independent exact symbolic/rational checks corroborate endpoint, PSD and equality; proof works for all singular and nonsingular Gaussian correlation matrices.
 
-## Closest literature and limitations
-The closest source is arXiv:2207.09921, whose final remarks explicitly ask for quantitative three-dimensional Gaussian product inequalities. arXiv:1905.04279 and arXiv:2211.07314 give qualitative three-dimensional coverage, and arXiv:2609.20234 gives qualitative all-positive-exponent coverage with other quantitative consequences. The present result is restricted to exponent two, dimension three, and optimization by \(S\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the fixed total squared-correlation *sharp quantitative envelope*, equality characterization and 2/3 global stability constant are not implied by the general three-dimensional qualitative GPI. The 2023 Hu–Zhao–Zhou paper treats bivariate quantitative inequalities and explicitly poses the 3D quantitative problem. A 2023 thesis on Gaussian products was identified but its complete PDF could not be retrieved and its abstract did not advertise the exact S-envelope; keep as originality risk.
+
+## value
+
+PASS
+
+The quantitative lower envelope addresses an explicit published question in the easiest nontrivial 3D even-exponent case and identifies a sharp singularity transition at S=3/4, exact optimizer geometry, and a global best stability constant. The result is finite-dimensional but naturally motivated, not arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
