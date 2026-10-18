@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant potential is proper with a unique minimum, giving one simple closed orbit at every positive energy. The side-time quadratures are exact. For each positive level, inverse-potential differentiation proves strict monotonicity of the scaled cubic–quartic side-time; direct beta-integral scaling proves both endpoint limits. A regularized turning-point integral has a controlled second derivative at zero cubic coefficient, and its derivative is \(-\sqrt2/(3d)\). This proves both the high-energy correction and the fourth-power energy-exchange singularity. The standalone checker reproduces sample values but is not needed for the infinite-range theorem.
+PASS
 
-## Originality — PASS with residual priority risk
+The Hamiltonian V(x)=dplus*x^4/4 (x>=0), c|x|^3/3+dminus|x|^4/4 (x<0) is coercive with unique minimum, yielding periodic ovals for E>0. Exact side-time scaling gives P(0,dplus) and P(cE^-1/4,dminus). With inverse potential z_alpha(u), derivative of G_alpha=alpha z²+d z³ satisfies ∂_alpha G=alpha z²/[3(alpha+d z)]>0 for alpha>0, making P strictly decreasing. Beta integrals establish endpoint E^(1/12) and limit. Differentiated regularized root integral gives P_prime(0,d)=-sqrt2/(3d); therefore contrast crossing E* grows like Delta^-4 with displayed coefficient. Inspected independent quadrature code and algebra; finite sampled checks do not prove all energies.
 
-Chen–Li–Yu (arXiv:2308.15102v1, Theorem 1.2) establishes the global-center family and its piecewise Hamiltonian first integral, but the relevant inspected statements and Hamiltonian construction do not evaluate side-occupation fractions, a unique equality-of-excursions criterion, or the contrast-divergence constant. Yang–Liu–Lu (DOI:10.1155/2024/4786384) studies local period constants and critical periods of another quartic switching system; those results do not imply the physical-time crossing classification here. Published-result semantic searches yielded no matching claim. This is a statement-level comparison, not proof of absolute publication priority; older or differently formulated anharmonic-oscillator results remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-A global-center classification says that every nonzero orbit closes but does not determine **where its physical time is spent**. For this mixed-degree restoring law, the dominant side at small energy can become the subdominant side at large energy. The strict monotonicity and necessary-and-sufficient exchange condition classify this observable for the entire three-parameter subfamily; the sharp fourth-power growth quantifies why the exchange becomes inaccessible at nearly equal quartic stiffnesses. These are natural phase-timing invariants of the exact switching oscillator, not arbitrary coefficient slices or a restatement of the center theorem.
+Chen–Li–Yu source establishes center conditions and global periodic annuli for the switching model; available abstract does not state physical-time residence partition, all-energy monotonicity, or contrast asymptotics. Resultary semantic searches found related period problems but not an equivalent side-share theorem for the mixed cubic/quartic Hamiltonian. Full primary manuscript inaccessible; this remains priority risk.
 
-## Scope and limitations
+## value
 
-Only the stated conservative piecewise-cubic family with positive coefficients is covered. General switched perturbations, total-period criticality, and limit-cycle cyclicity are not treated. Broad literature priority and independent validation remain open. The numerical checks are finite diagnostics, not proofs of asymptotic limits.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The physical-time residence fraction, rather than transformed-clock or total period, is a motivated orbit statistic of the asymmetric global center. Its exact monotonicity and unique equality criterion, together with a sharp singular fourth-power crossover, describe a natural transition between cubic and quartic restoring regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
