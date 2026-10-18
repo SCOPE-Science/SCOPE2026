@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,50 +19,24 @@
 }
 ---
 
-The verification is analytic.
+# Independent mathematical audit
 
-The primary source gives the exact derivative estimate
-\[
-|F'(re^{i\theta})|
-\le
-\frac1\pi
-\int_0^{2\pi}
-\frac{|u(e^{i(\theta+t)})-u(e^{i\theta})|}
-{1-2r\cos t+r^2}\,dt
-\]
-for the analytic companion \(F=h+g\), together with the quasiregular comparison
-\[
-|h'|+|g'|\le K|F'|.
-\]
+## correctness
 
-For a Lipschitz trace, the endpoint integral is bounded by a constant times
-\[
-\int_0^\pi
-\frac{t}{(1-r)^2+ct^2}\,dt
-=
-O\!\left(\log\frac e{1-r}\right).
-\]
-This logarithmic derivative growth is integrable in the radial variable. Integrating along two radial segments and one circle arc at depth equal to the angular separation gives the claimed
-\[
-O_K\!\left(\delta\log\frac e\delta\right)
-\]
-boundary modulus.
+PASS
 
-Sharpness is checked from the exact Fourier expansion
-\[
-|\theta|
-=
-\frac\pi2
--
-\frac4\pi
-\sum_{m\ {\rm odd}}\frac{\cos(m\theta)}{m^2}
-\]
-and the exact identity
-\[
-\sum_{m\ {\rm odd}}\frac{\cos(m\theta)}m
-=
-\frac12\log\cot\frac\theta2.
-\]
-These imply the leading coefficient \(2/\pi\) in the source's endpoint example.
+Source exact Cauchy derivative formula bounds |F_prime| by Lip boundary increments over (1-r)^2+4r sin²(t/2). With sin(t/2)>=t/pi, the integral from 0 to pi is O(L log(e/(1-r))). Quasiregular distortion controls |h_prime|+|g_prime|<=K|F_prime|, and two radial legs plus one circular arc integrate to C_K L delta log(e/delta). Radial uniform convergence gives boundary extension. Fourier expansion |theta|=pi/2-(4/pi)sum_odd cos(m theta)/m² and odd harmonic sum yield conjugate -2theta log(1/theta)/pi+O(theta); sharp order. Correct only delta<=1/2, not a universal Lipschitz conclusion.
 
-No finite numerical computation is used to prove either the upper bound or its order-sharpness.
+## originality
+
+PASS
+
+The full Das–Rasila source proves matching boundary Hölder exponents only for 0<alpha<1 and explicitly rejects a Lipschitz-to-Lipschitz endpoint; it exhibits an unbounded-conjugate-derivative example. It does not state the universal K-quasiregular Lipschitz-to-log-Lipschitz endpoint bound. The claim reconstructs the missing optimal first-order modulus with K-dependent control. Classical analytic conjugate/Zygmund consequences substantially anticipate K=1, so novelty attaches only to the precise K-quasiregular upper endpoint formulation and comparison; straightforward derivation from published derivative estimates remains a residual priority/value risk.
+
+## value
+
+PASS
+
+The excluded alpha=1 boundary regularity is a natural complete endpoint classification: log-Lip is a sharp positive replacement for false Lip inheritance, with K-dependent transfer and explicit analytic extremizer. It does not claim a universal best constant or a novel Hilbert transform theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
