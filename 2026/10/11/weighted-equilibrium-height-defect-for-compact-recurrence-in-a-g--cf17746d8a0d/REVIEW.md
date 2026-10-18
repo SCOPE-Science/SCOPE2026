@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The polynomial \(H=xy-(s_1+d)x^2/(2s_2)\) has exact Lie derivative \(s_2^{-1}(-s_1x+s_2y)^2-x^2(z-z_*)\). Invariance of \(\mu\) therefore gives the boxed identity with no approximation. The zero-defect case forces \(\dot x=0\) on the invariant support and then reduces exactly to the three equilibria. The sign and strict-crossing consequences follow only after proving that a non-equilibrium ergodic measure has positive \(x^2\)-mass and positive derivative energy.
+## correctness
 
-## Originality
-PASS. The complete same-model paper was inspected: it studies equilibrium stability, homoclinic existence/nonexistence, and chaos after homoclinic breaking, but does not state an invariant-measure or weighted-height identity. Targeted searches for the exact equations, weighted height, stationary moments, time averages, and equivalent derivative-energy formulations returned no same-model statement. The closest time-average paper inspected concerns the classical Lorenz equations and records different proportionality relations; the closest generalized-Lorenz bound paper provides absorbing-region estimates rather than an exact stationary defect law. Structural canonical-form equivalences were considered and do not by themselves imply the coordinate-specific boxed identity.
+PASS
 
-## Value
-PASS. The identity turns the nonzero-equilibrium height into a rigorous finite-amplitude recurrence barrier and supplies an exact diagnostic for periodic or chaotic computations in the same model. It distinguishes equilibrium-supported stationary states from every non-equilibrium ergodic recurrent state by a nonnegative derivative-energy defect, which is materially stronger than a numerical average or a local stability calculation.
+Independent symbolic differentiation verified d[xy−(s1+d)x²/(2s2)]/dt = ((−s1x+s2y)²/s2)−x²(z−(R+s1d/s2)) identically (SymPy residual zero). Compact invariant μ annihilates integral Lie derivative. Equality implies xdot=0 along invariant support and leaves only equilibria O and two nonzero points; non-equilibrium ergodic measure has ∫x²>0 and strict square energy, giving claimed signed crossing. Assumptions q>0, s2≠0, s1d+s2R>0 ensure equilibrium classification. No dynamics existence claim.
 
-## Closest literature and limitations
-The primary source is Yang, DOI 10.3934/dcdsb.2019210. The closest time-average comparison is DOI 10.1007/s00332-023-09933-x for the classical Lorenz equations; the closest generalized-Lorenz absorbing-bound comparison is DOI 10.1088/1674-1056/19/1/010505. The result does not establish existence of a recurrent measure and does not quantify the amount of time spent beyond the equilibrium height. Unindexed equivalent derivations remain a bounded bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exact compact invariant-measure signed height defect for Yang’s specific generalized Lorenz system was not in Yang’s complete 12-page primary paper, which concerns homoclinic criteria. The general classical Lorenz moment results and generalized-system absorbing bounds located do not imply this weighted derivative-energy equality. Resultary related balance laws apply to distinct vector fields, with no demonstrated coordinate reduction transferring the formula. Best-of-knowledge PASS subject to unindexed canonical-form identities.
+
+## value
+
+PASS
+
+Exact invariant-measure defect and rigidity at equilibria yield a nontrivial signed finite-amplitude barrier for every non-equilibrium ergodic recurrent state, independent of numerical trajectories or local homoclinic linearization; useful as a rigorous diagnostic when dynamics exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
