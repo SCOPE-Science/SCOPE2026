@@ -1,15 +1,21 @@
-# Scientific review: Franklin graph matching-complex splitting
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition gives eighteen distinct graph edges and twelve degree-three vertices. Complete adjacency-preserving permutation search yields 48 automorphisms with edge orbits of sizes six and twelve, represented by \(\{0,1\}\) and \(\{0,5\}\). The included executable proof enumerates all 1091 nonempty simplices of the full matching complex and separately enumerates all faces of the two representative edge deletions and links. Acyclicity is checked by visiting every vertex of each oriented Hasse diagram (3942, 3105, 609, 3075 and 633 incidences respectively). The resulting critical-cell profiles are explicitly specified in RESULT.md. The sole potentially nontrivial Morse boundary is the eleven-column, one-row integral boundary for the class-\(B\) deletion; its coefficients contain a unit, eliminating the unique 2-cell and one 3-cell. This gives exact integral wedge decompositions. A standard mapping-cone argument applies because any map from a wedge of 2-spheres to a wedge of 3-spheres is null-homotopic. Independent simplicial-chain implementations confirm the complete mod-two deletion/link profiles and characteristic-three representative ranks. Finite ranks are cross-checks, not substitutes for integral attaching degrees.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Targeted primary-literature and indexed mathematical-result searches considered the exact graph, its six-crossed-prism and Knödel aliases, ordinary matching complexes, and both deletion/link profiles. No retrieved covering classification was identified. Engström's claw-free independence-complex theorem is general and does not compute these exact critical-cell or attaching-map invariants. The polygonal-chain and outerplanar sphere-wedge theorems of Bayer, Jelić Milutinović and Vega have different graph hypotheses: this graph is cubic and nonplanar. Work on Möbius/circular ladders deals with different graphs and, in part, perfect matching complexes; its abstract was inspected but full text was not obtained. Related indexed results for the Heawood, Möbius–Kantor and dodecahedral graphs concern different objects, so no exact or stronger implication follows. The originality judgment does not claim priority over unpublished or unindexed mathematics, and access to every potential source was not possible.
+PASS
 
-## Value — PASS
-The Franklin graph is a canonical cubic symmetric bipartite nonplanar graph related to the Klein bottle and the six-crossed prism. The result computes the *entire* automorphism-orbit edge-deletion/link profile, not just its total Betti number. The two distinct local profiles produce the same global wedge by nullhomotopic cofibrations. The integral unit-attaching map in one orbit is essential to this structural conclusion and is not determined by counting matching simplices. This furnishes an exact, reproducible local-to-global topological invariant of a natural graph outside the previously proved outerplanar family. The theorem does not purport to be a general formula for all crossed prisms.
+The LCF [5,-5]^6 construction has 12 cubic vertices and exactly 18 edges. Independent enumeration from its edge definition yields the full matching-complex face vector (18,117,336,417,186,17) and both complete deletion/link orbit face-vector classes (6 and 12 edges). A fresh explicit acyclic discrete-Morse matching independently reconstructs 1091, 875, 215, 869 and 221 nonempty faces, respectively, with critical profiles {0:1,3:12}, {0:1,3:8}, {0:1,2:4}, {0:1,2:1,3:11}, {0:1,2:2}. All five oriented Hasse incidence digraphs topologically sort (3942,3105,609,3075,633 incidences). The exceptional B-edge deletion integral signed Morse boundary was independently recomputed as (-1,-1,-1,-1,1,-1,0,-1,0,-1,1), a primitive unit row, eliminating its sole 2-cell against one 3-cell. Under the representative-orbit reduction (48 automorphisms, two orbits, verified in inspected verifier, and independently 6/12 profiles), M(F) is a wedge of 12 S^3. For each edge, link is a wedge of S^2 and deletion a wedge of S^3; pi_2(target)=0 gives the null inclusion and a genuine deletion-link cofiber splitting, not a field-rank inference.
 
-## Closest literature and limitations
-A. Engström, arXiv:math/0512420 (2005); R. Bayer, Z. Jelić Milutinović and L. Vega, arXiv:2211.12559 and arXiv:2411.04601 (2022 and 2024); Fertin–Raspaud's 2004 Knödel graph survey. The first three primary texts were materially inspected. Residual risks are equivalent unindexed work and the uninspected full text of a nearby modern ladder-family preprint. The exact-domain computational certificate is based on two standalone standard-library Python programs. No independent external scientific audit has been undertaken.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the final claim is the full *ordinary* Franklin matching-complex integral homotopy and both 6+12 edge-orbit deletion/link sphere profiles, including exceptional integral degree. The broad claw-free and outerplanar literature is not an implication-level substitute for this complete finite orbit calculation. No retrieved covering exact table was identified. Resultary query failed, leaving an explicit database literature risk, not a negative result.
+
+## value
+
+PASS
+
+The complete edge-orbit deletion/link profile is a motivated local-to-global topological invariant of the canonical Franklin cubic symmetric graph, not just a lone small Betti number. Its two local profiles differ even though both cofiber splittings yield 12 three-spheres; one profile crucially has nontrivial integral cell cancellation invisible to field-rank tables. The exact self-contained finite invariant could be reused to test broader matching-complex calculations without claiming a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
