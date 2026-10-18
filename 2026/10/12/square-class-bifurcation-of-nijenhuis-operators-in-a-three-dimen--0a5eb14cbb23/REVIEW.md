@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Twist compatibility gives a \(1+2\) block decomposition, and direct substitution factors the entire Nijenhuis defect as \((xI_2-B)(AB-BA)\). In the split square class the commutator determinant factors into two linear directions, yielding exactly three affine \(3\)-spaces; in the nonsplit square class a singular commutator must vanish, leaving exactly the quadratic-field centralizer. The point and rank counts follow from these explicit strata and are exhaustively replayed over \(\mathbf F_3,\mathbf F_5,\mathbf F_7\).
+PASS
 
-## Originality
+Reconstructed the alpha-centralizer as diag(x,B) since char!=2, and [e1,v]=Av. The defining Nijenhuis identity for e1,v factors exactly as (xI-B)(AB-BA). For the split A=J, det[J,B]=(s-p)^2-(r-q)^2, giving commuting C0 and two rank-one commutator branches C±, all affine A3; pairwise intersections A2,A2,A1 and triple A1 give 3q^3-2q^2. For nonsplit, anisotropy of delta nonsquare forces every singular commutator to vanish, so B lies in F_q[A]=F_(q^2), yielding q^3. Rank-profile inclusion/exclusion and invertibility of nonzero field B give the displayed profiles. Finite field extensions of the split component arrangement yield the zeta rational function. Verified char odd, beta*gamma≠0 and no assertion for degenerate fibers.
 
-PASS. The 2024 primary source contains both the parameterized three-dimensional Hom–Lie example and the Nijenhuis definition, but its inspected full text does not solve their combination. The earlier general Nijenhuis paper's accessible record does not expose a low-dimensional finite-field classification; unavailable full text remains a specific residual risk. Targeted semantic and web searches found no split/nonsplit square-class classification or the exact point-count fingerprints.
+## originality
 
-## Value
+PASS
 
-PASS. This is the natural nondegenerate multiplicative slice of the source's own concrete example. The theorem exposes a sharp arithmetic phenomenon—three split components versus a single quadratic-field centralizer—together with exact rank profiles and finite-field counts, so it provides a substantive low-dimensional benchmark for Hom–Lie Nijenhuis theory.
+PASS best-of-knowledge: Baishya–Das explicitly supplies the four-parameter Hom–Lie family and Nijenhuis definition, not the finite-field square-class classification in the full 2024 primary text inspected. Das–Sen 2021/22 is general deformation/cohomology work and could contain a related example, but its abstract cannot certify whole-text noncoverage. Public/preprint routes failed and authorized institutional access returned vpn_disconnected; this is a real residual priority risk rather than a reason to reject absent contradictory evidence. Published Resultary findings returned nearby finite-algebra statistics rather than this Hom–Lie square-class theorem. No stronger coverage or equivalent implication was established.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The precise bifurcation of a natural nondegenerate slice of the source’s own concrete Hom–Lie algebra is mathematically motivated: a reducible three-component split Nijenhuis variety contrasts with a three-dimensional nonsplit quadratic-field centralizer, including sharp rank multiplicities, all finite fields, and a zeta invariant. These are useful exact classification benchmarks rather than an arbitrary sample or a routine restatement of the general Nijenhuis identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

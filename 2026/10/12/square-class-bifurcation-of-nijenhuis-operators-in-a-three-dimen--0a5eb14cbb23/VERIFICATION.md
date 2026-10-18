@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the family
-\[
-[e_1,e_2]=\beta e_3,
-\qquad
-[e_1,e_3]=\gamma e_2,
-\qquad
-\alpha=\operatorname{diag}(1,2,2).
-\]
 
-It verifies multiplicativity and the Hom–Jacobi identity symbolically for arbitrary \(\beta,\gamma\).
+# Independent mathematical audit
 
-For a general twist-compatible endomorphism
-\[
-N=\operatorname{diag}(x,B),
-\]
-it reconstructs all basis-pair Nijenhuis defects and checks that they are exactly the entries of
-\[
-(xI_2-B)(AB-BA).
-\]
+## correctness
 
-It then exhaustively enumerates the complete twist centralizer over
-\[
-\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7
-\]
-for both square classes.
+PASS
 
-For split representatives it obtains
-\[
-63,\quad325,\quad931
-\]
-operators, with rank profiles
-\[
-(1,18,20,24),\quad
-(1,52,80,192),\quad
-(1,102,180,648).
-\]
+Reconstructed the alpha-centralizer as diag(x,B) since char!=2, and [e1,v]=Av. The defining Nijenhuis identity for e1,v factors exactly as (xI-B)(AB-BA). For the split A=J, det[J,B]=(s-p)^2-(r-q)^2, giving commuting C0 and two rank-one commutator branches C±, all affine A3; pairwise intersections A2,A2,A1 and triple A1 give 3q^3-2q^2. For nonsplit, anisotropy of delta nonsquare forces every singular commutator to vanish, so B lies in F_q[A]=F_(q^2), yielding q^3. Rank-profile inclusion/exclusion and invertibility of nonzero field B give the displayed profiles. Finite field extensions of the split component arrangement yield the zeta rational function. Verified char odd, beta*gamma≠0 and no assertion for degenerate fibers.
 
-For nonsplit representatives it obtains
-\[
-27,\quad125,\quad343
-\]
-operators, with rank profiles
-\[
-(1,2,8,16),\quad
-(1,4,24,96),\quad
-(1,6,48,288).
-\]
+## originality
 
-The checker also verifies the explicit three-component description in the split case and the centralizer description in the nonsplit case.
+PASS
 
-It returns `VERIFY_OK`.
+PASS best-of-knowledge: Baishya–Das explicitly supplies the four-parameter Hom–Lie family and Nijenhuis definition, not the finite-field square-class classification in the full 2024 primary text inspected. Das–Sen 2021/22 is general deformation/cohomology work and could contain a related example, but its abstract cannot certify whole-text noncoverage. Public/preprint routes failed and authorized institutional access returned vpn_disconnected; this is a real residual priority risk rather than a reason to reject absent contradictory evidence. Published Resultary findings returned nearby finite-algebra statistics rather than this Hom–Lie square-class theorem. No stronger coverage or equivalent implication was established.
 
-Finite enumeration is replay evidence. The universal factorization and the square-class classification are proved symbolically in `RESULT.md`.
+## value
+
+PASS
+
+The precise bifurcation of a natural nondegenerate slice of the source’s own concrete Hom–Lie algebra is mathematically motivated: a reducible three-component split Nijenhuis variety contrasts with a three-dimensional nonsplit quadratic-field centralizer, including sharp rank multiplicities, all finite fields, and a zeta invariant. These are useful exact classification benchmarks rather than an arbitrary sample or a routine restatement of the general Nijenhuis identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
