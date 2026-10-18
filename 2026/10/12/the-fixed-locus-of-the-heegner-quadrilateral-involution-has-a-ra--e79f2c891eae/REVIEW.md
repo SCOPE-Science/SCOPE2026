@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Solving the three nontrivial coordinates of Patterson's displayed involution gives two independent fixed equations. Their rational parametrization is reversible on the nonzero domain. Direct substitution into the defining Cayley--Menger determinant gives the four-factor identity in the finding. For positive distances the first two factors are exactly the degenerate \(123\)-triangle branches, and the remaining factor becomes the stated conic after division by nonzero quantities. The line-through-a-rational-point parametrization is an identity. The exact witness is fixed, has \(CM=0\), and has four strict face-triangle inequalities; the Gram-matrix criterion supplies a planar realization.
+## correctness
 
-## Originality
-PASS. The direct 2026 source was inspected through its full HTML text: it defines \(i_H\), proves \(CM(i_H(\mathbf d))=(d_{12}^2d_{13}^2/d_{14}^4)CM(\mathbf d)\), and develops the generated group, but no fixed-distance-locus classification or the displayed factorization/conic reduction was found. Targeted semantic searches for fixed points, equivalent equations, Cayley--Menger factorization, self-dual quadrilaterals, and conic parametrization returned only unrelated geometric involutions as nearest records. Patterson's earlier Cayley--Menger/Weddle paper discusses a different fixed-point locus and does not imply this coordinate fixed locus. Residual risk remains from unpublished historical material and imperfect indexing, but no decisive covering source was found.
+PASS
 
-## Value
-PASS. The fixed locus is a canonical invariant of a newly documented birational symmetry on rational quadrilaterals. The result does more than solve the fixed equations: it identifies the complete Cayley--Menger decomposition there, separates the geometric degeneracy branches from a rational conic component, and proves that the nondegenerate component contains infinitely many actual rational quadrilaterals. This supplies a structurally simple subfamily on which further orbit and arithmetic questions can be tested.
+PASS: The nonzero-rational map (a,b,c,d,e,f)->(a,b,ab/c,d,af/c,be/c) has fixed-point conditions c²=ab, ce=af (third follows); writing a=su²,b=sv²,c=suv,d=r,e=uz,f=vz describes all nonzero-rational fixed points. Independent SymPy expansion of the 5x5 Cayley--Menger determinant divided by 2 verifies exactly CM=-u²v²(r-s(u²-v²))(r+s(u²-v²))(r²s²-2s²(u²+v²)z²+z⁴). For positive 123-triangle, first two factors mean degenerate triangle, leaving X=z/s,Y=r/z with X²+Y²=2(u²+v²), rational point (u+v,u-v). Rechecked conic rational parametrization symbolically and witness (100,25,50,117,90,45): CM0/2=0, all four triangle inequalities strict and fixed map exact. Gram positivity ensures planar realization; openness and nonconstant parametrization prove infinitely many rational geometric points, not just a finite sample. Excludes zero-coordinate base locus.
 
-## Closest literature and limitations
-The closest source is Patterson's arXiv:2609.40101v1, which supplies the involution and Cayley--Menger covariance but not this fixed-locus theorem. The 2019/2021 predecessor arXiv:1912.06807v1 supplies related Cayley--Menger and Weddle-surface context. Coordinate-zero boundary strata and classification modulo the larger group are outside the claim; geometricity is asserted only under the stated inequalities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Patterson's September 2026 Heegner paper supplies involution formulas/covariance but its inspected abstract/indexed passages do not present this fixed-point parameterization, Cayley--Menger factorization and rational conic geometric family; predecessor concerns different Weddle/Kummer involution. No matching published Resultary identity returned. Original Heegner full preprint was inaccessible on lawful attempts, so possibility of a fixed-locus discussion there is a material risk, not represented as full-text noncoverage.
+
+## value
+
+PASS
+
+PASS: A rational conic with a nonempty open geometric stratum describes an entire fixed-locus component of a natural birational involution acting on rational quadrilaterals. Exact factorization separates degenerate branches from a genuinely realized infinite family, a meaningful structural answer to a symmetry problem rather than a routine coordinate substitution alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

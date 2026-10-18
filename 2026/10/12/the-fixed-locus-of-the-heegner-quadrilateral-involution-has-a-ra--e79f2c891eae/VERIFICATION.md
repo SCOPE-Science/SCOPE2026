@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and exact. On the nonzero domain, direct comparison of coordinates of Patterson's \(i_H\) gives the fixed equations \(d_{14}^2=d_{12}d_{13}\) and \(d_{14}d_{24}=d_{12}d_{34}\), with the third transformed-coordinate equality then redundant. The parametrization \((su^2,sv^2,suv,r,uz,vz)\) is reversible.
+# Independent mathematical audit
 
-`verify_heegner_fixed_locus.py` reconstructs \(CM\) from the defining determinant, substitutes that parametrization, and verifies the displayed factorization by exact symbolic expansion. It separately verifies the rational conic parametrization and the witness \((100,25,50,117,90,45)\) with exact fractions. The recorded replay checks \(i_H(\mathbf d)=\mathbf d\), \(CM(\mathbf d)=0\), and all four strict triangle inequalities.
+## correctness
 
-The verifier does not establish originality and is not an exhaustive search. The infinite-family conclusion is not inferred from finite computation: it follows from the rational parametrization of the conic, the explicit strict geometric point, continuity of strict inequalities, and density of \(\mathbb Q\) in \(\mathbb R\).
+PASS
+
+PASS: The nonzero-rational map (a,b,c,d,e,f)->(a,b,ab/c,d,af/c,be/c) has fixed-point conditions c²=ab, ce=af (third follows); writing a=su²,b=sv²,c=suv,d=r,e=uz,f=vz describes all nonzero-rational fixed points. Independent SymPy expansion of the 5x5 Cayley--Menger determinant divided by 2 verifies exactly CM=-u²v²(r-s(u²-v²))(r+s(u²-v²))(r²s²-2s²(u²+v²)z²+z⁴). For positive 123-triangle, first two factors mean degenerate triangle, leaving X=z/s,Y=r/z with X²+Y²=2(u²+v²), rational point (u+v,u-v). Rechecked conic rational parametrization symbolically and witness (100,25,50,117,90,45): CM0/2=0, all four triangle inequalities strict and fixed map exact. Gram positivity ensures planar realization; openness and nonconstant parametrization prove infinitely many rational geometric points, not just a finite sample. Excludes zero-coordinate base locus.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Patterson's September 2026 Heegner paper supplies involution formulas/covariance but its inspected abstract/indexed passages do not present this fixed-point parameterization, Cayley--Menger factorization and rational conic geometric family; predecessor concerns different Weddle/Kummer involution. No matching published Resultary identity returned. Original Heegner full preprint was inaccessible on lawful attempts, so possibility of a fixed-locus discussion there is a material risk, not represented as full-text noncoverage.
+
+## value
+
+PASS
+
+PASS: A rational conic with a nonempty open geometric stratum describes an entire fixed-locus component of a natural birational involution acting on rational quadrilaterals. Exact factorization separates degenerate branches from a genuinely realized infinite family, a meaningful structural answer to a symmetry problem rather than a routine coordinate substitution alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
