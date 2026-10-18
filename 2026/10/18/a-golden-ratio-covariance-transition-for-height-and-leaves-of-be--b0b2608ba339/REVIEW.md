@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For \(0<p<1\), the latest-vertex depth is exactly the maximum depth, because successive depth increments lie in \(\{0,1\}\). The leaf count increases exactly at the Bernoulli attachment word \(10\). The induced finite-state Markov chain is irreducible and aperiodic. Its explicit covariance sums establish all three entries of the limiting covariance matrix and a strictly positive determinant. Standard finite-state martingale functional limit theory completes the Gaussian-process statement. Exact enumeration and an independent moment recursion verify 288 finite comparisons, but do not replace the proof.
+
+**Originality — PASS, qualified.** The closest primary article [1] was inspected in its accessible complete text, including the introductory theorems, branch-length derivation and infinite-collision arguments. It covers the same attachment model but not this joint height–leaf covariance or sign transition. Targeted published-record and full-text searches for height, leaves, covariance, Markov-binomial representation and the proposed golden-ratio threshold found no result stating or implying the explicit classification. The closest accessible published records on ordinary uniform-attachment trees and the height of scaled-attachment trees describe different processes. General Markov additive functional CLTs supply a known technique, not an explicit evaluation here. Residual risk: an earlier joint run-statistic result could implicitly contain an equivalent covariance formula under another interpretation.
+
+**Mathematical value — PASS.** Height and leaf number measure distinct, natural aspects of a growing tree's geometry; a sharp phase change in the sign of their association is a structural result. The complete exact covariance matrix, nondegeneracy and joint functional fluctuation limit provide more than marginal CLTs, and the threshold identifies when increasing the prevalence of penultimate attachment reverses a population-level relationship. The result is specific to iid two-back attachment and does not classify broader age-dependent growth models.
+
+The originality conclusion is a best-knowledge comparison, not a claim of exhaustive global priority; an independent scientific assessment has not been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
