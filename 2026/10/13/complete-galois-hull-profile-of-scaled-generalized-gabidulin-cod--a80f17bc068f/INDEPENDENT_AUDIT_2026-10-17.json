@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let v_i=alpha^(q^(is)), i mod N, N=2m. Since gcd(s,N)=1 these N rows form a K-basis. Ho Lemma 4.1 gives S0=lambda^-1 nonzero and S_r=0 for r≠0. Thus <v_i,v_j>_e is nonzero exactly when j=i−t mod N, t=e*s^{-1} mod N. The right orthogonal complement of span v_0..v_(k−1) is the complementary interval [k−t,...,N−1−t], the left complement [k+t,...,N−1+t]. Intersection with original interval has k−max(0,k−min(t,N−t))=min(k,min(t,N−t)) independent of orientation for k≤N/2. Endpoints e=0 and e=N/2 give LCD and Hermitian self-orthogonal; at k=m the latter is self-dual. Independent interval exhaustions N even up to 44, all units s, k,e; actual artifacts/verify.py also checks F9 scaled basis.",
+      "risk": [
+        "Finite cyclic-index tests are not proofs of Moore-basis or correlation premise; validity requires scaled trace-self-dual basis and full length N."
+      ],
+      "sources": [
+        "Duy Ho, Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes, arXiv:2605.20109v1 Lemma 4.1",
+        "Islam and Horlemann, Galois Hull Dimensions of Gabidulin Codes, arXiv:2211.05068v1 Theorem 3.1",
+        "assigned RESULT.md and artifacts/verify.py",
+        "independent_audit1603_checks.py",
+        "Git immutable tree 485e710702a19e76994ffffe9c170a1ac1ab1912"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Islam and Horlemann, Galois Hull Dimensions of Gabidulin Codes, arXiv:2211.05068v1 is all Galois indices with ordinary s=1 and conventional trace-self-dual basis; Duy Ho, Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes, arXiv:2605.20109v1 is all generalized steps but only Hermitian e=m."
+        ],
+        "reasoning": "Neither checked full text states both right/left arbitrary-e generalized-s duals with scaled bases. General ordinary duality/matrix methods are inputs, not a single theorem with this output.",
+        "searches": [
+          "Resultary semantic: Galois hull generalized Gabidulin scaled trace self dual bases all twists e and step s",
+          "arXiv:2605.20109, Sections 4–5",
+          "arXiv:2211.05068, Theorems 2.2 and 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Duy Ho, Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes, arXiv:2605.20109v1",
+        "Islam and Horlemann, Galois Hull Dimensions of Gabidulin Codes, arXiv:2211.05068v1",
+        "Resultary: 2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276 (different code family)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Islam–Horlemann Theorem 3.1 gives for ordinary m-length Gabidulin the formula min(m−k,e) for e≤k and min(m−e,k) otherwise; in k≤m/2 this is min(k,min(e,m−e)). Ho Theorem 4.2 proves only e=m Hermitian self-orthogonality for N=2m generalized Gabidulin."
+        ],
+        "reasoning": "Those priors establish a core identity and two boundaries but do not as stated imply the exact right and left dual generator cyclic shifts for arbitrary step and twist without the new pairing and circular-interval analysis; these explicit equalities constitute the reviewed new complete classification.",
+        "searches": [
+          "arXiv:2211.05068 Theorem 3.1",
+          "arXiv:2605.20109 Lemma 4.1 and Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Islam and Horlemann, Galois Hull Dimensions of Gabidulin Codes, arXiv:2211.05068v1 Theorems 2.2,3.1 compute ordinary Gabidulin hulls; Duy Ho, Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes, arXiv:2605.20109v1 Lemma 4.1 and Theorem 4.2 give scaled correlation and Hermitian endpoint."
+        ],
+        "reasoning": "For s=1, t=e, the new formula min(k,min(e,N−e)) specializes to their piecewise ordinary formula; e=m specializes to Ho self-orthogonality. Arbitrary unit-step s enters as e*s^{-1} on cyclic Moore indices; this all-e family is a genuinely broader explicit statement than these endpoints.",
+        "searches": [
+          "Resultary semantic: Galois hull generalized Gabidulin scaled trace self dual bases all twists e and step s",
+          "web: generalized Gabidulin Galois hull scaled trace self dual basis e Galois dual arbitrary s"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary Galois-hull hit 2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276 concerns generalized Roth–Lempel MDS codes, not generalized Gabidulin MRD codes."
+        ],
+        "reasoning": "No located table of scaled-basis generalized Gabidulin all-e hulls. Different Galois-hull MDS constructions are not equivalent by terminology alone.",
+        "searches": [
+          "Resultary semantic: Galois hull generalized Gabidulin scaled trace self dual bases all twists e and step s",
+          "arXiv 2211.05068 formula tables",
+          "arXiv 2605.20109 examples"
+        ]
+      },
+      "rationale": "Islam–Horlemann 2022 gives the exact ordinary s=1 e-Galois profile using a self-dual basis; Ho 2026 gives scaled trace-self-dual all-q basis and generalized s but proves the Hermitian e=m endpoint. Their combined inputs lead to the explicit arbitrary e and s shifted duals and circular-distance hull formula, which is not a verbatim result of either inspected work. New general parametrized profile assessed as best-of-knowledge original, with reduction-to-known-cases acknowledged.",
+      "residual_risks": [
+        "Skew/generalized Gabidulin duality literature might express the cyclic-index result under a different duality convention.",
+        "The proof is conditioned on existence of the scaled basis from Ho; does not reprove that existence and does not apply to arbitrary rank-equivalent representatives.",
+        "Source self-reviews were not used as independent originality proof; bounded current primary literature comparisons are recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICT_S_1_PREDECESSOR",
+          "evidence": "States ordinary Gabidulin all-e result, not generalized s or scaled bases; s=1 is an exact special case of current claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.05068",
+          "material_read": "Full five-page arXiv paper; Theorem 2.2 dual generator (page 2), Theorem 3.1 piecewise hull formula and corollaries (pages 2–3) inspected visually.",
+          "method": "Public full arXiv PDF, source-text search and page screenshots.",
+          "title": "Galois Hull Dimensions of Gabidulin Codes",
+          "trigger": "Exact same Galois-hull invariant in ordinary Gabidulin coding."
+        },
+        {
+          "assessment": "CORE_PREMISE_AND_ENDPOINT",
+          "evidence": "Lemma 4.1 establishes S0=lambda^-1 and S_r=0 for r≠0; Theorem 4.2 applies at e=m to generalized s, not arbitrary e.",
+          "identifier_or_url": "https://arxiv.org/html/2605.20109v1",
+          "material_read": "Full open-access arXiv HTML Sections 3–5 with Lemma 4.1, proof, Theorem 4.2, Remark 4.5, Example 5.3.",
+          "method": "Public full-text HTML; inspected mathematical statements and surrounding proofs.",
+          "title": "Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes",
+          "trigger": "Same generalized code and scaled trace-self-dual correlation identity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Galois hull dimensions identify LCD, self-orthogonal and full hull twists, central invariants in rank-metric/quantum coding. The explicit dual-generator shifts give a complete uniform profile for every allowed generalized step, extending meaningful established endpoint theorems instead of merely reordering a known table.",
+      "risk": [
+        "The inverse-step substitution is elementary once Ho correlation is known; novelty lies in the complete right/left dual and all-twist classification, not the scaled basis itself."
+      ],
+      "sources": [
+        "Duy Ho, Hermitian hull-variation of vector rank-metric codes and self-orthogonal generalized Gabidulin codes, arXiv:2605.20109v1",
+        "Islam and Horlemann, Galois Hull Dimensions of Gabidulin Codes, arXiv:2211.05068v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N=2m, 1≤k≤m, gcd(s,N)=1, scaled trace-self-dual basis; no shortened/arbitrary basis claim.",
+    "No source-provided formal proof of base existence reproduced; existing Ho theorem invoked openly.",
+    "Dual conventions distinguish source-first/right-first formulations; no external attestation.",
+    "The reviewed Git source contains operational provenance in metadata; not_ready is a publication/transport state, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}
