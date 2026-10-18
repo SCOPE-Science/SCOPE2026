@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Two exact discounted hitting recurrences follow from simple random walk on K_{a,b}, with determinant positive for all 0<lambda<1. Both all-source/entire-part boundaries and tau>=lambda regimes are accounted for. For 0<tau<lambda the smaller potential in s>=t is bounded by the concave function f(t)=(C-At)/(B(1-t)); evaluating its allowed endpoints gives the global lower bound. One-sided/balanced rounding gives a matching ceiling or plus-one and the K3,4 rational case proves plus-one sharp. An independent Gauss-Jordan calculation on 1860 explicit pinned instances, 11160 threshold checks, and 4770 relaxation-grid tests passed. These finite checks corroborate but do not prove the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primary Section 4 presents generic submodular and mixed-integer formulations; Section 6 concerns spider trees, and Section 7 proves separate complete graph and star formulas (Proposition 7.1 and Corollary 6.7).",
+        "A generic finite MILP solves instances, but does not state or directly imply the closed universal two-mechanism lower bound, structural concavity proof or sharp one-unit integrality law for all bicliques.",
+        "The balanced case a=b falls outside the scope 2<=a<b; an equal-part calculation cannot by itself establish an inequality involving two distinct part sizes."
+      ],
+      "reasoning": "The broadly applicable formulation covers the same optimization problem computationally; the claimed algebraic/structural law is not a special case of a stronger explicit family theorem in the inspected primary manuscript. For a=1 it reduces to the already published star result and is not claimed independently novel. The novelty scope expressly excludes equal-part instances and the published star case.",
+      "searches": [
+        "Allagan Pereyra Massey 2026 discounted hitting domination on complete bipartite K_mn count minimum pins phase boundary spectral two-type random walk",
+        "two class Markov chain complete bipartite discounted absorption threshold optimal targets",
+        "arxiv:2609.31535v1 Sections 4, 6, 7, 8",
+        "Li et al. (2014), arxiv:1302.4546, https://arxiv.org/abs/1302.4546",
+        "balanced K_{n,n} discounted hitting domination budget-response versus unequal K_{a,b} aspect-ratio phase"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.31535v1; Allagan, Pereyra, Massey (2026), Sections 2–8 and concluding remarks, https://arxiv.org/pdf/2609.31535v1",
+      "Guo et al. (2024), doi:10.1109/TKDE.2023.3349164, https://research.cuhk.edu.hk/en/publications/efficient-algorithms-for-group-hitting-probability-queries-on-lar-2/",
+      "Li et al. (2014), arxiv:1302.4546, https://arxiv.org/abs/1302.4546",
+      "Published index nearest hit: Exact range laws for integer height functions on complete bipartite graphs (2026; different height-function invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete-graph graphs are not bicliques with both part sizes >=2; star graphs are precisely K_{1,m} and that specialization is credited.",
+        "Primary Section 6 does not include K_{a,b} with a,b>=2 since these graphs have 4-cycles, so they are not spiders.",
+        "Guo et al. consider top-k target queries for individual starting vertices; Li et al. use a finite horizon and summed objectives.",
+        "The equal-part boundary is deliberately excluded; a genuine unequal-size phase boundary at b/a=1/lambda cannot be established from a formula whose only part-size parameter is n."
+      ],
+      "reasoning": "Neither the explicit graph classes nor the optimizing objective in the nearest prior work dominates the claimed biclique-wide structural law. The generic bound and solver cannot be conflated with an explicit proof of this uniform exact counting and phase transition. The current scope is 2<=a<b, excluding both balanced K_{n,n} and star specialization K_{1,b}. The unequal-size aspect-ratio law is not a corollary of the balanced-size formula by changing notation, because the two population sizes enter the total cost with distinct weights.",
+      "searches": [
+        "discounted hitting domination number K_{a,b} complete bipartite graphs exact first hitting potential all optimal source placements",
+        "Allagan Pereyra Massey 2026 discounted hitting domination on complete bipartite K_mn count minimum pins phase boundary spectral two-type random walk",
+        "\"group hitting probability\" \"complete bipartite\" \"selection\" threshold",
+        "arxiv:2609.31535v1 Proposition 7.1; Corollary 6.7; Theorem 6.5",
+        "Li et al. (2014), arxiv:1302.4546, https://arxiv.org/abs/1302.4546",
+        "Guo et al. (2024), doi:10.1109/TKDE.2023.3349164, https://research.cuhk.edu.hk/en/publications/efficient-algorithms-for-group-hitting-probability-queries-on-lar-2/",
+        "balanced biclique K_{n,n} versus unbalanced K_{a,b} unequal-side phase comparison; compare statement implication under strict a<b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The pinned quantity h=E[lambda^T] has known equivalent descriptions as alpha-terminating group hitting probability (primary paper Remark 2.4, pp. 3–4).",
+        "Guo et al. 2024 describe pairwise and top-k group hitting *queries*, not a minimum target-set size meeting a simultaneous per-vertex lower floor.",
+        "Li et al. 2014 study finite-length random-walk aggregate hitting-time and expected-coverage objectives, not discounted uniform threshold feasibility."
+      ],
+      "reasoning": "Equation equivalences for a prescribed target set do not imply a universal optimizer phase transition, all-set enumerator, or rounding classification. These aliases were explicitly searched rather than discarded.",
+      "searches": [
+        "bipartite graph uniform discounted hitting floor placement phase diagram fractional relaxation bang bang one step integrality gap",
+        "two class Markov chain complete bipartite discounted absorption threshold optimal targets",
+        "\"group hitting probability\" \"complete bipartite\" \"selection\" threshold",
+        "Li et al. (2014), arxiv:1302.4546, https://arxiv.org/abs/1302.4546",
+        "Guo et al. (2024), doi:10.1109/TKDE.2023.3349164, https://research.cuhk.edu.hk/en/publications/efficient-algorithms-for-group-hitting-probability-queries-on-lar-2/",
+        "unbalanced K_{a,b} discounted first hit domination minimum pinned sources sharp one addend phase ratio 1/lambda"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-research records closest to direct biclique searches included height-function range formulas for complete bipartite graphs, which do not involve discounted pinned hitting coverage.",
+        "Web searches for exact discounted-hitting biclique tables returned the motivating 2026 paper and unrelated random-walk/graph-domination works; no table of all biclique floor profiles found.",
+        "The nearest indexed hit for the unequal-part criterion was the published title “All k-tuple total dominating sets of connected threshold graphs”; that invariant is unrelated to discounted pinned hitting coverage."
+      ],
+      "reasoning": "No discovered table determines the bivariate occupancy feasibility polynomial or the sharp K-versus-K+1 gap for all real parameters. An unsuccessful index search is only limited negative evidence and not proof that unpublished or unindexed tables do not exist.",
+      "searches": [
+        "discounted hitting domination number K_{a,b} complete bipartite graphs exact first hitting potential all optimal source placements",
+        "bipartite graph uniform discounted hitting floor placement phase diagram fractional relaxation bang bang one step integrality gap",
+        "\"discounted hitting domination\" \"bipartite\" \"complete\"",
+        "\"discounted hitting domination\" \"biclique\" \"bipartite\"",
+        "discounted hitting random walks complete bipartite graph source placement min max equilibrium threshold exact counting",
+        "discounted hitting domination minimum source complete bipartite unequal shores all threshold feasible subset polynomial"
+      ]
+    },
+    "rationale": "The first public mathematical source defining the uniform discounted floor, arXiv:2609.31535v1 (2026-09-25), includes arbitrary-graph formulations, a spider algorithm and exact results for stars and complete graphs but not the explicit biclique bang–bang threshold, the aspect-ratio law, the all-placement binomial polynomial or the sharp additive-one bound. The latter conclusions were proved independently, not copied from an existing case of the published theorem. Relevant group-hitting-query work asks a different question (evaluation/ranking), and the 2014 random-walk domination formulation optimizes aggregate finite-horizon measures. Searches of equivalent terminology and nearest indexed results did not identify covering claims. The star restriction a=1 is acknowledged as prior; no novelty asserted for that case alone. Originality is scoped to genuinely unbalanced K_{a,b} with 2<=a<b; the balanced and star families are excluded, so the stated unequal-size aspect-ratio phase and sharp integrality classification are not merely those boundary specializations.",
+    "residual_risks": [
+      "A mathematically equivalent biclique source-placement theorem may be unindexed or published under alternative penalized-hitting or stopped-walk terminology.",
+      "Full content of Guo et al. 2024 and Li et al. 2014 was not inspected; available abstracts show different optimization objectives but cannot exclude ancillary calculations.",
+      "The universal exact MILP of the 2026 source can in principle generate finite biclique values; the contribution assessed here is the closed symbolic phase and sharp rounding, not computational decidability.",
+      "The equal-part and star specializations are excluded, while equivalent unindexed unequal-part formulas remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING biclique-specific phase and sharp one-unit gap; DOES_COVER definition, pinned linear equations, general exact optimization, star special case",
+        "evidence": "Sections 2–4 define h, submodular cover and MILP; Section 6 proves spider algorithm; Cor. 6.7 gives stars, Prop. 7.1 gives complete graphs; Section 9 lists extensions to caterpillars and fault tolerance, not a biclique law.",
+        "identifier_or_url": "arxiv:2609.31535v1 / https://arxiv.org/pdf/2609.31535v1",
+        "material_read": "19-page original manuscript, material sections 2–7, numerical section 8, conclusion and bibliography; directly examined the pinned-potential definitions, general algorithm, gap recurrences, spider theorem, star and complete-graph formulas. Not every line was transcribed.",
+        "method": "Opened searchable primary PDF and inspected rendered title page and section text; compared graph domains and conclusion statements",
+        "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+        "trigger": "Same exact invariant, nearest primary research and first-public-date provenance"
+      },
+      {
+        "assessment": "NO DECISIVE COVERAGE in available text; full paper not verified",
+        "evidence": "Abstract describes pairwise group hitting value query and top-k query for one source, not a uniform per-vertex floor minimizing pinned target count. Inaccessible full text is a residual risk.",
+        "identifier_or_url": "Guo et al. (2024), doi:10.1109/TKDE.2023.3349164, https://research.cuhk.edu.hk/en/publications/efficient-algorithms-for-group-hitting-probability-queries-on-lar-2/",
+        "material_read": "Author/institution publication record and complete available abstract; a full PDF attempt timed out.",
+        "method": "Read institutional publication record; attempted linked lawful full PDF",
+        "title": "Efficient Algorithms for Group Hitting Probability Queries on Large Graphs",
+        "trigger": "Identical discount-killed-walk potential under alpha-termination and possible alternative nomenclature"
+      },
+      {
+        "assessment": "NOT_COVERING according to available explicit objective; full document not verified",
+        "evidence": "Two stated objectives minimize total finite-horizon hitting time or maximize expected number of hits under a fixed source budget; neither is minimum-size homogeneous discounted per-vertex floor on bicliques.",
+        "identifier_or_url": "Li et al. (2014), arxiv:1302.4546, https://arxiv.org/abs/1302.4546",
+        "material_read": "arXiv abstract and institutional description; full PDF not accessible in this run.",
+        "method": "Opened arXiv abstract and university bibliography/abstract",
+        "title": "Random-walk domination in large graphs: problem definitions and fast solutions",
+        "trigger": "Potential broader older random-walk domination title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8e3c5c0-b642-46b2-b928-1f854c609d67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum-source uniform discounted hitting floor was explicitly introduced as a natural placement optimization in the motivating 2026 work. A two-mechanism global optimization law for every genuinely unequal complete bipartite order with both parts nontrivial and all real lambda,tau, with the threshold-independent b/a=1/lambda switch, is a structural and interpretable design principle beyond brute pinned-matrix evaluation. The sharp K-or-K+1 integrality theorem and exact labeled optimizer-count polynomial identify when fractional balancing is misleading. No general downstream theorem is assumed or required; the mathematical motivation is specific to minimum verified-source placement on a standard graph class.",
+    "status": "PASS"
+  }
+}
