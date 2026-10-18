@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "All 1-to-5-run cases are partitioned into attainable run patterns. In the five-run case, even-run outputs extend, the five-run optimum has symmetric caps, and the four two-sided embeddings of 0-1-0 outputs yield either strict domination by a longer palindrome or symmetric maximum caps. The two other three-run patterns also have symmetric maximum caps. Four-run and fewer inputs receive independent exhaustive pattern cases. The six one-doubled-run words starting with zero give all length-seven sharpness configurations, modulo complement. Reproducibility program completed independent brute subsequence enumeration for 1,022 inputs through length nine and full LCS recurrence enumeration for 8,190 words through length twelve and 1,024 positive five-run tuples. The proof rather than those enumerations handles arbitrary positive run lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brodal–Fagerberg–Rysgaard (2024), Theorem 14 and Lemma 15 as summarized in section 1.3 and proved in sections 3-4: four fixed traceback priorities are globally safe and two may fail."
+      ],
+      "reasoning": "A stronger result that every optimum is palindromic would cover this claim, but the general paper explicitly allows nonpalindromic optima and states only algorithm-priority guarantees. Nothing in its proof implies that five-run binary inputs exclude all such optima.",
+      "searches": [
+        "binary words five runs LCS reverse all longest common subsequences palindrome optimal tie breaking",
+        "2024 2025 LCS palindrome reverse string runs binary all longest common subsequences palindrome",
+        "ESA 2024 Brodal Fagerberg Rysgaard LCS reversal generalization runs"
+      ]
+    },
+    "checked_sources": [
+      "Brodal, Fagerberg, Rysgaard (ESA 2024), DOI:10.4230/LIPIcs.ESA.2024.35, OA PDF",
+      "Chowdhury, Hasan, Iqbal, Rahman, arXiv:1110.5296v1, public HTML",
+      "Targeted public web queries on binary reversal-LCS traceback, run bounds and smallest witness",
+      "Semantic mathematical research-record queries for reversal LCS, tie independence, six-run obstruction and explicit 7-letter words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ESA 2024 Lemma 2 states equality of optimum lengths, Lemma 3 constructs a palindrome from any LCS, and Theorem 14 concerns specified traceback priorities; its own examples show nonpalindromic LCS may exist.",
+        "Chowdhury et al. (2011) directly seek a palindrome in the common subsequence, without requiring every unconstrained LCS to be one."
+      ],
+      "reasoning": "Equal optimum lengths and existence of one palindrome are strictly weaker than every maximum output being a palindrome. Deterministic safe backtracking also selects only some optimum paths and cannot imply universal safety on a particular input class. The present quantified condition is thus not a corollary of those results.",
+      "searches": [
+        "\"On Finding Longest Palindromic Subsequences Using Longest Common Subsequences\"",
+        "binary words at most five runs every longest common subsequence of word and reversal is a palindrome; six runs counterexample length seven 0101001"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "ESA 2024 DOI 10.4230/LIPIcs.ESA.2024.35, sections 1-4: reversal LCS versus LPS and tie-breaking.",
+        "arXiv:1110.5296, sections 1-4: palindrome-constrained common subsequence algorithms."
+      ],
+      "reasoning": "An all-optima palindrome property can also be phrased as tie-breaking independence, universal correctness of arbitrary LCS traceback, or absence of nonpalindromic optimal reversal-common subsequences. The inspected works establish existence of palindromic optima or algorithms producing one, not universal palindromicity in this bounded-run binary domain.",
+      "searches": [
+        "\"longest common subsequence\" \"reverse\" \"runs\" palindrome binary",
+        "\"non-palindromic\" \"LCS\" \"reversed\" binary string runs",
+        "run-bounded binary LCS with reversal all optimal subsequences palindrome 5 runs 6 runs threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching first-length-seven four-word classification appeared in the actual searched records.",
+        "The accompanying direct enumeration independently derives the 7-letter table from word definitions."
+      ],
+      "reasoning": "An existing small-input counterexample table could subsume the finite sharpness assertion, but an overlap search on both word-level witnesses and run-threshold aliases found no such source. This is bounded negative search evidence, not proof of absolute novelty.",
+      "searches": [
+        "binary words 0101001 00101 10100 nonpalindromic longest common subsequence reverse",
+        "\"LCS\" \"reversal\" \"binary\" \"palindromic\" shortest counterexample",
+        "\"five runs\" \"longest common subsequence\" reversal palindrome"
+      ]
+    },
+    "rationale": "The ESA 2024 primary paper demonstrates that some LCS outputs of a string and its reversal fail palindromicity and proves that specific backtracking choices avoid failure. It does not state the binary at-most-five-run all-optima criterion, the six-run sharp boundary, or the unique shortest obstruction orbit. The 2011 LCPS study solves a different problem where palindromicity is imposed. Actual semantic record and web-query comparisons found no equivalent structural theorem; remaining unindexed sources are an explicit risk.",
+    "residual_risks": [
+      "An older informal exercise, thesis or unindexed paper might state an equivalent binary run threshold or smallest-witness classification.",
+      "Full systematic citation-chain coverage outside the two central inspected primary texts was not feasible; searches do not establish mathematical independence or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the binary five-run all-optima classification: establishes palindrome-selecting backtracking and general counterexamples; no run-restricted universal-optima theorem was found in inspected substantive sections.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.ESA.2024.35; pages 2-7 and 10-13; especially section 1.3, Lemmas 2-3, and section 4."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.35",
+        "material_read": "Accessible OA PDF, sections 1-4 including introduction, definition and result list, LCS/LPS lemmas, traceback/path results and examples, and theorem summaries; figures/examples inspected. Not an assertion about unseen appendices.",
+        "method": "Primary full-text PDF text and page-image inspection.",
+        "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+        "trigger": "Exact target relation between LCS of a word and its reversal, including unsafe tie choices."
+      },
+      {
+        "assessment": "NOT_COVERING: LCPS for two arbitrary inputs, where palindrome shape is a requirement, not the unrestricted LCS-output characterization for a word and its reversal.",
+        "evidence": [
+          "arXiv:1110.5296v1, section 1.1, Theorem 3.1, Theorem 4.1, conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1110.5296v1",
+        "material_read": "Public full-text HTML, introduction and stated contributions, definitions, dynamic-programming theorem, geometric approach, and conclusion.",
+        "method": "Primary arXiv HTML sections 1-5.",
+        "title": "Computing a Longest Common Palindromic Subsequence",
+        "trigger": "Early potentially dominating treatment of longest common palindrome algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ecd3213-ce02-4dc2-8449-c89707294bcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-optima versus existence distinction is directly motivated by the 2024 reversal-LCS reconstruction problem. The result gives an input-structural and algorithm-independent guarantee for every binary word with up to five arbitrarily long constant runs; six runs are proven necessary for failure, with the earliest four input words completely classified. The exact run threshold is a meaningful boundary for when arbitrary LCS reconstruction is palindromic, not a mere restatement of classical LCS/LPS length equality or an arbitrary isolated count.",
+    "status": "PASS"
+  }
+}
