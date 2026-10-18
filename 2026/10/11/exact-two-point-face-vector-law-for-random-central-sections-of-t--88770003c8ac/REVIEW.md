@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-For generic unit normals, a section vertex corresponds bijectively to a cube edge crossed by the hyperplane. The sixteen cube-vertex signs yield precisely \(8\) crossings when one absolute coordinate dominates the other three, and \(12\) otherwise. The ratio of two independent normal variables with variance ratio \(1:3\) gives edge-crossing probability \(1/3\); thus the expected count is \(32/3\), fixing the two probabilities. The generic section is simple, and Euler's relation supplies the complete face vectors. Supplemental exact finite checks do not establish the Haar law without the analytic proof.
+## correctness
 
-## Originality: PASS (with residual risk)
-The recent hypercube-section vertex-count work studies attainable counts, not a central Haar distribution. Lonke's work and the more general Kabluchko–Seidel result already imply expected face-number facts; these are explicitly not claimed as new. The precise support and joint distribution, as well as the phase criterion, are not covered by those inspected statements. An older full section-classification article was not obtained and may contain overlapping implicit results. Lack of a database match is not an independent novelty certificate.
+PASS
 
-## Value: PASS
-The claim gives a complete exact natural probability distribution and geometric phase classification for a central random three-dimensional section of a canonical four-polytope. Unlike a mean-only computation or an arbitrary instance, it determines every face-vector outcome and its probability, a useful baseline for stochastic face-count questions.
+For generic central hyperplanes of [-1,1]^4, a section vertex is a unique crossed cube edge. Sorting |u_i| shows all 16 corner signs give exactly 8 crossings if the largest dominates the other three, otherwise 12; independent integer-sign examples corroborate. A fixed one of 32 edges crosses with probability P(|G1|>|G2+G3+G4|)=P(|C|>sqrt3)=1/3 by Gaussian symmetry and the exact Cauchy law, giving E f0=32/3 and hence weights 1/3 and 2/3. Genericity makes the 3-polytope simple; 2f1=3f0 and Euler give claimed full vectors. Measure-zero tie cases are explicitly excluded; finite enumeration/simulation cannot prove Haar weights.
 
-## Boundaries
-Only generic central sections of the four-cube are covered, and no priority or external independent certification is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after comparison of statements/implications in inspected primary literature, accounting for explicit known subcases and broader baseline results. The unsuccessful Resultary lookup is NOT positive novelty evidence; its outage and any uninspected papers remain disclosed risks.
+
+## value
+
+PASS
+
+The 4-cube is a canonical finite polytope and Haar central sections form a natural stochastic geometry ensemble. The complete joint f-vector law, not just mean face counts, and its sharp normal-coordinate phase rule are useful exact benchmarks for section combinatorics. Being finite-dimensional is not itself a demerit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
