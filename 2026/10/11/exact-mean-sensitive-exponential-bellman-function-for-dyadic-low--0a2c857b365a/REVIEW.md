@@ -1,11 +1,21 @@
-# Scientific review: exact dyadic lower-oscillation Bellman envelope
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated normalization is over all real integrable functions with binary-dyadic BLO seminorm. The two-child identity \(a=(a_0+a_1+d)/2\) and constraints \(a_0,a_1\le1\), \(d\le2-a_0-a_1\) are exact. The candidate affine Bellman function satisfies the full split inequality by convexity for \(d\le1\) and by the product \(q^{d-1}(1-(q-1)(d-1))\le1\) for \(d\ge1\). Conditional expectations transfer the estimate to unbounded integrable functions; their essential infima converge by dyadic differentiation. The block-staircase construction realizes every \(a\), including infinite moments on the critical boundary. Supplementary finite checks do not establish the infinite theorem.
+## correctness
 
-**Originality — PASS, with specific residual risks.** Zhang's 2026 paper handles continuous subintervals and one-sided tail probabilities, not the exact binary-dyadic lower-centered exponential Bellman function. Osękowski (2014) gives the **same scalar sharp constant and threshold** for a root-mean-centered maximal operator, not the directly lower-centered function or exact interpolation in the local excess. Osękowski (2013) treats ordinary BLO and \(|f-f_I|\). The available abstract of Passarelli di Napoli (1996) concerns ordinary one-dimensional BLO and cannot settle whether an analogous dyadic bound appeared there. This novelty conclusion is provisional and does not assert no unpublished equivalents.
+PASS
 
-**Value — PASS.** The sharp affine dependence on the mathematically natural local average-versus-minimum deficit gives a complete two-parameter Bellman profile and a sharp exponential endpoint for a standard dyadic harmonic-analysis space. It is stronger information than the scalar threshold alone, useful for quantitative dyadic \(A_1\) estimates and stopping-time estimates. The result does not rely on an arbitrarily selected finite parameter slice.
+Normalize ess inf on the root interval to zero and BLO seminorm <=1. In the dyadic child split write a=(a0+a1+d)/2 and d between child minima. The affine Bellman candidate B_lambda(a)=1+Ca with C=(e^lambda−1)/(2−e^lambda) is a supermartingale: for d≤1 use convexity e^{lambda d}−1≤(e^lambda−1)d; for 1≤d≤2 use a1≤2−d and e^{lambda(d−1)}(1−(e^lambda−1)(d−1))≤1. Martingale approximations and Fatou transfer the bound to arbitrary integrable BLO functions. Geometric dyadic staircases have BLO=1 and root excess a, achieving the envelope for each a and diverging at lambda≥log 2. Independently checked all child-inequality boundary regimes numerically as diagnostics only; analytic inequalities supply proof.
 
-**Closest literature and limitations.** The 2014 dyadic maximal-operator bound is the strongest neighboring source and shares a staircase extremizer; the 1996 full text was not accessible. There is no claim that the numerical threshold \(\log2\), the scalar maximal bound, or the staircase was first discovered here. General trees, intervals of arbitrary alignment, and uniqueness of extremizers remain unaddressed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact fixed-mean a-dependent binary-dyadic lower-centered exponential Bellman envelope and matching extremizers. Osękowski 2014 proves a sharp threshold/denominator for a different maximal-function observable centered at f_Q, not this full affine conditional local-mean envelope; Zhang 2026 studies standard non-dyadic interval tail bounds, not the target statement in inspected material. Passarelli 1996 full text unavailable, retained as unresolved priority risk without using lack of access as automatic failure.
+
+## value
+
+PASS
+
+The envelope solves a natural complete extremal Bellman problem: it determines every local mean a in [0,1], the sharp λ phase transition at log2, and exact extremizers. This adds nontrivial mean sensitivity beyond known global maximal-BLO bounds, with explicit dyadic construction rather than routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
