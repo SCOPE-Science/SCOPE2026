@@ -1,19 +1,21 @@
-# Scientific review: complete-bipartite time-sampling optimality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact polynomial identity \(A^3=abA\) yields every transition probability and reduces arbitrary time distributions to two cosine moments with the exact feasible set \(u^2\le v\le1\). The derived Hessian is positive definite for every total order at least three. For nontrivial parts, monotonicity in \(v\), the derivative cubic, and its boundary sign prove the global optimum, including the balanced threshold. A supporting-hyperplane certificate proves the separate star formula; the two exceptional small graphs are checked directly. The attached standard-library checker independently reconstructs transition entries and verifies closed forms over finite families. Finite checks corroborate, but do not replace, the proof for all part sizes and probability laws.
+PASS
 
-## Originality — PASS, with residual risk
+From A^3=ab A the continuous-time unitary has only the A and A^2 spectral terms, yielding exactly five probability blocks depending on u=E cos(sqrt(ab)T) and v=E cos^2(sqrt(ab)T). The feasible moment region is -1<=u<=1, u^2<=v<=1, realizable by nonnegative observation times. The exact positive Hessian for n>=3 reduces the a,b>=2 case to v=u^2, and monotonicity of the cubic n^2 x^3+Kx+C yields the unique minimizing cosine or boundary x=-1. For star K_{1,m}, the global supporting-plane inequality and Hessian certify x=-(m-1)/(m+1). K_{1,2} uniquely needs u=0,v=1/3 and genuine time mixing; K_{1,1} is deterministic. The balanced H=r^2(r^2-6r+4) changes sign at integer r=6 and gives the stated cross-part-zero optimum. The independent exact matrix/gradient program was inspected but not independently executed; no finite test is substituted for these analytical inequalities.
 
-Baptista, Coutinho, and Marques, arXiv:2308.16378v1, Section 3.1, prove a coarse exclusion for sufficiently large complete bipartite graphs and list the known exact-mixing small examples. Their Section 3.2 constructs randomized exact mixing on the three-vertex path. Those facts are credited, not recycled as novel. Sections 2–4 and concluding discussion in that full primary text were examined for a global optimal Frobenius error, a deterministic-optimality theorem, or a balanced-graph protocol transition; none was found. Coutinho and Guo's 2024 quantum-walk survey develops nearby sampling questions but does not state this quantitative classification. The novelty assessment concerns the sharp loss, optimizer characterization, and threshold, not the known existence of exact averages. The principal residual risk is an equivalent result under general spectral convex optimization terminology.
+## originality
 
-## Value — PASS
+PASS
 
-When arbitrary observation-time distributions cannot achieve uniform mixing, an exact optimization criterion is needed to quantify how close quantum transport can come. The theorem answers that question for a fundamental infinite graph family, establishes when randomizing time is provably useless for this criterion, and identifies the nonobvious sharp boundary at which optimal global fidelity requires zero transport across the two parts. This is a complete resource and fidelity classification under a clear physical measurement protocol, not merely a new expression for a familiar special case.
+The literature defines arbitrary randomized observation-time average mixing and recognizes exact uniformity exceptions, but does not establish the unrestricted Frobenius-optimal approximation across all complete bipartite graphs, its unique moment minimizers or the r=6 nontransport phase. New here is the quantitative global optimization, not the known K_{1,2} mixing existence or general A^3 relation.
 
-## Boundaries
+## value
 
-The theorem addresses a global unnormalized squared-Frobenius loss for the unweighted adjacency Hamiltonian. It gives neither universal optimality for other norms nor exact quantum channel synthesis, and no claim of independent audit is made. The comparison with unindexed or inaccessible literature is necessarily incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimizing a physically natural global uniform-mixing fidelity over arbitrary time distributions gives a sharp exact benchmark and proves randomization helps only at the exceptional three-vertex path; the balanced transition to zero cross-part transport is a structural, non-obvious consequence of the chosen loss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

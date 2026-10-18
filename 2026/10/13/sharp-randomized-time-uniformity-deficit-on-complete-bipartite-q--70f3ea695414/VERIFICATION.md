@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks and mathematical limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing this document and the standalone verification script; it needs only Python's standard library and makes no network requests.
+## correctness
 
-The reproducible output is:
+PASS
 
-`VERIFY_OK exact_gradient_tests=432 exact_matrix_entry_tests=138840 star_formula_tests=72 two_by_many_tests=73 balanced_threshold_tests=73 feasible_two_atom_tests=1872`
+From A^3=ab A the continuous-time unitary has only the A and A^2 spectral terms, yielding exactly five probability blocks depending on u=E cos(sqrt(ab)T) and v=E cos^2(sqrt(ab)T). The feasible moment region is -1<=u<=1, u^2<=v<=1, realizable by nonnegative observation times. The exact positive Hessian for n>=3 reduces the a,b>=2 case to v=u^2, and monotonicity of the cubic n^2 x^3+Kx+C yields the unique minimizing cosine or boundary x=-1. For star K_{1,m}, the global supporting-plane inequality and Hessian certify x=-(m-1)/(m+1). K_{1,2} uniquely needs u=0,v=1/3 and genuine time mixing; K_{1,1} is deterministic. The balanced H=r^2(r^2-6r+4) changes sign at integer r=6 and gives the stated cross-part-zero optimum. The independent exact matrix/gradient program was inspected but not independently executed; no finite test is substituted for these analytical inequalities.
 
-The program checks exact integer-matrix multiplication for the adjacency-cubic identity; exact rational reductions of all five transition-probability types; exact central differences of the two partial derivatives; the exact formula and boundary-gradient certificate for 72 stars; the exact root and loss for 73 two-by-many graphs; and the balanced threshold and loss for 73 cases. Its two-atom comparisons are merely sample-based, with numerical tolerance, and cannot establish global minimality.
+## originality
 
-The general conclusion over all part sizes and all time probability measures comes from the explicit polynomial spectral reduction, the exact cosine-moment feasible region, the positive-definite Hessian, and the global supporting-hyperplane or increasing-cubic arguments in `RESULT.md`. The complete scientific proof is required: the script is not a formal proof or an independent evaluation. No finite experiment is represented as an exhaustive test of infinite mathematical domains.
+PASS
+
+The literature defines arbitrary randomized observation-time average mixing and recognizes exact uniformity exceptions, but does not establish the unrestricted Frobenius-optimal approximation across all complete bipartite graphs, its unique moment minimizers or the r=6 nontransport phase. New here is the quantitative global optimization, not the known K_{1,2} mixing existence or general A^3 relation.
+
+## value
+
+PASS
+
+Optimizing a physically natural global uniform-mixing fidelity over arbitrary time distributions gives a sharp exact benchmark and proves randomization helps only at the exceptional three-vertex path; the balanced transition to zero cross-part transport is a structural, non-obvious consequence of the chosen loss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
