@@ -1,15 +1,21 @@
-# Scientific review: Paley-17 neighborhood-complex homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
-The result fixes the simple Paley graph on residues modulo seventeen and the ordinary open-neighborhood convention, with all vertex orientations and masks explicitly specified. Reconstructed strongly regular parameters are \((17,8,3,4)\). The complex has \(3468\) nonempty faces, and the certificate checks \(1711\) matched pairs, \(15300\) oriented incidences and a successful full topological sort; the only critical nonzero-dimensional cells are five in dimension two and forty in dimension three. Its exact signed Morse boundary has a unit four-minor, a maximal minor of determinant \(-3\), and rank four modulo three, forcing Smith factors \((1,1,1,1,3)\). Because the resulting two-skeleton is simply connected and two-dimensional, the degree matrix determines the three-cell attaching maps. This proves \(M(\mathbb Z/3,2)\vee\bigvee^{35}S^3\). An independently formulated simplicial boundary calculation over three primes reproduces the expected homology. The conclusions are finite and exhaustive, with no extrapolation to other orders.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Direct comparisons included Matsushita's full published treatment of neighborhood-complex fundamental groups (2017; initial public preprint 2012), Kahle's full random-graph neighborhood-complex article, and Shukla's full classification for graphs of maximum degree at most three and four-regular circulants. The first determines a fundamental-group construction rather than integral higher-dimensional attaching data; the second is asymptotic for random graphs; the third does not apply to an eight-regular graph. The distance-regular database records \(P_{17}\)'s graph parameters but not this homotopy decomposition. Published searches and semantic comparisons for `Paley(17)`, `QR(17)`, `Hom(K2,Paley(17))`, the conference parameters, Moore-space descriptions, and mod-three homology found no stronger exact-object result. The closest published research records concern other graph complexes (including a Paley-29 graph-metric Rips complex and an icosahedral neighborhood complex). This search is not an exhaustive bibliography, and independently unindexed computation is a genuine residual risk.
+PASS
 
-## Value — PASS
-The order-seventeen Paley graph is the canonical strongly regular \((17,8,3,4)\) example and a classical Ramsey-extremal graph. The ordinary Lovász neighborhood complex is a naturally motivated homotopy invariant used in graph-coloring topology. Determining its integral homotopy type exposes three-torsion invisible over characteristic two, and a Moore summand impossible in any wedge of spheres. This is materially stronger than a face-vector or rational Betti-number calculation; the exact integer attaching matrix is essential to the value.
+PASS. Independently formed the Paley17 residue set {1,2,4,8,9,13,15,16}, yielding (17,8,3,4) strongly regular graph and exactly 3,468 nonempty open-neighborhood faces, f=(17,136,612,1122,952,476,136,17). Entire 15,300 Hasse incidences with the prescribed 1,711 toggle pairs are acyclic, leaving 1 critical 0-cell, 5 critical 2-cells, 40 critical 3-cells. Independent signed gradient reduction reconstructed the exact 5x40 matrix (SHA-256 compact rows 2947ab3b904e0bdbad58376aa448307433649868212a401978108cedbd4f078a); a 4x4 minor=-1, 5x5 minor=-3, ranks mod 2,3,5=(5,4,5) imply SNF 1,1,1,1,3. The 2-skeleton is a wedge of five 2-spheres, so attaching maps of 3-cells are completely encoded by these degree vectors, proving M(Z/3,2) wedge 35 S^3; pi_1 trivial. Precise open-neighborhood convention excludes clique and closed-neighborhood alternatives. Finite exhaustive computation is legitimate for this finite fixed graph, not a theorem about all Paley orders.
 
-## Limitations and comparison scope
-Only the ordinary open-neighborhood complex of the explicitly labeled graph is covered, and publication priority beyond the inspected sources is not guaranteed. The result relies on fully replayable finite combinatorial calculations. No broader Paley-family theorem or chromatic-number refinement is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after exact-object and logical-implication comparison. A P13 open-neighborhood sphere wedge and other Paley Rips/independence complex calculations concern different graph orders or nonmatching functors. Matsushita's generic fundamental-group results do not imply this nontrivial H_2 torsion or higher Moore-space attachments. Shukla's classification is for degree <=4, not degree-8 Paley17. An indexed-search miss alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+PASS. The Paley graph of order 17 is a canonical strongly regular quadratic-residue graph, and its Lovasz open-neighborhood complex acquires genuine integral odd torsion whose Moore-space attaching degree cannot be seen in rational Betti numbers. The exact full integral homotopy type is a natural standalone invariant useful to topology-of-graphs and Lovasz complex comparisons; no general Paley family theorem is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

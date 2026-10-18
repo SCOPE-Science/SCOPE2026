@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-All tests use standard-library Python 3.10 or newer and have no network dependency. Run the two programs in the same directory as the supplied files:
+# Independent mathematical audit
 
-```sh
-python3 verify_morse.py
-python3 verify_modular.py
-```
+## correctness
 
-The first program generated and exhaustively verified \(3468\) nonempty faces and the full face vector \((17,136,612,1122,952,476,136,17)\), the graph's \((17,8,3,4)\) intersection parameters, \(1711\) matched face pairs and the topological ordering of all \(15300\) directed incidences. It computed one critical zero-cell, five critical two-cells and forty critical three-cells. It computed the signed integral Morse boundary and checked a four-minor with determinant \(-1\), a five-minor with determinant \(-3\), and the modular ranks that force Smith factors \((1,1,1,1,3)\). Its canonical matrix digest is `2947ab3b904e0bdbad58376aa448307433649868212a401978108cedbd4f078a`.
+PASS
 
-The second program reconstructed faces independently by nonempty common-neighbor intersections, not by enumerating subsets of the seventeen facets, and recomputed all simplicial boundary ranks in three characteristics. In degree order from one through seven, these boundary ranks are \((16,120,492,595,357,119,17)\) in characteristic two, \((16,120,491,595,357,119,17)\) in characteristic three and \((16,120,492,595,357,119,17)\) in characteristic five. The corresponding reduced homology dimensions are \(35\) in degree three for the first and third fields, and \(1\) in degree two with \(36\) in degree three for the middle field.
+PASS. Independently formed the Paley17 residue set {1,2,4,8,9,13,15,16}, yielding (17,8,3,4) strongly regular graph and exactly 3,468 nonempty open-neighborhood faces, f=(17,136,612,1122,952,476,136,17). Entire 15,300 Hasse incidences with the prescribed 1,711 toggle pairs are acyclic, leaving 1 critical 0-cell, 5 critical 2-cells, 40 critical 3-cells. Independent signed gradient reduction reconstructed the exact 5x40 matrix (SHA-256 compact rows 2947ab3b904e0bdbad58376aa448307433649868212a401978108cedbd4f078a); a 4x4 minor=-1, 5x5 minor=-3, ranks mod 2,3,5=(5,4,5) imply SNF 1,1,1,1,3. The 2-skeleton is a wedge of five 2-spheres, so attaching maps of 3-cells are completely encoded by these degree vectors, proving M(Z/3,2) wedge 35 S^3; pi_1 trivial. Precise open-neighborhood convention excludes clique and closed-neighborhood alternatives. Finite exhaustive computation is legitimate for this finite fixed graph, not a theorem about all Paley orders.
 
-`morse_boundary.json` stores all critical masks and the full \(5\)-by-\(40\) matrix in unambiguous row/column order. The rank information over fields is a cross-check only; the integral homotopy conclusion depends on the signed matrix, its determinants, the acyclic matching and the attaching-map argument. Exhaustion is limited to this finite graph. Bibliographic priority outside inspected sources and independent external validation are not asserted.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after exact-object and logical-implication comparison. A P13 open-neighborhood sphere wedge and other Paley Rips/independence complex calculations concern different graph orders or nonmatching functors. Matsushita's generic fundamental-group results do not imply this nontrivial H_2 torsion or higher Moore-space attachments. Shukla's classification is for degree <=4, not degree-8 Paley17. An indexed-search miss alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+PASS. The Paley graph of order 17 is a canonical strongly regular quadratic-residue graph, and its Lovasz open-neighborhood complex acquires genuine integral odd torsion whose Moore-space attaching degree cannot be seen in rational Betti numbers. The exact full integral homotopy type is a natural standalone invariant useful to topology-of-graphs and Lovasz complex comparisons; no general Paley family theorem is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
