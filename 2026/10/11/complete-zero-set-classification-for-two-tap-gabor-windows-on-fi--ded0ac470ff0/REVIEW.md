@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each time translate, the two-tap Fourier expression vanishes at either no characters or the complete character fibre over one prescribed \(m\)-th root. The ratio \(f(x+a)/f(x)\) determines the label, and telescoping around all step cycles gives the only possible compatibility constraints. In the all-labeled case those constraints are exactly \(\alpha^m\prod\zeta_x=1\); in the one-unlabeled case the forced ratio is bad precisely when \(\alpha^{m^2}\neq1\). In all remaining cases two free ratios avoid a finite excluded set, so the constructive converse is valid. Counting the admissible labels proves the exact enumerations and sharp support endpoints. Rational phase verification and independent discrete Fourier evaluations corroborate the algebra.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2006 finite-group STFT work establishes uncertainty bounds, not a complete attainable pattern classification. The 2014 and 2022 equality-case works classify the global uncertainty endpoint, not this full-support setting. The closest published equal-tap cyclic result determines a support **minimum** on a prescribed coordinate set; neither that statement nor its equal-tap extremal analysis determines arbitrary labeled zero fibres for general tap ratios and all finite abelian groups. Related two-sparse signal and phase-retrieval statements use different objects. Search for the precise \(\alpha^{m^2}\) condition, full labeled-pattern enumeration, and group-general formulation did not reveal a covering theorem. These comparisons do not rule out older unindexed graph-holonomy formulations or independent rediscovery.
+PASS
 
-## Value — PASS
-The natural observable is the exact zero set of a two-tap short-time Fourier transform, a basic sparse-window time-frequency measurement. Support-size minima alone discard where the zeros lie. The theorem classifies **all** allowable labeled rows and the entire coefficient-realization family, detects the weight-dependent torsion obstruction, and counts the combinatorial family exactly on every finite abelian group. These structural restrictions matter to feasible Fourier erasure patterns and are neither a mere normalization identity nor a finite table lookup. No downstream stability theorem is claimed.
+At fixed \(x\), \(V_g f(x,\chi)=\overline{\chi(x)}(\overline c f(x)+\overline d f(x+a)\overline{\chi(a)})\), so zeros are precisely one \(h=N/m\)-point character-restriction fibre when \(r_x=f(x+a)/f(x)=\alpha\chi(a)\), otherwise none. Along every order-\(m\) translation cycle, \(\prod r_x=1\) is necessary and sufficient for a nowhere-zero signal. All-labelled cycles require \(\prod\zeta_x=\alpha^{-m}\) and \(\alpha^{m^2}=1\); exactly one empty row is feasible iff \(\alpha^{m^2}\ne1\); with at least two free ratios one avoids the finite forbidden coset and enforces holonomy. Binomial counting gives both displayed pattern numbers and support cutoffs for any finite abelian group. Independent exact combinatorial enumeration for \(2\le m\le5\) in both torsion regimes reproduced counts; noncyclic validity rests on character restriction and cycle construction, not enumeration.
 
-## Scope of the assessment
-Complex tap weights and nowhere-zero complex signals are essential; statements about general windows or signals with zeros are unproved. An exhaustive historical priority claim is not made. Numerical experiments supplement, but do not prove, the universal theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact all-pattern zero configurations and resonance/label counting are distinct from published cardinality uncertainty and extremal-support theorems, subject to a specifically identified uninspected closely related published cyclic result.
+
+## value
+
+PASS
+
+The exact, natural observable is the STFT zero subset for a two-tap window rather than just minimum support. The complete feasible-fibre classification, sharp support endpoints and torsion resonance are nontrivial structured facts relevant to finite harmonic analysis, sparse time-frequency design and phase/frequency ambiguity; the result is mathematically usable independently of downstream theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
