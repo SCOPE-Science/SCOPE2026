@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof was reconstructed from the neighborhood structure of complete multipartite graphs. The two-color branch follows from exact outside-part balance, the two exceptional four-vertex profiles are handled directly, and the infinite three-color construction is checked by a precise neighborhood-count spread lemma. The only finite closure is \(N\le11\), where all part-by-color count matrices are exhausted. This quotient is exact because vertices inside one part have identical open neighborhoods.
+## correctness
 
-## Originality — PASS
-The defining 2026 source covers complete graphs but not complete multipartite graphs. The 2024 neighborhood-balanced theorem already gives the exact two-color branch, and that portion is explicitly treated as prior. The closest 2026 balance paper concerns two-color discrepancy, while the later majority-coloring paper studies the game version and restates only known static special cases. Targeted published-finding searches for the invariant, graph family, aliases, and the exceptional profile returned no statement implying the residual three-versus-four classification.
+PASS
 
-## Value — PASS
-This determines the exact minimum palette for a canonical dense graph family under a recently introduced parameter that is unbounded on general graphs. The classification has a clean structural form: parity gives the two-color regime, only two order-four profiles require four colors, and every other colorable profile needs exactly three. The distinction is mathematically motivated by the prior neighborhood-balance threshold rather than chosen as an arbitrary slice.
+For all connected complete multipartite graphs except stars: two colors force R_i=B_i in each part by outside-neighborhood balance and (r-1)(R-B)=0; hence every part is even, and the half-half coloring is sufficient. K4 and K_{2,1,1} require four. For N>=12, 123-periodic colors over part blocks give every outside-part color spread <=2; for degrees >=6, maximum <=d/2, while placing a uniquely large low-degree part last gives direct d=2..5 balance. Inspected verify.py exhaustive count matrices for all profiles N<=11 (183 listed), and independently enumerated all nonstars through N=8, finding 7 two-color, 42 three-color and 2 four-color profiles. Infinite result uses proof, not stress tests.
 
-## Closest literature and limitations
-The two-color part is equivalent to Freyberg--Marr neighborhood balance and is not new. Kalinowski--Kamyczura--Pilśniak--Woźniak already determine complete graphs, so the complete-graph subfamily is not new. The theorem is restricted to ordinary static vertex coloring of complete multipartite graphs; list, extension, deletion, and game variants are not covered. A terminology-indexing risk remains for older local-balance literature, but the inspected balance papers do not imply the residual exact classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new three-versus-four strong-majority vertex palette classification; exact two-color neighborhood-balanced criterion and K4 exception are acknowledged prior results, not claimed new. Distinguish majority C-chromatic count and strong-majority EDGE index from vertex palette parameter.
+
+## value
+
+PASS
+
+Exact natural classification for all connected complete multipartite graphs, with two unexpected four-color obstructions, closes the gap between known neighborhood-balanced two-color criterion and minimum unrestricted strong-majority palette.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

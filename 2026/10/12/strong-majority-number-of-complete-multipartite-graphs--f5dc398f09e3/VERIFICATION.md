@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite claim is proved analytically in `RESULT.md`; no finite experiment is used to infer an infinite statement.
+# Independent mathematical audit
 
-The finite closure uses the symmetry of complete multipartite graphs. For a fixed palette, a coloring is completely represented by a matrix whose row for part \(V_i\) records the number of vertices of each color in that part. For any vertex of \(V_i\), the number of neighbors of a given color is the corresponding global column sum minus that row entry. Thus enumerating all weak compositions of each \(n_i\) among the palette colors exhausts all colorings up to irrelevant permutations of vertices within parts.
+## correctness
 
-`verify.py` performs the following checks:
+PASS
 
-1. It enumerates every nondecreasing complete-multipartite profile of orders \(2\) through \(11\). Stars are excluded by the degree-one obstruction. For each remaining profile it checks the predicted minimum palette, exhausting smaller palettes when needed. The only profiles requiring four colors are \(K_4\) and \(K_{2,1,1}\).
-2. It constructs the periodic three-coloring from the proof for every nonstar profile of orders \(12\) through \(40\) and checks the strong-majority inequalities directly.
-3. It checks the half-half two-color construction on every all-even profile through order \(30\). Nonexistence when an odd part occurs is proved analytically, not inferred from this finite loop.
+For all connected complete multipartite graphs except stars: two colors force R_i=B_i in each part by outside-neighborhood balance and (r-1)(R-B)=0; hence every part is even, and the half-half coloring is sufficient. K4 and K_{2,1,1} require four. For N>=12, 123-periodic colors over part blocks give every outside-part color spread <=2; for degrees >=6, maximum <=d/2, while placing a uniquely large low-degree part last gives direct d=2..5 balance. Inspected verify.py exhaustive count matrices for all profiles N<=11 (183 listed), and independently enumerated all nonstars through N=8, finding 7 two-color, 42 three-color and 2 four-color profiles. Infinite result uses proof, not stress tests.
 
-A replay from the verifier extracted from the packaged row returned:
+## originality
 
-`ALL CHECKS PASSED; small_profiles_N<=11=183; small_search_calls=495; small_witnesses=173; periodic_profiles_N=12..40=215055; two_color_profiles_N<=30=28569; exception_profiles=K_4,K_{2,1,1}`
+PASS
 
-The verifier uses only the Python standard library. Its bounded construction tests beyond order eleven are stress tests, not certificates for the unbounded range.
+Best-of-knowledge new three-versus-four strong-majority vertex palette classification; exact two-color neighborhood-balanced criterion and K4 exception are acknowledged prior results, not claimed new. Distinguish majority C-chromatic count and strong-majority EDGE index from vertex palette parameter.
+
+## value
+
+PASS
+
+Exact natural classification for all connected complete multipartite graphs, with two unexpected four-color obstructions, closes the gap between known neighborhood-balanced two-color criterion and minimum unrestricted strong-majority palette.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
