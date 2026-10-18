@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker performs an independent exact-rational replay on all perfect matchings through size \(7\).
+# Independent mathematical audit
 
-For each \(n\), it directly reconstructs the circular simple-chord count \(S_n\) and crossing count \(X_n\). It verifies
-\[
-\mathbb E S_n=\frac{2n}{2n-1},
-\qquad
-\mathbb E X_n=\frac{n(n-1)}6,
-\]
-the covariance (6), the simple-chord variance (7), and the established crossing variance (8).
+## correctness
 
-It verifies the Palm identity for \(f(x)=1\), \(f(x)=x\), \(f(x)=x^2\), \(f(x)=x^3\), and for every point-mass indicator on the finite crossing support.
+PASS
 
-It also checks first-order stochastic domination of \(X_n\) over \(X_{n-1}\) from the exact empirical laws.
+For any specified adjacent pair, it occurs with probability 1/(2n-1), and deleting that pair conditionally leaves a uniform matching on 2n-2 positions without altering crossings. Summing over all 2n cyclic adjacent pairs proves the Palm identity, including point mass tests. Unconditional deletion of the chord incident to a distinguished endpoint couples X_(n-1)<=X_n. Counting disjoint adjacent pairs gives E[S_n(S_n-1)]=2n/(2n-1) for n>=2 and variance 4n(n-1)/(2n-1)^2. Crossings have established E X_n=n(n-1)/6 and variance n(n-1)(n+3)/45; correlation follows algebraically. Independent exhaustive matching enumeration n=2,3,4,5 verifies the Palm identity at every crossing atom, the means, variances and exact covariance/correlation; not an all-n proof.
 
-The all-\(n\) proof does not rely on enumeration. The checker is a finite replay of the deletion and moment consequences.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK matchings_checked=146599 moment_checks=30 palm_checks=86 stochastic_checks=62 correlation_checks=6`.
+The structurally new target is a joint cross-statistic deletion/Palm identity, not the known separate marginal Poisson/normal limit laws or simple-chord size-bias of Paguyo. Paguyo sections on crossings and simple-chord Poisson approximation were inspected directly; neither asserts the mixed law. Flajolet--Noy crossing generating functions may encode equivalent mixed coefficients, so absolute priority is not claimed.
+
+## value
+
+PASS
+
+Simple chords are a natural local isolation statistic and crossings a natural global intersection statistic in the same uniformly random matching. The exact all-test-function Palm identity, monotone negative regression and sharp finite-n correlation explain an otherwise nontrivial local/global dependence and can be reused for nonlinear crossing functionals, beyond two marginal approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

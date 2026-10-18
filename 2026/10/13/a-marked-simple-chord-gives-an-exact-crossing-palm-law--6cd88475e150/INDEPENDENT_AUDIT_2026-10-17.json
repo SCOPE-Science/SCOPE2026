@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:52:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any specified adjacent pair, it occurs with probability 1/(2n-1), and deleting that pair conditionally leaves a uniform matching on 2n-2 positions without altering crossings. Summing over all 2n cyclic adjacent pairs proves the Palm identity, including point mass tests. Unconditional deletion of the chord incident to a distinguished endpoint couples X_(n-1)<=X_n. Counting disjoint adjacent pairs gives E[S_n(S_n-1)]=2n/(2n-1) for n>=2 and variance 4n(n-1)/(2n-1)^2. Crossings have established E X_n=n(n-1)/6 and variance n(n-1)(n+3)/45; correlation follows algebraically. Independent exhaustive matching enumeration n=2,3,4,5 verifies the Palm identity at every crossing atom, the means, variances and exact covariance/correlation; not an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet--Noy treats total crossing moments and components; Paguyo gives Poisson approximation of simple-chord count and Gaussian approximation of crossings.",
+          "No inspected theorem produces the displayed all-f mixed moment directly."
+        ],
+        "reasoning": "Broad analytic generating function machinery is plausible but accessible inspected statements concern marginals. Full older generating-function coverage not exhaustively established; retain risk.",
+        "searches": [
+          "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion",
+          "Flajolet Noy Analytic Combinatorics of Chord Diagrams (2000)",
+          "Paguyo arXiv:2104.01134"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2104.01134",
+        "DOI:10.1007/978-3-662-04166-6_17",
+        "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion",
+        "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.2 concerns the size-biased distribution of S_n; Theorems 1.1 and 1.2 separately concern normalized crossing Gaussian and simple-chord Poisson rates.",
+          "Deleting a chosen simple chord leaves all other crossing indicators unchanged, yielding a mathematically stronger mixed functional identity."
+        ],
+        "reasoning": "No cited result is an explicit implication of the new joint Palm formula in reverse; the mixed identity gives a new dependence statement, while marginal results are compatible.",
+        "searches": [
+          "Paguyo arXiv:2104.01134 Theorems 1.1,1.2 and Proposition 3.2",
+          "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paguyo 2023 computes crossing moments and a size-bias Poisson coupling for the marginal S_n, not the conditional crossing-count identity of a marked simple chord.",
+          "Direct bijective deletion supplies the joint law for arbitrary integrable f."
+        ],
+        "reasoning": "Comparison under aliases simple chords=length-zero chords; simple chord size-bias=marked adjacent-edge conditioning; total crossings=intersection-graph edges. Marginal size-bias alone is not a statement of the joint law, although its construction is a nearby technique.",
+        "searches": [
+          "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion",
+          "Resultary: Exact moment covariance of simple chords and crossings in uniform random perfect matchings chord diagrams",
+          "Paguyo arXiv:2104.01134 §2 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact Var(X_n)=n(n-1)(n+3)/45 and known marginal E[S_n]=2n/(2n-1).",
+          "The new covariance and correlation have not been found as an existing exact table entry in retrieved scientific records."
+        ],
+        "reasoning": "Computing the new correlation from published marginals alone is impossible without the mixed covariance; the new Palm identity supplies it.",
+        "searches": [
+          "Resultary: Exact moment covariance of simple chords and crossings in uniform random perfect matchings chord diagrams",
+          "Paguyo arXiv:2104.01134 crossing variance and simple-chord mean tables"
+        ]
+      },
+      "rationale": "The structurally new target is a joint cross-statistic deletion/Palm identity, not the known separate marginal Poisson/normal limit laws or simple-chord size-bias of Paguyo. Paguyo sections on crossings and simple-chord Poisson approximation were inspected directly; neither asserts the mixed law. Flajolet--Noy crossing generating functions may encode equivalent mixed coefficients, so absolute priority is not claimed.",
+      "residual_risks": [
+        "An older complete chord-diagram generating-function work could imply the joint Palm formula implicitly; inspected older abstract cannot rule that out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal moment/coupling work, no joint exact cross-statistic identity in inspected material.",
+          "evidence": [
+            "Section 3.1 constructs simple-chord size bias; Section 2 crossing moments; Section 4 length-zero chords."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "Sections 2--4, Theorems 1.1/1.2, Section 3.1 and Proposition 3.2 (12-page accessible PDF); size-bias construction passages.",
+          "method": "Read primary PDF and compared proof statements and variables.",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Same two statistics, possible stronger coverage"
+        },
+        {
+          "assessment": "Unresolved older full-text equivalence risk; no NOT_COVERING claim.",
+          "evidence": [
+            "Crossing moment asymptotics and connected components are cited as prior topics."
+          ],
+          "identifier_or_url": "DOI:10.1007/978-3-662-04166-6_17",
+          "material_read": "Accessible abstract and bibliographic material; relevant whole paper not verified in this run.",
+          "method": "Search/abstract only.",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Older exact crossing generating functions could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simple chords are a natural local isolation statistic and crossings a natural global intersection statistic in the same uniformly random matching. The exact all-test-function Palm identity, monotone negative regression and sharp finite-n correlation explain an otherwise nontrivial local/global dependence and can be reused for nonlinear crossing functionals, beyond two marginal approximations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2104.01134",
+    "DOI:10.1007/978-3-662-04166-6_17",
+    "Resultary: uniform random chord diagram exact joint distribution covariance total simple chords cyclic adjacent pairs and total crossings Palm size biased marked simple chord deletion",
+    "Frozen package 2026/10/13/a-marked-simple-chord-gives-an-exact-crossing-palm-law--6cd88475e150 at 40d46a820f74fdf355c691812bdc426ec204bde7",
+    "Independent arithmetic/finite-check work: /mnt/data/scope07_independent_checks.py (private, not public proof)."
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=2 and finite signed/integrable test functions; strictness for strictly increasing f on crossing support.",
+    "Marked chord must be cyclic adjacent; positive-length chords can create crossings.",
+    "Known crossing variance cited, independent finite checks n<=5 do not prove arbitrary n."
+  ]
+}

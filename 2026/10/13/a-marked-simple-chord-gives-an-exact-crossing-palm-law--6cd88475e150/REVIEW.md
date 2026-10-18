@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning a fixed adjacent pair to be matched leaves a uniform perfect matching on the remaining endpoints, and a simple chord contributes no crossings. This gives the full Palm identity for arbitrary integrable \(f\), not merely a first-moment calculation.
+PASS
 
-Deleting the chord incident to a distinguished endpoint from a uniform size-\(n\) diagram leaves a uniform size-\(n-1\) diagram and can only remove crossings. This independently proves the stochastic-order input used for all monotone transforms.
+For any specified adjacent pair, it occurs with probability 1/(2n-1), and deleting that pair conditionally leaves a uniform matching on 2n-2 positions without altering crossings. Summing over all 2n cyclic adjacent pairs proves the Palm identity, including point mass tests. Unconditional deletion of the chord incident to a distinguished endpoint couples X_(n-1)<=X_n. Counting disjoint adjacent pairs gives E[S_n(S_n-1)]=2n/(2n-1) for n>=2 and variance 4n(n-1)/(2n-1)^2. Crossings have established E X_n=n(n-1)/6 and variance n(n-1)(n+3)/45; correlation follows algebraically. Independent exhaustive matching enumeration n=2,3,4,5 verifies the Palm identity at every crossing atom, the means, variances and exact covariance/correlation; not an all-n proof.
 
-The covariance and simple-chord variance are then elementary exact consequences. The exact crossing variance used for the correlation is explicitly stated in the inspected full primary manuscript and is also reproduced by the package checker through size \(7\).
+## originality
 
-## Originality
+PASS
 
-PASS, with a bounded residual risk from older generating-function literature. The closest inspected full paper is Paguyo's treatment, because it analyzes both the crossing count and the simple-chord count in the same manuscript. Its crossing section gives marginal crossing moments and its simple-chord section gives a Poisson approximation via size-bias coupling; the inspected text does not state a mixed covariance, a marked-simple-chord deletion law, or an exact correlation.
+The structurally new target is a joint cross-statistic deletion/Palm identity, not the known separate marginal Poisson/normal limit laws or simple-chord size-bias of Paguyo. Paguyo sections on crossings and simple-chord Poisson approximation were inspected directly; neither asserts the mixed law. Flajolet--Noy crossing generating functions may encode equivalent mixed coefficients, so absolute priority is not claimed.
 
-Acan's archive-era paper defines simple chords, studies chord lengths and crossing degrees, and develops uniform growth models, but its inspected statements do not give the total simple-chord/total-crossing mixed law.
+## value
 
-Flajolet--Noy is broader classical background for crossing moments and component asymptotics. Only abstract-level material was accessible for that source, so it is retained as a residual risk rather than being declared non-covering from snippets alone.
+PASS
 
-## Value
+Simple chords are a natural local isolation statistic and crossings a natural global intersection statistic in the same uniformly random matching. The exact all-test-function Palm identity, monotone negative regression and sharp finite-n correlation explain an otherwise nontrivial local/global dependence and can be reused for nonlinear crossing functionals, beyond two marginal approximations.
 
-PASS. Crossings and simple chords are the two random chord-diagram statistics singled out in the closest modern probability treatment because they exhibit Gaussian and Poisson marginal regimes. The exact Palm identity explains their dependence at finite \(n\) and gives a closed-form correlation without a bivariate generating function.
-
-The identity for every monotone endpoint transform is structurally stronger than one covariance number and is reusable for other crossing functionals. The exact \(n^{-1/2}\) correlation decay quantifies how a local isolated-chord statistic interacts with a global intersection statistic.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK matchings_checked=146599 moment_checks=30 palm_checks=86 stochastic_checks=62 correlation_checks=6`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
