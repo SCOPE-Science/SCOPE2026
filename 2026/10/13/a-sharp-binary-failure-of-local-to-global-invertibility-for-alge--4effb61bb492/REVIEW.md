@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(M(a,b,c)\in E\), the determinant is \(bc(b+c)=0\) over \(\mathbf F_2\). The reflexive-hull calculation is reconstructed from the defining pointwise condition: standard-basis vectors force the five-parameter triangular shape, \(e_2+e_3\) forces \(r+s=t\), and the case analysis proves that this relation is sufficient. Reparametrization gives \(\operatorname{Ref}_a(E)=E\oplus\mathbf F_2I_3\), and the determinant of a general hull element leaves exactly \(I_3\) and \(I_3+E_{21}\) invertible. The included exact verifier independently exhausts all maps for the hull and all subspaces in ambient dimensions \(1\) and \(2\). The block extension is a direct proof for every \(n\ge3\), not an extrapolation from finite computation.
+## correctness
 
-## Originality
-PASS. The motivating 2026 theorem proves local-to-global invertibility for algebraic reflexive hulls in an infinite-field setting and explicitly uses field infinitude in the determinant-polynomial argument. Focused published-finding corpus searches for finite-field, singular-space, invertibility, and reflexive-hull equivalents found no statement covering this binary counterexample. The closest published published-finding corpus item concerns failure of Lie closure of a characteristic-two reflexive hull, which does not imply the invertibility phenomenon here. Bračič's operator-reflexivity work is over complex spaces. The directly relevant recent finite-field record concerns nonsingular three-spaces in \(M_4\), whereas the present space is entirely singular. Residual risk remains that a specialized finite-field operator-space source uses different terminology for the same example.
+PASS
 
-## Value
-PASS. The example isolates exactly the hypothesis used in the motivating proof: infinitude of the field is not cosmetic. It gives a smallest binary ambient dimension, the complete reflexive hull of an explicit three-space, and a uniform extension to every higher binary dimension. These sharpen a new local-to-global theorem by locating a concrete and structurally explained finite-field boundary rather than merely reporting a failed proof technique.
+For F_2^3, E={[[b,0,0],[a,b+c,b],[0,0,c]]:a,b,c in F_2} has determinant bc(b+c)=0 for all eight members. The pointwise hull condition T(v) in E(v) for all eight v is exactly T=[[p,0,0],[q,r,s],[0,0,t]] with r+s=t, hence Ref_a(E)=E+F_2 I and has 16 members. Its only invertibles have p=r=t=1,s=0 and q free, namely I and I+E21. An independently written exhaustive 512-operator-by-eight-vector check confirmed the hull and its two invertibles. Enumerating all 2 subspaces of End(F_2) and all 67 of End(F_2^2) shows that no smaller ambient dimension has identity in the hull of an all-singular linear space; for any invertible hull element its inverse can be used to normalize the identity, so the search proves minimality. For all n>=3 append an arbitrary scalar I on the extra block, preserving singularity and admitting I_n locally by choosing the three-block witness pointwise.
 
-## Closest literature and limitations
-The closest theorem is Hao--Chen's invertibility-transfer lemma and theorem; the closest finite-field material found studies nonsingular matrix spaces rather than all-singular spaces whose reflexive hull gains a unit. The result does not settle odd finite fields and does not classify all binary counterexamples.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating Hao–Chen algebraic-reflexive invertibility-transfer theorem explicitly assumes an infinite field; the finite F_2 example refutes the removed hypothesis, not its theorem. A relevant characteristic-two published finding concerns Lie closure instead of transfer of invertibility. No stronger finite-field linear-space theorem covering this example was identified from actual searches; risk of differently phrased identity-in-reflexive-cover counterexamples remains.
+
+## value
+
+PASS
+
+An explicit smallest-dimension binary obstruction isolates why the infinite-field determinant-polynomial argument cannot be carried to finite fields. Exact hull and invertible-element counts plus minimality make the example a substantive boundary to a natural theorem, rather than an arbitrary matrix curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
