@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a product of finite local rings, comaximality is coordinatewise: two elements are adjacent exactly when their unit-coordinate sets cover all coordinates. The class indexed by \(A\) has size \(S\prod_{i\in A}(q_i-1)\). Each class is a twin class. Because all local factors are nonfields, every class has at least two vertices. For an inclusion-maximal white type \(T\), a blue vertex of the complementary type \(T^c\) has exactly that one white neighbor, so all at-most-one-white profiles force. The quotient matrix is a complemented Boolean disjointness Kronecker matrix and has full rank \(2^r\). The root-multiset inversion correctly handles residue-field order \(2\) via the multiplicity of normalized root \(1\).
+PASS
 
-The packaged verifier exhausts small full graphs, every type profile through four factors, quotient ranks through five factors, and representative parameter reconstructions.
+Let R=product of r finite commutative local nonfields, s_i=|m_i|>=2, q_i=|R_i/m_i|>=2, S=prod s_i. A unit-coordinate pattern A has w_A=S prod_(i in A)(q_i-1) elements and is adjacent to class B iff A union B=[r]. All non-full classes are independent false twins; the full-unit class is a clique true-twin class, so no forcing set leaves >=2 whites in one class. If <=1 white per class, choose an inclusion-maximal white pattern T; a blue vertex of complementary type T^c exists because w_(T^c)>=2 and sees only the white type T, and iteration clears every white. Hence polynomial u^(N-2^r) prod_A(u+w_A), Z=N-2^r. The Boolean cover matrix becomes tensor powers of the invertible 2x2 disjointness matrix under complement permutation, so has rank 2^r; with M<=Z gives mr=2^r. The multiset of negative root magnitudes has min S and 2^r entries; dividing by S reconstructs all subset products of a_i=q_i-1. Multiplicity of root 1 detects factors a_i=1, and greedily stripping the smallest remaining factor recovers the rest with multiplicity, proving inverse recognition. Independent exhaustive graph-level forcing checks for q,s=(2),(2); (3),(3); (2,2),(2,2) reproduced the full polynomial; generality follows from the inclusion-maximal and subset-product proof.
 
-## Originality
+## originality
 
-PASS. The classical comaximal literature studies graph structure, diameter, girth, cycles, and domination. A 2026 structural paper gives the exact Artinian \(H\)-join decomposition and computes Wiener index and adjacency spectrum; it does not study zero forcing. General zero forcing polynomial theory does not supply the arbitrary Boolean-cover forcing classification or the inverse recovery of algebraic parameters. Exact and semantic searches did not locate the accepted factorization, rank equality, or reconstruction statement.
+PASS
 
-Residual risk remains that a purely graph-theoretic paper may treat the identical weighted Boolean-cover blow-up under unrelated terminology.
+The exact Boolean unit-pattern structure was published for comaximal graphs (H-join), but its previously studied spectrum, Wiener, domination and independence polynomials are distinct invariants. The submitted full zero-forcing factorization, matching real minimum rank and inverse residue-order recovery require separate arguments. Earlier chain-graph twin-polynomial result does not dominate these nonbipartite Boolean-cover blowups.
 
-## Value
+## value
 
-PASS. The result is an arbitrary-factor classification on a classical algebraic graph family. It gives the entire zero forcing enumerator, every minimum set, exact maximum nullity and minimum rank, and proves that a graph polynomial recovers the complete residue-field-order multiset even though it cannot recover the individual nilpotent-fiber sizes. The sharp loss of those individual sizes identifies exactly what information this graph family forgets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives a complete natural graph-set enumerator and recovers r, product of maximal-ideal cardinalities and all residue-field orders from a graph polynomial. Such inverse reconstruction describes exactly what a standard combinatorial invariant remembers about a semilocal ring; the inability to recover each s_i separately is an explicit sharp limitation. The H-join structure alone does not make the forcing or inverse result a routine textbook identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
