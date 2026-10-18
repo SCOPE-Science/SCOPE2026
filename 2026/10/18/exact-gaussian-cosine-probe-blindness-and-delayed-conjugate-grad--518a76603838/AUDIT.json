@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Gaussian orthogonal splitting establishes the beta law with rs and (n-r)s degrees of freedom. The loss-angle quadratic has a single interior maximum; both inverse CDF branches are integrated. Beta concentration and a rationalized expression establish all crossover regimes. Orthogonal-projection geometry gives \\(\\mathbb E\\mathcal L\\le\\operatorname{tr}((A-I)^2)/n\\) independent of probe batch size. The Chebyshev-Lobatto barycentric identity establishes exact CG polynomial optimality with positive spectral weights; \\(k^4\\) and \\(k^{10}\\) give loss->0 and k-step energy error->1. For diagonal SPD matrices the source Jacobi smoother is precisely 0.4I per sweep. Standalone reproducibility verifies 938 finite numerical/identity checks; infinite claims rely on proof, not simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Osborne, Guo, Owens and Matusik, arXiv:2605.13343v1; full HTML v1 and v2, §6.1 Eq. (6), §6.2, supplementary §3 on Gaussian probes and two damped-Jacobi sweeps.",
+        "Closest related mathematical record 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c concerns a different adaptive finite-step CG scheme.",
+        "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03 concerns CG on random Haar power-law spectra, not a global angular probe diagnostic."
+      ],
+      "reasoning": "Classical worst-case Chebyshev CG rate proves feasible slow residual behavior when properly weighted but does not state that a particular flattened Gaussian training loss is uniformly small for arbitrarily many probes, nor incorporate its exact Jacobi smoother. The source generic spectral convergence discussion does not imply this diagnostic counterexample.",
+      "searches": [
+        "Cosine Hutchinson Gaussian global probe angular alignment nearly perfect even though conjugate gradient stagnates arbitrarily many iterations using Chebyshev extreme eigenvalues in thin spectral subspace",
+        "Frobenius average relative spectral loss small but worst case conjugate gradient no progress many iterations sparse outlier Chebyshev nodes",
+        "Classical CG Chebyshev minimax polynomial bound and barycentric Lobatto weights",
+        "arxiv:2605.13343v1 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.13343v1 and arxiv:2605.13343v2 full HTML",
+      "arxiv:2510.27517v1 full HTML",
+      "Saad (2003) CG polynomial bound as explicitly cited in source §3",
+      "Accessible historical numerical-analysis claims including 9fc42e9f-1209-48f7-89ef-2e936458a315 and 39df4793-1288-4616-9126-f73941b937e0",
+      "indexed records 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c, 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03, 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae, 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Osborne, Guo, Owens and Matusik, arXiv:2605.13343v1; full HTML v1 and v2, §6.1 Eq. (6), §6.2, supplementary §3 on Gaussian probes and two damped-Jacobi sweeps.",
+        "Yang et al., arXiv:2510.27517v1; full HTML, §3.3 and §4.4 on SAI-style preconditioner losses and cosine comparisons.",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a is row-coherence in diagonal step initialization; it does not imply global cosine probe laws.",
+        "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c computes transient amplification for adaptive CG_AOS, whereas here ordinary CG after k steps and an independent training objective are coupled."
+      ],
+      "reasoning": "The source proves scale invariance and qualitative eigenvalue-clustering motivation, but neither a small-loss implies convergence theorem nor our failure-mode quantitative classification. Existing classical worst-case CG constructions and angular inequalities remain credited, and the claimed original scope is their nontrivial common realization under the exact probe formula and smoothing.",
+      "searches": [
+        "Cosine Hutchinson Gaussian global probe angular alignment nearly perfect even though conjugate gradient stagnates arbitrarily many iterations using Chebyshev extreme eigenvalues in thin spectral subspace",
+        "Frobenius average relative spectral loss small but worst case conjugate gradient no progress many iterations sparse outlier Chebyshev nodes",
+        "Cosine alignment preconditioner Hutchinson probe Frobenius norm can be close to one while condition number diverges diagonal outlier single eigenvalue Gaussian sketch",
+        "Neural preconditioning objective angle MAz z spectral spike hidden under isotropic probes, random sketch finite sample risk phase transition",
+        "arxiv:2605.13343v1 §6.1 Proposition 0 and supplementary §3",
+        "arxiv:2510.27517v1 §4.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Osborne, Guo, Owens and Matusik, arXiv:2605.13343v1; full HTML v1 and v2, §6.1 Eq. (6), §6.2, supplementary §3 on Gaussian probes and two damped-Jacobi sweeps.",
+        "Yang et al., arXiv:2510.27517v1; full HTML, §3.3 and §4.4 on SAI-style preconditioner losses and cosine comparisons.",
+        "Standard chi-square/beta splitting and Kantorovich angular bound cover the two-eigenvalue ingredients; they do not alone establish the growth-scale law joined to the separate CG obstruction."
+      ],
+      "reasoning": "A Gaussian-cosine transformation of a two-level spectrum is equivalent to an angular Kantorovich expression; both beta CDF branches and asymptotic probe-rank scaling are assessed separately from this known reduction. The pointwise CG fact uses k+1 distinct nodes and cannot follow from a two-level construction alone.",
+      "searches": [
+        "Exact Beta CDF cosine angle rank r spectral spike SPD preconditioner and sqrt(n/r) detection threshold",
+        "2026 Hierarchical Transformer Preconditioner cosine Hutchinson loss Gaussian probes rank-one spectral spike exact beta law dimension sqrt n detectability threshold condition number",
+        "arxiv:2605.13343v1 §6.1",
+        "arxiv:2510.27517v1 §3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae is an exact Haar-section radius beta law, not cosine projection loss.",
+        "The earlier Gaussian Nyström logdet error and inverse-covariance Gaussian risk statements have distinct matrices, metrics and algorithms."
+      ],
+      "reasoning": "No checked numerical table or database identifies this global-cosine beta CDF or the coupled uniform-in-probe CG construction. The indexed beta-subspace item concerns a different geometric functional, hence an identical beta-family label does not imply coverage.",
+      "searches": [
+        "Exact Beta CDF cosine angle rank r spectral spike SPD preconditioner and sqrt(n/r) detection threshold",
+        "Cosine alignment preconditioner Hutchinson probe Frobenius norm can be close to one while condition number diverges diagonal outlier single eigenvalue Gaussian sketch",
+        "own historical claim 9fc42e9f-1209-48f7-89ef-2e936458a315",
+        "own historical claim 39df4793-1288-4616-9126-f73941b937e0"
+      ]
+    },
+    "rationale": "Full source §6.1 supplies cosine loss and its scale-invariant geometric interpretation, not its explicit beta-CDF/crossover nor a uniform-probe-count adversarial CG sequence. Classic Kantorovich two-point angular extrema, CG Chebyshev polynomial extremality, and Gaussian beta-ratio facts are credited as previously known components. The new joint quantitative probe-blindness/CG-discrepancy statement was compared by implication against accessible prior claims and current primary papers. No dominating statement was identified; incompleteness of global literature remains a risk.",
+    "residual_risks": [
+      "A global search cannot exclude unindexed or differently phrased probabilistic preconditioner-loss theorems.",
+      "Chebyshev CG extremality and beta angular laws are independently classical; only the stated joint quantitative relation is assessed as new.",
+      "No claim of typical RHS, trained learned-preconditioner behavior, floating-point stability, or general non-diagonal smoothing is supported."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same flattened cosine and probe generation, but no exact beta distribution, sparse-rank phase law or adversarial CG joint construction was found.",
+        "evidence": "Osborne, Guo, Owens and Matusik, arXiv:2605.13343v1; full HTML v1 and v2, §6.1 Eq. (6), §6.2, supplementary §3 on Gaussian probes and two damped-Jacobi sweeps.",
+        "identifier_or_url": "https://arxiv.org/html/2605.13343v1",
+        "material_read": "Full HTML text, §§3,6.1,6.2, supplementary §3, references and relevant theorem/contribution descriptions",
+        "method": "Read HTML full document with focused equation/section examination and version check",
+        "title": "Hierarchical Transformer Preconditioning for Interactive Physics Simulation",
+        "trigger": "Exact global cosine and Jacobi-smoothing protocol"
+      },
+      {
+        "assessment": "Studies a Frobenius-style SAI objective and empirical cosine comparisons rather than an exact flattened Gaussian-cosine distribution or diagonal slow-CG obstruction.",
+        "evidence": "Yang et al., arXiv:2510.27517v1; full HTML, §3.3 and §4.4 on SAI-style preconditioner losses and cosine comparisons.",
+        "identifier_or_url": "https://arxiv.org/html/2510.27517v1",
+        "material_read": "HTML full text, §§3.3,4.4 and comparison sections",
+        "method": "Read primary OA HTML with targeted objective and convergence comparison",
+        "title": "Learning Sparse Approximate Inverse Preconditioners for Conjugate Gradient Solvers on GPUs",
+        "trigger": "Relevant preconditioner-learning objective; competing angular interpretations"
+      },
+      {
+        "assessment": "Classical Chebyshev extremality is prior knowledge; the substantive novel scope concerns the separate globally normalized stochastic diagnostic and joint construction.",
+        "evidence": "Osborne et al. §3 Eq. (1), a classical CG polynomial bound.",
+        "identifier_or_url": "Saad, Iterative Methods for Sparse Linear Systems (2003); also cited in Osborne et al. §3",
+        "material_read": "The explicit CG bound and its classical status as quoted in the full primary source; no claim to have read complete book",
+        "method": "Mathematical comparison of source bound and the explicit weighted Chebyshev construction",
+        "title": "Classical conjugate gradient minimax polynomial bound",
+        "trigger": "Risk of a Chebyshev CG conclusion being a textbook restatement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "518a7660-3838-4bb5-b1da-cd9fd0377f3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact source diagnostic is intended to correlate probe alignment with PCG progress; the theorem quantifies precisely when a small spectral subspace becomes invisible to that globally normalized diagnostic, shows probe batching cannot correct the deterministic blind region, and pairs it with a rigorous arbitrarily delayed ordinary-CG construction. The exact beta distribution gives calibratable finite-size confidence information, while the diagonal-Jacobi observation connects the construction to the source actual probe generation rather than an unrelated unsmoothed proxy. These are motivated, nontrivial limitations of an emerging numerical method, not merely a known condition-number or two-level exercise.",
+    "status": "PASS"
+  }
+}
