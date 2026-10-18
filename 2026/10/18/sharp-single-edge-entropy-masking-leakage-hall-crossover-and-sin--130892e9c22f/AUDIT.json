@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "The exact KKT scaling and positive root determine the unique optimizer for every m,n>=2; nonnegative four-block hard limit exists precisely when p+q<=1. Blockwise L1 differences give TV=2x. Monotonicity in pq and p+q proves the global worst case, with exact rationalized Hall-slack formula and boundary layer. The complete log-column Jacobian has gauge eigenvalue 1 and exactly one nontrivial eigenvalue lambda=(x-pq)^2/[p(1-p)q(1-q)]; two elementary AM–GM inequalities bound it sharply with equality at balanced Hall marginals. Standalone finite checks: 8467 passed, including independent differentiation of the Sinkhorn map; proof, not finite checks, establishes universal scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weed (2018), arXiv:1806.01879, gives general exponential estimates for entropic penalties in LP.",
+        "Corless et al. (2024), arXiv:2404.00003, Section III–VI develops constrained transport and zero-pattern scaling.",
+        "Baradat–Ventre (2022), arXiv:2207.02977, studies Sinkhorn under hard-support incompatibility.",
+        "Tang et al. (2024), arXiv:2403.05054, develops constrained Sinkhorn-type algorithms."
+      ],
+      "reasoning": "The general works apply to broader classes but do not, in the inspected portions, assert this sharp one-cell minimax total-variation constant and coincident sharp local contraction in terms of a single penalty and Hall slack. General formulas can imply pieces after specialization; those pieces are expressly not claimed novel. Lack of an exhaustively checked global literature corpus remains a risk.",
+      "searches": [
+        "Entropic optimal transport with one forbidden matrix entry, soft penalty leakage mass and Hall feasibility boundary square root exponential phase transition",
+        "Entropic transport penalty approximation forbidden edge mass e^{-M/eps} rate vs e^{-M/(2eps)} at boundary",
+        "Single-cell soft-mask Sinkhorn entropy transport rank-one cost exact uniform leakage upper bound sqrt kernel weight and sharp penalty budget all marginals",
+        "Entropic transport single structural zero one cost barrier marginal Hall boundary optimal soft forbidden mass square root penalty transport plan total variation",
+        "Worst-case Sinkhorn alternating scaling rate for one penalized matrix entry across all positive row and column marginals",
+        "general entropy-penalized LP approximation and Sinkhorn contraction bounds"
+      ]
+    },
+    "checked_sources": [
+      "Corless et al. arXiv:2404.00003 full-text sections on hard-zero transport",
+      "Tang et al. arXiv:2403.05054 algorithm and convergence material",
+      "Baradat–Ventre arXiv:2207.02977 limit/convergence portions",
+      "Weed arXiv:1806.01879 penalty estimates",
+      "Lehmann et al. DOI:10.1007/s11590-021-01830-0 accessible textual preview",
+      "Espinosa Mena arXiv:2405.20528 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corless et al. sets actual K_11=0 in a hard-support constrained problem; here t is strictly positive and exact marginal conservation is maintained.",
+        "General Jacobian linearization and two-by-two odds parameterizations yield substeps of the proof; the simultaneous sharp TV and rate worst case plus uniform budget/crossover are the restricted subject of the new theorem.",
+        "The candidate sparse-cost convergence reference Espinosa Mena (2024), arXiv:2405.20528, had abstract accessible but full text not verified."
+      ],
+      "reasoning": "Hard-zero feasibility and generic contraction claims do not state the exact soft approximation error/penalty budget in the full positive-marginal class. Nevertheless, classical projective contraction and contingency-table theorems may imply the rate bound, and an uninspected specialized work could imply the remaining exact statements. The novelty assessment is conditional on retrieved material.",
+      "searches": [
+        "Entropic optimal transport with one forbidden matrix entry, soft penalty leakage mass and Hall feasibility boundary square root exponential phase transition",
+        "Entropic regularized transportation matrix with one exceptional cell, 2x2 aggregated cross ratio and critical marginal square root crossover",
+        "Sinkhorn 2x2 contingency odds ratio maximal correlation second singular value (1-sqrt t)/(1+sqrt t) and forbidden mass leakage tradeoff",
+        "Worst-case Sinkhorn alternating scaling rate for one penalized matrix entry across all positive row and column marginals",
+        "Corless zero-pattern framework vs finite penalty approximation",
+        "Lehmann local Sinkhorn derivative vs exact one-edge worst-case rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The positive entropic KKT solution reduces to a 2x2 contingency table with odds ratio t; its scalar quadratic is supplied in RESULT.md.",
+        "Lehmann et al., A note on overrelaxation in the Sinkhorn algorithm (2021), provides general local Sinkhorn linearization; this derivative is not treated as a novel method."
+      ],
+      "reasoning": "Standard 2x2 Sinkhorn scaling, cross-ratio, and local spectral analysis are prior mathematics. The assessed theorem combines a dimension-free uniform transport-plan TV extremum, necessary/sufficient big-M budget, exact Hall-slack exponent transition, and coincidence with the worst log-Sinkhorn local contraction. Searches did not identify that exact combination; no uniqueness claim follows from search absence.",
+      "searches": [
+        "Constrained Sinkhorn matrix scaling structural zero soft penalty two by two marginal degeneracy exact asymptotic",
+        "Entropic regularized transportation matrix with one exceptional cell, 2x2 aggregated cross ratio and critical marginal square root crossover",
+        "Sinkhorn 2x2 contingency odds ratio maximal correlation second singular value (1-sqrt t)/(1+sqrt t) and forbidden mass leakage tradeoff",
+        "2x2 matrix scaling odds ratios and maximal correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical database is needed: the complete one-edge class has analytic scalar formulas for arbitrary positive marginals.",
+        "Closest accessible mathematical records concern transportation-polytope radii and centers, or quadratic (rather than Shannon-entropic) OT dual conditioning."
+      ],
+      "reasoning": "The result is an exact parametric classification, not a recomputation of a finite numerical table. Searches did not locate a table containing the joint extremal constants. Algebraically equivalent tabulations in specialized matrix-scaling literature cannot be excluded.",
+      "searches": [
+        "One edge forbidden transportation polytope Hall facet entropy regularization square root boundary layer minimax leakage",
+        "Entropic transport single structural zero one cost barrier marginal Hall boundary optimal soft forbidden mass square root penalty transport plan total variation",
+        "Sinkhorn 2x2 contingency odds ratio maximal correlation second singular value (1-sqrt t)/(1+sqrt t) and forbidden mass leakage tradeoff",
+        "exact one-edge soft Sinkhorn table constrained marginals"
+      ]
+    },
+    "rationale": "Published material establishes forbidden-edge Sinkhorn, general entropic penalties, 2x2 scaling, and local Sinkhorn Jacobians. None of the specifically inspected statements covered the combined exact dimension-free single-edge TV budget, Hall-slack crossover and coincident full-sweep local convergence worst case. The claim is carefully restricted to that combined classification. Sparse matrix-scaling literature is substantial; incomplete full-text access creates an explicit publication-priority risk, so this is not a proof of global novelty.",
+    "residual_risks": [
+      "Exact 2x2 scaling and local Sinkhorn rates are classical; the only claimed increment is their sharp coupled one-cell soft-mask classification, not those ingredients.",
+      "The 2024 sparse-cost Sinkhorn paper could not be checked in full; no full-text NOT_COVERING conclusion is drawn.",
+      "Unindexed matrix-scaling, contingency-table and projective-metric literature might yield equivalent specialized formulas; self-review is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the sharp finite-one-cell penalty TV and local-rate tradeoff in inspected statements",
+        "evidence": [
+          "Sections III–VI; hard support constraints K_ij=0 and modified Sinkhorn recurrences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.00003",
+        "material_read": "ArXiv HTML introduction, constrained-OT setup and equations for zero constraints, Sections III through VI on feasibility, KL and scaling; first-post date in primary record",
+        "method": "Full-text HTML reading and comparison of hard zeros with strictly positive penalty kernel",
+        "title": "Algorithms for constrained optimal transport",
+        "trigger": "Primary motivating study of forbidden transport edges and their Sinkhorn treatment"
+      },
+      {
+        "assessment": "General constrained algorithms do not explicitly give this one-edge exact worst-case joint classification in inspected portions",
+        "evidence": [
+          "PDF algorithm/convergence discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.05054",
+        "material_read": "Accessible PDF algorithm and convergence portions, abstract and relevant pages, including first and later pages inspected visually",
+        "method": "PDF text and visual page inspection, comparing constrained formulation and theorem scope",
+        "title": "A Sinkhorn-type Algorithm for Constrained Optimal Transport",
+        "trigger": "Plausible algorithmic covering result on constrained transport"
+      },
+      {
+        "assessment": "Addresses hard-support incompatibility and alternating limiting plans, not the stated positive single-cost-cell exact minimax",
+        "evidence": [
+          "Hard-support incompatibility setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.02977",
+        "material_read": "PDF abstract/introduction and relevant limit-plan/convergence statements, first page also visually inspected",
+        "method": "Extracted PDF text and direct visual inspection",
+        "title": "Convergence of the Sinkhorn algorithm when the Schrödinger problem has no solution",
+        "trigger": "Hard-zero support and possible infeasible marginal implications"
+      },
+      {
+        "assessment": "Broader entropic LP bounds are acknowledged and not claimed new; special sharp one-edge TV and local-rate coupling not found in inspected portions",
+        "evidence": [
+          "Entropic LP exponential penalty theorem and problem-dependent constants"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.01879",
+        "material_read": "PDF abstract, main estimates and arguments around entropic exponential approximation; first page visually inspected",
+        "method": "PDF text and visual inspection; compare constants and norms",
+        "title": "An explicit analysis of the entropic penalty in linear programming",
+        "trigger": "Potential more general entropic penalty bounds subsuming leakage rate"
+      },
+      {
+        "assessment": "General Jacobian is prior work and explicitly acknowledged; the new claim is not the existence of that Jacobian",
+        "evidence": [
+          "Known local Sinkhorn spectral contraction analysis"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11590-021-01830-0",
+        "material_read": "Accessible textual preview identifying Jacobian and local convergence, not a complete publisher PDF",
+        "method": "Textual review of formulation and rate relation",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "General linearized Sinkhorn spectrum and local rates may dominate a special rate claim"
+      },
+      {
+        "assessment": "Unresolved priority risk; not treated as evidence of non-coverage",
+        "evidence": [
+          "Abstract and title only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.20528",
+        "material_read": "Bibliographic title/abstract; full text was not retrieved",
+        "method": "Abstract-only, no negative full-text coverage inference",
+        "title": "On the Convergence of the Sinkhorn Algorithm with Sparse Cost Matrices",
+        "trigger": "Plausible specialized sparse-kernel work relevant to priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "130892e9-c22f-4179-bdbe-ae42dcabb3e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Replacing forbidden edges with finite large-M costs is a motivated optimization practice. The exact dimension-free penalty budget quantifies mass leakage while preserving both marginals; the Hall-boundary crossover distinguishes square-root from linear exponential leakage; and the coincident slowest local Sinkhorn factor quantifies a concrete conditioning cost of stronger masking. These are natural sharp tradeoffs on a complete, non-arbitrarily-chosen one-edge model, beyond correctness or a routine sample computation. No claim of practical algorithm acceleration or general sparse-mask theory is made.",
+    "status": "PASS"
+  }
+}
