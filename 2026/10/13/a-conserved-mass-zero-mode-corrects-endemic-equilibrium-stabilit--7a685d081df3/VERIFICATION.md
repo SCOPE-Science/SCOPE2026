@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-q=1-\frac1{\mathcal R_0},
-\qquad
-\beta=\gamma\mathcal R_0,
-\]
-the zero-mode matrix is
-\[
-M_0=
-\begin{pmatrix}
--\beta q^2 & \gamma q\\
-\beta q^2 & -\gamma q
-\end{pmatrix}.
-\]
-Its determinant is exactly zero and its trace is
-\[
--\beta q^2-\gamma q
-=
--\gamma(\mathcal R_0-1).
-\]
+# Independent mathematical audit
 
-The two exact homogeneous eigenvectors are
-\[
-\begin{pmatrix}1\\ \mathcal R_0-1\end{pmatrix}
-\quad\text{with eigenvalue }0,
-\]
-and
-\[
-\begin{pmatrix}1\\-1\end{pmatrix}
-\quad\text{with eigenvalue }-\gamma(\mathcal R_0-1).
-\]
-The first changes total mass; the second has zero total perturbation.
+## correctness
 
-For positive spatial modes,
-\[
-B_l=f_*g_*l^4+
-\bigl(f_*\gamma q+g_*\beta q^2\bigr)l^2>0,
-\]
-while
-\[
-B_0=0.
-\]
-Thus the source's claim that \(B_l\) is positive for all Neumann modes cannot include \(l=0\).
+PASS
 
-The bundled checker verifies these identities using exact rational arithmetic for multiple admissible rational values of \(\mathcal R_0\), \(\gamma\), \(f_*\), \(g_*\), and \(l\). The general proof is algebraic and appears in `RESULT.md`.
+Source Lemma4.1 modal matrix [[-f*l²-beta*q²,gamma*q],[beta*q²,-g*l²-gamma*q]] with q=1-1/R0>0 gives characteristic lambda²+A_l lambda+B_l with A_l>0 and B_l=f*g*l^4+(f*gamma*q+g*beta*q²)*l². Therefore B_0=0, eigs at l=0 are 0 and -gamma(R0-1), neutral eigenvector (1,R0-1). Differentiating exact nonlinear constant endemic family E_M=(M/(R0|Omega|),q*M/|Omega|) yields same tangent vector. Nearby E_M with M!=N stay distinct forever and cannot converge to E_N, refuting ambient asymptotic stability. On fixed-mass leaf the neutral direction excluded and for l>0 both A_l,B_l positive (connected domain). Independent exact rational eigenvalue and mass-identity checks confirmed key algebra; no claim of full nonlinear global/orbital stability.
+
+## originality
+
+PASS
+
+The primary 2026 Liu–Wang–Zhang text explicitly states mass conservation and E_N while its Lemma4.1 proof asserts both modal characteristic coefficients strictly positive for all Neumann l>=0. Taking l=0 in its printed formula directly contradicts that assertion. Allen et al 2008 and Li–Peng–Xiang 2020 address fixed-mass SIS context and do not constitute a source-specific published correction to this lemma. A full fixed-mass stability interpretation may already be valid in the original invariant state space; the contribution is the exact missing zero mode and ambient-domain clarification, not a claim that all threshold dynamics fail.
+
+## value
+
+PASS
+
+The neutral mass-changing mode is a structural conservation-law feature of epidemic diffusion. Correcting a central published stability lemma and distinguishing ambient from fixed-mass asymptotic stability prevents a real spectrum/phase-space error. This is mathematically motivated beyond a routine sign check because it supplies the exact equilibrium manifold and eigenvectors and the appropriate mass-leaf restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
