@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Analytical and executable verification
 
-The packaged `verify.py` verifies the polynomial energy derivative, the scalar height equation, the characteristic polynomial at the equilibrium, and the algebraic obstruction on a hypothetical constant-height oscillator interval. Execute `python verify.py` with SymPy installed (for instance from `requirements.txt`). That check has been run successfully for the packaged source code.
+# Independent mathematical audit
 
-For arbitrary real \(a\) and strictly positive \(b\), the proof in `RESULT.md` then uses the bounded-solution integrating factor, the nonempty compact invariant \(\omega\)-limit set, and an invariant-set contradiction. Those passages are analytic; no finite numerical run is claimed as an infinite-time certificate. The proof does not establish bounded dynamics when \(a>0\), nor blowup or escape rates when no bounded trajectory exists.
+## correctness
+
+PASS
+
+The exact identities E=(x²+y²)/2, E'=y² z, Q=b+y²-a x², z'=z-Q are independently recomputed. Every bounded forward orbit obeys future filter z(t)=∫_0∞e^-s Q(t+s)ds. If z is eventually nonnegative then E is eventually nondecreasing and bounded; its compact ω-limit has E constant so y²z=0. A complete nonzero-y arc there would force z=0, a x²-y²-b=0, and derivative 2(a+1)xy=0; a=-1 contradicts b>0 and other a contradict x'=y. Thus only the equilibrium e=(0,0,b) can remain; eventual z>=0 forces the actual orbit stationary. Every nonstationary bounded orbit therefore visits z<0 and Q<0 arbitrarily late. Passing to its nontrivial compact ω-limit and a complete limit orbit upgrades these arbitrarily late sign crossings to strict liminf z<0 and limsup (a x²-y²)>b. If a<=0 pumping is impossible, giving only e; for a>0 necessary |x|>sqrt(b/a) somewhere on ω. Exact independent symbolic calculations reproduced E', z'-relation and the 2(a+1)xy derivative. There is no claim that this necessary condition ensures existence of bounded a>0 dynamics.
+
+## originality
+
+PASS
+
+Best-of-knowledge original infinite-time all-bounded-orbit recurrent-sector restrictions for the precisely normalized single-unstable-node quadratic flow. Sprott et al. 2015 introduce equation (9) and numerically exhibit attracting sets at selected positive a; their reported average height constraints do not imply strict necessary excursions of ALL bounded forward trajectories, nor global exclusion at a<=0. Related generalized Sprott Resultary records are different polynomial flows. 2021 Chen et al. HTML loses some formulas and leaves residual coverage risk.
+
+## value
+
+PASS
+
+Global rigorous obstruction replaces a parameter scan with an all-orbit theorem, constraining compact invariant sets and stationary measures; such necessary sectors are relevant even without proving existence for a>0. The strict asymptotic margins are stronger and naturally useful compared with period-wise numerical observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

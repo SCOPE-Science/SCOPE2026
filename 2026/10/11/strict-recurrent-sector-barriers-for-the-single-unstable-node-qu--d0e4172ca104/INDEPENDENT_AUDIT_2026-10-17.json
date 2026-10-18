@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:19:06.754244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact identities E=(x²+y²)/2, E'=y² z, Q=b+y²-a x², z'=z-Q are independently recomputed. Every bounded forward orbit obeys future filter z(t)=∫_0∞e^-s Q(t+s)ds. If z is eventually nonnegative then E is eventually nondecreasing and bounded; its compact ω-limit has E constant so y²z=0. A complete nonzero-y arc there would force z=0, a x²-y²-b=0, and derivative 2(a+1)xy=0; a=-1 contradicts b>0 and other a contradict x'=y. Thus only the equilibrium e=(0,0,b) can remain; eventual z>=0 forces the actual orbit stationary. Every nonstationary bounded orbit therefore visits z<0 and Q<0 arbitrarily late. Passing to its nontrivial compact ω-limit and a complete limit orbit upgrades these arbitrarily late sign crossings to strict liminf z<0 and limsup (a x²-y²)>b. If a<=0 pumping is impossible, giving only e; for a>0 necessary |x|>sqrt(b/a) somewhere on ω. Exact independent symbolic calculations reproduced E', z'-relation and the 2(a+1)xy derivative. There is no claim that this necessary condition ensures existence of bounded a>0 dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sprott et al. primary equation (9) is the same ODE and studies numerical positive-a chaotic regimes and local equilibrium stability.",
+          "Neither its parameter simulations nor divergence-average observations quantify all bounded forward trajectories for every a and b>0."
+        ],
+        "reasoning": "Numerical existence or average divergence does not imply pointwise liminf z<0 and limsup pumping sector>b on every nonstationary bounded orbit.",
+        "searches": [
+          "Sprott Jafari Pham Hosseini A chaotic system with a single unstable node 2015 equation 9",
+          "Chen et al Dynamical Analysis and Periodic Solution of a Chaotic System with Coexisting Attractors 2021",
+          "Resultary: global bounded dynamics single unstable node Sprott a<=0"
+        ]
+      },
+      "checked_sources": [
+        "https://sprott.physics.wisc.edu/pubs/paper430.pdf",
+        "https://doi.org/10.1155/2021/9948488",
+        "Resultary query: Sprott Jafari Pham Hosseini a chaotic system single unstable node quadratic flow bounded trajectories z<0 necessary a>0 sector"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sprott et al. equation (9) matches the ODE; the article reports chaos/local equilibria and numerical parameter regions, not the omega-limit rigidity proof.",
+          "The exact future-filter identity and invariant z>=0 rigidity are the decisive additional steps."
+        ],
+        "reasoning": "Earlier local and numerical facts are logically insufficient to force global nonexistence of bounded forward trajectories for a<=0.",
+        "searches": [
+          "https://sprott.physics.wisc.edu/pubs/paper430.pdf",
+          "doi:10.1155/2021/9948488"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The future-filter equality z(t)=∫e^-s[b+y²-ax²](t+s)ds is equivalent to the bounded-solution Green-function inversion of dz/dt-z=-Q, not a past-directed stability formula.",
+          "Resultary cone-crossing reversible jerk findings concern a different polynomial with different equilibria/parameters."
+        ],
+        "reasoning": "There is no identified exact change of variables that makes published different Sprott-family recurrence bounds imply these two fixed-sector inequalities.",
+        "searches": [
+          "Resultary: Sprott Jafari Pham Hosseini a chaotic system single unstable node quadratic flow bounded trajectories z<0 necessary a>0 sector",
+          "dissipative quadratic jerk z plus y squared invariant recurrence threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original parameter plot locates small bounded regimes but is a finite parameter scan, not an exhaustive analytical table in a.",
+          "The theorem is a universal invariant-set exclusion for a<=0, not recomputation of a known attractor catalogue."
+        ],
+        "reasoning": "No exact original table of strict all-orbit sector bounds was identified.",
+        "searches": [
+          "Resultary: strict recurrent-sector barriers single-unstable-node quadratic flow",
+          "Sprott 2015 single unstable node parameter diagram compact recurrence a b"
+        ]
+      },
+      "rationale": "Best-of-knowledge original infinite-time all-bounded-orbit recurrent-sector restrictions for the precisely normalized single-unstable-node quadratic flow. Sprott et al. 2015 introduce equation (9) and numerically exhibit attracting sets at selected positive a; their reported average height constraints do not imply strict necessary excursions of ALL bounded forward trajectories, nor global exclusion at a<=0. Related generalized Sprott Resultary records are different polynomial flows. 2021 Chen et al. HTML loses some formulas and leaves residual coverage risk.",
+      "residual_risks": [
+        "Chen et al. 2021 available HTML lacked some mathematical displays; exact possible generalization not fully excluded.",
+        "No dynamics-existence claim for a>0; mathematical statement is necessary-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original dynamics source but does not on inspected theorem/parameter discussion give all-bounded forward-orbit sector barriers",
+          "evidence": "Original 2015 study emphasizes parameter-selected numerically observed chaos and related bounded sets.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper430.pdf",
+          "material_read": "Primary 7-page paper text including equation (9), local equilibrium discussion, numerical parameter search and selected figure panels",
+          "method": "Author-hosted primary PDF with page screenshots",
+          "title": "A chaotic system with a single unstable node",
+          "trigger": "Exact identical quadratic ODE, original equation (9)"
+        },
+        {
+          "assessment": "Not established to dominate; residual risk of unrecognized variant",
+          "evidence": "Reports equilibria and periodic orbit analysis in related system; not a verified theorem for exact equation (9).",
+          "identifier_or_url": "https://doi.org/10.1155/2021/9948488",
+          "material_read": "Accessible HTML abstract, equations/section headings and analysis outline; mathematical displays incompletely extracted",
+          "method": "Lawful primary full HTML limited by missing rendered formulas",
+          "title": "Dynamical Analysis and Periodic Solution of a Chaotic System with Coexisting Attractors",
+          "trigger": "Related three-dimensional quadratic flow and possibility of stronger recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global rigorous obstruction replaces a parameter scan with an all-orbit theorem, constraining compact invariant sets and stationary measures; such necessary sectors are relevant even without proving existence for a>0. The strict asymptotic margins are stronger and naturally useful compared with period-wise numerical observations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://sprott.physics.wisc.edu/pubs/paper430.pdf",
+    "https://doi.org/10.1155/2021/9948488",
+    "Resultary query: Sprott Jafari Pham Hosseini a chaotic system single unstable node quadratic flow bounded trajectories z<0 necessary a>0 sector"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "b>0 and a any real; forward bounded orbit defined for all t>=0",
+    "a<=0 implies no nonstationary bounded forward orbit, not universal finite-time blow-up",
+    "Whole Git directory enumeration was unavailable."
+  ],
+  "residual_risks": [
+    "Chen et al. 2021 available HTML lacked some mathematical displays; exact possible generalization not fully excluded.",
+    "No dynamics-existence claim for a>0; mathematical statement is necessary-only."
+  ],
+  "schema_version": 1
+}
