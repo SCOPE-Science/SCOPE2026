@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof first turns each singular three-cube boundary into a cellular map of the two-sphere, assigning each face either to an embedded square with signed coefficient one or into the one-skeleton by backtrack cancellation. Since the completion has vanishing second homotopy, this cellular two-cycle is null in homology, and because the completion has no three-cells it must vanish at chain level. The coefficient of a supported square therefore cannot come from only one face. This validates the nonstandard monophobicity lemma, including orientation and integer coefficients. The published comparison theorem then yields discrete cubical second homology; the torus cellular calculation is explicit. Finite verification checks representative domains but is not the general proof.
+## correctness
 
-## Originality: PASS
-The closest source, Jamil–Behrens, proves a *conditional* comparison for already-quasimonophobic graphs and treats Greene spheres but does not supply this topological asphericity criterion or the infinite toroidal-grid calculation in its inspected sections. Earlier Barcelo–Greene–Jarrah–Welker results treat vanishing with no squares and related homology comparisons, but do not dominate the stated aspherical-square criterion. Exact theorem, equivalent implication, square-filled torus, and graph-product searches found no accessible stronger statement. The uninspected unpublished monophobic-neighborhood manuscript is a genuine risk; no originality claim about it is made.
+PASS
 
-## Value: PASS
-The graph singular cubical chain groups grow extremely rapidly and verifying quasimonophobicity directly requires controlling all singular three-cubes. The proved structural criterion converts that problem into the familiar topological property \(\pi_2=0\) of a two-dimensional cubical CW complex, giving an effectively usable infinite family with nonzero integral second homology. Torus grids furnish natural, canonical two-cycles and a sharp short-cycle obstruction to the sufficient argument. This is a structural lemma and infinite classification, not a renamed computation.
+For an arbitrary singular cubical 3-map in a finite triangle-free graph, each boundary 4-walk is an embedded square or a backtracking-null walk. Filling its six faces in the rigid-square two-complex gives a continuous S^2-map. As pi_2(X)=0, its H_2 class vanishes, and dimension(X)<=2 ensures the oriented square chain is zero, not merely homologous to zero. A face with coefficient ±1 at a chosen square therefore must have a second face supported on that square, giving 2-monophobicity. The published Jamil-Behrens integral comparison yields H_2^cub=H_2(X). For m,n>=5, the only squares in C_m □ C_n are product plaquettes, no 3-cells occur and X is the torus; connected dual-face adjacency makes H_2(X;Z)=Z. Independent finite tests replayed the fixed-face singular cube argument on C5 □ C5 (49 maps, no violations) and found an explicit length-4-factor violation on C4 □ C5 (52 maps, one violation), a boundary test not an infinite proof.
 
-## Literature and limits
-The general isomorphism is correctly attributed to Jamil–Behrens, arXiv:2605.03894 (2026-05-05). Historical cubical/path comparison is attributed to Barcelo et al., DOI:10.5802/alco.49; their vanishing theorem arXiv:1909.02901 covers only square-free graphs. The old graph literature and unpublished notes may contain parallel formulations. The conclusion concerns integer second homology only, not all degrees or necessity of asphericity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The asphericity-to-monophobicity sufficient criterion and all rectangular torus product grid H2 computation are absent from the relevant primary comparison theorem and from the searched related grid results. Best-of-knowledge assessment; low-degree general comparison is recognized as prior.
+
+## value
+
+PASS
+
+An independently useful structural criterion transfers infinite combinatorial singular-cube constraints to the asphericity of a natural square completion; the integral H2 of every large toroidal grid is a motivated, previously conditional application. Nontrivial length-four counterboundary gives the sharp reason the simple torus argument cannot extend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

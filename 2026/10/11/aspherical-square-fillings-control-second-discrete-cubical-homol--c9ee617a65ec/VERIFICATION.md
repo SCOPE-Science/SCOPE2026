@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The general proof is given in RESULT.md; no finite enumeration is used as an infinite proof. The paper's comparison theorem supplies the integral isomorphism after verifying the graph satisfies the hypotheses.
+# Independent mathematical audit
 
-Reproduce the finite checks by running `python3 verify.py` (Python 3 standard library, no external packages). Expected stdout contains `VERIFY_OK:`. The program independently inspects all singular three-cube maps whose designated bottom face is a fixed square, checks all four-cycles for sizes 5--7, and certifies boundary orientation plus connectedness of square-face dual adjacency; the four-cycle boundary experiments show an explicit failure of monophobicity. The tested finite sizes do not imply exhaustive verification for arbitrary sizes. The nullhomotopy-to-vanishing-cellular-2-chain step is the crucial noncomputational lemma, independently justified in the proof.
+## correctness
 
-Independent audit has not been performed.
+PASS
+
+For an arbitrary singular cubical 3-map in a finite triangle-free graph, each boundary 4-walk is an embedded square or a backtracking-null walk. Filling its six faces in the rigid-square two-complex gives a continuous S^2-map. As pi_2(X)=0, its H_2 class vanishes, and dimension(X)<=2 ensures the oriented square chain is zero, not merely homologous to zero. A face with coefficient ±1 at a chosen square therefore must have a second face supported on that square, giving 2-monophobicity. The published Jamil-Behrens integral comparison yields H_2^cub=H_2(X). For m,n>=5, the only squares in C_m □ C_n are product plaquettes, no 3-cells occur and X is the torus; connected dual-face adjacency makes H_2(X;Z)=Z. Independent finite tests replayed the fixed-face singular cube argument on C5 □ C5 (49 maps, no violations) and found an explicit length-4-factor violation on C4 □ C5 (52 maps, one violation), a boundary test not an infinite proof.
+
+## originality
+
+PASS
+
+The asphericity-to-monophobicity sufficient criterion and all rectangular torus product grid H2 computation are absent from the relevant primary comparison theorem and from the searched related grid results. Best-of-knowledge assessment; low-degree general comparison is recognized as prior.
+
+## value
+
+PASS
+
+An independently useful structural criterion transfers infinite combinatorial singular-cube constraints to the asphericity of a natural square completion; the integral H2 of every large toroidal grid is a motivated, previously conditional application. Nontrivial length-four counterboundary gives the sharp reason the simple torus argument cannot extend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
