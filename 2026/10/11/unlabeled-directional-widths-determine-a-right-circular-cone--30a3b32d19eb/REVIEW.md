@@ -1,19 +1,21 @@
-# Review of the circular-cone width law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all positive cone radii and altitudes, the two support branches follow directly from the base disk and apex. Their monotone intervals and inverse Jacobians yield the full probability density, including overlapping image intervals. Exact comparisons of branch endpoints give the threshold \(h/r=\sqrt3\). The lower-support-edge density is zero on the broad branch and strictly positive on the slender branch; solving the endpoint equations then proves injection of the complete width law and the precise two-realization classification from endpoints. The proof covers \(h/r=1\) and \(h/r=\sqrt3\) explicitly. The extracted package's standard-library verifier passed 11140 supplementary numerical checks. Finite tests are not relied on for universal quantifiers.
+PASS
 
-## Originality — PASS, with residual literature risk
+C: z=|axial cosine| is uniform [0,1]; support-function subtraction gives W/r=a+max(a,kz), a=√(1−z²), k=h/r. Split at z0=1/√(1+k²), and for k>1 at zm=k/√(1+k²). Inverse-Jacobian branches C,B,A give exact nonnegative piecewise density integrating to 1. Global minima/maxima switch simultaneously at k=√3; L,U formulas agree by direct extremization. At lower edge, if k<√3 density tends to zero, whereas for k≥√3 its right limit is (k/2+k/(k²−1))/r>0. Thus edge law identifies regime and reconstructs (r,h). In strict support-ratio regime both broad and slender solutions exist, unique within their branch. Independent direct directional grid and numerical quadrature confirmed normalization for k=.4,1,1.3,√3,2.2,5; proof is analytic for all ratios.
 
-The inspected complete 2015 manuscript of Kim–Yaskin–Zvavitch concerns distribution functions of hyperplane-section and hyperplane-projection *areas*, not the one-dimensional random widths of finite cones. Pennell–Deignan's cone projection calculations concern planar projected area, while the abstract of Vickers–Brown concerns planar area and perimeter distributions; neither accessible statement entails this exact density and full inverse classification. Available research-record similarity searches against cone widths, line-projection distributions, exact aliases, and inverse geometric tomography disclosed no covering statement. Vickers–Brown was not accessible in full, so a prior equivalent width computation is an explicit residual risk. Absence of search hits is not treated as proof of historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A complete natural two-parameter inverse classification under discarded orientation labels is substantively more informative than a routine expected-width integral. The exact two-to-one ambiguity for minimum/maximum width supplies a sharp failure-of-reconstruction boundary; the full density's lower-edge phase transition repairs the loss without supplying directional labels. The question connects directly to distributional geometric tomography of restricted convex-body families.
+O: Inspected full Kim–Yaskin–Zvavitch concerns orientation-unlabeled hyperplane projection volumes and nonuniqueness for general bodies, not right circular cone line-width injection. Primary studies of cone planar projected area/perimeter are different measurements. Strongest similar exact width results returned for cubes and octahedra, not cones.
 
-## Closest literature and limitations
+## value
 
-See the three bibliographical sources in `RESULT.md` and the structured scientific comparisons in `AUDIT.json`. No claim is made for arbitrary convex bodies or noisy finite-sample inverse reconstruction. The potentially relevant 2001 planar-projection paper was seen only at abstract level; its complete statements have not been checked.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+V: Solves a natural geometric tomography identifiability problem for a canonical two-parameter convex family, with sharp failure when retaining only extrema and a precise local density statistic needed to restore uniqueness. An exact self-contained all-aspect-ratio inverse invariant is useful independent of general-body reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

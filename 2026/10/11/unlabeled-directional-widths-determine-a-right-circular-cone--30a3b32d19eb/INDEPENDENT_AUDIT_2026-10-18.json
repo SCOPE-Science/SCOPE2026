@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb/verify.py"
+      ],
+      "rationale": "C: z=|axial cosine| is uniform [0,1]; support-function subtraction gives W/r=a+max(a,kz), a=√(1−z²), k=h/r. Split at z0=1/√(1+k²), and for k>1 at zm=k/√(1+k²). Inverse-Jacobian branches C,B,A give exact nonnegative piecewise density integrating to 1. Global minima/maxima switch simultaneously at k=√3; L,U formulas agree by direct extremization. At lower edge, if k<√3 density tends to zero, whereas for k≥√3 its right limit is (k/2+k/(k²−1))/r>0. Thus edge law identifies regime and reconstructs (r,h). In strict support-ratio regime both broad and slender solutions exist, unique within their branch. Independent direct directional grid and numerical quadrature confirmed normalization for k=.4,1,1.3,√3,2.2,5; proof is analytic for all ratios.",
+      "residual_risks": [
+        "Solid right circular cone in R³, r,h>0, Haar-uniform unoriented line directions; density values at breakpoints arbitrary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convex-body unlabeled projection volume distributions can be noninjective.",
+          "The cone theorem proves injectivity only for solid right circular cones using density near support minimum."
+        ],
+        "reasoning": "Broad nonuniqueness results do not imply restricted-family injectivity; plane area/perimeter laws for cones do not dominate the specific 1D law.",
+        "searches": [
+          "uniform random line projection width distribution solid right circular cone radius height inverse reconstruction",
+          "https://doi.org/10.1098/rspa.2000.0667"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1512.07289v1",
+        "https://doi.org/10.1098/rspa.2000.0667",
+        "https://doi.org/10.1137/1031052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Support endpoints have two cone realizations except h/r=√3; zero vs positive lower-edge density separates them.",
+          "Published unconstrained tomography nonuniqueness and 2D projection-area computations lack this threshold/equality analysis."
+        ],
+        "reasoning": "The branchwise 1D pushforward density and explicit inverse are new non-implied information relative to inspected primary results; inaccessible Vickers–Brown full article is named as risk.",
+        "searches": [
+          "uniform random line projection width distribution solid right circular cone radius height inverse reconstruction",
+          "https://arxiv.org/abs/1512.07289v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haar-uniform 3D direction has |u_3|∼Uniform[0,1]; exact cone width is r[√(1−z²)+max(√(1−z²),kz)].",
+          "Kim–Yaskin–Zvavitch Section 3 discusses unlabeled distributions of hyperplane projections, not this one-dimensional cone width pushforward."
+        ],
+        "reasoning": "Searched aliases random Feret diameter/line projections/directional widths and geometric tomography; planar brightness is not one-dimensional width in R³.",
+        "searches": [
+          "uniform random line projection width distribution solid right circular cone radius height inverse reconstruction",
+          "https://arxiv.org/abs/1512.07289v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Piecewise density has inverse branches with C=w/(2√(4−w²)), B=(w/√(1+k²−w²)−k)/(1+k²), A=(k+w/√(1+k²−w²))/(1+k²).",
+          "Resultary search returned cone submission and other 3D cube/octahedron width laws, not a matching cone width table."
+        ],
+        "reasoning": "A finite directional database cannot imply the every-(r,h) inverse or sharp two-to-one support ambiguity. No matching exact cone table in checked records.",
+        "searches": [
+          "uniform random line projection width distribution solid right circular cone radius height inverse reconstruction",
+          "Resultary random line cone width reconstruction search"
+        ]
+      },
+      "rationale": "O: Inspected full Kim–Yaskin–Zvavitch concerns orientation-unlabeled hyperplane projection volumes and nonuniqueness for general bodies, not right circular cone line-width injection. Primary studies of cone planar projected area/perimeter are different measurements. Strongest similar exact width results returned for cubes and octahedra, not cones.",
+      "residual_risks": [
+        "Vickers–Brown 2001 cone projected area/perimeter full article inaccessible after lawful OA and authorized institution attempts; might conceal same line-width law.",
+        "Exact probability law only: no finite-sample stability, no oblique or hollow/infinite cones, no higher dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CONE_WIDTH_RECONSTRUCTION",
+          "evidence": "Studies distribution of hyperplane projection volumes / section volumes in general, and shows failures of uniqueness in larger classes; not the 3D line-projection length law or right-circular-cone inverse rule.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.07289v1",
+          "material_read": "Full 24-page legal arXiv PDF; sections 1 and 3 and theorem statements read with page inspection",
+          "method": "ArXiv PDF material inspected, including projection-distribution nonuniqueness statements",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Most relevant direction-unlabeled projection inverse problem"
+        },
+        {
+          "assessment": "POTENTIAL_COVERAGE_UNRESOLVED",
+          "evidence": "Focuses on 2D projection area and perimeter, distinct observables from line-width; unread full source could contain additional line-width results and is a residual priority risk.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+          "material_read": "Abstract and indexing metadata only; full paper inaccessible",
+          "method": "OA/preprint retrieval then authorized institution request, VPN disconnected",
+          "title": "The Distribution of Projected Area and Perimeter of Convex, Solid Particles",
+          "trigger": "Explicit solid cone projected measurement might include line widths as a special case"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Computes planar projected area of cone at specified orientation, which is not the orientation-unlabeled 1D line width distribution.",
+          "identifier_or_url": "https://doi.org/10.1137/1031052",
+          "material_read": "Publication abstract and description, not complete theorem text",
+          "method": "Search and bibliographic abstract",
+          "title": "Computing the Projected Area of a Cone",
+          "trigger": "Cone projection formula potentially equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/unlabeled-directional-widths-determine-a-right-circular-cone--30a3b32d19eb/RESULT.md"
+      ],
+      "rationale": "V: Solves a natural geometric tomography identifiability problem for a canonical two-parameter convex family, with sharp failure when retaining only extrema and a precise local density statistic needed to restore uniqueness. An exact self-contained all-aspect-ratio inverse invariant is useful independent of general-body reconstruction.",
+      "residual_risks": [
+        "Vickers–Brown 2001 cone projected area/perimeter full article inaccessible after lawful OA and authorized institution attempts; might conceal same line-width law.",
+        "Exact probability law only: no finite-sample stability, no oblique or hollow/infinite cones, no higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Solid right circular cone in R³, r,h>0, Haar-uniform unoriented line directions; density values at breakpoints arbitrary."
+  ],
+  "schema_version": 1
+}

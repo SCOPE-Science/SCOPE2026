@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer; the script requires no additional package. The completed run printed `VERIFY_OK 11140 finite checks; analytic proof in RESULT.md`.
+## correctness
 
-The verifier implements the projected width from the geometric support function independently from the inverse-image cumulative distribution. For 35 cone aspect ratios, including the two branch thresholds and their nearby perturbations, it compares a 180001-point axial-cosine grid to the inverse-image cumulative distribution at 121 interior thresholds; differentiates the distribution numerically at up to 70 noncritical points; and checks support bounds, exact reconstruction, and the distinct same-endpoints counterpart. A fixed pseudo-random seed makes the tests reproducible. The all-parameter density, endpoint formulas, inversion and sharp ambiguity are proved analytically in `RESULT.md`. Grid tests provide finite corroboration only; they are not exhaustive and do not certify mathematical independence or originality.
+PASS
+
+C: z=|axial cosine| is uniform [0,1]; support-function subtraction gives W/r=a+max(a,kz), a=√(1−z²), k=h/r. Split at z0=1/√(1+k²), and for k>1 at zm=k/√(1+k²). Inverse-Jacobian branches C,B,A give exact nonnegative piecewise density integrating to 1. Global minima/maxima switch simultaneously at k=√3; L,U formulas agree by direct extremization. At lower edge, if k<√3 density tends to zero, whereas for k≥√3 its right limit is (k/2+k/(k²−1))/r>0. Thus edge law identifies regime and reconstructs (r,h). In strict support-ratio regime both broad and slender solutions exist, unique within their branch. Independent direct directional grid and numerical quadrature confirmed normalization for k=.4,1,1.3,√3,2.2,5; proof is analytic for all ratios.
+
+## originality
+
+PASS
+
+O: Inspected full Kim–Yaskin–Zvavitch concerns orientation-unlabeled hyperplane projection volumes and nonuniqueness for general bodies, not right circular cone line-width injection. Primary studies of cone planar projected area/perimeter are different measurements. Strongest similar exact width results returned for cubes and octahedra, not cones.
+
+## value
+
+PASS
+
+V: Solves a natural geometric tomography identifiability problem for a canonical two-parameter convex family, with sharp failure when retaining only extrema and a precise local density statistic needed to restore uniqueness. An exact self-contained all-aspect-ratio inverse invariant is useful independent of general-body reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
