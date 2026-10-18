@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:08:39.733846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For affine trial U containing x0, exact minimization of G(x)=||S(Tx−c)||² yields sketched normal-equation orthogonality <Sz,Sh>=0 with z=r(xhat), h=r(x0)−r(xhat). On residual span W, squared-norm 1±ε embedding with ε<1 makes S invertible onto SW; its inverse pullback metric M has eigenvalue interval [1/(1+ε),1/(1−ε)]. For G(xhat)>0 the sketched residuals Sz and Sh are orthogonal with ||Sh||²=δ||Sz||². Restriction to their 2D span makes normalized true change tr(MK), K=[[0,sqrt(δ)],[sqrt(δ),δ]], whose signed eigenvalues λ±=(δ±sqrt(δ(δ+4)))/2. Minimizing over all metrics in spectral box assigns max metric to negative eigendirection and min to positive, yielding exact lower envelope [δ−ε sqrt(δ(δ+4))]/(1−ε²). A two-row construction with S=M^-1/2 and r(x)=M^1/2(1,x sqrt δ) attains equality for EVERY ε,δ>0; rearrangement gives universal no-ascent threshold δ>=4ε²/(1−ε²). At δ=0, Sh=0 and embedding injectivity forces h=0; if G optimum=0 then F optimum=0. Independent exact rational two-row witness at ε=4/5,δ=9/4 yielded Ghat=1, G0=13/4, Fhat=37/9, F0=73/36, and F0−Fhat=−25/12, confirming sharp possible true ascent. Finite witness checks are not the all-ε,δ proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sabaté Landman/Nakatsukasa Prop1 (5.7)--(5.8) uses (1±ε) bounds independently; newer sharp minimax-expected error work includes different conditioning and quantities."
+        ],
+        "reasoning": "Quasioptimal least-squares embedding theorems and random-embedding minimax bounds do not dominate an exact incumbent-conditioned deterministic lower envelope.",
+        "searches": [
+          "Landman Nakatsukasa 2510.11237 sketch and solve objective monotonicity",
+          "Epperly Webber 2605.19096 sharp sketched least squares"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2510.11237v1",
+        "https://arxiv.org/abs/2605.19096",
+        "Resultary semantic read-only search for the exact corresponding theorem and implications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sufficient 2ε/(1−ε) cannot imply the smaller necessary-and-sufficient 4ε²/(1−ε²) without exploiting exact optimizer orthogonality; earlier proof treats two objective values independently.",
+          "Epperly/Webber minimax expected residual is not equivalent to the worst-case conditional true difference at observed δ."
+        ],
+        "reasoning": "The proof adds first-order optimization structure, signed K eigen-decomposition and matching 2-row metric witness, so it is a strict mathematical improvement over the inspected sufficient condition.",
+        "searches": [
+          "arxiv 2510.11237 Proposition1 equations5.7 5.8",
+          "arxiv 2605.19096 Theorem2.1 sketch and solve"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Landman--Nakatsukasa Proposition1 Eq5.7 (2025) formulates same observed relative decrease but only sufficient 2ε/(1−ε).",
+          "Epperly--Webber Theorem2.1 considers expected residual norm of randomized sketch solution, not conditioning on observed δ."
+        ],
+        "reasoning": "The same practical acceptance question exists in prior work, but the sharp metric envelope and exact worst-case δ threshold do not follow from the earlier separate norm-comparison sufficiency.",
+        "searches": [
+          "Resultary semantic sketched least squares exact optimizer descent acceptance test embedding distortion delta sharp threshold positive quadratic improvement spectral orthogonality",
+          "sketch true objective squared observed decrease sharp least squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No examined source table or public database contains the curve δ*=4ε²/(1−ε²).",
+          "Independent exact rational witness at ε=4/5 δ=9/4 attains envelope, not simply a previously tabulated scalar norm equivalence constant."
+        ],
+        "reasoning": "Source tables on sketch dimensions and expected errors do not represent this specific threshold; no direct matching exact database entry found.",
+        "searches": [
+          "delta epsilon sharp acceptance threshold sketched objective true least squares",
+          "Resultary sketched least-squares descent envelope"
+        ]
+      },
+      "rationale": "Sabaté Landman--Nakatsukasa arXiv:2510.11237 Proposition 1 proves a sufficient linear-in-ε descent test δ>=2ε/(1−ε) for sketch-and-solve via independent norm inequalities at incumbent/new point; it does not use exact minimizer orthogonality and does not establish necessity or a sharp lower envelope. The submitted deterministic 2D spectral optimization sharpens this to 4ε²/(1−ε²) with matching worst-case constructions. Epperly--Webber arXiv:2605.19096 analyzes distributional and expected error for randomized embeddings, not a deterministic observed-δ acceptance threshold relative to x0; theorem 2.1/2.2 and proof context in full arXiv rendered text were inspected. Nakatsukasa--Tropp quasi-optimality is a different error bound. Classical spectral rearrangement is prior and not claimed new; its application to an incumbent-conditioned exact sketch acceptance is the contribution.",
+      "residual_risks": [
+        "Classical extremal positive-definite metric inequality may be known in alternative optimal sketch acceptance terminology; no exhaustive historical search.",
+        "Needs exact minimizer, affine feasible space containing x0, 1±ε squared-norm embedding on full residual span; approximate sketch solutions and changed tangent model are outside the proven scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_ACCEPTANCE_SUITABILITY_BUT_NOT_SHARP",
+          "evidence": "Proposition1 proves sufficient δ>=2ε/(1−ε) by combining embedding norm inequalities; no signed two-dimensional sharp envelope.",
+          "identifier_or_url": "https://arxiv.org/html/2510.11237v1",
+          "material_read": "Full lawful arXiv HTML paper including Sections 3, 5, Proposition1 (5.7)--(5.8), its full proof, Proposition2 context, and experiments/discussion.",
+          "method": "Primary full-text arXiv rendered HTML",
+          "title": "Randomized flexible Krylov methods for ell_p regularization",
+          "trigger": "Same sketch-and-solve descent acceptance and explicit linear threshold"
+        },
+        {
+          "assessment": "RELATED_OPTIMAL_RANDOM_ERROR_DIFFERENT_QUANTITY",
+          "evidence": "Epperly--Webber 2026 Theorem2.1 gives expectation of squared residual for random Gaussian/orthonormal embeddings, not observed-relative-sketch-decrease deterministic acceptance frontier.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19096",
+          "material_read": "ArXiv rendered full text, introductory sketch model, Theorem2.1 and section2 general results, Section5 mathematical proof structure/assumptions read; distinction between expected residual and observed incumbent decrease checked.",
+          "method": "Lawful full primary arXiv article text",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "Plausibly stronger 2026 sketch theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In sketched quadratic minimization, a practitioner observes only a sketched decrease and wants a guaranteed true-objective decrease. The exact two-parameter, sharp and realized acceptance frontier gives a genuinely stronger guarantee than the existing linear-in-distortion sufficient test and supplies explicit ascent counterexamples when below threshold. This is a motivated optimal control diagnostic for iterative sketch-and-solve, not merely a restatement of norm equivalence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical extremal positive-definite metric inequality may be known in alternative optimal sketch acceptance terminology; no exhaustive historical search.",
+    "Needs exact minimizer, affine feasible space containing x0, 1±ε squared-norm embedding on full residual span; approximate sketch solutions and changed tangent model are outside the proven scope.",
+    "Public metadata sanitation and full source-tree-object validation not completed; the scientific verdict is independent of publication transport readiness."
+  ],
+  "schema_version": 1
+}
