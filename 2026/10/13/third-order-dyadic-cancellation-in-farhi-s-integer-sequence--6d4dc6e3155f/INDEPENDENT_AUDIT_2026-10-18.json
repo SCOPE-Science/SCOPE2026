@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:11:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let u>=3, j=2^u, r=j+u, M=2^r, N=M-j-1. For S_N=sum_{k=1}^N2^k/k in Q_2, both infinite log sum_{k>=1}2^k/k and dilog sum_{k>=1}2^k/k^2 vanish by 2-adic log(-1)=0 and Li_2(z)+Li_2(z/(z-1))=-log^2(1-z)/2 at z=2. Normalize -S_N as its tail by 2^(M-r). Endpoint k=M-j and k=M terms cancel to valuation j. Replacing intermediate (M-a)^(-1) by -a^(-1) has valuation >=3u-1 error; geometric expansion gives sum_{s>=1}2^(us)H_s. The s=1,2 layers vanish below j by full-series tails; s=3 has unique minimum b=4 with v2(2^b/b^3)=-2, giving 3u-2, while all s>=4 and endpoints remain >=3u-1. Hence v2(S_N)=M-r+3u-2. The known identity a_N=(N!/2^N)S_N and Legendre v2(N!/2^N)=-s2(N)=-(r-1) give v2(a_N)=M-2r+3u-1. Independent modular tail checks u=3..8 and full recurrence N=2039 match; finite tests are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubickas 2024 Theorem1 gives lower bound n+1-log2(n+1), sharp exactly Mersenne indices, not exact high-valuation non-Mersenne families."
+        ],
+        "reasoning": "The older sharp inequality controls the minimum and Mersenne equality but leaves the explicit non-Mersenne excess open; the new cubic layer is not an automatic corollary.",
+        "searches": [
+          "Dubickas On a sequence of rational numbers with unusual divisibility by a power of 2 Theorem 1 2024",
+          "Farhi Nontrivial lower bounds p-adic valuations rational numbers 2023"
+        ]
+      },
+      "checked_sources": [
+        "Farhi, On a curious integer sequence, arXiv:2204.10136 Prop2.2",
+        "Dubickas (2024), Miskolc Mathematical Notes 25:203–208 DOI:10.18514/MMN.2024.4276 Theorem1",
+        "Farhi, Nontrivial lower bounds for p-adic valuations, arXiv:2212.03727 (title and context, full text not re-read)",
+        "Resultary query: Farhi integer sequence dyadic valuation 2^r-2^u-1 third order cancellation p-adic logarithm dilogarithm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farhi Proposition2.2 establishes a_n=(n!/2^n)sum 2^k/k. This identity plus Dubickas lower inequality does not determine extra cancellation valuations."
+        ],
+        "reasoning": "The premise equations require additional log/dilog cancellation and a unique cubic minimum to yield the asserted valuations.",
+        "searches": [
+          "Farhi arXiv:2204.10136 Proposition 2.2",
+          "Dubickas DOI:10.18514/MMN.2024.4276 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The novel asserted equality occurs at N=2^(2^u+u)-2^u-1 and gives excess 3u-2."
+        ],
+        "reasoning": "Searched truncated logarithms, 2-adic valuations and equivalent factorial convolution; no prior same-index equality in inspected sources.",
+        "searches": [
+          "Farhi integer sequence dyadic valuation 2^r-2^u-1 third order cancellation p-adic logarithm dilogarithm",
+          "Farhi sequence 2^r - 2^u -1 exact valuation 3u-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tabulated factorial-convolution sequence terms are finite; no inspected sequence entry or exact table establishes the all-u sparse valuation equality."
+        ],
+        "reasoning": "Known finite sequence terms cannot imply uniform formulas at exponentially spaced indices; nevertheless unindexed table formulas remain a residual risk.",
+        "searches": [
+          "OEIS A0031449 factorial convolution valuation Farhi sequence",
+          "OEIS A003149 truncated logarithm 2-adic formula"
+        ]
+      },
+      "rationale": "Farhi (2022) establishes the recurrence/truncated-log representation; Dubickas (2024) proves a general lower bound with equality only at Mersenne indices. Those results do not specify this non-Mersenne sparse family or exact growing third-order excess, which requires new cancellation analysis. The classical p-adic dilogarithm functional identity is not claimed as novel. Related Resultary valuation findings concern other sequences. Search failures are not proof of universal novelty.",
+      "residual_risks": [
+        "Unknown stronger recurrence valuation theorem or unindexed OEIS comments may cover this family.",
+        "Finite tail modular tests u<=8 do not prove arbitrary u; the proof relies on stated uniform nonarchimedean error bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known identity, not the new exact sparse family in inspected theorem",
+          "evidence": [
+            "Proposition2.2 is a_n=(n!/2^n)sum_{k=1}^n 2^k/k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.10136",
+          "material_read": "Farhi 2022 arXiv seven-page PDF, Proposition2.2 and recurrence section, rendered page2",
+          "method": "arXiv OA full text and page screenshot",
+          "title": "On a curious integer sequence",
+          "trigger": "primary definition and factorial identity"
+        },
+        {
+          "assessment": "Gives general sharp lower bound; no checked exact 3u-2 higher cancellation theorem",
+          "evidence": [
+            "Theorem1: v2(sum 2^k/k)>=n+1-log2(n+1), equality iff n=2^k-1."
+          ],
+          "identifier_or_url": "https://real.mtak.hu/196467/1/4276.pdf",
+          "material_read": "Dubickas 2024 PDF six pages, Theorem1, proof and Mersenne equality characterization pages1–4",
+          "method": "lawful OA PDF text and rendered pages1 and3",
+          "title": "On a sequence of rational numbers with unusual divisibility by a power of 2",
+          "trigger": "most directly covering candidate general valuation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original problem is arithmetic divisibility of a natural integer sequence. An explicit infinite family of non-Mersenne indices with exact unbounded valuation excess reveals cancellation invisible to the sharp general lower bound and is a motivated precise invariant, not a random numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Farhi, On a curious integer sequence, arXiv:2204.10136 Prop2.2",
+    "Dubickas (2024), Miskolc Mathematical Notes 25:203–208 DOI:10.18514/MMN.2024.4276 Theorem1",
+    "Farhi, Nontrivial lower bounds for p-adic valuations, arXiv:2212.03727 (title and context, full text not re-read)",
+    "Resultary query: Farhi integer sequence dyadic valuation 2^r-2^u-1 third order cancellation p-adic logarithm dilogarithm"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sparse infinite family only; no classification of all n.",
+    "Classical p-adic polylog functional identities are prior mathematics.",
+    "Scientific review does not constitute an external formal theorem certification, and publication status is separately not_ready."
+  ],
+  "residual_risks": [
+    "Unknown stronger recurrence valuation theorem or unindexed OEIS comments may cover this family.",
+    "Finite tail modular tests u<=8 do not prove arbitrary u; the proof relies on stated uniform nonarchimedean error bounds."
+  ],
+  "schema_version": 1
+}

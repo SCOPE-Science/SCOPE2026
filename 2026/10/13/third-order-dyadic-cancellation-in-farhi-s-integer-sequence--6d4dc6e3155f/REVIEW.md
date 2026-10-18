@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem's quantifiers specify every integer \(u\ge3\), with the sequence and \(2\)-adic valuation unambiguously defined. The rational recurrence identity is exact. Both infinite sums vanish by convergent \(2\)-adic logarithm/dilogarithm functional equations; the normalized tail is partitioned without omissions. The single cubic contribution has valuation exactly \(3u-2\); all other terms are at least one valuation unit higher. Legendre's formula and the binary digit sum give the integer-sequence formula. Exact modular arithmetic checks through \(u=12\) and the integer recurrence at \(u=3\) supplement the symbolic proof.
+## correctness
 
-**Originality — PASS relative to the inspected record.** Farhi (arXiv:2204.10136v1) investigates integrality and the truncated-logarithm identity (the integer sequence was already recorded as OEIS A003149 with an index shift), while Dubickas (DOI:10.18514/MMN.2024.4276) supplies a global lower bound and exact equality at Mersenne indices. Farhi (arXiv:2212.00446v1) generalizes bounds to paired prime-adic sums; Farhi (arXiv:2212.03727v1) uses the dilogarithm identity for different harmonic sums. None of these inspected statements, alone or under their direct quoted implications, fixes the growing excess at the stated non-Mersenne indices. The cubic-order isolation is the additional needed information. Relevant research records and sequence-index searches returned no match. Undiscovered equivalent derivations remain possible.
+PASS
 
-**Value — PASS.** The original sequence's unexpectedly strong powers-of-two divisibility is the central motivation of Farhi's and Dubickas's studies. This theorem identifies an explicit infinite sparse family of non-Mersenne indices where lower polylogarithmic layers cancel and establishes unbounded, exact excess valuations; it is not a routine fixed-index computation or arbitrary parameter slice. The exact dependence on \(u\) supplies a new test family for refined valuation profiles.
+Let u>=3, j=2^u, r=j+u, M=2^r, N=M-j-1. For S_N=sum_{k=1}^N2^k/k in Q_2, both infinite log sum_{k>=1}2^k/k and dilog sum_{k>=1}2^k/k^2 vanish by 2-adic log(-1)=0 and Li_2(z)+Li_2(z/(z-1))=-log^2(1-z)/2 at z=2. Normalize -S_N as its tail by 2^(M-r). Endpoint k=M-j and k=M terms cancel to valuation j. Replacing intermediate (M-a)^(-1) by -a^(-1) has valuation >=3u-1 error; geometric expansion gives sum_{s>=1}2^(us)H_s. The s=1,2 layers vanish below j by full-series tails; s=3 has unique minimum b=4 with v2(2^b/b^3)=-2, giving 3u-2, while all s>=4 and endpoints remain >=3u-1. Hence v2(S_N)=M-r+3u-2. The known identity a_N=(N!/2^N)S_N and Legendre v2(N!/2^N)=-s2(N)=-(r-1) give v2(a_N)=M-2r+3u-1. Independent modular tail checks u=3..8 and full recurrence N=2039 match; finite tests are not the infinite proof.
 
-**Limits and bibliographic risk.** The theorem does not determine valuations for arbitrary indices, and the constituent analytic identities are established tools. A previously unindexed formulation of the combined third-order identity could affect priority. The source comparison is based on actual primary full-text reading and searches, not an exhaustive bibliography.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farhi (2022) establishes the recurrence/truncated-log representation; Dubickas (2024) proves a general lower bound with equality only at Mersenne indices. Those results do not specify this non-Mersenne sparse family or exact growing third-order excess, which requires new cancellation analysis. The classical p-adic dilogarithm functional identity is not claimed as novel. Related Resultary valuation findings concern other sequences. Search failures are not proof of universal novelty.
+
+## value
+
+PASS
+
+The original problem is arithmetic divisibility of a natural integer sequence. An explicit infinite family of non-Mersenne indices with exact unbounded valuation excess reveals cancellation invisible to the sharp general lower bound and is a motivated precise invariant, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
