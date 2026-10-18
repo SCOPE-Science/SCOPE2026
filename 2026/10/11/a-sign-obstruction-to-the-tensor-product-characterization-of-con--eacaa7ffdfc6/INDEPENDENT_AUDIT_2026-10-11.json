@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:43:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Ghosh and Samanta (2021), Controlled generalized fusion frame in the tensor product of Hilbert spaces, DOI:10.52737/18291163-2021.13.13-1-18",
+        "assigned RESULT.md Git blob 568d0e4f44013b05232046e100ebca2a716e3fc0"
+      ],
+      "rationale": "For each nonzero real scalar \\(f\\), the factor energy equals \\(-|f|^2\\), violating every positive lower frame bound. In the tensor product, \\((-I)\\otimes(-I)=I\\) and the single tensor block gives \\(|f\\otimes g|^2\\), hence tensor Parseval bounds \\(A=B=1\\); in one dimension all tensor vectors are simple. The primary article distinguishes \\(GB(H)\\) from \\(GB^+(H)\\) and prints \\(T,U\\in GB(H)\\) in its definition and Theorem 4. For the repaired positive branch, a tensor lower bound \\(A\\|f\\|^2\\|g\\|^2>0\\) and factorization force strictly positive energies on nonzero vectors; fixing \\(g_0\\ne0\\) yields factor bounds after division by \\(q_K(g_0)>0\\), and symmetrically for the other factor. Nonnegative real factor energies are sufficient, not a claimed necessary characterization for complex controls.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original article gives positive-controlled examples but prints arbitrary-invertible hypotheses for its equivalence.",
+          "Fusion-frame tensor formulas with squared norms are nonnegative by construction."
+        ],
+        "reasoning": "There is no checked broader theorem correcting arbitrary-invertible double-negative factors; the common norm-square tensor argument does not cover signed factor energies.",
+        "searches": [
+          "Liu--Huang--Zhu, Controlled g-fusion frame in Hilbert space, DOI:10.1142/S0219691321500090",
+          "Ghosh--Samanta continuous controlled g-fusion preprint arXiv:2110.11234v1"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh and Samanta (2021), Controlled generalized fusion frame in the tensor product of Hilbert spaces, DOI:10.52737/18291163-2021.13.13-1-18",
+        "arXiv:2110.11234v1",
+        "DOI:10.1142/S0219691321500090",
+        "GitHub repository math search (no matches)",
+        "Resultary attempted but temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the source proof a product of factor energies is positive and bounded, but division by an unproved-positive factor is used to infer lower/upper bounds on each factor.",
+          "The admitted negative-negative branch gives a contradiction to the source equivalence."
+        ],
+        "reasoning": "The prior theorem is false as printed and cannot imply its own corrective counterexample; the positivity repair introduces a missing hypothesis.",
+        "searches": [
+          "source full Theorem 4 reverse proof, DOI:10.52737/18291163-2021.13.13-1-18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The article distinguishes invertible \\(GB(H)\\) and positive-invertible \\(GB^+(H)\\), but theorem uses the former.",
+          "The single-real-block construction violates factors and satisfies tensor theorem assumptions."
+        ],
+        "reasoning": "General positive-control tensor lemmas do not eliminate sign cancellation allowed under this paper's definition.",
+        "searches": [
+          "2021 primary DOI:10.52737/18291163-2021.13.13-1-18, Definition and Theorem 4",
+          "public search: controlled g-fusion tensor negative control sign counterexample",
+          "GitHub same-repository mathematical search: controlled g-fusion frame negative tensor product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No verified correction or exact counterexample was retrieved from the available publication and repository searches.",
+          "Resultary search did NOT finish; absence of a Resultary hit is not asserted."
+        ],
+        "reasoning": "No numerical parameter table is involved; exact theorem and correction searches were the relevant database checks.",
+        "searches": [
+          "public exact title/DOI/erratum search for original tensor paper",
+          "GitHub same-repository targeted code search (no independent same-math result returned)",
+          "Resultary query attempted: controlled g fusion frames tensor product Theorem 4 negative controls; service returned temporarily_unavailable"
+        ]
+      },
+      "rationale": "The focal 2021 theorem is the object being refuted, not an antecedent covering the correction. Full examination of its printed controls and faulty division shows this minimal sign counterexample and the necessary positivity condition were not expressed there. Searches for an erratum, tensor negative-control counterexamples and alternate control conventions found the source and general fusion-frame work, but no verified prior statement of this sign failure.",
+      "residual_risks": [
+        "Published erratum/independent correction could exist outside retrieved literature; Resultary service was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THEOREM_REVERSE_IMPLICATION_FALSE_UNDER_PRINTED_ASSUMPTIONS",
+          "evidence": "Theorem 4 takes arbitrary invertible controls; the reverse proof divides by a factor known only to be nonzero, which is invalid if negative.",
+          "identifier_or_url": "DOI:10.52737/18291163-2021.13.13-1-18",
+          "material_read": "Primary publisher PDF at definitions of bounded invertible and positive controls, controlled g-fusion frame definition, Theorem 4, both proof directions and example",
+          "method": "Publisher full-PDF mathematical reading and page-image inspection",
+          "title": "Controlled generalized fusion frame in the tensor product of Hilbert spaces",
+          "trigger": "Exact theorem challenged by final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghosh and Samanta (2021), Controlled generalized fusion frame in the tensor product of Hilbert spaces, DOI:10.52737/18291163-2021.13.13-1-18"
+      ],
+      "rationale": "This is a decisive correction to the claimed tensor-product characterization, not an arbitrary negative example: the smallest admissible tensor frame refutes the exact reverse implication and exhibits the missing sign logic; the positive-branch repair gives a useful criterion for safely applying the theorem.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The reverse implication of Theorem 4 in Ghosh--Samanta (2021), under its printed arbitrary-invertible-control definition, is false: taking \\(H=K=\\mathbb R\\), one identity analysis block in each factor and controls \\(T=T_1=I\\), \\(U=U_1=-I\\) makes both factor controlled energies negative but the tensor controlled frame Parseval. If both factor quadratic energies are real and nonnegative, the reverse implication is valid by fixing one nonzero vector and dividing by a strictly positive factor energy.",
+  "limitations": [
+    "Real one-dimensional counterexample suffices to refute the general theorem; a full complex phase-sign classification is not asserted.",
+    "The sufficient positivity repair is not a characterization of all possible controls or spectra."
+  ],
+  "schema_version": 1
+}

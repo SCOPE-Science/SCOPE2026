@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,72 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Use
-\[
-H=K=\mathbb R,
-\qquad
-V_1=H,
-\qquad
-W_1=K,
-\qquad
-\Lambda_1=\Gamma_1=I,
-\qquad
-v_1=w_1=1.
-\]
-Let
-\[
-T=T_1=I,
-\qquad
-U=U_1=-I.
-\]
+# Independent mathematical audit
 
-For the first factor,
-\[
-\langle \Lambda_1U f,\Lambda_1T f\rangle
-=
-\langle -f,f\rangle
-=
--|f|^2.
-\]
-The second factor is identical. Hence neither factor satisfies a positive lower controlled-frame inequality.
+## correctness
 
-For the tensor family,
-\[
-U\otimes U_1=I,
-\qquad
-T\otimes T_1=I.
-\]
-Therefore
-\[
-\left\langle
-(\Lambda_1\otimes\Gamma_1)(U\otimes U_1)(f\otimes g),
-(\Lambda_1\otimes\Gamma_1)(T\otimes T_1)(f\otimes g)
-\right\rangle
-=
-\|f\otimes g\|^2.
-\]
-Thus the tensor family has exact bounds \(1,1\).
+PASS
 
-For the repair, suppose
-\[
-q_H(f)\ge0,\qquad q_K(g)\ge0
-\]
-and
-\[
-A\|f\|^2\|g\|^2
-\le
-q_H(f)q_K(g)
-\le
-B\|f\|^2\|g\|^2.
-\]
-Fixing \(g_0\ne0\) gives \(q_K(g_0)>0\) and hence
-\[
-\frac{A\|g_0\|^2}{q_K(g_0)}\|f\|^2
-\le q_H(f)\le
-\frac{B\|g_0\|^2}{q_K(g_0)}\|f\|^2.
-\]
-Interchanging the factors gives the corresponding bounds for \(q_K\).
+For each nonzero real scalar \(f\), the factor energy equals \(-|f|^2\), violating every positive lower frame bound. In the tensor product, \((-I)\otimes(-I)=I\) and the single tensor block gives \(|f\otimes g|^2\), hence tensor Parseval bounds \(A=B=1\); in one dimension all tensor vectors are simple. The primary article distinguishes \(GB(H)\) from \(GB^+(H)\) and prints \(T,U\in GB(H)\) in its definition and Theorem 4. For the repaired positive branch, a tensor lower bound \(A\|f\|^2\|g\|^2>0\) and factorization force strictly positive energies on nonzero vectors; fixing \(g_0\ne0\) yields factor bounds after division by \(q_K(g_0)>0\), and symmetrically for the other factor. Nonnegative real factor energies are sufficient, not a claimed necessary characterization for complex controls.
 
-The publisher PDF was inspected as both extracted text and page images at the factor definition, tensor definition, theorem statement, and reverse proof. The counterexample is exact and finite-dimensional.
+## originality
+
+PASS
+
+The focal 2021 theorem is the object being refuted, not an antecedent covering the correction. Full examination of its printed controls and faulty division shows this minimal sign counterexample and the necessary positivity condition were not expressed there. Searches for an erratum, tensor negative-control counterexamples and alternate control conventions found the source and general fusion-frame work, but no verified prior statement of this sign failure.
+
+## value
+
+PASS
+
+This is a decisive correction to the claimed tensor-product characterization, not an arbitrary negative example: the smallest admissible tensor frame refutes the exact reverse implication and exhibits the missing sign logic; the positive-branch repair gives a useful criterion for safely applying the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

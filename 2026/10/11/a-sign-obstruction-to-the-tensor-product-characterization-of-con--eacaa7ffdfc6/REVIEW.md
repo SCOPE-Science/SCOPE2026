@@ -1,31 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target paper explicitly distinguishes \(GB(H)\) from \(GB^+(H)\) and states both the factor and tensor controlled-frame definitions for controls in \(GB\).
+## correctness
 
-With
-\[
-T=T_1=I,\qquad U=U_1=-I
-\]
-on one-dimensional real spaces, each factor energy is
-\[
--\|f\|^2,
-\]
-so neither factor can have a positive controlled-frame lower bound. Tensoring the controls gives identities, and the one-block tensor family is Parseval.
+PASS
 
-The proposed repair was proved directly: once both factor energies are nonnegative, the tensor lower bound makes them strictly positive away from zero, so the source's division argument yields valid two-sided bounds.
+For each nonzero real scalar \(f\), the factor energy equals \(-|f|^2\), violating every positive lower frame bound. In the tensor product, \((-I)\otimes(-I)=I\) and the single tensor block gives \(|f\otimes g|^2\), hence tensor Parseval bounds \(A=B=1\); in one dimension all tensor vectors are simple. The primary article distinguishes \(GB(H)\) from \(GB^+(H)\) and prints \(T,U\in GB(H)\) in its definition and Theorem 4. For the repaired positive branch, a tensor lower bound \(A\|f\|^2\|g\|^2>0\) and factorization force strictly positive energies on nonzero vectors; fixing \(g_0\ne0\) yields factor bounds after division by \(q_K(g_0)>0\), and symmetrically for the other factor. Nonnegative real factor energies are sufficient, not a claimed necessary characterization for complex controls.
 
-## Originality
-PASS. Exact source, DOI, theorem number, negative-control, tensor-sign, arbitrary-invertible-control, and correction searches were compared with semantic database results and the checked published and indexed literature.
+## originality
 
-The same authors' contemporaneous arXiv:2110.11234v1 uses the same \(GB\) rather than \(GB^+\) control convention. No checked source states the one-dimensional sign-cancellation counterexample or the factor-positivity repair.
+PASS
 
-## Value
-PASS. The disputed theorem is the article's central tensor-product characterization. The counterexample shows that positivity of a tensor quadratic form cannot be factored into positivity of its components. The correction therefore identifies a structural hypothesis, not a numerical edge case.
+The focal 2021 theorem is the object being refuted, not an antecedent covering the correction. Full examination of its printed controls and faulty division shows this minimal sign counterexample and the necessary positivity condition were not expressed there. Searches for an erratum, tensor negative-control counterexamples and alternate control conventions found the source and general fusion-frame work, but no verified prior statement of this sign failure.
 
-## Closest literature and limitations
-Ordinary tensor-product frame results use norm-square energies and are automatically nonnegative, so they do not encounter this obstruction. Controlled-frame literature can impose stronger positivity or commutation hypotheses in particular constructions, but those are absent from Theorem 4 as printed.
+## value
 
-The stated nonnegativity condition is a sufficient clean repair. No weakest complex-valued phase condition is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This is a decisive correction to the claimed tensor-product characterization, not an arbitrary negative example: the smallest admissible tensor frame refutes the exact reverse implication and exhibits the missing sign logic; the positive-branch repair gives a useful criterion for safely applying the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
