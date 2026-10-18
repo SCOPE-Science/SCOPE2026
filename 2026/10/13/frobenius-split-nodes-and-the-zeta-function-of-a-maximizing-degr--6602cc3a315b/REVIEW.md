@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic-coordinate map from the smooth conic is proved finite birational onto the integral sextic using an explicit polynomial identity, generic injectivity under coordinate cube-root symmetries, and degree. Complete gradient calculations isolate four ordinary nodes with discriminant square class \(-3\) and six unibranch cusps with field-preserving normalization. Normalization point-count correction at nodes, and inclusion-exclusion against the coordinate triangle, give the formula uniformly for all finite extensions in every characteristic greater than three. The supplied standard-library verifier enumerated 11 prime fields and 3 quadratic extensions successfully; its finite tests are supplementary, not infinite proof.
+## correctness
 
-**Originality — PASS, with risk.** The 2015 Dimca–Sticlaru Example 2.8 already supplies the sextic and its complex genus/singularities. The 2023 Dimca–Ilardi–Pokora–Sticlaru Example 6.4 and the 2023 Di Gennaro–Ilardi–Miró-Roig–Schenck–Vallès Example 4.2 already supply the exact degree-nine union and its complex freeness; these are explicitly excluded from the contribution. Material comparison of their full online texts did not find the rational conic normalization or finite-field branch splitting/zeta calculation. Related mathematical-record searches and other published mathematical claims yielded no statement implying the complete arithmetic formula. Historical dual-plane descriptions or unindexed point counts could still affect priority; a failed search does not certify uniqueness.
+PASS
 
-**Value — PASS.** A complete Hasse–Weil zeta function is a canonical arithmetic invariant of a distinguished maximizing free divisor. The formula detects two genuinely distinct quadratic Frobenius characters: \(-3\) controls nontrivial branch splitting at four rational nodes, while \(-1\) controls the six conic–triangle contact points. Its smooth normalization is the anisotropic real conic \(u^2+v^2+w^2=0\), despite the sextic's four real isolated nodes. This explains an arithmetic phenomenon not encoded by the characteristic-zero Tjurina count or freeness. No general result for arbitrary free curves is claimed.
+Let Q be u^2+v^2+w^2=0 and map by cubing coordinates. Identity a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca) maps Q into H=0; distinct non-scalar cube-root multipliers yield only finitely many collisions, hence generically degree 1, and deg(nu*O(1))=6 equals deg H. Thus Q normalizes the irreducible sextic in characteristic p>3. Partial derivatives locate exactly four rational ordinary nodes (all coordinates nonzero) and six unibranch A2 cusps on coordinate axes. At node (1,1,1), quadratic tangent cone is 36(U^2-UV+V^2), splitting iff -3 is square. Each split node contributes normalizing count difference +1, each nonsplit node -1, giving sextic q+1-4 eps^r. Coordinate triangle has 3q points, intersects at 3(1+eta^r) cusps, giving 4q-2-4 eps^r-3eta^r; exponential logarithm gives zeta. Independently enumerated projective rational points at p=5,7,11,13,17,19,23,29,31,37,41; both sextic and entire union agree, including both character signs. Excluded p=2,3 is essential.
 
-**Closest primary literature and scientific limitations.** arXiv:1505.00666v3, Example 2.8 (old sextic geometry); arXiv:2301.01117, Example 6.4 (old degree-nine geometry); arXiv:2306.09443v1, Example 4.2 (same free union). Characteristic \(2\) and \(3\), positive-characteristic freeness and arbitrary integral coordinate models are excluded. Possible unindexed classical arithmetic treatments remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: exact complex curve and six cusp/four node basket already documented, but Frobenius split/nonsplit branch correction, all finite extensions and zeta factors are not stated in the inspected primary geometric paper. Arithmetical normalization is essential; agreement of singularity names alone does not imply the zeta function.
+
+## value
+
+PASS
+
+PASS: a canonical explicitly studied free divisor acquires a complete all-prime finite-field zeta classification and branch-splitting law. This exact arithmetic invariant distinguishes congruence classes and is nontrivial compared with its known complex freeness and singularity basket.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

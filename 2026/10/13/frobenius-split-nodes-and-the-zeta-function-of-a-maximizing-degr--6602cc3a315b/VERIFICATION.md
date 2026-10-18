@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact argument in `RESULT.md` is a universal proof for each characteristic greater than three. Execute `python3 verify.py` from the directory containing the two files to reproduce exhaustive projective-point enumerations for 11 prime fields and 3 quadratic extension fields. The verifier uses only the Python standard library and independent polynomial evaluation, not the claimed formula to generate points. Expected output: `VERIFY_OK: 11 prime-field and 3 quadratic-extension sextic/divisor censuses`.
+## correctness
 
-The finite computations do not prove the formula for all primes or extensions: that conclusion uses the birational conic normalization, explicit singular points and branch Frobenius, and inclusion-exclusion. The original curve's characteristic-zero freeness and singularities are established in cited literature rather than independently re-certified here. Independent audit has not been performed.
+PASS
+
+Let Q be u^2+v^2+w^2=0 and map by cubing coordinates. Identity a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca) maps Q into H=0; distinct non-scalar cube-root multipliers yield only finitely many collisions, hence generically degree 1, and deg(nu*O(1))=6 equals deg H. Thus Q normalizes the irreducible sextic in characteristic p>3. Partial derivatives locate exactly four rational ordinary nodes (all coordinates nonzero) and six unibranch A2 cusps on coordinate axes. At node (1,1,1), quadratic tangent cone is 36(U^2-UV+V^2), splitting iff -3 is square. Each split node contributes normalizing count difference +1, each nonsplit node -1, giving sextic q+1-4 eps^r. Coordinate triangle has 3q points, intersects at 3(1+eta^r) cusps, giving 4q-2-4 eps^r-3eta^r; exponential logarithm gives zeta. Independently enumerated projective rational points at p=5,7,11,13,17,19,23,29,31,37,41; both sextic and entire union agree, including both character signs. Excluded p=2,3 is essential.
+
+## originality
+
+PASS
+
+PASS best of knowledge: exact complex curve and six cusp/four node basket already documented, but Frobenius split/nonsplit branch correction, all finite extensions and zeta factors are not stated in the inspected primary geometric paper. Arithmetical normalization is essential; agreement of singularity names alone does not imply the zeta function.
+
+## value
+
+PASS
+
+PASS: a canonical explicitly studied free divisor acquires a complete all-prime finite-field zeta classification and branch-splitting law. This exact arithmetic invariant distinguishes congruence classes and is nontrivial compared with its known complex freeness and singularity basket.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
