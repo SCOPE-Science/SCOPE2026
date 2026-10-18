@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source vanilla-SGD FedNova update is reconstructed exactly. At the chosen client step, every local quadratic is solved after one gradient evaluation, so all later local gradients vanish. The normalized client directions and the server round therefore reduce to an exact affine scalar map. Its multiplier, fixed point, sharp stability interval, and the \(1:6\) witness follow by elementary exact algebra.
+PASS
 
-Scientific risk: the threshold is specific to the source default server scale and the locally exact client step.
+With local quadratic step eta=1/a, the first local update reaches b_i and all later local gradients vanish. Hence FedNova normalized gradient d_i=a(x-b_i)/tau_i. Its prescribed tau_eff=(tau_1+tau_2)/2 for equal clients gives x^+=x-(tau_1+tau_2)/4[(x-b_1)/tau_1+(x-b_2)/tau_2]. Collecting terms yields affine coefficient M=-(tau_1-tau_2)^2/(4 tau_1 tau_2), fixed point (tau_2 b_1+tau_1 b_2)/(tau_1+tau_2), and |M|<1 iff 3-2sqrt(2)<tau_2/tau_1<3+2sqrt(2). Independent exact fractions verify M_{1,6}=-25/24 and stable ratios 2:3,3:16. Equality at irrational frontier cannot occur for integral tau_i.
 
-## Originality
+## originality
 
-PASS. The defining FedNova source gives normalized aggregation and a convergence theorem with a horizon-dependent shrinking learning rate. The closest later source, FedShuffle, explicitly observes that FedNova diminishes the weight of a client making more progress and allows smaller theoretical local steps. The inspected literature does not state the exact fixed point, the \(3+2\sqrt2\) local-step-ratio boundary, or divergence with exact client-local solves.
+PASS
 
-Residual risk: a generic federated local-update appendix or unindexed note may contain the same scalar specialization.
+Original FedNova objective-consistency work normalizes local SGD and proves horizon-dependent convergence, and FedShuffle compares improved scaling. The exact fixed-step 2-client exact-local-solve affine multiplier and sharp 6:1 divergence were not found as stated or implied by their inspected claims; general convergence with horizon-vanishing eta does not imply constant eta=1/a stability. Best-of-knowledge O pass.
 
-## Value
+## value
 
-PASS. The result exposes a sharp systems-heterogeneity boundary in the mechanism FedNova was designed to control. A global round can diverge solely from a \(1:6\) local-step imbalance even though every client locally reaches its minimizer after one step. The exact fixed point also quantifies how finite constant steps reintroduce an inverse-progress weighting before instability occurs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharply quantified mechanism in a widely used federated algorithm: heterogeneous local work can produce alternating global divergence even when each client step individually solves its quadratic exactly. The 6:1 first integer imbalance and false-affine fixed-point location provide practical boundary witnesses, not merely reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

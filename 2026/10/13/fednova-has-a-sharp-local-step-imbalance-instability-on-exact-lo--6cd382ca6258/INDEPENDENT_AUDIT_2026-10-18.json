@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:58:55.585864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+        "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+        "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+      ],
+      "rationale": "With local quadratic step eta=1/a, the first local update reaches b_i and all later local gradients vanish. Hence FedNova normalized gradient d_i=a(x-b_i)/tau_i. Its prescribed tau_eff=(tau_1+tau_2)/2 for equal clients gives x^+=x-(tau_1+tau_2)/4[(x-b_1)/tau_1+(x-b_2)/tau_2]. Collecting terms yields affine coefficient M=-(tau_1-tau_2)^2/(4 tau_1 tau_2), fixed point (tau_2 b_1+tau_1 b_2)/(tau_1+tau_2), and |M|<1 iff 3-2sqrt(2)<tau_2/tau_1<3+2sqrt(2). Independent exact fractions verify M_{1,6}=-25/24 and stable ratios 2:3,3:16. Equality at irrational frontier cannot occur for integral tau_i.",
+      "residual_risks": [
+        "Deterministic full participation, two equal-weight clients, identical positive scalar curvature, eta=1/a and source default tau_eff.",
+        "No server momentum, stochasticity, alternative normalization or varying step-size statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+          "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+          "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+        ],
+        "reasoning": "The general FedNova theorem is broader in client number but its shrinking eta conditions exclude eta=1/a constant-step instability; FedShuffle comparisons do not produce exact fixed-step multiplier or frontier.",
+        "searches": [
+          "FedNova two clients different numbers local steps exact solve divergence multiplier",
+          "Primary source: Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+        "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+        "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169",
+        "Resultary query: FedNova two clients different numbers local steps exact solve divergence multiplier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+          "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+          "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+        ],
+        "reasoning": "Prior FedNova quadratic examples demonstrate baseline aggregate objective mismatch, but the normalized exact-solve algorithm and server scale must be combined to derive M=-(tau1-tau2)^2/(4tau1tau2); the displayed exact divergent witness is not implied by prior qualitative claims.",
+        "searches": [
+          "FedNova two clients different numbers local steps exact solve divergence multiplier",
+          "Primary source: Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+          "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+          "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+        ],
+        "reasoning": "Searched FedNova objective inconsistency, normalized averaging scalar affine divergence, heterogeneous tau fixed-point under exact local solves. The method is not ordinary FedAvg with a rescaled constant, because client inverse tau_i weighting remains.",
+        "searches": [
+          "FedNova two clients different numbers local steps exact solve divergence multiplier",
+          "Primary source: Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+          "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+          "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+        ],
+        "reasoning": "Resultary semantic query and targeted literature found no table of integer tau_1,tau_2 stability, especially first 1:6 crossing of 3+2sqrt2.",
+        "searches": [
+          "FedNova two clients different numbers local steps exact solve divergence multiplier",
+          "Primary source: Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481"
+        ]
+      },
+      "rationale": "Original FedNova objective-consistency work normalizes local SGD and proves horizon-dependent convergence, and FedShuffle compares improved scaling. The exact fixed-step 2-client exact-local-solve affine multiplier and sharp 6:1 divergence were not found as stated or implied by their inspected claims; general convergence with horizon-vanishing eta does not imply constant eta=1/a stability. Best-of-knowledge O pass.",
+      "residual_risks": [
+        "Deterministic full participation, two equal-weight clients, identical positive scalar curvature, eta=1/a and source default tau_eff.",
+        "No server momentum, stochasticity, alternative normalization or varying step-size statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms normalization. Does not provide stated sharp constant-step two-client local-solves frontier in the inspected sections.",
+          "evidence": [
+            "Server scaling uses tau_eff=sum p_i tau_i.",
+            "General convergence theorem uses step-size schedule decreasing with horizon."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.07481",
+          "material_read": "Algorithm/pseudocode for normalized local SGD, tau_eff weighting, quadratic motivation and decreasing-step theoretical guarantee.",
+          "method": "Read accessible source article and formula/algorithm sections.",
+          "title": "Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization",
+          "trigger": "Exact normalization and tau_eff convention; possible covered stability"
+        },
+        {
+          "assessment": "Qualitative issues but no seen exact affine multiplier -25/24.",
+          "evidence": [
+            "FedShuffle compares normalization and local-step admissibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.13169",
+          "material_read": "Available algorithmic statements and discussion of FedNova weighting of client progress.",
+          "method": "Reviewed relevant article text and abstract; full appendix noncoverage not asserted.",
+          "title": "FedShuffle: Recipes for Better Use of Local Work in Federated Learning",
+          "trigger": "Potential broader comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md 7edee68f41eafee26da33900edeeab2bdbcbdddf",
+        "Wang et al., Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, arXiv:2007.07481",
+        "Horváth et al., FedShuffle: Recipes for Better Use of Local Work in Federated Learning, arXiv:2204.13169"
+      ],
+      "rationale": "A sharply quantified mechanism in a widely used federated algorithm: heterogeneous local work can produce alternating global divergence even when each client step individually solves its quadratic exactly. The 6:1 first integer imbalance and false-affine fixed-point location provide practical boundary witnesses, not merely reformulation.",
+      "residual_risks": [
+        "No server momentum, stochasticity, alternative normalization or varying step-size statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic full participation, two equal-weight clients, identical positive scalar curvature, eta=1/a and source default tau_eff.",
+    "No server momentum, stochasticity, alternative normalization or varying step-size statement.",
+    "Scientific review is complete but source package metadata privacy sanitization is not ready; not authorized for publication."
+  ],
+  "schema_version": 1
+}
