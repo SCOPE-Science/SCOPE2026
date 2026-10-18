@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory as `certificate.json`.
+# Independent mathematical audit
 
-The checker reconstructs the binary order-\(6\) de Bruijn graph from first principles. For every length-\(7\) word it recomputes the least period and the capacity
-\[
-\left\lceil\frac{7}{\operatorname{per}(w)}\right\rceil.
-\]
-It verifies total capacity \(236\).
+## correctness
 
-For each possible walk incidence pattern—one closed case and every ordered pair of distinct start and end vertices—the certificate provides an integer potential. The verifier checks the corresponding linear-programming dual inequality exactly with integer arithmetic. Every case requires deletion of at least \(16\) capacity units.
+PASS
 
-A matching feasible deleted-edge vector of total multiplicity \(16\) is checked directly against the incidence equations and capacity bounds. Therefore the relaxation optimum is exactly
-\[
-236-16=220
-\]
-windows, and every admissible binary word has length at most
-\[
-220+6=226.
-\]
+Every admissible word induces a de Bruijn walk with edge counts x_w<=ceil(7/per(w)) by the cited original occurrence lemma and incidence 0 or e_s-e_t. Independent certificate replay recomputed all 128 period capacities, total sum=236, all 4033 endpoint/closed cases and integral LP-dual bounds, each >=16 deleted; all 4033 actual lower-bound values matched the stored potentials exactly. The stored size-16 deleted vector has correct edge integrality/capacities and incidence, proving exact flow optimum 236-16=220 windows and C(2,7)<=220+6=226. The relaxation is not asserted realizable as a word.
 
-The verification establishes the flow relaxation and its numerical optimum. It relies on the cited published occurrence lemma to connect an admissible word to the edge capacities. It does not claim that the relaxation itself is realizable by a word.
+## originality
+
+PASS
+
+Gabrić–Shallit–Zhong 2020/2021 Theorem 6 sums factor capacities individually, giving upper242 at C(2,7), and their Table 1 gives lower192; it does not impose de Bruijn incidence consistency. Resultary semantic search and indexed search for C(2,7), de Bruijn flow and bound226 did not return a theorem implying the stronger result. This refinement imposes a new global necessary condition rather than renaming their per-factor bound.
+
+## value
+
+PASS
+
+C(2,7) is the first binary length beyond previously exact n<=6, with source interval [192,242]. The exact 4033-case dual-certified flow upper bound cuts this to [192,226], closes sixteen upper values, and introduces a reusable consistency improvement for analogous word problems. It neither claims an exact C nor equates LP feasibility with realizable words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

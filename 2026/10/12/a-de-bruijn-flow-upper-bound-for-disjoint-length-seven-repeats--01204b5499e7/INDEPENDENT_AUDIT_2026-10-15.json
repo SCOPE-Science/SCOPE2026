@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:03:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every admissible word induces a de Bruijn walk with edge counts x_w<=ceil(7/per(w)) by the cited original occurrence lemma and incidence 0 or e_s-e_t. Independent certificate replay recomputed all 128 period capacities, total sum=236, all 4033 endpoint/closed cases and integral LP-dual bounds, each >=16 deleted; all 4033 actual lower-bound values matched the stored potentials exactly. The stored size-16 deleted vector has correct edge integrality/capacities and incidence, proving exact flow optimum 236-16=220 windows and C(2,7)<=220+6=226. The relaxation is not asserted realizable as a word.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source theorem/cap lemma and 4033-case dual certificate."
+        ],
+        "reasoning": "The source bound independently sums all capacities and thus is exactly 242; de Bruijn conservation restricts the feasible set and proves 226, so the previous bound does not imply the improvement.",
+        "searches": [
+          "Resultary: no two disjoint length seven factors C(2,7) de Bruijn flow upper bound 226",
+          "Web: Avoidance of split overlaps C(2,7) flow upper bound"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2002.01968"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent dual evaluation for 4033 endpoint patterns and size-16 primal deletion witness."
+        ],
+        "reasoning": "Keeping the incidence constraints ignored in the independent cap sum forces deletion of >=16 of 236 edge units; the numerical strict improvement is not a corollary of the independent cap lemma alone.",
+        "searches": [
+          "Resultary: no two disjoint length seven factors C(2,7) de Bruijn flow upper bound 226",
+          "Web: Avoidance of split overlaps C(2,7) flow upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrić-Shallit-Zhong Theorem 6 and exact de Bruijn incidence."
+        ],
+        "reasoning": "No-disjoint-occurrence factors correspond to bounded edge multiplicity in an order-six de Bruijn walk. Vertex-balanced capacity flow is a necessary relaxation, not an equivalent characterization of valid words.",
+        "searches": [
+          "Resultary: no two disjoint length seven factors C(2,7) de Bruijn flow upper bound 226",
+          "Web: Avoidance of split overlaps C(2,7) flow upper bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gabrić-Shallit-Zhong Table 1 and full returned certificate."
+        ],
+        "reasoning": "Source Table 1 lists exact n<=6 and at n=7 a lower-bound construction of 192; no exact C(2,7) or upper 226 is in the inspected source. Current value 220 belongs only to the relaxation.",
+        "searches": [
+          "Resultary: no two disjoint length seven factors C(2,7) de Bruijn flow upper bound 226",
+          "Web: Avoidance of split overlaps C(2,7) flow upper bound"
+        ]
+      },
+      "rationale": "Gabrić–Shallit–Zhong 2020/2021 Theorem 6 sums factor capacities individually, giving upper242 at C(2,7), and their Table 1 gives lower192; it does not impose de Bruijn incidence consistency. Resultary semantic search and indexed search for C(2,7), de Bruijn flow and bound226 did not return a theorem implying the stronger result. This refinement imposes a new global necessary condition rather than renaming their per-factor bound.",
+      "residual_risks": [
+        "Unindexed computational optimization may previously have supplied upper<=226.",
+        "The LP relaxation is not proven realizable; exact combinatorial C(2,7) remains unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes per-factor cap and upper242/lower192 but not the new de Bruijn incidence/LP bound226",
+          "evidence": [
+            "arXiv:2002.01968, Lemma 5, Theorem 6, Table 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.01968",
+          "material_read": "Accessible 11-page arXiv PDF; per-factor occurrence lemma, Theorem 6, small-parameter table and related discussion examined",
+          "method": "Primary PDF with rendered theorem page",
+          "title": "Avoidance of split overlaps",
+          "trigger": "Same definition of C(k,n), disjoint occurrence, and exact first unresolved binary n=7"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "C(2,7) is the first binary length beyond previously exact n<=6, with source interval [192,242]. The exact 4033-case dual-certified flow upper bound cuts this to [192,226], closes sixteen upper values, and introduces a reusable consistency improvement for analogous word problems. It neither claims an exact C nor equates LP feasibility with realizable words.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2002.01968"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed computational optimization may previously have supplied upper<=226.",
+    "The LP relaxation is not proven realizable; exact combinatorial C(2,7) remains unknown.",
+    "Certifies exact flow relaxation and resulting upper bound, not a realizable 226-bit witness nor the exact C(2,7)."
+  ],
+  "residual_risks": [
+    "Unindexed computational optimization may previously have supplied upper<=226.",
+    "The LP relaxation is not proven realizable; exact combinatorial C(2,7) remains unknown."
+  ],
+  "schema_version": 1
+}

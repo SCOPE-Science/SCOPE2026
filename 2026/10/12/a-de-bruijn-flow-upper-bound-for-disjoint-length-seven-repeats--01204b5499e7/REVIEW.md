@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof has two independent layers. First, the published per-factor occurrence cap is combined with the exact incidence balance of consecutive length-\(n\) windows, yielding a capacitated de Bruijn-flow relaxation for every \(C(k,n)\). Second, the binary \(n=7\) relaxation is certified exactly: the package contains integer dual potentials for all \(4033\) possible closed/open endpoint patterns, each forcing deletion of at least \(16\) capacity units, plus one feasible deletion vector of total size \(16\). Thus the relaxation has \(220\) windows and gives \(C(2,7)\le226\).
+## correctness
 
-## Originality
-PASS. The direct source's Theorem 6 discards compatibility between consecutive windows and therefore gives \(242\) at the target parameter. Its Table 1 records only \(C(2,7)\ge192\), and its remarks explicitly invite improved upper bounds and further values. Indexed literature and web searches under the source notation, verbal definition, de Bruijn-flow language, and equivalent capacity-walk language located no covering result.
+PASS
 
-Residual risk remains from unindexed or unpublished computations.
+Every admissible word induces a de Bruijn walk with edge counts x_w<=ceil(7/per(w)) by the cited original occurrence lemma and incidence 0 or e_s-e_t. Independent certificate replay recomputed all 128 period capacities, total sum=236, all 4033 endpoint/closed cases and integral LP-dual bounds, each >=16 deleted; all 4033 actual lower-bound values matched the stored potentials exactly. The stored size-16 deleted vector has correct edge integrality/capacities and incidence, proving exact flow optimum 236-16=220 windows and C(2,7)<=220+6=226. The relaxation is not asserted realizable as a word.
 
-## Value
-PASS. This addresses the first unresolved binary entry after the source's exact values through \(n=6\). It reduces the unresolved interval from \(192\le C(2,7)\le242\) to \(192\le C(2,7)\le226\), removing \(16\) points from the upper side, and introduces a reusable global-flow refinement of the source's independent counting argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gabrić–Shallit–Zhong 2020/2021 Theorem 6 sums factor capacities individually, giving upper242 at C(2,7), and their Table 1 gives lower192; it does not impose de Bruijn incidence consistency. Resultary semantic search and indexed search for C(2,7), de Bruijn flow and bound226 did not return a theorem implying the stronger result. This refinement imposes a new global necessary condition rather than renaming their per-factor bound.
+
+## value
+
+PASS
+
+C(2,7) is the first binary length beyond previously exact n<=6, with source interval [192,242]. The exact 4033-case dual-certified flow upper bound cuts this to [192,226], closes sixteen upper values, and introduces a reusable consistency improvement for analogous word problems. It neither claims an exact C nor equates LP feasibility with realizable words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
