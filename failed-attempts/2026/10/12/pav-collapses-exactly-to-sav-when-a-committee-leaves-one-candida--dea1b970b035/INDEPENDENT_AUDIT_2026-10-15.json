@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:16:26.731081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual RESULT.md blob 02bc2cf2. For W_c=C\\{c}, a voter with approval-size r contributes 1 or 1-1/r to SAV, and H_r or H_(r-1)=H_r-1/r to PAV. Therefore SAV(W_c)=number_of_voters-s(c), PAV(W_c)=sum_i H_|A_i|-s(c), with s(c)=sum_{i:c approved}1/|A_i|, so ALL weak rankings/ties/winner sets coincide for nonempty ballots and m>=2. Independently tested exact rational identities on randomized approval profiles for m=2 through 7 and exhaustive direct ballot formula argument for arbitrary finite m. This is correct but only one harmonic-number decrement; it does not imply equivalence for other committee sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lackner and Skowron Rule 6 defines rev-seq-w-Thiele for arbitrary committee target k, with first full-set PAV removal as its first case; Rules 4 and 14 specify the relevant score functional."
+        ],
+        "reasoning": "The published broader reverse-sequential elimination rule, specialized to its first removal, implies the same maximum-score one-vacancy PAV committees. The SAV comparison adds only the definition of additive normalized approval supports; no distinct structural theorem is needed.",
+        "searches": [
+          "2022 Dramatis Personae ABC Rules Springer ch2 Rules 4,6,14"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 7cbca127e31261c4449708a17cdae7714714115d, RESULT blob 02bc2cf289aeda87ddb22ec326a92d0363f1faa1",
+        "Lackner–Skowron 2022 book ch2 Rules 4,6,14, accessible full HTML",
+        "Aziz et al arXiv:1407.3247",
+        "Resultary and targeted PAV/SAV searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dramatis Personae ch2 Rule4 PAV harmonic sum; Rule6 marginal full-committee deletion; Rule14 SAV normalized per approved candidate, all in same earlier primary book chapter."
+        ],
+        "reasoning": "Formal implication: PAV(C\\{c})=PAV(C)-Σ_{i:c∈A_i}(H_|A_i|-H_(|A_i|-1))=PAV(C)-Σ1/|A_i|. SAV(C\\{c})=n-Σ1/|A_i|. The identical ordering follows by a single cancellation. The claimed simple PAV regime also follows trivially from there being only m possible one-vacancy committees.",
+        "searches": [
+          "2022 Dramatis Personae ABC Rules Springer ch2 Rules 4,6,14",
+          "PAV SAV reverse sequential PAV last candidate removed identical winner sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard PAV and SAV score definitions appear together in Lackner–Skowron 2022, Dramatis Personae: ABC Rules, Rules 4 and 14. Rule 6 defines reverse sequential Thiele/PAV deletion from the full candidate set."
+        ],
+        "reasoning": "At first deletion from all m candidates (k=m-1), Rule 6 already states maximizing PAV by removing the candidate with least loss. Its per-voter harmonic marginal is exactly 1/|A_i|, the SAV per-candidate weight. Thus the claim is an immediate one-step special case of established reverse sequential Thiele machinery and the accompanying SAV score, even if the book does not separately title the equivalence.",
+        "searches": [
+          "PAV SAV reverse sequential PAV last candidate removed identical winner sets",
+          "2022 Dramatis Personae ABC Rules Springer ch2 Rules 4,6,14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No special exact PAV/SAV one-vacancy table located; the n,m-dependent score identity is general algebra from published definitions, not a tabulated finite invariant."
+        ],
+        "reasoning": "The exact_database_or_table mode is inapplicable: claim is a universal score-functional identity, not a finite data table; lack of exact table does not rescue originality from direct prior implication.",
+        "searches": [
+          "Resultary: proportional approval voting PAV satisfaction approval voting SAV near full committee m minus one omitted candidate same scores winners",
+          "PAV SAV m-1 committees equivalence"
+        ]
+      },
+      "rationale": "Prior published reverse-sequential Thiele first-removal rule and SAV normalized support directly imply the one-vacancy identity; see explicit implication.",
+      "residual_risks": [
+        "The chapter does not separately print the words “PAV equals SAV for k=m-1”; the rejection is on theorem implication from full-score definitions plus general reverse deletion, not literal occurrence.",
+        "This conclusion does not question algebraic correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive antecedent: one-vacancy formula is immediate one-removal instance; exact tie identity is simple score-constant cancellation",
+          "evidence": [
+            "Rules 4,6,14, and Example 2.5; removing a candidate from the full committee loses the sum of inverse approval sizes."
+          ],
+          "identifier_or_url": "doi:10.1007/978-3-031-09016-5_2 (Lackner and Skowron, 2022)",
+          "material_read": "Full accessible chapter 2 HTML read, especially Rules 4 (PAV harmonic), 6 (start from full committee and remove least marginal), 14 (SAV normalized voter contribution), Examples 2.5 and 2.14",
+          "method": "Springer chapter full HTML mathematical definitions and examples",
+          "title": "Multiwinner Approval Voting: An Introduction, Chapter 2, Dramatis Personae: ABC Rules",
+          "trigger": "Directly contains PAV, SAV, and broad reverse-sequential Thiele deletion definitions"
+        },
+        {
+          "assessment": "General complexity distinction is well known, but there are only m committees when k=m-1; no NP-hardness barrier is overcome in this slice",
+          "evidence": [
+            "PAV NP-hard in general; SAV polynomial-time in general."
+          ],
+          "identifier_or_url": "arXiv:1407.3247 (Aziz et al., 2014)",
+          "material_read": "Accessible arXiv paper PDF definitions and PAV complexity discussion",
+          "method": "primary PDF full text reading with first page rendered",
+          "title": "Computational Aspects of Multi-Winner Approval Voting",
+          "trigger": "Earlier joint PAV/SAV formalization and general algorithmic complexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-vacancy score coincidence is a single direct harmonic-number decrement already inherent in the published general Thiele elimination definitions. The purported PAV tractable regime is immediate from only m candidate committees: evaluating every one is polynomial even without this identity. It is a routine instructional calculation without a nontrivial boundary mechanism, new invariant, classification, or scientifically consequential gain sufficient for an independent research claim.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Git tree 7cbca127e31261c4449708a17cdae7714714115d, RESULT blob 02bc2cf289aeda87ddb22ec326a92d0363f1faa1",
+    "Lackner–Skowron 2022 book ch2 Rules 4,6,14, accessible full HTML",
+    "Aziz et al arXiv:1407.3247",
+    "Resultary and targeted PAV/SAV searches"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Correct for nonempty ballots, m>=2, k=m-1 only; not sequential PAV with additional rounds.",
+    "Rejected for prior mathematical implication and routine value, not for a counterexample; preserve original unchanged.",
+    "The chapter does not separately print the words “PAV equals SAV for k=m-1”; the rejection is on theorem implication from full-score definitions plus general reverse deletion, not literal occurrence.",
+    "This conclusion does not question algebraic correctness."
+  ],
+  "schema_version": 1
+}
