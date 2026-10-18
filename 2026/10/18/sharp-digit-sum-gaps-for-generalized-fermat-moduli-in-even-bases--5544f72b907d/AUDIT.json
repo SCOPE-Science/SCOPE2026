@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For a multiple N of b^r+1 with digit sum <=b, regroup digits by exponents modulo 2r into signed coefficients c_i with L1 norm <=b. A coefficient of absolute value b makes the nonzero relation magnitude b^(i+1)<b^r+1. Otherwise every coefficient magnitude <=b-1, and absolute sum <b^r+1, forcing integer relation zero. Uniqueness of signed base-b coefficients in (-b,b) forces all c_i=0; total digit sum must then be even. The modulus itself has digit sum 2, and 1+sum_(j=0)^(b-1) b^(r-1+2rj) has digit sum b+1 and is divisible by the modulus. Carry-free concatenation of positive multiples realizes every positive combination of these generators. For even b the generated semigroup is precisely evens >=2 and odds >=b+1; no other small odds occur. Python finite automaton checks 35 parameter pairs and direct exact witness arithmetic 325 settings/sums, independent of the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2303.13017, Theorem 1(ii): when gcd(b-1,m)=1 the set of digit sums is cofinite, a weaker conclusion; Question 4 asks for the exact maximum excluded sum.",
+        "arXiv:2002.02731 Theorem 4: any achievable digit sum t yields t+(b-1)h, but this does not establish a complete spectrum with no additional small odd values.",
+        "Exponent-one b+1 case known separately, not claimed here."
+      ],
+      "reasoning": "These broad theorems imply eventual coverage or progressions but cannot by themselves exclude precisely 1,3,...,b-1 while attaining every remaining sum for all r>=2. A previously known exponent-one case is not a stronger covering theorem; even-exponent moduli are coprime to b+1.",
+      "searches": [
+        "\"b^n + 1\" \"sum of digits\" \"multiples\"",
+        "Phunphayap Noppakaew Pongsriiam directed arcs Out(s_b,n) digit-sum spectrum Frobenius number for n=b^r+1",
+        "arXiv:2303.13017 Questions 2 4 numerical digit sum attainable semigroup b^r+1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.13017v1 (original public preprint, relevant full text)",
+      "arXiv:2002.02731v1 (original public preprint, relevant full text)",
+      "Targeted web searches of digit-sum spectra of multiples and generalized Fermat numbers",
+      "Semantic mathematical-record comparisons for generalized Fermat digit sums and Frobenius numbers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Current claim: for every even b>=2, r>=2, precisely positive odd sums <b+1 are absent; conductor b and Frobenius b-1.",
+        "2023 Theorem 1: coprimality gives cofinite spectrum; no exact omitted set or conductor. 2020 Theorem 4: arithmetic progressions in achievable sums, no sharp exclusion.",
+        "Known r=1 case cannot imply even r>=2 via divisor containment since gcd(b+1,b^(even)+1)=1 for even b."
+      ],
+      "reasoning": "The current theorem adds a sharp signed-digit lower obstruction and a b+1-sum construction, producing a complete set equality. Question 2 of the 2023 paper assumes gcd(b-1,m)>1 and is not claimed solved; Question 4 is the directly addressed gap.",
+      "searches": [
+        "arXiv:2303.13017 Theorem 1 Theorem 2 Theorem 3 Question 4 base digit sums",
+        "arXiv:2002.02731 Theorem 3 Theorem 4 digit-sum multiples of an integer",
+        "Frobenius number of base-b digit sums of positive multiples of b^r+1 equals b-1 independent of exponent r when b is even"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2303.13017, Theorems 1-3 and Question 4, discusses Out(s_b,n) as the set of sums from positive multiples but gives no exact b^r+1 spectrum.",
+        "arXiv:2002.02731, Theorem 3 converts digit sums to distinct powers of b but does not impose the sharp low odd exclusion.",
+        "Closest semantic record on divisor-subset sums of 2^a p^b is a different arithmetic object."
+      ],
+      "reasoning": "Aliases include Out(s_b,n), the attainable digit-weight spectrum, and positive multiples of generalized Fermat-type moduli. The signed relation sharp gap of all odd sums <b+1 is absent in the examined equivalent formulations. Distinct subset-sum constructions for divisors are not the digit sum of multiples.",
+      "searches": [
+        "\"b^r+1\" \"digit sum\" \"multiple\"",
+        "digit sums of multiples b^r+1 all even and odd from b+1",
+        "Complete digit-sum set of positive multiples of b^r+1: every even sum and every odd sum at least b+1 for even b; for odd b exactly positive even sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching OEIS table or published exact spectrum covering every even b and exponent r>=2 was identified in the inspected query responses.",
+        "Finite automata independently computed complete reachability for all numeral lengths at bounded sums across 35 small base/exponent settings; those are local checks, not novelty evidence."
+      ],
+      "reasoning": "A finite numerical table would not automatically give the uniform quantified theorem. No indexed exact table with the full parameters and implication strength was found; a missing indexed result is not a proof of novelty.",
+      "searches": [
+        "OEIS sequence possible digit sums multiples of 101 1 3 5 7 9",
+        "digit sums multiples 101 3 impossible 11 possible",
+        "sum of digits of multiples of generalized Fermat b^r+1 complete attainable spectrum parity gap odd sums less than b+1"
+      ]
+    },
+    "rationale": "Inspected arXiv:2303.13017 Theorems 1–3 and Question 4: the former show cofiniteness or partial containment for coprime moduli, while Question 4 asks for Frobenius numbers. Inspected arXiv:2002.02731 Theorems 1,3,4 and 5: generic digit-power reachability, shifts by b-1, and minimal-digit-sum methods do not classify all attainable digit sums for b^r+1. A previously reported b+1 spectrum applies to r=1; it is excluded, and b^(2h)+1 is coprime to b+1 for even b. published-finding corpus and literature searches found no implied full r>=2 spectrum, with unindexed overlap a residual risk.",
+    "residual_risks": [
+      "Unindexed or differently named digit-sum spectrum results may overlap the family.",
+      "Later mathematical treatments of questions from arXiv:2303.13017 may cover the present family without being found by the indexed searches.",
+      "Finite-state evidence cannot establish originality or the infinite symbolic theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Cofiniteness applies to m=b^r+1 in even base but does not determine gaps or Frobenius; Question 4 requests Frobenius number in precisely this coprime regime; Question 2 is a different non-coprime regime.",
+        "evidence": [
+          "Theorems 1–3 of arXiv:2303.13017 on Out(s_b,m); Section 3 Question 4 asks the Frobenius number when gcd(b-1,m)=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13017",
+        "material_read": "Full arXiv HTML sections on digit-sum Theorems 1–3, Examples 4–5, and Section 3 Questions 1–4 including hypotheses and consequences.",
+        "method": "Read original public preprint arXiv HTML mathematical statements and proofs, contrasting hypothesis gcd(b-1,m)=1 and exact output-set requirements.",
+        "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+        "trigger": "Direct motivating 2023 problem on complete attainable digit sums and Frobenius numbers"
+      },
+      {
+        "assessment": "Establishes equivalent distinct-power representation, shifts by b-1, and sturdy criteria; no explicit family-wide low-odd obstruction or conductor for b^r+1 found in the inspected material.",
+        "evidence": [
+          "arXiv:2002.02731 Theorem 3 and Theorem 4; Sections 2–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.02731",
+        "material_read": "Public full arXiv HTML abstract, Sections 1–3 (especially Theorems 1,3,4,5 and their proofs), and paper outline indicating later automata algorithms.",
+        "method": "Read full HTML of relevant primary sections; compared theorem conclusions and quantified digit-sum feasibility with present full spectral equality.",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Potential stronger general theory of digit sums of multiples and efficient feasibility algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5544f72b-907d-4183-b708-b0343fd7516f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 study explicitly asks in Question 4 for exact Frobenius numbers of digit-sum output sets in the coprime regime. Here an entire natural two-parameter family of shifted powers b^r+1 is classified completely, with exact omitted positive sums, conductor b, Frobenius number b-1 and b/2 gaps independent of r. The signed short-relation lemma gives a structural mechanism for the unexpectedly stable gaps beyond mere arithmetic-progression attainability. This is a natural complete classification rather than an arbitrary finite slice or table recomputation.",
+    "status": "PASS"
+  }
+}
