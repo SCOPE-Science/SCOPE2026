@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The theorem fixes the state square, normalized structural matrix, parameter domains, two response laws and physical time scale. Inward boundary conditions give global existence and invariance. At any active maximum-norm coordinate, a monotone tanh envelope yields a strictly negative upper Dini derivative for every nonzero state when the common-mode linear gain is at most one. Below threshold it yields the stated uniform exponential rate. Above threshold, the common-mode eigenvalue becomes positive and a scalar intermediate-value argument gives nonzero consensus fixed points, establishing necessity. At equality, group-exchange and global-reversal symmetries force invariant axes; exact cubic expansion produces the coefficient including nonlinear sender reformulation. The antisymmetric eigenvalue is strictly negative, and exponential transverse damping together with a lower subexponential bound on the nonzero common mode justifies the derivative of its reciprocal square and the limiting amplitude. The standalone verification program checks representative identities and trajectories, but the proof establishes all-time quantifiers.
+
+## Originality — PASS, provisional historical priority
+The motivating preprint (arXiv:2609.37521v1) derives the local neutral threshold and stationary branches; the reviewed sections do not state or imply full-square global attraction, the exact critical physical-time amplitude or the exceptional antisymmetric initial-data dichotomy. Nearby opinion-model papers study different interaction mechanisms. Standard cubic mean-field slowing and general nonlinear-network convergence methods exist, so these individual techniques and exponents are not themselves priority claims. Search comparisons did not identify an implication-equivalent theorem for this model. Broader unknown Lyapunov or center-manifold results remain a residual risk; absence from searches alone does not establish novelty.
+
+## Mathematical value — PASS
+Local stability does not generally imply global convergence in nonlinear, heterogeneous dynamical systems, and at a nonhyperbolic threshold exponential estimates do not establish the decay law. The proof gives a complete parameter boundary and universal physical-time amplitude for all physical initial conditions, plus the codimension-one fast exception. The coefficient separates cultural nonlinear response from structural mixing, making the neutral-polarization threshold a predictive quantitative statement rather than a local bifurcation diagnostic.
+
+## Limits and closest literature
+Michaud and Jansson supply the model and local linear gain. Earlier mean-field Ising critical expansions share the cubic exponent but not the coupled sender/receiver/filtering coefficient. Generic nonlinear-network stability techniques may offer alternative proofs or stronger coverage. The assumptions exclude external bias, zero cross-group mixing, noisy or time-varying interactions, and more than two groups.
+
+Self-review: passed. Independent audit: not yet performed.
