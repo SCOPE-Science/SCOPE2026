@@ -1,0 +1,15 @@
+# Scientific review: regular truncated-octahedron projected-area profile
+
+## Correctness
+PASS. Facet normals and areas in the explicit unit-edge coordinates yield the two-chamber formula exactly by Cauchy's projection-area identity. The six extreme rays of the two polyhedral cones and triangle inequality give sharp minima; Cauchy–Schwarz yields the sharp maximum and all equality directions. The bivariate absolute Gaussian kernel gives all spherical cross moments, with exactly three pair types and verified multiplicities. A standalone checker recreates the face counts, both directional formulas, six direct convex-hull projections, and independent spherical quadrature. No claim depends on the numerical quadrature for proof.
+
+## Originality
+PASS on the currently accessible literature and research-history evidence, with provisional historical priority. Finch (2011, 2012) treats width and shadow-area moments for selected Platonic examples. Lángi (2021) proves a mean-width extremal property of three-dimensional parallelohedra, not the truncated-octahedral brightness extremes/second moment. Closely related published work gives general polyhedral brightness machinery and a truncated-octahedral *width* law, not an explicitly verified covering formula for this projected-area profile. The 2026 broad width-and-brightness preprint could not be read in full: its accessible abstract is not grounds for claiming whole-document noncoverage. That residual comparison needs later human review. The exact angle-kernel machinery is prior art; the new assessed claim is the combined explicit two-chamber profile, sharp orientation classification and exact second moment for this natural space-filling cell.
+
+## Mathematical value
+PASS. Random projected area is a natural observable for a space-filling Voronoi cell, distinct from width and intrinsic-volume summaries. The minimum and maximum have inequivalent and unexpectedly non-axial equality directions; the two-chamber transition gives an exact structure beyond a standalone numerical moment. The exact second moment calibrates random-view area fluctuations, a quantity absent from the motivating explicitly inspected tables. This is a narrow, self-contained geometric-probability result, not an assertion of a broad downstream theorem.
+
+## Closest literature and limitations
+Finch, arXiv:1203.2464 (full accessible paper text); Lángi, arXiv:2102.11621 (full accessible paper text); Abas, arXiv:2609.26202 (abstract accessible only); Vickers–Brown (2001) studies projected-area distributions of ellipsoids, cylinders and cones (abstract accessible only). Generic face-normal absolute-product formulas can in principle be specialized to the solid; no inspected source directly supplies the combined precise claim. An inaccessible plausible full text remains the material novelty risk. No independent audit has occurred. Extensions to irregular parallelohedra, a full density, and finite-sample guarantees are unproved.
+
+Self-review: passed. Independent audit: not yet performed.
