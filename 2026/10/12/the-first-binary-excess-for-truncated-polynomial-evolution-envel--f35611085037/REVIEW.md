@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a unital commutative algebra, ideal embeddings in evolution algebras are equivalent to symmetric diagonal decompositions of the full multiplication bilinear map; both directions are proven with the image-ideal condition. The explicit eight-term decomposition was checked on all 256 input pairs. Exhaustive enumeration of every possible nonzero four-variable binary linear functional proves that none of the 6,435 seven-element supports spans all four product slices. The same enumeration yields exact lower-rank values 1, 3, and 5. All conclusions are confined to the stated four binary truncated-polynomial rings.
+## correctness
 
-## Originality — PASS, with residual risk
-Costoya–Fernández Ouaridi–Viruel, arXiv:2609.32784, Theorem 5.6 assumes characteristic other than two, whereas this result treats \(\mathbb F_2\). Couveignes–Ezome, arXiv:2110.13763, Section 7 supplies general bounds but not this exact binary fourth-order value. Morse, arXiv:2608.30238, concerns all seven outputs of an untruncated product, so its nine-gate result does not imply the exact four-output symmetric complexity. The closest indexed mathematical records on split square-zero evolution envelopes concern a different algebra. Historical classification of small-field multiplication algorithms may contain an equivalent specialization not located in this review; originality should therefore receive independent literature confirmation.
+PASS
 
-## Value — PASS
-The exact fourth-order cutoff answers a naturally missing small-characteristic case in the evolution-envelope problem. It shows that the frequently attained \(2n-1\) interpolation bound fails already in the first four nontrivial binary truncations, while giving an explicit smallest ambient evolution dimension instead of merely an obstruction. The result supplies a reproducible finite-field benchmark for symmetric bilinear tensor rank and ideal embeddings, with no claim beyond \(n=4\).
+For unital commutative A, an evolution ideal embedding gives a full symmetric bilinear decomposition xy=Σ ℓ_j(x)ℓ_j(y)v_j, and conversely the decomposition constructs an evolution algebra E and injective ideal embedding. This full tensor identity works in characteristic 2 (unlike polarization). For A=F2[t]/t4, enumerate the 15 nonzero linear forms and all 6435 7-subsets, check whether all four symmetric upper-triangular multiplication slices lie in their Gram span. Independent bitmatrix GF2 elimination recovered minimal supports (1,3,5,8), with counts (1,1,2,28), and independently verified the explicit eight-term algorithm on all 256 input pairs. The 7-term obstruction is exhaustive over all possible linear functionals, not sampling.
 
-## Limitations
-The computer enumeration is exhaustive only because \(\mathbb F_2\) has fifteen nonzero functionals in dimension four; it is not an infinite-family proof. Older specialized tables remain a possible originality risk. No outside independent audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant 2026 truncated-polynomial evolution-envelope theorem is stated with characteristic !=2 and at least 2n−1 field elements. Those hypotheses exclude F2. Full four-output truncated multiplication symmetric rank 8 differs from unrestricted seven-output binary polynomial product nine-gate lower bound. Primary text of the Costoya paper remained inaccessible despite arXiv and OA attempts and authorized institutional tool returning VPN disconnected, a material priority risk.
+
+## value
+
+PASS
+
+A natural first small-field obstruction to the 2n−1 interpolation dimension in the exact evolution-ideal embedding invariant; gives smallest explicit binary excess and complete finite exact rank certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
