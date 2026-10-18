@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source model has \(\widehat K=2rI_3/n+r^2\Sigma\); with \(n=3r\), the displayed \(\Sigma\) realizes the claimed coupled matrix and is positive definite for \(0<\chi<1/3\). The factor-manifold polar calculation reduces each block update to the sign of the factor times its reduced force. At \(X^+\), all factors and forces are positive, so one step subtracts \(\eta\) blockwise. At \(X^-\), the identity \(t^2=2\delta-\delta^2\) makes the two coupled forces exactly opposite, while the nuisance factor signs make all three gradient blocks negative. The next step therefore adds \(\eta\) blockwise and returns exactly to \(X^+\). All blocks are nonzero, so no set-valued polar ambiguity is used.
+## correctness
 
-## Originality
-PASS. The motivating source states qualitative persistent oscillation and gives diagonal and coupled numerical examples, but full-text searches find no period or two-cycle theorem. Its coupled theory proves one-step river-energy behavior rather than an exact recurrent orbit. The closest analytic predecessor derives decoupled scalar Muon recurrences for matrix factorization and uses geometrically decaying learning rates; those scalar recurrences do not imply the off-diagonal signal--nuisance sign pattern constructed here. Targeted statement-level published-result searches returned no coupled mixed-spiked period-two result. Residual risk remains because constant-step sign dynamics are elementary once a suitable coupled state pair is guessed.
+PASS
 
-## Value
-PASS. The source explicitly separates a fully decoupled diagonal sanity check from its genuinely coupled positive-semidefinite regime. The construction closes a natural structural question left by that separation: coupling does not merely preserve qualitative oscillation numerically, but permits an exact nonconvergent orbit of the actual factor-level method for every fixed step in a whole continuum of valid covariances. This makes the fixed-step late-stage limitation independent of diagonal decoupling or plotting truncation.
+For n=3r the source interaction law Khat=2r/n I+r²Σ realizes [[1,chi,0],[chi,1,0],[0,0,1]] with Σ=r^-2[[1/3,chi,0],[chi,1/3,0],[0,0,1/3]], positive definite exactly for 0<chi<1/3. The actual simplified-Muon block-polar update is factor minus η times sign(factor times Khat z), z=(a²-1,b²,c²). Let δ=η²/4, t=η sqrt(8-η²)/4, q=t²=2δ-δ², 0<η<1. At X+ all factors and reduced forces are positive, so one full step subtracts η in each block to X-. At X- the forces Khat z- = (-(1-chi)q,(1-chi)q,η²/4), while factor signs are (+,-,-), so all gradient block signs are negative and the next step adds η, yielding X+. All three blocks nonzero at both endpoints, avoiding nonunique polar factors. Reduced loss at X-=(1-chi)q²+η^4/32>0, proving a real non-ground-state period-two orbit for every parameter pair. Independent checker verifies actual sign toggling and positive loss on rational/float witnesses; all-parameter proof is algebraic.
 
-## Closest literature and limitations
-The river-valley source is the closest work and already motivates switching away from fixed-step Muon for late refinement. The present result sharpens its qualitative and numerical oscillation evidence to an exact off-diagonal periodic witness. The matrix-factorization preconditioning paper gives exact scalar recurrences but only for independent spectral modes and decaying learning rates. The result here does not classify attraction, momentum, stochastic gradients, or approximate polar computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating Shen–Yang–Shi–Ma–Teng–Ma mixed-spiked paper establishes the factor-manifold sign reduction and reports fixed-step oscillation numerically, but its coupled examples do not provide a parameter-uniform exact coupled two-cycle of the factor iteration. Ma–Huang–Chi–Chen derives decoupled scalar spectral recurrences and analyzes geometric step decay; those cannot directly produce an off-diagonal signal–nuisance cycle. A scalar Signum two-cycle in Resultary confirms that generic sign-step periodicity is prior art; the exact feasible coupled matrix-sensing orbit is the surviving construction. Residual risk of an unpublished equivalent coupled sign-map example remains.
+
+## value
+
+PASS
+
+Demonstrates an exact nonconvergent factor-level orbit in the first genuinely off-diagonal coupling regime of an established optimizer testbed, proving that observed fixed-step late-stage oscillations are not an artifact of diagonal decoupling or numerical coefficient plots. The parameter continuum, admissible positive-definite covariance and nonzero-gradient witness supply the structural boundary sought by the originating analysis. The result is not an unsupported claim about generic training performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
