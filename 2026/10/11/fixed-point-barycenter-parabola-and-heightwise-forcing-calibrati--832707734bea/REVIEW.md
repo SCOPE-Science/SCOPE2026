@@ -1,36 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Antiderivative tests in the three coordinates give
-\[
-\mathbb E[y\mid x]=0,
-\qquad
-\mathbb E[z\mid y]=0,
-\qquad
-\mathbb E[x^2-cx-by\mid z]=az.
-\]
-Averaging yields
-\[
-\mathbb E[x^2]=c\mathbb E[x],
-\]
-hence
-\[
-\operatorname{Var}(x)=m(c-m).
-\]
-Endpoint variance zero forces the corresponding equilibrium atom. The nonlinear forcing residual is exactly \(\dot z\), giving the stated variance defect, covariance, and correlation formula. Zero vertical-speed defect on compact invariant support forces \(z=y=0\) and then \(x\in\{0,c\}\).
+## correctness
 
-Risk: compact support is used to make every generator test integrable and to justify bounded-complete-trajectory rigidity.
+PASS
 
-## Originality
-PASS. The closest same-object indexed result already proves a different Genesio recurrence balance,
-\[
-\mathbb E[z^2]=b\mathbb E[y^2],
-\]
-and a sharp period floor; those are excluded from the originality claim. A complete open 2012 same-object article and a complete 2013 same-object PDF were inspected at statement and implication level and contain no matching invariant-measure moment theorem. The modern global-dynamics/integrability source has different stated results; its restricted full text is retained as a residual risk.
+For any compact invariant measure of xdot=y, ydot=z, zdot=x²-cx-by-az (a,b,c>0), applying the invariant generator to arbitrary C¹ coordinate primitives yields E[y|x]=0, E[z|y]=0, E[x²-cx-by|z]=az. Integrating gives E[y]=E[z]=0 and E[x²]=c m, hence Var(x)=m(c-m), 0≤m≤c and Var(x)≤c²/4. Equilibrium atoms at x=0,c prove sharpness; variance-zero endpoints force x constant along full invariant trajectories, hence y=z=0 and the corresponding atom. Set Q=x²-cx-by=az+zdot: E[zdot|z]=0 gives Var(Q)=a²Var(z)+E[zdot²] and Cov(z,Q)=a Var(z). If E[zdot²]=0, continuity and invariance force zdot≡0 on support, z constant and bounded completeness then y=z=0 and equilibrium support. Thus non-equilibrium measures have 0<Corr(z,Q)<1. Checked exact rational algebra of inspected verify.py; its simple asserts do not prove conditional generator identities, supplied analytic derivation does.
 
-Risk: the invariant-measure proof is short enough that an unindexed equivalent observation remains possible.
+## originality
 
-## Value
-PASS. The result links the model's two fixed points to the statistics of every compact invariant state through a sharp barycenter–variance parabola, and it supplies a fiberwise nonlinear-forcing calibration whose residual is exactly vertical-speed energy. These identities are directly testable on periodic and chaotic recurrent data and are structurally stronger than the known integrated recurrence balance.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The stationary invariant-measure *conditional forcing* and sharp x-barycenter parabola are the final claim; earlier same-system recurrence E[z²]=b E[y²] and period floor are excluded. The inspected 2012 complete Genesio delay-feedback analysis proves stability, Hopf, center-manifold and feedback control, not a stationary moment law. The inspected 2013 jerk paper derives the Newtonian jerk representation, equilibrium/Hopf/chaos diagnostics, not a generator regression. The 2025 Valls global integrability analysis is a plausible stronger result but accessible material does not exhibit stationary conditional moments; full publisher source not read. Comparison is statement-level, not a novelty claim based on title absence.
+
+## value
+
+PASS
+
+Motivation is the actual fixed-point geometry of the Genesio flow: the two distinct fixed points dictate exact barycenter variance for every compact stationary state. The conditional nonlinear-forcing calibration supplies observable height-resolved prediction with mean-square vertical-speed loss; it is a structural stochastic diagnostic absent from scalar recurrence. Sharp equilibrium-mixture envelope and rigid endpoints are useful exact constraints when studying chaotic and periodic invariant distributions, not a trivial numerical slice or already credited E[z²] balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
