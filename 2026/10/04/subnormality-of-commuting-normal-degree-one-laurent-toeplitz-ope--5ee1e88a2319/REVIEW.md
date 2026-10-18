@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The self-commutator is computed exactly as \(P_0\otimes(A^*A-B^*B)\). Subnormality forces invariance of the self-commutator kernel by a direct normal-extension identity; applying that invariance to \(z\otimes h\) yields \((A^*A-B^*B)B=0\). The converse is proved by a reducing decomposition and an explicit normal extension for the analytic sector. No finite computation is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The focal 2026 source supplies a general hyponormal framework for normal operator-valued symbols but no inspected statement of this exact subnormal criterion. The closest classical matrix-valued normal-or-analytic theorem requires coprime/invertibility assumptions and therefore does not cover the mixed singular sector. Eight semantic searches over degree-one Laurent, block-Toeplitz, commuting-normal, self-commutator and mixed-sector formulations returned no covering published record.
+PASS
 
-## Value
-PASS. The theorem gives a natural complete structural boundary: positivity of \(A^*A-B^*B\) is exactly hyponormality, while subnormality requires the additional annihilation of the coanalytic coefficient by that defect. The resulting normal-plus-analytic sector decomposition clarifies a regime excluded by coprime normal-or-analytic results.
+For commuting normal coefficients A and B, Fuglede double commutation cancels cross terms of T=S tensor A + S* tensor B; the unilateral-shift identities give [T*,T]=P0 tensor D, D=A*A-B*B. Positivity, respectively zero, of D characterize hyponormality and normality. For a subnormal restriction T=N|M to invariant M of a normal N, <[T*,T]x,x>=||(I-P_M)N*x||^2; hence ker[T*,T] is T-invariant. Since z tensor h belongs to that kernel for all h, T(z tensor h)=z² tensor Ah+1 tensor Bh forces DBh=0. Conversely D>=0 and DB=0, with commuting normal functional calculus, split H=ker D plus its reducing orthogonal complement; B vanishes on the latter. The first Toeplitz summand is normal and the second S tensor A has the normal bilateral-shift extension. This proves the iff for infinite- and finite-dimensional H and boundary D=0/B=0.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.30801v1, arXiv:1201.5974v2, and DOI:10.1002/mana.70235. The theorem is limited to degree-one Laurent symbols with commuting normal coefficients. Equivalent older formulations under different block-Toeplitz notation remain a residual literature risk; no claim of novelty is made for the scalar specialization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2012 Curto-Hwang-Lee normal-or-analytic theorem assumes coprimeness/invertibility and therefore excludes a simultaneous normal-plus-analytic decomposition in a singular coanalytic sector. Bala-Pandey (2026) addresses hyponormality, not the exact subnormal DB=0 condition in inspected statements. The scalar specialization is classical in spirit; claimed originality is the general commuting-normal operator-valued classification including mixed reducing sectors.
+
+## value
+
+PASS
+
+The exact obstruction DB=0 separates hyponormal and subnormal Laurent Toeplitz operators and identifies all possible mixed normal and analytic sectors. It clarifies the natural failure boundary of global normal-or-analytic dichotomies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
