@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-The verifier realizes
-\[
-\mathbb F_4=\mathbb F_2[\omega]/(\omega^2+\omega+1)
-\]
-with the encoding \(0,1,\omega,\omega^2\mapsto0,1,2,3\). It reconstructs the three Example 8 generators in
-\[
-(\mathbb F_4[x]/(x^7-1))^3
-\]
-and all seven simultaneous cyclic shifts, obtaining rank \(14\).
+# Independent mathematical audit
 
-It computes an ordinary nullspace and conjugates it coordinatewise to obtain the Hermitian dual, verifying the Hermitian orthogonality equations and rank \(7\). All \(4^7=16384\) dual codewords are enumerated, and every coefficient of the packaged weight distribution is checked.
+## correctness
 
-The Hermitian Gram matrix of the dual basis has rank \(6\). The verifier checks the explicit hull generator and hull dimension \(1\).
+PASS
 
-Finally, all weight-\(11\) supports are canonicalized. The replay checks exactly \(357\) minimum words, \(119\) distinct supports, exactly \(17\) simultaneous-shift orbits of size \(7\), and the complete three-block support-pattern histogram. Successful replay prints `VERIFY_OK`.
+The frozen RESULT.md generator polynomials were expanded over F4 with omega^2=omega+1 and all seven cyclic shifts of three R-module generators; exact independent GF4 Gaussian elimination gives rank(C)=14. Conjugation of the ordinary nullspace constructs D=C^{perp_h} of dimension 7, rank of Hermitian Gram D*conj(D)^T is 6. Independent exhaustive enumeration of all 4^7=16,384 words reproduces W_D(z)=1+357z^11+756z^12+1113z^13+1998z^14+2520z^15+3633z^16+3024z^17+1722z^18+987z^19+210z^20+63z^21. The hull is spanned by (1^14,0^7); 357 min words/3 nonzero scalars yield exactly 119 support sets; closure under block-cyclic shifts gives 17 orbits of size 7. Independently re-counted all ten claimed block-weight patterns: 14,14,7,21,14,7,14,14,7,7. All enumeration is exhaustive for THIS finite code, not universal over optimal codes.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.
+
+## value
+
+PASS
+
+An explicitly published optimal quaternary [21,7,11] Hermitian dual is a natural benchmark. Full weight distribution, hull (relevant to Hermitian LCD/quantum constructions) and geometry/orbits of minimum supports are intrinsic, motivated invariants not determined by the published distance parameters. The exact support incidence structure can be used in subsequent design/decoding classification. This does not purport to classify all optimal codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

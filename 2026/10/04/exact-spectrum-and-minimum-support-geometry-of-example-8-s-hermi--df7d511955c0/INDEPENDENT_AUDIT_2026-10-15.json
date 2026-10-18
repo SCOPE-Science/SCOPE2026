@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:56:49.194878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md generator polynomials were expanded over F4 with omega^2=omega+1 and all seven cyclic shifts of three R-module generators; exact independent GF4 Gaussian elimination gives rank(C)=14. Conjugation of the ordinary nullspace constructs D=C^{perp_h} of dimension 7, rank of Hermitian Gram D*conj(D)^T is 6. Independent exhaustive enumeration of all 4^7=16,384 words reproduces W_D(z)=1+357z^11+756z^12+1113z^13+1998z^14+2520z^15+3633z^16+3024z^17+1722z^18+987z^19+210z^20+63z^21. The hull is spanned by (1^14,0^7); 357 min words/3 nonzero scalars yield exactly 119 support sets; closure under block-cyclic shifts gives 17 orbits of size 7. Independently re-counted all ten claimed block-weight patterns: 14,14,7,21,14,7,14,14,7,7. All enumeration is exhaustive for THIS finite code, not universal over optimal codes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdukhalikov-Shat Theorem 16 gives a general Hermitian dual generator description; Example 8 identifies optimality, with no 357/119 census.",
+          "General coding-theory MacWilliams relation requires an actual dual enumerator; [21,7,11] optimality alone does not determine it."
+        ],
+        "reasoning": "General structure and parameters do not imply these code-specific hull, enumerator and orbit counts without additional calculation; different construction with same parameters is not dominating coverage.",
+        "searches": [
+          "index-3 quasi-cyclic Hermitian dual general structure Abdukhalikov Shat 2025",
+          "Resultary quaternary optimal code weight hierarchy Hermitian LCD [21,7,11]"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and artifacts/verify.py and artifacts/certificate.json at frozen source tree, independently reconstructed GF4 all 16,384 words",
+        "Abdukhalikov-Shat Entropy (2025) DOI 10.3390/e27111096, Example 8 pp.14-15",
+        "Resultary semantic same-object and LCD comparison",
+        "Grassl code bounds (parameter-only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "[scientific evidence] The source publishes the generator and optimal distance, but not the weight enumerator/hull orbits. The Resultary LCD code is a distinct Hermitian-hull-zero construction."
+        ],
+        "reasoning": "The source implies only the known dimension/distance; the audited full enumeration and hull and support-orbit description are additional and not a formal corollary of the parameter claim.",
+        "searches": [
+          "doi:10.3390/e27111096 Example 8 p.15",
+          "Resultary quaternary LCD [21,7,11] hierarchy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary self record distinguished from the separate LCD [21,7,11] record.",
+          "Abdukhalikov-Shat 2025, Example 8, Entropy 27 1096 pp.14-15, states the generator and [21,14,5]/[21,7,11], not these exact invariants."
+        ],
+        "reasoning": "The same [n,k,d] triple is not equivalent to the same generator-defined code; the nearby Hermitian LCD [21,7,11] code has zero hull, while the audited code has hull dimension one.",
+        "searches": [
+          "Resultary semantic: Hermitian dual Example 8 quaternary code 21 7 11 357 minimum words hull 119 supports",
+          "\"Example 8\" \"Hermitian dual\" \"weight enumerator\" Abdukhalikov Shat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full 16-page primary PDF text search for 357, 119, and weight enumerator returned no match; exact original Example 8 only gives parameters.",
+          "Grassl bounds concern attainable [n,k,d], not complete generator-specific weight and minimum-support data."
+        ],
+        "reasoning": "No exact table containing these same-object 119 supports/17 orbits was identified; table absence is not mathematical proof of novelty.",
+        "searches": [
+          "\"357\" \"119\" \"Hermitian\" \"21\" \"7\" \"11\"",
+          "\"On Quasi-Cyclic Codes of Index 3\" \"weight enumerator\"",
+          "Grassl code bounds tables [21,7,11] quaternary"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.",
+      "residual_risks": [
+        "A hidden generator-specific published weight enumerator or complete code database may provide the same invariants despite no match in inspected original or searches.",
+        "Exact results concern only the specified code, not every optimal [21,7,11] code."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARAMETERS_ONLY; no same-object detailed spectrum stated",
+          "evidence": "Example 8 gives [21,14,5] and optimal Hermitian dual [21,7,11], and its exact three polynomials; no full weight enumerator or support census in searched full text.",
+          "identifier_or_url": "DOI:10.3390/e27111096; https://mdpi-res.com/d_attachment/entropy/entropy-27-01096/article_deploy/entropy-27-01096-v2.pdf",
+          "material_read": "Primary 16-page PDF, methods/dual discussion and Example 8 on p.15; document-wide searches for 357, 119 and weight enumerator",
+          "method": "Publisher lawful open PDF and text search",
+          "title": "On Quasi-Cyclic Codes of Index 3",
+          "trigger": "Identical published Example 8 generator and [21,7,11] dual"
+        },
+        {
+          "assessment": "PARAMETER_BOUNDS_ONLY",
+          "evidence": "Optimality of code parameters does not establish weight enumerator or support incidence of the exact generator.",
+          "identifier_or_url": "Grassl online code tables",
+          "material_read": "Code-table purpose and indexed parameter bounds; no separate generator-specific full table obtained",
+          "method": "Named table comparison, not complete external table export",
+          "title": "Bounds on the Minimum Distance of Linear Codes",
+          "trigger": "Whether [21,7,11] parameters determine exact spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicitly published optimal quaternary [21,7,11] Hermitian dual is a natural benchmark. Full weight distribution, hull (relevant to Hermitian LCD/quantum constructions) and geometry/orbits of minimum supports are intrinsic, motivated invariants not determined by the published distance parameters. The exact support incidence structure can be used in subsequent design/decoding classification. This does not purport to classify all optimal codes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A hidden generator-specific published weight enumerator or complete code database may provide the same invariants despite no match in inspected original or searches.",
+    "Exact results concern only the specified code, not every optimal [21,7,11] code.",
+    "Publication not_ready is metadata/confidentiality transport, not scientific rejection or external expert/formal attestation."
+  ],
+  "schema_version": 1
+}
