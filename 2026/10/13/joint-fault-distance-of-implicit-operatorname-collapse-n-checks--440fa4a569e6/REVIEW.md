@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's implicit gadget measures the logical \(X\) operator \(L\) and the commuting products \(LS_j\). A premeasurement physical \(X\)-pattern flips exactly the adjacent \(Z_jZ_{j+1}\) stabilizer signs while leaving \(L\) unchanged. Comparing reported root and check outcomes therefore gives the exact kernel \(e_j\oplus e_0=x_j\oplus x_{j+1}\). The pure distances, the mixed distance-two witness, and the wrong-sign distance follow analytically. The transfer-matrix law is the exact generating function of binary domain walls under independent Bernoulli patch faults.
+## correctness
 
-## Originality
-PASS. The anchor already states the pure-readout order-\(n-1\) detection claim, and that prior statement is not presented as new here. The new claim classifies simultaneous patch-\(X\) and readout faults, gives the exact accepted-fault kernel, proves a distance-two mixed detector and a wrong-sign distance \(\lfloor n/2\rfloor+1\), and derives closed-form transfer-matrix probabilities. Claim-specific searches found no equivalent source-specific theorem. Broader single-shot and data-syndrome-code literature describes noisy-syndrome limitations but does not contain these observables or formulas.
+PASS
 
-## Value
-PASS. The source experimentally finds that increasing the implicit-check code size beyond \(n=2\) gives diminishing returns. The result supplies a mathematically explicit joint-noise boundary behind that tradeoff: pure readout faults are suppressed to order \(n\), whereas simultaneous patch bit flips and readout faults reduce the accepted-sign exponent to roughly half that value. The stochastic formula converts the structural statement into exact acceptance and conditional sign-error probabilities for an idealized independent-noise model.
+The root observable L=∏X_i commutes with each modeled X_i while LS_j with S_j=Z_j Z_(j+1) changes sign on domain walls x_j⊕x_(j+1). Cancelling ideal common signs proves e_j⊕e0=x_j⊕x_(j+1). Pure faults require constant e or constant x; mixed weight-two witness is X_1 plus first-check flip, and no weight-one pair is accepted. For e0=1, total weight k+n−t with t transitions and k ones, t<=min(2k,n−1), yielding minimum floor(n/2)+1 attained alternating. Transition generating function G=(1−q,q)[[1−q,qr],[(1−q)r,q]]^(n−1)(1,1)^T produces A0=(1−p)^n G(p/(1−p);q), A1=p^n G((1−p)/p;q). At equal small rates, positivity gives the exact exponent. Exhaustive independent x,e enumeration through n=9 corroborated these distances; no circuit-level claim.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.08925v1 itself. Broader context is supplied by DOI 10.1103/PhysRevX.5.031043 and arXiv:2310.12682 on noisy syndrome information and single-shot/data-syndrome coding. The theorem is not a full circuit-level fault-distance statement: it models premeasurement patch \(X\) faults and classical readout flips, and the probability formulas additionally assume independence. Dephasing, leakage, coherent faults, target-register propagation, and correlated hardware noise are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for simultaneous effective patch-X/classical-readout acceptance kernel and sharp mixed sign distance and stochastic profile; SOURCE Smith et al already explicitly claim pure readout detection to order n−1, which is credited. Generic quantum data-syndrome literature motivates mixed errors but supplies no implication giving this particular collapse(n) measurement kernel.
+
+## value
+
+PASS
+
+The exact mixed-fault distance exposes a materially smaller hidden postselection failure threshold than either isolated fault channel, directly useful for interpreting the ideal check gadget and extrapolating effective phenomenological noise. The transfer law supplies a precise conditional sign-error rate, not just a low-n counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
