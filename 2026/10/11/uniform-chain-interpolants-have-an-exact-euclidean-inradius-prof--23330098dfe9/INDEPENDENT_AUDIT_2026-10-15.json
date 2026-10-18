@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:01:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a chain the Fang–Fourier–Litza–Pegel transfer is globally linear and invertible: y1=x1, yi=xi−t xi−1, xi=∑_{k=1}^i t^(i−k)yk. The m+1 nonnegative order-simplex slacks s0=x1, sj=xj+1−xj, sm=1−xm telescope to 1, and their gradients in y have the specified norms N0=1, Nj=sqrt(1+(1−t)^2 ∑_(ℓ=0)^(j−1)t^(2ℓ)), Nm=sqrt(∑_(ℓ=0)^(m−1)t^(2ℓ)). The distances to facets are sj/Nj; the Chebyshev center is uniquely obtained by equalizing all m+1 distances, giving r=1/∑Nj and cumulative-slack coordinates. Direct endpoint substitution and differentiation give D′(0)=−(m−1)/sqrt2 and D′(1)=(m−1)sqrt m/2, guaranteeing a strictly better interior radius for every m≥2. At m=2 strict convexity and symmetry force t=1/2 with r=1/(1+sqrt5). All-dimensional proof symbolic; SymPy corroborated endpoint gradients for m=2,3,4,7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General simplex incenter geometry gives a method, not the transferred normal lengths and their all-parameter behavior",
+          "Fang–Fourier–Litza–Pegel transfer theorem provides required nonorthogonal map but no metric statement"
+        ],
+        "reasoning": "A general transfer-matrix simplex inradius theorem might formally subsume the result; available primary and semantic searches did not identify one with this parameter family. Adjacent stronger results at t=0 and t=1 cannot control interior values.",
+        "searches": [
+          "Euclidean inradius chain marked poset polytopes continuous transfer parameter family uniform diagonal endpoint maximizer",
+          "marked chain order polytope Euclidean inradius arbitrary transfer parameter t",
+          "bidiagonal simplex Chebyshev center transfer matrix geometric series"
+        ]
+      },
+      "checked_sources": [
+        "Fang–Fourier–Litza–Pegel arXiv:1712.01037; DOI 10.1137/18M1228529",
+        "Fang–Fourier arXiv:1508.02232; DOI 10.1016/j.ejc.2016.06.007",
+        "Resultary query: Euclidean inradius chain marked poset polytopes continuous transfer parameter family uniform diagonal endpoint maximizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source transfer formula y_p=x_p−t_p max_{q≺p}x_q becomes y_i=x_i−t x_(i−1) on a chain",
+          "Endpoint values r(0)=1/(2+(m−1)sqrt2), r(1)=1/(m+sqrt m) are consistent with existing endpoint results",
+          "Opposite endpoint derivative signs and exact facet normal sums prove a strictly better interior inradius"
+        ],
+        "reasoning": "The original combinatorial transfer does not imply preservation of Euclidean radius; the new transformed-facet computation and derivative argument supply a statement beyond prior implications.",
+        "searches": [
+          "Euclidean inradius chain marked poset polytopes continuous transfer parameter family uniform diagonal endpoint maximizer",
+          "Fang Fourier Litza Pegel continuous marked poset polytopes transfer theorem metric radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang–Fourier–Litza–Pegel primary 2017 continuous family and transfer formula",
+          "Resultary assigned self-hit 23330098dfe9; endpoint-only order/chain inradius records 07f2c6322025 and 04e5ecb8aad2"
+        ],
+        "reasoning": "The transfer map is a nonorthogonal linear map; Euclidean inradius is not invariant under transfer or Ehrhart equivalence. The exact reciprocal sum of transformed normals is not in the primary family statements or separate endpoint formulas.",
+        "searches": [
+          "Euclidean inradius chain marked poset polytopes continuous transfer parameter family uniform diagonal endpoint maximizer",
+          "arXiv 1712.01037 continuous marked poset chain uniform parameter Euclidean inradius Chebyshev center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary order-polytope record 07f2c6322025 and chain-polytope record 04e5ecb8aad2 supply endpoint values",
+          "No independent continuous-parameter exact table identified"
+        ],
+        "reasoning": "Existing exact endpoint values are genuine partial prior coverage and are credited, but do not give the interior formula or maximum.",
+        "searches": [
+          "Euclidean inradius chain marked poset polytopes continuous transfer parameter family uniform diagonal endpoint maximizer",
+          "marked chain order polytopes inradius interpolation exact parameter table"
+        ]
+      },
+      "rationale": "The 2017/2020 Fang–Fourier–Litza–Pegel primary work defines a continuous marked-poset hypercube and transfer maps, and prior discrete marked chain-order work treats 0/1 choices, but they do not furnish the Euclidean inradius along this nonorthogonal uniform diagonal family. Resultary returned separate exact endpoint order/chain-polytope inradius records, which imply the values at t=0,1 only; metric profile, moving incenter and interior advantage do not follow from combinatorial/Ehrhart equivalence. A generic transformed-simplex Chebyshev center theorem is a residual alternative, but no covering parameter-specific profile found.",
+      "residual_risks": [
+        "A broad theorem for bidiagonally transformed simplices might encode the same profile in general language.",
+        "The precontinuous predecessor was not independently inspected in full.",
+        "m≥3 maximizer existence, not uniqueness or exact t*, is established; arbitrary marked posets and nonuniform hypercube parameters are out of scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary source supplies transfer but not claimed Euclidean inradius profile; restricted chain specialization does not follow metrically without new facet computation",
+          "evidence": [
+            "Fang–Fourier–Litza–Pegel, Theorem 2.1 transfer and Definitions 1.2; combinatorial/Ehrhart discussion"
+          ],
+          "identifier_or_url": "arXiv:1712.01037v1; DOI 10.1137/18M1228529",
+          "material_read": "Accessible primary PDF introduction, family definition, order/chain endpoints, parametrized transfer theorem; screenshots of key definition/transfer pages from source review",
+          "method": "Read the accessible original full-text sections and verified transfer special case against frozen Git proof",
+          "title": "A Continuous Family of Marked Poset Polytopes",
+          "trigger": "Exact parameter hypercube, chain specialization and published transfer map"
+        },
+        {
+          "assessment": "Discrete 0/1 choices are not the one-parameter continuous metric profile; no whole-document noncoverage inference",
+          "evidence": [
+            "Fang–Fourier 2016 discrete marked chain-order family"
+          ],
+          "identifier_or_url": "arXiv:1508.02232v2; DOI 10.1016/j.ejc.2016.06.007",
+          "material_read": "Public abstract, metadata, and original continuous-family citation; not full text",
+          "method": "Abstract/definition-level comparison",
+          "title": "Marked Chain-Order Polytopes",
+          "trigger": "Predecessor with mixed order/chain degenerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same-rate diagonal path through a standard continuous order-to-chain polytope interpolation is geometrically canonical rather than an arbitrary parameter slice. The exact inradius and incenter for every t and every dimension exhibit an interior metric advantage absent from both classical endpoints, adding useful Euclidean information to a previously combinatorial/Ehrhart equivalence. The m=2 optimum is a sharp natural benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A broad theorem for bidiagonally transformed simplices might encode the same profile in general language.",
+    "The precontinuous predecessor was not independently inspected in full.",
+    "m≥3 maximizer existence, not uniqueness or exact t*, is established; arbitrary marked posets and nonuniform hypercube parameters are out of scope."
+  ]
+}

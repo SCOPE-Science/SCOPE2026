@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. On a chain the published transfer map is the global bidiagonal linear map \(y_i=x_i-tx_{i-1}\). The order-simplex facet slacks sum to one, and their gradients after inverting this map have exactly the normal lengths \(N_j(t)\) stated in the finding. Equal facet distances therefore give the unique incenter and the reciprocal-sum inradius. Direct endpoint differentiation proves strict inward improvement from both classical endpoints. In dimension two the denominator is a strictly convex function symmetric about \(t=1/2\), giving the unique exact optimum.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the continuous-family definition, endpoint specializations, and transfer-map theorem. Its results concern Ehrhart equivalence, combinatorial degeneration, tropical subdivisions, and vertices; direct searches found no inradius or Euclidean-radius theorem. The earlier marked chain-order predecessor was checked as the closest historical source, but only at abstract/metadata level. Candidate-specific published-result and literature searches covered marked-poset interpolation, order-chain transfer maps, Euclidean inradius, and Chebyshev-center formulations. No covering statement was located.
+PASS
 
-## Value
-PASS. The diagonal path is the canonical simultaneous interpolation between the marked order and chain endpoints. The theorem determines the entire Euclidean inball profile and shows a non-endpoint phenomenon in every dimension: intermediate parameters strictly beat both classical endpoint inradii. This adds metric geometry that is invisible to the source's Ehrhart and combinatorial equivalences, with an explicit moving incenter and a closed midpoint optimum in dimension two.
+On a chain the Fang–Fourier–Litza–Pegel transfer is globally linear and invertible: y1=x1, yi=xi−t xi−1, xi=∑_{k=1}^i t^(i−k)yk. The m+1 nonnegative order-simplex slacks s0=x1, sj=xj+1−xj, sm=1−xm telescope to 1, and their gradients in y have the specified norms N0=1, Nj=sqrt(1+(1−t)^2 ∑_(ℓ=0)^(j−1)t^(2ℓ)), Nm=sqrt(∑_(ℓ=0)^(m−1)t^(2ℓ)). The distances to facets are sj/Nj; the Chebyshev center is uniquely obtained by equalizing all m+1 distances, giving r=1/∑Nj and cumulative-slack coordinates. Direct endpoint substitution and differentiation give D′(0)=−(m−1)/sqrt2 and D′(1)=(m−1)sqrt m/2, guaranteeing a strictly better interior radius for every m≥2. At m=2 strict convexity and symmetry force t=1/2 with r=1/(1+sqrt5). All-dimensional proof symbolic; SymPy corroborated endpoint gradients for m=2,3,4,7.
 
-## Closest literature and limitations
-Fang--Fourier--Litza--Pegel provide the continuous family and transfer maps; Fang--Fourier provide the discrete marked chain-order predecessor. The two endpoint simplices have familiar Euclidean inradii, but those values do not determine the nonorthogonally transferred interior family. The theorem is restricted to the uniform diagonal parameter on a chain; arbitrary marked posets and general hypercube parameters remain outside its scope.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2017/2020 Fang–Fourier–Litza–Pegel primary work defines a continuous marked-poset hypercube and transfer maps, and prior discrete marked chain-order work treats 0/1 choices, but they do not furnish the Euclidean inradius along this nonorthogonal uniform diagonal family. Resultary returned separate exact endpoint order/chain-polytope inradius records, which imply the values at t=0,1 only; metric profile, moving incenter and interior advantage do not follow from combinatorial/Ehrhart equivalence. A generic transformed-simplex Chebyshev center theorem is a residual alternative, but no covering parameter-specific profile found.
+
+## value
+
+PASS
+
+The same-rate diagonal path through a standard continuous order-to-chain polytope interpolation is geometrically canonical rather than an arbitrary parameter slice. The exact inradius and incenter for every t and every dimension exhibit an interior metric advantage absent from both classical endpoints, adding useful Euclidean information to a previously combinatorial/Ehrhart equivalence. The m=2 optimum is a sharp natural benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

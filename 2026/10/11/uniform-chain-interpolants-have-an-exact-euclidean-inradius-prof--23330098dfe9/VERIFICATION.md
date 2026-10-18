@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-dimensional proof is given in `RESULT.md`.
 
-Critical checks:
-- on the marked chain, the source transfer map reduces exactly to
-  \[
-  y_1=x_1,\qquad y_i=x_i-tx_{i-1};
-  \]
-- its inverse is
-  \[
-  x_j=\sum_{i=1}^j t^{j-i}y_i;
-  \]
-- the order-simplex facet slacks
-  \[
-  x_1,\quad x_{j+1}-x_j,\quad1-x_m
-  \]
-  are nonnegative and sum to \(1\);
-- their Euclidean gradient norms in the \(y\)-coordinates are exactly \(N_0(t),\ldots,N_m(t)\);
-- the facet distance is slack divided by the corresponding gradient norm;
-- equalizing all facet distances yields
-  \[
-  r_m(t)=\left(\sum_{j=0}^mN_j(t)\right)^{-1};
-  \]
-- cumulative slacks followed by the transfer map give the stated incenter;
-- the endpoint normal lengths give the order and chain formulas;
-- the endpoint derivatives have opposite signs, forcing a strictly better interior inradius;
-- for \(m=2\), strict convexity and symmetry give the unique optimum \(t=1/2\).
+# Independent mathematical audit
 
-`verify.py` constructs the full facet system in transferred coordinates for deterministic dimensions and parameters and independently solves the Chebyshev-center linear program. It also checks the endpoint derivative formulas and the exact two-dimensional optimum. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+On a chain the Fang–Fourier–Litza–Pegel transfer is globally linear and invertible: y1=x1, yi=xi−t xi−1, xi=∑_{k=1}^i t^(i−k)yk. The m+1 nonnegative order-simplex slacks s0=x1, sj=xj+1−xj, sm=1−xm telescope to 1, and their gradients in y have the specified norms N0=1, Nj=sqrt(1+(1−t)^2 ∑_(ℓ=0)^(j−1)t^(2ℓ)), Nm=sqrt(∑_(ℓ=0)^(m−1)t^(2ℓ)). The distances to facets are sj/Nj; the Chebyshev center is uniquely obtained by equalizing all m+1 distances, giving r=1/∑Nj and cumulative-slack coordinates. Direct endpoint substitution and differentiation give D′(0)=−(m−1)/sqrt2 and D′(1)=(m−1)sqrt m/2, guaranteeing a strictly better interior radius for every m≥2. At m=2 strict convexity and symmetry force t=1/2 with r=1/(1+sqrt5). All-dimensional proof symbolic; SymPy corroborated endpoint gradients for m=2,3,4,7.
+
+## originality
+
+PASS
+
+The 2017/2020 Fang–Fourier–Litza–Pegel primary work defines a continuous marked-poset hypercube and transfer maps, and prior discrete marked chain-order work treats 0/1 choices, but they do not furnish the Euclidean inradius along this nonorthogonal uniform diagonal family. Resultary returned separate exact endpoint order/chain-polytope inradius records, which imply the values at t=0,1 only; metric profile, moving incenter and interior advantage do not follow from combinatorial/Ehrhart equivalence. A generic transformed-simplex Chebyshev center theorem is a residual alternative, but no covering parameter-specific profile found.
+
+## value
+
+PASS
+
+The same-rate diagonal path through a standard continuous order-to-chain polytope interpolation is geometrically canonical rather than an arbitrary parameter slice. The exact inradius and incenter for every t and every dimension exhibit an interior metric advantage absent from both classical endpoints, adding useful Euclidean information to a previously combinatorial/Ehrhart equivalence. The m=2 optimum is a sharp natural benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
