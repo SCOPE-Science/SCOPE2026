@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to an exact identity in \(TL_4(-A^2-A^{-2})\). A standard-library verifier reconstructs all fourteen noncrossing basis diagrams and verifies \(P_A(B)S=0\) coefficient-by-coefficient. This implies the recurrence for every \(t\ge0\), so the proof does not infer an infinite statement from finite samples. The positive word has writhe \(6t+2\), giving the stated Jones normalization.
+## correctness
 
-## Originality
-PASS. The closest source, Kelomäki--Schütz arXiv:2601.02119v1, defines the exact family and explicitly records that its argument yields no information about its Jones polynomials. Exact-family, alias, transfer-matrix, and recurrence searches found no covering statement. Berceanu--Nizami's general braid recurrence varies one exponent in a fixed word and Morton--Short gives a broad fixed-strand algorithm; neither states the displayed degree-six annihilator for repetitions of this six-crossing block. Residual risk remains that an unindexed specialization of a general braid-recurrence method exists.
+PASS
 
-## Value
-PASS. The recurrence answers a gap explicitly exposed by the paper that introduced this Khovanov-large family. It gives a fixed-order exact description of the Jones sequence for arbitrarily long four-braids and creates a concrete route to study the cancellation phenomenon motivating the source's remark. The result does not claim recurrence minimality or resolve cancellation asymptotics.
+The actual assigned verifier blob was read, and a separate independently implemented exact \(TL_4\) computation was executed using noncrossing perfect matchings of eight endpoints, union-find diagram composition and integer Laurent-polynomial coefficients (not the bundled diagram multiplication routine). It enumerated 14 basis diagrams and explicitly verified the complete state identity \(P_A(B)S=0\) for \(B=\rho(\sigma_1\sigma_3\sigma_2^4)\), \(S=\rho(\sigma_1\sigma_3)\), with \(\rho(\sigma_i)=A1+A^{-1}e_i\), \(\delta=-A^2-A^{-2}\). The independent run printed INDEPENDENT_EXACT_TL4_OK; F0 is \(-A^8-A^4\) and F1 has the stated eight Laurent terms. Since \(P_A(B)S\) is zero coefficientwise, left multiplication by \(B^t\) and the normalized Markov closure prove the recurrence for every \(t\ge0\), not merely finite samples. \(P_A\) has unit leading coefficient \(-A^{24}\) in the Laurent ring. Writhe \(6t+2\) gives \((-A^3)^{-6t-2}=A^{-18t-6}\), so the Jones shift conversion follows. The result does not assert minimal order.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Khovanov homology primary paper introduces exactly the family and its Remark 7.4 expressly says its Khovanov lower-bound construction supplies no Jones-polynomial information. Generic fixed-strand braid algorithms and single-exponent Jones recurrences explain existence of transfer calculations but do not give this explicit sixth-order polynomial annihilator for repetition of the six-crossing block, verified at the state level. This is original compressed family-specific data rather than a restatement of general Jones computability.
+
+## value
+
+PASS
+
+The large-Khovanov-rank four-braid family has a mathematically motivated missing Jones invariant. A provably valid explicit sixth-order recurrence is a concise reusable computation of its entire infinite Jones sequence and may guide comparisons between Jones and Khovanov behavior; its lack of proven minimality is disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

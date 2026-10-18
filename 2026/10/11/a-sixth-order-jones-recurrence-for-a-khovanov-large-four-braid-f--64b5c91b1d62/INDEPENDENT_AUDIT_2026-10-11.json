@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:43:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Kelomäki--Schütz, On computational complexity of Khovanov homology, arXiv:2601.02119v1, Proposition 1.6 and Remark 7.4",
+        "assigned RESULT.md blob 3ecd0f39760ed12fe24e7cf907df8805b4850e57",
+        "assigned verify_recurrence.py blob d95f7bff338ea7b073c4718916df2b5928ae2e87",
+        "independent private exact TL4 Laurent coefficient computation"
+      ],
+      "rationale": "The actual assigned verifier blob was read, and a separate independently implemented exact \\(TL_4\\) computation was executed using noncrossing perfect matchings of eight endpoints, union-find diagram composition and integer Laurent-polynomial coefficients (not the bundled diagram multiplication routine). It enumerated 14 basis diagrams and explicitly verified the complete state identity \\(P_A(B)S=0\\) for \\(B=\\rho(\\sigma_1\\sigma_3\\sigma_2^4)\\), \\(S=\\rho(\\sigma_1\\sigma_3)\\), with \\(\\rho(\\sigma_i)=A1+A^{-1}e_i\\), \\(\\delta=-A^2-A^{-2}\\). The independent run printed INDEPENDENT_EXACT_TL4_OK; F0 is \\(-A^8-A^4\\) and F1 has the stated eight Laurent terms. Since \\(P_A(B)S\\) is zero coefficientwise, left multiplication by \\(B^t\\) and the normalized Markov closure prove the recurrence for every \\(t\\ge0\\), not merely finite samples. \\(P_A\\) has unit leading coefficient \\(-A^{24}\\) in the Laurent ring. Writhe \\(6t+2\\) gives \\((-A^3)^{-6t-2}=A^{-18t-6}\\), so the Jones shift conversion follows. The result does not assert minimal order.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed number of strands gives polynomial-time computing methods.",
+          "The general TL4 algebra has dimension 14, but its generic dimension bound does not give the present degree-six factorization or exact coefficients."
+        ],
+        "reasoning": "General algorithms are broader in applicability but do not supply the compressed explicit recurrence without independent computation.",
+        "searches": [
+          "Morton--Short, Calculating the 2-variable polynomial for knots presented as closed braids, J Algorithms 11 (1990)",
+          "Berceanu--Nizami, A recurrence relation for the Jones polynomial (2014)"
+        ]
+      },
+      "checked_sources": [
+        "Kelomäki--Schütz, On computational complexity of Khovanov homology, arXiv:2601.02119v1, Proposition 1.6 and Remark 7.4",
+        "arXiv:1002.3735v1",
+        "Morton--Short, J Algorithms 11 (1990)",
+        "GitHub same-repository search",
+        "Resultary temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Khovanov paper explicitly remarks that its construction has no information about Jones polynomials \\(J_{L_t}\\).",
+          "The Berceanu--Nizami recurrence changes one braid-generator exponent, unlike repeated multiplication by \\(\\sigma_1\\sigma_3\\sigma_2^4\\)."
+        ],
+        "reasoning": "Neither primary result implies the stated degree-six annihilator with its actual Laurent coefficient polynomials by theorem specialization.",
+        "searches": [
+          "arXiv:2601.02119v1 Remark 7.4",
+          "Berceanu--Nizami arXiv:1002.3735v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same family is the source's large Khovanov-rank example, but no closed Jones formula is offered.",
+          "A variable single crossing exponent is not the same as taking powers of the full six-crossing block."
+        ],
+        "reasoning": "The novel relation is an explicit finite transfer identity for all \\(t\\), not a generic polynomial computability assertion.",
+        "searches": [
+          "Kelomäki--Schütz arXiv:2601.02119v1 Proposition 1.6 Remark 7.4",
+          "Berceanu--Nizami arXiv:1002.3735v1",
+          "GitHub SCOPE math search: Jones polynomial recurrence four braid Kelomaki Schutz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact six-factor annihilator was recovered from accessible targeted sources.",
+          "Resultary search cannot be used to assert absence."
+        ],
+        "reasoning": "This is an exact symbolic recurrence rather than a finite table; directly search equality of braid family and Jones invariant.",
+        "searches": [
+          "web: Jones polynomial recurrence sigma1 sigma3 sigma2 power block Khovanov",
+          "GitHub SCOPE code search for same braid family",
+          "Resultary exact query attempted but search temporarily_unavailable"
+        ]
+      },
+      "rationale": "The Khovanov homology primary paper introduces exactly the family and its Remark 7.4 expressly says its Khovanov lower-bound construction supplies no Jones-polynomial information. Generic fixed-strand braid algorithms and single-exponent Jones recurrences explain existence of transfer calculations but do not give this explicit sixth-order polynomial annihilator for repetition of the six-crossing block, verified at the state level. This is original compressed family-specific data rather than a restatement of general Jones computability.",
+      "residual_risks": [
+        "An independent family-specific calculation could exist in a nonindexed braid-computation supplement.",
+        "No minimal-order assertion is made; a lower-order annihilator after closure could exist.",
+        "Published Resultary index unavailable in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_KHOVANOV_RESULTS_NOT_EXPLICIT_JONES_RECURRENCE",
+          "evidence": "The paper constructs large Khovanov groups and in Remark 7.4 states it supplies no information about their Jones polynomials.",
+          "identifier_or_url": "arXiv:2601.02119v1",
+          "material_read": "Accessible full primary PDF, with Proposition 1.6 family definition, rank bound proofs, Remark 7.4 Jones limitation, and adjacent discussion",
+          "method": "Full-PDF focused theorem/proof and page-image reading",
+          "title": "On computational complexity of Khovanov homology",
+          "trigger": "Exact braid family and strongest possible family-specific prior statement"
+        },
+        {
+          "assessment": "GENERAL_METHOD_DIFFERENT_PARAMETER",
+          "evidence": "Its exponent-wise recurrence does not display the six-term block-power polynomial for the assigned braid family.",
+          "identifier_or_url": "arXiv:1002.3735v1",
+          "material_read": "Primary publication summary and recurrence scope involving variation of a single exponent in fixed braid words",
+          "method": "Public primary abstract/theorem-scope comparison",
+          "title": "A recurrence relation for the Jones polynomial",
+          "trigger": "Natural broader general Jones recurrence method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kelomäki--Schütz, On computational complexity of Khovanov homology, arXiv:2601.02119v1, Proposition 1.6 and Remark 7.4",
+        "Morton--Short fixed-braid methods",
+        "Berceanu--Nizami 2014"
+      ],
+      "rationale": "The large-Khovanov-rank four-braid family has a mathematically motivated missing Jones invariant. A provably valid explicit sixth-order recurrence is a concise reusable computation of its entire infinite Jones sequence and may guide comparisons between Jones and Khovanov behavior; its lack of proven minimality is disclosed.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(L_t=\\widehat{(\\sigma_1\\sigma_3\\sigma_2^4)^t\\sigma_1\\sigma_3}\\), \\(t\\ge0\\), its Kauffman brackets \\(F_t(A)\\) obey \\(P_A(E)F_t=0\\), where \\(P_A(\\lambda)=(A^2+\\lambda)(A^6-\\lambda)Q_1(\\lambda)Q_2(\\lambda)\\), \\(Q_1=A^{12}\\lambda-A^{10}\\lambda^2-2A^8\\lambda+2A^4\\lambda+A^2-\\lambda\\), \\(Q_2=A^{16}\\lambda-A^{14}\\lambda^2-A^{12}\\lambda+2A^8\\lambda-A^4\\lambda-A^2+\\lambda\\). This is an exact sixth-order recurrence; with writhe \\(6t+2\\), \\(J_t(A)=A^{-18t-6}F_t(A)\\) obeys \\(P_A(A^{18}E)J_t=0\\).",
+  "limitations": [
+    "Sixth order is verified to annihilate the series, not proven minimal.",
+    "Kauffman-bracket convention and positive braid writhe are fixed; no asymptotic Jones coefficient conclusions are claimed."
+  ],
+  "schema_version": 1
+}
