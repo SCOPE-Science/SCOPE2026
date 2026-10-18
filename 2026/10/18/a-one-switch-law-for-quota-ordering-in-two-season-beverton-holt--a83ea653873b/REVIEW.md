@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Fractional-linear transfer matrices give the exact fixed-point quadratics and the positive unique common-root obstruction. Since a common lower root must equal that obstruction and the fixed-point equation is affine in the high quota, the root ordering can reverse at most once on a connected physically admissible interval. The rational-arithmetic checker verifies the determinant, trace, and factorization identities and rigorously isolates the explicit two-sided reversal. It also checks the intermediate states; the theorem is not extrapolated from a finite experiment.
+
+**Originality — PASS, with a residual accessible-text limitation.** The 2010 primary paper explicitly poses the quota-permutation question after treating environmental capacity permutations. Its results and the 2009 fixed-capacity basins do not directly imply the sharp one-switch law when quota assignments change relative to fixed heterogeneous capacities. The 2020 map-permutation paper discusses the geometric mean of global attractors rather than the order of the repelling persistence thresholds; its inaccessible full text leaves a genuine risk of unrecognized specialization. Semantic research-record searches showed topical fishery and periodic-harvesting work, not a decisive equivalent statement. Originality is assessed as best-known, not certified.
+
+**Mathematical value — PASS.** The result distinguishes a global two-step spectral trace criterion from a local initial-population persistence threshold, with the sharp first possible case of two seasons and an exact unique crossover. It is motivated by a specifically stated open quota-ordering problem in population harvesting, not an arbitrary slice or routine next-size enumeration.
+
+**Closest literature and limitations.** AlSharawi–Ben Haj Rhouma (2010), Sections 3–5 and Question 2, supplies the established model and open management question. Their 2009 fixed-environment treatment and Al-Ghassani–AlSharawi (2020) are nearby but do not decisively cover the combined claim on inspected evidence. Model assumptions, the two-cycle restriction, and the inaccessible full text are disclosed in the finding.
+
+Self-review: passed. Independent audit: not yet performed.
