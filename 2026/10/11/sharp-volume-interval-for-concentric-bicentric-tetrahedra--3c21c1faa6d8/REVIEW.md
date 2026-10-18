@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces every concentric bicentric tetrahedron to the standard disphenoid box coordinates using the classical coincidence-of-centers characterization and then proves the metric statement directly. The face distance gives the exact inradius constraint, the cubic with roots given by the normalized squared half-axes has the stated discriminant, and the determinant gives the exact volume. The converse positivity argument shows that no feasible values are lost between the discriminant endpoints. The endpoint equations and the regular boundary case were checked independently by algebra and by the packaged finite verifier.
+## correctness
 
-## Originality
-**PASS.** The closest modern sources give, separately, the existence condition for nested spheres, the structural characterization of isosceles tetrahedra, and the tight-family parameterization for centered ellipsoids. None of the inspected texts states the complete fixed-\((R,\rho)\) volume interval or its two equality shapes. Semantic searches over bicentric tetrahedra, disphenoids, inradius/circumradius, and volume extremization found no statement implying the displayed formula. A 1950 isosceles-tetrahedron source and older monograph literature were not fully inspectable and remain an explicit residual risk.
+PASS
 
-## Value
-**PASS.** The volume is a natural metric invariant of the classical nested-sphere tetrahedron problem. Fixing concentric in- and circumspheres leaves a genuine one-parameter shape family, so an exact full volume spectrum and equality classification resolve a natural question rather than an arbitrary finite slice. The result also recovers the sharp existence threshold \(R\ge3\rho\) inside one calculation and distinguishes the two extremal disphenoid shapes when the threshold is strict.
+Katsuura Theorem 2 confirms concentric incenter/circumcenter iff equifacial tetrahedron, hence the alternating-sign three-axis disphenoid normal form. Direct face distances show rho^{-2}=alpha^{-2}+beta^{-2}+gamma^{-2}, while R^2=sum squared axes and V=8 alpha beta gamma/3. With positive a,b,c summing to one and Q=sum reciprocals, the cubic z^3-z^2+Q s z-s has discriminant -s(4Q^3s^2-(Q^2+18Q-27)s+4), independently reproduced by exact symbolic computation. Its double-root products give closed V±, while continuity/positive roots fill the interval. Explicit double-root endpoint formulas independently checked at Q=9,10,16,25,100. Q=9 regular; no claim that arbitrary bicentric nonconcentric tetrahedra share the interval.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Katsuura 2019 fully establishes the equifacial/concentric-center characterization but not the volume spectrum. Gibson–Saldanha–Tomei primary paper describes centered alternating-box tetrahedra and the possible sphere ratio, but its full text provides neither a sharp fixed-(R,rho) volume interval nor both equality shapes. Published disphenoid anisotropy laws control a different fixed statistic. A 1950 isosceles tetrahedron article and older monographs could include hidden volume formulas; retained as residual risk rather than arbitrary rejection. Exact statement-level searches did not identify an implying source.
+
+## value
+
+PASS
+
+Volume at fixed insphere/circumsphere radii is a fundamental metric invariant on the natural family of concentric bicentric tetrahedra. The result gives the full attainable spectrum, sharp two endpoint shapes, and the regular degeneracy at the ratio 3, not a rearranged table or arbitrary sliced statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

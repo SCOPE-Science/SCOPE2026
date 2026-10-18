@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved for every real \(R/\rho\ge3\) in `RESULT.md`; finite computation is only corroborative.
+## correctness
 
-The bundled `verify.py` performs two independent consistency checks using only the Python standard library. First, it enumerates positive rational triples \((a,b,c)\) with \(a+b+c=1\) on several denominator grids, reconstructs \(Q=1/a+1/b+1/c\), computes the corresponding squared tetrahedral volume, and checks that it lies between the two claimed radical bounds. Second, for integer \(Q\) values it checks the double-root endpoint parameterization against the radical product endpoints and rechecks the volume conversion.
+PASS
 
-Expected replay output:
+Katsuura Theorem 2 confirms concentric incenter/circumcenter iff equifacial tetrahedron, hence the alternating-sign three-axis disphenoid normal form. Direct face distances show rho^{-2}=alpha^{-2}+beta^{-2}+gamma^{-2}, while R^2=sum squared axes and V=8 alpha beta gamma/3. With positive a,b,c summing to one and Q=sum reciprocals, the cubic z^3-z^2+Q s z-s has discriminant -s(4Q^3s^2-(Q^2+18Q-27)s+4), independently reproduced by exact symbolic computation. Its double-root products give closed V±, while continuity/positive roots fill the interval. Explicit double-root endpoint formulas independently checked at Q=9,10,16,25,100. Q=9 regular; no claim that arbitrary bicentric nonconcentric tetrahedra share the interval.
 
-`VERIFY_OK concentric-bicentric-tetrahedra triples=3640 endpoint_cases=192`
+## originality
 
-These checks do not establish literature noncoverage and do not replace the discriminant proof.
+PASS
+
+Katsuura 2019 fully establishes the equifacial/concentric-center characterization but not the volume spectrum. Gibson–Saldanha–Tomei primary paper describes centered alternating-box tetrahedra and the possible sphere ratio, but its full text provides neither a sharp fixed-(R,rho) volume interval nor both equality shapes. Published disphenoid anisotropy laws control a different fixed statistic. A 1950 isosceles tetrahedron article and older monographs could include hidden volume formulas; retained as residual risk rather than arbitrary rejection. Exact statement-level searches did not identify an implying source.
+
+## value
+
+PASS
+
+Volume at fixed insphere/circumsphere radii is a fundamental metric invariant on the natural family of concentric bicentric tetrahedra. The result gives the full attainable spectrum, sharp two endpoint shapes, and the regular degeneracy at the ratio 3, not a rearranged table or arbitrary sliced statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
