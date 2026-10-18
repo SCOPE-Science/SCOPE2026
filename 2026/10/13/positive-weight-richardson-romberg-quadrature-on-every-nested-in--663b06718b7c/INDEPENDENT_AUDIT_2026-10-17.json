@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:48:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md",
+        "Source blob 34b158e63338c8b1b95e5cd39ce8d7d26742ab97",
+        "Source Git tree, RESULT.md and SLOGAN.txt original blob guards verified.",
+        "Independent exact Fraction mixed-chain computations corroborate positivity, exact max and sum1.",
+        "Counterexample found at d=0, N0=1: actual max h0/2, original claimed h0; corrected final RESULT.md and SLOGAN.txt provided as complete UTF-8 replacements with hashes."
+      ],
+      "rationale": "At positive depth, Lagrange interpolation at x_j=h_j^2 gives alternating c_j signs. With b_j=|c_j|h_j, adjacent ratio b_{j+1}/b_j=sqrt(x_j/x_{j+1}) product_{i!=j,j+1}|x_j-x_i|/|x_{j+1}-x_i|, bounded below by >2 product_{q=1}^j(1-4^-q)>4/3 for j>=1 (and >=2 for j=0), since strict nesting forces x_{j+1}<=x_j/4. Thus b_j increases strictly. Collected interior node of first appearance level ell has alternating tail W_ell=c_ell h_ell+...+c_d h_d>0; if ell<d its remainder below b_d is negative when grouped into adjacent pairs. Endpoints have W_0/2>0 and <b_d. Because d>=1 there are newly introduced interior nodes receiving b_d; last interpolation coefficient supplies exact product. ∑w_i=b-a for constants and positivity gives sharp absolute perturbation norm. Independent exact Fraction calculations agree on mixed depth>=1 chains. Crucial boundary: original unqualified depth statement would include d=0,N0=1, where two trapezoidal endpoint weights equal h0/2 but claimed product maximum is h0. The complete guarded replacement RESULT.md and SLOGAN.txt explicitly impose d>=1 and retain the full proof/scope and nonnested counterexample; this is a substantive repaired final claim, not an unmodified PASS.",
+      "residual_risks": [
+        "The positive-depth requirement excludes the singleton single-panel zero-depth case for the maximum formula; ordinary trapezoidal weights remain positive there.",
+        "This is a proof about final exact collected weights, not finite-precision extrapolation tableau cancellation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farzi permits general division sequences as a numerical framework yet singles out positivity for selected traditional sequences; not an all-nested assertion.",
+          "Sidi deals with stability/convergence of generalized extrapolation under other hypotheses; only abstract/metadata inspected."
+        ],
+        "reasoning": "Generic extrapolation frameworks are more general in permitted sequences but lack the claimed universal positivity criterion, so framework coverage is not theorem implication.",
+        "searches": [
+          "Resultary search: Richardson Romberg extrapolation positive collected trapezoidal quadrature weights nested integer divisibility varying refinement factors",
+          "Farzi 2014 Mathematical Communications 19(2) pp378–379",
+          "Sidi 1997 DOI:10.1137/S0036142994278589"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648/RESULT.md",
+        "MathCommun 19(2) (2014), 375–390",
+        "arXiv:math/0612523",
+        "DOI:10.1137/S0036142994278589"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Resultary theorem’s coefficients use single q=r^2 and do not cover ratios 2 then 3.",
+          "Nonnested (1,2,5) yields midpoint weight -8/63, showing the general arbitrary-sequence framework alone cannot imply positivity."
+        ],
+        "reasoning": "The new theorem has strictly broader nested hypothesis, while the older one is recovered by fixed-r specialization. No identified primary result implies the all-chain adjacent-magnitude inequality.",
+        "searches": [
+          "Resultary fixed-r complete theorem 2026/9/21",
+          "Farzi 2014 positive quadrature weight subsection",
+          "Pagès arXiv:math/0612523"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete prior published RESULT.md assumes N_j=s r^j for a single fixed integer r, and says not arbitrary sequences.",
+          "Farzi discusses Romberg and Bauer/Bulirsch division sequences but not every variable integer-ratio chain in inspected material."
+        ],
+        "reasoning": "Any fixed-r geometric chain is strictly nested, but the converse fails e.g. (1,2,6), so positivity of every fixed-r chain does not logically imply mixed-ratio results.",
+        "searches": [
+          "Resultary search: Richardson Romberg extrapolation positive collected trapezoidal quadrature weights nested integer divisibility varying refinement factors",
+          "Published Resultary: 2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+          "Farzi 2014 positivity subsection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-r max formula h_d product_{q=1}^d(1-r^{-2q})^-1 is a special case of the mixed-r formula, but there is no variable-ratio product stated there.",
+          "No retrieved exact table for arbitrary changing ratios supplies the new result."
+        ],
+        "reasoning": "An existing geometric-sequence table cannot mechanically determine all mixed-ratio tails, which have distinct Lagrange coefficients.",
+        "searches": [
+          "Resultary semantic retrieval fixed-r positive Romberg theorem record b7c2819b6648",
+          "Original fixed-r RESULT.md full text",
+          "Farzi pp378–379 positivity examples"
+        ]
+      },
+      "rationale": "Statement/implication comparison, not mere title search. The exact variable-ratio Richardson result strictly enlarges the fixed-r published theorem without assuming it implies mixed ratios.",
+      "residual_risks": [
+        "An older monograph might encode the same strict-divisibility positivity condition under different terminology.",
+        "Full Sidi 1997 manuscript not independently read; abstract-level comparisons cannot establish complete noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed geometric ratio r, not changing ratio per level",
+          "evidence": "Assumes N_k=s r^k and explicitly contrasts general arbitrary division sequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648/RESULT.md",
+          "material_read": "Entire primary RESULT.md including coefficient formula, two theorems, corollary, limitations and references freshly read from Git blob SHA 5145d3ac98bc2c2c9162ebbcad9d51fd27cd3eda.",
+          "method": "Read-only GitHub full-file retrieval",
+          "title": "Positive-weight generalized Romberg quadrature for every integer refinement factor",
+          "trigger": "Closest published exact positive-weight theorem"
+        },
+        {
+          "assessment": "Describes positivity for classical Romberg and some Bauer sequences, not the all-strict-integer-chain claim",
+          "evidence": "Compares Romberg/Bauer positive cases with Bulirsch nonpositive cases in division sequences.",
+          "identifier_or_url": "Farzi, Mathematical Communications 19(2), 2014, 375–390; https://www.mathos.hr/mc/index.php/mc/article/view/619",
+          "material_read": "Lawfully accessible 2014 PDF positivity section pages 378–379 and surrounding statement; page images inspected",
+          "method": "PDF full-section text and screenshot review",
+          "title": "Generalized extrapolation methods for solving nonlinear Fredholm integral equations",
+          "trigger": "Same topic generalized division sequences and positive quadrature weights"
+        },
+        {
+          "assessment": "Stochastic Euler weak-error framework, not composite-trapezoid collected weights",
+          "evidence": "Describes multi-step Richardson–Romberg for stochastic discretization and complexity.",
+          "identifier_or_url": "arXiv:math/0612523",
+          "material_read": "ArXiv abstract, introduction and extrapolation setup inspected; complete paper not exhaustively reviewed",
+          "method": "Open-access arXiv material",
+          "title": "Multi-step Richardson-Romberg Extrapolation: Remarks on Variance Control and Complexity",
+          "trigger": "General multilevel Richardson method"
+        },
+        {
+          "assessment": "Historical-equivalence residual risk, not a certified negative whole-paper reading",
+          "evidence": "General extrapolation convergence/stability, no explicit retrieved all-nested collected-weight result.",
+          "identifier_or_url": "DOI:10.1137/S0036142994278589",
+          "material_read": "Publisher metadata and accessible abstract only; full text inaccessible",
+          "method": "Abstract/metadata comparison",
+          "title": "A Complete Convergence and Stability Theory for a Generalized Richardson Extrapolation Process",
+          "trigger": "Possible older broad positivity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648/RESULT.md",
+        "MathCommun 19(2) (2014), 375–390",
+        "arXiv:math/0612523",
+        "DOI:10.1137/S0036142994278589"
+      ],
+      "rationale": "All mixed-ratio nested composite-trapezoidal Richardson rules retain positive sample weights, an intrinsic stability property absent from arbitrary nonnested chains; it strictly extends the earlier fixed-geometric-r theorem. The exact largest weight and optimal absolute sample-noise norm are useful quantitative invariants, and the explicit zero-depth correction makes boundary quantifiers correct.",
+      "residual_risks": [
+        "No efficiency advantage over classical Romberg or Gaussian rules is implied; the result is a robust sufficient criterion, not a classification of all positive division sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "REPAIRED final theorem: For every strict nested integer divisibility chain N0|...|Nd with d>=1 and successive ratios at least two, the collected depth-d composite-trapezoidal Richardson weights are all positive and have exact maximum h_d product_{j<d}(1-(N_j/N_d)^2)^(-1) at the newly introduced finest nodes, with optimal sum |w_i|=b-a. Singleton chain d=0,N0=1 is explicitly outside the maximum formula.",
+  "limitations": [
+    "The positive-depth requirement excludes the singleton single-panel zero-depth case for the maximum formula; ordinary trapezoidal weights remain positive there.",
+    "This is a proof about final exact collected weights, not finite-precision extrapolation tableau cancellation.",
+    "No efficiency advantage over classical Romberg or Gaussian rules is implied; the result is a robust sufficient criterion, not a classification of all positive division sequences.",
+    "An older monograph might encode the same strict-divisibility positivity condition under different terminology.",
+    "Full Sidi 1997 manuscript not independently read; abstract-level comparisons cannot establish complete noncoverage."
+  ],
+  "schema_version": 1
+}

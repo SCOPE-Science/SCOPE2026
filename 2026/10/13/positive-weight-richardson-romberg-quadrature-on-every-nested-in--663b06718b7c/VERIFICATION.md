@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is self-contained in `RESULT.md`. The decisive infinite step is the adjacent-magnitude inequality for \(b_k=|c_k|h_k\); finite computation is not used to infer the universal statement.
+# Independent mathematical audit
 
-`artifacts/verify.py` uses exact rational arithmetic. It checks 124 nested chains with varying refinement factors, including mixed chains not of the form \(s r^k\). For each tested chain it verifies strict positivity, unit weight sum on \([0,1]\), the exact largest-weight formula, polynomial exactness through degree \(2d+1\), alternating Richardson coefficient signs, and strict growth of \(|c_k|h_k\). It also verifies the exact nonnested boundary example \((1,2,5)\), whose midpoint weight is \(-8/63\).
+## correctness
 
-The recorded deterministic output is in `artifacts/verification.txt`. The checks do not test floating-point tableau stability, nonuniform spatial grids, or arbitrary nonnested division sequences.
+PASS
+
+At positive depth, Lagrange interpolation at x_j=h_j^2 gives alternating c_j signs. With b_j=|c_j|h_j, adjacent ratio b_{j+1}/b_j=sqrt(x_j/x_{j+1}) product_{i!=j,j+1}|x_j-x_i|/|x_{j+1}-x_i|, bounded below by >2 product_{q=1}^j(1-4^-q)>4/3 for j>=1 (and >=2 for j=0), since strict nesting forces x_{j+1}<=x_j/4. Thus b_j increases strictly. Collected interior node of first appearance level ell has alternating tail W_ell=c_ell h_ell+...+c_d h_d>0; if ell<d its remainder below b_d is negative when grouped into adjacent pairs. Endpoints have W_0/2>0 and <b_d. Because d>=1 there are newly introduced interior nodes receiving b_d; last interpolation coefficient supplies exact product. ∑w_i=b-a for constants and positivity gives sharp absolute perturbation norm. Independent exact Fraction calculations agree on mixed depth>=1 chains. Crucial boundary: original unqualified depth statement would include d=0,N0=1, where two trapezoidal endpoint weights equal h0/2 but claimed product maximum is h0. The complete guarded replacement RESULT.md and SLOGAN.txt explicitly impose d>=1 and retain the full proof/scope and nonnested counterexample; this is a substantive repaired final claim, not an unmodified PASS.
+
+## originality
+
+PASS
+
+Statement/implication comparison, not mere title search. The exact variable-ratio Richardson result strictly enlarges the fixed-r published theorem without assuming it implies mixed ratios.
+
+## value
+
+PASS
+
+All mixed-ratio nested composite-trapezoidal Richardson rules retain positive sample weights, an intrinsic stability property absent from arbitrary nonnested chains; it strictly extends the earlier fixed-geometric-r theorem. The exact largest weight and optimal absolute sample-noise norm are useful quantitative invariants, and the explicit zero-depth correction makes boundary quantifiers correct.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
