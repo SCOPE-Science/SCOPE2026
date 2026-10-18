@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The underlying multiclique poset is identified with the edge-inflated simplex of Ayzenberg--Rukhovich, whose theorem proves homology concentration in degree \(n-1\). The original argument independently derives the signed cellular fixed-point trace: stable faces are cycle unions, orientation signs cancel to \((-1)^{|J|-1}\), and orbit enumeration of pairs gives the exact \(\gcd\)/\(\operatorname{lcm}\) exponents. The Hopf trace formula then fixes the full character. For the three-vertex quotient, the invariant cellular degree-one group is zero, while the invariant degree-two group is the exterior cube of the edge-label module. Direct signed traces, exact mod-two boundary ranks and low-degree exterior-character comparisons replay using `verify.py`. The checked computations cover finite cases only; the infinite statement follows from the stated general argument and the cited wedge theorem.
+## correctness
 
-## Originality — PASS, with qualifications
-The 2020 primary source already proves the multiclique homotopy type and top Betti count, and the 2026 source proves their generalization to flabby finite étale spaces. Both accessible full-text sources were examined for equivariant statements, including the original functoriality section. Neither states the joint \(S_n\times S_q\) homology character, the cycle-type orbit formula, or the exterior-cube quotient module. Published-index and broader mathematical literature searches did not identify a stronger covering claim. The result is an **equivariant refinement**, not a new nonequivariant homotopy theorem. A formally equivalent unindexed character calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The joint character determines all rational irreducible multiplicities of the complete two-group action from cycle types, reducing a cellular problem with \(q^{\binom n2}\) top cells to subsets of the vertex cycles. The three-vertex quotient detects \(\binom q3\) surviving two-dimensional rational classes and their full color-permutation structure; Betti numbers of the unquotiented complex do not provide this. The complete formula is a reusable invariant for symmetric multigraph clique complexes, a family used in combinatorial topology and network-oriented complexes. No downstream theorem beyond these exact topological symmetry statements is claimed.
+The printed CW cell set consists of a nonempty subset I of n vertices and one of q edge colors for every pair of I. Oriented g-actions have sign of the restriction to I. For each invariant I, colorings fixed by (g,h) are products over unordered-edge orbits of |Fix(h^length)|. Vertex-cycle pair orbits have gcd(a,b) orbits of length lcm(a,b); intracycle non-diameters contribute floor((a-1)/2) orbits of length a, and even-cycle diameters one orbit of length a/2. Reduced augmented Hopf trace, with only degree n-1 rational homology from Ayzenberg--Khoroshavkina Theorem 5.1, yields the exact (-1)^n cycle-index character. The identity g=h=1 gives the finite alternating sum for beta. For n=3 every S3-invariant oriented 1-cell is killed by an endpoint swap and 0-cells have only the augmentation invariant, whereas invariant 2-cells are alternating tensors on three distinct color slots; hence top invariants are wedge^3(Q^q). Independent direct enumeration of vertex-invariant subsets and their literal unordered-pair cycles agrees with cycle-index predictions for four nonidentity (g,h) examples: traces -2,0,1,-8. Finite checks corroborate, but are not the wedge theorem or an infinite proof. Rational quotient representation is proved; no assertion on integral torsion or full quotient homotopy type.
 
-## Closest literature and limitations
-Ayzenberg--Rukhovich, arXiv:2012.07600v1, Theorem 1 and Sections 4/6/7; Ayzenberg--Khoroshavkina, arXiv:2602.08694v1, Proposition 4.12, Theorem 5.1, Corollary 7.2. These supply underlying homotopy concentration, not the claimed equivariant computation. The theorem is rational, and the literature search cannot establish absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty assessed is the joint S_n×S_q top-homology character and three-vertex quotient module, NOT the known nonequivariant sphere-wedge theorem or top Betti number. Whole primary sources were compared; neither asserts a full joint character. A matching Resultary self-entry supplies no independent priority evidence. This is a bounded best-of-knowledge PASS with explicit risks.
+
+## value
+
+PASS
+
+A natural uniform edge-color inflation yields an exact full S_n×S_q character and a nontrivial exterior-cube invariant, extending known nonequivariant homotopy results. The complete cycle orbit classification and quotient homology analysis, not the elementary alternating Euler sum alone, are substantive representation-theoretic information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
