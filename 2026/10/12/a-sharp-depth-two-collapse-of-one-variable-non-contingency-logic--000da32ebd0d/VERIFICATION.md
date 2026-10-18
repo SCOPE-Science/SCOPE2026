@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-The accompanying `check_normal_form.py` enumerates every valuation and pointed world of the complete irreflexive frame with \(n\) worlds, for all integer sizes \(1\leq n\leq9\). The program independently refines truth partitions at modal depth zero, one, two and three, taking all Boolean unions of previously available type classes before applying \(\Delta\). It checks that the predicted exact spectra are \((4,4,4,4)\), \((4,16,16,16)\), and \((4,16,64,64)\) in the three respective size regimes; it also compares the explicit four distinguishing formulas with the combinatorial type description and applies \(\Delta\) to every Boolean union of those types. It checks that \(\Box p\) is not among the definable truth sets for sizes at least two. `CHECK_OUTPUT.txt` records the real successful run ending in `VERIFY_OK`.
+# Independent mathematical audit
 
-Run with Python 3.8 or newer: `python3 check_normal_form.py`.
+## correctness
 
-**Scope of certification:** only the stated finite instances are exhaustively computed. The universal claim for all finite sizes rests on the symbolic successor-class argument and structural induction in `RESULT.md`. Originality rests on the comparison set described in `REVIEW.md` and `AUDIT.json`, not on the checker. No independent audit was performed.
+PASS
+
+PASS: For a pointed valuation let a be p at distinguished vertex and b be number of p-successors. For n>=4, exact classes E0/E1 (b=0 or n-1), S0 (a=0,b=1), S1(a=1,b=n-2), M0(a=0,2<=b<=n-2), M1(a=1,1<=b<=n-3) are all nonempty. Formula pair alpha=not Delta(p and Delta p), beta=not Delta(not p and Delta p) precisely isolates S0 and S1, while p and Delta p distinguish the E/M sides, hence Boolean combinations define every one of 2^6 unions at modal depth two. Direct successor inspection shows Delta maps each union of six classes to another such union: from each E class successors all share a single class (depending on valuation), S0 sees E1 and S0, S1 sees S1 and E0, M0/M1 see both M0 and M1. Thus induction forces arbitrary nesting to preserve the partition. n=3 has four classes, n<=2 every Delta is true. The □p counterexample changes b=0 to b=n-1 in the same E_a class. Independent valuation/transition enumeration for n=1..7 reproduced class counts 2,2,4,6,6,6,6 and Delta closure; arbitrary n rests on successor proof.
+
+## originality
+
+PASS
+
+PASS (best knowledge): Non-contingency modal semantics, generalized path proof systems and bisimulation methods are longstanding. The inspected Wang–Zenger work does not contain this irreflexive-clique six-atom Boolean algebra classification or all-size depth-two uniform collapse; the general modal-bundle papers do not state its 64 exact count in examined material. The finite exact quotient is specialized but new best-of-knowledge; a prior knowing-whether modal-clone computation remains possible.
+
+## value
+
+PASS
+
+PASS: A finite semantic quotient and optimal modal-depth bound is a natural exact expressivity invariant for a canonical class of finite frames. The theorem yields a concrete family-uniform normal form, sharp 16-to-64 depth separation and an undefinability boundary for necessity, useful for comparing contingency and classical modalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
