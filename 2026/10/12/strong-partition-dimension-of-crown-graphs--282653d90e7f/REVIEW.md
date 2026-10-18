@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In \(\operatorname{Cr}_n\), \(b_i\) is the unique vertex at distance \(3\) from \(a_i\). For two same-side vertices \(a_i,a_j\) placed in one partition class, strong resolution by another class requires set-distances differing by \(2\), hence exactly \(1\) and \(3\). The distance-\(3\) class must therefore be the singleton \(\{b_i\}\) or \(\{b_j\}\). Within every class containing \(r\) vertices of \(A\), this forces at least \(r-1\) singleton matched vertices in \(B\). Summing over the \(q\) classes meeting \(A\) gives at least \(n-q\) additional classes and therefore at least \(n\) classes total. The explicit \(n\)-class construction is checked pair by pair in the proof and independently by code.
+## correctness
 
-## Originality
-PASS with residual search risk. The foundational full text defines strong resolving partitions, proves only the general strong-resolving-graph bounds, and records that a \(2\)-antipodal graph has strong resolving graph equal to a matching. For \(\operatorname{Cr}_n\), those statements imply only \(2\le\operatorname{pd}_s\le n+1\), not the exact value. Focused searches for crown graphs, matching-deleted complete bipartite graphs, and strong resolving partitions found no source stating the exact theorem. The later product-graph paper addresses graph products rather than this matching-deletion family.
+PASS
 
-## Value
-PASS. Crown graphs are a standard symmetric bipartite family, and strong partition dimension is a natural metric-location invariant. The theorem closes a wide gap left by the generic strong-resolving-graph bounds for this \(2\)-antipodal family and introduces a reusable singleton-antipode charging argument. The exact value is not a parameter renaming or a finite-table lookup.
+All distances checked: dist(a_i,b_i)=3 unique farthest; dist(a_i,b_j)=1 for j!=i, dist(a_i,a_j)=2. For same-part A-pair distance 2, a resolving other part has distances 1 and 3 (zero impossible), hence must be singleton {b_i} or {b_j}. Within A-occupancy r every pair forces one of its matched b singleton, so at least r-1 distinct B singletons; summing over q A-meeting parts yields n-q additional parts and lower n. Explicit n classes U0={a1,..,a_(n-1),b_n}, U1={a_n,b1}, singleton b2..b_(n-1) resolve each same-class pair; direct distance verification includes n=3. Independent exhaustive set-partition search finds minima n=3 and 4 with 122 and 2795 tested partitions. Thus all n are covered by combinatorial proof, not small enumeration.
 
-## Closest literature and limitations
-The closest source is González Yero's foundational paper, arXiv:1312.1987, because it introduces the parameter and explicitly treats \(2\)-antipodal strong resolving graphs. The 2016 product-graph paper is a secondary structural comparison. The result does not enumerate all minimum partitions, and an unindexed equivalent result remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Foundational González Yero 2014 paper gives bounds from strong-resolving graph and observes 2-antipodal graph associated matching; for crown these yield 2<=pd_s<=n+1, not exact n. No inspected source or Resultary crown-graph item reports exact strong partition dimension under this graph alias. Other crown graph invariants (edge-metric, odd coloring) are not implication equivalents.
+
+## value
+
+PASS
+
+The crown family is a standard 2-antipodal symmetric connected bipartite graph; exact strong partition dimension is a natural metric-location invariant. The n-valued classification closes the generic [2,n+1] gap and supplies an inductively reusable singleton-antipode charging obstruction, rather than a finite table, renaming or arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

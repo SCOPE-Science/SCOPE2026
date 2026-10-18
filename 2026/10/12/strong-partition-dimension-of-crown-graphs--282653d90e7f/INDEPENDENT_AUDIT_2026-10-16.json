@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:53:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 63298ff82dcb61279a6e0bc15dbb78e692254954",
+        "artifacts/verify_strong_partition_crown.py blob 4ec52164128c7b3cf17e81f7564c223440fd212f",
+        "Independent enumerations n=3 and n=4"
+      ],
+      "rationale": "All distances checked: dist(a_i,b_i)=3 unique farthest; dist(a_i,b_j)=1 for j!=i, dist(a_i,a_j)=2. For same-part A-pair distance 2, a resolving other part has distances 1 and 3 (zero impossible), hence must be singleton {b_i} or {b_j}. Within A-occupancy r every pair forces one of its matched b singleton, so at least r-1 distinct B singletons; summing over q A-meeting parts yields n-q additional parts and lower n. Explicit n classes U0={a1,..,a_(n-1),b_n}, U1={a_n,b1}, singleton b2..b_(n-1) resolve each same-class pair; direct distance verification includes n=3. Independent exhaustive set-partition search finds minima n=3 and 4 with 122 and 2795 tested partitions. Thus all n are covered by combinatorial proof, not small enumeration.",
+      "residual_risks": [
+        "Proof is metric-specific, not claimed for other matching-deletion or antipodal graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foundational bound omega(G_SR)<=pd_s<=alpha(G_SR)+1 and matching strong-resolving graph on 2-antipodal G yield only [2,n+1] for crown, not n.",
+          "Product-graph theorems address products rather than deleting a matching from K_(n,n)."
+        ],
+        "reasoning": "General class bounds do not dominate exact n or the singleton matched-antipode charging lower bound.",
+        "searches": [
+          "González Yero On the strong partition dimension of graphs arXiv:1312.1987",
+          "Yero–Kuziak–Rodríguez-Velázquez Strong resolving partitions for strong product graphs and Cartesian product graphs DOI 10.1016/j.dam.2015.08.026"
+        ]
+      },
+      "checked_sources": [
+        "González Yero arXiv:1312.1987 DOI 10.37236/3474",
+        "Yero–Kuziak–Rodríguez-Velázquez DOI 10.1016/j.dam.2015.08.026",
+        "Resultary crown-graph strong partition dimension search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounds from G_SR matching only constrain pd_s to between 2 and n+1; value n cannot be inferred by these inequalities alone.",
+          "Counting singleton b_i forced per A part is additional structural lower bound."
+        ],
+        "reasoning": "The displayed complete classification and singleton charging argument are new relative to statements materially inspected; retain risk of unindexed special graph theorem.",
+        "searches": [
+          "González Yero arXiv:1312.1987 generalized 2-antipodal remarks",
+          "Related 2016 strong product partition paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The construction is graph K_(n,n)\\M, also crown graph and 2-antipodal graph; all aliases targeted.",
+          "Resultary 2026/10/4/...b5b3c45f23e8 computes edge metric dimension n-1, which is a different metric invariant."
+        ],
+        "reasoning": "Matching-removed bipartite and crown descriptions are the same graph, but edge metric dimension does not imply strong partition dimension.",
+        "searches": [
+          "Resultary: strong partition dimension crown graphs complete bipartite minus perfect matching n",
+          "Search strong resolving partition crown K_n,n minus 1-factor n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary crown hits list edge metric, odd coloring, perfect Roman domination, restrained domination, and strong odd coloring; none is pd_s.",
+          "Finite package checker covers n<=5 exhaustively, while theorem claims all n by proof."
+        ],
+        "reasoning": "No table-based result was found for this same parameter; finite checks corroborate but cannot justify infinite claim.",
+        "searches": [
+          "Resultary search crown strong partition dimension",
+          "Search exact pd_s K_n,n minus matching"
+        ]
+      },
+      "rationale": "Foundational González Yero 2014 paper gives bounds from strong-resolving graph and observes 2-antipodal graph associated matching; for crown these yield 2<=pd_s<=n+1, not exact n. No inspected source or Resultary crown-graph item reports exact strong partition dimension under this graph alias. Other crown graph invariants (edge-metric, odd coloring) are not implication equivalents.",
+      "residual_risks": [
+        "An equivalent crown/antipodal partition calculation may be present in unindexed or inaccessible literature.",
+        "No classification of every minimum partition is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives generic strong-resolving-graph inequalities but not the crown exact value n.",
+          "evidence": [
+            "González Yero (2014), bounds omega(G_SR)<=pd_s<=alpha(G_SR)+1 and 2-antipodal matching remark"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.1987",
+          "material_read": "Open full PDF definitions, strong resolving graph bounds and remarks about 2-antipodal graphs; searched crown/matching terms",
+          "method": "Primary PDF text and relevant pages inspected",
+          "title": "On the strong partition dimension of graphs",
+          "trigger": "Foundational exact parameter and 2-antipodal bounds plausibly covering crown graphs"
+        },
+        {
+          "assessment": "Does not identify a matching-deleted complete bipartite classification in inspected material; complete full-text priority not certified.",
+          "evidence": [
+            "Discrete Applied Mathematics 202 (2016), 70–78"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.08.026",
+          "material_read": "Publisher abstract and accessible summary of graph-product structural results",
+          "method": "Accessible metadata/abstract inspection",
+          "title": "Strong resolving partitions for strong product graphs and Cartesian product graphs",
+          "trigger": "Potential later results covering 2-antipodal or crown family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown family is a standard 2-antipodal symmetric connected bipartite graph; exact strong partition dimension is a natural metric-location invariant. The n-valued classification closes the generic [2,n+1] gap and supplies an inductively reusable singleton-antipode charging obstruction, rather than a finite table, renaming or arbitrary instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every crown graph Cr_n=K_(n,n) with perfect matching removed and n>=3, the strong partition dimension pd_s(Cr_n)=n; any part with r A-side vertices forces at least r-1 matched singleton B-side parts.",
+  "limitations": [
+    "No full enumeration/classification of minimum resolving partitions.",
+    "n>=3 only."
+  ],
+  "schema_version": 1
+}
