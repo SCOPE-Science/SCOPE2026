@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier–Walsh inversion classifies the complete family of admissible sign laws by the single highest-order correlation. The degree-\(n\) multinomial expansion isolates the exact \(\theta n!\prod_i a_i\) correction. Pairwise square-magnitude averaging strictly increases the independent even moment unless the two squared magnitudes agree, and arithmetic–geometric mean supplies the sharp correction bound and complete equality characterization. This is an analytic proof for every even \(n\ge4\). The finite exact-rational checker was replayed and is only supplementary evidence.
+## correctness
 
-## Originality — PASS
-Pass and Spektor (2014) sharply treat exchangeable pairwise and three-wise fourth moments, which already encompass the \(n=4\) special case. Their 2017 full text gives an interpolation bound for even lower independence orders and sharp \(k=2,3\) cases, but not the exact \(k=n-1\ge5\), moment-\(n\) constant. Spektor (2016) restricts to zero-sum signs, not parity-product signs. Searches also compared the equivalent Walsh Fourier-top-character formulation, even-cycle edge signs, published indexed four-way interaction findings, and classical sharp independent-sign constants. The last-proper-independence sharp constant, all even lengths, arbitrary \(\theta\), and its equality characterization were not found to be covered by an inspected theorem. The independent and four-variable cases are acknowledged as prior coverage.
+PASS
 
-## Value — PASS
-The boundary between \(k\ge p\), where degree-\(p\) moments match full independence, and \(k=p-1\) is a natural geometric/probabilistic endpoint. This result gives an exact sharp family with all extremizers and a graph Walsh realization, not just a computed example or generic nonsharp estimate. It quantifies the first moment at which a single cycle dependence is visible.
+For an even n≥4, all nonempty proper Walsh coefficients vanish under (n−1)-wise fair independence; inversion gives exactly μ(s)=2^−n(1+θ∏s_i), |θ|≤1. Expanding the nth even moment, the unique monomial surviving multiplication by the top character uses each sign once, giving precisely θ n!∏a_i; lower even orders are ordinary independent moments. For fixed squared length S, conditional two-coordinate averaging q_i,q_j with fixed sum raises q_iq_j; in the explicit 2k moment expansion all coefficients of (q_iq_j)^r are nonnegative, with h=k≥2 a strictly positive linear coefficient, so unequal squared magnitudes strictly reduce the independent-sign moment. AM–GM bounds |∏a_i| by (S/n)^(n/2) with rigid equality and θ sign alignment. Thus (M_n+|θ|n!)/n^(n/2) is sharp with exactly equal nonzero magnitudes and product-sign alignment (unless θ=0). Even-cycle Walsh edge products realize θ=1. Independent exact arithmetic reproduces θ=1 n=4,6,8 constants 4,124/9,71; finite verification is not an infinite proof.
 
-## Limits and residual bibliographic risk
-The theorem is restricted to real coefficients, even length \(n\ge4\), exponent \(n\), and fair \((n-1)\)-wise independent signs. Haagerup's classical full text was not accessible from the tested route; its independent-sign results and any differently phrased historical parity-moment theorem remain potential bibliographic overlap. The inspected published-finding corpus four-way-persistence record was available only as indexed title and summary, not full primary text. No claim of exhaustive literature discovery or independent validation is made.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Pass–Spektor 2014 addresses fourth moments for exchangeable pairwise (and special three-wise) independent signs, including the n=4 parity endpoint; their 2017 full text obtains k-wise estimates and sharp k=2,3, not the exact all-even n≥6 law with k=n−1, the complete Walsh parameter θ, the exact nth-moment constant, and ALL optimizer signs. Conditioning on zero total sign sum (Spektor 2016) is different from conditioning on sign product. Resultary related sharp fourth-moment Walsh chaoses concern distinct Fourier subspaces/moments. No inspected prior theorem entails the all-even general formula.
+
+## value
+
+PASS
+
+The natural boundary where exactly one full-product Walsh interaction survives has a complete dimension-general probability-law classification, exact sharp nth-moment Khintchine constant for all |θ|≤1, and rigid optimizer characterization. This is a precise independent-useful endpoint in bounded-independence estimates and directly handles even-cycle edge characters; it is not merely a table of n=4,6,8 small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
