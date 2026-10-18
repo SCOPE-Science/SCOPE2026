@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument proves injectivity by isolating each homogeneous monomial on a one-zero affine point; the additive-character identity gives the exact number of nonzero torus tuples summing to zero. Partitioning the full grid into torus, exactly-one-zero, and at-least-two-zero strata yields the stated formula, and an adjacent-weight difference calculation settles all ties. The separate `verify.py` independently enumerates every coefficient vector and every evaluation point for 19 finite-field cases, including nonprime fields, and finishes with `VERIFY_OK`. The finite tests are checks, not a substitute for the universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The full 2025 preprint *Cartesian square-free codes* studies the same evaluation family, including generalized Hamming weights, but does not state the complete Hamming enumerator or its coefficient-support distribution. A prior square-free toric-code paper uses a different evaluation domain and generalized weights. Searches for alternate character sums, projective and toric equivalences, generalized coverage, and existing code tables did not locate a directly equivalent statement. Residual uncertainty concerns an unindexed broad hyperplane-arrangement or simplex specialization that may already imply the exact formula; a negative search is not proof of novelty.
+PASS
 
-**Value — PASS.** The formula solves a complete natural weight-distribution problem for every dimension and finite field in the top-degree homogeneous family. It provides all multiplicities rather than just extrema, identifies all collisions and the exact minimum-weight multiplicity, and distinguishes torus behavior from nonzero affine-boundary contributions. These quantities are useful for weight-enumerator transforms and code error probabilities. The contribution is narrower than a full classification of every Cartesian square-free degree.
+For any finite field F_q, m>=2, evaluation of m square-free monomials M_i=product_{j!=i}X_j over full affine F_q^m is injective by testing the point with exactly x_i=0. If coefficient support size is r, contributions from points with one zero coordinate are r(q-1)^(m-1). On the torus change variables y_i=a_i/x_i: additive-character orthogonality gives N_r=[(q-1)^r+(q-1)(-1)^r]/q zero sums. Weight therefore w_r=(q-1)^m-(q-1)^(m-r)N_r+r(q-1)^(m-1), with multiplicity C(m,r)(q-1)^r. The difference w_{r+1}-w_r=(q-1)^(m-1)+(-1)^r(q-1)^(m-r) yields w1=w2 and all claimed q=2 and q>2 collisions. Independent enumeration of all evaluations for (q,m)=(2,2),(2,4),(2,6),(3,2),(3,4),(5,3) matched full histograms, including [81,4,24]_3 W=1+32z^24+32z^36+16z^42. Infinite prime-power scope rests on additive character identity, not enumerated fields.
 
-The scientific scope is restricted to the full affine grid and homogeneous degree one below the number of variables. The self-review do not establish independent verification or a comprehensive priority search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carvalho–López–San-José 2025 preprint/2026 journal open article defines same family and proves generalized Hamming weights or extremal minimum-support quantities; direct inspection of the complete HTML shows it does not enumerate number of single codewords by each Hamming weight. Patanker–Singh concerns toric and GHW variants. Published Resultary similar records address different affine-half and code families; no stronger exact all-Hamming-weight formula was found. General character sum identities are prior technology and could implicitly encode this spectrum, a noted risk.
+
+## value
+
+PASS
+
+The full Hamming enumerator of a natural extremal square-free evaluation-code degree controls error/erasure performance and dual enumerators and refines the already studied generalized minima. Every coefficient-support layer receives an exact multiplicity for every prime power q and arbitrary m, with distinctly different binary weight collisions; this structural family theorem is not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

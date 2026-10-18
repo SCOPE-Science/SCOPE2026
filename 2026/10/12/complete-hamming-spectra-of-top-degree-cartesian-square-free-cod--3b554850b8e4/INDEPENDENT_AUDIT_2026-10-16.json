@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:17:54.162987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite field F_q, m>=2, evaluation of m square-free monomials M_i=product_{j!=i}X_j over full affine F_q^m is injective by testing the point with exactly x_i=0. If coefficient support size is r, contributions from points with one zero coordinate are r(q-1)^(m-1). On the torus change variables y_i=a_i/x_i: additive-character orthogonality gives N_r=[(q-1)^r+(q-1)(-1)^r]/q zero sums. Weight therefore w_r=(q-1)^m-(q-1)^(m-r)N_r+r(q-1)^(m-1), with multiplicity C(m,r)(q-1)^r. The difference w_{r+1}-w_r=(q-1)^(m-1)+(-1)^r(q-1)^(m-r) yields w1=w2 and all claimed q=2 and q>2 collisions. Independent enumeration of all evaluations for (q,m)=(2,2),(2,4),(2,6),(3,2),(3,4),(5,3) matched full histograms, including [81,4,24]_3 W=1+32z^24+32z^36+16z^42. Infinite prime-power scope rests on additive character identity, not enumerated fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing articles calculate generalized Hamming weights for Cartesian square-free or toric codes, not the total enumerator at the claimed boundary degree."
+        ],
+        "reasoning": "A theorem for minimum support at each dimension does not imply how many words have nonminimum support, so it does not dominate the audited claim.",
+        "searches": [
+          "arXiv:2511.08304",
+          "arXiv:2002.10920",
+          "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s40590-026-00963-5",
+        "https://arxiv.org/abs/2002.10920",
+        "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source minimum distance is consistent with w1=w2 but cannot determine w_r for r>=3; toric point set omits zero-coordinate strata contributing r t^(m-1)."
+        ],
+        "reasoning": "Same-object lower bounds and point-set variants do not imply all weights with multiplicities; the torus/affine distinction is essential.",
+        "searches": [
+          "DOI:10.1007/s40590-026-00963-5",
+          "arXiv:2002.10920",
+          "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same homogeneous degree-(m-1) square-free monomial code occurs in Carvalho–López–San-José, but its GHW values count minima of r-subcodes, not Hamming counts of all q^m codewords."
+        ],
+        "reasoning": "Unlike generalized Hamming weights, a one-dimensional full weight distribution determines multiplicities for each support weight. The normalization retains identically zero full-affine-grid columns, unlike toric codes.",
+        "searches": [
+          "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums",
+          "arXiv:2511.08304",
+          "DOI:10.1007/s40590-026-00963-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite enumerations reproduce q=3,m=4 weights 24:32,36:32,42:16 and q=2,m=6 counts 2:21,4:35,6:7; the source paper has GHW numerical examples instead of these complete enumerators."
+        ],
+        "reasoning": "No exact table on the same generator/full-affine normalization was found; enumeration is a check of the symbolic parameter-uniform theorem.",
+        "searches": [
+          "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums",
+          "arXiv:2511.08304"
+        ]
+      },
+      "rationale": "Carvalho–López–San-José 2025 preprint/2026 journal open article defines same family and proves generalized Hamming weights or extremal minimum-support quantities; direct inspection of the complete HTML shows it does not enumerate number of single codewords by each Hamming weight. Patanker–Singh concerns toric and GHW variants. Published Resultary similar records address different affine-half and code families; no stronger exact all-Hamming-weight formula was found. General character sum identities are prior technology and could implicitly encode this spectrum, a noted risk.",
+      "residual_risks": [
+        "Classical character-sum or punctured-simplex literature may implicitly contain algebraically equivalent entire spectrum.",
+        "Only the full affine grid and top homogeneous square-free degree m-1 are addressed; symbol-composition enumerator is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published GHW formulas for the same Cartesian family but no complete Hamming weight enumerator by coefficient-support size in inspected content.",
+          "evidence": "Source results describe minimum supports of subcodes; audited formula counts every one-dimensional codeword.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40590-026-00963-5",
+          "material_read": "Entire lawful open-access article HTML, definitions and sections 3–5 including Theorems 3.1–3.2 and Corollary 5.3",
+          "method": "publisher open-access full HTML (related arXiv 2511.08304)",
+          "title": "Cartesian square-free codes",
+          "trigger": "same square-free evaluation code and family"
+        },
+        {
+          "assessment": "Toric/generalized-weight object differs; no unread noncoverage asserted.",
+          "evidence": "Title and abstract emphasize generalized Hamming weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.10920",
+          "material_read": "Open abstract and referenced scope; not entire full text",
+          "method": "arXiv bibliographic and abstract inspection",
+          "title": "Generalized Hamming weights of toric codes over hypersimplices and square-free affine evaluation codes",
+          "trigger": "plausible stronger square-free evaluation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full Hamming enumerator of a natural extremal square-free evaluation-code degree controls error/erasure performance and dual enumerators and refines the already studied generalized minima. Every coefficient-support layer receives an exact multiplicity for every prime power q and arbitrary m, with distinctly different binary weight collisions; this structural family theorem is not a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s40590-026-00963-5",
+    "https://arxiv.org/abs/2002.10920",
+    "Resultary_Search semantic query: Cartesian square-free evaluation homogeneous degree m-1 full Hamming weight enumerator all support coefficients characteristic sums"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical character-sum or punctured-simplex literature may implicitly contain algebraically equivalent entire spectrum.",
+    "Only the full affine grid and top homogeneous square-free degree m-1 are addressed; symbol-composition enumerator is not determined."
+  ],
+  "schema_version": 1
+}

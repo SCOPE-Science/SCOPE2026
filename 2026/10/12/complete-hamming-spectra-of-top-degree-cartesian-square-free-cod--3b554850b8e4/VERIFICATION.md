@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computation and proof verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the embedded source. The script reconstructs generator evaluations directly over each finite field and exhaustively runs through all coefficient vectors. It builds fields of cardinality \(4\) and \(8\) with polynomial-basis multiplication, not integer modular multiplication. For \(q\in\{2,3,4,5,7,8\}\), across 19 field/dimension pairs with \(2\le m\le6\), it checks the entire weight distribution, support-size uniformity, equality \(w_1=w_2\), strict later separation for \(q>2\), and coefficient-vector total \(q^m\). Successful execution ends with the exact marker `VERIFY_OK`.
+## correctness
 
-The proof does not depend on the 19 tests: it uses field-additive-character orthogonality to count zero sums of nonzero terms and a disjoint coordinate-stratum decomposition. The tests do not exhaust infinitely many fields or dimensions. They independently catch index errors, missing zero coordinates, arithmetic normalization errors and unsupported prime-only assumptions.
+PASS
+
+For any finite field F_q, m>=2, evaluation of m square-free monomials M_i=product_{j!=i}X_j over full affine F_q^m is injective by testing the point with exactly x_i=0. If coefficient support size is r, contributions from points with one zero coordinate are r(q-1)^(m-1). On the torus change variables y_i=a_i/x_i: additive-character orthogonality gives N_r=[(q-1)^r+(q-1)(-1)^r]/q zero sums. Weight therefore w_r=(q-1)^m-(q-1)^(m-r)N_r+r(q-1)^(m-1), with multiplicity C(m,r)(q-1)^r. The difference w_{r+1}-w_r=(q-1)^(m-1)+(-1)^r(q-1)^(m-r) yields w1=w2 and all claimed q=2 and q>2 collisions. Independent enumeration of all evaluations for (q,m)=(2,2),(2,4),(2,6),(3,2),(3,4),(5,3) matched full histograms, including [81,4,24]_3 W=1+32z^24+32z^36+16z^42. Infinite prime-power scope rests on additive character identity, not enumerated fields.
+
+## originality
+
+PASS
+
+Carvalho–López–San-José 2025 preprint/2026 journal open article defines same family and proves generalized Hamming weights or extremal minimum-support quantities; direct inspection of the complete HTML shows it does not enumerate number of single codewords by each Hamming weight. Patanker–Singh concerns toric and GHW variants. Published Resultary similar records address different affine-half and code families; no stronger exact all-Hamming-weight formula was found. General character sum identities are prior technology and could implicitly encode this spectrum, a noted risk.
+
+## value
+
+PASS
+
+The full Hamming enumerator of a natural extremal square-free evaluation-code degree controls error/erasure performance and dual enumerators and refines the already studied generalized minima. Every coefficient-support layer receives an exact multiplicity for every prime power q and arbitrary m, with distinctly different binary weight collisions; this structural family theorem is not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
