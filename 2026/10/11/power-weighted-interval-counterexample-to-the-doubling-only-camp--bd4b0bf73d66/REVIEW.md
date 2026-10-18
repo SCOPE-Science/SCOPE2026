@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof checks the measure assumptions explicitly and treats both directions of the phase diagram. For \(\lambda>p+1\), adjacent weighted averages on compact interior intervals differ by order \(h^{(\lambda-1)/p}\), and subdivision forces constancy because that exponent exceeds \(1\). For \(Q<\lambda\le p+1\), the power obstruction \(x^\delta\) satisfies the Campanato estimate in the endpoint and interior ball regimes while failing \(C^{0,\alpha}\) at zero. The admissible \(\delta\)-interval is nonempty exactly because \(Q<\beta+1\).
+## correctness
 
-## Originality
-PASS. The focal full text asks whether the doubling-only equivalence extends to \(Q<\lambda<Q+p\); its non-lower-regular embedding example is only at and beyond \(Q+p\). The closest prior result on the same source proves a positive reverse-doubling window and does not cover \(\lambda>p+1\) on this model. Targeted searches across the exact source question, power weights, weighted intervals, Campanato triviality, and reverse-doubling aliases found no statement-equivalent result. The classical Euclidean constant-space threshold is a known ingredient, not this mixed-dimension counterexample.
+PASS
 
-## Value
-PASS. The theorem resolves the focal open question negatively and gives an exact phase transition on a canonical one-parameter measure family. It identifies a reusable obstruction mechanism: local one-dimensional scaling can force high-order Campanato classes to collapse while endpoint mass decay simultaneously destroys lower \(Q\)-regularity.
+Exact μβ(B(0,r))=r^(β+1)/(β+1) yields failure of lower Q-regularity for Q<β+1, while polynomial ball weights are doubling. For λ>p+1, on every compact [a,b]⊂(0,1) the density is comparable to Lebesgue; adjacent-interval mean oscillations are O(h^((λ−1)/p)) with exponent strictly greater than one, and subdivision forces any Campanato element to be a.e. constant. Thus continuous embedding follows from finite total measure. If Q<λ≤p+1, a δ chosen between max(0,(λ−β−1)/p) and α=(λ−Q)/p exists because β+1>Q. f=x^δ has oscillation ≤C r^(pδ+β+1) near zero, and ≤C r^(p+1)x^(p(δ−1)+β) for x>2r; the two exponent cases ensure ≤C r^λ. Yet δ<α precludes a Hölder representative. These proofs apply to every p≥1 including p=1 and the λ=p+1 boundary if admissible; no finite numerical testing is needed.
 
-## Closest literature and limitations
-Górka--Stępień is the decisive comparison source; Stempak records the classical Euclidean triviality threshold. The result is restricted to power weights on a compact interval and does not classify all doubling spaces or determine the weakest added assumptions that restore the equivalence.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the placement of a doubling non-lower-Q-regular counterexample STRICTLY inside Q<λ<Q+p with exact threshold p+1. The classical one-dimensional Campanato triviality statement is credited; the added endpoint mass dimension separates lower regularity and interior collapse. The focal Górka–Stępień full paper could not be retrieved and is a declared significant residual risk, not false evidence it does not cover this theorem.
+
+## value
+
+PASS
+
+This exact negative answer to a stated doubling-only regularity criterion is a motivated counterexample, not arbitrary parameter slicing: the simple power weight cleanly separates endpoint lower mass dimension β+1 from interior local dimension 1, producing the sharp phase transition λ=p+1 throughout an open parameter region. It is a reusable obstruction for metric-measure Campanato embedding conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

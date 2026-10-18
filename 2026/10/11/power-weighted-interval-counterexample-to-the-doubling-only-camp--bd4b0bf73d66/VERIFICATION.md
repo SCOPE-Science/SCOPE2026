@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically over the full quantified parameter range. The lower-regularity failure uses the exact endpoint ball mass \(r^{\beta+1}/(\beta+1)\). The constant-space branch uses the exponent \((\lambda-1)/p>1\). The obstruction branch uses a \(\delta\) satisfying
-\[
-\max\left\{0,\frac{\lambda-\beta-1}{p}\right\}<\delta<\frac{\lambda-Q}{p},
-\]
-whose existence follows from \(\beta+1-Q>0\). Its Campanato estimate reduces to the positive exponent \(p\delta+\beta+1-\lambda\), while Hölder failure reduces to \(\delta-(\lambda-Q)/p<0\).
+# Independent mathematical audit
 
-The proof includes \(p=1\) and the critical value \(\lambda=p+1\) whenever that value lies in the admissible source interval. No finite experiment, numerical extrapolation, or external certification is used. The claim is limited to the stated power-weighted interval family and does not assert a classification of general doubling metric-measure spaces.
+## correctness
+
+PASS
+
+Exact μβ(B(0,r))=r^(β+1)/(β+1) yields failure of lower Q-regularity for Q<β+1, while polynomial ball weights are doubling. For λ>p+1, on every compact [a,b]⊂(0,1) the density is comparable to Lebesgue; adjacent-interval mean oscillations are O(h^((λ−1)/p)) with exponent strictly greater than one, and subdivision forces any Campanato element to be a.e. constant. Thus continuous embedding follows from finite total measure. If Q<λ≤p+1, a δ chosen between max(0,(λ−β−1)/p) and α=(λ−Q)/p exists because β+1>Q. f=x^δ has oscillation ≤C r^(pδ+β+1) near zero, and ≤C r^(p+1)x^(p(δ−1)+β) for x>2r; the two exponent cases ensure ≤C r^λ. Yet δ<α precludes a Hölder representative. These proofs apply to every p≥1 including p=1 and the λ=p+1 boundary if admissible; no finite numerical testing is needed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is the placement of a doubling non-lower-Q-regular counterexample STRICTLY inside Q<λ<Q+p with exact threshold p+1. The classical one-dimensional Campanato triviality statement is credited; the added endpoint mass dimension separates lower regularity and interior collapse. The focal Górka–Stępień full paper could not be retrieved and is a declared significant residual risk, not false evidence it does not cover this theorem.
+
+## value
+
+PASS
+
+This exact negative answer to a stated doubling-only regularity criterion is a motivated counterexample, not arbitrary parameter slicing: the simple power weight cleanly separates endpoint lower mass dimension β+1 from interior local dimension 1, producing the sharp phase transition λ=p+1 throughout an open parameter region. It is a reusable obstruction for metric-measure Campanato embedding conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
