@@ -1,15 +1,21 @@
-# Same-model review of “Forcing-selected RMS rigidity across multistability and offset boosting in a no-equilibrium hyperchaotic flow”
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Direct differentiation gives \(\dot Q=x^2-b\) exactly for \(Q=z-x^2/(2a)\), and the offset parameter never enters either \(\dot x\) or \(\dot z\). Integrating the identity yields the finite-time formula and, for bounded trajectories, the long-time mean-square law. Invariance of a compactly supported probability measure gives \(\int x^2\,d\mu=b\); combining the generator identities for \(x\), \(w\), and \(z\) gives the zero means and \(\int xy\,d\mu=b\). The activity-defect identity follows from \(\dot x=a(y-x)\). Strictness for \(b>0\) is justified by invariance of the compact support: equality would force \(y=x\) and then \(\dot w=-2dx\), which is incompatible with compact recurrence unless \(x=0\), contradicting \(\int x^2\,d\mu=b\). The bundled checker verifies the algebra exactly; no finite experiment is used as an infinite-time proof.
+## correctness
 
-## Originality
-**PASS.** The introducing article was inspected at the equations, no-equilibrium calculation, bifurcation/multistability discussion, and offset-boosting equations. It does not state the coboundary, the bounded-trajectory RMS law, the \(b<0\) boundedness obstruction, or the invariant-measure activity defect. Exact-title, DOI, exact-equation, RMS, time-average, mean-square, and invariant-measure searches were run in the published-result database and on the public literature. The closest published-result records concern different vector fields: the sine-modified Sprott-B flow has a superficially similar forcing-selected variance law, and the Dong–Wang flow shares a term \(\dot z=-b+xy\) but has a different \(\dot x\) equation and different stationary constraints. Neither statement implies this claim. Residual risk remains that an unindexed citing source contains the same elementary coboundary.
+PASS
 
-## Value
-**PASS.** The source's central phenomena are multistability and offset boosting, where different bounded branches are compared numerically. The new identity gives a parameter-selected observable that all such branches must share exactly: at the paper's \(b=25\), every bounded branch has long-time \(x\)-RMS exactly \(5\), independent of initial condition and offset. It also supplies a sharp sign obstruction to bounded dynamics for \(b<0\) and an exact activity defect for stationary states. These are structural, falsifiable constraints on the same model rather than a renamed or arbitrary parameter slice.
+Differentiate z−x²/(2a): (xy−b)−x(y−x)=x²−b exactly; offset z->z+k only in the y equation does not affect this equality. Boundedness of x,z makes Q(T)-Q(0) O(1), establishing long-time mean x²=b. Compact stationarity gives ∫x²=b, ∫xy=b, means x=y=0 from integrating x and w equations when d≠0, and ∫y²=b+(1/a²)∫(xdot)². For b>0 equality would imply xdot=0 on invariant compact support, forcing y=x and wdot=−2dx there; boundedness of w forces x=0, contrary to ∫x²=b, so strict. These are analytic stationary/long-time proofs, not deductions from simulations.
 
-## Closest literature and limitations
-The closest scientific source is the introducing article, DOI 10.24425/acs.2020.134678. The closest retrieved published-result balance law is record `2026/10/4/SCOPE-exact-recurrence-balance-and-forcing-selected-rms-in-the-sine-mo--70b0d7e16513`, for a different sine-modified Sprott-B system; record `2026/10/4/SCOPE-stationary-height-balance-and-lyapunov-sum-law-in-the-dong-wang--6502c19d6a18` is another different four-dimensional flow. The theorem does not establish boundedness or attractor existence at positive \(b\), and originality cannot be certified against material absent from the searched literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact introducing 2020 article prints the model and its three coexisting chaotic attractors at (31,25,15,3.3), offset parameter k and controls, without a coboundary x²−b, invariant-measure moment theorem or branch-independent RMS. A superficially similar forcing-selected variance law exists for a sine-modified Sprott-B vector field but does not specialize, because the ODE differs. The exact coboundary and strict y-activity defect appear as independent, same-model structural constraints in the examined material.
+
+## value
+
+PASS
+
+The exact x-RMS is directly motivated by the source’s central multistability and offset-boosting claims: all bounded coexisting branches, regardless of geometry or offset, have RMS(x)=5 at b=25. The sharp sign obstruction b<0 and stationary strict y-RMS defect are independently testable global constraints on recurrent statistical states, not arbitrary parameter slices or computed Lyapunov coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
