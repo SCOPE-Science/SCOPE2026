@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every connected dominating set must contain all articulation vertices. A nonarticulating cycle vertex has no neighbor outside its cycle, and the block-cut tree forbids a connection bypassing that cycle. Omissions within each cycle therefore form exactly one consecutive run of length at most two, and the converse selection produces a connected dominating set. This yields an exact bijection and an unambiguous product count. For each quadratic cycle factor, the discriminant bounds distinguish \(q=2\), \(q=3\), and \(q\ge4\); the sole negative discriminant occurs for the isolated triangle cycle. The proof handles trees, bridge blocks, cut-free cycles, leaves, and small orders independently. Direct exhaustive testing checked 6,280,063 candidate subsets on 823 cactus instances, plus 7,105 independent discriminant samples. Finite checking is not treated as a proof.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For any finite simple connected cactus order>=3, every connected dominating set includes every cut vertex (otherwise two components of G-v cannot both be dominated from a connected selected set). Noncut vertices are leaves or each belong to exactly one cycle. For a cycle block, omitting >2 consecutive free vertices leaves an undominated middle vertex; omitting two disjoint runs splits selected vertices, with no bypass in the block-cut tree. Thus each cycle permits omission of zero/one/two adjacent free vertices, independent across cycles and leaves; this bijection gives x^a(1+x)^ell product over cycles of (x^q+q x^(q-1)+t x^(q-2)); q=0 and q=1 cases interpreted without negative powers, K1 and K2 separate. The discriminant q²-4t is >=0 for q=2 (t<=1), q=3 with articulation (t<=2), q>=4 (t<=q), and is negative exactly for the isolated triangle (q=t=3). Hence all nontriangle cactus roots real nonpositive and coefficient log-concavity/unimodality. Fresh independent subset enumeration for many connected tree/cactus samples confirms full polynomial and triangle exception, not infinite substitute.
 
-Mojdeh–Emadi (2018) already determine the full path/cycle/corona polynomials and top coefficients for arbitrary graphs, so those facts are expressly excluded from the new contribution. Yoosuf–Kuttipulackal (2021) already determine the friendship-graph specialization, and Vijayan–Felix Nes Mabel (2016) investigate tadpoles. Ibrahim–Salih (2020) treat specific complete/wheel coalescences, not arbitrary cactus block gluing. The compared published statements do not give the general cycle-specific factorization, its exact arbitrary-cactus coefficient sequence, or the real-rootedness theorem with the unique triangular exception. The 2019 doubly connected-domination polynomial is not the same invariant. The 2026 root-density paper was not available for full-text inspection; an unindexed equivalent theorem, including one derived by a general block decomposition, remains possible. No exclusivity is inferred merely from database searches.
+## originality
 
-## Value — PASS
+PASS
 
-This solves a natural full-distribution enumeration problem for all connected cactus graphs, not a handpicked finite instance. It gives an explicit structural decomposition into independently interpretable cycle factors, supports arbitrary cactus topology, and deduces a sharp global root-location theorem and coefficient log-concavity from local discriminants. The contribution extends beyond the already known individual cycle, friendship and corona formulas.
+Prior special-case connected-domination polynomials for paths, cycles, corona, friendship and wheel coalescences are credited. General block-cut combinatorics suggests a factorization but there is no stated full arbitrary-cactus connected-domination polynomial and unique-real-root-exception classification in the inspected published works. The recent Shao-Zhao root-closure paper proves substitution for lexicographic products and density of complex connected-domination roots; its accessible abstract does not decide the cactus-real-rooted locus. Full text was inaccessible, so an equivalent statement inside it remains explicit originality risk.
 
-## Scope and scientific limitations
+## value
 
-The theorem is restricted to finite connected simple cacti. The triangle is an essential exception, and the small graphs \(K_1,K_2\) use separately stated formulas. The result makes no claim of novelty for earlier special-family formulas or of completeness for general graph roots. Residual overlap risk from one recent inaccessible full text persists. Reproducible subset counts do not establish infinite correctness or originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arbitrary cacti are a natural broad graph class; an exact block-factor bijection with sharp classification of nonreal-root exceptions immediately yields all coefficients, connected-domination number, real-rootedness and log-concavity. This is an all-order structural theorem beyond calculating a handful of cycle or friendship graph examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
