@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-For a tuple of local nilpotency lengths \((\ell_1,\ldots,\ell_r)\), the checker enumerates all exponent vectors
-\[
-(a_1,\ldots,a_r),
-\qquad
-0\le a_i\le\ell_i,
-\]
-removing the vectors for \(R\) and \(0\). It joins two vertices exactly when some coordinate is nonzero in both corresponding product ideals.
+## correctness
 
-The checker then:
+PASS
 
-1. builds the support-incidence Gram matrix and verifies its complete off-diagonal zero-nonzero pattern against the graph;
-2. computes the Gram rank exactly over rational arithmetic;
-3. constructs the theorem's explicit set with exactly \(r\) white ideals and replays the full zero forcing sequence;
-4. for every nonboundary test graph of order at most \(16\), exhaustively verifies that no set of size \(N-r-1\) is zero forcing;
-5. separately verifies the \(K_1\) boundary.
+PASS: Coordinate-support of a product ideal is the set of nonzero chain-ring factors; adjacency is support intersection. For r≥2, support-incidence Gram A=B^TB has exact off-diagonal pattern and rank r since each coordinate ideal E_i yields basis vector. The r prescribed white ideals W1=(m1,R2,..,Rr), Wj=(0,..,0,Rj,..,Rr) are forced by E1,E2,..,E(r−1), then W(r−1)→Wr. Hence Z≤N−r≤M≤Z, forcing equality and mr=r; for one factor and length≥3 graph is clique, while length2 K1 gives Z=M=1 and mr=0. Correct boundaries and real coefficient field are explicit.
 
-Exact replay output:
+## originality
 
-```text
-lengths=(2,): N=1, boundary K1, Z=1, mr=0
-lengths=(3,): N=2, r=1, constructed_Z=1, forces=1, Gram_rank=1
-lengths=(4,): N=3, r=1, constructed_Z=2, forces=1, Gram_rank=1
-lengths=(2, 1): N=4, r=2, constructed_Z=2, forces=2, Gram_rank=2
-lengths=(3, 1): N=6, r=2, constructed_Z=4, forces=2, Gram_rank=2
-lengths=(2, 2): N=7, r=2, constructed_Z=5, forces=2, Gram_rank=2
-lengths=(3, 2): N=10, r=2, constructed_Z=8, forces=2, Gram_rank=2
-lengths=(2, 1, 1): N=10, r=3, constructed_Z=7, forces=3, Gram_rank=3
-lengths=(2, 2, 1): N=16, r=3, constructed_Z=13, forces=3, Gram_rank=3
-lengths=(2, 1, 1, 1): N=22, r=4, constructed_Z=18, forces=4, Gram_rank=4
-VERIFY_OK
-```
+PASS
 
-The finite checks corroborate the symbolic proof but do not replace it. The general lower bound is supplied by the exact rank-\(r\) Gram witness and the inequality \(M(G)\le Z(G)\).
+Closest published exact SCOPE result gives rank r and Z=N−r for products of r≥3 fields, i.e. only the REDUCED Boolean ideal family. The present result covers the NONREDUCED principal-ideal families with arbitrary nilpotency lengths, new first-white maximal-ideal witness, r=1,2 boundaries, and the exceptional K1. The 2014 full text on the same principal-ideal graph addresses domination/geodesy/independence rather than zero forcing or real symmetric minimum rank. These sources do not imply the nonreduced classification by simple wording equivalence.
+
+## value
+
+PASS
+
+PASS: Nonreduced finite principal ideal rings form a natural algebraic family; the exact real graph minimum rank retrieves the number of local factors despite arbitrary nilpotency lengths. The matching Gram witness and explicit forcing chain are nontrivial, reusable structure beyond the known reduced products-of-fields result. Natural K1 boundary is handled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a finite local principal ideal ring, nonzero ideals form a chain, so two product ideals intersect nontrivially exactly when their active supports share a local factor. The support-incidence Gram matrix therefore has the exact graph pattern. Singleton-support ideals give full row rank \(r\), so maximum nullity is at least \(N-r\). In the nonreduced regime a nonzero maximal ideal in one factor supplies a proper full-support white vertex; the displayed chain of \(r\) white ideals is then forced one at a time. The universal inequality \(M(G)\le Z(G)\) closes equality. The local \(K_1\) boundary is handled separately.
+PASS
 
-The packaged checker independently reconstructs the exponent-vector graphs, verifies the Gram pattern and exact rational ranks, replays the forcing chain, and directly excludes one-smaller zero forcing sets in all moderate test cases.
+PASS: Coordinate-support of a product ideal is the set of nonzero chain-ring factors; adjacency is support intersection. For r≥2, support-incidence Gram A=B^TB has exact off-diagonal pattern and rank r since each coordinate ideal E_i yields basis vector. The r prescribed white ideals W1=(m1,R2,..,Rr), Wj=(0,..,0,Rj,..,Rr) are forced by E1,E2,..,E(r−1), then W(r−1)→Wr. Hence Z≤N−r≤M≤Z, forcing equality and mr=r; for one factor and length≥3 graph is clique, while length2 K1 gives Z=M=1 and mr=0. Correct boundaries and real coefficient field are explicit.
 
-## Originality
+## originality
 
-PASS. The inspected ring-intersection literature covers ordinary domination and other classical graph invariants, while targeted searches under zero forcing, maximum nullity, minimum rank, principal ideal ring, local-factor, nilpotency, and ideal-intersection formulations did not locate the theorem. A previously known reduced product-of-fields calculation does not imply the nonreduced theorem because the full-support proper ideal used by the forcing chain exists precisely because a nilpotent local factor is present.
+PASS
 
-Residual risk: minimum-rank work on algebraic graphs is dispersed, and an equivalent statement could use terminology not indexed under ideal-intersection graphs. No such source was located.
+Closest published exact SCOPE result gives rank r and Z=N−r for products of r≥3 fields, i.e. only the REDUCED Boolean ideal family. The present result covers the NONREDUCED principal-ideal families with arbitrary nilpotency lengths, new first-white maximal-ideal witness, r=1,2 boundaries, and the exceptional K1. The 2014 full text on the same principal-ideal graph addresses domination/geodesy/independence rather than zero forcing or real symmetric minimum rank. These sources do not imply the nonreduced classification by simple wording equivalence.
 
-## Value
+## value
 
-PASS. The result recovers a ring-theoretic decomposition invariant from an inverse-eigenvalue parameter: except for the one-vertex boundary, the real symmetric minimum rank equals the number of local principal factors. It simultaneously proves equality of zero forcing and maximum nullity for the entire nonreduced finite-principal-ideal regime, and the proof gives explicit extremal constructions rather than only bounds.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: Nonreduced finite principal ideal rings form a natural algebraic family; the exact real graph minimum rank retrieves the number of local factors despite arbitrary nilpotency lengths. The matching Gram witness and explicit forcing chain are nontrivial, reusable structure beyond the known reduced products-of-fields result. Natural K1 boundary is handled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
