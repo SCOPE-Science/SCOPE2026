@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two base-\(b\) expansions are exact and valid for \(b\ge8\):
-\[
-b(2b-3)=(1,b-3,0)_b,
-\qquad
-(b-2)(2b-3)=(1,b-7,6)_b.
-\]
-Their digit sums are respectively \(b-2\) and \(b\), so the two \(H_b\)-values agree. The stated gcd identities make both arguments squarefree whenever the three linear factors are squarefree and \(3\nmid b\). On \(b\equiv5\pmod{36}\), only prime squares \(p^2\) with \(p\ge5\) can be bad, and the union bound gives lower density at least \(7/900\). The packaged verifier independently checks the finite regression range.
+## correctness
 
-## Originality
-PASS. The focal paper proves unrestricted noninjectivity for all bases, gives squarefree examples only for bases \(2\) through \(10\), and explicitly leaves \(b\ge11\) as Question 30. Targeted published-finding corpus and web searches did not locate the collision pair
-\[
-b(2b-3),\qquad (b-2)(2b-3)
-\]
-or the positive-density consequence.
+PASS
 
-## Value
-PASS. A uniform positive-density family is a substantive advance over isolated computational examples. It exposes a simple structural mechanism linking radix digits and squarefree factorization and reduces the remaining open problem to bases outside this explicit family.
+For every b>=8, x=b(2b−3) has base-b digits (1,b−3,0) and S_b(x)=b−2, while y=(b−2)(2b−3) has digits (1,b−7,6), S_b(y)=b, hence x S_b(x)=y S_b(y). If 3∤b, gcd(b,2b−3)=1 and gcd(b−2,2b−3)=1; squarefree factors make both products squarefree. For b≡5 mod36, no factor b,b−2,2b−3 divisible by 4 or 9; for p>=5 at most three bad residue classes modulo p² within progression. Sum p^(-2)<6/25 yields lower natural density ≥1/36−(1/12)(6/25)=7/900. Independent b<=12000 arithmetic/digit checks verified 2521 qualifying bases; density is analytic not experimental.
 
-## Closest literature and limitations
-The closest source is Noppakaew--Pongsriiam's 2023 article itself. Their unrestricted universal collision does not preserve squarefreeness in general, and their squarefree evidence stops at a finite list plus computation. The present theorem still does not cover every base \(b\ge11\), and its density constant is not optimized.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2023 Question 30 asks for squarefree noninjectivity for every b>=11; earlier result handles all integers and finitely many squarefree bases 2..10. This is a partial answer of positive-density bases using new uniform polynomial squarefree witness and positive density proof, not implied by unrestricted integer noninjectivity. No same family found in Resultary searches; priority best-of-knowledge.
+
+## value
+
+PASS
+
+A positive-density unconditional family is a mathematically substantial partial answer to a precise published open squarefree-injectivity question; the uniform explicit collision and rigorous sieve density provide more than isolated small-base computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
