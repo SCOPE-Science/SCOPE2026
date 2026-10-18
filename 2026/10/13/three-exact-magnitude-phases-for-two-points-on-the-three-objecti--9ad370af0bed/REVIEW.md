@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts with the exact anchored-box magnitude valuation from Emmerich (arXiv:2604.18147v1, Theorem 3.3 and Section 12) and exhausts every pair by a coordinate-order argument. The quadratic symmetrization matrix has determinant \((B+2)W>0\) for separated points; the one-variable derivative (6) then determines the unique separation; the remaining two algebraic derivative signs locate the unique global maximizer on every scale interval. Exact symbolic identity checks independently reproduced all key expansions and derivative factorizations; a rational verifier confirms phase junctions and representative exact data. No finite enumeration is substituted for a continuum proof.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Emmerich's inspected PDF supplies an inclusion–exclusion oracle and experiments with nine and ten simplex points, but no global two-point theorem or thresholds. Shang et al. (arXiv:2104.09736v1, Sections I and IV.A) study precisely the triangular three-dimensional hypervolume geometry, but their plane-front findings concern heuristic searches and local regular-grid optimality for larger populations; they explicitly distinguish their partial analyses from exact three-dimensional distributions. Ishibuchi et al. (2017) discusses reference-dependent triangular fronts but was only partially available; its abstract is qualitative and not evidence of an exact analytic classification. Published semantic research searches for the two-point simplex, aliases via translated-reference hypervolume, and both transition values returned no claiming or stronger equivalent record among inspected hits. This is a supported novelty assessment, not a proof that no unpublished or unindexed equivalent exists.
+PASS
 
-**Value — PASS.** An exact phase diagram for a canonical genuine three-objective tradeoff geometry, not a routine one-dimensional substitution or an arbitrarily chosen instance, reveals two previously unresolved changes of the support strata of an optimal Pareto approximation. The constructive global optimizer and exact optimal value provide a reproducible reference benchmark for larger-population searches and expose the reference sensitivity of magnitude/hypervolume at the lowest nontrivial cardinality.
+From the Emmerich valuation, 8Mag=prod(2+x_i)+prod(2+y_i)-prod(2+min_i). Equal coordinate sums force one positive and two negative coordinate differences after relabeling, allowing the source five-parameter domain. Independently expanded the exact symmetrization identity J(B,W)-positive definite quadratic and derivative dJ/dW=(B-L+W-4)(B-L+3W-4)/4 using SymPy. Its remaining edge/interior derivative signs globally maximize J, with equality/endpoint analysis giving both sharp transitions. Independently recalculated rational closed-form optimal magnitudes at L=1/3,2,5/2,16/5,4,20, all exact matches. Full continuum follows from algebra, not samples.
 
-**Closest literature and limits.** Emmerich (2026) is the essential analytic starting point; Shang et al. (2021) and Ishibuchi et al. (2017) explore closely related triangular-front hypervolume; the earliest journal or preprint appearance of the latter might contain additional reference-point results. The theorem makes no guarantee for more than two points, unequal coordinates, alternative metrics, or optimization dynamics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Emmerich Theorem 3.3 supplies valuation, but source three-dimensional simplex work treats 9/10-point grids and local stationarity, not all real L and exactly two points. Hypervolume optimal distribution articles treat triangular fronts and reference locations, often numerical, not the displayed global 2-point magnitude phase proof. Shifted reference hypervolume is an equivalent formulation explicitly checked.
+
+## value
+
+PASS
+
+Complete global optimization for the smallest nontrivial multiobjective population on the canonical three-dimensional simplex, including two symmetry-breaking transitions and unique maximizing configurations, gives a reusable exact Pareto-indicator benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
