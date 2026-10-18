@@ -1,12 +1,21 @@
-# Review of Semitotal domination polynomial and all minimal sets of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a crown graph the only distance-three pair involving a vertex is its deleted matched opposite, so every selected set of size at least three automatically satisfies the semitotal witness condition. Domination is then classified exactly by the two bipartition occupancies, with a forced matched vertex in each one-versus-many case. The resulting cases give the stated polynomial. Deletion of one selected vertex gives the complete minimality classification: the two full sides, matched-index triples, and disjoint-index two-plus-two sets. Exhaustive direct-distance testing for \(3\le n\le7\) agrees with every coefficient and every minimal-set type.
+## correctness
 
-## Originality
-PASS. The 2017 upper-semitotal paper gives general regular-graph bounds that already imply the scalar equality \(\Gamma_{t2}(\operatorname{Cr}_n)=n\); that scalar is explicitly treated as prior coverage, not as the originality basis. The 2019 open full-text paper characterizes semitotal dominating sets for joins, coronas, and lexicographic products and contains no crown occurrence. Targeted searches under crown, deleted-perfect-matching, \(K_{n,n}-M\), semitotal polynomial, and minimal-set formulations found no complete crown classification or enumerator. The residual access risk for the 2017 article is recorded, but its published scope and general bounds do not themselves state the all-set formulas.
+PASS
 
-## Value
-PASS. The finding determines the entire feasible-set size distribution and every inclusion-minimal semitotal dominating set on a standard regular bipartite family. The minimal-set profile explains how the known upper scalar value is attained and also gives exact counts at every minimal size, rather than merely recomputing a known extremal number. This is a natural complete classification for a parameter whose upper version is defined through minimal semitotal dominating sets.
+For n>=3 crowns, only deleted-matching endpoints are at distance three. Any selected set with at least three vertices therefore automatically provides a distinct selected distance<=2 witness to each chosen vertex. The dominating sets are precisely all of A or B, selections with >=2 from each shore, and singleton shore selections whose matching mate is among >=2 vertices on opposite shore. Two-vertex dominating sets fail the witness condition. Thus S_n(z)=2z^n+((1+z)^n-1-nz)^2+2n z²((1+z)^(n-1)-1). Single-vertex deletion classifies minimal sets as exactly both shores, 2n(n-1) matched triples, and C(n,2)C(n-2,2) two-plus-two disjoint-index sets, giving minimal polynomial 2z^n+2n(n-1)z³+C(n,2)C(n-2,2)z⁴. Lower optimum 3 and upper minimal n. Independently verified all subsets and minimal status n3..6; universal claim analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2017 regular graph bound already implies the scalar upper semitotal domination number n (attained by either whole shore), and this part is explicitly excluded from novelty credit. The assessed original contribution is the full all-set polynomial and exact inclusion-minimal family distribution; a prior scalar bound does not imply these.
+
+## value
+
+PASS
+
+The complete coefficient distribution and inclusion-minimal set structure give exact natural invariants of a standard nontrivial graph family, with a meaningful distinction between global domination witnesses and minimality. This is substantially more information than a previously known scalar upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
