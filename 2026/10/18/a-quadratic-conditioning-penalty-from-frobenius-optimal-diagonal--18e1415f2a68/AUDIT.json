@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The Frobenius loss is a strictly convex quadratic in squared positive diagonal factors because its Hessian Schur complement is 1-rho^4/d>0; its unique stationary point has positive explicit coordinates. Extremal eigenvectors of the original star have identical squared coordinates and thus yield a universal condition lower bound with only scalar equality. The exact 2x2 invariant block gives the full spectrum and, as epsilon=1-rho^2 tends to zero, a~d epsilon/(d-1), b->1, lambda_minus~d epsilon^2/(d-1), lambda_plus->1, proving the exact (d-1)/(16d) coefficient relative to kappa(A)^2. Exact algebra and 6440 finite formula cross-checks agreed; finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu et al. 2022 develop quasi-convex/SDP condition-number optimization for arbitrary matrices, without identifying the Frobenius-optimal factor for this star objective.",
+        "Vandebril et al. 2005 show unit-diagonal scaling optimal in SPD tridiagonal classes, which covers the elementary dimension-three condition optimum as a component only."
+      ],
+      "reasoning": "A general conditioning optimizer or a tridiagonal condition-minimizer does not determine a separate Frobenius minimizer, its unique full positive-diagonal solution, or its exact asymptotic condition gap. This claim excludes those established ingredients.",
+      "searches": [
+        "rank-one bipartite correlation star matrix optimum diagonal condition number achieved by identity but Frobenius residual scaling poorly conditioned",
+        "Frobenius optimal factor sparse approximate inverse preconditioner star graph diagonal scaling condition-number separation unbounded positive definite",
+        "arXiv:2209.00809 Optimal Diagonal Preconditioning",
+        "Raf Vandebril Gene Golub Marc Van Barel 2005 scaling technique tridiagonal"
+      ]
+    },
+    "checked_sources": [
+      "Brarda et al. (2026), arXiv:2606.22742; author full text",
+      "Qu et al. (2022), arXiv:2209.00809",
+      "Vandebril, Golub and Van Barel (2005), scaling-technique section",
+      "Xu, Tang, Remis and Leus (2012), open-access full article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu et al. 2012 Section Diagonal preconditioning discusses worsening condition number under a one-sided Frobenius-style rule, not SPD symmetric congruence global minimization or a square-law.",
+        "Brarda et al. 2026 Section 5 documents a loss-versus-spectrum mismatch numerically, especially for indefinite systems, without the present SPD singular-limit coefficient.",
+        "The row-coherence record concerns PDNQP step sizes and normalized constraint rows, not approximate-inverse Frobenius tuning."
+      ],
+      "reasoning": "The statement is not the qualitative warning that Frobenius losses can mislead. It is a globally optimized symmetric-congruence star family where the input is already condition-minimally scaled, with unique minimizer, smallest dimension, exact spectral formula and quadratic coefficient. The inspected stronger-looking general frameworks do not entail that quantitative theorem.",
+      "searches": [
+        "2012 Iterative equalization for OFDM systems over wideband Multi-Scale Multi-Lag channels diagonal preconditioning Frobenius condition deterioration",
+        "Diagonal congruence scaling of SPD star correlation matrix minimizes Frobenius ||G A G-I||_F while its spectral condition number deteriorates as squared singularity near rho=1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brarda et al. Section 5, lines around 1584–1596: baseline minimizes ||I-G^T A G||_F; Section 2 introduces factor support, not a solved star-diagonal minimizer.",
+        "The published bidirectional Gauss–Seidel record studies an additive inverse and an SPD threshold, not this diagonal congruence optimum."
+      ],
+      "reasoning": "A rephrasing as quadratic minimization in squared diagonal variables yields an explicit global optimizer. Neither of the inspected works provides this optimizer paired with the condition-number squared law; general warnings about spectral mismatch do not imply its sharp rate.",
+      "searches": [
+        "exact Frobenius optimal diagonal congruence preconditioner positive definite star matrix eigenvalue condition number squared worsening versus identity",
+        "Diagonal congruence scaling of SPD star correlation matrix minimizes Frobenius ||G A G-I||_F while its spectral condition number deteriorates as squared singularity near rho=1",
+        "arXiv:2606.22742 full text Sections 2, 3, 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches returned related numerical preconditioning records but no tabulation of the star-family global Frobenius minimizer and quadratic coefficient.",
+        "The author-posted 2026 paper uses finite-element benchmarks rather than an exact star-dimension phase diagram."
+      ],
+      "reasoning": "No matching exact table or computational classification was located; absence in a database alone is not treated as a novelty proof. The explicit proof is checked separately.",
+      "searches": [
+        "Near singular arrowhead SPD diagonal least squares Frobenius equilibration versus condition number minimax exact optimizer",
+        "factored sparse approximate inverse preconditioning via spectral optimization Brarda Xu Kalantzis Li Xi June 2026 star Frobenius",
+        "Frobenius SPD star global diagonal scaling quadratic deterioration condition number"
+      ]
+    },
+    "rationale": "The 2026 motivating primary full text explicitly defines the Frobenius congruence baseline and qualitative mismatch, but does not resolve a globally optimized SPD-star objective or its quadratic near-singular penalty. Earlier conditioning-optimal diagonal scaling, tridiagonal results, and one-sided Frobenius deterioration are acknowledged and logically weaker/different. The new claim is the exact joint theorem, dimension boundary and asymptotic coefficient, with residual risk of unindexed specialized scaling literature.",
+    "residual_risks": [
+      "No literature search establishes global uniqueness; an older exact Frobenius congruence-star calculation may be unindexed.",
+      "The qualitative mismatch and dimension-three tridiagonal condition optimality have clear precedents and are explicitly excluded from standalone novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same baseline, not the exact globally optimized SPD-star quadratic penalty theorem",
+        "evidence": [
+          "First public arXiv 2606.22742 posted 2026-06-22.",
+          "Section 5 defines F-norm baseline ||I-G^T A G||_F; reports SPD benchmark iteration changes and indefinite near-zero eigenvalues."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+        "material_read": "Author-posted accessible full-text including introduction, Sections 2–3 and Section 5, equations and benchmark description (around lines 1584–1715), plus conclusion",
+        "method": "Read text of posted complete paper and compare Frobenius target, factor class, SPD examples and stated contributions",
+        "title": "Factored Sparse Approximate Inverse Preconditioning via Spectral Optimization",
+        "trigger": "Exact recent motivation and the same Frobenius congruence residual"
+      },
+      {
+        "assessment": "General condition-number optimality addressed, separate Frobenius objective and sharp star asymptotic not identified",
+        "evidence": [
+          "Uses quasi-convex and semidefinite approaches to condition-number minimizing diagonal scalings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Open preprint body and its main diagonal conditioning formulation/method statements, together with abstract",
+        "method": "Compared optimized objective and matrix class and checked whether Frobenius-opt star is solved",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Possible broader theorem encompassing diagonal condition-number optimization"
+      },
+      {
+        "assessment": "Covers the condition optimum component in dimension three, not the joint Frobenius penalty theorem",
+        "evidence": [
+          "Normalized diagonal scaling condition-optimal for positive-definite tridiagonal matrices."
+        ],
+        "identifier_or_url": "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/",
+        "material_read": "Public article introduction, scaling-technique section and stated optimality for SPD tridiagonal matrices",
+        "method": "Checked the diagonal-normalization theorem against the two-leaf star and separated known condition-minimization from the new Frobenius tradeoff",
+        "title": "A small note on the scaling of symmetric positive definite semiseparable matrices",
+        "trigger": "SPD tridiagonal/star matrix conditioning may already have sharp known diagonal scaling"
+      },
+      {
+        "assessment": "Qualitative negative example is prior; no explicit global star optimizer or quadratic singular-limit law",
+        "evidence": [
+          "Authors report that diagonal preconditioning can deteriorate conditioning when off-diagonal channel energy dominates."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1499-2012-280",
+        "material_read": "Open full article introduction, Diagonal preconditioning discussion and numerical results",
+        "method": "Compared one-sided Frobenius-based diagonal filter and qualitative numerical counterexample to exact positive-definite symmetric-congruence global optimum",
+        "title": "Iterative equalization for OFDM systems over wideband Multi-Scale Multi-Lag channels",
+        "trigger": "Older example of diagonally preconditioning that worsens condition number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18e1415f-2a68-4849-80ab-d592efc39fe8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same squared Frobenius congruence objective is an explicit operational baseline in the motivating numerical preconditioning literature. This exact positive-definite family, starting from a condition-optimal diagonal scaling, yields an unbounded and quadratically growing condition penalty while the optimized Frobenius objective improves, exposing structural limitations of an algebraic surrogate. A globally solved optimizer, a dimension-three minimal obstruction, and sharp asymptotic constant give a reproducible benchmark beyond a routine estimate; no runtime/iteration claim is made.",
+    "status": "PASS"
+  }
+}
