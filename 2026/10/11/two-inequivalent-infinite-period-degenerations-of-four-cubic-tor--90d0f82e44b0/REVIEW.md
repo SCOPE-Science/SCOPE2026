@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact polynomial differentiation gives the invariant-torus cofactor. Global torus angles reduce the physical-time equations to a scalar meridian circulation equation and a separable projective transverse equation. Full negative winding yields the exact multiplier; a checked trigonometric decomposition gives the minimal period. At the drift threshold one-dimensional uniqueness excludes nonstationary closed orbits. Limits in the theorem come directly from exact expressions, not from numerical extrapolation. A standalone finite checker corroborates key formulas and boundary scales. The second ambient normal multiplier is not claimed.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Jana (arXiv:2401.07843) proves the cubic torus-field classification and alternating four-meridian stability; those claims are credited. The inspected main results, Example 5.5 and proof do not state the affine-cofactor exact holonomy, joint period law or the different two infinite-period Floquet limits. The other closest full-text study develops perturbative averaging from an isochronous torus, not this finite-parameter cubic family. The 2011 and 2013 torus-meridian studies remain a priority risk because complete primary text was not obtained; mathematical-record search did not identify a matching quantitative claim and does not establish absolute novelty.
+PASS
 
-## Value — PASS
-Four meridian limit cycles are a natural sharp configuration in polynomial dynamics on algebraic tori. Their two independent, geometrically forced degeneration parameters lead to the same diverging period scale but opposite contraction behavior. The exact return map and constants make the distinction measurable and reusable in comparisons of orbital geometry and physical-time stability, rather than constituting an arbitrary finite computation.
+Verified polynomial cofactor identity Fdot=(lambda+eta z)zF symbolically with F=(x^2+y^2-a^2)^2+z^2-1. On a>1 smooth torus use r^2=a^2+cos phi, z=sin phi and theta=arg(x+iy); recover exact original-time equations phidot=-(a^2+cos phi)(lambda+eta sin phi)/2 and thetadot=-c(a^2+cos phi)sin(2theta)/2. For lambda>eta the negatively oriented longitudinal circuit is strictly monotone, giving exactly four fixed meridian angles and return tan(theta_next)=exp(-4pi c/sqrt(lambda^2-eta^2))tan(theta). The denominator partial fraction identity checked independently reduces T=2*integral dphi/[(a^2+cos phi)(lambda+eta sin phi)] to displayed closed form. The original-time period is minimal because phi winds once monotonically. Theta scalar monotonicity excludes off-meridian periodic motion. At lambda=eta each meridian has one stationary longitudinal phase plus a homoclinic arc; for lambda<eta stationary phases prevent any periodic orbit. Expanding T and log multiplier yields both sharp square-root scalings and distinct transverse exponents at lambda->eta and a->1. Relative torus stability only, not ambient normal Floquet multiplier. Script finite quadratures are corroborative.
 
-## Limitations and closest literature
-The theorem is restricted to a symmetric affine-cofactor cubic family and to dynamics on a smooth invariant torus. No statement is made about general cubic torus fields, normal stability in the ambient space, or perturbation persistence. Closest literature: Jana (2024, arXiv:2401.07843), Llibre–Medrado (2011), Llibre–Rebollo-Perdomo (2013), and Llibre–Rebollo-Perdomo–Torregrosa (2011). Priority uncertainty remains for inaccessible older full texts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of mathematical statements and implications against named primary sources, published findings and exact source-object searches. The current Resultary hit for the very assignment under audit is not independent novelty evidence. A mirror of this assigned 2026-10-11 finding returned as the highest-ranked Resultary hit is not counted as independent prior art.
+
+## value
+
+PASS
+
+Four-cycle configurations of cubic vector fields on algebraic tori are a natural dynamical system. Exact minimal physical periods, relative Floquet multipliers and two different square-root infinite-period mechanisms separate loss of longitudinal velocity from geometric torus pinching, a real structural distinction that qualitative orbit counts do not show. The two critical limits give reusable asymptotic boundary information, not an arbitrary finite parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
