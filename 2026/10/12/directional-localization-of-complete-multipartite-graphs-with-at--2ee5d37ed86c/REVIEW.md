@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The response rules are reconstructed directly from shortest paths in a complete multipartite graph. The one-cop full-feedback sweep, one-round partial-feedback upper bounds, and adversarial lower bounds cover every value of \(s=\min_i n_i\). The lower-bound witnesses always retain two vertices in distinct parts, whose closed neighborhoods cover the entire graph after recontamination. A finite-state verifier independently confirms every multipartition of total order at most eight with at least three parts.
+## correctness
 
-## Originality
-PASS. The initiating paper proves the complete-bipartite values but not the multipartite extension. Exact searches under complete multipartite, complete tripartite, partial-feedback, full-feedback, minimum-part, and three-cop formulations found no covering statement. The source's general degeneracy/treewidth bounds and chordal theorem do not imply the exact formula. The principal residual risk is concurrent or poorly indexed work on this very recent invariant.
+PASS
 
-## Value
-PASS. The theorem gives a natural complete-family classification and reveals a sharp phase transition: the partial-feedback number is unbounded on complete bipartite graphs but collapses to at most three as soon as a third part is present. The matching strategies expose the exact mechanism behind this change.
+For a complete multipartite graph r≥3 all vertices in different parts are adjacent, those distinct but in the same part have distance 2. Full feedback from a probe in part P yields the robber vertex as a singleton when outside P; if the robber is elsewhere in P, the full set V\P is returned. One cop sweeps P; robber leaving P is immediately located and robber staying in P cannot switch within the same part in one move. Partial feedback: probing all s≤2 vertices of smallest part locates instantly; with s≥3, three probes from distinct parts distinguish each pair of candidate vertices because one probe is adjacent to both and returns the exact candidate. One or two cops below the stated bound always admit distinct candidate vertices x,y from different parts giving identical permissible feedback; after the robber moves N[x]∪N[y]=V resets all contamination, allowing an infinite adversarial response. Correct for all n_i≥1 including complete graphs s=1. Independently checked exact finite-state source and one-round separating probes for small multipartitions; this is corroboration not infinite proof.
 
-## Closest literature and limitations
-The closest source is Jones and Kinnersley, arXiv:2609.01745v1, which introduces the game and proves \(\zeta_d^*(K_{m,n})=1\) and \(\zeta_d(K_{m,n})=\min\{m,n\}\). The accepted theorem is restricted to \(r\ge3\). The exhaustive computation is finite and supports, but does not replace, the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the initiating Jones–Kinnersley arXiv:2609.01745 treats complete bipartite graphs, including ζd(K_{m,n})=min(m,n), and general graph bounds. The stated r≥3 exact formula and matched reset lower bounds differ from the r=2 formula and are not implied by general upper bounds. The 2026 invariant is very recent; the complete paper was not independently available in this execution, and the Oxford authorized retrieval returned vpn_disconnected. This source-access risk is named, not mistaken for proof of noncoverage.
+
+## value
+
+PASS
+
+Exact full and partial feedback classifications for every complete multipartite graph with r≥3 form a natural infinite graph-family answer to the initiating game. The jump from possibly unbounded min(m,n) for two parts to at most three for three parts is structurally explanatory; winning strategies and matching lower bound, not merely computational samples, give the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
