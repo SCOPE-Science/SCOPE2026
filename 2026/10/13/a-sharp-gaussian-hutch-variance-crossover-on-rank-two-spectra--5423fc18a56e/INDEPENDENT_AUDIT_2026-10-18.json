@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:59:08.228246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rank-two PSD A=diag(a,b,0,...), Gaussian sketch q=Ag/||Ag|| leaves a rank-one residual eigenvalue r=ab/(a+b)[1+ab/(a²cos²theta+b²sin²theta)]. An independent Gaussian probe gives centered error r(Z²−1) with Z independent of r, making overestimate probability P(Z²>1) universal. The exact angular integrals E[1/D]=1/(ab), E[1/D²]=(a²+b²)/(2a³b³) give Var(T++)=ab(a²+6ab+b²)/(a+b)², versus 2(a²+b²)/3 for three Hutchinson probes. The difference has palindromic quartic 2t⁴+t³−14t²+t+2 and unique t≥1 threshold 2.331488011135..., with both variance signs. Dominated convergence under A→A0 in fixed dimension gives nearby positive-definite persistence. Independent Sympy rational verification and threshold calculation support, not replace, infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad PSD trace-estimation theorems establish unbiasedness, general error bounds, and adaptive allocations, not an exact sign comparison of the stated fixed 3-query estimators.",
+          "The conditional Gaussian variance identity is an input to the new calculation, not an original claim here."
+        ],
+        "reasoning": "General risk estimates do not dominate a sharp sign-changing rank-two exact comparison: even an upper bound cannot decide variance ordering both above and below the spectral ratio cutoff.",
+        "searches": [
+          "Meyer Musco Musco Woodruff 2020 Hutch++ Algorithm 1 Section 5 arXiv:2010.09649",
+          "Persson Cortinovis Kressner 2021 arXiv:2109.10659 Algorithms 1,3,5",
+          "Resultary variance rank two Hutch++ targeted semantic query"
+        ]
+      },
+      "checked_sources": [
+        "Meyer et al. arXiv:2010.09649 primary PDF Algorithms 1,3 Section 5",
+        "Persson--Cortinovis--Kressner arXiv:2109.10659 primary PDF Algorithms 1,3,5 Sections 2–3",
+        "Resultary search for rank-two Gaussian Hutch++ crossover",
+        "Frozen RESULT.md and verify.py actual Git blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known identity Var(T++)=2 E||PAP||_F² still requires evaluation of E[r²] under the Gaussian-sketch distribution.",
+          "The submitted derivation uses E[D^-1]=1/(ab) and E[D^-2]=(a²+b²)/(2a³b³) and obtains unique t* through a palindromic polynomial."
+        ],
+        "reasoning": "The cited prior identities are algebraic premises but do not alone supply the evaluated mean, the exact crossover, or its sign reversal. The finite-rank specialization is a motivated benchmark rather than a renamed generic inequality.",
+        "searches": [
+          "Meyer et al 2020 Section 5 residual Frobenius conditional variance",
+          "Persson et al 2021 Gaussian Hutch++ baseline variance",
+          "Rank-two angular integral and spectral crossing derivation from frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer et al use a conditional residual Frobenius norm identity without the displayed rank-two angular integral and palindromic quartic.",
+          "Persson--Cortinovis--Kressner provide Gaussian sketches and Gaussian Hutchinson identity in a broader algorithmic context."
+        ],
+        "reasoning": "The same phrase Hutch++ can denote several probe distributions. The fully Gaussian single-sketch/single-residual-probe law here is distinct from the sign-probed Gaussian-sketch implementation in one original Algorithm 3. No inspected same-distribution statement yields the t*=2.331488... crossover.",
+        "searches": [
+          "Resultary semantic query: Gaussian Hutch++ rank two variance crossover versus Gaussian Hutchinson equal budget 3 matrix-vector products",
+          "arXiv:2010.09649 Hutch++ one Gaussian sketch one residual Gaussian exact 2x2 variance",
+          "arXiv:2109.10659 improved variants Gaussian trace estimation rank two three queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected source contains a table of the rank-two variance as ab(a²+6ab+b²)/(a+b)² or the quartic 2t⁴+t³−14t²+t+2."
+        ],
+        "reasoning": "No external finite database/table is necessary for this infinite real-parameter theorem; existing formulae are compared as mathematical identities, not merely matching numeric constants.",
+        "searches": [
+          "arXiv:2010.09649 section 5, Algorithms 1 and 3 exact variance identities",
+          "arXiv:2109.10659 variance formulas and schemes",
+          "Resultary semantic published-record rank two three-query crossover"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the established general Hutch++ conditional variance formula, Gaussian probe baseline, and broad query bounds are credited. Neither inspected primary paper evaluates the two-dimensional Gaussian-sketch angular residual second moment to obtain the closed equal-three-product variance difference or its unique eigenvalue-ratio crossover. Priority uncertainty remains explicitly recorded.",
+      "residual_risks": [
+        "A specialized unindexed rank-two fully Gaussian variance computation might already contain the same formula; negative search alone is not a novelty proof.",
+        "This comparison is not optimal query complexity; dimension-two alternative strategies can determine the trace in fewer queries when the rank/dimension is known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_EXACT_CROSSOVER",
+          "evidence": [
+            "Section 5 works from residual Frobenius norms; separate Gaussian-sketch Algorithm 3 uses sign-valued residual probes. No displayed exact rank-two equal-cost crossover in reviewed sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.09649",
+          "material_read": "Primary PDF: introduction, Algorithms 1 and 3 and Section 5 variance/bounds, especially page 8.",
+          "method": "Read full relevant PDF sections and inspected rendered relevant pages.",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Origin of the estimator and potential same-model proof"
+        },
+        {
+          "assessment": "NOT_EXACT_CROSSOVER",
+          "evidence": [
+            "Gaussian residual probes and adaptivity studied generally; the rank-two angular integral and 2.331488 spectral transition are not claimed in the reviewed analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.10659",
+          "material_read": "Primary PDF: Algorithms 1, 3, 5, Sections 2–3 and Gaussian Hutchinson variance statements.",
+          "method": "Read primary relevant pages and compare estimator, sample budgets and exact mathematical consequences.",
+          "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+          "trigger": "Gaussian Hutch++ same implementation and variance bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural minimum-cost three-matvec allocation compares two widely used Gaussian trace estimators. The exact spectral transition shows when one random deflation is worse than allocating every query to independent probes, and when it becomes better, with stable full-rank sign regimes. It is an informative method-selection benchmark, explicitly not a universal query-optimality statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Meyer et al. arXiv:2010.09649 primary PDF Algorithms 1,3 Section 5",
+    "Persson--Cortinovis--Kressner arXiv:2109.10659 primary PDF Algorithms 1,3,5 Sections 2–3",
+    "Resultary search for rank-two Gaussian Hutch++ crossover",
+    "Frozen RESULT.md and verify.py actual Git blobs"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixed three-product allocation, Gaussian sketch and residual probe, rank exactly two for exact formula.",
+    "Nearby full-rank matrices retain only strict variance-sign comparison; known dimensions may admit exact trace with fewer matvecs."
+  ]
+}

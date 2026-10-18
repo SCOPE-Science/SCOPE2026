@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite ambient dimension, the Gaussian sketch direction is uniform in the two-dimensional positive eigenspace, and the independent Gaussian residual probe yields the conditional factorization \(T_{++}-\operatorname{tr}A=r(Z^2-1)\). The two angular integrals evaluate the full expected squared residual eigenvalue, rather than an upper bound. Direct algebra reduces the variance difference to a palindromic quartic with a single zero for \(a/b\ge1\). Pointwise almost-sure projector convergence, an integrable Gaussian bound, and dominated convergence justify the positive-definite perturbation statement. The packaged standard-library verifier passed 545 arithmetic, quadrature, and simulation checks, none substituted for the proof. Critical assumptions are real Gaussian independence, exact matrix-vector products, rank two for the explicit law, and fixed dimension for perturbation continuity.
+## correctness
 
-## Originality — PASS
-The defining 2020 Hutch++ paper establishes the conditional Frobenius-variance identity and a general bound but does not evaluate the rank-two Gaussian sketch's exact mean residual squared eigenvalue or present the equal-three-query spectral crossover. Its separate Gaussian-sketch Algorithm 3 uses sign-valued residual probes. The 2021 improved-variants paper defines the relevant Gaussian implementation, adaptive allocations and Nyström++, with a generic Gaussian Hutchinson variance identity but no inspected claim equivalent to the sharp spectral comparison. Exact rank-two formulas and the sign-invariant error probability require the displayed angular calculation. Related finite-dimensional sign-probed variants have different sketch/probe laws. Residual risk: an equivalent explicit formula may appear in specialized or unindexed work; lack of a search hit is not proof of absolute novelty.
+PASS
 
-## Value — PASS
-At the smallest possible three-product allocation of two established estimators, the sharp cutoff distinguishes spectra where projecting one random direction loses to simply averaging all three trace probes from spectra where the projection is beneficial. The ranking reverses at a natural eigenvalue ratio and persists for nearby full-rank matrices; this offers a precise benchmark for choosing and studying deflated stochastic estimators rather than an arbitrary matrix entry calculation. At isotropy the fully Gaussian Hutch++ variance is 50 percent larger; at \(a/b=3\) it is smaller. The analysis does not suggest that these methods are optimal when the matrix dimension/rank is known; in dimension two, a different two-query strategy can exactly determine the trace. The result is therefore a *method comparison*, not an information-theoretic claim.
+For rank-two PSD A=diag(a,b,0,...), Gaussian sketch q=Ag/||Ag|| leaves a rank-one residual eigenvalue r=ab/(a+b)[1+ab/(a²cos²theta+b²sin²theta)]. An independent Gaussian probe gives centered error r(Z²−1) with Z independent of r, making overestimate probability P(Z²>1) universal. The exact angular integrals E[1/D]=1/(ab), E[1/D²]=(a²+b²)/(2a³b³) give Var(T++)=ab(a²+6ab+b²)/(a+b)², versus 2(a²+b²)/3 for three Hutchinson probes. The difference has palindromic quartic 2t⁴+t³−14t²+t+2 and unique t≥1 threshold 2.331488011135..., with both variance signs. Dominated convergence under A→A0 in fixed dimension gives nearby positive-definite persistence. Independent Sympy rational verification and threshold calculation support, not replace, infinite proof.
 
-## Literature and remaining limits
-Sources: Meyer–Musco–Musco–Woodruff, arXiv:2010.09649, Algorithm 1 and Section 5; Persson–Cortinovis–Kressner, arXiv:2109.10659, Algorithms 1, 3, 5 and Sections 2–3. The original formula controls variance conditioned on a sketch; the new result performs the precise rank-two averaging and obtains the crossover. No general-rank closed variance formula or relative-tail dominance is claimed. Published generic bounds remain fully applicable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the established general Hutch++ conditional variance formula, Gaussian probe baseline, and broad query bounds are credited. Neither inspected primary paper evaluates the two-dimensional Gaussian-sketch angular residual second moment to obtain the closed equal-three-product variance difference or its unique eigenvalue-ratio crossover. Priority uncertainty remains explicitly recorded.
+
+## value
+
+PASS
+
+This natural minimum-cost three-matvec allocation compares two widely used Gaussian trace estimators. The exact spectral transition shows when one random deflation is worse than allocating every query to independent probes, and when it becomes better, with stable full-rank sign regimes. It is an informative method-selection benchmark, explicitly not a universal query-optimality statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
