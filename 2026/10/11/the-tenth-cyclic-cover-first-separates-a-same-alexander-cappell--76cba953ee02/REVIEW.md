@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source matrices and complement-group description were checked in the primary full text. The cyclic-cover kernel and abelianization formula are elementary group calculations, and the exact Smith factors were independently replayed from the packaged verifier. The proof is finite and exhaustive for \(1\le d\le10\); no extrapolation beyond that range is used.
+## correctness
 
-## Originality
-PASS. The primary paper proves inequivalence and equal Alexander polynomial but does not report cyclic-cover homology or Smith factors. published-finding corpus, own-ledger, and public-web searches covered cyclic-cover, cokernel, Smith-normal-form, exact-polynomial, and degree \(10\) formulations. No covering statement was found. The strongest nearby fact—equality of torsion orders from the common Alexander polynomial—does not imply equality or inequality of the torsion group structures.
+PASS
 
-## Value
-PASS. A first distinguishing cyclic-cover degree is a canonical measure of how long the common Alexander data masks the inequivalence. The result identifies a nontrivial boundary: nine consecutive covers agree in first homology, while the tenth separates by group structure despite equal torsion order.
+The primary theorem gives ℓ=0 matrices A and B and π1(Q_M)=Z^4⋊_M Z. The kernel of π1→Z/d is Z^4⋊_{M^d} Z, giving H1(Q_M^(d))=Z⊕coker(M^d−I). Independently recomputed exact integer Smith forms with SymPy for all d=1,…,10, matching bundled minor-GCD code: both equal (1,1,1,n_d) for d1–9, with n_d sequence 1,257,35911,3951889,381168971,33787833947,2823000025693,225691499518753,17433664684009219. At d10 A has (1,1,1,1309791722987654687), B has (1,1,11,119071974817059517), same order but nonisomorphic. Full finite range checked: degree10 is the first positive degree separation for THIS pair.
 
-## Closest literature and limitations
-The closest literature is Endo–Iwaki–Pajitnov, arXiv:2604.01045v1, which supplies the explicit pair and proves complement-group nonisomorphism. The present claim is narrower but adds an exact canonical finite-cover witness and its minimal degree. It is limited to the \(\ell=0\) pair and does not classify the full family. An unindexed computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge first-homology separation cutoff/Smith-type distinction is not stated in the primary complement-group construction or Resultary overlap searches. The Endo–Iwaki–Pajitnov theorem shows inequivalence with identical Alexander polynomial, not this exact minimal separating cyclic-cover invariant. No broad theorem found that forces this degree 10 SNF split; a common Alexander polynomial controls orders, not Smith decompositions. Residual risk of unindexed specialized tables explicitly acknowledged.
+
+## value
+
+PASS
+
+For a natural published pair engineered to have indistinguishable Alexander polynomials, the first degree at which finite cyclic-cover integral H1 detects inequivalence is a motivated sharp finite cutoff. The group structures differ despite equal torsion order, providing a natural, reusable distinguishing invariant and illustrating information missed by the Alexander polynomial. The ten-degree exact finite computation is substantively motivated despite not extending to the entire family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

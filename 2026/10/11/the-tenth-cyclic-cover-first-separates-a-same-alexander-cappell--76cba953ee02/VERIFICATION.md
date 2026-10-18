@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact matrices are copied from the \(\ell=0\) specialization of the cited primary theorem. The complement-group formula is also stated in that source.
+# Independent mathematical audit
 
-For each \(1\le d\le10\), `verify.py` computes \(M^d-I\), enumerates all minors of orders \(1,2,3,4\), takes their exact integer gcds, and reconstructs the Smith invariant factors from successive determinantal divisors. It then compares both matrices degree by degree, requires the first unequal Smith tuple to occur at \(d=10\), and checks that the two degree \(10\) torsion orders are nevertheless equal.
+## correctness
 
-Replay command:
+PASS
 
-`python3 verify.py`
+The primary theorem gives ℓ=0 matrices A and B and π1(Q_M)=Z^4⋊_M Z. The kernel of π1→Z/d is Z^4⋊_{M^d} Z, giving H1(Q_M^(d))=Z⊕coker(M^d−I). Independently recomputed exact integer Smith forms with SymPy for all d=1,…,10, matching bundled minor-GCD code: both equal (1,1,1,n_d) for d1–9, with n_d sequence 1,257,35911,3951889,381168971,33787833947,2823000025693,225691499518753,17433664684009219. At d10 A has (1,1,1,1309791722987654687), B has (1,1,11,119071974817059517), same order but nonisomorphic. Full finite range checked: degree10 is the first positive degree separation for THIS pair.
 
-Observed output:
+## originality
 
-`VERIFY_OK first_difference=10 d1_9_match=true d10_A=(1,1,1,1309791722987654687) d10_B=(1,1,11,119071974817059517) equal_torsion_order=true`
+PASS
 
-The verification establishes only the stated range through degree \(10\). It does not infer behavior for higher cyclic covers or other members of the source family.
+Best-of-knowledge first-homology separation cutoff/Smith-type distinction is not stated in the primary complement-group construction or Resultary overlap searches. The Endo–Iwaki–Pajitnov theorem shows inequivalence with identical Alexander polynomial, not this exact minimal separating cyclic-cover invariant. No broad theorem found that forces this degree 10 SNF split; a common Alexander polynomial controls orders, not Smith decompositions. Residual risk of unindexed specialized tables explicitly acknowledged.
+
+## value
+
+PASS
+
+For a natural published pair engineered to have indistinguishable Alexander polynomials, the first degree at which finite cyclic-cover integral H1 detects inequivalence is a motivated sharp finite cutoff. The group structures differ despite equal torsion order, providing a natural, reusable distinguishing invariant and illustrating information missed by the Alexander polynomial. The ten-degree exact finite computation is substantively motivated despite not extending to the entire family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
