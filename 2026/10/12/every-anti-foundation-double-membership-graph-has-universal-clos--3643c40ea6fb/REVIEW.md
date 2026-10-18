@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-The claim was checked against the exact hypotheses used in the published double-membership component theorem. The graph is countable, and every finite connected simple graph is an allowed finite connected loopy graph with no loops. Therefore, after choosing a Frucht graph \(\Gamma_G\), there are countably infinitely many components of the required isomorphism type.
+## correctness
 
-The subgroup construction is exact. Taking the union of all \(\Gamma_G\)-components makes its complement a union of components of other isomorphism types. The pointwise stabilizer of that complement is closed in the pointwise-convergence topology. Because there are no edges between connected components, every automorphism of the selected union extends by the identity, and every automorphism of the selected union consists uniquely of independent automorphisms within the finite components together with a permutation of the component index set. This is the unrestricted permutation wreath product \(G^{\mathbb N}\rtimes S_\infty\).
+PASS
 
-The consequences were also checked. Frucht's theorem applies to the trivial finite group, yielding a finite connected asymmetric graph and hence a closed \(S_\infty\) subgroup. The standard \(S_\infty\) with pointwise convergence is non-locally compact, and closed subgroups of locally compact Hausdorff groups are locally compact, so the ambient automorphism group cannot be locally compact. Every countable group has a faithful regular permutation action on a countable set, giving the abstract universality statement.
+Frozen RESULT.md bd457202f7234020133eed4e50cf1ef4e8eb30f2 uses Adam-Day--Cameron finite-component theorem: each finite connected simple graph Γ occurs infinitely often as a component. Frucht supplies connected finite Γ with Aut Γ ≅G. A countable disjoint union of Γ has full permutation automorphism group Aut(Γ)^N ⋊ S∞; extending permutations and within-component automorphisms by identity outside the component union embeds this group as the closed pointwise stabilizer of its complement, with correct permutation topology. G=1 gives closed S∞ and its non-local compactness propagates to the larger group. Any countable group embeds abstractly in S∞ via the regular action. Independent exhaustions for unions K2×2, K2×3, K3×2 recovered (q!)^k k!; these only corroborate the finite step. Countability and loop allowance properly handled.
 
-The verifier checks only finite disjoint-union instances of the wreath calculation. It is not used as evidence for Frucht's theorem or for the Anti-Foundation component theorem.
+## originality
 
-Originality was checked separately from correctness. The primary Anti-Foundation source discusses components, theories, and elementary equivalence but has no automorphism-group discussion. Broader searches found the classical Frucht theorem and generic graph-wreath literature, which jointly make the deduction short, but no source located states the resulting uniform closed-subgroup theorem for double-membership graphs. This leaves a genuine folklore risk, explicitly retained in the finding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full primary paper explicitly credits infinitely many finite connected graph components but does not assert the closed wreath-subgroup profile. Combining that theorem, connected Frucht realization and classical disjoint-union automorphisms yields the present statement. Best-of-knowledge novel synthesis, although derivation is brief and could be folklore.
+
+## value
+
+PASS
+
+The result determines a uniform, nontrivial topological and subgroup-complexity lower bound for every countable Anti-Foundation double-membership graph despite substantial model-dependent variability. A closed G wr S∞ for every finite G is more informative than merely an arbitrary abstract embedding; this is a motivated structural lemma about natural model-theoretic objects, not an artificial fixed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
