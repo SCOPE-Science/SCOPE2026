@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:14:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditionally on N=n homogeneous Poisson events in [0,t], boundary-inclusive normalized gap vector is Dirichlet(1,...,1) with n+1 coordinates. Exact second moment gives E[Q|N=n]=2/(n+2), while E[C²|N=n]=(n+1)E[Q|n]−1=n/(n+2)=1−E[Q|n]. For N~Pois(μ), shifting E[Nf(N)]=μE[f(N+1)] gives Cov(N,Q)=−2μ E[1/((N+2)(N+3))] and Cov(N,C²)=+2μ E[1/((N+2)(N+3))]. The beta integral ∫_0^1 x(1−x)e^{μ(x−1)}dx produces 2[μ−2+(μ+2)e^{−μ}]/μ²; positivity follows 1−(1+μ)e^{−μ}>0, and expansions give μ/3 near zero and 2/μ−4/μ² at high intensity. Includes N=0 and population CV convention. Independent direct n<=10 truncated conditional Poisson moment computation at μ=1 agreed within 1e−6, as expected from tail truncation; universal identity is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available Di–Perlman technical report abstract concerns line sequences in Poisson setting, not inspected full closed covariance theorem.",
+          "Mirakhmedov fixed-size Greenwood asymptotic efficiency does not mix a stochastic N with spacing energy."
+        ],
+        "reasoning": "Cannot assert whole-document noncoverage for inaccessible Di–Perlman; no accessible explicit stronger formula dominating the N-covariance was identified, with material risk retained.",
+        "searches": [
+          "Resultary query: Poisson process sum of squared spacings Greenwood statistic covariance number of points coefficient variation boundary gaps",
+          "Di–Perlman Detecting Linear Sequences and Subsequences",
+          "Mirakhmedov On Greenwood goodness-of-fit test"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 8b678c99aca135461029d6286cc65135d61024bf",
+        "Pinned verify.py blob edc3ff762247f85cf84deff9520256e3caea07ca",
+        "Di–Perlman UW Technical Report 520 abstract (full unavailable; Oxford vpn_disconnected)",
+        "Mirakhmedov 2010 Greenwood article bibliographic abstract",
+        "Resultary query 5 and 12 retrieved hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining classical Dirichlet regression 2/(n+2) and Poisson mixing derives A(μ) in a few steps; these ingredients are credited.",
+          "No read published statement already performs this combination for the selected normalization and window convention."
+        ],
+        "reasoning": "Prior fixed-n statements do not immediately assert Cov with random sample count, although this is a short derivation; novelty and value are bounded to this exact mixed covariance/sign reversal.",
+        "searches": [
+          "Dirichlet(1,...,1) exact second moments",
+          "Poisson index-shift identity",
+          "Di–Perlman technical report and Mirakhmedov bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_t is boundary-inclusive Greenwood quadratic spacing energy; C² is squared population coefficient of variation of realized n+1 gaps.",
+          "Conditionally n fixed, E[C²|n]=1−E[Q|n], a standard Dirichlet relation."
+        ],
+        "reasoning": "The unconditional opposite covariance is equivalent to Poisson randomization of the Dirichlet dimension, absent in fixed-n Greenwood results; interpretation uses realized mean gap.",
+        "searches": [
+          "Resultary query: Poisson process sum of squared spacings Greenwood statistic covariance number of points coefficient variation boundary gaps",
+          "Di and Perlman 2007 technical report 520, DOI 10.1016/j.jspi.2008.03.007",
+          "Mirakhmedov 2010 DOI 10.1016/j.jspi.2010.04.002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table for mixed Cov(N,Q_t) or Cov(N,C²_t) identified among Resultary 12 closest; nearby exponential range/variance work concerns fixed iid samples."
+        ],
+        "reasoning": "The exact sign and intensity curve A(μ) are all-μ analytical facts, not an observation from a finite table.",
+        "searches": [
+          "Resultary query: Poisson process sum of squared spacings Greenwood statistic covariance number of points coefficient variation boundary gaps",
+          "Greenwood statistic Dirichlet spacings formulas",
+          "OEIS/sequence-style keyword searches: Poisson gap covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge new random-count mixed covariance for a natural Poisson-window spacing statistic. Di–Perlman examines arrival-spacing linearity and Greenwood-type measures; Mirakhmedov analyzes fixed-n Greenwood sums and goodness-of-fit asymptotics. Their accessible bibliographic material does not state a mixed Cov(N,ΣD_i²) identity or the exact opposing sign for population CV normalization. The conditional Dirichlet moment itself is standard and not claimed original; novelty concerns Poisson mixing and an all-intensity covariance reversal. Full Di–Perlman journal body inaccessible, named residual risk; this alone does not reject originality.",
+      "residual_risks": [
+        "Di–Perlman full article remains unread because lawful open retrieval was unavailable and authorized institutional download reported VPN disconnected (job 2f0c12b6ecf78a863f49a351d3c65cab); possible prior covariance identity cannot be excluded.",
+        "The computation uses classical Dirichlet and Poisson formulas and is short; independent value is the natural exact normalization-induced sign reversal, not a novel technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential overlap cannot be excluded from unread journal article.",
+          "evidence": [
+            "Technical report concerns Poisson arrival spacing linearity and sequence detection; exact mixed N vs quadratic gap covariance not shown in accessible abstract."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jspi.2008.03.007",
+          "material_read": "Public University of Washington Technical Report 520 description and bibliographic/abstract material; journal full body not available.",
+          "method": "Open-access abstract/metadata search; authorized institutional request returned vpn_disconnected; no bypass or invented reading.",
+          "title": "Detecting Linear Sequences and Subsequences",
+          "trigger": "Closest same Poisson spacing context"
+        },
+        {
+          "assessment": "Fixed-n Greenwood goodness-of-fit efficiency, no accessible random-count covariance theorem.",
+          "evidence": [
+            "The article is concerned with asymptotic goodness-of-fit properties of squared spacings."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jspi.2010.04.002",
+          "material_read": "Publisher bibliographic abstract and metadata, not full text.",
+          "method": "Source listing/abstract comparison.",
+          "title": "On Greenwood goodness-of-fit test",
+          "trigger": "Direct Greenwood squared-spacing statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of observed events is random in a homogeneous Poisson-window experiment, while spacing dispersion is often normalized by the realized mean gap. The exact strict covariance sign flip for two standard dispersion normalizations, valid at every intensity and including boundary gaps, shows the choice of normalization changes a meaningful statistical dependence interpretation. A researcher comparing counts with gap irregularity would need this precise correction, and the result is not merely a table entry, though the argument is short and uses standard Dirichlet moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 8b678c99aca135461029d6286cc65135d61024bf",
+    "Pinned verify.py blob edc3ff762247f85cf84deff9520256e3caea07ca",
+    "Di–Perlman UW Technical Report 520 abstract (full unavailable; Oxford vpn_disconnected)",
+    "Mirakhmedov 2010 Greenwood article bibliographic abstract",
+    "Resultary query 5 and 12 retrieved hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only homogeneous Poisson process, full observation interval with BOTH boundary gaps and population-variance CV; not generic renewal gaps.",
+    "No claim about omitted boundary intervals or conditioned/partial gaps."
+  ],
+  "schema_version": 1
+}
