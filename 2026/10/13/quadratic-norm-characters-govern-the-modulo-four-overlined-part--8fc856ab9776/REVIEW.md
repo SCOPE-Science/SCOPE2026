@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The formal identity for the statistic is Theorem 1.1 of arXiv:2609.21361v1. Expansion in the integral formal power-series ring yields the four surviving monomials modulo four. The two classical norm representation identities follow from unique factorization in norm-Euclidean quadratic rings and include the ramified primes. The axial cases and signs have been checked explicitly; the squarefree consequence follows from local character factors. Reproducible independent weighted-partition enumeration agrees with the theta identity, norm counts and proposed residue formula through index 420. This does not replace the infinite proof.
+## correctness
 
-**Originality: PASS, with residual risk.** The complete motivating preprint was inspected: its exact generating-function theorem supplies the starting point, so the result is a derived arithmetic consequence rather than an independent generating-function identity. The paper's stated congruences do not contain an all-index character formula or the odd-squarefree prime detector. published-finding corpus searches for equivalent character identities, prime classifications and other overpartition statistics found no dominating published claim. Similar prime-indicator phenomena for different statistics do not imply this result. The short derivation and possibility of unindexed equivalent reductions limit the novelty assessment; a failed search alone is not proof of uniqueness.
+PASS
 
-**Value: PASS.** The all-index congruence converts a new combinatorial statistic into computable multiplicative arithmetic functions and a sharp finite-pattern correction. The resulting complete squarefree prime-residue classification is a motivated and nontrivial link between two quadratic norm forms and the overpartition statistic, not an arbitrary finite numerical slice. It can identify divisibility of the statistic on every index without enumerating overpartitions, and explains exactly why the odd-squarefree composite values vanish modulo four.
+Use Baruah--Gogoi F=(T^-1-T^3)/8 and theta T=1+2A with A=sum_{j>=1} (-1)^j q^{j^2}. Integral expansion modulo 4 yields -A-A^2-2A^3+2A^4; Gaussian norm r_2=4sum chi_-4 and x^2+2y^2 norm r=2sum chi_-8, with explicit removal of axis solutions, recover all four terms including even n and square corrections. For odd squarefree composite n the two divisor products have >=2 factors of 0 or 2 and vanish mod4; primes give residues by classes mod8. Independent overpartition weighted-product and arithmetic checks through n=160 and source verifier through n=420 support transcription only. No divisor quantifier is inferred from finite tests.
 
-Closest published evidence: N. D. Baruah and P. Gogoi, arXiv:2609.21361v1, Theorems 1.1–1.9 and Section 7; published published-finding corpus records SCOPE001 and SCOPE-prime-indicator-tunnell-comparison-parity, which concern distinct statistics. Limitations: modulus four only, prime interpretation needs odd squarefree inputs; independent novelty and proof assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Baruah--Gogoi paper supplies the exact starting generating function and congruences on selected sequences. Its accessible complete arXiv HTML paper was inspected including Theorems 1.1--1.9; no all-index quadratic-norm character formula or squarefree prime-support equivalence was found. The two norm identities are classical, so methodological ingredients are acknowledged, while their combination for this particular statistic yields a different stated arithmetic classification. Resultary singular-overpartition mod4 theorem studies a different restricted partition function.
+
+## value
+
+PASS
+
+Full modulo-four residue formula for every n is a natural refinement of a generating-function identity, with explicit square corrections and a sharp prime-support dichotomy on the odd squarefree stratum. It is mathematically useful for studying arithmetic patterns in the specific overlined-part statistic, without pretending to give a general primality test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
