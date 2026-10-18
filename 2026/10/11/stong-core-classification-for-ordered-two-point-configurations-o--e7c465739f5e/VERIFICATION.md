@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-The theorem is verified primarily by an all-parameter proof from strict upper and lower sets. For a mixed point \((a_i,b_j)\), the strict lower set has exactly \(p-1\) incomparable points and the strict upper set has exactly \(q-1\) incomparable points. The dual mixed type has the same cardinalities. Same-level points have explicit incomparable witnesses, so no hidden beat cases remain.
+# Independent mathematical audit
 
-`artifacts/verify.py` is a finite independent replay of the definitions, not a substitute for the proof. It reconstructs the product-order configuration space for all \(49\) pairs \(2\le p,q\le8\), enumerates beat points directly, executes the claimed deletion sequences, identifies the final complete height-two remainder, and verifies that the remainder is beat-point-free. The recorded output is:
+## correctness
 
-`VERIFY_OK cases=49 range=2..8 theorem=beat_classification_and_core_formula
-samples=2x2:12->4;2x5:42->22;3x3:30->30;3x6:72->72;5x2:42->22;6x6:132->132`
+PASS
 
-Limits: the script checks only the displayed finite parameter box. The proof establishes all \(p,q\ge2\). No independent audit has been performed.
+Given P_{p,q}=A_p⊕B_q with p,q≥2, product order on F₂(P) of distinct ordered pairs produces AA,AB,BA,BB types. For mixed (a_i,b_j), strict lower = {(a_i,a_k):k≠i} (p−1 incomparable points), strict upper = {(b_l,b_j):l≠j} (q−1 incomparable points); BA symmetric. Hence beat status exactly p=2 (down) or q=2 (up). Same-level AA has incomparable AB and BA above, BB dual below, so neither beat. If both ≥3, all (p+q)(p+q−1) are core points. If p=2, successive deletion of mixed down beat points preserves their unique AA lower and leaves 2 AA below q(q−1) BB, exactly P_{2,q(q−1)} and beat-free; dual q=2. Verified independently using freshly coded product poset enumeration for all 49 parameter pairs 2≤p,q≤8 and inspected actual packaged artifacts/verify.py. Finite enumeration corroborates; the displayed antichain formulas prove every integer p,q≥2.
+
+## originality
+
+PASS
+
+Barmak–Minian full text defines beat-point/core machinery (Definition 2.2) and characterizes minimal finite graph models via complete bipartite Hasse data (Theorem 4.7); no ordered two-point deleted-product construction appears. Farber–Hanbury full public author text studies classical graph configuration F(K_pq,2), proving mature graph and Betti formulas (Proposition 22, Corollary 24); classical weak invariants do not imply beat-point identity and exact Stong core of F₂(P_pq). Related SCOPE finite crowns and finite spheres have other base posets. Exact core formulas not found elsewhere.
+
+## value
+
+PASS
+
+Complete sharp classification of a natural collision-free finite-space construction, distinguishing strong finite-space homotopy from weak homology; identifies threshold at smallest height-two level and exact surviving Stong core/cardinality. A finite natural invariant may be valuable independently of general arbitrary-poset classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

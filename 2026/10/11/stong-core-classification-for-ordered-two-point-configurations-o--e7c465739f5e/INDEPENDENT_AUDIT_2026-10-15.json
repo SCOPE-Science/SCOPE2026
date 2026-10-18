@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:11:41.135529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given P_{p,q}=A_p⊕B_q with p,q≥2, product order on F₂(P) of distinct ordered pairs produces AA,AB,BA,BB types. For mixed (a_i,b_j), strict lower = {(a_i,a_k):k≠i} (p−1 incomparable points), strict upper = {(b_l,b_j):l≠j} (q−1 incomparable points); BA symmetric. Hence beat status exactly p=2 (down) or q=2 (up). Same-level AA has incomparable AB and BA above, BB dual below, so neither beat. If both ≥3, all (p+q)(p+q−1) are core points. If p=2, successive deletion of mixed down beat points preserves their unique AA lower and leaves 2 AA below q(q−1) BB, exactly P_{2,q(q−1)} and beat-free; dual q=2. Verified independently using freshly coded product poset enumeration for all 49 parameter pairs 2≤p,q≤8 and inspected actual packaged artifacts/verify.py. Finite enumeration corroborates; the displayed antichain formulas prove every integer p,q≥2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barmak–Minian gives general finite-core framework and minimal graph weak models, not F₂(P_pq) strict-neighbor formulas.",
+          "Farber–Hanbury computes Betti numbers of continuous graph configuration on K_pq rather than core of finite-poset deleted product."
+        ],
+        "reasoning": "An exact graph homology result does not determine finite-space strong-deformation core; no broader result covering these beat points found.",
+        "searches": [
+          "Barmak Minian 2007 full source Definition 2.2, Theorem 4.7",
+          "Farber Hanbury 2010 full source Proposition 22, Corollary 24",
+          "Resultary semantic: finite topological spaces ordered configuration space two distinct points complete bipartite height two posets Stong core beat points"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query 5 and other finite crown/minimal sphere configuration records",
+        "Barmak–Minian full 2007 text Definition 2.2, Theorem 4.7",
+        "Farber–Hanbury full 2010 text Proposition 22, Corollary 24",
+        "Exact independent finite product poset/beat deletion enumeration p,q=2..8 (49 cases)",
+        "Pinned artifacts/verify.py code and source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Barmak–Minian result classifies base graph weak models; F₂ of the finite model is a different construction.",
+          "The Farber–Hanbury graph configuration b1/b2 formula does not imply a unique strong core homeomorphism of ordered finite-space configuration."
+        ],
+        "reasoning": "Derivation needs direct strict upper/lower set classification for all four pair types, not obtainable from cited prior weak invariants.",
+        "searches": [
+          "Barmak Minian 2007 Definition 2.2 and Theorem 4.7",
+          "Farber Hanbury 2010 Proposition 22, Corollary 24",
+          "Resultary semantic: finite topological spaces ordered configuration space two distinct points complete bipartite height two posets Stong core beat points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F₂(P_{p,q}) means deleted diagonal (x≠y) from product poset P_{p,q}×P_{p,q}.",
+          "Barmak–Minian Definition 2.2 gives Stong beat-point definition and unique core up to homeomorphism."
+        ],
+        "reasoning": "Searched deleted-product, finite-space configuration, complete height-two, Stong and beat-point aliases; nearby finite crown configurations are different objects.",
+        "searches": [
+          "Resultary semantic: finite topological spaces ordered configuration space two distinct points complete bipartite height two posets Stong core beat points",
+          "Search finite T0 order deleted product configurations beat point K_{p,q}",
+          "Search F2(P_pq) Stong core"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Farber–Hanbury b1=2(p−1)(q−1), b2=(p²−3p+1)(q²−3q+1) for classical graph config with p,q≥3.",
+          "Those Betti constants do not encode which of (p+q)(p+q−1) points are Stong beats."
+        ],
+        "reasoning": "The finite instance checker is not a prior database, and graph Betti tables do not imply new core formula.",
+        "searches": [
+          "Resultary semantic: finite topological spaces ordered configuration space two distinct points complete bipartite height two posets Stong core beat points",
+          "Search P_{2,q(q-1)} configuration Stong core",
+          "Farber Hanbury Corollary 24 complete bipartite Betti numbers"
+        ]
+      },
+      "rationale": "Barmak–Minian full text defines beat-point/core machinery (Definition 2.2) and characterizes minimal finite graph models via complete bipartite Hasse data (Theorem 4.7); no ordered two-point deleted-product construction appears. Farber–Hanbury full public author text studies classical graph configuration F(K_pq,2), proving mature graph and Betti formulas (Proposition 22, Corollary 24); classical weak invariants do not imply beat-point identity and exact Stong core of F₂(P_pq). Related SCOPE finite crowns and finite spheres have other base posets. Exact core formulas not found elsewhere.",
+      "residual_risks": [
+        "Earlier finite-poset deleted product paper using different terms could independently contain the core formula.",
+        "Only ordered F₂ and complete two-level non-singleton base posets considered; not higher configurations or arbitrary posets.",
+        "Finite replay is not a proof for unbounded p,q; analytic antichain/deletion argument is the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_FRAMEWORK_NOT_ORDERED_CONFIG_CORE",
+          "evidence": "Definition 2.2 defines beat points; Theorem 4.7 characterizes minimal graph models; no configuration statement present in the article transcription.",
+          "identifier_or_url": "arxiv:math/0611156 / https://studylib.net/doc/11122552/minimal-finite-models",
+          "material_read": "Read full accessible 2007 paper text, particularly Definition 2.2, Proposition 2.3, Stong core section, §4 and Theorem 4.7; document search for configuration terminology",
+          "method": "Open full article HTML transcription and exact statement-level implication inspection",
+          "title": "Minimal Finite Models",
+          "trigger": "Original finite spaces, beat points, complete-bipartite models"
+        },
+        {
+          "assessment": "CLASSICAL_GRAPH_HOMOLOGY_NOT_FINITE_STONG_CORE",
+          "evidence": "Prop 22 K_pq mature; Cor 24 b1=2(p−1)(q−1), b2=(p²−3p+1)(q²−3q+1); no Stong beat-point claim.",
+          "identifier_or_url": "doi:10.2140/agt.2010.10.2203 / https://www.researchgate.net/publication/45917420_Topology_of_configuration_space_of_two_particles_on_a_graph_II",
+          "material_read": "Read author-public full article text, §7 Proposition 22 and Corollary 24 with exact Betti formulas, early definitions of F(Γ,2)",
+          "method": "Full public text through author-shared HTML rendering, direct theorem comparison",
+          "title": "Topology of configuration space of two particles on a graph, II",
+          "trigger": "Exact same p,q for classical graph configurations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete sharp classification of a natural collision-free finite-space construction, distinguishing strong finite-space homotopy from weak homology; identifies threshold at smallest height-two level and exact surviving Stong core/cardinality. A finite natural invariant may be valuable independently of general arbitrary-poset classifications.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Core means minimal in ordinary finite-space homotopy class, not minimum weak-homotopy cardinality for its order complex.",
+    "No unordered quotient or three-point configuration classification."
+  ],
+  "schema_version": 1
+}
