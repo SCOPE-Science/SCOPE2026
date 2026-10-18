@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each edge, the local-score condition is exactly |a_ij|^2 <= epsilon(|d_i-d_j|+epsilon). Distribute C+u_i per edge as (C+u_i)/Delta with C=Delta^2 epsilon. The resulting Hermitian 2x2 blocks are PSD by the determinant estimate (C+u_i)(C+u_j)/Delta^2 >= Delta^2 epsilon^2+epsilon |u_i-u_j| >= |a_ij|^2. Their sum plus nonnegative unused diagonal equals (t+C)I-A. Applying this to A, -A, and principal submatrices, then using Cauchy interlacing, proves all ordered eigenvalue bounds without a hidden separation assumption. For K_{Delta,Delta} with diagonal H/0 and crossing weight sqrt(epsilon(H+epsilon)), every score is epsilon while the top spectral deviation tends to Delta^2 epsilon, proving sharpness. The 5,693 deterministic finite tests are corroboration only; the universal proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Li (2005) use block norm and spectral gap to bound a perturbation under off-diagonal block coupling.",
+        "Li, Nakatsukasa, Truhar and Wang (2012), Sections 1-3, bound specified multiple-eigenvalue splitting with graded block couplings.",
+        "Higham (1994) surveys componentwise and sparse perturbation theory, a potential broader source not verified in complete detail."
+      ],
+      "reasoning": "The reviewed block theorems control coupling norms or selected eigenvalues, not the full ordered diagonal spectrum using only a uniform pair score and graph degree, nor an optimal coefficient for all degrees. Their generality in other directions is acknowledged, not assumed to exclude an unlocated corollary.",
+      "searches": [
+        "Published-record query: sparse symmetric matrix eigenvalue diagonal approximation degree squared epsilon pairwise local spectral impact bound",
+        "Web: symmetric matrix eigenvalue diagonal approximation graph degree local two by two eigenvalue shift bound",
+        "Web: A note on eigenvalues of perturbed Hermitian matrices Li Li pdf",
+        "MIMS EPrint 2012.17"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.23187v1 Section 3.1 (full publicly readable manuscript transcription)",
+      "Li and Li, Linear Algebra Appl. 395 (2005), 183-190; corrected arXiv:2508.08203 overview",
+      "Li, Nakatsukasa, Truhar and Wang, MIMS EPrint 2012.17 introduction and selected theory",
+      "Higham, 1994 survey catalog and abstract",
+      "Higham, Tisseur, Webb and Zhou, 2025 SIAM Jacobi publisher abstract",
+      "Public published-record semantic searches for local Jacobi scores, maximum graph degree, sparse eigenvalue matching",
+      "Own accessible current-week and previous-week ledger claim comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For dimension n with maximum degree Delta fixed, 2n(n-1)epsilon cannot imply Delta^2 epsilon as n increases.",
+        "The Li-Li norm/gap estimate does not directly supply a dimension-free all-index comparison with a diagonal list when only local score and support degree are known.",
+        "The current proof establishes a stronger uniform inequality through a positive semidefinite edge decomposition, and a matching asymptotic extremizer."
+      ],
+      "reasoning": "The result improves the source implication rather than merely specializing it: for sparse graphs it is dimension independent and has a sharp coefficient, while the source estimate scales quadratically in n. Exact graph-degree optimality is demonstrated independently; an unlocated stronger general matrix inequality remains the principal originality risk.",
+      "searches": [
+        "arXiv:2607.23187v1 Theorem 1 and proof",
+        "doi:10.1016/j.laa.2004.08.026 Li-Li perturbation theorem",
+        "MIMS:2012.17 main setting and graded perturbation bounds",
+        "Web: Brauer Cassini pairwise eigenvalue bound diagonal differences sparse maximum degree quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the same pairwise impact score and proves a global all-eigenvalue bound 2n(n-1) epsilon (Theorem 1); it does not supply degree-squared coefficient or sharp bipartite family.",
+        "No equivalent maximum-degree version was recovered in the published-record search or targeted primary literature searches."
+      ],
+      "reasoning": "The pair score is identical in closed form to the two-coordinate Li-Li shift. Matching the score is not novelty; the claimed sharpening is the universal optimal maximum-degree coefficient and graph sharpness construction, which is not a mere rewording of the n-dependent theorem.",
+      "searches": [
+        "Published-record query: Jacobi eigenvalue perturbation impact pivot score diagonal eigenvalue approximation bounded graph degree squared epsilon sharp bipartite",
+        "Web: degree Jacobi pivot eigenvalue sparse perturbation diagonal accuracy",
+        "Web: degree squared eigenvalue diagonal entries matrix perturbation",
+        "arXiv:2607.23187v1 Section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest accessible own item 7f1ea5c4-cfe0-487a-b8b6-371a0f5f34c9 concerns random-pair Jacobi diagonalization of a rank-one perturbation, not error certificates from local scores.",
+        "Accessible prior-week item 4916aa7e-5711-47a3-b418-3fab9d15b0ca concerns a local two-coordinate Gram diagonalization, not degree-based eigenvalue accuracy.",
+        "Closest public result titled Sharp Euclidean damping frontier for weighted Jacobi studies Jacobi linear-equation iterations, not eigenvalue pivot scores."
+      ],
+      "reasoning": "No known table or record containing the exact degree-squared constant and the complete bipartite sharpness family was located. Searches are nonexhaustive and no absence claim is made for inaccessible databases.",
+      "searches": [
+        "Published-record query: arxiv:2607.23187 perturbation inspired pivot Jacobi eigenvalue globally eigenvalues diagonal offdiagonal scores sparse maximum degree",
+        "Published-record query: graph maximum degree Laplacian Schur complement off diagonal diagonal eigenvalue perturbation pairwise scores",
+        "Own accessible current and prior weekly claims: Jacobi; pivot; spectral gap; diagonal entries; degree-squared"
+      ]
+    },
+    "rationale": "The nearest source introduces the identical score and a dimension-dependent global bound 2n(n-1)epsilon. The present sharp Delta^2 epsilon all-index theorem is not implied for sparse matrices (unbounded dimension, bounded degree). Its PSD-edge proof and complete bipartite sharpness are structurally separate. The closest block perturbation papers and accessible previous claims use different assumptions/outputs. Literature equivalence remains a nonzero risk.",
+    "residual_risks": [
+      "Older matrix-localization or scaled Gershgorin literature could imply the exact coefficient by a reduction not found in the bounded search.",
+      "Higham survey and the full mixed-precision Jacobi article were not inspected throughout; abstract material is not treated as proof of noncoverage.",
+      "Novelty evaluation is not an independent literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 gives 2n(n-1) epsilon; no degree-based sharp result in inspected sections",
+        "evidence": "Definition (1) and Theorem 1 in Section 3.1, and proof on pages 4-5; paper states 65F15 as primary classification.",
+        "identifier_or_url": "arXiv:2607.23187v1; https://www.researchgate.net/publication/410887802_Accelerating_preconditioned_Jacobi_methods_via_perturbation-inspired_pivoting",
+        "material_read": "Accessible public full-text transcription, Sections 1, 3.1 including Theorem 1 and proof, Conclusion and References",
+        "method": "Read openly available author manuscript text on public repository page; arXiv first-public metadata independently checked",
+        "title": "Accelerating preconditioned Jacobi methods via perturbation-inspired pivoting",
+        "trigger": "Same pairwise impact score and eigenvalue accuracy theorem"
+      },
+      {
+        "assessment": "Block spectral-gap/operator-norm bound foundational to the score, rather than exact graph-degree all-eigenvalue matching",
+        "evidence": "Bound 2||E||^2/(eta+sqrt(eta^2+4||E||^2)); correction version labels the original 2005 journal paper.",
+        "identifier_or_url": "doi:10.1016/j.laa.2004.08.026; arXiv:2508.08203",
+        "material_read": "Public abstract and introductory exposition of corrected author version; theorem formula cited explicitly by the motivating paper",
+        "method": "Accessible open repository material and in-paper quotation of the actual Li-Li bound",
+        "title": "A note on eigenvalues of perturbed Hermitian matrices",
+        "trigger": "Origin of two-block and local two-coordinate perturbation score"
+      },
+      {
+        "assessment": "Multiple-eigenvalue local splitting with norm information, not the all-ordered diagonal certification with maximum-degree constant",
+        "evidence": "Sections 1-2 set block A11=mu I, coupling E, spectral gap eta and graded column bounds; aim and quantifiers are distinct.",
+        "identifier_or_url": "MIMS EPrint 2012.17; https://eprints.maths.manchester.ac.uk/1765/",
+        "material_read": "Full PDF introduction, main theorem setting, graded-column discussion, examples and scope (pages 1-5); remainder not exhaustively audited",
+        "method": "Read publicly available 18-page primary PDF with graphical verification of mathematical notation",
+        "title": "Perturbation of multiple eigenvalues of Hermitian matrices",
+        "trigger": "Potentially dominating graded, componentwise perturbation theorem"
+      },
+      {
+        "assessment": "Explicitly warns that norm bounds can disregard sparsity; equivalent bound not excluded",
+        "evidence": "Abstract states componentwise approaches exploit sparsity and scaling.",
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/651/",
+        "material_read": "Catalog and abstract only; the full survey was not inspected",
+        "method": "Primary institutional repository record",
+        "title": "A Survey of Componentwise Perturbation Theory",
+        "trigger": "Broader sparsity-aware matrix perturbation literature"
+      },
+      {
+        "assessment": "Focus on rounding error and relative accuracy, no definitive full-text noncoverage conclusion",
+        "evidence": "Publisher abstract discusses mixed-precision preconditioning and relative eigenvalue forward errors.",
+        "identifier_or_url": "doi:10.1137/25M1723748",
+        "material_read": "Publisher abstract only; full paper not read",
+        "method": "Primary publisher summary",
+        "title": "Computing Accurate Eigenvalues using a Mixed-Precision Jacobi Algorithm",
+        "trigger": "Recent high-accuracy Jacobi paper with potentially stronger global theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0bb84b26-f6be-4db6-89b2-12190c919490",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivating score is proposed specifically to stop eigensolvers before off-diagonal entries become tiny when spectral gaps are large. Replacing its O(n^2 epsilon) certificate by the *sharp* degree^2 epsilon bound makes accuracy verification dimension-free for sparse support (e.g. degree at most two gives 4epsilon for any size). The optimal constant and a natural K_{Delta,Delta} extremal family show a genuine saturation mechanism. This is not a negligible numerical gain, arbitrary finite invariant, or textbook renaming: it identifies an exact sparsity-dependent perturbation law. It does not claim a change in pivot count or computational cost.",
+    "status": "PASS"
+  }
+}
