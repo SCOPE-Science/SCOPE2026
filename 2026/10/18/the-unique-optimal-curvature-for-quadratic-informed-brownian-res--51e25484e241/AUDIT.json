@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The Feynman-Kac equation u″=z^2 u, half-line Green kernel and independent-reset renewal yield E tau=(L^2/D)lambda^-2 integral_0^lambda I/u^2. The nonstandard uniqueness lemma is reconstructed: a=-u′/u has 0<a′<1; b=I/u and H=(3a^2-z^2)b-3a/2 satisfy h″=2H/u; H is positive at zero and infinity, while at every putative positive zero H′<0, so H>0. Thus F=lambda h-2m has F″=lambda h″>0, F′(0)<0 and F->infinity, hence exactly one positive zero and a global minimum. The supplied FD numerical script checks five independent generator instances with quadratic mesh convergence. Decimals are not certified interval enclosures.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roldán and Gupta (2017), ar5iv full text Secs. II and III.2: general Feynman-Kac framework for state-dependent resetting; parabolic example concerns stationary density and first-reset time.",
+        "Keidar et al. (2025), Nature Communications article, discussion after equation (8) and Fig. 3: no analytical optimizer expression given.",
+        "Other located first-passage studies used constant-rate resetting or space-dependent diffusivity, not this state-dependent quadratic intensity."
+      ],
+      "reasoning": "A general path-integral formalism might imply a specialized mean-time equation after significant further processing, but does not dominate or explicitly contain the strict-convexity/global-uniqueness theorem. No inspected broader theorem gives this unique positive optimum.",
+      "searches": [
+        "Roldán Gupta 2017 path-integral position-dependent resetting first passage optimal curvature",
+        "State dependent Poisson resetting parabolic profile optimal curvature Brownian first passage universal dimensionless constant",
+        "Pinsky 2020 diffusions state dependent rate resetting Brownian first passage optimization r(x)=x^2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2409.14419v2",
+      "https://www.nature.com/articles/s41467-025-62398-2",
+      "https://ar5iv.labs.arxiv.org/html/1703.10615",
+      "https://arxiv.org/abs/2409.14419",
+      "https://arxiv.org/abs/1703.10615"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Keidar et al., Eq. (3), provide generic renewal identity; equations (8) and following discussion identify its quadratic limiting control but present only a simulation-based optimum.",
+        "Roldán and Gupta, Sec III.2, find quadratic-reset propagator and stationary distribution, which are inputs to, not the assertion of, the absorbing-boundary search optimization."
+      ],
+      "reasoning": "Previous generic renewal plus oscillator resolvent mathematically make an analytic approach possible. However the absorbing Dirichlet resolvent, the derivative h=I/u^2, and the global unique-zero proof are necessary additional claims. Consequently prior results do not explicitly imply the exact final assertion by mere parameter substitution; a residual possibility of an equivalent theorem elsewhere remains.",
+      "searches": [
+        "Keidar et al 2409.14419 equation (8) optimal curvature source full text",
+        "Keidar Blumer Hirshberg Reuveni arXiv 2409.14419 informed search parabolic resetting unique optimal first passage Bessel function",
+        "Roldán Gupta first-reset-time stationary density Section III.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Keidar et al., arXiv:2409.14419v2, lines 95-109: simulator estimate of parabolic curvature and explicit absence of analytic expression.",
+        "Roldán and Gupta, arXiv:1703.10615, Sec. III.2: quadratic-reset propagator and steady state rather than an absorbing first-passage optimizer."
+      ],
+      "reasoning": "An equivalent restatement would require the same killed half-line quadratic-intensity Brownian renewal objective and unique optimizer. The inspected source contrasts a steady-state harmonic-oscillator propagator with first-passage optimization. Renewal and oscillator identities are background but do not already state the sharp global optimum.",
+      "searches": [
+        "Keidar Blumer Hirshberg Reuveni arXiv 2409.14419 informed search parabolic resetting unique optimal first passage Bessel function",
+        "Brownian motion with position-dependent quadratic stochastic resetting k x squared exact optimal mean hitting time curvature modified Bessel K 1/4",
+        "ar5iv 1703.10615 Sec. III.2 quadratic-reset propagator",
+        "arXiv 2409.14419v2 informed search section"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Keidar et al. give the approximate numerical value 5.6 for the parabolic regime, explicitly not an analytic value.",
+        "Targeted published-finding corpus searches with up to 100 semantic hits did not retrieve an equivalent analytic first-passage curvature item; returned related optimization/Brownian items concerned other mathematical objects."
+      ],
+      "reasoning": "This finding does not claim the approximate optimum was unknown; what is new is a provably unique global positive root with a fully specified Bessel-integral equation. No exact covering table was found.",
+      "searches": [
+        "Adaptive Resetting for Informed Search Strategies and the Design of Non-equilibrium Steady-states Keidar Blumer Hirshberg Reuveni 2409.14419 parabolic rate r(x)=k x^2 Brownian absorbing origin analytic unique optimal curvature",
+        "Brownian motion with position-dependent quadratic stochastic resetting k x squared exact optimal mean hitting time curvature modified Bessel K 1/4",
+        "Keidar Blumer Hirshberg Reuveni arXiv 2409.14419 informed search parabolic resetting unique optimal first passage Bessel function",
+        "arXiv 2409.14419 5.6 quadratic reset optimum"
+      ]
+    },
+    "rationale": "The precise parabolic informed-reset model appears in Keidar et al. (arXiv:2409.14419, 2024), whose full text explicitly says an analytic optimal curvature expression is absent. Roldán and Gupta 2017 derive the corresponding oscillator propagator and stationary reset law, but their inspected claims do not include the absorbing-boundary optimizer. Exact root/uniqueness is more than numerical recovery of the known ~5.6 estimate. Targeted semantic records returned no dominating same-object theorem; residual prior-art risk remains.",
+    "residual_risks": [
+      "Potential implicit equivalent from general killed-oscillator spectral theory or earlier specialized first-passage optimization, not identified in searches.",
+      "The Nature Communications Supplementary Information file was linked but not independently opened; its detailed calculations might provide additional coverage.",
+      "Semantic published-finding corpus search is incomplete and absence of a hit does not establish uniqueness of discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The text explicitly uses a numerical estimate near 5.6 and says no analytic curvature expression is available. It supplies the generic renewal method, not this exact special-function optimizer/uniqueness proof.",
+        "evidence": [
+          "arXiv:2409.14419v2, environmental-information section, lines 95-110",
+          "https://www.nature.com/articles/s41467-025-62398-2, environmental-information discussion around Eq. 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.14419v2",
+        "material_read": "Full primary article rendered HTML, especially abstract, general renewal equation (3), environmental-information section, equation (8), Fig. 3 and discussion, plus conclusion and related prior-work statements.",
+        "method": "Full-text browser open and find for parabolic, analytical expression and Supplementary; compare object and optimizer statements",
+        "title": "Adaptive Resetting for Informed Search Strategies and the Design of Non-equilibrium Steady-States",
+        "trigger": "Identical parabolic-intensity informed-search model and explicitly proposed missing analytic optimizer"
+      },
+      {
+        "assessment": "The peer-reviewed main text retains the explicit absence-of-analytic-expression statement, and reports numerical optimal curvature near 5.6. Supplementary-file mathematical coverage not independently inspected.",
+        "evidence": [
+          "Nature Communications 16, 7259 (2025), informed-search section around equation (8), Fig. 3"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41467-025-62398-2",
+        "material_read": "Peer-reviewed article HTML including main theoretical framework and full informed-search section near Eq. 8 and Fig. 3",
+        "method": "Browser open and targeted find for parabolic, analytical expression, and cited supplementary link",
+        "title": "Adaptive resetting for informed search strategies and the design of non-equilibrium steady-states",
+        "trigger": "2025 peer-reviewed full-text version of source, possible extra exact derivation after arXiv"
+      },
+      {
+        "assessment": "Parabolic rate and harmonic-oscillator propagator are known, but the analyzed conclusions concern first-reset distribution and stationary law; no absorbing Dirichlet optimizer or uniqueness claim was identified.",
+        "evidence": [
+          "arXiv:1703.10615, Sec. II.2 and III.2"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1703.10615",
+        "material_read": "Full ar5iv article text with close inspection of model, Sec. II general formalism, Sec. III.2 parabolic-reset example, conclusions and first-passage/optimal keyword occurrences",
+        "method": "Open full OA HTML and find relevant headings, formulas, first-passage and optimal claims",
+        "title": "Path-integral formalism for stochastic resetting: Exactly solved examples and shortcuts to confinement",
+        "trigger": "Broader harmonic-oscillator Feynman-Kac derivation for exactly quadratic reset rates could subsume result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51e25484-e241-4451-a58b-38072744f6bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating informed resetting research explicitly identifies the analytical optimum for quadratic spatial reset intensity as missing and presents only a numerical estimate. Exact unique global optimal curvature and dimensional scaling answer that physically motivated design question, distinguish a global minimum from local stationary candidates, and supply reproducible non-simulation evaluation. No general finite-sensing-range claim is made.",
+    "status": "PASS"
+  }
+}
