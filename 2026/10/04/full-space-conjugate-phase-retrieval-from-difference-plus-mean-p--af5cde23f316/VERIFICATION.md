@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces equal orbit magnitudes to two identities for every ordered pair, then uses classical double centering of squared Euclidean distances. The critical dimension-dependent check is that \(G_z-G_y=(c/2)J\) cannot hold with nonzero \(c\) between two positive-semidefinite Gram matrices of rank at most \(2\) once \(n-1\ge3\). No finite experiment is used to extend the theorem to arbitrary dimension.
+# Independent mathematical audit
 
-The standalone script `verify.py` performs an exact bounded replay at \(n=4\). It enumerates the alphabet \(\{0,1,-1,i,-i\}^4\). After multiplying the measurement coefficient by \(2=\sqrt4\), every squared magnitude is an integer, so the collision test uses only Gaussian-integer arithmetic. Every one of the \(1864\) within-signature pairs is checked to be related by a global unimodular factor, optionally followed by coordinatewise conjugation.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK n4_signals=625 signatures=99 max_collision_class=8 collision_pairs=1864`
+For n>=4, double transitivity supplies every ordered (i,j). Reversing pairs separates intensity equations into constant squared-distance defect c=|a|²-|b|² and equal real mean-direction pairings. For centered configurations y,z in R², J double centering yields Gz-Gy=(c/2)J with PSD Gram matrices rank≤2. If c>0, rank Gz>=n-1>=3; if c<0, on a centered nullvector of Gy, Gz becomes negative, both contradictions. Equal Gram matrices give z_i=O y_i with some O in O(2), and the pairing identities and |a|=|b| permit O to map a to b even for one-dimensional or zero spans. O is rotation or rotated conjugation. All n>=4 follow analytically; the viewed Gaussian-integer 625-signal n=4 script is strictly bounded.
 
-Limits: the finite replay samples a discrete subset of \(\mathbb C^4\); it is not an exhaustive search over continuous signals and is not a proof for higher dimensions. The proof, rather than the script, establishes the universal quantifiers.
+## originality
+
+PASS
+
+Exact same-generator source states n>3 question open; all-dimensional rank-obstruction proof not covered by checked primary results. Broader later frameworks were only scope-checked where full text not inspected, so originality is best-of-knowledge.
+
+## value
+
+PASS
+
+Proves a sharp dimensional threshold answering the exact n>3 unresolved full-space complex conjugate-retrieval question in the defining group-orbit paper. The rank-two Euclidean distance obstruction explains why n=3 differs, yielding a motivated structural result rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

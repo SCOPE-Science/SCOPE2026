@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The measurement orbit supplies every ordered difference because the action is doubly transitive. Pairing each ordered measurement with its reverse yields both the common additive distance defect and the real inner-product relation. Double centering converts the defect into \(G_z-G_y=(c/2)J\); positive semidefiniteness and the rank-\(2\) planar bound force \(c=0\) for \(n\ge4\). Equal centered Gram matrices then give an orthogonal congruence, and the remaining real-part equations plus \(|a|=|b|\) allow the same orthogonal map to carry the mean coefficient as well. Orthogonal maps of the complex plane are exactly a unimodular rotation or a unimodular rotation followed by conjugation.
+PASS
 
-## Originality
+For n>=4, double transitivity supplies every ordered (i,j). Reversing pairs separates intensity equations into constant squared-distance defect c=|a|²-|b|² and equal real mean-direction pairings. For centered configurations y,z in R², J double centering yields Gz-Gy=(c/2)J with PSD Gram matrices rank≤2. If c>0, rank Gz>=n-1>=3; if c<0, on a centered nullvector of Gy, Gz becomes negative, both contradictions. Equal Gram matrices give z_i=O y_i with some O in O(2), and the pairing identities and |a|=|b| permit O to map a to b even for one-dimensional or zero spans. O is rotation or rotated conjugation. All n>=4 follow analytically; the viewed Gaussian-integer 625-signal n=4 script is strictly bounded.
 
-PASS. The primary full text explicitly isolates the same difference-plus-mean generator, exhibits failure at \(n=3\), and states that analogous counterexamples in dimensions greater than \(3\) were unknown. Its next result establishes only real sign retrieval. Searches for the statement under conjugate-phase-retrieval, doubly-transitive-orbit, difference-plus-mean, centered-distance, and equivalent frame language did not locate a theorem implying the all-\(n\ge4\) conclusion. Later inspected conjugate-phase-retrieval papers are broader frameworks but use different hypotheses and do not state this structured orbit result.
+## originality
 
-## Value
+PASS
 
-PASS. The claim resolves an explicit open dimension question for a natural permutation-orbit frame and identifies the exact mechanism separating the exceptional dimension \(3\) from all higher dimensions. The proof contributes a reusable bridge from paired phaseless differences to Euclidean distance geometry and a rank obstruction, rather than a routine parameter check or a finite census.
+Exact same-generator source states n>3 question open; all-dimensional rank-obstruction proof not covered by checked primary results. Broader later frameworks were only scope-checked where full text not inspected, so originality is best-of-knowledge.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Bartusel--Führ--Oussa, arXiv:2109.07123, especially Theorem 5.2, Remark 5.3, and Proposition 5.4. Li--Li's general Hilbert-space framework and the later graph-based conjugate-phase-retrieval work were checked for broader implication; neither inspected statement supplies this theorem. Residual literature risk remains that an equivalent argument may exist under different distance-geometry or frame terminology. The theorem gives no quantitative stability estimate and does not classify other generators.
+Proves a sharp dimensional threshold answering the exact n>3 unresolved full-space complex conjugate-retrieval question in the defining group-orbit paper. The rank-two Euclidean distance obstruction explains why n=3 differs, yielding a motivated structural result rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
