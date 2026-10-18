@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim is deductive and has no numerical certificate requirement. Verification replay consists of the following dependency checks.
+# Independent mathematical audit
 
-1. The ambient structure is the Fraïssé limit of all finite nontrivial Heyting algebras, and is ultrahomogeneous for finitely generated subalgebras.
-2. The finite one-generated Heyting algebras are the Nishimura algebras \(Z_n\), one isomorphism type for each finite cardinality \(n\ge2\).
-3. The pointed generator types are unique except at \(Z_2,Z_4,Z_5\); the two generators of \(Z_4,Z_5\) are automorphic and those of \(Z_2\) are not.
-4. Therefore pointed generated-subalgebra cardinality classifies every nonconstant unary orbit. The two \(Z_2\) pointed types are the named constants \(0\) and \(1\), hence are fixed singleton orbits.
-5. Strong amalgamation over \(\{0,1\}\) gives arbitrarily many distinct copies of any \(Z_n\) with \(n\ge3\), and ultrahomogeneity puts their generators in one orbit. Hence each such orbit is infinite; countability of the limit makes it countably infinite.
+## correctness
 
-No computation, finite enumeration, or inaccessible external certificate is used to establish the infinite conclusion. The only access limitation in the source check was a failed direct fetch of the 2018 conference PDF; its relevant mathematical passage was available in indexed text and was cross-checked bibliographically and against the later Nishimura article.
+PASS
+
+PASS: Any automorphism of the Fraisse limit L restricts to a pointed isomorphism of <a>, and ultrahomogeneity extends a pointed isomorphism to Aut(L). Local finiteness makes <a> finite. For each n>=2 Nishimura gives a single finite n-element one-generated Heyting algebra Z_n. Citkin reports two distinguished generators for Z2,Z4,Z5 and unique generators for other Z_n; the pair in Z4 and Z5 is interchanged by an algebra automorphism, unlike Z2, whose 0 and 1 are named constants and must be fixed. Consequently there are exactly two singleton G-orbits, and one orbit for each n>=3. Strong amalgamation of the finite-Heyting age over the constants algebra constructs arbitrarily many disjoint generators of each n>=3 type, all realized in countable L, so every nonconstant orbit is countably infinite. The proof does not infer the infinite action from finite enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the construction combines the pointed-generator classification, ultrahomogeneity and strong amalgamation into a complete arity-one orbit census. Published automorphism-group papers supply general ingredients and stronger group-topological conclusions but no inspected statement of the complete unary partition. The later Yamamoto addendum is a relevant access limitation, not proof of coverage.
+
+## value
+
+PASS
+
+PASS: A full unary orbit profile of the natural non-oligomorphic automorphism action on the universal homogeneous Heyting algebra is a motivated structure theorem. It pinpoints the earliest arity of infinitely many orbits and sorts all singleton stabilizers by one-generated subalgebra size, useful for further oligomorphicity/stabilizer studies; this is more than restating the existence of infinitely many finite algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
