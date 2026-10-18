@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each of eight anchors, the attached verifier independently constructs a length-2048 prefix in two ways, counts every distinct length-L factor in two encodings, checks that p(4)=12 or p(L)=4L as appropriate, and tests all block sizes m<=r for every factor. Each upper bound is verified over a factor set complete for the infinite word by Allouche's theorem. In each row there is a concrete factor failing every m<r, proving sharpness. The proved monotonicity R(k)<=R(k+1) fills all intermediate orders 6,7,10,...,15. The first-source identity and boundary conventions were explicitly checked, and no finite sample is mistaken for infinite completeness without the published theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berger and Defant, arXiv:1902.01291, Theorem 5: an unspecified constant C gives block size at most Ck for certain uniformly morphic binary words; this does not give the exact radius of this particular word.",
+        "Fici et al., arXiv:1606.02868, Theorem 6 and Corollary 7: qualitative existence for omega-power-free and uniformly recurrent aperiodic words.",
+        "Allouche, DOI 10.1017/S0004972700011655, Section 5: exact factor counts, not anti-power radius."
+      ],
+      "reasoning": "The strongest generic existence or O(k) statement is weaker than the exact worst-position minimum for each stated order. The 1992 factor-complexity theorem only enables the complete finite check once the new block comparisons are made; no implication gives the displayed spectrum by itself.",
+      "searches": [
+        "Web: antipowers Thue Morse word uniform bound every position 3 antipower block length paper 2015",
+        "Source: https://arxiv.org/abs/1902.01291",
+        "Mathematical record query: bounded antipower block length for every position in 2-automatic paperfolding sequence"
+      ]
+    },
+    "checked_sources": [
+      "Fici–Restivo–Silva–Zamboni, arXiv:1606.02868 (full rendered paper)",
+      "Allouche, doi:10.1017/S0004972700011655 (full ten-page PDF)",
+      "Fici–Postic–Silva, arXiv:1810.12275 (full rendered paper)",
+      "Berger–Defant, arXiv:1902.01291 (main theorem and scope)",
+      "Published exact Fibonacci antipower-radius record fbbdef91020e (scientific summary only)",
+      "OEIS A274409 (different statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fici, Postic and Silva, arXiv:1810.12275, Section 3, Theorems 6 and 8: abelian anti-powers exist in paperfolding words for every order, but no worst-position radius is established.",
+        "The eight-anchor paperfolding calculation uses 12,60,96,140,224,324,576,1020 complete factors and detects sharp obstructions at orders 2,3,4,5,8,9,16,17.",
+        "The closest identified published mathematical record with exact anti-power radii concerns the Fibonacci word; those claims do not involve paperfolding."
+      ],
+      "reasoning": "Abelian anti-power existence at some position is not an all-position literal-radius statement; even though every abelian anti-power is an ordinary anti-power, the quantifier and block-length gaps prevent implication. Factor enumeration without equality comparisons does not imply exact anti-power radii. Historical comparison is limited to recoverable claims without re-evaluating earlier entries.",
+      "searches": [
+        "Web: \"paperfolding\" \"anti-power\" \"uniform\" block lengths",
+        "Source: https://arxiv.org/html/1810.12275v2",
+        "Mathematical record query: paperfolding word k-antipower sharp uniform block length 2016 Fici Restivo Silva Zamboni",
+        "Web: uniform antipower radius regular paperfolding word 3 4 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici et al., Anti-Powers in Infinite Words, arXiv:1606.02868, Corollary 7: each starting position has some anti-power of each order, with no exact uniform radius.",
+        "Published mathematical result identified by opaque record fbbdef91020e: exact 3- and 4-antipower uniform radii for the Fibonacci word (6 and 10), not for paperfolding.",
+        "No returned record described the full regular-paperfolding sharp thresholds."
+      ],
+      "reasoning": "Equivalent wording would replace the worst-index radius by the maximum, over all shifts, of the least admissible anti-power block length. Fici et al. prove finiteness pointwise, but not the uniform maximum or its numeric values. The Fibonacci computation has different factor sets and no reduction giving the paperfolding thresholds. Searches alone are not taken as a uniqueness proof.",
+      "searches": [
+        "Mathematical record query: exact uniform antipower radius regular paperfolding word for k=3,4,5,6,8,16,17; every starting position, minimal block size",
+        "Web: paperfolding word exact anti power shortest equal distinct blocks start at every position radius antipowers",
+        "Web: antipower spectrum regular paperfolding word R(k) fixed position all starting points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A274409 is a count over all finite binary strings having maximum numbers of anti-power periods, not the all-start regular-paperfolding radius function.",
+        "Nearest identified published exact-radius record is for Fibonacci, not this automatic word.",
+        "The inspected paperfolding anti-power publications discuss existence and abelian versions; their proof statements do not contain an order-by-order all-start radius table."
+      ],
+      "reasoning": "The finite source table here concerns precise worst-start thresholds, not the number of anti-powers, their periods in arbitrary finite words, or their existence somewhere in a sequence. None of the inspected exact tables has matching object and quantifiers. A separately published or unindexed computation may still exist.",
+      "searches": [
+        "Web: \"paperfolding\" \"antipower\" \"5\" \"6\" \"7\" \"9\"",
+        "Web: \"paperfolding\" \"anti-power\" \"17\" \"15\"",
+        "Mathematical record query: anti-power paperfolding word radius 5 6 7 9 15 equal-length distinct consecutive blocks",
+        "Web: antipowers Thue Morse word uniform bound every position 3 antipower block length paper 2015 (returned OEIS A274409)"
+      ]
+    },
+    "rationale": "The asserted all-start *sharp* radius for the regular paperfolding word is strictly stronger than known occurrence/existence and generic-growth results, which do not specify these exact threshold values. The closest exact radius result for the Fibonacci word addresses a different infinite word and cannot imply paperfolding values. The original factor-count theorem serves as a tool, not prior coverage of the anti-power classification. Relevant full texts were compared by quantified statements, and accessible scientific records were compared for overlap. Risk: a missed unindexed paperfolding table could cover the finite values.",
+    "residual_risks": [
+      "Unindexed or differently named prior tables of paperfolding anti-power block lengths could have the same small-order values.",
+      "The exact Fibonacci-radius publication was comparable by published summary, not full repository text.",
+      "The result depends on the correctness of the independently published Allouche factor-complexity theorem; it has not been independently audited as part of this project."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative anti-power existence, without this exact worst-position paperfolding profile",
+        "evidence": "Theorem 6/Corollary 7 assert existence for each order at every position; Section 5 proposes study of anti-power block-length functions.",
+        "identifier_or_url": "https://arxiv.org/abs/1606.02868",
+        "material_read": "Full arXiv rendered text, especially Sections 1, 3 and 5, Theorem 6, Corollary 7, quantitative open problems",
+        "method": "Read full HTML text and compare object, block length and quantified starting positions",
+        "title": "Anti-Powers in Infinite Words",
+        "trigger": "Introduces ordinary anti-powers and proves at-every-position existence"
+      },
+      {
+        "assessment": "Directly supplies p(4)=12 and p(L)=4L for all L>=7, but no anti-power radius classification",
+        "evidence": "Section 5 theorem; proof counts odd- and even-position factor sets to obtain 4L.",
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+        "material_read": "Full 10-page openly accessible PDF, including paperfolding definition, Lemma 2 and Section 5 theorem; inspected PDF page images 5 and 6",
+        "method": "Read mathematical argument and statement in source PDF and page renderings",
+        "title": "The Number of Factors in a Paperfolding Sequence",
+        "trigger": "Exact factor-count theorem used to lift exhaustive finite checks to all positions"
+      },
+      {
+        "assessment": "Theorem 6 proves existence of abelian antipowers somewhere in regular paperfolding, not exact all-position block-length radii",
+        "evidence": "Section 3.1 describes the same regular word; Theorem 6/8 state containment of abelian anti-powers for every order.",
+        "identifier_or_url": "https://arxiv.org/html/1810.12275v2",
+        "material_read": "Full available HTML text with Section 3 and Theorems 6 and 8 inspected",
+        "method": "Compare abelian versus literal block distinctness and some-position versus every-position quantifiers",
+        "title": "Abelian AntiPowers in Infinite Words",
+        "trigger": "Specific paperfolding anti-power title whose results might dominate ordinary anti-power statement"
+      },
+      {
+        "assessment": "Generic linear bounds and aperiodic recurrent existence do not determine the particular paperfolding radii",
+        "evidence": "Theorem 5 posits existence of some C(W) bounding block length by Ck.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.01291",
+        "material_read": "Accessible arXiv paper text: introduction, definitions, statement of Theorem 5 and its scope",
+        "method": "Check hypothesis class and compare constants and exact thresholds",
+        "title": "On Anti-Powers in Aperiodic Recurrent Words",
+        "trigger": "Quantitative uniform block-size bounds might subsume the claim"
+      },
+      {
+        "assessment": "Different underlying word; the summary cannot cover regular-paperfolding thresholds, but an uninspected full text is a small residual uncertainty",
+        "evidence": "Published summary reports exact Fibonacci values 6 and 10, as opposed to paperfolding 5 and 6.",
+        "identifier_or_url": "published record fbbdef91020e",
+        "material_read": "Published mathematical title and scientific summary only; full primary repository text could not be obtained",
+        "method": "Compare the published scientific statement for the Fibonacci word with the regular-paperfolding domain; do not infer absence from an unread full text",
+        "title": "Exact first two nontrivial Fibonacci antipower radii",
+        "trigger": "Closest ranked published sharp-uniform-radius computation in the mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b1a2dd9-99bc-480e-8935-edb285791723",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first sharp worst-position anti-power radius spectrum of the canonical paperfolding word refines general at-every-position existence, quantifies the natural first dyadic blocks through 16, and identifies a surprisingly abrupt first post-dyadic boundary at order 17 (9 to 15). This is a motivated exact finite cutoff tied to the intrinsic binary word and anti-power-order parameter, not an arbitrary isolated length-n count, and gives a concrete test case for the literature's broader quantitative anti-power questions.",
+    "status": "PASS"
+  }
+}
