@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:13:30.350158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every ordered x,y from the 27 ternary length-three words, construct the two nontrivial splices and forbid each z at Hamming distance 0 or 1 from either splice. I independently rebuilt the 27x27 forbidden-bit-mask table directly from this quantified definition. Exhaustion of all 80,730 five-subsets finds none valid; by heredity no larger code is valid. Exhaustion of all 17,550 four-subsets gives exactly nine labeled maxima; independent construction of C_{j,b} (fix one position to b, prohibit b elsewhere) matches all nine. Simultaneous alphabet permutations (S3) and reversal (C2) give two orbits of sizes 3 and 6, stabilizers 4 and 2; source census.json explicitly lists all nine and its cardinality/first rows were inspected. This is a complete finite proof, not a sample or extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levenshtein surveys comma-free index in noisy synchronization and difference systems, but does not enumerate q=3 length3 index2 four-sets; Fimmel 2023 treats standard comma-free/circular classification without prescribed Hamming-index two."
+        ],
+        "reasoning": "An ordinary comma-free or 1-circular larger classification does not determine which codes satisfy index >=2 or give their 9 templates.",
+        "searches": [
+          "Levenshtein 2004 journal survey DOI 10.1002/jcd.10071",
+          "Fimmel et al., Diletter and triletter comma-free codes over finite alphabets 2023 PDF",
+          "Levenshtein 2004 §§2-4"
+        ]
+      },
+      "checked_sources": [
+        "B. H. Jiggs (1963), DOI 10.4153/CJM-1963-021-1, full PDF",
+        "V. I. Levenshtein (2004), DOI 10.1002/jcd.10071, full authorized PDF",
+        "Fimmel–Michel–Pirot–Sereni–Strüngmann (2023), Australasian Journal of Combinatorics 86 pp.233-270 PDF",
+        "Resultary search on ternary length-three comma-free index two and alternative names"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiggs Theorem14 is a construction inequality and demonstrates 4 codewords; neither Jiggs nor Levenshtein proves absence of 5-codeword index-two ternary triletter codes. Fimmel general index-one counting gives no Hamming-2 upper bound."
+        ],
+        "reasoning": "The exhaustive exact upper bound and rigid template equality classification require an additional computation beyond the prior construction.",
+        "searches": [
+          "Jiggs 1963 full 10-page Cambridge PDF, Theorem 14",
+          "Levenshtein 2004 authorized full 13-page journal text",
+          "Fimmel et al. 2023 38-page article, §3 methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiggs Section 6 defines comma-free index r by Hamming separation and Theorem 14 produces size >=4 at q=3,k=3, r=2; no upper bound/equality classification on p.186-187."
+        ],
+        "reasoning": "The current max-size and all-maximizer theorem is not just standard index-one comma-freedom nor the published lower-bound example.",
+        "searches": [
+          "Resultary: ternary length three comma free index two code 4 size 9 max Jiggs Levenshtein",
+          "Web: index-2 comma-free q=3 length=3 exact classification",
+          "1963 Jiggs Theorems 12-15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The supplied exact table contains nine codes, each four words, two orbits 3 and 6; compared indexed primary research has no corresponding index-two equality-case table."
+        ],
+        "reasoning": "A table of ordinary comma-free maxima would be a different invariant; no covering index-two table located in inspected full primary works.",
+        "searches": [
+          "census.json nine labeled codes at pinned Git tree",
+          "Resultary query: prescribed comma-free index table ternary triletter q=3",
+          "Fimmel 2023 Tables and Theorems 3-4 for circular codes"
+        ]
+      },
+      "rationale": "The 1963 original provides the index-two lower-bound construction but neither the matching upper bound nor a census of equality cases at ternary length three; later general comma-free count work treats index one / circularity, not the stronger Hamming-separated splices.",
+      "residual_risks": [
+        "An unindexed historical finite equality computation under older coding nomenclature cannot be excluded.",
+        "The source RESULT.md mathematical content is unambiguous, but the template display has an extra literal LaTeX closing brace, a potential public-rendering issue; source remains unedited and publication withheld."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOWER_BOUND_ONLY",
+          "evidence": [
+            "Theorem14 gives W_2(3,3)>=4 using abb construction; does not classify all 9 maxima nor prove no size-five code."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1963-021-1",
+          "material_read": "Full 10-page primary PDF, especially printed pp. 186-187, Section 6 and Theorems 12-15",
+          "method": "Read PDF mathematical text and page screenshots 8-9",
+          "title": "Recent Results in Comma-Free Codes",
+          "trigger": "Original index-r definition and lower bound"
+        },
+        {
+          "assessment": "GENERAL_RESULTS_NOT_COVERING",
+          "evidence": [
+            "Discusses prescribed comma-free index and synchronization in errors; no q=3,k=3,index=2 upper bound or nine-case table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jcd.10071",
+          "material_read": "Full authorized 13-page primary article (sections 1-4 and references); publicly available PDF copy found but unreadable through ordinary access",
+          "method": "Read journal text through lawful institutional access (pages 1-12 reviewed)",
+          "title": "Combinatorial Problems Motivated by Comma-Free Codes",
+          "trigger": "Major survey may imply the exact tiny case"
+        },
+        {
+          "assessment": "DIFFERENT_STRENGTH",
+          "evidence": [
+            "Counts/classifies ordinary comma-free/circular codes, not index-two Hamming separation."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p233.pdf",
+          "material_read": "Primary PDF Section 2 definitions and Section 3, Theorem 3.1, tables and search for Hamming/index",
+          "method": "Read relevant full-text parts and searched exact index/Hamming terms",
+          "title": "Diletter and triletter comma-free codes over finite alphabets",
+          "trigger": "2023 plausible stronger triletter classification, potential index aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completes the original index-two synchronization-with-errors construction at its smallest genuinely ternary case, including the entire rigid family of maximizers rather than a bare maximum. This natural finite classification supplies a meaningful exact base case and distinguishes symmetry types; it does not purport to solve general alphabets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only q=3,k=3,index>=2.",
+    "A nonsemantic extra closing brace in RESULT.md needs guarded render correction before any public release.",
+    "An unindexed historical finite equality computation under older coding nomenclature cannot be excluded.",
+    "The source RESULT.md mathematical content is unambiguous, but the template display has an extra literal LaTeX closing brace, a potential public-rendering issue; source remains unedited and publication withheld."
+  ],
+  "schema_version": 1
+}

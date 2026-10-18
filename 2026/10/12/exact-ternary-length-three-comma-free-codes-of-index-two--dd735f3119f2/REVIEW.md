@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The claim is finite and completely quantified. The verifier reconstructs all \(27\) ternary length-three words, all nontrivial splices, and the Hamming-distance condition from first principles. Because validity is hereditary, exhaustive rejection of all \(80{,}730\) five-subsets proves the upper bound \(|C|\le4\). Exhaustive enumeration of all \(17{,}550\) four-subsets gives exactly nine maxima, and an independent template comparison identifies every one as \(C_{j,b}\). The complete natural symmetry action is then recomputed. The only computational premise is exact finite integer/tuple enumeration; no floating point, timeout inference, or unproved extrapolation is used.
+# Independent mathematical audit
 
-## Originality
-PASS, with residual bibliographic risk. Jiggs's full paper defines comma-free index and Theorem 14 gives the four-word lower bound at the present parameter, but the inspected section does not state a matching upper bound or equality census. Levenshtein's full 2004 survey defines the general maximum-size problem for prescribed comma-free index and reviews the main historical results; the inspected pages do not give the exact ternary length-three index-two case. Exact-parameter and alias searches in published-finding corpus found no statement implying the nine-code classification. The principal residual risk is an obscure unindexed historical computation or table.
+## correctness
 
-## Value
-PASS. The finding turns the historical construction at the smallest genuinely ternary error-tolerant synchronization parameter into a complete exact result and identifies all equality cases. The rigid coordinate/symbol form is more informative than the number \(4\) alone and distinguishes the middle-fixed and end-fixed symmetry types, making the result reusable as a base case for structural or computational studies of prescribed comma-free index.
+PASS
 
-## Closest literature and limitations
-The closest direct source is Jiggs (1963), which supplies the definition and a lower-bound construction but not the exact equality classification. Levenshtein (2004) is the closest broad survey inspected in full and does not subsume the claim. The result is intentionally limited to \(q=3\), length \(3\), and index at least \(2\); it makes no asymptotic or general-parameter claim. Exact print-day metadata for Jiggs (1963) was not available in the inspected record, so no day is fabricated in structured metadata.
+For every ordered x,y from the 27 ternary length-three words, construct the two nontrivial splices and forbid each z at Hamming distance 0 or 1 from either splice. I independently rebuilt the 27x27 forbidden-bit-mask table directly from this quantified definition. Exhaustion of all 80,730 five-subsets finds none valid; by heredity no larger code is valid. Exhaustion of all 17,550 four-subsets gives exactly nine labeled maxima; independent construction of C_{j,b} (fix one position to b, prohibit b elsewhere) matches all nine. Simultaneous alphabet permutations (S3) and reversal (C2) give two orbits of sizes 3 and 6, stabilizers 4 and 2; source census.json explicitly lists all nine and its cardinality/first rows were inspected. This is a complete finite proof, not a sample or extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 1963 original provides the index-two lower-bound construction but neither the matching upper bound nor a census of equality cases at ternary length three; later general comma-free count work treats index one / circularity, not the stronger Hamming-separated splices.
+
+## value
+
+PASS
+
+Completes the original index-two synchronization-with-errors construction at its smallest genuinely ternary case, including the entire rigid family of maximizers rather than a bare maximum. This natural finite classification supplies a meaningful exact base case and distinguishes symmetry types; it does not purport to solve general alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
