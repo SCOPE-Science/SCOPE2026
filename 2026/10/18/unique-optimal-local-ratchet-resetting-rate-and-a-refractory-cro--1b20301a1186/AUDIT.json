@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exponentially killed Brownian endpoint has a bilateral exponential density. Its exact two jump-tail series give drift = mean reward/mean renewal time; all increments have integrable moments. The strictly decreasing log derivative and endpoint signs prove existence and uniqueness for all allowed rates. Hyperbolic convexity is the critical global inequality. Implicit derivatives are rigorously signed. Near-perfect and large-latency scaling are proved by localized root balances with exponentially small residual terms. A standalone executed checker independently reproduced 116 numerical assertions; finite samples are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roberts et al. develop finite-time potential-mediated resetting and a separate stop-and-start static-ratchet variation; their Appendix C does not impose the independent deterministic immobilization protocol here.",
+        "Alston and Bertrand treat symmetric local resets and enhanced diffusion, not the biased-capture velocity optimization."
+      ],
+      "reasoning": "The general exact stationary-current approach of Roberts is a stronger source on the reset current, but is not directly a theorem for refractory-dead-time optimizer uniqueness or crossover. The symmetric nearest-site model cannot imply biased drift.",
+      "searches": [
+        "Brownian motion reset to local asymmetric well; optimal rate crossover for nearly perfect sawtooth ratchet scales inverse square or inverse two-thirds power with deterministic delay",
+        "nearest minimum periodic ratchet asymmetric basin with Poisson relaxation transport drift diffusion renewal reward",
+        "arXiv:2405.10698 Sections IV, VI and Appendix C",
+        "arXiv:2401.12772"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.06202",
+      "https://arxiv.org/abs/2405.10698",
+      "https://arxiv.org/abs/2401.12772",
+      "https://portal.mardi4nfdi.de/wiki/Ratchet-mediated_resetting%3A_current%2C_efficiency%2C_and_exact_solution"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al. observed numerically a nonmonotone speed at an optimal reset time.",
+        "Roberts et al. rigorously derived the zero-delay hyperbolic current, plotted nonmonotone drift, and considered distinct finite-time returns.",
+        "The submitted proof adds a unique root theorem valid for every asymmetry and dead-time parameter, two strict root orderings, and the disjoint critical exponents 2 and 2/3."
+      ],
+      "reasoning": "The established current and existence of an apparent optimum do not by themselves claim or prove uniqueness for every admissible parameter, monotonicity with delay and asymmetry, or positive-delay singular exponent. The new model deterministic dead time is an explicit additional assumption. Under a strong mathematical-implication standard there remains a possibility that known general renewal optimization makes part of this a corollary; independent priority checking is required.",
+      "searches": [
+        "Exact optimal Poisson resetting rate for asymmetric periodic local ratchet Brownian diffusion; one stationary-current peak, unique maximum and strictly decreasing with dead-time or refractory latency",
+        "Exact renewal reward velocity and optimal resetting time for asymmetric local resetting ratchet: hyperbolic sine quotient, unique optimizer and monotonicity in asymmetry",
+        "arXiv:2307.06202",
+        "arXiv:2405.10698 Eq. (24), Figs. 6-7, Appendix C"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Roberts et al. arXiv:2405.10698 Eq. (24) yields the same sinh quotient for zero-delay dimensionless current.",
+        "The optimum statement is about differentiating the dimensionful velocity as rate varies, and adding a deterministic refractory interval."
+      ],
+      "reasoning": "Known exact no-delay current is accepted as equivalent and explicitly credited. Its closed expression alone does not state strict global delayed optimum, comparative statics, or the fixed-delay near-perfect exponent; these are the assessed claims.",
+      "searches": [
+        "Exact optimal Poisson resetting rate for asymmetric periodic local ratchet Brownian diffusion; one stationary-current peak, unique maximum and strictly decreasing with dead-time or refractory latency",
+        "Exact renewal reward velocity and optimal resetting time for asymmetric local resetting ratchet: hyperbolic sine quotient, unique optimizer and monotonicity in asymmetry",
+        "arXiv:2405.10698 Section IV Eq. (24)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching specific optimized-rate or refractory-exponent table among the returned semantically ranked published findings; the closest high-ranked hits were unrelated reset oscillators and general optimization examples."
+      ],
+      "reasoning": "This is only a checked absence among actual ranked records, not proof of novelty. Previously reported no-delay current curves are already credited.",
+      "searches": [
+        "Exact optimal Poisson resetting rate for asymmetric periodic local ratchet Brownian diffusion; one stationary-current peak, unique maximum and strictly decreasing with dead-time or refractory latency",
+        "Brownian motion reset to local asymmetric well; optimal rate crossover for nearly perfect sawtooth ratchet scales inverse square or inverse two-thirds power with deterministic delay",
+        "Exact renewal reward velocity and optimal resetting time for asymmetric local resetting ratchet: hyperbolic sine quotient, unique optimizer and monotonicity in asymmetry",
+        "Brownian Poisson resetting to asymmetric periodic attraction basins ratchet well minima exact drift speed sinh ratio optimal resetting rate"
+      ]
+    },
+    "rationale": "Only the new joint delayed-optimizer uniqueness, monotone comparison laws, and distinct near-perfect asymmetry scaling exponents are assessed. Roberts et al. 2024 Eq. (24) already covers the instantaneous current exactly, and Ghosh et al. 2023 observe optimum numerically. The deterministic refractory extension is not the stop-and-start finite-return model of Roberts Appendix C, which does not supply these rate asymptotics. General optimization theory may imply some derivative properties and is a residual priority risk.",
+    "residual_risks": [
+      "Roberts 2024 Eq. (24) is exact and closely related; some optimization facts could be immediate consequences of known formulas or implicit in less accessible appendices.",
+      "Prior broad renewal-reward or resetting-with-dead-time uniqueness results may dominate the comparative statics.",
+      "Full text of every potentially relevant earlier source was not uniformly accessible; the model is idealized and does not extend to finite-height landscapes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_PRIOR_CURRENT; NOT_IDENTIFIED_SAME_DELAYED_OPTIMUM",
+        "evidence": "Section IV Eq. (24) reproduces zero-delay sinh current, and Eq. (27)/Fig. 7 discusses nonmonotone speed. Appendix C is a distinct static-ratchet stop-and-start return model.",
+        "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+        "material_read": "Section IV lines describing Eq. (24), Figs. 6-7, strongest-current limits; conclusions Section VI and Appendix C model equations and descriptions",
+        "method": "inspected full open-access arXiv rendered text and compared mathematical limits",
+        "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+        "trigger": "Exact current and optimum of physically close local ratchet"
+      },
+      {
+        "assessment": "MOTIVATING_MODEL_AND_NUMERICAL_OPTIMUM",
+        "evidence": "Published first 2023-07-12, explicitly reports numerical speed maximum at optimal resetting time; no claimed general uniqueness-and-delay scaling theorem in material read.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.06202",
+        "material_read": "Original arXiv abstract and accessible model/motivation material",
+        "method": "inspected arXiv public record and public model-description text",
+        "title": "Autonomous Ratcheting by Stochastic Resetting",
+        "trigger": "Motivating asymmetric local-well resetting and optimal average period"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_SYMMETRY",
+        "evidence": "Symmetric nearest-site resets yield diffusivity enhancement; no asymmetric-refractory drift theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.12772",
+        "material_read": "Abstract and model descriptions of spatial local resets",
+        "method": "compared physical reset geometry and quantity studied",
+        "title": "Boosting macroscopic diffusion with local resetting",
+        "trigger": "Potential equivalent local reset theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b20301a-1186-436e-a27f-b830254efc86",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physically motivated reset-frequency optimization has a complete all-parameter uniqueness result. Deterministic immobilization delays shift the optimum strictly and change the singular near-perfect asymmetry exponent from 2 to 2/3 in the optimal reset rate. This quantitatively distinguishes whether return overhead is negligible in a genuine asymmetric local-capture motor, beyond reporting the already known current expression or a routine finite table. Does not claim finite-potential transport or general efficiency optimization.",
+    "status": "PASS"
+  }
+}
