@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The entire phase-dependent Schatten-fourth trace is computed from exact 4x4 Gram entries; the winding coefficient is 2B times the product of edge weights. The reduction to parity sums u,v and geometric pair products p,q is onto a product rectangle for every u. For beta<2, its Hessian has eigenvalues -4A +/-2B<0, so each minimizer must occur at a corner. Three corner classes reduce to explicit quadratic scalar minimizations. Branch-difference identities give beta=1/2 and beta=1; strictness proves full optimizer classification including coexistence. At beta=2 the identity F/A=1-2(p-q)^2 provides the complete endpoint proof. A standalone standard-library exact Fraction checker executed 648 exact 4x4 matrix trace identities, rational branch comparisons and finite-grid tests. Numerical optimization also agreed; finite tests are only diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pal--Chandok arXiv:2610.11336v1, Theorem 2.7 supplies a global upper estimate for w_{t,4p} involving generalized Aluthge transforms, not the equality of the constrained cyclic minimum.",
+        "Circle-covariant operator Schatten-moment bounds do not automatically apply to a nonzero finite cyclic shift with four-step winding: covariance here is only by fourth-root rotations, not all complex phases."
+      ],
+      "reasoning": "Global upper bounds or covariance-restricted inequalities cannot determine a positive-family global minimum and complete optimizing supports; no stronger theorem with the same implication was found.",
+      "searches": [
+        "weighted Schatten p numerical radii finite cyclic matrices 4 by 4 min max Frobenius norm phase parameter t",
+        "four-cycle weighted Schatten p-radius minimizing edge weights equal or opposite pairs transition",
+        "On weighted Schatten p-numerical radii via generalized Aluthge transformation Theorem 2.7",
+        "2026/10/11/SCOPE-sharp-even-schatten-numerical-radius-moments-under-circle-covari--6104c50d4ada"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.11336v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+      "https://arxiv.org/abs/2504.04693",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.11336v1 has parameter definition in §1 and Theorems 2.1--2.10, including fourth-power upper bound Theorem 2.7. The paper's main results contain neither four-cycle weight constraints nor minimizer classification.",
+        "The inspected nilpotent-path result solves maximization at a different normalization and excludes closed cycles. The four-cycle spatial numerical-radius record uses operator-norm duality on ell_p, not the trace fourth power."
+      ],
+      "reasoning": "The new result is not a special case of cited estimates: none supplies a lower bound attained at the stated three support patterns and two sharp switches. Generic bounds cannot recover the claimed equality sets.",
+      "searches": [
+        "four-cycle weighted Schatten 4 radius minimum over squared weights sum one exact three-regime full-support three-support two-support transition",
+        "weighted Schatten p numerical radii finite cyclic matrices 4 by 4 min max Frobenius norm phase parameter t",
+        "weighted Schatten fourth radius rank-four cyclic shift four-edge product trace S^4 two thresholds",
+        "https://arxiv.org/html/2610.11336v1",
+        "2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+        "2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The public nilpotent-shift paper proves W_{t,4}^4=A sum b_j^2+B sum b_j b_{j+1}, with only a path and no cyclic closure; its result is an upper sharp constant for fixed sum b_j^2.",
+        "The four-cycle winding term +2B sqrt(x0 x1 x2 x3) and fixed sum x_j=1 are not present in the nilpotent-path statement."
+      ],
+      "reasoning": "Matching a Schatten-fourth trace name is insufficient: a cyclic closing edge introduces a resonance term and different normalization; a maximizing Rayleigh quotient does not imply the minimum or equality classification.",
+      "searches": [
+        "four-cycle weighted Schatten 4 radius minimum over squared weights sum one exact three-regime full-support three-support two-support transition",
+        "weighted Schatten fourth radius rank-four cyclic shift four-edge product trace S^4 two thresholds",
+        "weighted Schatten numerical radius 4 cyclic shift Schatten trace fourth weight optimization",
+        "2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest search hits are dated 2026/10/11 and describe nilpotent-shift exact maxima, four-cycle ordinary numerical radius rearrangement, and geometric weighted infinite shifts, not a four-cycle Schatten-fourth minimum with two thresholds.",
+        "Full nilpotent-shift RESULT.md inspected from the public GitHub record explicitly limits its scope to nilpotent one-step shifts and Schatten-fourth unit denominator."
+      ],
+      "reasoning": "No table or indexed precise computation of the two critical threshold values and all three optimizer supports was found in the actual published-finding corpus or web query results.",
+      "searches": [
+        "cyclic four weighted shift Schatten 4 weighted numerical radius trace fourth opposite-edge half weights versus uniform phase diagram",
+        "sharp minimum weighted Schatten fourth numerical radius four-cycle cyclic weighted shift fixed Frobenius energy phase transition 1 minus one over sqrt2",
+        "2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+        "2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40"
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches for the cyclic four-shift, exact Schatten-fourth minimization, fixed Frobenius energy and rank-support phases returned no equivalent assertion. The closest October 11 nilpotent-shift record, inspected in full, optimizes a maximum under Schatten-fourth energy and excludes cyclic shifts; its path identity lacks the winding term. Pal--Chandok (October 8, 2026) was inspected throughout via its arXiv full HTML: its Theorems 2.1--2.10 give generalized-Aluthge upper bounds, not this constrained minimum or its optimizer transitions. Related cyclic shift articles study the usual spatial/operator-norm numerical radius. Novelty is best-knowledge relative to actual checks, not an exhaustive priority certificate.",
+    "residual_risks": [
+      "Unindexed exact cyclic matrix identities or constrained quartic minimization may predate these inspected sources.",
+      "An uninspected broad Schatten trace inequality could imply the specific minimum and equality conditions; searched abstract-level entries alone do not exclude such coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly defines weighted Schatten p-radius and gives upper bounds, not the exact constrained four-cycle minimum or supporting equality classification",
+        "evidence": [
+          "arxiv:2610.11336v1 §1 at lines 88--107 defines w_{t,p}",
+          "Theorem 2.7 lines 405--442 gives generalized-Aluthge fourth-power bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11336v1",
+        "material_read": "Public HTML definitions and main-results section, including the specific weighted Schatten radius definition and fourth-power theorem statements; not a line-by-line examination of every example.",
+        "method": "Read arXiv HTML definitions and theorem statements using page opening, theorem-heading navigation and targeted reading of relevant mathematical inequalities.",
+        "title": "On weighted Schatten p-numerical radii via generalized Aluthge transformation",
+        "trigger": "Direct initiating recent preprint using identical invariant and MSC 47A12"
+      },
+      {
+        "assessment": "Nilpotent path, Schatten-fourth norm denominator, and maximizing sine-law. Not a cyclic winding term or Hilbert--Schmidt-normalized global minimum.",
+        "evidence": [
+          "Public RESULT.md Finding formulas (1)--(5)",
+          "Assumptions exclude arbitrary and cyclic matrices; Limitations explicitly path only"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-schatten-fourth-radii-of-nilpotent-shifts--17db4dbf42a4",
+        "material_read": "Entire RESULT.md, including exact trace, sharp constant, proof, prior work and limitations",
+        "method": "GitHub public repository fetch_file of full RESULT.md",
+        "title": "Sharp weighted Schatten-fourth radii of nilpotent shifts",
+        "trigger": "Closest same Schatten-fourth shift formula from semantic research search"
+      },
+      {
+        "assessment": "Ordinary spatial ell_p numerical radius with fixed weight rearrangement; cannot establish weighted Schatten-fourth energy minimization",
+        "evidence": [
+          "published-finding corpus record title and structured summary of four-cycle arrangement theorem"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-global-rearrangement-rigidity-for-two-weight-four-cycle-numerica--98f41306ac40",
+        "material_read": "Semantic search title and full structured summary, not full primary document",
+        "method": "published-finding corpus indexed summary comparison (no full text)",
+        "title": "Global rearrangement rigidity for two-weight four-cycle numerical radii on Banach ell_p",
+        "trigger": "Same four-cycle but different numerical-radius invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "191526c1-5335-4e08-9d7c-2fd23372aa95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Weighted Schatten-fourth numerical radius is an active operator-theoretic invariant and the four-cycle is the first even cyclic shift with a full winding interference contribution absent in nilpotent paths. At a canonical fixed Hilbert--Schmidt energy, all minimizers exhibit two sharp phase thresholds, a genuine intervening three-edge asymmetric phase, and coexistence at one threshold. It is an exact complete classification for a natural family, not a renamed general inequality or an arbitrary small parameter check.",
+    "status": "PASS"
+  }
+}
