@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:18:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 027e87ec33b9bda97c41964b586de43389e88b9b",
+        "actual verify.py blob 819ab1a04a12a17f1045617b6f4b4e51b40b5346",
+        "independent exact rational benchmark checks",
+        "classical binomial Cramér and normal limits"
+      ],
+      "rationale": "For n≥2 and q,t in (0,1), with all predictions p_i=q, the treat-all decision is chosen iff q≥t. On A_n={1≤S_n≤n−1}, the observed relative utility is zero exactly when S_n/n≥t in the treat-all branch and S_n/n≤t in the treat-none branch. Summing the Bin(n,q) law, divided by P(A_n)=1−q^n−(1−q)^n, yields both exact integer-bounded tail formulas, including equality conventions. Independently recomputed exact rational cases against the original benchmark net-benefit definition; all matched. For fixed q≠t, standard binomial Chernoff/Stirling estimates give exception exponent D(t||q); at q=t, binomial CLT yields 1/2, and for q_n=t+c/√n a triangular-array CLT gives Φ(|c|/√(t(1−t))). Endpoint exclusion has vanishing probability at the limiting regimes. The checks are diagnostics, not the proof of asymptotics.",
+      "residual_risks": [
+        "The conditional z_n is undefined when n=1 because P(A_n)=0; theorem is read for n≥2. The result assumes iid outcomes and perfectly constant known risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foundation sets the benchmark normalization; standard binomial large deviation and CLT inputs alone do not identify the relative-utility zero event without the decision-rule reduction."
+        ],
+        "reasoning": "General relative-utility frameworks are broader in application but provide no verified dominating same-model phase-diagram theorem in the material actually read.",
+        "searches": [
+          "Hoessly arXiv:2609.29133",
+          "Baker 2009 relative utility curves",
+          "Baker 2019 relative utility discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29133",
+        "DOI 10.1111/j.1467-985X.2009.00592.x",
+        "DOI 10.1177/0272989X19850762"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single q>t LLN limit does not imply the exact finite-n denominator, q<t branch, KL rate, and critical/root-n profile as a statement; the new derivation uses standard asymptotic tools."
+        ],
+        "reasoning": "Mathematical implication is not automatic from the advertised LLN limit, though the extra asymptotics are straightforward once the zero event is identified.",
+        "searches": [
+          "Hoessly 2026 main abstract: constant-risk perfect probabilities and zero observed relative utility with probability approaching one",
+          "classical binomial tail theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source exposes a constant-risk zero-RU paradox but the exact conditional finite-n two-sided law and critical scaling profile were not established from accessed material."
+        ],
+        "reasoning": "Equivalent formulations include binary default treatment selection, conditional binomial majority/tail event and local threshold crossing.",
+        "searches": [
+          "Attempted Resultary: perfect probabilities observed relative utility zero Hoessly Bernoulli binomial phase diagram q=t threshold root n CLT",
+          "Hoessly arXiv:2609.29133 abstract and scope",
+          "Baker et al. DOI 10.1111/j.1467-985X.2009.00592.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No complete database or full-source table was accessible for adjudicating duplicate formulas."
+        ],
+        "reasoning": "An existing finite-sample relative-utility table would cover the exact result. Absence cannot be inferred from the failed database query.",
+        "searches": [
+          "Targeted exact two-sided tail and Φ(|c|/sqrt(t(1−t))) phrasing; source arXiv:2609.29133 abstract",
+          "current Resultary request (temporarily unavailable)"
+        ]
+      },
+      "rationale": "The motivating 2026 paper identifies the surprising perfect-probabilities/zero-relative-utility phenomenon for the fixed q>t limit. The audited theorem supplies the exact finite conditional binomial probabilities, q<t mirror branch, the off-critical KL rate and root-n crossover. These conclusions are not explicitly established by the accessible source abstract, but inaccessible full text prevents a decisive whole-paper noncoverage claim. Best-of-knowledge O judgment is retained with a substantial named access risk and without asserting that the index search completed.",
+      "residual_risks": [
+        "All five targeted Resultary requests returned temporarily_unavailable/search_internal_error (search_completed=false); this is not evidence of no matching findings. No retry was made in this run.",
+        "The focal primary full text could not be read during this execution because open access retrieval failed and the authorized institutional VPN was disconnected; it might explicitly contain stronger binomial results.",
+        "The finite-n tails/CLT steps are classical and a comparable unindexed clinical-note computation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS; full article may contain stronger calculations",
+          "evidence": "The accessible framing states the perfect-risk zero-relative-utility paradox, but does not permit an exclusion of exact formulas elsewhere in its full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29133",
+          "material_read": "ArXiv abstract and bibliographic scope; complete arXiv/PDF retrieval unavailable in this run and authorized Oxford fallback reported disconnected VPN. No claim of full-text reading is made.",
+          "method": "Accessible abstract comparison with explicit residual risk",
+          "title": "Interpreting relative utility for probabilistic predictions",
+          "trigger": "Identical relative-utility statistic and perfect constant-risk example"
+        },
+        {
+          "assessment": "INCOMPLETE_ACCESS; no claim of exhaustive absence",
+          "evidence": "The source defines decision-based relative utility rather than the present conditional binomial phase diagram.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-985X.2009.00592.x",
+          "material_read": "Citation/abstract and mathematical framework as described in inspected source package; publisher full text not freshly accessed.",
+          "method": "Restricted definition/scope comparison",
+          "title": "Using Relative Utility Curves to Evaluate Risk Prediction",
+          "trigger": "Foundational relative-utility normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hoessly motivating risk/decision paradox",
+        "independent exact finite-sample check",
+        "standard Bernoulli LDP/CLT"
+      ],
+      "rationale": "The source phenomenon is a specifically motivated risk-prediction interpretability issue, not an arbitrary probability exercise: perfectly calibrated constant predictions may receive zero observed utility with very high probability. The exact finite-sample conditional probability and the sharp threshold-local crossover quantify the sample sizes and risk/threshold separations at which the paradox appears. This is a natural, independently usable exact diagnostic invariant despite the standard binomial techniques and narrow iid model.",
+      "residual_risks": [
+        "Algebra is elementary after the model reduction; results do not extend to heterogeneous, estimated or dependent risks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Implicit n≥2 necessary for nonempty conditioning A_n.",
+    "Homogeneous independent Bernoulli q and fixed t with treatment at equality.",
+    "O is a best-of-knowledge judgment with explicit focal-full-text and index-search gaps."
+  ],
+  "schema_version": 1
+}
