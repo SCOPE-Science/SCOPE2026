@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3 and NumPy. The script computes the average mixing matrix independently by diagonalizing the actual sunlet adjacency matrix and grouping equal adjacency eigenvalues, then compares it against the block formula derived from the base cycle spectrum. It also checks exact rational Fourier coefficients (not floating-point approximations) at orders \(4,6,8,12\).
+## correctness
 
-A local replay from the accompanying `verify.py` produced:
+PASS
 
-`VERIFY_OK exact_cycle_orders=4,6,8,12 independent_matrix_orders=3..24 fourier_modes=30 max_matrix_error=9.645e-16 mod4_boundary_8=7/16`
+For each real symmetric base adjacency A, the corona H=[A,I;I,0] has orthogonal fiber eigenprojectors Q_lambda,+ and Q_lambda,- attached to each distinct base spectral projector E_lambda, with no overlap across branches. Direct 2x2 Schur squares satisfy Q+◦Q++Q-◦Q-=P+ +(lambda²/(lambda²+4))P-. Therefore average Cesàro mixing splits into R⊗P+ +S⊗P- with R=Σ E◦E and S=Σ lambda²/(lambda²+4)(E◦E). Cycle Fourier projectors F_j obey F_j◦F_k=F_{j+k}/n. For odd n, both R,S have rank n. For even n, R has rank n/2, S has n/2 except when 4|n, where the unique zero eigenvalue of C_n kills one even Fourier mode so rank S=n/2-1. Independent full projector diagonalizations for n=3..16 confirmed rank 2n/n/n-1 and block identity, max absolute difference below 8e-11. Analytic Fourier proof, not finite numerics, covers all n>=3.
 
-All computed ranks agree with the unrestricted theorem for the 22 explicitly checked orders. Exact rational tests check 30 Fourier-mode coefficients across four orders. Floating-point matrix comparisons showed maximal elementwise discrepancy below \(10^{-15}\), for these finite tests. The proof for arbitrarily large graph order is the Fourier-projector argument in `RESULT.md`; numerical tests do not certify a universally quantified statement.
+## originality
 
-The two spectral branches of the \(2\times2\) fibre matrix are monotone and of opposite signs, so projector collisions between different base eigenvalues cannot occur. The Schur-square identity and Fourier coefficient formulas are the critical symbolic proof steps. No external validation or independent audit has been performed.
+PASS
+
+Godsil supplies exact cycle average mixing R_n; Ackelsberg et al. provide general corona spectral eigenprojectors for state transfer, while average-mixing literature supplies Schur-square projector sum. The assessed weighted sector S_n, full sunlet Fourier-indexed spectrum, and sharp modulo-four zero-mode defect require nontrivial additional synthesis and were not located as a stated dominating theorem. Existing general projectors alone are not the precise answer without this additional calculation.
+
+## value
+
+PASS
+
+The natural family of graphs with one leaf per cycle vertex exhibits a complete average-mixing spectrum and an arithmetic rank phase transition at n divisible by four. Its extra isolated null direction is structurally explained by a zero adjacency mode, making the result useful for quantum-walk average observables beyond finite numerical tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

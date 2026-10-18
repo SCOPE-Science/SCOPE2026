@@ -1,21 +1,21 @@
-# Review of the sunlet quantum-mixing rank and spectrum theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion concerns the ordinary adjacency-Hamiltonian Cesàro matrix on the complete natural family \(C_n\circ K_1\), for all integers \(n\ge3\). The two eigenvalue branches of the corona fibre matrix are distinct globally, and their two projectors give a Schur-square splitting into the symmetric and antisymmetric leaf sectors. In each sector, Fourier projectors of \(C_n\) provide every eigenvalue and multiplicity. The weighted sector's sole additional zero mode occurs only when \(4\mid n\), proving the stated three-way rank law. The same logic handles repeated cycle eigenvalues and zero adjacency eigenvalues without generic assumptions.
+PASS
 
-The exact Fourier computation at orders \(4,6,8,12\) and 22 independently diagonalized finite sunlets corroborate the algebra. The finite checks are not the proof of the result for all orders.
+For each real symmetric base adjacency A, the corona H=[A,I;I,0] has orthogonal fiber eigenprojectors Q_lambda,+ and Q_lambda,- attached to each distinct base spectral projector E_lambda, with no overlap across branches. Direct 2x2 Schur squares satisfy Q+◦Q++Q-◦Q-=P+ +(lambda²/(lambda²+4))P-. Therefore average Cesàro mixing splits into R⊗P+ +S⊗P- with R=Σ E◦E and S=Σ lambda²/(lambda²+4)(E◦E). Cycle Fourier projectors F_j obey F_j◦F_k=F_{j+k}/n. For odd n, both R,S have rank n. For even n, R has rank n/2, S has n/2 except when 4|n, where the unique zero eigenvalue of C_n kills one even Fourier mode so rank S=n/2-1. Independent full projector diagonalizations for n=3..16 confirmed rank 2n/n/n-1 and block identity, max absolute difference below 8e-11. Analytic Fourier proof, not finite numerics, covers all n>=3.
 
-## Originality — PASS, subject to known formula-combination risk
+## originality
 
-Godsil (arXiv:1103.2578, Lemma 6.1) determines the base cycle average-mixing matrix, while Ackelsberg–Brehm–Chan–Mundinger–Tamon (arXiv:1605.05260, Proposition 3.2) determine corona spectral projectors for state-transfer problems. Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591) gives broad average-mixing rank tools, and Coutinho–Baptista–Godsil–Spier–Werner (arXiv:2208.08971) develops exact averaging. The inspected relevant results do not state the full sunlet Fourier-indexed average-mixing spectrum, or the sharp \(n\bmod4\) rank transition. Published-result and mathematical-record searches also failed to reveal an equivalent statement. The formulas in the cited papers provide ingredients, so an implicit derivation or differently indexed publication is the principal residual risk; absence from a search is not independent proof of novelty.
+PASS
 
-## Value — PASS
+Godsil supplies exact cycle average mixing R_n; Ackelsberg et al. provide general corona spectral eigenprojectors for state transfer, while average-mixing literature supplies Schur-square projector sum. The assessed weighted sector S_n, full sunlet Fourier-indexed spectrum, and sharp modulo-four zero-mode defect require nontrivial additional synthesis and were not located as a stated dominating theorem. Existing general projectors alone are not the precise answer without this additional calculation.
 
-Sunlet graphs are a canonical all-vertices pendant-decoration family, and long-time average-mixing rank is a natural invariant of quantum transport. The contrast between positive definiteness for odd cycles, exactly half rank for orders \(2\bmod4\), and an additional missing direction for multiples of four detects a nontrivial adjacency zero-energy resonance. The complete Fourier-indexed spectrum identifies the precise kernel sectors, not merely a numerical rank for a few graphs.
+## value
 
-## Limitations
+PASS
 
-The result does not cover partial or weighted leaf decorations, other graph products, or general Hamiltonians. It does not assert mathematical independence or external certification. A broad published corona projector identity and published cycle average formula underlie the deduction, so originality against unlocated derived formulas remains a residual risk.
+The natural family of graphs with one leaf per cycle vertex exhibits a complete average-mixing spectrum and an arithmetic rank phase transition at n divisible by four. Its extra isolated null direction is structurally explained by a zero adjacency mode, making the result useful for quantum-walk average observables beyond finite numerical tables.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

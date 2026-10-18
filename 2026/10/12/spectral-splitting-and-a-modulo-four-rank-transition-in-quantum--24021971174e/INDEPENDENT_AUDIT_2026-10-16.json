@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:11:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each real symmetric base adjacency A, the corona H=[A,I;I,0] has orthogonal fiber eigenprojectors Q_lambda,+ and Q_lambda,- attached to each distinct base spectral projector E_lambda, with no overlap across branches. Direct 2x2 Schur squares satisfy Q+◦Q++Q-◦Q-=P+ +(lambda²/(lambda²+4))P-. Therefore average Cesàro mixing splits into R⊗P+ +S⊗P- with R=Σ E◦E and S=Σ lambda²/(lambda²+4)(E◦E). Cycle Fourier projectors F_j obey F_j◦F_k=F_{j+k}/n. For odd n, both R,S have rank n. For even n, R has rank n/2, S has n/2 except when 4|n, where the unique zero eigenvalue of C_n kills one even Fourier mode so rank S=n/2-1. Independent full projector diagonalizations for n=3..16 confirmed rank 2n/n/n-1 and block identity, max absolute difference below 8e-11. Analytic Fourier proof, not finite numerics, covers all n>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil Lemma 6.1 gives the undecorated-cycle average mixing R_n.",
+          "Ackelsberg et al. Proposition 3.2 gives corona eigenprojectors for quantum state transfer, without forming their Cesàro Schur-square sum for C_n◦K1."
+        ],
+        "reasoning": "These works provide strong mathematical ingredients, not the final closed 3-case sunlet spectrum/rank. Nonstandard weighted S sector and its zero-mode removal have been explicitly derived and independently checked.",
+        "searches": [
+          "Godsil Average mixing of continuous quantum walks Lemma 6.1 arxiv 1103.2578",
+          "Ackelsberg Brehm Chan Mundinger Tamon Quantum State Transfer in Coronas proposition 3.2",
+          "A New Perspective on the Average Mixing Matrix 1709.03591"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1103.2578",
+        "arXiv:1605.05260",
+        "arXiv:1709.03591",
+        "Resultary semantic published-finding search: sunlet graphs adjacency continuous quantum walk average mixing matrix rank cycle corona modulo 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corona eigenprojectors and cycle mixing together facilitate but do not directly state S_n Fourier weights.",
+          "Additional Schur-square fiber identity and zero-frequency analysis yield the one-null-mode difference precisely at 4|n."
+        ],
+        "reasoning": "Prior statements do not immediately imply exact final ranks without the constructive proof given; originality residual is another source combining these known ingredients.",
+        "searches": [
+          "arXiv:1605.05260 Proposition 3.2 corona spectrum projectors",
+          "arXiv:1103.2578 Lemma 6.1 cycle mixing",
+          "Resultary semantic query sunlet graphs adjacency continuous quantum walk average mixing matrix rank cycle corona modulo 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sunlet is the one-leaf corona C_n◦K1 (also called a thorny cycle).",
+          "Average Cesàro mixing is Σ E_lambda◦E_lambda, so the rank formula is equivalent to dimension of Schur-square projector span."
+        ],
+        "reasoning": "Compared both sunlet/thorny terminology and Gram/projector rank formulations; found original component formulas but not the exact full sunlet rank theorem.",
+        "searches": [
+          "sunlet thorny cycle corona C_n K1 average mixing rank",
+          "Cesaro continuous quantum walk mixing Schur spectral projector kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A queried published result on uniform mixing of P8 concerns a different graph, different averaging scheme and different target invariant.",
+          "No found table giving sunlet full Fourier-indexed eigenvalues or the n=8 rank 7 of 16."
+        ],
+        "reasoning": "The claimed all-n family formula is not reducible to one small numerical value; database searches are non-exhaustive and may miss an indexed graph table.",
+        "searches": [
+          "\"sunlet\" \"average mixing matrix\" rank",
+          "\"thorny cycle\" quantum walk average mixing eigenvalue",
+          "sunlet spectral average mixing C8 rank seven"
+        ]
+      },
+      "rationale": "Godsil supplies exact cycle average mixing R_n; Ackelsberg et al. provide general corona spectral eigenprojectors for state transfer, while average-mixing literature supplies Schur-square projector sum. The assessed weighted sector S_n, full sunlet Fourier-indexed spectrum, and sharp modulo-four zero-mode defect require nontrivial additional synthesis and were not located as a stated dominating theorem. Existing general projectors alone are not the precise answer without this additional calculation.",
+      "residual_risks": [
+        "General corona mixing may be handled in an uninspected publication or thesis; absence of located result is not a proof of novelty.",
+        "Floating eigenvalue clustering is approximate for finite replay but exact symbolic Fourier proof establishes infinite rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers R_n but not the leaf-corona weighted mixing sector or sunlet rank",
+          "evidence": "The source computes R(C_n) and its parity dependence for undecorated cycles.",
+          "identifier_or_url": "arXiv:1103.2578 (Godsil)",
+          "material_read": "Primary arXiv PDF, Lemma 6.1 and neighboring Fourier decomposition of cycles; inspected PDF page imagery",
+          "method": "Read formula, identified graph and compared sectors R_n and S_n",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "Exact base-cycle average mixing lemma"
+        },
+        {
+          "assessment": "Provides corona eigenprojector machinery but does not evaluate the sunlet average-mixing Schur-square spectrum in inspected passages",
+          "evidence": "Proposition 3.2 states eigenprojectors of coronas for state-transfer analysis.",
+          "identifier_or_url": "arXiv:1605.05260 (Ackelsberg et al.)",
+          "material_read": "Original 27-page arXiv PDF text, definition of corona, Theorem 3.1 and Proposition 3.2, introduction, focus on state transfer; not an assertion of full 27-page novelty-negative inspection",
+          "method": "Read full relevant preliminaries and spectral statements; contrasted eigenprojector formulas with average-mixing rank",
+          "title": "Quantum State Transfer in Coronas",
+          "trigger": "General corona spectral decomposition potentially dominating the result"
+        },
+        {
+          "assessment": "A general approach rather than a verified direct sunlet theorem; remains a bounded residual risk",
+          "evidence": "Average mixing constructed from orthogonal eigenspace projector Schur squares.",
+          "identifier_or_url": "arXiv:1709.03591",
+          "material_read": "Public abstract and accessible relevant mathematical framing; complete full text not materially read in this run",
+          "method": "Compared general rank/Schur-square concepts with required sunlet-specific closed formula",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General average-mixing rank results could dominate family formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural family of graphs with one leaf per cycle vertex exhibits a complete average-mixing spectrum and an arithmetic rank phase transition at n divisible by four. Its extra isolated null direction is structurally explained by a zero adjacency mode, making the result useful for quantum-walk average observables beyond finite numerical tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Adjacency Hamiltonian and uniform Cesàro time average on simple unweighted sunlets; not optimized readout or other graph coronas.",
+    "Spectrum formula is exact by proof, bounded numerical tests only corroborative.",
+    "General corona mixing may be handled in an uninspected publication or thesis; absence of located result is not a proof of novelty.",
+    "Floating eigenvalue clustering is approximate for finite replay but exact symbolic Fourier proof establishes infinite rank."
+  ]
+}
