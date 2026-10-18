@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The claimed equivalence between general-position validity and the cut-vertex branching condition is justified by uniqueness of incidence-tree routes and completeness of blocks. The two states are a disjoint classification of nonempty internally valid subsets: internally admissible with, or without, an additional selected vertex on the parent side. The recurrences include both possibilities for whether an original vertex is selected and distinguish original from artificial block nodes. All boundary cases, including the single-vertex graph and two-vertex blocks, are included. The unrestricted theorem rests on induction and an amortized arithmetic-operation bound; reproducible exhaustive checks of 2,068,500 vertex subsets were supportive rather than substitutes for proof.
+
+**Originality — PASS (residual priority risk).** Manuel–Klavžar (2018, Theorem 3.6) obtains the maximum general-position size of block graphs but not their full counting polynomial. Iršič–Klavžar–Rus–Tuite (2024, Proposition 2.2) offers a generic inclusion–exclusion over maximal sets and formulas for particular families, not a quadratic-time complete enumerator for arbitrary block graphs. Known enumerators for particular tree families and clique windmills do not imply a recurrence for unrestricted block-incidence trees. Full relevant sections were inspected and targeted equivalent-formulation and dominating-coverage searches were conducted. Potential unindexed equivalent recurrences remain a risk.
+
+**Value — PASS.** Block graphs include all trees and arbitrary trees of cliques, but their unrestricted general-position polynomial had not been covered in the relevant inspected literature. Computing every coefficient at quadratic arithmetic cost provides a practical, uniform counting result that is not a renamed scalar extremal statement or a narrow parameter increment; it also clarifies exactly how selected articulation vertices constrain configurations.
+
+The shortest-path criterion and all algorithmic statements require the block-graph hypothesis. Software testing does not amount to a formal proof, and bibliographic priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.

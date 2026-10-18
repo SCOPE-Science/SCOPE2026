@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "An incidence-tree geodesic is unique and its internal original vertices are precisely relevant articulation vertices. The rooted subtree states partition internally valid nonempty sets by compatibility with any selected outside vertex, yielding the displayed recurrences by exhaustive separation into no B-child, single B-child, and selected-root cases. The operation count is charged to subtree sizes/pairs at their lowest common ancestor. Actual embedded Python verifier checked 3,000 small graphs and 2,068,500 subsets against independent breadth-first-search triple tests, plus larger blocks; finite tests supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manuel and Klavžar (2018) Theorem 3.6 gives maximum general-position cardinality on all block graphs. Iršič et al. (2024) cover several specific families and generic inclusion-exclusion, but not a uniform all-block-graph polynomial enumerator."
+      ],
+      "reasoning": "A stronger result would have to count each cardinality on arbitrary clique-block incidences in polynomial time. Scalar gp values, family enumerators and arbitrary-graph inclusion-exclusion do not provide the same output or complexity.",
+      "searches": [
+        "all vertex general position subsets of block graphs and linear or quadratic time dynamic programming for the general position polynomial",
+        "block-cut incidence tree counting geodesically noncollinear vertex subsets selecting articulation vertices in at most one occupied branch",
+        "\"general position polynomial\" \"trees\" algorithm",
+        "\"general position polynomial\" \"block graph\" \"dynamic programming\""
+      ]
+    },
+    "checked_sources": [
+      "Manuel and Klavžar, A General Position Problem in Graph Theory (2018), Theorem 3.6, DOI 10.1017/S0004972718000473",
+      "Iršič, Klavžar, Rus and Tuite, General Position Polynomials (2024), arXiv:2401.05696, especially Proposition 2.2",
+      "Published specialized polynomial research on spiders and generalized windmills (title/statement comparisons)",
+      "Published research on mobile general-position sets on block graphs (different game/movement invariant; abstract-only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.6 of Manuel–Klavžar (2018) implies only the degree of the new polynomial. Proposition 2.2 of Iršič–Klavžar–Rus–Tuite (2024) expresses the polynomial using all maximal sets, whose enumeration may be exponential. Published spider/windmill/caterpillar formulas are restrictions of the new graph class, not blanket formulas for it."
+      ],
+      "reasoning": "Neither the extremal scalar theorem nor the general inclusion-exclusion identity implies the claimed \\(O(n^2)\\) full coefficient algorithm. The present recursion is a structurally different, all-block-graph output.",
+      "searches": [
+        "general position polynomial of block graphs tree of cliques counting all general position vertex subsets via block cut tree dynamic programming",
+        "all vertex general position subsets of block graphs and linear or quadratic time dynamic programming for the general position polynomial",
+        "general-position polynomial arbitrary trees block graphs recursive polynomial A_v B_v two state dynamic programming",
+        "\"general position\" \"block graph\" polynomial",
+        "\"general position polynomial\" \"block graph\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The general-position polynomial counts all cardinality-restricted geodesically noncollinear vertex subsets; the two-state recursion is a polynomial-time algorithm for that same invariant. The 2024 Iršič et al. paper explicitly defines this invariant in Section 1 and gives general inclusion-exclusion in Proposition 2.2."
+      ],
+      "reasoning": "No inspected equivalent formulation contained a block-incidence dynamic program over the full class. Generic inclusion-exclusion is not a polynomial-time recurrence and does not by itself imply the stated operation bound.",
+      "searches": [
+        "general position polynomial of block graphs tree of cliques counting all general position vertex subsets via block cut tree dynamic programming",
+        "geodesic position polynomial block graph cut vertices polynomial time coefficients",
+        "general-position polynomial arbitrary trees block graphs recursive polynomial A_v B_v two state dynamic programming",
+        "\"general position polynomial\" \"block graph\"",
+        "\"general position sets\" \"block-cut tree\" polynomial counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published polynomial examples for paths, cycles, selected trees, Kneser graphs and joins are individual families. No exact all-block-graph coefficient table, automaton or matching recurrence appeared in searched research records."
+      ],
+      "reasoning": "A finite table of scalar gp numbers or special-family coefficients would not cover all labeled block graphs. Absence from search is not independent proof of priority.",
+      "searches": [
+        "general position polynomial of block graphs tree of cliques counting all general position vertex subsets via block cut tree dynamic programming",
+        "general-position sets graph polynomial tree dynamic programming simplicial vertices",
+        "general position polynomial block graph dynamic programming",
+        "\"general position polynomial\" \"block graphs\""
+      ]
+    },
+    "rationale": "The 2018 block-graph theorem gives only the extremal size, while the 2024 general-position polynomial paper gives generic inclusion-exclusion and special families, not a general block-cut-tree recurrence or a quadratic coefficient algorithm. Published special-family formulas for caterpillars, spiders and windmills do not dominate the unrestricted theorem. Targeted research-record and scholarly-source searches found no equivalent result; residual risk is acknowledged.",
+    "residual_risks": [
+      "Unindexed or differently named enumeration algorithms, including possible earlier block-graph betweenness-polynomial formulations, may exist.",
+      "The mobile-position paper was compared by its abstract and invariant distinction, not a complete text; it is not a decisive unresolved coverage source.",
+      "No independent mathematical or bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Determines the maximum cardinality as the number of simplicial vertices; no all-coefficient block-graph recurrence",
+        "evidence": "Theorem 3.6, pp.181-182: \\(\\operatorname{gp}(G)=|S(G)|\\); Corollary 3.7 for trees. Source PDF states first publicly online 18 July 2018.",
+        "identifier_or_url": "https://doi.org/10.1017/S0004972718000473",
+        "material_read": "Full text, including Sections 1-3 and specifically Theorem 3.6 and its proof (PDF pages 4-5); first-online date on cover",
+        "method": "Read indexed full-text PDF and visually checked PDF page containing Theorem 3.6",
+        "title": "A General Position Problem in Graph Theory",
+        "trigger": "Block graphs and the same geodesic position invariant; plausible dominant theorem"
+      },
+      {
+        "assessment": "Introduces the polynomial; includes general inclusion-exclusion over maximal sets and special families, but no arbitrary-block-graph polynomial-time recurrence",
+        "evidence": "Proposition 2.2 of open-access Results in Mathematics 79 (2024); published Section 2 and paper overview; arXiv v1 first posted 11 January 2024.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+        "material_read": "Full publisher open-access HTML, including paper overview, Section 2 basic results, Proposition 2.2, and description of Sections 3-4",
+        "method": "Read open-access Springer HTML, original arXiv date cross-check",
+        "title": "General Position Polynomials",
+        "trigger": "Original full polynomial and nearest general enumerative coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94b23044-297e-4be7-88e6-9a17833c75cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full cardinality distribution on arbitrary connected block graphs is a natural and strictly richer object than known maximum-cardinality results. The \\(O(n^2)\\) coefficient algorithm handles arbitrary trees of cliques, including all trees and unrestricted articulation patterns, without exponential maximal-set enumeration. This is a substantive structural uniform algorithm, not an arbitrary finite slice or routine special case.",
+    "status": "PASS"
+  }
+}
