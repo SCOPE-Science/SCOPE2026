@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:06:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every A≥B>0, K={|x|/A+|y|/B≤1}, any inscribed rectangle can be centered without changing its area by averaging with its reflection. Centered rectangles correspond to equal-length diagonals v,w and area 2|det(v,w)|. At an optimizer either both tips lie on the boundary or the variable interior tip has a perpendicular diagonal by first variation. In perpendicular branch concavity of (sinθ/A+cosθ/B) on 0≤θ≤π/4 reduces extremum to endpoints, bounding det by max(B²,AB/2); in boundary branch equal-norm quadratic yields s=t or s+t=2A²/(A²+B²), both with determinant bound max(AB/2,B²). Midpoint rectangle area AB and diagonal square area 2B² attain sharp max; equality cases and side contacts rule out translations and extra optima, including the B/A=1/2 tie and A=B. Independently checked boundary identity algebra and 240,000 random feasible centered rectangles; finite experiments not an exhaustive geometry proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O(n^3) general exact algorithm requires executing algebraic optimization on input vertices; it is not a theorem giving B/A switching law.",
+          "Approximation bounds do not establish exact sharp rhombus equality."
+        ],
+        "reasoning": "Algorithmic solvability makes the invariant computable in principle but does not directly imply the closed-form continuous family phase transition or full optimizer characterization; no dominating formula found.",
+        "searches": [
+          "arXiv:1405.1223 Theorem 4",
+          "Knauer et al. DOI:10.1016/j.jda.2012.01.002"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1405.1223",
+        "https://doi.org/10.1016/j.jda.2012.01.002",
+        "Resultary exact semantic query: maximum area rectangle inscribed rhombus arbitrary orientation sharp formula max half tan half angle two shapes",
+        "Resultary self-hit: 2026/10/11/SCOPE-sharp-two-regime-maximum-area-rectangle-classification-for-rhomb--a38c0b6eabe3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic finite-time algorithm is not a logical derivation of the stated two-branch formula without analyzing its rhombus specialization.",
+          "A= B square value alone cannot imply the continuous aspect-ratio transition or uniqueness."
+        ],
+        "reasoning": "The centering, equal-diagonal, concavity and boundary-quadratic arguments supply nontrivial additional evaluation and equality structure.",
+        "searches": [
+          "arXiv:1405.1223 Theorem 4",
+          "Resultary:2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact objective is area of a rectangle of any orientation inside a given convex polygon; the generic algorithm solves an optimization but does not present a rhombus parameter expression.",
+          "Regular-even-polygon result covers the square endpoint, not all rhombi."
+        ],
+        "reasoning": "The problem is a specific natural special case of general polygon rectangle optimization, but the explicit sharp formula and equality classification are not stated by the inspected algorithmic theorem.",
+        "searches": [
+          "maximum area rectangle inscribed rhombus arbitrary orientation sharp formula max half tan half angle two shapes",
+          "arXiv:1405.1223 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact table treats regular even n-gons and thus the square n=4 case.",
+          "The other rhombi are neither regular nor covered by that one-parametric regular-polygon family."
+        ],
+        "reasoning": "The square endpoint was known; no inspected natural exact table supplies the non-square switch at B/A=1/2.",
+        "searches": [
+          "maximum area rectangle inscribed rhombus arbitrary orientation sharp formula max half tan half angle two shapes",
+          "Resultary:2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427"
+        ]
+      },
+      "rationale": "Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.",
+      "residual_risks": [
+        "The inaccessible complete Knauer 2012 and Lassak 1993 primary texts or older elementary geometry sources may contain the closed-form rhombus solution.",
+        "The general polygon algorithm computes this special case in principle; historical priority of explicit two-regime formula remains best-of-knowledge.",
+        "Numerical angle grid is not proof or exhaustive optimizer classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General algorithm finds maximal inscribed rectangle in O(n^3), but inspected statement does not provide closed-form rhombus-aspect phase law or full two-optimizer classification.",
+          "evidence": [
+            "arXiv:1405.1223 Theorem 4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.1223",
+          "material_read": "Original arXiv full HTML, Section 3 exact optimization and Theorem 4, Section 4 on combinatorial types; corroborating PDF pages 2 and 5.",
+          "method": "Read public arXiv full HTML/PDF text and checked specified definitions/theorems and relevant sections",
+          "title": "Finding Largest Rectangles in Convex Polygons",
+          "trigger": "Same objective and unrestricted rectangle orientation in any convex polygon"
+        },
+        {
+          "assessment": "Approximation framework is not evidence of a stated exact all-rhombus formula; full article remains a residual comparison risk.",
+          "evidence": [
+            "Knauer–Schlipf–Schmidt–Tiwary (2012) abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jda.2012.01.002",
+          "material_read": "Accessible abstract and source-supplied theorem descriptions; original complete 2012 text not independently read.",
+          "method": "Read bibliographic abstract and inspected source descriptions, not full text",
+          "title": "Largest Inscribed Rectangles in Convex Polygons",
+          "trigger": "Potential dominant earlier unrestricted rectangle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The general maximum-area inscribed-rectangle optimization is a standard geometric invariant; classifying the full rhombus family by explicit aspect-ratio switch and uniquely described extremizers gives a reusable exact solvable test case for unrestricted orientations, not merely a rectangular inset or sample computation. It is modest in scope but independently useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only Euclidean rhombi, unrestricted orientation of inscribed rectangles and area, not perimeter or arbitrary parallelograms.",
+    "Optimizer uniqueness includes the square endpoint and excludes translations through contact constraints."
+  ]
+}

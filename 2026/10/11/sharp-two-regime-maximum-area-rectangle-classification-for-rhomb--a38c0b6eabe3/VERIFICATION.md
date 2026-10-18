@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`. The standard-library script `verify.py` checks twelve rhombus aspect/scale settings by enumerating angles and positive side-length ratios. For each sampled rectangle it computes all vertex gauges directly and compares the feasible area with the exact proposed maximum. It additionally samples both possible equal-radius boundary branches and checks the determinant bounds.
+## correctness
 
-Run `python verify.py`; an observed run from this package source returned `VERIFY_OK: 12 dimensions, centered rectangle grids, and boundary regimes`.
+PASS
 
-The finite checks are illustrative and cannot prove the universal claim or uniqueness. The proof of all parameter ranges uses the boundary/orthogonality dichotomy, strict concavity, AM-GM, and exact equality conditions; it requires no external numerical certificate. No independent audit has been performed.
+For every A≥B>0, K={|x|/A+|y|/B≤1}, any inscribed rectangle can be centered without changing its area by averaging with its reflection. Centered rectangles correspond to equal-length diagonals v,w and area 2|det(v,w)|. At an optimizer either both tips lie on the boundary or the variable interior tip has a perpendicular diagonal by first variation. In perpendicular branch concavity of (sinθ/A+cosθ/B) on 0≤θ≤π/4 reduces extremum to endpoints, bounding det by max(B²,AB/2); in boundary branch equal-norm quadratic yields s=t or s+t=2A²/(A²+B²), both with determinant bound max(AB/2,B²). Midpoint rectangle area AB and diagonal square area 2B² attain sharp max; equality cases and side contacts rule out translations and extra optima, including the B/A=1/2 tie and A=B. Independently checked boundary identity algebra and 240,000 random feasible centered rectangles; finite experiments not an exhaustive geometry proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.
+
+## value
+
+PASS
+
+The general maximum-area inscribed-rectangle optimization is a standard geometric invariant; classifying the full rhombus family by explicit aspect-ratio switch and uniquely described extremizers gives a reusable exact solvable test case for unrestricted orientations, not merely a rectangular inset or sample computation. It is modest in scope but independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
