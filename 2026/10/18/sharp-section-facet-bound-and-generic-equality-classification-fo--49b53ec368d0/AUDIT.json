@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Gale-evenness supplies exact disjoint-cycle-edge facet representation; the derived identity \\(F=pq+rn-r^2-5r+s\\) is combinatorially valid for every integer dimension parameter. Degree-four polynomial sign realizability proves attainment. The run analysis controls every admissible mixed sign word; exact base cases and small perturbation handle all affine cuts. The embedded independent facet tests and determinant checks pass in stated finite ranges; the complete proof does not rely on extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brandenburg–De Loera–Meroni, arXiv:2304.14239, general enumeration/optimization theorem"
+      ],
+      "reasoning": "The general algorithm could solve any fixed finite cyclic-polytope instance, but the inspected theorem does not provide a closed sharp expression for arbitrary n or a structural classification of the equality sign patterns.",
+      "searches": [
+        "The Best Ways to Slice a Polytope general hyperplane section f-vector optimization",
+        "cyclic polytope hyperplane section maximum facets sections of cyclic 4-polytope f2 maximal"
+      ]
+    },
+    "checked_sources": [
+      "Bayer–Bisztriczky, arXiv:math/0610940",
+      "Oppermann–Thomas, DOI:10.46298/dmtcs.3068",
+      "De Loera–López-Campos–Torres, arXiv:2412.12419",
+      "Brandenburg–De Loera–Meroni, arXiv:2304.14239"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Loera–López-Campos–Torres, arXiv:2412.12419: section vertex maximum floor(n²/4)",
+        "Gale–evenness classical facet characterization",
+        "Brandenburg–De Loera–Meroni, arXiv:2304.14239: general slice-search methods"
+      ],
+      "reasoning": "The vertex maximum pq follows from 2-neighborliness and is prior art; because 3-polytopes with equal vertex counts may have different numbers of facets, that maximum does not imply the present sharp section facet count or triangular/quadrilateral inventory. Generic algorithms give methods, not inspected n-uniform consequences. Gale facet lists do not include the sign-run maximization.",
+      "searches": [
+        "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+        "maximum number of vertices of a central hyperplane section of a regular polytope face numbers classification",
+        "maximum face count floor(n^2/4)+2n-12 for three-dimensional hyperplane sections of the cyclic four-polytope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0610940 §§1–2: Gale parity",
+        "Oppermann–Thomas, DOI:10.46298/dmtcs.3068 §2: consecutive edge-pair facets"
+      ],
+      "reasoning": "Disjoint cycle-edge pairs encode the same old cyclic facet family; a new extremal objective counts those pairs whose four endpoints straddle a realizable hyperplane. Existing facet enumeration alone cannot imply the sharp cut maximum without the sign-run optimization.",
+      "searches": [
+        "cyclic 4-polytope maximum number of facets in a generic affine hyperplane section",
+        "facets of sections of cyclic polytope C(n,4) number triangles quadrilaterals",
+        "Gale evenness pairs disjoint cyclic edges crossing hyperplane maximal number of section faces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact all-n facet-count or maximum table observed in actual targeted published-result queries"
+      ],
+      "reasoning": "The exact finite n instances have straightforward computable facet inventories, so absence of a matching database entry is not a novelty proof. The novelty assessment rests on distinguishing the proven n-uniform extremal theorem from the closest source statements.",
+      "searches": [
+        "cyclic polytope C(n,4) 3-dimensional section number of polygonal faces balanced sign runs",
+        "facet crossing count cyclic 4 polytope sign changes two color runs transition edges Ferrers"
+      ]
+    },
+    "rationale": "Relevant full sources and published-record searches establish classical Gale facet structure, already-known section vertex maxima and general slicing algorithms, but not the claimed uniform facet maximum and generic equality classification. No stronger same-object statement was found; equivalence under older terminology remains a genuine priority risk.",
+    "residual_risks": [
+      "An equivalent formula may have been proven earlier using oriented-matroid, signotope, or cyclic section terminology not retrieved by the targeted searches.",
+      "A general section-enumeration method is already published; the claimed originality is the closed dimension-four extremal evaluation and equality description, not the computational decidability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes known cyclic polytope structure used as lemma; no explicit affine-section facet extremum found in inspected text",
+        "evidence": [
+          "Gale-evenness and cyclic-polytope setup, arXiv:math/0610940"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0610940",
+        "material_read": "Full openly accessible arXiv HTML text, introductory definitions and the Gale-evenness construction in sections 1–2",
+        "method": "Compared objects, parity facet characterization and stated results with section face-maximization claim",
+        "title": "On Gale and braxial polytopes",
+        "trigger": "Facet structure, neighborliness, and Gale-evenness of cyclic polytopes"
+      },
+      {
+        "assessment": "Provides the disjoint adjacent-index pair facet representation, not the optimized section facet count",
+        "evidence": [
+          "Section 2, even-dimensional cyclic facets as consecutive pairs"
+        ],
+        "identifier_or_url": "https://doi.org/10.46298/dmtcs.3068",
+        "material_read": "Open full journal PDF and section 2 description of even-dimensional facet pairs, including page image inspection",
+        "method": "Compared consecutive-index facet description and the paper’s triangulation theorems against hyperplane sections",
+        "title": "Triangulations of cyclic polytopes",
+        "trigger": "Possible stronger enumeration in cyclic-polytope facets"
+      },
+      {
+        "assessment": "Establishes sharp vertex bound, which is explicitly treated as prior art; an optimal vertex count does not alone give the triangular/quadrilateral facet inventory or its maximizer classification",
+        "evidence": [
+          "Hyperplane-section vertex upper bound for cyclic dimension at least four"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+        "material_read": "Open full arXiv HTML text, abstract and section 2 theorems on vertex maxima",
+        "method": "Compared the theorem’s optimized section vertices with the present polygonal-facet objective and equality descriptions",
+        "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+        "trigger": "Strong potential coverage via known optimal cyclic-polytope section vertex count"
+      },
+      {
+        "assessment": "Broader general-purpose algorithmic coverage, but inspected statements do not contain this explicit symbolic all-size formula/equality classification",
+        "evidence": [
+          "General hyperplane-section algorithms, arXiv:2304.14239"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.14239",
+        "material_read": "Open full arXiv HTML text, introduction and stated section optimization theorems; checked for cyclic-specific results",
+        "method": "Compared algorithms for optimizing section face counts with uniform closed formula over all cyclic four-polytopes",
+        "title": "The Best Ways to Slice a Polytope",
+        "trigger": "General algorithms may subsume fixed-polytope facet optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "49b53ec3-68d0-4ec1-8d91-ce7ae5a314a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The section facet maximum is a natural polyhedral combinatorics invariant of a canonical neighborly family. An all-n sharp formula, all generic maximizing sign patterns, and exact triangle/quadrilateral inventories determine more than the known section vertex optimum, with a short new cycle-edge color-pair mechanism.",
+    "status": "PASS"
+  }
+}
