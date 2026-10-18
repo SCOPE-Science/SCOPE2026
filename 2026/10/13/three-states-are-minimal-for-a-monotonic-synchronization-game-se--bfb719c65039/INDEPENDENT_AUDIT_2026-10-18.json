@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:10:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One- and two-state nondecreasing complete binary automata are elementary: any synchronizing two-state pair has a constant letter, allowing Alice immediate victory. For fixed ordered three-state chain there are C(5,3)=10 nondecreasing maps and 100 ordered pairs. Independent complete-subset reachability and game attractor computation reproduced 77 synchronizing Alice-winning, four synchronizing Bob-winning, 19 nonsynchronizing, with exactly pairs (001,022),(002,122) and their swaps. Representative a=(0,0,1), b=(0,2,2) has reset word aa but Bob always plays b, returning the image to {0,2} after each alternating pair; a rigorous explicit strategy. The four form a letter-swap/chain-reversal orbit. This is an exhaustive finite classification, not a sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 monotone pair reduction yields a decision algorithm, not the 100-case tally or smallest example.",
+          "2024 sufficient DS-automaton Alice-win condition has different hypotheses; 2024 3-state counterexample is nonmonotone."
+        ],
+        "reasoning": "General game-solving machinery can implement the required enumeration, but no cited theorem implies its exact four Bob-winning chain presentations. It supplies tools rather than dominating classification.",
+        "searches": [
+          "doi:10.4230/LIPIcs.FUN.2022.14 Section 7",
+          "arxiv:2409.06971v1 2024",
+          "arxiv:2512.11007v1 uniform strategy synchronization"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.FUN.2022.14",
+        "https://arxiv.org/abs/2409.06971",
+        "Resultary semantic query: three state monotonic automata synchronization game Bob wins counterexample Fernau Haase Hoffmann (12 returned findings, including distinct automata rendezvous results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotone game reduction does not establish the minimal state count; requires solving all three-state ordered pairs.",
+          "Existing 2024 three-state counterexample is ruled out of the monotone class by its transposition action."
+        ],
+        "reasoning": "After distinguishing the exact class and quantifiers, the published examples neither imply nor contradict the new monotone n=3 witness; the independent exhaustive result establishes the missing boundary.",
+        "searches": [
+          "doi:10.4230/LIPIcs.FUN.2022.14 Prop7.1",
+          "doi:10.4204/EPTCS.407.6 2024 three-state example",
+          "Resultary semantic query: three state monotonic automata synchronization game Bob wins counterexample Fernau Haase Hoffmann (12 returned findings, including distinct automata rendezvous results)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known 2024 unrestricted 3-state Bob-winning automaton has a nontrivial swap, therefore cannot preserve a linear order.",
+          "2022 4-state monotonic example is not minimality evidence."
+        ],
+        "reasoning": "Aliases A-automata, synchronization games, pair games, and monotonic automata were compared. Equating the unrestricted 3-state example with this monotone instance is invalid because monotonicity fails for the former.",
+        "searches": [
+          "Resultary semantic query: three state monotonic automata synchronization game Bob wins counterexample Fernau Haase Hoffmann (12 returned findings, including distinct automata rendezvous results)",
+          "smallest monotonic synchronizing automaton Bob winning game",
+          "Fernau Haase Hoffmann Volkov 2024 three-state counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete normalized count 100 and exact four exceptional pairs; no corresponding published table located.",
+          "2022 figure only supplies four-state example."
+        ],
+        "reasoning": "Not a broad external known graph database question; count is a complete small-state classification with a replayable certificate. Search gaps do not prove absence of an unindexed enumeration.",
+        "searches": [
+          "three-state monotone binary automata synchronization game 100 ordered pairs 77 4 19",
+          "Resultary semantic query: three state monotonic automata synchronization game Bob wins counterexample Fernau Haase Hoffmann (12 returned findings, including distinct automata rendezvous results)"
+        ]
+      },
+      "rationale": "Fernau–Haase–Hoffmann (FUN 2022) already develop the game and monotone endpoint reduction and exhibit a four-state monotone Bob-winning example, not a sharp n=3 theorem. Fernau et al. (2024) explicitly exhibit a three-state unrestricted Bob-winning game, but one letter has a nontrivial two-cycle so no common order is preserved. Thus neither paper implies the three-state *monotone* boundary or four complete presentations. Other general reachability-game algorithms can decide specific cases but do not supply the exact census without running and proving the finite enumeration.",
+      "residual_risks": [
+        "A small finite enumeration of three-state monotone games may have been performed in unpublished notes.",
+        "Source-specific game order and winning-on-singleton convention must remain fixed; switching player order or alphabet would change the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Monotone endpoint-pair reduction and a four-state Bob-winning example appear; no three-state sharp census in inspected relevant material.",
+          "evidence": "Section 7, Proposition 7.1 and example.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.FUN.2022.14",
+          "material_read": "Public 2022 17-page PDF including Section 7 monotone automata, Proposition 7.1, and example; associated pages examined visually",
+          "method": "Open-access FUN2022 PDF and relevant page screenshots",
+          "title": "The Synchronization Game on Subclasses of Automata",
+          "trigger": "Exactly monotone synchronization games and a four-state example"
+        },
+        {
+          "assessment": "Its three-state example is nonmonotonic due to a nontrivial 2-cycle; insufficient for monotone minimum.",
+          "evidence": "Displayed 3-state automaton transition maps and its DS-automaton result.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06971",
+          "material_read": "Accessible complete 2024 conference PDF and opening figure/three-state example examined; verifier models that example",
+          "method": "Open-access PDF and page screenshot plus independent all-six-orders check",
+          "title": "Winning Strategies for the Synchronization Game on Subclasses of Finite Automata",
+          "trigger": "Explicit three-state unrestricted Bob-winning example might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum number of states at which synchronizability and Alice-winning diverge within monotonic binary automata is a natural structural threshold, and the complete four-presentation first-layer classification closes a concrete gap left by published four-state monotone examples. It distinguishes ordinary reset words from adversarial alternating reachability. This is a motivated first boundary, not an arbitrary automaton slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.4230/LIPIcs.FUN.2022.14",
+    "https://arxiv.org/abs/2409.06971",
+    "Resultary semantic query: three state monotonic automata synchronization game Bob wins counterexample Fernau Haase Hoffmann (12 returned findings, including distinct automata rendezvous results)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete deterministic automata with two input letters and some preserved linear order; normalized census fixes one labeled chain order.",
+    "No claim for larger sizes or all possible preserved orders counted as separate presentations.",
+    "No bound on optimal move lengths or general monotone-game complexity beyond known results."
+  ],
+  "schema_version": 1
+}
