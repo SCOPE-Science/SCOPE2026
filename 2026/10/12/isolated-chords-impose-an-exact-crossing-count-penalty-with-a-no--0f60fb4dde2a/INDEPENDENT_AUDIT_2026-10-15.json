@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:49:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a distinguished rooted chord enclosing 2k points and leaving 2(n−1−k) outside, isolation is equivalent to no crossing of the two arcs; conditional independent matchings make EX=[C(k,2)+C(n−1−k,2)]/3. Root symmetry multiplies by n, while unconditional EX=n(n−1)/6; subtracting gives a strictly negative sum with summand n−1+k(n−1−k). End terms k=0,n−1 are circularly adjacent chords and yield -2n(n−1)/(3(2n−1)); k=1,n−2 give the non-simple -1/3 limit, with remaining terms O(1/n) in covariance via geometric-ratio bounds. Independently generated all perfect matchings and rational covariances for n=2 through 6; exact concordance including equality only at n=2. Separate finite checks are not used as the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy reports crossing moments and components by separate generating functions, not this degree-zero-edge mixed covariance.",
+          "The source proof adds a rooted arc-splitting statistic to compute the mixed moment; merely knowing marginal laws is insufficient."
+        ],
+        "reasoning": "Earlier more general combinatorial methods plausibly could derive the identity, but no inspected theorem dominates it; this risk is recorded.",
+        "searches": [
+          "random chord diagrams covariance isolated chords crossing pairs non-simple isolates",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "arXiv:1501.01489v1",
+          "arXiv:2104.01134v2"
+        ]
+      },
+      "checked_sources": [
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "arXiv:1501.01489v1",
+        "arXiv:2104.01134v2",
+        "https://oeis.org/A322456",
+        "Resultary query random chord diagrams covariance isolated chords crossing pairs non-simple isolates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known simple-chord covariance has only the boundary k=0,n−1 arc terms.",
+          "The residual k=1,...,n−2 gives strictly negative extra covariance, tending to -1/3 even as E(I−S)->0."
+        ],
+        "reasoning": "Prior marginal/simple-chord results do not imply full-isolate covariance by equating events; the non-simple correction is mathematically necessary.",
+        "searches": [
+          "random chord diagrams covariance isolated chords crossing pairs non-simple isolates",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "arXiv:1501.01489v1",
+          "arXiv:2104.01134v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan arXiv:1501.01489 investigates isolated vertices/monolithic structure and chord degrees, but relevant sections give no mixed isolated-vertex and crossing-edge moment.",
+          "Paguyo arXiv:2104.01134 treats crossings and simple chords as distinct marginal laws."
+        ],
+        "reasoning": "The exact joint covariance concerns degree-zero vertices (not merely consecutive-endpoint simple chords), so marginal equivalences do not cover it.",
+        "searches": [
+          "random chord diagrams covariance isolated chords crossing pairs non-simple isolates",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "arXiv:1501.01489v1",
+          "arXiv:2104.01134v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A322456 tabulates connected chord diagram crossing counts (univariate), not the full random-diagram isolated-component/crossing bivariate moment.",
+          "No exact table containing the complete covariance kernel or non-simple correction identified."
+        ],
+        "reasoning": "Connected crossing tables do not directly encode a mixed moment over all matchings.",
+        "searches": [
+          "random chord diagrams covariance isolated chords crossing pairs non-simple isolates",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "arXiv:1501.01489v1",
+          "arXiv:2104.01134v2"
+        ]
+      },
+      "rationale": "Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.",
+      "residual_risks": [
+        "Unindexed older joint component-crossing generating functions could hide a mathematically equivalent mixed moment.",
+        "The asymptotic big-O is not a full higher-order expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_NOT_JOINT",
+          "evidence": "Univariate crossings and component counts do not give Cov(number of isolated components, number of crossing pairs).",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Author-hosted report sections defining chord crossings, component-count generating functions, separate crossing polynomials and moments",
+          "method": "Original full PDF relevant theorem/equation inspection",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Foundational exact crossing moments and component counting"
+        },
+        {
+          "assessment": "NOT_COVERING_THE_MIXED_MOMENT",
+          "evidence": "Isolation/degree asymptotics do not supply the displayed exact crossing covariance.",
+          "identifier_or_url": "arXiv:1501.01489v1",
+          "material_read": "Original preprint sections on degree distribution, monolithic/isolation asymptotics and its main theorems",
+          "method": "Original full arXiv text/HTML review of relevant result sections",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Identical random matching model and zero-degree chord variables"
+        },
+        {
+          "assessment": "SEPARATE_MARGINALS",
+          "evidence": "The paper studies crossings and simple chords separately, not covariance with all isolated chords.",
+          "identifier_or_url": "arXiv:2104.01134v2",
+          "material_read": "Theorems 1.1–1.3, simple chord and crossing marginal limit treatment and supporting sections",
+          "method": "Full arXiv HTML relevant proof/result comparison",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Contains both crossing and simple-chord quantities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two natural statistics of a random chord intersection graph, its isolated-vertex count and edge count, have a novel exact dependence law. The surprising nonvanishing -1/3 covariance correction from chords whose expected count tends to zero is a substantial probabilistic refinement, not recoverable by replacing all isolates with simple chords.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform perfect matchings of 2n circular endpoints, n>=2, Cov(I_n,X_n)= -n/(3(2n-1)!!) Σ_{k=0}^{n-1}(2k-1)!!(2n-2k-3)!!(n-1+k(n-1-k)), with exact simple-chord covariance and nonsimple corrections E(I-S)=1/(2n)+O(n^-2), Cov(I-S,X)=-1/3+O(n^-1).",
+  "limitations": [
+    "Uniform labeled cyclic matching only; not arbitrary nonuniform circle graphs.",
+    "Root counting and tail bounds, not finite enumeration, support the all-n theorem."
+  ],
+  "schema_version": 1
+}

@@ -1,16 +1,21 @@
-# Review of the isolated-chord/crossing-count theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** All quantifiers concern integer \(n\ge2\) uniform perfect matchings of circularly labeled endpoints. The root-arc split is an exact equivalence for a chord to be degree zero; conditional independence of the two matchings yields the crossing mean. Rotational rooting counts each chord exactly once after the factor \(n\). The resulting positive-summand formula proves strict negativity, and the first nonsimple layer together with the geometric ratio bound proves the nonzero correction limit. The standalone rational checker enumerates every matching through seven chords and verifies all conditional split cases. The asymptotic tail uses a genuine bound; finite enumeration alone is not used as an infinite proof.
+## correctness
 
-**Originality (PASS with residual risk).** The most relevant inspected literature consists of Flajolet–Noy [1] on marginal components/crossings, Acan [2] on degrees, isolation and monoliths, and Paguyo [3] on separate simple-chord and crossing limit laws. The connected-crossing enumeration [4] does not tabulate this two-variable quantity. In particular, the exact simple-chord/crossing law does not cover *all* isolated chords: the difference has a proven nonzero asymptotic covariance \(-1/3\). Classical joint generating functions outside the searched corpus remain a material risk; a failed search alone does not establish originality.
+PASS
 
-**Value (PASS).** Degree-zero vertices and edge count are basic characteristics of a random intersection graph. The result supplies their exact finite dependence and resolves an asymptotically delicate distinction between simple chords and globally isolated chords. An event class with vanishing mean \(\sim 1/(2n)\) retains a nonvanishing covariance correction, relevant to second-order finite-size dependence rather than merely restating a marginal enumeration.
+For a distinguished rooted chord enclosing 2k points and leaving 2(n−1−k) outside, isolation is equivalent to no crossing of the two arcs; conditional independent matchings make EX=[C(k,2)+C(n−1−k,2)]/3. Root symmetry multiplies by n, while unconditional EX=n(n−1)/6; subtracting gives a strictly negative sum with summand n−1+k(n−1−k). End terms k=0,n−1 are circularly adjacent chords and yield -2n(n−1)/(3(2n−1)); k=1,n−2 give the non-simple -1/3 limit, with remaining terms O(1/n) in covariance via geometric-ratio bounds. Independently generated all perfect matchings and rational covariances for n=2 through 6; exact concordance including equality only at n=2. Separate finite checks are not used as the all-n proof.
 
-**Scientific limits.** Uniform labeled-circle matchings only. Classical inaccessible or unindexed mixed-statistic treatments may exist; no claim of an independent audit or a full asymptotic series.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-[1] Flajolet and Noy, *Analytic Combinatorics of Chord Diagrams*, INRIA RR3914, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf .
-[2] Acan, *On a uniformly random chord diagram and its intersection graph*, arXiv:1501.01489v1, https://arxiv.org/html/1501.01489v1 .
-[3] Paguyo, *Convergence rates of limit theorems in random chord diagrams*, arXiv:2104.01134, https://arxiv.org/html/2104.01134v2 .
-[4] OEIS A322456, https://oeis.org/A322456 .
+Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The two natural statistics of a random chord intersection graph, its isolated-vertex count and edge count, have a novel exact dependence law. The surprising nonvanishing -1/3 covariance correction from chords whose expected count tends to zero is a substantial probabilistic refinement, not recoverable by replacing all isolates with simple chords.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
