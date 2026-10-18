@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:59:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 049d6f80ccf8efac3d8ece057e5397b6bf6e0c8e and check.py e3df55d3c59e9d9bad54a68634897f3e53df7778",
+        "arXiv:2608.04900v2, Proposition 2 Remark 1 Sections 2–4",
+        "arXiv:1405.4496 sharp Bernoulli inequality",
+        "Resultary hypergeometric exchangeable small-N query",
+        "Independent SymPy rational variance identity checks for N5 and N6"
+      ],
+      "rationale": "Lee–Kim Proposition 2/Remark 1 reduce the global finite-exchangeable problem to the max over hypergeometric population count k, sample size m, and real tilt t; symmetry reduces k,m <= floor(N/2). For Bernoulli reductions use sharp Kearns–Saul constant, giving 1/log(2) at N=3 and 1/[2log(3/2)] at N=5. For N=4, the k=m=2 hypergeometric MGF (2+cosh t)/3 <= exp(t^2/6) by nonnegative series coefficients, while an m=1 balanced Bernoulli attains 4/3 in the variance limit. For N=5 k=m=2, differentiation gives variance 6u(u²+2u+3)/(u²+6u+3)² maximized at sqrt(3) with bound 5(sqrt(3)-1)/3 < 1/[2log(3/2)]; remaining small pairs are dominated. For N=6, explicit rational nonnegative tilted-variance certificates for (k,m)=(2,2),(2,3),(3,3) and Bernoulli k=1 prove <=6/5, attained by k=3,m=1 as t tends to zero. The entire range of real tilts follows by double integration of variance; no finite numerical search is used as infinite proof. Independent symbolic simplification checked all three N6 identities and the N5 derivative identity from the source package.",
+      "residual_risks": [
+        "The valid reduction and Bernoulli sharp constant are cited prior theorems, not freshly proved here; a previously unindexed small-population optimization may exist.",
+        "Exact values are proved only N=3..6; no N>=7 or asymptotic optimum asserted.",
+        "Only algebraic N5/6 identities were independently recalculated, not exhaustive independent rederivation of the entire Lee–Kim reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Kim Γ_N dominates the optimal constant numerically but is a sufficient bound rather than the exact C_N evaluation; Bernoulli Kearns–Saul addresses only one-slice cases."
+        ],
+        "reasoning": "Prior broad concentration inequalities do not imply the proposed equality values: their upper bounds are strictly nonsharp in some displayed small cases.",
+        "searches": [
+          "Lee Kim arXiv:2608.04900v2 Theorem 1, Proposition 1/2",
+          "Barber arXiv:2404.06457 weighted exchangeable Hoeffding",
+          "Schlemm arXiv:1405.4496 Kearns Saul inequality"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 049d6f80ccf8efac3d8ece057e5397b6bf6e0c8e and check.py e3df55d3c59e9d9bad54a68634897f3e53df7778",
+        "arXiv:2608.04900v2, Proposition 2 Remark 1 Sections 2–4",
+        "arXiv:1405.4496 sharp Bernoulli inequality",
+        "Resultary hypergeometric exchangeable small-N query",
+        "Independent SymPy rational variance identity checks for N5 and N6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N5 and N6 the (2,2)/(2,3)/(3,3) hypergeometric candidates require independent all-tilt inequality certificates, while Bernoulli extremizers alone give lower bounds."
+        ],
+        "reasoning": "Prior reduction cannot settle the maximum without nontrivial proof that all competing non-Bernoulli hypergeometric tilts are dominated.",
+        "searches": [
+          "Lee Kim Remark 1 hypergeometric variational identity N=3 4 5 6",
+          "Kearns Saul sharp Bernoulli constant",
+          "N6 tilted variance certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 1 defines the same C_N^star with exact hypergeometric log-MGF variational expression; its displayed expression is an equivalent *optimization*, not the closed-form evaluated four constants."
+        ],
+        "reasoning": "The target functional is already named; originality is specifically removing maximization/supremum at N=3,4,5,6 with sharp witnesses, not inventing a new constant.",
+        "searches": [
+          "\"C_N\" \"exchangeable\" \"hypergeometric\" exact N=3 N=6",
+          "Resultary semantic: optimal Hoeffding constant exchangeable finite population weighted hypergeometric N=3 N=4 N=5 N=6 Kearns Saul",
+          "Lee Kim arXiv 2608.04900 Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lee–Kim Lemma 5 compares Γ_N with an earlier epsilon_N, rather than publishing the exact four-size table. No prior exact tuple located in available records."
+        ],
+        "reasoning": "These are optimal-constant evaluations, not merely read-off bounds or previously supplied database values. Lack of a table search hit is only bounded originality evidence.",
+        "searches": [
+          "Lee Kim Remark 1 small N numerical hypergeometric tables",
+          "Resultary search finite exchangeable sharp constants small population",
+          "arXiv 2608.04900 Appendix Lemma 5 finite comparisons"
+        ]
+      },
+      "rationale": "PASS: the leading Lee–Kim paper gives the exact variational hypergeometric optimization and general sufficient Γ_N and lower bounds, but not evaluated sharp C_N at all four sizes. Bernoulli Kearns–Saul settles m=1 pieces, not k=m=2 domination; new small-population evaluations close the remaining analytic cases.",
+      "residual_risks": [
+        "The valid reduction and Bernoulli sharp constant are cited prior theorems, not freshly proved here; a previously unindexed small-population optimization may exist.",
+        "Exact values are proved only N=3..6; no N>=7 or asymptotic optimum asserted.",
+        "Only algebraic N5/6 identities were independently recalculated, not exhaustive independent rederivation of the entire Lee–Kim reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS variational characterization and general envelope, NOT evaluated four-size sharp-constant tuple.",
+          "evidence": [
+            "Remark 1 definition of C_N via max_(k,m) sup_t; Theorem 1 Γ_N; Lemma 5 comparison with Barber."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.04900v2",
+          "material_read": "Complete HTML article, especially Theorem 1, Proposition 2, Remark 1, Lemma 5 and proofs/reduction in Sections 2–4.",
+          "method": "Lawful arXiv full-text HTML.",
+          "title": "A Sharper Hoeffding Bound for Weighted Sums of Exchangeable Random Variables",
+          "trigger": "Exact hypergeometric reduction and possible dominance of all four small constants."
+        },
+        {
+          "assessment": "COVERS Bernoulli subcase, not non-Bernoulli hypergeometric comparisons.",
+          "evidence": [
+            "Supremum ψ(t)/t² = (1-2p)/(4log((1-p)/p)) for p !=1/2."
+          ],
+          "identifier_or_url": "arXiv:1405.4496",
+          "material_read": "The theorem statement/formula for sharp Bernoulli sub-Gaussian proxy as quoted in the pinned proof; complete article not independently retrieved.",
+          "method": "Cited source statement in pinned package with independent algebraic use; no claim of full-paper reading.",
+          "title": "The Kearns–Saul inequality for Bernoulli and Poisson-binomial distributions",
+          "trigger": "Sharp Bernoulli log-MGF used in source proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md 049d6f80ccf8efac3d8ece057e5397b6bf6e0c8e and check.py e3df55d3c59e9d9bad54a68634897f3e53df7778",
+        "arXiv:2608.04900v2, Proposition 2 Remark 1 Sections 2–4",
+        "arXiv:1405.4496 sharp Bernoulli inequality",
+        "Resultary hypergeometric exchangeable small-N query",
+        "Independent SymPy rational variance identity checks for N5 and N6"
+      ],
+      "rationale": "A natural exact optimal-constant sequence in finite-sample concentration, not an arbitrary four-number recomputation: variational definition alone does not decide finite N, and these first consecutive nontrivial sizes show alternating nonzero-tilt versus variance-limit extremality. Sharp constants can be used without numerical optimization for small finite randomizations.",
+      "residual_risks": [
+        "The valid reduction and Bernoulli sharp constant are cited prior theorems, not freshly proved here; a previously unindexed small-population optimization may exist.",
+        "Exact values are proved only N=3..6; no N>=7 or asymptotic optimum asserted.",
+        "Only algebraic N5/6 identities were independently recalculated, not exhaustive independent rederivation of the entire Lee–Kim reduction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The valid reduction and Bernoulli sharp constant are cited prior theorems, not freshly proved here; a previously unindexed small-population optimization may exist.",
+    "Exact values are proved only N=3..6; no N>=7 or asymptotic optimum asserted.",
+    "Only algebraic N5/6 identities were independently recalculated, not exhaustive independent rederivation of the entire Lee–Kim reduction."
+  ],
+  "schema_version": 1
+}

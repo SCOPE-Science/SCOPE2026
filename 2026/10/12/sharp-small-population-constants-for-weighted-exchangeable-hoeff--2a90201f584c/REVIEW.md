@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact variational reduction is Theorem 1/Remark 1 of Lee and Kim (arXiv:2608.04900), read in full. The sharp Bernoulli log-MGF coefficient is the Kearns--Saul inequality (Schlemm, arXiv:1405.4496). The remaining cases are covered by the detailed hypergeometric polynomial and tilted-variance bounds in RESULT.md; all normalization factors and endpoint cases were checked. The symbolic checker passed on the packaged source. The higher-dimensional reduction is cited rather than independently reproved here, and no finite calculation is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The lead 2026 article states the variational characterization for every population size and global nonsharp bounds, but no values for sizes 3, 4, 5, or 6. Four exact evaluations with nonzero-tilt versus variance-extremizer distinction are not implied by the numerical upper/lower envelopes. Kearns--Saul supplies the one-point cases, but not the two- and three-point hypergeometric cases. Searches of related published mathematical records and concentration literature did not identify an equivalent evaluation. An unindexed earlier evaluation remains possible; the original formula is expressly credited and not a new claim.
+PASS
 
-## Value — PASS
-The optimal inflation coefficient is a natural invariant explicitly left unsolved in a recent foundational inequality. Four consecutive exact values resolve its first nontrivial sizes, exhibit distinct odd/even mechanisms, and replace loose sufficient constants in finite-population concentration. The tilted-variance positivity identities supply reusable analytic controls. No extrapolation to arbitrary population sizes is claimed.
+Lee–Kim Proposition 2/Remark 1 reduce the global finite-exchangeable problem to the max over hypergeometric population count k, sample size m, and real tilt t; symmetry reduces k,m <= floor(N/2). For Bernoulli reductions use sharp Kearns–Saul constant, giving 1/log(2) at N=3 and 1/[2log(3/2)] at N=5. For N=4, the k=m=2 hypergeometric MGF (2+cosh t)/3 <= exp(t^2/6) by nonnegative series coefficients, while an m=1 balanced Bernoulli attains 4/3 in the variance limit. For N=5 k=m=2, differentiation gives variance 6u(u²+2u+3)/(u²+6u+3)² maximized at sqrt(3) with bound 5(sqrt(3)-1)/3 < 1/[2log(3/2)]; remaining small pairs are dominated. For N=6, explicit rational nonnegative tilted-variance certificates for (k,m)=(2,2),(2,3),(3,3) and Bernoulli k=1 prove <=6/5, attained by k=3,m=1 as t tends to zero. The entire range of real tilts follows by double integration of variance; no finite numerical search is used as infinite proof. Independent symbolic simplification checked all three N6 identities and the N5 derivative identity from the source package.
 
-## Closest literature and limitations
-Lee and Kim (2026), arXiv:2608.04900, Remark 1 and Proposition 2 (full HTML examined); Schlemm (2014), arXiv:1405.4496 (Bernoulli sharp coefficient); Barber (2024), arXiv:2404.06457 (weaker exchangeable concentration). Limitations and residual priority risk are explained in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: the leading Lee–Kim paper gives the exact variational hypergeometric optimization and general sufficient Γ_N and lower bounds, but not evaluated sharp C_N at all four sizes. Bernoulli Kearns–Saul settles m=1 pieces, not k=m=2 domination; new small-population evaluations close the remaining analytic cases.
+
+## value
+
+PASS
+
+A natural exact optimal-constant sequence in finite-sample concentration, not an arbitrary four-number recomputation: variational definition alone does not decide finite N, and these first consecutive nontrivial sizes show alternating nonzero-tilt versus variance-limit extremality. Sharp constants can be used without numerical optimization for small finite randomizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
