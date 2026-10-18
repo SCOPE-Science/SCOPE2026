@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T08:51:25.358831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Graph-state character orthogonality gives entropy bits equal to F2 rank of crossing adjacency. For crossing subgraph of a path (forest), unique matching minor proves rank equals maximum matching size. Greedy path matching recurrence s_i=1[a_i≠a_{i+1}](1-s_{i-1}) is exact and yields four-state transfer w(z)T(z,t)^(n-1)1. Independent direct F2 Gaussian elimination on all 2^n cuts for n=4,6,8,10,12 agrees with transfer histogram and endpoints; n=12 gives (2,28,152,358,320,64). Analytically verified characteristic cubic λ[λ^3-(1+z)λ²+z(1-2t)λ+tz(z+1)] and logarithmic Hessian diag(1/4,2/27) at (1,1). Complement symmetry fixes half-population saddle, strict primitive Perron modulus separation away z=1 yields conditional quasi-powers with mean n/3+O(1), var 2n/27+O(1) and CLT. Perfect rank demands each disjoint matched pair cross, 2^m assignments; rank-one only two balanced step cuts when m>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Binary graph-state cut-rank identity and forest matching are standard antecedents",
+          "Rao et al 2026 arXiv:2605.11076v1 deals with contiguous blocks rather than uniformly balanced arbitrary subsets"
+        ],
+        "reasoning": "Graph rank methods and block entanglement capacity do not supply this all-balanced discrete distribution or CLT without a conditional transfer-matrix calculation.",
+        "searches": [
+          "graph state entropy random bipartitions path central limit theorem cut-rank",
+          "arXiv:2605.11076 graph-state contiguous block entanglement",
+          "arXiv:1207.5877 direct evaluation of pure graph state entanglement"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1103/PhysRevA.74.042331",
+        "arXiv:quant-ph/0603281",
+        "arXiv:2605.11076v1",
+        "arXiv:1207.5877"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2006 source has finite-size histograms of precisely the same physical statistic",
+          "Published rank and matching facts imply individual cut entanglement, but not its distribution under precisely balanced sampling"
+        ],
+        "reasoning": "The derivation counts all 2^n bit memberships with greedy matching state and extracts central coefficients; analytical Perron–Fourier saddle proves moments/CLT. No prior result inspected entails those uniform-n assertions outright.",
+        "searches": [
+          "one dimensional cluster state balanced cuts n arbitrary Gaussian limit entropy",
+          "For linear one-dimensional cluster graph state path P_2m exact balanced cut generating function transfer matrix central limit law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Facchi–Florio–Pascazio 2006 DOI:10.1103/PhysRevA.74.042331 Fig.1 plots exact same participation-number observable on balanced cuts for n=5..12",
+          "For pure graph states participation N_AB=2^{R_n}; identical observables up to power of two"
+        ],
+        "reasoning": "Prior finite histograms are not the all-size transfer probability law or centered Gaussian theorem. Equivalence has been explicitly accounted for, not disregarded.",
+        "searches": [
+          "one-dimensional cluster state balanced bipartition entanglement distribution transfer matrix",
+          "Facchi Florio Pascazio 2006 one-dimensional cluster state balanced bipartition participation number histogram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2006 Facchi et al Fig.1/Table I finite n=5..12, e.g n=12 coefficient histogram ranks (2,28,152,358,320,64) once transformed to R=log2 N_AB"
+        ],
+        "reasoning": "Finite numerical histogram does not determine exact all n probability generating function, endpoint formula P(R=m)=2^m/binom(2m,m) for all m, or Gaussian limit.",
+        "searches": [
+          "Facchi 2006 Fig 1 n 12 cluster 2 28 152 358 320 64",
+          "linear cluster state balanced cut maximum rank probability"
+        ]
+      },
+      "rationale": "The 2006 Facchi–Florio–Pascazio paper covers the identical balanced cluster-state participation statistic, including n=12 histogram, so novelty does not attach to introducing or numerically measuring the observable. A full reading finds finite graphs but no exact all-length transfer/gap/CLT. Contiguous-cut circuit results of 2026 concern different sampling. The all-even-size exact law and Gaussian limit survive best-of-knowledge comparison.",
+      "residual_risks": [
+        "The identical observed finite histogram in 2006 may have an unindexed later exact derivation not discovered by targeted search.",
+        "The Gaussian conclusion rests on analytic transfer/Perron saddle proof; finite brute force alone would not justify it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FINITE_SAME_OBSERVABLE_BUT_NOT_ALL_SIZE_LAW",
+          "evidence": "Fig.1 n=5..12 yellow histogram is the same statistic N_AB=2^R. It lacks the exact general transfer PGF and asymptotic Gaussian for log2 N_AB.",
+          "identifier_or_url": "https://home.ba.infn.it/~facchi/papers/59%20entrandom.pdf",
+          "material_read": "Full 7-page lawful author PDF, particularly Fig.1 page 4 and Section IV around equation (29) with cluster-state n=5..12 distributions and Table I",
+          "method": "Direct primary full PDF text, figure and theorem comparison",
+          "title": "Probability-density-function characterization of multipartite entanglement",
+          "trigger": "Exact same 1D cluster-state balanced-bipartition participation-number distribution"
+        },
+        {
+          "assessment": "CONTIGUOUS_CUT_NOT_SAME_SAMPLING",
+          "evidence": "Block A={1,...,x} has at most one edge crossing the path; it cannot imply generic balanced cut volume law.",
+          "identifier_or_url": "arXiv:2605.11076v1",
+          "material_read": "Available discussion of contiguous cut height h(x) and Eq(15) compared to uniformly random half-subset cuts",
+          "method": "Primary arXiv section/method comparison",
+          "title": "Graph-State Circuit Blocks control Entanglement and Scrambling Velocities",
+          "trigger": "Recent apparently broader graph-state cut theorem"
+        },
+        {
+          "assessment": "MATCHING_METHOD_ANTECEDENT_NOT_DISTRIBUTION",
+          "evidence": "Supports standard graph-state cut/matching connections but no direct all-balanced path transfer distribution.",
+          "identifier_or_url": "arXiv:1207.5877",
+          "material_read": "Abstract, graph state matching and entanglement scope as accessible in primary text",
+          "method": "Model and invariant comparison",
+          "title": "Direct evaluation of pure graph state entanglement",
+          "trigger": "Potential general matching-based graph-state invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-size distribution, sharp exponentially rare maximum-rank balanced partitions, and extensive Gaussian typical entanglement address a motivated statistic already studied in published path-cluster physics, and distinguish disconnected balanced cuts from one-edge contiguous area-law cuts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the 2m-qubit open path graph state, exact balanced-cut entropy PGF from four-state transfer, endpoints and Gaussian mean 2m/3 variance 4m/27.",
+  "limitations": [
+    "Only pure noiseless path and uniform balanced subsets, n even >=4; general graph/circuit dynamics excluded.",
+    "Perron/saddle proof is analytic, not inferred from finite n experiments."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the balanced-cut linear-cluster entanglement theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-state character-orthogonality argument establishes that bipartite entropy in bits is binary cross-adjacency rank. The crossing graph is a forest, and the uniqueness of perfect matchings in its square induced minors proves that rank is its maximum matching number. A four-state greedy matching automaton counts all membership strings exactly, with a balanced coefficient restriction. The two extreme-event counts follow from uniqueness of the path's perfect matching and the classification of crossing-edge configurations of matching number one. The transfer characteristic polynomial and its isolated dominant eigenvalue give a rigorous analytic coefficient saddle; positivity of the conditioned Hessian supports the Gaussian limit with explicit constants. Exact rank enumeration agrees through fourteen vertices. Finite testing is not a proof of the limit, which is established analytically.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Graph-state character orthogonality gives entropy bits equal to F2 rank of crossing adjacency. For crossing subgraph of a path (forest), unique matching minor proves rank equals maximum matching size. Greedy path matching recurrence s_i=1[a_i≠a_{i+1}](1-s_{i-1}) is exact and yields four-state transfer w(z)T(z,t)^(n-1)1. Independent direct F2 Gaussian elimination on all 2^n cuts for n=4,6,8,10,12 agrees with transfer histogram and endpoints; n=12 gives (2,28,152,358,320,64). Analytically verified characteristic cubic λ[λ^3-(1+z)λ²+z(1-2t)λ+tz(z+1)] and logarithmic Hessian diag(1/4,2/27) at (1,1). Complement symmetry fixes half-population saddle, strict primitive Perron modulus separation away z=1 yields conditional quasi-powers with mean n/3+O(1), var 2n/27+O(1) and CLT. Perfect rank demands each disjoint matched pair cross, 2^m assignments; rank-one only two balanced step cuts when m>=2.
 
-The 2026 graph-state circuit-block paper studies contiguous cuts rather than this complete balanced-cut law. More importantly, Facchi–Florio–Pascazio already computed numerical histograms for *exactly the same one-dimensional cluster-state balanced-bipartition observable* at finite sizes; thus neither the observable nor small-system histograms are claimed as new. Their inspected full text does not state a transfer generating function for all sizes, the two exact tail probabilities, or a central limit theorem. The earlier graph-state matching literature provides methods, not the present full distribution. Searches of mathematical records and relevant literature did not identify a dominating all-size result; such a result in unindexed work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The statistic is a mathematically and physically motivated measure of multipartite entanglement already used in primary literature. The theorem upgrades finite histograms to an exact entire probability law for every even size, separates typical extensive entropy from contiguous-cut area-law entropy, gives its fluctuation scale, and sharply quantifies two rare endpoint events. The all-size law and scaling are a substantive natural classification, not a selected arbitrary finite numerical slice. It does not purport to predict velocities for graph-state circuit dynamics.
+The 2006 Facchi–Florio–Pascazio paper covers the identical balanced cluster-state participation statistic, including n=12 histogram, so novelty does not attach to introducing or numerically measuring the observable. A full reading finds finite graphs but no exact all-length transfer/gap/CLT. Contiguous-cut circuit results of 2026 concern different sampling. The all-even-size exact law and Gaussian limit survive best-of-knowledge comparison.
 
-## Main sources and limits
+## value
 
-Rao et al., arXiv:2605.11076v1 (2026), primary graph-block motivation; Facchi, Florio, and Pascazio, DOI:10.1103/PhysRevA.74.042331 (2006), same statistic, numerical small-size histograms; Hajdušek and Murao, arXiv:1207.5877 (2012), graph-state matching background. Remaining risk: a mathematically equivalent all-size result may exist outside the inspected texts and indexed records. No independent verification is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact all-size distribution, sharp exponentially rare maximum-rank balanced partitions, and extensive Gaussian typical entanglement address a motivated statistic already studied in published path-cluster physics, and distinguish disconnected balanced cuts from one-edge contiguous area-law cuts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

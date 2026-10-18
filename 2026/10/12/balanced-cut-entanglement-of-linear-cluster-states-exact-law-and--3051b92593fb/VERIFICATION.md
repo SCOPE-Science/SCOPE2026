@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using an ordinary Python 3.9+ interpreter. The program uses only Python's standard library and prints `VERIFY_OK` when its assertions pass.
+## correctness
 
-The checker constructs all \(2^n\) membership strings for \(2\le n\le14\), forms their binary cut-adjacency matrices for the open path, and computes rank by exact bitwise Gaussian elimination. It independently constructs the four-state matching automaton law and compares the entire unconditioned count table, not merely its balanced slice. It verifies the balanced endpoint counts for all tested even sizes and the full six-entry probability numerator histogram for \(n=12\). It also tests the exact transfer characteristic-polynomial formula on an integer interpolation grid. The determinant is a polynomial of degree at most four separately in its three indeterminates, so its equality at five distinct values of each is an exact certificate of that polynomial identity. Finally it evaluates the rational logarithmic Hessian from the characteristic cubic's implicit derivatives.
+PASS
 
-The central limit theorem and all-size endpoint formula are obtained by the analytic and combinatorial proof in `RESULT.md`. Checking fourteen sites is not an infinite proof and is not presented as one. No external or independent audit has been carried out.
+Graph-state character orthogonality gives entropy bits equal to F2 rank of crossing adjacency. For crossing subgraph of a path (forest), unique matching minor proves rank equals maximum matching size. Greedy path matching recurrence s_i=1[a_i≠a_{i+1}](1-s_{i-1}) is exact and yields four-state transfer w(z)T(z,t)^(n-1)1. Independent direct F2 Gaussian elimination on all 2^n cuts for n=4,6,8,10,12 agrees with transfer histogram and endpoints; n=12 gives (2,28,152,358,320,64). Analytically verified characteristic cubic λ[λ^3-(1+z)λ²+z(1-2t)λ+tz(z+1)] and logarithmic Hessian diag(1/4,2/27) at (1,1). Complement symmetry fixes half-population saddle, strict primitive Perron modulus separation away z=1 yields conditional quasi-powers with mean n/3+O(1), var 2n/27+O(1) and CLT. Perfect rank demands each disjoint matched pair cross, 2^m assignments; rank-one only two balanced step cuts when m>=2.
+
+## originality
+
+PASS
+
+The 2006 Facchi–Florio–Pascazio paper covers the identical balanced cluster-state participation statistic, including n=12 histogram, so novelty does not attach to introducing or numerically measuring the observable. A full reading finds finite graphs but no exact all-length transfer/gap/CLT. Contiguous-cut circuit results of 2026 concern different sampling. The all-even-size exact law and Gaussian limit survive best-of-knowledge comparison.
+
+## value
+
+PASS
+
+Exact all-size distribution, sharp exponentially rare maximum-rank balanced partitions, and extensive Gaussian typical entanglement address a motivated statistic already studied in published path-cluster physics, and distinguish disconnected balanced cuts from one-edge contiguous area-law cuts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
