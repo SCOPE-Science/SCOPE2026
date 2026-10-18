@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The normalized point Gram matrix is (2l+1) times exact rational Legendre kernel values on four computed dot classes. Invariant edge-array decomposition has dimensions 1+2+3+6 and gives all eigenvalues through three scalars and a two-by-two matrix. Direct exact rational elimination agrees with low-degree ranks, and recurrence verifies strict positivity of each sector for every l=7,...,575. A self-contained Laplace integral and pi<22/7 give strict diagonal dominance for every l>=576. The l=6 nullspace is exactly the antisymmetric divergence-free edge flow, whose annihilator is characterized by the three independent triangle-cycle constraints. The attached checker was run from the actual included source path and passed; it is a finite proof component rather than an extrapolation. Rank normalizations, quantifiers, zero cases and minimum-norm formula are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khalid–Kennedy–McEwen, arXiv:1403.4661v1 §§I–III: optimal-dimensionality schemes use many iso-latitude rings and the full bandlimited harmonic space, not this single-degree twelve-node rank classification.",
+        "Bannai–Okuda–Tagami, arXiv:1308.5101v1 Theorems 1–2: existence and Fisher-type size bounds for harmonic-index designs; no universal all-degree interpolation classification on a truncated tetrahedron.",
+        "Published results on the 24-cell and dodecahedral-axis harmonics concern different node sets; their exact spectral formulas cannot be specialized to noncongruent truncated-tetrahedral nodes."
+      ],
+      "reasoning": "General addition theorems provide a method to form the matrix, not a rank theorem or a dominating uniform positivity result for these four specific rational inner products. Polyhedral instances require their own dot-product incidence and exceptional vanishing calculations, so different node orbit theorems do not imply the new claim.",
+      "searches": [
+        "web: spherical harmonic interpolation Archimedean truncated tetrahedron vertices 12 Legendre polynomials",
+        "web: spherical harmonics truncated tetrahedron sampling interpolation all degrees",
+        "web: tetrahedral harmonics representations S4 degree six truncated tetrahedron vertices interpolation",
+        "published-finding corpus: Exact interpolation ranks and spectral conditioning of spherical harmonics on the vertices of regular truncated polyhedra (Archimedean solids), all degrees; addition kernel Gram eigenvalues",
+        "published-finding corpus: truncated tetrahedron 12 oriented edges tetrahedron spherical harmonics degree 6 rank nine cycle space three constraints, all degree 7 full interpolation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1308.5101v1 (read material and page screenshot)",
+      "arxiv:1403.4661v1 (read full-text sections I–III)",
+      "Fritz 2009 thesis §3.2.2 Example 8 (read primary PDF p.38 and screenshot)",
+      "MathWorld Truncated Tetrahedron (geometry)",
+      "published-finding corpus targeted query results (title/summary/IDs only; not represented as full-paper inspections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source statements concern, respectively, scalar harmonic moment vanishing/design sizes; bandlimited latitude-ring transform; polynomial surface singularities; and distinct sampling node systems.",
+        "The new statement characterizes the image of one exact harmonic degree for all nonnegative degrees on a specific twelve-node orbit; it exhibits a degree-six three-cycle obstruction and proves strict positivity for all later degrees.",
+        "The exact kernel and conditions are computed directly in RESULT.md and verified independently by the rational checker."
+      ],
+      "reasoning": "No inspected prior statement contains the new specific rank sequence, implies its unusual drop between degrees five and six, or proves the entire tail is nonsingular. General-purpose formulas need additional geometric and nontrivial arithmetic work to instantiate; they are acknowledged as premises and not mislabelled as new. Possible implicit/uncited equivalence remains an explicit risk.",
+      "searches": [
+        "arxiv:1308.5101v1 Theorem 1 / Theorem 2 / examples / appendices",
+        "arxiv:1403.4661v1 Sections I–III / Appendix A",
+        "Fritz 2009 Platonic stars thesis Example 8 §3.2.2 and prefatory statement of aims",
+        "published-finding corpus: truncated tetrahedron 12 oriented edges tetrahedron spherical harmonics degree 6 rank nine cycle space three constraints, all degree 7 full interpolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannai–Okuda–Tagami, arXiv:1308.5101v1 §§1–4 and appendices: harmonic-index design constraints involve vanishing total harmonic moment; not the directed-edge sample image.",
+        "Fritz, 2009 thesis §3.2.2 Example 8 p.38: algebraic degree-six stars singular at the same truncated-tetrahedral nodes, a different map from fixed-degree harmonic evaluation.",
+        "The listed published-finding corpus searches produced no explicit complete rank sequence (1,3,5,7,9,11,9,12,12,...) or zero-circulation equivalence for this sampling map.",
+        "Earlier published harmonic rank results for 24-cell, dodecahedral axes and cuboctahedral configurations concern different vertex systems and sampling operators."
+      ],
+      "reasoning": "Equality of the geometry and even polynomial degree is not equivalence of statements: singularities of one algebraic polynomial do not force a three-dimensional space of annihilating harmonic data functionals. A harmonic-index design bounds only the constant data sector. Neither source supplies the ordered-edge anti-symmetric cycle sector; an equivalent formulation would need to imply exact Gram nullity and all-degree positivity.",
+      "searches": [
+        "published-finding corpus: truncated tetrahedron 12 oriented edges tetrahedron spherical harmonics degree 6 rank nine cycle space three constraints, all degree 7 full interpolation",
+        "published-finding corpus: spherical harmonic addition kernel twelve vertices 2v_i+v_j unit tetrahedron, Legendre values 7/11 -5/11 -1/11 -9/11, exceptional degree six",
+        "published-finding corpus: finite orbit of S4 directed edges harmonic interpolation degree 6 antisymmetric cycle obstruction",
+        "published-finding corpus: truncated tetrahedron 12 vertices spherical harmonic degree 6 evaluation rank Gram Legendre polynomial exceptional degrees condition number interpolation",
+        "web: \"truncated tetrahedron\" \"harmonic\" \"degree 6\" spherical",
+        "web: \"truncated tetrahedron\" \"harmonic\" \"rank\" Legendre",
+        "web: \"truncated tetrahedron\" \"7/11\" \"9/11\" harmonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fritz, 2009 thesis §3.2.2 lists all twelve unit coordinates and a degree-six singular surface equation, but gives no rank table of homogeneous spherical-harmonic evaluation.",
+        "MathWorld and the Sage polytope library tabulate the Archimedean coordinates and combinatorial parameters, not the degree-by-degree harmonic Gram ranks.",
+        "No located table stated ranks 1,3,5,7,9,11,9 and 12 thereafter for this exact orbit."
+      ],
+      "reasoning": "Coordinate catalogues are not exact harmonic Gram-rank tables. The strong intersection with Fritz is explicitly credited and its theorem is distinguished by object, normalization and quantifiers. The absence of a found table is not taken as logical proof of priority.",
+      "searches": [
+        "web: \"truncated tetrahedron\" \"degree six\" harmonics",
+        "web: \"truncated tetrahedron\" spherical harmonic \"sampling\" \"rank\"",
+        "web: \"truncated tetrahedron\" \"harmonic\" \"interpolation\" Legendre",
+        "web: \"truncated tetrahedron\" \"7/11\" \"9/11\" harmonic"
+      ]
+    },
+    "rationale": "The nearest same-object work (Fritz 2009, thesis Example 8) builds degree-six algebraic singular surfaces, not the homogeneous harmonic Gram image. Primary harmonic-index and spherical-transform papers provide general kernels or distinct sampling regimes but no fixed truncated-tetrahedron rank law. Actual targeted published-finding corpus and primary-literature searches and all documented implication comparisons found no equivalent or stronger statement. An unindexed tetrahedral-harmonic table or equivalent older representation-theoretic computation remains a real residual priority risk; non-detection is not certified novelty.",
+    "residual_risks": [
+      "An older thesis, tetrahedral representation table or unpublished computation may implicitly contain the same all-degree Gram ranks.",
+      "Published record search indexes and terminology are incomplete; published-finding corpus matches alone cannot prove worldwide priority.",
+      "Published related polyhedral harmonic sampling documents with different configurations were compared at claim level, not all retrieved full papers read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source gives general harmonic-design and constant-sum theory, not a rank or image classification for this twelve-point orbit.",
+        "evidence": [
+          "arXiv:1308.5101v1 p.1 defines harmonic-index designs as sum of degree-t harmonics vanishing",
+          "pp.2–3 present construction and Fisher bound; examples include icosahedron and E8, not truncated tetrahedron"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1308.5101 (v1 posted 2013-08-23)",
+        "material_read": "Abstract and introduction pp.1–4, Theorems 1–2, stated structure and examples in §3, and appendix/references overview; searched full parsed PDF text for truncated/tetra (no matching occurrence); visually checked p.2.",
+        "method": "Accessible arXiv full PDF text and rendered page; searched internal terms.",
+        "title": "Spherical designs of harmonic index t",
+        "trigger": "Same degree-specific Legendre addition kernel and harmonic-index design consequences."
+      },
+      {
+        "assessment": "Bandlimited transform and latitude-sampling theory, not an individual exact-degree harmonic image on truncated tetrahedral nodes.",
+        "evidence": [
+          "arXiv:1403.4661 §§I-A/I-B describes optimal L² sampling and computational stability",
+          "§III-A uses 2k+1 samples on each latitude ring and a complete bandlimited degree range"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4661 (v1 posted 2014-03-19)",
+        "material_read": "Accessible arXiv full-text §§I–III, particularly background/previous literature §I-A, harmonic basis §II-B, and ring-grid construction §III-A–C; searched for truncated/polyhedron (none).",
+        "method": "Full-text arXiv HTML rendered by web tool, in-section inspection and internal term search.",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Direct spherical harmonic sampling and invertible interpolation precedent."
+      },
+      {
+        "assessment": "Algebraic surfaces singular at polyhedral vertices and parametrized ordinary degree-six polynomial; neither harmonicity nor evaluation-map nullspace/surjectivity is asserted. Closest same-geometry work but not statement implication.",
+        "evidence": [
+          "Fritz §3.2.2 Example 8 equation (3.19) constructs polynomial with cusps at truncated-tetrahedron nodes",
+          "footnote lists all twelve coordinates with denominator sqrt(11)"
+        ],
+        "identifier_or_url": "https://homepage.univie.ac.at/herwig.hauser/Publications/diplom_fritz.pdf (2009 thesis submission)",
+        "material_read": "Title, preface statement of aim, table of contents, §3.2.2 Example 8 p.38 and footnote with complete twelve coordinates; visually inspected that full page.",
+        "method": "Accessible primary thesis PDF text plus rendered page 38; compared mathematical objects and quantifiers.",
+        "title": "Platonic stars: Construction of algebraic curves and surfaces with prescribed symmetries and singularities",
+        "trigger": "Same truncated tetrahedron coordinates and degree-six polynomials could potentially dominate degree-six claim."
+      },
+      {
+        "assessment": "Geometric background only; no claim about sampling rank.",
+        "evidence": [
+          "Truncated tetrahedron is the twelve-vertex Archimedean uniform polyhedron"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/TruncatedTetrahedron.html",
+        "material_read": "Entity description and construction/solid classification, not a harmonic sampling result.",
+        "method": "Public reference page text.",
+        "title": "Truncated Tetrahedron",
+        "trigger": "Exact uniform-polyhedron identification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "05c59eb9-9d4f-4af0-9d22-535bb23e55c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The twelve nodes form the canonical Archimedean tetrahedral truncation, rather than an arbitrary unmotivated selection. Degree six has a three-dimensional antisymmetric tetrahedral cycle-flow obstruction despite a thirteen-dimensional harmonic source, causing a nonmonotone rank reversal after degree five. This precise structural constraint and the sharp permanent full interpolation threshold of degree seven are natural stability/aliasing questions on a symmetric sampling geometry. It is a complete classification for all degrees with a reproducible finite certificate and analytic tail, not a minor numerical improvement or generic dimension count.",
+    "status": "PASS"
+  }
+}
