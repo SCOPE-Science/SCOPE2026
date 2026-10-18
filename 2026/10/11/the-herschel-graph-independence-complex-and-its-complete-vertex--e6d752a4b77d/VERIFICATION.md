@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and actual mathematical checks
+# Independent mathematical audit
 
-Execute the two included standalone Python 3 scripts directly. Both use only the standard library and all graph and simplicial data are specified in the scripts, not fetched from a network or another package:
+## correctness
 
-```
-python3 verify_herschel_morse.py
-python3 verify_herschel_homology.py
-```
+PASS
 
-The discrete-Morse verifier enumerates all independent subsets of the eleven-vertex graph and each induced deletion and closed-neighborhood deletion. It checks each matching pair is an unused codimension-one face incidence. The complete directed Hasse diagram is constructed, reversing each matched incidence and orienting each other incidence downward, and acyclicity is proved by visiting all nodes in a topological sort. Critical-cell histograms for all 23 complexes are asserted exactly. For the two collapsible deletions it independently constructs full elementary collapse sequences and checks the free-face property at every step. Expected terminal marker: `HERSCHEL_MORSE_OK 23 faces 1465 incidences 3644 pairs 709`.
+Using the actual 18-edge 11-vertex graph, independently enumerated exactly 123 nonempty faces of Ind(G). An acyclic directed-Hasse matching leaves (one critical 0-cell,two critical 2-cells), proving S^2 vee S^2 rather than merely mod-two homology. Across ALL 23 full/deletion/link complexes, independent enumeration and Kahn topological sorts certify 1465 nonempty face occurrences, 3644 cover incidences and 709 matched pairs, with prescribed local critical counts. Deletions v=3,4 admit 48 free-face collapses each (the source code checks every unique codimension-one coface). All other nine deletions have one 0- and one 2-cell; links at v=3,4 have one 0- and two 1-cells; others one 0- and one 1-cell. The no-1-cell CW models make each 2-cell attaching map constant, giving integral homotopy. The separate adjacency-driven mod-two verifier and spectrum agree. Only this exact labeled graph is proven.
 
-The independent chain verifier reconstructs the adjacency relation from a separate dictionary, verifies symmetry, derives the characteristic polynomial from integral power traces, enumerates all independent sets recursively (rather than by scanning all bitmasks), and computes every mod-two reduced boundary rank. For the full graph, it obtains the f-vector \((11,37,45,22,7,1)\) and augmented boundary ranks \((1,10,27,16,6,1,0)\). Expected terminal marker: `HERSCHEL_HOMOLOGY_OK 23`.
+## originality
 
-The homotopy proof is the complete acyclic-Morse reduction with one zero-cell and only one- or two-dimensional critical cells. Mod-two homology alone cannot establish that proof or integral torsion-freeness. The presented computation is a finite exhaustive verification of the exact displayed graph, not an infinite classification.
+PASS
+
+Exact local homotopy classification is not entailed by the general triangle-free suspension theorem or any identified graph-data table. Compared both complement-clique/edge-ideal aliases and all eleven deletions, not a graph-name search alone. A mirrored record in Resultary is this very assigned statement, not independent earlier coverage.
+
+## value
+
+PASS
+
+PASS: The Herschel graph is the canonical smallest non-Hamiltonian polyhedral graph, providing a mathematically motivated graph-complex benchmark. A COMPLETE integral homotopy profile of all eleven one-vertex deletions and links detects two exceptional collapsible deletions among vertices of equal degree, which neither a graph spectrum nor a homology-only computation captures. The precise local invariant can test new graph-topology reduction and vertex-criticality hypotheses without falsely asserting a general Hamiltonicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

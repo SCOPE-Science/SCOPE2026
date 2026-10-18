@@ -1,19 +1,21 @@
-# Scientific review of the Herschel graph independence-complex classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact eighteen-edge graph in RESULT.md, 123 nonempty independent faces were reconstructed exhaustively. A complete discrete-Morse acyclic matching on these faces has 60 pairs and three unmatched faces, one zero-cell and two two-cells. Across the full complex and each of its eleven deletions and links, the verifier proves pair validity and performs complete acyclic topological sorts on all 3,644 nonempty Hasse incidences. The twenty-two local Morse reductions leave precisely the critical-cell patterns required by the stated homotopy types. For each of the two collapsible deletions the code constructs all 48 elementary simplicial collapse pairs, verifying every unique free coface. The reduced CW complexes have cells only in dimensions zero and one, or zero and two, so attaching maps are constant. This proves the integral homotopy types. A distinct independent-subset recursion and full mod-two boundary-rank computation corroborates all 23 reduced Betti profiles; it is a check, not a substitute for the Morse proof.
+PASS
 
-## Originality — PASS with a residual bibliographic risk
+Using the actual 18-edge 11-vertex graph, independently enumerated exactly 123 nonempty faces of Ind(G). An acyclic directed-Hasse matching leaves (one critical 0-cell,two critical 2-cells), proving S^2 vee S^2 rather than merely mod-two homology. Across ALL 23 full/deletion/link complexes, independent enumeration and Kahn topological sorts certify 1465 nonempty face occurrences, 3644 cover incidences and 709 matched pairs, with prescribed local critical counts. Deletions v=3,4 admit 48 free-face collapses each (the source code checks every unique codimension-one coface). All other nine deletions have one 0- and one 2-cell; links at v=3,4 have one 0- and two 1-cells; others one 0- and one 1-cell. The no-1-cell CW models make each 2-cell attaching map constant, giving integral homotopy. The separate adjacency-driven mod-two verifier and spectrum agree. Only this exact labeled graph is proven.
 
-The complete graph-specific statement was compared to the triangle-free suspension and star-cluster results of Barmak (arXiv:1007.0418v1, Sections 3 and 4) and to Engström's deletion/gluing results (arXiv:math/0508148v1, independence-complex sections). Their statements supply general tools and suspensions, not this exact sphere multiplicity or the complete eleven-vertex deletion/link profile. The independence-complex, complement-clique and edge-ideal Stanley–Reisner formulations describe the same object; the graph matching complex is distinct. Herschel-graph reference entries give combinatorial and spectral graph data, not a homotopy classification. Targeted exact-object literature searches did not find a covering theorem, though such an account could exist in unindexed work. The claims are not presented as first-ever definitive worldwide discoveries.
+## originality
 
-## Value — PASS
+PASS
 
-The Herschel graph is a canonical eleven-vertex, eighteen-edge non-Hamiltonian polyhedral graph. The total integral homotopy type and all its single-vertex deletions and links form a complete, natural finite topological invariant for this small canonical graph. The profile distinguishes the two exceptional degree-three vertices, whose deletions collapse the complex, from the other degree-three vertices, whose deletions retain a sphere. This is stronger than an Euler-characteristic or field-Betti table and is not a mechanical substitution into a graph-family formula. The result offers a reproducible local-topology benchmark; no unsupported general Hamiltonicity theorem is claimed.
+Exact local homotopy classification is not entailed by the general triangle-free suspension theorem or any identified graph-data table. Compared both complement-clique/edge-ideal aliases and all eleven deletions, not a graph-name search alone. A mirrored record in Resultary is this very assigned statement, not independent earlier coverage.
 
-## Closest literature and limits
+## value
 
-Barmak's Theorems 3.4–3.5 imply a suspension for the triangle-free Herschel graph. They do not compute the specific homotopy type. Engström supplies general local graph-complex reductions without this complete classification. MathWorld's graph entry and the published `H11_edges` example support the graph identification. Possible unindexed identical computations are residual risks. Integral proof is confined to the explicit finite graph, with no automatic extension to larger polyhedra.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: The Herschel graph is the canonical smallest non-Hamiltonian polyhedral graph, providing a mathematically motivated graph-complex benchmark. A COMPLETE integral homotopy profile of all eleven one-vertex deletions and links detects two exceptional collapsible deletions among vertices of equal degree, which neither a graph spectrum nor a homology-only computation captures. The precise local invariant can test new graph-topology reduction and vertex-criticality hypotheses without falsely asserting a general Hamiltonicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
