@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the transient pure-birth block \(Q_T=-I+S\), analytic functional calculus gives the exact shift expansion \(R(hQ_T)=\sum c_kS^k\) with \(c_k=h^kR^{(k)}(-h)/k!\). The displayed rational formulas show \(c_0,\ldots,c_4\ge0\) on \(0\le h\le3\), while the absorbing tails \(t_1,\ldots,t_4\) are manifestly nonnegative and \(t_5=h^5p(h)/D^5\). Descartes' rule plus \(p(0)<0<p(3)\) proves a unique positive root. For \(h>3\), the transient diagonal \(c_0\) is negative. The extracted package checker returned `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual access risk. Actual semantic-database searches covered Radau IIA, Markov-chain positivity, pure-birth aliases, stability-function derivatives, six-state onset, and re-entrant positivity. The closest record is the distinct eight-state \([2/2]\) Padé/Gauss--Legendre barrier, which neither shares the stability function nor implies the present threshold. Hairer--Wanner's inspected full article gives the Radau IIA method and stability theory but no Markov positivity classification. Horváth's positivity-threshold paper is highly relevant; only its abstract/metadata were accessible, so possible specialization coverage remains a stated risk.
+PASS
 
-## Value
-PASS. Two-stage Radau IIA is a canonical L-stable stiff integrator, and pure-birth chains are a canonical positivity-sensitive Markov test. The result identifies the first state count where the method can violate stochastic nonnegativity at arbitrarily small positive steps and proves an exact re-entry threshold rather than merely exhibiting a counterexample. The comparison with the distinct eight-state Gauss--Legendre barrier shows that the phenomenon depends materially on the rational integrator rather than state count alone.
+The uncorrected RESULT.md asserted all-h row-stochasticity, a genuine contradiction: at h>3 c0=2(3-h)/(h²+4h+6)<0 and for N=6, 0<h<eta has t5<0. Correcting this single theorem sentence to row-sum-one resolves it, since Q_N 1=0 and R(0)=1. Independently reconstructing R(h(-I+S)) gives c0..c4=h^k R^(k)(-h)/k! and absorbing tails t_m=1-sum_{k<m}c_k; rational symbolic calculations verify displayed factors and witnesses t5(1/4)=-1607/18424351793 and t5(1/2)=4237/39135393. c0..c4 and t1..t4 nonnegative on [0,3]; p has one positive root by Descartes plus sign at 0 and 3; for h>3 negative diagonal precludes positivity. Covers N=2..6 and h=0, 3, eta boundaries, not stages/nonuniform rates/arbitrary Q.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact nonmonotone six-state endpoint threshold for two-stage Radau IIA was not found in inspected prior mathematical results. General Runge--Kutta positivity-threshold theory concerns uniform small-step preservation, not this nonmonotone window; related Padé/Gauss and SSP-SDIRK2 results have different rational maps and dimensions. Best-of-knowledge only; an unindexed specialization remains a genuine priority risk.
+
+## value
+
+PASS
+
+The first finite-state obstruction to small-step Markov positivity and its explicit restored interval in a natural monotone birth hierarchy is a meaningful structural boundary: it corrects the intuition that smaller time steps necessarily restore positivity for all stiffly accurate RK endpoints. The exact eta and N=6 onset are not routine substitutions into a generic threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

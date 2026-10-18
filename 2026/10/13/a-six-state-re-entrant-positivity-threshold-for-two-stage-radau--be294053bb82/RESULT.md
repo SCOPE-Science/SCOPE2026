@@ -14,7 +14,7 @@ Apply the two-stage, third-order Radau IIA method. Its stability function is
 \[
 R(z)=\frac{1+z/3}{1-2z/3+z^2/6}.
 \]
-Then the endpoint matrix \(R(hQ_N)\) is row-stochastic for every \(h\ge0\), and its exact entrywise-positivity sets are:
+Then every row of the endpoint matrix \(R(hQ_N)\) sums to one for every \(h\ge0\), and its exact entrywise-nonnegativity sets are:
 
 * for \(2\le N\le5\), exactly \(0\le h\le3\);
 * for \(N=6\), exactly
@@ -104,12 +104,12 @@ The checker validates algebra used in the proof; uniqueness of the positive root
 ## Relationship to prior work
 Hairer and Wanner describe Radau IIA as a canonical family for stiff differential equations, give the Runge--Kutta stability-function formula, and list the two-stage order-three Radau IIA stability function used here. Their treatment establishes A-stability, stiff accuracy, and damping properties, not the finite-state Markov positivity classification above.
 
-Horváth studies positivity step-size thresholds for Runge--Kutta methods on broad classes of positive initial-value problems. The accessible abstract establishes that general positivity thresholds and special invariant-set enlargements are prior topics. The full text was not available through the lawful routes checked in this run, so an equivalent specialization there remains a residual originality risk. The present statement is more specific: it gives an exact state-count boundary and re-entrant positivity window for one homogeneous Markov hierarchy.
+Horváth studies positivity step-size thresholds for Runge--Kutta methods on broad classes of positive initial-value problems. His full paper establishes general positivity step-size thresholds and special positively invariant subsets. Those thresholds require positivity uniformly across all smaller step sizes and do not give the exact nonmonotone six-state Radau window derived here. The present statement is more specific: it gives an exact state-count boundary and re-entrant positivity window for one homogeneous Markov hierarchy.
 
 The closest published semantic-database result found is the eight-state positivity barrier for the distinct fourth-order diagonal \([2/2]\) Padé / two-stage Gauss--Legendre map. That result has a different rational stability function and an eight-state onset, so it does not imply the six-state Radau IIA classification.
 
 ## Limitations
-No claim is made for arbitrary CTMC generators, nonuniform birth rates, internal-stage positivity, or higher-stage Radau IIA methods. Horváth's broad positivity literature is a genuine residual coverage risk because only metadata and abstract material were accessible here. The exact result is therefore limited to the displayed homogeneous pure-birth family.
+No claim is made for arbitrary CTMC generators, nonuniform birth rates, internal-stage positivity, or higher-stage Radau IIA methods. Horváth's broad positivity theory is relevant prior work, but its inspected results do not give this exact six-state Radau classification. An unindexed equivalent specialization remains a possible priority risk. The exact result is therefore limited to the displayed homogeneous pure-birth family.
 
 ## References
 1. E. Hairer and G. Wanner, *Stiff differential equations solved by Radau methods*, Journal of Computational and Applied Mathematics 111 (1999), 93--111, DOI: 10.1016/S0377-0427(99)00134-X.

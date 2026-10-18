@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:48:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uncorrected RESULT.md asserted all-h row-stochasticity, a genuine contradiction: at h>3 c0=2(3-h)/(h²+4h+6)<0 and for N=6, 0<h<eta has t5<0. Correcting this single theorem sentence to row-sum-one resolves it, since Q_N 1=0 and R(0)=1. Independently reconstructing R(h(-I+S)) gives c0..c4=h^k R^(k)(-h)/k! and absorbing tails t_m=1-sum_{k<m}c_k; rational symbolic calculations verify displayed factors and witnesses t5(1/4)=-1607/18424351793 and t5(1/2)=4237/39135393. c0..c4 and t1..t4 nonnegative on [0,3]; p has one positive root by Descartes plus sign at 0 and 3; for h>3 negative diagonal precludes positivity. Covers N=2..6 and h=0, 3, eta boundaries, not stages/nonuniform rates/arbitrary Q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horvath deals with general sufficient and strict positivity threshold classes, not Radau N=6 re-entry; the eight-state result uses [2/2] Padé Gauss-Legendre R, SSP result a different SDIRK map."
+        ],
+        "reasoning": "Generality of positive ODE classes is not statement domination: positivity of all smaller steps, method identity, and exact chain hierarchy differ.",
+        "searches": [
+          "Horvath 2005 DOI:10.1016/j.apnum.2004.08.026, all 16 pages",
+          "Resultary: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "Resultary: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen Radau RESULT.md 0a89745a0ebe0c3fe3ea01d3ba9bc9080b99a76f; verify.py 789b6a60d5758f01d55bfb3390146fc2c0fad0d6; repaired full RESULT.md verified against original Git blob",
+        "Horvath 2005 full 16 pages DOI:10.1016/j.apnum.2004.08.026",
+        "Hairer and Wanner 1999 DOI:10.1016/S0377-0427(99)00134-X",
+        "Resultary eight-state Padé and two-state SSP-SDIRK2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R(hQ_N) permits explicit negative t5 for arbitrarily small h yet positive again at eta; classical A-stability alone makes no matrix-entry claim; Horvath monotone thresholds do not yield this re-entry."
+        ],
+        "reasoning": "Existing stability and general positivity statements do not logically imply the specific iff windows; there is still plausible unindexed coverage.",
+        "searches": [
+          "Horvath full text DOI:10.1016/j.apnum.2004.08.026, Def.1 and §§3-4",
+          "Hairer Wanner 1999 Radau methods",
+          "Resultary eight-state Padé barrier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horvath Definition 1 defines positivity step-size threshold uniformly for every step <=H; the six-state Radau positivity set excludes small h but contains a positive intermediate interval."
+        ],
+        "reasoning": "An ordinary monotone SSP threshold cannot express the isolated nonmonotone positive window, and the exact rational method and state count were compared.",
+        "searches": [
+          "Resultary: six state Radau IIA reentrant Markov endpoint positivity pure birth chain",
+          "Horvath 2005 DOI:10.1016/j.apnum.2004.08.026, §§2-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "R(z)=(1+z/3)/(1-2z/3+z²/6) and p(h) above give eta≈0.25394656, not an identified published table entry; distinct Resultary eight-state Padé onset≈0.59664."
+        ],
+        "reasoning": "No exact eta/N=6 Radau table located in compared sources; this is a limited search observation, not proof of originality.",
+        "searches": [
+          "Resultary semantic queries: two-stage Radau IIA positivity pure birth Markov chain rational stability reentrant six state",
+          "Hairer/Wanner Radau IIA stability function 1999 DOI:10.1016/S0377-0427(99)00134-X"
+        ]
+      },
+      "rationale": "The exact nonmonotone six-state endpoint threshold for two-stage Radau IIA was not found in inspected prior mathematical results. General Runge--Kutta positivity-threshold theory concerns uniform small-step preservation, not this nonmonotone window; related Padé/Gauss and SSP-SDIRK2 results have different rational maps and dimensions. Best-of-knowledge only; an unindexed specialization remains a genuine priority risk.",
+      "residual_risks": [
+        "Best-of-knowledge absence of an indexed equivalent finite-state Radau calculation is not a priority guarantee.",
+        "The classification is only for homogeneous pure-birth Q_N and N through six, not arbitrary CTMCs or internal stages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general positivity threshold results, no exact two-stage Radau six-state re-entry theorem found",
+          "evidence": "Definition 1 page 343 imposes every step in [0,H]; Sections 3-4 examine generic positive IVPs and invariant subsets; Radau is mentioned only in contextual experiments.",
+          "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+          "material_read": "Complete 16-page published article, Def.1, Section 3 strict thresholds, Section 4 invariant sets, tables and references",
+          "method": "Authorized institutional PDF full-text extraction, pages 1-16; material read and term comparisons",
+          "title": "On the positivity step size threshold of Runge--Kutta methods",
+          "trigger": "Most plausible broad prior positivity theory"
+        },
+        {
+          "assessment": "Provides method coefficients, not specific Markov endpoint classification",
+          "evidence": "Order-three stability rational function R(z)=(1+z/3)/(1-2z/3+z²/6).",
+          "identifier_or_url": "DOI:10.1016/S0377-0427(99)00134-X",
+          "material_read": "Method and stability-function discussion including two-stage Radau IIA",
+          "method": "Accessible published article and extracted sections",
+          "title": "Stiff differential equations solved by Radau methods",
+          "trigger": "Source of stability function and numerical method"
+        },
+        {
+          "assessment": "Similar method phenomenon but cannot cover two-stage Radau specific theorem",
+          "evidence": "[2/2] Padé/Gauss fourth-order map, onset at eight states, unlike Radau two-stage order-three onset six states.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Title, scientific published synopsis, different rational map and eight-state witness",
+          "method": "Resultary published record semantic search",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Highly similar re-entrant phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first finite-state obstruction to small-step Markov positivity and its explicit restored interval in a natural monotone birth hierarchy is a meaningful structural boundary: it corrects the intuition that smaller time steps necessarily restore positivity for all stiffly accurate RK endpoints. The exact eta and N=6 onset are not routine substitutions into a generic threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For homogeneous absorbing unit-rate pure-birth chains of N states and two-stage Radau IIA, the rational update has row sums one for all h>=0; its entries are nonnegative exactly for 0<=h<=3 when 2<=N<=5 and exactly h=0 or eta<=h<=3 when N=6, eta the unique positive root of h^5+30h^4+180h^3+360h^2+180h-72. The original all-h row-stochastic assertion is corrected to row-sum-one.",
+  "limitations": [
+    "The source originally asserted row-stochasticity for all h; this false clause is replaced by the mathematically correct row-sum-one assertion.",
+    "Finite arithmetic checks do not alone establish global sign intervals; analytical polynomial proof does."
+  ],
+  "schema_version": 1
+}
