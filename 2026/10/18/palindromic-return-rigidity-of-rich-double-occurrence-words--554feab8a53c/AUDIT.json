@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Necessity follows from the cited general complete-palindromic-return characterization. The special two-occurrence constraint forces any first return to one of two exhausted-letter prefixes: nested rainbow or abab; induction yields a unique disjoint-block parse. Direct palindrome-factor counting then establishes sufficiency, and the bivariate generating function follows by an unambiguous sequence construction with exactly one crossing per abab block. Checked boundaries q=1,2 and coefficients; an independently implemented exhaustive direct palindrome and endpoint crossing test passed all 146599 canonical DOW for 1<=q<=7, without relying on finite observations as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Glen et al., Palindromic Richness, arXiv:0801.1656, Theorem 2.14 and discussion of complete returns: https://arxiv.org/abs/0801.1656",
+        "Cruz et al., Insertions Yielding Equivalent Double Occurrence Words, arXiv:1811.11739, sections 2–4: https://arxiv.org/abs/1811.11739",
+        "Rukavicka, A Unique Extension of Rich Words, arXiv:1910.00826, introduction and preliminaries: https://arxiv.org/abs/1910.00826",
+        "Glen et al. prove a general equivalent criterion for richness via complete returns, but no structural characterization specifically for two occurrences of each symbol in the inspected discussion."
+      ],
+      "reasoning": "The cited general rich-word equivalence is used explicitly only to prove (1) implies (2). It does not state that restricting complete returns to one-letter factors suffices for double-occurrence words, determine their permissible block types, or enumerate canonical interlacement profiles. Rukavicka addresses prolonging rich words; Cruz et al. address insertion equivalence of DOW. Neither examined statement subsumes the proposed detailed classification.",
+      "searches": [
+        "Combinatorics on words: rich words two occurrences of each letter, complete return to letters palindromic implies richness",
+        "Every symbol appears twice, all intervals between equal letters are palindromes, decomposition into rainbow a1 a2 ... ar ar ... a2 a1 or crossing abab blocks.",
+        "arXiv:1910.00826",
+        "arXiv:1811.11739",
+        "arXiv:0801.1656"
+      ]
+    },
+    "checked_sources": [
+      "Glen et al., Palindromic Richness, arXiv:0801.1656, Theorem 2.14 and discussion of complete returns: https://arxiv.org/abs/0801.1656",
+      "Cruz et al., Insertions Yielding Equivalent Double Occurrence Words, arXiv:1811.11739, sections 2–4: https://arxiv.org/abs/1811.11739",
+      "Rukavicka, A Unique Extension of Rich Words, arXiv:1910.00826, introduction and preliminaries: https://arxiv.org/abs/1910.00826",
+      "Burns and Muche, Counting Irreducible Double Occurrence Words, arXiv:1105.2926, definitions and count: https://arxiv.org/abs/1105.2926",
+      "OEIS A006356, coefficient list (different underlying interpretations): https://oeis.org/A006356",
+      "Published related mathematical record: binary rich closed factor maxima versus alphabet q every letter exactly twice, distinct property",
+      "Published related mathematical record: palindromic duplication coding versus factor richness and interlacement",
+      "Published related mathematical record: circular fixed-content orbits versus linear rich DOW",
+      "Published related mathematical record: palindromes in Sturmian lifts versus double occurrence words",
+      "Published related mathematical record: binary composition reconstruction versus factor-rich alphabet-doubled words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Glen et al., Palindromic Richness, arXiv:0801.1656, Theorem 2.14 and discussion of complete returns: https://arxiv.org/abs/0801.1656",
+        "Cruz et al., Insertions Yielding Equivalent Double Occurrence Words, arXiv:1811.11739, sections 2–4: https://arxiv.org/abs/1811.11739",
+        "Rukavicka, A Unique Extension of Rich Words, arXiv:1910.00826, introduction and preliminaries: https://arxiv.org/abs/1910.00826",
+        "Burns and Muche, Counting Irreducible Double Occurrence Words, arXiv:1105.2926, definitions and count: https://arxiv.org/abs/1105.2926",
+        "Claim proved from each-letter span palindromicity by a two-occurrence-specific first-letter decomposition; the cited complete-return theorem supplies only the forward direction."
+      ],
+      "reasoning": "The new assertion is an iff between maximum literal palindrome complexity and a unique concatenation of rainbow or abab blocks, with exact crossings enumerator (1-z)/(1-2z-u z²+u z³). General rich-word criteria alone do not identify those blocks, while general DOW enumerations do not constrain contiguous palindromic factors. Any result directly stating the grammar or the crossing statistic would cover the claim even under different terminology; none was identified in the actual inspected portions. This is not a proof of absolute novelty.",
+      "searches": [
+        "Finite rich words where each alphabet letter occurs exactly twice: classification by palindrome between the two occurrences, double occurrence words, crossing matching chords and counts 1 3 6 14 31 70.",
+        "Palindromic double occurrence words with all minimal complete returns a u a being palindromes, enumeration up to relabeling and generating functions.",
+        "Combinatorics on words: rich words two occurrences of each letter, complete return to letters palindromic implies richness",
+        "Every symbol appears twice, all intervals between equal letters are palindromes, decomposition into rainbow a1 a2 ... ar ar ... a2 a1 or crossing abab blocks.",
+        "Rich double occurrence word enumeration rational generating function (1-z)/(1-2z-z^2+z^3) sequence 1 1 3 6 14 31 70, only indecomposable words rainbow or abab.",
+        "Weakly rich Gauss words where all complete returns to single letters are palindromic, characterization and enumeration, interlacement graph matching and nested pairs.",
+        "arXiv:0801.1656 Theorem 2.14",
+        "arXiv:1811.11739 Theorem 4.1 and 4.3",
+        "arXiv:1910.00826 Proposition 2.1-2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Glen et al., Palindromic Richness, arXiv:0801.1656, Theorem 2.14 and discussion of complete returns: https://arxiv.org/abs/0801.1656",
+        "Burns and Muche, Counting Irreducible Double Occurrence Words, arXiv:1105.2926, definitions and count: https://arxiv.org/abs/1105.2926",
+        "Burns and Muche define palindromicity up to relabeling after reversal; rich words require literal contiguous palindromic factors. The normalized third-order counts differ: 7 vs 6."
+      ],
+      "reasoning": "The possible equivalent formulations are ordinary palindrome-complete letter returns, weakly rich Gauss/double occurrence words, and reverse-symmetric double occurrence words. The general complete-return theorem gives a necessary but not, without the new DOW argument, automatically sufficient condition. The reverse-up-to-renaming object of Burns–Muche is different: their palindromic property can hold without the maximum ordinary palindromic-factor complexity. Relevant retrieved records and primary statements did not supply the new unique-block grammar or bivariate crossing law.",
+      "searches": [
+        "Finite rich words where each alphabet letter occurs exactly twice: classification by palindrome between the two occurrences, double occurrence words, crossing matching chords and counts 1 3 6 14 31 70.",
+        "Palindromic double occurrence words with all minimal complete returns a u a being palindromes, enumeration up to relabeling and generating functions.",
+        "Every symbol appears twice, all intervals between equal letters are palindromes, decomposition into rainbow a1 a2 ... ar ar ... a2 a1 or crossing abab blocks.",
+        "Weakly rich Gauss words where all complete returns to single letters are palindromic, characterization and enumeration, interlacement graph matching and nested pairs.",
+        "arXiv:0801.1656",
+        "arXiv:1105.2926"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A006356, coefficient list (different underlying interpretations): https://oeis.org/A006356",
+        "Burns and Muche, Counting Irreducible Double Occurrence Words, arXiv:1105.2926, definitions and count: https://arxiv.org/abs/1105.2926",
+        "The univariate numerical count 1,3,6,14,31,70,... occurs in OEIS A006356 after a shift; this is acknowledged and is not independently presented as a novel integer sequence."
+      ],
+      "reasoning": "A matching one-variable numerical sequence or recurrence is not an equivalent theorem about the specified rich double-occurrence objects and the crossing statistic. The claim relies on the structurally characterized language, unique parsing and a new parameterized bivariate generating function. The DOW reverse-symmetry tables count a different class; a specialized unindexed database row for this exact language remains a risk.",
+      "searches": [
+        "Rich double occurrence word enumeration rational generating function (1-z)/(1-2z-z^2+z^3) sequence 1 1 3 6 14 31 70, only indecomposable words rainbow or abab.",
+        "OEIS A006356 (univariate coefficient sequence 1,3,6,14,31,70)",
+        "arXiv:1105.2926 Table 1"
+      ]
+    },
+    "rationale": "Inspected original rich-word complete-return theory, DOW insertion equivalences, rich-word extension theory, DOW reverse-equivalence enumeration, OEIS numerical overlap, connected research records, and older own-ledger claims. A general necessary criterion and known numeric sequence are credited, while the present structurally specified double-occurrence grammar and crossing-refined bivariate enumerator were not located or implied by examined statements. Residual unindexed special-language coverage is acknowledged.",
+    "residual_risks": [
+      "The same structural language might be described under unindexed Gauss words, weak richness, or noncrossing pair-matching terminology.",
+      "The univariate integer sequence is present in OEIS A006356; no claim of its numerical novelty is made.",
+      "Search coverage cannot establish absolute absence of a previous theorem under unrelated titles or language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The complete-return theorem directly yields necessity and is cited; no rich-DOW grammar or crossing-refinement found in inspected material.",
+        "evidence": [
+          "Glen et al., Palindromic Richness, arXiv:0801.1656, Theorem 2.14 and discussion of complete returns: https://arxiv.org/abs/0801.1656"
+        ],
+        "identifier_or_url": "arXiv:0801.1656",
+        "material_read": "Abstract, definitions and theorem 2.14 in section 2, and discussion of weak richness in section 4",
+        "method": "Read arXiv HTML text and inspected mathematical theorem statements",
+        "title": "Palindromic Richness",
+        "trigger": "Potential stronger general complete-return criterion that could subsume richness equivalence"
+      },
+      {
+        "assessment": "Establishes equivalences for insertions into DOW; does not state the palindrome-rich first-letter decomposition or refined generating function in examined sections.",
+        "evidence": [
+          "Cruz et al., Insertions Yielding Equivalent Double Occurrence Words, arXiv:1811.11739, sections 2–4: https://arxiv.org/abs/1811.11739"
+        ],
+        "identifier_or_url": "arXiv:1811.11739",
+        "material_read": "Abstract, introduction, section 2 background, theorem statements and exposition in sections 3–4",
+        "method": "Inspected primary arXiv full-text HTML and results",
+        "title": "Insertions Yielding Equivalent Double Occurrence Words",
+        "trigger": "Same combinatorial objects: doubled letters, interlacements, possible equivalence under insertion"
+      },
+      {
+        "assessment": "Discusses palindromically rich word extensions, not the twice-occurring-symbol language or its crossing enumerator. Includes primary MSC 68R15.",
+        "evidence": [
+          "Rukavicka, A Unique Extension of Rich Words, arXiv:1910.00826, introduction and preliminaries: https://arxiv.org/abs/1910.00826"
+        ],
+        "identifier_or_url": "arXiv:1910.00826",
+        "material_read": "Abstract, introductory definition of rich words, preliminary propositions 2.1–2.3, and main extension theorem",
+        "method": "Inspected primary arXiv HTML mathematical statements",
+        "title": "A Unique Extension of Rich Words",
+        "trigger": "Direct topic rich words, possible general theorem implying special classification"
+      },
+      {
+        "assessment": "Palindromic DOW refers to reverse equivalence under renaming, a different property; its third-order count differs from rich literal-palindrome count.",
+        "evidence": [
+          "Burns and Muche, Counting Irreducible Double Occurrence Words, arXiv:1105.2926, definitions and count: https://arxiv.org/abs/1105.2926"
+        ],
+        "identifier_or_url": "arXiv:1105.2926",
+        "material_read": "Introduction, definition 2.1, sections 2–3, theorem 3.1 and count tables",
+        "method": "Inspected primary arXiv paper text and compared object definitions",
+        "title": "Counting Irreducible Double Occurrence Words",
+        "trigger": "Could have classified irreducible palindromic DOW in an equivalent language"
+      },
+      {
+        "assessment": "Prior listing covers the numeric sequence in other interpretations; hence sequence novelty is explicitly disclaimed. Does not supply a crossings-refined enumeration of rich DOW.",
+        "evidence": [
+          "OEIS A006356, coefficient list (different underlying interpretations): https://oeis.org/A006356"
+        ],
+        "identifier_or_url": "https://oeis.org/A006356",
+        "material_read": "Sequence values, stated generating function and listed interpretations",
+        "method": "Inspected source sequence entry and shifted generating-series comparison",
+        "title": "OEIS sequence A006356",
+        "trigger": "Univariate count sequence coincides after index shift"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "554feab8-a53c-455e-9790-d42e0405f265",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural classification of palindrome-rich Gauss/double-occurrence words by two explicit irreducible building blocks; exact refined enumerator simultaneously tracks alphabet size and all interlacement counts, and yields the sharp noncrossing subclass and irreducible census. The result distinguishes ordinary factor-richness from weaker returns and reverse-symmetric DOW notions, structurally connecting word palindromes with matching-diagram crossing statistics. This has mathematical content beyond merely reproducing the known univariate integer sequence.",
+    "status": "PASS"
+  }
+}
