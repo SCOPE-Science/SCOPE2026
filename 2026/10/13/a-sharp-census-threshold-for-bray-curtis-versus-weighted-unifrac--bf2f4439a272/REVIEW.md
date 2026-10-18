@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct reduction of the standard normalized weighted UniFrac branch sum on the stipulated ultrametric tree gives \(U_t=(k-tc)/N\), with integers \(0\le c\le k\le N-3\). The gap of at least one between distinct Bray–Curtis ranks is stronger than the maximal phylogenetic discount whenever \(t(N-3)\le1\). Conversely the exhibited three-community construction attains the maximal discount and reverses rankings when the inequality is strict. The witness, the equality boundary, normalization, and positive-count hypotheses were checked explicitly. The standalone exact-rational computation returned `VERIFY_OK` for 10,584 direct-versus-reduced pair distances and 218,484 three-community checks. Infinite correctness rests on proof, not this finite test.
+PASS
 
-## Originality — PASS
+On a 3-tip rooted ultrametric with sister stem h and root-tip H, both count vectors have sum N with strictly positive entries. Because every root-tip length is H, normalized weighted UniFrac denominator equals 2H exactly. For delta=x-y with zero total, let k=(|delta1|+|delta2|+|delta3|)/2 and c=(|delta1|+|delta2|-|delta3|)/2, integers with 0<=c<=k<=N-3. Exact edge contributions give B=k/N, U=(k-(h/H)c)/N. If B1>B2 and U1<U2 then 1<=k-l<t(c-d)<=t(N-3), so t(N-3)>1 is necessary for arbitrary pairings. For t(N-3)>1, x=(N-2,1,1), y=(1,N-2,1), z=(2,1,N-3) realize common-reference reversal: (k,c)=(N-3,N-3) versus (N-4,0). Therefore iff t(N-3)>1, and minimum N=4+floor(1/t), with equality correctly excluded. Independent rational enumeration N=3..7 at t=1/6,2/5,3/4 reproduced exactly the shared-reference criterion via branch sums.
 
-The closest sources are Bray and Curtis (1957) for abundance overlap, Lozupone et al. (2007) for normalized weighted UniFrac, Evans and Matsen (2010/2012) for its general tree transport formula, Schmidt et al. (2016/2017) for comparison with Bray–Curtis while introducing interaction-adjusted similarity indices, Roldán Ahumada and Avendaño Garrido (2019) for small-sample UniFrac metric behavior, and Pendleton and Schmidt (2026) for four-taxon numerical comparisons. Their relevant full-text sections establish definitions, transport equivalence, alternative indices, or finite simulations, but not the necessary-and-sufficient **integer three-tip common-reference rank-reversal boundary**. The general transport identity is prior work and is not claimed as new. No exact published cutoff or dominating all-census theorem was found in scientific literature and indexed mathematical-result searches. Residual risk: a broader unindexed theorem on integral transport versus total-variation rankings could imply the present special case.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem exactly identifies when two widely used ecological beta-diversity indices can disagree on the **relative ordering** of community dissimilarities on the smallest nontrivial rooted phylogeny. A universal no-reversal zone, sharp census staircase, equality behavior, and smallest concrete shared-reference example characterize a natural finite-read design limitation. This is more informative than a numerical demonstration that phylogenetic weighting changes metric magnitudes. It is not a claim of general ecological effect size or statistically reliable ranking in real data.
+Bray–Curtis total-variation overlap and normalized weighted UniFrac are older definitions, and the phylogenetic transport interpretation is older. Their formulas do not state a universal all-integer-profile strict rank-reversal threshold. The other inspected ecology literature compares indices or simulation outcomes rather than a sharp necessity-and-sufficiency bound for fixed stem/census. The search is not an exhaustive uniqueness proof; a disguised order-equivalence result in transport-metric theory is a residual risk.
 
-## Limits
+## value
 
-Fixed three taxa with all taxa in all communities, equal finite integer censuses, a rooted ultrametric binary tree, and normalized relative-weighted UniFrac. The parameterized formula does not establish analogous thresholds for arbitrary phylogenies or missing taxa. Independent human assessment and independent audit remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies exactly the smallest all-positive fixed census that permits contradictory rankings between two widely used distances, with a sharp shared-reference witness and no statistical assumptions. The cutoff resolves a meaningful methodological question about discrete-abundance resolution rather than just computing one illustrative distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

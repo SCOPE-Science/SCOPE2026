@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:07:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a 3-tip rooted ultrametric with sister stem h and root-tip H, both count vectors have sum N with strictly positive entries. Because every root-tip length is H, normalized weighted UniFrac denominator equals 2H exactly. For delta=x-y with zero total, let k=(|delta1|+|delta2|+|delta3|)/2 and c=(|delta1|+|delta2|-|delta3|)/2, integers with 0<=c<=k<=N-3. Exact edge contributions give B=k/N, U=(k-(h/H)c)/N. If B1>B2 and U1<U2 then 1<=k-l<t(c-d)<=t(N-3), so t(N-3)>1 is necessary for arbitrary pairings. For t(N-3)>1, x=(N-2,1,1), y=(1,N-2,1), z=(2,1,N-3) realize common-reference reversal: (k,c)=(N-3,N-3) versus (N-4,0). Therefore iff t(N-3)>1, and minimum N=4+floor(1/t), with equality correctly excluded. Independent rational enumeration N=3..7 at t=1/6,2/5,3/4 reproduced exactly the shared-reference criterion via branch sums.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Phylogenetic metric comparison includes broader taxa/simulated configurations, but not a worst-case integer census theorem in inspected material."
+        ],
+        "reasoning": "A larger sample or tree does not automatically logically imply the 3-taxon sharp integer threshold.",
+        "searches": [
+          "Bray Curtis normalized weighted UniFrac three taxa ultrametric integer sample ranking reversal threshold",
+          "doi:10.1093/ismeco/ycaf250"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1128/AEM.01996-06",
+        "arXiv:1005.1699v1",
+        "doi:10.1093/ismeco/ycaf250"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bray–Curtis and UniFrac are both computable from their definitions, but published definitions alone do not prove the global minimax reversal criterion."
+        ],
+        "reasoning": "The necessary 1<=difference and shared-reference witnesses explicitly solve the new ordering extremal problem.",
+        "searches": [
+          "Bray Curtis normalized weighted UniFrac three taxa ultrametric integer sample ranking reversal threshold",
+          "doi:10.1128/AEM.01996-06"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal height turns normalized weighted UniFrac to (k-tc)/N, Bray–Curtis to k/N."
+        ],
+        "reasoning": "The known tree metric formulas are premise, but strict rank reversal iff t(N-3)>1 requires optimizing integer profiles; it is not stated by those definitions.",
+        "searches": [
+          "Bray Curtis normalized weighted UniFrac three taxa ultrametric integer sample ranking reversal threshold",
+          "doi:10.1128/AEM.01996-06",
+          "arXiv:1005.1699v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source identified containing a dominating exact table indexed by N and stem ratio t; small-sample UniFrac metric paper studies metric axioms instead."
+        ],
+        "reasoning": "The result is continuous in t with integer cutoff in N; an arbitrary small numerical table would not cover all real t, all N.",
+        "searches": [
+          "Bray Curtis normalized weighted UniFrac three taxa ultrametric integer sample ranking reversal threshold",
+          "doi:10.1177/1176934319843515"
+        ]
+      },
+      "rationale": "Bray–Curtis total-variation overlap and normalized weighted UniFrac are older definitions, and the phylogenetic transport interpretation is older. Their formulas do not state a universal all-integer-profile strict rank-reversal threshold. The other inspected ecology literature compares indices or simulation outcomes rather than a sharp necessity-and-sufficiency bound for fixed stem/census. The search is not an exhaustive uniqueness proof; a disguised order-equivalence result in transport-metric theory is a residual risk.",
+      "residual_risks": [
+        "General tree-transport equivalence may conceal a prior order-reversal criterion; Evans–Matsen full text not exhaustively re-read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_PRIOR",
+          "evidence": [
+            "Defines distance but no all-positive three-taxonomy integer-census threshold."
+          ],
+          "identifier_or_url": "doi:10.1128/AEM.01996-06",
+          "material_read": "Accessible full article sections describing weighted branch contributions and normalized denominator",
+          "method": "public PMC HTML text and relevant formula paragraphs",
+          "title": "Lozupone, Hamady, Kelley and Knight, Quantitative and Qualitative beta Diversity Measures Lead to Different Insights...",
+          "trigger": "Original normalized weighted UniFrac definition."
+        },
+        {
+          "assessment": "RISK_PARTIAL_READ",
+          "evidence": [
+            "General tree KR identity does not explicitly give the sharp integer ranking iff statement; formal full-text exclusion not claimed."
+          ],
+          "identifier_or_url": "arXiv:1005.1699v1",
+          "material_read": "Publicly available preprint abstract, citation and connection to tree KR distance; full derivation not independently inspected in this run",
+          "method": "arXiv record and cited material",
+          "title": "Evans and Matsen, The phylogenetic Kantorovich–Rubinstein metric for environmental sequence samples",
+          "trigger": "Possible reduction to tree transport and more general metric formulation."
+        },
+        {
+          "assessment": "NOT_PROVED_NONCOVERING_WHOLE",
+          "evidence": [
+            "Absolute-abundance comparison differs from this fixed normalized relative abundance theorem; inaccessible full sections remain a risk."
+          ],
+          "identifier_or_url": "doi:10.1093/ismeco/ycaf250",
+          "material_read": "Public PubMed summary/abstract addressing four-taxon simulations and alternative abundance normalization, not detailed full text",
+          "method": "PubMed record/abstract",
+          "title": "Pendleton and Schmidt, Interpreting UniFrac with absolute abundance: a conceptual and practical guide",
+          "trigger": "Recent direct multi-metric comparison paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies exactly the smallest all-positive fixed census that permits contradictory rankings between two widely used distances, with a sharp shared-reference witness and no statistical assumptions. The cutoff resolves a meaningful methodological question about discrete-abundance resolution rather than just computing one illustrative distance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1128/AEM.01996-06",
+    "arXiv:1005.1699v1",
+    "doi:10.1093/ismeco/ycaf250"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly positive counts for three taxa, same fixed census and ultrametric rooted sister tree, normalized relative-abundance weighted UniFrac. No assertion about nonultrametric, missing species, >3 taxa, or sampling variability.",
+    "Equivalent unindexed result in transport distances/order theory may exist."
+  ],
+  "residual_risks": [
+    "General tree-transport equivalence may conceal a prior order-reversal criterion; Evans–Matsen full text not exhaustively re-read."
+  ],
+  "schema_version": 1
+}
