@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses two identities established in the initiating source. First, \(T-I=-A^{-\mathsf T}B\) with \(A\in\operatorname{GL}_4(\mathbf Z)\), so the integral cokernels of \(T-I\) and \(B\) are isomorphic. Second, \(B\) has rank \(3\) and \(\operatorname{adj}(B)=D(A)pp^{\mathsf T}\) for primitive \(p\). The gcd of the \(3\times3\) minors is therefore \(D(A)\), which is exactly the torsion order of the cokernel. Exact minor calculations on all five published representatives give Smith forms \(\operatorname{diag}(1,1,22,0)\), \(\operatorname{diag}(1,1,40,0)\), \(\operatorname{diag}(1,3,18,0)\), \(\operatorname{diag}(2,2,16,0)\), and \(\operatorname{diag}(1,1,72,0)\). The bundled verifier reconstructs the matrices and checks every determinant divisor.
+## correctness
 
-## Originality
-**PASS.** The initiating full text defines the Euler degree and proves the adjugate identity, but targeted inspection found no statement involving Smith normal form, coinvariants, or the cokernel of \(T-I\). Literature searches covered the source identifier, Coxeter/Serre-action terminology, exact invariant-factor patterns, and the commutative examples. No checked source states the uniform identification \(\left|\operatorname{tors}\operatorname{coker}(T-I)ight|=D(A)\) together with all five Smith groups. A prior numerical-Euler-lattice theorem for smooth projective surfaces concerns the Euler pairing itself and its Néron--Severi discriminant group, not this rank-four Serre--Coxeter coinvariant quotient.
+PASS
 
-## Value
-**PASS.** The Euler degree is the central arithmetic invariant distinguishing the five mutation classes in the source. Identifying it as the torsion size of a natural integral coinvariant group gives that scalar a structural meaning, and the Smith forms refine it to complete finite abelian-group data. The refinement detects genuinely noncyclic torsion in the quadric and projective-three-space cases and includes the newly constructed noncommutative degree-\(72\) class.
+For every positive rank-four Euler matrix A in the five Loginov–Orlov mutation classes, A is integral upper unitriangular, B=A+A^T has rank three, and T=-A^{-T}A satisfies T-I=-A^{-T}B. Left multiplication by a unimodular matrix preserves cokernel and Smith type. The source adjugate identity adj(B)=D(A)pp^T with primitive kernel p makes the gcd of the 3x3 minors exactly D(A), hence the order of the torsion cokernel. Independently used sympy Smith normal form (not the package verifier) for all five representative matrices, obtaining (1,1,22,0),(1,1,40,0),(1,3,18,0),(2,2,16,0),(1,1,72,0); all products of nonzero factors equal D=22,40,54,64,72. General all-class conclusion is conditional on the primary source stated adjugate and classification identities, not inferred merely from five examples.
 
-## Closest literature and limitations
-The closest source is Loginov--Orlov itself: it supplies the exact integral matrices and adjugate formula but not the coinvariant interpretation or Smith groups. Older Coxeter-lattice literature may contain isolated commutative computations, so unindexed special-case overlap remains a residual risk. The claim is numerical and does not construct categorical orbit quotients or new mutation classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with a material source-access risk: Loginov–Orlov publicly classify the five degree-labeled mutation classes; the submitted claim is the integral Serre–Coxeter coinvariant interpretation and full Smith invariant factors. The numerical scalar degree of the source alone does not determine cyclic versus noncyclic torsion; for D=54 and 64 noncyclic structures were independently verified. Resultary nearest Euler pairing discriminant result concerns smooth surfaces and a different lattice quotient, not these rank-four T-I coinvariants. The primary Loginov–Orlov PDF was not accessible through arXiv/OA and authorized Oxford returned vpn_disconnected; abstract only cannot justify whole-paper noncoverage. Specific priority risk retained rather than automatic O rejection.
+
+## value
+
+PASS
+
+PASS: T-I is a natural endomorphism of the integral numerical Grothendieck lattice. Its coinvariant torsion gives an intrinsic algebraic interpretation of the Euler-degree invariant that distinguishes mutation classes, while full Smith groups supply meaningful finite-group refinements, including noncyclic patterns for quadric and projective-space cases. The result is a natural exact invariant, not a new categorical orbit theorem or mutation-class classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
