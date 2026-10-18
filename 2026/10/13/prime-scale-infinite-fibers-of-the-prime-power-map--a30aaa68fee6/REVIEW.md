@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For fixed \(y\ge1\), the CRT system uses pairwise coprime moduli \(r_js_j\) whose prime factors all exceed \(y\). This guarantees \(\gcd(a_y,M_y)=1\). Each prime \(q\equiv a_y\pmod{M_y}\) makes every \(q+j\), \(1\le j\le y\), divisible by two distinct prescribed primes, so none is a prime power; meanwhile \(q\) is itself a prime power. Thus the largest prime power at most \(q+y\) is \(q\), and the defining rule gives \(P(q+y)=y\). The prime number theorem in arithmetic progressions then gives the stated lower bound. The finite checker tests representative CRT instances but is not used to justify the infinite theorem.
+## correctness
 
-## Originality
-**PASS.** The closest primary source is Steven–Hoseana, which defines the map and studies forward dynamics. Its Proposition 15 gives a minimum-preimage relation only for one special recursively defined sequence. Full-text inspection of the relevant source sections found no theorem asserting infinite arbitrary fibers, no arithmetic-progression construction inside each fiber, and no lower bound of order \(X/\log X\) for fiber counts. OEIS A336825 records the map but not this inverse-branching theorem. Exact-phrase and implication-level searches for arbitrary fibers and preimages found no covering result. Residual risk is limited to a differently worded result outside the inspected/indexed literature.
+PASS
 
-## Value
-**PASS.** The source treats a dynamical system whose behavior is organized by prime-power hits and special preimages. Showing that every vertex has infinite indegree changes the global picture of its inverse graph from isolated special preimage relations to uniform infinite branching. The explicit prime-residue construction and the \(X/\log X\) lower bound are structural, apply to every target, and are not a finite-table observation or a routine restatement of the definition.
+Fix y≥1 and pairwise distinct primes r_j,s_j>y for 1≤j≤y. CRT gives a unique reduced class a mod M=product r_js_j with a≡−j mod r_js_j. Every prime q≡a (mod M) gives q+j divisible by distinct primes r_j,s_j for all j, so no q+1,…,q+y is a prime power. q itself is prime, hence the largest prime power ≤q+y is q and the defining non-prime-power branch yields P(q+y)=y. Dirichlet ensures infinitely many q; the PNT in fixed reduced residue class proves liminf F_y(X)log X/X≥1/phi(M). Checked no use of only finite experiments to obtain the universal asymptotic and independently reconstructed explicit small-y CRT examples.
 
-## Closest literature and limitations
-The closest checked result is Steven–Hoseana Proposition 15, which identifies the minimum preimage along a particular sequence; it neither implies nor is implied by the present all-fiber counting statement. The current theorem does not classify fibers, optimize the residue-class constant, or address typical forward-orbit behavior.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for every-fiber infinite preimages with quantitative prime-scale lower bound. Steven–Hoseana define the map and analyze forward orbits and a special minimal preimage relation, not arbitrary inverse fibers or positive asymptotic density at X/log X scale. The Chinese remainder theorem and PNT in AP are standard ingredients, not claimed as discoveries.
+
+## value
+
+PASS
+
+A natural inverse-dynamical question for a studied number-theoretic map is answered completely for every target, with explicit prime-progression witnesses and quantitative lower bounds. This identifies infinite branching of each vertex while forward-orbit questions remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

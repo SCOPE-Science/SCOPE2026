@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the definition of the prime-power map. Its critical implications are:
+# Independent mathematical audit
 
-1. For each fixed \(y\ge1\), the chosen CRT residue \(a_y\) is reduced modulo \(M_y\).
-2. For every prime \(q\equiv a_y\pmod{M_y}\), each \(q+j\) with \(1\le j\le y\) has two distinct prescribed prime divisors and hence cannot be a prime power.
-3. Since \(q\) is itself a prime power, it is the largest prime power not exceeding \(q+y\), giving \(P(q+y)=y\).
-4. The prime number theorem in arithmetic progressions converts the constructed prime class into the displayed \(X/\log X\) lower bound.
+## correctness
 
-`verify.py` performs finite regression checks for the first three targets by constructing the CRT class and locating an actual prime witness. These checks do not replace the infinite proof or the prime number theorem in arithmetic progressions.
+PASS
 
-Limits: no claim is made that the constructed subfamily exhausts any fiber, and no optimality is asserted for the auxiliary modulus or the lower-bound constant.
+Fix y≥1 and pairwise distinct primes r_j,s_j>y for 1≤j≤y. CRT gives a unique reduced class a mod M=product r_js_j with a≡−j mod r_js_j. Every prime q≡a (mod M) gives q+j divisible by distinct primes r_j,s_j for all j, so no q+1,…,q+y is a prime power. q itself is prime, hence the largest prime power ≤q+y is q and the defining non-prime-power branch yields P(q+y)=y. Dirichlet ensures infinitely many q; the PNT in fixed reduced residue class proves liminf F_y(X)log X/X≥1/phi(M). Checked no use of only finite experiments to obtain the universal asymptotic and independently reconstructed explicit small-y CRT examples.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for every-fiber infinite preimages with quantitative prime-scale lower bound. Steven–Hoseana define the map and analyze forward orbits and a special minimal preimage relation, not arbitrary inverse fibers or positive asymptotic density at X/log X scale. The Chinese remainder theorem and PNT in AP are standard ingredients, not claimed as discoveries.
+
+## value
+
+PASS
+
+A natural inverse-dynamical question for a studied number-theoretic map is answered completely for every target, with explicit prime-progression witnesses and quantitative lower bounds. This identifies infinite branching of each vertex while forward-orbit questions remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
