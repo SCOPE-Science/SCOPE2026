@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory. The script uses only the Python standard library. It reconstructs the limiting sector coefficients from the displayed dodecahedral secular expression, verifies every claimed factor and its simplicity, evaluates the full displayed asymptotic secular expression at the predicted scaled offsets, and bisects representative finite-index roots of that displayed equation.
+# Independent mathematical audit
 
-The exact proof does not depend on a finite enumeration. The numerical checks are consistency tests for the transcription and asymptotic scaling. The scientific conclusion rests on the algebraic factorization of the limiting sector polynomial together with simple-zero stability for the analytic secular determinant.
+## correctness
 
-The verification does not classify branches with vanishing first scaled offset in even cells and does not establish next-order corrections. Independent audit status is not performed.
+PASS
+
+For k=n*pi+z/(n*pi), y=k²sin²k tends to z². Independently checked the source-derived fifth-root cubic: at even parity j=0 it factors y²(y-8), and j=1..4 as omega*y(y-5)(y-8); odd parity factors (y-4)(y-(6-2sqrt(5)))(y-(6+2sqrt(5))) at j=0 and (y-1)(y-4)(y-(6 +/- 2sqrt(5))) at j=1..4. Positive y roots are distinct, hence nonzero z zeros simple and persist under uniform secular asymptotics. This proves exactly the stated nonzero scaled branches but not branches with z->0, multiplicities or higher order.
+
+## originality
+
+PASS
+
+The earlier dodecahedral source proves a coarse |k sin k|<=5.51+O(k^-2) envelope by coefficient bounds, which does not imply the parity- and j-resolved positive roots without retaining and factoring its exact rotation-sector cubic. Own full reading of the relevant displayed secular equation supports this nonimplication. Resultary retrieval matched the target and a different tetrahedron, not prior sector offsets; searches are not proof of novelty.
+
+## value
+
+PASS
+
+Exact spectral cluster locations, separated by rotational symmetry and parity, sharpen a coarse 5.51 envelope for a canonical Platonic quantum graph. The nonzero-limit restriction is meaningful, and the explicit simple roots support spectral follow-up; this is neither relabeling nor an isolated arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

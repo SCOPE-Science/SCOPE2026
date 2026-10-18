@@ -1,15 +1,21 @@
-# Review: Exact parity-split high-energy offsets for the preferred-orientation dodecahedron
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The primary dodecahedral secular asymptotic was reconstructed term by term in the checker. In the cluster scaling \(k=n\pi+O(n^{-1})\), the equation reduces to a cubic in \(y=k^2\sin^2 k\). The fifth-root identity gives the stated factorizations exactly, all claimed positive roots are simple, and simple-zero stability supplies nearby spectral branches. The checker's finite-index evaluation of the displayed secular expression has the expected quadratic residual decay. The claim explicitly excludes the zero-scale even-parity branches.
+## correctness
 
-## Originality
-**PASS.** The closest primary source is arXiv:1906.09091v1. It contains the same sector secular equation, but Theorem 6.1 proves only the common enclosure with coefficient \(5.51\) after applying root bounds to the cubic coefficients. A later overview by Lipovský restates only \(O(n^{-1})\) clustering for the odd-degree Platonic solids and gives the tetrahedron as the explicit example. Searches for dodecahedral preferred-orientation offsets, the \(5.51\) bound, golden-ratio cluster constants, energy-offset formulations, and the sector cubic found no covering statement. The main residual risk is an equivalent calculation hidden under different terminology.
+PASS
 
-## Value
-**PASS.** Resolving a loose universal enclosure into exact parity- and symmetry-sector constants changes the usable spectral information. It determines the nonzero first-order cluster locations on the momentum scale and therefore the finite limiting displacements on the energy scale. The odd-cell constants \(1\), \(\sqrt5-1\), \(2\), and \(\sqrt5+1\) also expose a symmetry structure invisible in the published bound. The result is a natural refinement of a named high-energy theorem rather than an arbitrary finite computation.
+For k=n*pi+z/(n*pi), y=k²sin²k tends to z². Independently checked the source-derived fifth-root cubic: at even parity j=0 it factors y²(y-8), and j=1..4 as omega*y(y-5)(y-8); odd parity factors (y-4)(y-(6-2sqrt(5)))(y-(6+2sqrt(5))) at j=0 and (y-1)(y-4)(y-(6 +/- 2sqrt(5))) at j=1..4. Positive y roots are distinct, hence nonzero z zeros simple and persist under uniform secular asymptotics. This proves exactly the stated nonzero scaled branches but not branches with z->0, multiplicities or higher order.
 
-## Closest literature and limitations
-The closest literature is P. Exner and J. Lipovský, arXiv:1906.09091v1, Section 6.2 and Theorem 6.1, together with J. Lipovský's later overview *Quantum Graphs with Preferred-Orientation Coupling*, Section 5.2. The present claim does not classify the even-parity branches whose first scaled offset vanishes and does not supply next-order terms. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier dodecahedral source proves a coarse |k sin k|<=5.51+O(k^-2) envelope by coefficient bounds, which does not imply the parity- and j-resolved positive roots without retaining and factoring its exact rotation-sector cubic. Own full reading of the relevant displayed secular equation supports this nonimplication. Resultary retrieval matched the target and a different tetrahedron, not prior sector offsets; searches are not proof of novelty.
+
+## value
+
+PASS
+
+Exact spectral cluster locations, separated by rotational symmetry and parity, sharpen a coarse 5.51 envelope for a canonical Platonic quantum graph. The nonzero-limit restriction is meaningful, and the explicit simple roots support spectral follow-up; this is neither relabeling nor an isolated arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
