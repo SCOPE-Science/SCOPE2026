@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Both independently implemented channels enumerate 256 source words and their sets of seven-bit outputs. The stand-alone proof_checker.cpp checks an explicit pairwise-disjoint fourteen-word witness and a linear span of eight; its graph search exhaustively eliminates every size-15 clique by a proved proper-coloring upper bound and explicit include/exclude partition. Its successful run visited 430977 recursive states. An independently coded string-incidence MILP confirms 14 but is not relied on as the proof. All quantifiers concern exactly one local two-to-one edit on binary length eight.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Zhang, arXiv:2201.10259v1, Sections II and IV: exact (t,s) channel, constant received-ball size, and general sphere-packing bound.",
+        "Schoeny--Wachter-Zeh--Gabrys--Yaakobi, arXiv:1602.06820v1, Section VII-A, Construction 5 and Theorem 7: binary (2,1) burst codes.",
+        "Exact initial profile for binary 2-substring-edit codes, public RESULT.md, repository finding cadcb4698a54: at-most-one arbitrary bounded substring edit, A_2(8)=8.",
+        "Exact binary one-deletion one-substitution codes at lengths seven and eight, public RESULT.md, repository finding 49b7ae777343: arbitrary deletion plus substitution, maximum 5 at eight."
+      ],
+      "reasoning": "Lu--Zhang gives the upper bound 16 here, not equality or the sharp bound 14. A code handling all bounded two-substring edits also handles the restricted (2,1) channel, so its maximum 8 is at most the restricted maximum; this direction cannot yield the restricted upper bound 14. The arbitrary deletion/substitution channel has another received space and also does not determine the present bound. The constructions in Schoeny et al. are valid families but do not impose this exact finite maximum.",
+      "searches": [
+        "equivalence to single deletion and adjacent substitution burst code length 8",
+        "published-finding corpus: single t deletion s insertion burst correcting codes Lu Zhang 2022 exact small n codes confusability graph",
+        "published-finding corpus: binary synchronized local edit channel length eight 14 nonlinear versus 8 linear"
+      ]
+    },
+    "checked_sources": [
+      "Lu--Zhang arXiv:2201.10259, full HTML",
+      "Schoeny et al. arXiv:1602.06820, full HTML",
+      "Three named published finite channel results, full RESULT.md",
+      "published-finding corpus semantic searches listed in the four named originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lu--Zhang, arXiv:2201.10259v1, Sections II and IV: exact (t,s) channel, constant received-ball size, and general sphere-packing bound.",
+        "Schoeny--Wachter-Zeh--Gabrys--Yaakobi, arXiv:1602.06820v1, Section VII-A, Construction 5 and Theorem 7: binary (2,1) burst codes.",
+        "Exact binary (3,1)-burst code sizes through length 8, public RESULT.md, repository finding 531630cac2ea: different removed-run length, A_(3,1)(8)=8.",
+        "Exact initial profile for binary 2-substring-edit codes, public RESULT.md, repository finding cadcb4698a54: at-most-one arbitrary bounded substring edit, A_2(8)=8.",
+        "Exact binary one-deletion one-substitution codes at lengths seven and eight, public RESULT.md, repository finding 49b7ae777343: arbitrary deletion plus substitution, maximum 5 at eight."
+      ],
+      "reasoning": "A_(3,1)(8)=8 involves disjoint six-bit received balls, not our seven-bit balls. The general Lu--Zhang inequality permits 16 and hence does not imply 14. The broader substring-edit code optimum 8 lower-bounds, rather than upper-bounds, the restricted-channel optimum. No inspected theorem dominates the sharp size-14 inequality, its witness, or the linear maximum 8.",
+      "searches": [
+        "binary (2,1)-burst correcting code length 8 exact maximum size 14 versus 16 sphere packing Lu Zhang Schoeny",
+        "binary length-eight mixed adjacent two-deletion one-insertion codes maximum 14 with clique certificate",
+        "published-finding corpus: exact binary one deletion one substitution codes at lengths seven and eight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lu--Zhang, arXiv:2201.10259v1, Sections II and IV: exact (t,s) channel, constant received-ball size, and general sphere-packing bound.",
+        "Schoeny--Wachter-Zeh--Gabrys--Yaakobi, arXiv:1602.06820v1, Section VII-A, Construction 5 and Theorem 7: binary (2,1) burst codes.",
+        "Exhaustive direct finite enumeration of adjacent-two deletion followed by local single-bit insertion in proof_checker.cpp; exact-received-set equivalence by definition."
+      ],
+      "reasoning": "The precise fixed-position two-to-one replacement is the (2,1)-burst channel and is also equivalent in error-correcting power to its (1,2) orientation as proved by Lu--Zhang. A generic one-deletion/one-substitution model is not identical: it may substitute at unrelated positions. Searches under both two-to-one and burst deletion/insertion names returned no stated size-14, length-eight nonlinear/linear classification.",
+      "searches": [
+        "binary (2,1)-burst correcting code length 8 exact maximum size 14 versus 16 sphere packing Lu Zhang Schoeny",
+        "binary length-eight mixed adjacent two-deletion one-insertion codes maximum 14 with clique certificate",
+        "two consecutive bits replaced by one bit code size 14 n=8 confusability graph independent set",
+        "published-finding corpus: binary 2 deletion 1 insertion burst channel optimal code n=5 n=6 n=7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant returned published code tables concern (3,1)-burst, bounded substring edits, or deletion plus arbitrary substitution.",
+        "Exact binary (3,1)-burst code sizes through length 8, public RESULT.md, repository finding 531630cac2ea: different removed-run length, A_(3,1)(8)=8.",
+        "Exact initial profile for binary 2-substring-edit codes, public RESULT.md, repository finding cadcb4698a54: at-most-one arbitrary bounded substring edit, A_2(8)=8.",
+        "Exact binary one-deletion one-substitution codes at lengths seven and eight, public RESULT.md, repository finding 49b7ae777343: arbitrary deletion plus substitution, maximum 5 at eight."
+      ],
+      "reasoning": "Database search results and the full source statements of the closest finite tables were compared at the level of channel semantics and quantifiers, not names. None contains the unrestricted exact size of this channel at eight, nor the simultaneously determined linear optimum. A differently indexed finite table remains possible.",
+      "searches": [
+        "binary (2,1)-burst correcting code length 8 exact maximum size 14 versus 16 sphere packing Lu Zhang Schoeny",
+        "binary length-eight mixed adjacent two-deletion one-insertion codes maximum 14 with clique certificate",
+        "published-finding corpus: binary (2,1)-burst correcting code length 8 exact maximum size 14 versus 16 sphere packing Lu Zhang Schoeny",
+        "exact finite blocklength binary (2,1) burst deletion insertion correcting code sizes optimum length 4 5 6 7 8"
+      ]
+    },
+    "rationale": "Actual searches and full-text comparison with the two primary burst-channel works and three highly relevant published finite-result packages found no covering statement. General sphere packing only gives 16, while broader channel optima cannot determine this restricted-channel 14. Statement implications rather than title coincidence were compared; residual risk of unindexed equivalent tables is expressly retained.",
+    "residual_risks": [
+      "An unindexed finite code table, thesis, or alternative channel nomenclature might contain the same length-eight optimum.",
+      "The literature record is open-ended; the searches document coverage against inspected works, not mathematical impossibility of a prior duplicate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same model and establishes constant-size balls and a general bound; does not settle the proposed sharp finite optimum or linear gap.",
+        "evidence": [
+          "Lu--Zhang, arXiv:2201.10259v1, Sections II and IV: exact (t,s) channel, constant received-ball size, and general sphere-packing bound.",
+          "https://arxiv.org/abs/2201.10259"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.10259v2",
+        "material_read": "Online full-text HTML, including model definitions, the (s,t) equivalence, Section IV received-ball counting, upper-bound theorem, and constructions.",
+        "method": "Read mathematics and compare theorem quantifiers and specializations to binary blocklength eight.",
+        "title": "t-Deletion-s-Insertion-Burst Correcting Codes",
+        "trigger": "The primary definition and known sphere-packing estimate for exactly one (2,1) burst."
+      },
+      {
+        "assessment": "Provides concrete valid constructions and general redundancy information, not a classification of all eight-bit (2,1) codes.",
+        "evidence": [
+          "Schoeny--Wachter-Zeh--Gabrys--Yaakobi, arXiv:1602.06820v1, Section VII-A, Construction 5 and Theorem 7: binary (2,1) burst codes.",
+          "https://arxiv.org/abs/1602.06820"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.06820v2",
+        "material_read": "Online full-text HTML, Section VII-A channel definition, Construction 5, Theorem 7 and associated redundancy corollary.",
+        "method": "Inspect exact-error model and whether the construction/inequality determines the maximum size at eight.",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Earlier specific (2,1)-burst construction might dominate a finite optimum."
+      },
+      {
+        "assessment": "Deletes three symbols and inserts one, whereas the present channel deletes two and inserts one; it does not imply the present exact optimum.",
+        "evidence": [
+          "Exact binary (3,1)-burst code sizes through length 8, public RESULT.md, repository finding 531630cac2ea: different removed-run length, A_(3,1)(8)=8."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+        "material_read": "Full RESULT.md, including precise channel definition, six-blocklength theorem, proof, and relationship to prior work.",
+        "method": "Compare output lengths and allowed deletions for each position.",
+        "title": "Exact binary (3,1)-burst code sizes through length 8",
+        "trigger": "Most similar previously published exact finite burst table."
+      },
+      {
+        "assessment": "Stricter decoding channel has a smaller optimum, which cannot imply the stated sharp 14 upper bound.",
+        "evidence": [
+          "Exact initial profile for binary 2-substring-edit codes, public RESULT.md, repository finding cadcb4698a54: at-most-one arbitrary bounded substring edit, A_2(8)=8."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-initial-profile-for-binary-2-substring-edit-codes--cadcb4698a54",
+        "material_read": "Full RESULT.md, including complete channel definition, length-eight code-size result, and proof.",
+        "method": "Compare received-ball containment and direction of induced code inequalities.",
+        "title": "Exact initial profile for binary 2-substring-edit codes",
+        "trigger": "A stronger correction channel could constrain the present channel."
+      },
+      {
+        "assessment": "Different and generally broader channel, optimum five at eight; does not cover current exact 14 result.",
+        "evidence": [
+          "Exact binary one-deletion one-substitution codes at lengths seven and eight, public RESULT.md, repository finding 49b7ae777343: arbitrary deletion plus substitution, maximum 5 at eight."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+        "material_read": "Full RESULT.md, including precise deletion/substitution order, n=7,8 theorem and proof.",
+        "method": "Compare arbitrary-position substitution to the local adjacent-two replacement.",
+        "title": "Exact binary one-deletion one-substitution codes at lengths seven and eight",
+        "trigger": "Potentially equivalent one-symbol loss and changed symbol."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c56f046-9b7f-4fac-a9a5-3116776afb7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The (2,1) local deletion/insertion burst is a standard motivated synchronization-error channel; blocklength eight is the first power-of-two blocklength with nontrivial deficit from the constant-ball sphere-packing capacity. The exact size fourteen, explicit nonlinear attaining code, and exact linear cap eight quantify both packing inefficiency and a substantive nonlinear advantage at a natural short-block benchmark. This is not a routine increment or arbitrary normalization: the general published inequality 16 is not tight, and the branch-and-bound certificate establishes the missing sharp boundary.",
+    "status": "PASS"
+  }
+}
