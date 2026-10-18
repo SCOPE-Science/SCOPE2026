@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the complex order-154 claim to the published square-free lifting theorem with p=11 and N'=14. The packaged exact verifier constructs GF(11^3), verifies an element of order 1330 and primitive 14th roots, covers representatives of both Frobenius orbits, and checks all 16383 nonempty principal determinants for each representative. Every zero count is zero; Frobenius preserves nonvanishing.
+## correctness
 
-## Originality
-PASS. Targeted searches for the exact order, aliases, finite-field premise, and stronger coverage found no statement of the order-154 result. The closest inspected papers prove only size-two/three cases, give a conditional lifting theorem whose explicit bound does not cover 154, or settle different orders 70 and 143. The supplied characteristic-11 order-14 premise is not stated in those sources.
+PASS
 
-The closest literature is arXiv:2409.09793, arXiv:2505.24326, and arXiv:2608.17746. The first gives low-size square-free principal-minor results and the conjecture; the second gives the conditional lifting mechanism and a sufficient-growth theorem that does not cover \(154\); the third certifies orders \(70\) and \(143\). Targeted exact-order and finite-characteristic searches found no order-
-\(154\) statement. Residual risk remains from unindexed or unpublished work and from not inspecting the full text of arXiv:2608.17746.
+The square-free lifting theorem reduces ordinary complex Fourier principal nonsingularity at 154=11·14 to characteristic-11 principal nonsingularity at 14. Independently reconstructed GF(11^3) as F11[a]/(a^3+a+4), tested the irreducible cubic and generator order 1330, selected both Frobenius orbits of primitive 14th roots (representatives 1 and 3), and independently evaluated all 16,383 nonempty principal minors in each orbit by exact finite-field elimination: 32,766/32,766 nonzero. Frobenius preserves nonzero and the published lifting theorem supplies the infinite/complex conclusion; no nonprincipal minor claim.
 
-## Value
-PASS. The result resolves a natural concrete three-prime square-free case of the published principal-nonsingularity conjecture. It supplies a complete finite certificate for the exact missing premise of a general lifting theorem, rather than an arbitrary parameter slice, and extends the recent order-specific certificate program to a distinct arithmetic configuration 2·7·11.
+## originality
 
-## Limitations
-The result is one exact square-free order, not a family theorem. It depends on a published lifting theorem and a finite exhaustive certificate. It establishes principal-minor nonvanishing only.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The conditional 2025 square-free lifting theorem and its explicit large-prime sufficient growth condition do not imply the 154 result without the new characteristic-11 order-14 certificate; Gu–Zhou–Wang instead certify orders 70 and 143. No matching order-154 certificate was found in targeted primary/Resultary checks. Priority limited to accessible sources.
+
+## value
+
+PASS
+
+An exact, irreducible finite-characteristic certificate unlocks the unsolved fixed composite Fourier order 154 under a substantive published lifting theorem; substantial finite elimination plus Frobenius orbit coverage gives a checkable instance of the square-free principal-minor problem not implied by growth bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
