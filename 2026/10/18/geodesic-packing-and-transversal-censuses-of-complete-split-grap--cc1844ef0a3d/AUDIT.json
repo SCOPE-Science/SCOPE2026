@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For r>=1, s>=2, the graph has precisely two kinds of maximal geodesic: clique edges and independent–clique–independent 2-paths. The proof counts disjoint occurrences by distinct clique centers, ordered independent pairs modulo endpoint swapping, and clique matchings; every candidate is counted exactly once. Hitting the clique edges forces all but at most one clique vertex, and hitting the remaining 2-paths forces all but at most one independent vertex, yielding every inclusion-minimal transversal. Optimization over the number of 2-paths proves the floor formula, parity alternatives and threshold. A from-definition finite checker independently verified 22 graph profiles plus 5000 arithmetic profiles; these tests supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peterin–Semanišin, DOI:10.1007/s40314-022-01834-1, Theorem 3.5 (preprint pp. 9–10) gives a general formula for the scalar geodesic transversal number of graph joins.",
+        "Manuel–Brešar–Klavžar 2022 preprint gives the general inequality gpack <= gt and tree equality, but not packing values for clique–independent joins.",
+        "mathematical research-record index ID 2026/10/4/research-entry-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578 is an edge-cover problem, not the vertex-disjoint path packing problem."
+      ],
+      "reasoning": "A stronger general theorem *does* cover the numerical gt=r and its prior ownership is explicitly recognized. It does not imply full packing counts, the structure of all minimal transversals, the optimal packing multiplicities, or the sharp non-tree equality phase. General packing inequality alone does not give equality.",
+      "searches": [
+        "Web: \"geodesic transversal problem for join and lexicographic products\" theorem clique independent",
+        "Web: \"geodesic packing\" \"join of a clique\" independent",
+        "mathematical research-record index: Geodesic path packing transversal of threshold graph split graph complete join independent domination exact enumerators or stronger classifications"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.15325v1 (first release 2022-10-27), relevant PDF v3",
+      "DOI:10.1007/s40314-022-01834-1, relevant Section 3 in primary preprint",
+      "arXiv:2101.08042v1, introductory and core sections",
+      "mathematical research-record index semantic searches for split-graph packing, geodesic transversal, exact symbolic coefficients and broader join coverage",
+      "Earlier published mathematical claims compared for implication and equivalence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2210.15325v3 Section 2 states gpack<=gt and counts gpack(K_{n,n}), while Sections 3–4 concern trees and strong products of paths.",
+        "Peterin–Semanišin Theorem 3.5 is a formula for gt of joins, implying gt=r here but not any packing enumeration or a list of all inclusion-minimal transversals.",
+        "arXiv:2101.08042v1 treats foundational geodesic transversals, NP-completeness, trees and cacti, not the claimed complete split enumeration."
+      ],
+      "reasoning": "The known join theorem is strictly weaker than the simultaneous distribution theorem (it determines one minimum, not coefficients or upper packing extremum). The known packing paper concerns unrelated families. The composite census and optimal packing classification are not logical corollaries of those stated results without the new maximal-path structural and labelled enumeration argument.",
+      "searches": [
+        "Web and full-text: Manuel Brešar Klavžar arXiv:2210.15325v3 geodesic packing in graphs, Sections 2–5",
+        "Web and full-text: Peterin Semanišin 2022 geodesic transversal join lexicographic theorem 3.5",
+        "Web and full-text: Manuel Brešar Klavžar arXiv:2101.08042v1 geodesic-transversal problem, Sections 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "mathematical research-record index returned only distinct polynomial/packing problems; closest graph-family result was all k-limited packings of complete multipartite graphs, ID 2026/10/4/research-entry-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4.",
+        "Manuel–Brešar–Klavžar, arXiv:2210.15325v3, pp. 1–5 and 8–11, defines geodesic packing and gives examples, but no split-join polynomial.",
+        "Peterin–Semanišin 2022 names the alternative term maximal shortest paths cover for geodesic transversal, without counting inclusion-minimal transversals of this join."
+      ],
+      "reasoning": "Equivalent formulations as maximal-shortest-path packings/hitting sets and join of a clique with an edgeless graph were explicitly sought. The retrieved complete-multipartite k-limited packing concerns vertex-neighborhood capacity, not disjoint maximal geodesics. No match to the coefficient formulas appeared.",
+      "searches": [
+        "mathematical research-record index: Vertex-disjoint maximal shortest paths in complete split graphs: clique-clique edges and P3 paths with independent endpoints; count all packings and inclusion minimal shortest path hitting sets.",
+        "Web: \"geodesic packing\" \"split graphs\" graph",
+        "Web: \"maximal geodesic packing\" \"complete split\" polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed mathematical research-record index finding stated the proposed packing formula or equality cutoff; leading matches concerned complete-multipartite geodetic or k-limited packing polynomials with different definitions.",
+        "Primary 2022 packing preprint gives gpack(K_{n,n})=floor(2n/3), which concerns a different family and neither determines split-join enumerator.",
+        "Verified finite coefficients for G_{2,2}: 1+3z and G_{3,4}: 1+21z+36z^2, computed from maximal path definitions."
+      ],
+      "reasoning": "Both exact symbolic parameters and graph names were queried. No known table was identified that would supply these complete polynomials. The finite values are reproducibility witnesses, not proof of uniqueness in unindexed tables.",
+      "searches": [
+        "mathematical research-record index: Complete split graph K_r join s isolated vertices, maximal geodesic packing polynomial sum binomial(r,t)*(s)_{2t}/2^t times number of matchings of K_{r-t}, and minimum transversal polynomial z^r+rs z^{r+s-2}",
+        "mathematical research-record index: Geodesic packing number gpack(K_r vee empty_s)=floor((r+min(r,floor(s/2)))/2), geodesic transversal number gt=r, equality iff s>=2r.",
+        "Web: \"geodesic packing polynomial\" graph"
+      ]
+    },
+    "rationale": "Against the accessible indexed literature and the available past claim ledger, no theorem was found covering the complete split-join geodesic packing polynomial, all minimal transversals, top-coefficient multiplicities and exact dual equality boundary. Published Peterin–Semanišin general join theorem already implies gt=r; this component is prior art, not claimed as a new scalar result. Unindexed equality or enumerator formulas remain a residual risk.",
+    "residual_risks": [
+      "An unindexed paper or exact graph-enumeration table could contain equivalent formulas or a stronger general theorem.",
+      "The 2022 general join theorem already owns the scalar transversal-number result and must be cited whenever mentioned.",
+      "Literature inspection was focused on identified relevant source sections rather than a comprehensive review of every published paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the full present census; proves inequality, scalar balanced biclique case, tree and grid statements",
+        "evidence": [
+          "Section 2, p. 4: gpack(K_{n,n})=floor(2n/3); Section 3 is trees; Section 4 is diagonal grids; p. 11 gives directions for other classes."
+        ],
+        "identifier_or_url": "arXiv:2210.15325v3; https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+        "material_read": "13-page primary PDF: abstract, definitions, Sections 2–5 and reference section; special attention to pp. 4–5 and 10–11",
+        "method": "Read searchable page text and visually inspected page 4",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Primary 2022 packing framework and the most relevant potential general coverage"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: covers scalar gt=r, but neither complete inclusion-minimal-set census nor packing polynomial or equality threshold",
+        "evidence": [
+          "Theorem 3.5, pp. 9–10, computes gt(G join H) by minimum of structural quantities; no enumeration of all minimal geodesic transversals."
+        ],
+        "identifier_or_url": "DOI:10.1007/s40314-022-01834-1; https://mp.feri.um.si/osebne/peterin/clanki/2021_iIpgs_geod_trans_JLP.pdf",
+        "material_read": "Preprint abstract and preliminary definitions, complete Section 3 on joins including Theorem 3.5 and Corollary 3.7, and Section 4 opening",
+        "method": "Read PDF page text and scrutinized join theorem and its proof",
+        "title": "Geodesic transversal problem for join and lexicographic product of graphs",
+        "trigger": "General join theorem may dominate the proposed transversal result"
+      },
+      {
+        "assessment": "NOT_COVERING the complete split graph paired enumerator; provides basic definitions and general extremal properties",
+        "evidence": [
+          "Section 3 discusses gt of complete and complete bipartite graphs and characterization gt=1, not the whole split-join minimal-transversal or packing distributions."
+        ],
+        "identifier_or_url": "arXiv:2101.08042v1; https://users.fmf.uni-lj.si/klavzar/preprints/2101.08042.pdf",
+        "material_read": "Original 18-page PDF abstract, Introduction and basic theory in Section 3; visually inspected p. 4",
+        "method": "Read relevant PDF page text and visual page",
+        "title": "The geodesic-transversal problem",
+        "trigger": "Foundational closest transversal source and alias maximal shortest path cover"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc1844ef-0a3d-46f1-a664-09260a39fca3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An established geodesic packing/transversal duality raises the concrete natural question of complete solution distributions on chordal graphs with distinct maximal path lengths. The complete split graph is a canonical non-tree family; the explicit double sum counts every packing and the second polynomial counts all minimal blocking sets. The sharp equality phase s>=2r and parity-sensitive optimal packing multiplicities refine earlier scalar transversal and universal inequality results and demonstrate different behavior within one natural two-parameter graph family.",
+    "status": "PASS"
+  }
+}
