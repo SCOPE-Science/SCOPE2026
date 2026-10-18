@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker reconstructs the nine-point poset from the cover relations stated in `RESULT.md`. It computes transitive closure and first verifies that no point is a beat point.
+# Independent mathematical audit
 
-It enumerates every order-preserving self-map by assigning source points in lower-to-upper order. At each assignment, a target value is admitted exactly when it lies above the images of every already assigned lower cover. Because preservation of all covers is equivalent to preservation of the finite transitive order, this backtracking is exhaustive. Every completed map is then independently rechecked against all ordered pairs of the transitive closure.
+## correctness
 
-For the resulting \(12{,}575\) maps, the checker constructs exact bit sets for the pointwise relation \(f\leq g\) and unions every comparable pair. It verifies component sizes \(12{,}573\), \(1\), and \(1\), checks that all nine constant maps are in the large component, and confirms that the two singleton maps are exactly the only two bijective isotone maps: the identity and the stated involution.
+PASS
 
-The final output is:
+PASS: The nine-element specialization order was reconstructed from the specified 13 cover relations; direct reconstruction of transitive closure, monotone self-maps, pointwise order, and union-find comparability components yields exactly 12,575 order-preserving self-maps and 1,235,007 oriented comparable pairs, with component sizes 12,573,1,1. The singleton maps are the identity and the unique nontrivial order automorphism sigma; all constant maps are in the large component. Stong's zigzag criterion proves these components are precisely self-homotopy classes, with monoid C2 plus an absorbing null class; dual-order reversal preserves mapping components. Independent Python code reproduced every number, not merely read a VERIFY_OK log.
 
-`VERIFY_OK maps=12575 components=12573,1,1 automorphisms=2 comparable_pairs=1235007 constants_large=9`
+## originality
 
-The computation proves only the exact finite census for this nine-point poset. The passage from components to homotopy classes uses the finite-space fence criterion in Barmak, Corollary 1.2.6, based on Stong's theory. No independent audit has been performed.
+PASS
+
+PASS (qualified): Cianci and Ottina identify and classify the nine-point weakly contractible noncontractible minimal space, but not its complete endomorphism mapping poset or self-homotopy monoid. Barmak/Stong supply only the general pointwise-comparability criterion. A separate published circle-valued mapping-space calculation studies Map(R,C) with 172 maps, NOT the 12,575-point Map(R,R), and later P(9) suspension examples differ. Rival 1976 uses the same underlying poset and was not accessible in full; priority under fixed-point/endomorphism terminology remains a documented risk.
+
+## value
+
+PASS
+
+PASS: The minimal noncontractible yet weakly contractible finite T0 model is a central natural test object. Its full self-homotopy monoid distinguishes two rigid automorphism classes from one enormous null class and supplies a precise invariant not determined merely by weak contractibility or Stong's abstract criterion. This is a natural complete finite classification with structural meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
