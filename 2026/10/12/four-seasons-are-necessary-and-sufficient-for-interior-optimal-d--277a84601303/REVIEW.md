@@ -1,11 +1,21 @@
-# Scientific review: endpoint-optimal dispersal through three phases
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies a two-patch, equal-redistribution, fixed-dispersal, positive-fitness model; similarity to a symmetric/antisymmetric basis yields explicit characteristic polynomials for two and three fitness phases. Comparing each polynomial at the larger endpoint radius establishes a rigorous global maximum at an endpoint. A separate column-stochastic bound covers one phase. A four-phase exact positive-integer witness has Perron root strictly above both endpoints, and compactness supplies an interior maximizer. An extracted Python exact-rational checker confirms 750 algebraic endpoint tests and the complete witness certificate; the universal step is analytical rather than inferred from sampling.
+## correctness
 
-**Originality — PASS, qualified by residual risks.** Kirkland, Li and Schreiber (2006) prove stationary-fitness dispersal reduction, covered here only as the nonnovel one-phase case. Schreiber (2010) examines stochastic metapopulation growth and intermediate dispersal in a multi-patch model. Schreiber and Li (2010) treat evolutionary dispersal in periodic landscapes, emphasizing analytic period-two patterns under distinct equilibrium hypotheses. The inspected primary results do not state or entail this all-fitness-period-3 endpoint theorem or the minimal 4-phase counterexample. An equivalent theorem under a different spectral-matrix parametrization cannot be excluded merely by search.
+PASS
 
-**Value — PASS.** The exact number of temporal fitness phases required for an interior-best dispersal policy is a natural qualitative invariant of patch-mixing population dynamics. The sharp four-phase transition distinguishes structural complexity from numerical magnitude and supplies a concrete benchmark for seasonal population-growth models.
+For strictly positive a_t,b_t, the two-mode similarity transform reduces M(d)F_t to N(x)B_t with x=1-d in [0,1], r_t=(a_t-b_t)/(a_t+b_t) in (-1,1). For k=2,3 exact trace and determinant formulas T_2=1+2s x+x²,D_2=q x²; T_3=1+s(x+x²)+x³,D_3=q x³ prove the endpoint domination by splitting at L=max(prod(1+r_t),prod(1-r_t)) above/below 1 and checking chi_x(1) or chi_x(L) nonnegative. The smaller eigenvalue is <=1, permitting Perron-root inference; k=1 follows from stochastic-column norm. Independent exact-rational multiplication reproduces k=4,d=24/25 matrix, trace 12320244/390625, determinant 36/78125 and characteristic value -1959399/1562500 at 63/2; endpoints give 30 and 63/2, so continuity forces an interior maximum. All unrestricted k<=3 inequalities are analytic, not extrapolations.
 
-**Scientific limits.** Results are deterministic, linear, limited to two patches, positive seasonal fecundities, equal dispersal redistribution and a time-independent unconditional migration fraction. They do not claim uniqueness of a particular interior optimizer, stochastic persistence, empirical ecological predictions, or extensions to more patches. The most important originality uncertainty is historically published but differently indexed spectral-growth work; no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: primary stationary dispersal and stochastic persistence papers and the closest Schreiber–Li periodic evolutionary work discuss dispersal advantages and evolutionary equilibria but do not state a universal two-patch all-positive-fitness endpoint theorem for periods 1–3 with an exact four-phase obstruction. This independent spectral optimization threshold is more specific than generic period-two invasion analyses.
+
+## value
+
+PASS
+
+Determining the first temporal complexity at which a fixed intermediate dispersal strategy beats both complete retention and complete mixing is a natural mathematical cutoff for patch-growth optimization. Universal positivity over every sequence through three seasons plus a strict exact four-season witness establishes a structural boundary, not merely an arbitrary parameter slice. The theorem distinguishes deterministic two-patch spectral fitness optimization from stochastic/evolutionary-policy objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

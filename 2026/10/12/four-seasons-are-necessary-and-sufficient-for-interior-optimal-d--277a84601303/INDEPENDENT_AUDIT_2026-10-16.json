@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 4f42581b0bc0a1f8467d62a58dcb38a6386e602d",
+        "Read verify_mixing.py blob 0ed733091d1105b454b34eda4167048245527e69",
+        "Independent rational computation: chi_31.5=-1959399/1562500"
+      ],
+      "rationale": "For strictly positive a_t,b_t, the two-mode similarity transform reduces M(d)F_t to N(x)B_t with x=1-d in [0,1], r_t=(a_t-b_t)/(a_t+b_t) in (-1,1). For k=2,3 exact trace and determinant formulas T_2=1+2s x+x²,D_2=q x²; T_3=1+s(x+x²)+x³,D_3=q x³ prove the endpoint domination by splitting at L=max(prod(1+r_t),prod(1-r_t)) above/below 1 and checking chi_x(1) or chi_x(L) nonnegative. The smaller eigenvalue is <=1, permitting Perron-root inference; k=1 follows from stochastic-column norm. Independent exact-rational multiplication reproduces k=4,d=24/25 matrix, trace 12320244/390625, determinant 36/78125 and characteristic value -1959399/1562500 at 63/2; endpoints give 30 and 63/2, so continuity forces an interior maximum. All unrestricted k<=3 inequalities are analytic, not extrapolations.",
+      "residual_risks": [
+        "Does not claim optimizer uniqueness, extension to asymmetric mixing, stochasticity or more than two patches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirkland–Li–Schreiber stationary fitness reduction is k=1-type data, not a varying 3-phase product. Schreiber–Li 2011 focuses on ESS/ESC and a two-valued temporal regime, not max over d for arbitrary 3-phase positive matrices."
+        ],
+        "reasoning": "Even where the model family overlaps, statements about evolutionary stability or special periods do not mathematically dominate this sharp spectral product inequality.",
+        "searches": [
+          "DOI:10.1137/050628933 Kirkland Li Schreiber dispersal patchy landscapes",
+          "DOI:10.1080/17513758.2010.525667 periodic unconditional dispersal Schreiber Li",
+          "DOI:10.1098/rspb.2009.2006 Schreiber partial mixing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1007.5267",
+        "DOI:10.1080/17513758.2010.525667",
+        "DOI:10.1137/050628933",
+        "DOI:10.1098/rspb.2009.2006",
+        "Resultary semantic spectral periodic mixing query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary fitness monotonicity is special k1; a periodic ESS existence theorem does not optimize rho(P_k(d)) over the full fixed policy range."
+        ],
+        "reasoning": "The k3 endpoint theorem and k4 strict counterexample require new sign comparisons of characteristic polynomials, not directly implied by stationary monotonicity or local invasion properties.",
+        "searches": [
+          "Schreiber Li 2011 Section analytical results for periodic two-valued fitness",
+          "Kirkland Li Schreiber 2006 slower disperser advantage time independent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schreiber–Li 2011 analyzes unconditional dispersal in periodic environments, with ESS/ESC driven by spatial-temporal heterogeneity."
+        ],
+        "reasoning": "The equivalent matrix form is max_x rho(N(x)B_k...N(x)B1); no retrieved exact k<=3 universal endpoint theorem or minimal k4 witness was matched.",
+        "searches": [
+          "Resultary semantic two patch periodic dispersal spectral radius intermediate optimal four seasons",
+          "two by two positive stochastic matrix product optimal mixing period 3 period 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An explicit exact-rational witness at d=24/25 was checked against the actual submitted matrix; no prior exact witness table among relevant searched sources was found."
+        ],
+        "reasoning": "The invariant is an infinite-family sharp minimal period, not an existing numerical census. An earlier witness for k4 would not alone establish no k<=3.",
+        "searches": [
+          "four seasons intermediate optimal dispersal exact (1,2) (1,3) (5,1) (6,1)",
+          "period four fitness equal patch mixing spectral radius extremum"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary stationary dispersal and stochastic persistence papers and the closest Schreiber–Li periodic evolutionary work discuss dispersal advantages and evolutionary equilibria but do not state a universal two-patch all-positive-fitness endpoint theorem for periods 1–3 with an exact four-phase obstruction. This independent spectral optimization threshold is more specific than generic period-two invasion analyses.",
+      "residual_risks": [
+        "Full Schreiber–Li manuscript text was not exhaustively checked after an attempted lawful PDF route was unavailable; the accessible material does not cover the result, but differently indexed matrix-product literature may.",
+        "Other dispersal/matrix conventions may use migration probability d/2 and state the same theorem under a different parameter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_MATCH_FOUND_WITH_RESIDUAL_RISK",
+          "evidence": [
+            "Treats selection for dispersal and stability of strategies, not the global sharp k<=3 versus 4 spectral-growth bound."
+          ],
+          "identifier_or_url": "arXiv:1007.5267 / DOI:10.1080/17513758.2010.525667",
+          "material_read": "Accessible journal HTML abstract, introduction and primary highlighted conclusions on two-valued periodic fitness and ESS/ESC; the complete PDF route failed, so not claiming negative result for every appendix",
+          "method": "Read available full-article HTML passages and compared mathematical objectives",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Most relevant periodic dispersal study"
+        },
+        {
+          "assessment": "STATIC_CASE_ONLY",
+          "evidence": [
+            "Fitnesses do not cycle through arbitrary independent seasons."
+          ],
+          "identifier_or_url": "DOI:10.1137/050628933",
+          "material_read": "Abstract and stated time-independent monotonicity formulation",
+          "method": "Read accessible abstract and theorem summary",
+          "title": "On the evolution of dispersal in patchy landscapes",
+          "trigger": "Stationary-fitness matrix-theoretic predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Stochastic persistence and multi-patch examples do not fix two-patch deterministic k-phase sharp cutoff."
+          ],
+          "identifier_or_url": "DOI:10.1098/rspb.2009.2006 / PMC2871869",
+          "material_read": "Accessible abstract and model discussion of stochastic multi-patch settings",
+          "method": "Read article summary and relevant mathematical aim",
+          "title": "Interactive effects of temporal correlations, spatial heterogeneity and dispersal on population persistence",
+          "trigger": "Potential partial mixing growth advantage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kirkland Li Schreiber stationary dispersal",
+        "Schreiber Li 2011 periodic dispersal"
+      ],
+      "rationale": "Determining the first temporal complexity at which a fixed intermediate dispersal strategy beats both complete retention and complete mixing is a natural mathematical cutoff for patch-growth optimization. Universal positivity over every sequence through three seasons plus a strict exact four-season witness establishes a structural boundary, not merely an arbitrary parameter slice. The theorem distinguishes deterministic two-patch spectral fitness optimization from stochastic/evolutionary-policy objectives.",
+      "residual_risks": [
+        "No inference to nonlinear ecology, stochastic growth or empirical species responses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive two-patch deterministic seasonal fitness; symmetric mixing; one constant d across phases.",
+    "Literature alias risk for positive matrix products.",
+    "Privacy-blocked public metadata."
+  ],
+  "schema_version": 1
+}
