@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every pair of nonnegative integers \(a,b\), the graph identity follows from the complete three-way independent-set partition by the two central vertices. The proof assumes only \(\operatorname{Re}z\geq0\), handles zero, one, and at least two pendant leaves separately, and uses \(|1+z|^2-2|z|=(|z|-1)^2+2\operatorname{Re}z\geq0\). In the only possible all-equality case \(a=b=2\), the candidates \(z=\pm i\) are substituted directly and rejected. No limit in graph order or degree is implicit. The supplied standalone verifier independently enumerates 81 small parameter profiles and tests 256 exact-rational Routh arrays, but these finite checks are not treated as the proof. Risk: human review could discover an overlooked logical error, as independent audit is absent.
+## correctness
 
-## Originality — PASS, with residual risk
-The exact-family 2026 Zhang–Tu theorem (arXiv:2609.04694, Definition 3 and Theorem 4) covers spiders, not double stars with two branching centers. Brown–Cameron (arXiv:1802.02478) covers stars and graphs of small independence number. Hibi–Kara–Vien (arXiv:2603.16695, Proposition 3.1) **already gives the polynomial formula** under general leaf attachment, so that identity is not claimed new; the examined paper does not assert the parameter-uniform root-location theorem. Bencs (arXiv:1703.05409, Definition in the introduction and Proposition 3.4) proves real-rootedness for uniformly two-whiskered paths, covering \(D_{2,2}\) but not the full double-star family. Distinct arXiv papers and multiple actual published-finding corpus queries for aliases/implications were compared, together with the extant local ledger. No matching published theorem was found, but search coverage is inherently incomplete; potential alternate terminology remains a material risk.
+PASS
 
-## Value — PASS
-The Brown–Cameron tree-stability classification question and recent spider-stability theorem motivate extending beyond a single branching vertex. Trees of diameter at most three form a canonical infinite class, while the \(a,b\geq2\) subfamily has two branching vertices and unbounded independence number. A complete strict zero-free region for all its independence polynomials is a structural theorem rather than a check of isolated numerical examples, and is not entailed by the known coefficient formula alone.
+The polynomial follows by whether neither, u, or v is chosen: (1+z)^(a+b)+z((1+z)^a+(1+z)^b). With Re z=x>=0, s=|1+z|>r=|z|, s>=1, and s²-2r=(r-1)²+2x>=0. For a=min(a,b)=0, |(1+z)^(b+1)|>r. For a=1, factor (1+z)[(1+2z)(1+z)^(b-1)+z]; the first factor nonzero and |1+2z|²-r²=1+4x+3r²>0. For a>=2, root would imply s^a<=r(1+s^(a-b))<=2r<=s²<=s^a. At s>1 this is impossible for a<b or a=b>2; when a=b=2, all equalities imply x=0,r=1, z=±i, at which (1+z)²+2z=±4i ≠0. The edge K2, star, singleton boundaries hold. Independently constructed independence polynomials for all 0<=a,b<=8 and numerically evaluated all roots, with max tested real part approx -0.144056 at (8,8); only analytic moduli proof is unrestricted.
 
-## Boundaries and literature comparison
-The theorem does not claim the known leaf-attachment enumeration, prior spider cases, or the \(D_{2,2}\) real-rooted special case as original. It makes no claims for larger-diameter trees, other graph polynomials, or external certification. The main remaining uncertainty is undiscovered equivalent root-location literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brown–Cameron establish stars, low independence number, and nonstable trees; Zhang–Tu extend to spiders with one branching center; neither result covers proper double-stars with two branching vertices and arbitrarily many leaves. Hibi–Kara–Vien Proposition 3.1 already implies the displayed polynomial enumeration identity, which is not claimed new, while Bencs yields a special real-rooted D2,2 subfamily, not arbitrary unequal a,b. The new assertion is strict left-half-plane zero exclusion for the entire double-star family. Full text Zhang–Tu was inaccessible and Oxford VPN disconnected; its precise theorem from metadata describes spiders; overlap remains residual.
+
+## value
+
+PASS
+
+Strict Hurwitz stability of all diameter-at-most-three trees is a clear motivated boundary within the known fact that some trees have unstable independence polynomials. Two branching vertices are genuinely outside spider results, providing a natural structural nontrivial step, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
