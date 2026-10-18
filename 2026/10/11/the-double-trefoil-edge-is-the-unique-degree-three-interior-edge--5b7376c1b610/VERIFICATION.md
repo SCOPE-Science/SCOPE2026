@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` using a standard Python 3 interpreter. The script reconstructs the published sphere and ball from the compact Table 6 tetrahedron notation, checks the exact boundary triangle list, computes all edge incidences, and verifies the claimed unique degree-three interior edge and full degree histogram.
+# Independent mathematical audit
 
-The computation is exhaustive over all edges of the fixed finite complex. It does not infer a universal theorem about other triangulations or other knotted spanning edges. The statement that degree three is the minimum possible for an interior edge uses the standard manifold-link fact that the link is a simplicial circle.
+## correctness
+
+PASS
+
+Reconstructed 92 source S16,92 facets from published compact Table6 notation; removing vertex1 star leaves 66 tetrahedra on vertices2..16. Fresh full incidence reconstruction confirms f=(15,93,145,66), 26 boundary triangles and39 boundary edges (so54 interior edges), histogram degree3:1,4:14,5:21,6:13,7:5, unique degree-3 interior edge (2,3), incident tetrahedra (2,3,4,13),(2,3,4,15),(2,3,13,15), link triangle 4-13-15. The lower bound degree≥3 for an interior edge is exact since its link is a triangulated circle. The attribution that (2,3) is double-trefoil spanning edge rests on Benedetti–Lutz source theorem, not an independent knot diagram calculation.
+
+## originality
+
+PASS
+
+The Benedetti–Lutz source supplies full facets and identifies the knotted edge, not the claimed local degree spectrum. Determining that THIS double-trefoil spanning edge uniquely realizes the smallest possible interior-edge degree is a new, motivated exact structural feature of this famous triangulation; it does not follow from the knot theorem alone.
+
+## value
+
+PASS
+
+The 15-vertex noncollapsible Benedetti–Lutz ball is a canonical minimal-size knotted obstruction. The precise surprising coexistence of a globally nontrivial double-trefoil spanning edge and uniquely smallest possible local 3-simplex edge link is a motivated sharp local/global structural witness, useful in assessing whether incidence degree signals knot/collapse obstructions; it is not promoted to a universal theorem or mere reprinting of a known degree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

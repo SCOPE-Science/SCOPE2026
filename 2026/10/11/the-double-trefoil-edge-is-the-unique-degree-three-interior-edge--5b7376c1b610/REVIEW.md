@@ -1,19 +1,21 @@
-# Review: The double-trefoil edge is the unique degree-three interior edge of \(B_{15,66}\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is exhaustive on the published complex. The checker reconstructs all \(92\) tetrahedra of \(S_{16,92}\), obtains the \(66\)-tetrahedron ball by deleting the star of vertex \(1\), reproduces the source's \(26\) boundary triangles, and derives all \(54\) interior edges. Direct tetrahedron-incidence counting yields the degree histogram \(3:1,4:14,5:21,6:13,7:5\). The unique degree-three edge is \(\{2,3\}\), whose link is the triangle on \(4,13,15\). Since an interior edge link is a simplicial circle, degree \(3\) is the absolute local minimum.
+## correctness
 
-Risk: correctness depends on the source facet table being transcribed faithfully. The checker mitigates this by parsing the compact notation and by reproducing independently the source's printed boundary-triangle list and face counts before evaluating the new invariant.
+PASS
 
-## Originality
-**PASS.** The exact primary source proves that \(\{2,3\}\) is the double-trefoil spanning edge and provides the complete facets and boundary. It does not state its degree, compare it against all other interior edges, or give the interior-edge degree distribution. Focused exact-object and equivalent link/degree searches in the published-finding index found no covering result; the closest indexed item concerns the different ball \(B_{12,38}\) and a deletion-homology invariant. General knotted-spanning-edge results constrain collapsibility rather than local incidence degree.
+Reconstructed 92 source S16,92 facets from published compact Table6 notation; removing vertex1 star leaves 66 tetrahedra on vertices2..16. Fresh full incidence reconstruction confirms f=(15,93,145,66), 26 boundary triangles and39 boundary edges (so54 interior edges), histogram degree3:1,4:14,5:21,6:13,7:5, unique degree-3 interior edge (2,3), incident tetrahedra (2,3,4,13),(2,3,4,15),(2,3,13,15), link triangle 4-13-15. The lower bound degree≥3 for an interior edge is exact since its link is a triangulated circle. The attribution that (2,3) is double-trefoil spanning edge rests on Benedetti–Lutz source theorem, not an independent knot diagram calculation.
 
-Residual risk: because the computation is a short finite consequence of a published table, an unindexed observation could exist.
+## originality
 
-## Value
-**PASS.** The distinguished edge is the mechanism behind the ball's non-collapsibility, so its local degree is mathematically motivated. The result shows that the double-trefoil obstruction is carried by the unique locally minimal interior edge, making explicit that global knot complexity need not require local incidence complexity. The full degree distribution certifies uniqueness and supplies the natural local comparison class.
+PASS
 
-## Closest literature and limitations
-Benedetti--Lutz is the decisive exact-object source: it covers the ball, knot, facet table, boundary, and non-collapsibility, but not the local-degree statement. Broader discrete-Morse and knotted-spanning-edge literature does not dominate the incidence claim. The theorem is specific to this labeled triangulation and is not asserted to persist under bistellar moves or subdivisions.
+The Benedetti–Lutz source supplies full facets and identifies the knotted edge, not the claimed local degree spectrum. Determining that THIS double-trefoil spanning edge uniquely realizes the smallest possible interior-edge degree is a new, motivated exact structural feature of this famous triangulation; it does not follow from the knot theorem alone.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The 15-vertex noncollapsible Benedetti–Lutz ball is a canonical minimal-size knotted obstruction. The precise surprising coexistence of a globally nontrivial double-trefoil spanning edge and uniquely smallest possible local 3-simplex edge link is a motivated sharp local/global structural witness, useful in assessing whether incidence degree signals knot/collapse obstructions; it is not promoted to a universal theorem or mere reprinting of a known degree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
