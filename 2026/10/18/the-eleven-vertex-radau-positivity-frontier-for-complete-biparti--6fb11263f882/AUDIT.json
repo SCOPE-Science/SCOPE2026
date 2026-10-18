@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(p,q\\ge1\\) and every real \\(h\\ge0\\), orthogonal Laplacian projectors give five rational entry classes. Three off-diagonal classes factor as strictly positive expressions at \\(h>0\\). \\(F(x)=2(3-x)/(x^2+4x+6)\\) has global minimum \\((5-3\\sqrt3)/2\\), and the projector diagonal bound is strictly positive through \\(N=11\\). For every \\(N\\ge12\\) the explicit choice \\(h=8/\\max(p,q)\\) makes a diagonal in the smaller part negative by the exact identity delta=-5/51+C(w)/N and \\(20/17-C(w)=4(32w^2+40w+53)/[51(32w^2+80w+51)]>0\\). Continuity and T_h -> all-ones/N prove small-step and large-step recovery. The actual packaged verify.py independently passed 7 symbolic identities and 228 exact-rational full matrix comparisons. Finite checks are supplemental, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bolley–Crouzeix, RAIRO 12 (1978), Lemmas 1–2 and Theorem 1, concerns all positive semigroup generators and therefore does not yield the graph-restricted cutoff.",
+        "Hairer and Wanner, JCAM 111 (1999), Sec. 3, derive the Radau stability function without entrywise graph positivity classification.",
+        "Horváth (2005), Thm. 8, establishes sharp general Runge–Kutta positivity thresholds against broad IVP test classes, not a positive-for-all-steps theorem for a restricted finite graph class.",
+        "Earlier star-only result addresses \\(K_{1,m}\\); its quantifiers omit all \\(p,q\\ge2\\)."
+      ],
+      "reasoning": "Compared whether general step-size criteria or a proper graph subfamily logically imply the exact complete-bipartite iff theorem. General no-go results have different quantifiers; prior star-only does not dominate graphs with both parts larger than 1.",
+      "searches": [
+        "For every complete bipartite K_{p,q}, two-stage Radau IIA order 3 positivity for all step sizes precisely p+q<=11; at h=8/max(p,q) negative diagonal when order>=12",
+        "sharp eleven-state positivity boundary for third-order Radau IIA completed steps complete bipartite Markov diffusion: 12-node reentrant recovery",
+        "Radau IIA endpoint positive rational function Laplacian of K_{a,b}; matrix nonnegative for any timestep iff graph size at most 11",
+        "strong stability preservation Padé Runge Kutta on graph Laplacians positivity cutoff torus finite",
+        "Bolley Crouzeix 1978 conservation de la positivité rational time discretization positive semigroups"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.apnum.2004.08.026",
+      "doi:10.1016/S0377-0427(99)00134-X",
+      "https://www.numdam.org/article/M2AN_1978__12_3_237_0.pdf",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier mathematical result identifies a star-only Radau cutoff and detailed positive-timestep intervals, not the all-partition \\(K_{p,q}\\) theorem; its upper cutoff cannot imply balanced \\(K_{6,6}\\).",
+        "An earlier mathematical result analyzes even-stage Gauss/diagonal Padé positivity over complete multipartite graphs; different rational method.",
+        "An earlier mathematical result treats two-stage Gauss on two-row rook graphs, neither same graph nor same method.",
+        "Bolley–Crouzeix classwise no-go applies to all Metzler generators and therefore does not logically exclude unconditional positivity of a narrow graph subclass."
+      ],
+      "reasoning": "Prior star-only interval result proves only a restriction p=1 and cannot force outcomes for balanced p=q=6. General resolvent or scalar stability functions calculate matrix entries when combined with fresh spectral arguments but do not state or immediately imply the sharp cutoff. Even-stage Gauss/Crank–Nicolson stability regions are different rational functions.",
+      "searches": [
+        "For every complete bipartite K_{p,q}, two-stage Radau IIA order 3 positivity for all step sizes precisely p+q<=11; at h=8/max(p,q) negative diagonal when order>=12",
+        "sharp eleven-state positivity boundary for third-order Radau IIA completed steps complete bipartite Markov diffusion: 12-node reentrant recovery",
+        "Radau IIA endpoint positive rational function Laplacian of K_{a,b}; matrix nonnegative for any timestep iff graph size at most 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab analyzes fourth-order [2/2] Gauss/Padé positivity for a pure-birth Markov chain, not two-stage third-order Radau IIA on \\(K_{p,q}\\).",
+        "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 studies SSP-SDIRK2(2) and pure-birth chains, not third-order Radau IIA.",
+        "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a supplies the Crank–Nicolson resolvent-return criterion for reversible generators; this is not a consequence for Radau IIA.",
+        "Horváth, Applied Numerical Mathematics 53 (2005), pp. 341–356, describes positivity for generic initial value problems and linear tests; no complete-bipartite all-order characterization is stated in inspected material."
+      ],
+      "reasoning": "Compared aliases Radau IIA, [1/2] Padé, 3rd-order L-stable collocation, completed-step Markov positivity, bipartite graph Laplacians, and two-stage methods. None of the retrieved claims is equivalent.",
+      "searches": [
+        "Radau IIA third order complete bipartite graph K_m,m endpoint positivity unconditional timestep two intervals m=6",
+        "Radau IIA Padé 1/2 rational diffusion finite Markov chain complete bipartite twelve vertices reentrant positivity",
+        "matrix positivity Radau IIA complete multipartite graph stochastic rational functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact complete-bipartite third-order Radau table or statement among the inspected highest ranked candidates.",
+        "A star-only Radau positivity result is a proper-subfamily precedent, not an all-bipartition classification."
+      ],
+      "reasoning": "Searched for exact order 11/12, \\(K_{p,q}\\) and balanced \\(K_{6,6}\\) witnesses, and positive timestep recovery. No exact match appeared; negative search results alone are not treated as a proof of novelty.",
+      "searches": [
+        "For every complete bipartite K_{p,q}, two-stage Radau IIA order 3 positivity for all step sizes precisely p+q<=11; at h=8/max(p,q) negative diagonal when order>=12",
+        "sharp eleven-state positivity boundary for third-order Radau IIA completed steps complete bipartite Markov diffusion: 12-node reentrant recovery",
+        "Radau IIA endpoint positive rational function Laplacian of K_{a,b}; matrix nonnegative for any timestep iff graph size at most 11",
+        "complete bipartite Runge Kutta Radau positivity nonnegative Laplacian twelve vertices"
+      ]
+    },
+    "rationale": "Exact semantic published-finding corpus searches, searchable primary full texts, and earlier relevant mathematical claims yielded methods and overlapping proper subfamilies, not an all-bipartition 11-vertex Radau IIA cutoff or the all-partition \\(h=8/\\max(p,q)\\) negative witness. This is not implied by the earlier star-only cutoff, different Gauss-method positivity, Horvath's general step-size thresholds, or Bolley–Crouzeix's all-generator no-go theorem. An unindexed equivalent remains a residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent graph-specific positivity theorem may exist despite all inspected sources and published-finding corpus searches.",
+      "Older absolute-monotonicity literature has some bibliographically located but not fully read titles; general theory does not provide a decisive equivalent claim from inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General initial-value problem positivity classes and thresholds, not a Radau IIA complete bipartite iff classification",
+        "evidence": "Thm. 8 on DJ-irreducible non-confluent RK positivity threshold; Table 1 numerical semidiscrete heat experiments, pp. 351–355.",
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Full 16-page scholarly text, particularly Sections 2–4, Theorem 8 and the diffusion experiments; cover explicitly states Available online 27 October 2004.",
+        "method": "Full paper text; direct inspection of the abstract, theorems, proofs, examples and reference list",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Central general RK positivity theorem and verified archive publication date"
+      },
+      {
+        "assessment": "Supports numerical integrator identity; no family-wise complete bipartite matrix-positivity theorem in inspected sections",
+        "evidence": "JCAM 111 (1999), Sec. 3, Radau stability functions.",
+        "identifier_or_url": "doi:10.1016/S0377-0427(99)00134-X",
+        "material_read": "Author-hosted full-text PDF, inspected introduction and Section 3, especially stability-function derivation and method definitions.",
+        "method": "Open-access author PDF and visual page inspection",
+        "title": "Stiff differential equations solved by Radau methods",
+        "trigger": "Exact rational stability function and Radau IIA collocation method"
+      },
+      {
+        "assessment": "Prohibits universal unconditional positivity over all positive infinitesimal generators; does not imply the restricted \\(K_{p,q}\\) sharp vertex count.",
+        "evidence": "RAIRO Anal. Num. 12 (1978), pp. 237–245, Lemmas 1–2 and Theorem 1.",
+        "identifier_or_url": "https://www.numdam.org/article/M2AN_1978__12_3_237_0.pdf",
+        "material_read": "Open-access nine-page primary paper, including Lemmas 1–2, Theorem 1 and its quantifiers.",
+        "method": "Open-access PDF with direct rendered-page mathematical inspection",
+        "title": "Conservation de la positivité lors de la discrétisation des problèmes d’évolution paraboliques",
+        "trigger": "Potential strong coverage by classical positivity barrier for high-order rational integrators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6fb11263-f882-465d-b3d3-e27a033055bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete bipartite graphs are a natural infinite diffusion graph class spanning stars and dense balanced graphs; the theorem pins down a sharp order-only boundary at \\(N=11\\) versus \\(N=12\\) independently of the part sizes. For every larger graph it explicitly identifies a negative entry at a concrete step and proves eventual positivity recovery, an important nuance for high-order Runge–Kutta mass-preserving diffusion. This classification is not a tautological stability-function substitution, not restricted to arbitrary hand-picked graph slices, and is not implied by the existing star-only result. It does not claim all positivity interval endpoints.",
+    "status": "PASS"
+  }
+}
