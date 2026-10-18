@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The partition is explicit and reproducible directly from the inequalities in `RESULT.md`; no numerical orbit data or external computer-generated certificate is needed. The assertions have been checked in the following order: the cut divides the zero-digit strip without overlap; the merged labels recover the base-\(m\) digits; the product map is ergodic for every irrational \(\alpha\); the complex Birkhoff observable has integral \(\widehat h(1)/m\); the weighted label average reconstructs \(e^{2\pi i\theta}\); and the entropy equality case would force an impossible mixing isomorphism.
+# Independent mathematical audit
 
-For the polygonal choice \(h(t)=t\), symbolic integration gives \(\int_0^1 t e^{-2\pi it}\,dt=i/(2\pi)\ne0\). All equalities are exact. Computation was limited to this integral; the infinite orbit statements use Birkhoff's theorem, and the lower-bound argument is an infinite-measure-theoretic proof. There is no unverified finite search being interpreted as an exhaustive classification.
+## correctness
 
-Scope: one-sided measure-theoretic generation, Haar-almost everywhere, known irrational rotation parameter, integer expansion \(m\ge2\). No pointwise boundary coding, optimality of the Fourier condition, or independent mathematical audit is claimed.
+PASS
+
+Merged symbols reproduce every base-m digit of y. For star indicator s_n the product is ergodic and the weighted Birkhoff average N^-1 sum exp(-2pi i n alpha)s_n converges to exp(2pi i theta)*hat(h)(1)/m; for h(t)=t, hat(h)(1)=i/(2pi). A generator on only m atoms would have entropy rate log m and hence every block independent uniform; its Bernoulli name factor is mixing, contradictory to the nontrivial irrational-rotation Koopman eigenfunction. The proof handles all irrational alpha and m>=2 modulo Haar-null coding boundaries, not topological pointwise generation.
+
+## originality
+
+PASS
+
+The complete published neutral-frozen torus theorem g=m+1 concerns (theta,y)->(theta,my) and recovers theta by unweighted occurrence frequency; that stationary nonergodic construction neither includes a moving irrational rotation nor implies recovery using the resonant Fourier weight. Leuridan studies linear toral endomorphisms and separately random-step skew products. No covering implication was found in the targeted comparisons; assess originality best of knowledge, not as proof of priority.
+
+## value
+
+PASS
+
+The smallest number of forward code symbols is a natural dynamical invariant; constructing a sharp polygonal partition in the presence of a genuine irrational eigenfactor, with a flexible nonzero-Fourier-cut decoder, is useful beyond the stationary-neutral generator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
