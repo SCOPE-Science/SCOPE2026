@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim uses the 2021 normalization exactly. The global upper bound is reduced to all possible active support pairs of the regular-octagonal norm. Dihedral symmetry leaves five relative classes, and each has an explicit convex-combination quadratic minorant. The finite positive-semidefinite check is exact in \(\mathbb Q(\sqrt2)\), not numerical. The equality pair is independently substituted into the defining quotient and attains \((144+149\sqrt2)/312\).
+## correctness
 
-## Originality
-PASS. The 2021 defining article was read in full: its Example 4.3 studies \((2,3)\) but gets \(25/13\) only when \(C_{\mathrm{NJ}}(X)=2\). The complete 2025 p/skew generalization was also inspected; its \(p=2\) formula is exactly the same two-parameter constant, but its concrete exact examples do not include the regular octagon. The closest same-object 2024 paper computes the sum-of-squares \(L_{YJ}\) family instead. Targeted published-results searches for the exact value, aliases, product formulation, and stronger octagonal coverage found only different invariants.
+PASS
 
-## Value
-PASS. The parameter pair \((2,3)\) is not an arbitrary slice: it is the defining paper's own worked two-parameter example. The regular octagon is a standard benchmark for exact Banach-space geometric constants. The result supplies the missing exact product extremum on that benchmark and a compact support-matrix certification method that is structurally reusable on polyhedral norms.
+The normalization for λ=2,μ=3 is 2 N(2x+3y) N(3x−2y)/[13(N(x)^2+N(y)^2)]. Each norm is max over eight signed support functionals. Choose active supports c,d; every 64 ordered pair of normals reduces under dihedral symmetries to five angular relative classes k=0..4. For each class the package specifies positive convex combinations G_x,G_y of rank-one normal projections, hence x^TG_x x≤N(x)^2 and similarly y. The proposed 4×4 symmetric matrix C0 diag(G_x,G_y)−(ell m^T+m ell^T)/2, C0=3+149√2/48, is PSD for all five classes. I independently reconstructed these matrices and all 75 nonempty principal minors: 26 identically zero, 49 strictly positive using exact rational comparisons in Q(√2), so PSD is mathematically certified independent of numerical scanning. Independently recomputed the witness x=(1−√2,−1), y=(−z,−w), z=6/(9+4√2), w=(9−4√2−6z)/12; direct active-support evaluation gives N(x)=1, N(y)=z, exactly the claimed quotient (144+149√2)/312. A finite set of certificates is exhaustive because every possible active support pair reduces to one of the five proven classes; no assumption about sampled vectors is used.
 
-## Closest literature and limitations
-The closest literature consists of the defining generalized Zbăganu paper, the exact regular-octagon \(L_{YJ}\) paper, and the 2025 p/skew Zbăganu generalization. None states the present exact value. The theorem is limited to \((2,3)\), does not classify all maximizers, and does not produce the full \((\lambda,\mu)\) profile.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2021 generalized constant and its Example 4.3 treat (2,3) but only the C_NJ=2 endpoint; the regular octagon is uniformly non-square with C_NJ<2. The 2025 skew p-family primary full text pp.1–12 extends the definition and gives square endpoint and other examples, not the regular octagon exact product. The highly relevant 2024 Yang–Li–Yang octagon paper computes Euler–Lagrange sums of squares, a distinct objective whose bound need not attain equal transformed norms at the optimizer. Its full paper remained inaccessible and is a material but not alone decisive risk.
+
+## value
+
+PASS
+
+The exact generalized Zbăganu product invariant for the regular octagon at the defining paper’s natural λ,μ=(2,3) is a motivated benchmark bridging Hilbert (value 1) and square-type extremal endpoints. A complete global exact certificate across 64 active-support pairs and a sharp algebraic witness are nontrivial, independently reusable tools for related polyhedral Banach-space constants. The fixed parameter pair is not arbitrary: it is explicitly singled out by the initiating 2021 Example 4.3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

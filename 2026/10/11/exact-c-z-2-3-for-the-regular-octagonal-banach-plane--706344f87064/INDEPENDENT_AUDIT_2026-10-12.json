@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:09:23.823413Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ae80f34bd0618094da88c6d6b4e6ffc74d007f78",
+        "verify_zbaganu.py blob 85b6ae4f987832f398e3210706b3fef6877fa6ea",
+        "independent_math_checks.py; verify_octagon_exact_signs.py, 75 all exact Q(√2) principal minors",
+        "Liu–Sarfraz–Li DOI:10.1515/dema-2021-0033 original definition and Example 4.3"
+      ],
+      "rationale": "The normalization for λ=2,μ=3 is 2 N(2x+3y) N(3x−2y)/[13(N(x)^2+N(y)^2)]. Each norm is max over eight signed support functionals. Choose active supports c,d; every 64 ordered pair of normals reduces under dihedral symmetries to five angular relative classes k=0..4. For each class the package specifies positive convex combinations G_x,G_y of rank-one normal projections, hence x^TG_x x≤N(x)^2 and similarly y. The proposed 4×4 symmetric matrix C0 diag(G_x,G_y)−(ell m^T+m ell^T)/2, C0=3+149√2/48, is PSD for all five classes. I independently reconstructed these matrices and all 75 nonempty principal minors: 26 identically zero, 49 strictly positive using exact rational comparisons in Q(√2), so PSD is mathematically certified independent of numerical scanning. Independently recomputed the witness x=(1−√2,−1), y=(−z,−w), z=6/(9+4√2), w=(9−4√2−6z)/12; direct active-support evaluation gives N(x)=1, N(y)=z, exactly the claimed quotient (144+149√2)/312. A finite set of certificates is exhaustive because every possible active support pair reduces to one of the five proven classes; no assumption about sampled vectors is used.",
+      "residual_risks": [
+        "The 4×4 PSD certificate is tied to the fixed octagon norm and (2,3), not all λ,μ.",
+        "Verification of all 75 minors depends on the exact support weight θ=(81−36√2)/49; independently checked θ∈[0,1]."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 sharp upper endpoint 25/13 requires C_NJ(X)=2, which fails for a regular octagonal plane.",
+          "2025 generalized results bound all Banach spaces and tabulate ℓ_1²/ℓ_∞², not the octagon in inspected Sections 2–5.",
+          "The 2024 same-object theorem optimizes ||2x+3y||²+||3x−2y||², whereas the claim optimizes their product."
+        ],
+        "reasoning": "A product upper bound follows from the sum-of-squares by AM–GM, but a sum-of-squares optimum does not imply equality at a product maximizer; no exact product corollary is established. Full 2024 text was not read.",
+        "searches": [
+          "DOI:10.1007/s11784-025-01178-3",
+          "DOI:10.2298/FIL2405583Y",
+          "DOI:10.1515/dema-2021-0033 Example 4.3"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1515/dema-2021-0033 full text, p.5 Example 4.3",
+        "DOI:10.1007/s11784-025-01178-3 pp.1–12",
+        "DOI:10.2298/FIL2405583Y metadata only; full text unavailable",
+        "independent 75-minor certificate",
+        "Resultary unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact 2021 inequality relates C_Z to C_NJ and reaches 25/13 only at C_NJ=2.",
+          "The 2025 family provides generic bounds independent of fine octagonal active-support geometry."
+        ],
+        "reasoning": "Neither yields the exact (144+149√2)/312; witness saturation of all relevant 4×4 support certificates is substantive extra mathematics.",
+        "searches": [
+          "DOI:10.1515/dema-2021-0033 Example 4.3",
+          "DOI:10.1007/s11784-025-01178-3 Sections 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu 2021 defines exactly the product C_Z(λ,μ,X) with denominator (λ²+μ²)(||x||²+||y||²), but evaluates (2,3) only under C_NJ=2.",
+          "2025 C_Z^(p) specializes at p=2 to same product, not a new name for a different squared-sum constant."
+        ],
+        "reasoning": "Aliases and p=2 reduction were explicitly checked; neither inspected formulation supplies the regular-octagon (2,3) sharp value.",
+        "searches": [
+          "DOI:10.1515/dema-2021-0033 Section 3 and Example 4.3",
+          "DOI:10.1007/s11784-025-01178-3 Sec.2–5",
+          "DOI:10.2298/FIL2405583Y",
+          "generalized Zbaganu constant C_Z(2,3) regular octagon Banach plane exact value [unavailable]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original 2021 article computes an endpoint value 25/13 in a different class, not this Q(√2) constant.",
+          "The 2025 article exact examples concern other norms.",
+          "Five positive-semidefinite certificates produce this value from a full continuum, not a known normal-form table entry."
+        ],
+        "reasoning": "No verified exact octagonal product table was identified. Temporarily unavailable Resultary is not a negative result, and a hidden tabulation remains a risk.",
+        "searches": [
+          "regular octagon generalized Zbaganu product (2,3)",
+          "exact (144+149sqrt2)/312"
+        ]
+      },
+      "rationale": "The original 2021 generalized constant and its Example 4.3 treat (2,3) but only the C_NJ=2 endpoint; the regular octagon is uniformly non-square with C_NJ<2. The 2025 skew p-family primary full text pp.1–12 extends the definition and gives square endpoint and other examples, not the regular octagon exact product. The highly relevant 2024 Yang–Li–Yang octagon paper computes Euler–Lagrange sums of squares, a distinct objective whose bound need not attain equal transformed norms at the optimizer. Its full paper remained inaccessible and is a material but not alone decisive risk.",
+      "residual_risks": [
+        "The 2024 regular-octagon sum-of-squares article was not inspected in full because authorized access blocked; a product implication hidden there remains a specific literature risk.",
+        "Resultary searches failed at service level, giving no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same product and parameters, only C_NJ=2 endpoint 25/13; general inequality does not determine octagon.",
+          "evidence": [
+            "p.5 Example 4.3, λ=2, μ=3; C_NJ(X)=2 hypothesis for equality."
+          ],
+          "identifier_or_url": "DOI:10.1515/dema-2021-0033",
+          "material_read": "Complete 12-page full text accessed and all pp.1–12 inspected, with focused read of p.5 Example 4.3 and p.6 Proposition 4.4",
+          "method": "open article view plus authorized 12-page full-text extraction",
+          "title": "Some aspects of generalized Zbăganu and James constant in Banach spaces",
+          "trigger": "defines same pair (2,3) and may tabulate exact values"
+        },
+        {
+          "assessment": "Includes C_Z(λ,μ,X) as p=2, examples ℓ_1², ℓ_∞² and another unit-sphere mixed norm, without octagon product evaluation in inspected sections.",
+          "evidence": [
+            "pp.2–4 definitions; pp.5–9 exact examples and general inequalities; pp.11–12 alternate constant."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11784-025-01178-3",
+          "material_read": "Authorized full 16-page download, sections and formulae pp.1–12 materially inspected, including p=2 definition, norm-specific examples, and bounds",
+          "method": "authorized institutional full-text extraction",
+          "title": "Some aspects of skew generalized Zbǎganu constant in Banach spaces",
+          "trigger": "broader p-family containing p=2 of same product"
+        },
+        {
+          "assessment": "Exact same-object primary text not available; sum-of-squares theorem reported, but cannot exclude additional product corollaries without full reading.",
+          "evidence": [
+            "Yang, H. Li, C. Yang 2024, Filomat 38(5):1583–1593 DOI and sum-of-squares title."
+          ],
+          "identifier_or_url": "DOI:10.2298/FIL2405583Y",
+          "material_read": "Bibliographic title and journal scope only; open/OA URL attempts did not return full article, authorized retrieval blocked by VPN disconnection.",
+          "method": "bibliographic research and authorized access attempt",
+          "title": "On the L_YJ(λ,μ,X) constant for the regular octagon space",
+          "trigger": "same norm and transformed vectors could imply claimed product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu et al. DOI:10.1515/dema-2021-0033 Example 4.3",
+        "2025 DOI:10.1007/s11784-025-01178-3 Section 3",
+        "five exact PSD support classes"
+      ],
+      "rationale": "The exact generalized Zbăganu product invariant for the regular octagon at the defining paper’s natural λ,μ=(2,3) is a motivated benchmark bridging Hilbert (value 1) and square-type extremal endpoints. A complete global exact certificate across 64 active-support pairs and a sharp algebraic witness are nontrivial, independently reusable tools for related polyhedral Banach-space constants. The fixed parameter pair is not arbitrary: it is explicitly singled out by the initiating 2021 Example 4.3.",
+      "residual_risks": [
+        "Does not classify other parameter pairs, polygonal norms, or all optimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For X_8 with N(s,t)=max{|s|,|t|,(|s|+|t|)/√2}, the generalized Zbăganu product constant C_Z(2,3,X_8) equals (144+149√2)/312, achieved by the explicit exact pair in Q(√2).",
+  "limitations": [
+    "The 4×4 PSD certificate is tied to the fixed octagon norm and (2,3), not all λ,μ.",
+    "Verification of all 75 minors depends on the exact support weight θ=(81−36√2)/49; independently checked θ∈[0,1].",
+    "The 2024 regular-octagon sum-of-squares article was not inspected in full because authorized access blocked; a product implication hidden there remains a specific literature risk.",
+    "Resultary searches failed at service level, giving no negative evidence.",
+    "Does not classify other parameter pairs, polygonal norms, or all optimizers.",
+    "All five Resultary queries returned temporarily_unavailable/search_completed=false; no negative inference from this failure.",
+    "Fixed commit scientific blobs read, but recursive source tree hash was only assignment-reported and not independently recomputed; publication not_ready."
+  ],
+  "schema_version": 1
+}
