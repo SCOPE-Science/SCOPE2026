@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For q≥2, r≥2, n≥r, all constrained overlap-graph vertices and edges are enumerated by legal length-(n−1) and length-n words. The imbalance indicator is exact. The leftmost a^(r−1) potential drops by at most one along any legal shift edge, giving an all-augmentation lower bound. Reversing the prefix preceding the first a^(r−1) yields paths of exactly the potential length; the last a^(r−1) in each sink reconstructs its unique source, giving a bijection and Eulerian optimality. Source enumeration derives the exact rational series. The standalone checker verifies 47 finite parameter cases, compares power-series coefficients, replays Euler tours, and exhaustively excludes shorter cycles in six small cases; the universal proof is combinatorial.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.16545, Introduction lines 40–70, §4.5: cyclically admissible windows, not all linearly admissible ones.",
+        "DOI:10.4230/LIPIcs.CPM.2022.12, generic de Bruijn graph Eulerization; no all-q,r generating function.",
+        "Earlier exact binary adjacent-forbidden cyclic-cover theorem has formula M_n=F_(n+2)+F_n-1."
+      ],
+      "reasoning": "The binary r=2 subcase is already covered by the earlier Fibonacci theorem; its statements do not determine the new arbitrary forbidden-run parameter r or alphabet q. General minimum Eulerization algorithms in principle compute each finite instance, but a general algorithm does not supply the proved uniform rational excess series, explicit bijective matching, or all-parameter matching dual bound. The novel assertion is the complete two-parameter family and structural proof, not the binary specialization.",
+      "searches": [
+        "Exact optimal length of shortest q-ary cyclic superstring containing every length-n word that avoids r consecutive copies of a fixed symbol, under same runlength constraint, for all n and q. Generating function for extra copies (q-1) sum i z^i over D_{r-1}(z) D_r(z).",
+        "every allowed length-n word with no 1^r appears in cyclic sequence avoiding 1^r minimum repeats formula",
+        "arXiv:2510.16545 section 4.5 forbidden zero run cyclically",
+        "DOI:10.4230/LIPIcs.CPM.2022.12 optimal graph eulerization generic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.16545v3: definition, introduction, §4.5",
+      "arXiv:2403.01454v2: abstract, formulation and relevant results",
+      "DOI:10.4230/LIPIcs.CPM.2022.12: graph Eulerization objectives and methods",
+      "Previously recorded binary forbidden-adjacency cyclic covering formula",
+      "Exact-source and alias searches of published mathematical-record index; closest unrelated code and graph results returned"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sawada–Gabrić Section 4.5 uses a rotation-closed subset, which omits linearly legal 00100 for the 000 restriction.",
+        "Chee et al. arXiv:2403.01454 concerns maximum distinct-window run-limited sequences.",
+        "Bernardini et al. CPM 2022 describe generic Eulerization, rather than this exact closed form.",
+        "Previously established binary r=2 formula is a single special case, not all q and r."
+      ],
+      "reasoning": "The new requirement includes all linearly legal n-windows while the global cycle stays run-limited. The cyclically restricted universal-cycle object does not imply this. The RLL maximum-distinct-windows objective does not imply a shortest covering cycle. Generic Eulerization permits obtaining numerical finite answers, but none of the examined statements implies the claimed exact rational series and reversal-matching certificate for all q≥2,r≥2,n≥r. The prior binary no-adjacent-run theorem implies exactly the q=2,r=2 restriction, openly excluded from the novelty claim.",
+      "searches": [
+        "run length limited universal cycles forbidden 0^z Sawada Gabric Chee Etzion all linearly admissible windows",
+        "constrained de Bruijn graph minimum closed walk including all legal length n edges exact overhead generating function",
+        "minimized Euler augmentation de Bruijn constrained 1^r earliest occurrence potential reversal matching",
+        "\"Maximum Length RLL Sequences in de Bruijn Graph\"",
+        "\"Las Vegas algorithms to generate universal cycles\" forbidden cyclically"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sawada–Gabrić, arXiv:2510.16545, Introduction and §4.5: rotation-closed cyclic admissibility.",
+        "Bernardini et al., DOI:10.4230/LIPIcs.CPM.2022.12, general Eulerization and shortest-superstring graph framework."
+      ],
+      "reasoning": "The claim is equivalent to exact directed Chinese-postman augmentation of the full linearly admissible constrained overlap graph. It cannot be replaced by an Euler tour of the cyclically forbidden window language: the latter excludes length-5 window 00100 when forbidding 000. The inspected competing methods give algorithms for different or general input graphs, but not an explicit closed form for this full family.",
+      "searches": [
+        "run length limited constrained de Bruijn sequences 111 shortest circular superstring all linearly admissible windows route inspection Chinese postman balancing",
+        "Chinese postman minimum length de Bruijn superstring all forbidden run windows cyclic avoid 000 q ary",
+        "\"shortest circular superstring\" \"run length limited\" forbidden word",
+        "\"shortest covering cycle\" \"no 000\" length n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exact enumeration of q=2,r=3 gives lengths 7,14,28,53,102,194,367,692 for n=3..10.",
+        "arXiv:2403.01454 and arXiv:2510.16545 report different optimization objects."
+      ],
+      "reasoning": "The exact linearly-admissible cyclic-cover optimum and the all-parameter rational generating function were not found in the checked publications or query returns; matching isolated integer values would not, without a covering theorem, imply the general classification. This is a bounded indexed check, not a proof of absence from every table.",
+      "searches": [
+        "Minimum-length cyclic binary universal covering sequence containing every length-n word avoiding 111 as cyclic factor, itself avoiding 111, exact optimal repetition cost Fibonacci tribonacci generating function (z+2z^2)/((1-z-z^2)(1-z-z^2-z^3))",
+        "Exact optimal length of shortest q-ary cyclic superstring containing every length-n word that avoids r consecutive copies of a fixed symbol, under same runlength constraint, for all n and q. Generating function for extra copies (q-1) sum i z^i over D_{r-1}(z) D_r(z).",
+        "\"7, 14, 28, 53, 102\" de Bruijn forbidden 000",
+        "\"0, 1, 4, 9, 21, 45\" constrained covering overhead"
+      ]
+    },
+    "rationale": "The closest 2025 forbidden-run universal-cycle paper uses cyclically admissible windows, not the strictly larger set of all linearly admissible windows. The 2024 RLL paper optimizes distinct-window sequence length, not minimal full-language coverage. The 2022 Eulerization work provides general algorithms but no explicit uniform rational series. The previously known binary adjacent-run case is explicitly covered and not counted as a separate new claim. The new all-q,r reversal pairing, potential certificate and exact cost series were not located in scoped full-text/index comparisons.",
+    "residual_risks": [
+      "A differently indexed minimum-route-inspection result for full linearly admissible run-limited overlap graphs may not have surfaced.",
+      "General graph Eulerization algorithms can solve finite instances; the uniform closed form and proof are the originality claim.",
+      "The binary adjacent-forbidden subcase is previously covered, not new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its window family avoids zero runs cyclically, so is a strict subset of the present linearly legal windows for some lengths; no shortest all-window covering overhead theorem in the inspected sections.",
+        "evidence": [
+          "Introduction item (4) explicitly says 0^z is avoided cyclically.",
+          "Section 4.5 constructs Eulerian cycles on rotation-closed windows.",
+          "Example 00100 is linearly 000-avoiding but cyclically contains 000."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.16545v3",
+        "material_read": "Full-text introduction, definitions, graph model, and Section 4.5 forbidden-zero-run application; submission date checked against v1.",
+        "method": "Read open-access HTML and compare allowed-window membership, cyclic versus linear admissibility, and optimization objective.",
+        "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+        "trigger": "Same forbidden constant-run pattern and universal-cycle construction."
+      },
+      {
+        "assessment": "Maximum-size distinct-window cycles optimize another problem and need not cover all linearly admissible windows; no inspected exact postman-overhead series.",
+        "evidence": [
+          "Abstract describes maximum-length RLL sequences and construction.",
+          "The distinguishing parameter is allowed distinct windows rather than repetitions necessary for complete coverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.01454",
+        "material_read": "Open-access manuscript abstract, introduction, mathematical formulation, and related construction/results sections; PDF representative pages inspected.",
+        "method": "Read lawful arXiv abstract/full paper sections and compare maximum distinct-window length with shortest all-window cover.",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "RLL constrained de Bruijn graph with similar forbidden runs."
+      },
+      {
+        "assessment": "Describes generic graph balancing, not the present explicit all-parameter source-sink pairing, dual potential and rational cost enumerator.",
+        "evidence": [
+          "CPM 2022 exact title and graph-Eulerization aim.",
+          "No run-limited specialization with the displayed two-denominator generating function in relevant results."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+        "material_read": "Open-access 18-page article abstract, graph setup, algorithms and relevant section on Eulerian augmentation; representative PDF pages inspected.",
+        "method": "Direct comparison of generic graph-optimization coverage with fixed run-language closed-form theorem.",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "General directed Eulerian augmentation is the closest algorithmic reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "475811a7-997d-42ff-a00e-df86f53adc51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves the natural and non-Eulerian full run-limited window-coverage problem for all alphabet sizes, run limits, and lengths, with exact minimum, explicit Eulerian optimal construction, and an integral dual certificate. The gap between cyclically admissible and linearly admissible windows arises naturally in constrained channels, making the precise necessary repetition count meaningful beyond a finite table. The all-parameter rational GF and source–sink reversal structure are not cosmetic consequences of the binary r=2 result.",
+    "status": "PASS"
+  }
+}
