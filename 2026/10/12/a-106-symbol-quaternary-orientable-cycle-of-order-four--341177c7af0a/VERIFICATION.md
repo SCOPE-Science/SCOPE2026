@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing the finite witness
 
-The witness consists of exactly \(106\) digits in `witness.txt`, read cyclically. No generation algorithm or unverified optimization solver is needed to verify the mathematical existence result.
+# Independent mathematical audit
 
-With a Python 3 interpreter, run `python3 verify.py` from the directory containing the files (the script locates the witness beside itself). This builds all cyclic four-windows, checks no window equals its reversal, checks all \(106\) reversal-orbit identifiers are different, enumerates the complete \(120\)-class nonpalindromic universe, and checks the list of \(14\) omitted orbits. Expected output: `VERIFY_OK period=106 windows=106 reversal_orbits=106 unused_orbits=14`.
+## correctness
 
-With a conforming C11 compiler, run `cc -std=c11 -O2 -Wall -Wextra -pedantic -o verify_c verify.c && ./verify_c` while in the directory containing `witness.txt`. The independently written program checks each of the \(106\) windows is not a palindrome and that all \(\binom{106}{2}=5565\) distinct-position pairs differ in either orientation. Expected output: `VERIFY_OK cyclic_length=106 all_5565_factor_pairs_distinct_under_reversal`.
+PASS
 
-The mathematical implication requires only the definition of an order-four orientable cycle: since every cyclic factor occurs at most once in either direction, its period provides a lower bound for \(M_4(4)\). Neither checker proves an upper bound or global maximality. Independent scientific auditing has not been performed.
+The literal 106-character four-symbol witness was fetched from witness.txt at the assigned tree, and independently re-enumerated modular length-four windows. All 106 are nonpalindromic and occupy distinct reversal classes; 106 choose 2 = 5,565 unordered pairs checked. There are (4^4−4^2)/2=120 nonpalindromic reversal orbits and 14 unused. Hence M_4(4)≥106; this is existence, not optimality or any general alphabet statement.
+
+## originality
+
+PASS
+
+The complete 106-letter witness yields a larger fixed-parameter existence bound than the primary 2025 Table 7 and the later 2026 table. General asymptotic sequence constructions and the 112 upper bound do not imply this witness. Best-of-knowledge priority is subject to other unindexed cycles.
+
+## value
+
+PASS
+
+A finite extremal combinatorial construction can be valuable when it materially tightens a natural fixed-parameter bound: 106 improves the documented 88 by 18 (about 20%) and reduces the remaining gap to the 112 upper bound from 24 to 6. The exact witness is reusable for reversal-avoiding cycles and bidirectional sequence design; a general proof of the optimum is not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
