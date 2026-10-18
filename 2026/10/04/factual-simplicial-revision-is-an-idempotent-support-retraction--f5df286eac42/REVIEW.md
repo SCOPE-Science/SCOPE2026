@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Both published revision maps take values only among facets satisfying the announced factual formula. Definition 5.1 explicitly fixes each already-satisfying facet pointwise. For Definition 5.2, if all current belief facets satisfy the announcement, its internal Grove branch is nonempty for every input facet, selects only current same-perspective facets, and contains the input facet itself. Thus both operators fix exactly the models whose belief facets all satisfy the announcement. Their outputs always have that property, proving idempotence.
+PASS
 
-If \(F_\psi\subseteq F_\varphi\), a \(\psi\)-revised model is already a fixed point for \(\varphi\), yielding the absorption identity. The argument is independent of finiteness and does not infer a general theorem from the bundled finite enumeration.
+Read assigned RESULT.md and verify.py at actual Git tree 4a3573cac9390518b9de134eeea9b18b5e44cb2e and Sink primary Definitions 5.1/5.2. For factual phi the underlying vertex valuations and phi-satisfaction set F_phi are unchanged by update. Both operators select only phi-satisfying facets; an already phi-satisfying input is self-selected in Def 5.1, and Def 5.2 internal-set selection includes each phi-satisfying input and no outsiders. Thus fixed points are exactly belief facet families included in F_phi. Range equals fixed class, yielding R_phi^2=R_phi and R_phi∘R_psi=R_psi when F_psi subset F_phi. Source checker exhaustively models small binary-perspective universes; correctness relies on definitions/proof, not its finite code.
 
-## Originality
+## originality
 
-PASS. The primary source defines the two revision operators and discusses nontrivial behavior under iterated, changing announcements, but it does not state their exact fixed-point class, idempotence, or entailment absorption. The author explicitly lists comparison with AGM revision as future work.
+PASS
 
-Targeted searches for repeated simplicial revision, idempotence, retractions, fixed points, and same-announcement stability did not locate the model-level result. Standard AGM repeated-input stability is relevant background, but it concerns belief sets under abstract postulates and does not imply equality of these agent-indexed simplicial subcomplex transformations.
+Best-of-knowledge structural lemma for the concrete full simplicial belief-subcomplex updates; the source discusses alternating announcements and iterative difficulties but the inspected formal material does not state the exact fixed-point class, idempotence or entailment absorption. Generic AGM set-level idempotence does not by itself prove equality of agent-indexed facet subcomplexes. Residual risk from unread action-model followup remains.
 
-## Value
+## value
 
-PASS. The source motivates memory mechanisms because iterated revision can oscillate. The theorem isolates a sharp structural boundary: neither basic operator can oscillate under repetition of one factual input, because each is a retraction after one step. The fixed-point theorem and entailment-absorption law identify exactly which iterated behaviors remain possible and give reusable algebraic laws for later action-model or protocol analyses.
+PASS
 
-## Closest literature and limitations
+A full-model fixed-point and absorption theorem is an interpretable structural lemma for analyzing iterative simplicial revision. It rules out same-content cycles while preserving the interesting different-content oscillations motivating the original paper. The self-contained result is short but addresses a natural behavior of two new operators, not an arbitrary invariant.
 
-The closest source is Sink's 2026 simplicial revision paper, especially Definitions 5.1 and 5.2 and the later iterated-revision discussion. A follow-up preprint develops simplicial actions for distributed protocols and incorporates belief revision into action models; only its abstract and accessible summaries were available in the comparison performed here, so complete overlap with every later action-model specialization remains a residual risk.
-
-The result is restricted to factual formulas and the two basic revision definitions. It does not claim commutativity of different announcements or cover the memory-enriched variants.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
