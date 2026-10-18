@@ -1,11 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quartic moment expansion (two odd moments vanish exactly by antipodality) yields an if-and-only-if eigenvector equation for all pair representatives. Its spectral blocks force the weighted tight-frame identities and one common radius parameter. Conversely these data reconstruct one quartic-force multiplier. A conserved scalar energy gives the beta-integral period and a nonsingular polynomial continuation through total collisions. The minimal pair count makes each block frame square and orthogonal. Exact-force spot checks and a numerical oscillator integration were run from the packaged standalone script; finite checks are supplementary, not an infinite proof.
+## correctness
 
-**Originality — PASS with residual risks.** Nurowski's arXiv:2610.04136v1 Theorem 1.3 gives positive even-power central configurations from weighted designs on a *common sphere*, and Section 2 already gives the homothetic reduction. The new mathematical claim is the complete antipodal necessary-and-sufficient eigenspace/frame decomposition, with forced unequal radii. Leandro's generalized-force four-body rhombus result covers a low-dimensional specialization, not claimed independently as new. Santos and da Silva analyze Newtonian nested polyhedra. Source and record searches did not yield an equivalent higher-dimensional general classification; unindexed equivalences and unavailable publisher text remain risks.
+PASS
 
-**Mathematical value — PASS.** The frame classification describes a natural structural inverse problem in classical many-body dynamics, not an ad hoc parameter slice. It provides a genuinely non-cospherical extension of the spherical-design mechanism, an exact sharp upper bound on radius classes, and a mass-specific uniqueness law at the minimal particle number. The period formula makes the resulting motions explicit but is not regarded as the novelty-bearing step.
+Expansion of Σm_k(x_k−x)||x_k−x||² with vanishing antipodal odd moments gives exactly −(I+M||x||²)x−2Sx (S=Σm_k x_kx_kᵀ,I=trS). A common scalar acceleration forces S v_j=s_a v_j and M r_a²+2s_a=C, grouping eigenspaces gives Σμ_j u_j u_jᵀ=(W_a/d_a)Id and r_a²=C/(M+4W_a/d_a). Conversely these formulas give same Λ=I+C and polynomial homogeneity gives a″=−Λa³. Energy gives quarter-period (1/4)sqrt(2/Λ)B(1/4,1/2), hence least labeled 4-quarter period and regular collisions. For m=d, the square weighted Parseval matrix is orthogonal. Independent rational example μ=(1,2), r²=(1/10,1/14) yields Mr²+2s=1 in each axis and Λ=52/35. The checks corroborate, while the proof supplies all finite d,m.
 
-Scientific limitations: only antipodally paired equal masses, full spatial span, attractive quartic polynomial interaction, and zero-velocity homothetic trajectories are addressed. No stability statement and no Newtonian claim are made. Full publisher texts for the rhombus and classical inverse-problem papers were unavailable; this limits priority assessment, not the self-contained algebraic proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The fully read Nurowski positive-even-power theorem supplies the scalar homothetic mechanism and weighted designs on a common sphere; its independent rotations/reweightings do not state necessity or unequal-radius antipodal spectral eigenspace partition. The Newtonian nested-polyhedra article has a different force exponent. Leandro’s four-body rhombus can cover the planar minimal case but not arbitrary d,m. The all-dimensional if-and-only-if weighted frame classification, with forced radii, is an additional structural statement under best-knowledge comparison.
+
+## value
+
+PASS
+
+A natural central-configuration classification for an analytically tractable non-Newtonian force, giving a necessary/sufficient weighted-tight-frame decomposition, precisely constrained unequal radii, and a sharp maximum of d radii. The all-parameter classification can be used to build and exclude antipodal homothetic solutions; it is more than oscillator quadrature or a tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
