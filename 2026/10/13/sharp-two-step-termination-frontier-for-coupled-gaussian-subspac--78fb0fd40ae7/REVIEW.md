@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact RSN on a positive-definite quadratic is an orthogonal projection in Hessian-whitened coordinates. For nonzero deterministic initialization, two-step zero error is equivalent, almost surely, to perpendicularity of the two whitened sketch directions. The induced angular central Gaussian density is computed by polar integration, and the maximum diagonal coupling mass of an angular density against its quarter-turn is exactly its density overlap. The quarter-turn overlap reduces to a single rational integral and equals \(\frac4\pi\arctan(1/\sqrt\kappa)\). A maximal angular coupling with conditionally Gaussian-correct radial sampling attains it without changing either sketch's standard Gaussian marginal. For jointly Gaussian sketches, the conditional-noise decomposition and a two-dimensional skew-symmetry argument rule out positive exact-success probability when the Hessian is nonspherical. Independent paired repetition gives the stated geometric stopping law. Finite verifier diagnostics checked the coupling implementation and exact-updated iterates, not the infinite probability statements.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** The original randomized subspace Newton work (arXiv:1905.10874, Algorithm 1 and projection lemmas) and the stronger expected spectral sketch-and-project theory (arXiv:2208.09585, Section 3.4) concern the sketching method and expected rates, not this nonlinear temporal-coupling optimization or its exact finite-termination probability. Orthogonal Random Features (arXiv:1610.09072, Section 3) supplies an existing orthogonal Gaussian-marginal construction in isotropic geometry, so the isotropic endpoint alone is not new. The new comparison concerns *fixed standard Gaussian marginals under anisotropic Hessian orthogonality*, with a sharp nontrivial overlap and jointly Gaussian rigidity. General maximal-coupling theory is known and is explicitly used rather than claimed as new. Related published planar optimized probe couplings concern scalar Lanczos quadrature and fixed Haar directions, not the Gaussian-marginal Newton finite-termination event. No inspected source states or implies the combined anisotropic exact frontier and Gaussian-class separation without new specialization and calculations. A specialized unindexed equivalent remains a priority risk.
+PASS
 
-**Value — PASS.** The exact termination probability is a natural measurable algorithmic quantity, not an arbitrary selected scalar: it determines the distribution and expectation of computational work under paired repetition. It separates fixed Gaussian one-step marginals from their temporal joint law and distinguishes Gaussian correlation from nonlinear dependence. The sharp nonisotropic condition-number law provides an interpretable stress test for correlated/sketched Newton designs; the construction is not advertised as an efficient general algorithm.
+For H SPD 2x2, the exact rank-one Newton step becomes y->(I-uu^T)y under y=H^(1/2)x, u proportional to H^(1/2)s. Outside the null event of an initial direction exactly parallel to y0, the first projection leaves a nonzero vector orthogonal to u1; the second annihilates it iff u2 perpendicular to u1. Anisotropic Gaussian angular density is sqrt(kappa)/(2*pi*(cos^2 theta+kappa sin^2 theta)); its maximal overlap with a 90-degree shift integrates to 4/pi*atan(1/sqrt(kappa)). The explicit maximal angular coupling and conditional Gaussian radial density a(theta)r exp(-a(theta)r^2/2) recover exactly N(0,I2) marginals and attain the bound. Joint-Gaussian conditional noise gives zero probability unless deterministic orthogonal C solves HC skew-symmetric, which forces H scalar in 2D. Independent blocks give geometric pair count E[T]=2/q. Numerical midpoint quadrature independently checked angular normalization and overlap for kappa=1,2,5,9,25.
 
-The claim is restricted to planar quadratic optimization in exact arithmetic and uses Hessian-aware coupling. The statement makes neither universal runtime superiority nor higher-dimensional assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the anisotropic sharp Gaussian-marginal two-step success law plus joint-Gaussian rigidity. Classical maximal couplings, isotropic orthogonal random features, and the original RSN method are prior ingredients explicitly excluded from originality.
+
+## value
+
+PASS
+
+A natural random linear-algebra question is how much temporal dependence can improve finite termination while preserving ordinary Gaussian one-step sketches. The exact attainable probability and strong separation from jointly Gaussian dependence are nontrivial algorithmic/probabilistic structural facts, even with Hessian-aware coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

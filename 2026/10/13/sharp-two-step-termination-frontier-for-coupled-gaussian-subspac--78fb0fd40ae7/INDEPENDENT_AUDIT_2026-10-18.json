@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H SPD 2x2, the exact rank-one Newton step becomes y->(I-uu^T)y under y=H^(1/2)x, u proportional to H^(1/2)s. Outside the null event of an initial direction exactly parallel to y0, the first projection leaves a nonzero vector orthogonal to u1; the second annihilates it iff u2 perpendicular to u1. Anisotropic Gaussian angular density is sqrt(kappa)/(2*pi*(cos^2 theta+kappa sin^2 theta)); its maximal overlap with a 90-degree shift integrates to 4/pi*atan(1/sqrt(kappa)). The explicit maximal angular coupling and conditional Gaussian radial density a(theta)r exp(-a(theta)r^2/2) recover exactly N(0,I2) marginals and attain the bound. Joint-Gaussian conditional noise gives zero probability unless deterministic orthogonal C solves HC skew-symmetric, which forces H scalar in 2D. Independent blocks give geometric pair count E[T]=2/q. Numerical midpoint quadrature independently checked angular normalization and overlap for kappa=1,2,5,9,25.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RSN and sketch-and-project convergence theorems study expected progress, generally under independent fresh sketches.",
+          "Orthogonal Gaussian marginals can be constructed for isotropic geometry, giving the kappa=1 endpoint, not a general H-specific anisotropic maximal coupling."
+        ],
+        "reasoning": "A stronger known expected contraction theorem and isotropic Gaussian direction-coupling result do not imply the full anisotropic sharp q(kappa) or the jointly Gaussian rigidity.",
+        "searches": [
+          "arXiv:2208.09585 randomized sketch-and-project spectral bounds",
+          "arXiv:1610.09072 orthogonal random features Gaussian marginal rows"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1905.10874",
+        "https://arxiv.org/abs/2208.09585",
+        "https://arxiv.org/abs/1610.09072",
+        "Resultary semantic search for Sharp two-step termination frontier for coupled Gaussian subspace Newton"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RSN formula yields the projection form but imposes no optimal two-sketch coupling with Gaussian marginals.",
+          "The known maximal coupling inequality gives a generic min-density integral, not the Hessian-specific evaluated integral and Gaussian lift."
+        ],
+        "reasoning": "Extracting the claimed sharp value, constructing its Gaussian lift, proving no jointly Gaussian anisotropic success and obtaining the geometric stopping law requires additional reasoning not supplied by prior statements.",
+        "searches": [
+          "RSN 1905.10874 full PDF Algorithm 1 and main theory",
+          "Orthogonal Random Features 1610.09072 original construction and summary",
+          "Resultary related sketch/projection records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two rank-one Newton updates on a 2D SPD quadratic are two orthogonal projections in H^(1/2) coordinates.",
+          "Exact two-step termination is the matching event between anisotropic angular marginals under a quarter turn."
+        ],
+        "reasoning": "The algorithmic event is equivalent to a maximal-coupling diagonal event on the projective circle; generic coupling lemmas prove an overlap bound but do not themselves evaluate the anisotropic overlap or derive Newton stopping clock.",
+        "searches": [
+          "Resultary: two-dimensional Gaussian sketch coupled marginals maximal coupling orthogonal transformed directions subspace Newton finite exact termination",
+          "RSN arXiv:1905.10874 Algorithm 1 and projection lemmas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search located no exact tabulation of the angular overlap or anisotropic q(kappa).",
+          "The derived overlap is 4/pi atan(1/sqrt(kappa)) with kappa continuous."
+        ],
+        "reasoning": "This is a continuum exact probability rather than a table lookup; no published exact q(kappa) or counterexample class was located in the compared material.",
+        "searches": [
+          "Resultary semantic search for two sketch Gaussian Newton exact success maximum",
+          "arXiv RSN and orthogonal random features"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the anisotropic sharp Gaussian-marginal two-step success law plus joint-Gaussian rigidity. Classical maximal couplings, isotropic orthogonal random features, and the original RSN method are prior ingredients explicitly excluded from originality.",
+      "residual_risks": [
+        "A specialized coupling result for angular central Gaussians or Hessian-orthogonal Gaussian marginals could imply the evaluated overlap without the Newton terminology.",
+        "The optimal pair has nonjointly Gaussian Hessian-dependent coupling; no higher-dimensional, Hessian-agnostic or floating-point exact termination theorem is claimed.",
+        "Only relevant sections of some adjacent sketch literature were available; an unindexed full-text comparator may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ALGORITHM_NOT_COUPLED_FRONTIER",
+          "evidence": "Exact quadratic subspace Newton step is a projection; expected-rate framework does not derive anisotropic two-sketch maximum success probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.10874",
+          "material_read": "Public original PDF, main algorithm and early spectral/projector analysis; page 3 also visually inspected, method compared with exact rank-one specialization",
+          "method": "full PDF primary, relevant sections and PDF page screenshot",
+          "title": "RSN: Randomized Subspace Newton",
+          "trigger": "Original algorithm and original projection/rate statements"
+        },
+        {
+          "assessment": "NO_DOCUMENTED_EXACT_TWO_STEP_COVERAGE",
+          "evidence": "Addresses expected spectral error/rate, not exact two-step finite stopping optimized over dependent Gaussian marginal couplings.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.09585",
+          "material_read": "Accessible abstract and section description, not full PDF",
+          "method": "abstract-only comparison",
+          "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+          "trigger": "Broader stronger sketch-and-project convergence analysis"
+        },
+        {
+          "assessment": "COVERS_ISOTROPIC_ENDPOINT_ONLY",
+          "evidence": "Gaussian marginals with orthogonal directions in isotropic setting support kappa=1 only; anisotropic H-induced angular law differs.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.09072",
+          "material_read": "Abstract and original method summary for orthogonal marginal sketches; entire article not claimed read",
+          "method": "available synopsis/abstract",
+          "title": "Orthogonal Random Features",
+          "trigger": "Known Gaussian-marginal orthogonalization could dominate construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural random linear-algebra question is how much temporal dependence can improve finite termination while preserving ordinary Gaussian one-step sketches. The exact attainable probability and strong separation from jointly Gaussian dependence are nontrivial algorithmic/probabilistic structural facts, even with Hessian-aware coupling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git tree b32948d555ba25fbe2c40746533013b998a67950",
+    "frozen RESULT.md blob 8f0c28e498815511b0fd8fea63cdd7ad8445d603",
+    "https://arxiv.org/pdf/1905.10874",
+    "https://arxiv.org/abs/2208.09585",
+    "https://arxiv.org/abs/1610.09072",
+    "Resultary semantic search for Sharp two-step termination frontier for coupled Gaussian subspace Newton",
+    "/mnt/data/run222/independent_checks.py",
+    "/mnt/data/run222/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Planar SPD fixed quadratic, unit-gain exact rank-one steps, Gaussian marginal each sketch but arbitrary within-pair coupling.",
+    "Infinite-run geometric stopping law requires independent blocks; finite quadrature is corroborative.",
+    "No claim of formal independent theorem certification; computation is corroborative and literature priority remains best-of-knowledge.",
+    "Public file provenance requires authorized confidentiality sanitization; scientific acceptance does not imply publication readiness."
+  ],
+  "residual_risks": [
+    "A specialized coupling result for angular central Gaussians or Hessian-orthogonal Gaussian marginals could imply the evaluated overlap without the Newton terminology.",
+    "The optimal pair has nonjointly Gaussian Hessian-dependent coupling; no higher-dimensional, Hessian-agnostic or floating-point exact termination theorem is claimed.",
+    "Only relevant sections of some adjacent sketch literature were available; an unindexed full-text comparator may overlap."
+  ],
+  "schema_version": 1
+}
