@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The stand-alone `verify.py` uses only Python's standard library. Run `python3 verify.py` from the directory containing the extracted files. It independently enumerates ternary path assignments satisfying the connected-tight-edge criterion and matches the complete four-state transition polynomial for each integer parameter from 2 through 10. It calculates every centered squared norm using exact `Fraction` arithmetic and verifies the optimal value, number of contacting facets and rational rank of the contact normals for parameters 3 through 10. The boundary case 2 is checked separately and is excluded from the theorem.
+# Independent mathematical audit
 
-Observed output: `PASS: vertex tight graphs, full facet-distance multiplicity transfer matrix, squared polar norms, contact counts and ranks for m=2..10; checked 6846 exact polar vertices, no approximate arithmetic.`
+## correctness
 
-The verifier is a corroborating finite cross-check; the infinite-family theorem rests on the complete symbolic proof in `RESULT.md`. There is no independent audit or external certification.
+PASS
+
+The frozen RESULT.md transfer-matrix entries in the positive-symbol transitions read literal \nu rather than u (three cells), so the printed formal polynomial is wrong. The full replacement RESULT.md repairs that mathematical formula, supplies every corrected transition and repeats complete theorem/proof/scope. Independently, the polar is |f_a-f_b|<=1. A polar vertex iff its tight-edge graph is connected, forcing hub-relative ternary potentials; adjacency excludes opposite signs and each zero must be neighbor-supported. The corrected four-state transfer counts all such words. Centering produces norm²=p+q-(p-q)²/(m+1). At least two zeros => norm²<=m-2; with one zero balanced opposite-sign blocks maximize at m-1-epsilon/(m+1); one-sign words attain at most (m+1)/4, strictly lower for m>=3. Antipodal support constraints bound all possible inball centers, and contact-normal rank one/two yields the full center-set affine dimensions. Exact independent 6846-word rational checks for m2..10 agree; finite checks are corroborative only.
+
+## originality
+
+PASS
+
+Existing graph facet/maximally bipartite/tight-edge structural criteria provide prerequisites but not a formula for the complete fan-specific Euclidean normal norm spectrum and optimal inball-center rank. Published nearby path/wheel/crown/sparse families concern different graphs; graph-Lipschitz variance aliases remain a residual literature risk.
+
+## value
+
+PASS
+
+Fan graphs are a canonical join/path family and their symmetric edge polytopes are natural metric objects. The corrected result determines all facet Euclidean distances and multiplicities, the optimal global insphere and a nontrivial parity jump in the dimension of its entire center locus; these are not mechanical consequences of graph facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
