@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For diagonal A the exact projected correction completes one coordinate per distinct accepted row. Raw proposals remain iid before null-rejection, so coupon collection gives the exact tail and E count. Monotonicity of \\(1+r^2+r^{-2}\\) for r>1 proves the geometric-mean pin boundary and middle-row strict domination. The n-dimensional lower bound uses the geometric waiting time for the rare row; the upper bound uses a conditional discovery probability at least 1/(n+2), giving the claimed divergence. Finite exact-rational Python tests passed 2475 cases and are explicitly not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lok and Rebrova provide subspace-constrained convergence bounds and low-rank row-selection guidance but not exact raw-coupon completion cost.",
+        "Nutini et al. introduce orthogonality-aware faster randomized Kaczmarz selection, establishing the qualitative wasted-probe theme.",
+        "published-finding corpus Kaczmarz records compare different objectives: finite-horizon cyclic overrelaxation or coherence-driven residual spikes."
+      ],
+      "reasoning": "Orthogonality-aware adaptive sampling could eliminate rejected draws, so it is not asserted that wasted sampling is universally unavoidable. The stated theorem is explicitly for the fixed independent distribution and actual rejection in Sun et al. These broader algorithms and geometric observations do not imply the specific phase threshold and Frobenius tradeoff without additional analysis.",
+      "searches": [
+        "Kaczmarz coupon collector rejection row sampling convergence",
+        "subspace constrained coupon collector randomized Kaczmarz",
+        "QR-like subspace constrained preconditioning residual Frobenius surrogate wrong row choice singular value convergence factor condition number",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.29304v1 HTML §1 §3 §5",
+      "arXiv:2309.04889 PDF Algorithm 1 and §3.3.2",
+      "PMLR-R14:nutini16a abstract",
+      "arXiv:2601.12351 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 Theorem 3.2 and Remark 3.3 bound accepted iterations with a projected singular-value/Frobenius factor; its Algorithm 1 step 2 rejects null samples without treating the number of rejected proposals.",
+        "Prior 2023/2024 SCRK original method samples projected-row probabilities for each of a fixed number of iterations and discusses low-rank row choices.",
+        "2016 orthogonality graph work considers faster rules avoiding unproductive selections but not the 2026 Frobenius-surrogate pin-selection boundary."
+      ],
+      "reasoning": "There is no contradiction with accepted-iteration results: exactly n-1 accepted steps are needed on the diagonal witnesses for both pinned rows. Classical nonuniform coupon-collector formulas deliver the exact work conditional on a choice; comparing legal pin choices under the source surrogate yields the newly assessed geometric-mean classification and asymptotically vanishing Frobenius sacrifice, not a renamed older theorem.",
+      "searches": [
+        "arXiv:2605.29304 §3.1–§3.2",
+        "arXiv:2309.04889 Algorithm 1 §3.3.2",
+        "PMLR-R14:nutini16a abstract",
+        "three diagonal row subspace constrained Kaczmarz select smallest singular row geometric mean threshold optimal expected raw samples",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. use row-weighted projected Kaczmarz after an explicit nonzero-residual rejection.",
+        "Lok and Rebrova basic Algorithm 1 uses projected row-norm sampling without a repeated nonzero-residual acceptance test.",
+        "No found record formulated the pinned-row decision for pre-rejection weighted coupon-collection work."
+      ],
+      "reasoning": "Equivalent terminology includes SCRIM, SCRK, projected Kaczmarz, null-probe rejection, raw proposal complexity, nonuniform coupon collection and constrained row ID. The classical two-coupon tail is explicitly excluded from novelty. Source algorithm plus weighted coupon collection alone do not identify the Frobenius-optimal versus sampling-optimal pinned-row boundary and controlled near-optimal separation as a previously asserted conclusion.",
+      "searches": [
+        "rejected null draws in Sun Qi Han Xie SCRIM subspace-constrained randomized iterative method diagonal Frobenius row ID selection coupon collector",
+        "three diagonal row subspace constrained Kaczmarz select smallest singular row geometric mean threshold optimal expected raw samples",
+        "row interpolation Frobenius norm pivot versus expected Kaczmarz coupon collection time sharp unbounded performance gap",
+        "arXiv:2605.29304 §3 Algorithms 1 and Remark 3.1",
+        "arXiv:2309.04889 Algorithm 1",
+        "geometric mean boundary pinned row diagonal subspace constrained Kaczmarz weighted coupon collector raw draws Frobenius projected residual arbitrarily small relative cost unbounded"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published comparison records did not report this exact continuous pinned-row surrogate-versus-raw-cost classification.",
+        "published-finding corpus similarity retrieval returned unrelated row-coherence PDNQP preconditioning, weighted ACA, cyclic Kaczmarz, and residual-spike analyses rather than an exact pinned-row raw sampling table."
+      ],
+      "reasoning": "All candidate identities depend on continuous arbitrary singular parameters; no exact preexisting lookup or tabulation of this family was found. The absence of a hit is not a uniqueness proof; unpublished and differently indexed coverage remain possible.",
+      "searches": [
+        "subspace-constrained randomized Kaczmarz Frobenius residual selection fails convergence diagonal matrix chooses large row instead small rank-one loss arbitrarily worse",
+        "QR-like subspace constrained preconditioning residual Frobenius surrogate wrong row choice singular value convergence factor condition number",
+        "randomized Kaczmarz row block selection Frobenius-minimizing leaves ill-conditioned residual three diagonal rows",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a",
+        "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "geometric mean boundary pinned row diagonal subspace constrained Kaczmarz weighted coupon collector raw draws Frobenius projected residual arbitrarily small relative cost unbounded"
+      ]
+    },
+    "rationale": "The specific 2026 source selects constraints using projected Frobenius residual and explicitly rejects already-satisfied row probes, but analyzes accepted-step contraction rather than raw proposal count. A direct comparison with its full HTML, original SCRK sections, orthogonality-aware selection abstract, published research comparisons, and six targeted published-finding corpus queries found no theorem giving both the exact three-row geometric-mean switch and arbitrary separation at arbitrarily small relative Frobenius sacrifice. Standard coupon-collector laws and qualitative wasted-step observations are explicitly acknowledged, not claimed as original. An equivalent unindexed specialist derivation remains a bibliographic risk.",
+    "residual_risks": [
+      "Earlier nonuniform coupon-collector or row-ID optimization work could contain this combined selection comparison under different names.",
+      "The 2016 orthogonality-graph primary full text was not inspected; only the author-provided publisher abstract was accessible in this run.",
+      "Bibliographic searches cannot certify uniqueness; the claim is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines rejection of zero residual and Frobenius selector; not a theorem on raw sampling cost or the stated geometric-mean threshold.",
+        "evidence": [
+          "arXiv:2605.29304v1 (2026-05-28), Algorithm 1 lines 242–271",
+          "Remark 3.1 lines 274–278; Section 3.1 lines 290–303; Section 3.2 lines 323–338"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304",
+        "material_read": "HTML abstract, introduction, Algorithm 1, Remark 3.1, Sections 3.1–3.2 (including Lemma 3.5 and constraint selection), and Section 5 framing.",
+        "method": "Direct HTML full-text reading and formula comparison",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Motivating recent result and exact algorithm/selection definitions"
+      },
+      {
+        "assessment": "Covers projected row-norm randomization and rank-based constraint-row selection, not the new source explicit null rejection plus optimized raw-proposal cost.",
+        "evidence": [
+          "arXiv:2309.04889 Algorithm 1 page 3 (0-index page 2)",
+          "Section 3.3.2 pages 15–16"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04889",
+        "material_read": "PDF text and page images for Algorithm 1 (page 3), bounds and Sections 3.3.1–3.3.2 (pages 14–16), including low-rank row selection.",
+        "method": "Primary PDF text inspection with selected page images",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Earlier original subspace constrained row sampler; potential prior general formulation"
+      },
+      {
+        "assessment": "Establishes preexisting orthogonality-aware sampling idea, so that qualitative idea is excluded from claimed novelty. Full-text coverage uncertainty remains.",
+        "evidence": [
+          "PMLR R14:218–227 (2016), abstract says faster randomized rules for matrices with many orthogonal rows"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/r14/nutini16a.html",
+        "material_read": "Publisher landing-page abstract and linked bibliographic description; full article not obtained in this attempt.",
+        "method": "Publisher landing page and abstract reading",
+        "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Randomized Kaczmarz Rules Using the Orthogonality Graph",
+        "trigger": "Known ways to suppress wasted projections on orthogonal rows"
+      },
+      {
+        "assessment": "General coupon collection is known, so ordinary coupon tails are proof ingredients, not a novelty claim.",
+        "evidence": [
+          "arXiv:2601.12351 abstract describes general collection strategies, not constrained preconditioning row selection"
+        ],
+        "identifier_or_url": "arXiv:2601.12351",
+        "material_read": "Search result abstract only; no claim of full-text comparison.",
+        "method": "Bibliographic keyword search and abstract screening",
+        "title": "Analyzing Collection Strategies: A Computational Perspective on the Coupon Collector Problem",
+        "trigger": "Classical and contemporary coverage of nonuniform coupon collection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "867fc976-c376-465f-9dfc-1f3813b40229",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The analysis studies a precise mathematical objective mismatch in the cited method: Frobenius-optimal pinning controls neither the number of raw stochastic probes nor its asymptotic ratio to a near-Frobenius-optimal alternative. The sharp 3x3 phase boundary and n-dimensional arbitrarily-small-surrogate-sacrifice family answer a concrete algorithm design question. Accepted-step results miss the cost because the rejection loop is outside the iteration count. No general elapsed-computation bound, broader algorithm impossibility, or new coupon-collector identity is claimed.",
+    "status": "PASS"
+  }
+}
