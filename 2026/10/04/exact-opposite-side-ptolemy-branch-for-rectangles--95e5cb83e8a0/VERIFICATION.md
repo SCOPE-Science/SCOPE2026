@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof was checked from the packaged formulas, not from numerical sampling.
 
-The bundled `verify.py` symbolically confirms four identities used in the proof:
+# Independent mathematical audit
 
-1. the square-root comparison
-\[
-\Phi_h(q)^2-(q^2+H^2-h^2)^2=4H^2h^2;
-\]
-2. the derivative of the reduced function with respect to \(v^2\);
-3. the derivative of the final one-variable function;
-4. the exact difference
-\[
-1+\frac{t^2}{4}-Q(t)^2=\frac{t^2}{4(t^2+1)}.
-\]
+## correctness
 
-The analytic sign conditions are stated in `RESULT.md`: \(0\le v\le u\le L\), \(H>0\), and \(t\ge2\) in the final comparison. The checker is diagnostic only and is not used to infer an infinite theorem from finite experiments.
+PASS
 
-Unproved here: the exact unrestricted Ptolemy constant of a rectangle and all side-occupancy classes other than two points on each of a fixed pair of opposite sides.
+Write two bottom/top chords using half-lengths a,b and midpoint separation h≥0. Exact distance algebra reduces the ratio to Φ_h(q), q=a−b, and the derivative in q² is nonpositive. The remaining v=|h−(a+b)| derivative is nonpositive and u=h+a+b≤L gives a strictly increasing final function for u>0. Equality forces a=b=L/4 and h=L/2. All endpoint limits are handled by continuity.
+
+## originality
+
+PASS
+
+The identical numerical expression is already a lower-bound witness in Harmaala–Klén; that one configuration does not imply exact maximality or equality classification across the entire two-and-two opposite-side occupancy class. Finch conjectures a global formula without a rigorous branch proof. The exact restricted theorem is the material new implication, with Seittenranta thesis an access risk.
+
+## value
+
+PASS
+
+An exhaustive natural occupancy branch, not an artificial numerical slice, is solved with a unique equality configuration and excluded as a global rectangle extremizer; this reduces a genuine global geometric optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

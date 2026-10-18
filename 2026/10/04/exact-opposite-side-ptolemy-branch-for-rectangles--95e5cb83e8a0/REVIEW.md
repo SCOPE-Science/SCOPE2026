@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coordinate reduction is exact. With bottom and top half-lengths \(a,b\), midpoint offset \(h\), \(p_0=a+b\), and \(q=a-b\), the Ptolemy ratio has the displayed closed form. The first monotonicity follows from
-\[
-\Phi_h(q)^2-(q^2+H^2-h^2)^2=4H^2h^2,
-\]
-which makes the numerator nonincreasing in \(q^2\). The second reduction is monotone in \(v^2\), and the final one-variable function is increasing in \(u\). Equality conditions propagate to \(a=b=L/4\) and \(h=L/2\). The comparison with the full rectangle lower candidates is exact.
+## correctness
 
-## Originality
-PASS with residual historical-access risk. Harmaala--Klén publish the same numerical value as one lower-bound configuration, but their result does not imply the sharp upper bound or equality classification for the full opposite-side branch. Their global rectangle upper bound is strictly coarser. Finch explicitly labels his global rectangle formula nonrigorous and says that many configurations remain to be ruled out; he does not state this branch theorem. Targeted published-finding searches for opposite-side, parallel-segment, and exact-formula aliases found no covering statement. The unpublished 1996 Seittenranta licentiate thesis cited by Harmaala--Klén was not materially inspected.
+PASS
 
-## Value
-PASS. The result gives a natural complete classification of a whole side-occupancy branch in an explicit open rectangle maximization problem. It identifies the exact role of Harmaala--Klén's third parallelogram lower-bound configuration and proves that this branch is never globally extremal, thereby removing an infinite family of candidate configurations rather than merely checking isolated parameters.
+Write two bottom/top chords using half-lengths a,b and midpoint separation h≥0. Exact distance algebra reduces the ratio to Φ_h(q), q=a−b, and the derivative in q² is nonpositive. The remaining v=|h−(a+b)| derivative is nonpositive and u=h+a+b≤L gives a strictly increasing final function for u>0. Equality forces a=b=L/4 and h=L/2. All endpoint limits are handled by continuity.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The identical numerical expression is already a lower-bound witness in Harmaala–Klén; that one configuration does not imply exact maximality or equality classification across the entire two-and-two opposite-side occupancy class. Finch conjectures a global formula without a rigorous branch proof. The exact restricted theorem is the material new implication, with Seittenranta thesis an access risk.
+
+## value
+
+PASS
+
+An exhaustive natural occupancy branch, not an artificial numerical slice, is solved with a unique equality configuration and excluded as a global rectangle extremizer; this reduces a genuine global geometric optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
