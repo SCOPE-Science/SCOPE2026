@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Writing \(t=x^2\) reduces the deficit \(f-\lambda^2\) to a monic quadratic in \(t\ge0\). Exact minimization in \(t\) is equivalent to a one-dimensional supporting-line inequality against the strictly convex function \(h(z)=(z+\sqrt{z^2+2})/\sqrt2\). Its derivative range gives all three parameter regimes, and the tangency case supplies the exact non-uniqueness boundary. Negative \(y\) is dominated by positive \(|y|\), so no omitted sign case remains. Exact-arithmetic replay checks the polynomial identity, source examples, and representative boundary points.
+# Independent mathematical audit
 
-## Originality
-PASS. Papadatos explicitly poses the arbitrary-positive-parameter minimization question after displaying this quartic family and gives examples in the \(n=3\) case rather than a classification. Searches using the exact source, the quartic formula, supporting-line aliases, and parameter-threshold language found no statement implying the necessary-and-sufficient region. The closest discrete-order-statistic optimization paper located uses automatic differentiation for maximal correlation and does not reduce to or imply this deterministic quartic classification.
+## correctness
 
-## Value
-PASS. This is a natural complete classification of the first genuinely two-variable instance of an explicit published mathematical question. It explains all qualitative examples in the source through one phase diagram, identifies the exact tangency boundary where uniqueness is lost, and isolates the remaining difficulty to dimensions \(n\ge4\).
+PASS
 
-## Closest literature and limitations
-The motivating source is arXiv:2205.14360v1 / DOI:10.3103/S1066530723020035. A nearby 2021 paper on maximal correlation for discrete-parent order statistics, DOI:10.1007/s00180-021-01103-5, treats a different numerical optimization problem. The result here does not solve the higher-dimensional parameter chain or provide a new maximal-correlation formula. A poorly indexed equivalent algebraic solution is the main residual originality risk.
+Minimizing f-lambda² as a quadratic in t=x²≥0 reduces its global nonnegativity to gamma1+gamma2*y ≤ sqrt(2lambda+y²)+y for all y≥0; negative y is weaker by absolute values. The normalized strictly convex supporting curve h(z)=(z+sqrt(z²+2))/sqrt(2) has derivative range [1/sqrt(2),sqrt(2)); its supporting-line infimum is 1 when gamma2≤1 and sqrt(gamma2(2-gamma2)) for 1<gamma2<2. Tangency at positive y when gamma2>1 creates nonzero co-minimizers exactly at equality, while equality for gamma2≤1 occurs only at origin. If gamma2≥2, positive gamma1 prevents minimality. Nine rational exact tangency cases checked independently; infinite inequalities rest on convexity, not grid tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Papadatos explicitly poses determining all positive parameters with unique origin minimizer and gives examples rather than an iff classification. The present convex-envelope classification fully resolves the first n=3 two-variable case; it does not claim an extension to n≥4 or to discrete maximal-correlation formulae.
+
+## value
+
+PASS
+
+A complete exact parameter boundary for the first nontrivial dimension of a published quartic minimization problem, including sharp equality and multiple-minimizer cases; the fact is mathematically motivated independent of further multidimensional results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

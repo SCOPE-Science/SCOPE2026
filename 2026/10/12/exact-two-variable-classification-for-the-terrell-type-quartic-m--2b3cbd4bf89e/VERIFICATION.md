@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof was checked from the displayed definition rather than inferred from numerical output. The critical steps are: exact reduction to a monic quadratic in \(t=x^2\); exact minimization on \(t\ge0\); reduction from both signs of \(y\) to \(y\ge0\); normalization to the supporting-line inequality for \(h(z)=(z+\sqrt{z^2+2})/\sqrt2\); strict-convexity analysis of \(h(z)-bz\); and explicit reconstruction of the co-minimizers at the tangency boundary.
 
-The accompanying checker replays the polynomial identity with exact rational arithmetic, checks the classification of the four parameter examples from the source at \(\lambda=11/16\), and checks representative rational points on both sides of the stated thresholds. Those finite checks are diagnostic only and are not used as a proof of the quantified theorem.
+# Independent mathematical audit
 
-The main limitation is dimensional: only the two-variable case is classified. The higher-dimensional chain remains outside this result.
+## correctness
+
+PASS
+
+Minimizing f-lambda² as a quadratic in t=x²≥0 reduces its global nonnegativity to gamma1+gamma2*y ≤ sqrt(2lambda+y²)+y for all y≥0; negative y is weaker by absolute values. The normalized strictly convex supporting curve h(z)=(z+sqrt(z²+2))/sqrt(2) has derivative range [1/sqrt(2),sqrt(2)); its supporting-line infimum is 1 when gamma2≤1 and sqrt(gamma2(2-gamma2)) for 1<gamma2<2. Tangency at positive y when gamma2>1 creates nonzero co-minimizers exactly at equality, while equality for gamma2≤1 occurs only at origin. If gamma2≥2, positive gamma1 prevents minimality. Nine rational exact tangency cases checked independently; infinite inequalities rest on convexity, not grid tests.
+
+## originality
+
+PASS
+
+Papadatos explicitly poses determining all positive parameters with unique origin minimizer and gives examples rather than an iff classification. The present convex-envelope classification fully resolves the first n=3 two-variable case; it does not claim an extension to n≥4 or to discrete maximal-correlation formulae.
+
+## value
+
+PASS
+
+A complete exact parameter boundary for the first nontrivial dimension of a published quartic minimization problem, including sharp equality and multiple-minimizer cases; the fact is mathematically motivated independent of further multidimensional results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
