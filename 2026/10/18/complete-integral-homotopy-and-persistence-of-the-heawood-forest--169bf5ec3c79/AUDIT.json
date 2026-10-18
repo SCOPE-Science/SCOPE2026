@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The graph, vertex subsets and all four degree stages are exhaustively defined. verify_morse.py enumerates all 16,383 nonempty masks, independently checks induced cycles by union/find and degree bounds, constructs a deterministic full matching and checks every oriented Hasse cover by topological sort, including 457, 2256, 8654, and 12791 faces and 225, 1121, 4326, 6391 matched pairs. Only critical cells are one 0-cell and respectively six 3-, thirteen 5-, one 6-, and eight 8-cells. Forman discrete-Morse CW theory yields exact integral sphere wedges because intermediate cell dimensions are absent. verify_homology.py separately enumerates forests by the edge/component identity and computes complete mod-two boundary ranks, agreeing in all degrees. Inclusion-induced reduced homology maps vanish since consecutive stages have nonzero homology in distinct dimensions; the resulting integral interval decomposition has exactly the asserted bars.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carnero Bravo 2023 defines the filtration and classifies graph families such as paths, cycles, double stars, cactus graphs and certain graph joins/products.",
+        "His 2023 polyhedral-join paper covers other graph-family complexes; it does not state an all-cubic-graph theorem evaluating these specific Heawood stages."
+      ],
+      "reasoning": "A broad graph-family theorem could subsume the small graph despite omitting its name. Checked the actual family hypotheses and constructions in relevant inspected sections: the Heawood incidence graph is neither a listed path/cycle/cactus/star nor an evaluated join/product family, and no formula there yields the homotopy multiplicities 13,1,8 or persistence maps.",
+      "searches": [
+        "homology of the forest complexes of cubic bipartite incidence graphs Fano Heawood",
+        "Complete Heawood Fano incidence graph induced forest maximum degree filtration F0 wedge six 3-spheres F1 thirteen 5-spheres F2 6-sphere F3 eight 8-spheres persistence",
+        "arXiv:2307.13271v1",
+        "arXiv:2307.14321v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.13271v1 (full PDF sections 3-4)",
+      "arXiv:2307.14321v1 (full PDF sections 4-5)",
+      "2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2 (full RESULT.md)",
+      "DOI:10.1016/j.jctb.2018.04.009 (accessible excerpts only)",
+      "2026/10/11/SCOPE-the-heawood-two-matching-complex-is-a-wedge-of-six-10-spheres--5bc5713358d6 (indexed statement/summary only)",
+      "2026/10/11/SCOPE-complete-intrinsic-graph-ech-persistence-of-the-heawood-graph--a334f7f20b6f (indexed statement/summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Heawood independence result describes only F0. Its homotopy type does not determine homotopy types of complexes obtained by adding induced-forest vertex subsets.",
+        "Heawood two-matching complex selects edges of bounded incident degree, not subsets of graph vertices; a homotopy equivalence cannot be inferred by matching numerical thresholds.",
+        "Intrinsic graph Čech persistence uses neighborhood nerve simplices, not induced acyclic vertex subsets."
+      ],
+      "reasoning": "Neither an exact F0 wedge computation, independent-set polynomial, graph-edge 2-matching theorem nor intrinsic Čech filtration controls the discrete Morse cells of F1-F3. The present exhaustive oriented Hasse matching supplies new implications for each degree and the persistence maps. There is no logical reduction from those inspected assertions to the target integer homotopy types.",
+      "searches": [
+        "Heawood graph forest complex homotopy filtration persistent homology independence 14 vertices",
+        "Exact homotopy of Heawood graph degree-two induced forest complex one 6-sphere",
+        "published-finding corpus: 2026/10/11/SCOPE-the-heawood-two-matching-complex-is-a-wedge-of-six-10-spheres--5bc5713358d6",
+        "published-finding corpus: 2026/10/11/SCOPE-complete-intrinsic-graph-ech-persistence-of-the-heawood-graph--a334f7f20b6f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Known F0 is the ordinary independence complex and is covered by 2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2",
+        "Induced maximum-degree-one forests are also called dissociation/2-independent vertex sets; graph-edge matching complexes are distinct objects."
+      ],
+      "reasoning": "Compared the exact vertex-induced forest definition with 2-independence/dissociation for d=1, acyclic induced-set complexes for d=3 and ordinary independence for d=0. The earlier Heawood independence theorem covers d=0 exactly; d=1,2,3 and their persistence are not supplied by the retrieved matching/independence-complex results.",
+      "searches": [
+        "forest filtration of the Heawood graph degree two induced forests homology persistence",
+        "Fano incidence graph independence complex induced dissociation forest homology",
+        "Heawood 2-independence complex thirteen 5-spheres and acyclic set complex eight 8-spheres",
+        "Fano plane Levi graph maximal degree acyclic induced subgraph simplicial complex homology",
+        "2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Perarnau--Perkins independent-set polynomial gives the F0 face vector and is already known.",
+        "published-finding corpus published F0 homotopy calculation matches exactly six 3-spheres and must not be claimed as new.",
+        "Targeted semantic-record searches did not identify a table with the three subsequent homotopy types."
+      ],
+      "reasoning": "Compared exact graph, 14 vertices/21 edges, degree thresholds d=0,1,2,3 and all four homotopy multiplicities. The exact prior stage d=0 is excluded from novelty; no examined indexed table lists F1, F2 and F3 or the induced module maps. Absence from search results is a residual risk, not uniqueness proof.",
+      "searches": [
+        "Heawood graph induced forest complex degree two six dimensional sphere F2 Heawood",
+        "Complete Heawood Fano incidence graph induced forest maximum degree filtration F0 wedge six 3-spheres F1 thirteen 5-spheres F2 6-sphere F3 eight 8-spheres persistence",
+        "Exact homotopy of Heawood graph degree-two induced forest complex one 6-sphere",
+        "published-finding corpus: 2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2"
+      ]
+    },
+    "rationale": "PASS applies to F1, F2, F3 and complete integral persistence only. The exact prior Heawood independence complex F0 is acknowledged. Primary literature and actual published-finding corpus semantic queries for degree constraints, dissociation, induced forests, aliases, exact small-graph tables and broader coverage found no implication for the three new stages. Exact same-graph matching and Čech results concern different complexes. Residual unindexed-equivalent risk remains.",
+    "residual_risks": [
+      "An unindexed or unpublished induced-forest filtration of the Heawood graph may exist.",
+      "The full Perarnau--Perkins publisher text was not accessible; only published independent-set counts/abstract excerpts were inspected, so no unsupported full-text negative assertion is made.",
+      "published-finding corpus is a ranked search index; negative hits are not exhaustive literature uniqueness proof.",
+      "Only self-review performed; external independent validation is absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the degree-bounded induced-forest filtration and treats paths, cycles, double stars, cactus graphs, joins and selected products, not the specific Heawood F1-F3 homotopy types or their persistence.",
+        "evidence": "arXiv:2307.13271v1; Sections 3 and 4; no Heawood/Fano text match in inspected PDF.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.13271",
+        "material_read": "Full open-access arXiv PDF, abstract, contents, Section 3 on definitions and Section 4 family classifications; searchable document checked for Heawood and Fano.",
+        "method": "Open-access full-text inspection, heading/content comparisons, searches for graph name and aliases.",
+        "title": "The Forest Filtration of a Graph",
+        "trigger": "Exact source defining the forest filtration and candidate broad coverage of graph families."
+      },
+      {
+        "assessment": "Investigates graph families/products and polyhedral joins; inspected results do not identify Heawood degree-restricted induced-forest filtration stages or induced persistence.",
+        "evidence": "arXiv:2307.14321v1; Sections 4-5.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.14321",
+        "material_read": "Open-access arXiv PDF, abstract, contents and Sections 4 and 5, including graph-complex applications; checked for Heawood/Fano names.",
+        "method": "Full-text section inspection, formula/object comparisons and text search.",
+        "title": "Polyhedral joins and graph complexes",
+        "trigger": "Potentially stronger family-level statements via polyhedral join constructions."
+      },
+      {
+        "assessment": "The known result exactly covers F0 = Ind(H) homotopy wedge of six 3-spheres, and is explicitly credited. It does not assert or imply evaluated F1, F2, F3, or inclusion-induced maps; those are the new contributions.",
+        "evidence": "published-finding corpus identifier 2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2, RESULT.md Finding and Limitations.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2",
+        "material_read": "Complete publicly available RESULT.md containing the assumptions, proof, verification, prior comparisons and limits.",
+        "method": "Full statement and implication comparison against each of the four degrees.",
+        "title": "The Heawood independence complex is a wedge of six three-spheres",
+        "trigger": "Exact same graph and first filtration stage, decisive overlap check."
+      },
+      {
+        "assessment": "Known independent-set counts agree with F0 face data and are fully credited. The checked material does not supply higher degree-bounded induced-forest homotopy classifications.",
+        "evidence": "2018 J. Combin. Theory B record, DOI:10.1016/j.jctb.2018.04.009; independent-set counts (1,14,70,154,147,56,14,2).",
+        "identifier_or_url": "https://doi.org/10.1016/j.jctb.2018.04.009",
+        "material_read": "Accessible abstract and publication excerpts containing the Heawood independence-polynomial coefficient vector; publisher full text could not be obtained in this inspection.",
+        "method": "Excerpt and formula comparison; did not infer uninspected full text exclusion.",
+        "title": "Counting independent sets in cubic graphs of given girth",
+        "trigger": "Known Heawood independence polynomial potentially entailing stage-zero counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "169bf5ec-3c79-452f-a4e4-c196e2350254",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The point-line incidence graph of the Fano plane (Heawood graph) is a canonical 14-vertex cubic girth-six graph in extremal graph theory and combinatorial topology. The four levels d=0..3 are its entire natural induced-forest degree filtration, not an arbitrary numerical slice. Exact integral homotopy classifications of the previously untreated three upper levels reveal sphere dimensions 5, 6, 8 with ranks 13, 1, 8, providing a complete integral persistence module and concrete tests for forest-filtration general theory. The known d=0 term is context, not novelty. A finite natural example is valuable independently of an infinite-family theorem.",
+    "status": "PASS"
+  }
+}
