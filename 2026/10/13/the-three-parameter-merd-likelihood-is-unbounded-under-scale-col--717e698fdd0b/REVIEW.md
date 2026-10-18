@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact scale profile displayed by the source. For a nondegenerate sample with \(k\) observations tied at the minimum, \(S(\sigma)=C\sigma^{-1/2}+O(1)\), and the three logarithmic terms in the profile combine to \(-(k/2)\log\sigma+O(1)\). Therefore the profile diverges to \(+\infty\). The packaged checker independently matches the direct joint likelihood and verifies the predicted slopes for both unique and tied minima.
+## correctness
 
-## Originality
-PASS. The primary paper proposes numerical maximization of the scale profile but does not state the boundary divergence. Five targeted published-result searches, exact correction searches, broader parameter-dependent-support comparison, and current/prior source-and-claim checks found no covering MERD result.
+PASS
 
-Residual risk remains that a very recent unindexed correction exists or that a constrained implementation was used without being described.
+For n≥2 nondegenerate observations, τ=m=min x_i is in allowed support, k≥1 data points attain m, r=n−k have positive residuals y_i. Direct product of the quoted model density yields profile λhat=n/S(σ) where S=Σ(sqrt(1+y_i/σ)−1)~Cσ^(−1/2), C=Σ_{y_i>0}sqrt(y_i)>0. Profile ℓ=nlog(n/S)−n−nlog(2σ)−(1/2)Σlog(1+y_i/σ) gives coefficient n/2−n+r/2=−k/2 on logσ, hence ℓ=−(k/2)logσ+O(1)→+∞ and λhat~n√σ/C→0. Therefore no finite unconstrained three-parameter maximum exists. Independent direct-vs-profile formula reconstruction and high-precision log-step checks for unique/tied minima corroborate, while proof is asymptotic for all nondegenerate samples. All-equal samples explicitly excluded.
 
-## Value
-PASS. The three-parameter extension is presented as the remedy for the original model's fixed lower bound and scale. Because its unconstrained profile likelihood is unbounded, the proposed ordinary joint MLE does not exist for nondegenerate samples. This changes the inferential status of the extension and identifies exactly where a constraint, penalty, or prior is mathematically necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with material full-text-access limitation: exact 2026 source was retrieved at publisher metadata and abstract, but publisher full PDF inaccessible and institutional authorized attempt returned vpn_disconnected (not bypassed). The audited package supplies a claimed verbatim model density and positive-scale profile, whose mathematical consequence is proved here. General nonregular/support-dependent likelihood literature does not by itself state this particular MERD −(k/2)logσ blowup. The possibility that the unavailable primary body already mentions the ridge is explicitly retained as risk; no whole-paper NOT_COVERING assertion.
+
+## value
+
+PASS
+
+Existence of a finite global MLE is foundational for the cited model’s proposed three-parameter estimation procedure. A universal boundary path with divergence coefficient determined by tied minimum multiplicity invalidates unqualified unconstrained numerical maximization and is a substantive nonregular-likelihood phenomenon, not merely a routine parameter constraint check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
