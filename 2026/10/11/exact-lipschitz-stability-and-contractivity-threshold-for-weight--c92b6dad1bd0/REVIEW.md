@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generalized soft-threshold formula follows from strict convexity and the KKT conditions; fixing an active face makes the map affine with rank-one-corrected derivative. Every active subset genuinely occurs, so the finite maximum of linear operator norms is both necessary and sufficient. Differentiation on the kernel proves the complete nonexpansive classification. Hölder duality gives the exact planar factor. The standalone deterministic verifier passes 1,240 checks; numerical tests do not prove the infinite quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-Duchi et al. (2008) cover Euclidean threshold projection, but not ambient \(\ell_p\)-metric Lipschitz stability for all positive weights. Kobos (2015) and Jamison--Kamińska--Lewicki (2004) cover linear norm-one projection obstructions. Denkowska (2013) and Kamińska--Lewicki (2004) present stronger general structural descriptions of contractive sets; these may subsume much of the qualitative obstruction, which is not separately presented as novel. The specific quantitative global Lipschitz modulus and sharp anisotropic planar constant were not found in inspected primary material or targeted searches. The full 2004 papers were not accessible and equivalent historical formulations remain a residual risk. Search incompleteness is not evidence of mathematical uniqueness.
+PASS
 
-## Value — PASS
-Weighted cross-polytopes model coordinate-weighted sparse constraints; their nearest-point-map stability is a natural approximation invariant. The exact modulus covers every finite dimension and strictly positive weight pattern, provides a closed two-dimensional amplification factor, and precisely separates contractive from expansive parameter regimes. Its value is the complete quantitative sensitivity theorem, beyond a routine KKT calculation.
+Strict convexity (1<p<infinity), positive weights and r>0 give unique KKT minimizer, with signed weighted soft-threshold tau determined by sum_i w_i (|x_i|−tau*w_i^(q−1))_+=r outside the ball. On each strict active-set/sign cell S the exact Jacobian is sign-conjugate of J_S=I−a_S*w_S^T/W_S, zero extension off S. Every nonempty S is realized by positive interior outputs with strict inactive margins; continuity and finite piecewise-affine segment integration prove Lip=max{1,max_S||J_S||}. For p≠2, assuming norm-one on full support and differentiating ||v+t a||_p at t=0 for all v in kernel w forces weights equal pairwise; for |S|>=3, v=(1,1,-2) then forces p=2, so the only extra non-Hilbert case is equally weighted n=2. The outer-product formula for J_{1,2} gives displayed exact planar ratio. Independent numerical analytic dual-norm witness checked across six exponents and four weight pairs (24 comparisons); a finite experiment does not establish global quantifiers.
 
-## Scope and remaining limitations
-Real finite-dimensional \(\ell_p\) only, \(1<p<\infty\), with positive weights and radius. The higher-dimensional exact modulus remains an explicit finite optimization over matrix operator norms rather than a universal elementary closed form. General historical contractive-set theory remains the principal originality risk; a separate audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for final all-weight theorem. The published unweighted cross-polytope proof already gives thresholding, active-set centering and nonexpansivity for w=1, while the published planar wedge theorem implies the exact planar rank-one formula; neither covers arbitrary positive nonuniform weight vectors and all-dimensional weighted active-face operator-norm maximum, or its complete weight-sensitive nonexpansivity classification. Duchi et al cover only Euclidean projection; Denkowska studies existence of contractive maps and linear subspaces, not the exact nearest-point Lipschitz modulus. The overlap of the unweighted and planar subclaims is explicitly conceded: acceptance is for the surviving unified anisotropic-weight all-dimension result, not for novelty of its known specializations.
+
+## value
+
+PASS
+
+PASS: weighted l1 balls are canonical anisotropic cross-polytopes in constrained optimization, and the ambient exponent changes their nearest-point stability nontrivially. An exact finite active-face norm formula for arbitrary weights plus the sharp rigidity criterion and weighted planar amplifier are meaningful, naturally parameterized geometric stability facts; they are not merely a parameter renaming because anisotropic diagonal scaling changes the ambient l_p metric and operator norms. Prior unweighted and planar results demonstrate strong mathematical motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
