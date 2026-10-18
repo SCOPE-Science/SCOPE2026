@@ -1,49 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the one-dimensional specialization
-\[
-C=C'=K=I,\qquad
-\Lambda_1=\frac12I,\qquad
-\Theta_1=0,
-\]
-the original family has exact controlled \(K\)-\(g\)-frame bounds
-\[
-A=B=\frac14.
-\]
-With
-\[
-\lambda_1=\lambda_2=0,\qquad
-c_1=\frac12,\qquad
-\eta=\frac14,
-\]
-the printed perturbation hypothesis holds with equality, but the theorem assigns the zero perturbed family the positive lower bound
-\[
-\frac1{16}.
-\]
-The contradiction is exact.
+## correctness
 
-The replacement theorem is proved by taking the \(\ell^2\)-norm of direct component square-root differences. The coefficient sequence contributes
-\[
-\sqrt{\eta}
-=
-\left(\sum_i c_i^2\right)^{1/2},
-\]
-and the stated bounds follow from two applications of the triangle inequality.
+PASS
 
-## Originality
-PASS. The exact source theorem, its proposition specialization, correction and erratum aliases, classical \(g\)-frame perturbation literature, controlled \(K\)-frame perturbation literature, and the closest prior findings were compared.
+Under the exact source hypotheses take one-dimensional H=H_1=C, K=C=C'=I, Lambda_1=(1/2)I, Theta_1=0, lambda_1=lambda_2=0, c_1=1/2. Original controlled frame bounds are A=B=1/4. The operator difference Lambda*Lambda-Theta*Theta=(1/4)I is positive, so its positive square root has norm 1/2||f|| and saturates the printed perturbation hypothesis, eta=sum_i c_i²=1/4. Source Theorem 4.1 and Proposition 4.1 claim positive lower bound (sqrt A-eta)²=(1/2-1/4)²=1/16, yet perturbed analysis energy is identically zero. This directly contradicts the stated theorem and avoids all domain, infinite summation or noncommutativity issues. The separate valid replacement in the package assumes DIRECT component-square-root differences and invokes l² Minkowski to derive norm error sqrt eta, with strict smallness (1-lambda_1)sqrt A>sqrt eta; no assertion that the old sqrt(operator-difference) condition alone implies this replacement.
 
-A prior result concerning the same article corrects a complex inner-product identity in its dual-frame section. It neither states nor implies the perturbation counterexample here. The closest general perturbation literature uses different synthesis-level hypotheses and does not contain the source-specific scalar witness.
+## originality
 
-## Value
-PASS. A stability theorem that admits the zero family as a positively bounded frame can misclassify the most severe possible perturbation. The example is minimal and identifies the incorrect norm scale directly. The replacement theorem preserves the intended quantitative role of the lower frame bound.
+PASS
 
-## Limitations
-The safe replacement controls direct differences
-\[
-A_i^{1/2}f-B_i^{1/2}f.
-\]
-It does not claim that the source's square-root-of-operator-difference hypothesis can be repaired in full generality simply by changing \(\eta\) to \(\sqrt{\eta}\).
+Best-of-knowledge PASS. The literal 2020 publisher statement and proof use eta=sum c_i² directly on a norm-level scale, and standard frame perturbation inequalities typically use sqrt A and l² norm; those general statements do not themselves identify/refute this PARTICULAR printed controlled K-g theorem under its exact assumptions. A specific one-component witness making the source hypotheses true and conclusions false is an independently motivated mathematical correction. Resultary other nearby counterexamples address distinct 2018 controlled-K or 2020 weaving theorems, not this exact Forughi--Osgooei--Rahimi--Javahernia Theorem 4.1/Proposition 4.1.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Exhibiting a minimal scalar counterexample to an existing published perturbation theorem prevents false use of a quantitative stability criterion; the norm-square vs norm-scale diagnosis and separate safe corrected hypothesis are mathematically consequential, despite the witness being one-dimensional. Value derives from false published implication, not size of arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

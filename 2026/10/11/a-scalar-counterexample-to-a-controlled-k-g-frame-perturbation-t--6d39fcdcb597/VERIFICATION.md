@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,94 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The counterexample uses
-\[
-H=H_1=\mathbb C,\qquad
-C=C'=K=I,\qquad
-\Lambda_1=\frac12I,\qquad
-\Theta_1=0.
-\]
+# Independent mathematical audit
 
-The original controlled energy is
-\[
-\|\Lambda_1f\|^2
-=
-\frac14\|f\|^2,
-\]
-so
-\[
-A=B=\frac14.
-\]
+## correctness
 
-The operator under the source perturbation square root is positive and equals
-\[
-\Lambda_1^*\Lambda_1-\Theta_1^*\Theta_1
-=
-\frac14I.
-\]
-Therefore
-\[
-\left\|
-\left(
-\Lambda_1^*\Lambda_1-\Theta_1^*\Theta_1
-\right)^{1/2}f
-\right\|
-=
-\frac12\|f\|.
-\]
-For
-\[
-c_1=\frac12,\qquad
-\lambda_1=\lambda_2=0,
-\]
-the hypothesis is an equality and
-\[
-\eta=\sum_i c_i^2=\frac14.
-\]
+PASS
 
-The printed lower bound becomes
-\[
-\left(
-\sqrt{\frac14}-\frac14
-\right)^2
-=
-\frac1{16},
-\]
-while the actual perturbed energy is
-\[
-\|\Theta_1f\|^2=0.
-\]
-Thus the source conclusion is false.
+Under the exact source hypotheses take one-dimensional H=H_1=C, K=C=C'=I, Lambda_1=(1/2)I, Theta_1=0, lambda_1=lambda_2=0, c_1=1/2. Original controlled frame bounds are A=B=1/4. The operator difference Lambda*Lambda-Theta*Theta=(1/4)I is positive, so its positive square root has norm 1/2||f|| and saturates the printed perturbation hypothesis, eta=sum_i c_i²=1/4. Source Theorem 4.1 and Proposition 4.1 claim positive lower bound (sqrt A-eta)²=(1/2-1/4)²=1/16, yet perturbed analysis energy is identically zero. This directly contradicts the stated theorem and avoids all domain, infinite summation or noncommutativity issues. The separate valid replacement in the package assumes DIRECT component-square-root differences and invokes l² Minkowski to derive norm error sqrt eta, with strict smallness (1-lambda_1)sqrt A>sqrt eta; no assertion that the old sqrt(operator-difference) condition alone implies this replacement.
 
-For the replacement theorem, define
-\[
-X(f)^2=\sum_i\|A_i^{1/2}f\|^2,
-\qquad
-Y(f)^2=\sum_i\|B_i^{1/2}f\|^2.
-\]
-Minkowski's inequality gives the error estimate
-\[
-\left(
-\sum_i
-\|A_i^{1/2}f-B_i^{1/2}f\|^2
-\right)^{1/2}
-\le
-\lambda_1X(f)+\lambda_2Y(f)+\sqrt{\eta}\,\|K^*f\|.
-\]
-The upper and lower triangle inequalities then yield
-\[
-(1-\lambda_2)Y(f)
-\le
-(1+\lambda_1)X(f)+\sqrt{\eta}\,\|K^*f\|
-\]
-and
-\[
-(1+\lambda_2)Y(f)
-\ge
-(1-\lambda_1)X(f)-\sqrt{\eta}\,\|K^*f\|.
-\]
-Substitution of the original frame bounds proves the stated replacement constants.
+## originality
 
-The publisher PDF was inspected at the theorem and proof by both extracted text and page image. The scalar verification is exact and uses no numerical approximation.
+PASS
+
+Best-of-knowledge PASS. The literal 2020 publisher statement and proof use eta=sum c_i² directly on a norm-level scale, and standard frame perturbation inequalities typically use sqrt A and l² norm; those general statements do not themselves identify/refute this PARTICULAR printed controlled K-g theorem under its exact assumptions. A specific one-component witness making the source hypotheses true and conclusions false is an independently motivated mathematical correction. Resultary other nearby counterexamples address distinct 2018 controlled-K or 2020 weaving theorems, not this exact Forughi--Osgooei--Rahimi--Javahernia Theorem 4.1/Proposition 4.1.
+
+## value
+
+PASS
+
+PASS. Exhibiting a minimal scalar counterexample to an existing published perturbation theorem prevents false use of a quantitative stability criterion; the norm-square vs norm-scale diagnosis and separate safe corrected hypothesis are mathematically consequential, despite the witness being one-dimensional. Value derives from false published implication, not size of arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
