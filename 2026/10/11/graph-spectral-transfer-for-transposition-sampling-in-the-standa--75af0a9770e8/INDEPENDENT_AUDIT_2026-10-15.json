@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:58:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Schur orthogonality on standard S_n matrix coefficients gives sample Gram ((n−1)/n!)(2I+B^TB+(n−5)J). The three products of edge-transpositions give exactly n−1, n−4, n−5. Complete K_n incidence BB^T=(n−2)I+J yields positive eigenlevels n(n−3)^2/2, n and 2 for n≥4; arbitrary edge masks are positive-definite principal submatrices. Unsigned-incidence kernel has dimension m−n+b; for r-regular graphs BB^T=rI+A gives all spectral levels and exact condition number at n≥6,r≥3. Complete-class restriction kernel consists exactly of skew-symmetric coefficient matrices.",
+      "risks": [
+        "The universal proof relies on orthogonality and exact incidence identities, not on these three finite n checks."
+      ],
+      "sources": [
+        "Frozen Git tree 9a74ef466d5872ac0d44363944ad61951e30fa1e: RESULT.md blob 1de87b99f40c447e5aedee49fa2d8377402ae3c4, verify.py blob 9eef0d1ab65e009c16e2b58ad74c4f4f6d03fa0d",
+        "Independently formed exact incidence and character matrices for complete K_4,K_5,K_6, confirmed equality and all eigenvalue multiplicities; inspected finite verifier for 424 subsets and 17 regular instances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General matrix-coefficient orthogonality explains the Gram algebra but does not state arbitrary sparse transposition restrictions. Other indexed records analyze full conjugacy classes or 3-cycles, not graph-selected transpositions."
+        ],
+        "reasoning": "No retrieved broader theorem determines the rank, arbitrary-mask spectrum, minimum multiplicity and regular-graph condition number together.",
+        "searches": [
+          "Symmetric group standard representation matrix coefficient Fourier block concentration sampled on edge transpositions arbitrary graph incidence matrix Johnson graph spectrum",
+          "Scarabotti–Tolli 2007 harmonic analysis; Resultary three-cycle-sampling-spectrum--12437f259044; two-statistic-fourier-sampling-law-for-symmetric-group-conjugacy--b3ed4a7b51b5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 9a74ef466d5872ac0d44363944ad61951e30fa1e: RESULT.md blob 1de87b99f40c447e5aedee49fa2d8377402ae3c4, verify.py blob 9eef0d1ab65e009c16e2b58ad74c4f4f6d03fa0d",
+        "Scarabotti–Tolli arXiv:math/0701533 standard harmonic analysis",
+        "Krebs–Shaheen DOI:10.13001/1081-3810.1256 Johnson spectrum",
+        "Resultary 3-cycle and full-conjugacy-class Fourier results",
+        "Exact frozen package character and incidence proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schur orthogonality + character rules allow a new derivation by incidence compression, but cited general results do not explicitly entail a graph-indexed concentration/cospectrality theorem without added argument."
+        ],
+        "reasoning": "PASS under best-of-knowledge, with possible older frame-theoretic formulation as risk.",
+        "searches": [
+          "Symmetric group standard representation matrix coefficient Fourier block concentration sampled on edge transpositions arbitrary graph incidence matrix Johnson graph spectrum",
+          "Schur orthogonality, standard S_n character; Krebs–Shaheen Johnson graph; Scarabotti–Tolli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard-character transposition Gram equals unsigned-incidence plus rank-one Johnson/line-graph matrix; this exact alias was searched. Johnson eigenvalues for all edges are classical inputs, not arbitrary graph-edge sampling interpolation."
+        ],
+        "reasoning": "Matching complete-class parameters alone is not independent novelty. Full sparse-edge restriction spectrum and regular spectral equivalence are the claim.",
+        "searches": [
+          "Symmetric group standard representation matrix coefficient Fourier block concentration sampled on edge transpositions arbitrary graph incidence matrix Johnson graph spectrum",
+          "Resultary top12 Fourier/transposition query; Scarabotti–Tolli arXiv:math/0701533; Krebs–Shaheen DOI:10.13001/1081-3810.1256"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Johnson line-graph spectrum is exact for the complete transposition class. That table does not tabulate Q_E for every arbitrary subgraph and its bipartite-component multiplicities."
+        ],
+        "reasoning": "Prior complete-graph spectrum is acknowledged; arbitrary sparse mask extension is the new calculation.",
+        "searches": [
+          "Symmetric group standard representation matrix coefficient Fourier block concentration sampled on edge transpositions arbitrary graph incidence matrix Johnson graph spectrum",
+          "Krebs–Shaheen 2008 Johnson graph eigenvalue tables; Resultary sparse-transposition top12"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. PASS under best-of-knowledge, with possible older frame-theoretic formulation as risk. Search self-hit 2026/10/11/SCOPE-graph-spectral-transfer-for-transposition-sampling-in-the-standa--75af0a9770e8 identifies the assigned candidate itself, not prior independent coverage.",
+      "residual_risks": [
+        "Classical frame/coefficient sampling literature might contain the complete arbitrary-edge Gram theorem in equivalent notation; highly broad older sources were not comprehensively read."
+      ],
+      "risks": [
+        "Classical frame/coefficient sampling literature might contain the complete arbitrary-edge Gram theorem in equivalent notation; highly broad older sources were not comprehensively read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_COMPLETE_GRAPH_INPUT",
+          "evidence": "Complete two-subset incidence eigenvalues are classical; graph-selected sparse transposition compression is not explicitly stated.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1256",
+          "material_read": "The accessible Johnson-spectrum theorem and its adjacency-graph scope; not a claim of every historical frame paper being read.",
+          "method": "Primary theorem/abstract comparison with explicit character Gram derivation",
+          "title": "On the spectra of Johnson graphs",
+          "trigger": "Complete edge-transposition Johnson/line-graph spectrum might dominate spectral transfer"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_DEMONSTRATED_COVERAGE",
+          "evidence": "Schur orthogonality is acknowledged prior input; sparse transposition graph spectrum requires a separate incidence-matrix identification.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701533",
+          "material_read": "Primary title/abstract and relevant harmonic-analysis framework; full source not independently verified in this turn.",
+          "method": "Public abstract/framing and algebraic implication check",
+          "title": "Harmonic analysis on a finite homogeneous space",
+          "trigger": "General matrix coefficient harmonic analysis could subsume the operator"
+        }
+      ],
+      "sources": [
+        "Symmetric group standard representation matrix coefficient Fourier block concentration sampled on edge transpositions arbitrary graph incidence matrix Johnson graph spectrum",
+        "Scarabotti–Tolli arXiv:math/0701533 standard harmonic analysis",
+        "Krebs–Shaheen DOI:10.13001/1081-3810.1256 Johnson spectrum",
+        "Resultary 3-cycle and full-conjugacy-class Fourier results",
+        "Exact frozen package character and incidence proof"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical graph-indexed sampling of the standard noncommutative Fourier block admits exact spectral interpolation for every edge subset. The bipartite-component bottom eigenspace and precise regular graph spectral transfer/condition number are useful structural links, not a relabeling of the complete Johnson spectrum.",
+      "risks": [
+        "Classical frame/coefficient sampling literature might contain the complete arbitrary-edge Gram theorem in equivalent notation; highly broad older sources were not comprehensively read."
+      ],
+      "sources": [
+        "Frozen Git tree 9a74ef466d5872ac0d44363944ad61951e30fa1e: RESULT.md blob 1de87b99f40c447e5aedee49fa2d8377402ae3c4, verify.py blob 9eef0d1ab65e009c16e2b58ad74c4f4f6d03fa0d",
+        "Scarabotti–Tolli arXiv:math/0701533 standard harmonic analysis",
+        "Krebs–Shaheen DOI:10.13001/1081-3810.1256 Johnson spectrum",
+        "Resultary 3-cycle and full-conjugacy-class Fourier results",
+        "Exact frozen package character and incidence proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 9a74ef466d5872ac0d44363944ad61951e30fa1e: RESULT.md blob 1de87b99f40c447e5aedee49fa2d8377402ae3c4, verify.py blob 9eef0d1ab65e009c16e2b58ad74c4f4f6d03fa0d",
+    "Scarabotti–Tolli arXiv:math/0701533 standard harmonic analysis",
+    "Krebs–Shaheen DOI:10.13001/1081-3810.1256 Johnson spectrum",
+    "Resultary 3-cycle and full-conjugacy-class Fourier results",
+    "Exact frozen package character and incidence proof"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The universal proof relies on orthogonality and exact incidence identities, not on these three finite n checks.",
+    "Classical frame/coefficient sampling literature might contain the complete arbitrary-edge Gram theorem in equivalent notation; highly broad older sources were not comprehensively read."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "CLASSICAL_COMPLETE_GRAPH_INPUT",
+      "evidence": "Complete two-subset incidence eigenvalues are classical; graph-selected sparse transposition compression is not explicitly stated.",
+      "identifier_or_url": "https://doi.org/10.13001/1081-3810.1256",
+      "material_read": "The accessible Johnson-spectrum theorem and its adjacency-graph scope; not a claim of every historical frame paper being read.",
+      "method": "Primary theorem/abstract comparison with explicit character Gram derivation",
+      "title": "On the spectra of Johnson graphs",
+      "trigger": "Complete edge-transposition Johnson/line-graph spectrum might dominate spectral transfer"
+    },
+    {
+      "assessment": "GENERAL_FRAMEWORK_NOT_DEMONSTRATED_COVERAGE",
+      "evidence": "Schur orthogonality is acknowledged prior input; sparse transposition graph spectrum requires a separate incidence-matrix identification.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0701533",
+      "material_read": "Primary title/abstract and relevant harmonic-analysis framework; full source not independently verified in this turn.",
+      "method": "Public abstract/framing and algebraic implication check",
+      "title": "Harmonic analysis on a finite homogeneous space",
+      "trigger": "General matrix coefficient harmonic analysis could subsume the operator"
+    }
+  ]
+}

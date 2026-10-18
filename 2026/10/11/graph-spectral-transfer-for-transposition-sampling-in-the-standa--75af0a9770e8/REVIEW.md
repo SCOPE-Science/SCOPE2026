@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Peter–Weyl basis gives a sample Gram proportional to the standard character evaluated on pairwise products of transpositions. The three possible products give the claimed incidence-plus-rank-one matrix. Complete-graph incidence eigenvalues make that Gram strictly positive from \(n=4\) upward; principal-submatrix positivity proves arbitrary-edge interpolation. Unsigned-incidence nullity is determined by bipartite connected components, and \(r\)-regularity gives the spectral transfer and its exact condition number. The skew-symmetric coefficient kernel is included by reflection symmetry and exhausts the proven nullity. The finite checker corroborates, but cannot prove, these all-size steps.
+PASS
 
-## Originality — PASS, with residual risk
+Schur orthogonality on standard S_n matrix coefficients gives sample Gram ((n−1)/n!)(2I+B^TB+(n−5)J). The three products of edge-transpositions give exactly n−1, n−4, n−5. Complete K_n incidence BB^T=(n−2)I+J yields positive eigenlevels n(n−3)^2/2, n and 2 for n≥4; arbitrary edge masks are positive-definite principal submatrices. Unsigned-incidence kernel has dimension m−n+b; for r-regular graphs BB^T=rI+A gives all spectral levels and exact condition number at n≥6,r≥3. Complete-class restriction kernel consists exactly of skew-symmetric coefficient matrices.
 
-Scarabotti–Tolli (arXiv:math/0701533v1) supplies the finite harmonic-analysis framework, and Krebs–Shaheen (DOI 10.13001/1081-3810.1256) establishes classical Johnson graph spectra. The related published difference-plus-mean permutation-orbit phase retrieval theorem addresses nonlinear measurements, not concentration on standard matrix coefficients. Specific semantic searches under character-Gram, line-graph, Fourier sampling and edge-transposition equivalences found no dominating claim. General orthogonality and incidence spectral identities are acknowledged as classical; the new integrated statement is the all-graph interpolation and concentration spectral transfer, bottom-eigenspace classification, and regular-graph equivalence and conditioning. An equivalent older frame-theoretic corollary could still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sampled positions are all selected by ordinary graph edges and the Fourier space is a canonical nonabelian isotypic block. For arbitrary sparse masks the restriction has full row rank; at \(n\ge5\), the multiplicity of its bottom rescaled singular value detects bipartite-component constraints. For regular graphs, concentration cospectrality exactly reflects adjacency cospectrality, despite a sharp nonzero condition number depending only on order and degree. These are natural family-wide mathematical statements and give an explicit bridge between noncommutative Fourier concentration and graph spectral theory.
+Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. PASS under best-of-knowledge, with possible older frame-theoretic formulation as risk. Search self-hit 2026/10/11/SCOPE-graph-spectral-transfer-for-transposition-sampling-in-the-standa--75af0a9770e8 identifies the assigned candidate itself, not prior independent coverage.
 
-## Sources and limitations
+## value
 
-Materially inspected: Scarabotti–Tolli's open arXiv paper, relevant sections; the full accessible Krebs–Shaheen paper; and a public full result on permutation-orbit conjugate phase retrieval. The source classifications concern specific statements rather than names or search similarity alone. The theorem is limited to the standard block and transposition samples; the finite verifier is not an infinite proof. Classic line-graph or matrix-frame literature under other names is a continuing originality risk. No independent validation is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Canonical graph-indexed sampling of the standard noncommutative Fourier block admits exact spectral interpolation for every edge subset. The bipartite-component bottom eigenspace and precise regular graph spectral transfer/condition number are useful structural links, not a relabeling of the complete Johnson spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
