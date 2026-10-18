@@ -1,31 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's exact affine Jacobian says that the \(j\)-th facet area is multiplied by
-\[
-|\det A|\,|A^{-T}x_j|.
-\]
-Thus equal transformed areas mean that the positive quadratic form
-\[
-Q=A^{-1}A^{-T}
-\]
-has one constant value on every design node. For a spherical \(4\)-design, the square of the resulting quadratic defect is a degree-four polynomial integrated exactly by the nodes. Its node average is zero, so its spherical integral is zero; nonnegativity forces the defect to vanish identically and hence \(Q\) is scalar. The explicit six-node example is checked directly to be a spherical \(3\)-design and to have constant transformed facet multiplier under the displayed nonsimilarity.
+PASS
 
-## Originality
+Actual frozen RESULT.md and symbolic verify.py read; independently checked the exact implication: area(A F_j)=|det A| |A^{-T}x_j| area(F_j), so equality gives q(x_j)=0 where q(u)=u^TQ u−c. For t≥4, 0=average q(x_j)^2=integral_{S²}q²; hence Q=cI and A positive scalar times orthogonal. For the antipodal orthonormal triple ±v_i, all moments ≤3 match S², and Q0=diag(5/4,5/4,1/2) takes value 1 on each because v_{i,3}²=1/3; Q0 nonscalar. The finite symbolic checker confirms only the witness, not the universal implication.
 
-PASS. The primary paper gives both ingredients separately and remarks only that affine maps generally introduce unequal weights. Its inspected full text does not classify exceptional maps preserving equal facet areas and does not state a strength-four threshold or a strength-three counterexample. Searches in Minkowski-polytope, spherical-design, projective-design, and unit-norm-frame terminology found no covering statement.
+## originality
 
-Residual risk: the quadratic-form lemma may exist in abstract finite-frame language without the geometric formulation surfaced by the searches.
+PASS
 
-## Value
+The closest identified source An (arXiv:2608.11570) contains the same geometric setup and key area law, but its full text could not be read; it must be regarded as a significant possible implicit covering source. The searched equivalent frame quadratic-evaluation formulations and current mathematical record index did not reveal a stronger prior statement covering both uniform strength-four rigidity and strict strength-three sharpness. Best-of-knowledge O PASS remains qualified, not a publication priority certificate.
 
-PASS. The affine-covariance section of the source makes preservation of equal facet weights a natural structural question. Fourth-order design exactness is precisely the first moment level that can test the square of an anisotropic quadratic defect, and the explicit \(3\)-design example proves that this is a real threshold. The result therefore supplies a sharp rigidity boundary rather than a routine corollary.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+Fourth-order design exactness has a natural geometric role: it is precisely sufficient to test a squared anisotropic quadratic defect and force affine equality-area rigidity. The explicit strength-three octahedral nonconformal witness shows a sharp structural boundary, not an arbitrary parameter substitution.
 
-The closest source is Congpei An, arXiv:2608.11570v1, especially Corollary 4.3 and Proposition 8.1. Broader projective-design and unit-norm-frame literature was checked for equivalent equal-norm linear-map formulations.
-
-The theorem is exact, three-dimensional, and concerns facet-area preservation only. No quantitative near-rigidity or higher-dimensional sharpness theorem is asserted.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

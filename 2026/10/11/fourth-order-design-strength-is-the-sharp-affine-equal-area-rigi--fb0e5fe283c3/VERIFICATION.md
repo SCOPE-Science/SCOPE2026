@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the rigidity direction, equal transformed facet areas are equivalent to
-\[
-x_j^TQx_j=c
-\]
-for all design nodes, where
-\[
-Q=A^{-1}A^{-T}.
-\]
-Then
-\[
-q(u)=u^TQu-c
-\]
-has degree two. If the design has strength at least four,
-\[
-\int_{S^2}q(u)^2\,d\sigma(u)
-=
-\frac1N\sum_jq(x_j)^2
-=
-0.
-\]
-Since the integrand is continuous and nonnegative,
-\[
-q\equiv0
-\]
-on \(S^2\), so \(Q\) is scalar and \(A\) is a similarity.
+# Independent mathematical audit
 
-For sharpness, the packaged checker verifies exactly that the three displayed positive nodes form an orthonormal basis and therefore that their antipodal union is a spherical \(3\)-design. It also verifies
-\[
-A_0^{-1}A_0^{-T}
-=
-\operatorname{diag}(5/4,5/4,1/2)
-\]
-and
-\[
-x^TA_0^{-1}A_0^{-T}x=1
-\]
-for every one of the six nodes, while the matrix is not scalar.
+## correctness
 
-The computation only replays the explicit counterexample. The all-design rigidity theorem is the degree-four exactness argument above.
+PASS
+
+Actual frozen RESULT.md and symbolic verify.py read; independently checked the exact implication: area(A F_j)=|det A| |A^{-T}x_j| area(F_j), so equality gives q(x_j)=0 where q(u)=u^TQ u−c. For t≥4, 0=average q(x_j)^2=integral_{S²}q²; hence Q=cI and A positive scalar times orthogonal. For the antipodal orthonormal triple ±v_i, all moments ≤3 match S², and Q0=diag(5/4,5/4,1/2) takes value 1 on each because v_{i,3}²=1/3; Q0 nonscalar. The finite symbolic checker confirms only the witness, not the universal implication.
+
+## originality
+
+PASS
+
+The closest identified source An (arXiv:2608.11570) contains the same geometric setup and key area law, but its full text could not be read; it must be regarded as a significant possible implicit covering source. The searched equivalent frame quadratic-evaluation formulations and current mathematical record index did not reveal a stronger prior statement covering both uniform strength-four rigidity and strict strength-three sharpness. Best-of-knowledge O PASS remains qualified, not a publication priority certificate.
+
+## value
+
+PASS
+
+Fourth-order design exactness has a natural geometric role: it is precisely sufficient to test a squared anisotropic quadratic defect and force affine equality-area rigidity. The explicit strength-three octahedral nonconformal witness shows a sharp structural boundary, not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
