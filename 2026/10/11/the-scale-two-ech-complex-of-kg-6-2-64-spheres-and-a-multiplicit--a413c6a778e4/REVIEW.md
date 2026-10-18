@@ -1,11 +1,21 @@
-# Review of the scale-two Kneser Čech finding
+# Independent mathematical audit
 
-**Correctness — PASS.** The even-scale nerve formula gives the fifteen closed neighborhoods, each containing seven pair-vertices. Exhaustive reconstruction yields 1,535 nonempty simplices. A deterministic stage-by-stage acyclic matching pairs 735 face inclusions, leaves one zero-cell and 64 two-cells, and passes a full 5,985-incidence Hasse-DAG test. Hence the integral homotopy type is exactly a wedge of 64 two-spheres. Signed Lefschetz fixed-face counts and Murnaghan–Nakayama irreducible-character orthogonality establish all seven rational Specht summands. Independent mod-two boundary elimination confirms the Betti ranks; it is not substituted for integral proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Adams–Shukla–Singh determine the Čech construction and hypercube family rather than this Kneser graph. Nilakantan–Singh determine the distinct open-neighborhood complex (19 spheres in the same dimension for this graph) and do not imply the closed-neighborhood result. Matsushita gives general functorial descriptions but not this specialized homotopy or group-character calculation in the inspected sections. The claim was checked against published search results and prior comparable records by statements and implications, rather than matching titles. An unindexed equivalent result remains a risk.
+PASS
 
-**Value — PASS.** This is the smallest Kneser graph of two-subsets with triangles, where the scale-two Čech nerve already lies beyond girth-controlled recovery. The complete integral homotopy type and a multiplicity-free action of the full six-letter symmetry group are natural, independently interpretable invariants, rather than an arbitrary numerical slice. The symmetry theorem is substantially sharper than a Betti number and distinguishes the closed-neighborhood topology from known open-neighborhood classifications.
+From the 15 two-subsets of [6] reconstructed all 15 closed-neighborhood facets of size seven (even-scale Čech), all 1535 nonempty faces, f=(15,105,455,525,315,105,15). Independently replayed the 15-stage matching: 735 pairs, critical cells one vertex and 64 triangles; reversed all 5985 Hasse covers and found acyclic complete topological sort. Thus integral wedge^64 S2 (not only mod-2 rank). Independent mod-2 ranks (14,91,300,225,90,15). Independently evaluated all 11 signed fixed-face Lefschetz traces and Murnaghan–Nakayama rational character inner products: exactly seven multiplicity-one Specht types (4,2),(4,1,1),(3,3),(3,2,1),(3,1,1,1),(2,2,2),(2,2,1,1); others zero. Rational, not integral, equivariant decomposition.
 
-**Limits.** No generalization to larger Kneser graphs, equivariant integral splitting, or independent external certification is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Do not conflate the 19-sphere open Lovász neighborhood complex of KG(6,2) with the 64-sphere closed-neighborhood Čech complex. Matsushita gives general closed-neighborhood dualities and examples but not this KG(6,2) exact homotopy or S6 decomposition in inspected sections. A separate 19-dimensional S6 open-neighborhood representation is not a stronger covering claim.
+
+## value
+
+PASS
+
+KG(6,2) is the smallest two-subset Kneser graph with triangles, its scale-two closed-neighborhood complex is a natural object and its full rational S6 module is a meaningful symmetry invariant; multiplicity-free decomposition is not a routine numerical table match.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
