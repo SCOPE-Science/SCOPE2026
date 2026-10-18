@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof appears in `RESULT.md`. It derives the Lie automorphism parametrization from the characteristic derived ideal, the shift-cycle fixed-space contribution, the exact translation compatibility correction, and the finite-subspace Möbius inversion formula. All dimensions, field characteristics and cardinality normalizations are explicit.
+# Independent mathematical audit
 
-Execute `python verify.py` in a standard Python 3 environment. The program constructs prime and quadratic-extension finite fields, enumerates invertible matrices, builds complete Lie automorphism block matrices including the free translation column, calculates ranks of their differences with the identity, and compares observed fixed-space profile coefficients against the closed formula.
+## correctness
 
-A successful execution returns the final line `FINITE_CHECKS 25 VERIFY_OK`. The checks include \(q=2,3,4,5,7,9\) and arbitrary spectral supports when the direct enumeration size is manageable. Certain larger cases use formula-level consistency checks and do not claim exhaustive construction. The proof is general; computational samples are not a certification of all instances.
+PASS
 
-Independent audit has not been performed. No external verification or specialized proof assistant is claimed.
+Because [L,L]=V is characteristic, automorphisms have block form [[a,0],[w,S]] and ST=aTS. Multiplicity-preserving scalars permute eigenblocks. For a≠1, fixing the t-coordinate forces it zero and each eigenvalue cycle is governed by an unconstrained GL block product. For a=1, w lies in im(S-I) in exactly q^(n-k) translation choices yielding one additional fixed dimension, versus q^n-q^(n-k) choices. q-subspace Möbius inversion gives each GL_s 1-eigenspace coefficient. Independently enumerated ALL q=3, eigenspaces dimension (1,1) automorphism matrices including translations; obtained exact polynomial coefficients (18,39,14,1), total72, as claimed. Infinite formula follows from block and Möbius proof, not the finite check.
+
+## originality
+
+PASS
+
+Avetisyan Proposition 9 covers the automorphism block structure; Arumugam–Dietrich–Glasby covers fixed-point distribution for permutation wreath actions and hence much of nonidentity-scalar cycles. Neither inspected result gives the coupled translation sector of full Lie algebra fixed-space dimensions. The combined polynomial is best-of-knowledge new; acknowledge derivability from standard group actions.
+
+## value
+
+PASS
+
+A full closed polynomial for every fixed-space dimension, all finite prime powers and split nonzero spectra is a natural exact invariant of Lie automorphism actions, including fixed-point-free counts, group order and entire distribution. The translation-dependent identity sector is a meaningful structural contribution, not a single table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

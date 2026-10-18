@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every automorphism preserves the characteristic derived ideal, so it has the stated triangular block form; the bracket condition precisely determines its allowed scalar and invertible spectral block maps. For nonidentity scalars, fixed vectors reduce to cycle products in general linear groups. For identity scalars, a translation belongs to the image of the linear difference operator with exactly the cardinality claimed. The finite-subspace Möbius formula for the linear fixed-space polynomial is independently derived, and the resulting sum totals the known automorphism-group order. Direct exact finite-field matrix enumeration successfully checks 24 full profiles across prime and extension fields, including both scalar-stabilizer regimes; one additional larger case is a formula-consistency check. Limitation: the proof assumes a split invertible semisimple defining action; the computations alone are not infinite proofs.
+## correctness
 
-## Originality — PASS, with stated risk
-Burde–Dekimpe's cyclotomic criterion (2026) concerns the existence of fixed-point-free automorphisms in characteristic zero. Avetisyan's Proposition 9 (2016/2023) already supplies a general automorphism normal form; Arumugam–Dietrich–Glasby's Theorem 6.5 (2022/2023) already supplies fixed-point counting for wreath-product actions. Thus neither the triangular normal form nor cycle-product enumeration is independently novel. The full fixed-space dimension census for Lie automorphisms, especially the translation-sensitive identity-scalar stratum and variable multiplicity-decorated finite-field eigenspectra, is not covered as such by the inspected results. Published mathematical-record searches found no equivalent statement. Risk: a composite corollary of broad group-action literature or an unlocated earlier exact census might duplicate the conclusion; absence from search results does not prove priority.
+PASS
 
-## Value — PASS
-The result supplies an explicit whole-distribution invariant rather than one existence test or a single probability. It works simultaneously for all finite prime-power fields, all nonzero split semisimple spectra, and arbitrary multiplicities, and distinguishes spectra with and without scalar symmetry. The translation correction produces genuinely different fixed-space laws on the full Lie algebra than on its derived ideal, a structural distinction relevant to fixed-point phenomena in finite-dimensional automorphism actions. There is no claim for nonsplit or nonsemisimple actions.
+Because [L,L]=V is characteristic, automorphisms have block form [[a,0],[w,S]] and ST=aTS. Multiplicity-preserving scalars permute eigenblocks. For a≠1, fixing the t-coordinate forces it zero and each eigenvalue cycle is governed by an unconstrained GL block product. For a=1, w lies in im(S-I) in exactly q^(n-k) translation choices yielding one additional fixed dimension, versus q^n-q^(n-k) choices. q-subspace Möbius inversion gives each GL_s 1-eigenspace coefficient. Independently enumerated ALL q=3, eigenspaces dimension (1,1) automorphism matrices including translations; obtained exact polynomial coefficients (18,39,14,1), total72, as claimed. Infinite formula follows from block and Möbius proof, not the finite check.
 
-## Literature and limitations
-Closest inspected primary sources: Burde–Dekimpe, arXiv:2604.27916v1; Avetisyan, arXiv:1610.05365, Proposition 9; Arumugam–Dietrich–Glasby, arXiv:2207.01215, Theorem 6.5. Comparable published counts for finite Heisenberg Lie algebras involve different brackets and do not dominate this class. The older general theorems provide important ingredients and create the stated residual originality risk. Proof and tests apply only to split invertible semisimple almost-abelian algebras.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Avetisyan Proposition 9 covers the automorphism block structure; Arumugam–Dietrich–Glasby covers fixed-point distribution for permutation wreath actions and hence much of nonidentity-scalar cycles. Neither inspected result gives the coupled translation sector of full Lie algebra fixed-space dimensions. The combined polynomial is best-of-knowledge new; acknowledge derivability from standard group actions.
+
+## value
+
+PASS
+
+A full closed polynomial for every fixed-space dimension, all finite prime powers and split nonzero spectra is a natural exact invariant of Lie automorphism actions, including fixed-point-free counts, group order and entire distribution. The translation-dependent identity sector is a meaningful structural contribution, not a single table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
