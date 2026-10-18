@@ -1,30 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a non-power binary string of weight \(w\ge2\), the recurrence identity
-\[
-K_{n+k+1}=2K_{n+k}-b_k
-\]
-gives
-\[
-K_{n+j}=2^{j-1}w-P_{j-1}.
-\]
-Strict growth after the first recurrence term and the inequality \(K_{2n+1}>N\) force any occurrence before that point. Comparing
-\[
-2^{j-1}(w-1)<N\le2^{j-1}w
-\]
-with the \(n\)-bit interval forces \(j=n-\lceil\log_2w\rceil+1\). Splitting at the corresponding suffix yields exactly one Euclidean quotient-remainder pair. The converse reconstructs an \(n\)-bit string of the prescribed weight and verifies the recurrence hit. The power-of-two branch is handled separately. No finite scan is used to prove the infinite statement.
+## correctness
 
-## Originality
-PASS with a stated residual risk. The accessible Klazar–Luca paper proves a much weaker density-zero bound in decimal and bases at least \(4\), and explicitly separates base \(2\), mentioning an unpublished Kenneth Fan construction. The public binary OEIS records give the recurrence shortcut, the \(2n\)-position bound, examples, and powers of two, but not the one-candidate-per-weight theorem or the quadratic logarithmic counting bound. Exact semantic and formula-level searches found no accessible equivalent.
+PASS
 
-The inaccessible Fan manuscript is the principal risk: because it reportedly “constructs all” binary Keith numbers, it could contain a characterization implying the present result. It was not located in bounded searches, so no noncoverage claim is made for it.
+For n-bit N with digit sum/Hamming weight w>=2, first recurrence continuation is K_{n+1}=w; subtract consecutive window sums to get K_{n+j}=2^(j-1)w-P_{j-1} for 1<=j<=n+1. Strict increasing after w and K_{2n+1}=2^n w-N>N restrict a hit to j<=n. The bounds 2^(j-1)(w-1)<N<=2^(j-1)w and 2^(n-1)<=N<2^n force j=n-ceil(log_2 w)+1 (examine boundary w=2^c). Write L=2^c,N=PL+S, 0<=S<L; the hit equation becomes 2^(n-c)w=(L+1)P+S, uniquely determining P,S by Euclidean division. The bitcount equation is necessary and sufficient, as the converse constructs n bits and verifies the hit. Weight one numbers are powers of two. Hence at most n per bit length and B2(x)<=h(h+1)/2. Independent direct complete recurrence enumeration for n=2..16 matched this construction exactly; infinite conclusion relies on algebra, not the test.
 
-## Value
-PASS. The result converts the binary case from an enumerative recurrence into a rigid two-parameter classification. For each bit length and Hamming weight, one Euclidean division either produces the unique Keith number or proves none exists. The immediate bound
-\[
-B_2(x)=O((\log x)^2)
-\]
-is qualitatively stronger than a mere density-zero statement and explains the extreme sparsity of the public binary sequence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete published Klazar–Luca 2007 Counting Keith Numbers (PDF examined including p3 discussion) establishes a decimal density-zero bound and higher-base adaptations but explicitly exempts base 2, mentions an UNPUBLISHED Kenneth Fan construction allegedly producing all binary Keith numbers, and notes powers of two. OEIS A162363/A162724 list binary examples and recurrence shortcuts but no available public one-per-(n,w) Euclidean criterion. A potentially covering unpublished manuscript cannot be excluded; documented as material risk without treating inaccessible literature alone as failure. Best-of-knowledge O PASS.
+
+## value
+
+PASS
+
+For each natural (binary bit length n,Hamming weight w) cell, the theorem gives a zero-or-one explicit exact classification via a single Euclidean division rather than a recurrence search. It yields a quadratic logarithmic counting bound and a natural rigid structure for a classic combinatorial number sequence, beyond preexisting powers-of-two and finite lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

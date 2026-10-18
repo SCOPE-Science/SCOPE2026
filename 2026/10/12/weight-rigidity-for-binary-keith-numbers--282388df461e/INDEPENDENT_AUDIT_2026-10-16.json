@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:58:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Klazar–Luca https://cs.uwaterloo.ca/journals/JIS/VOL10/Klazar/klazar15.pdf p2-3",
+        "OEIS A162363 and A162724",
+        "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+        "\"binary Keith\" \"Hamming\" \"weight\" uniqueness",
+        "\"Counting Keith Numbers\" Klazar Luca Fan binary base 2 Keith complete construction",
+        "Pinned RESULT.md blob f109579180b7fb3ab6b722a73cad6d9c3492d57e"
+      ],
+      "rationale": "For n-bit N with digit sum/Hamming weight w>=2, first recurrence continuation is K_{n+1}=w; subtract consecutive window sums to get K_{n+j}=2^(j-1)w-P_{j-1} for 1<=j<=n+1. Strict increasing after w and K_{2n+1}=2^n w-N>N restrict a hit to j<=n. The bounds 2^(j-1)(w-1)<N<=2^(j-1)w and 2^(n-1)<=N<2^n force j=n-ceil(log_2 w)+1 (examine boundary w=2^c). Write L=2^c,N=PL+S, 0<=S<L; the hit equation becomes 2^(n-c)w=(L+1)P+S, uniquely determining P,S by Euclidean division. The bitcount equation is necessary and sufficient, as the converse constructs n bits and verifies the hit. Weight one numbers are powers of two. Hence at most n per bit length and B2(x)<=h(h+1)/2. Independent direct complete recurrence enumeration for n=2..16 matched this construction exactly; infinite conclusion relies on algebra, not the test.",
+      "residual_risks": [
+        "Kenneth Fan unpublished manuscript reportedly constructs all binary Keith numbers; not read or compared, may imply the weight classification.",
+        "Proved bound only O((log x)^2), not an asymptotic count or construction in other bases.",
+        "Finite exhaustive check n<=16 does not prove theorem beyond 16 bits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klazar–Luca PDF explicitly says their density bound extends bases >=4, perhaps 3, and cites an unpublished binary complete construction by Kenneth Fan with no details."
+        ],
+        "reasoning": "The Fan construction could imply the present theorem but was unavailable; no whole-document noncoverage asserted. An inaccessible plausible antecedent alone does not fail originality when accessible sources show no implication.",
+        "searches": [
+          "\"Counting Keith Numbers\" Klazar Luca Fan binary base 2 Keith complete construction",
+          "Klazar–Luca Counting Keith Numbers DOI/JIS 2007",
+          "Kenneth Fan unpublished manuscript mention"
+        ]
+      },
+      "checked_sources": [
+        "Klazar–Luca https://cs.uwaterloo.ca/journals/JIS/VOL10/Klazar/klazar15.pdf p2-3",
+        "OEIS A162363 and A162724",
+        "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+        "\"binary Keith\" \"Hamming\" \"weight\" uniqueness",
+        "\"Counting Keith Numbers\" Klazar Luca Fan binary base 2 Keith complete construction",
+        "Pinned RESULT.md blob f109579180b7fb3ab6b722a73cad6d9c3492d57e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior published powers-of-two fact proves infinitely many binary Keith numbers but no bound n candidates per n-bit interval.",
+          "Euclidean quotient/remainder together with Hamming weight is extra structure independent of the standard recurrence shortcut."
+        ],
+        "reasoning": "Published source does not imply the claimed counting bound. The cited unpublished complete construction might, but absent text prevents reliable positive or negative implication; preserve risk.",
+        "searches": [
+          "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+          "\"Counting Keith Numbers\" Klazar Luca Fan binary base 2 Keith complete construction",
+          "Klazar–Luca p3 binary remark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS records recurrence K_{n+k+1}=2K_{n+k}-b_k and a bound on possible hit position; the one-quotient-per-Hamming-weight condition is not in accessible sequence commentary."
+        ],
+        "reasoning": "An efficient recurrence step is not the bijective weight/range reconstruction. No accessible equivalence to a digit-sum modular equation yielding the same classification was found.",
+        "searches": [
+          "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+          "\"binary Keith\" \"Hamming\" \"weight\" uniqueness",
+          "OEIS A162363 binary Keith numbers excluding powers",
+          "OEIS A162724 binary Keith numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS finite binary sequence data and position observations supply no arbitrary bit-length/weight exact determination.",
+          "Independent direct counts for all numbers under 2^16 matched predicted sets, used only as corroboration."
+        ],
+        "reasoning": "A list of examples is not a closed all-(n,w) classification or a derivation of B2(x)=O(log²x); however a hidden/unindexed equivalent table could remain.",
+        "searches": [
+          "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+          "OEIS A162363",
+          "OEIS A162724"
+        ]
+      },
+      "rationale": "The complete published Klazar–Luca 2007 Counting Keith Numbers (PDF examined including p3 discussion) establishes a decimal density-zero bound and higher-base adaptations but explicitly exempts base 2, mentions an UNPUBLISHED Kenneth Fan construction allegedly producing all binary Keith numbers, and notes powers of two. OEIS A162363/A162724 list binary examples and recurrence shortcuts but no available public one-per-(n,w) Euclidean criterion. A potentially covering unpublished manuscript cannot be excluded; documented as material risk without treating inaccessible literature alone as failure. Best-of-knowledge O PASS.",
+      "residual_risks": [
+        "Kenneth Fan unpublished manuscript reportedly constructs all binary Keith numbers; not read or compared, may imply the weight classification.",
+        "Proved bound only O((log x)^2), not an asymptotic count or construction in other bases.",
+        "Finite exhaustive check n<=16 does not prove theorem beyond 16 bits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESSIBLE_TEXT DOES NOT COVER; Fan unpublished manuscript itself unavailable",
+          "evidence": "p3 explicitly states Fan manuscript unpublished and powers of two are binary Keith; published theorems treat decimal and b>=4.",
+          "identifier_or_url": "M. Klazar and F. Luca, J. Integer Sequences 10 (2007) Art.07.2.2; https://cs.uwaterloo.ca/journals/JIS/VOL10/Klazar/klazar15.pdf",
+          "material_read": "Opened full 10-page PDF; inspected abstract, Introduction Theorems 1.1/1.2 and p3 passage excluding binary b=2 from proven decimal/higher-base bound, mentioning Kenneth Fan, and preliminary recurrence theory",
+          "method": "Primary publisher-hosted PDF text and page-image inspection",
+          "title": "Counting Keith Numbers",
+          "trigger": "Closest primary binary-case historical treatment and named unpublished construction"
+        },
+        {
+          "assessment": "KNOWN_COMPONENTS only; cannot certify absence of unindexed manuscript",
+          "evidence": "Recurrence shortening and sequence data are distinct from one candidate per prescribed (n,w).",
+          "identifier_or_url": "OEIS A162363; OEIS A162724",
+          "material_read": "Accessible sequence descriptions and known recurrence/entry summaries, compared to direct enumeration through n=16",
+          "method": "public sequence entries and referenced formulas",
+          "title": "Binary Keith numbers",
+          "trigger": "Existing sequences and recurrence shortcuts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Klazar–Luca https://cs.uwaterloo.ca/journals/JIS/VOL10/Klazar/klazar15.pdf p2-3",
+        "OEIS A162363 and A162724",
+        "binary Keith numbers Hamming weight digit sum Klazar Luca Kenneth Fan classification uniqueness O(log^2 x)",
+        "\"binary Keith\" \"Hamming\" \"weight\" uniqueness",
+        "\"Counting Keith Numbers\" Klazar Luca Fan binary base 2 Keith complete construction",
+        "Pinned RESULT.md blob f109579180b7fb3ab6b722a73cad6d9c3492d57e"
+      ],
+      "rationale": "For each natural (binary bit length n,Hamming weight w) cell, the theorem gives a zero-or-one explicit exact classification via a single Euclidean division rather than a recurrence search. It yields a quadratic logarithmic counting bound and a natural rigid structure for a classic combinatorial number sequence, beyond preexisting powers-of-two and finite lists.",
+      "residual_risks": [
+        "Kenneth Fan unpublished manuscript reportedly constructs all binary Keith numbers; not read or compared, may imply the weight classification.",
+        "Proved bound only O((log x)^2), not an asymptotic count or construction in other bases.",
+        "Finite exhaustive check n<=16 does not prove theorem beyond 16 bits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Kenneth Fan unpublished manuscript reportedly constructs all binary Keith numbers; not read or compared, may imply the weight classification.",
+    "Proved bound only O((log x)^2), not an asymptotic count or construction in other bases.",
+    "Finite exhaustive check n<=16 does not prove theorem beyond 16 bits."
+  ],
+  "schema_version": 1
+}
