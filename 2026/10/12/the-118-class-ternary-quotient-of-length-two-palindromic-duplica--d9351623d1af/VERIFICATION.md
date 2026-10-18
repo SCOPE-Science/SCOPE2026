@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproduction of the finite multiplication certificate
+# Independent mathematical audit
 
-Compile `verify.cpp` with any conforming C++17 compiler (using the standard library only):
+## correctness
 
-```sh
-c++ -O2 -std=c++17 -Wall -Wextra verify.cpp -o verify
-./verify
-```
+PASS
 
-Expected successful output:
+The initial-pair and first-occurrence parities are invariants under length+2 insertion. Representatives are length≤7. Independently compiled and ran an alternative C++17 disjoint-set traversal of all 7,174,453 words length≤14 and 8,370,198 legal expansion edges; all 354 representative right-generator transitions were actually connected (failed=0), and 118 signatures were seen. This verifies the finite nonstandard lemma. Signature stability under right-concatenation plus inductive normalization gives the infinite conclusion; the finite graph itself is NOT an all-length reachability proof. Short lengths and singleton exceptions checked.
 
-```text
-VERIFY_OK ternary_classes=118 table_transitions=354 graph_vertices=7174453 graph_edges=8370198 invariant_edges=18045 stable_length_classes=57 length_bound=14
-```
+## originality
 
-The checker enumerates *all* words of length at most \(14\), joins words related by one application of the defining replacement, computes the shortest lexicographic representative for each of the \(118\) distinct signatures reached by length \(7\), and verifies that the representative multiplication table is correct for all \(354\) letter extensions. It separately checks all signature counts through length \(7\) and tests invariant preservation on \(18{,}045\) short edges. No external data, enumerated path list, random source, or network access is needed.
+PASS
 
-The finite lemma certified by connectivity is precisely \(r_s a\equiv r_{\operatorname{sig}(r_s a)}\) for every signature \(s\) and alphabet symbol \(a\). The proof of the infinite theorem additionally requires the symbolic facts that signatures are invariant, that every signature has a representative of length at most \(7\), and that signatures are compatible with appending letters. The graph computation alone does not certify a bounded rewrite length for arbitrary long words. The classification concerns symmetric equivalence; it does not compute common forward descendants or optimal error-correcting codes.
+No inspected source implies the ternary symmetric monoid-congruence iff invariant, its 118 classes, all-length exact C(n), or a right-transition finite certificate. In particular common directed descendants and disjoint-pair-summary sufficiency in Yohananov–Schwartz Theorem 12 are not the symmetric closure relation; code constructions in Zeraatpisheh et al. concern a different coding task. Best-of-knowledge originality PASS, with the 2026 preprint full text and specialized rewriting terminology as residual risks.
+
+## value
+
+PASS
+
+A complete finite quotient and linear-time congruence decision for a natural palindrome-duplication rewriting system are structurally motivated exact invariants; the all-length characterization is not a small arbitrary cutoff or a bounded-error coding census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

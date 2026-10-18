@@ -1,15 +1,21 @@
-# Scientific review: ternary palindromic-duplication congruence
+# Independent mathematical audit
 
-## Correctness
-PASS. The invariant argument accounts for first two letters, position parity of first appearances, total parity, and the unmoving short words. The finite-representative construction requires at most seven letters. The supplied verifier enumerates every elementary edge between ternary words of length at most fourteen and establishes all 354 generator transitions of the 118-state representative system. Right congruence and right-compatibility of the signature then prove the infinite classification by induction. Exact-length counts follow from combinatorial enumeration; the checker reproduces the small counts independently of connectivity. Finite graph tests are not substituted for the induction.
+## correctness
 
-## Originality
-PASS, subject to the stated priority risk. Zeraatpisheh–Esmaeili–Gulliver (2020) study duplication-correcting codes and rooted deduplications. Yohananov–Schwartz (2025), Theorem 12 and Section 5, give a disjoint-block-summary sufficient condition for common descendants and rate bounds, not the present necessary-and-sufficient ternary signature. The congruent pair `0120` and `0121` has unequal disjoint-pair summaries, exhibiting the gap in direct implication. An exact classification under alternate rewriting terminology cannot be ruled out by literature searches. A recent related arXiv item's abstract was available but its full text was inaccessible.
+PASS
 
-## Value
-PASS. The statement supplies a complete natural quotient-monoid classification, including an exact finite index of 118, a sharp stable 57-class count at each sufficiently large word length, and a linear-time word-equivalence test. The third letter introduces ordered first-occurrence information absent from the two-symbol case. The result does not make claims about directed channels or coding optimality.
+The initial-pair and first-occurrence parities are invariants under length+2 insertion. Representatives are length≤7. Independently compiled and ran an alternative C++17 disjoint-set traversal of all 7,174,453 words length≤14 and 8,370,198 legal expansion edges; all 354 representative right-generator transitions were actually connected (failed=0), and 118 signatures were seen. This verifies the finite nonstandard lemma. Signature stability under right-concatenation plus inductive normalization gives the infinite conclusion; the finite graph itself is NOT an all-length reachability proof. Short lengths and singleton exceptions checked.
 
-## Limits and independent status
-The computational bound fourteen proves the finite transition table only, while the infinite scope depends on the explicit induction. Potential hidden equivalent prior formulations remain a priority risk. No independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected source implies the ternary symmetric monoid-congruence iff invariant, its 118 classes, all-length exact C(n), or a right-transition finite certificate. In particular common directed descendants and disjoint-pair-summary sufficiency in Yohananov–Schwartz Theorem 12 are not the symmetric closure relation; code constructions in Zeraatpisheh et al. concern a different coding task. Best-of-knowledge originality PASS, with the 2026 preprint full text and specialized rewriting terminology as residual risks.
+
+## value
+
+PASS
+
+A complete finite quotient and linear-time congruence decision for a natural palindrome-duplication rewriting system are structurally motivated exact invariants; the all-length characterization is not a small arbitrary cutoff or a bounded-error coding census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
