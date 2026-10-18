@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:08:26.646264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recursive root/component model and colored-broom model both enumerate 29,616 maximal tubings of K4,4, with exactly 70 S4×S4 color-spine patterns and orbit sizes summing to 29,616. Every tubing has 8 nested tubes including full mask 255; deleting any proper tube produces precisely two completions, yielding 7-regular graph with 103,656 undirected edges. Independent integer implementation rebuilt this entire flip graph and ran breadth-first shortest paths from ALL 70 pattern representatives (not partial sampling), obtaining eccentricity 15+s at each pattern; aggregate counts ecc19:48,20:768,21:5760,22:23040 and exact diameter22. The actual package verify.py performs a second generic-search versus broom enumeration and compares each representative to orbit_certificate.json, providing farthest witnesses. Since symmetry orbits exhaust the finite vertex set and BFS explores all 29,616 nodes each time, this is a rigorous bounded finite determination.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardinal et al. arXiv:2106.16130, Section 7 explicitly asks for balanced Kp,p case.",
+          "Gargantini et al. arXiv:2406.06317, Corollary 4.8 gives K4,4 lower bound 19, not exact 22; exact K2,q cases have a different part size."
+        ],
+        "reasoning": "Bounds in a larger balanced complete-bipartite family do not mathematically determine 22, let alone every eccentricity. The new computation closes one natural finite instance, without claiming the general balance problem resolved.",
+        "searches": [
+          "graph associahedron K4,4 flip graph eccentricity diameter 22 vertices 29616 maximal tubings",
+          "graph associahedron complete bipartite K4,4 graph diameter eccentricity maximal tubings 19 20 21 22",
+          "https://arxiv.org/abs/2106.16130",
+          "https://arxiv.org/abs/2406.06317"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2106.16130",
+        "https://arxiv.org/abs/2406.06317",
+        "https://arxiv.org/abs/2109.09200",
+        "Resultary search Q3 and Q3b",
+        "Git snapshot RESULT.md, verify.py, orbit_certificate.json tree and mathematical certificate metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior lower bound for K4,4 from Gargantini et al. is 19 and previous upper bound is 32 (source RESULT.md literature comparison).",
+          "Exact independent BFS gives max=22 and four nontrivial eccentricity levels with cardinalities totaling 29,616."
+        ],
+        "reasoning": "Bounds 19≤diam≤32 do not imply diam=22, and knowing a diameter does not imply the full orbit-indexed eccentricity spectrum; the current claim supplies both.",
+        "searches": [
+          "graph associahedron K4,4 flip graph eccentricity diameter 22 vertices 29616 maximal tubings",
+          "graph associahedron complete bipartite K4,4 graph diameter eccentricity maximal tubings 19 20 21 22",
+          "https://arxiv.org/abs/2106.16130",
+          "https://arxiv.org/abs/2406.06317"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cardinal–Pournin–Valencia paper models graph associahedron flips as search-tree rotations and identifies balanced Kp,p diameter as a remaining problem; not a known exact profile.",
+          "Gargantini–Pastine–Torres treats balanced lower bounds and selected K2,q diameter cases, not K4,4 exact eccentricity."
+        ],
+        "reasoning": "Maximal tubings and search trees are equivalent models of the SAME flip graph, so search-tree/rotation-distance aliases were compared; neither cited source includes the 15+s classification.",
+        "searches": [
+          "graph associahedron K4,4 flip graph eccentricity diameter 22 vertices 29616 maximal tubings",
+          "graph associahedron complete bipartite K4,4 graph diameter eccentricity maximal tubings 19 20 21 22",
+          "https://arxiv.org/abs/2106.16130",
+          "https://arxiv.org/abs/2406.06317"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search for K4,4 graph-associahedron eccentricity/diameter found the present titled record, not a prior duplicate or a covering 70-orbit table.",
+          "The package orbit_certificate.json is a complete local 70-pattern certificate for the present result, not a previously published external table."
+        ],
+        "reasoning": "A known table of tubings or graph-associahedron vertex counts by itself does not fix graph distances; no prior 29,616-vertex distance table was found.",
+        "searches": [
+          "graph associahedron K4,4 flip graph eccentricity diameter 22 vertices 29616 maximal tubings",
+          "graph associahedron complete bipartite K4,4 graph diameter eccentricity maximal tubings 19 20 21 22"
+        ]
+      },
+      "rationale": "Exact diameter 22 of balanced K4,4 and the full 70-orbit eccentricity law are not given by the checked published graph-associahedron diameter papers. They explicitly leave the balanced regime or provide lower bounds and K2,q cases. No published SCOPE/resultary finding covering that exact flip metric was returned by relevant semantics searches. Best-of-knowledge novelty with bounded residual table-index risk.",
+      "residual_risks": [
+        "An obscure small-case graph-associahedron rotation-distance table may have computed the exact numbers without indexed terminology.",
+        "Computational exhaustive proof of one K4,4 instance does not generalize automatically to balanced Kp,p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: balanced K4,4 exact eccentricity not established",
+          "evidence": [
+            "Section 7 treats balanced regime as open and Section 6 gives estimates, not an exact distance table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.16130",
+          "material_read": "Full freely available ar5iv HTML, especially definitions/search trees and Sections 6–7 balanced complete-bipartite bounds/question.",
+          "method": "Primary ar5iv full-text theorem/Question 2 inspection",
+          "title": "Diameter estimates for graph associahedra",
+          "trigger": "Closest general diameter theorem and open balanced family"
+        },
+        {
+          "assessment": "NOT_COVERING: K4,4 lower bound, not exact 22 nor full profile",
+          "evidence": [
+            "Corollary 4.8 yields lower bound 19 at p=q=4; exact K2,q examples do not cover p=q=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.06317",
+          "material_read": "Primary arXiv PDF, Section 4 and Corollary 4.8 read; paper PDF page 28 visual check of corollary.",
+          "method": "Primary full-text PDF targeted theorem/bound reading",
+          "title": "Effect of graph operations on graph associahedra",
+          "trigger": "Later improved balanced-family lower bounds"
+        },
+        {
+          "assessment": "BACKGROUND model, not the exact metric",
+          "evidence": [
+            "Tubing flip adjacency identifies the graph, but deformation-cone data alone do not supply eccentricities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.09200",
+          "material_read": "Definitions and Section 2.1 as quoted in package and bibliographic theorem description; no full independent text read.",
+          "method": "Package-defined model and bibliographic scope check",
+          "title": "Deformation cones of graph associahedra and nestohedra",
+          "trigger": "Definition of tubing/one-tube edge correspondence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Diameter of balanced complete-bipartite graph associahedra is a specifically motivated open subfamily in published work. Resolving the canonical first genuinely balanced K4,4 at diameter 22, and classifying all 29,616 vertices by their full eccentricities, gives an independently useful exact finite metric baseline. The 70-orbit symmetry reduction makes the certificate finite and reusable; no general family theorem is needed for the value of this natural named case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a formula for all Kp,p, nor all pairwise distances; the orbit-table proof depends on an exhaustive finite BFS and exact graph construction.",
+    "Residual literature indexing risk for precomputed small-case rotation distances."
+  ],
+  "schema_version": 1
+}

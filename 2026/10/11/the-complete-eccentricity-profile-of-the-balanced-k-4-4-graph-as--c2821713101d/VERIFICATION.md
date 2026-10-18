@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem in `RESULT.md` is a complete finite proof for the graph associahedron of \(K_{4,4}\). The exact source-code checker is `verify.py` and its reference data are in `orbit_certificate.json` in the same directory.
 
-Run `python verify.py` with Python 3. It requires no external packages and recomputes all enumerations rather than trusting the certificate as an output log. Actual checks include:
+# Independent mathematical audit
 
-1. Generic recursive root/component enumeration of all maximal tubings from connected induced subgraphs of \(K_{4,4}\).
-2. Independent generation from all \(70\) colored-broom patterns and all their allowed labelings; equality of both full tubing sets.
-3. Exhaustive one-tube-exchange adjacency from common \(7\)-tube keys, with exactly two completions for every proper-tube deletion.
-4. Degree, undirectedness, vertex count \(29{,}616\), and edge count \(103{,}656\).
-5. The exact \(S_4\times S_4\) orbit-size sum, and all \(70\) complete breadth-first searches over the graph.
-6. Every representative's exact eccentricity \(15+s\), farthest-vertex tube tuple, and orbit size, checked against the packaged certificate.
-7. The four class sizes and overall diameter \(22\).
+## correctness
 
-One diametral pair is certified by the tube tuples
-\[
-(128,136,200,232,248,252,254,255)
-\]
-and
-\[
-(1,17,19,23,31,63,127,255).
-\]
-A tube bitmask uses bit \(2^i\) for graph vertex \(i\) in the order \(0,\ldots,7\).
+PASS
 
-The program uses integer and exact-set operations only. Finite exhaustive verification does not establish an infinite-family formula, and the separate scientific literature comparison is not certified by running the checker.
+The recursive root/component model and colored-broom model both enumerate 29,616 maximal tubings of K4,4, with exactly 70 S4×S4 color-spine patterns and orbit sizes summing to 29,616. Every tubing has 8 nested tubes including full mask 255; deleting any proper tube produces precisely two completions, yielding 7-regular graph with 103,656 undirected edges. Independent integer implementation rebuilt this entire flip graph and ran breadth-first shortest paths from ALL 70 pattern representatives (not partial sampling), obtaining eccentricity 15+s at each pattern; aggregate counts ecc19:48,20:768,21:5760,22:23040 and exact diameter22. The actual package verify.py performs a second generic-search versus broom enumeration and compares each representative to orbit_certificate.json, providing farthest witnesses. Since symmetry orbits exhaust the finite vertex set and BFS explores all 29,616 nodes each time, this is a rigorous bounded finite determination.
+
+## originality
+
+PASS
+
+Exact diameter 22 of balanced K4,4 and the full 70-orbit eccentricity law are not given by the checked published graph-associahedron diameter papers. They explicitly leave the balanced regime or provide lower bounds and K2,q cases. No published SCOPE/resultary finding covering that exact flip metric was returned by relevant semantics searches. Best-of-knowledge novelty with bounded residual table-index risk.
+
+## value
+
+PASS
+
+Diameter of balanced complete-bipartite graph associahedra is a specifically motivated open subfamily in published work. Resolving the canonical first genuinely balanced K4,4 at diameter 22, and classifying all 29,616 vertices by their full eccentricities, gives an independently useful exact finite metric baseline. The 70-orbit symmetry reduction makes the certificate finite and reusable; no general family theorem is needed for the value of this natural named case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
