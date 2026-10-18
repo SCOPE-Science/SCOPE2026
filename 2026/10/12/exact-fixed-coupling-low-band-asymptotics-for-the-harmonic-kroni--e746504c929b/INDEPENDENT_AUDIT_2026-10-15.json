@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:07:29.650072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual RESULT.md from Git blob 5767935f94e01a94eccf4d3bd9d570faa2ce6df1 and packed parity checker. At fixed E=2n the parity-matched Hermite polynomial has decaying leading term x^n e^(−x²/2), while ∂E W has the exponentially growing x^(−n−1)e^(x²/2) term. Their ratio is C_n a^(2n+1)e^(−a²), C_n=2^(n+2)/(sqrtπ n!). The Robin logarithmic derivatives are −a+n/a+O(a^-3) and a−(n+1)/a+O(a^-3); ratio −1+2γ/a+O(a^-2). Thus Dirichlet and Robin roots give width 2C_n a^(2n+1)e^(−a²)(1−γ/a+O(a^-2)) for each fixed n and fixed real γ. Sturm–Liouville edge interlacing and simple nearby roots isolate the unique band; the proof does not cover n or γ increasing with a. Independent high-precision direct Kummer root solve at a=4, γ=0.7, n=0,1,2 gave width-to-asymptotic ratios 1.02187, 0.94590 and 0.81136 (finite corroboration only).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source paper treats special γ=±a exact gap spacing and calls fixed-γ, a→∞ low-band asymptotics interesting; Moore–Marsiglio has flat barriers between truncated wells."
+        ],
+        "reasoning": "Special γ=±a theorem lies outside fixed-γ scaling. General semiclassical bandwidth formulas could dominate the leading factor after nontrivial specialization but no full model-specific calculation or γ/a term was established; record this residual risk.",
+        "searches": [
+          "arXiv:2610.00879v1",
+          "arXiv:2605.08032v1",
+          "Connor Uzer Marcus Smith 1984 DOI:10.1063/1.446581"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00879v1 §4 Proposition 4.1",
+        "arXiv:2605.08032v1",
+        "DLMF §13.7",
+        "DOI:10.1063/1.446581",
+        "Resultary semantic search harmonic Kronig Penney model delta interactions low band width fixed gamma tunneling prefactor Kummer Weber Hermite 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A precise fixed γ expansion C_n a^(2n+1)e^(-a²)(1−γ/a+O(a^-2)) is strictly stronger than qualitative exponential narrowing and exact transcendental band-edge equations."
+        ],
+        "reasoning": "Prior spectral-edge characterization is an input to the new coefficient extraction; it does not state or by direct formula substitution give the amplitude and relative γ correction without asymptotic analysis.",
+        "searches": [
+          "arXiv:2610.00879v1 Proposition 4.1 and closing remarks",
+          "DOI:10.1038/s41598-026-67469-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gibbons–Veselov Proposition 4.1 supplies parity-resolved W±(a,E)=0 and W±′(a,E)+γW±(a,E)=0, not a low-band width expansion."
+        ],
+        "reasoning": "The phase factors reduce the problem to Weber/Kummer roots; a general Kronig–Penney result with flat barriers or γ growing like a is not equivalent to fixed real γ and harmonic potential.",
+        "searches": [
+          "harmonic Kronig Penney model delta interactions low band width fixed gamma tunneling prefactor Kummer Weber Hermite 2026",
+          "arXiv:2610.00879v1, §§3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF §13.7 lists special-function asymptotics, not an indexed operator-specific spectral-band coefficient. Resultary leading hits were different quantum graph and waveguide models."
+        ],
+        "reasoning": "Generic special-function data do not tabulate the required fixed-coupling band width or its first coupling correction.",
+        "searches": [
+          "harmonic Kronig Penney model delta interactions low band width fixed gamma tunneling prefactor Kummer Weber Hermite 2026",
+          "DLMF §13.7 Kummer asymptotics"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the fixed-n/fixed-γ tunnelling prefactor and relative γ/a correction. The exact same model is treated in Gibbons–Veselov, but its full inspected §4–5 derives spectral-edge equations rather than the asserted fixed-coupling asymptotic; the authors explicitly identify this regime as needing precise asymptotics. No indexed Resultary analogue covered the operator, scaling and both coefficients together.",
+      "residual_risks": [
+        "Nontrivial general semiclassical specialization may reproduce the leading constant; primary Connor et al. full text not read.",
+        "Kummer asymptotics were checked in the parity-matched fixed-n regime; no claim for growing n or γ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the two-scale coefficient statement; provides exact edge equation and identifies asymptotic problem",
+          "evidence": "Proposition 4.1: W±=0 or W±′+γW±=0; concluding remarks: precise low-band asymptotics require investigation.",
+          "identifier_or_url": "arXiv:2610.00879v1",
+          "material_read": "Full HTML §1–§5, especially normalized W± in §3, Proposition 4.1 in §4 and final fixed-γ a→∞ discussion",
+          "method": "Full-text mathematical reading of arXiv HTML",
+          "title": "On spectrum of the harmonic Kronig-Penney model",
+          "trigger": "Same periodic quadratic potential and delta jumps, primary source defining precise band edges"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY; no claim of whole-paper exhaustive exclusion",
+          "evidence": "Flat intermediate barriers rather than direct periodic parabolic extension with point interactions.",
+          "identifier_or_url": "arXiv:2605.08032v1; DOI:10.1038/s41598-026-67469-y",
+          "material_read": "Abstract and source-described truncated-well/flat-barrier geometry; no complete derivation independently rechecked",
+          "method": "Bibliographic/available source comparison",
+          "title": "Analytical solution to the Kronig–Penney model with harmonic oscillator wells: insights to tight-binding",
+          "trigger": "Potentially equivalent periodic harmonic-well spectra"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT; residual risk of nontrivial specialization",
+          "evidence": "Generic periodic semiclassical bands; no inspected explicit delta-matched fixed-γ coefficient.",
+          "identifier_or_url": "DOI:10.1063/1.446581",
+          "material_read": "Bibliographic record and accessible abstract only; not full text",
+          "method": "Title/abstract comparison",
+          "title": "Eigenvalues of the Schrödinger equation for a periodic potential with nonperiodic boundary conditions: a uniform semiclassical analysis",
+          "trigger": "General tunnelling asymptotics might contain dominating formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first fixed-coupling low-band tunnelling constant and its first γ-dependent relative coefficient resolve a specifically identified spectral asymptotic question in the exact periodic cusp-plus-delta model; each n mode has a physically meaningful exponentially narrow band. Unlike routine numerical band-gap checks, the coefficient distinguishes boundary strength from oscillator geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.00879v1 §4 Proposition 4.1",
+    "arXiv:2605.08032v1",
+    "DLMF §13.7",
+    "DOI:10.1063/1.446581",
+    "Resultary semantic search harmonic Kronig Penney model delta interactions low band width fixed gamma tunneling prefactor Kummer Weber Hermite 2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Nontrivial general semiclassical specialization may reproduce the leading constant; primary Connor et al. full text not read.",
+    "Kummer asymptotics were checked in the parity-matched fixed-n regime; no claim for growing n or γ."
+  ],
+  "schema_version": 1
+}
