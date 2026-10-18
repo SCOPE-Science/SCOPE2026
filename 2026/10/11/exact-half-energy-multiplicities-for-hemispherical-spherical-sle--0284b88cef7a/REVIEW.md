@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In a fixed order, associated-Legendre parity makes the same-parity hemisphere Gram blocks exactly \(\tfrac12 I\). A Sturm--Liouville Lagrange identity factors every opposite-parity entry into nonzero row and column factors times \(1/(k(k+1)-\ell(\ell+1))\). The resulting rectangular Cauchy matrix has full rank, so the block spectrum is exactly \(1/2\) plus and minus its nonzero singular values, with nullity equal to the parity-count imbalance. The global count follows from the \(m=0\) singleton and the duplicated \(\pm m\) blocks. The packaged numerical checker agrees on 1298 independently assembled blocks, but the proof does not rely on those finite tests.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:math/0408424v1, supplies the spherical Slepian framework, low-pass localization matrices, complementarity, and polar-cap machinery, but the inspected text does not state an exact hemispherical \(1/2\)-eigenspace law. DOI:10.1093/gji/ggs122 explicitly introduces bandpass Slepian functions by omitting low degrees and treats the needed changes as straightforward dimensional adaptations; it does not give the hemisphere parity decomposition, Cauchy factorization, or exact threshold multiplicity. Ramamoorthi's 2002 hemisphere orthogonality calculation is a low-order Lambertian PCA application with additional spectral weights, not the arbitrary-mask concentration theorem. Semantic-index and web searches under equivalent hemisphere, bandpass, parity, Cauchy, and associated-Legendre formulations found no statement implying the claim. The remaining risk is terminology drift into special-function or approximation literature.
+PASS
 
-## Value
-PASS. The value is structural: \(1/2\) is the exact transition between predominantly inside- and outside-hemisphere Slepian modes, and the theorem determines its multiplicity for every low-pass, bandpass, or gapped degree mask without diagonalizing the concentration matrix. The low-pass corollary gives an exact \(L+1\)-dimensional transition space and exact counts on both sides, while the arbitrary-mask law shows that threshold degeneracy is controlled by a discrete parity invariant rather than solely by the Shannon trace.
+For every fixed |m| block, associated-Legendre parity makes same-parity half-interval inner products exactly delta_ell,k/2. The Sturm–Liouville Wronskian boundary term at x=0 is nonzero for every even/odd active degree pair and has denominator ell(ell+1)-k(k+1), so cross parity is a rectangular Cauchy matrix after invertible diagonal scalings; rank is min(e_m,o_m). The block spectrum is paired ±singular values around 1/2 with kernel dimension |e_m−o_m|; ±m degeneracy gives the global sum. Independently enumerated every contiguous band 0<=L0<=5, L1<=8, verifying w-even and odd formulas; analytic string parity argument proves all widths, not the enumeration.
 
-## Closest literature and limitations
-The known spherical Slepian theory supplies the concentration problem and its numerical machinery. The later bandpass literature supplies a natural motivation for deleting degree ranges. The new statement does not provide closed forms for the off-centre eigenvalues; it gives their reflection pairing and the exact central multiplicity. A hidden equivalent formulation in older hemisphere-restriction literature remains the principal originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the classical Slepian full text supplies the low-pass concentration operator and fixed-order polar-cap machinery but does not establish Cauchy full rank for arbitrary gapped degree masks or the exact half-energy multiplicity formula; the new parity nullity count requires a distinct Wronskian/Cauchy nondegeneracy argument. Related indexed Hermite and cyclic concentration statements are analogous but not stronger spherical-harmonic/m-dependent implications. Beggan full text was not read; the remaining possibility of a hidden equivalent special-functions theorem is an explicit residual risk.
+
+## value
+
+PASS
+
+The multiplicity of the transition eigenvalue 1/2 in a hemispherical concentration operator is a natural sharp spectral invariant, not determined by the Shannon trace. Arbitrary degree masks are standard in bandpass/gapped spectral recovery, and the full-rank parity/Cauchy block theorem yields an exact classification and symmetry of spectra without requiring a downstream application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
