@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized weighted Bergman monomial moments independently give the stated exact Cauchy-weighted matrix. For every real \(-1<\alpha<0\) and \(\delta>0\), the complete infinite row-tail estimate has squared norm \(O(2^{-\delta J})\); the dyadic finite-geometric expansion gives an exact rank \(\le1+J^2\) and relative retained-row error at most \(3^{-J}\). Hilbert-space approximation numbers then imply all positive Schatten exponents. The uniformly justified Abelian limit of the exact double-square sum gives the beta-function Hilbert–Schmidt residue. The proof does not invoke finite numerical experiments as infinite certification.
+
+**Originality — PASS, with residual priority risk.** Li–Zhou [1] establishes compactness, \(\mathcal S_p\) membership only for \(p\ge1\), and a Hilbert–Schmidt series. Beckermann–Townsend [2] establishes finite Cauchy-matrix compression bounds, and is credited for that general mechanism. Neither examined full text states the joint infinite-dimensional low-rank estimate, the complete \(0<p<1\) classification for this operator, or the critical Hilbert–Schmidt residue. The rank bound may also be derivable by combining broader Cauchy approximation machinery with separate weighted-tail estimates; that is a specific remaining priority risk. Related published research records and available earlier claims were checked for mathematical implication; their different underlying operators do not cover this theorem.
+
+**Mathematical value — PASS.** This gives a quantitative approximation rate and completes a natural operator-ideal classification precisely across the quasi-Banach range absent from the motivating paper. The explicit beta residue quantifies the singular loss of Hilbert–Schmidt regularity at the sharp compactness boundary, connecting finite-rank approximability to the parameter transition. Neither an unmotivated parameter slice nor a mere finite-matrix computation is involved.
+
+The root-exponential upper bound is not asserted optimal; the residue covers only the Hilbert–Schmidt norm. Publication priority remains subject to independent scrutiny.
+
+Self-review: passed. Independent audit: not yet performed.
