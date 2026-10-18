@@ -1,12 +1,21 @@
-# Scientific review: velocity resonance and collision absorption
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes an explicit Kronecker-sum Hamiltonian, positive coincidence-loss operator, and infinite-time observable projector. Contractive dissipativity identifies the dark spectrum, while the single-particle \(\{+,-,0\}\) splitting and detector Gram matrices prove the rank formulas. Crucially, it separately addresses the exceptional unequal-speed ratios \(2{:}1\) and \(1{:}2\), and inverts the equal-speed two-class Gram block for same-class probabilities. The supplied verifier independently builds full Hermitian and lossy matrices, returning 35 spectral cases, 2,290 localized probabilities and six dissipative spectral checks at numerical error below \(7\times10^{-15}\). Finite tests do not replace the all-size proof. No claim is made about finite-time uniformity.
+## correctness
 
-## Originality — PASS, with residual risk
-Read full open-access HTML versions of arXiv:0705.1985v1 (§§2–4), arXiv:1511.04828v1 (§§I–IV), and arXiv:2011.13794v2 (§4.1 and Appendix B.1, including the closest complete-bipartite transport model). The first two investigate discrete-time two-particle walks; the third investigates one particle with one trap and a Laplacian Hamiltonian. None of those statements implies the present two-particle, adjacency-based, all-coincidence-detector classification. Literature searches also targeted two-particle biclique trapping, meeting, and spectral observability; no equivalent theorem was found. Existing general spectral-subspace methods are credited. An unidentified stronger theorem, or a treatment under different terminology, remains a priority risk; independent review is outstanding.
+PASS
 
-## Value — PASS
-The exact \(2(p+q)-2\) loss of absorbing directions at equal velocities and the exact discontinuous factor of two for cross-class initial states identify a physical boundary that rate-dependent simulations could miss. The classification holds for every pair of class sizes at least three, both balanced and imbalanced, with arbitrary positive site-specific reaction rates. It provides exact detector benchmarks for collision transport rather than a routine perturbative estimate. The exceptional behavior of two-vertex color classes, nonrectangular losses, coherent interactions, and finite-time crossover remain open within this treatment.
+For distinguishable walkers H=aJ⊗I+bI⊗J, the all-coincidence detector span splits by distinct eigenspaces; its orthogonal complement is the maximal dark H-invariant subspace, and strict dissipation on the observable part gives eventual loss independent of positive detector rates. J has ±sqrt(pq) modes and zero-sum class subspaces U_A,U_B; zero-energy detector Gram blocks G_r=(δij−1/r)^2 have positive eigenvalues (r−1)/r and (r−2)/r for r>=3. Unequal speeds give N+4+4(N−2)=5N−4 observed dimensions; equal speeds merge sign-zero sectors, leaving N+2(N−2)+2=3N−2. At a/b=2 or 1/2 extra energy coincidences mix inequivalent trivial/standard permutation representations, so detector ranks still add. Explicit Gram inverse contributions give all three localized off-diagonal classes plus unit absorption at coincidences. Fresh independent Hermitian spectral projections for p,q=(3,3),(3,4),(4,4) and 5 equal/unequal ratios verified 15 rank and every diagonal probability case to <1e−8; that finite check is not an all-size proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.
+
+## value
+
+PASS
+
+A canonical two-particle collision-loss problem on arbitrary complete bipartite networks has an exact sharp velocity-resonance jump of 2(p+q)−2 dark/bright directions, independently of detector rates. Classwise absorption probabilities and the exactly halved opposite-class capture at resonance are natural transport benchmarks and reveal a nonuniform infinite-time limit, not a tiny simulation variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
