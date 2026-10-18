@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:01:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For random labeled tournaments every edge orientation is independent and fair. For i≠j write (Di,Dj)=(A+E,A’+1-E) with independent A,A’~Bin(n-2,1/2), common opposite Bernoulli E. Direct conditioning yields covariance of score functionals = -(1/4)EΔφ(A) EΔψ(A). For B~Bin(n-1,1/2), the binomial shift identity Cov(φ(B),B)=(n-1)/4 EΔφ(A) and Var(B)=(n-1)/4. Summing i=j and i≠j terms proves exactly Cov(Sφ,Sψ)=n[Cov(φ(B),ψ(B))-Cov(φ(B),B)Cov(ψ(B),B)/Var(B)]. Indicator functions give Σ=n diag(b) - n bb^T -(4n/(n-1))((k-(n-1)/2)b_k)((l-(n-1)/2)b_l). White normalizing yields n(I-uu^T-vv^T), u,v orthonormal for every n≥2, rank n-2, spectrum n repeated n-2 and zeros twice. Taking trace yields E Pearson Qn=n-2. Complete exact-rational enumeration of all 2^{n choose 2} tournaments for n=2..6 independently checks every covariance entry; infinite theorem follows from Bernoulli conditioning, not enumeration.",
+      "risk": "Fair independent tournament orientations only; does not give asymptotic law of histogram, Pearson chi-square calibration, or biased tournaments.",
+      "sources": [
+        "Frozen source RESULT.md and verify.py",
+        "Cohn et al arXiv:1502.04061v1 random tournament conditioning context",
+        "independent_checks.py exact enumeration n=2..6"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohn’s theorem concerns one nonlinear Seymour-vertex count; no all-score-function covariance assertion in inspected primary sections.",
+          "Alspach–Reid accessible abstract refers to deterministic degree frequency sets; its full text cannot be evaluated.",
+          "Mean-score-vector feasibility is different from empirical degree-frequency second moments."
+        ],
+        "reasoning": "Full projector would dominate many individual count variances, but a single threshold-count variance or deterministic realization criterion does not imply the full operator; substantial uncertainty remains for older papers.",
+        "searches": [
+          "Cohn–Godbole–Harkness–Zhang arXiv:1502.04061v1 §§2–3",
+          "Alspach–Reid 1978 deterministic degree frequencies",
+          "Aldous–Kolesnik 2022 Bradley–Terry mean score vectors",
+          "Resultary fair tournament covariance projector search"
+        ]
+      },
+      "checked_sources": [
+        "Cohn et al arXiv:1502.04061v1 full text",
+        "Alspach–Reid J Graph Theory 2 (1978) abstract only; Oxford VPN blocked",
+        "Aldous–Kolesnik SPA 150 (2022) scope",
+        "Resultary random tournament histogram covariance search",
+        "Independent exact tournament enumeration n=2,3,4,5,6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indicator covariance matrix follows by independently combining shared-edge conditioning with a binomial regression identity. This derivation is present in the candidate, not demonstrably in the inspected Cohn paper.",
+          "Deterministic constraints imply at least two zero eigenvalues, but cannot imply rank exactly n-2 and equal remaining eigenvalues n."
+        ],
+        "reasoning": "Known ingredients do not automatically prove the sharp projected covariance matrix, though implicit equivalent formulas in classical probability remain the strongest genuine priority risk.",
+        "searches": [
+          "Cohn et al arXiv:1502.04061v1 §§2–3",
+          "Alspach–Reid 1978 DOI 10.1002/jgt.3190020307",
+          "Aldous–Kolesnik Stoch Processes Appl 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent functional statement: covariance of total score functionals equals n times covariance of one Binomial score after regression onto its linear score coordinate.",
+          "The two null vectors encode deterministically fixed vertex count and total wins."
+        ],
+        "reasoning": "Neither the conservation identities alone nor known one-vertex binomial distribution determines the full off-diagonal covariance projector without the shared-edge identity.",
+        "searches": [
+          "Resultary: random tournaments outdegree frequency count histogram covariance projection binomial Pearson two constraints",
+          "Cohn et al arXiv:1502.04061v1",
+          "Alspach–Reid JGT 2 (1978) DOI 10.1002/jgt.3190020307"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact n-2 expectation follows from rank n-2 projector, not from the multinomial n-1 benchmark.",
+          "No cited numerical graph table giving the full parametric matrix for every n was available."
+        ],
+        "reasoning": "An arbitrary small-n tournament census is not an exact general-n formula; the analytic matrix identity survives beyond finite tabulations.",
+        "searches": [
+          "random tournament score-frequency covariance Pearson expectation exact n-2 full levels",
+          "Cohn et al 2015 moment tables",
+          "Alspach–Reid 1978 degree frequency title/abstract"
+        ]
+      },
+      "rationale": "The nearest inspected Cohn–Godbole–Harkness–Zhang source (2015) uses shared-edge conditioning to analyze Seymour-vertex count thresholds but does not present a universal covariance bilinear form or flat whitened histogram spectrum. Alspach–Reid (1978) is closely title-matched but accessible abstract concerns deterministic degree-frequency realizability; the full 1978 text remains inaccessible, so cannot assert whole-document NOT_COVERING. Aldous–Kolesnik concerns attainable mean score vectors, not empirical histogram covariance. Shared-edge probability and two deterministic sum constraints are prior facts; the full exact projector/expectation law is the surviving mathematical result with genuine older-literature risk.",
+      "residual_risks": [
+        "Alspach–Reid (1978) full article inaccessible (Oxford VPN disconnected), so only its abstract was assessed and possible hidden covariance formula remains open.",
+        "Older paired-comparison, tournament frequency, and constrained-histogram literature may implicitly derive the full projector."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses shared-edge conditioning for a different nonlinear statistic; candidate full degree-frequency projector not found in inspected theorem statements.",
+          "evidence": [
+            "Counts vertices with Seymour property, not all degree histogram entries"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.04061v1",
+          "material_read": "Full accessible preprint, especially §§2–3 moment methods and target statistic",
+          "method": "Read primary full text and compared score-function quantities",
+          "title": "The Number of Seymour Vertices in Random Tournaments and Digraphs",
+          "trigger": "Same independent fair tournament model with shared-edge covariance"
+        },
+        {
+          "assessment": "Accessible abstract concerns realizability of deterministic degree-frequency sets. Full-document noncoverage cannot be assessed.",
+          "evidence": [
+            "1978 title matches; institutional job 3751c193a97f80ee500604764c9bd289 returned vpn_disconnected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190020307",
+          "material_read": "Only publisher abstract; full article could not be obtained. Authorized institutional request returned vpn_disconnected; no attempt to bypass.",
+          "method": "Publisher abstract and DOI page, then institutional fetch attempt after lawful OA/arXiv search",
+          "title": "Degree frequencies in digraphs and tournaments",
+          "trigger": "Title explicitly matches degree frequencies and could be a stronger old source"
+        },
+        {
+          "assessment": "Different object: mean score sequences vs covariance of random histogram.",
+          "evidence": [
+            "Mean scoring feasibility alone does not fix covariance"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2019.10.011",
+          "material_read": "Available theorem/abstract scope about attainable means",
+          "method": "Read relevant primary mathematical scope and cross-reference",
+          "title": "To stay discovered: On tournament mean score sequences and the Bradley–Terry model",
+          "trigger": "Potential broader score-vector coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All score-frequency bins are a canonical empirical distribution for independent fair tournaments. The exact covariance projector completely characterizes second moments of any sum of score functions, identifies exactly two deterministic null directions, proves otherwise flat normalized variance spectrum, and corrects the Pearson discrepancy mean from the multinomial n-1 benchmark to n-2. This is a natural whole-family stochastic invariant with direct statistical interpretation, not an isolated cheap variance calculation.",
+      "risk": "Expectation alone does not certify a chi-square law or test level, and no such inference is claimed.",
+      "sources": [
+        "Analytical full covariance formula",
+        "Cohn et al source statistic is narrower",
+        "Independent exact complete tournaments n<=6"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to independent fair orientations of complete graphs with n>=2.",
+    "No higher moments, distributional equality to conditioned multinomial, or asymptotic Pearson chi-square theorem.",
+    "Historical originality limited by inaccessible older tournament-frequency full text."
+  ],
+  "schema_version": 1
+}

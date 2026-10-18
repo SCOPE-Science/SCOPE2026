@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Independent orientations of all matches imply a single shared Bernoulli edge for two vertices. The exact two-vertex covariance is a negative product of binomial finite differences. The binomial shift identity converts those differences into covariances with the score, giving the stated universal bilinear identity. Indicators of each score recover the matrix formula, and the two normalized binomial vectors are orthonormal. This proves the full projector and spectrum for every \(n\ge2\); taking a trace proves \(\mathbb E Q_n=n-2\). Exact rational exhaustive enumeration for sizes 2–6 independently checks 90 covariance entries. No extrapolation from finite checks is used.
+## correctness
 
-## Originality — PASS with residual risk
-The closest inspected primary full texts concern Seymour-vertex threshold counts (Cohn et al., arXiv:1502.04061v1, 2015) and attainable mean score sequences (Aldous–Kolesnik, 2019/2022), not the full score-frequency covariance projector. The title-matched degree-frequency work by Alspach–Reid (1978) studies deterministic realization, according to its accessible abstract; its inaccessible full text leaves a priority risk. Broad probabilistic searches for score-frequency covariance, projector, Pearson expectation, and joint outdegree law, plus comparison of mathematical statements, located no theorem explicitly or decisively implying the entire projection identity. Shared-edge conditioning and the deterministic total-score identity are known ingredients and are not separately claimed as discoveries. This is a provisional scientific comparison, not proof of historical uniqueness.
+PASS
 
-## Value — PASS
-The complete empirical score distribution, not one arbitrary degree slice, is a canonical statistic of fair paired competitions. Its covariance has exactly two null modes and otherwise a flat binomial-weighted spectrum, furnishing all score-functional variances simultaneously. In particular the exact \(n-2\) expectation calibrates Pearson-style score-frequency discrepancy despite vertex dependence, where the independent-binomial/multinomial benchmark would be \(n-1\). This is a motivated global structural law rather than a routine isolated moment.
+For random labeled tournaments every edge orientation is independent and fair. For i≠j write (Di,Dj)=(A+E,A’+1-E) with independent A,A’~Bin(n-2,1/2), common opposite Bernoulli E. Direct conditioning yields covariance of score functionals = -(1/4)EΔφ(A) EΔψ(A). For B~Bin(n-1,1/2), the binomial shift identity Cov(φ(B),B)=(n-1)/4 EΔφ(A) and Var(B)=(n-1)/4. Summing i=j and i≠j terms proves exactly Cov(Sφ,Sψ)=n[Cov(φ(B),ψ(B))-Cov(φ(B),B)Cov(ψ(B),B)/Var(B)]. Indicator functions give Σ=n diag(b) - n bb^T -(4n/(n-1))((k-(n-1)/2)b_k)((l-(n-1)/2)b_l). White normalizing yields n(I-uu^T-vv^T), u,v orthonormal for every n≥2, rank n-2, spectrum n repeated n-2 and zeros twice. Taking trace yields E Pearson Qn=n-2. Complete exact-rational enumeration of all 2^{n choose 2} tournaments for n=2..6 independently checks every covariance entry; infinite theorem follows from Bernoulli conditioning, not enumeration.
 
-## Closest literature and limitations
-Cohn et al. (2015) use one-edge conditioning for a Seymour-vertex count. Alspach–Reid (1978) studies deterministic frequency realizability. Aldous–Kolesnik studies mean tournament scores. Possible implicit treatment in older paired-comparison moment formulas and incomplete access to the 1978 full text are residual risks. The theorem does not claim an asymptotic distribution or calibrated test levels from the exact expectation alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest inspected Cohn–Godbole–Harkness–Zhang source (2015) uses shared-edge conditioning to analyze Seymour-vertex count thresholds but does not present a universal covariance bilinear form or flat whitened histogram spectrum. Alspach–Reid (1978) is closely title-matched but accessible abstract concerns deterministic degree-frequency realizability; the full 1978 text remains inaccessible, so cannot assert whole-document NOT_COVERING. Aldous–Kolesnik concerns attainable mean score vectors, not empirical histogram covariance. Shared-edge probability and two deterministic sum constraints are prior facts; the full exact projector/expectation law is the surviving mathematical result with genuine older-literature risk.
+
+## value
+
+PASS
+
+All score-frequency bins are a canonical empirical distribution for independent fair tournaments. The exact covariance projector completely characterizes second moments of any sum of score functions, identifies exactly two deterministic null directions, proves otherwise flat normalized variance spectrum, and corrects the Pearson discrepancy mean from the multinomial n-1 benchmark to n-2. This is a natural whole-family stochastic invariant with direct statistical interpretation, not an isolated cheap variance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
