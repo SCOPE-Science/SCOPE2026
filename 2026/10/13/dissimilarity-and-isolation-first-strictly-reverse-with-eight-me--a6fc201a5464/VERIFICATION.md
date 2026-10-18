@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem uses exact formulas in the equal-total two-tract setting.
 
-If the smaller tract has total population \(t\) and absolute group imbalance \(d\), then
-\[
-D=\frac dN
-\]
-and
-\[
-I=\frac12+\frac{d^2}{2t(2N-t)}.
-\]
+# Independent mathematical audit
 
-The embedded `verify_dissimilarity_isolation_minimal_reversal.py` independently enumerates raw tract counts and the symmetry-reduced \((t,d)\) states.
+## correctness
 
-For every raw configuration it verifies equality between:
-- direct evaluation of the standard dissimilarity and isolation formulas;
-- evaluation through the two closed forms above.
+PASS
 
-The exact canonical-state counts for \(N=1,\ldots,8\) are
-\[
-1,\ 3,\ 5,\ 8,\ 11,\ 15,\ 19,\ 24.
-\]
+For two nonempty tracts with equal group totals N, quotienting tract and group swaps gives unique feasible canonical pairs (t,d): 1≤t≤N, 0≤d≤t and t≡d mod2. The original definitions reduce exactly to D=d/N and I=1/2+d²/[2t(2N−t)]. I independently enumerated all raw cases/orbits through N=8 with exact fractions; canonical counts are [1,3,5,8,11,15,19,24] and strict-reversal unordered-pair counts [0,0,0,0,0,0,0,1]. At N=8 the sole unordered reversing pair is (t,d)=(1,1) vs (8,2): D=1/8<1/4 while I=8/15>17/32. Infinite explicit parity-dependent P_N and Q_N families follow by inequalities N²−8N+4>0 for even N≥8 and N²−8N+3>0 for odd N≥9. Finite N=8..2000 checked for consistency, while the quadratic inequalities prove the unrestricted claim. The first weak tie-split at N=3 is not misidentified as a strict reversal.
 
-The exact strict-reversal counts are
-\[
-0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1.
-\]
+## originality
 
-At \(N=8\), the unique canonical reversal is
-\[
-(t,d)=(1,1)
-\]
-versus
-\[
-(t,d)=(8,2),
-\]
-corresponding to
-\[
-(1,0)+(7,8)
-\]
-and
-\[
-(5,3)+(3,5).
-\]
+PASS
 
-The replay also verifies that the first weak-order difference occurs at \(N=3\) only by tie splitting and checks the explicit strict-reversal family through \(N=500\). The family for every \(N\ge8\) is proved algebraically in `RESULT.md`.
+Duncan–Duncan and Massey–Denton establish dissimilarity as an evenness index, Bell and Lieberson–Carter establish exposure/isolation indices, and earlier published work observes distinct rankings in empirical comparisons. Full Massey–Denton text (1988), especially pp.284 and 288–289, gives the exact underlying D and isolation formulas and multidimensional interpretation, but no exact equal-size two-tract integer first-reversal classification. This theorem refines known qualitative divergence to a unique minimal discrete boundary and an all-N explicit continuation, while correctly treating old measurement definitions as prior art.
 
-Run:
+## value
 
-`python3 verify_dissimilarity_isolation_minimal_reversal.py`
+PASS
 
-The first output line must be:
+A sharp smallest-census reversal shows the two widely used segregation indices are ordinally incomparable even with equal citywide group composition and only two geographical tracts, isolating the influence of tract size. The unique first witness is a concrete reproducible methodological stress test; the exact infinite continuation establishes structural rather than isolated disagreement. Though small-N, its minimality and controlled comparator are motivated and mathematically complete.
 
-`VERIFY_OK`
+The dated certificate retains the supplied scientific assessment, sources and limitations.

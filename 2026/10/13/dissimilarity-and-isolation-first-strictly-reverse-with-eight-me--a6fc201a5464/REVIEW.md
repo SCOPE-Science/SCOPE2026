@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In the equal-total two-tract setting, direct substitution gives
-\[
-D=\frac dN
-\]
-and
-\[
-I=\frac12+\frac{d^2}{2t(2N-t)}.
-\]
-The symmetry reduction to feasible \((t,d)\) pairs is bijective. Exact rational enumeration of every raw configuration and every canonical pair gives no strict reversal through \(N=7\), exactly one at \(N=8\), and the displayed values. The continuation family is proved by two explicit quadratic inequalities, not inferred from finite computation.
+## correctness
 
-Risk: the theorem is intentionally restricted to two tracts and equal citywide group totals.
+PASS
 
-## Originality
-**PASS.** Classical segregation research already distinguishes dissimilarity as an evenness measure from isolation as an exposure measure, and Lieberson–Carter explicitly report that the approaches can lead to substantially different substantive conclusions. That broad disagreement is not claimed as new. The accepted claim is the exact two-tract equal-composition reduction, the first weak-order split at \(N=3\), the sharp first strict reversal at \(N=8\), uniqueness of the first pair, and an explicit continuation family. Semantic-result searches and exact-parameter literature searches did not locate those statements.
+For two nonempty tracts with equal group totals N, quotienting tract and group swaps gives unique feasible canonical pairs (t,d): 1≤t≤N, 0≤d≤t and t≡d mod2. The original definitions reduce exactly to D=d/N and I=1/2+d²/[2t(2N−t)]. I independently enumerated all raw cases/orbits through N=8 with exact fractions; canonical counts are [1,3,5,8,11,15,19,24] and strict-reversal unordered-pair counts [0,0,0,0,0,0,0,1]. At N=8 the sole unordered reversing pair is (t,d)=(1,1) vs (8,2): D=1/8<1/4 while I=8/15>17/32. Infinite explicit parity-dependent P_N and Q_N families follow by inequalities N²−8N+4>0 for even N≥8 and N²−8N+3>0 for odd N≥9. Finite N=8..2000 checked for consistency, while the quadratic inequalities prove the unrestricted claim. The first weak tie-split at N=3 is not misidentified as a strict reversal.
 
-Risk: small-sample segregation measurement has a long literature. An unindexed exercise or specialized finite-sample note could contain the witness even though the sharp boundary theorem was not found.
+## originality
 
-## Value
-**PASS.** Dissimilarity and isolation are canonical segregation indicators representing different dimensions of residential separation. Fixing equal group totals removes the standard citywide-composition explanation for isolation differences, so the theorem isolates a cleaner mechanism: concentration of the same local group imbalance in a very small tract can outweigh a larger global distributional mismatch. The unique minimal witness is therefore a compact diagnostic example for interpretation, teaching, and software validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Duncan–Duncan and Massey–Denton establish dissimilarity as an evenness index, Bell and Lieberson–Carter establish exposure/isolation indices, and earlier published work observes distinct rankings in empirical comparisons. Full Massey–Denton text (1988), especially pp.284 and 288–289, gives the exact underlying D and isolation formulas and multidimensional interpretation, but no exact equal-size two-tract integer first-reversal classification. This theorem refines known qualitative divergence to a unique minimal discrete boundary and an all-N explicit continuation, while correctly treating old measurement definitions as prior art.
+
+## value
+
+PASS
+
+A sharp smallest-census reversal shows the two widely used segregation indices are ordinally incomparable even with equal citywide group composition and only two geographical tracts, isolating the influence of tract size. The unique first witness is a concrete reproducible methodological stress test; the exact infinite continuation establishes structural rather than isolated disagreement. Though small-N, its minimality and controlled comparator are motivated and mathematically complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
