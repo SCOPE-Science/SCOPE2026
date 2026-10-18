@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every diagonal consistent system and active row subset, every independent draw permanently eliminates the corresponding error coordinate, so the exact expected squared-error ratio is maximized on the least-sampled retained coordinate. The exchange argument uniquely minimizes the sum at a fixed smallest row weight, proving the consecutive-band classification for all k. The three-mode comparison and logarithmic asymptotic are exact algebra. Checked a standalone actual source path: 1050 exhaustive subset cases, 121 path enumeration checks, five analytic parameters passed. Tests corroborate but do not establish universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2605.29304 Sections 3.1–3.2 contain arbitrary-matrix sufficient convergence factors and an ID/Frobenius row-surrogate, not its exact worst-case choice for diagonal data.",
+        "https://arxiv.org/pdf/2506.09394 Section 3.2 Theorem 3.2 contains the broader SC-RCD diagonal-sampling upper bound; it does not supply the fixed-row choice optimization or the explicit surrogate divergence in relevant material."
+      ],
+      "reasoning": "The arbitrary-matrix convergence bounds cover fixed J as a special case but are not stated as an exact minimization over all J of fixed cardinality. The present all-k minimax classification determines the optimizer of that rate for every diagonal spectrum; the three-mode example compares this optimizer with the published ID proxy rather than claiming a new generic RK convergence theorem. Broader results might imply the claim together with an unrecorded selection theorem, which is residual risk.",
+      "searches": [
+        "For diagonal positive definite linear systems randomized Kaczmarz subspace constrained select fixed row subset optimal convergence rate minimum spectral band contiguous eigenvalues row interpolative decomposition condition gap",
+        "Randomized Kaczmarz fixed equations subset optimal residual Frobenius surrogate can be arbitrarily slower orthogonal diagonal matrix",
+        "\"row subset\" \"smallest positive singular value\" \"Frobenius norm\" Kaczmarz conditioning",
+        "For diagonal positive definite linear systems randomized Kaczmarz subspace constrained select fixed row subset optimal convergence rate minimum spectral band contiguous eigenvalues row interpolative decomposition condition gap"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.29304",
+      "https://arxiv.org/pdf/2309.04889",
+      "https://arxiv.org/pdf/2506.09394",
+      "https://arxiv.org/abs/2605.29304",
+      "https://arxiv.org/abs/2309.04889",
+      "https://arxiv.org/abs/2506.09394"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2605.29304 Section 3.2: minimize residual Frobenius norm as a tractable surrogate; the actual rate depends also on the smallest nonzero singular value.",
+        "https://arxiv.org/pdf/2309.04889 Section 3.3 (including rate (3.16)) discusses spectral outliers and approximate low-rank fixed subsets.",
+        "https://arxiv.org/pdf/2506.09394 Theorem 3.2 bounds convergence under diagonal sampling without solving the combinatorial selection problem."
+      ],
+      "reasoning": "The 2026 rate bound plus orthogonality implies the rate for any prescribed active set; the claim is not that special-case formula. The new optimization identifies exactly which of all active sets attains the minimax rate for every k and proves a diverging exponent ratio for the published Frobenius proxy. In particular the 2026 surrogate minimizes sum of retained squared row norms, whereas the true rate maximizes minimum retained squared row norm divided by that sum; these are different orderings. The compared published results do not state a universal surrogate optimality claim, so this is a sharp benchmark, not a refutation of such a claim.",
+      "searches": [
+        "For diagonal positive definite linear systems randomized Kaczmarz subspace constrained select fixed row subset optimal convergence rate minimum spectral band contiguous eigenvalues row interpolative decomposition condition gap",
+        "Optimal subset of orthogonal rows to precondition randomized Kaczmarz choose spectral window adjacent squared row norms worst-case expected error",
+        "Randomized Kaczmarz fixed equations subset optimal residual Frobenius surrogate can be arbitrarily slower orthogonal diagonal matrix",
+        "Optimal subset of orthogonal rows to precondition randomized Kaczmarz choose spectral window adjacent squared row norms worst-case expected error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2605.29304 Section 3.2 chooses exact fixed row constraints and a Frobenius surrogate; the present problem is rate optimization over which equations remain active.",
+        "https://arxiv.org/pdf/2309.04889 Section 3.3 establishes a general SCRK rate but does not optimize diagonal fixed-row spectral bands in inspected selection material."
+      ],
+      "reasoning": "The equivalent formulations considered were norm-proportional fixed-row Kaczmarz, subspace-constrained randomized Kaczmarz (SCRK), diagonal projected row sampling, and discrete choice of a residual spectral band. The source convergence rate becomes exact in this diagonal instance, but deriving a simultaneously all-horizon optimal fixed subset requires a separate minimax/exchange argument. No inspected source states that every optimum is a consecutive sorted window.",
+      "searches": [
+        "For diagonal positive definite linear systems randomized Kaczmarz subspace constrained select fixed row subset optimal convergence rate minimum spectral band contiguous eigenvalues row interpolative decomposition condition gap",
+        "Optimal subset of orthogonal rows to precondition randomized Kaczmarz choose spectral window adjacent squared row norms worst-case expected error",
+        "\"consecutive\" \"subspace constrained\" randomized Kaczmarz selection",
+        "Optimal subset of orthogonal rows to precondition randomized Kaczmarz choose spectral window adjacent squared row norms worst-case expected error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2605.29304 Section 3.2 proposes a Frobenius-norm row selection surrogate rather than listing exact minimax-optimal fixed-row subsets for orthogonal diagonal systems.",
+        "https://arxiv.org/pdf/2309.04889 Section 3.3 gives general spectral bounds without an exact table of rate-optimal contiguous diagonal spectral windows."
+      ],
+      "reasoning": "Targeted semantic searches found no exact optimal-subset database or table for the ordered diagonal SCRK problem. The nearest named database claims involve fundamentally different algorithms, optimization variables, and error metrics; their statements do not imply the all-cardinality spectral window classification. Absence of a database hit is not proof of novelty.",
+      "searches": [
+        "Optimal subset of orthogonal rows to precondition randomized Kaczmarz choose spectral window adjacent squared row norms worst-case expected error",
+        "Randomized Kaczmarz fixed equations subset optimal residual Frobenius surrogate can be arbitrarily slower orthogonal diagonal matrix",
+        "\"spectral window\" \"randomized Kaczmarz\" deflation optimal subset",
+        "\"optimal\" \"diagonal\" \"subspace-constrained\" \"Kaczmarz\"",
+        "Randomized Kaczmarz fixed equations subset optimal residual Frobenius surrogate can be arbitrarily slower orthogonal diagonal matrix"
+      ]
+    },
+    "rationale": "The closest inspected primary articles establish the SCRK iteration and general spectral convergence factors plus a Frobenius residual surrogate. They do not state the all-cardinality, all-horizon rate-optimal ordered row-band classification or the quantitative unbounded gap to the surrogate. Targeted record and primary-literature searches considered aliases, larger formulations and exact implication rather than only identical titles. Residual uncertainty remains for unindexed equivalent combinatorial work.",
+    "residual_risks": [
+      "An older spectral subset selection or randomized Kaczmarz treatment might derive the same consecutive-band optimizer even if not named that way.",
+      "Only theorem-relevant material, not every page, was examined in the earlier Lok–Rebrova documents.",
+      "The band argument is elementary after identifying the exact rate; its bibliographic originality cannot be proved by negative searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convergence expression and Frobenius surrogate are prior work; no exact optimal contiguous spectral-window subset in inspected relevant sections.",
+        "evidence": [
+          "arXiv:2605.29304v1, MSC2020 65F10, 65F08, 65F20, 90C25",
+          "Section 3.2 lines 323–344: row-subset surrogate based on the Frobenius residual",
+          "Remark 3.1 lines 274–281: norm-proportional SCRK sampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304",
+        "material_read": "HTML Sections 1, 2 and 3 including Section 3.2 row-selection discussion and explicit norm-proportional sampling in Remark 3.1",
+        "method": "Full-text HTML navigation and inspected displayed equations and section-level context",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Direct motivating source, same SCRK update, row sampling, and row-ID surrogate"
+      },
+      {
+        "assessment": "Provides original SCRK construction and spectral-proxy motivation; the diagonal all-cardinality exact optimum was not present in inspected sections.",
+        "evidence": [
+          "arXiv:2309.04889v2",
+          "Section 3.3.2 discussion of low-rank row selection and approximation of top singular subspaces"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04889",
+        "material_read": "PDF title and abstract, Section 1 method summary, Section 3.3 selection and rate discussion, including approximate low-rank row-subset heuristic material",
+        "method": "PDF text and page-image inspection of title and relevant Kaczmarz selection passages",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Original fixed-row subspace-constrained Kaczmarz predecessor"
+      },
+      {
+        "assessment": "Contains a more general rate bound for SC-RCD but no fixed-row spectral-window optimizer or diverging Frobenius-proxy separation in the relevant sections.",
+        "evidence": [
+          "arXiv:2506.09394, 2025 first public",
+          "Theorem 3.2 gives diagonal-sampling rate via minimum nonzero residual eigenvalue divided by trace; adjacent Proposition 3.3 considers uniform sampling"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.09394",
+        "material_read": "PDF abstract, Sections 1–2 and Section 3.2 Theorem 3.2 and its adjacent uniform-sampling comparison",
+        "method": "PDF text and page-image inspection of relevant model and spectral-rate theorem",
+        "title": "Subspace-constrained randomized coordinate descent for linear systems with good low-rank matrix approximations",
+        "trigger": "Alternative general subspace-constrained diagonal sampling framework potentially stronger than SCRK source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "337ace93-ca58-40e4-bb73-6d937a870dfd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Row subset selection is a motivated design problem for subspace-constrained iterative solvers. The result completely classifies the minimax choice for every size of enforced subset on a natural orthogonal-row benchmark and is simultaneously optimal at all positive finite iteration horizons. The exact three-mode family shows that the Frobenius ID surrogate, though natural for approximation, can be arbitrarily slower for expected-error convergence; this supplies a concrete diagnostic when ranking competing constraint subsets. It does not claim new generic bounds or all-purpose algorithmic superiority.",
+    "status": "PASS"
+  }
+}
