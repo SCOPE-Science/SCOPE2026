@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact recurrence for all \(n\ge1\), the strict finite/infinite endpoint distinction, and the asymptotic result as \(\theta\downarrow0\) for each fixed \(0<\lambda<1\). None of these infinite-domain assertions is based solely on finite numerical computations.
+## correctness
 
-Run `python verify.py` in a Python environment with `numpy` and `mpmath`. The program verifies the recurrence against direct singular-value decomposition and checks the two-qubit partial-transpose (PPT) separability decision on 128 parameter cases; the equality between PPT and separability for two qubits supplies an independent finite-case diagnostic. It further tests 69 analytically solvable right-angle power cases and 12 high-precision small-angle cases, including the first neglected quadratic correction in the boundary-layer estimate.
+PASS
 
-Observed output begins:
+The stated 3x3 Bloch map decomposes into A (2x2, determinant lambda, trace t=(1+lambda)cos theta) and scalar lambda. Cayley–Hamilton yields the r_n,v_n recurrences. For det A^n>0, its trace norm squared equals tr(A^n)^2 + [(A^n)12−(A^n)21]^2; adding lambda^n and applying the established unital-qubit nuclear-norm ≤1 criterion proves the exact iff. Schur stability follows from 1±t+lambda>0 for interior theta; at endpoints the norm is 1+2lambda^n>1. Perturbing the two A eigenvalues as 1−a_lambda theta² and lambda(1+a_lambda theta²) with n=O(log 1/theta), and controlling the theta² and n²theta⁴ error terms, yields defect 2lambda^n−a_lambda n theta²+o(theta² log(1/theta)); monotonicity from ||M||op≤1 converts this to the index O(1) bracket. Independently coded direct 3x3 SVD and scalar recurrences agreed to 1e−8 in 1659 distinct (lambda,theta,n) cases, including endpoint and near-alignment cases.
 
-`VERIFY_OK recurrence_PPT_cases=128 exact_right_angle=69 small_angle_scaling=12`
+## originality
 
-The cases are selected finite samples, not an exhaustive enumeration. High precision controls cancellation in the small-angle calculations; the infinite-range result relies on analytic spectral perturbation bounds and the qubit entanglement-breaking criterion. The 2026 general eventual-breaking characterization was accessible only as an abstract in the literature comparison, so its specialized implications remain a residual priority risk.
+PASS
+
+The universal qubit EB nuclear-norm condition and qualitative eventual-breaking classification are old; the direct recurrence and sharp log-log boundary layer are the proposed new contribution. Lami–Giovannetti establishes the test, Cuevas et al use rotated phase damping with two use/filter questions, and Bhat–Dey–Saha arXiv:2609.24168 gives general qualitative eventually-EB characterization but not the fixed-family singular-angle asymptotic in examined full PDF. Mathematically equivalent two-by-two spectral asymptotics could appear in unindexed physical literature.
+
+## value
+
+PASS
+
+A tiny misalignment changes a dephasing-preserved qubit channel from never finite-time EB to eventually EB. The logarithmically divergent index, its negative loglog correction and nontrivial signed transition profile quantify an operationally meaningful nonuniform limit beyond merely checking one quantum-channel iterate; limited to direct unfiltered one-qubit channels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

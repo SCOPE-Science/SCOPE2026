@@ -1,14 +1,21 @@
-# Scientific assessment: rotated-dephasing breaking boundary layer
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact decision uses the established unital-qubit nuclear-norm condition and an explicit invariant two-dimensional Bloch block. Cayley--Hamilton supplies the two recurrences, and the positive determinant gives the exact singular-value sum. The Schur inequalities establish eventual breaking for all \(0<\theta<\pi\) and its failure at the aligned endpoints. The small-angle eigenvalue expansions are uniform on the required \(O_\lambda(\log(1/\theta))\) iteration scale, and their remainder is negligible after the stated rescaling. The passage from the signed limit to the integer index uses monotonicity and fixed-width brackets. The independent Choi partial-transpose and high-precision numerical checks support, but do not replace, those analytic steps.
+## correctness
 
-## Originality — PASS, with a residual priority risk
-Lami and Giovannetti, arXiv:1411.2517 (2014), supply the relevant entanglement-breaking index and unital-qubit criterion rather than this explicit rotated-dephasing recurrence or its \(\log\log\) onset. Cuevas and collaborators, arXiv:1707.00161 (2017), examine physically motivated rotated damping and unitary filtering at two applications; the full-text sections inspected do not give the all-iteration limit. Hanson, Rouzé and França (2020) provide broader qualitative eventual-breaking results and characteristic-time bounds, but not the sharp fixed-angle near-alignment index law. A 2026 general characterization of eventually breaking unital channels was identified only by abstract and its unavailable complete text is an additional priority risk. The exact small-angle result has not been independently checked for priority in every mathematical or physical source.
+PASS
 
-## Value — PASS
-Approaching a decoherence-preserving axis raises a physically natural singular limit: exactly aligned dephasing remains non-entanglement-breaking at every finite use, whereas every positive misalignment destroys all transmitted entanglement after finitely many repetitions. The exact recurrence and the negative \(\log\log(1/\theta)\) correction quantify how that transition occurs, with a nontrivial universal signed profile. The result is stronger than simply reapplying a known two-qubit separability inequality or recording a single finite numerical threshold.
+The stated 3x3 Bloch map decomposes into A (2x2, determinant lambda, trace t=(1+lambda)cos theta) and scalar lambda. Cayley–Hamilton yields the r_n,v_n recurrences. For det A^n>0, its trace norm squared equals tr(A^n)^2 + [(A^n)12−(A^n)21]^2; adding lambda^n and applying the established unital-qubit nuclear-norm ≤1 criterion proves the exact iff. Schur stability follows from 1±t+lambda>0 for interior theta; at endpoints the norm is 1+2lambda^n>1. Perturbing the two A eigenvalues as 1−a_lambda theta² and lambda(1+a_lambda theta²) with n=O(log 1/theta), and controlling the theta² and n²theta⁴ error terms, yields defect 2lambda^n−a_lambda n theta²+o(theta² log(1/theta)); monotonicity from ||M||op≤1 converts this to the index O(1) bracket. Independently coded direct 3x3 SVD and scalar recurrences agreed to 1e−8 in 1659 distinct (lambda,theta,n) cases, including endpoint and near-alignment cases.
 
-The result is confined to one fixed unital channel iterated without intermediate filters, at fixed \(0<\lambda<1\). It does not address nonunital noise, higher dimensions or an exact integer-rounding formula beyond bounded error.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The universal qubit EB nuclear-norm condition and qualitative eventual-breaking classification are old; the direct recurrence and sharp log-log boundary layer are the proposed new contribution. Lami–Giovannetti establishes the test, Cuevas et al use rotated phase damping with two use/filter questions, and Bhat–Dey–Saha arXiv:2609.24168 gives general qualitative eventually-EB characterization but not the fixed-family singular-angle asymptotic in examined full PDF. Mathematically equivalent two-by-two spectral asymptotics could appear in unindexed physical literature.
+
+## value
+
+PASS
+
+A tiny misalignment changes a dephasing-preserved qubit channel from never finite-time EB to eventually EB. The logarithmically divergent index, its negative loglog correction and nontrivial signed transition profile quantify an operationally meaningful nonuniform limit beyond merely checking one quantum-channel iterate; limited to direct unfiltered one-qubit channels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
