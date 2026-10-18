@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The exact algebraic proof is in RESULT.md. It derives the only two possible limiting endpoint coefficients from the original Cauchy direction and the smoothness inequality, proves both are attained by explicit scalar quadratics, and solves their intersection with the quarter-descent target for every \(L,M>0\). The connected two-agent embedding shows that the same bound is a true infimum for decentralized penalties.
+## correctness
 
-The standalone `verify.py` was executed using Python 3's `fractions.Fraction` with output `VERIFY_OK`. It checks 400 rational pairs of the two curvature bounds, seven relative denominators each, both exact endpoint models, and two connected-agent witnesses. The program does not establish the quantified real-parameter result on its own, and it is not a certificate for any outer iteration-complexity theorem. Full source comparison focused on the Cauchy construction and descent lemmas; unindexed equivalent research remains possible.
+PASS
+
+Descent lemma gives alpha−(L/(2b))alpha² per block. Rayleigh bounds on symmetric B imply alpha in [min(1,b/M),1], and this concave quadratic is minimized at an interval endpoint. Scalar objective Lz²/2+z with B=0 or B=M realizes both endpoints, proving optimality for all positive L,M,b. Solving both inequalities Gamma>=1/4 yields stated continuous threshold at L=M/2, including region L>=3M/2 where b*>=M. Two-agent consensus model has first-coordinate curvature L−delta/2−epsilon→L and preserves connectedness. Independently checked 1254 exact-rational (L,M,b) trials with endpoint, threshold and Rayleigh cases; finite checks support but do not prove universal claim.
+
+## originality
+
+PASS
+
+Conditional sharpness for explicit Eq(30) Cauchy ray rule is beyond conservative published sufficient bound for arbitrary model-decrease steps. Inspected primary source distinguishes the two hypotheses rather than asserting a false general replacement.
+
+## value
+
+PASS
+
+A sharp sufficient and necessary parameter frontier for a precisely implementable function-free trust-region step, substantially correcting conservative step-size choices. Distinguishes concrete one-step guarantee from unproved changes to generic solver classes and outer convergence rates; provides useful two-agent boundary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

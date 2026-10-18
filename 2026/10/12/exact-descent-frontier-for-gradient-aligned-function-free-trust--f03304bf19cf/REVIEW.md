@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's explicit Cauchy step reduces to a scalar factor on each gradient block. The smoothness descent lemma gives the quadratic coefficient \(\alpha-L\alpha^2/(2b)\), and concavity reduces its minimization to the two realizable endpoint models \(B=0\) and \(B=M\). The quarter-descent threshold follows by solving both endpoint inequalities, with equality quadratic witnesses. Connected two-agent penalty problems give limiting sharpness with the full declared smoothness bound. Exact rational checks were run from the enclosed script; no finite test substitutes for the analytic proof.
+PASS
 
-## Originality — PASS (subject to stated literature risk)
+Descent lemma gives alpha−(L/(2b))alpha² per block. Rayleigh bounds on symmetric B imply alpha in [min(1,b/M),1], and this concave quadratic is minimized at an interval endpoint. Scalar objective Lz²/2+z with B=0 or B=M realizes both endpoints, proving optimality for all positive L,M,b. Solving both inequalities Gamma>=1/4 yields stated continuous threshold at L=M/2, including region L>=3M/2 where b*>=M. Two-agent consensus model has first-coordinate curvature L−delta/2−epsilon→L and preserves connectedness. Independently checked 1254 exact-rational (L,M,b) trials with endpoint, threshold and Rayleigh cases; finite checks support but do not prove universal claim.
 
-The closest source [1] proves quarter-descent for arbitrary approximate model steps only when \(b\ge2(L+M)\), while its explicit Cauchy update [1, Eq. (30)] has additional structure. Predecessor [2] uses the same conservative model-step sufficient condition. The published SPD Cauchy comparison [3] concerns *predicted* reduction relative to exact model minimization, not true objective reduction and sharp model-cap parameter thresholds. Searches for identical parameterization, Rayleigh-quotient aliases, stronger smooth-descent estimates, and existing research claims did not locate this piecewise frontier. This is not proof that no unindexed equivalent exists.
+## originality
 
-## Value — PASS
+PASS
 
-The threshold enters the function-free decentralized algorithm's quantitative descent argument. Exploiting the direction actually implemented instead of merely its abstract Cauchy certificate improves the sufficient denominator by up to a factor of nine, with an exact phase boundary and quadratic obstructions, and allows materially larger certified trial steps. The argument is a structural refinement of an algorithmic guarantee, not a free-standing textbook gradient-step bound; it does not claim any improved global convergence theorem.
+Conditional sharpness for explicit Eq(30) Cauchy ray rule is beyond conservative published sufficient bound for arbitrary model-decrease steps. Inspected primary source distinguishes the two hypotheses rather than asserting a false general replacement.
 
-## Scientific limitations
+## value
 
-The improvement applies only to the explicit gradient-aligned ray minimizer, not arbitrary approximate model solvers. Uniform sharpness for networks with two or more agents uses limiting examples. Literature search cannot establish absolute independence; no outer-complexity constants have been rederived.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp sufficient and necessary parameter frontier for a precisely implementable function-free trust-region step, substantially correcting conservative step-size choices. Distinguishes concrete one-step guarantee from unproved changes to generic solver classes and outer convergence rates; provides useful two-agent boundary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

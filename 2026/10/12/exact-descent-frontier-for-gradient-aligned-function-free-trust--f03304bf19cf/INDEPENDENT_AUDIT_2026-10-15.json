@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:48:29.081536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Descent lemma gives alpha−(L/(2b))alpha² per block. Rayleigh bounds on symmetric B imply alpha in [min(1,b/M),1], and this concave quadratic is minimized at an interval endpoint. Scalar objective Lz²/2+z with B=0 or B=M realizes both endpoints, proving optimality for all positive L,M,b. Solving both inequalities Gamma>=1/4 yields stated continuous threshold at L=M/2, including region L>=3M/2 where b*>=M. Two-agent consensus model has first-coordinate curvature L−delta/2−epsilon→L and preserves connectedness. Independently checked 1254 exact-rational (L,M,b) trials with endpoint, threshold and Rayleigh cases; finite checks support but do not prove universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Lemma4.2: quarter descent for b>=2(L+M) under generic Eq(13).",
+          "Grapiglia/Stella generic accepted approximate step bound."
+        ],
+        "reasoning": "These broader step *classes* supply only a larger sufficient threshold, not a sharp result for the particular narrower step; no implication to minimal b*. The SPD Cauchy-to-optimal predicted-decrease ratio studies a different object.",
+        "searches": [
+          "Resultary_Search: gradient-aligned Cauchy descent sharp Lipschitz trust region coefficient Bellavia Malaspina Morini",
+          "arXiv:2609.00878 Lemmas 3.4 and 4.2, Eq (30)",
+          "Grapiglia Stella Adaptive Trust-Region Method Without Function Evaluations (2022), Lemma 6",
+          "Resultary: SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+        ]
+      },
+      "checked_sources": [
+        "Bellavia et al. arXiv:2609.00878 Eq13, Eq30, Lemmas3.4/4.2, accessible primary",
+        "Grapiglia/Stella 2022 older generic paper (limited material)",
+        "Resultary 2026/9/20 predicted-model bound 0eec6412acfe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Lemma 4.2 threshold 2(L+M) can be nine times larger than the exact boundary when L=M/2.",
+          "Exact endpoint scalar quadratic reaches Gamma with B=0 or M, proving minimal sufficient threshold."
+        ],
+        "reasoning": "A loose sufficient guarantee does not imply a sharp necessary and sufficient condition or connected-agent sharpness.",
+        "searches": [
+          "Resultary_Search: gradient-aligned Cauchy descent sharp Lipschitz trust region coefficient Bellavia Malaspina Morini",
+          "arXiv:2609.00878 Lemmas 3.4 and 4.2, Eq (30)",
+          "Grapiglia Stella Adaptive Trust-Region Method Without Function Evaluations (2022), Lemma 6",
+          "Resultary: SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For rho=g^TBg/||g||², ray step alpha=min(1,b/rho) if rho>0 and alpha=1 else; endpoint bound alpha∈[min(1,b/M),1].",
+          "Bellavia–Malaspina–Morini explicitly specify Eq(30) direction, while Eq(13) permits more generic approximate solutions."
+        ],
+        "reasoning": "The exact coefficient Gamma depends on a restriction not built into the weaker admissible-step class; searches for alpha/rho Cauchy descent ratios found no identical best coefficient.",
+        "searches": [
+          "Resultary_Search: gradient-aligned Cauchy descent sharp Lipschitz trust region coefficient Bellavia Malaspina Morini",
+          "arXiv:2609.00878 Lemmas 3.4 and 4.2, Eq (30)",
+          "Grapiglia Stella Adaptive Trust-Region Method Without Function Evaluations (2022), Lemma 6",
+          "Resultary: SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or exact algebraic piecewise threshold found for this explicit Cauchy rule in examined references."
+        ],
+        "reasoning": "This is a continuous sharp analytic inequality, not a finite known database evaluation.",
+        "searches": [
+          "Resultary trust region sharp frontier query",
+          "arXiv:2609.00878 Eq30 and Lemma4.2"
+        ]
+      },
+      "rationale": "Conditional sharpness for explicit Eq(30) Cauchy ray rule is beyond conservative published sufficient bound for arbitrary model-decrease steps. Inspected primary source distinguishes the two hypotheses rather than asserting a false general replacement.",
+      "residual_risks": [
+        "Older textbook treatments of Cauchy scalar endpoint smooth descent could contain algebraically equivalent formula, despite distinct DOFFO hypothesis.",
+        "2022 Grapiglia/Stella entire text not rechecked in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides sufficient threshold for abstract descent but does not optimize endpoint envelope for this explicit gradient-aligned step",
+          "evidence": "Bellavia–Malaspina–Morini, arXiv:2609.00878",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00878",
+          "material_read": "Primary September 2026 arXiv paper, explicit Cauchy ray rule Eq(30), abstract model condition Eq(13), Lemmas 3.4/4.2, including sufficient b>=2(L+M), inspected",
+          "method": "Full available arXiv original mathematical text/PDF and relevant page images",
+          "title": "DOFFO_TR: a Decentralized Objective Function-Free Optimization method with Trust-Region",
+          "trigger": "Exact method and claimed generic quarter-descent lemma"
+        },
+        {
+          "assessment": "Different abstract accepted approximate steps; cannot infer sharp special Cauchy coefficient, but full source still residual priority risk",
+          "evidence": "Grapiglia–Stella 2022 Lemma6",
+          "identifier_or_url": "https://optimization-online.org/2022/02/8787/",
+          "material_read": "Known Lemma 6 sufficient threshold as cited in source record; entire source not independently reread in this run",
+          "method": "Bibliographic/search result comparison",
+          "title": "An Adaptive Trust-Region Method Without Function Evaluations",
+          "trigger": "Older generic trust-region threshold possibly stronger"
+        },
+        {
+          "assessment": "Not covering because the optimized quantity is a different ratio, not one-step actual objective change for indefinite B",
+          "evidence": "Resultary record 0eec6412acfe",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+          "material_read": "Resultary published statement gives predicted decrease relative to exact SPD quadratic trust-region optimum; no external L-smooth descent",
+          "method": "Published semantic search/summary comparison",
+          "title": "Sharp fraction-of-optimal decrease for the SPD Cauchy trust-region point",
+          "trigger": "Semantically similar Cauchy trust-region result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp sufficient and necessary parameter frontier for a precisely implementable function-free trust-region step, substantially correcting conservative step-size choices. Distinguishes concrete one-step guarantee from unproved changes to generic solver classes and outer convergence rates; provides useful two-agent boundary witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For prescribed block gradient-aligned Cauchy steps d_i=−alpha_i g_i/b_i with ||B_i||<=M and an L-smooth objective, sharp normalized descent coefficient is min{1−L/(2b), (b/M)(1−L/(2M))} when b<M and first term otherwise; quarter-descent holds universally iff b>=M²/(4M−2L) when L<=M/2, else b>=2L/3; connected two-agent instances approach sharpness.",
+  "limitations": [
+    "Applies only to explicit gradient-aligned Cauchy rule, not arbitrary Eq13 accepted trust steps.",
+    "No downstream outer-iteration convergence guarantee is assessed.",
+    "Strong sharpness in distributed quadratic model holds as infimum under two-agent limiting family, not necessarily an attained minimizer in each connected case.",
+    "No independent enumeration of the entire frozen Git tree."
+  ],
+  "schema_version": 1
+}
