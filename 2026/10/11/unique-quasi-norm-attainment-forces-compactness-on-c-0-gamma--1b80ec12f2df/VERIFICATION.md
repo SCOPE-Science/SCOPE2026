@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof requires no external numerical package or computational certificate. Its critical statements were reconstructed during the same-model review:
+## correctness
 
-1. Choose \(y^*\) attaining its dual norm at the distinguished target \(u\). Since UQNA supplies a subsequence of every maximizing sequence with image \(\theta u\), the composed functional \(f=y^*S\) has \(\|f\|=\|S\|\). This uses neither domain nor operator norm attainment.
-2. Verify phase calibration: \(\operatorname{Re}f(w_n)\to\|S\|\) makes \((w_n)\) an operator-norming sequence. Each subsequence has a further subsequence converging in image to \(\theta u\); the real part of the supporting functional forces \(\theta=1\). Therefore all images converge to \(u\), not merely selected subsequences.
-3. Identify \(f\) with a member of \(\ell_1(\Gamma)\). Exhaust its coefficient mass by finite sets \(F_n\). The signed/phased vector \(a_n\) attains exactly the mass on \(F_n\). Every tail unit vector \(z_n\) obeys \(\|a_n\pm z_n\|\le1\), and both scalar values have real part at least \(\|S\|-2\tau_n\). The calibrated implication makes both images tend to the same \(u\), so \(Sz_n\to0\).
-4. Check quantifiers: failure of uniform operator tail convergence permits a sequence of witness vectors \(z_n\) of norm at most one. Its contradiction gives \(\|S-SP_{F_n}\|\to0\), not merely convergence on a fixed collection of vectors. Each \(SP_{F_n}\) is finite rank, hence \(S\) is compact.
-5. Check imported coverage: [1, Corollary 3.11(a)] is about **UQNA compact operators** being dense in the compact ideal, which supplies the necessary reverse inclusion. The compact ideal is operator-norm closed. The distance to the identity in infinite dimensions follows because a compact operator maps the weakly null coordinate basis sequence to a norm-null one.
+PASS
 
-No computation can establish the all-index-set assertion merely by testing finite matrices; this verification is analytic. The theorem does not claim all compact maps are themselves UQNA and provides no independently audited certification.
+For a nonzero UQNA bounded S:c0(Gamma)->Y, Hahn–Banach yields y* norm 1 at its distinguished image u, and f=y* S∈(c0(Gamma))*=ell1(Gamma) with ||f||=||S||=r by a norming-image subsequence. Any unit-ball sequence with Re f(x_n)->r must satisfy Sx_n->u: otherwise a subsequence away from u has a further UQNA-convergent subsequence to phase theta u, where the f-limit forces theta=1. Exhaust the countable ell1-support of f by finite F_n with tail mass tau_n->0 and choose a_n supported in F_n attaining f(a_n)=r−tau_n. If ||S(I−P_Fn)|| fails to vanish, select norm<=1 z_n outside F_n with ||Sz_n||>=delta. Then a_n±z_n remain in the c0 unit ball, and Re f(a_n±z_n)>=r−2tau_n, so S(a_n±z_n)->u and 2Sz_n->0: contradiction. Thus S is a norm limit of finite-rank SP_Fn and compact, even for uncountable Gamma and arbitrary real/complex Y. Original Choi–Choi–Jung–Martín Corollary 3.11(a) states compact UQNA maps are dense in compact ideal; combine with the new compactness direction to classify closure, distances as essential norm, and exact distance 1 for identity on infinite c0 via weak-null disjoint coordinates. Zero-operator and finite Gamma cases are accounted for. Entire proof analytic, without computational shortcuts.
+
+## originality
+
+PASS
+
+The original UQNA paper supplies a one-sided density theorem and only a positive (>=1/4) gap for Id c0; the 2025 range-strongly-exposing theorem requires actual norm attainment, strictly stronger than UQNA. Neither covers the universal compactness of all UQNA c0(Gamma)->Y maps or the sharp distance formula.
+
+## value
+
+PASS
+
+A complete universal compactness criterion for a norm-attainment-like class on c0(Gamma), with exact closure as the compact ideal and sharp essential-distance characterization, materially improves known one-sided density and qualitative counterexample results. The opposing-tail proof genuinely uses the c0 geometry and works for arbitrary target spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
