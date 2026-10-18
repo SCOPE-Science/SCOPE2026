@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the entire stated parameter domain, the radial two-by-two reduction and the orthogonal leaf-null projector are reconstructed exactly. Schur squares yield every matrix entry. The nonstandard rank lemma for three or more spokes follows from the pair-supported vectors orthogonal to the coupling direction; the full two-spoke determinant and the one-spoke boundary are derived separately. The verifier independently checks exact ranks and independently reconstructs spectral projectors. All claims are proven over the full real parameter ranges; finite checks are corroboration only.
+## correctness
 
-**Originality — PASS, with residual risk.** The published projector methods apply generally but do not themselves assert the robust positive-definiteness classification. A published unweighted-star proof is acknowledged as a subsumed special case, not new. Published weighted-star work concerns instantaneous universal mixing, not the Cesàro rank, and the closest available primary sources do not state the all-positive-coupling/all-central-potential theorem with the exact one- and two-spoke singular locus. The dissertation full PDF remained inaccessible through the inspected retrieval route. The possibility of a stronger result beyond the material read is explicitly unresolved; no independence claim is made.
+PASS
 
-**Value — PASS.** Weighted stars are natural central-site transport networks. The finding gives the exact minimum number of active channels for robust full-rank long-time mixing and distinguishes this all-parameter stability from the two distinct small-network rank-loss mechanisms (resonant energies and equal couplings). The entry formula permits reproducible computation for arbitrary heterogeneous coupling ratios. This is a natural complete classification, not an arbitrary numerical slice; the result does not claim any instantaneous-uniformity consequence.
+Reduce H−βI to radial 2x2 block [[δ,G],[G,0]] plus dark leaf projector P=I−uu^T. Distinct radial spectral projections have p_+p_-=s=G²/(δ²+4G²). Schur-squaring P and radial projectors yields Mhat with center 1−2s, center/leaf 2s*w_i, and leaf diag(1−2w_i)+2(1−s)ww^T. For m>=3 the leaf principal summand P∘P is positive definite: x^T(P∘P)x=||P diag(x)P||_F²=0 implies x_i/u_i²+x_j/u_j²=0 for each pair via z=u_j e_i−u_i e_j, and every triple forces all x_i=0. The other projectors have strictly positive center contribution, so full Mhat≻0. For m=2 independently expanded exact symbolic det Mhat=(1−4s)(w1−w2)², matching displayed δ/g expression, with rank2 at zero determinant since its center diagonal is >=1/2>1/3; m=1 2x2 eigenvalues 1 and 1−4s. Checked additional exact-rational illustrative profiles with m=1..4, including rank 1/2/3/4/5 boundaries; general proof does not rely on sampling.
 
-Closest material: Coutinho–Godsil–Guo–Zhan, *A New Perspective on the Average Mixing Matrix* (2017/2018); Carlson et al., *Universal Mixing of Quantum Walk on Graphs* (2006); Kimmerling, *Continuous-Time Quantum Walks on Windmill Graphs* (2023); Coutinho et al., *Irrational quantum walks* (2022). General methods and the unweighted special case are prior.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
+
+## value
+
+PASS
+
+A robust all-weights full-rank stability theorem and sharp 1-/2-spoke singularity classification for a natural arrowhead family; extends known uniform, zero-detuning unweighted star graph fact in a way relevant to heterogeneously coupled finite quantum systems. The exact boundary distinguishes detuning and coupling asymmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

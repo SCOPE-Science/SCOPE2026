@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:48:10.578797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reduce H−βI to radial 2x2 block [[δ,G],[G,0]] plus dark leaf projector P=I−uu^T. Distinct radial spectral projections have p_+p_-=s=G²/(δ²+4G²). Schur-squaring P and radial projectors yields Mhat with center 1−2s, center/leaf 2s*w_i, and leaf diag(1−2w_i)+2(1−s)ww^T. For m>=3 the leaf principal summand P∘P is positive definite: x^T(P∘P)x=||P diag(x)P||_F²=0 implies x_i/u_i²+x_j/u_j²=0 for each pair via z=u_j e_i−u_i e_j, and every triple forces all x_i=0. The other projectors have strictly positive center contribution, so full Mhat≻0. For m=2 independently expanded exact symbolic det Mhat=(1−4s)(w1−w2)², matching displayed δ/g expression, with rank2 at zero determinant since its center diagonal is >=1/2>1/3; m=1 2x2 eigenvalues 1 and 1−4s. Checked additional exact-rational illustrative profiles with m=1..4, including rank 1/2/3/4/5 boundaries; general proof does not rely on sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho et al 2018 gives a general Gram/commutant rank framework, not unconditional full rank (some graphs have deficient rank).",
+          "Kimmerling explicitly discusses adjacency matrices and unweighted stars, not arbitrary arrowhead parameters in accessible summary."
+        ],
+        "reasoning": "Broader algebraic frameworks do not imply m>=3 strict positivity without the dark-projector rank argument. A stronger thesis result might, so the abstract-only scope cannot rule it out.",
+        "searches": [
+          "Resultary: weighted star quantum walk average mixing matrix full rank positive definite detuning",
+          "doi:10.7273/000006322",
+          "doi:10.37236/7867",
+          "arxiv:quant-ph/0608044"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.7273/000006322",
+        "doi:10.37236/7867",
+        "arxiv:quant-ph/0608044",
+        "Resultary: weighted star quantum walk average mixing matrix full rank positive definite detuning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior spectral projector identity is an indispensable known tool, and Kimmerling provides the unweighted star subcase.",
+          "The new proof shows P∘P≻0 for every positive radial leaf vector u when m>=3, and isolates exceptional detuned rank conditions for m=1,2."
+        ],
+        "reasoning": "No inspected stronger theorem directly supplies the universal inhomogeneous positive-definiteness or exact small-m determinants; it requires an additional nontrivial projector-Schur positivity lemma.",
+        "searches": [
+          "Resultary: weighted star quantum walk average mixing matrix full rank positive definite detuning",
+          "doi:10.7273/000006322",
+          "doi:10.37236/7867",
+          "arxiv:quant-ph/0608044"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kimmerling 2023 dissertation abstract expressly proves full rank for unweighted adjacency stars.",
+          "Coutinho et al 2018 establishes the general sum-of-Schur-squares projector formula."
+        ],
+        "reasoning": "The new conclusion is quantified for arbitrary positive spoke strengths and arbitrary central on-site detuning, plus exact exceptional small stars; neither the homogeneous star theorem nor generic spectral decomposition states that classification.",
+        "searches": [
+          "Resultary: weighted star quantum walk average mixing matrix full rank positive definite detuning",
+          "doi:10.7273/000006322",
+          "doi:10.37236/7867",
+          "arxiv:quant-ph/0608044"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known graph rank tables and simple star examples are for binary unweighted adjacency matrices with no onsite detuning.",
+          "Exact two-spoke determinant δ²/(δ²+4G²)[(g1²−g2²)/G²]² and all positive spoke counts are symbolic parameters, not a finite lookup."
+        ],
+        "reasoning": "No exact weighted-star spectrum table matching this formula was located; finite unweighted graph databases would provide only special cases, not a general classification.",
+        "searches": [
+          "Resultary: weighted star quantum walk average mixing matrix full rank positive definite detuning",
+          "doi:10.7273/000006322",
+          "doi:10.37236/7867",
+          "arxiv:quant-ph/0608044"
+        ]
+      },
+      "rationale": "Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.",
+      "residual_risks": [
+        "Kimmerling’s closely relevant 100-page full dissertation is plausibly covering but inaccessible; no conclusion of entire-document noncoverage is asserted. Authorized Oxford connection requires manual VPN.",
+        "Unlocated weighted-arrowhead generalizations or a strong abstract Gram-rank theorem may imply the same result.",
+        "Only equal leaf onsite energies are covered; heterogeneous leaf diagonal potentials split the dark eigenspace and invalidate this exact proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL; definitely proves unweighted stars, cannot exclude broader theorem from inaccessible thesis",
+          "evidence": "Abstract says it gives a proof that star adjacency graph mixing has full rank, along with path and windmill results; does not state arbitrary g_i,δ.",
+          "identifier_or_url": "https://doi.org/10.7273/000006322",
+          "material_read": "WSU open-access repository abstract/title and file listing only; 100-page PDF download returned inaccessible redirect, authorized Oxford access blocked by disconnected VPN",
+          "method": "institutional repository OA retrieval attempt then authorized institutional access attempt",
+          "title": "Kimmerling, Continuous-Time Quantum Walks on Windmill Graphs (doctoral dissertation)",
+          "trigger": "Most plausible original full-rank theorem for star graphs"
+        },
+        {
+          "assessment": "GENERAL_TOOL; not covering weighted arrowhead family",
+          "evidence": "Shows average mixing is sum of spectral projector Schur squares and relates rank to graph symmetries, no weighted-detuned star classification.",
+          "identifier_or_url": "https://doi.org/10.37236/7867",
+          "material_read": "Full accessible 12-page original journal PDF, especially §§1,2,5 rank and page 2 Schur-square identity",
+          "method": "journal open PDF full-text, verified PDF screenshot of formula page",
+          "title": "Coutinho, Godsil, Guo, Zhan, A New Perspective on the Average Mixing Matrix",
+          "trigger": "Standard projector spectral identity and general rank results"
+        },
+        {
+          "assessment": "DIFFERENT_NOTION: instantaneous universal mixing",
+          "evidence": "Focus on instantaneous mixing, not positive definiteness of infinite Cesàro average.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0608044",
+          "material_read": "Bibliographic/title and contextual synopsis only, not full text",
+          "method": "source reference context",
+          "title": "Carlson et al., Universal Mixing of Quantum Walk on Graphs",
+          "trigger": "Weighted stars with similarly named mixing phenomena"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A robust all-weights full-rank stability theorem and sharp 1-/2-spoke singularity classification for a natural arrowhead family; extends known uniform, zero-detuning unweighted star graph fact in a way relevant to heterogeneously coupled finite quantum systems. The exact boundary distinguishes detuning and coupling asymmetry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For weighted real star Hamiltonians with all nonzero couplings and equal leaf on-site energies, the Cesàro average mixing matrix has explicit block formula and full rank whenever m>=3; for m=2 rank3 iff central detuning δ≠0 and spoke magnitudes unequal, otherwise rank2; for m=1 rank2 iff δ≠0, otherwise rank1.",
+  "limitations": [
+    "No inactive spokes, nonuniform leaf onsite energies, or flux-bearing complex edges.",
+    "An explicit literature access risk remains for the full Kimmerling dissertation."
+  ],
+  "schema_version": 1
+}
