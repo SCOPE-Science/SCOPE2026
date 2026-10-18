@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Triangular and square two-face balancing forces exactly one Minkowski-weight coordinate per simplex factor. Counting the corresponding edge coordinates gives \(E_i=Vd_i/2\), so the normalization becomes \(\sum_i d_i\lambda_i=D\). The change \(y_i=\sqrt{E_i}\lambda_i\) is an exact Euclidean isometry from the class-constant edge-weight subspace. Projecting each coordinate normal into the affine tangent space gives the exact intrinsic facet distances; equalizing them yields the stated unique incenter and radius. Disjoint factor-edge supports give the pairwise vertex-distance formula. For at least three factors, those distances are all equal exactly when all factor dimensions agree; for two factors the type polytope is simply a segment.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the Minkowski-weight definition, normalized type-polytope definition, regular-cube example, and the product-of-simplices simplex theorem. It identifies the combinatorial and deformation structure but does not state the Euclidean incenter or inradius of the normalized edge-weight simplex. Candidate-specific published-result and literature searches covered type polytope, type cone, product of simplices, cube, Minkowski weights, edge deformation space, incenter, Chebyshev center, and inradius formulations. No covering statement was located.
+PASS
 
-## Value
-PASS. The type polytope is the normalized deformation parameter space central to the source, and the Euclidean edge-coordinate metric directly measures simultaneous changes of the individual edge-deformation weights. The result identifies the normalized deformation with maximal clearance from every vanishing-factor boundary, gives its exact radius for every product of simplices, and determines precisely when a nontrivial type simplex is metrically regular.
+The 2022 primary source Defines 1-Minkowski weights by vector balancing on each 2-face (Definition4.1) and normalizes ∑edges ω(E)=f1(P) (Definition4.3). Triangle and product square face equations propagate a unique weight λ_i to every edge moving in simplex factor i. Exactly E_i=C(d_i+1,2)∏_{j≠i}(d_j+1)=Vd_i/2 edges are of class i, giving ∑ d_i λ_i=D. Orthogonal disjoint classes make y_i=√E_i λ_i a genuine isometry into a coordinate simplex with normal a_i=√d_i and ∥a∥²=D. The projection of e_i to its tangent plane has norm √((D−d_i)/D); therefore facet clearance δ_i=y_i√(D/(D−d_i)). Equalizing all facet clearances uniquely gives r=D^(3/2)√(V/2)/S and λ_i*=D/S √((D−d_i)/d_i); this is a globally maximal inball because any radius r imposes all k coordinate inequalities and their weighted sum bounds r. Pure-factor vertices have pairwise disjoint supports, yielding the squared-distance formula; all sides equal for k≥3 iff all d_i equal; any k=2 case is a segment. The d-cube specialization checked. Independent cases d=(1,1),(1,2,3),(2,3,4),(3,3,3) yield identical facet clearances and exact normalization. General theorem is symbolic, not inferred from these cases.
 
-## Closest literature and limitations
-Castillo--Doolittle--Goeckner--Ross--Ying prove simplex combinatorics for all product-of-simplices type polytopes and explicitly reduce the regular cube to direction-class weights. General Minkowski-weight literature supplies the balancing framework. The result is restricted to the standard product realization and the normalized edge-coordinate Euclidean metric; arbitrary realizations of the same combinatorial type need not share this metric formula.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Castillo–Doolittle–Goeckner–Ross–Ying 2022 full PDF Section4 defines precisely the same normalised edge-weight TP(P), Example4.7 says parallel edges share one weight for regular cubes, and Theorem5.10 proves simplicial combinatorial type for any product of simplices. These facts give the geometric input but no Euclidean metric normalization, facet-projected normal distances, incenter/inradius closed form, or equality rigidity across mixed factor dimensions is stated in inspected theorem/section. General weighted simplex incenter calculus is classical and makes rediscovery straightforward; nevertheless the claim fixes the natural source edge-coordinate metric and gives new dimension-vector closed forms rather than renaming a parameter. No stronger exact original metric theorem found; this is best-of-knowledge, with easy-derivation risk retained.
+
+## value
+
+PASS
+
+The source parameterizes actual deformations by one length weight per edge; therefore intrinsic Euclidean distance to the boundary equals robustness margin before a class of edge deformations vanishes. The all-factor-dimension incenter/radius and regularity classification are natural exact geometric invariants of this deformation parameter space, not arbitrary algebraic slices. The answer is elementary only after a nontrivial verified edge-balancing and metric reduction; an exact all-dimensional formula is potentially useful for numerical deformation comparison. No claim of a new general simplex metric theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
