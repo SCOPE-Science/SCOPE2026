@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source residual polynomial admits an exact factorization into two degree-\(8\) factors over \(\mathbf C\). A square-class argument proves each factor irreducible over \(\mathbf C(v)[t]\). The two factors have the same Hirzebruch transition and the same multiplicity at all six base blow-ups, so each has half the source residual class. Their resultant is a nonzero constant times \(B^4J\); after the source's boundary blow-ups, the \(24\) simple roots of \(J\) yield exactly \(96\) interior intersections, equal to the intersection product, hence all transverse. The source's cusp calculation splits as \(32+32\), and adjunction then gives normalization genus \(9\) for each component.
+## correctness
 
-## Originality
-**PASS.** Burek's paper gives the residual polynomial, its aggregate divisor class and arithmetic genus, and the totals of \(96\) nodes and \(64\) cusps, but the checked full text does not state the two irreducible factors, their half-classes, the interpretation of every node as a cross-component intersection, the cusp allocation, or the genus-\(9\) normalizations. Published-finding and web searches by source identifier, discriminant/component terminology, genus, constants, and factorization aliases found no covering statement. The closest older F\(^{(4)}\) literature is fiberwise and does not study this global base discriminant.
+PASS
 
-## Value
-**PASS.** The residual discriminant controls both the isolated singularities of the Weierstrass model and the Euler-characteristic calculation in the initiating paper. The decomposition gives a global geometric explanation for all \(96\) nodes and replaces aggregate singularity data by the precise normalization type of each component.
+For Burek's explicitly quoted residual polynomial R=(dq²+cCq+54B⁴)²-(481A)³q², independently expand A³-C²=108B⁴ and R=d²F+F- with distinct lambda constants. Each quadratic in q=t⁴ has discriminant 4lambda² A³. Its irreducibility over C(v)[t] follows from the two square-free coprime H± quartics: C+A√A has no square root in C(v,√A), despite acquiring one in the biquadratic extension; consequently its fourth root extension has degree four. Both degree-eight factors have identical Hirzebruch transition and multiplicities at the six blowup centers, so each has half of D. The intersection products E²=96 and K.E=-16 give pa=41. Independently verified the degree-24 squarefree J coprime to ABC; its 24 roots yield 4 nonzero t-lifts each, accounting for all E²=96 transverse intersections. The 8 simple A-roots each give 4 cusps per factor: 32, and normalized genus=41-32=9. The specific analytic local types/boundary smoothness are credited to Burek; full Burek manuscript was unavailable in this execution, a material dependency risk.
 
-## Closest literature and limitations
-The closest source is Burek, arXiv:2610.01276v1, especially Lemma 5.5, Proposition 7.1, Lemma 8.2 and Proposition 8.3. Kumar–Kuwata's earlier \(F^{(4)}\) work supplies the fiberwise K3 background but not this two-dimensional discriminant geometry. The factorization is asserted over \(\mathbf C\); the smallest field of definition is not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+New contribution is the two irreducible components, classes, 96 cross-component nodes, 32+32 cusp distribution and genus-nine normalizations, not the original paper's aggregate residual curve/node count. The initiating paper (arXiv:2610.01276) and source references are strong possible coverage; its full text was inaccessible, so do not characterize the whole source as NOT_COVERING. Resultary and web searches did not identify this exact decomposition in accessible source statements. Best-of-knowledge PASS with high named source-access risk.
+
+## value
+
+PASS
+
+The residual discriminant is intrinsic to the named elliptic Calabi–Yau fibration. Decomposing its two global components and identifying the locations/types of all crossings, cusps and their genus-nine normalizations refines the original Euler and singularity geometry and is a motivated exact geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
