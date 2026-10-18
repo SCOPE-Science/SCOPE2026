@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional four-moment matrix is derived directly from uniform sampling, rather than assumed from asymptotic stationarity. The explicit quadratic energy has a strictly positive \((x,m)\) principal minor for all integers \(n\ge2\), all \(s>0\), and strictly positive table-variance coefficient. The identity \(\mathbb E[\Delta V\mid\mathcal F_k]=sP_n(s)x_k^2\) is verified both symbolically for unrestricted formal variables and by independent exact rational update enumeration. Its negative sign yields mean-square convergence via summability and the independent stale-table recurrence; its nonnegative sign, together with positive definiteness, excludes convergence for every nonzero scalar state. Orthogonal eigendecomposition covers every finite SPD Hessian. No claim of linear rate or almost-sure endpoint divergence is made.
+PASS
 
-## Originality — PASS (qualified)
+Diagonalizing common SPD H decomposes original single-index SAGA into scalar random recurrences x′=(1−s)x+s(y_I−m), y_I′=x at old iterate, s=ηλ. Actual source derives exact conditional four-moment matrix for M=(x²,xm,m²,v), and a positive-definite quadratic V with Q=n+(n−1)²s, K=1+(n−1)s, positive (x,m) determinant and variance coefficient. Independently checked exact polynomial identity E[V′−V|x,y]=s P_n(s)x², P_n(s)=(2n−1)(s−1)(1+(n−1)s)−1, symbolically in formal n,s and with independently enumerated exact-rational n≤6 scalar updates. Unique positive root τ_n>1 follows from sign and quadratic structure. For 0<s<τ_n, summability of E x_k² plus stable table filter e_{k+1}=(1−1/n)e_k+(1/n)E x_k² implies all components converge in mean square. For s≥τ_n any nonzero deterministic scalar state keeps E V nondecreasing and cannot have E x²,e→0. The spectral-max criterion and τ_n monotonic/asymptotic expansion follow from the root equation, including excluded boundary. Finite tests verify identities but the analytic positivity, telescoping and necessity establish all n.
 
-The earliest original SAGA paper and a major numerical-optimization survey establish algorithmic provenance, but neither supplies the all-sample-count exact necessary-and-sufficient inequality. The 2019 stepsize treatment optimizes **guaranteed sufficient** bounds from expected smoothness, not the exact second-moment stability frontier from arbitrary saved tables. The already-established two-component threshold is covered and expressly not presented as new. The original advance is the sharp formula for every \(n\ge3\), its strict sample-count decrease, and its finite-dimensional SPD extension. Comparisons were made against published closely related methods and relevant research records at the level of hypotheses, conclusions, and implication, not merely overlapping names. Remaining risk: a classical stochastic-systems or incremental-gradient analysis might contain an equivalent result under alternate terminology. No exhaustive absence-of-prior-work assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a natural, complete stability boundary on the canonical identical-component SAGA test family, with an exact positive-definite Lyapunov witness and a matching impossibility direction. It quantitatively isolates an instability caused solely by gradient memory, shows its sample-count dependence, and permits a clean contrast with full-gradient descent and SAG. The question is motivated by safe stepsize selection rather than an arbitrary parameter slice; the all-\(n\) law and its large-\(n\) behavior are not obtained by substituting numbers into the known two-component calculation.
+The original Defazio–Bach–Lacoste-Julien SAGA paper provides its estimator and a sufficient stepsize convergence bound in the strongly convex setting, and the 2019 expected-smoothness optimization provides improved sufficient guarantees, neither necessary-and-sufficient stability for all deterministic saved tables. A known n=2 scalar threshold and unrelated SAG all-n bounds do not imply the full n≥3 SAGA polynomial and necessity. No actually retrieved Resultary match covered the same algorithm, memory initialization, and sharp threshold. Older stochastic jump-linear-system or memory method equivalence is a genuine residual risk.
 
-## Prior literature and residual limitations
+## value
 
-Defazio–Bach–Lacoste-Julien (arXiv:1407.0202), Bottou–Curtis–Nocedal (arXiv:1606.04838; DOI:10.1137/16M1080173), and Gazagnadou–Gower–Salmon (PMLR 97, 2019) were compared in their relevant algorithmic and guarantee sections. The theorem has not been tested on unequal Hessians, asynchronous sampling, or nonlinear objectives. A literature-equivalent formulation outside the material examined remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp all-initialization mean-square stability frontier for the canonical identical-component SAGA test family is a natural numerical-analysis invariant. It separates estimator memory instability from Hessian heterogeneity, yields exact sample-count dependence τ_n↓1, and supplies an explicit energy witness plus impossibility boundary. This is not a trivial substitute of n into a known two-component example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

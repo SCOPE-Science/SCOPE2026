@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md 43d7efecfd3108ffe57138dfe31894745d1a2ca2",
+        "Git verify.py 23186edeaacfacb2cda9e84a0486b67b70546a32",
+        "https://arxiv.org/abs/1407.0202"
+      ],
+      "rationale": "Diagonalizing common SPD H decomposes original single-index SAGA into scalar random recurrences x′=(1−s)x+s(y_I−m), y_I′=x at old iterate, s=ηλ. Actual source derives exact conditional four-moment matrix for M=(x²,xm,m²,v), and a positive-definite quadratic V with Q=n+(n−1)²s, K=1+(n−1)s, positive (x,m) determinant and variance coefficient. Independently checked exact polynomial identity E[V′−V|x,y]=s P_n(s)x², P_n(s)=(2n−1)(s−1)(1+(n−1)s)−1, symbolically in formal n,s and with independently enumerated exact-rational n≤6 scalar updates. Unique positive root τ_n>1 follows from sign and quadratic structure. For 0<s<τ_n, summability of E x_k² plus stable table filter e_{k+1}=(1−1/n)e_k+(1/n)E x_k² implies all components converge in mean square. For s≥τ_n any nonzero deterministic scalar state keeps E V nondecreasing and cannot have E x²,e→0. The spectral-max criterion and τ_n monotonic/asymptotic expansion follow from the root equation, including excluded boundary. Finite tests verify identities but the analytic positivity, telescoping and necessity establish all n.",
+      "residual_risks": [
+        "Applies only identical SPD quadratics, uniform IID with replacement, original pre-update table SAGA, deterministic table initialization and exact arithmetic; no mean-square *rate* conclusion or almost-sure endpoint statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SAGA original general sufficient step γ=1/(2(μn+L)) is not an iff condition.",
+          "PMLR 2019 optimized guarantee does not rule out larger stable steps, nor establish necessary instability boundary."
+        ],
+        "reasoning": "General objective-family scope is broader, but their stepsize conclusions are weaker one-way bounds and cannot dominate the exact iff threshold.",
+        "searches": [
+          "Defazio Bach Lacoste-Julien 2014 SAGA strongly convex stepsize guarantee",
+          "Gazagnadou Gower Salmon 2019 optimal mini batch and step sizes SAGA"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1407.0202",
+        "https://proceedings.mlr.press/v97/gazagnadou19a.html",
+        "https://arxiv.org/abs/1606.04838",
+        "Resultary: SAGA identical quadratics mean square exact sharp stepsize threshold gradient table n components"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper establishes sufficient stability under its own conservative steps; cannot assert instability above them.",
+          "The new result proves positivity of energy for every s>0 and expected-energy nondecrease for s≥τ_n, which is not contained in previous sufficient statements."
+        ],
+        "reasoning": "A prior n=2 formula is a special case covered by the new all-n identity but not vice versa; SAG is not SAGA because stochastic update and memory combination differ.",
+        "searches": [
+          "arxiv:1407.0202v3 original estimator sufficient stepsize",
+          "pmlr:v97/gazagnadou19a expected smoothness sufficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1407.0202 Section 2 defines same SAGA gradient table update.",
+          "https://proceedings.mlr.press/v97/gazagnadou19a.html analyzes stepsizes under expected smoothness rather than identical-Hessian all-initialization exact stability."
+        ],
+        "reasoning": "Also searched aliases variance-reduced stored-gradient recursion, second-moment spectral radius and Lyapunov drift; identical SAGA update must be matched, not the differently averaged SAG estimator.",
+        "searches": [
+          "\"SAGA identical quadratics mean square exact sharp stepsize threshold gradient table n components\"",
+          "sharp mean-square convergence SAGA identical Hessian arbitrary stored gradient table",
+          "SAGA lifted second moment Schur stability matrix n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hits dealt with Loopless SVRG and other optimization methods, not identical-component SAGA mean-square transition.",
+          "Known n=2 value 2/√3 is explicitly acknowledged as covered and does not determine n≥3."
+        ],
+        "reasoning": "No exact all-n SAGA cutoff table or formula was found; finite n=2 coverage does not imply the stated sample-count law.",
+        "searches": [
+          "Resultary SAGA identical quadratics mean square exact sharp stepsize threshold gradient table n components",
+          "SAGA τ_n (2n-1)(t-1)(1+(n-1)t)"
+        ]
+      },
+      "rationale": "The original Defazio–Bach–Lacoste-Julien SAGA paper provides its estimator and a sufficient stepsize convergence bound in the strongly convex setting, and the 2019 expected-smoothness optimization provides improved sufficient guarantees, neither necessary-and-sufficient stability for all deterministic saved tables. A known n=2 scalar threshold and unrelated SAG all-n bounds do not imply the full n≥3 SAGA polynomial and necessity. No actually retrieved Resultary match covered the same algorithm, memory initialization, and sharp threshold. Older stochastic jump-linear-system or memory method equivalence is a genuine residual risk.",
+      "residual_risks": [
+        "A stochastic linear-system equivalence with implicit exact cutoff could preexist under different language; limited search cannot exclude that.",
+        "Only the original SAGA, not SAG or Loopless SVRG, is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ALGORITHM but not the all-n exact necessary-and-sufficient identical-Hessian mean-square frontier.",
+          "evidence": [
+            "Defazio–Bach–Lacoste-Julien, arXiv:1407.0202, original SAGA update and sufficient convergence guarantee."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.0202",
+          "material_read": "Lawful full original arXiv PDF: algorithm definition, strongly convex theorem statement, sufficient stepsize and relevant proof sections.",
+          "method": "Read primary PDF mathematical algorithm and proof sections; cross-checked current frozen recursion.",
+          "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+          "trigger": "Same estimator and its exact algorithmic conventions and stepsize theory."
+        },
+        {
+          "assessment": "No inspected statement of the exact all-deterministic-table iff stability frontier.",
+          "evidence": [
+            "Gazagnadou–Gower–Salmon PMLR 97 (2019) optimizes provable sufficient stepsize bounds."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v97/gazagnadou19a.html",
+          "material_read": "Public PMLR summary and theorem descriptions of expected-smoothness stepsize selection (not full appendix independently checked in this execution).",
+          "method": "Lawful PMLR public material, claim-level statement comparison; full-body noncoverage not asserted.",
+          "title": "Optimal Mini-Batch and Step Sizes for SAGA",
+          "trigger": "Potentially stronger general stepsize optimization theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1407.0202",
+        "https://proceedings.mlr.press/v97/gazagnadou19a.html"
+      ],
+      "rationale": "A sharp all-initialization mean-square stability frontier for the canonical identical-component SAGA test family is a natural numerical-analysis invariant. It separates estimator memory instability from Hessian heterogeneity, yields exact sample-count dependence τ_n↓1, and supplies an explicit energy witness plus impossibility boundary. This is not a trivial substitute of n into a known two-component example.",
+      "residual_risks": [
+        "Not a universal safe stepsize for unequal-Hessian or nonquadratic optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For original uniform single-sample SAGA with n≥2 identical SPD quadratics and arbitrary deterministic table, mean-square convergence for every initialization holds iff 0<ηλmax(H)<τ_n, uniquely determined by (2n−1)(τ_n−1)(1+(n−1)τ_n)=1.",
+  "limitations": [
+    "Only identical positive-definite Hessians and minimizers, constant stepsize, original IID uniform single-index SAGA without proximal term.",
+    "Possible equivalence in older stochastic-systems literature remains a genuine novelty risk."
+  ],
+  "schema_version": 1
+}
