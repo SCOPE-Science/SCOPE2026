@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary OU law exists because its drift is symmetric positive definite for all positive regulation rates. Solving the three Lyapunov equations yields the regional variance; two exact polynomial identities give the derivative and strict monotonicity of its threshold ratio. Their sign combination forces a unique *minimum* on the strict noise-ratio interval, never a maximum. The equal-isolated-variance optimum and the sharp one-half limiting bound follow from explicit positive-factor inequalities. The packaged standalone checker verifies the identities symbolically and 288 rational Lyapunov instances. No finite sample is used as proof of continuous-parameter claims.
+## correctness
 
-**Originality — PASS, with residual prior-coverage risk.** Liebhold, Johnson and Bjørnstad (2006) analyze heterogeneous density dependence and dispersal-driven synchrony; Abbott (2011) reviews stabilizing versus synchronizing effects. Wang, Haegeman and Loreau (2015), the closest paper, derive a general metapopulation covariance equation for a *logistic population model* and study regional variability under heterogeneous parameters (notably their Methods, Figs. 4–5, and Discussion). The exact additive-noise symmetric two-patch phase boundary, uniqueness and sharp equal-isolated-variance optimization are not stated in its principal results. Their heterogeneous linearization has equilibrium-dependent local coefficients and noise, unlike the fixed-coefficient OU family; their general covariance framework alone does not furnish the new all-parameter classification without further algebra and sign analysis. Ben Zion, Yaari and Shnerb (2010) instead study expected extinction time for nonlinear stochastic maps. A general covariance optimization theorem or specialized supplementary calculation might cover parts of this result. The article of Ripa (2000) and the Engen–Lande–Sæther (2002) literature could not be fully inspected, but the available abstracts focus on synchrony and spatially scaled fluctuations, respectively.
+PASS
 
-**Value — PASS.** Spatial redistribution is often recommended for population stabilization even though synchrony and regulation heterogeneity can offset local benefits. The theorem separates the exact range permitting a genuine finite-rate regional minimum from monotone regimes, and rules out misleading interior maxima. The equal-isolated-variance calibration gives a natural comparable baseline, a closed-form optimal exchange rate and a sharp 50-percent limiting benchmark, which can check ecological model approximations and corridor-design sensitivity. This is a complete sharp optimization classification, rather than a parameter scan or an unmotivated numerical slice.
+For pinned RESULT.md, symmetric positive-definite drift A has det ab+(a+b)d>0 and unique stationary covariance solving AC+CA=diag(u,v). Independently derived V(d)=[(a+b+4d)(bu+av+d(u+v))]/[2(a+b+2d)(ab+(a+b)d)] and verified both nontrivial polynomial derivative identities exactly using independent SymPy (zero residuals). Ratio R=Pb/Pa has derivative sign(a−b) with strictly positive denominator; V prime crosses from negative to positive at most once and iff v/u strictly between b²/a² and (a+3b)/(3a+b). At a=b, V constant. For u=a,v=b, V=1−d(a−b)²/[2(s+2d)(ab+sd)], derivative optimum d=sqrt(ab/2), 0<1−V<1/2, limit sharp as b/a diverges. Independent exact witness V(1)=49/50 for a=u=1,b=v=2. Read packaged verify_ou.py (blob e40563...) and its standalone rational Lyapunov reconstruction: finite samples corroborate but do not prove signs.
 
-The biological model is deliberately linear and Gaussian; its objective is stationary total fluctuation variance, not extinction risk, fitness or feasibility of a nonlinear habitat intervention. The particular 50-percent bound is not asserted outside matched noise intensities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+In the specified two-patch additive-noise stationary OU model, covariance Lyapunov algebra yields an exact necessary-and-sufficient interior optimum iff the noise ratio lies between b²/a² and (a+3b)/(3a+b), with no possible interior maximum and a sharp half-suppression regime. Wang–Haegeman–Loreau 2015 studies nonlinear logistic dynamics with multiplicative environmental noise and qualitative stabilizing/destabilizing heterogeneity, which cannot be directly specialized to fixed additive-noise dynamics. No checked primary result establishes the same all-parameter ratio window; important part of that primary text remained inaccessible, a nondecisive risk.
+
+## value
+
+PASS
+
+Provides an exact, interpretable environmental-noise asymmetry window where finite dispersal suppresses total regional variability, unique optimum and a sharp maximal proportional suppression in a natural calibration. It resolves a full two-patch stationary fluctuation optimization rather than an arbitrary two-number computation, with clear ecological model limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

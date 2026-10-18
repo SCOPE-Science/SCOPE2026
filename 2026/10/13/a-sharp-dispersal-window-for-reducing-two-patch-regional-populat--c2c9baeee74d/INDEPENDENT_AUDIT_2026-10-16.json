@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:05:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pinned RESULT.md, symmetric positive-definite drift A has det ab+(a+b)d>0 and unique stationary covariance solving AC+CA=diag(u,v). Independently derived V(d)=[(a+b+4d)(bu+av+d(u+v))]/[2(a+b+2d)(ab+(a+b)d)] and verified both nontrivial polynomial derivative identities exactly using independent SymPy (zero residuals). Ratio R=Pb/Pa has derivative sign(a−b) with strictly positive denominator; V prime crosses from negative to positive at most once and iff v/u strictly between b²/a² and (a+3b)/(3a+b). At a=b, V constant. For u=a,v=b, V=1−d(a−b)²/[2(s+2d)(ab+sd)], derivative optimum d=sqrt(ab/2), 0<1−V<1/2, limit sharp as b/a diverges. Independent exact witness V(1)=49/50 for a=u=1,b=v=2. Read packaged verify_ou.py (blob e40563...) and its standalone rational Lyapunov reconstruction: finite samples corroborate but do not prove signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al 2015 PeerJ abstract: homogeneous regional variability invariant under dispersal; heterogeneous cases can stabilize or destabilize.",
+          "The 2023 two-patch metapopulation paper studies logistic resilience and equilibrium/instability, not exact OU regional variance."
+        ],
+        "reasoning": "General Lyapunov theory supplies the covariance equation but not automatically the sharp global dispersal optimum or half-suppression bound; nonlinear ecological work has distinct noise amplitudes and equilibria.",
+        "searches": [
+          "two patch independent additive OU environmental noise regional total variance dispersal optimal coupling noise ratio exact",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+          "https://arxiv.org/abs/2308.01364"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+        "https://doi.org/10.7717/peerj.1295",
+        "https://doi.org/10.1111/j.1461-0248.2011.01670.x",
+        "https://arxiv.org/abs/2308.01364"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Haegeman–Loreau 2015 models dN_i/dt=r_i N_i(1−N_i/k_i)−d_i N_i+...+N_i epsilon_i(t); in contrast, current system is centered linear OU with noise sigma_i constant.",
+          "Stationary additive OU direct V(d) rational formula and strictly monotone Pb/Pa produce unique noise-ratio crossover; the homogeneous case a=b is constant."
+        ],
+        "reasoning": "The published biological narrative is consistent with a qualitative stabilizing effect but does not logically imply the exact fixed-additive OU iff boundary; do not misrepresent a related model as mathematical coverage.",
+        "searches": [
+          "two patch independent additive OU environmental noise regional total variance dispersal optimal coupling noise ratio exact",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+          "https://doi.org/10.7717/peerj.1295"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Covariance is solution to AC+CA=diag(u,v), A=[[a+d,−d],[−d,b+d]]; the exact quantity is 1^T C(d)1.",
+          "Wang 2015 PeerJ main model is logistic growth with state-dependent environmental white noise, unlike fixed additive intensities u,v."
+        ],
+        "reasoning": "Reformulating as stationary LTI H2 energy from independent noise channels leaves the same parametric optimization; no inspected exact LTI two-node full-noise-ratio formula was identified.",
+        "searches": [
+          "two patch independent additive OU environmental noise regional total variance dispersal optimal coupling noise ratio exact",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+          "https://doi.org/10.7717/peerj.1295"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top match is sharp sensor threshold for a high-dimensional OU model, not regional two-patch dispersion; no exact table for L/U found.",
+          "The ratio window is quantified over all positive real parameters, not a finite catalogue."
+        ],
+        "reasoning": "A finite table of numerical covariance cases cannot imply uniqueness/no interior maximum for all parameters; no stronger tabulated full classification found.",
+        "searches": [
+          "two patch independent additive OU environmental noise regional total variance dispersal optimal coupling noise ratio exact"
+        ]
+      },
+      "rationale": "In the specified two-patch additive-noise stationary OU model, covariance Lyapunov algebra yields an exact necessary-and-sufficient interior optimum iff the noise ratio lies between b²/a² and (a+3b)/(3a+b), with no possible interior maximum and a sharp half-suppression regime. Wang–Haegeman–Loreau 2015 studies nonlinear logistic dynamics with multiplicative environmental noise and qualitative stabilizing/destabilizing heterogeneity, which cannot be directly specialized to fixed additive-noise dynamics. No checked primary result establishes the same all-parameter ratio window; important part of that primary text remained inaccessible, a nondecisive risk.",
+      "residual_risks": [
+        "PeerJ/PMC full text was blocked by 403/reCAPTCHA despite lawful attempts; some equations or appendix may imply a related special case.",
+        "Earlier stochastic control, Lyapunov sensitivity, or spatial OU treatments may already give the same rational optimum in different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its nonlinear multiplicative-noise model is different; no whole-document noncoverage asserted, so possible implicit OU implication remains priority risk.",
+          "evidence": [
+            "Methods equation dN_i/dt=r_i N_i(1−N_i/k_i)−d_i N_i+...+N_i epsilon_i(t); abstract states homogeneous invariance and heterogeneous context dependence."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4636407/",
+          "material_read": "Full article abstract and publicly indexed Methods passage specifying logistic density-dependence, dispersal, multiplicative environmental noise and noise covariance; complete paper could not be opened because publisher returned 403 and PMC reCAPTCHA.",
+          "method": "PubMed abstract, indexed open PDF passage and attempted PMC/PeerJ full-page read",
+          "title": "Dispersal and metapopulation stability",
+          "trigger": "Closest primary ecology source for regional variance and dispersal"
+        },
+        {
+          "assessment": "Background motivates aggregate-variance optimization but supplies no identified explicit two-OU analytic cutoff.",
+          "evidence": [
+            "Ecological stability and synchronization review; not a full source-specific equivalent comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2011.01670.x",
+          "material_read": "Accessible bibliographic abstract and model summary; full text not inspected.",
+          "method": "Publisher-abstract comparison",
+          "title": "A dispersal-induced paradox: synchrony and stability in stochastic metapopulations",
+          "trigger": "General metapopulation stability and dispersal trade-off"
+        },
+        {
+          "assessment": "Different persistence and nonlinear equilibrium quantity, not stationary Gaussian sum variance.",
+          "evidence": [
+            "Abstract optimizes metapopulation values/resilience under logistic growth, not stationary OU additive-noise variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.01364",
+          "material_read": "Full arXiv abstract, including logistic origin and optimal diffusion for metapopulation abundance; main text not read.",
+          "method": "Open arXiv abstract",
+          "title": "Dispersal-enhanced resilience in two-patch metapopulations: origin instability type matters",
+          "trigger": "More recent two-patch analytic dispersal optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact, interpretable environmental-noise asymmetry window where finite dispersal suppresses total regional variability, unique optimum and a sharp maximal proportional suppression in a natural calibration. It resolves a full two-patch stationary fluctuation optimization rather than an arbitrary two-number computation, with clear ecological model limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only symmetric two-patch additive-noise OU with fixed positive a,b,u,v and independent standard Brownian drives, d>=0.",
+    "Half-suppression applies only to matched isolated variance u=a,v=b; unattained across finite positive regulation contrasts.",
+    "No inference about nonlinear ecological persistence, extinction probabilities, or correlated environmental noise."
+  ]
+}
