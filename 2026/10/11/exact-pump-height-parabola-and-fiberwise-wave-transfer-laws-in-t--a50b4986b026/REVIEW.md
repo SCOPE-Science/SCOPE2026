@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary one-coordinate generator tests give the three exact transfer laws. Stationarity of \((x^2+y^2)/2\), \((x^2-y^2)/2\), and \(z^2/2\) yields
-\[
-\nu_1\mathbb E[x^2]=hm-\mathbb E[z^2],
-\qquad
-\nu_2\mathbb E[y^2]=hm+\mathbb E[z^2].
-\]
-The first identity is exactly the pump-height parabola after subtracting \(m^2\). Zero transverse defect forces the origin on compact complete support. Jensen then gives \(0<m<h\) away from the origin, and the sign of \(z(z-h)\) forces positive mass in \(0<z<h\). Conditional orthogonality gives all three variance-speed decompositions.
+## correctness
 
-Risk: compact support is required for the stationary generator argument as stated.
+PASS
 
-## Originality
-PASS. The complete open 2018 same-system paper was inspected through its exact equations, boundedness, multistability, hidden-attractor, and Lyapunov-dimension analysis, with document-wide searches for the principal statistical aliases. The 2008 and 2011 mathematical treatments were compared for stronger global and geometric coverage. Direct semantic-index searches for the exact parabola and conditional law found only different-system analogues, notably the distinct Rabinovich–Fabrikant flow.
+PASS: For the autonomous polynomial system xdot=(h-z)y-nu1*x, ydot=(h+z)x-nu2*y, zdot=xy-z with h,nu1,nu2>0 and compactly supported invariant probability mu, test the invariant flow generator against antiderivatives of arbitrary functions of a single coordinate. This proves E[xy|z]=z, E[y(h-z)|x]=nu1*x, E[x(h+z)|y]=nu2*y with the correct conditional measures. Stationarity of (x²+y²)/2, (x²-y²)/2, z²/2 yields nu1 E[x²]=hm-E[z²] and nu2 E[y²]=hm+E[z²], hence Var(z)+nu1 E[x²]=m(h-m). If E[x²]=0, x identically zero on the invariant support; global bounded complete orbits force y=z=0. Therefore any non-origin compact invariant probability has 0<m<h and positive mass in 0<z<h. The speed-defect variance identities are orthogonal-regression Pythagoras identities. No ergodicity, chaotic-attractor existence, or boundary-exit assumption is used.
 
-Risk: the 1978 historical source and the 2008/2011 mathematical sources were not all exhaustively parsed in complete local full text, and the generator identities are short enough that an equivalent observation could remain unindexed.
+## originality
 
-## Value
-PASS. The pumping amplitude \(h\) becomes a universal stationary height scale: every non-origin compact recurrent state has mean \(z\)-height strictly between \(0\) and \(h\) and must place positive mass inside that slab. The exact parabola reduces transverse wave energy to height statistics, while the fiberwise residuals give coordinate-speed diagnostics relevant to periodic and chaotic plasma-wave states.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS best of current primary-source comparison: inspected same vector field in the 2018 detailed Rabinovich paper, compared the 2008 global-dynamics and 2011 Hamiltonian sources at available statement/abstract level, and distinguished the similarly named but mathematically different Rabinovich–Fabrikant system. Known generator identities alone do not show the derived coupled pump-height parabola and strict stationary slab were previously stated. Their simplicity creates a real unindexed-priority risk, explicitly retained; the temporary Resultary failure is not positive novelty evidence.
+
+## value
+
+PASS
+
+PASS: Exact stationary transfer laws and nontrivial recurrent height-slab restriction for a canonical three-wave nonlinear plasma model give parameter-explicit constraints on any invariant measure without solving the attractor or assuming ergodicity. This provides checkable invariants for dynamics, invariant-measure numerics, and permissible mean/variance region; not merely a renamed variable identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
