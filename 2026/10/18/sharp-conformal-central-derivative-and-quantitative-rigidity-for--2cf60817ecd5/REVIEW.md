@@ -1,0 +1,11 @@
+# Review of the sharp ellipse harmonic derivative theorem
+
+**Correctness — PASS.** Bounded harmonic maps admit radial traces in the closed target ellipse, so Poisson first-jet formulas and the ellipse support function give the universal upper bound. Strict convexity and endpoint derivative signs prove the exact minimizer is unique and interior. The displayed ellipse-boundary map saturates both first moments, and the Radó–Kneser–Choquet theorem proves its Poisson extension is a harmonic diffeomorphism. A unit-ball support-function identity proves the quantitative trace-deficit bound. The endpoint and perturbative asymptotics follow from the same explicit integral. The numerical checker is corroborative only, not a substitute for these deductions.
+
+**Originality — PASS, with source-access qualification.** The closest inspected full paper is Forstnerič–Kalaj, arXiv:2102.12403, which proves the disk/ball case and gives only a strict qualitative ellipse comparison in its Example 6.3. The 2026 Knežević–Mateljević article, arXiv:2609.19609, supplies a general target-geometry framework, but only its abstract was accessible. Its abstract does not state an exact elliptic minimax, unique ellipse parametrization or stability coefficient; the full-text access gap prevents a conclusive historical-priority judgment. Database similarity queries on ellipse, conformal first jets, and support duality returned related harmonic-mapping results without the exact claim. Lack of a match alone is not proof of novelty.
+
+**Value — PASS.** The natural nonround domain already singled out by earlier sharp Schwarz–Pick work receives an all-eccentricities sharp constant, equality geometry, constructive extremal harmonic diffeomorphism and a quantitative trace-rigidity inequality. The near-circle quadratic defect and high-eccentricity saturation distinguish the elliptical case from simple rescalings of the unit-disk theorem. The value does not rely on unsupported downstream applications.
+
+**Limitations and risks.** The formula does not cover arbitrary convex planar domains, noncentral prescribed values or global conformality. The accessible 2026 paper's full text could contain an equivalent ellipse specialization; independent validation and expert historical-priority checking remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
