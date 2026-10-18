@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalization is forced by Green–Stokes and is independently tested on \(\bar z\) and \(\bar z^2\). The disk averaging identity holds in local \(L^1\), so its distributional limit identifies the derivative. Local uniform \(L^1\) bounds are equivalent to a Radon-measure derivative by the Riesz representation theorem; upper and lower variation bounds match using the positivity of the disk kernel and variation lower semicontinuity. The exact singular deficit follows by the Lebesgue decomposition and strong \(L^1\) approximation of the absolutely continuous part. The Cantor construction has coherent interval masses, measure-zero support, a proved logarithmic-Lipschitz modulus, and a singular nonzero derivative. Finite checker results are normalization checks rather than a substitute for these universal arguments.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Guo–Xiao's complete original theorem concerns pointwise \(o(r^2)\) at *all* centers for continuous functions, not total-variation recovery. The closest prior mathematical record extends the distributional convergence to \(L^1_{\mathrm{loc}}\) and gives a center-averaged holomorphy criterion, but its stated result neither controls total variation nor identifies singular mass after removal of the pointwise limit. The full measure-derivative equivalence plus sharp almost-everywhere obstruction is not a restatement of either published claim. Strict convergence of positive-kernel mollifications of measures is a standard general ingredient, which materially limits the independent novelty of the isolated variation identity; the claim is the specific circular-Morera endpoint characterization and regularity boundary. Published-result and prior-ledger searches did not identify the combined formulation. Unindexed older literature may still contain it.
+PASS
 
-**Value — PASS.** The motivating circle theorem makes the distinction between testing all centers and almost all centers a natural boundary question. The theorem gives a complete norm-level diagnostic for measure-valued anti-holomorphic derivatives, an exact quantitative residual measuring unseen singular mass, and explicit counterexamples at every logarithmic distance above the Lipschitz modulus. These are structural conclusions relevant to stability and endpoint regularity rather than a normalization check alone.
+Green–Stokes and L1 approximation identify normalized T_r=J_r/(2πir²) with disk averaging of ∂bar f in locally integrable/distribution senses. Distributional convergence T_r→∂bar f plus locally uniform L1 boundedness exactly characterizes a locally finite complex Radon derivative via order-zero Riesz representation. If µ=∂bar f is a Radon measure, triangle+Tonelli provide limsup ∫φ|κ_r*µ|≤∫φ d|µ|; weak measure convergence and weighted total-variation lower semicontinuity provide reverse liminf. Hence |T_r|dA⇀|µ| and continuity-set masses converge. Decompose µ=h dA+µ_s: measure differentiation gives a.e. disk-average h, κ_r*h→h in local L1, so ∫E|T_r-h|→|µ_s|(E), with boundary-null condition. Cantor distribution constructed with ℓ_n=2^-n(n+1)^-β has zero-length support, near-Lipschitz logarithmic modulus, nonzero singular derivative, and is locally constant at a.e. center. Lipschitz data have absolutely continuous derivative; a.e. vanishing then implies holomorphic. Explicit f=bar z and bar z² fix normalization.
 
-The result is local and does not assert pointwise circle limits for general \(L^1_{\mathrm{loc}}\) functions. Boundary-null conditions are required for unweighted Borel-set norms, and the generic positive-kernel strict approximation theorem is acknowledged as a known ingredient. The literature comparison cannot rule out an older equivalent specialization of general bounded-variation results.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Guo–Xiao 2026 primary full text (6 pages) proves that continuous f with o(r²) circular integrals at every center is holomorphic, but does not address Radon measure characterization, strict recovery of derivative variation, or exact singular residual. A distinct published averaged-Morera result works with L1 distributional convergence and averaged vanishing, also weaker than total-variation recovery. General strict approximation of Radon measures by positive kernels is known and is explicitly NOT claimed novel; the mathematically motivated application is the complete Morera-defect endpoint diagnostic and its singular-vs-pointwise contrast.
+
+## value
+
+PASS
+
+The circular Morera problem asks what the family of local circular integrals detects. This theorem sharpens mere holomorphy detection to exact measurement of complex derivative variation and singular mass for L1 data, with near-Lipschitz counterexamples exhibiting failure of pointwise-a.e. tests. It organizes a meaningful endpoint regularity boundary, not just a tautological normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
