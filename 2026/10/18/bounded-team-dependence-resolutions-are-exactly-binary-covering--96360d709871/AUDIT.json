@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For r>=2, every flat disjunct must avoid both output values for the same predictor tuple, because such a pair is an inconsistent two-team. Extend its partial graph to a total Boolean function. Every consistent s-team, s=min(r,2^k), forces one row to reproduce each s-subset assignment, the exact covering-array requirement. Conversely any array gives full-graph classical formulas and covers all consistent smaller teams by extending each partial labeling to s input positions. Invalid teams cannot lie in a graph. At r=1 the tautology is valid. At r>=2^k, all 2^(2^k) total output graphs must appear; strength-two exact minimum and asymptotic are taken from Lawrence et al. The standalone checker exhaustively verifies illustrative small arrays and all bounded teams for k=1,2. No finite testing substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbero et al. 2026 establish sound and complete labelled calculi for four propositional team logics, not minimal flat-disjunct counts.",
+        "Lawrence et al. give exact strength-two covering-array minima and general bounds, but not the logical isomorphism with bounded-team dependence resolutions.",
+        "Yang and Väänänen establish full expressive normal forms without team-size-dependent minimization."
+      ],
+      "reasoning": "None of the inspected stronger-looking results directly states a bounded-team optimum or subsumes its logical characterization. Covering-array bounds are imported exactly where applicable, not attributed to this result.",
+      "searches": [
+        "bounded team dependence function formulas cover arrays exact minimal number of classical resolutions",
+        "inquisitive disjunction width for dependence atom two-element teams and qualitative independence",
+        "inquisitive disjunction normal form optimal bounded-cardinality team covering array",
+        "arXiv:2606.31860v1 full 20-page PDF; focus on sequent rules and bounded finite-atom semantics",
+        "DOI:10.37236/571 sections 1, 3.2.1, 4.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.31860v1 2026-06-30, 20-page full PDF",
+      "arXiv:1412.7998v3, open full HTML Section 1 and Section 3",
+      "Lawrence et al. 2011, DOI:10.37236/571, full open PDF (definitions; Table 1; Section 3.2.1; asymptotic)",
+      "published-finding corpus published findings semantic searches q1-q6; closest published-finding corpus ID 2026/10/4/SCOPE-exact-antecedent-boundary-for-material-implication-closure-in-te--aba05b7ed790",
+      "Accessible same-slot historical claims through existing ledger generation g000026, used for dedup only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known flat-support lemma makes a normal form possible and the known array theorem optimizes strength-two arrays; neither expresses the intermediate optimization on restricted teams.",
+        "A new bidirectional reduction is proved for every strength s, explicitly treating singleton teams and full graph teams."
+      ],
+      "reasoning": "Although the reduction is a transparent consequence of combining standard definitions, it is not merely the older statement with changed notation: it identifies a previously unquantified logical resource with a separate well-studied combinatorial optimization invariant for all cardinality cutoffs. This is the novelty being asserted, not the existence of flat normal forms nor the covering-array formula.",
+      "searches": [
+        "arXiv:1412.7998v3, Lemma 3.1 and Section 3",
+        "DOI:10.37236/571, Section 3.2.1",
+        "arXiv:2606.31860v1, Sections 1-5",
+        "propositional dependence logic inquisitive disjunction flat formula resolution restricted teams size at most two binary covering array strength two minimal width",
+        "bounded team dependence function formulas cover arrays exact minimal number of classical resolutions",
+        "dependency atom minimal resolutions on teams of size at most r covering arrays optimal number of total Boolean functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full disjunctive-normal-form theorem treats arbitrary downward-closed team classes and flat truth-set supports; it does not define or determine bounded-team *minimum* classical disjunct width.",
+        "In the present problem, every flat support omitting conflicting pairs extends to one Boolean-function graph; covering all bounded consistent teams translates precisely to a higher-strength array."
+      ],
+      "reasoning": "The older normal-form equivalence implies existence but does not give the optimization invariant indexed by team cardinality. The correspondence uses forbidden two-element teams to force functional graphs and all size-s consistent teams to impose the covering-array condition. No equivalent bounded-team formulation was found in searched primary material.",
+      "searches": [
+        "propositional dependence logic inquisitive disjunction flat formula resolution restricted teams size at most two binary covering array strength two minimal width",
+        "bounded team dependence function formulas cover arrays exact minimal number of classical resolutions",
+        "bounded-team dependence atom minimal global disjunction of flat classical formulas covering arrays functions partial assignments strength t",
+        "dependency atom minimal resolutions on teams of size at most r covering arrays optimal number of total Boolean functions",
+        "Yang and Väänänen arXiv:1412.7998v3, Section 3, Lemma 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The strength-two formula and values CAN(2,2)=4, CAN(4,2)=5, CAN(8,2)=6 occur in the covering-array literature.",
+        "Exhaustive checker additionally reproduces CAN(4,3)=8; these finite numbers are not claimed novel.",
+        "published-finding corpus closest topical hit concerns closure of material implication in team semantics, not width."
+      ],
+      "reasoning": "Known combinatorial minima are explicitly credited. The newly compared invariant is a logical elimination-width objective; no indexed result with the exact logical invariant was identified.",
+      "searches": [
+        "propositional dependence logic inquisitive disjunction flat formula resolution restricted teams size at most two binary covering array strength two minimal width",
+        "bounded-team dependence atom minimal global disjunction of flat classical formulas covering arrays functions partial assignments strength t",
+        "inquisitive disjunction normal form optimal bounded-cardinality team covering array",
+        "Lawrence et al. 2011 Table 1 and Section 3.2.1",
+        "published-finding corpus semantic search for bounded-team dependence flat disjunction covering arrays"
+      ]
+    },
+    "rationale": "Yang–Väänänen Section 3 provides standard unbounded flat normal forms; Barbero et al. 2026 provide proof calculi and semantics; Lawrence et al. 2011 contain known covering array optima. Searches found no prior bounded-team optimal disjunct-width interpretation for the dependence atom. The new assertion is precisely the uniform bidirectional reduction indexed by team size, not the known constituent facts. Residual risks and source scope documented below.",
+    "residual_risks": [
+      "Unindexed sources or unpublished work might explicitly connect bounded-team dependence resolutions with covering arrays; searched materials cannot prove uniqueness.",
+      "The bridge uses elementary finite combinatorics and a standard flat-normal-form lemma; the value and novelty rest on the natural optimized logical invariant, not on new covering-array extremal results.",
+      "Known literature resolves strength two but many higher-strength exact covering array counts remain unsolved; the correspondence transfers, rather than resolves, those cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides finite-variable semantics, global disjunction, flat formulas, and labelled calculi, but does not give optimal disjunct counts on bounded teams.",
+        "evidence": [
+          "arXiv:2606.31860v1 Section 2, Definition 2.1 and flatness discussion, p. 119",
+          "arXiv:2606.31860v1 abstract, pp. 117-118, sequent calculi and terminating proof search"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.31860",
+        "material_read": "Full 20-page PDF inspected for scope; Introduction and Section 2 semantics read closely, with searches for relevant normal forms and width and later proof-theoretic material examined.",
+        "method": "arXiv full PDF page text and rendered page 3 (zero-based page 2)",
+        "title": "Labelled Sequent Calculi for Propositional Team Logics",
+        "trigger": "2026 recent source directly treats propositional inquisitive and dependence team semantics"
+      },
+      {
+        "assessment": "Explicitly proves classical flat formula defines each downward-closed principal ideal, and disjunction normal form, but not optimal width for bounded-team equivalence.",
+        "evidence": [
+          "Section 1, Definition 1.5 of dependence and intuitionistic disjunction",
+          "Section 3, Lemma 3.1 and Theorem 1.7 proof/normal form, formulas (7)-(8)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1412.7998v3",
+        "material_read": "Full HTML, introduction, semantics, Section 3 (including Lemma 3.1, disjunctive normal forms and Lemma 3.2), plus axiomatization section references.",
+        "method": "Open-access arXiv v3 HTML text at Sections 1 and 3",
+        "title": "Propositional Logics of Dependence",
+        "trigger": "Very closely related classical-support normal form could dominate proposed width result"
+      },
+      {
+        "assessment": "Covers binary covering-array definition, known exact strength-two theorem and asymptotics, which are credited. Does not investigate logical team semantics or minimum inquisitive-disjunction width.",
+        "evidence": [
+          "Section 1, first definition of binary covering array and strength",
+          "Section 3.2.1, exact CAN(m,2) formula",
+          "Section 4.3, logarithmic growth"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i1p84/pdf",
+        "material_read": "Full 30-page PDF available; Section 1 definition, Table 1, Section 3.2.1 strength-two theorem and Section 4.3 bounds materially inspected.",
+        "method": "Open-access journal PDF, textual sections and rendered formula page 9",
+        "title": "A Survey of Binary Covering Arrays",
+        "trigger": "Mathematical coverage of all proposed covering-array count components"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96360d70-9871-4a67-9ac6-d105f19452ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cardinality restriction is intrinsic to team semantics (finite information states). The theorem identifies the exact number of truth-conditional alternatives needed to express one functional-dependence assertion under every team-size budget, giving a sharp transition from the trivial singleton case to a pairwise-covering optimum of order k, then to 2^(2^k) full dependence functions. It connects logical resource measurement with an independently developed combinatorial design optimization problem for every strength, providing usable bounds and constructions. No claim is made about arbitrary formula size or solving higher-strength covering-array tables.",
+    "status": "PASS"
+  }
+}
