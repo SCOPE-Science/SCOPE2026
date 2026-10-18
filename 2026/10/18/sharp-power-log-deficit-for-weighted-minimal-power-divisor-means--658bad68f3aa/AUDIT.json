@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For every fixed \\(r\\ge2\\), the exact local generating function gives \\(F_r=\\mathbf{1}*h_r\\) with \\(h_r\\ge0\\). The quotient of \\(H_r(s)\\) by \\(K((r+1)s)\\) has a Dirichlet series absolutely convergent to the left of \\(\\theta=1/(r+1)\\). The classical Selberg–Delange theorem gives the squarefree-weight mean, yielding \\(N_r(x)\\sim A_r x^\\theta/\\sqrt{\\log x}\\). Summation by parts, regular variation and the fractional-part identity for \\(\\zeta(s)\\) give a discrepancy coefficient \\(-\\zeta(\\theta)A_r\\), strictly positive. Exact rational checks independently verify local identities and finite convolutions for four power orders through integer index \\(3000\\), but are not used to assert an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper studies an uncomposed, digit-restricted function.",
+        "Classical Selberg–Delange proves the b(m) counting law but does not explicitly deliver the target discrepancy without the new convolution and fractional-part argument."
+      ],
+      "reasoning": "The earlier general-weight asymptotic has error \\(O_r(x/\\log x)\\) for \\(k=2\\), larger than \\(x^\\theta/\\sqrt{\\log x}\\); its inverse-logarithmic expansion does not furnish a dominating remainder. General Selberg–Delange theory supplies a proof ingredient, not an explicitly documented statement of the target signed constant.",
+      "searches": [
+        "secondary asymptotic zeta(1/(r+1)) x^(1/(r+1)) / sqrt(log x) minimal rth-power multiple divisor function 2^{-omega}",
+        "mean value d(M_r(n))/2^omega(n) fractional power correction Euler product x^{1/(r+1)} log^{-1/2} power-full divisor convolution",
+        "Bouderbala 2022 divisor/unitary-divisor normalized mean; Selberg–Delange and regular-variation transfer"
+      ]
+    },
+    "checked_sources": [
+      "M. Bouderbala (2026), arXiv:2602.16027, full article Sections 1–4 and PDF pages 1,4",
+      "M. Bouderbala (2022), the uncomposed divisor-quotient paper (full PDF at cm.episciences.org/10467/pdf)",
+      "Standard Selberg–Delange (squarefree weight) as cited by Bouderbala (2026)",
+      "OEIS A307869 (related but uncomposed arithmetic function)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(k=2\\), the primary theorem states \\(C_rx+O_r(x/\\log x)\\); the proposed finding has an explicit nonzero correction of order \\(x^{1/(r+1)}/\\sqrt{\\log x}\\).",
+        "Inverse-logarithmic expansions around \\(s=1\\) do not by themselves determine the separate sublinear scale arising from the convolution kernel."
+      ],
+      "reasoning": "A bound of size x/log x cannot imply either the new asymptotic scale or its sign. The new contribution is neither a special case of a stronger published bound nor a restatement of leading-term normalization; implicit coverage in general regular-variation theories remains a residual risk.",
+      "searches": [
+        "arXiv:2602.16027 Theorem 1.1 and Remark 3.2",
+        "minimal rth-power multiple M_r divisor weight k=2 sharp asymptotic constant x minus summatory equals positive -zeta(1/(r+1)) x^(1/(r+1))/sqrt(log x) Selberg Delange secondary term",
+        "Bouderbala generalized minimal power M_r(n) D_2(M_r(n)) exact secondary oscillation Tauberian zeta noninteger Dirichlet convolution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouderbala, arXiv:2602.16027, Theorem 1.1, full text: leading term and O(x/log x) error at k=2",
+        "Bouderbala, arXiv:2602.16027, Remark 3.2: inverse-log corrections at the leading pole, not a x^theta/sqrt(log x) secondary term"
+      ],
+      "reasoning": "The local factor at weight 2 is zeta(s)H_r(s); equivalently the new result is a weighted fractional-part law for a positive convolution h supported on exponent classes a=rj+1. This arithmetic form and its zeta(theta) coefficient are absent from the motivating theorem, notwithstanding equivalence of the definition of M_r.",
+      "searches": [
+        "generalized minimal power function M_r(n)= product p^ceil(a/r) divisor function d(M_r(n))/2^{omega(n)} summatory asymptotic power saving O(x^(1/(r+1)+epsilon)) Euler product prime powers",
+        "Bouderbala generalized minimal power M_r(n) D_2(M_r(n)) exact secondary oscillation Tauberian zeta noninteger Dirichlet convolution",
+        "arXiv:2602.16027, local factor (16), Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A307869 concerns the arithmetic mean of the uncomposed divisor/unitary-divisor ratio, not the minimal-power composition.",
+        "No numerical table specifying the new secondary Euler-product coefficient was found."
+      ],
+      "reasoning": "The new object is a family indexed by r; the specific secondary-order coefficient is not supplied by the inspected sequence entry or published finite table. Absence from indexes alone is not proof of novelty.",
+      "searches": [
+        "OEIS A307869 (uncomposed ratio d(n)/2^omega(n))",
+        "minimal rth-power multiple M_r divisor weight k=2 sharp asymptotic constant x minus summatory equals positive -zeta(1/(r+1)) x^(1/(r+1))/sqrt(log x) Selberg Delange secondary term"
+      ]
+    },
+    "rationale": "The February 2026 motivating paper treats this identical composition but obtains only the leading-order term with \\(O_r(x/\\log x)\\) error for the critical weight \\(k=2\\); the present formula determines a sharp, noninteger power-log deficit with explicit coefficient. A 2022 article treats the uncomposed weight, not the minimal-power composition. Searches for equivalent expressions, Euler-factor aliases, stronger generality and numerical tables found no covering statement. Implicit precedence via broad Tauberian results remains a residual risk.",
+    "residual_risks": [
+      "A more general Tauberian or regularly-varying divisor-sum theorem may implicitly encompass the exact secondary term without its particular arithmetic notation.",
+      "Full text of every classical general asymptotic theorem was not exhaustively reviewed; originality is a best-knowledge assessment, not a uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LEADING_ONLY; published asymptotic has O(x/log x) at weight 2 and inverse-log expansion about s=1, not the explicit power-log deficit from the separate singular scale",
+        "evidence": "Theorem 1.1 at k=2 and Remark 3.2; the displayed Euler factor reduces to zeta(s)H_r(s), from which the nontrivial convolution kernel is derived here.",
+        "identifier_or_url": "https://arxiv.org/abs/2602.16027",
+        "material_read": "Full article HTML, original source dating and MSC, Theorem 1.1, local factor derivation, Proposition 3.1 and Remark 3.2; PDF pages 1 and 4 independently viewed",
+        "method": "Primary arXiv full text plus PDF page inspection",
+        "title": "On the Mean Value of a Weighted Composite Arithmetic Function",
+        "trigger": "Identical weighted minimal-power composition and leading asymptotic"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT; studies the uncomposed \\(d(n)/2^{\\omega(n)}\\) and a digit-restricted sum, not \\(d(M_r(n))/2^{\\omega(n)}\\).",
+        "evidence": "The arithmetic function and summation domain in that article differ from the composed minimal-power function and its \\(x^\\theta/\\sqrt{\\log x}\\) deficit.",
+        "identifier_or_url": "https://cm.episciences.org/10467/pdf",
+        "material_read": "Accessible full paper and inspected PDF first and third pages; definitions and mean-value assertions",
+        "method": "Primary full-text PDF and page images",
+        "title": "On a sum of a multiplicative function linked to the divisor function over the set of integers B-multiple of 5",
+        "trigger": "Motivating paper refers to the unitary-divisor normalized weight at k=2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "658bad68-f3aa-4fe0-97f6-e12c4708222a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The \\(k=2\\) normalization is arithmetically natural: division by the number of unitary divisors. It makes the leading singularity a simple pole yet leaves a positive sublinear discrepancy. The theorem computes its nonzero sign, optimal power-log order and Euler-product constant for each fixed \\(r\\ge2\\), improving the published \\(O_r(x/\\log x)\\) remainder by a power of \\(x\\). This gives a motivated exact secondary law, not a numerical or purely cosmetic refinement.",
+    "status": "PASS"
+  }
+}
