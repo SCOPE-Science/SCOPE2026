@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unit ball is exactly a Euclidean disk clipped by a vertical strip. The proof exhausts circular arcs, vertical edges, and corners; smooth strata have forced Birkhoff directions and corners use their complete norming-functional segment. Exact quotient-space duality gives every reverse line distance, with global minimum \(1/\lambda\) attained at a corner against the vertical direction.
+## correctness
 
-## Originality
-PASS. Same-object archival papers compute Jordan--von Neumann and James-type constants, while the full approximate-symmetry source proves only existence of some finite-dimensional modified-Dragomir parameter. Searches over Banaś--Frączek, clipped-disk, reverse-distance, Birkhoff--James, modified-Dragomir, and exact-value formulations found no equivalent exact statement. The closest exact records are either the same object with other invariants or the same invariant on different spaces.
+PASS
 
-## Value
-PASS. The modified-Dragomir parameter is a direct quantitative measure of Birkhoff--James asymmetry. The Banaś--Frączek family is a classical exact-constant benchmark with a natural phase boundary at \(\lambda=\sqrt2\). Determining the entire first-regime profile and locating the nonsmooth corner extremizer gives a structural benchmark rather than an arbitrary parameter substitution.
+Let alpha=1/lambda and beta=sqrt(1-alpha²), so 0<beta≤alpha. Circular arcs, vertical open facets, and corners exhaust the clipped disk boundary. On circular smooth arcs the Birkhoff direction is a rotated radius; if s≤alpha the reverse distance is 1, otherwise it is alpha/[s(alpha s+beta c)]≥2alpha/(1+alpha)>alpha via the exact largest eigenvalue (1+alpha)/2. On facets x=(alpha,t), |t|<beta, quotient distance alpha/sqrt(t²+alpha²)≥alpha. At a corner (alpha,beta), every Birkhoff direction is (1,-r)/sqrt(1+r²), r≥alpha/beta, including r=∞, and distance is (beta+alpha r)/sqrt(1+r²), decreasing from 1 to alpha. The limiting y=(0,-1) attains alpha, giving eps=sqrt(1-alpha²). Endpoint lambda=sqrt2 and limit lambda↓1 are consistent; no second-regime assertion.
 
-## Closest literature and limitations
-Yang and Yang give a full-text same-family treatment of James-type and von Neumann--Jordan constants. Chmieliński--Khurana--Sain give the general modified-Dragomir symmetry framework. The theorem here is restricted to \(1<\lambda\le\sqrt2\); the second regime is not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: The inspected D-symmetry primary source proves only existence of some epsilon<1 in finite dimensions. Yang 2014 and Yang–Yang 2016 results compute Jordan–von Neumann and James-type constants, not this line-quotient invariant. No stronger Resultary entry covering all lambda in the first regime emerged from actual targeted semantic searches. A same-family exact formula may be hidden under another normalization in inaccessible literature.
+
+## value
+
+PASS
+
+PASS: The Banas–Fraczek clipped-disk family is a standard natural parameterized norm geometry; its first regime has a sharp geometric boundary beta≤alpha. The simple but non-implied exact asymmetry profile sqrt(1-lambda^-2) is useful for quantitative approximate orthogonality and exhibits a corner-controlled extremizer across a complete natural regime, not an arbitrary singleton/table recomputation. No claim is made for the second regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Put
-\[
-\alpha=\lambda^{-1},
-\qquad
-\beta=\sqrt{1-\alpha^2},
-\qquad
-\beta\le\alpha.
-\]
-The unit ball is the Euclidean disk clipped by \(|u|\le\alpha\).
+# Independent mathematical audit
 
-On a circular arc, the forced Birkhoff direction is perpendicular in the Euclidean sense. If its first coordinate does not hit the clip, the reverse distance is \(1\). Otherwise the exact distance is
-\[
-\frac{\alpha}{s(\alpha s+\beta c)}
-\ge
-\frac{2\alpha}{1+\alpha}
->
-\alpha,
-\]
-using the largest eigenvalue \((1+\alpha)/2\) of the quadratic form \(\alpha s^2+\beta sc\) on \(s^2+c^2=1\).
+## correctness
 
-On a vertical edge \(x=(\alpha,t)\), the forced unit Birkhoff direction is vertical and
-\[
-d(x,y)=\frac{\alpha}{\sqrt{\alpha^2+t^2}}\ge\alpha.
-\]
+PASS
 
-At the corner \(x=(\alpha,\beta)\), every Birkhoff direction is
-\[
-y_r=\frac{(1,-r)}{\sqrt{1+r^2}},
-\qquad
-r\ge\alpha/\beta,
-\]
-and the annihilator \((\beta,-\alpha)\) gives
-\[
-d(x,y_r)=\frac{\beta+\alpha r}{\sqrt{1+r^2}}.
-\]
-This decreases to \(\alpha\), attained by the endpoint direction \((0,-1)\). Hence the sharp reverse distance is \(\alpha=1/\lambda\), and the least modified-Dragomir parameter is \(\sqrt{1-\lambda^{-2}}\).
+Let alpha=1/lambda and beta=sqrt(1-alpha²), so 0<beta≤alpha. Circular arcs, vertical open facets, and corners exhaust the clipped disk boundary. On circular smooth arcs the Birkhoff direction is a rotated radius; if s≤alpha the reverse distance is 1, otherwise it is alpha/[s(alpha s+beta c)]≥2alpha/(1+alpha)>alpha via the exact largest eigenvalue (1+alpha)/2. On facets x=(alpha,t), |t|<beta, quotient distance alpha/sqrt(t²+alpha²)≥alpha. At a corner (alpha,beta), every Birkhoff direction is (1,-r)/sqrt(1+r²), r≥alpha/beta, including r=∞, and distance is (beta+alpha r)/sqrt(1+r²), decreasing from 1 to alpha. The limiting y=(0,-1) attains alpha, giving eps=sqrt(1-alpha²). Endpoint lambda=sqrt2 and limit lambda↓1 are consistent; no second-regime assertion.
 
-All steps are analytic; no finite enumeration or numerical optimization is used as proof.
+## originality
+
+PASS
+
+PASS best of knowledge: The inspected D-symmetry primary source proves only existence of some epsilon<1 in finite dimensions. Yang 2014 and Yang–Yang 2016 results compute Jordan–von Neumann and James-type constants, not this line-quotient invariant. No stronger Resultary entry covering all lambda in the first regime emerged from actual targeted semantic searches. A same-family exact formula may be hidden under another normalization in inaccessible literature.
+
+## value
+
+PASS
+
+PASS: The Banas–Fraczek clipped-disk family is a standard natural parameterized norm geometry; its first regime has a sharp geometric boundary beta≤alpha. The simple but non-implied exact asymmetry profile sqrt(1-lambda^-2) is useful for quantitative approximate orthogonality and exhibits a corner-controlled extremizer across a complete natural regime, not an arbitrary singleton/table recomputation. No claim is made for the second regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
