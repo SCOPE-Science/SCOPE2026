@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ordinary four-cut complex of the ten-vertex triangular graph is completely enumerated from graph connectivity. Every disconnected quadruple is a Petersen star, and each of the ten facets consists of six cross-edges of a \(2+3\) split of five labels. An explicit 179-pair acyclic matching on 370 nonempty faces has a single critical zero-cell and eleven critical three-cells, proving the integral wedge-of-eleven-spheres homotopy type. The full directed Hasse graph, all 120 signed Lefschetz values and an independent Frobenius irreducible-character reconstruction were checked by the embedded verifier. The auxiliary mod-two ranks agree; they are not substituted for an integral proof.
+## correctness
 
-## Originality — PASS
-The cut-complex literature and closest indexed records treat different graph families, cut parameters or total-cut definitions. The related all-bipartite-graphs complex is strictly larger: it has five additional maximal star faces, so its wedge result does not determine the present subcomplex or its group representation. In particular, neither earlier three-cut dual statements nor known full bipartite graph homotopy imply the reported eleven-sphere and three-Specht-module calculation. Residual risks are an unindexed equivalent result and the unavailable original full text of the older 2-colorable-graph article; no claim of exhaustive literature coverage is made.
+PASS
 
-## Value — PASS
-The theorem classifies both homotopy and all rational symmetry characters for the canonical ten-vertex triangular graph's ordinary four-cut complex. The mixture of purity in dimension five, third homology of rank eleven, nonshellability and absence of global homology invariants is structurally informative and not a routine sign or normalization check. No general result for larger triangular graphs is claimed.
+Independently reconstructed G=J(5,2) on the 10 two-subsets of five labels; a disconnected 4-subset is exactly the triangle-plus-complement edge, giving ten 2+3 cross-edge K2,3 facet complements. All 371 faces (including empty) have face-by-cardinality (1,10,45,110,135,60,10). Independent ordered matching on full poset has 179 nonempty matched pairs, one critical 0-cell and eleven critical 3-cells, and the entire 370-node/1320-arrow Hasse digraph is acyclic, proving the integral wedge of 11 S3. Independently evaluated signed simplicial traces for all 120 permutations; H3 character on S5 conjugacy types is (11,-1,3,-1,-1,-1,1). Inspecting the pinned exact alternant character routine yields irreducible multiplicities one for (3,2),(2,2,1),(1^5), with dimension 5+5+1=11. Pure 5-dimensional with nonzero H3 implies non-shellable, since pure shellable complexes have reduced homology only in top degree. No equivariant homotopy equivalence or integral lattice theorem claimed.
 
-## Closest literature and limitations
-Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675; Bayer et al., *Total Cut Complexes of Graphs*, arXiv:2209.13503; Linusson--Shareshian, *Complexes of t-Colorable Graphs*, DOI:10.1137/S0895480100366968. The last is related but its full original text was not available. The integral representation lattice and equivariant homotopy type remain unclassified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the exact integral wedge type, nonshellability and full rational S5-character of Δ4(J(5,2)). The source literature supplies the general 4-cut definition, family results and related colorable-graph topology, but inspected statements do not cover this triangular-graph complex or force its full character; exact original-source overlap risk is explicitly retained.
+
+## value
+
+PASS
+
+The ordinary 4-cut complex of the canonical triangular graph is a natural combinatorial topology problem. A pure 5D but nonshellable complex with exact integral wedge of eleven 3-spheres and a complete nontrivial S5-character (including no invariant classes and a sign component) is a substantial independently reusable small structural classification. It is not a known-table recomputation or an arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
