@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct differentiation gives \(\dot R=2(z-\beta)R\). Compact support off the axis makes logarithmic-radial generator tests legitimate, yielding \(\mathbb E[z\mid R]=\beta\). Height-coordinate tests give the weighted radial-load law. The two pointwise residual identities then produce the exact activity and variance decompositions. Zero height variance forces the stated circular orbit under the explicit nondegeneracy assumptions.
+## correctness
 
-Risk: the theorem does not include axis-supported measures or the symmetry-breaking Langford term.
+PASS
 
-## Originality
-PASS. The complete 1984 exact-model source was inspected through the equations and torus-to-chaos numerical sequence, with targeted full-document searches for the main statistical aliases. No conditional, average, moment, or statistical-variance theorem was found. Relevant torus-bifurcation/control and perturbation literature was compared at statement level, and direct semantic searches returned no same-object coverage.
+From the exact vector field, Rdot=2R(z−beta), so stationary antiderivative tests on compact support with R bounded away from zero yield E[z|R]=beta; z-test primitives yield E[(1+rho*z)R|z]=G(z). Their orthogonal decompositions give Var(z)=E[(Rdot/R)^2]/4 and Var((1+rho*z)R)=Var(G(z))+E[zdot^2]. Under 1+rho*beta !=0 and G(beta)/(1+rho*beta)>0 the zero-variance support is exactly the rotating circle. Checked exact parameter specialization R*=3557/3525. A polynomial/rational checker does not prove stationary conditional quantifiers, which follow analytically.
 
-Risk: the logarithmic-radial identity is short enough that an equivalent observation could remain in older unindexed literature.
+## originality
 
-## Value
-PASS. The classical axisymmetric Langford torus family acquires an exact invariant statistical calibration: all off-axis recurrent states have mean height \(\beta\), and radial breathing has exactly measurable height variance. This supplies a natural parameter-exact diagnostic for numerical tori and distinguishes the circular orbit from every noncircular recurrent state.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS on the concrete model-wide conditional identities and variance/equality classification, not on the long-known torus existence or its bifurcations. Older papers are about normal-form torus and chaos rather than the claimed invariant-measure regression law; comparable modern stationarity calibrations involve other vector fields. Search-limited priority remains acknowledged.
+
+## value
+
+PASS
+
+Two nontrivial conditional constraints hold for every compact off-axis stationary state and force an exact mean-height calibration plus variance/radial-speed identity; the natural invariant is motivated by Langford torus radial breathing and distinguishes all noncircular recurrence from its circular orbit. Not merely renaming a known torus or computing one numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

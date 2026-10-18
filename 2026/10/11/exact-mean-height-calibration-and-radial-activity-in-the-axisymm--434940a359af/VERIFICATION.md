@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational arithmetic.
 
-It verifies the radial identity
-\[
-\dot R=2(z-\beta)R
-\]
-from the first two Langford equations.
+# Independent mathematical audit
 
-It checks the abstract orthogonal-regression consequences of
-\[
-\mathbb E[z-\beta\mid R]=0
-\]
-and
-\[
-\mathbb E[\dot z\mid z]=0.
-\]
+## correctness
 
-It verifies
-\[
-\operatorname{Var}(z)
-=
-\frac14
-\mathbb E
-\left[
-\left(
-\frac{\dot R}{R}
-\right)^2
-\right]
-\]
-and
-\[
-\operatorname{Var}((1+\rho z)R)
-=
-\operatorname{Var}(G(z))
-+
-\mathbb E[\dot z^2].
-\]
+PASS
 
-At the standard axisymmetric parameters
-\[
-(\alpha,\beta,\lambda,\omega,\rho)
-=
-\left(
-1,\frac7{10},\frac35,\frac72,\frac14
-\right),
-\]
-it verifies exactly
-\[
-R_*=\frac{3557}{3525}.
-\]
+From the exact vector field, Rdot=2R(z−beta), so stationary antiderivative tests on compact support with R bounded away from zero yield E[z|R]=beta; z-test primitives yield E[(1+rho*z)R|z]=G(z). Their orthogonal decompositions give Var(z)=E[(Rdot/R)^2]/4 and Var((1+rho*z)R)=Var(G(z))+E[zdot^2]. Under 1+rho*beta !=0 and G(beta)/(1+rho*beta)>0 the zero-variance support is exactly the rotating circle. Checked exact parameter specialization R*=3557/3525. A polynomial/rational checker does not prove stationary conditional quantifiers, which follow analytically.
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+## originality
 
-The conditional-expectation quantifiers, uniform angular marginal, equality classification, and two-sided height conclusion are analytic proofs in `RESULT.md`; no finite trajectory sampling is used.
+PASS
+
+PASS on the concrete model-wide conditional identities and variance/equality classification, not on the long-known torus existence or its bifurcations. Older papers are about normal-form torus and chaos rather than the claimed invariant-measure regression law; comparable modern stationarity calibrations involve other vector fields. Search-limited priority remains acknowledged.
+
+## value
+
+PASS
+
+Two nontrivial conditional constraints hold for every compact off-axis stationary state and force an exact mean-height calibration plus variance/radial-speed identity; the natural invariant is motivated by Langford torus radial breathing and distinguishes all noncircular recurrence from its circular orbit. Not merely renaming a known torus or computing one numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
