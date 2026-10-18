@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:00:05.901555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From T=X+Y and Skellam H=X−Y, E|H|=2λ(a+b) with a=e^(−2λ)I0(2λ), b=e^(−2λ)I1(2λ), c=a+b. Poisson size bias yields E[T|H|]=4λ²c+2λa. Hence means λ(1∓c), variances λ(1∓a−λc²), and exact D_L−D_U=2(b−λc³)/(1−c²). The key strict Bessel inequality is proved for every λ>0: c=E exp(−4λS), S~Beta(1/2,3/2); with G~Gamma(1/2,1),J~Gamma(3/2,1), Jensen conditional on S=G/(G+J) gives c<(1+2λ)^(-1/2). Bessel ODE identities give c′=−b/λ and b′=2c−(4+1/λ)b. F=b−λc³ positive near zero cannot have a first zero because there F′=c[2−(2+4λ)c²+3λc^4]>0 by the strict Laplace bound. Independently checked numerical moment formulas and F at λ=.001,.1,1,10,100,1000 using high-precision special functions; numerical samples are corroboration, not the all-λ proof. Correct variance reversal VarU−VarL=2λa. Leading endpoint rates follow standard Bessel expansions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary results concern moments and limiting behavior, and general marginal underdispersion; neither compares extrema at every λ.",
+          "Known Fano<1 bounds for both ranks cannot imply D_min>D_max."
+        ],
+        "reasoning": "Published broader treatments include these two statistics but do not logically dominate the new strict ordering; any new Bessel inequality hidden in earlier literature is a residual priority risk.",
+        "searches": [
+          "Lederman and Schein arXiv:2507.09032 Section 3 Proposition 3.1",
+          "Badiella del Castillo Puig Statistics & Probability Letters 201 (2023) underdispersion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob e28dbfed2c9a624c5b33d398647a8ef12f62e1d6",
+        "arXiv:2507.09032 §3 (Poisson order-statistic formulae)",
+        "DOI:10.1016/j.spl.2023.109900 (ULC underdispersion)",
+        "1989 Steutel–Thiemann institutional bibliographic record",
+        "Resultary semantic search: iid Poisson minimum maximum Fano dispersion Skellam inequality",
+        "NIST DLMF 10.29 and 10.40 Bessel recurrence and asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier results show asymptotic symmetry of extrema and their individual underdispersion, both compatible with crossings at intermediate intensity.",
+          "New first-zero argument excludes those crossings for all positive intensity."
+        ],
+        "reasoning": "Existing marginal and limiting statements do not imply strict separation uniformly over λ>0.",
+        "searches": [
+          "arXiv:2507.09032 Proposition 3.1 Corollary 3.1 and Figure 4",
+          "DOI:10.1016/j.spl.2023.109900 main underdispersion theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lederman–Schein supply exact modified-Bessel moment expressions and compare large-intensity behavior; this is not a sign theorem for the two finite-λ Fano ratios.",
+          "Ultra-log-concavity establishes underdispersion of each order statistic, not an order between them."
+        ],
+        "reasoning": "The exact moment formulas reduce the claim to a specific strict cubic Bessel inequality, for which the new conditional Jensen/zero-crossing proof supplies an all-positive-λ sign. No same inequality was found in inspected statements.",
+        "searches": [
+          "Resultary: minimum maximum independent Poisson equal lambda variance to mean ratio dispersion Skellam Bessel strict comparison",
+          "arXiv:2507.09032 Poisson order statistics moments and dispersion",
+          "DOI:10.1016/j.spl.2023.109900 ultra log concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact means and variances appear in the inspected 2025 primary paper; its displayed curves alone are not an all-parameter proof.",
+          "No identified exact tabulation gives a proof of the strict cubic Bessel inequality."
+        ],
+        "reasoning": "Tables and plotted dispersion indices are not a substitute for a quantified all-λ strict inequality. Original 1989 text was not inspected and remains a named risk.",
+        "searches": [
+          "Resultary strict order Fano two Poisson extremes",
+          "Lederman Schein Figure 4 and moment identities",
+          "Steutel Thiemann 1989 Poisson order statistic report"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The exact moment formulas reduce the claim to a specific strict cubic Bessel inequality, for which the new conditional Jensen/zero-crossing proof supplies an all-positive-λ sign. No same inequality was found in inspected statements.",
+      "residual_risks": [
+        "Full 1989 Steutel–Thiemann report unavailable; a prior equivalent cubic-Bessel inequality cannot be ruled out.",
+        "Does not cover different Poisson intensities or samples of size >2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MOMENTS_NOT_SIGN_THEOREM",
+          "evidence": [
+            "Published mean/variance/limiting observations do not state an all-λ strict ratio inequality."
+          ],
+          "identifier_or_url": "arXiv:2507.09032",
+          "material_read": "Original PDF Section 3 and Proposition 3.1, Corollary 3.1, associated Figure 4 and Bessel moment statements",
+          "method": "Fetched primary PDF, inspected pages 7–9 and relevant displayed results",
+          "title": "Modeling Latent Underdispersion with Discrete Order Statistics",
+          "trigger": "Same two-Poisson extrema and dispersion ratios"
+        },
+        {
+          "assessment": "INDIVIDUAL_UNDERDISPERSION",
+          "evidence": [
+            "Individual ULC of each order statistic does not order two ratios."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.spl.2023.109900",
+          "material_read": "Published theorem/corollary descriptions of marginal underdispersion; no full-paper noncoverage claim",
+          "method": "Inspected reported theorem scope and open-access source identification",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Possible general dominating rank dispersion theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "Moment formulas are already credited; possible equivalent Bessel inequality in unavailable original text cannot be ruled out."
+          ],
+          "identifier_or_url": "https://research.tue.nl/en/publications/the-gamma-process-and-the-poisson-distribution-2",
+          "material_read": "Bibliographic record and references through accessible 2025 primary text; full report inaccessible",
+          "method": "Indexed institutional record and later primary reference",
+          "title": "The gamma process and the Poisson distribution",
+          "trigger": "Original 1989 moments cited in later Poisson literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The min and max Poisson order statistics are canonical discrete dispersion benchmarks. Strictly ordering their Fano factors across the entire intensity range, while their variances run in the opposite direction, resolves a meaningful contrast not determined by individual underdispersion or large-rate asymptotic equivalence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob e28dbfed2c9a624c5b33d398647a8ef12f62e1d6",
+    "arXiv:2507.09032 §3 (Poisson order-statistic formulae)",
+    "DOI:10.1016/j.spl.2023.109900 (ULC underdispersion)",
+    "1989 Steutel–Thiemann institutional bibliographic record",
+    "Resultary semantic search: iid Poisson minimum maximum Fano dispersion Skellam inequality",
+    "NIST DLMF 10.29 and 10.40 Bessel recurrence and asymptotics"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Full 1989 Steutel–Thiemann report unavailable; a prior equivalent cubic-Bessel inequality cannot be ruled out.",
+    "Does not cover different Poisson intensities or samples of size >2."
+  ]
+}
