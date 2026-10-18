@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact quotient and product arguments force the determinant obstruction. All roots of order 11 in the three remaining prime characteristics lie in the prime field, and both reciprocal-moment identities are valid since 22<p. The standalone exact certificate checks every candidate tuple (zeta,U,c) and the explicit F23 witness; no extension-degree sample is mistaken for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.18584v1 Theorem 1.1 establishes finiteness of characteristics at fixed index, not the exact index-11 extension-field spectrum.",
+        "arXiv:1210.1252v1 provides prime-field bounds and conditional subfield descent, not this complete spectrum in its accessible abstract."
+      ],
+      "reasoning": "The known index-eleven Wendt factorization leaves 67, 89 and 199 possible in extension fields. The present two-moment elimination removes all three. No stronger covering classification was identified.",
+      "searches": [
+        "fixed index g gcd(s,q-1) permutation binomial Wendt determinant 2025 2026 arxiv",
+        "permutation binomials index 11 over finite extension characteristic classification",
+        "Only prime characteristic 23 possible for fixed index 11 permutation binomials over all finite fields, excluding 67,89,199 via inverse power sums"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.28595v1",
+      "arxiv:2609.20354v1",
+      "arxiv:2610.18584v1",
+      "arxiv:1210.1252v1",
+      "DOI:10.1017/S0004972713000208",
+      "Published scientific summary: Collision rigidity and exact enumeration for coprime-index permutation binomials (2026-09-18)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ni et al. 2026-09-23 Theorem 1.1 treats X^r(X^{q-1}+a) over F_{q^e}.",
+        "Tang–Fan 2026-10-13 Corollary 5.2 treats F_p alone, while Theorem 1.1 gives a necessary Wendt-based candidate set over extensions.",
+        "The closest published-result semantic hit treats coprime-index exponents d(q-1), not index eleven."
+      ],
+      "reasoning": "Since gcd(q-1,q^e-1)=q-1, neither Ni et al. nor the coprime-index extension addresses g=11. Tang–Fan settles p=23 for prime fields only. The new conclusion quantifies over every extension degree.",
+      "searches": [
+        "arxiv:2609.28595v1 Theorem 1.1 complete permutation binomial classification",
+        "arxiv:2610.18584v1 Corollary 5.2 prime-field case g=11",
+        "published-result semantic search: fixed-gcd-index 11 permutation binomials prime characteristic all extensions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28595v1 Theorem 1.1 restricts the exponent difference to a base-field unit group order.",
+        "arXiv:2610.18584v1 Corollary 5.2 proves g=11 only over prime fields."
+      ],
+      "reasoning": "A general extension-field characteristic-spectrum statement cannot follow from a prime-field result. The structural fixed exponent difference q-1 gives g=q-1, which cannot equal 11 for prime-power q.",
+      "searches": [
+        "gcd exponent difference 11 permutation binomials over arbitrary extension fields F_{p^m} result Wendt 11 classification",
+        "\"gcd(s,q-1)=11\" characteristic 23 extensions",
+        "\"index 11\" permutation binomials finite fields"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Wendt order-eleven resultant factors into powers of 23,67,89,199; it does not imply the sufficiency of any candidate.",
+        "The exhaustive prime-field root and second-moment residue table is derived independently by verify.py."
+      ],
+      "reasoning": "A resultant-factorization table cannot rule out any candidate without an additional nonvanishing obstruction. No matching joint moment certificate was located.",
+      "searches": [
+        "\"W_11\" permutation binomials 67 89 199",
+        "\"P_11\" \"P_22\" \"67\" \"89\" \"199\" permutation binomials",
+        "\"permutation binomial\" \"11\" \"199\" \"89\" \"67\""
+      ]
+    },
+    "rationale": "The exact all-extension characteristic spectrum excludes 67, 89 and 199, which the general Wendt obstruction leaves possible. The most directly relevant published paper determines g=11 only in prime fields; older structured exponent classifications have inapplicable gcd index. Extensive primary and published-result comparisons found no covering theorem, subject to unindexed implicit-priority risk.",
+    "residual_risks": [
+      "The relevant older 2012 paper was not materially read in its entirety; its cited abstract describes prime-field bounds and conditional subfield reduction, not the present classification.",
+      "An implicit consequence of another finite-field binomial theorem or an unindexed earlier certificate may exist.",
+      "The 2026-10-13 fixed-index paper was compared for coverage; the September 2026 characterization is an earlier, substantively different motivating source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: structured exponent-difference index q-1 cannot equal 11 for prime-power q",
+        "evidence": "Theorem 1.1 imposes r(q^h-1) congruent to q-1 modulo q^e-1.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.28595",
+        "material_read": "Introduction, definitions, Theorem 1.1 and surrounding quotient condition",
+        "method": "ArXiv primary full-text HTML",
+        "title": "Permutation binomials of the form X^r(X^{q-1}+a) over finite fields",
+        "trigger": "Recent general classification outside the fixed-index family"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: necessary Wendt candidates, and only prime-field index-eleven classification",
+        "evidence": "Corollary 5.2 explicitly assumes prime p and coefficients in F_p. General theorem determines g<=10, not unrestricted g=11.",
+        "identifier_or_url": "https://arxiv.org/html/2610.18584v1",
+        "material_read": "Sections 1,2,3,5 and 6; full relevant Lemmas 2.1,2.5,3.2,3.3, Corollary 5.2 and Appendix A",
+        "method": "ArXiv primary full-text HTML",
+        "title": "Wendt's determinant and finiteness of prime characteristics for permutation binomials",
+        "trigger": "Closest later fixed-index characteristic paper"
+      },
+      {
+        "assessment": "NO_IMPLICATION: coprime index d(q-1) stays within gcd index q-1",
+        "evidence": "gcd(d,(q^e-1)/(q-1))=1 leaves gcd exponent difference q-1.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.20354",
+        "material_read": "Abstract and precise exponent-index statement",
+        "method": "ArXiv abstract and accessible primary bibliographic material",
+        "title": "A complete classification of permutation binomials of the form X^r(X^{q-1}+a) over finite fields",
+        "trigger": "Potential stronger complete structured-family classification"
+      },
+      {
+        "assessment": "NOT SHOWN COVERING; inaccessible details remain a priority risk",
+        "evidence": "Prime-field inequality p-1 <= (d-1)d and conditional descent are not unrestricted characteristic classifications.",
+        "identifier_or_url": "https://arxiv.org/abs/1210.1252",
+        "material_read": "Abstract, journal bibliographic material and author-posted excerpt; full 2012 paper not read",
+        "method": "Open abstract and lawful excerpt",
+        "title": "On Permutation Binomials over Finite Fields",
+        "trigger": "Prior bound and subfield descent methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4847d03-e230-4ba1-9a6c-ae38852277f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the natural next fixed-index spectrum after g<=10 in the 2026 theory and resolves the prime-field versus extension-field obstruction decisively. The resultant candidates 67, 89 and 199 require a novel exact second-moment elimination, not a mere numerical lookup or routine parameter specialization.",
+    "status": "PASS"
+  }
+}
