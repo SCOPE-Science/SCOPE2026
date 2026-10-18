@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The calculation uses the established reduced Świątkowski model for the unordered configuration space, enumerates all weight-four basis states, and computes every differential rank by exact binary elimination. Direct computation with two distinct choices of reference half-edges returns identical ranks \((20474,96509,136963,53759)\). The independent Gal Euler-characteristic calculation gives \(-765\), matching the alternating sum of the claimed Betti vector. The finite calculation does not substitute for an infinite-generalization proof; no all-graph theorem is asserted.
+## correctness
 
-## Originality — PASS
-An (arXiv:2610.04305v1), particularly Theorem 3.10, Corollary 3.18, and Question 8.1, determines the balanced top coefficient and degree-three torsion but explicitly leaves lower Betti numbers for at least four particles unresolved. Maciążek–Sawicki (arXiv:1806.02846), Table 1 and Sections 5.5–5.6, studies different graph families and does not contain the computed \(K_{5,5}\) vector. An–Drummond-Cole–Knudsen (arXiv:2005.08286) gives asymptotic rather than exact four-particle Betti numbers. Available indexed comparisons did not identify an equivalent complete mod-two calculation. A separately unindexed exact computation remains possible.
+PASS
 
-## Value — PASS
-The graph \(K_{5,5}\) is the first balanced member of the explicitly motivated four-particle complete-bipartite family in An's question. The exact middle dimensions \(528\) and \(1278\), unlike the top class, are not fixed by the cited torsion and top-homology results. They give a reusable nontrivial benchmark for attempts to resolve the general integral and FI-module problems. This is a natural exact finite invariant rather than a claim to solve the whole family.
+The weight-four reduced Świątkowski basis comprises c_q=binom(10,q)4^q binom(28-q,4-q), with dimensions (20475,117000,234000,192000,53760). Inspected verify.py implements all basis monomials and each boundary column over F2 using exact XOR bitset elimination, with claimed boundary ranks (20474,96509,136963,53759) under two reference choices. Independent union-find over the 20475 edge-multisets and 117000 q=1 incidences gives rank d1=20474; independent binomial Gal coefficient gives chi=-765 and claimed Betti formula reproduces it. An Cor 3.18 establishes top F2 class dimension one. The large middle-boundary eliminations were reviewed at code level but NOT executed afresh; this is a computational verification limit, not an imaginary independent rerun.
 
-## Scope of the review
-The result concerns coefficient-field dimensions only. Originality is conditional on accessible, relevant published work and indexed records; absence from a search is not itself a proof of novelty. The calculation has not undergone external independent review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exact middle-degree mod-two Betti dimensions for four points on K5,5 are not a stated or immediate consequence of An’s top homology and degree-three torsion calculation. The complete reduced-chain computation supplies the missing numerical data; the nearby K5,4 published result concerns a different graph. This remains a best-of-knowledge judgment without exhaustive archival certainty.
+
+## value
+
+PASS
+
+A natural complete mod-two homology table for a canonical balanced complete-bipartite graph at the first difficult four-particle threshold is a useful benchmark for the lower-Betti problem explicitly posed in the primary paper. The result does not claim general polynomial formulas or integral splitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
