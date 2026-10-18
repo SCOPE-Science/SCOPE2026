@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For n=3^a m, 3 does not divide m, the multiplicative numerator h(n)=sum_{d|n} d phi(d) has exact valuation K(m)=sum_{p^e||m,p=2 mod 3}v_3(2e+1), by lifting the exponent. Thus 3 divides the reduced denominator iff a>K(m). Summing a>K(m) gives the exact nonnegative Dirichlet series; p-local first-order cancellation establishes F(s)=zeta(s)^alpha(s)L(s,chi)^beta(s)G(s) with alpha(1)=2/3, beta(1)=1/3, and G analytic/nonzero at one. In a slit zero-free neighborhood the variable exponent changes the leading singularity only by O((s-1)log(1/|s-1|)); standard Perron/Hankel Selberg--Delange extraction gives the displayed leading term. All Euler factors are positive at one and 1+O(p^-2), so C3>0. Actual standalone package verification independently compared 1000 exact rational sums, enumerated 500000 local predicates and checked a truncated constant; those finite checks are supplementary, not the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Koninck--Letendre Theorem 1 bounds the number of entirely integral H(n) by x^(2/3+o(1)); this is a subset condition with different quantification.",
+        "Classical Selberg--Delange theory gives coefficient-transfer machinery for zeta-power Dirichlet series but not this specialized local Euler product or density constant.",
+        "Published finding fe7d873016df concerns the k-variable gcd-map density, not the reciprocal-gcd-sum reduced denominator."
+      ],
+      "reasoning": "A bound for full integrality does not bound, classify, or asymptotically count cases where only the denominator contains 3; the new property can hold for nonintegral fractions and is neither covered by nor a corollary of the source bound. General analytic transfer machinery must first be paired with a new explicit valuation/Euler product calculation.",
+      "searches": [
+        "p-adic valuation of H(n) = sum 1/gcd(n,k), distribution 3-adic denominator, Selberg Delange Euler product",
+        "asymptotic local denominator divisibility at prime 3 reciprocal gcd sum 2/3 zeta exponent",
+        "reciprocal gcd sum 3-adic exact valuation and local denominator count 2026",
+        "\"The Integer Values\" \"gcd\" \"denominator\" 3 prime valuations",
+        "Selberg Delange theorem variable exponent analytic alpha(s) zeta(s)^{alpha(s)} near one asymptotic",
+        "arXiv:2010.12929"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10572v1 full primary HTML",
+      "OEIS A070999 full entry",
+      "OEIS A071000 full entry",
+      "arXiv:2010.12929 abstract",
+      "Published research-record searches for the original formula, aliases, local valuation, and logarithmic asymptotic",
+      "Related mathematical claims in accessible published literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper §1 and Theorem 1 address S(x)=#{n<=x: H(n) integral}, proving S(x) << x^(2/3+epsilon), and the remaining sections prove that bound.",
+        "The theorem here counts n where v_3(H(n))<0, with order x(log x)^(-1/3), which are necessarily nonintegral.",
+        "Generalized Dirichlet-series coefficient methods do not themselves furnish the specific arithmetic first-order Euler factors and their 3-adic exponential weight."
+      ],
+      "reasoning": "The counted sets are disjoint for positive integers with denominators divisible by 3 versus globally integral H(n); thus the upper bound for one cannot dominate the asymptotic for the other. A universal analytic theorem becomes applicable only after proving the exact n=3^a m criterion, factorization, and cancellation of p^(-s) coefficients.",
+      "searches": [
+        "The Integer Values of sum 1/gcd(n,i) H(n) h(n) De Koninck Letendre exact divisibility prime factors local 3-adic valuation 2026",
+        "The Integer Values of sum_{i=1}^n 1/gcd(n,i) De Koninck Letendre denominator modulo 3 Dirichlet series",
+        "reciprocal gcd sum 3-adic exact valuation and local denominator count 2026",
+        "\"The Integer Values of\" reciprocal gcd \"3\" divisor prime 2026",
+        "arXiv:2610.10572v1",
+        "arXiv:2010.12929"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.10572v1, §1, defines the identical function H=h/n and studies only entire integrality.",
+        "OEIS A070999 is the set of integers whose reduced denominator differs from n; OEIS A071000 is its complement. Neither condition distinguishes divisibility by the fixed prime 3.",
+        "The exact local identity nu_3(H(3^a m))=K(m)-a isolates a different arithmetic statistic from either complete-denominator indicator."
+      ],
+      "reasoning": "The theorem has equivalent descriptions as the zero-density law for the ternary denominator event and the count of n=3^a m with a>K(m), where K is the sum of ternary valuations of 2e+1 at primes congruent to 2 modulo 3. No inspected primary statement or database entry asserts this count or implies its explicit log^(-1/3) asymptotic.",
+      "searches": [
+        "The Integer Values of sum 1/gcd(n,i) H(n) h(n) De Koninck Letendre exact divisibility prime factors local 3-adic valuation 2026",
+        "asymptotic count numbers n where reduced denominator of sum_{k=1}^n reciprocal gcd(n,k) is divisible by 3; logarithmic exponent 1/3",
+        "3-adic denominator divisibility of the reciprocal gcd sum H(n)=h(n)/n, asymptotic x/(log x)^(1/3) with Euler product constant",
+        "\"sum\" \"1/gcd\" denominator divisible by 3 asymptotic",
+        "\"gcd\" reciprocal sum denominator p-adic divisibility density (log x)",
+        "OEIS:A070999",
+        "OEIS:A071000"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A070999 lists n with denominator not equal to n; its sample and program do not separate prime 3.",
+        "OEIS A071000 lists n with denominator equal to n and includes counts for decimal cutoffs, but no prime-3 denominator distribution.",
+        "Finite counts through 500000 are only cross-checks, not an existing claimed asymptotic table."
+      ],
+      "reasoning": "The databases contain different binary denominator classifications. They give neither the characteristic function 1_{3|den(H(n))} as such nor the positive Euler constant and one-third logarithmic exponent.",
+      "searches": [
+        "OEIS:A070999",
+        "OEIS:A071000",
+        "asymptotic count numbers n where reduced denominator of sum_{k=1}^n reciprocal gcd(n,k) is divisible by 3; logarithmic exponent 1/3",
+        "3-adic denominator divisibility of the reciprocal gcd sum H(n)=h(n)/n, asymptotic x/(log x)^(1/3) with Euler product constant"
+      ]
+    },
+    "rationale": "The motivating arXiv paper establishes global integrality bounds for H=h/n but does not characterize n for which a fixed prime remains in the reduced denominator. The inspected OEIS complement classes similarly do not give the ternary asymptotic. The exact 3-adic criterion, variable exponent a(s)=(1+3^(-s))/2, and the explicit convergent Euler constant were not identified in targeted primary-literature and published-record statement-level searches. General Selberg--Delange is only a method; an unindexed or unpublished equivalent result remains a real residual risk.",
+    "residual_risks": [
+      "An unindexed prior calculation of the same local denominator distribution cannot be excluded.",
+      "The general coefficient-extraction theorem is standard; only its new specialisation and explicit arithmetic Euler factors are claimed original.",
+      "Other databases beyond the inspected complementary denominator entries might contain a matching prime-specific formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER the ternary local-denominator count. Establishes h/n and a bound for full integrality, not the present disjoint denominator event.",
+        "evidence": [
+          "arXiv:2610.10572v1 §1 formulas for H and h, Theorem 1; §§2–6 proof of integral-value upper bound; §7 heuristic on entire integral values."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+        "material_read": "Full publicly accessible HTML main text, §§1–7 and references, including all theorems and complete proof sections",
+        "method": "Read primary HTML and compared the functions, quantifiers, target sets, asymptotic scales, and prime-specific conditions",
+        "title": "The Integer Values of the Reciprocal-GCD Sum",
+        "trigger": "Exact same arithmetic function and most directly relevant recent primary publication"
+      },
+      {
+        "assessment": "NOT_COVERING; tests den(H(n)) != n, not fixed ternary divisibility.",
+        "evidence": [
+          "OEIS A070999 definition and example H(6)=7/2."
+        ],
+        "identifier_or_url": "https://oeis.org/A070999",
+        "material_read": "Sequence definition, examples, comments, links and programs",
+        "method": "Read full sequence entry and compared predicates",
+        "title": "OEIS A070999",
+        "trigger": "Possible equivalent indicator via reduced denominator cancellation"
+      },
+      {
+        "assessment": "NOT_COVERING; tests den(H(n)) = n and provides no p=3 asymptotic.",
+        "evidence": [
+          "OEIS A071000 entry, including decimal-cutoff counts of that complementary sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A071000",
+        "material_read": "Sequence definition, counts, comments and programs",
+        "method": "Read full sequence entry and compared predicates",
+        "title": "OEIS A071000",
+        "trigger": "Complementary database of denominator equality"
+      },
+      {
+        "assessment": "General method only; does not assert a denominator-specific theorem or Euler constant.",
+        "evidence": [
+          "arXiv:2010.12929 abstract states the classical zeta-power setting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.12929",
+        "material_read": "Abstract and bibliographic statement, not full paper",
+        "method": "Checked stated scope of classical transfer theorem",
+        "title": "Remarks on the Selberg--Delange method",
+        "trigger": "Standard analytic coefficient-extraction tool used in proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d93ca8f2-5230-4fa7-bb71-d33b0f6f4d5f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-prime reduced-denominator event is a natural local obstruction distinct from complete integrality in the motivating source. Its count has a nontrivial fractional logarithmic exponent 1/3 and a positive explicitly computable Euler-product constant, explaining the density-zero phenomenon and exact first-order rate for all positive integers. This is an infinite asymptotic for a naturally determined local invariant, not a small computational refinement or a routine direct reformulation of the existing integral-value bound.",
+    "status": "PASS"
+  }
+}
