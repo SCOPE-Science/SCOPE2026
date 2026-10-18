@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-`verify_direct.py` performs the full mixed-channel enumeration with directly generated deletion and adjacent-swap output sets and a proper greedy clique-coloring bound. Its latest completed execution printed:
+## correctness
 
-```text
-VERIFY_OK optimum=16 labeled=28 orbit_sizes={2: 2, 4: 6} classes=8 VT_classes_failing=8 nodes=159080
-```
+PASS
 
-The independent C++ program `verify_deletion_filter.cpp` builds a deletion-only graph using bit-incidence masks, proves absence of any deletion-only 17-code and enumerates all \(408\) deletion-only 16-codes, of which \(28\) also satisfy adjacent-swap compatibility. Its completed execution printed:
+For each seven-bit x, form the exact one-deletion six-bit descendants D(x) and at-most-one-adjacent-swap seven-bit outputs T(x). Distinct codewords are simultaneously uniquely decodable iff both pairs of output sets are disjoint. Independently reconstructed bitmask conflict graphs and exhaustive branch-and-bound clique counts: deletion-only 17-cliques 0 and 16-cliques 408; mixed-channel 16-cliques exactly 28. The complementary mixed-graph enumeration agreed; reversal/complement actions partition the 28 into six 4-orbits and two 2-orbits. Each of eight size-16 VT residue classes has a transposition collision. The 28 explicit code sets attain 16, proving optimality. This finite enumeration covers all 128 words, not a sample.
 
-```text
-VERIFY_OK length=7 deletion_size17=0 deletion_size16=408 mixed_size16=28 nodes=511342
-```
+## originality
 
-The Python program independently checks that the eight rows of `representatives.tsv` are complete canonical orbit representatives under global reversal and global binary complementation. The file's orbit sizes sum to \(28\). The independent witness file `vt_obstructions.tsv` explicitly supplies the two codewords and a shared transposition output in each syndrome class; the Python program validates all eight witnesses. The Python program additionally tests all eight size-\(16\) VT syndrome classes and confirms each is incompatible with the adjacent-swap condition.
+PASS
 
-Commands:
+Prior code literature develops the deletion/adjacent-transposition alternative channel and asymptotic constructions, and deletion-only work bounds length-seven code size; none inspected establishes the mixed-channel 28-code full equality census and eight symmetry orbits. A separate Resultary hit for one-ZERO deletion is a different strictly weaker asymmetric channel, so its 30-word length-seven optimum does not cover this one. Originality is the exact finite combined-channel classification, not a new edit model, VT property, or deletion-only optimum.
 
-```sh
-python3 verify_direct.py
-g++ -O2 -std=c++17 -Wall -Wextra -pedantic verify_deletion_filter.cpp -o verify_deletion_filter
-./verify_deletion_filter
-```
+## value
 
-These are reproducible exhaustive computations on a finite universe of \(128\) possible words, not checks of larger lengths. The proof of exhaustiveness depends on the sound coloring bound and complete clique branching, not only on the printed totals. No independent audit has been performed.
+PASS
+
+The mixed deletion-vs-swap question arises naturally in synchronization coding; determining every maximum code at the first specified small length, its symmetry classes, and the failure of every standard VT class gives a complete natural extremal finite invariant. This is not asserted to give asymptotic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
