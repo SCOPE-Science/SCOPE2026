@@ -1,0 +1,15 @@
+# Scientific review of the capacity-one path/ring equilibrium spectrum
+
+## Correctness — PASS
+The actual claim is the exact full-subgraph enumeration by number of contributors, its cyclic/path ratio, and the asymptotic Gaussian contributor law. By the source definition, every capacity-one contributor has exactly one incident selected edge and every consumer has at least one. On maximum-degree-two connected graphs this forces a disjoint tiling into two-vertex oriented blocks and three-vertex blocks centered on consumers. The equations \(n=2l+3j\), \(k=l+2j\) and weighted rooted-cycle counting imply the two exact closed forms. The spectral representation of the cycle polynomial has an isolated positive dominant eigenvalue at \(z=1\), allowing uniform analytic characteristic-function convergence; direct differentiation yields the stated positive limiting variance. The included standalone verifier independently checks 77 exact/asymptotic finite instances. These checks are corroboration, not proof of unbounded claims.
+
+## Originality — PASS, subject to priority uncertainty
+Gerke et al. (arXiv:1905.01693, first posted 2019-05-05) give the original constrained-sharing model and Nash correspondence; Gutin, Neary and Yeo (arXiv:2003.07106, first posted 2020-03-16) explicitly state the capacity-one spanning-star structure and consider counting Nash subgraphs. These ingredients are acknowledged rather than claimed new. The exact two-parameter \(n,k\) spectrum for paths/rings, its contributor-specific ring/path factor, and the Gaussian law were not found in the materially inspected primary papers, indexed mathematical-result comparisons, or targeted specialist-literature searches. The unrefined cycle totals match known OEIS A099925, and that known scalar answer is not claimed novel. Equivalence to some unlocated weighted-tiling or game-specific count remains possible; this is self-review rather than publication-priority certification.
+
+## Value — PASS
+An exact count of *full Nash configurations by contributor quota* is a natural completeness question in the constrained-sharing public-goods game, specifically on the simplest families where the published star observation can be pushed through to global classification. The complete integer support, exact excess of ring over path configurations at each quota, and the positive-variance Gaussian law explain equilibrium-composition variability for arbitrary population size. This supplies more than a repeated scalar recurrence, a table of small sizes, or an arbitrary parameter slice. It does not imply selection probabilities under an explicit dynamic or generalization beyond degree two.
+
+## Closest literature and limits
+The source correspondence and star decomposition are prior art; the scalar cycle sequence was independently catalogued in OEIS A099925. Potential exact equivalence to an unlocated weighted cyclic tiling analysis is the principal residual novelty risk. No independent mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
