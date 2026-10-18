@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The Fourier constraints separate exactly by coordinate, so their sum of individual polygonal minima is the complete positivity criterion. The regular-polygon supporting-normal calculation proves the full optimizer simplices and the sharp coefficientwise stability radii. The zero-count statement follows from Cartesian products of minimizing residues. The standalone deterministic direct-spectrum checker corroborates twelve groups and 1,886 tests, but no finite computation is used as a substitute for the general proof.
+
+**Originality — PASS, with residual risk.** The close classical publications establish the positive-definite Turán framework and low-dimensional even scalar values, while the finite-group theta formulation provides an LP representation. Their inspected statements do not assert a complete complex optimizer face or sharp transverse coefficient stability on arbitrary mixed-order coordinate stars. Published nearest-neighbor and higher-radius results and related catalogued Fourier problems were compared by implication rather than by title. It remains possible that equivalent special-purpose descriptions exist in older graph-theta/positive-definite literature, and this review is not an independent novelty certificate.
+
+**Value — PASS.** The exact optimizer-face dimensions distinguish a unique odd-factor solution from arbitrary-dimensional even-factor complex degeneracy. The coefficientwise sharp deficit estimate says quantitatively how much any previously inactive coordinate or forbidden imaginary part reduces the optimal mass, making the equality classification robust. These provide a natural full classification and perturbative information for finitely supported positive-definite kernels, not a numerical table or a minor change of notation.
+
+**Limitations.** Only support in a coordinate star is addressed. The scalar optimum is a relatively simple consequence of separated Fourier positivity; the full complex equality geometry, precise Fourier-zero incidences, and sharp perturbation law are the asserted contribution. An equivalent theorem under graph-theta terminology is the main unresolved literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
