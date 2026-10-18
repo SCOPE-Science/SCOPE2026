@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. A sub-quorum coloring is first reduced, using the initiating definition, to a quorum coloring of the colored induced subgraph. For a largest occupied part \(P\), every color meeting \(P\) consumes at least \(h-1\) vertices outside \(P\), while every color missing \(P\) consumes at least \(h\), where \(h=\lceil(M+1)/2\rceil\) and \(M\) is the number of colored vertices outside \(P\). If at least three colors are used, these demands exceed \(M\) whenever a color misses \(P\); the exceptional case \(M=1\) is handled directly. Thus every color meets \(P\) and there are at most \(|P|\le L\) colors. The lower constructions are exact, including the complete-graph boundary \(L=1\). The verifier independently agrees on all complete-multipartite types through order \(7\).
+# Independent mathematical audit
 
-## Originality
-PASS. The initiating 2026 full text was inspected at the definition, general preliminary results, and complete Section 4 scope, together with document-wide searches for complete multipartite and complete bipartite terminology. It gives general lower bounds and caterpillar exact values but no theorem covering this family. The closest older paper treats ordinary quorum coloring, including complete-multipartite examples, not the induced-subgraph maximum defining \(\psi_{sq}\). Targeted semantic literature queries found no statement that implies the exact formula or the largest-occupied-part obstruction. Residual risk remains for unindexed defensive-alliance terminology and concurrent work.
+## correctness
 
-## Value
-PASS. Complete multipartite graphs are a canonical dense family, and the result settles the new invariant on the whole family with a one-line exact formula plus a structural reason that no third color can avoid a largest occupied part. It also exposes a substantive gap from ordinary quorum coloring: published odd-part examples can have ordinary quorum number \(1\), whereas the sub-quorum number is \(3\) for the size-three family. This is an infinite-family classification, not a finite parameter increment.
+PASS
 
-Closest literature and scientific limitations are recorded in `AUDIT.json`. The result does not claim anything for incomplete multipartite graphs or for arbitrary defensive-alliance partitions beyond the stated equivalence.
+For a partial quorum coloring with q≥3 of induced colored H⊂K_{n1,...,nr}, choose ANY largest occupied part P of size L_H; let M be number of colored vertices outside P and h=ceil((M+1)/2). Every color meeting P uses ≥h−1 outside P, because any colored v in P sees itself plus M outside; any color disjoint from P uses ≥h of its own colored vertices because every other part has size ≤L_H and hence its closed colored neighborhood has size ≥M+1. If w≥1 missing classes, u=q−w≥1 present classes imply M≥u(h−1)+wh, impossible for q≥3 and M≥2 (check M even/odd). If M=1, a disjoint singleton class would have only one own color in ≥L_H+1 colored neighbors and forces L_H≤1, hence q≤2. Therefore all classes meet P and q≤L_H≤L. With ≤2 classes q≤max(L,2). Lower bound: color each of L vertices of largest independent part distinctly; for L=1 complete graph pick two colored vertices with distinct colors (each exactly half). Concludes ψ_sq=max(L,2) for r≥2 nonempty parts. Independent checker enumerated 23 complete-multipartite unlabeled order profiles through N=6 and 10208 partial color partitions, checking quorum and structural property; finite experiment supplements unrestricted argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sahbi–Belkina–Bennadji Sep2026 caterpillar preprint introduces targeted natural-family calculations; older 2013 paper defines sub-quorum. An especially relevant earlier 2026 arXiv:2609.25128 (latest v4 Oct2026) proves general degree bounds and classical-family cases. Its degree bound already implies ψ_sq(K_{a,b})=max(a,b) for complete bipartite graphs with minimum part ≥2 via floor[b(a+b)/(a+b−1)]=b; that bipartite special case receives NO novelty credit. The present claim covers arbitrary r≥3 and proves stronger all-largest-occupied-part intersection property, not obtained from that degree inequality (e.g. K2,2,2 gives bound 24/7>2). Full arXiv paper could not be acquired/read and authorized institutional tool returned vpn_disconnected; potential general matching theorem remains explicit significant residual risk. Best-of-knowledge original for ≥3-part sharp classification and structural statement.
+
+## value
+
+PASS
+
+Exact all-part-profile ψ_sq of connected complete multipartite graphs and a rigidity statement for every ≥3-color partial coloring fill a natural newly defined invariant; distinction from ordinary quorum coloring and the transition at L=1 are mathematical structure. The bipartite slice is prior-implied and not counted as independent novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

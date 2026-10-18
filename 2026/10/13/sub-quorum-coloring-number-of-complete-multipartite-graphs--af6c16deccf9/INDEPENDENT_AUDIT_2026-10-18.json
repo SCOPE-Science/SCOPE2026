@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:16:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a partial quorum coloring with q≥3 of induced colored H⊂K_{n1,...,nr}, choose ANY largest occupied part P of size L_H; let M be number of colored vertices outside P and h=ceil((M+1)/2). Every color meeting P uses ≥h−1 outside P, because any colored v in P sees itself plus M outside; any color disjoint from P uses ≥h of its own colored vertices because every other part has size ≤L_H and hence its closed colored neighborhood has size ≥M+1. If w≥1 missing classes, u=q−w≥1 present classes imply M≥u(h−1)+wh, impossible for q≥3 and M≥2 (check M even/odd). If M=1, a disjoint singleton class would have only one own color in ≥L_H+1 colored neighbors and forces L_H≤1, hence q≤2. Therefore all classes meet P and q≤L_H≤L. With ≤2 classes q≤max(L,2). Lower bound: color each of L vertices of largest independent part distinctly; for L=1 complete graph pick two colored vertices with distinct colors (each exactly half). Concludes ψ_sq=max(L,2) for r≥2 nonempty parts. Independent checker enumerated 23 complete-multipartite unlabeled order profiles through N=6 and 10208 partial color partitions, checking quorum and structural property; finite experiment supplements unrestricted argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2609.25128v4 degree bound ΔN/(Δ+δ−1), for K_{a,b} with a≥2 implies ψ_sq≤max(a,b); on K2,2,2 it gives 24/7>2."
+        ],
+        "reasoning": "General degree bound covers the complete-bipartite r=2 slice for minpart≥2, not the all-r theorem by direct specialization. Unread full article might provide stronger covering results, explicitly not ruled out.",
+        "searches": [
+          "arXiv:2609.25128v4 degree bound",
+          "arXiv:2609.39619",
+          "doi:10.1051/ro/2021116"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25128",
+        "https://arxiv.org/abs/2609.39619",
+        "https://doi.org/10.1051/ro/2021116",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+        "Resultary semantic search: sub-quorum coloring complete multipartite graph largest part size two induced quorum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For K2,2,2, Δ=δ=4,N=6 so bound is 24/7≈3.43 (q≤3), whereas candidate ψ_sq=2; hence broad bound alone is insufficient."
+        ],
+        "reasoning": "The candidate’s ≥3-color rigid largest part theorem forbids q=3 on K2,2,2 and extends every r; previous generalized degree bound does not imply this key case. Possible additional hidden theorem in inaccessible 2609.25128 remains a serious originality risk.",
+        "searches": [
+          "arXiv:2609.25128v4 ΔN/(Δ+δ−1) bound",
+          "arXiv:2609.39619"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A sub-quorum coloring is an onto coloring of an induced colored graph, not a total coloring; it is a local majority condition on each colored closed neighborhood."
+        ],
+        "reasoning": "Independent-set lower bound ψ_sq≥α(G)=L is immediate via single-color-per-vertex edgeless induced part, but matching upper bound for ≥3 occupied parts and all-color-in-largest-part rigidity require counting argument.",
+        "searches": [
+          "arXiv:2609.25128v4",
+          "Resultary: sub-quorum coloring complete multipartite graph largest part size two induced quorum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary majority C, forced-color, rainbow-domination records on multipartite graphs count different invariants."
+        ],
+        "reasoning": "The result is an all-profile graph-family formula, not a table of finite small graph values. No matching ψ_sq table inspected; the full arXiv PDF access failure remains a risk.",
+        "searches": [
+          "Resultary: sub-quorum coloring complete multipartite graph largest part size two induced quorum",
+          "arXiv:2609.25128v4"
+        ]
+      },
+      "rationale": "Sahbi–Belkina–Bennadji Sep2026 caterpillar preprint introduces targeted natural-family calculations; older 2013 paper defines sub-quorum. An especially relevant earlier 2026 arXiv:2609.25128 (latest v4 Oct2026) proves general degree bounds and classical-family cases. Its degree bound already implies ψ_sq(K_{a,b})=max(a,b) for complete bipartite graphs with minimum part ≥2 via floor[b(a+b)/(a+b−1)]=b; that bipartite special case receives NO novelty credit. The present claim covers arbitrary r≥3 and proves stronger all-largest-occupied-part intersection property, not obtained from that degree inequality (e.g. K2,2,2 gives bound 24/7>2). Full arXiv paper could not be acquired/read and authorized institutional tool returned vpn_disconnected; potential general matching theorem remains explicit significant residual risk. Best-of-knowledge original for ≥3-part sharp classification and structural statement.",
+      "residual_risks": [
+        "VERY RELEVANT arXiv:2609.25128v4 complete text inaccessible after OA attempts and authorized Oxford retrieval returned vpn_disconnected; no whole-article NOT_COVERING assertion.",
+        "Its general degree bound already determines complete bipartite subclass (min part ≥2), so novelty is only full arbitrary multipartite upper bound and structural classification.",
+        "The later caterpillar preprint full text also not read, though its abstract covers different graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound IMPLIES balanced and unbalanced complete bipartite subcase with minpart≥2; does not automatically imply K2,2,2. Larger multipartite coverage cannot be ruled out without full text.",
+          "evidence": "arXiv:2609.25128v4 states ψ_sq(G)≤Δ(G)|V|/(Δ+δ−1) for δ≥2; specialize to K_{a,b}: Δ=b, δ=a, N=a+b gives floor bound b.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25128",
+          "material_read": "Complete public abstract and version history for v4 (2026-10-14), including ψ_sq≥β2 and ΔN/(Δ+δ−1) upper bound, classical-family scope; full PDF unavailable",
+          "method": "Tried arXiv and lawful OA copies, then authorized Oxford paper retrieval; returned vpn_disconnected, so no whole-paper noncoverage claim",
+          "title": "Sub-quorum colorings of graphs",
+          "trigger": "Earlier/same invariant, broader possible degree-bound or family results"
+        },
+        {
+          "assessment": "Abstract covers caterpillar subfamilies; not sufficient for whole-document exclusion of equivalent multipartite results",
+          "evidence": "Abstract states exact values on caterpillar families, not r-partite exact theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39619",
+          "material_read": "Full public abstract with graph-family scope, complete text not acquired",
+          "method": "Compared described families including complete caterpillars to complete multipartite graph structure",
+          "title": "Sub-quorum colorings of some infinite families of caterpillars",
+          "trigger": "Same invariant and recent complete family formulas"
+        },
+        {
+          "assessment": "Ordinary quorum values can differ; no direct implication of the partial theorem",
+          "evidence": "For odd number of 3-vertex parts ordinary quorum invariant can be 1, while partial ψ_sq=3.",
+          "identifier_or_url": "https://doi.org/10.1051/ro/2021116",
+          "material_read": "Known theorem statements and bibliographic abstract, not full negative document inspection",
+          "method": "Distinguished ordinary total coloring from onto partial induced coloring",
+          "title": "Solutions to four open problems on quorum colorings of graphs",
+          "trigger": "Older complete multipartite result for ordinary quorum colorings"
+        },
+        {
+          "assessment": "Different invariant; no implication to sub-quorum colors established",
+          "evidence": "Majority C requires C-coloring on all vertices, with formula based on parity of each part.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "material_read": "Resultary mathematical title and summary only",
+          "method": "Compared full/partial coloring quantifiers and neighbor-majority requirements",
+          "title": "Majority C-colorings of complete multipartite graphs",
+          "trigger": "Same graph family under superficially similar local-majority nomenclature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-part-profile ψ_sq of connected complete multipartite graphs and a rigidity statement for every ≥3-color partial coloring fill a natural newly defined invariant; distinction from ordinary quorum coloring and the transition at L=1 are mathematical structure. The bipartite slice is prior-implied and not counted as independent novelty.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.25128",
+    "https://arxiv.org/abs/2609.39619",
+    "https://doi.org/10.1051/ro/2021116",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+    "Resultary semantic search: sub-quorum coloring complete multipartite graph largest part size two induced quorum",
+    "Frozen Git 2026/10/13/sub-quorum-coloring-number-of-complete-multipartite-graphs--af6c16deccf9/RESULT.md blob e4ac30ed3ef9ce361ba4de74e08fe08b52f41308"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "VERY RELEVANT arXiv:2609.25128v4 complete text inaccessible after OA attempts and authorized Oxford retrieval returned vpn_disconnected; no whole-article NOT_COVERING assertion.",
+    "Its general degree bound already determines complete bipartite subclass (min part ≥2), so novelty is only full arbitrary multipartite upper bound and structural classification.",
+    "The later caterpillar preprint full text also not read, though its abstract covers different graph families."
+  ],
+  "residual_risks": [
+    "VERY RELEVANT arXiv:2609.25128v4 complete text inaccessible after OA attempts and authorized Oxford retrieval returned vpn_disconnected; no whole-article NOT_COVERING assertion.",
+    "Its general degree bound already determines complete bipartite subclass (min part ≥2), so novelty is only full arbitrary multipartite upper bound and structural classification.",
+    "The later caterpillar preprint full text also not read, though its abstract covers different graph families."
+  ],
+  "schema_version": 1
+}
