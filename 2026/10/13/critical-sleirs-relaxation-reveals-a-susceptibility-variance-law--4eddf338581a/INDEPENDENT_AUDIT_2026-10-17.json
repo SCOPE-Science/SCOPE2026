@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:10:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/13/critical-sleirs-relaxation-reveals-a-susceptibility-variance-law--4eddf338581a/RESULT.md Git blob 8798dda6eadaa82d88c0b5c72469089c6146a33c",
+        "Pinned 2026/10/13/critical-sleirs-relaxation-reveals-a-susceptibility-variance-law--4eddf338581a/verify.py Git blob b20a8bef56d6b2c93896fa641cfc16fed86b24bf",
+        "https://doi.org/10.3934/math.20241032"
+      ],
+      "rationale": "At Ak=delta+mu, the displayed full five-compartment ODE has a nonnegative logarithmic Lyapunov function. Independent SymPy differentiation verified exactly Vdot=-mu(S-rho)^2/S-mu(L-(1-rho))^2/L+sigma R[1-rho^2/S-(1-rho)^2/L] (critical terms cancel). Cauchy Schwarz plus simplex forces Vdot<=0, and LaSalle yields DFE attraction. An irreducible infected 2x2 Metzler matrix has simple 0 mode (1,h) and stable complement, giving I/E->h, stable scalar filters yield R/E and both signed susceptible deviations. The positive inverse infected weight derivative converges to K/H; hence tE->1/K and all component 1/t and cumulative log limits. Exact symbolic fraction check for rho=1/2, other rates=1, alpha=5/3,beta=1 yields A=4/3,B=17/9,G=1/4,H=4/3,K=45/16. Fresh ODE integration to t=100000 agrees with all five leading coefficients within 0.006% relative error, not proof of all initial states.",
+      "residual_risks": [
+        "Criticality Ak=a and initial infection E(0)+I(0)>0 essential for algebraic tail; zero-infection face has none. Positivity of all rates and invariant simplex essential. Numerical t=100000 is corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonzi et al. and Bichara study R0<=1 GAS and differential susceptibility generally; Pan–Tang 2024 strict R0<1; published SCOPE same-model strict threshold repair."
+        ],
+        "reasoning": "Their stability implications can dominate the DFE-attraction subclaim but not derive the displayed complete t^-1 profile and K(B) for this particular recovered-to-susceptible feedback without nonlinear analysis.",
+        "searches": [
+          "https://doi.org/10.1007/s00285-023-02023-2; https://doi.org/10.1007/s00285-010-0327-y; Resultary risk-composition 8aa5b7150726"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.20241032",
+        "https://doi.org/10.1007/s00285-023-02023-2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-risk-composition-contraction-repairs-the-global-disease-free-thr--8aa5b7150726",
+        "Resultary semantic search: SLEIRS epidemic model critical reproduction R0=1 algebraic t^-1 convergence heterogeneous susceptibility variance contact rates Pan Tang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pan–Tang Theorem 1 explicitly assumes R0<1; their model is source ODE. Bonzi/Bichara have closed-threshold stability but no inspected K(Delta)."
+        ],
+        "reasoning": "Even accepting broader GAS at R0=1 as prior, neither global attraction nor reproduction-number formula forces the exact signed component ratios or positive contrast derivative of K.",
+        "searches": [
+          "Pan Tang AIMS Mathematics DOI 10.3934/math.20241032; Bichara 2023; Resultary SCOPE risk-composition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary related SCOPE risk-composition theorem treats the same Pan–Tang model but strict threshold; no scalar K profile found in its summary or in inspected Pan–Tang Theorem 1."
+        ],
+        "reasoning": "An algebraic 1/t critical asymptotic requires a nonlinear center direction and model-specific recovery feedback; its variance coefficient is not a restatement of R0.",
+        "searches": [
+          "Resultary Q1; exact Pan Tang SLEIRS critical asymptotic 1/t variance K; Bichara differential infectivity 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source identified as providing a table of all critical contrast dependence for the Pan–Tang parameterized model."
+        ],
+        "reasoning": "This is a parameter-continuum asymptotic identity; finite epidemiological parameter tables cannot alone cover it. Negative semantic query is not proof of novelty.",
+        "searches": [
+          "Resultary Q1; epidemic critical K coefficient and differential susceptibility second moment"
+        ]
+      },
+      "rationale": "The closed-threshold disease-free stability is already strongly suggested/covered in broader multi-susceptibility works and MUST NOT be credited independently. The full five-component critical asymptotic with exact transmission-contrast variance K(delta) for the Pan–Tang R0=1 boundary was not implied by inspected statements. Resultary already has same-model subcritical risk-composition contraction; this covers strictly R0<1 but not the critical coefficient.",
+      "residual_risks": [
+        "A result not indexed by the searched resources or a broader implicit theorem may overlap; these best-of-knowledge searches do not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONS AND SUBCRITICAL THEOREM PRIOR; CRITICAL PROFILE NOT SHOWN",
+          "evidence": "Theorem 1 requires strict R0<1; equations carry two susceptible risk classes and recovered loss of immunity.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20241032",
+          "material_read": "Full primary 18-page PDF, equations (2.2),(3.4), disease-free Theorem 1, and its proof plus model discussion",
+          "method": "Read text and original PDF page images; checked model and strict inequality",
+          "title": "A new model for COVID-19 in the post-pandemic era",
+          "trigger": "Same five-compartment SLEIRS source equations and R0"
+        },
+        {
+          "assessment": "GAS BROADER COVERAGE; MODEL-SPECIFIC TAIL UNVERIFIED IN FULL",
+          "evidence": "Closed R0 threshold dynamics studied for broader multigroup families; do not claim critical GAS alone new.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-02023-2",
+          "material_read": "Abstract and relevant accessible model/threshold context; complete model comparison from inspected source material",
+          "method": "Read accessible publisher/PubMed source information and mathematical setup where available",
+          "title": "Characterization of differential susceptibility and differential infectivity epidemic models",
+          "trigger": "Possible broader closed threshold theorem"
+        },
+        {
+          "assessment": "RELATED SAME MODEL, PRIOR STRICT THRESHOLD ONLY IN EXCERPT",
+          "evidence": "States correct subcritical threshold and exponentially contracting risk-composition excess; exact R0=1 1/t profile not stated in excerpt.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-risk-composition-contraction-repairs-the-global-disease-free-thr--8aa5b7150726",
+          "material_read": "Published finding title and semantic Resultary abstract, NOT full text",
+          "method": "Read structured Resultary returned summary; did not assert full-document noncoverage",
+          "title": "Risk-composition contraction repairs the global disease-free threshold in a two-susceptibility SLEIRS model",
+          "trigger": "Same source model and risk composition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.3934/math.20241032",
+        "https://doi.org/10.1007/s00285-023-02023-2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-risk-composition-contraction-repairs-the-global-disease-free-thr--8aa5b7150726"
+      ],
+      "rationale": "The critical t^-1 vector and explicit susceptibility-variance law quantify critical slowing and infection burden at identical R0=1; treating α,β risk heterogeneity separately rather than averaging is motivated by the model and gives a nontrivial sensitivity coefficient. The older global stability threshold is credited, not claimed valuable by itself.",
+      "residual_risks": [
+        "Only exact deterministic critical boundary and fixed-A contrasts; no epidemiological data forecast or stochastic outbreak law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All rates positive, 0<rho<1, alpha>beta, Ak=delta+mu; E(0)+I(0)>0; fixed mean A variance comparison; closed-simplex invariance."
+  ]
+}

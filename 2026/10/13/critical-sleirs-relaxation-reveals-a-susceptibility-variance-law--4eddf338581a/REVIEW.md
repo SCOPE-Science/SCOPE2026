@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact critical Lyapunov derivative has two negative susceptible-deficit squares and a nonpositive recovered term, by the Cauchy bound on the nonnegative simplex. Its only zero-derivative state is the disease-free equilibrium. The infected block has one simple zero eigenvalue and one negative eigenvalue; the stable complement decays relative to the slowly varying positive Perron infected weight. The recovered and susceptible states are stable forced filters, and the resulting \((1/W)'\) limit has the strictly positive coefficient \(K/H\). All stated componentwise and cumulative limits follow. The standalone verifier reproduces exact rational constants and a numerical late-time trajectory.
+PASS
 
-## Originality
+At Ak=delta+mu, the displayed full five-compartment ODE has a nonnegative logarithmic Lyapunov function. Independent SymPy differentiation verified exactly Vdot=-mu(S-rho)^2/S-mu(L-(1-rho))^2/L+sigma R[1-rho^2/S-(1-rho)^2/L] (critical terms cancel). Cauchy Schwarz plus simplex forces Vdot<=0, and LaSalle yields DFE attraction. An irreducible infected 2x2 Metzler matrix has simple 0 mode (1,h) and stable complement, giving I/E->h, stable scalar filters yield R/E and both signed susceptible deviations. The positive inverse infected weight derivative converges to K/H; hence tE->1/K and all component 1/t and cumulative log limits. Exact symbolic fraction check for rho=1/2, other rates=1, alpha=5/3,beta=1 yields A=4/3,B=17/9,G=1/4,H=4/3,K=45/16. Fresh ODE integration to t=100000 agrees with all five leading coefficients within 0.006% relative error, not proof of all initial states.
 
-PASS for the **complete explicit critical asymptotic vector and susceptibility-variance dependence**, not for equality-case global stability in general. The primary source only states the strict disease-free theorem. Broader differential-susceptibility references already include closed-threshold global stability and were compared at statement and implication level. The published source theorem is restricted to \(\mathcal R_0<1\) and does not state the nonhyperbolic rate. No inspected source supplies this coefficient, though terminology and access risks remain.
+## originality
 
-## Value
+PASS
 
-PASS. An explicit nonlinear critical constant determines how long asymptomatic and symptomatic burdens persist as \(t^{-1}\), and how new exposures accumulate logarithmically. Holding the mean transmission and \(\mathcal R_0\) fixed while varying susceptibility contrast yields a sharp, monotone variance law; this natural comparison cannot be answered from the usual reproduction-number threshold alone.
+The closed-threshold disease-free stability is already strongly suggested/covered in broader multi-susceptibility works and MUST NOT be credited independently. The full five-component critical asymptotic with exact transmission-contrast variance K(delta) for the Pan–Tang R0=1 boundary was not implied by inspected statements. Resultary already has same-model subcritical risk-composition contraction; this covers strictly R0<1 but not the critical coefficient.
 
-## Closest literature and limitations
+## value
 
-Pan–Tang 2024 gives the target equations and strict threshold. Hyman–Li 2009 and Bonzi et al. 2011 develop heterogeneous susceptibility epidemic threshold results; Bichara 2023 proves broad equality-case global stability in a different no-waning-infection class. Accordingly, a generic equality result is not asserted to be new. The proof is deterministic, excludes infection-free initial data from its tail law, and does not provide a next-order critical expansion. Some broader literature may contain an equivalent specialized rate under other notation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical t^-1 vector and explicit susceptibility-variance law quantify critical slowing and infection burden at identical R0=1; treating α,β risk heterogeneity separately rather than averaging is motivated by the model and gives a nontrivial sensitivity coefficient. The older global stability threshold is credited, not claimed valuable by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
