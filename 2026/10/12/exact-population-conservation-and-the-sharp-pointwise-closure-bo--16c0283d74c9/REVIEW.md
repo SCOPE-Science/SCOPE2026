@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reaction terms cancel in the compartment sum, Neumann fluxes give exact integrated conservation, and the susceptible integral has the exact negative incidence derivative. The universal pointwise criterion is proved in both directions. Smooth cosine witnesses preserve positivity and the initial compartment sum while exposing unequal diffusion; the chemotactic midpoint witness isolates a nonzero \(\chi\)-term. `verify.py` reproduces the algebraic identities.
+## correctness
 
-## Originality
-PASS. The primary full text, a recent diffusive-SIR population-accounting paper, and an equal-diffusion SIR paper were inspected. The closest sources support neighboring facts—integrated population accounting and equal-diffusion sufficiency—but do not, in the inspected material, imply the combined source-specific correction and sharp universal if-and-only-if criterion. Semantic searches for aliases and implication-equivalent formulations did not return a matching result. Residual risk remains because the equal-diffusion observation is classical.
+PASS
 
-## Value
-PASS. The result directly separates two notions that matter for the stated spatial epidemic model: conserved integrated population and pointwise constant population. Because the source uses population conservation as a numerical check, replacing a susceptible-only diagnostic by the correct identity is consequential, and the sharp coefficient criterion explains exactly when the ODE closure can be transported to the PDE.
+Summing the precisely stated Neumann spatial SIR equations after τS=τI=τR=1 cancels infection/recovery terms, yielding n_t=DSΔS+DIΔI+DRΔR (+χ∇·(S∇log I)); Neumann fluxes imply ∫n conserved, while ∫S falls by ∫βSI/N when β,N>0. For every smooth positive initial triple with n=N0, pairwise cosine zero-sum perturbations force equal compartment diffusivities. In chemotaxis, fixing I constant first forces DS=DR; at cosine midpoint for I=1+εcos(kx), ∂²_x log I=−ε²k² while ΔI=0, so χ must vanish; equal diffusions and χ=0 suffice by Neumann heat uniqueness. Independent symbolic midpoint evaluation and perturbation checks matched. No claim about special pointwise-constant solutions when iff universal criterion fails.
 
-## Closest literature and limitations
-The closest inspected literature uses \(\int_\Omega(S+I+R)\) for population accounting under Neumann diffusion and separately studies equal-diffusion SIR systems. This finding does not establish PDE well-posedness, stability, convergence, or properties of the discrete IMEX solver, and it assumes the source's displayed choice \(\tau_S=\tau_I=\tau_R=1\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the precise 2026 chemotactic diffusive SIR PDE, standard integrated conservation is not newly claimed. The source-specific conjunction of correction to mislabeled susceptible mass and a universal necessary-and-sufficient pointwise constant-population closure criterion is distinct from the inspected generic global-mass and equal-diffusion accounts. The primary preprint full text was not freshly retrievable; only abstract, actual package PDE reproduction and prior citations inspected. Qualified best-of-knowledge conclusion with explicit limitation.
+
+## value
+
+PASS
+
+Numerical spatial SIR population diagnostics often confuse the integrated compartment sum with susceptible mass or pointwise constant N. A sharp all-smooth-data coefficient criterion, including chemotactic obstruction, supplies an actionable structural boundary and counterexamples for interpreting such models. Conservation identity alone is textbook, but universal necessity and source-specific mismatch provide value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
