@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:45:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/diagonal-landau-geometry-for-the-generalized-harmonic-class--2479c6361931/RESULT.md",
+        "arXiv:2606.02612v1 Theorem 3.1",
+        "independent SymPy assertions /mnt/data/scope09_independent_checks_20261015.py"
+      ],
+      "rationale": "The positive diagonal defining inequality divides by gamma and yields a single class with normalized h(z)=z+sum_{n>=2}a_nz^n and g(z)=sum_{n>=2}b_nz^n. The published coefficient bound reduces to 4/(n+1). The exact series S=4sum n r^{n-1}/(n+1) and its antiderivative T=-4 log(1-r)/r-4-2r were independently differentiated with SymPy; S starts (8/3)r+3r² and T starts (4/3)r². The line-segment lower bound with lambda(0)>=pi/(4M), strict for smaller disks, proves injectivity; R=a rho-T(rho)>0 follows by integrating a-S. The displayed asymptotics follow by series inversion. This is a true albeit weak guaranteed estimate. Note the class normalization already gives lambda_f(0)=1, so a=pi/(4M) is an avoidable loss, not an intrinsic bound.",
+      "residual_risks": [
+        "The guaranteed estimate is not sharp; at gamma=delta=0 the defining condition degenerates.",
+        "Large-M asymptotics describe a chosen weak lower bound, not the best Landau radius for the fixed normalized class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 is nominally for all delta>=gamma>=0 and includes the covering series; the 2024 original class paper supplies the same coefficient bound."
+        ],
+        "reasoning": "The two papers jointly dominate the univalence/covering inequality at diagonal: a newly written logarithmic closed form is not a new geometric bound.",
+        "searches": [
+          "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS",
+          "DOI:10.3390/math12152338"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS",
+        "arXiv:2606.02612v1",
+        "DOI:10.3390/math12152338",
+        "Resultary: diagonal gamma equals delta generalized harmonic BH0 class Landau univalence radius logarithmic sum parameter independence Wang Han Hossain Ahamed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing coefficient-series proof has positive gamma denominator 2gamma on the diagonal and needs only the elementary sums."
+        ],
+        "reasoning": "The asserted radius is a direct special case of the same general line-segment argument, even though the author’s Lerch reparametrization was singular; no stronger radius or distinct hypothesis is added.",
+        "searches": [
+          "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS",
+          "arXiv:2606.02612v1 Theorem 3.1 proof (3.7) and covering bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 says delta>=gamma>=0 and proves its lower Lipschitz estimate via sum 4(delta+gamma)n r^(n-1)/((n+1)(n(delta-gamma)+2gamma))."
+        ],
+        "reasoning": "At the claimed diagonal this general series equals S exactly; the present radii are the same coefficient-series construction, merely evaluating the endpoint where its later Lerch closed form becomes singular.",
+        "searches": [
+          "Resultary: diagonal gamma equals delta generalized harmonic BH0 class Landau univalence radius logarithmic sum parameter independence Wang Han Hossain Ahamed",
+          "arXiv:2606.02612v1",
+          "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original source tables use delta>3gamma and do not tabulate delta=gamma; this absence is not positive evidence of a new theorem."
+        ],
+        "reasoning": "The exact input inequality is already in the published general proof and yields all the endpoint expressions algebraically.",
+        "searches": [
+          "Resultary: diagonal gamma equals delta generalized harmonic BH0 class Landau univalence radius logarithmic sum parameter independence Wang Han Hossain Ahamed",
+          "arXiv:2606.02612v1 Theorem 3.1 Tables 1-4"
+        ]
+      },
+      "rationale": "The actual author-uploaded primary full text of Wang–Han–Hossain–Ahamed Theorem 3.1 states a Landau univalence/covering theorem for the entire parameter range delta>=gamma>=0, and its displayed proof explicitly contains the exact general coefficient series, which specializes at delta=gamma>0 to this S and T. The closed Lerch formula printed for the general theorem is undefined at delta=gamma; this is a presentation/endpoint regularization gap, not an independent scientific theorem with different hypotheses. An elementary logarithmic sum and small-r asymptotics of an already supplied bound do not evade coverage of this special case.",
+      "residual_risks": [
+        "The source Theorem 3.1 is poorly stated on the diagonal because its later Lerch quotient uses delta-gamma in the denominator. This affects presentation of the prior result, but its earlier valid series inequality directly covers this special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_COVERAGE_IN_SERIES_FORM",
+          "evidence": "Original Theorem 3.1 explicitly quantifies delta>=gamma>=0 and derives sum 4(delta+gamma)n r^(n-1)/[(n+1)(n(delta-gamma)+2gamma)]. At positive diagonal it is exactly 4n r^(n-1)/(n+1).",
+          "identifier_or_url": "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS",
+          "material_read": "Complete author-uploaded public preprint material; definition and coefficient lemma, Theorem 3.1 and its full proof, particularly equations (3.5)-(3.7) and covering sum",
+          "method": "Read original author-hosted full text and compared general quantifiers and intermediate series",
+          "title": "Bohr, Bohr-Rogosinski, and Landau-Type Results for a Generalized Class of Harmonic Mappings",
+          "trigger": "Exact same class and Landau theorem"
+        },
+        {
+          "assessment": "FOUNDATIONAL_PARAMETER_CLASS",
+          "evidence": "Coefficient inequality specializes to 4/(n+1), and h/g have already normalized first derivatives.",
+          "identifier_or_url": "DOI:10.3390/math12152338",
+          "material_read": "Accessible published class definition and coefficient theorem statement",
+          "method": "Read source metadata and coefficient statement",
+          "title": "Some Properties and Graphical Applications of a New Subclass of Harmonic Functions Defined by a Differential Inequality",
+          "trigger": "Original class definition and coefficient lemma"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2606.02612v1",
+        "https://www.researchgate.net/publication/405220402_BOHR_BOHR-ROGOSINSKI_AND_LANDAU-TYPE_RESULTS_FOR_A_GENERALIZED_CLASS_OF_HARMONIC_MAPPINGS",
+        "2026/10/11/diagonal-landau-geometry-for-the-generalized-harmonic-class--2479c6361931/RESULT.md"
+      ],
+      "rationale": "The class is already normalized by h'(0)=1 and g'(0)=0, so lambda_f(0)=1 independently of M. The audited theorem discards this information for the crude a=pi/(4M), creating artificially shrinking radius O(1/M) and covering radius O(1/M²) although the identical coefficient series with lambda=1 yields a strictly stronger M-independent guaranteed radius. Canceling a common positive parameter and summing a known elementary series do not resolve a substantive independent mathematical gap; the result adds no sharpness, classification, or genuinely new invariant beyond the published general construction.",
+      "residual_risks": [
+        "Positive-diagonal endpoint does regularize an undefined special-function display, but that typographical repair alone does not constitute independent scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For BH^0(gamma,gamma) with gamma>0 and bounded normalized harmonic maps, the parameter cancels and the standard coefficient series gives explicit nonoptimal univalence/covering radii with rho~3pi/(32M) and R~3pi^2/(256M^2).",
+  "limitations": [
+    "The primary author paper’s Lerch expression is undefined at delta=gamma, but the exact coefficient series in its proof remains valid; this is a covered endpoint regularization, not a new theorem.",
+    "The underlying harmonic class is normalized at first order, making the claimed large-M weak-radius asymptotics non-intrinsic."
+  ],
+  "schema_version": 1
+}
