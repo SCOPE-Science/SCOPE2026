@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** On the finite real K2P domain, combining the two logarithms reduces the distance exactly to \(-\frac14\log(F_L/L^3)\), with \(F_L=(L-2t-v)^2(L-2v)\). Thus every ordering decision is an integer comparison. Exhaustive enumeration of all admissible signatures proves that no strict reversal exists through \(L=8\), and at \(L=9\) the unique unordered pair is \((2,3)\) versus \((4,0)\). The explicit common-reference sequences realize those signatures, and the packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem excludes count signatures for which the K2P logarithm ceases to be finite and real, as well as tied or gapped alignment conventions not represented by \((t,v)\).
+PASS
 
-## Originality
-**PASS.** Prior work defines the K2P transition/transversion correction and directly compares K2P with uncorrected p-distance in DNA identification. The closest full-text barcoding study explicitly uses nearest-neighbor identification and reports little practical difference at low divergence. The checked literature and targeted database searches did not state the shortest admissible alignment for a strict p-distance/K2P ordering reversal, the length-three tie boundary, or the unique length-nine count pair.
+For admissible counts t,v≥0, t+v≤L, 2t+v<L and 2v<L, p=(t+v)/L and K=-1/4 log(((L-2t-v)^2(L-2v))/L^3). Thus K strictly decreases in the positive integer F_L=(L-2t-v)^2(L-2v) while p increases in mismatch t+v. I independently enumerated every admissible signature and unordered signature pair for EVERY length L=1..9, using exact integer arithmetic, not recorded logs: admissible signature counts 1,1,3,4,7,8,12,14,19, and no strict same-sign p,F difference through L=8. At L=9 the unique unordered reverse pair is ((2,3),(4,0)), with F=12>9, mismatch counts 5>4, K values 1/4 log(243/4)<log 3. The first weak-order tie split is L=3 for (0,1),(1,0). Explicit common-reference sequences AAAAAAAAA, GGCCCAAAA, GGGGAAAAA realize the signatures. The proof is complete because all constrained signatures and pairs are exhausted; no inference beyond L=9 is needed.
 
-Risk: a small numerical example may exist in unindexed course material, software tests, or supplementary code without presenting the sharp finite boundary.
+## originality
 
-## Value
-**PASS.** Nearest-neighbor choice is an operational use of DNA sequence distances, and p-distance and K2P encode mismatches differently because K2P distinguishes transitions from transversions. Identifying the exact first sequence length where this modeling choice can reverse a nearest neighbor provides a transparent boundary for a widely discussed methodological distinction. The result also explains why low-divergence data can show near-agreement while reversal becomes possible only once transition/transversion composition is sufficiently extreme.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full-text author-posted Srivathsan–Meier (2011) and full publisher Collins et al. (2012) establish empirical p/K2P model-comparison stakes and nearest-neighbor identification; Kimura (1980) supplies the model itself. They do not state or imply the shortest admissible strict reversal of the two formulas, nor uniqueness of the nine-site signature pair. Exact pairing and count/signature aliases searched in Resultary and open literature with no matching statement. One shorter pedagogical software example remains possible but unlocated.
+
+## value
+
+PASS
+
+The exact shortest-length boundary at which a model-corrected nucleotide distance can reverse a literal nearest-neighbor decision is a motivated discrete question: the model-choice controversy explicitly concerns such rankings. The theorem closes every feasible case before the threshold and classifies the unique first reversing signature pair, allowing a precise extremal regression example; it does not claim biological typicality or a landmark general phylogeny theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
