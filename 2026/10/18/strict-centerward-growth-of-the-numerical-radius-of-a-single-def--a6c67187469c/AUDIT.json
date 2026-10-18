@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The Hermitian-part unitary reduction gives w=half the Perron root. Continuant expansion gives P_{n,k}=Q_n-(r²-1)Q_{k-1}Q_{n-k-1}. The exact Chebyshev identity makes the adjacent P difference equal to -(r²-1)Q_{n-2k-2}. Perron Rayleigh strictness puts the old root above the unit path edge, where this Chebyshev factor is positive by its known real roots. The successor monic polynomial is negative at the old Perron root and eventually positive, so its Perron root is strictly greater. Covers every integer n>=4, each allowed k, and all real r>1 including crossing the Hermitian spectral edge. Standalone exact polynomial verifier and SPD-root bisection pass; finite checks are not infinity proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang--Wang 2012, doi:10.1016/j.jmaa.2012.04.039, Section 2 treats optimal permutations for cyclic weights and Sections 3 treats infinite shifts.",
+        "Vandanjav--Undrakh 2014, doi:10.1016/j.laa.2014.02.018, Section 2 Theorems 2.1--2.2 treat pairs of consecutive exceptional weights, with r<1 or r>=2."
+      ],
+      "reasoning": "Even after encoding a nilpotent shift as a cyclic weighted shift with a zero link, identifying a globally optimal placement does not imply the strict chain between arbitrary consecutive intermediate placements. The consecutive-two-defect problem differs from the single-defect problem; neither quoted theorem establishes the desired all-r strict chain. A stronger unstated rearrangement consequence remains a potential priority risk.",
+      "searches": [
+        "Maximizing numerical radii of weighted shifts under weight permutations Chi-Tung Chang Kuo-Zhong Wang",
+        "spectral radius weighted path graph one edge increased weight location strictly increases toward center Chebyshev determinant",
+        "On the numerical range of some weighted shift matrices and operators Vandanjav Undrakh 2014"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.7153/oam-07-11",
+      "doi:10.1016/j.laa.2014.02.018",
+      "doi:10.1016/j.jmaa.2012.04.039",
+      "https://portal.mardi4nfdi.de/wiki/The_numerical_radii_of_weighted_shift_matrices_and_operators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chien--Sheu 2013 Theorem 2.2: reversed strict comparison for 0<r<1 and forward strict comparison for r>=2; p.202 remark says no analogous result then for 1<r<2.",
+        "Vandanjav--Undrakh 2014 Section 2, Theorems 2.1--2.2: consecutive two exceptional links and excluded interval.",
+        "Chang--Wang 2012 Theorem 2.1 and proof accessible in the publisher page: characterization of maximizing permutations; not stated as strict centerward comparisons of all positions."
+      ],
+      "reasoning": "The current result includes the explicitly missing interval for exactly one link. It is not a corollary of either parameter-restricted 2013 result or the double-defect statement; maximizing at the center is weaker than requiring strict monotonicity at every move. If the 2012 method had an unrecognized strict ordered implication, this would bear on independent originality verification.",
+      "searches": [
+        "Chien Sheu 2013 numerical radii weighted shift conjecture 1<r<2 increasing k proved later",
+        "\"Vandanjav\" \"Undrakh\" \"2014\" \"1<r<2\"",
+        "\"Maximizing numerical radii of weighted shifts under weight permutations\" \"Theorem 2.1\" \"nonincreasing\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chien--Sheu 2013, doi:10.7153/oam-07-11, p.202 explicitly conjectures w(A_k)<w(A_{k+1}) for 1<r<2.",
+        "The equivalent Perron-root statement concerns the symmetric weighted path with one enlarged edge; no exactly matching published theorem was identified in these searches."
+      ],
+      "reasoning": "The complex numerical-radius problem is exactly half the largest-eigenvalue problem for a weighted path. A differently named spectral theorem would cover the result only if it gives strict comparison at every adjacent position for every r>1. No examined source meets that implication.",
+      "searches": [
+        "Chien Sheu 2013 conjecture numerical radius single exceptional weight 1<r<2 weighted shift finite matrix position monotonicity",
+        "numerical radius finite weighted shift path one nonunit weight moving edge center exact all amplitudes",
+        "\"Chien and Sheu\" \"1 < r < 2\" numerical radius",
+        "\"weighted shift\" \"r\" \"n/2\" \"1<r<2\" \"numerical\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned closest unrelated items 2026/9/20/SCOPE-irreducible-weighted-shift-essential-power-profiles--d5ae263f185c and 2026/10/4/SCOPE-rank-four-is-the-exact-rank-threshold-for-off-center-circular-nu--f920baa2d402.",
+        "Original 2013 article includes a size-four check but states the general intermediate interval only conjecturally."
+      ],
+      "reasoning": "No located exact table or finite database contains an all-dimensional assertion. Exhaustive finite cases would not prove the universal result; the present conclusion follows from the exact polynomial identity.",
+      "searches": [
+        "Chien Sheu 2013 conjecture numerical radius single exceptional weight 1<r<2 weighted shift finite matrix position monotonicity",
+        "spectral radius weighted path graph one edge increased weight location strictly increases toward center Chebyshev determinant",
+        "numerical radius finite weighted shift path one nonunit weight moving edge center exact all amplitudes",
+        "\"one exceptional weight\" \"numerical radius\" position 2019 2024"
+      ]
+    },
+    "rationale": "The primary 2013 paper explicitly states the 1<r<2 strict comparison as a conjecture, while proving its counterparts for r<1 and r>=2. The 2014 paper treats two consecutive defects, not this missing single-defect parameter interval. The 2012 cyclic-permutation theorem characterizes global maximizers, which does not logically entail each strict neighboring step. Searches of aliases and related spectral path formulations found no identified full covering theorem, with the general-rearrangement risk transparently recorded.",
+    "residual_risks": [
+      "General spectral edge-rearrangement theorems for symmetric weighted paths might already force the full strict monotonicity; finite web and semantic searches do not prove nonexistence.",
+      "The cyclic-permutation maximizer theorem of Chang and Wang (2012) is strongly related. Although the inspected maximizer statements do not directly imply every intermediate strict inequality, a consequence not exposed in inspected material may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly conjectures rather than proves the missing comparison; polynomial representation supplied but no general all-r comparison.",
+        "evidence": "Section 2, equations (2.4), (2.9)--(2.12), Theorem 2.2, p.202 Remark.",
+        "identifier_or_url": "https://files.ele-math.com/articles/oam-07-11.pdf",
+        "material_read": "Entire eight-page PDF, especially Section 2 Theorems 2.1--2.2 and Remark on printed p.202; page image cross-checked.",
+        "method": "Lawful open-access full text, mathematical theorem/continuant comparison and page-image inspection",
+        "title": "The numerical radii of weighted shift matrices and operators",
+        "trigger": "The exact one-defect family and conjecture for 1<r<2"
+      },
+      {
+        "assessment": "The finite matrix comparison concerns two adjacent equal exceptional links, not one. It retains the earlier parameter restrictions.",
+        "evidence": "The 2014 paper formula (5) defines A_{k,k+1} with two r weights, Theorem 2.2 handles r<1 and r>=2.",
+        "identifier_or_url": "https://www.researchgate.net/publication/260520352_On_the_numerical_range_of_some_weighted_shift_matrices_and_operators",
+        "material_read": "Full accessible paper text; Section 1 model, Section 2 Theorems 2.1--2.2 and adjacent proof, Section 3 different infinite-shift setting.",
+        "method": "Author-accessible reproduced full-text theorem and proof inspection",
+        "title": "On the numerical range of some weighted shift matrices and operators",
+        "trigger": "Same research group extends numerical-radius comparisons of weighted shifts in 2014"
+      },
+      {
+        "assessment": "Characterizes maximizer configurations globally; inspected material does not assert a strict chain for every successive displacement of one exceptional weight. Uninspected implications remain residual risk.",
+        "evidence": "2012 publisher abstract and proof of Theorem 2.1, rearrangement Lemmas 2.2 and 2.3.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2012.04.039",
+        "material_read": "Publisher accessible abstract, Introduction, Section 2 Lemma 2.2/2.3 and available main-theorem proof text, Section 3 overview; not a certified exhaustive reading of all pages.",
+        "method": "Publisher page extracted mathematical text and independent university publication metadata",
+        "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+        "trigger": "Potential stronger theorem maximizing numerical radii over any weight permutation, with zero weight encoding a nilpotent shift"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6c67187-469c-4b66-a5b2-56f2dfe24550",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the explicit nontrivial missing interval 1<r<2 in a documented finite-operator numerical-radius conjecture, uniformly for every matrix order and exceptional-link position. Gives a sharp structural location-ordering theorem and a universal simple positive Chebyshev continuant identity spanning both sub- and super-band spectral regimes. This is a mathematically motivated full classification, not a routine numeric estimate or arbitrary example.",
+    "status": "PASS"
+  }
+}
