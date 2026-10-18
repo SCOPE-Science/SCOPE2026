@@ -1,0 +1,15 @@
+# Scientific review: persistence-filtered finite-chain implication
+
+## Correctness (PASS)
+The claim is a complete statement for every finite nonempty Heyting chain. Its proof reconstructs row-suffix semantics, identifies precisely which last-occurrence maps represent the same binary operation, translates \(\mathsf p_a\) into the exclusion of later rooks in forbidden columns, and counts label injections on each fixed set of occupied rows. Each transformation is reversible. In addition to the proof, the standard-library checker exhaustively tests all threshold assignments through six points against a direct evaluation of the axiom, verifies the induced operation tables, and independently counts rook placements through eight points. These finite computations support but do not establish the unrestricted theorem.
+
+## Originality (PASS, with identified residual risks)
+The primary source, de Groot–Litak (arXiv:2603.28402v2, Sections 3 and 5), introduces the flat semantics and gives a general relational characterization of \(\mathsf p_a\); it does not present this finite-chain partial-rook normal form or count these operations. A previous general finite-chain last-occurrence classification gives the unrestricted set of operators but not the exact admissibility test for \(\mathsf p_a\) or its product-sum census. The closest separate finite-chain result concerns the different combined axioms \(\mathsf t_{\Box}\) and \(\mathsf{4_a}\), not persistence. Actual targeted database and literature searches found no result with the same restricted statement. No assertion of mathematical uniqueness or independent external verification follows from search absence. Potentially unindexed combinatorial enumerations remain a residual search risk.
+
+## Value (PASS)
+The persistence axiom has an explicit role in arithmetical and constructive interpretations of flat Heyting–Lewis logic, while the primary paper's finite-model-property theorem does not include this axiom. The theorem isolates the exact admissible operator types on the natural finite-chain test class and provides a reproducible count, rather than only a sufficient frame condition or an arbitrary small-case table. The rook exclusion constraint and product-sum permit systematic finite model cataloguing without enumerating all relations. It does not settle the general finite-model-property problem.
+
+## Sources and scope
+Primary text inspected: de Groot and Litak, arXiv:2603.28402v2, Sections 3.1, 3.2 and 5.1 (March 30, 2026 first public date; June 30, 2026 revision), plus the publisher version DOI:10.4204/EPTCS.447.25. The prior unrestricted finite-chain parametric claim was compared by its recoverable mathematical statement. Other relevant result records were compared by their stated domains and implication patterns. The only accepted contribution is the persistence restriction and exact operator count on finite chains; the general semantics and unrestricted all-operator classification are prior facts.
+
+Self-review: passed. Independent audit: not yet performed.
