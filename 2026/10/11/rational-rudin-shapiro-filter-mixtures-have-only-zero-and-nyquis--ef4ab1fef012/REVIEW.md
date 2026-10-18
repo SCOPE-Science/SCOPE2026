@@ -1,11 +1,21 @@
-# Review: rational Rudin–Shapiro cyclic-filter rank
+# Independent mathematical audit
 
-**Correctness — PASS.** For each primitive \(2^r\)-th root of unity with \(r\ge2\), the final recursion step at exponent \(2^{r-1}\) and all subsequent steps are invertible rational maps on the complementary-polynomial pair. A zero of a nontrivial rational mixture would force a nonzero rational polynomial of degree smaller than \(\deg\Phi_{2^r}\) to vanish there. Cyclotomic irreducibility excludes it. Direct evaluations at \(1\) and \(-1\) supply every allowed exception, and discrete Fourier diagonalization supplies exact ranks and kernels. The \(m=3\) irrational counterexample is a direct symbolic calculation. Finite checker tests are supporting evidence, not universal proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** Brillhart and Carlitz's resultant establishes non-common-zero behavior for the classical pair but does not imply nonvanishing of all rational linear combinations. Brillhart–Lomont–Morton's historical 1976 work on cyclotomic properties is the closest plausible priority source; a later full-text account quotes its main recurrence only for odd-order roots. Erdélyi's 2014 Mahler-measure result and its grid recursion, the 2007 Rudin–Shapiro orthogonal transform, and the 2010 wavelet-filter construction do not state the rational cyclic convolution classification in inspected material. The original 1976 full text and two modern papers could not be completely inspected, so an equivalent uninspected historical statement remains possible. Indexed-record searches and the existing claims were compared by mathematical implication, not solely titles.
+PASS
 
-**Mathematical value — PASS.** Filter invertibility and exact lost frequency directions are natural invariants of binary-length complementary low-correlation filters. The uniform one-dimensional rank defect across all dyadic lengths, its parity-dependent rational mixing lines, and a sharp failure for real irrational coefficients form a complete arithmetic classification. The result is not merely a restatement of Golay complementarity or a numerical rank table. It makes no claim about nonzero singular-value lower bounds.
+At primitive 2^r roots with r≥2, invertible rational recursion matrices reduce nonzero rational (a,b) to nonzero A P_{r−1}+B Q_{r−1}; degree below φ(2^r) excludes roots by cyclotomic minimality. Exact H²=2I endpoint evaluations isolate one possible zero at z=1 or -1; Fourier diagonalization classifies kernel. m=1 and endpoint parity checked. The claimed real counterexample at ζ8 satisfies P3/Q3=√2−1, so pair (1,1−√2) zeros occur in conjugate pairs. Fresh exact symbolic checks through level eight corroborate, not establish, all-level claim.
 
-**Limitations.** The classification is for rational coefficients and classical two-channel Rudin–Shapiro polynomials on cycles of dyadic order. Other coefficient fields or lengths require separate analysis. Full historical priority is not guaranteed by the available materials.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction between classical Rudin–Shapiro recursion/odd-order cyclotomic recurrence and explicit rank-nullity classification of all rational two-filter combinations on 2^m cycles. No decisive stronger theorem found in material actually read; inaccessible 1976 article remains a serious stated risk.
+
+## value
+
+PASS
+
+Determines invertibility versus codimension-one failure for every rational two-channel Rudin–Shapiro filter mixture at all dyadic lengths and isolates the exact endpoint kernel. A natural signal-processing algebra question with a sharp rationality boundary; more than an arbitrary small coefficient table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

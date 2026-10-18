@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The certificate below is a finite computational corroboration only. The unrestricted proof is in `RESULT.md`.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The checker generates the two classical Rudin–Shapiro coefficient arrays for \(1\le m\le12\). It tests every nonzero integer mixing pair \((a,b)\in\{-3,-2,-1,0,1,2,3\}^2\), evaluating the two endpoint modes exactly and reducing every mixed symbol modulo each \(\Phi_{2^r}(z)=z^{2^{r-1}}+1\) for \(2\le r\le m\). It separately builds 24 full cyclic convolution matrices for \(1\le m\le4\) and checks exact ranks by rational Gaussian elimination.
+## correctness
 
-Observed output when the packaged checker was run:
+PASS
 
-`VERIFY_OK levels=12 rational_pairs=576 primitive_cyclotomic_checks=3168 exact_circulant_ranks=24 real_extension_counterexample=proved_symbolically`
+At primitive 2^r roots with r≥2, invertible rational recursion matrices reduce nonzero rational (a,b) to nonzero A P_{r−1}+B Q_{r−1}; degree below φ(2^r) excludes roots by cyclotomic minimality. Exact H²=2I endpoint evaluations isolate one possible zero at z=1 or -1; Fourier diagonalization classifies kernel. m=1 and endpoint parity checked. The claimed real counterexample at ζ8 satisfies P3/Q3=√2−1, so pair (1,1−√2) zeros occur in conjugate pairs. Fresh exact symbolic checks through level eight corroborate, not establish, all-level claim.
 
-There is no exhaustive verification over all rational pairs or all depths, nor does the checker establish independent scientific validation. The real irrational counterexample is proved algebraically in `RESULT.md` rather than by an approximate floating-point root test.
+## originality
+
+PASS
+
+Best-of-knowledge distinction between classical Rudin–Shapiro recursion/odd-order cyclotomic recurrence and explicit rank-nullity classification of all rational two-filter combinations on 2^m cycles. No decisive stronger theorem found in material actually read; inaccessible 1976 article remains a serious stated risk.
+
+## value
+
+PASS
+
+Determines invertibility versus codimension-one failure for every rational two-channel Rudin–Shapiro filter mixture at all dyadic lengths and isolates the exact endpoint kernel. A natural signal-processing algebra question with a sharp rationality boundary; more than an arbitrary small coefficient table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
