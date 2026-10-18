@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For fixed J each marked edge set has n or 2n edges and uniformly bounded candidate conflict degree. Uniform perfect matching probability of t prescribed disjoint edges is the inverse product of the first t odd factors descending from 2n-1; hence spatial joint factorial moments factor with means (1/2,1,...). Conditioning on t edges leaves a uniform matching of n-t chords; crossings among residual edges have the same law as C_{n-t}, and prescribed edges influence at most O_t(n) crossings. The inherited known crossing CLT thus holds uniformly under these rare events, establishing mixed characteristic/factorial moments and independence. Integer maximum-gap tail follows by finite truncation. Enumerating all 146598 matchings through n=7 verified known exact crossing moments and derived covariance, and a triple factorial moment identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy proves crossings normal with exact mean/variance but does not couple crossings with chord span.",
+        "Paguyo separately approximates crossing counts and simple-chord counts; the theorems do not state a joint marked limit.",
+        "Acan Theorem 4.2 yields a joint Poisson law for short lengths, with no Gaussian crossing coordinate."
+      ],
+      "reasoning": "Neither published marginal crossing CLT nor the multitype short-length Poisson result alone entails independence of global crossings from near-diametral spatial point processes. A generic unpublished or unlocated marked-matching CLT remains a residual risk.",
+      "searches": [
+        "random perfect matching circle largest shorter arc chord spans limiting distribution",
+        "mixed Poisson Gaussian limit marked near diameter chords random fixed point free involution",
+        "INRIA:RR-3914 Theorem 3",
+        "arXiv:2104.01134v1 Theorems 1.1-1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1501.01489v1",
+      "INRIA:RR-3914",
+      "arXiv:2104.01134",
+      "arXiv:1611.02771",
+      "OEIS:A293157",
+      "Indexed research-record search for chord-diagram and matching topics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan gives independent Pois(1) laws for fixed small lengths, not moving near-maximum lengths, positions, or Gaussian independence.",
+        "Flajolet–Noy gives the one-dimensional Gaussian crossing limit, with no near-diametral chord observable.",
+        "Paguyo gives separate quantitative marginal convergence results; no joint coupling/independence conclusion."
+      ],
+      "reasoning": "The claimed joint convergence requires new conditional-stability and mixed factorial-moment steps beyond any cited prior statement. The exact finite covariance is an elementary consequence of prescribed-edge counting and is not claimed separately novel.",
+      "searches": [
+        "arXiv:1501.01489v1 Theorem 4.2 pp.10-11",
+        "INRIA:RR-3914 Theorem 3 p.6",
+        "arXiv:2104.01134v1 Theorems 1.1 and 1.2 pp.2-3",
+        "mixed Poisson Gaussian limit marked near diameter chords random fixed point free involution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan uses shorter-arc interior length; the current j=n-1-length counts *moving* lengths n-1-j rather than fixed small lengths.",
+        "Sullivan defines linear separation b-a, which is not circular shorter separation, and counts matchings satisfying a minimum length constraint."
+      ],
+      "reasoning": "Renaming the deficiency does not transform Acan fixed-small-length limits into near-diametral moving-length limits. Linear distance in Sullivan is not equivalent to the circular shortest-arc distance. Equivalence to a general rare-edge matching process is explicitly analyzed via new mixed factorial-moment proof; any stronger published general theorem would affect originality.",
+      "searches": [
+        "uniform random chord diagram near diametral longest chord Poisson number maximal span distribution",
+        "perfect matching 2n cyclic endpoints maximum circular chord length deficiency independent normal crossing fluctuations",
+        "arXiv:1501.01489v1 §4 / Theorem 4.2",
+        "arXiv:1611.02771v1 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A293157 tabulates linear matchings with all chords longer than a threshold, not circular near-diametral point-process and crossings.",
+        "Closest indexed matching-oriented hits concern extremal matching gaps in graphs, not random perfect-matchings on cyclic endpoints."
+      ],
+      "reasoning": "The identified enumerative table and indexed record do not specify the same random object/statistic joint distribution. A negative query result alone is not offered as proof of novelty.",
+      "searches": [
+        "matching 2n circular points number chords distance n-k asymptotically Poisson",
+        "uniform random chord diagrams independent spatial Poisson near antipodal longest chords Gaussian crossing count",
+        "OEIS:A293157 (linear matchings with minimum chord length)",
+        "perfect matching 2n cyclic endpoints maximum circular chord length deficiency independent normal crossing fluctuations"
+      ]
+    },
+    "rationale": "Read Acan Section 4 Theorem 4.2 (joint fixed short lengths), Flajolet–Noy Theorem 3 (marginal crossing Gaussian), Paguyo Theorems 1.1–1.2 (separate marginal bounds), Sullivan Theorem 2 (linear minimum-length enumeration). None explicitly covers the moving near-maximum circular deficiency marked spatial processes jointly independent from global crossing Gaussian; proof supplies additional conditional-stability step. Targeted indexed-record searches did not reveal a closer record but is not a priority certificate. Residual risk: a broadly formulated matching multivariate Poisson-Gaussian theorem not located.",
+    "residual_risks": [
+      "Possible coverage by an unlocated general multivariate random-matching theorem; database failures cannot establish uniqueness.",
+      "Spatial antipodal convention depends on chosen cyclic labeling; theorem explicitly fixes convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers independent Poisson fixed short lengths, not the moving circular longest-length levels, spatial process, or Gaussian crossing independence",
+        "evidence": [
+          "arXiv:1501.01489v1 pp.1-4, 10-11; Theorem 4.2; first posted 2015-01-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Title, abstract, Introduction, Section 2 (conditioned crossing degree), Section 3 simple chords, Section 4 Theorem 4.2 and complete factorial-moment proof; relevant results in Sections 5–7 considered",
+        "method": "Full-text open-access arXiv PDF, textual sections and page-image inspection",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same random chord-matching model; nearest published multitype Poisson result"
+      },
+      {
+        "assessment": "Proves exact mean and variance and marginal Gaussian crossings; no near-diametral spatial length process or joint independence statement",
+        "evidence": [
+          "INRIA RR-3914 dated March 2000, Theorem 3 p.6, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Original complete 14-page open report inspected with emphasis on Theorem 1/2 components and Theorem 3 crossings; proof and statements pp.5-12",
+        "method": "Open-access INRIA author archive PDF, text and page-image review",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Original crossing central limit theorem and potentially dominating probabilistic result"
+      },
+      {
+        "assessment": "Quantifies separate crossing and simple-chord marginals; no stated joint moving near-diametral marked process or independence",
+        "evidence": [
+          "arXiv:2104.01134, Theorems 1.1 and 1.2, Lemma 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Abstract, Introduction, Theorems 1.1–1.2, Section 2 exact moments and central-limit coupling, statements of Section 3",
+        "method": "Open-access arXiv PDF with text/page-image inspection",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Later quantitatively stronger Gaussian and Poisson approximation in the exact random-matching model"
+      },
+      {
+        "assessment": "Linear minimum-length restriction enumeration; not a circular maximum shorter-arc distribution and not a joint Gaussian limit",
+        "evidence": [
+          "arXiv:1611.02771, Sections 1–3, Theorem 2, first posted 2016-11-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.02771",
+        "material_read": "Abstract, definitions, complete statement of Theorem 2 and construction outline, examples/recurrences",
+        "method": "Open-access arXiv PDF text inspection",
+        "title": "Linear chord diagrams with long chords",
+        "trigger": "Long-chord title could dominate maximum-length distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fd313fa-5d9e-444f-8917-6f766db08b9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum circular shorter-arc length is a natural extremal matching invariant. Its exact half-intensity boundary and independent spatial Poisson marks give information absent from a scalar Poisson marginal; pairing the geometric extreme with Gaussian global crossing fluctuations answers a genuinely joint conditional-distribution question. Even though finite covariance has order n, it vanishes on the natural crossing CLT scale. This links localized rare geometry and global graph crossings and yields a usable conditional Gaussian law.",
+    "status": "PASS"
+  }
+}
