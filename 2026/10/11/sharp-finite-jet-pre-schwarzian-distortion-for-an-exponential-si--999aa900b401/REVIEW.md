@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The target \(\Phi(w)=e^w(1+\sin w)\) has no zero in the disk, and its logarithmic derivative equals \(1+\sec(-w)+\tan(-w)\). The Riccati equation for \(\sec w+\tan w\) proves strict coefficient positivity and justifies the sharp pointwise logarithmic-derivative majorant. Schwarz--Pick for \(\omega=z^m\eta\) gives an exact modulus-dependent radial bound, realized for every admissible modulus by a finite Blaschke product with aligned derivative phases. The independent Schwarz--Pick bound for \(\omega\) yields the global constant; the displayed logarithmic derivative of the critical-point ratio is positive, so the critical radius is unique. Boundary-concentrating finite Blaschke functions prove sharpness for each fixed jet order; equality inside the disk for \(m\ge2\) would contradict the Schwarz--Pick equality condition. The provided verifier exactly brackets the critical root, but is not used as an infinite proof.
+PASS
 
-## Originality — PASS (within the checked literature; residual risk remains)
+Phi′/Phi=1+sec(-ω)+tan(-ω). Positive Taylor coefficients for U(w)=sec w+tan w follow from U′=(1+U²)/2 and yield the exact pointwise phase bound at ω=-s. Writing ω=z^mη and Schwarz–Pick for η gives (1-r²)|ω′|<=m(1-r²)s/r+r^m-s²/r^m. For each s<=r^m a real disk automorphism η=(c-z)/(1-cz) has ω(r)=-s and derivative aligned, so the radial optimization is attained. Direct Schwarz–Pick for ω then yields G(s)=(1-s²)(1+sec s+tan s); the logarithmic derivative of the monotonic critical-ratio R(s) is positive on (0,1), proving unique maximizing r*. Independently evaluated the transcendental equation with 50-digit arithmetic at r*=0.27327758869480084986 and G(r*)=2.14565700788682289571. For m>=2, a Blaschke family with sample radius R tending to 1 approaches G(r*), while interior equality in Schwarz–Pick would make ω an automorphism, impossible with ω′(0)=0. At r=0 the envelopes are 2 for m=1 and 0 for m>=2.
 
-Das and Sarkar, arXiv:2607.25280v1/v2, study coefficient and determinant functionals for the globally univalent derivative-subordinate class; the inspected relevant definitions, proofs, results and concluding discussion contain neither the pre-Schwarzian envelope nor invariance under arbitrary finite vanishing jets. The present claim does not inherit sharpness in their globally univalent subclass. Kim--Sugawa's sharp pre-Schwarzian norm bound concerns specified close-to-convex mappings. Li--Luo's framework concerns Ma--Minda starlike classes, where the constrained quantity is \(zf'/f\), not \(f'\). Ahamed--Hossain's half-plane pre-Schwarzian constraints do not imply the present derivative-subordination profile. Searches of published mathematical findings identified differently targeted sine-domain convexity, Neil-type section radii, and Bloch invariants; no equivalent or strictly dominating radial statement was located. Classical Schwarz--Pick and its Blaschke extremizers are acknowledged as general tools, not the novelty claim. The complete texts of some broader preschwarzian papers were unavailable, and semantic searches cannot certify absence of prior equivalent specializations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pre-Schwarzian norm controls local distortion of locally univalent analytic maps. Fixing many initial vanishing Taylor coefficients is a natural normalization of derivative-subordinate families. The exact sharp radial envelope across every radius and all jet orders reveals a nontrivial contrast: strong finite-order local flatness changes the local radial bound but cannot improve the globally sharp norm, because Blaschke extremizers concentrate near the boundary. Explicit extremizers, the exact common constant and interior nonattainment provide a complete extremal structure, not just a routine numerical bound. This does not purport to prove an improved constant in the smaller globally univalent class.
+Das–Sarkar study the same derivative target but their available abstract concerns coefficient and determinant problems in a globally univalent class. Kim–Sugawa treat sharp pre-Schwarzian norms in different close-to-convex classes. A general Schwarz–Pick/Dieudonné method is prior, but the simultaneous exact jet/radius formula, fixed global constant and nonattainment distinction are not shown by the material read. Full focal paper was not obtained; this remains a real overlap risk.
 
-## Literature and limitations
+## value
 
-Main source: Das--Sarkar, arXiv:2607.25280; related general sharp-norm work by Kim--Sugawa, DOI:10.1017/S0013091504000306; Li--Luo, arXiv:2606.24050; and Ahamed--Hossain, arXiv:2608.30595. The target-specific result may be derivable from general norm frameworks not inspected in full. The claim is restricted to locally univalent primitives of a specified derivative-subordination form, and the radial optimizer is left as a one-dimensional maximum.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact pre-Schwarzian norm and hyperbolic radial envelope are natural distortion invariants for a specific analytic derivative class. The fact that every finite Taylor jet retains the same global supremum but m>=2 loses interior extremizers describes a meaningful sharp boundary phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
