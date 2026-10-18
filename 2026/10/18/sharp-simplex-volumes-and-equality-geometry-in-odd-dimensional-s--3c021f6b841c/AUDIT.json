@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "PASS: The covariance determinant identity and eigenvalue AGM prove the exact ball-simplex bound and classify equality. For the low-width branch, the explicit ellipsoid dominates every horizontal spherical-slab section by \\(A(1-z^2/B)-(1-z^2)=(1-dt^2)(1-z^2/t^2)/(d-1)\\ge0\\). The determinant of its scaling gives the precise upper coefficient. Two orthogonal, centered k-simplices at opposite slab rims map to a regular d-simplex, attaining the upper bound for every odd d; the witness at the transition stays feasible for thicker slabs. Equality rigidity follows from the ball-simplex Gram condition, contact only at the two rims before the transition, balanced vertical signs, and forced orthogonal blocks. The occupied-volume ratio decreases strictly by an elementary integral-ratio argument. The standalone pure-Python verifier checked 12 rational parameter/dimension Gram determinants, six transition identities and four exact rational monotonicity sequences; the universal proof does not depend on sampling. No assertion is made for even dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Lángi (2014), Corollary 1 and §§3–4 optimize sphere-vertex polytopes with d+1, d+2, or d+3 vertices; the ambient body is the entire Euclidean ball.",
+        "Lassak (2011), Theorem: an (n+2)-fold barycentric homothet of a maximal simplex covers an arbitrary convex body; it supplies no exact maximal-volume profile for ball slices."
+      ],
+      "reasoning": "Generic ball regular-simplex bounds do apply to the thicker slabs but do not imply that the small-width construction is optimal, nor identify the saturation point or parity-sensitive equality. The normed-space necessary widths and body-dilation bound do not dominate the exact formula.",
+      "searches": [
+        "arXiv:1402.6496 maximum volume polytope sphere d+1 vertices",
+        "Lassak simplex maximum volume unit ball normed space 2010 width",
+        "Lassak approximation convex bodies inscribed simplices maximal volume 2011"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1402.6496 (2014-02-26 public submission)",
+      "https://arxiv.org/html/1402.6496v3 (full-text Corollary 1 and main theorems)",
+      "https://publi.math.unideb.hu/paper/1476/download/ (full 2010 article)",
+      "https://link.springer.com/content/pdf/10.1007/s13366-011-0026-x.pdf (full 2011 article)",
+      "https://doi.org/10.1112/S0025579300005763 (1974 publisher extract only; full text inaccessible)",
+      "Searches of mathematical literature for maximal inscribed simplex under sphere/slab/spherical-zone aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1402.6496 full HTML Corollary 1 determines the regular ball-inscribed simplex; its upper volume is the saturated branch only.",
+        "Lassak (2010) normed-ball width identity is a necessary condition on an extremizing simplex.",
+        "Lassak (2011) derives inclusion of an arbitrary body in a homothetically enlarged maximal simplex."
+      ],
+      "reasoning": "The new assertion implies a ball maximum in its t=1 specialization, but that converse is false without additional containment geometry. The lower-width upper bound uses a specific dimension-dependent enclosing ellipsoid and proves attainment in odd dimensions via balanced caps, an ingredient absent from the cited general ball bound. Neither Lassak result directly implies the piecewise exact profile.",
+      "searches": [
+        "Horváth Lángi 2014 Corollary 1 maximum volume simplex ball",
+        "Lassak 2010 simplices maximum volume width normed unit ball",
+        "Lassak 2011 maximum simplex arbitrary convex body dilation theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horváth–Lángi (2014), arXiv:1402.6496, Section 2 Corollary 1: full-ball regular simplex only.",
+        "Lassak (2010), pp. 79–86: volume maximizers in unit balls of normed spaces, with width constraints, not ball-and-slab intersections."
+      ],
+      "reasoning": "Equivalent terms include symmetric ball slice, central spherical band, spherical zone, and Euclidean ball intersected with two parallel halfspaces. The inspected general theorems give a ball benchmark or necessary conditions, without the sharp width-dependent expression or contact classification; negative searches are only limited evidence.",
+      "searches": [
+        "\"maximal volume simplex\" \"spherical slab\"",
+        "\"inscribed simplex\" \"spherical zone\" maximum volume",
+        "\"regular simplex\" \"slab\" \"volume\" \"ball\" intersect",
+        "spherical zone maximal inscribed tetrahedron volume r squared h phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three inspected primary sources contain general maximization principles and no parameter table of spherical-slab simplex volumes.",
+        "No exact-table match appeared among the searched mathematical records; this is not proof that no such table exists."
+      ],
+      "reasoning": "The claim is an infinite odd-dimensional exact profile, so isolated tabulated 3D examples would not imply the general statement. No tabulation or equivalent explicit formula was located.",
+      "searches": [
+        "maximum volume simplex spherical band ball slab phase transition",
+        "maximum volume tetrahedron spherical zone exact formula",
+        "largest simplex in truncated Euclidean ball central slab"
+      ]
+    },
+    "rationale": "PASS, subject to unlocated-prior-work risk: The 2014 Horváth–Lángi full text, section 2 Corollary 1 and the simplex and polytope extremality sections, supplies only the full-ball regular-simplex maximizer, not a symmetric slab-width profile or its equality geometry. Lassak 2010 proves necessary width identities for maximizers in normed-space unit balls, and Lassak 2011 proves a barycentric dilation inclusion for arbitrary convex bodies; neither yields this piecewise formula by the stated theorems. Published-record semantic searches compared distinct constrained-simplex, ellipsoid, and sphere-polytope results by their domains and implications. No covering formula was found, but absent-search matches cannot establish absolute priority; aliases such as spherical band, ball slice, and capped ball remain residual risks.",
+    "residual_risks": [
+      "An older exact result may use equivalent terminology, including spherical zones, ball slices, or ellipsoidal containment contacts, and evade present searches.",
+      "McKinney (1974), On maximal simplices inscribed in a central convex set, Mathematika 21:38–44, is a plausible broad predecessor; only the publisher extract could be read, so its implications for this exact body remain uncertain.",
+      "The small-width formula combines classical ellipsoid enclosure and regular-simplex theory; a stronger unlocated theorem could subsume it.",
+      "No independent manuscript-level priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full-ball regular simplex bound is already established; no ball-slab parameter or two-rim equality classification.",
+        "evidence": [
+          "Sections 1–2 specify P_d(n) as all d-polytopes inscribed in the unit sphere, and Corollary 1 gives the sphere-inscribed regular simplex; the later main theorems change the number of vertices, not an ambient slab width."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.6496v3",
+        "material_read": "Full HTML sections 1–5, especially Corollary 1, the statements for d+2 and d+3 vertex polytopes, and the remarks/open problems.",
+        "method": "Read open-access arXiv full-text HTML and compare theorem hypotheses/quantifiers.",
+        "title": "Maximum volume polytopes inscribed in the unit sphere",
+        "trigger": "Shares ambient unit Euclidean ball and sharp simplex volume inequality."
+      },
+      {
+        "assessment": "Necessary width relations and a planar edge lower bound, no spherical-slab exact maximum.",
+        "evidence": [
+          "Abstract and main results prove the reciprocal-width sum condition for a maximal-volume simplex in a normed-space unit ball."
+        ],
+        "identifier_or_url": "https://publi.math.unideb.hu/paper/1476/download/",
+        "material_read": "Abstract, definitions, main reciprocal-width theorem and proof portions, and concluding material from the eight-page PDF (pp. 79–86).",
+        "method": "Read lawful open full-text PDF, including the first-page image and searchable mathematical content.",
+        "title": "Simplices of maximum volume contained in the unit ball of a normed space",
+        "trigger": "Could contain an all-body theorem implying an exact restricted-ball bound."
+      },
+      {
+        "assessment": "Universal barycentric dilation bound, not an exact spherical-slab volume determination.",
+        "evidence": [
+          "Theorem on p. 390 gives \\(C\\subseteq(n+2)S\\); Lemma 2 on pp. 390–391 classifies maximal simplices in a double-cone, a different body from the truncated Euclidean ball."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13366-011-0026-x",
+        "material_read": "Full six-page publisher open-access PDF, especially theorem, Lemmas 1–2, detailed double-cone classification and theorem proof (pp. 389–393).",
+        "method": "Read lawful publisher full PDF (https://link.springer.com/content/pdf/10.1007/s13366-011-0026-x.pdf), in addition to the metadata and HTML abstract.",
+        "title": "Approximation of convex bodies by inscribed simplices of maximum volume",
+        "trigger": "Arbitrary-convex-body largest-simplex theorem might imply the proposed bound."
+      },
+      {
+        "assessment": "A broad potential predecessor, not established to cover or not cover the specific exact slab profile; residual priority risk.",
+        "evidence": [
+          "The visible extract concerns Blaschke-type general volume inequalities for maximal tetrahedra in centrally symmetric convex sets."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S0025579300005763",
+        "material_read": "Publisher abstract/extract and reference metadata; complete seven-page text was not accessible.",
+        "method": "Read public abstract and bibliographic material; no claim of inspecting an inaccessible body.",
+        "title": "On maximal simplices inscribed in a central convex set",
+        "trigger": "A 1974 predecessor addresses maximum simplices in centrally symmetric convex bodies, hence possibly a stronger general constraint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c021f6b-841c-4129-af0a-4f3357fdd15b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The problem asks a natural extremal invariant of a continuous family interpolating between a thin Euclidean spherical slice and the unit ball. The sharp algebraic volume profile is given for every odd dimension, with a nontrivial saturation transition exactly at reciprocal square-root dimension, complete contact/equality classification, and a strictly decreasing occupied-volume fraction. These results are not a numerical recalculation of the regular ball simplex: the two-rim constraint creates a new, parity-dependent optimizer and a different volume law.",
+    "status": "PASS"
+  }
+}
