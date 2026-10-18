@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact expectation follows from per-column event probability p^t-p^m. The critical threshold proof uses union and exponential bounds uniform across 2^m subsets, an O(m^-1/4) binomial band, summable Markov–Borel–Cantelli errors, and the central limit theorem. The two zero-one sides follow from exponential summable expectations. The large-deviation exponent is sandwiched between binomial tails of slopes c/(-log p)±epsilon or by the deterministic top-subset lower bound. A separate exhaustive matrix enumerator verifies all 29 finite parameter cases but does not prove the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sakurai (2021) Proposition 4.1 and Theorem 5.1 count total concepts and give a superpolynomial mean lower bound; those statements neither specify stability of a fixed top concept nor imply its almost-sure window.",
+        "Ganter (2011) concerns randomized extent sampling in a fixed context, not independent random incidence columns."
+      ],
+      "reasoning": "The same Bernoulli incidence setting and general Galois framework are relevant, but a mean for the number of concepts does not give the mean, concentration or transition profile of top stability. No broader theorem inspected provides those results.",
+      "searches": [
+        "\"On formal concepts of random formal contexts\" Sakurai arXiv 2101.11023",
+        "\"Random Extents and Random Closure Systems\" Ganter",
+        "random formal contexts maximal concept intensional stability sharp threshold number of attributes for randomly selected object subset"
+      ]
+    },
+    "checked_sources": [
+      "Taro Sakurai, On formal concepts of random formal contexts, arXiv:2101.11023, sections 1–6 and references, full text.",
+      "Hui-lai Zhi, On the Calculation of Formal Concept Stability, DOI:10.1155/2014/917639, full HTML article.",
+      "Amira Mouakher and Andrea Ko, Efficient assessment of formal concept stability in the Galois lattice, DOI:10.1080/03081079.2022.2084728, abstract only.",
+      "Richard Emilion and Gérard Levy, Size of random Galois lattices and number of closed frequent itemsets, DOI:10.1016/j.dam.2009.02.025, abstract only.",
+      "Ganter, Random Extents and Random Closure Systems, 2011, abstract only.",
+      "Published mathematical-record searches for random-context stability, Gaussian windows, and coverage-equivalent statements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sakurai 2021 §§3–6: random context and total-concept expected-count formula; not a top-stability formula, and no quenched critical window.",
+        "Zhi 2014 §§3–5: fixed-context generator inclusion–exclusion; not a Bernoulli context limit theorem.",
+        "Mouakher–Ko 2022 abstract: algorithm for stability computation based on lattice order; full text inaccessible, so no whole-paper noncoverage assertion."
+      ],
+      "reasoning": "The mean of total concepts does not determine the top-concept stability statistic. General algorithms can compute stability on an input matrix but do not, by their published abstract, entail the limiting Gaussian profile. The proof supplies the additional probabilistic threshold sandwich and summable error estimates absent from inspected primary statements.",
+      "searches": [
+        "\"On formal concepts of random formal contexts\" arXiv 2101.11023 full text",
+        "\"On the Calculation of Formal Concept Stability\" DOI 10.1155/2014/917639 full HTML",
+        "\"Efficient assessment of formal concept stability in the Galois lattice\" DOI 10.1080/03081079.2022.2084728",
+        "Formal concept analysis random contexts with independently present attributes: stability of top concept, expected stability and sharp Gaussian threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stability event is exactly absence of a column supported on a chosen object subset but not all objects; equivalent formulations are a random hypergraph coverage threshold and a random Bernoulli closure-preservation statistic.",
+        "Zhi 2014 Definition 1 and Theorem 7 compute fixed-context stability through minimal generators, but state no random-array quenched window."
+      ],
+      "reasoning": "An equivalent random subset-coverage theorem could specialize to this context, so terminology-only matches are not sufficient. Searched top-stability, random-context, Gaussian-window and Bernoulli-column equivalents; no identified published implication subsumes the stated almost-sure convergence and rate.",
+      "searches": [
+        "Formal concept analysis random contexts with independently present attributes: stability of top concept, expected stability and sharp Gaussian threshold",
+        "expected top-concept stability in a random Bernoulli formal context: Gaussian critical window as number of attributes grows exponentially",
+        "\"formal concept\" \"stability\" \"random context\" probability asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-search results included no matching top-concept stability spectrum; indexed results on random-context concept counts have distinct observables.",
+        "The finite values in verify.py are recomputed from independent exhaustive incidence matrix enumeration and not claimed as unknown table entries."
+      ],
+      "reasoning": "The contribution is not a newly indexed sequence or a known finite table recomputation; its central assertion is an all-parameter probabilistic transition theorem. Failure to retrieve a matching table is not used as proof of uniqueness.",
+      "searches": [
+        "expected top-concept stability in a random Bernoulli formal context: Gaussian critical window as number of attributes grows exponentially",
+        "formal concept analysis stability probability random binary incidence matrices top concept strong law of large numbers",
+        "random formal context Bernoulli stability of concepts limit distribution",
+        "Galois lattice concept stability random incidence matrix expected stability"
+      ]
+    },
+    "rationale": "The exact top-concept stability mean and coupling-robust almost-sure Gaussian crossover are neither the random total-concept count in Sakurai (2021) nor fixed-context stability algorithms in Zhi (2014) and Mouakher–Ko (2022). Statement-level comparisons identified no covering result. Residual risk remains from the inaccessible full 2022 work and possible implicit random-coverage equivalents; this review cannot certify publication priority.",
+    "residual_risks": [
+      "A mathematically equivalent random hypergraph covering theorem might yield this Gaussian top-stability window without using FCA terminology.",
+      "Full text of Mouakher–Ko (2022) and Emilion–Levy (2009) was not accessible; no whole-document noncoverage is inferred from abstracts.",
+      "Independent expert originality and proof audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers expectation of the total concept count and its superpolynomial lower bound, not top-concept stability, Gaussian transition, or coupling-free convergence.",
+        "evidence": [
+          "Section 3 specifies independent Bernoulli incidences; Proposition 4.1 is for E|B(K)|; Theorem 5.1 lower-bounds E|B(K)|; Section 6 reiterates these quantities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.11023",
+        "material_read": "Seven-page primary PDF, text from sections 1–6, Proposition 4.1, Theorem 5.1, conclusions and references; visual pages 1,3,4.",
+        "method": "Read accessible arXiv primary full text and inspect PDF pages.",
+        "title": "On formal concepts of random formal contexts",
+        "trigger": "Same Bernoulli random formal context model and expected concept counts."
+      },
+      {
+        "assessment": "The fixed-context stability definition and generator method are prior art; no probabilistic Bernoulli top-concept phase theorem appears in inspected text.",
+        "evidence": [
+          "Definition 1 is concept stability; Theorems 6–7 compute it with minimal generators and inclusion–exclusion in deterministic contexts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/917639",
+        "material_read": "Full publicly accessible HTML, including definition, minimal generators, Theorems 6–7, conclusions.",
+        "method": "Inspect primary HTML article.",
+        "title": "On the Calculation of Formal Concept Stability",
+        "trigger": "Canonical intent-stability formula and possible dominating inclusion–exclusion."
+      },
+      {
+        "assessment": "Abstract centers on assessment procedures for existing lattices. It cannot be ruled out as a full-text source of an implicit random-stability identity; unresolved access is recorded.",
+        "evidence": [
+          "Public abstract describes computation via lower covers; no random-context asymptotic described in accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081079.2022.2084728",
+        "material_read": "Bibliographic abstract and metadata only; lawfully available full text could not be obtained.",
+        "method": "Search arXiv, open-access repositories and publication page; lawful full text remained inaccessible.",
+        "title": "Efficient assessment of formal concept stability in the Galois lattice",
+        "trigger": "Direct concept-stability literature, dated 2022 and primary motivating stability algorithm."
+      },
+      {
+        "assessment": "Abstract states random total lattice size and number of frequent closed itemsets rather than stability of the top concept; whole-document exclusion not asserted.",
+        "evidence": [
+          "Abstract names counts of concepts/frequent closed itemsets, not intent preservation under object deletion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2009.02.025",
+        "material_read": "Bibliographic abstract and record only.",
+        "method": "Inspect accessible article metadata and abstract.",
+        "title": "Size of random Galois lattices and number of closed frequent itemsets",
+        "trigger": "Earlier probability model for random Galois lattices might dominate this random-context result."
+      },
+      {
+        "assessment": "Random sampling of extents in fixed contexts is a distinct probabilistic construction; potential prior techniques noted.",
+        "evidence": [
+          "Description concerns randomly sampled extents and Möbius calculations."
+        ],
+        "identifier_or_url": "CEUR-WS.org/Vol-959/paper5.pdf",
+        "material_read": "Accessible abstract only; full PDF not read.",
+        "method": "Review source summary and compare definitions.",
+        "title": "Random Extents and Random Closure Systems",
+        "trigger": "Related probability-based treatment of extents and closure operators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc9bef08-ad4e-4295-9635-31cca3a9f79a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Intensional stability is an established and widely used FCA robustness invariant. For the natural top concept of a Bernoulli null-model context, exponential attribute growth yields a previously uncharacterized intrinsic threshold: an exact annealed expectation, an almost-sure Gaussian crossover (not just a mean law), and a precise exponential decay rate. This addresses calibration and sensitivity of actual concept stability under high-dimensional incidence noise. The object is canonical, parameters are structural rather than arbitrary slices, and the result does not rely on a downstream conjecture.",
+    "status": "PASS"
+  }
+}
