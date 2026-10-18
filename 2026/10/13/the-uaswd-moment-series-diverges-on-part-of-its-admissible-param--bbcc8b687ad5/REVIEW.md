@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's inner \(m\)-sum is positive, so its \(m=0\) term lower-bounds the magnitude of each outer \(n\)-block. The gamma-ratio asymptotic proves failure of the term test for all \(0<k<1\), and the exact ratio is \(2r\lambda\) at \(k=1\). The actual moment integral remains finite on bounded support. The packaged checker reproduces the \(k=\lambda=r=1\) counterexample and the Tonelli-valid replacement.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at Eqs. (3.3)–(3.12) and at the real-data fit. Five focused published-result searches, exact correction searches, and the related unit arcsine-exponential special case found no source-specific convergence correction. The owned same-source finding concerns Rényi entropy rather than moment-series convergence; a different owned moment-series correction concerns a different distribution.
+PASS
 
-Residual risk remains from a very recent unindexed correction and from the unclassified \(k>1\) convergence region.
+Checked the original integral (bounded Y ensures moments finite) and the outer integrated Taylor block in Eq. (3.8). Its positive inner m-sum is bounded below by the m=0 term A_n=(2/π)(rλ)^n 2^(n/k) Γ(n/k+1)/n!. Gamma-ratio asymptotics give A_(n+1)/A_n∼rλ(2/k)^(1/k)n^(1/k−1): term test fails for every 0<k<1; at k=1 the exact ratio is 2rλ, so failure whenever ≥1. For k=λ=r=1 the integrated m=0 contributions are (2/π)(−2)^n while the original integral equals 1/2. Expanding only the nonnegative reciprocal-square-root factor and invoking Tonelli gives a globally convergent one-sum integral. Eq. (3.12) reuses invalid nested moment rows. Independently checked numerical integral, beta special case and gamma ratios.
 
-## Value
-PASS. Moments and the MGF are used as core analytical properties of the new bounded model. The failure covers every \(0<k<1\), including the paper's reported maximum-likelihood fit \(k=0.9952\), so the issue directly affects the claimed analytic formulas at the empirical model. The positive one-sum integral gives a rigorous replacement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alghufily et al. print Eq. (3.8) and Eq. (3.12) without needed convergence conditions; their own fitted Weibull shape 0.9952 exhibits failure. Related unit-arcsine exponential model gives the correct special-case gamma moment, but not the divergence theorem for the source series or its all-shape positive replacement.
+
+## value
+
+PASS
+
+The source presents moments and MGF as core analytic statistics of a new lifetime distribution, and its reported MLE k=0.9952 lies inside the proved divergence region. A rigorously convergent positive integral series recovers valid raw moments. This has direct statistical usability beyond a routine abstract nonuniform-convergence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

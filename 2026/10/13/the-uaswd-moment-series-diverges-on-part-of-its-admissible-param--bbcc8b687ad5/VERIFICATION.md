@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The source's Eq. (3.8) contains the outer-block subterm
-\[
-A_n
-=
-\frac{2}{\pi}
-\frac{(r\lambda)^n}{n!}
-2^{n/k}
-\Gamma(n/k+1).
-\]
-Its ratio satisfies
-\[
-A_{n+1}/A_n
-\sim
-r\lambda(2/k)^{1/k}n^{1/k-1}.
-\]
-Hence \(A_n\not\to0\) for every \(0<k<1\), and at \(k=1\) the ratio is exactly \(2r\lambda\).
 
-At
-\[
-k=\lambda=r=1,
-\]
-the source subterms are
-\[
-2(-2)^n/\pi,
-\]
-while direct integration gives
-\[
-\mu_1=1/2.
-\]
+# Independent mathematical audit
 
-A valid all-parameter representation is
-\[
-\mu_r
-=
-\frac1\pi
-\sum_{m=0}^{\infty}
-\frac{\binom{2m}{m}}{4^m}
-\int_0^\infty
- e^{-r\lambda u^{1/k}}e^{-(m+1/2)u}
-\,du,
-\]
-justified by Tonelli because all terms are nonnegative.
+## correctness
 
-The included checker evaluates the original integral, the closed \(k=1\) beta-function formula, the divergent source subterms, and the corrected positive series from the actual packaged path.
+PASS
+
+Checked the original integral (bounded Y ensures moments finite) and the outer integrated Taylor block in Eq. (3.8). Its positive inner m-sum is bounded below by the m=0 term A_n=(2/π)(rλ)^n 2^(n/k) Γ(n/k+1)/n!. Gamma-ratio asymptotics give A_(n+1)/A_n∼rλ(2/k)^(1/k)n^(1/k−1): term test fails for every 0<k<1; at k=1 the exact ratio is 2rλ, so failure whenever ≥1. For k=λ=r=1 the integrated m=0 contributions are (2/π)(−2)^n while the original integral equals 1/2. Expanding only the nonnegative reciprocal-square-root factor and invoking Tonelli gives a globally convergent one-sum integral. Eq. (3.12) reuses invalid nested moment rows. Independently checked numerical integral, beta special case and gamma ratios.
+
+## originality
+
+PASS
+
+Alghufily et al. print Eq. (3.8) and Eq. (3.12) without needed convergence conditions; their own fitted Weibull shape 0.9952 exhibits failure. Related unit-arcsine exponential model gives the correct special-case gamma moment, but not the divergence theorem for the source series or its all-shape positive replacement.
+
+## value
+
+PASS
+
+The source presents moments and MGF as core analytic statistics of a new lifetime distribution, and its reported MLE k=0.9952 lies inside the proved divergence region. A rigorously convergent positive integral series recovers valid raw moments. This has direct statistical usability beyond a routine abstract nonuniform-convergence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
