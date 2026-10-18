@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact Peter--Weyl central idempotent \(m\chi_r\), the \(SU(2)\) Weyl character formula \(\chi_r(\theta)=\sin(m\theta)/\sin\theta\), and the normalized Weyl integration formula. These identities reduce both endpoint norms to the same scalar integral
-\[
-\frac{2m}{\pi}\int_0^\pi |\sin(m\theta)|\sin\theta\,d\theta.
-\]
-For \(m\ge2\), splitting at every zero \(j\pi/m\) and using an exact antiderivative produces
-\[
-\int_0^\pi |\sin(m\theta)|\sin\theta\,d\theta=\frac{2m}{m^2-1}\cot\left(\frac{\pi}{2m}\right).
-\]
-The case \(m=1\) is separate and equals one after the outer normalization.
+# Independent mathematical audit
 
-`verify_su2_projection.py` checks the partitioned antiderivative evaluation against the cotangent expression for \(2\le m\le500\), performs direct numerical quadrature at selected dimensions, and checks convergence of \(\|P_r\|/m\) toward \(8/\pi^2\). No finite computation is used to prove an all-dimension statement.
+## correctness
 
-Scientific limit: this verification does not establish a higher-rank analogue or bibliographic uniqueness.
+PASS
+
+Convolution idempotent m*chi_r and normalized Weyl integration give 2m/pi times I_m=integral_0^pi |sin(m theta)|sin theta dtheta. Split at j*pi/m, use the explicit sine-antiderivative, and sum sin(j*pi/m)=cot(pi/(2m)) to prove I_m=2m/(m²−1)cot(pi/(2m)). Endpoint Linfty sign and L1 approximate-identity arguments are valid for integrable kernels. Direct independent high-precision piecewise quadrature for sample m and finite source checker structure corroborate the exact algebra; m=1 treated separately. No false finite-to-infinite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact all-dimension SINGLE-BLOCK L1/Linfty norm; prior source decompositions and multi-block Lebesgue constants do not mathematically supply the fixed-block cotangent norm.
+
+## value
+
+PASS
+
+A canonical irreducible Fourier projection has a sharp exact endpoint amplification constant in every dimension, giving a natural representation-theoretic norm benchmark and its linear growth, not an arbitrary numerical sample; the computational step is short but mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
