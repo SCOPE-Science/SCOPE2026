@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is the primary evidence.
+# Independent mathematical audit
 
-The script `artifacts/verify.py` independently reconstructs the ordinary packing-coloring definition on every labeled graph of diameter exactly \(2\) with \(3\), \(4\), or \(5\) vertices. It computes all-pairs shortest-path distances, enumerates all colorings using values in \(\{1,\ldots,n+1\}\), checks the packing inequalities directly, computes the maximum number of broadcast-dominating blocks by exhaustive set-partition recursion, and compares the resulting minimum largest color for every \(k\) with the maximal-independent-set formula.
+## correctness
 
-This check uses the ordinary packing sequence \(S=(1,2,3,\ldots)\). The theorem's extension to every nondecreasing \(S\) with \(s_1=1\) and \(s_2\ge2\) is analytic: on a diameter-two graph all colors at least \(2\) are unique for every such sequence.
+PASS
 
-The finite search is corroborative and does not establish the arbitrary-order quantifier.
+Read actual RESULT.md blob 52f6550d. For diameter-two graph and s2>=2, any color i>=2 occurs on at most one vertex; color 1 must be independent. Each high-colored vertex radius>=2 dominates the entire graph. A domatic block consisting only of color-one vertices must comprise the ENTIRE color-one class A and it is dominating iff A is a maximal independent set (otherwise an omitted member of A has no color-one neighbor). Thus largest color t>=k and >=n-alpha+1. A maximum independent A of size alpha and distinct high colors on complement attains c=n-alpha+1 with c dominating blocks; merging handles k<=c. For k>c, t=k iff a maximal independent set of size n-k+1 exists; otherwise t>=k+1, achieved by independent A of size n-k and k distinct high-colored singleton blocks, distributing A among blocks. The proof also handles k=n by allowing A empty. This proves all integer k in 1..n and all specified sequences, not merely ordinary packing and finite graphs n<=5.
+
+## originality
+
+PASS
+
+Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.
+
+## value
+
+PASS
+
+Naturally completes a new k-dependent graph invariant, recovers the entire cardinality spectrum of maximal independent sets, and supplies exact multipartite formulas. The missing tail holds mathematically more information than the earlier optimal-color maximum-domatic threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

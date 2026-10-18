@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses only the definitions and the diameter-two metric. Colors at least \(2\) cannot repeat because \(s_2\ge2\), while color \(1\) is independent. Every higher-colored vertex alone dominates the graph. A color-\(1\)-only block can dominate only when it is the entire color-\(1\) class and that class is maximal independent, so at most one such block exists. These observations force the lower bound and the exact equality criterion. The \(k+1\) construction uses an independent color-\(1\) set of size \(n-k\) and \(k\) distinct higher-colored vertices.
+PASS
 
-The direct finite checker agrees on every labeled diameter-two graph of orders \(3\) through \(5\).
+Read actual RESULT.md blob 52f6550d. For diameter-two graph and s2>=2, any color i>=2 occurs on at most one vertex; color 1 must be independent. Each high-colored vertex radius>=2 dominates the entire graph. A domatic block consisting only of color-one vertices must comprise the ENTIRE color-one class A and it is dominating iff A is a maximal independent set (otherwise an omitted member of A has no color-one neighbor). Thus largest color t>=k and >=n-alpha+1. A maximum independent A of size alpha and distinct high colors on complement attains c=n-alpha+1 with c dominating blocks; merging handles k<=c. For k>c, t=k iff a maximal independent set of size n-k+1 exists; otherwise t>=k+1, achieved by independent A of size n-k and k distinct high-colored singleton blocks, distributing A among blocks. The proof also handles k=n by allowing A empty. This proves all integer k in 1..n and all specified sequences, not merely ordinary packing and finite graphs n<=5.
 
-## Originality
+## originality
 
-PASS. The closest source is Proposition 2.6 of Brešar, Ferme, and Hu, which gives only the optimal-color packing domatic number \(n-\alpha+1\) for diameter-two graphs. It therefore proves the initial plateau of the new formula but not the values for any larger \(k\). The inspected full text contains no all-\(k\) tail criterion and no complete-multipartite treatment. Targeted database and web searches for maximal-independent-set, independent-dominating-set, diameter-two, \(k\)-versus-\(k+1\), and complete-multipartite formulations found no covering result.
+PASS
 
-Residual risk: the invariant is very recent, so concurrent or poorly indexed follow-up work could contain an equivalent observation.
+Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.
 
-## Value
+## value
 
-PASS. The result completely determines the newly introduced invariant on a broad canonical metric class. More importantly, it identifies the full chromatic profile with the cardinality spectrum of maximal independent sets, showing that the profile contains structural information not visible in the previously known threshold. The complete-multipartite specialization is immediate and explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Naturally completes a new k-dependent graph invariant, recovers the entire cardinality spectrum of maximal independent sets, and supplies exact multipartite formulas. The missing tail holds mathematically more information than the earlier optimal-color maximum-domatic threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

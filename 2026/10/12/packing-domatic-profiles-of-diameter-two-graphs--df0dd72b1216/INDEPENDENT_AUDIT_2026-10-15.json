@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:16:26.731061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual RESULT.md blob 52f6550d. For diameter-two graph and s2>=2, any color i>=2 occurs on at most one vertex; color 1 must be independent. Each high-colored vertex radius>=2 dominates the entire graph. A domatic block consisting only of color-one vertices must comprise the ENTIRE color-one class A and it is dominating iff A is a maximal independent set (otherwise an omitted member of A has no color-one neighbor). Thus largest color t>=k and >=n-alpha+1. A maximum independent A of size alpha and distinct high colors on complement attains c=n-alpha+1 with c dominating blocks; merging handles k<=c. For k>c, t=k iff a maximal independent set of size n-k+1 exists; otherwise t>=k+1, achieved by independent A of size n-k and k distinct high-colored singleton blocks, distributing A among blocks. The proof also handles k=n by allowing A empty. This proves all integer k in 1..n and all specified sequences, not merely ordinary packing and finite graphs n<=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.03477 full HTML Sections 2–5 prove optimal-color diameter-two formula, paths/cycles and additional complexity; no explicit diameter-two k>c profile."
+        ],
+        "reasoning": "Results for k<=c and graph-independent bounds do not imply the k>c dichotomy absent analyzing maximal independent sizes; source provides no stronger all-k classification.",
+        "searches": [
+          "arXiv:2610.03477 v1 Proposition 2.6 diameter 2 maximal independent set",
+          "arXiv:2610.03477 full HTML search k-domatic tail maximal independent sizes"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 2b064a3146a2af0513d7ab982fbfc99c8735f557, RESULT blob 52f6550d45ffd9543c3f793b15ac0b7abc8463f8",
+        "arXiv:2610.03477 full HTML, Prop 2.6 and sections 3-5",
+        "Resultary diameter-two k-domatic semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop2.6 analytically gives c=n-alpha+1; additional assertion k>c uses maximal independent sets of size n-k+1 and is not a formal consequence of c, as graphs with same alpha can have different M(G)."
+        ],
+        "reasoning": "Core coloring mechanism overlaps published proof, acknowledged; tail classification and inverse recovery of M(G) require new argument, not a substitution of the known threshold.",
+        "searches": [
+          "arXiv:2610.03477 v1 Proposition 2.6 diameter 2 maximal independent set"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Ferme–Hu arXiv:2610.03477 full HTML Proposition 2.6 gives dom_{chi_S}(G)=n-alpha+1 on diameter-two graphs, not the complete function k -> chi_{S,k}."
+        ],
+        "reasoning": "Prop2.6 determines only maximum available blocks with an optimal coloring, not minimal colors when additional blocks are required. Exact tail depends on whole maximal independent cardinality spectrum rather than alpha alone.",
+        "searches": [
+          "Resultary: S packing k domatic coloring diameter two graph maximal independent set sizes full k profile Brešar Ferme Hu",
+          "arXiv:2610.03477 v1 Proposition 2.6 diameter 2 maximal independent set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search retrieved nearby graph packing invariants but no exact matching all-k diameter-two profile/table.",
+          "Complete multipartite corollary here substitutes part sizes into maximal-independent-set spectrum, not previously tabulated in inspected primary source."
+        ],
+        "reasoning": "Unlike a known table recomputation, the formula computes a new naturally varying profile and exposes which nonmaximum maximal independent sets exist.",
+        "searches": [
+          "Resultary: S packing k domatic coloring diameter two graph maximal independent set sizes full k profile Brešar Ferme Hu",
+          "arXiv:2610.03477 full HTML search k-domatic tail maximal independent sizes"
+        ]
+      },
+      "rationale": "Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.",
+      "residual_risks": [
+        "Concurrently revised or poorly indexed 2026 literature might independently identify the all-k diameter-two tail; full arXiv HTML version is available but later updates may differ.",
+        "No global graph-isomorphism classification by the spectrum is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found old c threshold and complexity but no complete larger-k spectrum",
+          "evidence": [
+            "Prop2.6: dom_chiS(G)=n-alpha+1, proof maximum independent set plus singleton color blocks; Section 5 poses other k-questions."
+          ],
+          "identifier_or_url": "arXiv:2610.03477v1 (Brešar, Ferme, Hu; Oct 2 2026)",
+          "material_read": "Full HTML mathematical text including Definitions 1.1–1.2, Section 2 Proposition 2.6 and proof, Sections 3–5 including conclusion/problems",
+          "method": "arXiv HTML full-text analysis, targeted proposition and k tail search",
+          "title": "Partitioning an S-packing coloring into broadcast dominating sets",
+          "trigger": "Exact same invariant, diameter-2 graph class and Prop2.6"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Naturally completes a new k-dependent graph invariant, recovers the entire cardinality spectrum of maximal independent sets, and supplies exact multipartite formulas. The missing tail holds mathematically more information than the earlier optimal-color maximum-domatic threshold.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 2b064a3146a2af0513d7ab982fbfc99c8735f557, RESULT blob 52f6550d45ffd9543c3f793b15ac0b7abc8463f8",
+    "arXiv:2610.03477 full HTML, Prop 2.6 and sections 3-5",
+    "Resultary diameter-two k-domatic semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Diameter exactly two, nondecreasing S with s1=1,s2>=2.",
+    "Paper source script 395 graphs / 2,869,609 assignments was inspected by description, not independently run; the all-order proof does not depend on that numerical claim.",
+    "Concurrently revised or poorly indexed 2026 literature might independently identify the all-k diameter-two tail; full arXiv HTML version is available but later updates may differ.",
+    "No global graph-isomorphism classification by the spectrum is asserted."
+  ],
+  "schema_version": 1
+}
