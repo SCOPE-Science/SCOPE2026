@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Two-stage endpoint decomposition and globally monotone Bellman potentials give exact values for all finite paths and all adaptive policies. Reflected drift corrections are tight by geometric return bounds; the stopped-martingale CLT and strong Markov independence yield Gaussian variance 4pq(1+eta)/delta^3. The included exact checker passed 3600 Bellman checks and independently derived second-moment convergence; finite tests support rather than prove the limiting law.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 Combinatorics, Probability and Computing article: general tree linear bound includes paths but only at O(n) level; no exact constant.",
+        "Earlier ITCS 2020 conference model and graph-class results, not exact path distribution."
+      ],
+      "reasoning": "A stronger-looking general bound covers growth order but not finite-size optimal values, all-start structure, or fluctuations; the candidate is not a merely renamed corollary of a quantitative inequality supplied by that source.",
+      "searches": [
+        "sharp asymptotic variance central limit cover time optimal two-choice random walk path 3n 9n",
+        "exact expected path cover time independent two neighbor offers feedback policy gambler ruin",
+        "multi-choice controlled path hitting both endpoints stochastic shortest path 60J10",
+        "Choice and Bias in Random Walks DOI 10.4230/LIPIcs.ITCS.2020.76"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1911.05170 v1/v2 abstract/full author manuscript",
+      "doi:10.1017/S0963548321000183",
+      "doi:10.4230/LIPIcs.ITCS.2020.76",
+      "doi:10.1016/j.comnet.2007.09.012 (abstract only)",
+      "Semantically indexed published mathematical result records",
+      "Additional published mathematical records in the same subject"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Linear bounded-degree-tree cover-time guarantee alone yields only O(n) and cannot imply the equality for optimal cover time or its Gaussian limit.",
+        "Exact biased gambler ruin alone prescribes a fixed-direction hitting time but does not certify the whole-cover Bellman optimum across arbitrary history dependence.",
+        "2008 empirical visit-frequency heuristic differs from full-knowledge optimal choice offered-neighbour problem."
+      ],
+      "reasoning": "The result requires the two-stage Bellman optimum, parity-sensitive center reflection, and independence of endpoint hitting/crossing fluctuations. Strong generic cover-time bounds do not determine them. The 2008 full text was inaccessible, so it is not ruled out by snippets.",
+      "searches": [
+        "The Power of Two Choices for Random Walks Theorem 1.2 and relevant path/tree sections",
+        "Choice and Bias in Random Walks full paper",
+        "Avin and Krishnamachari 2008 empirical choice walk abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Independently offered-neighbour walk also called choice random walk; equivalent control is a finite stochastic shortest-path process whose visited set is an interval.",
+        "Georgakopoulos et al., arXiv:1911.05170, general control model and linear bounded-degree-tree bound."
+      ],
+      "reasoning": "Alternative phrasing as full-history stochastic path coverage does not convert the known linear-order bound into the exact optimizer, closed form and CLT. No equivalent theorem found in focused full primary sections or accessible prior claims.",
+      "searches": [
+        "optimal expected cover time path graph power of two choices random walk exact 3n",
+        "choice random walk path optimal cover time both endpoints exact formula 3n",
+        "power two choices random walks nearest endpoint greedy hitting path cover time",
+        "arXiv:1911.05170 (title/model/cover-time theorems)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact path-cover expectation table or Gaussian variance constant among retrieved records; source comparisons summarized in the evidence above.",
+        "The reviewed general-cover theorems do not present the exact proposed finite-path table or fluctuation constant."
+      ],
+      "reasoning": "No exact finite-path control table was identified. Search absence is not treated as proof of uniqueness; a classical unpublished or unindexed path-control computation is a remaining risk.",
+      "searches": [
+        "optimal cover time choice random walk path two choices 3n variance CLT",
+        "controlled coupon cover path random walk two independent neighbor offers stationary optimal full cover",
+        "adaptive two-choice random walk endpoint cover time exact means variance",
+        "Published result databases on controlled walks, exact path coverage and Gaussian fluctuations"
+      ]
+    },
+    "rationale": "The closest full primary literature proves a general linear cover bound for bounded-degree trees but lacks the exact all-start path Bellman solution and its Gaussian cover-time variance. The novel combination is not implied by a general order bound or by a standard biased hitting-time formula without the global adaptive policy proof and two-stage decomposition. Targeted published-result and primary-literature comparisons disclosed no coverage; historical risk remains.",
+    "residual_risks": [
+      "Exact path-cover policy or constants could occur in older stochastic-shortest-path/choice-walk literature with different terminology.",
+      "The 2008 empirically motivated comparison source was not inspected in full; no whole-document negative claim is made.",
+      "Same-model analysis cannot certify independent priority or proof audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes O(n) cover time on bounded-degree trees and controls on general graphs. Inspected material does not give exact optimal all-start finite path cover value, c-offer formulas or cover-time CLT. Its model and general upper bound are credited as established prior work.",
+        "evidence": [
+          "Author manuscript, front page 2020 MSC Primary 05C81 and 60J10; introduction establishes offered-neighbour model and linear tree bound",
+          "arXiv:1911.05170 first posted 2019-11-12",
+          "Theorem 1.2 and bounded-degree tree proof give asymptotic-order bound, not exact path optimum"
+        ],
+        "identifier_or_url": "arXiv:1911.05170; https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+        "material_read": "Full 28-page openly available author/publisher manuscript, introduction and theorems, graph/path hitting discussion, bounded-degree tree-cover section and conclusions; publication and MSC front matter",
+        "method": "Read PDF article text with focus on theorem statements, covering arguments, path discussions and references",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Exact same control model, path graph as bounded-degree tree and cover time"
+      },
+      {
+        "assessment": "Addresses general hitting and cover-time improvements under the offered-neighbour model but does not state the exact all-start path-cover optimum and Gaussian variance developed here.",
+        "evidence": [
+          "DOI 10.4230/LIPIcs.ITCS.2020.76; original conference article 76"
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.ITCS.2020.76; https://drops.dagstuhl.de/storage/00lipics/lipics-vol151-itcs2020/LIPIcs.ITCS.2020.76/LIPIcs.ITCS.2020.76.pdf",
+        "material_read": "Full 19-page open conference paper including model, main results, algorithmic sections and discussion of graph families",
+        "method": "Read full PDF text and compare theorem statements/parameters",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Earlier conference treatment by same authors might state precise path results"
+      },
+      {
+        "assessment": "Empirical visit-frequency heuristic and network coverage, not a verified theorem concerning globally optimal path control. Cannot assert full-text noncoverage; remains residual risk.",
+        "evidence": [
+          "Computer Networks 52 (2008), title and abstract, DOI 10.1016/j.comnet.2007.09.012"
+        ],
+        "identifier_or_url": "doi:10.1016/j.comnet.2007.09.012",
+        "material_read": "Abstract and bibliographic description; attempted openly linked manuscript download timed out",
+        "method": "Compare abstract/model description; full text not verified",
+        "title": "The power of choice in random walks: An empirical study",
+        "trigger": "Alternative historical terminology for random walk with local choice"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4d3f5d9-7d1c-4cbf-a3aa-af713f7ad214",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural path test case of a studied choice-random-walk model receives exact all-start optimal values, explicit quadratic-to-linear crossover with one extra choice, parity-sensitive boundary terms, and a sharp distributional performance law. This closes quantitative questions not settled by general tree O(n) coverage, rather than reprinting a textbook hitting-time exercise.",
+    "status": "PASS"
+  }
+}
