@@ -1,17 +1,21 @@
-# Review of Connected domination polynomial of crown graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first shows that a connected dominating set must select at least two vertices from each shore: with exactly one selected vertex on one shore, domination forces its deleted mate into the set, where that mate becomes isolated. With at least two vertices on each shore, domination is automatic. Connectivity is automatic when either shore contributes at least three vertices; in the only remaining two-by-two case, disconnection occurs exactly when the two index sets coincide. These cases are exhaustive and yield the polynomial by direct counting. The finite verifier independently replays the literal definitions through \(n=8\); it is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The 2026 initiating source defines the same connected domination polynomial and proves a lexicographic-product substitution theorem, but its inspected full text contains no crown-graph result and its explicit seed families are cycles and joins of cycles. The 2018 source gives the complete-bipartite polynomial, which is not implication-equivalent after deleting a perfect matching. Standard graph tables already give the scalar value \(\gamma_c(\operatorname{Cr}_n)=4\), so that consequence is explicitly excluded from the originality-bearing content. Targeted semantic searches for crown, matching-deleted biclique, all connected dominating sets, and the exact polynomial found no covering statement.
+PASS
 
-The principal residual risk is bibliographic rather than mathematical: an older poorly indexed paper could contain the same crown enumerator. The relevant theorem of the 2018 paper was available through indexed full-text extraction, but the full PDF could not be retrieved during this check.
+A connected dominating set must select at least two from each shore, since with only b_j selected the necessary a_j is isolated in the induced subgraph. Any p,q>=2 dominate all omissions. When one shore has >=3 selections, pairwise selected vertices on other shore share a selected neighbor and connectivity follows; when p=q=2, exactly P=Q gives two disconnected matching edges. Hence all and only binomial(n,2) exceptional degree-4 sets must be excluded from the square binomial enumerator. Independently enumerated every vertex subset with literal induced-connectivity/dominating tests for n=3,4,5,6, matching every coefficient (n=3 counts 6,6,1 by sizes 4..6; n=4 counts 30,48,28,8,1). This is an infinite proof from the cases, not an extrapolation of the finite experiment.
 
-## Value
-**PASS.** Crown graphs are the canonical one-factor deletion of balanced complete bipartite graphs. The result gives the complete feasible-set structure, every coefficient, the exact minimum-set count, and the total connected-dominating-set count, while exhibiting exactly how one-factor deletion changes the known complete-bipartite polynomial. This is a natural infinite-family benchmark for the recently renewed study of connected domination polynomials and their roots, not a finite table entry or a routine parameter increment.
+## originality
 
-## Closest literature and limitations
-The closest same-invariant sources are Shao--Zhao (2026), which develops connected-domination root theory and a substitution formula, and Mojdeh--Emadi (2018), which computes the complete-bipartite polynomial. Neither inspected statement implies the crown formula. The known scalar crown value is retained only as a consistency corollary. No claim is made for partial matching deletions or unequal shores.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact connected-dominating-set enumerator and all-coefficient formula do not follow from known minimum connected domination number gamma_c=4 or from the complete-bipartite formula, which includes one-per-shore configurations. Inspected source on roots/lexicographic products gives different seed families. Resultary hits for crown graph compute restrained or perfect Roman domination, different predicates. Best-of-knowledge original; unindexed earlier crown polynomial remains possible.
+
+## value
+
+PASS
+
+Closed form all-set classification and complete coefficient spectrum for a natural n-parameter graph family, not just a known minimum; missing perfect matching creates a sharp four-set connectivity exception. These exact coefficients can be used as a reproducible invariant or benchmark in connected domination and graph-polynomial work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. For \(D\subseteq V(\operatorname{Cr}_n)\), the decisive data are the two selected shore-index sets \(P,Q\). The analytic checks are:
+# Independent mathematical audit
 
-1. connected domination is impossible when \(|P|\le1\) or \(|Q|\le1\);
-2. when \(|P|,|Q|\ge2\), domination always holds;
-3. in that range the induced graph is disconnected exactly when \(|P|=|Q|=2\) and \(P=Q\);
-4. subtracting those \(\binom n2\) exceptional degree-four sets from the independent choices of at least two vertices on each shore gives the stated polynomial.
+## correctness
 
-The standalone script `verify.py` reconstructs crown adjacency and the definitions of domination and induced connectivity. It exhaustively enumerates every subset for \(3\le n\le8\), compares the literal cardinality counts to the closed formula, checks the structural criterion subset-by-subset, and verifies the minimum and total-count consequences. Its recorded output is in `verification_output.txt`.
+PASS
 
-The finite checks do not establish the arbitrary-order theorem; they only stress-test the proof and boundary cases.
+A connected dominating set must select at least two from each shore, since with only b_j selected the necessary a_j is isolated in the induced subgraph. Any p,q>=2 dominate all omissions. When one shore has >=3 selections, pairwise selected vertices on other shore share a selected neighbor and connectivity follows; when p=q=2, exactly P=Q gives two disconnected matching edges. Hence all and only binomial(n,2) exceptional degree-4 sets must be excluded from the square binomial enumerator. Independently enumerated every vertex subset with literal induced-connectivity/dominating tests for n=3,4,5,6, matching every coefficient (n=3 counts 6,6,1 by sizes 4..6; n=4 counts 30,48,28,8,1). This is an infinite proof from the cases, not an extrapolation of the finite experiment.
+
+## originality
+
+PASS
+
+The exact connected-dominating-set enumerator and all-coefficient formula do not follow from known minimum connected domination number gamma_c=4 or from the complete-bipartite formula, which includes one-per-shore configurations. Inspected source on roots/lexicographic products gives different seed families. Resultary hits for crown graph compute restrained or perfect Roman domination, different predicates. Best-of-knowledge original; unindexed earlier crown polynomial remains possible.
+
+## value
+
+PASS
+
+Closed form all-set classification and complete coefficient spectrum for a natural n-parameter graph family, not just a known minimum; missing perfect matching creates a sharp four-set connectivity exception. These exact coefficients can be used as a reproducible invariant or benchmark in connected domination and graph-polynomial work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
