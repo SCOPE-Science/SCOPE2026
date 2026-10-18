@@ -9,7 +9,7 @@ Consider the ten-site cycle with vertices \(\mathbb Z/10\mathbb Z\), uniform coh
 =0.013850393895>0.
 \]
 
-In fact, the rigorous certificate gives \(0.8581335587454\le\eta_0\le0.8581337052390\) and \(0.8719840991340\le\eta_{1/5}\le0.8719842115788\). This supplies a concrete counterexample to the assertion in Appendix C, Eq. (C3), of Kassal and Aspuru-Guzik (2012) that the maximum environment-assisted transfer enhancement is zero whenever source and trap are opposite vertices of an ordered cycle. By continuity, the enhancement is also positive on a nonempty open neighborhood of the given strictly positive rates. No assertion about other ring lengths or global optimization is required.
+In fact, the rigorous certificate gives \(0.8581335587454\le\eta_0\le0.8581337052390\) and \(0.8719840991340\le\eta_{1/5}\le0.8719842115788\). This supplies a concrete counterexample to the assertion in Section 3, Eq. (13), of Kassal and Aspuru-Guzik (2012) that the maximum environment-assisted transfer enhancement is zero whenever source and trap are opposite vertices of an ordered cycle. By continuity, the enhancement is also positive on a nonempty open neighborhood of the given strictly positive rates. No assertion about other ring lengths or global optimization is required.
 
 ## Assumptions and scope
 
@@ -79,7 +79,7 @@ Run `python3 verify.py` from the directory containing `certificate.json` and `ve
 
 ## Relationship to prior work
 
-Kassal and Aspuru-Guzik (2012), arXiv:1201.5202, develop precisely the ordered-cycle model, including uniform recombination, a site trap, independent dephasing, and eventual trapping efficiency; their Appendix C, Eq. (C3), gives zero maximal enhancement for antipodal source/trap placements. The finite certified positive gap above contradicts that universal antipodal conclusion for one ten-cycle parameter choice. It does not contradict their weak-attenuation approximations, the possibility of no enhancement in other parameter regions, or their other transport examples. Plenio and Huelga (2008), arXiv:0807.4902, study noise-assisted transfer and the special absence of enhancement for end-to-end open uniform chains; that different graph does not imply the cyclic exclusion. Forgy and Mazziotti (2014), DOI:10.1063/1.4902883, analyze optimal environmental noise in one- and two-dimensional networks rather than an exact exclusion at antipodes of this cyclic model.
+Kassal and Aspuru-Guzik (2012), arXiv:1201.5202, develop precisely the ordered-cycle model, including uniform recombination, a site trap, independent dephasing, and eventual trapping efficiency; their Section 3, Eq. (13), gives zero maximal enhancement for antipodal source/trap placements. The finite certified positive gap above contradicts that universal antipodal conclusion for one ten-cycle parameter choice. It does not contradict their weak-attenuation approximations, the possibility of no enhancement in other parameter regions, or their other transport examples. Plenio and Huelga (2008), arXiv:0807.4902, study noise-assisted transfer and the special absence of enhancement for end-to-end open uniform chains; that different graph does not imply the cyclic exclusion. Forgy and Mazziotti (2014), DOI:10.1063/1.4902883, analyze optimal environmental noise in one- and two-dimensional networks rather than an exact exclusion at antipodes of this cyclic model.
 
 ## Limitations
 

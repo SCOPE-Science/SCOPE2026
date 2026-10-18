@@ -1,15 +1,21 @@
-# Scientific assessment: antipodal ten-cycle transport
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is one explicit strict inequality for the ten-site uniform ring, not a parameter-universal theorem. The Lindblad attenuation model and the factors of two in dephasing, recombination, and useful trapping match the source's definitions. The integrated-state equation is justified because \(\mu>0\); the Hilbert-Schmidt coercivity argument proves invertibility and bounds the inverse. The two rational approximate matrix solutions are provided completely, and an exact-integer verifier reconstructs every residual and establishes a strictly positive lower bound. There is no appeal to finite simulation as an infinite-time proof. Residual risk: the interpretation concerns the precise source convention, not alternative choices of Lindblad rate normalization.
+PASS
 
-## Originality — PASS
+Analytically checked coercive real part Re<X,M_gamma X> >=2mu||X||_2² for Liouville resolvent, hence norm inverse ≤(2mu)^-1 and finite eventual trapping η=2kappa(X_gamma)00. Independently fetched original 100-entry integer real/imag rational witnesses in certificate.json and recomputed every residual exactly with BigInt in a separately written checker: S0=244156, S_.2=187408, (0,0) numerators 1430222719987 and 1453306925594 at T=10^14. Applying error bound 30S/T gives strict lower gap numerator 1385039389500. No floating-point search used as proof; exact finite certificate plus analytic all-time resolvent bound suffice. Corrected source locator verified against original 12-page journal page screenshot; no scientific formula changed.
 
-Kassal and Aspuru-Guzik (2012), arXiv:1201.5202, Appendix C Eq. (C3), state zero maximal dephasing enhancement for antipodal placements on *every* ordered cycle. Their inspected open full text contains the model, formula, and blanket exclusion. The proved positive witness is logically incompatible with that exclusion rather than subsumed by it. Plenio and Huelga (2008), arXiv:0807.4902, concern a uniform *open chain* and cannot imply the corresponding no-enhancement rule for cycles; the inspected 2014 work of Forgy and Mazziotti is about different network topologies. Additional targeted external and published-result searches found no publication stating this ten-cycle counterexample. Residual risk: a correction or equivalent example outside the inspected sources may exist; the negative search itself is not a priority proof.
+## originality
 
-## Value — PASS
+PASS
 
-The finding corrects a specific, physically motivated general exclusion about environmental noise, rather than merely reporting a random small-system parameter. A reusable exact rational certificate gives a quantitative gap with a rigorous global inverse bound. The witness shows that the zero-enhancement reasoning does not extend from the weak-attenuation heuristic to strong localized trapping; it delineates a concrete failure of an otherwise practical transport rule. It does not determine a full phase diagram or a first possible graph size, and neither is needed for the stated counterexample.
+Best-of-knowledge PASS for the corrected final finding. The published 2012 Eq.(13) literally sets maximal ENAQT to zero for antipodal sites of an ordered circle. Independent rigorous nonzero interval for a ten-cycle uses the identical attenuation convention; not implied by weak-loss approximations or the separate no-enhancement result for endpoints of an open chain.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A motivated counterexample to the published global zero-ENAQT assertion settles a concrete qualitative transport question. Its exact integer numerical witness and rigorous resolvent error bounds are substantive because a floating time evolution could not certify the strict gap; the result does not overclaim all cycles or a global optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

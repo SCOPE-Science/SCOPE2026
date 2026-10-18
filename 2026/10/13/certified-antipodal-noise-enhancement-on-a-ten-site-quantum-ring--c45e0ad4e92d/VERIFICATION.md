@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses a finite rational witness for the integrated density matrices at two exact dephasing rates. Run `python3 verify.py` with `certificate.json` in the same directory; only Python's standard library is required.
+# Independent mathematical audit
 
-The executable performs exact integer reconstruction of both \(10\)-by-\(10\) complex residual matrices and checks \(S_0=244156\), \(S_{1/5}=187408\), their selected matrix entries, and the positive rational lower bound \(1385039389500/10^{14}\) for the transport-efficiency gain. No floating-point matrix inversion is used in certificate verification.
+## correctness
 
-The global error bound follows from the proved dissipativity inequality \(\operatorname{Re}\langle X,\mathcal M_\gamma X\rangle\ge2\mu\|X\|_2^2\). This certifies a finite counterexample, not a general ring-size classification, an optimal-noise calculation, or a finite-time improvement. A separate independent scientific audit has not been performed.
+PASS
+
+Analytically checked coercive real part Re<X,M_gamma X> >=2mu||X||_2² for Liouville resolvent, hence norm inverse ≤(2mu)^-1 and finite eventual trapping η=2kappa(X_gamma)00. Independently fetched original 100-entry integer real/imag rational witnesses in certificate.json and recomputed every residual exactly with BigInt in a separately written checker: S0=244156, S_.2=187408, (0,0) numerators 1430222719987 and 1453306925594 at T=10^14. Applying error bound 30S/T gives strict lower gap numerator 1385039389500. No floating-point search used as proof; exact finite certificate plus analytic all-time resolvent bound suffice. Corrected source locator verified against original 12-page journal page screenshot; no scientific formula changed.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the corrected final finding. The published 2012 Eq.(13) literally sets maximal ENAQT to zero for antipodal sites of an ordered circle. Independent rigorous nonzero interval for a ten-cycle uses the identical attenuation convention; not implied by weak-loss approximations or the separate no-enhancement result for endpoints of an open chain.
+
+## value
+
+PASS
+
+A motivated counterexample to the published global zero-ENAQT assertion settles a concrete qualitative transport question. Its exact integer numerical witness and rigorous resolvent error bounds are substantive because a floating time evolution could not certify the strict gap; the result does not overclaim all cycles or a global optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
