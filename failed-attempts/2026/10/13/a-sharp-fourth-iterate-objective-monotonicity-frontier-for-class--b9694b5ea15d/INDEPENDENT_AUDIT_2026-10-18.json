@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:59:08.228228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing SPD A reduces original constant-step true-L FISTA to independent normalized scalar modes q=lambda/L. Direct recurrence gives p3=(1−q)^2(1−aq), p4=(1−q)^3(1−cq). The fourth-step squared difference factors as (1−q)^4 q[a+cq−c−1][cq²−(a+c+1)q+2], positive only for 0.7109896908853<q<0.8467139159008. The first three comparisons decrease for every mode; universal monotonicity through step4 holds iff 1/kappa≥q_+, and any larger kappa has a diagonal witness (including kappa=4/3, q=3/4 and spike ratio 5.9852687). Symbolic/decimal independent verification reproduced boundaries and factors. Covers every finite-dimensional SPD A, not later steps or nonsmooth FISTA.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem specifies both endpoints, all steps one through four, and even the resonance that hits then leaves the minimizer.",
+          "The new conditioning restriction is a subset of the earlier all-q scalar analysis."
+        ],
+        "reasoning": "Though stated for one active eigendirection, the earlier theorem dominates the mathematical calculation: diagonalized SPD FISTA modes decouple, so its interval immediately gives a universal condition-number bound and counterexamples for every larger condition number.",
+        "searches": [
+          "Resultary 2026-10-04 FISTA scalar fourth iterate full curvature band",
+          "Beck and Teboulle 2009 original FISTA recurrence and nonmonotonic FISTA follow-up"
+        ]
+      },
+      "checked_sources": [
+        "2026-10-04 Resultary exact same-model FISTA published RESULT.md (blob 7f79fd9a4c6daa5bc1178c9f3accf761f6e6d0ba)",
+        "Beck--Teboulle 2009 FISTA DOI 10.1137/080716542",
+        "Frozen assigned RESULT.md blob 5527f350c8adc912fd6adba7897b3f13d92609e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For kappa≤1/q_+, every admissible modal q≥1/kappa≥q_+, so the prior theorem proves no modal fourth-step increase.",
+          "For every kappa>1/q_+ select any q in (max{1/kappa,q_-},q_+), embed q and endpoints into a diagonal SPD matrix, and concentrate the initial condition in its q mode; the prior theorem gives an increase."
+        ],
+        "reasoning": "The prior exact interval plus the standard decoupling lemma proves both directions of the submitted sharp universal assertion. The present (kappa=4/3) example simply chooses q=3/4 inside that published band.",
+        "searches": [
+          "Resultary FISTA exact scalar theorem published October 4, 2026",
+          "Current frozen RESULT.md at Git blob 5527f350c8adc912fd6adba7897b3f13d92609e7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier primary RESULT.md proves the exact scalar nonmonotonicity interval q in (0.7109896908853096...,0.8467139159008246...) under the identical Beck--Teboulle momentum and true global L.",
+          "Current RESULT.md states the same spectral band through a factored modal polynomial and sets kappa*=1/0.8467139159008246... ."
+        ],
+        "reasoning": "The previous scalar theorem and the present bound are implication-equivalent after allowing a normalized SPD spectrum [1/kappa,1]. To avoid the open interval of increase for all spectra requires 1/kappa≥q_+, giving exactly the submitted value.",
+        "searches": [
+          "Resultary semantic query: FISTA Nesterov accelerated gradient quadratic first fourth iteration objective increase sharp condition number monotonicity frontier",
+          "Resultary 2026-10-04 A sharp scalar fourth-iterate nonmonotonicity window for original FISTA, RESULT.md Git blob 7f79fd9a4c6daa5bc1178c9f3accf761f6e6d0ba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The existing published finding includes both numerical band endpoints q_-=0.710989690885... and q_+=0.846713915900..., not merely a generic nonmonotonicity observation."
+        ],
+        "reasoning": "This is theorem/record coverage rather than a finite data-table issue. An exact published mathematical result, not a matching title or numerical experiment, already covers the proposed spectral boundary.",
+        "searches": [
+          "Resultary published finding exact FISTA fourth-iterate window 2026-10-04",
+          "Original FISTA manuscript Beck--Teboulle DOI 10.1137/080716542"
+        ]
+      },
+      "rationale": "The previously published 2026-10-04 Resultary theorem derives exactly the same fourth-step scalar spectral violation window for the same classical true-L FISTA recurrence embedded in an SPD quadratic. The advertised universal condition-number threshold is the immediate spectral-interval containment corollary of that theorem; a reparameterization and easy diagonal embedding do not establish a new scientific result. The coverage is direct, not a failed-search guess.",
+      "residual_risks": [
+        "The earlier work presents a spectral q window rather than the explicit kappa expression; nonetheless the conditioning statement is a direct mathematically compelled corollary, and this difference in phrasing does not restore originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "Same original FISTA t sequence and exact q-window; the published proof computes x3=r²A(r), x4=r³B(r) and all q for which the objective rises."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-scalar-fourth-iterate-nonmonotonicity-window-for-origina--238a88dd56c8",
+          "material_read": "Full primary RESULT.md fetched from published Git blob 7f79fd9a4c6daa5bc1178c9f3accf761f6e6d0ba, including finding, complete proof, verification, limits, prior work.",
+          "method": "Read whole Git blob and compare exact modal recurrence and window endpoints.",
+          "title": "A sharp scalar fourth-iterate nonmonotonicity window for original FISTA",
+          "trigger": "Decisive same-parameter, same-iteration 2026-10-04 hit"
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": [
+            "The Beck--Teboulle recurrence and rate are not original contributions of the submitted claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/080716542",
+          "material_read": "Algorithm and recurrence material from 2009 primary FISTA paper reviewed in this audit.",
+          "method": "Compare definition of momentum and L to frozen RESULT.md.",
+          "title": "A Fast Iterative Shrinkage-Thresholding Algorithm for Linear Inverse Problems",
+          "trigger": "Original recurrence and normalization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The scientific problem of earliest objective spikes and a sharp conditioning boundary is motivated, but the specific asserted advance is a direct corollary of a previously published sharp same-algorithm q-window. The kappa conversion, diagonal embedding, and kappa=4/3 numerical example are routine consequences; no independently useful new unknown fact survives the decisive prior coverage.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "2026-10-04 Resultary exact same-model FISTA published RESULT.md (blob 7f79fd9a4c6daa5bc1178c9f3accf761f6e6d0ba)",
+    "Beck--Teboulle 2009 FISTA DOI 10.1137/080716542",
+    "Frozen assigned RESULT.md blob 5527f350c8adc912fd6adba7897b3f13d92609e7"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No later-iterate monotonicity or nonsmooth FISTA statement.",
+    "Scientific rejection stems from originality/value coverage, not mathematical correctness."
+  ]
+}
