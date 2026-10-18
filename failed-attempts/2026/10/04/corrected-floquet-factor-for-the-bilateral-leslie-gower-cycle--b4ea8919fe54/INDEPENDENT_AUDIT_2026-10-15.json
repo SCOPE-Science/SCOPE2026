@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:57:47.505678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint quotient is correctly derived, but the final claimed absolute Floquet multiplier μ=Δ1Δ2 L2 Fcorrect is false with L2 **exactly as defined in source Theorem 3.5**. From the actual P,Q, the residual needed after subtracting P/x and Q/y is R=P_x−P/x+Q_y−Q/y; direct differentiation yields R_P=rx/K−r a x/K²−2rx²/K²+h0 g(y)² xy/(1+h0 g(y)x)² and R_Q=s y b1/(y+b1)²−s a1 y/(x+c1), g(y)=p0+a0 y/(1+b0 y). The printed L2 has rx/K−2rx²/K²+h0 g(y)xy/(1+h0g(y)x)² and s y b1/(y+b1)²−a1/(x+c1): three nonzero omissions. Their residual difference is −r a x/K²+h0(g²−g)xy/(1+h0gx)²+a1(1−s y)/(x+c1). At article sample positive values (r=.85,K=100,a=4,p0=.26,a0=1,b0=2,h0=5,s=.25,b1=1,c1=4,a1=1,x=30,y=40), the P and Q residual differences are approximately −0.09576364 and −0.26470588, respectively. Replacing the endpoint factor alone does not turn printed L2 into exp∫R. Original advertised full multiplier formula is not proved and is generally false. Agreement locus for the isolated endpoint factors is still valid; a genuine corrected full Floquet formula requires replacing L2 as well.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Tian–Guo–Song 2018 DOI:10.1007/s11071-018-4219-9 analyzes earlier state-dependent impulsive Leslie–Gower control.",
+          "Impulsive Effects and Complexity Dynamics in the Anti-Predator Model, DOI:10.3390/math12071043, uses the general divergence multiplier."
+        ],
+        "reasoning": "These methods cover the general stability framework but not this exact source-specific algebra and do not imply the *incorrect* published residual representation.",
+        "searches": [
+          "bilateral impulsive Leslie Gower predator prey order 2 Floquet multiplier Xu Shen Cao correction endpoint 2026",
+          "Xu Shen Cao 2026 bilateral Leslie Gower periodic cycle Floquet multiplier Theorem 3.5 erratum endpoint product"
+        ]
+      },
+      "checked_sources": [
+        "Xu, Shen, Cao 2026 DOI:10.3934/math.2026726 Theorem 3.5 full primary manuscript",
+        "Xu et al 2018 DOI:10.1007/s11071-018-4219-9 (scope/abstract)",
+        "Mathematics 2024 DOI:10.3390/math12071043 (stability passage)",
+        "Resultary direct and alias semantic queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source Theorem 3.5 (lines 1665–1768 of full manuscript) defines printed L2 and the true divergence multiplier, giving a direct falsification by differentiation.",
+          "The source order-one result and earlier impulsive dynamical frameworks do not prove this absolute source-specific formula."
+        ],
+        "reasoning": "The proposed endpoint algebra follows from original unsimplified integral, but the original full claim does not: its residual factor was accepted without differentiating P,Q.",
+        "searches": [
+          "bilateral impulsive Leslie Gower predator prey order 2 Floquet multiplier Xu Shen Cao correction endpoint 2026",
+          "Xu Shen Cao 2026 bilateral Leslie Gower periodic cycle Floquet multiplier Theorem 3.5 erratum endpoint product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Shen–Cao 2026, Thm 3.5 states Δ1Δ2 exp∫(P_x+Q_y) and separately the printed L2.",
+          "The endpoint product alone equals [(xB/xA)(xD/xC)][(yB/yA)(yD/yC)]; this is NOT the full divergence without the true residual."
+        ],
+        "reasoning": "The generic Floquet identity is an equivalent starting point, not a correction in the literature. Crucially it disproves equivalence between the claimed Δ1Δ2 L2 Fcorrect and the true multiplier.",
+        "searches": [
+          "bilateral impulsive Leslie Gower predator prey order 2 Floquet multiplier Xu Shen Cao correction endpoint 2026",
+          "Xu Shen Cao 2026 bilateral Leslie Gower periodic cycle Floquet multiplier Theorem 3.5 erratum endpoint product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returns the assigned identical SCOPE record, not independent priority.",
+          "No distinct correction found among targeted same-paper/corrigendum and reset-alias results."
+        ],
+        "reasoning": "Not an exact tabulated invariant. Negative search is not novelty proof; prior literature may remain unindexed.",
+        "searches": [
+          "bilateral impulsive Leslie Gower predator prey order 2 Floquet multiplier Xu Shen Cao correction endpoint 2026",
+          "Xu Shen Cao 2026 bilateral Leslie Gower periodic cycle Floquet multiplier Theorem 3.5 erratum endpoint product"
+        ]
+      },
+      "rationale": "Source-specific endpoint-factor diagnosis and exact printed/corrected quotient were not found in targeted prior searches. The 2026 source itself contains the unsimplified multiplier, but no correct complete simplification; prior general saltation/Leslie–Gower methods are not a published correction of these exact endpoints. This originality does not rescue the false original full-multiplier claim.",
+      "residual_risks": [
+        "Original source may have additional discontinuity/saltation mistakes not fully corrected by revising L2.",
+        "The endpoint relation assumes an existing positive transversal orbit; no existence or grazing proof.",
+        "The source-specific novelty comparison may miss an unindexed erratum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct contradiction: printed L2 omits −ra x/K², one factor g(y) in predation derivative, and factor s y in predator feedback derivative.",
+          "evidence": "P_x−P/x+Q_y−Q/y compared term by term to printed L2; numerical residual witness.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026726",
+          "material_read": "Accessible author-uploaded full manuscript, model (2.1), definitions of P,Q, Theorem 3.5 pages 17829–17830, explicit L2 lines 1665–1738, divergence proof 1760–1768, parameters in Example 4.3",
+          "method": "Direct full-text formula transcription, symbolic differentiation and a positive numerical substitution",
+          "title": "Dynamics of a modified Leslie–Gower model with dual Allee effects under unilateral and bilateral control",
+          "trigger": "Exact published model and claimed correction"
+        },
+        {
+          "assessment": "Related general method, specific 2026 two-leg reset not analyzed in inspected material",
+          "evidence": "Different paper and earlier model; full-text access not established.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-018-4219-9",
+          "material_read": "Bibliographic/abstract scope and citing-paper description, not full text",
+          "method": "Background comparison; no whole-document noncoverage claim",
+          "title": "Dynamical analysis of a pest management Leslie–Gower model with ratio-dependent functional response",
+          "trigger": "Related prior impulsive Leslie–Gower model"
+        },
+        {
+          "assessment": "General methodology, not same reset geometry",
+          "evidence": "Impulsive multiplier has impulse factors and exponential divergence integral.",
+          "identifier_or_url": "https://doi.org/10.3390/math12071043",
+          "material_read": "Relevant divergence-based multiplier passage as available in scientific reading",
+          "method": "Formula-level comparison",
+          "title": "Impulsive Effects and Complexity Dynamics in the Anti-Predator Model with IPM Strategies",
+          "trigger": "General analogue-of-Poincaré criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A corrected nontrivial Floquet factor is central to orbital stability of a positive bilateral order-two management cycle. The endpoint error and further residual errors change the parameter-dependent multiplier; an exact corrected criterion would be mathematically meaningful, even though the submitted complete formula is wrong.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No complete corrected L2/RESULT/METADATA/SLOGAN replacement is supplied. Scientific original is failed; isolated correct quotient cannot be promoted to absolute Floquet theorem.",
+    "Original source may have additional discontinuity/saltation mistakes not fully corrected by revising L2.",
+    "The endpoint relation assumes an existing positive transversal orbit; no existence or grazing proof.",
+    "The source-specific novelty comparison may miss an unindexed erratum."
+  ],
+  "schema_version": 1
+}
