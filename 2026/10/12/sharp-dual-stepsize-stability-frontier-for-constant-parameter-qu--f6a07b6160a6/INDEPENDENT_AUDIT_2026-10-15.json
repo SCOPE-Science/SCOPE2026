@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:10:46.321856Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/sharp-dual-stepsize-stability-frontier-for-constant-parameter-qu--f6a07b6160a6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/sharp-dual-stepsize-stability-frontier-for-constant-parameter-qu--f6a07b6160a6/VERIFICATION.md",
+        "/mnt/data/scope_worker_08_independent_checks_1253.py (private reproduced exact arithmetic, not a public evidence claim)"
+      ],
+      "rationale": "Read the source APAPC Algorithm 1 and derive the stated exact fixed-a proximal predictor, dual proximal update, and corrector for f=0, g(x)=mu||x||²/2, h(w)=lambda||w||²/2. Orthogonal singular vectors of K decouple independent 2x2 modes; unmatched null directions contract with r=(1+a gamma mu)^(-1) and d=(1+tau/(a lambda))^(-1). For each singular s, m=gamma tau s², the direct update gives trace r+d-dmr(1+r) and determinant rd(1-mr). Independently reconstructed updates for 144 rational cases. Strict quadratic Schur inequalities reduce to two automatically positive expressions (1-r)(1-d)+dmr and 1-rd+dmr², plus (1+r)(1+d)-dmr(1+2r)>0, equivalent to the stated threshold at the largest singular value. At equality p(-1)=0 and beyond the top mode has a root<-1; permitted scalar initializations witness nonconvergence/divergence. Averaged auxiliary iterates contract since 1-1/a<1. Rewriting in tau yields a precise all-finite-steps phase for gamma||K||²<=B/(a lambda), with B=(1+a gamma mu)(2+a gamma mu)/(3+a gamma mu). No nonzero smooth term, varying a, or nonlinear penalty is covered.",
+      "residual_risks": [
+        "The all-step-stability conclusion applies only to constant-a, zero smooth-gradient, isotropic positive-curvature quadratic APAPC; not a general acceleration or stochastic result.",
+        "Other parameterizations of PAPC/PDFP2O strongly convex spectral stability could contain equivalent formulas but were not completely inventoried."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published PAPC generic sharp 4/3 step product addresses vanishing prox curvatures and worst-case operator classes.",
+          "APAPC primary gives sufficient gamma*tau||K||²<=1+a gamma mu, which is stricter than new condition on the fixed two-curvature quadratic."
+        ],
+        "reasoning": "A universal sufficient bound does not imply the larger stable parameter region in a special case; a worst-case undamped obstruction does not preclude all positive dual steps when damping is sufficiently strong.",
+        "searches": [
+          "APAPC quadratic dual step size necessary sufficient stability primal dual eigenvalue regularization",
+          "APAPC quadratic isotropic strongly convex primal dual gamma tau stability iff eigenmode minus one",
+          "Condat Sadiev Richtárik arXiv:2604.09245 Algorithm 1 Theorem 3.3",
+          "Li Yan 2022 improved primal dual coupling 4/3 PAPC strongly convex curvature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.09245v1",
+        "arXiv:2201.00139v1",
+        "arXiv:1711.06785",
+        "arXiv:1702.08770",
+        "2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original generic sufficient inequality is gamma*tau||K||²<=1+a gamma mu, while new exact threshold includes factors (2+a gamma mu)(2+tau/(a lambda))/(3+a gamma mu).",
+          "The scalar witness at equality s=2,a=gamma=mu=lambda=1,tau=6/5 has eigenvalue -1."
+        ],
+        "reasoning": "The prior condition implies convergence only on its restricted region and cannot conclude the sharp failure or unbounded positive-tau phase. The new result does not claim to strengthen the nonlinear theorem.",
+        "searches": [
+          "APAPC quadratic dual step size necessary sufficient stability primal dual eigenvalue regularization",
+          "APAPC quadratic isotropic strongly convex primal dual gamma tau stability iff eigenmode minus one",
+          "Condat Sadiev Richtárik arXiv:2604.09245 Algorithm 1 Theorem 3.3",
+          "Condat Sadiev Richtárik 2026 Theorem3.3 inequality gamma tau norm K squared"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Condat–Sadiev–Richtárik Algorithm 1 matches the predictor-dual-corrector splitting after f=0, but their Theorem 3.3 is Lyapunov sufficiency for convex composites.",
+          "Classical PAPC/PDFP2O undamped 4/3 coupling follows as a zero-curvature limit, credited."
+        ],
+        "reasoning": "The submitted formula is equivalent to the spectral-radius Schur condition for this exact fixed-a quadratic APAPC map; neither ordinary PAPC full-objective convergence nor a generic 4/3 ceiling is the same parameter-wise finite-curvature assertion.",
+        "searches": [
+          "APAPC quadratic dual step size necessary sufficient stability primal dual eigenvalue regularization",
+          "APAPC quadratic isotropic strongly convex primal dual gamma tau stability iff eigenmode minus one",
+          "Condat Sadiev Richtárik arXiv:2604.09245 Algorithm 1 Theorem 3.3",
+          "PAPC PDFP2O positive quadratic proximal factors Schur Jury 4/3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source paper displays no table of the exact quadratic per-singular-mode Schur boundary or all-finite-tau phase; rational grid was independently checked as internal corroboration.",
+          "Resultary optimization records that appeared in search use unrelated fixed-step maps."
+        ],
+        "reasoning": "The sharp frontier is a parameter-dependent theorem, not a recomputation of an existing exact tabulation; no matching indexed table was located.",
+        "searches": [
+          "APAPC quadratic dual step size necessary sufficient stability primal dual eigenvalue regularization",
+          "APAPC quadratic isotropic strongly convex primal dual gamma tau stability iff eigenmode minus one",
+          "Condat Sadiev Richtárik arXiv:2604.09245 Algorithm 1 Theorem 3.3",
+          "APAPC quadratic strict Schur threshold all tau stable condition number table"
+        ]
+      },
+      "rationale": "Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.",
+      "residual_risks": [
+        "The all-step-stability conclusion applies only to constant-a, zero smooth-gradient, isotropic positive-curvature quadratic APAPC; not a general acceleration or stochastic result.",
+        "Other parameterizations of PAPC/PDFP2O strongly convex spectral stability could contain equivalent formulas but were not completely inventoried."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGINAL_METHOD_WITH_SUFFICIENT_NOT_SHARP_QUADRATIC_BOUND",
+          "evidence": "Algorithm uses the same prox order; the theorem restricts parameters for general convex composites but does not classify scalar stability for two positive isotropic curvatures.",
+          "identifier_or_url": "arXiv:2604.09245v1",
+          "material_read": "Accessible full primary arXiv HTML, Algorithm 1 predictor/prox/corrector and Theorem 3.3 convergence-step hypotheses, compared against fixed-a quadratic specialization.",
+          "method": "Primary full-text HTML inspection",
+          "title": "A Nesterov-Accelerated Primal–Dual Splitting Algorithm for Convex Nonsmooth Optimization",
+          "trigger": "Original APAPC method and strongest relevant general sufficient bound"
+        },
+        {
+          "assessment": "RELATED_PRIOR_GENERIC_LIMIT",
+          "evidence": "The 4/3 restriction is a worst-case undamped benchmark, not the positive-curvature phase formula.",
+          "identifier_or_url": "arXiv:2201.00139v1",
+          "material_read": "The abstract and reported generic sharp 4/3 coupling obstruction; the full original text was not re-read in this run.",
+          "method": "Primary listing plus matched mathematical boundary description",
+          "title": "On the improved conditions for some primal-dual algorithms",
+          "trigger": "Potential generic sharp PAPC 4/3 domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2604.09245v1",
+        "arXiv:2201.00139v1",
+        "arXiv:1711.06785",
+        "arXiv:1702.08770",
+        "2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900"
+      ],
+      "rationale": "A sharp necessary-and-sufficient dual-step stability boundary for a meaningful strictly curved APAPC benchmark exposes an all-finite-dual-steps regime that the source generic Lyapunov condition cannot certify. The exact singular-mode obstruction identifies a precise mechanism for failure at equality; this is useful beyond a routine restatement of a sufficient general-convex step restriction.",
+      "residual_risks": [
+        "The all-step-stability conclusion applies only to constant-a, zero smooth-gradient, isotropic positive-curvature quadratic APAPC; not a general acceleration or stochastic result.",
+        "Other parameterizations of PAPC/PDFP2O strongly convex spectral stability could contain equivalent formulas but were not completely inventoried."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-step-stability conclusion applies only to constant-a, zero smooth-gradient, isotropic positive-curvature quadratic APAPC; not a general acceleration or stochastic result.",
+    "Other parameterizations of PAPC/PDFP2O strongly convex spectral stability could contain equivalent formulas but were not completely inventoried.",
+    "Current completed assessment is best-of-knowledge, not an external certification or logical novelty consequence of failed searches.",
+    "No full public-metadata sanitization, no GitHub or dispatcher writes, and historical ledger defects remain preserved."
+  ],
+  "schema_version": 1
+}

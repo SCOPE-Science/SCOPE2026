@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all finite rectangular real matrices and the stated strictly positive quadratic curvatures, exact substitution into Algorithm 1 of Condat–Sadiev–Richtárik yields the two-variable singular-mode matrix displayed in the finding. The real quadratic Schur/Jury inequalities have two terms that are strictly positive without parameter restrictions, and the remaining term is precisely the stated bound. Testing the maximal singular value is necessary and sufficient. An eigenvalue \(-1\) arises at equality and an eigenvalue below \(-1\) above it; scalar initializations attain both boundaries. Averaged iterates inherit convergence from their stable scalar filters. Exact-rational checker and independent eigenspectrum tests support, but do not replace, the proof.
+PASS
 
-## Originality — PASS, with residual risks
+Read the source APAPC Algorithm 1 and derive the stated exact fixed-a proximal predictor, dual proximal update, and corrector for f=0, g(x)=mu||x||²/2, h(w)=lambda||w||²/2. Orthogonal singular vectors of K decouple independent 2x2 modes; unmatched null directions contract with r=(1+a gamma mu)^(-1) and d=(1+tau/(a lambda))^(-1). For each singular s, m=gamma tau s², the direct update gives trace r+d-dmr(1+r) and determinant rd(1-mr). Independently reconstructed updates for 144 rational cases. Strict quadratic Schur inequalities reduce to two automatically positive expressions (1-r)(1-d)+dmr and 1-rd+dmr², plus (1+r)(1+d)-dmr(1+2r)>0, equivalent to the stated threshold at the largest singular value. At equality p(-1)=0 and beyond the top mode has a root<-1; permitted scalar initializations witness nonconvergence/divergence. Averaged auxiliary iterates contract since 1-1/a<1. Rewriting in tau yields a precise all-finite-steps phase for gamma||K||²<=B/(a lambda), with B=(1+a gamma mu)(2+a gamma mu)/(3+a gamma mu). No nonzero smooth term, varying a, or nonlinear penalty is covered.
 
-The motivating APAPC paper provides a generic sufficient coupling condition rather than the present necessary-and-sufficient finite-curvature quadratic classification. Li–Yan's primal–dual papers already provide the undamped \(4/3\) threshold and essentially the core spectral method, so that endpoint is fully acknowledged. Luke–Shefi study related PAPC linear convergence under different assumptions. Published-research searches also returned related primal–dual numerical-stability results but not an implication covering the exact fixed-parameter APAPC condition with both quadratic curvatures and its unbounded-dual-step regime. No claim of exhaustive unpublished or unindexed coverage is made.
+## originality
 
-## Value — PASS
+PASS
 
-The exact stability phase determines when the dual step has a finite ceiling and when no finite ceiling is required. This is a structurally motivated question raised by conservative coupling conditions in a recent primal–dual algorithm. In a concrete, strictly positive-curvature example it permits arbitrarily large dual steps despite a generic \(\tau\leq2\) sufficient restriction. The result is limited to the quadratic autonomous specialization, not a general nonlinear convergence theorem.
+Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.
 
-## Closest literature and limitations
+## value
 
-Condat–Sadiev–Richtárik (2026), Algorithm 1 and Theorem 3.3: APAPC and sufficient Lyapunov steps. Y. Li–M. Yan (2022), Section 3.2: the sharp undamped \(4/3\) limit and characteristic-root method. Z. Li–M. Yan (2017/2021), Sections 1–2.5: related PAPC/PDFP\(^{2}\)O general-step analysis. Luke–Shefi (2017), Section 3: related PAPC linear convergence. Remaining risks include unindexed equivalent LMI/spectral parametrizations and lack of generality beyond strictly positive isotropic quadratic curvatures.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp necessary-and-sufficient dual-step stability boundary for a meaningful strictly curved APAPC benchmark exposes an all-finite-dual-steps regime that the source generic Lyapunov condition cannot certify. The exact singular-mode obstruction identifies a precise mechanism for failure at equality; this is useful beyond a routine restatement of a sufficient general-convex step restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
