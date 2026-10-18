@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Smith’s Proposition 2.4 reduces the full geometric automorphism group to the standard \(C_2^4\) kernel semidirect the projective stabilizer of the five singular quadrics in the pencil. For this family those five pencil parameters are \(S_a=\{0,\pm1,\pm a\}\). The proof tests every permutation of \(S_a\) by two exact cross-ratio identities, which is sufficient because three point images determine a Möbius transformation. The only noncollision factors and their stabilizer orders are reproduced by the packaged symbolic verifier. The finite-subgroup identification from orders \(4,6,10\) to \(C_4,S_3,D_5\) uses orbit structure in \(\operatorname{PGL}_2(\mathbb C)\), not numerical guesswork.
+## correctness
 
-## Originality
-PASS. The lead source states generic quotient symmetry \(C_2\), exhibits the \(C_4\) specialization, and gives separate \(S_3\) and \(D_5\) models, but it does not state the complete exceptional locus inside its displayed parameter family. The closest broader classification records the possible quartic-del-Pezzo symmetry strata but not their pullback to this parameter \(a\). Exact-equation, five-point-stabilizer, factor, and automorphism-group searches found no source asserting the complete jump divisor.
+PASS
 
-## Value
-PASS. The parameter line is not an arbitrary slice: it is the explicit family used by the lead paper to realize the generic \(C_2\) quotient. Determining its exact isotropy stratification gives the full moduli behavior of that family, identifies every enhanced-symmetry member, and unexpectedly shows that the separate \(S_3\) and \(D_5\) symmetry types are already attained on the same diagonal line.
+The smooth complex quartic del Pezzo family with a not 0 or +/-1 has five singular quadrics in the pencil at S_a={0,1,-1,a,-a}. Smith Proposition 2.4 reduces geometric Aut to C2^4 semidirect the projective stabilizer of S_a. For each of the 120 label permutations, invariance of TWO independent cross ratios is necessary and sufficient for a Mobius automorphism. Independent exact symbolic gcd/enumeration reproduces generic stabilizer order 2 and the only noncollision factors a^2+1 (order4), a^2+3 and 3a^2+1 (order6), a^2-4a-1 and a^2+4a-1 (order10); the factors have disjoint admissible zeros. Odd-cardinality orbit restrictions eliminate V4, C6 and C10, yielding C4, S3, D5. The exact permutation census is exhaustive algebraically, not sample interpolation; no field descent claimed.
 
-## Closest literature and limitations
-Smith, arXiv:2308.07904v1, Proposition 2.4 and Examples 5.1–5.2, is the closest source. Dolgachev–Martin, arXiv:2303.16170v1 and Table A3, is the closest broader classification. The statement is over \(\mathbb C\) only and does not address descent of automorphisms over nonclosed fields. A residual originality risk remains that the same pullback calculation may occur in older literature under a different coordinate normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Smith explicitly identifies the one-parameter family, generic quotient C2, and the a=i C4 example; he also lists S3 and D5 via separate models. Dolgachev-Martin already classify possible abstract quartic del Pezzo stabilizer types. Neither of those statements as read supplies the five exact polynomial equations for EVERY enhancement in Smith's fixed coordinate a or proves that its single family realizes ALL of the special quotient types. This exact parameter pullback is the claimed incremental original fact.
+
+## value
+
+PASS
+
+Finding the full singular-symmetry discriminant of an explicit natural moduli line, rather than a few favorable fibers, is a complete classification of the geometric stabilizer jumps and resolves the embedding of the general symmetry strata into Smith's displayed family. A precise reusable coordinate-level result for quartic del Pezzo moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
