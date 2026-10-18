@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Actual verification
+# Independent mathematical audit
 
-The attached `verify.py` was executed under Python 3 and returned:
+## correctness
 
-`VERIFY_OK exhaustive_orders=3,4 palette_ranges=0..5 assignments= 483494 proper_checked= 37328 threshold_orders=4..23 order3_optimal=408 order5_mixed_optimal=3600 order7_mixed_optimal=604800`
+PASS
 
-The program enumerates every labeled assignment to all \(2n\) vertices for \(n=3,4\), \(0\le q\le5\), applies the actual edge constraints, and independently tests all \(2n!\) automorphisms. It checks every coefficient of the shared-color refinement and tests the exact optimal-color formula for \(4\le n\le23\). The runtime counts assignments, not unlabeled color classes.
+The crown automorphisms are simultaneous permutations of matching indices and optional side swap. Properness restricts cross-side shared colors to unique diagonal pairs; distinct ordered color pairs eliminate all simultaneous-permutation stabilizers, and at least one nondiagonal pair removes side swap. Choosing t shared diagonal positions/colors, a and b exclusive palettes and injective onto placements in a-by-b cells gives precisely the U(a,b;n-t) inclusion-exclusion formula with no quotient by color labels. The optimal mixed threshold follows by maximizing t+floor((k-t)^2/4) for 1<=t<=k-2 and the known k=ceil(2sqrt(n)). Check n=3 separately. This is an all-n,q bijective argument, not an extrapolation from brute force.
 
-## Unproved limits
+## originality
 
-These finite computations do not prove arbitrary-parameter claims: the proof uses the full automorphism group, injective rectangle assignments, inclusion-exclusion, and extremal rectangle capacity. No independent audit or external certification is asserted.
+PASS
+
+The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact proper distinguishing-coloring enumerator of crown graphs and the mixed-palette threshold.
+
+## value
+
+PASS
+
+The entire labeled proper symmetry-breaking coloring polynomial and its mixed-color optimal stratum are natural exact combinatorial invariants of the crown family, beyond the previously determined minimum palette size. The shared-palette refinement is mathematically useful for exact symmetry-breaking enumeration; the onto-injective rectangle count and exceptional threshold are nontrivial, rather than mere renaming of chi_D.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
