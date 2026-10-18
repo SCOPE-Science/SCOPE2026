@@ -1,19 +1,21 @@
-# Scientific review: fixed-horizon occupancy-survey timing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is conditional on a stationary symmetric two-state occupancy chain, exact state observation at three fixed-count visits, known common switching-rate structure, and an unknown positive rate scale. Direct Bernoulli score differentiation yields the exact information \(f(\lambda u)+f(\lambda(H-u))\) for \(\log\lambda\). A coefficient-sign proof shows that \(f''\) has exactly one positive zero and that \(f^{(4)}\) also changes sign exactly once, strictly later. Their derivative ordering supplies the global fixed-horizon optimizer classification, including all equality cases. The packaged exact-recurrence/finite-coefficient verifier was executed and its output inspected. Infinite coefficient tails are proven positive using explicit quadratic factors, not numerically truncated. The large-horizon limit follows by compactness and the unique one-gap maximum.
+PASS
 
-## Originality — PASS, qualified
+For stationary symmetric two-state CTMC with jump rate lambda/2, the independent same/different indicators across lengths u and H-u have Bernoulli success (1+e^(-lambda h))/2. Fisher information for log(lambda) is f(lambda u)+f(lambda(H-u)), f(x)=x^2/(e^(2x)-1), continuous at zero. The inspected P2 and P4 derivative recurrence was independently recomputed with exact symbolic arithmetic: P2 coefficients are negative for degrees3..7 and positive for all >=8 by the quadratic tail; P4 degrees6..25 are negative and all >=26 have positive summands. Thus f and f^(4) each cross once; the proven derivative ordering gives a single midpoint maximum for T<=2a and two unique asymmetric maxima for T>2a, with short gap converging to the unique maximizer c. Independent T=2,3,3.2,4,6,10 grid tests corroborate, but the infinite proof is coefficient-sign/monotonicity, not numerical.
 
-The underlying binary Markov model and single-gap Fisher information are established. Royle and Kéry (2007) supply ecological turnover motivation. Brown, Solomon and Stephens (1977) and Mehtälä, Auranen and Kulathinal (2011/2015) address interval sampling. Mehtälä and colleagues' 2014/2015 multistate paper is a close comparison whose accessible summary describes optimal time spacing for stationary multistate Markov estimation. Michel's 2018 preprint (full mathematical sections inspected) obtains a unique freely chosen common interval asymptotically and an adaptive interval policy, not the finite fixed-first/fixed-last three-visit phase diagram. No searched evidence explicitly supplied the sharp dimensionless boundary \(2a\) or two asymmetric global optimizers. Inaccessible full-text treatment of fixed endpoint constraints in the Mehtälä work remains a material risk, and the absence of a search match is not asserted as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed monitoring start and end with just one discretionary interior visit is a natural field-survey constraint; optimizing that visit differs substantively from choosing a free repeating interval. The theorem locates a sharp structural change from midpoint sampling to two asymmetric schedules and quantifies the optimal short gap at long horizons. It is a self-contained exact design benchmark, not an arbitrary parameter slice. The theorem does not transfer automatically to noisy occupancy observations, unequal transition rates, unknown stationary probabilities, or heterogeneous sites.
+Michel 2018 full mathematical preprint gives the same interval information in a freely chosen equal-interval/asymptotic design, not a compulsory fixed-first/fixed-last, exactly three-observation constrained problem. Mehtälä et al. 2011/2015 discuss binary transition-rate sampling intervals and are highly relevant; their full text could not be read (OA/arXiv failed; authorized Oxford service returned vpn_disconnected). The currently accessible abstracts concern repeated or freely spaced observations rather than the exact sharp 2a constrained bifurcation. Best-of-knowledge originality PASS, explicitly contingent on the uninspected full text not containing a stronger fixed-horizon result.
 
-## Closest literature, constraints, and risks
+## value
 
-The closest full mathematical source is Michel (2018), whose freely spaced model contains the same one-interval information but a different constrained optimization problem. The two Mehtälä studies and Brown et al. are closely relevant; complete primary texts were not all available, so their possible stronger fixed-horizon implications remain a genuine novelty risk. Observability, stationarity, rate symmetry, local optimality at a known parameter, and endpoint constraints are essential. High-precision numerical constants and grids corroborate but do not replace global derivative proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three exact surveys with compulsory endpoints is a natural budgeted field-monitoring design. A sharp phase transition from midpoint sampling to two distinct asymmetric globally optimal schedules has direct mathematical and design interpretability; the long-horizon short-gap constant is precise and is not an arbitrary tiny instance. Conditions of known stationary symmetry and perfect detection are essential; it is a local-in-parameter information optimum, not an adaptive unknown-rate protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:16:12.608360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary symmetric two-state CTMC with jump rate lambda/2, the independent same/different indicators across lengths u and H-u have Bernoulli success (1+e^(-lambda h))/2. Fisher information for log(lambda) is f(lambda u)+f(lambda(H-u)), f(x)=x^2/(e^(2x)-1), continuous at zero. The inspected P2 and P4 derivative recurrence was independently recomputed with exact symbolic arithmetic: P2 coefficients are negative for degrees3..7 and positive for all >=8 by the quadratic tail; P4 degrees6..25 are negative and all >=26 have positive summands. Thus f and f^(4) each cross once; the proven derivative ordering gives a single midpoint maximum for T<=2a and two unique asymmetric maxima for T>2a, with short gap converging to the unique maximizer c. Independent T=2,3,3.2,4,6,10 grid tests corroborate, but the infinite proof is coefficient-sign/monotonicity, not numerical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior general CTMC formulations include the binary model but their accessible statements optimize repeat interval size and/or asymptotic variance; a finite fixed-sum constraint changes the problem to f(x)+f(T-x)."
+        ],
+        "reasoning": "General Markov inference contains the likelihood input but does not by itself give the global nonlinear fixed-sum optimizer phase transition. Unread complete Mehtälä articles could still cover it.",
+        "searches": [
+          "Michel 2018 full preprint Sections2-3",
+          "Mehtälä et al. binary CTMC sampling study DOI 10.1177/0962280211430663",
+          "Mehtälä et al. multistate DOI 10.1111/rssc.12084"
+        ]
+      },
+      "checked_sources": [
+        "Michel (2018 preprint, 2020 Econometric Reviews), DOI 10.1080/07474938.2019.1701808",
+        "Mehtälä, Auranen, Kulathinal (2011 online/2015), DOI 10.1177/0962280211430663",
+        "Mehtälä et al. (2014/2015), DOI 10.1111/rssc.12084",
+        "Brown, Solomon and Stephens (1977), DOI 10.1287/opre.25.3.493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Michel Theorem2.2 establishes freely optimized equal lag kappa/alpha, not fixed horizon with exactly one interior time; Mehtälä abstract addresses interval choices in longitudinal designs."
+        ],
+        "reasoning": "Same one-gap f is prior, whereas fixed-sum two-gap symmetry breaking requires separate global high-derivative analysis. The possible existence of an inaccessible stronger fixed-endpoint theorem is explicitly reserved.",
+        "searches": [
+          "Michel (2018) full preprint Sections2-3",
+          "Mehtälä et al. (2011) accessible abstract",
+          "Brown et al. (1977) abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Michel preprint Section2 optimizes asymptotic equally spaced sampling over free lag; source uses rate alpha and gives optimal single-gap constant but not fixed finite H three visits."
+        ],
+        "reasoning": "No verified exact fixed-first/last three-observation phase diagram in material read; inaccessible Mehtälä remains a specific novelty risk.",
+        "searches": [
+          "Resultary: symmetric two state Markov chain Fisher information fixed observation endpoints one interior sample phase transition asymmetric optimal timing",
+          "Web: Optimal adaptive sampling for a symmetric two-state continuous time Markov chain Michel pdf",
+          "Web: Optimal designs for epidemiologic longitudinal studies with binary outcomes Mehtala"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brown et al. fixed periodic spacing for n observations; not a table for three compulsory endpoint survey times."
+        ],
+        "reasoning": "No observed published exact threshold 2a or two-optima table; not based on absent search hit alone, source comparison limited to read material.",
+        "searches": [
+          "Brown Solomon Stephens (1977) interval sampling abstract",
+          "Mehtälä et al. (2011) abstract and keywords",
+          "Resultary fixed-horizon Markov query"
+        ]
+      },
+      "rationale": "Michel 2018 full mathematical preprint gives the same interval information in a freely chosen equal-interval/asymptotic design, not a compulsory fixed-first/fixed-last, exactly three-observation constrained problem. Mehtälä et al. 2011/2015 discuss binary transition-rate sampling intervals and are highly relevant; their full text could not be read (OA/arXiv failed; authorized Oxford service returned vpn_disconnected). The currently accessible abstracts concern repeated or freely spaced observations rather than the exact sharp 2a constrained bifurcation. Best-of-knowledge originality PASS, explicitly contingent on the uninspected full text not containing a stronger fixed-horizon result.",
+      "residual_risks": [
+        "Mehtälä 2011 and 2014 complete primary texts inaccessible; known relevant designs could cover stronger fixed-horizon case",
+        "Authorized institutional access returned vpn_disconnected; no bypass performed",
+        "Assumes stationary perfect detection, equal switching rates, known design-local lambda and exactly 3 observations"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derives freely chosen constant equal spacing and asymptotic optimum, not three-visit fixed endpoint bifurcation.",
+          "evidence": "Michel preprint pp.3–7 Eq.(4), Theorem2.2",
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/6/56774/files/2017/12/optimal_sampling_design_ctmc9-1nt190d.pdf",
+          "material_read": "full preprint available; Sections2-3, likelihood eq.(4), Theorem2.2 and asymptotic adaptive setup read; no claim to have read every appendix line",
+          "method": "open-access author preprint PDF",
+          "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+          "trigger": "same CTMC transition and rate information"
+        },
+        {
+          "assessment": "Potential same-model prior coverage unresolved at full-text level; best-of-knowledge judgment conditioned on residual risk.",
+          "evidence": "Mehtälä, Auranen, Kulathinal, Stat Methods Med Res 24(2015), abstract",
+          "identifier_or_url": "https://doi.org/10.1177/0962280211430663",
+          "material_read": "abstract and bibliographic details read; full paper not obtained: OA/arXiv searches unsuccessful, institutional access reported vpn_disconnected",
+          "method": "journal abstract plus authorized institutional attempt",
+          "title": "Optimal designs for epidemiologic longitudinal studies with binary outcomes",
+          "trigger": "highly relevant binary CTMC sampling optimization"
+        },
+        {
+          "assessment": "Studies predetermined periodic intervals, not explicitly the fixed-three-visit unequal spacing boundary in material read.",
+          "evidence": "Brown, Solomon, Stephens, Operations Research 25(1977), abstract",
+          "identifier_or_url": "https://doi.org/10.1287/opre.25.3.493",
+          "material_read": "publisher abstract and model/observations description read, not full article",
+          "method": "publisher abstract",
+          "title": "Estimation of Parameters of Zero-One Processes by Interval Sampling",
+          "trigger": "older binary CTMC observation-spacing design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three exact surveys with compulsory endpoints is a natural budgeted field-monitoring design. A sharp phase transition from midpoint sampling to two distinct asymmetric globally optimal schedules has direct mathematical and design interpretability; the long-horizon short-gap constant is precise and is not an arbitrary tiny instance. Conditions of known stationary symmetry and perfect detection are essential; it is a local-in-parameter information optimum, not an adaptive unknown-rate protocol.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Michel (2018 preprint, 2020 Econometric Reviews), DOI 10.1080/07474938.2019.1701808",
+    "Mehtälä, Auranen, Kulathinal (2011 online/2015), DOI 10.1177/0962280211430663",
+    "Mehtälä et al. (2014/2015), DOI 10.1111/rssc.12084",
+    "Brown, Solomon and Stephens (1977), DOI 10.1287/opre.25.3.493"
+  ],
+  "disposition": "passed",
+  "limitations": "Only the theorem and hypotheses stated in reviewed RESULT.md are assessed; no claim about out-of-scope generalizations, external attestation, or actual publication.",
+  "residual_risks": [
+    "Mehtälä 2011 and 2014 complete primary texts inaccessible; known relevant designs could cover stronger fixed-horizon case",
+    "Authorized institutional access returned vpn_disconnected; no bypass performed",
+    "Assumes stationary perfect detection, equal switching rates, known design-local lambda and exactly 3 observations"
+  ],
+  "schema_version": 1
+}
