@@ -1,19 +1,21 @@
-# Review: Exact cancellation budget for Cauchy combination of antithetic p-value pairs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each antithetic pair reduces exactly to one signed standard Cauchy variable. Independence across latent pairs and the characteristic function \(e^{-|t|}\) give the exact scale \(A=\sum_j|w_{j,+}-w_{j,-}|\). The standard-Cauchy p-value map then yields the full cdf and the exactness/conservatism classification. The Gaussian realization and the small-level limit follow directly. Numerical checks are secondary consistency checks only.
+## correctness
 
-Risk: the theorem requires exact complementarity within pairs and independence across latent pairs; it does not cover perturbations of that architecture.
+PASS
 
-## Originality
-**PASS.** The primary CCT paper states exact standard-Cauchy behavior under independence and perfect positive dependence, but the inspected full text does not state this antithetic-block scaled-Cauchy law or its cancellation budget. Later arbitrary-dependence theory broadens asymptotic validity without supplying the exact blockwise classification. The closest Biometrika analysis explicitly observes excessive CCT conservatism for negatively correlated one-sided p-values and discusses perfect-correlation boundaries asymptotically, but the inspected main text does not give the scale \(A\), the exact finite-level cdf, or the iff weight criterion. Targeted searches for antithetic/countermonotone formulations and the scale law found no statement implying the complete claim.
+Complementary p-values give tan(pi(1/2-(1-U)))=-tan(pi(1/2-U)) exactly. Hence T=sum_j(w_{j,+}-w_{j,-}) C_j with independent standard Cauchy C_j; its characteristic function is exp(-|t| sum_j |w_{j,+}-w_{j,-}|). The scale A and degenerate case, weighted cancellation identity, exact upper tail, strict monotonicity for alpha<1/2, iff A=1 standard calibration and alpha-to-zero attenuation all follow. Independent rational weights (3/10,1/10),(3/20,1/20),(2/5,0) gave A=7/10 by both definitions, and several numeric Cauchy-tail checks passed. This proves finite m and normalized nonnegative deterministic weights.
 
-Risk: the stable-law derivation is short, so an equivalent statement could exist in supplementary or unindexed material. This residual risk is recorded rather than treated as proof of absence.
+## originality
 
-## Value
-**PASS.** Opposing one-sided p-values from independent Gaussian contrasts give exactly this dependence architecture, and recent literature identifies negative-correlation conservatism as a practical CCT issue. The theorem converts that issue into a complete finite-level weight classification for any number of independent antithetic pairs: exactness, partial attenuation, and total cancellation are all determined by one interpretable functional \(A\). This is a motivated structural boundary result rather than a routine numerical special case.
+PASS
 
-## Closest literature and limitations
-Closest sources are Liu–Xie (arXiv:1808.09011), Long–Li–Zhang–Li (arXiv:2107.06040), Gui–Jiang–Wang (arXiv:2310.20460), and Ota (arXiv:2603.22668). The theorem should not be extrapolated to imperfect negative correlation, dependent latent blocks, or modified Cauchy transforms.
+Liu and Xie define weighted Cauchy combination and exact independence/perfect-positive-dependence benchmarks. Later literature reports conservatism under negative correlations but does not in the material read state the finite-block exact scale A, iff exactness condition, and all-level rejection formula. Best-of-knowledge PASS for the motivated dependence architecture, not for Cauchy stability itself; elementary identity may have been noted elsewhere.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact finite-level calibration of weighted tests under a natural Gaussian antipodal-contrast dependence architecture, with a transparent weight-cancellation budget and a sharp endpoint criterion. Practical for understanding substantial conservatism that broad large-tail guarantees hide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

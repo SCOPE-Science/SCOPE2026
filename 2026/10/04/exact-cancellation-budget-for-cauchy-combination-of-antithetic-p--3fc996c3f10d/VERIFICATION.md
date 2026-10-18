@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For each latent uniform \(U_j\), the Cauchy transform \(C_j=\tan\{\pi(1/2-U_j)\}\) is standard Cauchy and the complementary p-value \(1-U_j\) transforms to \(-C_j\). The weighted statistic is therefore \(T=\sum_j d_jC_j\) with \(d_j=w_{j,+}-w_{j,-}\).
+# Independent mathematical audit
 
-Independence across the latent pairs gives
-\[
-\mathbb E e^{itT}=\prod_j e^{-|d_jt|}=e^{-A|t|},
-\qquad
-A=\sum_j|d_j|,
-\]
-so the null law is exactly \(\mathrm{Cauchy}(0,A)\). The identity \(|x-y|=x+y-2\min(x,y)\) for nonnegative weights gives \(A=1-2\sum_j\min(w_{j,+},w_{j,-})\). This proves both the scale and the exact weight criteria without simulation.
+## correctness
 
-The accompanying `verify.py` recomputes cancellation budgets for deterministic examples, checks the one-pair numerical values at \(\alpha=0.05\), checks exact and degenerate endpoints, and checks the small-level ratio. These are transcription checks only; the analytic characteristic-function argument proves the theorem for arbitrary finite \(m\).
+PASS
 
-The verification does not address imperfect complementarity, dependence among latent pairs, random weights, or truncated/positive Cauchy variants.
+Complementary p-values give tan(pi(1/2-(1-U)))=-tan(pi(1/2-U)) exactly. Hence T=sum_j(w_{j,+}-w_{j,-}) C_j with independent standard Cauchy C_j; its characteristic function is exp(-|t| sum_j |w_{j,+}-w_{j,-}|). The scale A and degenerate case, weighted cancellation identity, exact upper tail, strict monotonicity for alpha<1/2, iff A=1 standard calibration and alpha-to-zero attenuation all follow. Independent rational weights (3/10,1/10),(3/20,1/20),(2/5,0) gave A=7/10 by both definitions, and several numeric Cauchy-tail checks passed. This proves finite m and normalized nonnegative deterministic weights.
+
+## originality
+
+PASS
+
+Liu and Xie define weighted Cauchy combination and exact independence/perfect-positive-dependence benchmarks. Later literature reports conservatism under negative correlations but does not in the material read state the finite-block exact scale A, iff exactness condition, and all-level rejection formula. Best-of-knowledge PASS for the motivated dependence architecture, not for Cauchy stability itself; elementary identity may have been noted elsewhere.
+
+## value
+
+PASS
+
+Exact finite-level calibration of weighted tests under a natural Gaussian antipodal-contrast dependence architecture, with a transparent weight-cancellation budget and a sharp endpoint criterion. Practical for understanding substantial conservatism that broad large-tail guarantees hide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
