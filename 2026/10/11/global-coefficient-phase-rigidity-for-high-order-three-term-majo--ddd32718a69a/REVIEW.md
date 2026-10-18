@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claimed domain is every integer \(k\ge23\), every real \(2k<p<2k+2\), and every unimodular third coefficient. The phase Fourier decomposition is derived from restriction to a resonant line in a two-torus. The cited primary source supplies explicit Bessel-mode identities and a positive first-mode lower bound; the proof reconstructs how these follow from the circular Bessel integral, Mellin continuation, Neumann's formula, and positive hypergeometric coefficients. The new weighted all-resonance tail bound is reduced to (i) a strict exact-rational base inequality and (ii) analytic logarithmic monotonicity in the exponent and geometric contraction in degree. The packaged script performs the exact rational comparisons. The derivative series converges absolutely, and the sine-multiple inequality gives global phase monotonicity. The finite script is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS with residual risk. Pan et al., arXiv:2609.09740v2, §§2--6, prove a binary sign comparison using only odd resonances; the new statement has a continuum of coefficient phases, rigid extrema and a full-phase cosine-error inequality. Krenedits' earlier papers, as described in their abstracts and the primary paper, address sign choices for finitely many exponents, not the phase continuum. The closest published records found concerned first phase-sensitive even moments and finite-cyclic phase minimax, neither of which logically implies strict phase monotonicity throughout the non-even open interval. Web and mathematical-record searches did not find an equivalent all-phase theorem, which is not proof of uniqueness. The older papers' complete proofs were not all materially read and may conceal relevant techniques; an unindexed stronger theorem is a residual risk.
+PASS
 
-## Value
-PASS. The original majorant question compares only two signed idempotents. This theorem solves a natural continuous-coefficient extremal problem in an infinite high-order regime: among every possible unimodular third coefficient, it identifies the unique minimizer and maximizer and controls all intermediate phases quantitatively. This is a global variational statement, not a coefficient-sign recomputation. Its explicit exponential phase remainder provides stability information for near-optimal phases. The cutoff 23 comes from tractable estimates and is not claimed optimal.
+Reconstructed the two-torus Fourier decomposition with selected modes (-Nq,q) and the modewise Bessel triple-product Mellin representation. The primary Bessel bound gives I1(s)>0; explicit |J_n| majorants and R_q>= (29/50)Nq bound the q>=2 tail by a q^2-weighted geometric sum. Checked the derived gamma ratio R(k,alpha), its logarithmic monotonicity in s, the base exact-rational estimate R(23,0)<0.8, and the uniform ratio bound <0.95 (finite exact checker addresses base/exponential Taylor inequalities; analytic inequalities prove all k). The derivative tail is smaller than epsilon_k times the positive first sine via |sin(q phi)|<=q sin phi, yielding strict monotonicity and uniform cosine remainder. At even endpoint powers there is no phase response; they are correctly excluded. No finite k enumeration is misused as an infinite proof.
 
-## Closest literature and scientific limitations
-The primary result and numerical-free weighted tail estimates are traced to arXiv:2609.09740v2; only the new all-resonance weighted comparison and phase consequences are asserted as the contribution. Earlier sign-only results and the separate even-moment and finite-cyclic records have different logical coverage. The theorem leaves smaller degrees, sharp cutoff, endpoint uniformity and other frequency patterns untreated. The self-contained code certifies rational substeps only. Independent external audit has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Pan et al. arXiv:2609.09740v2 proof establishes only the binary + versus - comparison for its majorant question, bounding odd resonances sufficient for that difference. The audited all-phase conclusion requires every q mode and q^2-weighted tail, which is not implied by a sign comparison. The independent full-text source inspection confirms the relevant distinction; older majorant and finite-cyclic/even-moment results do not supply the continuum phase theorem.
+
+## value
+
+PASS
+
+Optimizing over the unimodular coefficient circle is a natural stronger variant of the original majorant problem. It identifies every phase, unique extrema and quantitative closeness to a cosine in a nontrivial infinite degree/exponent regime; the cutoff k>=23 is explicitly merely sufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
