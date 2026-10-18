@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The admissible parameter domain is every integer \(p\ge2\) with one missing edge in the unit-edge complete graph. Integrality and the connected-tight-edge criterion identify all vertex types. Exact positive rational multipliers certify determinant optimality for the four nonspherical cases. The infinitely many larger graphs follow from a sharp equilateral-ball inclusion and the exceptional-vertex norm bound. The standalone rational checker corroborates the finite certificates but does not stand in for the universal argument.
+
+**Originality: PASS, subject to bibliographic uncertainty.** The finite-metric geometric framework in Alexander et al. (arXiv:1911.10642) and the extremal-molecule results of Aliaga (arXiv:2102.01219) do not evaluate the claimed ellipsoid. General minimum enclosing ellipsoid/D-optimal-design methods are known, as discussed by Suliman and Weinstein (arXiv:2302.05966); those methods do not state the exact parameters and transitions here. Ellipsoids *inside* the Lipschitz-potential ball and ellipsoids *outside* its polar are different questions. Results on Euclidean inballs of symmetric-edge polytopes also do not determine their full John ellipsoids. Full-text access to every potentially related recent graph-specific note was not obtained, so undetected equivalent or broader coverage remains a risk.
+
+**Mathematical value: PASS.** The result determines the full intrinsic Löwner ellipsoid, not just a radius, across a natural infinite family of Banach dual unit balls. A single omitted metric constraint changes the optimal shape only through a sharp graph-size boundary; a separate contact transition occurs one order later. These facts quantify when an actual enlargement of a Lipschitz ball is invisible to its optimal enclosing ellipsoid.
+
+Self-review: passed. Independent audit: not yet performed.
