@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "With a fixed proper vertex coloring, distinct central-layer code sets are incomparable; each directed incidence selects a color in the source-but-not-target code, disjoint from every following arc choice. The matching-pair extra color cannot appear on a directed two-path twice because distinct matching edges never meet at an original vertex. A monochromatic incidence arc digraph with no directed two-path on three distinct vertices has an underlying bipartite graph: every mixed source/sink vertex is confined to an isolated reciprocated edge. Signature bit colorings prove chi(G)<=2^t. Central binomial estimates yield the sharp asymptotic leading constant. The standalone exact finite checker validates 16,320 incidence assignments and 819,942 directed two-path constraints but is not a substitute for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bradshaw–Clow–Xu give log_2(q) lower and 2 ceil(log_2 q) upper, strictly broader in graphs but weaker in upper strength.",
+        "Priyamvada–Panda abstract explicitly lists subdivision among graph operations with upper bounds but provides no quantitative theorem in accessible text."
+      ],
+      "reasoning": "A broad theorem can cover a special construction even without the same wording. The inspected 2023 universal bound is weaker than the asserted asymptotic factor-one bound. The inaccessible subdivision article remains a material risk; its abstract is not evidence that its bound does or does not subsume ours.",
+      "searches": [
+        "arXiv:2308.15654v1 section 2 Proposition 2.5 and following remark",
+        "arXiv:1803.02152v1 introduction and induced-star-arboricity discussion",
+        "web: \"Injective edge coloring of some standard graph products\" subdivision chromatic",
+        "DOI:10.1142/S1793830923500416 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.15654v1, Proposition 2.5 and following remark",
+      "arXiv:1803.02152v1, definitions and induced-star discussion",
+      "arXiv:1907.09838, abstract",
+      "DOI:10.1142/S1793830923500416, abstract only",
+      "Indexed mathematical literature query set (actual scientific query strings retained in named originality checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published: t at most 2 ceil(log_2 q); new: t at most log_2 q + half log_2 log_2 q + O(1).",
+        "For q growing, a bound with leading constant 2 does not imply a bound with leading constant 1.",
+        "The paired construction gives n=12 with five colors, whereas the middle-layer-only t=5 capacity is 10."
+      ],
+      "reasoning": "The new claim strengthens the prior upper bound asymptotically and supplies an extra clique construction. Neither published lower bound nor induced-arboricity framework logically entails that improvement. Because the Priyamvada–Panda full paper could not be read, implication from its exact theorems cannot be decided; this access risk is disclosed rather than represented as a negative full-text comparison.",
+      "searches": [
+        "arXiv:2308.15654v1 Proposition 2.5 proof/remark, https://arxiv.org/html/2308.15654v1",
+        "arXiv:1803.02152v1 https://arxiv.org/html/1803.02152v1",
+        "DOI:10.1142/S1793830923500416 accessible abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a subdivision, injective edge coloring is the coloring of bidirected original incidences without same-colored directed two-paths.",
+        "arXiv:2308.15654v1 explicitly uses this incidence equivalence for a lower bound.",
+        "arXiv:1803.02152v1 defines induced star arboricity, providing related star-forest vocabulary."
+      ],
+      "reasoning": "The alternative directed-arc, induced-star-forest, and 2-dipath formulations were compared. The lower bound and the general parameter equivalence do not imply the antichain upper construction. No matching statement was located in the searched public material.",
+      "searches": [
+        "semantic literature search: Sperner middle-layer antichain coding improves injective chromatic index of one-edge subdivisions: chi'_inj(sd1(G)) at most minimum t with binomial(t,floor(t/2)) >= chi(G), sharp leading constant 1 log2 chi",
+        "semantic literature search: directed symmetric complete graph arc colors excluding monochromatic directed 2 paths, extremal binomial antichains",
+        "web: \"injective edge coloring\" \"subdivision\" \"Sperner\" antichain",
+        "web: \"injective edge coloring\" \"antichain\"",
+        "arXiv:2308.15654v1, Proposition 2.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed abstract or public search snippet gave the capacity 2 binom(t-1,floor((t-1)/2)) or a five-color construction on the one-subdivision of K_12.",
+        "The package constructs and checks the 12-vertex five-color witness."
+      ],
+      "reasoning": "The finite witness and capacity formula were compared to indexed statements, not asserted new solely because of a negative search. No indexed exact table was found; absent a complete database this remains conditional.",
+      "searches": [
+        "semantic literature search: injective edge colorings 2-degenerate subdivided complete graphs sharp leading constant logarithm of n",
+        "semantic literature search: induced star arboricity subdivision clique middle binomial coding one bit per color",
+        "web: \"subdivided complete graph\" \"injective edge coloring\" logarithm",
+        "web: \"injective edge coloring\" \"subdivision\" \"chromatic number\" factor two"
+      ]
+    },
+    "rationale": "Primary Bradshaw–Clow–Xu Proposition 2.5 establishes a log_2 q lower bound and the succeeding remark establishes an upper bound with leading coefficient 2. The antichain and paired constructions prove genuinely stronger quantified upper bounds, closing the leading coefficient to 1 uniformly as q grows. Axenovich et al. work at broader induced-star-forest level without those inspected formulas. Direct and semantic searches identified no full-text covering result. The 2023/2024 Priyamvada–Panda paper explicitly discusses subdivisions but its uninspected text creates a substantial unresolved access risk; no assertion of historical completeness is made.",
+    "residual_risks": [
+      "Priyamvada and Panda, DOI:10.1142/S1793830923500416: same invariant and subdivision operator, full text not inspected; could subsume the present theorem.",
+      "Graph-coloring antichain methods under alternative terminology may have appeared in unindexed works.",
+      "No independent mathematical audit; same-model appraisal only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_LOWER_AND_WEAKER_UPPER",
+        "evidence": [
+          "Proposition 2.5: chi_inj_prime(S(G)) at least log_2 chi(G).",
+          "Immediately following remark: chi_inj_prime(S(G)) at most 2 ceil(log_2 chi(G))."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.15654v1",
+        "material_read": "Full available HTML with focused reading of Proposition 2.5, Lemma 2.4, preceding definitions, succeeding remark and conclusion.",
+        "method": "Read arXiv public HTML, lines 169–182, compare upper and lower statements to proposed theorem.",
+        "title": "Injective edge colorings of degenerate graphs and the oriented chromatic number",
+        "trigger": "Identical invariant and one-subdivision operator, first primary published lower bound and upper remark."
+      },
+      {
+        "assessment": "RELATED_FRAMEWORK_NO_IDENTIFIED_QUANTITATIVE_SUBDIVISION_BOUND",
+        "evidence": [
+          "Defines induced star arboricity and relates it to induced/weak induced forests, covering a related edge-coloring viewpoint."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.02152v1",
+        "material_read": "HTML abstract, introduction, Definitions 2, induced/weak-induced star arboricity discussion and relevant indexed phrases.",
+        "method": "Read open-access arXiv HTML, inspected theorem descriptions and basic definitions.",
+        "title": "Induced and Weak Induced Arboricities",
+        "trigger": "Equivalent induced-star-forest formulation might give broader coverage."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_WITH_ACCESS_LIMIT",
+        "evidence": [
+          "Abstract concerns subcubic, outerplanar and maximum-average-degree bounds; no one-subdivision chromatic-number estimate in material read."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.09838",
+        "material_read": "Abstract and bibliographic record, not complete full text.",
+        "method": "Read arXiv abstract.",
+        "title": "Injective edge-coloring of sparse graphs",
+        "trigger": "Foundational injective edge-coloring work and related general bounds."
+      },
+      {
+        "assessment": "RELEVANT_FULL_TEXT_UNAVAILABLE_SUBSTANTIAL_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract promises tight upper bounds for injective edge-coloring of operations including subdivision, without stating the relevant formulas.",
+          "No support for either COVERING or NOT_COVERING based on abstract alone."
+        ],
+        "identifier_or_url": "DOI:10.1142/S1793830923500416",
+        "material_read": "Publisher-linked bibliographic abstract and accessible publication records only; full text unavailable.",
+        "method": "Searched for arXiv and lawful open-access copies and inspected available abstract and author publication records; the paper was not available for substantive full-text inspection.",
+        "title": "Injective edge coloring of some standard graph products",
+        "trigger": "Direct same-invariant same-operation (subdivision) paper potentially covering claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78ff53fe-9127-4f66-95b1-063d32b0aa78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The relevant 2023 work explicitly bounds the one-subdivision injective chromatic index between log_2 chi and 2ceil(log_2 chi). A universal upper with leading constant 1 closes this factor-two asymptotic gap for every sequence of base graphs with unbounded chromatic number, giving a concrete constructive rate and natural central-layer design. The paired improvement is not a vacuous reparametrization: it colors the one-subdivision of K_12 using five colors versus a ten-vertex five-color capacity for the unpaired middle-layer construction. Exact finite optimum remains unclaimed.",
+    "status": "PASS"
+  }
+}
