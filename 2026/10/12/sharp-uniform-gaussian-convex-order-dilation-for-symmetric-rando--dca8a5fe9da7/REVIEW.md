@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer sample size in the stated domains, the claim follows from a complete finite Gaussian integrated-quantile comparison for the base sizes two through five and independent-summand preservation of convex order. The finite inequalities are rigorously checked using rational bounds on \(\pi\), normal integrals, and exponential functions; all base comparisons and strict separation of the sharp constants are covered. Every larger sample size admits the required block partition. The two displayed worst-case base sizes separately witness sharpness. The computational certificate is not treated as a proof of the infinite extension: that extension is proved by tensorization.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-Zhang's 2026 all-MGF-sub-Gaussian theorem has the larger sharp universal constant \(\sqrt{\pi/2}\), witnessed by a single sign, and does not state the smaller exact factors for equal-weight independent signs after two or three steps. Davis–Power treat a broader tail-bound class with a larger constant. Havrilla–Tkocz treat sharp \(L^p\) estimates rather than the full uniform convex order. Independent-block comparison was already known; the non-subsumed contribution is the pair of exact, uniformly optimal constants for infinite classes of binomial sums and the finite comparison certificates that yield them. Three targeted mathematical-record searches and targeted web literature searches did not identify a covering equivalent. Absence of an indexed result is not conclusive proof of priority.
+PASS
 
-## Value — PASS
-Zhang's sharp one-sign example creates a mathematically motivated question: does repeated independent averaging lower the loss-uniform Gaussian dilation factor, and if so can one determine the smallest factor simultaneously for every sample size beyond a threshold? The new theorem gives two strict, attained improvements (about 1.11258 from two steps and 1.08540 from three) that hold for every convex loss and infinitely many sample sizes. The change in the extremal hinge (positive hinge for two steps; absolute value for three steps) is structural. This is not only a base-case computation: the base cases, together with a partition theorem, imply exact sharp universal-in-sample-size claims.
+Reconstructed convex-order dominance by upper integrated quantiles A_X(p) and concavity of I(p)=φ(Φ^{-1}(p)). Each centered finite binomial law n=2,3,4,5 needs only atom-mass cut checks; independent upper-quantile computations give largest exact-scale ratios 1.112584818972 (n=2), 1.085401881837 (n=3), 1.059249321762 (n=4), and 1.050935853075 (n=5). Inspected exact-rational π/normal integral checker in verification/checker.py and verified finite endpoint formulas and bounds. Independent convolution of convex order and partitions n=2a+3b for n>=2 and n=3a+4b+5c for n>=3 prove all n, not by extrapolation. Sharpness is the n=2 upper mass 1/4 hinge and the n=3 central |x| witness.
 
-## Limits and residual risk
-The exact best factor for each individual sample size above the base is not classified. Uniform weights and symmetric independent signs are essential. A prior result under another terminology might imply the comparison. The scientific review is not an independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Zhang all-MGF sub-Gaussian convex-order theorem has sharp factor sqrt(pi/2), fixed by a single sign, which is strictly larger than c2 and c3; its stronger input class does not imply stronger numerical factors on the restricted repeated-sign subclass. Davis-Power studies a different two-sided tail class. Moment comparison results do not imply arbitrary convex losses. Actual relevant primary and Resultary comparisons found no mathematical implication-equivalent n-uniform exact constants; unindexed prior bounds are a residual risk.
+
+## value
+
+PASS
+
+Sharp scale constants holding for every convex test and every n beyond sharp thresholds answer a natural gap left by the single-sign extremizer for the unrestricted sub-Gaussian theorem. The two extremizers and strict improvements quantitatively characterize how repeated averaging changes worst-case convex risk; the global integer ranges require nontrivial base-cut comparisons plus convolution, rather than mere numeric fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
