@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:58:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any maximal shortest path in K_m square K_n is a three-cell induced length-2 L path: the diameter is two and each edge extends to a distance-2 pair since m,n>=2. Hence vertex-disjoint packings have at most floor(mn/3) paths. Independently validated every digit occurs exactly three times in six RESULT templates and its cells form two adjacent sides of an L. Width-3 strips are tiled by height-2 or height-3 bricks for all m>=2. Width-2/4 strips are tiled by height 3 and remainder height 2/4 to achieve floor(2m/3)/floor(4m/3). Partition n into width-3 strips plus a width-2 or width-4 remainder, producing floor(mn/3) paths with O(mn) emitted cells. This is an all-integer constructive argument, not extrapolation from checked boards.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Square rook geodesic packing bound only, not sharpness all orders.",
+          "Rook-graph three-cell path could be triangle path and not geodesic.",
+          "Induced-star packing could cover rectangular rook graphs via unstated general theorem."
+        ],
+        "reasoning": "General induced-star packing could conceivably specialize to rook graphs; inspected published material does not provide a constructive all-rectangular equality; published square rook upper bound lacks a matching lower bound.",
+        "searches": [
+          "Resultary: geodesic packing maximal shortest paths Cartesian product complete graphs rook graph floor mn/3",
+          "Manuel Brešar Klavžar geodesic packing in graphs arXiv:2210.15325 rook graphs square bound",
+          "Kaneko Kelmans Nishimura packing 3-vertex paths 2001 induced versus arbitrary",
+          "Kelmans optimal packing of induced stars 1997 rectangular rook K_m square K_n"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Upper bound gpack(K_n square K_n)<=n²/3 and geodesic transversal calculation prior, but inspected source has no all-rectangular packing constructions",
+          "identifier_or_url": "arXiv:2210.15325; https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+          "title": "Geodesic packing in graphs"
+        },
+        {
+          "assessment": "Arbitrary P3 path packings need not consist of induced L triples, so no automatic coverage",
+          "identifier_or_url": "DOI:10.1002/1097-0118(200104)36:4<175::AID-JGT1005>3.0.CO;2-T",
+          "title": "On packing 3-vertex paths in a graph"
+        },
+        {
+          "assessment": "Possible broader implication retained as risk",
+          "identifier_or_url": "DOI:10.1016/S0012-365X(96)00121-5",
+          "title": "Optimal packing of induced stars in a graph"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square rook geodesic packing bound only, not sharpness all orders.",
+          "Rook-graph three-cell path could be triangle path and not geodesic.",
+          "Induced-star packing could cover rectangular rook graphs via unstated general theorem."
+        ],
+        "reasoning": "From floor(mn/3) upper bound to equality requires existence of near-perfect disjoint induced L triple tilings for every m,n, proven by six template decomposition; the original square-graph transversal formula does not imply this packing equality.",
+        "searches": [
+          "Resultary: geodesic packing maximal shortest paths Cartesian product complete graphs rook graph floor mn/3",
+          "Manuel Brešar Klavžar geodesic packing in graphs arXiv:2210.15325 rook graphs square bound",
+          "Kaneko Kelmans Nishimura packing 3-vertex paths 2001 induced versus arbitrary",
+          "Kelmans optimal packing of induced stars 1997 rectangular rook K_m square K_n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Square rook geodesic packing bound only, not sharpness all orders.",
+          "Rook-graph three-cell path could be triangle path and not geodesic.",
+          "Induced-star packing could cover rectangular rook graphs via unstated general theorem."
+        ],
+        "reasoning": "Equivalent L-triple/right-angle partial tilings, three-vertex induced paths and maximal geodesic packings considered; ordinary three-vertex path packing is broader, so published general P3 packing does not force required induced triples.",
+        "searches": [
+          "Resultary: geodesic packing maximal shortest paths Cartesian product complete graphs rook graph floor mn/3",
+          "Manuel Brešar Klavžar geodesic packing in graphs arXiv:2210.15325 rook graphs square bound",
+          "Kaneko Kelmans Nishimura packing 3-vertex paths 2001 induced versus arbitrary",
+          "Kelmans optimal packing of induced stars 1997 rectangular rook K_m square K_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Square rook geodesic packing bound only, not sharpness all orders.",
+          "Rook-graph three-cell path could be triangle path and not geodesic.",
+          "Induced-star packing could cover rectangular rook graphs via unstated general theorem."
+        ],
+        "reasoning": "No exact rectangular rook-graph geodesic-packing table or formula among retrieved Resultary/primary results. Finite small board counts alone would not determine all m,n; explicit bricks prove upper bound attainment.",
+        "searches": [
+          "Resultary: geodesic packing maximal shortest paths Cartesian product complete graphs rook graph floor mn/3",
+          "Manuel Brešar Klavžar geodesic packing in graphs arXiv:2210.15325 rook graphs square bound",
+          "Kaneko Kelmans Nishimura packing 3-vertex paths 2001 induced versus arbitrary",
+          "Kelmans optimal packing of induced stars 1997 rectangular rook K_m square K_n"
+        ]
+      },
+      "rationale": "Manuel-Brešar-Klavžar 2023 introduce maximal-geodesic packing and bound square rook graph gpack<=n²/3; their arXiv full primary paper and specific square graph lemma/nearby theorem were read, and a universal rectangular equality is not therein. Kaneko-Kelmans-Nishimura path packing allows arbitrary 3-vertex paths, unlike maximal geodesics that must be L triples; a generic nearly spanning path-packing result does not imply rook induced-L packing. Resultary geodesic results address other invariants and graph families. The optimal six-brick construction appears separate.",
+      "residual_risks": [
+        "Older induced-star/P3 packing sources not read in complete full text may imply the L-triple rook tiling.",
+        "The result excludes m=1 or n=1, for which maximal geodesics have 2 vertices; no higher product factors claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound gpack(K_n square K_n)<=n²/3 and geodesic transversal calculation prior, but inspected source has no all-rectangular packing constructions",
+          "evidence": "Square rook geodesic packing bound only, not sharpness all orders.",
+          "identifier_or_url": "arXiv:2210.15325; https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+          "material_read": "Original PDF sections introductory definitions, rook-graph Lemma 2.3 and text after Proposition 2.6; figures / page 4 inspected",
+          "method": "Lawful author-hosted OA full primary PDF",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Introduces invariant and treats square rook graphs"
+        },
+        {
+          "assessment": "Arbitrary P3 path packings need not consist of induced L triples, so no automatic coverage",
+          "evidence": "Rook-graph three-cell path could be triangle path and not geodesic.",
+          "identifier_or_url": "DOI:10.1002/1097-0118(200104)36:4<175::AID-JGT1005>3.0.CO;2-T",
+          "material_read": "Bibliographic abstract/relevant theorem summary; full paper not independently read",
+          "method": "Published reference comparison",
+          "title": "On packing 3-vertex paths in a graph",
+          "trigger": "Potentially dominating general path packing theorem"
+        },
+        {
+          "assessment": "Possible broader implication retained as risk",
+          "evidence": "Induced-star packing could cover rectangular rook graphs via unstated general theorem.",
+          "identifier_or_url": "DOI:10.1016/S0012-365X(96)00121-5",
+          "material_read": "Bibliographic title and abstract/references; complete paper inaccessible or not read",
+          "method": "Published record only",
+          "title": "Optimal packing of induced stars in a graph",
+          "trigger": "Potential equivalent induced P3 packing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural graph product has an exact maximum packing invariant and a uniform near-spanning constructive decomposition with at most two unused vertices, answering the upper bound of the initiating primary paper for all square and rectangular sizes. Not an arbitrary small computation or just a relabeling of path packing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Upper bound gpack(K_n square K_n)<=n²/3 and geodesic transversal calculation prior, but inspected source has no all-rectangular packing constructions",
+      "identifier_or_url": "arXiv:2210.15325; https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+      "title": "Geodesic packing in graphs"
+    },
+    {
+      "assessment": "Arbitrary P3 path packings need not consist of induced L triples, so no automatic coverage",
+      "identifier_or_url": "DOI:10.1002/1097-0118(200104)36:4<175::AID-JGT1005>3.0.CO;2-T",
+      "title": "On packing 3-vertex paths in a graph"
+    },
+    {
+      "assessment": "Possible broader implication retained as risk",
+      "identifier_or_url": "DOI:10.1016/S0012-365X(96)00121-5",
+      "title": "Optimal packing of induced stars in a graph"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent mathematics is best-of-knowledge, not formal certification.",
+    "Historical priority not exhaustively established; source inspections have explicit material scope.",
+    "The source verify.py was read but not executed as an opaque artifact; independent checks were separately computed.",
+    "No GitHub writes or dispatcher completion endpoint calls made."
+  ],
+  "residual_risks": [
+    "Older induced-star/P3 packing sources not read in complete full text may imply the L-triple rook tiling.",
+    "The result excludes m=1 or n=1, for which maximal geodesics have 2 vertices; no higher product factors claimed."
+  ],
+  "schema_version": 1
+}
