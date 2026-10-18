@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof converts the integer-shape Gamma tail to a Poisson CDF, derives an exact positive-prefactor formula for every adjacent increment, proves the increment is strictly increasing in the shift on the only nontrivial interval, and establishes the boundary case uniformly for all integer shapes. The boundary proof treats \(n=1\), \(n=2\), and \(n\ge3\) separately and does not infer an infinite statement from finite testing.
+## correctness
 
-## Originality
-PASS. Pinelis's closest theorem classifies monotonicity in the *real* shape parameter: it is non-monotone throughout \(-1/3<c<0\), and the paper only proves eventual positivity of a unit increment there. It does not identify when the full integer-shape subsequence becomes monotone. Sun--Hu--Sun treat Gamma probabilities relative to the mean and cover the endpoint \(c=0\), not a sharp negative additive shift. Searches for the exact Erlang/incomplete-Gamma formulation and the constant \(e-3\) found no covering result. The remaining risk is an older equivalent statement under waiting-time terminology.
+PASS
 
-## Value
-PASS. Integer Gamma shapes are the Erlang waiting-time family, so restricting shape to integers is a natural structural specialization rather than an arbitrary slice. The result exposes a genuine discrete-versus-continuous phenomenon: monotonicity reappears on the integer subsequence for part of a parameter interval where continuous-shape monotonicity fails, and the cutoff \(e-3\) is exact with a complete equality classification.
+For n>=1 and c>-1/3, Gamma(n,1)-n survival equals P(Poisson(n+c)<=n-1). Subtracting adjacent Poisson CDFs gives positive factor exp(-(n+c))(n+c)^n/n! times [1-I_n(c)], I_n(c)=integral_0^1 exp(-s)(1+s/(n+c))^n ds. The density-ratio calculation proves every adjacent increment strictly increasing in c on (-1,0]. First difference equals exp(-(2+c))(3+c-e), forcing c>=e-3. At c=e-3, first increment is zero, n=2 has 1-I_2=(2+2e-e^2)/(e(e-1)^2)>0, and n>=3 follows from h_n(s)=n log(1+s/(n-d))-s, d=3-e, the uniform Hoeffding range bound R<=(1-d)^2/[2(n-d)] and explicit negative mean/log-moment bound; checked the inequality chain and constants, yielding all later increments strictly positive. n+c>0 everywhere; equality, scale and strictly/non-strictly boundaries consistent. Independent 65-digit quadrature of increments n=1,2,3,4,5,10,25,100,500 corroborates but is not infinite proof.
 
-## Closest literature and limitations
-The closest source is Pinelis, arXiv:2012.13578v1, whose Theorem 1 gives the real-shape trichotomy and whose proof shows eventual positive unit increments in the intermediate regime. Sun, Hu, and Sun, arXiv:2303.17487v1, supply the directly related Gamma mean-tail extremal setting and list MSC 60E15 first. The new result does not classify real-shape extrema or shifts at or below \(-1/3\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: prior Pinelis theorem classifies real-shape monotonicity and proves eventual positivity of unit differences, not their uniform sharp integer-subsequence cutoff e-3; Sun-Hu-Sun concerns mean threshold. Integer rather than real shape is a distinct natural Erlang hypothesis; no searched source gives an implication of the precise n=1 equality plus all n>=2 strictness.
+
+## value
+
+PASS
+
+Erlang waiting times are naturally indexed by integer stage count. Their centered upper tails acquire a sharp negative-shift monotonicity interval where the continuous-shape Gamma family lacks global monotonicity. The exact transition e-3 and equality classification are a potentially useful quantitative structural boundary, not a routine shift of the c=0 theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

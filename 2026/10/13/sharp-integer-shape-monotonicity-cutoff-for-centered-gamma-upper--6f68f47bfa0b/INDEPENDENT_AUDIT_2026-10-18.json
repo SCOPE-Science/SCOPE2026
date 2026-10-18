@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:45:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=1 and c>-1/3, Gamma(n,1)-n survival equals P(Poisson(n+c)<=n-1). Subtracting adjacent Poisson CDFs gives positive factor exp(-(n+c))(n+c)^n/n! times [1-I_n(c)], I_n(c)=integral_0^1 exp(-s)(1+s/(n+c))^n ds. The density-ratio calculation proves every adjacent increment strictly increasing in c on (-1,0]. First difference equals exp(-(2+c))(3+c-e), forcing c>=e-3. At c=e-3, first increment is zero, n=2 has 1-I_2=(2+2e-e^2)/(e(e-1)^2)>0, and n>=3 follows from h_n(s)=n log(1+s/(n-d))-s, d=3-e, the uniform Hoeffding range bound R<=(1-d)^2/[2(n-d)] and explicit negative mean/log-moment bound; checked the inequality chain and constants, yielding all later increments strictly positive. n+c>0 everywhere; equality, scale and strictly/non-strictly boundaries consistent. Independent 65-digit quadrature of increments n=1,2,3,4,5,10,25,100,500 corroborates but is not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinelis, Monotonicity properties of the gamma family of distributions — Theorem 1 real-shape trichotomy; paper explicitly treats eventually positive unit increments",
+          "Sun, Hu, Sun, The extreme values of two probability functions for the Gamma distribution — Gamma extremal mean threshold, not displayed Erlang shift e-3"
+        ],
+        "reasoning": "Pinelis general gamma-family parameter contains n integer but his claim does not prove discrete monotonicity for shifts in (e-3,0); the published more general domain is not a stronger inequality in this subregion.",
+        "searches": [
+          "Resultary: centered Gamma Erlang upper tail monotonicity integer shape shift c e minus 3 Pinelis incomplete gamma Poisson",
+          "web: Pinelis Monotonicity properties gamma family arXiv 2012.13578",
+          "web: Sun Hu Sun extreme values Gamma probability arXiv 2303.17487"
+        ]
+      },
+      "checked_sources": [
+        "Pinelis, Monotonicity properties of the gamma family of distributions (https://arxiv.org/abs/2012.13578)",
+        "Sun, Hu, Sun, The extreme values of two probability functions for the Gamma distribution (https://arxiv.org/abs/2303.17487)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinelis, Monotonicity properties of the gamma family of distributions — Theorem 1 real-shape trichotomy; paper explicitly treats eventually positive unit increments"
+        ],
+        "reasoning": "Real-shape failure does not imply integer-shape failure; positivity only for eventually large n and the c=0 theorem cannot imply all n monotone for c<0. The first increment necessitates the cutoff but the analytic uniform n>=2 argument supplies the missing sufficiency.",
+        "searches": [
+          "Resultary: centered Gamma Erlang upper tail monotonicity integer shape shift c e minus 3 Pinelis incomplete gamma Poisson",
+          "web: Pinelis Monotonicity properties gamma family arXiv 2012.13578",
+          "web: Sun Hu Sun extreme values Gamma probability arXiv 2303.17487"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n>=1 and c>-1/3, Gamma(n,1)-n survival equals P(Poisson(n+c)<=n-1). Subtracting adjacent Poisson CDFs gives positive factor exp(-(n+c))(n+c)^n/n! times [1-I_n(c)], I_n(c)=integral_0^1 exp(-s)(1+s/(n+c))^n ds. The density-ratio calculation proves every adjacent increment strictly increasing in c on (-1,0]. First difference equals exp(-(2+c))(3+c-e), forcing c>=e-3. At c=e-3, first inc",
+          "Comparison with closest primary sources under transformed variables."
+        ],
+        "reasoning": "Poisson CDF increment / Erlang waiting time / incomplete-Gamma recurrence were compared with Pinelis real-shape classification. Integer lattice monotonicity is weaker than real-shape monotonicity and can hold inside real-shape nonmonotone interval.",
+        "searches": [
+          "Resultary: centered Gamma Erlang upper tail monotonicity integer shape shift c e minus 3 Pinelis incomplete gamma Poisson",
+          "web: Pinelis Monotonicity properties gamma family arXiv 2012.13578",
+          "web: Sun Hu Sun extreme values Gamma probability arXiv 2303.17487"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search centered Gamma Erlang upper tail monotonicity integer shape shift c e minus 3 Pinelis incomplete gamma Poisson returned no statement matching the exact claim among top twelve hits; no negative search is considered proof of novelty."
+        ],
+        "reasoning": "Resultary semantic hits to other Gamma monotonicity/critical-Gamma findings concern complete-monotonicity or mean-tail phase boundaries, not the e-3 integer-stage threshold; no exact Erlang table covering the whole n family identified.",
+        "searches": [
+          "Resultary: centered Gamma Erlang upper tail monotonicity integer shape shift c e minus 3 Pinelis incomplete gamma Poisson",
+          "web: Pinelis Monotonicity properties gamma family arXiv 2012.13578",
+          "web: Sun Hu Sun extreme values Gamma probability arXiv 2303.17487"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: prior Pinelis theorem classifies real-shape monotonicity and proves eventual positivity of unit differences, not their uniform sharp integer-subsequence cutoff e-3; Sun-Hu-Sun concerns mean threshold. Integer rather than real shape is a distinct natural Erlang hypothesis; no searched source gives an implication of the precise n=1 equality plus all n>=2 strictness.",
+      "residual_risks": [
+        "Equivalent Erlang/incomplete-Gamma recurrence may be buried in unindexed probability literature.",
+        "Sun–Hu–Sun entire article not separately read cover-to-cover; no whole-document noncoverage is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real shape a>0, threshold c>=0 and nonmonotone on -1/3<c<0; no sharp integer n subsequence criterion",
+          "evidence": [
+            "Theorem 1 real-shape trichotomy; paper explicitly treats eventually positive unit increments"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.13578",
+          "material_read": "arXiv article HTML/PDF, mathematical theorem read",
+          "method": "lawful open access HTML/PDF or source description as specified",
+          "title": "Pinelis, Monotonicity properties of the gamma family of distributions",
+          "trigger": "Theorem 1 and its discussion of the intermediate c interval"
+        },
+        {
+          "assessment": "Discusses Gamma relative-to-mean probabilities, c=0; full implication beyond those statements remains a bounded priority risk",
+          "evidence": [
+            "Gamma extremal mean threshold, not displayed Erlang shift e-3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.17487",
+          "material_read": "arXiv abstract/available description, not represented as full-paper clearance",
+          "method": "lawful open access HTML/PDF or source description as specified",
+          "title": "Sun, Hu, Sun, The extreme values of two probability functions for the Gamma distribution",
+          "trigger": "Same Gamma mean-probability statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Erlang waiting times are naturally indexed by integer stage count. Their centered upper tails acquire a sharp negative-shift monotonicity interval where the continuous-shape Gamma family lacks global monotonicity. The exact transition e-3 and equality classification are a potentially useful quantitative structural boundary, not a routine shift of the c=0 theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinelis, Monotonicity properties of the gamma family of distributions (https://arxiv.org/abs/2012.13578)",
+    "Sun, Hu, Sun, The extreme values of two probability functions for the Gamma distribution (https://arxiv.org/abs/2303.17487)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Equivalent Erlang/incomplete-Gamma recurrence may be buried in unindexed probability literature.",
+    "Sun–Hu–Sun entire article not separately read cover-to-cover; no whole-document noncoverage is asserted."
+  ],
+  "schema_version": 1
+}
