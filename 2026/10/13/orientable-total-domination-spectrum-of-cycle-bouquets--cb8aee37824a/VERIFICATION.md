@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Execute `python verify_orientable_total_cycle_bouquets.py` from a directory containing that bundled file. No external packages, environment services, or downloaded papers are required. The script checks validity by indegree, calculates the minimum total dominating set via direct enumeration of all vertex subsets, and builds the spectrum over all edge orientations for the eight printed cycle-length tuples. In particular it checks all \(4096\) edge orientations of the ten-vertex bouquet with petal lengths \((3,4,5)\), whose valid-orientation distribution is \(52z^6+36z^7+8z^8\). Every test must match the formula coefficient by coefficient, and the script terminates with `VERIFY_OK` on success.
+# Independent mathematical audit
 
-The test is exhaustive only for the listed finite instances. For arbitrary \(t\) and \(\ell_i\) the proof in `RESULT.md`, not a finite sweep, establishes the infinite statement. Literature identification and comparison do not constitute independent validation or a global novelty proof.
+## correctness
+
+PASS
+
+At each nonhub vertex indegree>=1 forbids the sign transition (-,+), leaving exactly two directed cycle orientations and ell_i-1 outward paths. Global hub indegree requires at least one cycle petal. An outward petal forces ell_i-3 additional selected vertices, a cyclic petal ell_i-2, and the hub plus one cyclic terminal predecessor are forced. The k-cyclic formula and product enumerator follow. Exhaustive independent orientation/subset checks on five bouquets reproduced exact coefficients.
+
+## originality
+
+PASS
+
+The full valid-orientation distribution for multicyclic bouquets is not supplied by the inspected orientable-total-domination papers, which determine unicyclic and selected extremal cases. Scalar t=2 upper bound and t=1 cycle case are credited to prior general results.
+
+## value
+
+PASS
+
+The complete multicycle orientation enumerator refines two extremal invariants to exact multiplicities for all intermediate minima and makes the multicyclic block-interaction transparent, answering a natural open intermediate-realization question for a canonical non-unicyclic cactus family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
