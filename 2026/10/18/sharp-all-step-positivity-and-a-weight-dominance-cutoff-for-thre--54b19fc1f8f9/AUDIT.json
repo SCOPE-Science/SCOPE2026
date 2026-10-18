@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For connected nonnegative three-edge conductances, characteristic polynomial λ(λ²-2sλ+3t) gives exact inverse D^{-1} on the range of L. Direct multiplication yields T_ij=4h[12x+6th-t(x-2(y+z))h²]/Δ, where Δ=48 det(D on 1-perp)>0. An edge numerator changes sign at a unique positive root iff x>2(y+z); two edges cannot satisfy this inequality. Diagonals are positive since the scalar rational factor r(u)=((u-3)²+3)/(u²+6u+12) is positive for u≥0. Two-vertex case is explicitly entrywise nonnegative. Program verify.py independently reconstructs inverse matrices exactly, with 30485 exact rational checks. The complete theorem follows from algebra, not finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna et al. 2010 full paper §III: general sufficient restrictions, 2x2 case, no sharp 3x3 symmetric-Laplacian classification.",
+        "Zappavigna et al. 2012 full manuscript: rational discretization of general positive systems and high-dimensional counterexamples, not the exact three-vertex reversible conductance phase diagram.",
+        "Horváth 2005 studies general positivity step-size framework; abstract inspected, full text unavailable."
+      ],
+      "reasoning": "General-purpose sufficient bounds and general failure examples can be broader in system class without implying this exact weighted triangular graph characterization. Checked the relevant claims and scope rather than inferring novelty from titles. Horváth full-text access is a genuine residual comparison risk.",
+      "searches": [
+        "Exact positivity-preserving timestep Runge Kutta rational diffusion on graph Laplacians cycles stars trees complete multipartite graphs",
+        "[2/2] Padé approximation diffusion three-state symmetric reversible Markov generator negative transition edge weights minimal dimension",
+        "Zappavigna Colaneri Kirkland Shorten Essentially Negative News About Positive Systems 2012 [2/2] Padé positivity reversible Markov 3x3"
+      ]
+    },
+    "checked_sources": [
+      "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+      "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+      "https://doi.org/10.1016/j.apnum.2004.08.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest eight-state result establishes minimal dimension for failure at arbitrarily small steps of arbitrary CTMC generators (dimension 8), not first dimension with positivity loss somewhere at large h among undirected Laplacians (dimension 3).",
+        "Crank-Nicolson resolvent theorem addresses [1/1] rather than [2/2] Padé, so its diagonal threshold is not this claim.",
+        "SSP-SDIRK2(2) is a different rational integrator.",
+        "The 2010 and 2012 primary sources have sufficient step criteria and general counterexamples rather than this complete 3-state weight criterion."
+      ],
+      "reasoning": "The mathematical statements have different rational maps, quantifiers, or generator classes. Higher-dimensional counterexamples, generic small-h validity, and general sufficient h-bounds do not entail the sharp x≤2(y+z) criterion, the one-edge sign obstruction and explicit H for all connected weighted three-site graphs.",
+      "searches": [
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "[2/2] Padé approximation diffusion three-state symmetric reversible Markov generator negative transition edge weights minimal dimension",
+        "Reversible three state Markov chain fourth-order Gauss step exact entrywise positivity time interval offdiagonal Laplacian pseudoinverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zappavigna et al. 2010 Theorem 2 and dimension-two section give sufficient conditions for Padé on Metzler systems, not complete weighted three-site all-step positivity.",
+        "Zappavigna et al. 2012 develops general Metzler counterexamples.",
+        "Public eight-state CTMC result analyzes failure arbitrarily near h=0 rather than classification for every h on reversible three-site graphs."
+      ],
+      "reasoning": "In row-generator notation set Q=-L; the present statement is a necessary-and-sufficient criterion r(hQ)≥0 for all h≥0, and an exact single finite positivity horizon otherwise. Comparison by implication and quantifier shows neither a sufficient small-step theorem nor an eight-state small-step obstruction supplies the all-step three-state weight inequality.",
+      "searches": [
+        "[2/2] Padé approximation diffusion three-state symmetric reversible Markov generator negative transition edge weights minimal dimension",
+        "Padé Gauss Legendre positivity path graph three vertices asymmetric conductances threshold negative entries",
+        "Three-vertex weighted graph Laplacian two-stage Gauss Legendre Padé 2/2 nonnegative for all step sizes iff maximum conductance ≤ twice sum of other two, exact sharp timestep",
+        "Weighted triangle and three-vertex path Padé [2/2] heat diffusion positivity dominant edge weight, threshold 2(a+b)",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact searched mathematical research database returns eight-state Padé positivity, Crank-Nicolson resolvent criteria, and other integrators, not the 3-site Gauss weight-dominance cutoff.",
+        "Published unweighted path, cycle and multipartite Padé positivity studies, and the separate θ-method classification, do not imply the full weighted connected three-vertex Gauss endpoint claim."
+      ],
+      "reasoning": "No identified exact table or database statement covers the real 2-parameter conductance ratio domain and full h positivity interval. This is search evidence only, never a proof of uniqueness.",
+      "searches": [
+        "Three-vertex weighted graph Laplacian two-stage Gauss Legendre Padé 2/2 nonnegative for all step sizes iff maximum conductance ≤ twice sum of other two, exact sharp timestep",
+        "Weighted triangle and three-vertex path Padé [2/2] heat diffusion positivity dominant edge weight, threshold 2(a+b)",
+        "Reversible three state Markov chain fourth-order Gauss step exact entrywise positivity time interval offdiagonal Laplacian pseudoinverse",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "rationale": "The checked 2010 full paper and expanded 2012 full paper study positive-system Padé schemes, general counterexamples and sufficient timestep conditions, but not a necessary-and-sufficient threshold for all steps on weighted reversible 3-state Laplacians. The closest published eight-state result concerns arbitrarily-small-step positivity loss for general CTMCs, which neither implies nor covers the large-step reversible classification. Exact displayed rational edgewise formula, weight-dominance phase boundary and cut-off are not given in those sources. Remaining risk is unindexed equivalent graph-specific derivations.",
+    "residual_risks": [
+      "An equivalent iff three-state symmetric Gauss Padé criterion might be formulated elsewhere using rational Markov matrices or nonnegative inverse polynomials.",
+      "Horváth (2005) full text was not available; only abstract and bibliographic details inspected.",
+      "The archive and database searches are finite and do not prove universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a general sufficient positivity condition, no complete three-vertex symmetric-conservative all-h iff weight classification",
+        "evidence": "Theorem 2 supplies a sufficient step-size restriction; the dimension-two special result is distinct from the three-vertex weighted threshold.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+        "material_read": "The full eight-page open-access article, including Section III and its [2/2] Theorem 2, two-state special discussion and numerical examples",
+        "method": "Inspected lawful university-repository primary PDF and its extracted textual mathematical statements",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Earliest archival numerical analysis of [2/2] Padé positivity for Metzler systems, direct method overlap"
+      },
+      {
+        "assessment": "Develops general Metzler positivity obstructions and sufficient conditions, but does not identify the claimed exact three-vertex weighted reversible positivity region",
+        "evidence": "Higher-dimensional (not necessarily conservative) counterexamples and general sufficient bounds are not an iff criterion in weights a,b,c for all timesteps.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+        "material_read": "Full available 23-page preprint, sections on Padé discretization, positivity limitations and construction of counterexamples",
+        "method": "Inspected the university-repository primary preprint and checked exact counterexample hypotheses and their relation to conservative Laplacians",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Expanded 2012 article with possible stronger Padé positive-systems coverage"
+      },
+      {
+        "assessment": "Eight states is minimum for negativity at arbitrarily small positive steps among arbitrary CTMCs, while present result is three-state reversible negativity for sufficiently large steps; no implication or coverage",
+        "evidence": "Theorem 1 quantifies ∀ sufficiently small steps per Q for n≤7; Theorem 2 studies a pure-birth eight-state exact stochasticity window.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+        "material_read": "Entire publicly accessible RESULT.md, including both theorems, proof and references",
+        "method": "Inspected primary scientific statement and compared the quantifier, generator restriction, step range and claimed minimum dimension",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest [2/2] Padé conservative Markov positivity finding"
+      },
+      {
+        "assessment": "General positive step-size framework, unable to rule out a hidden equivalent 3-site statement from abstract alone",
+        "evidence": "The visible abstract is about positivity thresholds in numerical ODE methods without explicit all-step three-vertex weighted graph classification.",
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Accessible abstract and bibliographic information only; no full-text theorem inspection",
+        "method": "Checked accessible abstract and publication metadata; not treated as a whole-document NOT_COVERING conclusion",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Earlier general numerical method positivity theorem potentially covering endpoint positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54b19fc1-f8f9-4970-915b-1ec28dbf44f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a sharp natural all-real-conductance boundary for unconditional positivity of the fourth-order Gauss endpoint in the smallest nontrivial reversible network, exact finite cutoff otherwise, one uniquely problematic edge, and strong-conductance scaling. These are actionable graph-diffusion timestep and network-balance design facts, not a single numerical witness or a known-tabulated graph invariant. No general downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
