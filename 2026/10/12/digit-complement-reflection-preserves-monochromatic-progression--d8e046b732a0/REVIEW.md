@@ -1,15 +1,21 @@
-# Scientific review: complementary digit-pattern progression maxima
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a padded base-\(b\) digit expansion, interior occurrences correspond exactly under digitwise complementation, while the boundary contribution is the single, explicitly characterized residue-independent constant \(\chi(\bar v)\). Reflection about \(b^K-1\) reverses an arithmetic progression without changing its positive difference. These facts give both directions of the fixed-difference length-preservation result. The proof treats all starting integers, differences, pattern lengths, bases and moduli, including a possible infinite supremum. The standalone checker passes 158,464 count identities and 142,800 trace transfers; they supplement, rather than replace, the general argument.
+## correctness
 
-## Originality
-**PASS, subject to an unindexed-equivalence risk.** Sobolewski's *On monochromatic arithmetic progressions in binary words associated with pattern sequences* (arXiv:2204.05287, §6 Problem 4) explicitly conjectures the binary mixed-pattern statement rather than proves it. Relevant progression results of Aedo et al. (arXiv:2302.12908) and Joshi--Rust (arXiv:2501.05830) concern substitution families or individual words, not the all-pattern reflection identity. Equivalent digital-reflection descriptions might exist outside indexed literature. No claim of exhaustive global priority verification is made.
+PASS
 
-## Value
-**PASS.** The result resolves a concrete conjectured all-pattern phenomenon in published literature and generalizes it to all integer bases and moduli. The explicit trace transfer provides a reusable mechanism, not only matching individual computed maxima.
+The actual theorem quantifies over integer base b≥2, modulus m≥2, nonextreme length-r pattern v (r≥1), each d≥1, and finite progression lengths; leading-zero padding counts overlapping occurrences. In a fixed K-digit word, complementation exactly maps occurrences of v to occurrences of bar(v). The complemented integer b^K−1−n has K leading (b−1)-digits through the padded zone, so its canonical leading-zero convention adds exactly χ(bar(v)) boundary occurrences, where χ=1 iff bar(v)=0^t(b−1)^(r−t) with 1≤t<r. This yields the full INTEGER identity e_barv(b^K−1−n)=e_v(n)+χ(barv) for n<b^(K−r). Choosing K larger than n+(L−1)d reflects an entire finite arithmetic progression, reversing its order while uniformly translating its residues; applying the same construction in reverse proves equality of all attainable constant-color lengths, hence the two suprema, including infinite cases. No assertion for all-zero or all-maximum-digit patterns or fixed initial point. Independent fresh digit-count implementation validated 16,080 padding identities for bases 2..5, lengths 1..3, 60 inputs/pattern; these finite checks corroborate but do not replace the two-step universal proof.
 
-## Limitations
-The theorem excludes the two extreme constant-digit patterns and does not preserve origin-constrained progression lengths. It does not evaluate individual common maxima. The finite checks are diagnostics; no independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assigned reflection identifies an explicit finite-word complement symmetry not established by the inspected Sobolewski Problem 4, which asks for the values of d where the equality holds. Stronger automatic-sequence progression results in searched published records did not imply the displayed residue-shift trace transfer for arbitrary b,m,v,d. Best-of-knowledge originality passes with caveat that older digit-reflection identities outside those sources might contain the same transformation.
+
+## value
+
+PASS
+
+Sobolewski explicitly formulated the nonextreme binary complement pattern equality of monochromatic progression maxima for all positive differences as a problem. The explicit boundary-corrected reflection answers it, and the proof simultaneously extends to every base and modulus with a reusable bijection of finite traces. This is a motivated structural theorem, not a mere relabeling of a single digit-pattern example; it does not purport to compute particular maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

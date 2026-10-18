@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:59:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/digit-complement-reflection-preserves-monochromatic-progression--d8e046b732a0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/digit-complement-reflection-preserves-monochromatic-progression--d8e046b732a0/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/digit-complement-reflection-preserves-monochromatic-progression--d8e046b732a0/verify.py"
+      ],
+      "rationale": "The actual theorem quantifies over integer base b≥2, modulus m≥2, nonextreme length-r pattern v (r≥1), each d≥1, and finite progression lengths; leading-zero padding counts overlapping occurrences. In a fixed K-digit word, complementation exactly maps occurrences of v to occurrences of bar(v). The complemented integer b^K−1−n has K leading (b−1)-digits through the padded zone, so its canonical leading-zero convention adds exactly χ(bar(v)) boundary occurrences, where χ=1 iff bar(v)=0^t(b−1)^(r−t) with 1≤t<r. This yields the full INTEGER identity e_barv(b^K−1−n)=e_v(n)+χ(barv) for n<b^(K−r). Choosing K larger than n+(L−1)d reflects an entire finite arithmetic progression, reversing its order while uniformly translating its residues; applying the same construction in reverse proves equality of all attainable constant-color lengths, hence the two suprema, including infinite cases. No assertion for all-zero or all-maximum-digit patterns or fixed initial point. Independent fresh digit-count implementation validated 16,080 padding identities for bases 2..5, lengths 1..3, 60 inputs/pattern; these finite checks corroborate but do not replace the two-step universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sobolewski states the binary unrestricted-d conjectural problem rather than a general all-base/all-modulus answer."
+        ],
+        "reasoning": "No source inspected gives a theorem dominating arbitrary base, modulus, nonextreme pattern and every positive d; arithmetic-progression work on specified substitution words lacks the asserted arbitrary-pattern trace correspondence.",
+        "searches": [
+          "arXiv:2204.05287",
+          "Resultary: complementary digit patterns arithmetic progression maxima equal A_v(d) Sobolewski"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.05287",
+        "https://arxiv.org/abs/2302.12908",
+        "https://arxiv.org/abs/2501.05830",
+        "Resultary query: complementary digit patterns arithmetic progression maxima equal A_v(d) Sobolewski"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 source poses the complement-pattern identity as a problem; the assigned padding lemma yields it for all d and all b,m."
+        ],
+        "reasoning": "A posed problem and known special progression bounds do not imply this universal solution. The finite-word complement operation must also account for canonical leading-zero boundary crossings via χ; omitted χ would fail for patterns 0^t(b−1)^(r−t).",
+        "searches": [
+          "arXiv:2204.05287 Sec.6 Problems 4 and 10",
+          "arXiv:2302.12908",
+          "arXiv:2501.05830"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski Sec.6 Problem 4 asks for complement-pattern equalities under every difference; assigned statement additionally supplies explicit reflection of arbitrary finite traces with residue shift χ."
+        ],
+        "reasoning": "Compared automatic sequence digit complementation, reflected K-digit words, and monochromatic length suprema as aliases; no established universal reflection found in inspected primary section.",
+        "searches": [
+          "Resultary: complementary digit patterns arithmetic progression maxima equal A_v(d) Sobolewski",
+          "arXiv:2204.05287 Sec.6 Problem 4",
+          "arXiv:2302.12908",
+          "arXiv:2501.05830"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an all-parameter equality with an exact per-length trace transfer, not a finite table of maximum progression lengths."
+        ],
+        "reasoning": "No finite database/table is a substitute for the quantified transfer; targeted search gave no exact tables covering its universal parameters.",
+        "searches": [
+          "arXiv:2204.05287 Section 6, Problem 4",
+          "Resultary: complementary digit patterns arithmetic progression maxima equal A_v(d) Sobolewski"
+        ]
+      },
+      "rationale": "The assigned reflection identifies an explicit finite-word complement symmetry not established by the inspected Sobolewski Problem 4, which asks for the values of d where the equality holds. Stronger automatic-sequence progression results in searched published records did not imply the displayed residue-shift trace transfer for arbitrary b,m,v,d. Best-of-knowledge originality passes with caveat that older digit-reflection identities outside those sources might contain the same transformation.",
+      "residual_risks": [
+        "Possible unindexed older complement-reflection lemma in automatic-sequence literature.",
+        "Second and third related papers were compared through accessible statements rather than every page; no whole-document noncoverage claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Problem 4 proposes but does not solve complement equality for arbitrary positive d; no arbitrary-base trace transport present in inspected material.",
+          "evidence": "Problem 4 asks which d give A_v(d)=A_barv(d), with a conjectured nonextreme-binary all-d equality.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.05287",
+          "material_read": "Full lawful arXiv PDF text accessed; Section 6, especially Problem 4 and Problem 10, plus context and page image of the open-problem statement inspected",
+          "method": "arXiv full-text PDF and page screenshot",
+          "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+          "trigger": "Exact binary-pattern open problem quoted by assigned theorem"
+        },
+        {
+          "assessment": "No sourced implication of universal finite-word trace transport; deeper overlap remains a residual risk.",
+          "evidence": "Studies automatic sequences with group/substitution structure, rather than all digit-pattern counts in arbitrary bases/moduli.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.12908",
+          "material_read": "Bibliographic scope and abstract/accessible statements; not a whole-document exclusion assessment",
+          "method": "arXiv bibliographic and abstract comparison",
+          "title": "Monochromatic arithmetic progressions in automatic sequences with group structure",
+          "trigger": "Potential broad automatic-sequence progression theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.05287",
+        "https://arxiv.org/abs/2302.12908",
+        "https://arxiv.org/abs/2501.05830",
+        "Resultary query: complementary digit patterns arithmetic progression maxima equal A_v(d) Sobolewski"
+      ],
+      "rationale": "Sobolewski explicitly formulated the nonextreme binary complement pattern equality of monochromatic progression maxima for all positive differences as a problem. The explicit boundary-corrected reflection answers it, and the proof simultaneously extends to every base and modulus with a reusable bijection of finite traces. This is a motivated structural theorem, not a mere relabeling of a single digit-pattern example; it does not purport to compute particular maxima.",
+      "residual_risks": [
+        "Possible unindexed older complement-reflection lemma in automatic-sequence literature.",
+        "Second and third related papers were compared through accessible statements rather than every page; no whole-document noncoverage claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not address extreme patterns 0^r,(b−1)^r or origin-constrained progression maxima.",
+    "Does not determine exact A_v(d); finite diagnostics cannot establish infinite-quantifier theorem alone."
+  ],
+  "schema_version": 1
+}
