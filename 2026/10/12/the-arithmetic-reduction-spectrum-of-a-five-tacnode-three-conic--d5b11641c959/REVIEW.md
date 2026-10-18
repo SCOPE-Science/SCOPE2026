@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete geometric claim reduces to three exact polynomial identities and the nonzero conic determinants \(-1,-16,-16\), valid in all odd characteristics. The pairwise intersection schemes are exhausted directly, the characteristic-three length-four and characteristic-five length-two specializations are computed in completed local rings, and evaluations on the third component exclude triple points. These establish the \(A_1/A_3/A_7\) baskets without extrapolation. The quadratic-coordinate points give the exact biquadratic splitting field and finite-prime rationality formula, with density by Chebotarev. The extracted standalone verifier reproduces the identities and local calculations, and independently checks complete prime-field enumerations for every odd prime at most \(151\). This finite range alone is not the universal proof.
+## correctness
 
-**Originality — PASS, with disclosed uncertainty.** The 2023 source proves the *complex* basket and plus-one-generated status for this explicit three-conic construction; Megyesi's Proposition 5 supplies its complex parameter normal form. The earlier Dimca–Janasz–Pokora work and the later Bromboszcz–Jarosławski–Pokora classification concern characteristic-zero configurations and their constraints. None of the materially inspected accessible text states the exact odd bad-prime spectrum together with local contact jumps, splitting field, and prime-field rational-support formula. Mathematical record searches for the equations, aliases, reduction primes, Galois splitting, and rational nodes/tacnodes found no equivalent or stronger coverage. Megyesi's historical *full text* could not be inspected: this is a concrete residual bibliographic risk, not a claim that its uninspected contents exclude overlap. No independence or definitive priority certification is asserted.
+PASS
 
-**Value — PASS.** A canonical near-extremal, plus-one-generated three-conic example serves as a natural test case for specialization of tacnodal configurations. Determining the complete arithmetic exceptional set distinguishes two different contact-merging mechanisms, while the exact biquadratic descent and prime-field point spectrum provide natural arithmetic invariants not implied by the published complex incidence basket. This is a complete, motivated finite-characteristic and number-field classification for the stated integral configuration, not an arbitrary small slice. It does not assert new positive-characteristic freeness results.
+The three integer polynomial identities Q+-4Q0=(y+2z)^2, Q--4Q0=(y-2z)^2 and Q+-Q-=8yz were independently checked symbolically; each symmetric determinant is -1 or -16, hence every odd-p component is smooth. They force exact pairwise supports and Bézout total multiplicity four. At p=3 each Q0/Q± conjugate pair coalesces to length four (A7); at p=5 the two z=0 Q+/Q- nodes coalesce to length two (A3). The third component is 16 or -1 at the relevant intersection points, excluding triple branches in every odd characteristic. Generic p≥7 gives five contact-2 points and two transverse nodes; p3 gives two A7, one A3, two A1; p5 six A3. The six irrational characteristic-zero points split into two sqrt(-3) pairs plus one sqrt(-5) pair, and one rational point, yielding the exact biquadratic splitting field and character formula, with Chebotarev densities 1/4. A fresh independent enumeration of all p^2+p+1 Fp points for p=3,5,7,11,13,17,19,23,29,31,37,41 matched counts; finitely many sample primes do not substitute for the polynomial proof.
 
-The statement and proof apply only in odd characteristic and to the fixed integral model. The historical inaccessible full text remains the principal originality risk. The verification script complements but does not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
+
+## value
+
+PASS
+
+The fixed integral presentation of a well-studied complex extremal 3-conic arrangement is arithmetically natural: precisely which primes merge tacnodes/nodes and how many geometric singularities remain rational are invariant questions about its reductions, not arbitrary table entries. The complete odd-characteristic basket, exceptional set {3,5}, and biquadratic Frobenius distribution add structural arithmetic information absent from the complex five-tacnode classification, potentially useful for reduction and arrangement comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
