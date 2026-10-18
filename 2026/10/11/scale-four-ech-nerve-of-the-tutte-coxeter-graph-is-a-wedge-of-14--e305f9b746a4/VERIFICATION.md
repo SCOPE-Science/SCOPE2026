@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` in a standard Python 3 installation. The program constructs the point–line incidence graph of the smallest symplectic generalized quadrangle from the alternating form on \(\mathbb F_2^4\). It checks the 15 points, 15 lines, 45 edges, generalized-quadrangle axiom, diameter four and girth eight, then enumerates every nonempty subface of every closed graph-distance-two neighborhood.
+# Independent mathematical audit
 
-The exact face vector is `(30, 435, 2620, 5625, 7290, 6255, 3600, 1350, 300, 30)`, totaling `27535` nonempty simplices. The deterministic vertex-toggle matching pairs `13695` face incidences, leaves critical cells `{0: 1, 2: 144}`, and is checked for directed acyclicity across all `144210` Hasse incidences. Independently computed mod-two ranks are `{1: 29, 2: 406, 3: 2070}`, and Euler characteristic is `145`.
+## correctness
 
-A successful invocation prints `VERIFY_OK`. The homotopy proof relies on the *complete* acyclic matching, not on extrapolation from a truncated search or on field-dependent Betti numbers. The included certificate proves only the specified finite graph at scale four; no homotopy statement for arbitrary generalized quadrangles or persistence boundary maps is claimed. Independent audit has not been performed.
+PASS
+
+The graph is reconstructed from 15 nonzero F₂⁴ vectors and the 15 totally isotropic lines for a nondegenerate symplectic form. Its incidence graph has 30 vertices, degree 3, girth 8, diameter 4. Adams–Shukla–Singh Lemma 2.2 identifies N(T,4) with the downward closure of the 30 distance-2 neighborhoods (each size 10). Independent mask enumeration yields the exact f-vector (30,435,2620,5625,7290,6255,3600,1350,300,30), 27,535 nonempty faces, and a complete vertex-toggle matching of 13,695 disjoint Hasse pairs leaving exactly 1 vertex and 144 triangular 2-cells. Independently rebuilt all 144,210 oriented incidences and proved acyclicity by topological sort; Forman yields precisely a wedge of 144 two-spheres over Z. The pure 9-dimensional complex is not shellable because nonzero reduced H₂ lies below top dimension. Independent checks work only for this explicitly finite graph and claim no infinite-family generalization.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS specifically for this exact radius-two-ball nerve of the 30-vertex Tutte 8-cage. General graph Čech facet lemma and lower-girth recovery, plus known Rips calculations on the same graph, do not determine these 144 critical cells. Resultary semantic search returned the assigned record and nearby distinct graph complexes but no prior covering exact calculation. An unindexed equivalent graph-nerve census remains possible.
+
+## value
+
+PASS
+
+This is an exact integral homotopy and non-shellability classification at the first scale outside the guaranteed girth recovery regime for the canonical unique cubic 8-cage. The highly nonpure homotopy reduction (pure 9D simplicial complex to a 2D sphere wedge) and complete 27,535-face acyclic certificate are a mathematically motivated finite topological benchmark, rather than an arbitrary small numeric sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
