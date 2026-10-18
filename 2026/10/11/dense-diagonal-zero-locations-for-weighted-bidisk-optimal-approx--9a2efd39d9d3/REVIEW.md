@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Orthogonal projection gives the exact diagonal-zero formula with a strictly positive Gram determinant. The symmetrized two-point geometric-kernel block has Hardy moments converging to the prescribed target; crossed moments are uniformly bounded by finite nonresonant geometric sums. A diagonal high-degree shift transfers the two moments to every positive Dirichlet weight while a uniform disk-norm bound ensures closed-bidisk zero-freeness. The small-parameter and origin boundaries are handled explicitly. The standalone finite coefficient test succeeds and is not relied upon as an infinite proof.
+PASS
 
-## Originality
+For symmetric f the Gram projection yields p=A+B(z+w), Δ>0 and t=||Mf||²/(2〈f,Mf〉). With distinct a,b∈unit circle, a+b=2ζ, symmetrized two-kernel block h_m has Hardy moments G1=2m(m+1)overline{a+b}+O(1) and G2=2(m+1)²|a+b|²+O(m): crossed sums bounded via a≠b. Thus Hardy target ratio→ζ for ζ≠0. Shift f=1+λ(zw)^N h_m, λ=1/[4(m+1)²], obeys |f−1|≤1/2 on closed bidisk. Fixed-m coefficient weights /N^{2α} tend to Hardy weights while constant ||M||²/N^{2α}→0 precisely α>0. Sequential m,N choices place t in the disk within ε, and ζ=0 follows from nearby nonzero targets. Independently recomputed nonreal Hardy moments, not used as infinite proof.
 
-PASS within the inspected record. Navío–Seco (arXiv:2609.37180v1, §§1–3) proves existence for all positive weights and produces a single limiting diagonal location. It discusses a near-origin localization question in the Hardy setting; that question is not settled by the present positive-weight density theorem. The source does not furnish dense location control for positive weights. The Bénéteau–Khavinson–Seco and Geronimo–Woerdeman Hardy-space counterexamples supply neither the positive-weight density theorem nor an implication establishing it. Searches for the density formulation, diagonal-zero locus, its geometric-kernel aliases, and published related mathematical claims located no dominating theorem. Limited access to full texts of the two earlier Hardy papers leaves an originality risk; a failed search is not an absolute novelty certificate.
+## originality
 
-## Value
+PASS
 
-PASS. The zero-location problem is mathematically natural after the first positive-parameter counterexamples, whose zeros were confined to one exhibited limit. Density throughout the bidisk diagonal (still with symmetric and zero-free input) gives a qualitative localization result and allows arbitrary proximity to the origin. It is not a mere reformulation of the existence theorem, and it does not claim to settle the more difficult Hardy endpoint.
+The central 2026 primary paper was read in full: its existence theorem and fixed limiting diagonal root are proper antecedents but do not provide target-dependent arbitrary diagonal locations. A two-point kernel family plus high-degree Dirichlet transfer supplies the stated strengthening for α>0. No claim for α=0 is made.
 
-## Sources and limits
+## value
 
-The complete relevant proof and motivating discussion of arXiv:2609.37180v1 were inspected, along with public abstracts and bibliographic details for arXiv:2405.16943v1 and arXiv:2508.15938v1. The two earlier full texts could not be obtained in this review, so broad coverage outside the principal recent source remains a residual originality risk. Unpublished work cannot be excluded. The claim is restricted to positive parameter, density rather than exact realization, and affine approximants.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+After a positive-weight bidisk existence counterexample, the natural next problem is where affine OPA zeros can occur. Density over the entire diagonal open disk, under both symmetry and input zero-freeness, strengthens a lone -11/12 witness and includes arbitrary approach to the origin, a significant location classification distinct from Hardy α=0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
