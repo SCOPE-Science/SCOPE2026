@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and proof boundaries
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this file, using Python 3 and no extra packages. Observed output:
+## correctness
 
-```
-VERIFY_OK: 1500 exact rational blocking-hexagon tests; 201 certified square-root brackets; 13 lattice points enumerated
-```
+PASS
 
-The script independently enumerates all integer points within the auxiliary polygon's complete bounded coordinate box; reconstructs a substantial deterministic family of perturbed admissible hexagons from six supporting lines; checks strict convexity, barycentric positivity, blocker collinearity, central symmetry, product identity and the three short lattice widths; and checks the claimed coordinatewise Hausdorff upper bound whenever the deficit lies within the theorem's range. A separate rational enclosure test verifies the square-root branch at 201 rational deformation parameters. Randomized-looking rational cases use a fixed seed and exact rational arithmetic throughout; no statistical confidence or infinite theorem follows from them.
+In the explicitly fixed centrally symmetric six-blocker chamber, q_i are boundary lattice blockers and r_i=q_(i−1)+q_i. Width in primitive integer directions is minimized among (1,0),(0,1),(1,−1) and equals 2+2m, m=min b_i. The chamber has λ1(K)=1 and ε=1/3−m. Neighbor collinearity b_i b_(i+1)=a_i c_(i+1) and central symmetry imply (prod_{0..2} b_i)²=prod_{0..2} a_i c_i. AM–GM forces prod b_i≤1/27. For 0≤ε≤1/90 all b_i=1/3+O(ε), and the exact factorization prod(1−(a_i−c_i)²/(1−b_i)²)=T² gives |a_i−c_i|≤sqrt(27ε), hence each vertex p_i lies within 10sqrt(ε) of the corresponding barycenter of H, proving the Hausdorff estimate. The explicit one-parameter positive-barycentric deformation with a−c=2t and b=(−1+2sqrt(1−3t²))/3 has ε=(2/3)(1−sqrt(1−3t²))~t² and support displacement at u=(−1,−1)/sqrt2 of order |t|, giving sharp exponent. This is chamberwise only.
 
-The proof of the full continuum claim is analytic and is stated in RESULT.md: the determinant identity, multiplication under antipodal symmetry, the AM–GM product bound, inequality (2), exact factorization (3), Bernoulli estimate (4), barycentric estimates (5), and geometric support comparison (6). Its validity is not delegated to executable code. The earlier \(4/3\) universal inequality and equality case are background theorems, not independently recertified here. No external audit has taken place.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+Near-equality stability for the canonical extremal hexagon in planar lattice transference addresses a natural quantitative refinement of a known sharp 4/3 theorem. Explicit rate O(sqrt(deficit)) and an admissible deformation proving optimal exponent are motivated by the equality geometry, not an arbitrary slice; this does not claim uniformity over all lattice chambers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
