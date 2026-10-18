@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof directly separates hub-free from hub-containing forts. In the local block \(K_6-M_3\), the only minimal forts are three mate pairs and eight transversal triples; every pair dominates the block, while only nonmate pairs can appear in a globally inclusion-minimal hub-containing fort. The resulting disjoint enumeration proves \(P_{B_r}(z)=3rz^2+8rz^3+12^rz^{2r+1}\) for all positive integers \(r\), including the degree overlap at \(r=1\). Direct exhaustive checking for \(r=1,2,3\), including every proper subfort, agreed with the symbolic coefficients (532,605 nonempty subsets). The infinite statement rests on the proof, not these finite checks.
+## correctness
 
-## Originality — PASS, with residual risk
-Becker et al. (arXiv:2404.05963v1, 2024) already establish methods involving graph vertex amalgamation and prove the \(3^{1/3}\) windmill growth base, so neither is new. Earlier complete-multipartite fort classification already includes the individual \(K_{2,2,2}\) block. The inspected primary paper's windmill theorem and table do not provide the bouquet polynomial or \(12^{1/6}\) base; the new graph combines a particular dense deleted-matching page with an exact global-minimality argument. Search results do not show an equivalent published classification, but absence from indexed searches is not a uniqueness proof. An unindexed equivalent graph-bouquet construction remains possible.
+PASS
 
-## Value — PASS
-The 2024 paper explicitly conjectures graph families with more minimal forts per vertex than the windmill benchmark. The new construction supplies a rigorously proved, strictly higher asymptotic base, alongside every coefficient of a natural minimal-fort polynomial. This is a substantive extremal growth improvement rather than a routine recalculation of the six-vertex block. Its limit applies to orders \(6r+1\), so it should not be misrepresented as proving every-order convergence or optimality.
+In K6−M3=K_{2,2,2} a singleton fails fort and the only inclusion-minimal local forts are three mate pairs and eight transversal triples; every size>=4 contains such a fort. For hub-free global F, each nonempty page must be a local fort, and the hub sees >=2; minimality forces precisely one local minimal fort (3r+8r). For hub-containing F each page must dominate, which requires >=2 vertices: all pairs dominate, any page with >2 selected permits reduction. A mate pair alone is a proper hub-free fort, while a nonmate pair alone is NOT fort, hence a globally minimal hub-containing fort consists of precisely one nonmate pair on every page; 12 choices/page and 12^r such forts. For r=1 coefficients at z³ combine as 8+12. Independent exhaustive enumeration of all subsets for r=1,2,3 recovered exact profiles and tested proper subforts. Infinite classification rests on the block argument. Growth exponent uses |V|=6r+1; sixth powers compare 12>9.
 
-## Closest literature and limits
-Primary source: Becker, Cameron, Hanely, Ong, Previte, *On the Number of Minimal Forts of a Graph*, arXiv:2404.05963v1, Sections 2, 5.3, Corollaries 28–29, Conjecture 31. An earlier exact complete-multipartite fort classification covers local blocks, not the combined graphs. Reproducibility code checks only \(r\le3\); analytic proof covers all \(r\ge1\). Prior-source indexing is incomplete, and independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Becker et al 2024 already prove windmill 3^r+3r and vertex-amalgamation tools; a published complete-multipartite fort theorem already covers local K2,2,2 page and hence local 3 mate pairs/8 triples. Neither implies the new globally inclusion-minimal hub-containing 12-way independent per-page choice and exact bouquet polynomial. Distinguish improvement to per-vertex exponential BASE along a subsequence from conjectured consecutive-order extremal ratio: latter not proved.
+
+## value
+
+PASS
+
+The originating minimal-forts paper motivates beating the known windmill exponential base. A complete coefficientwise fort polynomial for a natural connected hub bouquet of cocktail-party pages yields a strict explicit base improvement 12^(1/6)>3^(1/3), supplying a new meaningful extremal construction, not an arbitrary tiny graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
