@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A length-two reverse-complement duplication creates exactly a factor \(ab\bar b\bar a\). The proof applies marked-cluster inclusion-exclusion, exhaustively classifies overlaps of shifts \(1,2,3\), solves a two-type continuation system, and derives the rational generating function and cubic recurrence as formal series. A primitive nonnegative companion matrix proves the growth rate. Two different exact finite counting methods, plus literal exhaustive enumeration and a positional-conjugacy cross-check, agree in all verified ranges.
+
+**Originality — PASS on the sources inspected.** The 2021 source establishes the mutation operation and treats the binary length-two case but not the uniform even-alphabet rational enumeration. The 2023 source proves a global unbounded-error coding-capacity theorem, which neither implies nor is implied by the local irreducible-language count. A 2026 abstract gives a channel-level even-length conjugacy without reporting this recurrence. Relevant alternative formulations searched include length-four ordinary palindrome avoidance, the exact DNA-alphabet numerical sequence, and cubic-denominator variants. No covering published result was identified, but the recent full text and unindexed pattern-avoidance literature are genuine residual risks. Failure to find matches is not itself novelty proof.
+
+**Mathematical value — PASS.** The count and exact entropy are natural invariants of local irreducibility in DNA-motivated reverse-complement duplication systems. The unexpectedly small cubic denominator works uniformly for every even alphabet and gives sharp quantitative information unavailable from general expressiveness or coding-capacity theorems. In particular, it separates exponential abundance of locally irreducible words from the known zero rate of arbitrary-multiplicity error correction. This is a structural counting theorem, not an arbitrary isolated table value.
+
+**Scope and limitations.** There is no assertion of unique roots, a disjoint descendant-cone code, or an extension to odd alphabets/higher duplication lengths. The short finite checks support but do not replace the symbolic proof; one plausible recent source has only been checked at abstract level.
+
+Self-review: passed. Independent audit: not yet performed.
