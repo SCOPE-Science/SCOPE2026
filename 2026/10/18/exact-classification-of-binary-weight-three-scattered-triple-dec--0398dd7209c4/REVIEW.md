@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The gap decomposition is bijective, the eight triple counts are reconstructed from four scalar invariants, and the forced one-dimensional change of gaps gives an explicit factorization of the final collision condition. Nontrivial collisions are involutive pairs and are counted without duplication by their member having the later internal gap larger by a positive multiple of three. Geometric-series multiplication gives the claimed rational generating function. An independent direct subsequence enumerator checks all 4,845 weight-three words for lengths 3 through 19. Critical boundaries (length below three, no pair before seven, zero gaps) are included in the proof.
+
+**Originality — PASS within inspected evidence.** The exact rational expression is literally posed as Conjecture 1 in Chrisnata et al. (2023), printed page 17, not proved there. Their Theorem 27 gives a lower bound, and Corollary 28 gives only cubic-order growth. Nilforoushan and Parvaresh (arXiv:2609.23106) give independent-parameter relations and asymptotic degree, not this fixed-weight collision classification. Lejeune–Rigo–Rosenfeld give the 2-binomial equivalence algorithm, not the theorem for 3-decks. Targeted literature comparison did not find a prior proof; unindexed or differently worded resolutions remain a residual risk.
+
+**Value — PASS.** The result resolves an explicitly formulated open exact-enumeration conjecture in the subsequence-reconstruction model, computes all its coefficients at once, and gives complete collision class sizes and an explicit pairing transformation, information not supplied by the conjectured generating function alone. This is an exact infinite-family structural classification rather than a finite numerical extrapolation.
+
+Self-review: passed. Independent audit: not yet performed.
