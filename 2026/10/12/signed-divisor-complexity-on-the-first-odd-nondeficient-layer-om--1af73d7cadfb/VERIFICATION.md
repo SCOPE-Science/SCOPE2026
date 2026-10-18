@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite search space is justified symbolically before enumeration. For odd \(n\) with \(\Omega(n)=5\) and \(\sigma(n)\ge2n\), support has size \(3,4\), or \(5\). Exact Euler-factor bounds reduce these cases respectively to support \(\{3,5,7\}\), to largest prime at most \(103\), and to squarefree support beginning \(3,5,7\) with largest prime at most \(383\).
+# Independent mathematical audit
 
-`verify.py` regenerates every candidate from those finite ranges and retains exactly \(121\) nondeficient integers. For each one it computes \(H(n)=(\sigma(n)-2n)/2\). A \(\{-1,1\}\)-presentation with exactly \(k\) negative coefficients is equivalent to a set of \(k\) distinct nontrivial proper divisors summing to \(H(n)\). The checker reads `spectrum.csv`, verifies the stored size-\(k\) witness, and exhaustively tests every subset of smaller size. It then asserts the histogram \(17,1,88,0,15\) and the exact fifteen cases with minimum five.
+## correctness
 
-Replay command:
+PASS
 
-`python3 verify.py`
+The sign-flip identity gives ν_-(n)=min{|T|: T consists of distinct nontrivial proper divisors and sum T=(σ(n)−2n)/2}. Odd Ω=5 guarantees nonsquare n, even σ(n) and integral H. Checked abundancy cutoffs: 3 distinct primes force support 3,5,7 and exponent partitions (3,1,1)/(2,2,1); 4 distinct primes with exponents (2,1,1,1) force first two primes 3,5 and top ≤103; 5 distinct primes force squarefree first three 3,5,7 and top ≤383. Fresh INDEPENDENT SymPy integer enumeration over these COMPLETE exponent/prime supports generates precisely 121 numbers, n in [945,442365], and exhaustive exact combinations of proper divisors of cardinality 1..5 yields 17,1,88,0,15, with only ν=2 at 2205 and exactly the listed fifteen ν=5 extremals. No arbitrary n cutoff; finite output is exhaustive by symbolic prime bounds.
 
-Expected output:
+## originality
 
-`VERIFY_OK boundary=121 spectrum=17,1,88,0,15 max_negative=5 extremals=15`
+PASS
 
-No floating-point arithmetic, probabilistic primality test, timeout inference, or unbounded computation is used. The checker establishes only the stated \(\Omega(n)=5\) theorem.
+Ross 2024 formulates the signed-perfect conjecture and gives finite positive examples; Campbell 2026 gives the H(n)-subset sum criterion and infinite counterexamples but not these minimization counts. The published certified ≤10^6 window with ≤7 negatives covers existence on this layer, so this is NOT new as an existence claim; its stated coarse seven-sign witnesses do not imply the exact minimality spectrum and fifteen sharp five-sign cases. Resultary searches did not yield a covering exact table. Subject to risk of an unindexed full minimum-cardinality table, PASS for the complete natural multiplicity-layer classification and enumerated exact extremizers.
+
+## value
+
+PASS
+
+Omega=5 is a natural first possible odd nondeficient prime-factor layer, while the minimum-negative count is the quantitative complexity of signed-divisor representations. A complete finite classification with mathematically proven finite prime bounds, exact spectrum, missing cardinality 4, and all sharp extremizers answers a meaningful unknown invariant beyond a known coarse existence window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
