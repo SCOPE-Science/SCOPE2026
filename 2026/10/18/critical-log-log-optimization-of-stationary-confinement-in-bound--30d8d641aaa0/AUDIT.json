@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Construct the normalized right/left stationary state from two drift-diffusion equations and the exact wall-current balance. Integrate the cosh mixture to obtain V=1/12+((beta-1+exp(-p))/(p+beta-1+exp(-p)))B with B in (0,1/6). The sign yields the global feasibility dichotomy. A comparison scale p=H+log H and a global upper bound pin every maximizer to p/H→1; exact interior log derivative yields the coefficient seven, uniform over maximizers. A second substitution gives the stated gain expansion. Standalone standard-library checker passed 653 supplemental assertions; it does not establish the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pietrangeli et al. (2024) optimize along-wall transport rather than cross-wall relative variance.",
+        "Dolai and Das (2025) analyze boundary reservoirs and bulk tumbles in a different process.",
+        "Fu et al. study two-dimensional kinetic aggregation and Fokker–Planck convergence."
+      ],
+      "reasoning": "General confinement and boundary-aggregation theorems can overlap physically without logically giving the specific singular optimization. The accessible versions studied different dynamics or observables; full texts of two related papers were not obtained and therefore not asserted NOT_COVERING globally.",
+      "searches": [
+        "arxiv:2404.07680 optimal run and tumble slit-like confinement",
+        "arxiv:2412.20287 boundary layers transport active system",
+        "arxiv:2401.03161 confined run-and-tumble boundary aggregation",
+        "general active particle wall switching stationary spatial variance singular optimal confinement"
+      ]
+    },
+    "checked_sources": [
+      "Roberts and Pruessner (2022), arxiv:2206.06105, full accessible article text",
+      "Dolai and Das, arxiv:2412.20287, accessible open HTML full text",
+      "Pietrangeli et al., arxiv:2404.07680, abstract only",
+      "Fu et al., arxiv:2401.03161, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously proved exact variance is acknowledged and rederived for completeness.",
+        "A complete new global argument bounds all optimizers and differentiates a vanishing gain at the singular parameter beta↑1, yielding p=H+log H+(log H+7)/H+O(log²H/H²).",
+        "The primary paper reports a numerical stationary-variance minimum near Pe=5.54 in an instantaneous-boundary-reaction comparison, not the singular fixed-beta limit."
+      ],
+      "reasoning": "The original law entails the possibility of extracting this theorem, so novelty cannot rest on the moment formula. Originality rests on the specific motivated sharp existence threshold, global optimizer pinning and logarithmic next-order asymptotics, not on a tautological substitution; priority remains conditional on no overlooked equivalent asymptotic study.",
+      "searches": [
+        "Roberts Pruessner 2022 boundary tumbling stationary distribution variance equation 38 optimum Pe",
+        "\"boundary tumbling\" \"alpha\" \"v\" \"D\" stationary variance derivative",
+        "\"Peclet\" \"log log\" boundary tumbling normalized variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary stationary expression in Roberts–Pruessner (2022) equation (38) algebraically implies the exact variance identity before its new singular minimization.",
+        "Our proof explicitly reduces the boundary-flux formulation to the original stationary mixture; aliases include boundary-local-time tumbling, reflecting active drift-diffusion, and normalized position variance."
+      ],
+      "reasoning": "The same stationary generator and density are not new. A nontrivial implication comparison nevertheless separates an exact moment expression at fixed controls from the global minimization at fixed beta and the critical two-term log–log and gain expansions for all minimizers; those latter statements were not found explicitly in the examined original. Any prior analysis of this special parameter path would dominate the claim.",
+      "searches": [
+        "\"boundary tumbling\" \"variance\" optimum",
+        "\"Roberts\" \"Pruessner\" \"Péclet\" variance critical",
+        "arxiv:2206.06105 exact stationary density optimization",
+        "stationary run-and-tumble confined wall local time dimensionless activity ratio confinement minimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source article supplies a plotted/numerical optimum in a different limit and the exact stationary variance; no exact table of the fixed-beta critical asymptotic was seen.",
+        "The coefficient seven is derived from the analytic stationarity equation rather than read from a numerical database or parameter table."
+      ],
+      "reasoning": "The result is an asymptotic theorem on a continuum of parameters, not a known discrete invariant or finite classification table. Numeric optimal-Peclet data in the source do not imply the critical log–log coefficient.",
+      "searches": [
+        "exact boundary-tumbling variance minimum Peclet critical log log coefficient seven",
+        "stationary wall-tumble Peclet beta=1 variance threshold database",
+        "arxiv:2206.06105 eq (38) minimization table"
+      ]
+    },
+    "rationale": "Full accessible primary paper supplies the exact stationary law/variance, which are explicitly prior art. The evaluated fixed-beta global optimization transition and joint singular log-log and gain coefficients are not stated in its inspected optimization analysis. Different-boundary and along-wall active transport literature was also compared. Residual unlocated-equivalence risk is disclosed and independent priority review is not claimed.",
+    "residual_risks": [
+      "The original 2022 exact variance formula permits a later derivation of the optimization; unlocated equivalent sharp asymptotics in other papers or supplements remain possible.",
+      "The Pietrangeli and Fu articles were assessed on accessible abstracts rather than their complete mathematical texts; this is not evidence of whole-document absence.",
+      "Independent literature-priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stationary formula is prior art and is explicitly used; the article reports a numerical optimum in a different control slice. No derivation of fixed-beta critical scale H+log H or of optimal-gain coefficient was identified in the material inspected.",
+        "evidence": [
+          "Roberts and Pruessner (2022), arxiv:2206.06105, equations (33), (35), (36), (38); boundary-reaction and variance sections."
+        ],
+        "identifier_or_url": "arxiv:2206.06105; https://www.researchgate.net/publication/361273747_Exact_solution_of_a_boundary_tumbling_particle_system_in_one_dimension",
+        "material_read": "Full accessible article transcription, including stationary density and variance equations (33), (35), (36), (38) and the discussion of Péclet-number optimization.",
+        "method": "Read the accessible text of the primary article and compared the displayed stationary density, variance formula, optimization controls, and scope with the stated global critical theorem.",
+        "title": "Exact solution of a boundary tumbling particle system in one dimension",
+        "trigger": "Exact same boundary-tumbling particle and stationary position variance, potential decisive prior coverage."
+      },
+      {
+        "assessment": "Different generator, geometry and boundary mechanism; no evaluated fixed-beta normalized-variance optimization located.",
+        "evidence": [
+          "Dolai and Das, arxiv:2412.20287, model and results sections."
+        ],
+        "identifier_or_url": "arxiv:2412.20287",
+        "material_read": "Available open HTML full text: introduction, stated equations/models, results and mathematical analysis of boundary layers and reservoir current; within-document check for stationary spatial variance.",
+        "method": "Compared boundary conditions (reservoir contacts and bulk tumbles), observables (profiles/current) and optimization variables with the current boundary-only-switching stationary confinement problem.",
+        "title": "Boundary layers, transport and universal distribution in boundary driven active systems",
+        "trigger": "Related one-dimensional active particles with nontrivial boundary behavior and exact distributions."
+      },
+      {
+        "assessment": "Optimizes along-wall effective diffusion for slit-like motion with wall residence, not normalized cross-interval confinement variance. The missing full-text comparison is retained as a priority risk.",
+        "evidence": [
+          "Pietrangeli et al., arxiv:2404.07680, abstract."
+        ],
+        "identifier_or_url": "arxiv:2404.07680",
+        "material_read": "Public abstract and available source summary; full mathematical development was not verified.",
+        "method": "Compared reported objective and dynamical geometry on the available material.",
+        "title": "Optimal run-and-tumble in slit-like confinement",
+        "trigger": "Closest title-level wall-confined active transport optimization."
+      },
+      {
+        "assessment": "Different macroscopic boundary aggregation and PDE convergence questions; no same claim visible in inspected material. Full text was not verified.",
+        "evidence": [
+          "Fu et al., arxiv:2401.03161, abstract."
+        ],
+        "identifier_or_url": "arxiv:2401.03161",
+        "material_read": "Public abstract and bibliographic summary, not the full proof.",
+        "method": "Compared dimensionality (two-dimensional ensemble kinetic model), observables and the claimed critical optimization.",
+        "title": "Confined run-and-tumble model with boundary aggregation: Long-time behavior and convergence to the confined Fokker–Planck model",
+        "trigger": "Mathematical analysis of wall aggregation in a run-and-tumble confined system."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30d8d641-aaa0-4386-908c-aee3be830998",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed dimensionless active-to-thermal ratio beta=v²/(D alpha), varying interval length changes Peclet and measures normalized confinement independently of geometric units. The sharp beta=1 feasibility boundary and critical log–log growth of the optimal interval Peclet provide a qualitative threshold; the explicit vanishing gain and nonregular next order describe the cost of confinement near that threshold. This is a motivated singular global optimization, not merely a fixed-parameter moment evaluation. It does not claim external thermodynamic or experimental validation.",
+    "status": "PASS"
+  }
+}
