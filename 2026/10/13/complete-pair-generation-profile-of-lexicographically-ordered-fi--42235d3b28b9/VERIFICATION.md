@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python3 verify_rm_pair.py` using Python 3.8 or newer and no third-party packages. It constructs \(2^{m+1}\) affine words at every \(m\in\{2,3,4,5,6,7,8\}\), calculates cyclic pair weights directly, recomputes the complete claimed enumerator, and uses independent binary-row reduction to check each low-weight span and component count for every integer \(0\le\alpha\le2^m\). The expected terminal marker is `VERIFY_OK`.
+# Independent mathematical audit
 
-## What is and is not verified
-The tests are exhaustive at each tested length, not an infinite formal certificate. The all-length proof rests on the binary carry-transition identity and the strictly positive coefficient filtration, as shown in `RESULT.md`. The two highly relevant primary papers with full-text access limits are named in `REVIEW.md` and `AUDIT.json`. No independent external audit was performed.
+## correctness
+
+PASS
+
+For every m>=2 with n=2^m and fixed cyclic truth-table coordinate ordering 0..n-1, each nonconstant affine truth table is balanced with n/2 ones, giving cyclic pair weight n/2+T/2. Binary addition transitions occur with frequency 2^(m-t-1) by trailing-ones count plus two all-bit carry transitions. Invertible prefix-parity transformation yields T/2 as subset sum of coefficients {1,1,2,4,...,2^(m-2)}; generating polynomial gives pair enumerator 1+4 sum_{j=1}^{n/2-1} z^(n/2+j)+3 z^n, accounting separately for zero and all-one constants. Selected nonzero low-weight codewords span constant b direction plus exactly the prefix-parity unit axes whose positive coefficient <=j=alpha-n/2. Thus gamma=0 for alpha<=n/2 and 1+min(m,2+floor(log2 j)) above, components 2^(m+1-gamma), connected first at 3n/4 versus Hamming n/2. Fresh independent enumeration of every affine word at m=2..8 checked all coefficients and rank at every integer threshold. Finite checks supplement the all-m proof, not stand in for it.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete pair-weight distribution and intermediate generation-rank phases for canonical binary lexicographic RM(1,m) truth tables; general symbol-pair generation profiles and minimum b-symbol distances are prior work. Highly relevant Singh–Singh full manuscript unavailable, explicitly recorded as material originality risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+Complete profile of a natural infinite code family gives every symbol-pair weight, exact component count for each threshold and an n/4 gap between Hamming and pair connectivity. Such precise thresholds are natural parameters in protection against localized adjacent errors and cannot be obtained from only the minimum distance; an all-m result is substantially stronger than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

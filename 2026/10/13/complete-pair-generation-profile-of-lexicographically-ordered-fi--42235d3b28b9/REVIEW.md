@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary-carry formula counts each cyclic transition exactly, including the closing pair. Prefix parity is an invertible change of variables. The positive place-value coefficients determine both the complete symbol-pair weight enumerator and the rank of the generated subspace at every integer threshold; Cayley graph components are precisely its cosets. The independent finite replay in `verify_rm_pair.py` checks all words and all thresholds for \(2\le m\le8\). All-length correctness comes from the written algebraic proof, not finite extrapolation.
+## correctness
 
-## Originality — PASS, residual access risk
-The 2026 Singh–Singh paper introduces generic pair generation and protection thresholds, not an accessible exact formula for the naturally ordered Reed–Muller family. Pan–Ling–Liu–Chen's Reed–Muller result gives minimum \(b\)-symbol distances, which cannot imply the entire spectrum and the intermediate dimensions. Liang–Liu study equiweight codes and simplex constructions, not this non-equiweight truth-table family in the accessible description. Targeted index, equivalent-formulation, and table searches did not identify the theorem. Two important full articles remain uninspected; an unnoticed exact example or table would compromise originality.
+PASS
 
-## Value — PASS
-Exact pair-generation phases on a canonical infinite family determine which low-pair-weight differences can connect codewords, giving complete component sizes and an exact \(n/4\) separation from the Hamming connectivity threshold. This is a protection-relevant graph invariant beyond minimum distance, not an arbitrary short-code census.
+For every m>=2 with n=2^m and fixed cyclic truth-table coordinate ordering 0..n-1, each nonconstant affine truth table is balanced with n/2 ones, giving cyclic pair weight n/2+T/2. Binary addition transitions occur with frequency 2^(m-t-1) by trailing-ones count plus two all-bit carry transitions. Invertible prefix-parity transformation yields T/2 as subset sum of coefficients {1,1,2,4,...,2^(m-2)}; generating polynomial gives pair enumerator 1+4 sum_{j=1}^{n/2-1} z^(n/2+j)+3 z^n, accounting separately for zero and all-one constants. Selected nonzero low-weight codewords span constant b direction plus exactly the prefix-parity unit axes whose positive coefficient <=j=alpha-n/2. Thus gamma=0 for alpha<=n/2 and 1+min(m,2+floor(log2 j)) above, components 2^(m+1-gamma), connected first at 3n/4 versus Hamming n/2. Fresh independent enumeration of every affine word at m=2..8 checked all coefficients and rank at every integer threshold. Finite checks supplement the all-m proof, not stand in for it.
 
-## Limits
-Only binary first-order Reed–Muller codes in cyclic lexicographic coordinate order are covered. The result does not solve minimum redundancy for arbitrary functions, and it is not invariant under coordinate permutation. External independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete pair-weight distribution and intermediate generation-rank phases for canonical binary lexicographic RM(1,m) truth tables; general symbol-pair generation profiles and minimum b-symbol distances are prior work. Highly relevant Singh–Singh full manuscript unavailable, explicitly recorded as material originality risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+Complete profile of a natural infinite code family gives every symbol-pair weight, exact component count for each threshold and an n/4 gap between Hamming and pair connectivity. Such precise thresholds are natural parameters in protection against localized adjacent errors and cannot be obtained from only the minimum distance; an all-m result is substantially stronger than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
