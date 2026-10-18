@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the standalone, dependency-free `checker.py` from a directory containing that file with `python checker.py`. It fully enumerates all binary incidence matrices of shape \(m\)-by-\(n\) for \(m,n\ge1\) and \(m+n\le6\), discards disconnected graphs and matrices with isolated vertices, groups by both guilds' sorted degree multisets, and compares every exact conditional extinction-count histogram for \(k=0,\ldots,n\) deleted pollinators. Completeness rests on examining every one of the \(2^{mn}\) bitmasks for each admissible shape.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK labeled_connected_small=387 matched_degree_profiles=44 seven_species_trees=2 moment_polynomial_identities=3 exact_probability_tests=4`
+For three plant disappearance indicators Yi, same plant-degree multiset under exchangeable deletion gives equal μ; no isolated pollinators makes E[Y1Y2Y3]=Pr(D=all pollinators) equal across networks. Idempotence gives E[X²]=μ+2B,E[X³]=μ+6B+6p*, yielding Δm3=3(1−μ)ΔVar exactly. Independently exhaustively enumerated 387 connected no-isolate labelled bipartite incidence matrices of m+n≤6, grouped into 44 sorted bidegree signature classes: within each group all exact fixed-k extinction-count distributions coincide, ruling out a reversal. For three plants/four pollinators, G=(A,A,AB,BC), H=(A,B,AB,AC) are connected trees with bidegrees (1,2,3),(1,1,2,2); direct unions yield μ=q+q²+q³, ΔVar=2q²(1−q)² and Δm3=6q²(1−q)²(1−q−q²−q³), unique root q≈0.543689. Exact combinatorial exhaustion supports only <=6 minimality; analytic polynomial proves crossing for all 0<q<1.
 
-For the seven-vertex witness, the code recomputes each of the two graph incidence matrices and symbolic extinction-count probability polynomials, checks mean equality, checks \(\Delta V=2q^2(1-q)^2\), checks \(\Delta m_3=6q^2(1-q)^2(1-q-q^2-q^3)\), and confirms four exact rational parameter instances. The proof in `RESULT.md` establishes the universal identity for any exchangeable deletion law (not just iid) and the strict sign of the polynomial away from its unique positive root; neither conclusion is extrapolated from the finite numerical checks. Only the six-vertex minimality part uses exhaustive finite computation.
+## originality
 
-No independent external audit or validation is claimed.
+PASS
+
+Primary coextinction papers by Memmott–Waser–Price (2004), Burgos et al (2006), and Jones–Zurell–Wiesner (2024) treat removal, robustness and analytic mean extinction. The inspected 2024 article suggests variance as future work; no inspected prior source gives the three-indicator third-central-moment identity combined with sharp seven-vertex matched-degree reversal. Identity alone is elementary and not claimed as novelty.
+
+## value
+
+PASS
+
+Shows robust limitations of ranking ecological-network coextinction variability from bidegree statistics: for exactly matched degree profiles, even a strict variance order can coexist with a third-moment reversal. Sharp seven-vertex minimality and exact threshold make a natural finite structural benchmark; it is not a field-measured claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
