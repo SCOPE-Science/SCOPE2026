@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each integer n>=2 and 1<=r<=n, marked r-cycles count with weight 1/r and leave an independent uniform permutation on n-r elements. The exact mixed moment follows. An insertion coupling increases the longest-cycle mean by at least half a unit per extra label, using the uniform cycle length of a fixed label. For r<=n/2, the deterministic inequality (r-x)_+<=r(1-x/(n-r)) bounds the truncated residual maximum strictly below the new mean; for r>n/2 the residual maximum is deterministically r. These establish sign(Cov)=sign(r-E[M_n]) without gaps. Exact-rational independent tests exhaust S_n for n<=8 and check the recurrence for all n<=35. The limiting constant is imported from the classical cited theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shepp and Lloyd (1966), §2: exact complete cycle-count distribution and §6: insertion monotonicity.",
+        "Arratia, Barbour, and Tavaré (1999), https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT99b.pdf : asymptotic Poisson–Dirichlet component limits.",
+        "Shi (2014), chapters 3 and 5: moments/correlations of sorted cycle lengths."
+      ],
+      "reasoning": "A complete probability law is information-theoretically stronger than an individual covariance but is not itself an explicit sign classification. The all-size sign property requires comparing the truncated marked remainder with the increment in mean maximum. Poisson–Dirichlet limits concern macroscopic ordered cycle lengths and do not determine finite-size covariance with every prescribed length r. General Ewens parameter results were not claimed.",
+      "searches": [
+        "uniform random permutation longest cycle number of cycles length k covariance formula length maximal",
+        "longest cycle lengths joint cycle counts covariance random permutations largest cycle",
+        "covariance maximum part and number of parts of size r in Ewens sampling formula random permutations"
+      ]
+    },
+    "checked_sources": [
+      "Shepp & Lloyd 1966, §§1,2,4,6, full PDF https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Ordered-cycle-lengths-in-a-random-permutation.pdf",
+      "Arratia–Barbour–Tavaré 1999, relevant sections, full PDF https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT99b.pdf",
+      "Shi 2014, chapters 3,5, full readable transcription https://studylib.net/doc/7963369/biased-random-permutations",
+      "Betz–Schäfer 2016, arXiv:1605.08383 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shepp and Lloyd (1966) count-cycle probabilities and insertion coupling give ingredients; combining them here with a deterministic truncation inequality produces strict negativity for every r<=n/2.",
+        "A published result entitled \"Block-size counts switch covariance sign at the Lambert-W scale\" marks r-blocks in uniform set partitions and compares their counts with TOTAL block count, on a different finite probability space."
+      ],
+      "reasoning": "The finite marked-cycle identity follows by counting, but the uniform half-unit mean growth and truncated-maximum comparison imply a single sign boundary at a_n, not at a block-count saddle point. Distinct model, statistic, phase scale, and parameter domain mean the set-partition result does not imply the permutation result. No searched prior mixed-moment statement subsumed all parameters n>=2,1<=r<=n.",
+      "searches": [
+        "size bias identity E[L_n C_{n,r}] equals (1/r) expectation max(r,L_{n-r})",
+        "uniform permutation longest cycle C_r count cycles length r marked cycle covariance threshold Golomb Dickman",
+        "negative covariance longest cycle versus small cycle count positive versus macroscopic cycles random permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shepp and Lloyd (1966), full text https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Ordered-cycle-lengths-in-a-random-permutation.pdf , §§1,2,4,6: cycle-type distribution and marginal extremal laws.",
+        "Shi (2014), chapter 5, https://studylib.net/doc/7963369/biased-random-permutations : rank-to-rank longest-cycle correlations, not fixed-size cycle counts."
+      ],
+      "reasoning": "A covariance with an exact size-count can be represented as a marked-cycle Palm expectation; an ordered maximum rank-rank covariance is not equivalent to this statistic. The classical complete cycle-type law determines every statistic in principle, but neither a sign threshold nor a finite mixed-moment identity is explicitly supplied in the inspected relevant results.",
+      "searches": [
+        "\"longest cycle\" \"number of r-cycles\" covariance",
+        "\"cycle count\" \"largest cycle\" covariance permutation",
+        "Golomb Dickman constant sign covariance length longest permutation cycle indicator of r-cycle positive negative boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shi (2014) table 5.1 concerns Pearson correlations between first through tenth ordered longest-cycle lengths, not counts of cycles of each exact size.",
+        "Shepp and Lloyd (1966) tabulate and derive marginal moments of ordered cycle lengths, not this cross-statistic."
+      ],
+      "reasoning": "No directly corresponding finite exact covariance table or sign-switch classification was identified in inspected source material or search results. The absence of a database hit cannot establish novelty. The embedded enumerator only corroborates, and does not substitute for a complete literature search.",
+      "searches": [
+        "longest cycle size and fixed length cycle count C_r expectation cross moment cycle index formula",
+        "longest cycle number cycles of length r covariance table uniform random permutation",
+        "random permutation longest cycle conditioning on presence of r-cycle expectation max"
+      ]
+    },
+    "rationale": "The inspected primary work has the joint cycle-count law and extremal-cycle marginals, but not the all-r mixed sign theorem. Shi studies correlations among ranked cycle lengths; Arratia et al establish component asymptotics. Published set-partition sign-switch statements concern a different sampling law and total block count. The present phase boundary arises from a nontrivial uniform mean-increment and truncation comparison. This is a qualified self-review subject to residual risks, not a proof of absolute uniqueness.",
+    "residual_risks": [
+      "A general uninspected transform of cycle counts and the maximum could make the statement an earlier corollary.",
+      "The thesis original repository download was forbidden; relevant chapter text was inspected via an alternative transcription.",
+      "Relevant literature on joint transforms of Ewens cycle profiles may not be exhaustively indexed or accessible.",
+      "Published full joint cycle-type laws logically determine all moments; scientific distinctiveness rests on the explicit all-parameter sign theorem rather than raw determinability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides marginal laws, the mean limit, and insertion construction but does not state the exact mixed covariance and sharp all-r sign law.",
+        "evidence": "1966 Trans. AMS 121:340–357, especially printed pp.340–342, §§4,6; public Society presentation dated 1965-09-02.",
+        "identifier_or_url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Ordered-cycle-lengths-in-a-random-permutation.pdf",
+        "material_read": "Abstract/introduction, §2 model, §4 extremal-cycle asymptotics, §6 insertion coupling, including relevant equations and printed date footnote.",
+        "method": "Full-text PDF reading and page image inspection.",
+        "title": "Ordered Cycle Lengths in a Random Permutation",
+        "trigger": "Same probability law, longest-cycle mean and full cycle-type counts."
+      },
+      {
+        "assessment": "Long-component Poisson–Dirichlet limits concern ordered sizes, not the finite mixed moment of maximum and exact-size count at every r.",
+        "evidence": "1999 Combinatorics, Probability and Computing 8:193–208, abstract and component convergence discussion.",
+        "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT99b.pdf",
+        "material_read": "Abstract/introduction and probability-model/joint-limit sections, with page image inspection.",
+        "method": "Open full-text PDF reading of relevant mathematical sections.",
+        "title": "On Poisson–Dirichlet Limits for Random Decomposable Combinatorial Structures",
+        "trigger": "Potential stronger asymptotic coverage of large cycles and component counts."
+      },
+      {
+        "assessment": "Correlates two order statistics of cycle lengths; does not analyze longest-cycle length against a prescribed-size cycle count.",
+        "evidence": "Tongjia Shi (2014), Harvey Mudd thesis #65, chapter 5.",
+        "identifier_or_url": "https://studylib.net/doc/7963369/biased-random-permutations",
+        "material_read": "Thesis contents, chapters 3 and 5, particularly tables 5.1–5.3 of rank-to-rank correlations.",
+        "method": "Read publicly accessible full-text HTML transcription; repository original download endpoint was inaccessible.",
+        "title": "Cycle Lengths of theta-Biased Random Permutations",
+        "trigger": "Joint covariance/correlation results under a family encompassing the uniform distribution."
+      },
+      {
+        "assessment": "Conditional Gaussian limit for total count; a potentially broader area but no decisive finite mixed-moment comparison from abstract alone.",
+        "evidence": "Betz and Schäfer (2016), arXiv:1605.08383 abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.08383",
+        "material_read": "Title and author abstract only.",
+        "method": "Accessible arXiv abstract, not treated as full-text inspection.",
+        "title": "The number of cycles in random permutations without long cycles is asymptotically Gaussian",
+        "trigger": "Potential conditional-total-cycle-count domination under restrictions on maximum size."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0fb40aa4-4027-44ff-b690-6e6f5eca963b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length of the longest cycle and the number of cycles of a prescribed length are canonical permutation statistics. Their dependence changes sign at an exact, naturally normalized threshold: the mean maximum. A complete classification for every finite n and r, plus the Golomb–Dickman macroscopic sign boundary and exact order-one covariance limits for r>n/2, provides motivated structural information not available from either marginal moment alone. The sign theorem is not a mere restatement of known cycle-count means or a table lookup.",
+    "status": "PASS"
+  }
+}
