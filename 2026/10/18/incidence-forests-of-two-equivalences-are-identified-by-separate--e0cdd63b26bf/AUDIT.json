@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty finite two-equivalence structure, the indicated side-labelled incidence multigraph has one edge per element. The round-colour induction gives exact rooted alternation-unfolding types after removal of one marked element per class multiset. In a forest these unfoldings reproduce both sides of the original edge-rooted component; a cyclic incidence multigraph has arbitrarily deep nonbacktracking alternations and cannot match an n-edge forest through depth n+1. Equal edge-rooted component multisets force equal component multiplicities, hence isomorphism. Each colour is expressible in C^2 with counting, giving rank at most n+2. The exact-code checker corroborates all partition pairs through n=8, but is not used to prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arvind et al., arXiv:1502.01255, Section 5 Corollary 1: ordinary undirected forests are amenable to ordinary colour refinement.",
+        "Scheidt and Schweikardt, arXiv:2407.16022 abstract: relational colour refinement recognizes structures through homomorphisms from acyclic relational structures; the algorithm is distinct from the present separate two-equivalence edge-neighbour counts.",
+        "The incidence forest itself is bipartite, but the binary E,F relational Gaifman graph contains cliques of unbounded size."
+      ],
+      "reasoning": "Forest amenability is the closest stronger-looking standard theorem, but it applies to refinement on vertices of the incidence graph. The present logic quantifies only over edges, encoded as elements, and has no incidence-class vertices. A new explicit marked-edge subtraction/unfolding lemma establishes the needed transfer. Relational colour-refinement work may eventually supply a more general conceptual explanation; the searched abstract does not directly imply this theorem without an additional reduction.",
+      "searches": [
+        "fractional isomorphism two equivalence relations incidence forests edge colour refinement",
+        "color refinement edge-colored block graphs incidence tree bipartite edge star equivalence",
+        "color refinement graphs union of two equivalence relations forests acyclic bipartite incidence line graph stable partition",
+        "two-variable counting logic structures two equivalence relations acyclic incidence graphs colour refinement isomorphism",
+        "arxiv:1502.01255 sections 1,4,5 (forest amenability)",
+        "arxiv:2407.16022 abstract (relational colour refinement)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.01255 (2015) full-text relevant sections",
+      "doi:10.1002/malq.201400102 (2015) full-text relevant sections",
+      "Esperet-Gimbel-King 2009 original PDF pages 1–3",
+      "Kieroński-Otto LICS 2005 official abstract",
+      "arxiv:2407.16022 (2024) abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arvind et al. prove amenability of forests as graphs (Corollary 1), but do not state separate E/F incidence-edge refinement or its finite round bound.",
+        "Pratt-Hartmann proves undecidability of satisfiability with two equivalences, not isomorphism identification of acyclic incidence models.",
+        "Esperet-Gimbel-King consider equivalence-subgraph covers of line graphs, not a counting-logical identification theorem.",
+        "Kieroński-Otto discuss small substructures and satisfiability under equivalence constraints, not edge-unfolding reconstruction."
+      ],
+      "reasoning": "The requested conclusion does not follow from the printed statements without an additional conversion between edge-domain refinement and two-sided rooted incidence unfoldings. That conversion is proved in this package. A different unlocated prior source containing it remains a priority risk.",
+      "searches": [
+        "Arvind et al. arxiv:1502.01255 sections 1 and 5",
+        "Pratt-Hartmann doi:10.1002/malq.201400102 section 7",
+        "Esperet-Gimbel-King 2009 manuscript sections 1 and 2",
+        "Kieroński-Otto LICS 2005 abstract doi:10.1109/LICS.2005.49"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A pair of named equivalence relations is equivalently an edge-labelled-by-elements bipartite incidence multigraph; an isomorphism must preserve its sides.",
+        "Line-graph vertices encode incidence edges but the two classwise clique relations carry side names; this is not ordinary uncoloured line-graph refinement.",
+        "The searched published-finding index returned incidence-poset topological core results and graph-coloring problems, not the same finite-model-theoretic statement."
+      ],
+      "reasoning": "The alternate formulations were compared at the level of exact quantifiers: the present theorem is all orders, both equivalences genuine, incidence multigraph a forest, competitors arbitrary two-equivalence structures, and separate colour multiset refinement. No search result gave a logically equivalent identification theorem. Mere absence of a hit is not a proof of novelty.",
+      "searches": [
+        "two-variable counting logic two equivalence relations incidence graph forest acyclic edge equivalence classes colour refinement identifies",
+        "acyclic incidence multigraph of two partitions equivalence relations C2 identified by color refinement among all pairs of equivalence relations",
+        "edge star partition on bipartite trees forest identified by two-variable counting logic adjacency of incident edges",
+        "two equivalences forest incidence acyclicity recoverable from stable counting refinement universal cover",
+        "\"two equivalence relations\" \"color refinement\" counting logic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact class-incidence-forest table or previously published complete colour-signature characterization was found in the inspected primary sources.",
+        "A fresh finite check enumerated 91,080 partition-pair representatives at eight elements, including 17,378 forest configurations and 388 distinct forest types, with zero counterexamples."
+      ],
+      "reasoning": "The all-size reconstruction lemma, rather than any database number, is the finding. The small finite table is a consistency check, not a novelty or completeness certificate for the infinite family.",
+      "searches": [
+        "two-variable counting logic two equivalence relations incidence graph forest acyclic edge equivalence classes colour refinement identifies",
+        "two equivalences forest incidence acyclicity recoverable from stable counting refinement universal cover",
+        "Weisfeiler Leman \"line graph\" trees edge colored identification",
+        "\"two equivalence relations\" \"forests\" \"two variable\" logic"
+      ]
+    },
+    "rationale": "The specific two-equivalence edge-domain reconstruction with separate classwise refinement, an all-size incidence-forest criterion, and a finite counting-logic rank bound was not located in the inspected primary literature or targeted semantic searches. Ordinary forest amenability, decidability for equivalence-constrained two-variable logics, line-graph equivalence covers, and general relational refinement were compared by implication, not title. The transfer lemma is new content relative to the stated prior forest result; earlier specialized treatments remain possible.",
+    "residual_risks": [
+      "A theorem on colour refinement of edge-coloured line graphs or two-equivalence structures may imply this as a special case without using its exact title.",
+      "The full 2012 Kieroński–Otto journal paper and the full 2024 relational-colour-refinement paper were not materially inspected; relevance of their detailed proofs remains unresolved but their accessible statements address different questions.",
+      "Targeted semantic searches and exhaustive small-order checks do not establish uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary forest graph amenability verified; no claim about two named equivalences on edge-domain incidence forests in examined sections.",
+        "evidence": [
+          "arXiv first posted 2015-02-04",
+          "Section 5 Corollary 1: all forests are amenable; proof treats degree cells on graph vertices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+        "material_read": "Introduction and Section 5 including Corollary 1 and its proof; Theorem 4.1 context",
+        "method": "Publisher-free arXiv full-text HTML",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Closest broad forest colour-refinement theorem"
+      },
+      {
+        "assessment": "Two-equivalence finite satisfiability undecidability, not isomorphism identification of incidence forests.",
+        "evidence": [
+          "Section 7 states undecidability for two equivalences and describes equivalence-class configurations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/malq.201400102",
+        "material_read": "Full open-access HTML, abstract and Section 7 opening and encoding construction",
+        "method": "Open full-text author/publisher webpage",
+        "title": "The Two-Variable Fragment with Counting and Equivalence",
+        "trigger": "Same logic with two constrained equivalence predicates"
+      },
+      {
+        "assessment": "Studies equivalence covering number, not counting-logic isomorphism from two named equivalence relations.",
+        "evidence": [
+          "Section 1 introduces equivalence subgraphs and the line-graph incidence relation; Section 2 treats orientation coverings."
+        ],
+        "identifier_or_url": "https://kam.mff.cuni.cz/kamserie/clanky/2009/s927.pdf",
+        "material_read": "Original manuscript pages 1–3: introduction, definitions and incidence-clique discussion; text and page image inspected",
+        "method": "Open manuscript PDF and page image",
+        "title": "Covering Line Graphs with Equivalence Relations",
+        "trigger": "Same equivalence-clique and line-graph correspondence"
+      },
+      {
+        "assessment": "Abstract concerns satisfiability and small substructures, not the present C2 identification theorem. Detailed full-text priority comparison remains a residual risk.",
+        "evidence": [
+          "LICS 2005 abstract treats two equivalence relations and decidability via regular models."
+        ],
+        "identifier_or_url": "https://lics.siglog.org/archive/2005/KieronskiOtto-SmallSubstructuresa.html",
+        "material_read": "Official LICS 2005 abstract; full journal version not accessible in the examined open material",
+        "method": "Conference archive abstract and bibliographic cross-check",
+        "title": "Small Substructures and Decidability Issues for First-Order Logic with Two Variables",
+        "trigger": "Semantically plausible equivalence-constrained FO2 source"
+      },
+      {
+        "assessment": "Relational colour refinement on acyclic relational structures is relevant but distinct; not asserted to exclude all possible implication.",
+        "evidence": [
+          "Abstract describes refinement distinguished via homomorphisms from acyclic relational structures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.16022",
+        "material_read": "Public arXiv abstract only; full HTML route was unavailable",
+        "method": "ArXiv abstract and indexed description",
+        "title": "Color Refinement for Relational Structures",
+        "trigger": "Potential broader contemporary relational refinement framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0cdd63b-26bf-424a-9e96-ddc0033fc0bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The class of finite pairs of equivalence relations is a natural model-theoretic setting; its intersection incidence multigraph exposes tree-like geometry not apparent in a Gaifman graph full of cliques. The theorem gives an all-size isomorphism-identification result with a concrete logical-depth bound and identifies precisely the stable orbit partition. It explains a structural mechanism for why classwise neighbour counts suffice and has potential use in canonical comparison and finite-model descriptions; it is not a mere arbitrary finite cutoff or numeric table.",
+    "status": "PASS"
+  }
+}
