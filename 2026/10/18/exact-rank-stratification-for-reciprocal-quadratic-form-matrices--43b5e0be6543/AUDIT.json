@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The function-space coefficient matrix decomposition gives exactly two unconditional pivots and a separate pivot for each nonzero interpolation coefficient. The coefficient identity h_r=(alpha^(p-1-r)+beta^(p-1-r))/(alpha-beta)^2 follows from partial fractions and finite geometric sums over F_p*, so its zeros are exactly z^(p-1-r)=-1. Counting these k except k=2 proves each rank case, including t=2,4 boundary exceptions; Smith normal form proves p^(1+delta) determinant divisibility, with no claim of sharp valuation. A standalone test computes 724 independent ranks and root-ratio orders for all anisotropic pairs at p=5,7,11,13,17,19,23; finite checks do not replace universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "She--Sun arXiv:2407.04642 pp. 1--4, 11--15 derives reduced-index determinant evaluations and coefficients but no rank of the full zero-inclusive matrix",
+        "Zhu--Ren arXiv:2409.07008, abstract and proof of Theorem 1.1 consider proper subdeterminants and three special coefficient families",
+        "Zhang--Yang arXiv:2605.19486 Section 3 proves p^2 divisibility from two linearly dependent/zero rows, not exact rank or order stratification"
+      ],
+      "reasoning": "The closest potentially dominating algebraic result is She--Sun coefficient-product determinant formula; it computes determinants of different, smaller index sets. Vanishing of those products neither yields the exact rank of all p evaluation rows and columns nor counts root-ratio orders. The current result extends the congruence problem along one orthogonal hypothesis (anisotropic discriminant), but does not claim to subsume the entire d-nonresidue theorem.",
+      "searches": [
+        "published-finding corpus: rank over finite field F_p of p by p matrix (i^2 + c i j + d j^2)^(p-2) norm-one torus root ratio multiplicative order exact rank deficiency",
+        "published-finding corpus: Sun determinant congruence conjecture Zhang Yang quadratic form coefficient cancellation precise rank higher p powers discriminant non-square",
+        "Primary text: She--Sun arXiv:2407.04642 Theorems 1.2, 1.3 and Zhu--Ren arXiv:2409.07008 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.19486, full PDF pp. 1--9",
+      "arXiv:2407.04642, full PDF pp. 1--15",
+      "arXiv:2409.07008, arXiv HTML text",
+      "arXiv:2207.13039, metadata and cited statement",
+      "published-finding corpus semantic retrieval, five successful topic searches; one failed query was not represented as completed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang--Yang shows rank <=p-2 only when (d/p)=-1, leaving all other coefficient vanishings unresolved",
+        "She--Sun uses nonzero and/or restricted ranges of i,j and obtains determinants/congruences, not the rank formula over the irreducible-discriminant locus",
+        "Zhu--Ren treats specific subdeterminant congruences, not exact rank of the full matrix"
+      ],
+      "reasoning": "A p^2 divisibility theorem is weaker than and does not imply the exact rank, which can be p-1, p-2, or much lower depending on t; conversely, the anisotropic discriminant condition of the current theorem does not contain all d-nonresidue cases. Earlier formulas for restricted determinants may share techniques but do not state or straightforwardly imply the zero-coefficient count and rank formula. General finite-group Fourier interpolation might yield it implicitly, acknowledged as risk.",
+      "searches": [
+        "Full-text primary: arXiv:2605.19486 pp. 1--9, Theorem 1.1, Lemma 3.3, Equation (3.4)",
+        "Full-text primary: arXiv:2407.04642 pp. 1--15, Theorems 1.2--1.3",
+        "Full text: arXiv:2409.07008 sections 1--2 and first theorem",
+        "published-finding corpus: Zhang Yang A determinant congruence conjectured by Sun 2026 exact rank mod p quadratic form matrix anisotropic discriminant (one transient failure; later successful related queries)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang--Yang arXiv:2605.19486 Section 3, especially Lemma 3.3 and Equation (3.4), full text pp. 5--8",
+        "published-finding corpus result 2026/10/11/SCOPE-complete-three-by-three-fourier-minor-rank-geometry-on-prime-aff--ba0b52ec4cec concerns Fourier-character minors, not polynomial-power evaluation matrices"
+      ],
+      "reasoning": "The exact rank of the full polynomial-power matrix equals p-1 minus an explicitly counted norm-one-root-ratio congruence set. Zhang--Yang prove only an upper rank bound under the condition (d/p)=-1 and do not classify the irreducible-discriminant order strata. The retrieved Fourier-minor rank theorem uses different entries and objects, with no implication to this matrix.",
+      "searches": [
+        "published-finding corpus: Exact Fp rank of full p-by-p matrix ((i^2+cij+dj^2)^(p-2)) for irreducible discriminant, norm one torus multiplicative order, p-adic determinant divisibility",
+        "Web: exact rank matrix (i^2+cij+dj^2)^(p-2) over finite field p discriminant nonsquare"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top matched records include 2026/10/4/SCOPE-a-subfield-trivial-character-forces-monomial-compressed-fourier--707f906e4c49, a compressed Fourier transform rather than this reciprocal-form matrix",
+        "Searches did not surface a rank table or precomputed full-matrix rank-order stratification"
+      ],
+      "reasoning": "No direct matching exact table was identified in the queried sources. A search failure is not a proof that no such table exists. The proof gives a uniform formula for all allowed primes and parameters, not an unexplained table fit.",
+      "searches": [
+        "published-finding corpus: matrix reciprocal quadratic form i^2+cij+dj^2 rank finite fields p, roots in F_{p^2}, Cauchy matrix determinant",
+        "published-finding corpus: Exact Fp rank of full p-by-p matrix ((i^2+cij+dj^2)^(p-2)) for irreducible discriminant, norm one torus multiplicative order, p-adic determinant divisibility",
+        "Web: multiplicative order alpha beta rank determinant Sun binary quadratic forms p-2"
+      ]
+    },
+    "rationale": "The motivating full-matrix paper establishes at most rank p-2 under nonsquare d, not the exact order-controlled rank or higher divisibilities. Related She--Sun and Zhu--Ren statements treat restricted determinant index sets. Targeted published-finding corpus searches and published mathematical records produced no covering exact rank classification. Implicit coverage by broader cyclic interpolation theory remains a disclosed risk.",
+    "residual_risks": [
+      "A more general cyclic interpolation identity or Cauchy-type matrix result may have an unstated corollary equivalent to this rank formula.",
+      "Not every historic determinant paper or underlying theorem on coefficient zeros was inspected in full.",
+      "No independent mathematical referee assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact rank/order formula; proves at most p-2 rank under (d/p)=-1",
+        "evidence": [
+          "Lemma 3.3 states rank <=p-2 under nonsquare d",
+          "Equation (3.4) presents the sparse coefficient matrix but only one vanishing coefficient is demonstrated",
+          "Theorem 1.1 states p^2 divisibility"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.19486",
+        "material_read": "Full 9-page preprint, especially introduction, Sections 2-3, Lemmas 3.1-3.3, Equation (3.4), Proposition 3.4 and references",
+        "method": "arXiv open full-text PDF text and visual verification of p. 7 coefficient decomposition",
+        "title": "A Determinant Congruence Conjectured by Sun",
+        "trigger": "same exact full-size determinant with exponent p-2, rank-estimate method"
+      },
+      {
+        "assessment": "NOT_COVERING this full p-by-p exact rank; evaluates other determinant index ranges and character-sum variants",
+        "evidence": [
+          "Theorem 1.2 concerns 1<=i,j<=p-1",
+          "Theorem 1.3 concerns 1<i,j<p-1",
+          "Theorem 1.1 concerns Jacobi symbol and different determinant"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.04642",
+        "material_read": "15-page preprint abstract, introduction and Theorems 1.1-1.3, proof sections 3--5 and references; checked index restrictions and coefficient formulas",
+        "method": "arXiv primary PDF full-text passages and visual title page",
+        "title": "Some Determinants Involving Binary Forms",
+        "trigger": "same binary form and polynomial-power determinants, potentially dominating coefficient products"
+      },
+      {
+        "assessment": "NOT_COVERING; proves selected proper-subdeterminant congruences",
+        "evidence": [
+          "Theorem 1.1 gives three cases for restricted D^-_p(c,d)",
+          "No universal order-indexed full-matrix rank formula in the inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.07008",
+        "material_read": "arXiv HTML complete abstract, introductory theorem and Section 2 proof with referenced Lucas sequences",
+        "method": "Open-access arXiv HTML full mathematical sections",
+        "title": "On Some Determinant Conjectures",
+        "trigger": "specific Lucas-sequence zero coefficients might imply rank loss"
+      },
+      {
+        "assessment": "No covering result identified from accessible material; residual risk because full text not re-inspected",
+        "evidence": [
+          "Zhang--Yang identify Sun Conjecture 4.1 as the p^2 statement subsequently proved"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.13039",
+        "material_read": "arXiv open-access abstract and statement metadata, original conjecture referenced explicitly in Zhang--Yang; complete primary full-text not re-inspected in this run",
+        "method": "arXiv abstract and citation context in fully inspected Zhang--Yang paper",
+        "title": "On Some Determinants and Permanents",
+        "trigger": "original determinant conjecture and previous rank conditions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43b5e0be-6543-45df-b571-db5a5f28f942",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is the exact rank of the same full arithmetic matrix used to prove Sun's p^2 congruence. It gives an order-theoretic stratification of exceptional congruence strength, e.g. p=19,(c,d)=(1,10) gives rank 15 and p^4 divisibility versus generic p^2. The uniform all-prime formula both accounts for a previously isolated coefficient cancellation and distinguishes structurally meaningful torsion strata; it is neither an arbitrary finite slice nor a mere numerical recomputation.",
+    "status": "PASS"
+  }
+}
