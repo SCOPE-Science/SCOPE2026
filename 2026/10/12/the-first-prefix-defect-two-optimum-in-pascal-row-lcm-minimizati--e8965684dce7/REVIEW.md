@@ -1,23 +1,21 @@
-# Self-review of The first prefix-defect-two optimum in Pascal-row LCM minimization
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact proof follows the source's fixed-row prime-power exclusion theorem and finite-row reduction. The computation uses integer arithmetic only, checks every admissible row in the certified finite ranges for \(42\le n\le57\), and performs a separate defect-at-most-\(1\) optimization at \(n=57\). The implementation reproduces the published \(n=41\) row-\(90\) saving \(23\cdot31\cdot47\) and five-index exclusion union. A distinct LCM-state dynamic program independently returns the same decisive row-\(120\) minimum.
+PASS
 
-The proved limit is finite: no claim is made about later defect behavior or uniqueness of the \(n=57\) optimizer.
+PASS: Reconstructed finite prime-power exclusion DP over every admissible row, with subset-of-omissions bit masks and each prime exponent budget. Independently implemented integer-binomial/valuation arithmetic and rechecked all n=42..57; minimum-defect sequence is (1,1,1,0,...,0,2), n57 at row120. Computed a57=34745667272226689670077824806669345127280961600 and optimal full-row exclusion {39,40,60} with saving 41*61=2501; selected 57 indices 0..58 omit39,40 have defect2. Exhaustive prefix <=57 search yields minimum row118 65841579578883348912626466335327204421864343200=(451/238)a57; prefix<=56 minimum row119 (451/120)a57. Candidate cutoff r=176 checked via binomial lower bound, and Huber provides n<=41 including δ41=3. The optimizer enumeration is finite and constrained by proven row reduction; no later n or all-support-classification claim.
 
-## Originality
+## originality
 
-**PASS.** The closest primary source is Huber, arXiv:2609.23024v2. It supplies the exact optimization method and certifies the defect sequence only through \(n=41\); its outlook explicitly asks about the size and frequency of later prefix defects. Exact-claim, alias, row/prime-pattern, and exact-value searches found no statement of the \(n=57\) transition. published-finding corpus's closest matches concern different binomial-valuation or congruence problems and do not imply this LCM-support classification. Current and prior own ledgers contain no equivalent Pascal-row LCM claim.
+PASS
 
-The source ancillary archive was not independently obtained. This is a residual access risk, but the manuscript itself states that its supplementary finite data establish the Section 6 claims through \(n=41\), and no indexed table or exact-value hit extended that coverage to \(57\).
+PASS (best of knowledge): Huber's prime-power exclusion and finite-row reduction are acknowledged and relied upon; his inspected arXiv abstract/proposition descriptions certify prior transitions through n41, but do not state δ57=2. The new finite exact classification of intermediate n42..57 and first occurrence of the skipped natural defect value is not a consequence of simply knowing δ41=3. Full source supplement inaccessible, so possible pre-existing n57 tabulation is an explicit originality risk.
 
-## Value
+## value
 
-**PASS.** This is a motivated exact invariant arising directly from the paper's stated finer question. After the first non-prefix optimum at \(15\) and the jump to defect \(3\) at \(41\), the first occurrence of the missing small value \(2\) is structurally informative. Its optimizer is explained by a clean pair of prime exclusions, \(41\) and \(61\), rather than by a numerically arbitrary slice.
+PASS
 
-## Closest literature and limitations
+PASS: After a known first jump δ41=3, the next missing natural defect value 2 is a concrete structural question raised by Huber's study of the size/frequency of optimal-support defects. A proved first-occurrence n=57 with sharp forbidden prefixes answers that meaningful exact finite boundary, rather than picking an arbitrary row or merely replaying a known table.
 
-Huber's paper is methodologically dominant but not statement-dominant: its theorems make the new finite computation possible, yet they do not determine the \(n=57\) value. MathWorld mirrors only the published \(15\) and \(41\) transitions. The result remains a finite theorem and does not settle the asymptotic defect questions.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

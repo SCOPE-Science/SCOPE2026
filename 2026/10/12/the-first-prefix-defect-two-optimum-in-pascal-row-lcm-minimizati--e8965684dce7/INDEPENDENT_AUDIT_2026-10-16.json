@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:02:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed finite prime-power exclusion DP over every admissible row, with subset-of-omissions bit masks and each prime exponent budget. Independently implemented integer-binomial/valuation arithmetic and rechecked all n=42..57; minimum-defect sequence is (1,1,1,0,...,0,2), n57 at row120. Computed a57=34745667272226689670077824806669345127280961600 and optimal full-row exclusion {39,40,60} with saving 41*61=2501; selected 57 indices 0..58 omit39,40 have defect2. Exhaustive prefix <=57 search yields minimum row118 65841579578883348912626466335327204421864343200=(451/238)a57; prefix<=56 minimum row119 (451/120)a57. Candidate cutoff r=176 checked via binomial lower bound, and Huber provides n<=41 including δ41=3. The optimizer enumeration is finite and constrained by proven row reduction; no later n or all-support-classification claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huber Proposition 6.3 provides certified δ(n) for n<=41 and δ41=3, plus row reduction/exclusion machinery.",
+          "Those general methods do not state or trivially imply the enumerated first n57 result without a new finite exact optimization."
+        ],
+        "reasoning": "Published general framework covers the method, not its fresh finite numerical implication; properly credit stronger method while distinguishing new exact transition.",
+        "searches": [
+          "https://arxiv.org/abs/2609.23024",
+          "Resultary search: Huber Pascal least common multiple defect 57 binomial coefficients"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.23024",
+        "Felix Huber Proposition 6.3 n41 certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known δ41=3 does not force first δ=2 at 57; the intervening sequence is non-monotone 1,0,2.",
+          "Independent exact DP and finite row bounds establish all earlier n<=56 have δ≠2."
+        ],
+        "reasoning": "New theorem is not a corollary by replacing a parameter in Huber: the claimed first index requires finite exhaustive comparisons across rows and restricted supports.",
+        "searches": [
+          "https://arxiv.org/abs/2609.23024",
+          "Huber open outlook size frequency delta(n) positive defects"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huber defines a(n) for selecting n distinct coefficients from one row and δ(S)=1+max(S)-|S| on half-row indices.",
+          "The purported first δ=2 at n57 is equivalent to no earlier n carrying minimum defect exactly2 (which does not require δ monotonically increasing)."
+        ],
+        "reasoning": "The new first-occurrence statement is stronger than reporting one row120 witness: exact previous n and global optimality are required and were certified.",
+        "searches": [
+          "Resultary search: Pascal row minimum least common multiple a(57) prefix defect two first occurrence Huber",
+          "https://arxiv.org/abs/2609.23024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n41 row90 published benchmark saving 23*31*47 is reproduced; primary literature stated finite certificate through 41.",
+          "Exact new n42..57 counts and row120 2501 savings are independently recalculated."
+        ],
+        "reasoning": "The source table/ancillary archive potentially extends further but was not retrieved, so this is best-knowledge rather than proof of absence in all supplements.",
+        "searches": [
+          "https://arxiv.org/abs/2609.23024",
+          "Resultary search: Pascal row minimum least common multiple a(57) prefix defect two first occurrence Huber",
+          "Huber Proposition 6.3 n=41 row90 saving 23*31*47"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Huber's prime-power exclusion and finite-row reduction are acknowledged and relied upon; his inspected arXiv abstract/proposition descriptions certify prior transitions through n41, but do not state δ57=2. The new finite exact classification of intermediate n42..57 and first occurrence of the skipped natural defect value is not a consequence of simply knowing δ41=3. Full source supplement inaccessible, so possible pre-existing n57 tabulation is an explicit originality risk.",
+      "residual_risks": [
+        "Huber complete supplementary dataset not retrieved; exact same n57 computation could exist there despite manuscript scope.",
+        "Proof depends on Huber finite-row reduction; independently checked DP but not an entirely new proof of his general reduction.",
+        "Oxford institutional full text access blocked by VPN disconnect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INCOMPLETE_FULL_TEXT: inspected material certifies transitions through 41, cannot rule out undiscovered n57 table in supplement",
+          "evidence": "Huber reports first structural transitions including n41 δ=3; source supplementary defect data scope claimed <=41",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23024",
+          "material_read": "arXiv primary abstract, proposition/result descriptions and secondary indexing; not full manuscript or supplement",
+          "method": "arXiv/OA attempts and authorized institutional attempt after failure",
+          "title": "Extremal Least Common Multiples in Rows of Pascal’s Triangle",
+          "trigger": "same a(n) and defect parameter, expected original tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: After a known first jump δ41=3, the next missing natural defect value 2 is a concrete structural question raised by Huber's study of the size/frequency of optimal-support defects. A proved first-occurrence n=57 with sharp forbidden prefixes answers that meaningful exact finite boundary, rather than picking an arbitrary row or merely replaying a known table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Huber complete supplementary dataset not retrieved; exact same n57 computation could exist there despite manuscript scope.",
+    "Proof depends on Huber finite-row reduction; independently checked DP but not an entirely new proof of his general reduction.",
+    "Oxford institutional full text access blocked by VPN disconnect.",
+    "Publication transport not_ready is distinct from a scientific C/O/V failure. The frozen public METADATA.json leaks operational provenance; do not publish unmodified public files."
+  ],
+  "schema_version": 1
+}
