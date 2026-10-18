@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** The pole orders \((1,1,2)\) give genus \(5\) and \(3\)-rank \(4\). Three rational ramified points and complete finite-field trace counts give five exact point counts. Newton identities and the functional equation yield the complete zeta numerator. A self-contained verifier checks every finite-field point, monic modulus irreducibility, Weil coefficients, and the degree-ten polynomial's irreducibility modulo \(5\), which implies the Jacobian is simple over \(\mathbb F_3\). A separate direct affine-fiber enumeration agrees with trace counting.
+
+**Originality (PASS, with residual risk).** The equation and automorphism minimization belong to Tafazolian–Kazemifard, arXiv:2610.13279v1, Proposition 5.5; the inspected source does not give its Weil polynomial or arithmetic simplicity. Kudo–Harashita's large-point census treats a different \(\mathbb F_9\) point-count regime; the LMFDB already records abstract finite-field isogeny classes, so priority is claimed only for the explicit association with this new curve, not for the isogeny class itself. Targeted published-literature, mathematical-record, and accessible prior-claim searches found no identical association. Unindexed earlier examples or a stronger general computation remain potential overlap risks.
+
+**Mathematical value (PASS).** The curve is the first nonordinary, three-branch \(r=2,m=1\) example within a sharp recent explicit construction whose goal is to minimize geometric automorphisms; its arithmetic isogeny type is a natural unresolved invariant, not an arbitrarily selected numerical slice. Determining the complete zeta function, Jacobian rational-point order, and base-field simplicity gives an exact arithmetic characterization of this geometrically motivated example. No claim of geometric simplicity or general classification is made.
+
+Self-review: passed. Independent audit: not yet performed.
