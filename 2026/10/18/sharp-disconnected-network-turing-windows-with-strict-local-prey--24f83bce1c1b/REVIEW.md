@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** The complete claim follows from an exact local Jacobian and modal determinant, positivity of the quadratic coefficients, one-dimensional simple-eigenvalue transversality, the standard finite-dimensional bifurcation theorem, and an exact stationary two-equation moment balance. In the path case, all eigenvalues are simple and a ratio-continuity argument separates all windows. A reproducible SymPy/NumPy program verifies symbolic equalities and finite spectral examples. Computations supplement and do not replace the proof of the all-order statement.
+
+**Originality — PASS, qualified.** The 2010 network Turing eigenmode theory and the 2023 weak-Allee source's modal dispersion and numerical patterns directly cover the *generic linear method*; no novelty is asserted for that method. The inspected original and companion 2023 primary full texts have different rational population kinetics and do not derive the exact quadratic two-species biomass losses for this strong-Allee model or its separated path-scale thresholds. Closest retrieved scientific records concern temporal mean-bias identities of other predator–prey ODEs, a bounded-domain discrete-mode example, or different nonlinear ecological models. Abstract-only 2024 clustering work and possible general bifurcation consequences remain priority risks.
+
+**Value — PASS.** Whether spatial patterning redistributes density or reduces total prey and predator population is a concrete gap left by the linear stability test. The result proves a signed second-order demographic cost for every simple critical spatial eigenvector of a natural positive strong-Allee predator–prey network system, supplies an exact finite-amplitude diagnostic identity, and constructs arbitrarily many sharp separated stability/instability windows on elementary connected habitats. The assertions do not claim ecological data-fit, stable patterned attractors, or generic applicability to all predator–prey kinetics.
+
+## Closest literature and limitations
+
+Ye and Zhou (arXiv:2306.11818, 2023) and Shi, Zhou, and Ye (Preprints 202306.1868, 2023) study weak-Allee rational reaction terms, not the specified polynomial model. Nakao and Mikhailov (2010) already give the network modal decomposition. Luo et al. (Chaos 2024, doi:10.1063/5.0195450) concerns network clustering and nonlinear Turing patterns; only its abstract was accessible, so equivalence beyond that cannot be excluded. Nonuniform branch stability, far-from-equilibrium biomass signs, and applicability to the motivating model's original kinetics remain unproved.
+
+Self-review: passed. Independent audit: not yet performed.
