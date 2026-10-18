@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The base existence and intersection-seven hypothesis are explicitly asserted for the general member in Borisov–Rito [1, Section 5, Theorem 3]. Tan's classification [2, Theorem 4.3.1] restricts weights to 12, 15, 18. An independent pair of weight-12 words and the ternary Griesmer bound force dimension two; exact overlap algebra forces the unique \(2+5+5+5\) support pattern. The integral \(A_2\) discriminant sequence relates the dual of the cusp code to the first homology of the open smooth locus. Nonzero local meridians give a smooth normalization of its abelian degree-nine covering. Quotient canonical class, Euler additivity and Noether give \(K^2=45\), \(e=87\), \(\chi=11\); Tan's vanishing irregularity for both 12- and 15-cusp cyclic triple covers forces \(q=0\) and hence \(p_g=10\). A standard-library checker verifies the complete code combinatorics, but no finite test substitutes for these topological and algebro-geometric arguments.
+
+## Originality — PASS
+The closest and fully inspected recent paper [1] supplies the pair of 12-supports and speculates about a different 20-cusp degree-nine cover; it does not state the complete 17-cusp code, open-locus abelianization, smooth ninefold cover or its invariants. Tan [2] proves all intermediate cyclic-triple irregularity statements but not their new rank-two composition for this family. Barth–Rams [3] already supplies contact-cubic presentations, and Rito [4] treats other quintics and 15-cusp cyclic covers. The combined 17-cusp claim is not an implication of any single checked statement without the new code and monodromy calculations. A general abelian-cover theorem is not itself claimed as new. Residual risk: possible unstated treatment in uninspected historical full text or other uncatalogued literature; source and semantic searches cannot certify worldwide uniqueness.
+
+## Value — PASS
+This determines an intrinsic degree-nine covering geometry for the natural new six-dimensional 17-cusp family, including the full local-to-global cusp-code lattice and exact Chern/Hodge invariants of a smooth minimal surface with ample canonical class. The distinction from the discussed hypothetical 20-cusp ball-quotient cover is geometric rather than an arbitrary finite enumeration. The precise \(p_g=10\) value and four cyclic intermediate quotients are natural data for further study of canonical systems and the topology of highly cuspidal quintics.
+
+## Scientific limitations and closest literature
+The theorem is restricted to characteristic zero, isolated \(A_2\) singularities and two weight-12 supports meeting in seven; no claim is made for all 17-cusp quintics, nonabelian coverings, or the canonical mapping degree. The 2001 Barth–Rams abstract and the 2007 *Cusps and Codes* abstract were inspected but their complete texts were not available. The full relevant Sections 1–5 of [1], Tan Sections 3–4 and Rito's accessible paper were materially compared. Independent scholarly review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
