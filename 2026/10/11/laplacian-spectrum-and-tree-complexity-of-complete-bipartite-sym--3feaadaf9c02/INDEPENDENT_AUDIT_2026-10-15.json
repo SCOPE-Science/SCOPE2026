@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:54:16.732148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exposed opposite-sign pair condition requires both grid indices distinct; the same-sign faces are Cartesian products of simplices and give rook edges, so each of 2pq vertices has degree pq-1. The adjacency matrix is [[R,S],[S,R]], where R is rook adjacency and S=(J_p-I_p) tensor (J_q-I_q). Even/odd diagonalization and eigenvalues p-1,-1 and q-1,-1 of the tensor factors give all six eigenvalue families with multiplicities totaling 2pq, one zero. Kirchhoff gives the exact tree product; comparison of odd-block entries gives the spectral gap and the exceptional p=q=2 multiplicity 3. Independently constructed Laplacians for (p,q)=(2,2),(2,3),(3,3) match the exact characteristic polynomials and cofactors, including 384 trees at (2,2). These finite checks supplement the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilu–Linial supplies the general even/odd spectral block principle for two-lifts.",
+          "Higashitani et al. treat h* and complete-bipartite facets; D’Ali et al. study face and Ehrhart structure."
+        ],
+        "reasoning": "Generic two-lift methods do not identify this exact polytope graph or give the fully evaluated pq spectrum and Kirchhoff complexity.",
+        "searches": [
+          "complete bipartite symmetric edge polytope one skeleton signed two lift spectrum Laplacian spanning trees",
+          "spanning trees spectrum complete bipartite symmetric edge polytope signed two-cover",
+          "arXiv:math/0312022 two-lift signed adjacency lemma"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07678 full PDF, Sections 3 and 4",
+        "D’Ali–Delucchi–Michałek, Many faces of symmetric edge polytopes, EJC 29(3) (2022), DOI 10.37236/10387, full lawful PDF",
+        "arXiv:math/0312022 general two-lift source",
+        "Resultary complete bipartite symmetric edge polytope one skeleton signed two lift spectrum Laplacian spanning trees",
+        "Resultary spanning trees spectrum complete bipartite symmetric edge polytope signed two-cover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Facet/triangulation and defining K_{p,q} tree counts do not count spanning trees of the graph on 2pq polytope vertices.",
+          "The generic two-lift decomposition needs the special R/S adjacency incidence to evaluate the eigenvalues."
+        ],
+        "reasoning": "The exact closed characteristic polynomial and Fiedler-space transition require new graph identification and tensor evaluation beyond prior generic formulae.",
+        "searches": [
+          "arXiv:1807.07678 Sections 3–4",
+          "arXiv:1910.05193 Definition 1 and Section 4",
+          "arXiv:math/0312022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D’Ali–Delucchi–Michałek Definition 1 gives the identical signed root-vertex realization and K_2,2 example.",
+          "This graph is a signed bipartite two-lift of K_{pq} with same-sign rook edges and cross-sign non-rook edges."
+        ],
+        "reasoning": "Alias statements were compared at graph incidence/spectrum level, not by matching title; no same two-parameter polynomial found.",
+        "searches": [
+          "complete bipartite symmetric edge polytope one skeleton signed two lift spectrum Laplacian spanning trees",
+          "spanning trees spectrum complete bipartite symmetric edge polytope signed two-cover",
+          "arXiv:1910.05193 symmetric edge = adjacency polytope and Kantorovich Rubinstein polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest records include the target and spectral computations of different sparse polytope graph families.",
+          "Independent exact samples p,q=(2,2),(2,3),(3,3) match the polynomial and cofactor product."
+        ],
+        "reasoning": "No earlier matched spectrum table found; this is bounded database comparison.",
+        "searches": [
+          "complete bipartite symmetric edge polytope one skeleton signed two lift spectrum Laplacian spanning trees",
+          "spanning trees spectrum complete bipartite symmetric edge polytope signed two-cover"
+        ]
+      },
+      "rationale": "Complete bipartite symmetric edge polytopes were studied for facets, h*, volume and triangulations; none of the read primary statements gives the one-skeleton eigenvalues. The general signed-two-cover block lemma is credited and only the actual geometric signed-rook-complement graph and its all-parameter eigenanalysis are assessed as the contribution. Resultary searches under symmetric edge/adjacency polytope and 2-lift terminology returned no exact earlier equivalent spectral formula.",
+      "residual_risks": [
+        "Seidel switching/antipodal covering literature could encode the same graph under an obscure name.",
+        "Finite LP geometric checks in package use floating point, while the combinatorial all-p,q exposure argument is the actual proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Facet and Ehrhart theory, no complete 2pq-vertex 1-skeleton Laplacian formula",
+          "evidence": [
+            "Prop. 3.4, Prop. 3.5, Theorem 4.1"
+          ],
+          "identifier_or_url": "arXiv:1807.07678; https://arxiv.org/pdf/1807.07678",
+          "material_read": "Introduction, Proposition 3.4/3.5 and the complete-bipartite Section 4 theorem descriptions",
+          "method": "Primary PDF text and original proposition page",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "same K_{p,q} symmetric edge polytope, strongest older facet/h* source"
+        },
+        {
+          "assessment": "Geometry and combinatorial h*/face/volume; no evaluated Laplacian spectrum or graph spanning-tree result",
+          "evidence": [
+            "Definition 1; Example 2; Section 4; full-text search “spectrum”"
+          ],
+          "identifier_or_url": "DOI:10.37236/10387; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+          "material_read": "42-page full OA paper introduction, Definition 1, K2,2 example, Section 4 results and searched spectrum",
+          "method": "Direct PDF text/sections plus original page screenshot",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "same graph polytopes and plausible stronger geometry result"
+        },
+        {
+          "assessment": "Generic two-lift eigenvalue method, not a Kpq symmetric-edge-polytope incidence/spectrum evaluation",
+          "evidence": [
+            "Two-lift signed adjacency spectral principle"
+          ],
+          "identifier_or_url": "arXiv:math/0312022; https://arxiv.org/pdf/math/0312022",
+          "material_read": "Abstract and read overview of two-lift adjacency decomposition, checked general scope",
+          "method": "Primary arXiv PDF text reading",
+          "title": "Constructing expander graphs by 2-lifts and discrepancy vs. spectral gap",
+          "trigger": "potential generic stronger spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete-bipartite symmetric edge polytopes are classical lattice polytope families with extensive facet/Ehrhart study. Their graph-theoretic Laplacian, complete multiplicities, tree complexity, and Fiedler transition (uniform gap for p=2 versus growing balanced gap) form a natural two-parameter connectivity classification not furnished by the known defining-graph tree counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim of exhaustive global literature search, external expert certification, or formal Lean proof; an indexed search nonhit is not positive originality proof.",
+    "Finite exact determinants and contact tests substantiate but never replace the stated infinite-parameter arguments.",
+    "Confidentiality sanitization remains operational not_ready, independently of the recorded scientific C/O/V outcome."
+  ],
+  "schema_version": 1
+}

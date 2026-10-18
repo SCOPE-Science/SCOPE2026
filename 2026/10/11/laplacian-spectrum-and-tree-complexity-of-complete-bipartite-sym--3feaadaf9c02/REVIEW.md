@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every parameter is an integer with \(p,q\ge2\). The proof establishes each proposed extreme point by an exposing functional, shows that the two antipodal facets are products of simplices, and characterizes opposite-sheet edges through unique row/column maxima and minima. The resulting exactly \((pq-1)\)-regular signed two-cover has an exhaustive orthogonal even/odd decomposition. Tensor eigenvalues and their multiplicities sum to \(2pq\), with exactly one zero; Kirchhoff's theorem then gives the stated product. The difference inequalities determining the Fiedler eigenvalue and exceptional \((2,2)\) multiplicity have been checked symbolically. Finite exact characteristic-polynomial and cofactor calculations corroborate the all-parameter argument, while numerical support-face tests remain supplementary.
+PASS
 
-## Originality — PASS, subject to the recorded residual risk
+The exposed opposite-sign pair condition requires both grid indices distinct; the same-sign faces are Cartesian products of simplices and give rook edges, so each of 2pq vertices has degree pq-1. The adjacency matrix is [[R,S],[S,R]], where R is rook adjacency and S=(J_p-I_p) tensor (J_q-I_q). Even/odd diagonalization and eigenvalues p-1,-1 and q-1,-1 of the tensor factors give all six eigenvalue families with multiplicities totaling 2pq, one zero. Kirchhoff gives the exact tree product; comparison of odd-block entries gives the spectral gap and the exceptional p=q=2 multiplicity 3. Independently constructed Laplacians for (p,q)=(2,2),(2,3),(3,3) match the exact characteristic polynomials and cofactors, including 384 trees at (2,2). These finite checks supplement the all-parameter proof.
 
-The directly relevant complete-bipartite symmetric edge-polytope research computes facet structures, \(h^*\)-polynomials, triangulations and spanning-tree dissections; none of the inspected relevant sections states the one-skeleton's complete Laplacian polynomial, tree complexity or Fiedler multiplicity. A prior general signed-two-cover theorem already supplies the block-spectral methodology, so that mechanism is not claimed as novel. The distinct step is identifying this geometric one-skeleton with the particular signed rook-complement lift and evaluating every spectral block in the full two-parameter family. Cross-formulation risk under adjacency-polytope, antipodal covering and Seidel-matrix terminology remains.
+## originality
 
-## Value — PASS
+PASS
 
-These are natural, high-dimensional lattice polytopes whose \(h^*\)-vectors and facets have a substantial research history. The graph spectrum is a different invariant, and its evaluation yields the exact growth of the graph's spanning-tree complexity and a nontrivial connectivity-mode transition: \(\lambda_2=2\) in every two-row family, but it grows in balanced families. The result is an all-parameter geometric-to-spectral classification, not a small fixed-graph calculation or a known table entry.
+Complete bipartite symmetric edge polytopes were studied for facets, h*, volume and triangulations; none of the read primary statements gives the one-skeleton eigenvalues. The general signed-two-cover block lemma is credited and only the actual geometric signed-rook-complement graph and its all-parameter eigenanalysis are assessed as the contribution. Resultary searches under symmetric edge/adjacency polytope and 2-lift terminology returned no exact earlier equivalent spectral formula.
 
-## Closest literature and limits
+## value
 
-Theorem 4.1 of Higashitani–Jochemko–Michałek (arXiv:1807.07678) evaluates \(h^*\), not the one-skeleton spectral polynomial. D'Alì–Delucchi–Michałek (arXiv:1910.05193) and Chen–Davis–Korchevskaia (arXiv:2107.12315) treat geometry and facets. Kálmán–Tóthmérész (arXiv:2203.17127) count activities of dissecting trees in the defining graph. Bilu–Linial (arXiv:math/0312022, Lemma 3.1) supplies general old/new eigenvalue decomposition of two-lifts, but not the specific signing or explicit evaluations here. Literature search is not a uniqueness certificate and does not preclude an undiscovered equivalent formulation. Independent expert review has not been conducted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Complete-bipartite symmetric edge polytopes are classical lattice polytope families with extensive facet/Ehrhart study. Their graph-theoretic Laplacian, complete multiplicities, tree complexity, and Fiedler transition (uniform gap for p=2 versus growing balanced gap) form a natural two-parameter connectivity classification not furnished by the known defining-graph tree counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
