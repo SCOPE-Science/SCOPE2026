@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The size-k matching count of the 2n-boundary cycle and conditional uniform matching deletion give the polynomial identity for all valid n,k. Simple chords cross nothing, so exact crossing preservation is justified. The finite transform follows by binomial factorial expansion and coefficient extraction. The Poisson–Gaussian joint characteristic function follows from an a_{n,k}<=2 dominated-summand bound and the established crossing marginal central limit theorem; no independence is inferred from correlation alone. A standalone verifier passed 487 direct exact checks, including all matchings for n<=7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy (2000) Theorem 3 concerns the univariate crossing polynomial and its Gaussian limit.",
+        "Pilaud–Rué (arXiv:1307.6440) develops crossing-constrained diagram enumeration without a simultaneous cyclic-adjacent chord marking in the inspected definitions and theorem statements."
+      ],
+      "reasoning": "A more general crossing-and-local-chord bivariate enumerator could imply this result, but no decisive one was found in the inspected relevant primary statements. The Touchard–Riordan univariate enumerator alone does not specify the joint statistic. Residual priority risk is expressly retained.",
+      "searches": [
+        "Random chord diagrams exact joint probability generating function crossings and simple chords boundary-adjacent matching edges factorial moment transfer n-k crossings",
+        "matching adjacent pairs crossing number conditional no adjacent pairs generating polynomial",
+        "Pilaud–Rué arXiv:1307.6440, introduction and crossing enumeration"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Noy (2000): https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "Acan (2015): https://arxiv.org/pdf/1501.01489",
+      "Paguyo (2021): https://arxiv.org/pdf/2104.01134",
+      "Pilaud–Rué (2013): https://arxiv.org/pdf/1307.6440",
+      "Touchard–Riordan crossing polynomial as discussed by Flajolet–Noy (2000), Section 2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan proves separate small-chord marginal laws; Flajolet–Noy proves crossing marginal law; Paguyo bounds errors for those marginals.",
+        "An earlier exact covariance formula for the same two statistics is already known and explicitly not claimed as a novel part of this finding."
+      ],
+      "reasoning": "Two marginal limit theorems and an exact covariance relation do not imply independence of limit distributions. The new implication comes from the exact falling-factorial-weighted crossing polynomial for all k and its uniform coefficient bound. The argument is transparent and potentially implicit in existing combinatorics; independent historical comparison remains necessary.",
+      "searches": [
+        "Acan arXiv:1501.01489, Lemma 3.3 and Theorem 4.2",
+        "Flajolet–Noy (2000), Theorem 3 and preceding component results",
+        "Paguyo arXiv:2104.01134, Theorems 1.1–1.2",
+        "simple chords crossing statistic matching Poisson Gaussian independence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan Section 3 (arXiv:1501.01489) gives marginal factorial moments and convergence of simple chords, but no crossing generating-function weight.",
+        "Paguyo (arXiv:2104.01134) gives separate simple-chord Poisson and crossing Gaussian approximation bounds, not a joint theorem."
+      ],
+      "reasoning": "The exact identity is also a bivariate coefficient-by-coefficient law and a conditioned crossing-polynomial inversion. Marginal convergence and finite covariance do not mathematically imply the complete joint distribution or asymptotic independence. The searched aliases did not identify an equivalent joint theorem in inspected sources.",
+      "searches": [
+        "Uniform perfect matching cyclic adjacent pairs deletion invariance crossing statistic joint Poisson normal limit",
+        "short chords crossings random chord diagram joint distribution covariance",
+        "Acan arXiv:1501.01489, Section 3; Paguyo arXiv:2104.01134, Theorems 1.1–1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches retrieved general chord-diagram crossing enumeration and unrelated chord geometry, not an exact tabulation for every pair of simple-chord and crossing counts.",
+        "Direct coefficientwise enumeration through seven chords agrees with the proved transform but supplies no evidence about infinite historical novelty."
+      ],
+      "reasoning": "Classical crossing-only Touchard–Riordan tables do not cover the bivariate distribution without further argument. Search coverage is finite and is not presented as mathematical proof of originality.",
+      "searches": [
+        "simple chords crossing covariance",
+        "short chords deletion crossing number exact mixed factorial moments",
+        "random chord diagram crossings short chords generating function"
+      ]
+    },
+    "rationale": "The proposed contribution is the complete bivariate simple-chord/crossing transfer and resultant joint asymptotic independence. Acan (2015), Flajolet–Noy (2000), and Paguyo (2021) establish the respective separate marginals, while earlier work already contains the finite covariance (excluded here). The inspected primary sources do not directly state or strongly cover the joint transform. Residual risk of an implicit classical bivariate enumerator is acknowledged.",
+    "residual_risks": [
+      "An earlier general multivariate chord-diagram enumerator could imply the deletion transfer, even without naming simple chords.",
+      "The factorial deletion observation is elementary, so historical priority is not independently certified.",
+      "The displayed finite covariance has known prior coverage; it is an implication/consistency check, not part of the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves the univariate crossing theorem used here; no explicit complete bivariate simple-chord-and-crossing polynomial in examined relevant theorem statements",
+        "evidence": "Theorem 3 on PDF page 6 (zero-based page 9) gives mean n(n-1)/6, variance n(n-1)(n+3)/45, and marginal normal limit.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "PDF, text and page images: component discussion and Section 2 (Crossings), Theorem 3, proof context and bibliography",
+        "method": "Examined full-text primary PDF sections and compared result variables and implied statements",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational crossings enumeration, exact moments, Gaussian limit and simple-chord component discussion"
+      },
+      {
+        "assessment": "Section 3 proves the Poisson marginal for simple chords via permitted matching selections, but does not state a crossing-weighted exact factorial transform or joint Poisson–Gaussian independence",
+        "evidence": "arXiv:1501.01489v1 dated 2015-01-07, page 1: primary AMS 60C05; Lemma 3.3 pages 7–8 and Theorem 4.2 page 10.",
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Primary full-text PDF, abstract, MSC, introduction, Section 3 Definition 3.1/Theorem 3.2/Lemma 3.3, Section 4 Theorem 4.2, and relevant proof passages",
+        "method": "Examined relevant full-text PDF text and visual page 1; compared marginal factorial moments against crossed joint weights",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact same chord object, consecutive-endpoint statistic and primary MSC 60C05"
+      },
+      {
+        "assessment": "Proves distinct marginal approximation rates, not a bivariate normal–Poisson joint limit or exact weighted polynomial identity",
+        "evidence": "Theorems 1.1 and 1.2 concern separate crossing normal and simple-chord Poisson convergence bounds; 2020 MSC 60C05 on the first page.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Primary full-text PDF, abstract, introduction and main theorems, inspected separate coupling arguments for crossing and simple chords",
+        "method": "Compared theorem quantifiers and observables rather than titles",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Strongest plausible near-covering theorem mentioning both simple chords and crossings"
+      },
+      {
+        "assessment": "Enumerates diagrams by crossing constraints but does not directly provide in inspected material the proposed joint distribution stratified by simple chords",
+        "evidence": "arXiv:1307.6440, opening sections and theorem statements about bounded crossings.",
+        "identifier_or_url": "https://arxiv.org/pdf/1307.6440",
+        "material_read": "Public full-text primary PDF introduction and relevant introductory theorem statements",
+        "method": "Scope and object comparison",
+        "title": "Analytic Combinatorics of Chord and Hyperchord Diagrams with k Crossings",
+        "trigger": "Potentially stronger enumerative crossing generating functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0749abe7-6974-4fe8-8d5a-5ae5aeffe2c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact bivariate identity determines all crossing distributions conditional on the natural local simple-chord count, including simple-chord-free diagrams, from known crossing-only enumerators. The joint Poisson/Gaussian independent limit is a meaningful structural decoupling of local and global chord-diagram fluctuations and does not follow from separate convergence or covariance decay. This goes materially beyond recomputing the known covariance.",
+    "status": "PASS"
+  }
+}
