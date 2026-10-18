@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:07:57.011000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At d=0 and abc !=0 the exact stationary equations split exhaustively: z=0 implies ay=0 and cx=0, hence the origin; z!=0 forces x=b, y=-c and z=a. Both are distinct. Directly formed Jacobians [[0,a,0],[0,0,-b],[c,0,0]] and [[0,0,c],[a,0,0],[0,b,0]] have characteristic cubics mu^3+abc and mu^3-abc. For nonzero real abc each has one real root and one complex pair with complementary real-part signs, giving hyperbolicity and unstable dimensions 2/1 or 1/2. The polynomial vector field has divergence -d, and the source branches S1,S2 tend to these two while S3=(b,0,bc/d) escapes when bc !=0. Independent symbolic determinant/cofactor reconstruction confirmed the algebra; absence of other equilibria follows by exact case split, not the script alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The d>0 weak-focus result analyzes the third branch S3 which escapes to infinity as d->0."
+        ],
+        "reasoning": "Equilibrium formulas written for generic d do not prove exhaustiveness on the exceptional d=0 fibre; that fibre must be separately solved and its divergence changes character. The primary published vector field itself trivially includes E0; novelty must be understood as correcting its contradictory boundary classification, not inventing the origin or its general existence.",
+        "searches": [
+          "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free",
+          "DOI:10.3390/math10244682",
+          "published-result:13b12c787cd2"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 82b708f01cb28a131044bde5303b50efd94a32d1, RESULT.md, snapshot 026b884693e594bc52ea00eb4cefced8d8e1df95",
+        "Git verify.py blob 051a74e8f29ae1e111f3fa32fe023eb014fb9056",
+        "DOI:10.3390/math10244682 publisher Section 2",
+        "published-result:13b12c787cd2",
+        "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source formulas S1=(0,0,0), S2=(b,(ad-bc)/b,a) imply candidate points at d=0, yet printed d=0 prose incorrectly says unique. Source S3 has bc/d so cannot be specialized."
+        ],
+        "reasoning": "The source *does* substantially imply the algebraic components of this claim; that reduces novelty. However its false boundary assertion is logically incompatible with the complete equilibrium count, and generic-d formulas cannot rule out extra solutions created at the singular boundary. Direct separate case analysis and exact hyperbolic index correction resolve that explicit defect. Best-of-knowledge originality is limited to this correction, not the underlying Jacobian formulas.",
+        "searches": [
+          "DOI:10.3390/math10244682 Section 2 and displayed S1,S2 characteristic equations",
+          "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Wu–Fu print “unique equilibrium (b,-c,a) for d=0”, while exact printed system has E0=(0,0,0) for all parameters and E1=(b,-c,a)."
+        ],
+        "reasoning": "The proposed two-equilibrium classification corrects the primary paper’s explicit false uniqueness assertion; the same article incidentally prints equilibrium branches and both characteristic equations, so the ingredients are available but the complete true boundary conclusion is not affirmatively stated. The correction is specific to d=0; published positive-d weak-focus classification does not equal it.",
+        "searches": [
+          "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free",
+          "DOI:10.3390/math10244682 Section 2 equilibrium assertion",
+          "published-result:13b12c787cd2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original article tabulates generic equilibria and spectral cubics, not a true d=0 two-point classification; no independent exact table found."
+        ],
+        "reasoning": "The two characteristic polynomials are obtainable by specializing the source formulas, so they are not new standalone spectral computations. The only potentially new content is the consistency correction, exact boundary exhaustiveness and joint phase-space interpretation.",
+        "searches": [
+          "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free",
+          "DOI:10.3390/math10244682 equations for S1 S2 S3"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical statements and implications against named primary sources, published findings and exact source-object searches. The current Resultary hit for the very assignment under audit is not independent novelty evidence. A mirror of this assigned 2026-10-11 finding returned as the highest-ranked Resultary hit is not counted as independent prior art.",
+      "residual_risks": [
+        "Much of the algebra appears already in generic-parameter formulas of the primary source; the exact boundary correction is narrow and easy, with risk that another erratum gives it.",
+        "No claim about global d=0 dynamics, invariant-set boundedness or degenerate abc=0 hyperplanes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit prose is contradicted by the printed equations. General-d spectra already contain the two limiting cubics; corrected boundary exhaustiveness is not stated.",
+          "evidence": [
+            "Sec. 2 original system, equilibria S1/S2/S3; chi_S1 and chi_S2"
+          ],
+          "identifier_or_url": "DOI:10.3390/math10244682; https://www.mdpi.com/2227-7390/10/24/4682",
+          "material_read": "Publisher full text Section 2: printed flow, assertion of unique zero-dissipation equilibrium, S1/S2/S3 formulas, Jacobian characteristic equations, divergence; later numerical examples have d>0",
+          "method": "Publisher HTML sections read and equations compared directly; later repeated fetch received HTTP 429",
+          "title": "Dynamical Analysis of a One- and Two-Scroll Chaotic System",
+          "trigger": "Identical flow and explicit disputed d=0 statement"
+        },
+        {
+          "assessment": "Not covering exceptional d=0 E0/E1 classification; not a full-document negative claim.",
+          "evidence": [
+            "published-result:13b12c787cd2"
+          ],
+          "identifier_or_url": "published-result:13b12c787cd2",
+          "material_read": "Resultary published summary describing S3 weak-focus for d>0; primary package not reread in this run",
+          "method": "Semantic finding comparison on hypotheses and objects",
+          "title": "A generic weak-focus criterion at the nominal center of a three-dimensional scroll flow",
+          "trigger": "Same vector field, possible dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The d=0 boundary is the natural divergence-free limit of a named scroll flow, not an arbitrary substitution. Correcting the literature’s false uniqueness count supplies the missing hyperbolic saddle branch and its complementary unstable dimension to support local bifurcation and separatrix analysis. Its significance is bounded to faithful zero-dissipation phase-space description, not a broad new chaos theorem. The characteristic cubics alone are routine; the coupled exhaustiveness-and-misclassification correction provides the justification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 82b708f01cb28a131044bde5303b50efd94a32d1, RESULT.md, snapshot 026b884693e594bc52ea00eb4cefced8d8e1df95",
+    "Git verify.py blob 051a74e8f29ae1e111f3fa32fe023eb014fb9056",
+    "DOI:10.3390/math10244682 publisher Section 2",
+    "published-result:13b12c787cd2",
+    "Resultary semantic query: Liu Wu Fu scroll flow d=0 equilibria origin (b,-c,a) hyperbolic divergence free"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "abc=0 degeneracies not classified; no global bifurcations, chaos or boundedness proved.",
+    "Originality and value arise from rectifying a false natural-boundary statement; the constituent spectral formulas were present in the source."
+  ],
+  "schema_version": 1
+}
