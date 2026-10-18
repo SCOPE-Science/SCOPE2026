@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,36 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-The verifier checks the explicit chronological forcing sequence for every integer \\(2\le q\le9\\) in the abstract image-kernel type graph. It exhaustively enumerates every type profile for \\(q=2\\) and \\(q=3\\), confirming that the largest reducible white profiles have sizes \\(4\\) and \\(6\\) and that every reducible profile is acyclic.
+## correctness
 
-It then constructs the full nonzero singular-matrix graph directly over \\(\mathbb F_2\\), \\(\mathbb F_3\\), and \\(\mathbb F_5\\), computes every pairwise zero-product adjacency, and checks agreement with the image-kernel criterion. The observed vertex counts are \\(9\\), \\(32\\), and \\(144\\), exactly matching \\((q-1)(q+1)^2\\).
+PASS
 
-For \\(q\ge3\\), it also checks an auxiliary \\(K_{2q+1}\\)-minor construction. That computation is additional corroboration and is not used to prove the zero forcing lower bound.
+Every nonzero singular 2x2 matrix has rank 1; there are q+1 image lines I, q+1 kernel lines K, and q-1 nonzero maps of each type T_{I,K}. AB=0 iff im(B)=ker(A), giving complete adjacency between distinct types when J=K or L=I; diagonal type T_{I,I} is a clique, offdiagonal type independent. Two white vertices of the same true/false twin type cannot be individually forced; q=2 types are singleton. Encode remaining white types as edges of a bipartite graph on two copies of P^1(Fq). Each legal force deletes a degree-1 edge; a fully reducible edge set is acyclic. A spanning tree with 2q+1 edges has every row/column occupied, so no blue source with a singleton union of incident row and column can make an initial force (such a union of size 1 would imply an isolated K2 component). Thus at most 2q whites; source's explicit two-star-like 2q white edge set has a legal force sequence including q=2 blue-source boundary. Independent enumeration of all image/kernel type patterns for q=2 and q=3 confirms maxima 4 and 6 and counts, while proof holds for all prime powers.
 
-Exact replay output:
+## originality
 
-```text
-q=2: N=9, explicit forcing set size=5, omitted=4
-q=3: N=32, explicit forcing set size=26, omitted=6
-q=4: N=75, explicit forcing set size=67, omitted=8
-q=5: N=144, explicit forcing set size=134, omitted=10
-q=6: N=245, explicit forcing set size=233, omitted=12
-q=7: N=384, explicit forcing set size=370, omitted=14
-q=8: N=567, explicit forcing set size=551, omitted=16
-q=9: N=800, explicit forcing set size=782, omitted=18
-q=2: exhaustive type profiles max omitted=4, profile_count=108
-q=3: exhaustive type profiles max omitted=6, profile_count=4752
-F_2: direct M2 multiplication matches image-kernel graph on 9 vertices
-F_3: direct M2 multiplication matches image-kernel graph on 32 vertices
-F_5: direct M2 multiplication matches image-kernel graph on 144 vertices
-q=3: explicit K_7 minor certificate OK
-q=4: explicit K_9 minor certificate OK
-q=5: explicit K_11 minor certificate OK
-q=7: explicit K_15 minor certificate OK
-q=9: explicit K_19 minor certificate OK
-VERIFY_OK
-```
+PASS
 
-The exhaustive computations are finite checks. The arbitrary-prime-power result rests on the symbolic rank-one decomposition, the bipartite forest obstruction, and the explicit force sequence.
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. Equivalent coverage requires undirected rank-one zero-product graph zero-forcing Z for every q, not rank-one domination, a different graph operation or mere twin partition. No checked source gives forest forcing criterion.
+
+## value
+
+PASS
+
+The zero-divisor graph of a full 2x2 matrix algebra is a canonical noncommutative ring graph; the theorem determines the sharp forcing number uniformly for all finite fields and identifies a reusable structural rank-one image-kernel forest elimination mechanism. Unlike a tiny finite recomputation, it classifies an infinite natural graph family, including q=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
