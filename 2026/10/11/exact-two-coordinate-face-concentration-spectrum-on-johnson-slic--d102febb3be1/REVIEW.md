@@ -1,11 +1,21 @@
-# Scientific review: Johnson two-coordinate-face concentration spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** The assertion is an exact full-multiset statement on all Johnson slices with \(n\ge2k\ge4\) and \(0\le L<k\). The proof checks the harmonic up/down commutator and lift normalization, the multiplicity \(\binom{n-2}{t}-\binom{n-2}{t-1}\), the two-coordinate degree filtration, and the scalar hypergeometric rank-one compression. Its first two moments give exactly \(B_t\) and \(A_t\). The case \(L=0\) is handled separately, and the exceptional \(B_{k-1}=0\) is counted as zero rather than divided by. Exact rational verification of 23 finite parameter triples and a spectral annihilator backs up, but does not replace, the all-parameter proof. No approximate diagonalization or unsupported infinite extrapolation occurs.
+## correctness
 
-**Originality: PASS, with stated residual risk.** Scarabotti--Tolli (arXiv:math/0701533, relevant representation-theoretic sections) and Filmus (arXiv:1406.0142, explicit orthogonal slice basis) provide the harmonic framework but not this two-coordinate face spectrum. Dunkl (DOI 10.1137/0509043, full eleven-page historical article inspected) proves a Hahn spherical-function addition formula and branching, not the eigenvalues of the spatially compressed cumulative Johnson projector. Bernard--Crampé--Vinet (arXiv:2104.11581, complete spatial-limiting analysis consulted) treats unions of distance shells relative to a reference \(k\)-subset. Containing a **specified pair** is not a union of those shells in general. Published-result and source/alias queries were checked for mathematical implication, not merely matching titles. No directly stronger covering statement was found; older unindexed association-scheme evaluations remain a bounded originality risk, not a claim of exhaustive novelty.
+PASS
 
-**Value: PASS.** The coordinate face is a natural family of constant-weight configurations, and a cumulative Johnson bandwidth is the canonical spectral cutoff. The theorem determines every concentration eigenvalue and multiplicity from two rational boundary terms, the precise restriction rank, and all entropy-type traces without diagonalizing growing matrices. It addresses a structurally meaningful two-coordinate localization problem not settled by a single-idempotent endpoint norm or a generic Johnson spherical-function table; it is not an arbitrary finite parameter slice.
+The up/down commutator on the n-2 residual coordinates yields orthogonal harmonic lifts with multiplicity d_t. Conditioning on a degree-t residual harmonic reduces the symmetric special-coordinate multiplicity space to a hypergeometric random variable R∈{0,1,2} with effective N_t=n-2t,K_t=k-t. The face indicator is the rank-one event R=2; compression to polynomials deg<=L-t gives 1 for deg>=2, the explicit A_t in deg=1, and B_t in deg=0. Swap-antisymmetric sectors vanish on R=2. Summing harmonic dimensions yields all eigenvalues, zero multiplicity, and rank, including degenerate B_(k-1)=0. Independently constructed polynomial evaluation projectors, not the supplied Johnson adjacency interpolation, matched exact eigenvalues and multiplicities for six (n,k,L) triples. Finite tests corroborate the general commutator proof.
 
-**Limitations.** Neither larger coordinate faces nor arbitrary spectral masks are classified, and the result has not undergone independent audit. The primary literature comparisons distinguish exact claims from general calculational frameworks; a future discovery of a historically equivalent specialization could alter the originality assessment.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.
+
+## value
+
+PASS
+
+Bandlimited concentration on the natural codimension-two coordinate face has a complete rational spectrum, sharp restriction rank and full entropy trace from two boundary eigenvalues. This is a reusable exact sampling and information-theoretic invariant of a highly symmetric combinatorial space, not a routine restatement of the general Johnson eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
