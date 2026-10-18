@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:59:52.245525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Uniform spherical directions U are Gaussian directions Z/||Z||; this removes a w-independent radial log term and reduces the geometric-mean width to E log max_i sqrt(w_i)|Z_i|. For d=3 the probability that coordinate i wins is (2/π) arctan(w_i/q) with q=sqrt(w1w2+w1w3+w2w3), obtained by the two opposite rectangular-cone solid angles. Its derivative is arctan(w_i/q)/(πw_i), strictly decreasing in w_i at fixed q, proving Schur concavity via pair balancing and continuity to the closed simplex; the planar edge case follows likewise. The d≥4 violation uses a=(1/3,1/3,1/3,0...), b=(8/25,8/25,8/25,1/25,0...); a majorizes b but F(b)-F(a)≤0.5 log(24/25)+1/(6√2π²)=-0.008470181254903494...<0. The bound follows from an exact t³ small-ball estimate and E|Z|³; mixing both weights with uniform positive weights preserves the strict reversal. This is not inferred from finite quadrature or the packaged VERIFY_OK claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ambrus states regular crosspolytopes minimize arithmetic mean width; here regular profiles maximize geometric-mean width for d≤3.",
+          "Kabluchko–Litvak–Zaporozhets treat regular polytope Gaussian width moments, not arbitrary squared semiaxes majorization of E log max."
+        ],
+        "reasoning": "A universal stochastic-order theorem could imply both log and arithmetic extrema, but the source ordinary expectation comparisons do not imply one and would not give the d=4 signed reversal.",
+        "searches": [
+          "Resultary: log geometric mean width orthogonal crosspolytope Schur concavity Gaussian maxima three dimension majorization",
+          "arXiv:1208.5923v2 Theorems 1-3",
+          "arXiv:1511.08479 regular polytope width moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob fd49496ed20a069ddf333f862e236c525262e762 and verify.py 1071c1648831d1152f9ecca09773017d988719a8",
+        "arXiv:1208.5923v2 primary full text, Theorems 1-3",
+        "arXiv:1112.0499 title/abstract",
+        "arXiv:1511.08479 title/abstract",
+        "Resultary Gaussian log-mean Schur-majorization search and related crosspolytope records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ambrus arithmetic expectation theorem has opposite extremal direction in low dimension for the corresponding same crosspolytope family.",
+          "Source moment theorems are regular/equicorrelated rather than arbitrary-axis E log max."
+        ],
+        "reasoning": "There is no logical implication from an arithmetic expectation ordering to an ordering of expected logarithms; the new explicit solid-angle gradient and cubic small-ball obstruction are separate statements.",
+        "searches": [
+          "arXiv:1208.5923v2 Theorem 1 and Theorem 3",
+          "arXiv:1511.08479 and arXiv:1112.0499"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L_d(w)=log2+E log max_i sqrt(w_i)|Z_i|-E log||Z||; the Gaussian logarithmic-maximum formulation is exactly equivalent.",
+          "The arithmetic mean width is E max_i sqrt(w_i)|Z_i|, not its logarithmic expectation."
+        ],
+        "reasoning": "No identity such as log(E max)=E log max holds; the two functionals must be compared by their mathematical statements and not conflated.",
+        "searches": [
+          "Resultary: log geometric mean width orthogonal crosspolytope Schur concavity Gaussian maxima three dimension majorization",
+          "arXiv:1208.5923 Theorems 1-3",
+          "Gaussian coordinate maximum logarithmic expectations Schur-concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Regular crosspolytope moments/table values concern one symmetric weight profile.",
+          "Claim uses every w in closed simplex d=2,3, a strict majorization comparison, and a family of explicit d≥4 reversals, which finite tables cannot establish."
+        ],
+        "reasoning": "Known regular evaluations are insufficient for strict all-weight Schur concavity or a dimension cutoff; the exact small-ball argument supplies an infinite family.",
+        "searches": [
+          "Resultary: log geometric mean width orthogonal crosspolytope Schur concavity Gaussian maxima three dimension majorization",
+          "arXiv:1112.0499 regular crosspolytope mean width",
+          "arXiv:1511.08479 regular polytopes"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Ambrus's primary theorems optimize the ordinary arithmetic mean of Gaussian maxima and orthogonal crosspolytope widths. The logarithmic/geometric mean reverses the extremality direction in d=3, and the explicit d=4 obstruction plus d=2,3 strict Schur law is not a corollary of those ordinary-mean statements. Related regular-polytope moment results do not handle all arbitrary-axis weight vectors in this logarithmic functional.",
+      "residual_risks": [
+        "A highly general Gaussian stochastic/logarithmic comparison theorem could dominate the exact criterion even without matching crosspolytope terminology; no universal priority claim is possible.",
+        "The counterexample proves failure of Schur concavity, not a classification of all higher-dimension global maxima."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes ARITHMETIC mean-width optimization; neither E log max majorization nor its dimension-three/four cutoff",
+          "evidence": [
+            "Theorem 1 minimizes ordinary expected Gaussian maximum at equal axes, unlike logarithmic width where equal axes maximize in d=3."
+          ],
+          "identifier_or_url": "arXiv:1208.5923v2; https://arxiv.org/abs/1208.5923",
+          "material_read": "Complete accessible 10-page primary preprint: Theorems 1–3 and Section 2 Gaussian reduction, PDF text and page image",
+          "method": "Read primary full paper in PDF extracted text plus screenshot of its initial theorem page",
+          "title": "Extremal cross-polytopes and Gaussian vectors",
+          "trigger": "Same orthogonal crosspolytope and Gaussian-maximum functional"
+        },
+        {
+          "assessment": "Regular arithmetic mean width only, not this all-weight log functional",
+          "evidence": [
+            "Regular crosspolytope E max, different from E log max."
+          ],
+          "identifier_or_url": "arXiv:1112.0499",
+          "material_read": "Abstract and targeted descriptions; no full text audited",
+          "method": "Bibliographic search",
+          "title": "Mean Width of a Regular Cross-Polytope",
+          "trigger": "Known regular mean-width exact calculation"
+        },
+        {
+          "assessment": "Regular/equicorrelated moment setting does not imply arbitrary orthogonal-axis log-majorization inequality",
+          "evidence": [
+            "Width moments of regular polytopes and expected correlated Gaussian maxima, rather than all weights w."
+          ],
+          "identifier_or_url": "arXiv:1511.08479",
+          "material_read": "Abstract and accessible identified results on regular-polytopes, no exhaustive full-text inspection",
+          "method": "Targeted literature comparison",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Potential dominating Gaussian maxima moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The geometric mean of widths is a canonical multiplicative/lower-tail-sensitive width functional. The complete strict dimension-two/three majorization law and exact dimension-four obstruction expose a genuine structural cutoff, with exact signed gap and stability under full-dimensional perturbation. This is a motivated geometry/probability theorem, not a table computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero weights occur only as boundary limits; full-dimensional counterexamples follow by small mixing, not by assuming a degenerate polytope is full-dimensional.",
+    "The bound on the exhibited gap is rigorous analytic; the supplied quadrature is not the proof."
+  ],
+  "schema_version": 1
+}

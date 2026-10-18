@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support function and Gaussian polar decomposition identify the statistic without changing normalization. The three-dimensional winner probability is an elementary rectangular solid angle computed by the double integral in the proof; its normalized probability gives the exact gradient. The scalar derivative comparison forces strict increase under pairwise balancing. Boundary continuity and the two-coordinate restriction establish all equality cases. The dimension-four counterexample is proved by a cubic small-ball bound for three Gaussian coordinates, not an asymptotic guess; normalization, exponent, constant, and full-dimensional perturbation were separately checked. The verifier uses independent half-normal maximum-density quadrature; it is supportive evidence rather than a proof.
+PASS
 
-## Originality — PASS, with risk
+PASS: Uniform spherical directions U are Gaussian directions Z/||Z||; this removes a w-independent radial log term and reduces the geometric-mean width to E log max_i sqrt(w_i)|Z_i|. For d=3 the probability that coordinate i wins is (2/π) arctan(w_i/q) with q=sqrt(w1w2+w1w3+w2w3), obtained by the two opposite rectangular-cone solid angles. Its derivative is arctan(w_i/q)/(πw_i), strictly decreasing in w_i at fixed q, proving Schur concavity via pair balancing and continuity to the closed simplex; the planar edge case follows likewise. The d≥4 violation uses a=(1/3,1/3,1/3,0...), b=(8/25,8/25,8/25,1/25,0...); a majorizes b but F(b)-F(a)≤0.5 log(24/25)+1/(6√2π²)=-0.008470181254903494...<0. The bound follows from an exact t³ small-ball estimate and E|Z|³; mixing both weights with uniform positive weights preserves the strict reversal. This is not inferred from finite quadrature or the packaged VERIFY_OK claim.
 
-The most relevant full-text source is Ambrus (arXiv:1208.5923, Theorems 1–3 and Sections 1–3). It optimizes the *expectation* of a Gaussian maximum, equivalent to the arithmetic mean width, and not the expectation of its logarithm. Its opposite regular-body extremal direction in dimension three and its ordinary moment method do not imply the claim. Finch's regular-case mean width and Kabluchko–Litvak–Zaporozhets's regular-polytope moment and distribution formulas likewise do not cover arbitrary-axis logarithmic Schur concavity or the dimensional obstruction. published-finding corpus semantic comparisons disclosed related crosspolytope-section, parallelotope-section-width, and orthogonal-disk mean-width results, each for a different invariant. Residual risk: an older Gaussian log-maximum or logarithmic-width inequality could have been published under alternative terminology. No exhaustive novelty or independent certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The geometric mean, unlike the arithmetic mean, is sensitive to small directional widths. The result determines its entire low-dimensional majorization order, a unique extremal shape, a closed-form gradient, and a *sharp* failure threshold at dimension four. This gives a structural boundary to transferring classical mean-width optimization arguments to logarithmic width functionals and a quantitative rational-axis counterexample that survives genuine full-dimensional perturbations. These are natural invariant and dimension-boundary questions rather than a parameter substitution.
+PASS (best knowledge): Ambrus's primary theorems optimize the ordinary arithmetic mean of Gaussian maxima and orthogonal crosspolytope widths. The logarithmic/geometric mean reverses the extremality direction in d=3, and the explicit d=4 obstruction plus d=2,3 strict Schur law is not a corollary of those ordinary-mean statements. Related regular-polytope moment results do not handle all arbitrary-axis weight vectors in this logarithmic functional.
 
-## Limitations
+## value
 
-The high-dimensional result does not determine global extrema. The full-dimensional failure follows qualitatively by continuity; a universal perturbation size is not claimed. Older literature under alternate terminology remains an originality risk. The present review is not independent.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: The geometric mean of widths is a canonical multiplicative/lower-tail-sensitive width functional. The complete strict dimension-two/three majorization law and exact dimension-four obstruction expose a genuine structural cutoff, with exact signed gap and stability under full-dimensional perturbation. This is a motivated geometry/probability theorem, not a table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
