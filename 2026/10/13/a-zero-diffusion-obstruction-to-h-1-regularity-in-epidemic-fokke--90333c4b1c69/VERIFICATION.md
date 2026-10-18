@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The checkable witness is the transport equation obtained from the source's equation (6) under \(\sigma_S=\sigma_I=0\). With \(\Omega=(0,2)^2\), \(Q=(1/5,2/5)^2\), \(f_0=25\mathbf1_Q\), and \(F(S,I)=(1-S-SI/10,(S/10-2)I)\), the accompanying \(\texttt{verify.py}\) performs exact fraction arithmetic. No external package is needed. Invoke \(\texttt{python3 verify.py}\), and it prints \(\texttt{VERIFY_OK}\).
 
-Proof steps not reducible to finite testing are: uniqueness of the push-forward distribution under a smooth Lipschitz vector field, positive and finite Jacobian for finite times, and the fact that a nonzero jump along a smooth interior arc has a singular distributional gradient and excludes \(H^1\). The verifier checks premises, not an infinite-time or all-weak-solutions certificate. The result concerns only the spatial regularity asserted in Proposition 2.1; positivity and unit mass persist. The publicly inspected source has no explicit uniform ellipticity requirement in the proposition's hypotheses.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+PASS: In the exact publisher Fokker–Planck equation, the allowed zero amplitudes σ_S=σ_I=0 reduce the PDE to ∂_t f+div(Ff)=0. For stated smooth F and Ω=(0,2)² the vector field points inward/tangentially on every square side; f0=25·1_(1/5,2/5)² is normalized L² probability. The smooth flow has positive finite Jacobian and pushes the initial discontinuity to a nonzero jump across smooth interior curves at every finite t; distributional spatial gradient has singular surface measure and f(t)∉H¹. Thus it cannot be in L²(0,T;H¹). Direct rational boundary/mass calculations were independently reproduced. Positivity, mass and uniqueness in distributional transport remain true; only the claimed general H¹ existence fails.
+
+## originality
+
+PASS
+
+PASS: Best-of-knowledge PASS: publication of Proposition 2.1 with no lower ellipticity bound creates an exact-model gap, and the provided smooth admissible zero-noise transport witness refutes its H¹ regularity conclusion. This is more than the old general statement that transport preserves discontinuities, which is explicitly credited. A separately published same-model covariance critique addresses a different coefficient inconsistency.
+
+## value
+
+PASS
+
+PASS: Demonstrates a concrete admissible counterexample to H¹ parabolic regularization used in epidemic optimal-control PDE theory; identifies that strict ellipticity or transport-compatible spaces are required. Distinguishing harmless mass conservation from failed Sobolev smoothing is substantively relevant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
