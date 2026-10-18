@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The free \(p\)-convex lattice norm is taken from the explicit functional model in arXiv:2101.03510, not postulated. The weak-summability constraint is exactly the maximum of the \(p\)-power column sums for \(E=\ell_1^n\). The upper bound follows by summing those column constraints; the lower bound is attained by the complete orbit of any unit dual vector under a transitive group, scaled so that **every column sum equals one**. Finite-dimensional function-space representation supplies surjectivity onto \(C(S_p/G)\). The free AM-space endpoint, norm-one Reynolds projection, non-AM ambient witness, and order-statistic values are treated separately. The standalone rational checker tests finite witnesses, not universal quantifiers.
+## correctness
 
-## Originality — PASS, with remaining literature risk
-The most direct sources are the general free-lattice norm of Jardón-Sánchez et al. (arXiv:2101.03510) and finite-dimensional lattice-function identifications in Oikhberg et al. (arXiv:2210.00614) and Laustsen–Tradacete (arXiv:2404.06497). They cover the **model**, not the precise orbit-saturated equality or isometric fixed-point AM-space phenomenon. Oikhberg (arXiv:2303.05209) studies geometry of full balls. The published comparison does not produce the exact transitive invariant formula by a stated theorem; the new orbit argument is needed. A differently indexed symmetrization theorem could still imply the result and remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies the entire invariant Banach lattice, for every dimension, exponent and transitive permutation group, with exact isometric norm rather than only Banach-lattice equivalence. The sharp AM/non-AM contrast and explicit order-statistic values provide structural and quantitative consequences. This is not an arbitrary finite census or simple recomputation of a known table.
+From the actual p-convex free-lattice functional norm over dual rows v_r, the ℓ1 base unit ball implies the weak-p row constraint max_j Σ_r |v_{rj}|^p<=1. With M=max_{||u||p=1}|f(u)|, homogeneity gives Σ|f(v_r)|^p<=M^p Σ_j Σ_r |v_{rj}|^p<=nM^p. For any unit u, the orbit rows v_g=(n/|G|)^{1/p}gu have EXACTLY unit column p-energy by transitivity, and invariant f has Σ_g|f(v_g)|^p=n|f(u)|^p. Thus exact norm n^(1/p)M; for p=∞ the free AM norm is sup. Finite-dimensional free lattice represents all continuous positively homogeneous functions on the dual sphere; scaling and quotient invariance give onto C(S_p/G). Averaging G gives norm-one positive projection but not lattice-homomorphic averaging. Disjoint h=(|u1|-|u2|)+ and k reversed each norm1 while h∨k has norm 2^(1/p)>1 for finite p. Rearrangement s_k has norm (n/k)^(1/p). Independently rechecked orbit column identity for n=4, p=2 and inspected original verify_orbit.py. No finite example proves all dimensions, which follow from the analytic orbit identity.
 
-## Limitations
-Real scalars, finite coordinate dimension, and transitive coordinate permutations. No nontransitive classification and no independent external validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Checked primary free p-convex lattice norm and finite-dimensional homogeneous function-space results. Jardón-Sánchez–Laustsen–Taylor–Tradacete–Troitsky prove the general free p-convex norm functional model; Laustsen–Tradacete identify underlying finite-dimensional continuous-function lattices, but they do not establish a transitive-coordinate fixed-point ISOMETRIC norm equality n^(1/p) max or its norm-one complemented AM sublattice. The orbit-saturation proof is genuinely additional. Resultary semantic aliases for transitive permutation invariants, cyclic orbit averages, fixed-point AM-space and exact multiplier returned the assigned research statement and unrelated lattice invariants, not a distinct prior theorem. Best-of-knowledge acceptance records unindexed invariant-subspace possibility rather than treating failed searches as a novelty proof.
+
+## value
+
+PASS
+
+Every transitive subgroup (including a small cyclic subgroup) produces an explicit norm-one-complemented AM-space inside a free p-convex lattice that itself violates the disjoint-supremum AM identity, with exact renorming constant and quotient representation. This is structural information about free Banach lattices and symmetry, not just routine substitution in a scalar norm; the contrast and sharp orbit witness give mathematical motivation independent of reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
