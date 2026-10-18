@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The unique first seat is the maximum support for both rules. Direct derivation of the second-step PAV marginal and Phragmén total load produces inequalities (1). Integer cases for equal, greater, and smaller remaining-candidate support exclude all n<9 and all other n=9 profiles. The displayed nine-voter ballot profile satisfies strict inequalities, and C-only voter additions preserve them for every larger electorate. The self-contained exact-rational checker verifies all 11,439 anonymous profiles at n<=9 independently by each algorithm; 6 strict disagreements, precisely one orbit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson arXiv:1611.08826 Sections 11 and 13 give agreement on party-list profiles and examples of disagreement with different support distributions.",
+        "Lackner and Skowron Springer Chapter 2 gives generic methods, not a covering exact minimality result."
+      ],
+      "reasoning": "A general theorem that all three-candidate two-seat profiles below nine agree strictly and classifies the first counterexamples would subsume the claim; none was located. Proportionality, justified representation, homogeneity, and a large separating example do not entail these exact numerical bounds. A hidden general rule-comparison theorem remains a genuine possibility.",
+      "searches": [
+        "\"seq-PAV\" \"seq-Phragmen\" \"three candidates\" first diverge",
+        "social choice sequential Phragmen PAV minimal counterexample disagreements finite profile",
+        "arxiv:1611.08826 Section 13 and Theorem 11.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1611.08826",
+      "doi:10.1007/978-3-031-09016-5_2",
+      "doi:10.1007/s00355-023-01498-8",
+      "doi:10.1609/aaai.v31i1.10598"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson 2016 Example 13.6 gives 2000 votes of a shared type, 1000 of a second shared type, and 550 single-party votes, with differing two-seat outcomes.",
+        "Janson Example 13.5 exhibits divergence only for later seats, while Example 13.8 uses four candidates, not three."
+      ],
+      "reasoning": "The existing two-seat example establishes that disagreement is possible, but its large electorate cannot logically prove the sharp nine-voter lower bound, all six first-layer profiles, or the exact all-n extension. These statements were therefore tested directly. This does not assert absence of all further prior art.",
+      "searches": [
+        "\"Phragmén\" \"Thiele\" \"nine voters\" \"two seats\"",
+        "\"Phragmén\" \"Thiele\" \"9 voters\" two seats",
+        "arxiv:1611.08826 Example 13.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson arXiv:1611.08826 Section 4.2 identifies harmonic Thiele addition as sequential PAV, and Section 3 defines Phragmén load; Example 13.6 uses two seats but much larger electorate.",
+        "Lackner and Skowron DOI:10.1007/978-3-031-09016-5_2 Sections 2.3 and 2.5 define the same two algorithms."
+      ],
+      "reasoning": "Checked historical Thiele addition and current seq-PAV nomenclature, plus the load/cost/time/reduced-vote formulations of seq-Phragmén. The claim is invariant under candidate relabeling and under either equivalent method description. Existing illustrated separations imply existence only, not the minimum electorate and entire first layer.",
+      "searches": [
+        "sequential Phragmen sequential PAV smallest example 3 candidates 2 seats 9 voters",
+        "\"Phragmén\" \"sequential PAV\" \"minimal\" \"example\"",
+        "arxiv:1611.08826 Sections 3, 4.2, 13.5-13.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source gives explicit examples rather than a 1-to-9 voter census.",
+        "The supplied standalone verifier exhausts 11,439 distinct anonymous profiles across 1 to 9 voters and finds exactly 6 strict divergence profiles at 9."
+      ],
+      "reasoning": "An online election-rule calculator can evaluate individual profiles but does not itself constitute a published complete exact table for the stated domain. No covering published table was identified. The finite census provides a direct mathematical verification, not proof of publication priority.",
+      "searches": [
+        "social choice sequential Phragmen PAV minimal counterexample disagreements finite profile",
+        "sequential Phragmen sequential PAV smallest example 3 candidates 2 seats 9 voters",
+        "pref.tools/abcvoting and arxiv:1611.08826 Section 13"
+      ]
+    },
+    "rationale": "The exact n=9 cutoff, its six-profile complete classification, and the all-size witness extension are more specific than the established existence of large separating examples and are not deduced by those examples alone. Closest paper Janson 2016, Section 13, already documents that the rules disagree and even supplies a two-seat example with much larger vote counts. The exact minimal strict profile classification was not identified in the accessible primary literature searches, with residual publication-priority risk explicitly retained.",
+    "residual_risks": [
+      "An unlocated or inaccessible exact minimization/census theorem could cover the nine-voter cutoff; neither keyword searches nor a semantic database search proves universal novelty.",
+      "The core historical paper already includes similar qualitative two-seat disagreements, so the priority claim is confined to the strict sharp minimum and complete first orbit.",
+      "Other definitions of Phragmén or different tie-breaking conventions can give different answers; the result uses the precise standard greedy voter-load rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines both methods, provides historical large separating instances but no stated minimum nine-voter strict boundary",
+        "evidence": "Section 4.2 pp14-15 defines harmonic Thiele addition; Sections 13.5-13.8 pp29-32 include direct comparisons, with Example 13.6 differing at two seats using 3550 voters.",
+        "identifier_or_url": "https://arxiv.org/pdf/1611.08826",
+        "material_read": "Full-text Sections 3 and 4.2, and the Section 13 examples and comparisons, particularly 13.3–13.9",
+        "method": "Inspected searchable full-PDF text and rendered pages around examples 13.3–13.9",
+        "title": "Phragmén's and Thiele's election methods",
+        "trigger": "Closest direct primary comparison of precisely the two original rules"
+      },
+      {
+        "assessment": "Method definitions agree; no exact minimal strict disagreement profile classification in inspected portions",
+        "evidence": "Rule 5 greedy PAV objective; Rule 9 Phragmén voter-load recurrence and continuous implementation.",
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-09016-5_2",
+        "material_read": "Full HTML content on sequential Thiele methods Section 2.3 and sequential Phragmén Section 2.5, plus accompanying examples",
+        "method": "Read academic publisher HTML mathematical definitions and examples",
+        "title": "Dramatis Personae: ABC Rules",
+        "trigger": "Contemporary authoritative direct description of seq-PAV and seq-Phragmén"
+      },
+      {
+        "assessment": "Concerns dynamic ranking variants, proportionality, and satisfaction monotonicity, not the exact three-candidate two-seat static boundary",
+        "evidence": "Introduction and contribution statements on dynamic ranking rules and generalizations.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00355-023-01498-8",
+        "material_read": "Abstract, introduction and descriptions of the stated new ranking contributions",
+        "method": "Read accessible full-text publisher article portions",
+        "title": "Dynamic proportional rankings",
+        "trigger": "Related generalization of Phragmén and Thiele ranking procedures"
+      },
+      {
+        "assessment": "Addresses PJR and representation, which does not cover an exact minimal strict comparison with seq-PAV",
+        "evidence": "Abstract states the focus on representation and PJR of Phragmén variants.",
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/10598",
+        "material_read": "Authoritative journal abstract and bibliographic metadata; full body not inspected",
+        "method": "Read primary publisher record and abstract",
+        "title": "Phragmén’s Voting Methods and Justified Representation",
+        "trigger": "Foundational axiomatic paper on the standard Phragmén rule"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77e860f0-9d7a-4a6d-b3ac-78226392da83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The candidate count three and two-seat committee are the first possible nontrivial domain in which these two proportional approval algorithms can disagree: k=1 is identical approval voting and m=k=2 elects all candidates. The sharp nine-voter electorate threshold and complete one-orbit classification precisely identify the first genuine distinction and provide a tiny canonical test instance. The result clarifies the mathematical cost-sharing distinction underlying established large examples rather than choosing an arbitrary finite sample.",
+    "status": "PASS"
+  }
+}
