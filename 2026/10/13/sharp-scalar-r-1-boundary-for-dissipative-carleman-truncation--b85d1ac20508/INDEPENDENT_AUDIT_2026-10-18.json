@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:50:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b,u0>0 and unforced scalar u'= -a u-b u^2, R=b*u0/a. Reciprocal transformation solves u=u0 e^-at/(1+R(1-e^-at)). Monomial Carleman lift is upper bidiagonal y_j'=-ja y_j-jb y_(j+1). Order-N finite-section first component is u0 e^-at sum_{k=0}^{N-1}(-R(1-e^-at))^k, giving exact relative error z(t)^N. Finite-horizon uniform convergence iff z(T)<1; R>1 critical time tc=a^-1 log[R/(R-1)]. On infinite half line uniform absolute convergence iff R<=1; at R=1 optimizing x(1-x)^N/(2-x) yields x_N=(N+1-sqrt(N^2+1))/N and u0/(2eN) asymptotic. Under source scaling c/a=(1+R)/2, alternating vector Rayleigh quotient (N/2)[(c-a)N-(a+c)] positive for N>(R+3)/(R-1); the latter is a sufficient order, not minimal. Independent exact rational finite checks corroborate the closed forms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forets–Pouly error bounds are general and local, not stated necessary/sufficient global R criterion.",
+          "Li–An explicitly include tested R>1 cases on limited horizons, which do not imply universal all-time convergence.",
+          "2025 recurrence yields formulas for small N; the exact series remainder is derivable using additional finite-section solution."
+        ],
+        "reasoning": "A broad error bound could in principle subsume scalar case after specializing, so checked implications and exact scope rather than mere titles. No inspected stronger statement directly supplies all four sharp boundary consequences.",
+        "searches": [
+          "Forets and Pouly arXiv:1711.02552 full paper explicit Carleman error bounds",
+          "Li and An arXiv:2608.25822v1 R<1 sufficient theorem",
+          "Muñoz-Sánchez Elena Oteo DOI:10.1088/1402-4896/add65a Riccati recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 43814abdaa67a283da570f7499befc98f5f056de",
+        "arXiv:2608.25822v1 abstract/technical available descriptions",
+        "DOI:10.1088/1402-4896/add65a full OA publisher HTML, sections 3.1/7/appendix, exact author byline",
+        "arXiv:1711.02552 primary PDF",
+        "Resultary 2026-10-18 focused semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R<1 sufficiency does not entail failure for every R>1, critical N^-1 convergence at R=1, or a source-scaled Rayleigh positive direction.",
+          "2025 same-equation recurrence implies the geometric formula after additional full finite-section solution and optimization, but does not itself state the trichotomy."
+        ],
+        "reasoning": "The contribution is a sharp all-time classification for one stable family and a separate order-dependent dissipativity obstruction. Standard geometric-series algebra is used, but the precise boundary is not mechanically stated by prior results.",
+        "searches": [
+          "Li and An arXiv:2608.25822 sufficient R<1 and numerical R>1",
+          "Muñoz-Sánchez Elena Oteo 2025 section 3.1 Riccati zero-closure approximation",
+          "Forets-Pouly 2017 explicit local error theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 primary OA Carleman paper studies Type A Riccati monomial finite sections and low-order examples.",
+          "Closest Resultary hits concern other numerical-ODE truncation schemes, not this scalar R boundary."
+        ],
+        "reasoning": "Equivalent Riccati/logistic, Carleman finite sections, exact geometric remainder and long-time convergence were considered. The core finite-section recurrence is known, but the full particular sharp interpretation is an additional all-N statement, not a claim of a new recurrence.",
+        "searches": [
+          "Resultary semantic query scalar dissipative Riccati Carleman truncation R=1 convergence exact error uniform finite horizon",
+          "web Carleman approximants nonlinear differential systems Riccati truncation exact relative error",
+          "arXiv:2608.25822 Li An scalar R Carleman"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2025 paper includes illustrated order-20 approximants but not a table of exact all-N error maxima or t_c.",
+          "No indexed matched R=1 trichotomy among examined Resultary hits."
+        ],
+        "reasoning": "Exact invariant is a formula/rate rather than a combinatorial table; checked original order-specific approximants and threshold descriptions, not just title matching.",
+        "searches": [
+          "Resultary index 2026-10-18 query exact finite section geometric remainder Riccati",
+          "2025 IOP paper order-20 figures / analytical recurrence sections",
+          "arXiv:1711.02552 bounds and examples"
+        ]
+      },
+      "rationale": "The original Li–An R<1 dissipativity theorem and R>1 finite-horizon numerics supply motivation but not this scalar sharp all-time threshold. Earlier Muñoz-Sánchez–Elena–Oteo 2025 full OA article constructs the same-type Riccati Carleman recurrence and small-order approximants, not an all-N exact remainder with the finite-horizon iff/R=1 uniform critical rate/source-scaling Rayleigh obstruction in inspected relevant sections. Forets–Pouly develops broad local error bounds not same all-time boundary. Bibliography in submitted RESULT.md misattributes authors of 2025 article despite correct DOI; this must be corrected before public use.",
+      "residual_risks": [
+        "Source RESULT.md bibliography incorrectly credits 2025 DOI authors; actual authors are Muñoz-Sánchez, Elena and Oteo. No corrected whole RESULT.md supplied, so scientific conclusion only and publication withheld.",
+        "Li–An complete 2026 primary text was not independently read this run; assumptions checked against supplied source-aligned recurrence/scaling.",
+        "Simple Riccati partial fraction and all-N finite-section formula could appear in overlooked old analysis with another notation.",
+        "No claim that N>(R+3)/(R-1) is first loss-of-dissipativity order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "R<1 sufficient condition and R>1 numerical horizons; exact scalar all-time threshold not established from this accessible material.",
+          "evidence": [
+            "R parameter and sufficient weak-nonlinearity regime; R>1 numerics described by accessible summary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.25822",
+          "material_read": "Read abstract and accessible indexed technical summaries on hypotheses and finite-horizon R>1 experiment; complete arXiv full text not independently available in this run.",
+          "method": "Primary abstract and indexed mathematics; no claim to whole-paper exclusion.",
+          "title": "Fast-forwarding quantum algorithms for weakly nonlinear dissipative differential equations and beyond",
+          "trigger": "Source of R definition, scaling and disputed beyond-R=1 extrapolation"
+        },
+        {
+          "assessment": "Contains same normalized recurrence and finite sections/illustrations, but not the sharp all-N absolute/relative trichotomy or scaled Hermitian bound in inspected text.",
+          "evidence": [
+            "Section 3.1 Eq. 6/9/10 and order-2/3 formulas, Appendix order 20; actual authors Juan C Muñoz-Sánchez, Santiago F Elena, José-Ángel Oteo."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1402-4896/add65a",
+          "material_read": "Read full open-access article HTML sections 1, 3.1 including Riccati recurrence and approximations, section 7 and appendix captions, checked author byline.",
+          "method": "Publisher-hosted lawful open-access full HTML.",
+          "title": "Carleman approximants for non-linear differential systems",
+          "trigger": "Same Riccati finite-section embedding and potential stronger all-order result"
+        },
+        {
+          "assessment": "General local rigorous estimates, not all-time exact scalar threshold under source-rescaled lift.",
+          "evidence": [
+            "General explicit finite-horizon error bounds for polynomial ODEs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.02552",
+          "material_read": "Read primary arXiv PDF introduction, theorem/quantitative bounds and examples relevant to local error.",
+          "method": "Full primary PDF retrieved; relevant sections examined.",
+          "title": "Explicit Error Bounds for Carleman Linearization",
+          "trigger": "General Carleman quantitative bounds could dominate local criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete globally stable dissipative scalar equation on which finite unshifted Carleman truncations fail at late time for R>1 gives a sharp boundary to naive extrapolation of a numerical algorithm’s R<1 condition. The critical rate N^-1, exact failure time and lifted Hermitian obstruction quantify a natural algorithmic cutoff, rather than an arbitrary Riccati exercise; explicitly no claim about other embeddings or multidimensional necessity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 43814abdaa67a283da570f7499befc98f5f056de",
+    "arXiv:2608.25822v1 abstract/technical available descriptions",
+    "DOI:10.1088/1402-4896/add65a full OA publisher HTML, sections 3.1/7/appendix, exact author byline",
+    "arXiv:1711.02552 primary PDF",
+    "Resultary 2026-10-18 focused semantic query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Source RESULT.md bibliography incorrectly credits 2025 DOI authors; actual authors are Muñoz-Sánchez, Elena and Oteo. No corrected whole RESULT.md supplied, so scientific conclusion only and publication withheld.",
+    "Li–An complete 2026 primary text was not independently read this run; assumptions checked against supplied source-aligned recurrence/scaling.",
+    "Simple Riccati partial fraction and all-N finite-section formula could appear in overlooked old analysis with another notation.",
+    "No claim that N>(R+3)/(R-1) is first loss-of-dissipativity order."
+  ],
+  "schema_version": 1
+}
