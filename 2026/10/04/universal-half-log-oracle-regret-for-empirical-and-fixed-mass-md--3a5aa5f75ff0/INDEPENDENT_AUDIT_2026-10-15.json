@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:20:23.367846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the pinned proof, with nondegenerate P supported in [0,1], µ,c interior and oracle bet λ* interior of [-c/(1−µ),c/µ], hλ(x)=(x−µ)/(1+λ(x−µ)). Uniform positivity 1+λ(x−µ)≥1−c yields bounded scores/derivatives. The stationarity identity P hλ*=0 implies score variance =P hλ*²=J=−M″(λ*)>0. Fixed score separation and Hoeffding concentration exclude boundary optimizer with exponentially small probability. Local score expansion gives n E(λhat_{n+1}−λ*)²→J^(−1) and n E|λhat−λ*|³→0; Taylor expansion gives nE[M(λ*)−M(λhat)]→1/2. For arbitrary predictable H on [0,1] and fixed κ, the mixture score differs uniformly by O(1/n), so same local limits. Summing one-step deficits by harmonic summation gives (1/2)log N+o(log N). The argument is valid subject to its stated interior/fixed-mass hypotheses; finite Bernoulli examples do not prove it. The public RESULT.md has an unexpanded literal {claim} under its ## Finding header, although its assumptions and proof state the theorem; scientific proof can be assessed but publication must not proceed without a verified full replacement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kilian et al first-order oracle convergence and O(n^-1/2) predictive discrepancy; universal portfolio has a different rule and comparator."
+        ],
+        "reasoning": "An O(√N) cumulative control from Wasserstein does not imply the 1/2 logarithmic leading constant. Regret bounds for universal portfolios under worst-case paths do not directly dominate an expected oracle growth gap of empirical/MDP predictive coefficient.",
+        "searches": [
+          "Kilian Cortinovis Caron arXiv:2605.07964 Theorem 4.1 predictive assisted betting",
+          "Orabona Jun universal portfolio regret",
+          "Waudby-Smith Ramdas betting GRAPA",
+          "Resultary semantic query: universal half log oracle regret bounded mean betting empirical GRAPA fixed mass predictive MDP"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md e20dc8a29ea8f07b203afa88fb3fe89a95f5b186 (literal {claim} defect)",
+        "Pinned VERIFICATION.md c9f2897686454ee3e593b683fa848cbda5f4c049",
+        "Kilian et al arXiv:2605.07964v1 full relevant 45-page PDF",
+        "Grünwald JRSSB DOI:10.1093/jrsssb/qkad128",
+        "Waudby-Smith and Ramdas DOI:10.1093/jrsssb/qkad009",
+        "Resultary semantic universal half log oracle regret bounded mean betting empirical GRAPA fixed mass predictive MDP"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source establishes first-order oracle log-optimality for MDP predictors; Grünwald explicitly proposes ~1/2 log n as a desired GRAPA behavior; null bankruptcy is qualitative."
+        ],
+        "reasoning": "Neither first-order convergence, conjectured half-log regret, nor null almost-sure bankruptcy implies this exact expected one-step and cumulative coefficient. The bound can be obtained here by a specific curvature-information identity and moment estimates.",
+        "searches": [
+          "arXiv:2605.07964v1 full main proof and MDP predictive",
+          "P. Grünwald doi:10.1093/jrsssb/qkad128",
+          "arXiv:2602.08888 null bankruptcy abstract",
+          "Resultary semantic query: universal half log oracle regret bounded mean betting empirical GRAPA fixed mass predictive MDP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the population optimizer P h=0, Var(h)=−M″=J, so generic 1D estimator optimism specializes to a universal 1/2."
+        ],
+        "reasoning": "Classical score/curvature equality suggests an equivalent M-estimation derivation of the empirical case, but the actual comparator is expected log-growth with bounded-mean bets, not general log-loss redundancy; the arbitrary predictable H fixed-mass extension needs a separate O(n^-1) uniform perturbation argument.",
+        "searches": [
+          "Resultary semantic query: universal half log oracle regret bounded mean betting empirical GRAPA fixed mass predictive MDP",
+          "prequential plug-in M-estimation one-parameter regret half log",
+          "Grünwald JRSSB 2024 discussion GRAPA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The package uses an exact finite binomial-sum example, but the claimed result is an asymptotic theorem for every nondegenerate [0,1]-supported distribution with interior optimizer."
+        ],
+        "reasoning": "Numerical/exact finite-n table for Bernoulli cannot cover arbitrary P or arbitrary predictable H. The proof rests on analytic bounded-score expansions.",
+        "searches": [
+          "Resultary semantic query: universal half log oracle regret bounded mean betting empirical GRAPA fixed mass predictive MDP",
+          "Bernoulli expected regret coefficient 1/2 fixed prior empirical betting"
+        ]
+      },
+      "rationale": "Kilian–Cortinovis–Caron prove first-order log-optimality and an O(n^-1/2) Wasserstein predictive rate, not the exact half-log expected gap. Grünwald publicly anticipated a half-log GRAPA benchmark but describes it as an open/conjectural comparison, not a proved bound for this betting rule. Classical prequential MLE/one-parameter AIC/M-estimation half-log penalties motivate but do not directly state this distribution-free bounded-mean growth objective with arbitrary predictable fixed-mass MDP perturbation. Potential general M-estimation corollaries remain a residual originality risk.",
+      "residual_risks": [
+        "Generic smooth one-dimensional sequential M-estimation literature might imply empirical κ=0 limit under alternate loss function terminology.",
+        "Public RESULT.md contains literal {claim} placeholder and cannot be considered publication-ready despite complete proof paragraphs; a full corrected file and guard/hash are missing.",
+        "Interiority and fixed κ are essential; no pathwise, boundary, or O(1) regret expansion claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides first-order oracle optimality, no displayed half-log expected cumulative regret with arbitrary bounded H",
+          "evidence": "MDP predictive as (nP_n+κ H)/(n+κ); rate O(n^-1/2) in expected Wasserstein",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.07964",
+          "material_read": "Full accessible 45-page preprint; inspected MDP predictive definition and asymptotic log-optimality theorem and rate proof",
+          "method": "Opened primary arXiv PDF, read corresponding formulas and theorem statements",
+          "title": "Asymptotically Log-Optimal Bayes-Assisted Confidence Sequences for Bounded Means",
+          "trigger": "Exact Bayesian predictive betting strategy and possible stronger theorem"
+        },
+        {
+          "assessment": "A conjectural/anticipated rate, not published proof of this distribution-free statement",
+          "evidence": "Discusses half-log expected regret for GRAPA as an open benchmark",
+          "identifier_or_url": "https://doi.org/10.1093/jrsssb/qkad128",
+          "material_read": "Relevant full online discussion paragraph on prequential plug-in and half-log rate",
+          "method": "Opened discussion full text and compared stated epistemic status",
+          "title": "Proposer of the vote of thanks to Waudby-Smith and Ramdas and contribution to the Discussion of Estimating means of bounded random variables by betting",
+          "trigger": "Same regret coefficient conjecture for GRAPA"
+        },
+        {
+          "assessment": "Universal portfolio and adversarial best-fixed comparator, rather than empirical MDP predictive expected oracle",
+          "evidence": "Different algorithmic predictor and comparator",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3330187",
+          "material_read": "Abstract and theorem/comparator summary only, full text not claimed",
+          "method": "Comparison via published abstract/description",
+          "title": "Tight Concentrations and Confidence Sequences From the Regret of Universal Portfolio",
+          "trigger": "Potential general betting-regret domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading expected oracle-regret constant identifies the exact second-order price of empirical optimization in bounded-mean betting and shows resilience under a natural Bayesian predictive perturbation. This improves a first-order result for a practically defined strategy and quantifies the conjectured logarithmic regime, without falsely claiming pathwise or constant-order regret.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "RESULT.md has literal {claim} in its Finding section. Scientific conclusion in proof and SLOGAN is coherent but public claim must be repaired with full byte-verified file before publication.",
+    "No boundary oracle, growing κ, pathwise regret, or O(1) remainder.",
+    "Generic M-estimation prior implication not exhaustively eliminated."
+  ],
+  "schema_version": 1
+}

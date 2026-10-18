@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the population and predictive optimization problems from the bounded-mean betting factor. The score identity \(M'(\lambda)=P h_\lambda\) and curvature identity \(-M''(\lambda)=P h_\lambda^2\) are exact. At an interior optimum, the score has mean zero, so its variance equals the curvature. Bounded support together with \(c<1\) gives uniform derivative bounds. Fixed endpoint-score separation makes boundary optimizer events exponentially unlikely; local score linearization plus bounded-summand moment control yields \(n\mathbb E(\widehat\lambda-\lambda^\star)^2\to J^{-1}\) and a negligible third-order remainder. The fixed-mass MDP term contributes only \(O(n^{-1})\) to the score uniformly over predictable bounded-support prior components. The deterministic Bernoulli verifier checks the finite-sample calculation without simulation.
+## correctness
 
-## Originality
-PASS with stated residual risk. The closest same-object source, arXiv:2605.07964v1, proves first-order log-optimality and an \(O(n^{-1/2})\) expected Wasserstein rate for MDP, not a second-order half-log oracle-regret law. Grünwald's discussion, DOI 10.1093/jrsssb/qkad128, explicitly says half-log GRAPA regret is suspected by parametric analogy and calls for further analysis. Orabona--Jun use a universal-portfolio mixture and a best-fixed-in-hindsight comparator; Wang--Agrawal--Ramdas prove almost-sure null bankruptcy. Targeted mathematical-database searches found no equivalent statement in the inspected indexed records. A generic sequential M-estimation theorem could conceivably imply the empirical special case under different terminology; no inspected result also covers the arbitrary predictable fixed-mass MDP perturbation.
+PASS
 
-## Value
-PASS. This is not merely a routine consistency refinement: it resolves the leading regret coefficient in a gap explicitly identified in the bounded-mean betting literature and shows that fixed prior predictive mass is asymptotically neutral at second order. It improves the motivating MDP paper's directly available quantitative cumulative guarantee from square-root order to a sharp logarithmic leading law under the interior-oracle condition, and it yields an expected null-bankruptcy rate.
+In the pinned proof, with nondegenerate P supported in [0,1], µ,c interior and oracle bet λ* interior of [-c/(1−µ),c/µ], hλ(x)=(x−µ)/(1+λ(x−µ)). Uniform positivity 1+λ(x−µ)≥1−c yields bounded scores/derivatives. The stationarity identity P hλ*=0 implies score variance =P hλ*²=J=−M″(λ*)>0. Fixed score separation and Hoeffding concentration exclude boundary optimizer with exponentially small probability. Local score expansion gives n E(λhat_{n+1}−λ*)²→J^(−1) and n E|λhat−λ*|³→0; Taylor expansion gives nE[M(λ*)−M(λhat)]→1/2. For arbitrary predictable H on [0,1] and fixed κ, the mixture score differs uniformly by O(1/n), so same local limits. Summing one-step deficits by harmonic summation gives (1/2)log N+o(log N). The argument is valid subject to its stated interior/fixed-mass hypotheses; finite Bernoulli examples do not prove it. The public RESULT.md has an unexpanded literal {claim} under its ## Finding header, although its assumptions and proof state the theorem; scientific proof can be assessed but publication must not proceed without a verified full replacement.
 
-## Closest literature and limitations
-The most relevant sources are Kilian--Cortinovis--Caron (2026), Grünwald (2024), Waudby-Smith--Ramdas (2024), Orabona--Jun (2024), and Wang--Agrawal--Ramdas (2026). The theorem does not cover boundary oracle bets, growing prior mass, pathwise regret, confidence-sequence width expansions, or an additive \(O(1)\) remainder. Public HTML full text of the 2026 null-bankruptcy paper was unavailable, so only its abstract-level scope was used in that comparison.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kilian–Cortinovis–Caron prove first-order log-optimality and an O(n^-1/2) Wasserstein predictive rate, not the exact half-log expected gap. Grünwald publicly anticipated a half-log GRAPA benchmark but describes it as an open/conjectural comparison, not a proved bound for this betting rule. Classical prequential MLE/one-parameter AIC/M-estimation half-log penalties motivate but do not directly state this distribution-free bounded-mean growth objective with arbitrary predictable fixed-mass MDP perturbation. Potential general M-estimation corollaries remain a residual originality risk.
+
+## value
+
+PASS
+
+The leading expected oracle-regret constant identifies the exact second-order price of empirical optimization in bounded-mean betting and shows resilience under a natural Bayesian predictive perturbation. This improves a first-order result for a practically defined strategy and quantifies the conjectured logarithmic regime, without falsely claiming pathwise or constant-order regret.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

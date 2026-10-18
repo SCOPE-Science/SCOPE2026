@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and does not depend on a finite enumeration. The critical checks are: (1) the score/curvature information identity at an interior oracle, (2) exponential exclusion of boundary optimizers from fixed score separation, (3) second- and third-moment control for the local optimizer expansion, (4) the uniformly order-\(n^{-1}\) perturbation contributed by fixed MDP prior mass, and (5) harmonic summation of the one-step \(1/(2n)+o(1/n)\) deficit.
+# Independent mathematical audit
 
-The standalone script `verify_half_log.py` is a deterministic finite cross-check, not an infinite proof. It uses \(P=\operatorname{Bernoulli}(0.6)\), \(\mu=0.5\), and \(c=0.9\), for which betting optimization reduces exactly to choosing a Bernoulli parameter and the population regret equals a Bernoulli Kullback--Leibler divergence. It sums the complete binomial distribution for each reported sample size, with no Monte Carlo randomness, and verifies convergence of \(n\) times expected one-step regret to \(1/2\) for the empirical rule and for fixed MDP masses \(\kappa=2\) and \(\kappa=10\).
+## correctness
 
-The computation does not certify the theorem for arbitrary distributions; that scope is supplied by the bounded-score analytic argument in `RESULT.md`. Boundary-oracle cases and growing prior mass are deliberately outside the verified claim.
+PASS
+
+In the pinned proof, with nondegenerate P supported in [0,1], µ,c interior and oracle bet λ* interior of [-c/(1−µ),c/µ], hλ(x)=(x−µ)/(1+λ(x−µ)). Uniform positivity 1+λ(x−µ)≥1−c yields bounded scores/derivatives. The stationarity identity P hλ*=0 implies score variance =P hλ*²=J=−M″(λ*)>0. Fixed score separation and Hoeffding concentration exclude boundary optimizer with exponentially small probability. Local score expansion gives n E(λhat_{n+1}−λ*)²→J^(−1) and n E|λhat−λ*|³→0; Taylor expansion gives nE[M(λ*)−M(λhat)]→1/2. For arbitrary predictable H on [0,1] and fixed κ, the mixture score differs uniformly by O(1/n), so same local limits. Summing one-step deficits by harmonic summation gives (1/2)log N+o(log N). The argument is valid subject to its stated interior/fixed-mass hypotheses; finite Bernoulli examples do not prove it. The public RESULT.md has an unexpanded literal {claim} under its ## Finding header, although its assumptions and proof state the theorem; scientific proof can be assessed but publication must not proceed without a verified full replacement.
+
+## originality
+
+PASS
+
+Kilian–Cortinovis–Caron prove first-order log-optimality and an O(n^-1/2) Wasserstein predictive rate, not the exact half-log expected gap. Grünwald publicly anticipated a half-log GRAPA benchmark but describes it as an open/conjectural comparison, not a proved bound for this betting rule. Classical prequential MLE/one-parameter AIC/M-estimation half-log penalties motivate but do not directly state this distribution-free bounded-mean growth objective with arbitrary predictable fixed-mass MDP perturbation. Potential general M-estimation corollaries remain a residual originality risk.
+
+## value
+
+PASS
+
+The leading expected oracle-regret constant identifies the exact second-order price of empirical optimization in bounded-mean betting and shows resilience under a natural Bayesian predictive perturbation. This improves a first-order result for a practically defined strategy and quantifies the conjectured logarithmic regime, without falsely claiming pathwise or constant-order regret.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
