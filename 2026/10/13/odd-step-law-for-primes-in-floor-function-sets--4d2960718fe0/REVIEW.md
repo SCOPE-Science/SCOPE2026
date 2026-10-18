@@ -1,15 +1,21 @@
-# Review of Odd step law for primes in floor-function sets
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is exact and bound-free. For every prime \(p\), the integer \(D_p(N)\) counts witnesses to \(p\in\mathcal S(N)\), and its adjacent-step difference is exactly \(\mathbf 1_{p\mid N}-\mathbf 1_{p+1\mid N}\). The square-root split is exhaustive, the square boundary is handled, and oddness removes all possible large-prime losses. The exception \(N=3\) is explicitly excluded. The finite verifier through \(100000\) is corroborative only.
+## correctness
 
-## Originality
-**PASS.** Heyman's focal paper proves the prime and odd-semiprime cases and states the three-distinct-prime case as Conjecture 4. The later Ma--Wu paper treats the same floor set asymptotically and does not state the exact adjacent-step law. Current MathDB still marks the conjecture open; OEIS A067514 does not give this criterion. Targeted searches of the source wording, equivalent largest-prime-factor formulation, and database aliases found no covering statement. The theorem is strictly broader than the conjecture it resolves.
+PASS
 
-## Value
-**PASS.** The result settles an explicit literature conjecture and explains it through a simple structural mechanism that applies to all odd integers, not just a selected parameter range. It unifies the previously proved prime and semiprime steps with the conjectural three-prime step.
+For D_p(N)=floor(N/p)-floor(N/(p+1)), membership of p in the floor set is D_p>0 and D_p(N)-D_p(N-1)=1_{p|N}-1_{p+1|N}. Primes <=sqrt(N-1) persist by interval length; for p>=sqrt N D_p values are 0/1. At odd N>=5 the latter p is odd so p+1 cannot divide N. Hence exactly one new prime iff P+(N)>=sqrt N; at odd squares p=sqrt N is counted correctly. Direct independent prime-sieve window computation verified 24998 odd integers 5..49999.
 
-## Closest literature and limitations
-The closest source is Randell Heyman's arXiv:2111.00408, especially Theorems 2--3 and Conjecture 4. Ma--Wu, arXiv:2112.12426, is the closest later full-text treatment of the same counting function. The theorem does not classify even increments, where a prime \(p\) can leave when \(p+1\mid N\). There remains a residual risk of an obscure unindexed proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heyman (2021/22) explicitly conjectures the three-distinct-prime case and proves only prime/odd-semiprime cases. This proof establishes the stronger all-odd exact step law. Ma–Wu asymptotic prime counts and OEIS cardinality formulas do not imply exact increments.
+
+## value
+
+PASS
+
+Resolves a specifically posed three-prime conjecture, with a natural sharp generalization in terms of largest prime factor for all odd arguments; distinguishes behavior from even steps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

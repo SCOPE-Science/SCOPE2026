@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the definitions rather than inferred from numerical data. The critical identities checked are:
+# Independent mathematical audit
 
-1. For each prime \(p\), \(D_p(N)=\lfloor N/p\rfloor-\lfloor N/(p+1)\rfloor\) is exactly the number of witness integers \(k\) with \(\lfloor N/k\rfloor=p\).
-2. The adjacent-step identity is exactly \(D_p(N)-D_p(N-1)=\mathbf 1_{p\mid N}-\mathbf 1_{p+1\mid N}\).
-3. If \(p\le\sqrt{N-1}\), then \(D_p(N-1)>0\) and \(D_p(N)>0\).
-4. If \(p\ge\sqrt N\), both relevant witness intervals have length below one, so their counts are zero or one.
-5. For odd \(N\ge5\), every such large prime is odd, hence \(p+1\nmid N\). Thus large primes never leave and a large prime enters exactly when it divides \(N\).
-6. At most one prime divisor can be at least \(\sqrt N\); equality can occur only for a prime square.
+## correctness
 
-The bundled `verify.py` recomputes the floor-set prime count directly for every odd \(N\) from \(5\) through \(100000\) and checks all distinct odd-prime triples of product at most \(100000\). Expected output:
+PASS
 
-`VERIFY_OK odd_n=49998 triple_cases=10618 max_n=100000`
+For D_p(N)=floor(N/p)-floor(N/(p+1)), membership of p in the floor set is D_p>0 and D_p(N)-D_p(N-1)=1_{p|N}-1_{p+1|N}. Primes <=sqrt(N-1) persist by interval length; for p>=sqrt N D_p values are 0/1. At odd N>=5 the latter p is odd so p+1 cannot divide N. Hence exactly one new prime iff P+(N)>=sqrt N; at odd squares p=sqrt N is counted correctly. Direct independent prime-sieve window computation verified 24998 odd integers 5..49999.
 
-This computation is a regression check only. It does not certify the infinite theorem; the symbolic proof above does.
+## originality
+
+PASS
+
+Heyman (2021/22) explicitly conjectures the three-distinct-prime case and proves only prime/odd-semiprime cases. This proof establishes the stronger all-odd exact step law. Ma–Wu asymptotic prime counts and OEIS cardinality formulas do not imply exact increments.
+
+## value
+
+PASS
+
+Resolves a specifically posed three-prime conjecture, with a natural sharp generalization in terms of largest prime factor for all odd arguments; distinguishes behavior from even steps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

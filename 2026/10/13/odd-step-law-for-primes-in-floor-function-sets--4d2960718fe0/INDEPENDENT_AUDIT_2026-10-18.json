@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:20:04.877821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D_p(N)=floor(N/p)-floor(N/(p+1)), membership of p in the floor set is D_p>0 and D_p(N)-D_p(N-1)=1_{p|N}-1_{p+1|N}. Primes <=sqrt(N-1) persist by interval length; for p>=sqrt N D_p values are 0/1. At odd N>=5 the latter p is odd so p+1 cannot divide N. Hence exactly one new prime iff P+(N)>=sqrt N; at odd squares p=sqrt N is counted correctly. Direct independent prime-sieve window computation verified 24998 odd integers 5..49999.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heyman Thm 2 for primes and Thm 3 for odd semiprimes; Ma–Wu studies asymptotics."
+        ],
+        "reasoning": "Neither asymptotic counting nor these isolated factorizations imply a law for arbitrary odd N.",
+        "searches": [
+          "Ma–Wu arXiv:2112.12426",
+          "Heyman Theorems 1–3",
+          "OEIS A067514"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2111.00408",
+        "https://arxiv.org/abs/2112.12426",
+        "https://oeis.org/A067514",
+        "https://mathdb.com/p/352434/the-three-prime-floor-function-set-formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Conjecture 4 is conditional on three distinct odd primes."
+        ],
+        "reasoning": "The new indicator-step argument proves that conjecture and more; this is not implied by the published prime and semiprime special cases.",
+        "searches": [
+          "Heyman 2111.00408 p.2",
+          "MathDB 352434"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heyman Conjecture 4 gives exactly the three-prime dichotomy."
+        ],
+        "reasoning": "The claimed all-odd step law is strictly stronger; its triple specialization is a direct consequence rather than an equivalent prior theorem.",
+        "searches": [
+          "arXiv:2111.00408 Conjecture 4",
+          "OEIS A067514",
+          "MathDB 352434",
+          "Resultary floor-set prime increments query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives the sequence and a fast computational formula; MathDB explicitly lists three-prime problem as open."
+        ],
+        "reasoning": "A database of values does not prove an all-odd prime-factor threshold.",
+        "searches": [
+          "OEIS A067514 formulas",
+          "MathDB problem 352434"
+        ]
+      },
+      "rationale": "Heyman (2021/22) explicitly conjectures the three-distinct-prime case and proves only prime/odd-semiprime cases. This proof establishes the stronger all-odd exact step law. Ma–Wu asymptotic prime counts and OEIS cardinality formulas do not imply exact increments.",
+      "residual_risks": [
+        "Potential later unpublished resolution of Heyman Conjecture 4; MathDB is not a definitive live novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering stronger odd-integer result",
+          "evidence": "Conjecture 4 explicitly unproved after Thm 2–3",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00408",
+          "material_read": "Pages 1–3: G definition, Thm 2–3, Conjecture 4, indicator formula",
+          "method": "Complete paper accessible; inspected theorem section and later discussion",
+          "title": "Primes in floor function sets",
+          "trigger": "Identical G(N) and conjecture"
+        },
+        {
+          "assessment": "No universal odd-increment theorem",
+          "evidence": "Entries provide sequence/computation/asymptotic",
+          "identifier_or_url": "https://oeis.org/A067514",
+          "material_read": "Definition, formulas and references",
+          "method": "HTML source inspection",
+          "title": "OEIS A067514",
+          "trigger": "Exact prime-count table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a specifically posed three-prime conjecture, with a natural sharp generalization in terms of largest prime factor for all odd arguments; distinguishes behavior from even steps.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2111.00408",
+    "https://arxiv.org/abs/2112.12426",
+    "https://oeis.org/A067514",
+    "https://mathdb.com/p/352434/the-three-prime-floor-function-set-formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd N>=5 only; N=3 is exceptional, even N can lose primes."
+  ],
+  "residual_risks": [
+    "Potential later unpublished resolution of Heyman Conjecture 4; MathDB is not a definitive live novelty certificate."
+  ],
+  "schema_version": 1
+}
