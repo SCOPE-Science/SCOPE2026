@@ -1,21 +1,21 @@
-# Review of Exact endpoint deficit for the canonical complex Poisson obstruction family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the exact Fourier expansion of the cited unimodular family, applies the Poisson multiplier term by term, reduces the fourth moment to the Hardy \(H^4\) norm of one rational analytic function, and then uses \(\|H\|_4^4=\|H^2\|_2^2\). Summing the geometric coefficient series gives the stated rational expression. Clearing denominators produces the exact deficit factorization. Positivity is not inferred from sampling: the residual polynomial has an explicit tensor-product Bernstein expansion whose coefficients are all nonnegative, and the basis is strictly positive in the open square.
+PASS
 
-Boundary behavior is consistent: \(\varepsilon=0\) gives the analytic monomial and equality, while \(r\uparrow1\) makes the deficit vanish as expected from Poisson convergence to the unimodular boundary function. The accepted claim is only for \(0<\varepsilon,r<1\), where every denominator is positive and the factorization is strict.
+Using the original boundary family expansion f_epsilon=-epsilon conjugate(zeta)+(1-epsilon²)sum_{k>=0}epsilon^k zeta^{2k+1}, Poisson multiplication and the Haar-preserving change w=zeta² reduce ||P_r f||_4^4/r^4 to ||H||_4^4 for analytic H=-epsilon+(1-epsilon²)w/(1-epsilon r²w). Parseval on H² yields the displayed rational expression. Independently expanded it with SymPy in x=epsilon²,s=r² and proved the exact cleared-polynomial identity (1-xs²)^3(1-||H||_4^4)=x(1-x)(1-s)P(s,x), symbolic remainder zero. Inspected the supplied exact polynomial verifier and Bernstein b_ij table (degrees 5 and 3); each of 24 coefficients nonnegative and some strictly positive. All Bernstein basis factors are positive for 0<x,s<1, yielding strict endpoint deficit at every finite radius. This is an all-parameter polynomial identity and analytic positivity, not a finite-sample numerical test.
 
-## Originality
+## originality
 
-PASS. The closest source, arXiv:2609.28938v1, introduces exactly this family in Proposition 4.4 to prove failure for \(\(p>4\)\), but only uses its small-radius limiting function and a supercritical expansion. The same paper explicitly leaves complex endpoint \(\(p=4\)\) Schwarz-contractivity as Conjecture 5.1 and cites prior work only for the limiting \(r\to0\) endpoint. The inspected earlier Brevig--Ortega-Cerdà--Seip paper develops the exponent-\(4\) Riesz-projection obstruction and its two-variable analogue, not a finite-radius Poisson fourth-moment formula.
+PASS
 
-literature searches for the source, the conjecture, the explicit family, the endpoint fourth moment, and equivalent Poisson/Riesz-projection formulations returned no record stating this all-radius factorization. The new statement is not inferred from search failure alone: it was compared directly against the full relevant sections of the 2026 source and the full earlier primary paper.
+Kovalev's 2026 actual full 13-page primary paper was read from complete primary text; its Proposition 4.4 (page12) presents this exact canonical family only to prove the p>4 obstruction in the small-r limit, with an asymptotic expansion, and its Conjecture5.1 explicitly leaves the p=4 all-function endpoint open. It does not present the all-r exact factorization or Bernstein positivity for this family in the materially read sections. The prior Riesz-projection p=4 results concern infinitesimal/other operators, not finite-r family deficit. Best-of-knowledge original as this exact positive rational certificate for the canonical example, with temporarily unavailable published-finding semantic search an explicit residual risk.
 
-Residual risk: a mathematically equivalent finite-radius computation may exist under different notation in literature not surfaced by the searches. No such statement was found in the inspected primary sources.
+## value
 
-## Value
+PASS
 
-PASS. The complex critical exponent is explicitly narrowed by the source to the open interval \([3,4]\), with \(4\) conjectured sharp. The family treated here is not arbitrary: it is the canonical family used to prove that every exponent above \(4\) fails. Showing, by an exact global formula, that this same family is strictly safe at \(\(p=4\)\) for every finite radius rules out the most immediate sharpness mechanism as an endpoint obstruction and supplies a concrete algebraic test case for attempts at Conjecture 5.1. The contribution is a motivated boundary calculation, not a routine recomputation of a known table.
+The endpoint p=4 is conjecturally sharp and technically unresolved for complex-valued Poisson Schwarz contraction. This natural explicit one-parameter family is precisely the standard supercritical obstruction; an exact strict finite-radius certificate for the borderline exponent is a meaningful boundary case, not an arbitrary numeric slice. It does not claim to prove the general endpoint conjecture.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
