@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The verifier uses exact arithmetic in \(\mathbb Q(\sqrt2)\) and Python's standard library only. It reconstructs the \(33\) source line normals, all pairwise intersections, and the exact multiplicity profile \(n_2=108\), \(n_3=40\), \(n_5=16\), \(n_8=5\). It then verifies the five multiplicity-eight points stated in the finding.
 
-For completeness of the stabilizer search, the script enumerates all \(24\) permutations of the four points at infinity and solves the corresponding \(3\times4\) homogeneous systems over \(\mathbb Q(\sqrt2)\). Exactly \(8\) projective transformations of the line \(z=0\) survive. For each, it enumerates every lift compatible with the image of one source line and tests the resulting projective transformation against all \(33\) lines. Exactly \(16\) lifts survive.
+# Independent mathematical audit
 
-The final group has exact projective-order profile \(1^1,2^9,4^2,8^4\). The displayed generators have orders \(8\) and \(2\), and the script checks the dihedral relation \(SRS=R^{-1}\). A successful replay prints `VERIFY_OK`.
+## correctness
 
-The computation proves only the projective stabilizer of the displayed arrangement. It does not compute the abstract automorphism group of the full intersection lattice.
+PASS
+
+The actual 33 displayed normals over Q(sqrt(2)) and incidence multiplicities n2=108,n3=40,n5=16,n8=5 determine four collinear eightfold points at infinity and a fifth off-line. A projectivity preserves this 4+1 pattern, hence is block diagonal in suitable coordinates. The harmonic four-point stabilizer in PGL2 has 8 elements; exact lift testing in inspected verify.py finds exactly two third-coordinate scalars for each, giving upper bound 16. Independently reconstructed all 33 normals in Q(sqrt2) and verified displayed R,S each permutes all lines, R has order 8, S has order 2, and SRSR=1 projectively. They generate D8 of order 16 meeting upper bound. No claim about purely combinatorial lattice automorphisms.
+
+## originality
+
+PASS
+
+The original 33-line construction gives equations/freeness/rigidity and multiplicities but not its full PGL3 stabilizer. Regular n-gon 2n-line matroid automorphism groups apply to a different arrangement; the 33-line group 16 is distinct.
+
+## value
+
+PASS
+
+The full projective automorphism group of a named rigid arrangement is an exact natural invariant that permits meaningful orbit and incidence-quotient computations; this is not merely counting apparent octagonal rotations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
