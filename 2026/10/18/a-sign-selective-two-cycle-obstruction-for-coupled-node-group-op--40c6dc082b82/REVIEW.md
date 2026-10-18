@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The claimed no-two-cycle obstruction follows from nonnegative secant-weight Gram determinants and the monotonicity of the group response on the unit cube. A separate determinant identity excludes all strictly negative real Jacobian eigenvalues. A constructive logistic example produces a genuine hyperbolic attracting prime-two orbit, whose persistence follows from the implicit-function theorem. An accompanying exact-rational and numerical verification script passed. The proof is analytical and does not infer an infinite statement from finite testing.
+
+**Originality — PASS, with residual risk.** The exact primary equation (19), derivation, oscillatory dynamics section, conclusions, and appendices of Sampson–Restrepo–Porter were inspected; their numerical oscillation and correlation dependence do not imply global period-two nonexistence, pointwise spectral exclusion, or the sign-flipped attracting construction. The related Golovin–Mölter–Kuehn hypergraph voter model has rewiring and a different update mechanism; Reynolds–Tudisco concerns continuous-time nonlinear opinions. Published mathematical index queries for the same map, equivalences, sign patterns, period-two exclusion, and hypergraph opinion dynamics did not identify a covering statement. Residual risk: unindexed or differently named monotone-loop theory may imply a broader result, and novelty is not certified by search alone.
+
+**Value — PASS.** A mathematically motivated distinction is settled in the same higher-order opinion model that exhibits nontrivial oscillations: one entire feedback-sign sector cannot oscillate by the primitive period-two mechanism or undergo a flip, even with arbitrary hyperdegree correlations and response slopes. The explicit opposite-sign attracting construction demonstrates the boundary of applicability. This is structural dynamical information rather than a numerical remeasurement.
+
+**Scope and remaining questions.** Higher periods, invariant circles, stochastic hypergraph realizations, and a complete parameter phase diagram are not addressed. The constructive branch does not identify a flip bifurcation at the sign boundary. Unindexed mathematical dynamics literature remains a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
