@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With S1=S2=[-1,1], U1=-x²/2+xy and U2=-(1-b)y²/2+(x-x³)y, the own-strategy second derivatives are -1 and -(1-b)<0 throughout 0≤b≤1/2. Best response 1 is x=y; |x-x³|≤2/(3sqrt3) and denominator 1-b≥1/2 ensure player 2 best response y=(x-x³)/(1-b) is always strictly interior. Equilibrium thus reduces without missing boundary equilibria to x(x²-b)=0: unique (0,0) at b0 and 3 equilibria (±sqrt b,±sqrt b),(0,0) for any b>0. Joint first-order derivative matrix [[-1,1],[1,-1]] has determinant zero at b0; own concavity does not imply joint nonsingularity. This directly contradicts the printed local-unique structural stability conclusion under its own hypotheses, but not the separate existence/accumulation results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rosen 1965 diagonal strict concavity condition stronger than own concavity",
+          "Published Theorem 3 incorrectly claims structural stability from the weaker condition"
+        ],
+        "reasoning": "Rosen provides the general conceptual reason why own concavity is not enough but does not imply that the given source-specific parameterized counterexample has precisely 1 vs 3 equilibria. A theorem with a stronger assumption does not rescue the printed weaker-assumption statement.",
+        "searches": [
+          "Rosen 1965 Existence and Uniqueness of Equilibrium Points for Concave N-Person Games diagonal strict concavity",
+          "De los Reyes Marin Paz Gil Torres-Prunonosa Gomez-Martinez 2026 utility perturbation theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math14030506",
+        "doi:10.2307/1911749",
+        "NASA-CR-57255",
+        "Resultary query as in equivalent_formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source infers invertible joint FOC Jacobian from each own Hessian negative",
+          "At baseline determinant zero even though each diagonal Hessian negative"
+        ],
+        "reasoning": "The 2026 conclusion is contradicted, not implied; Rosen supplies stronger diagonal strict concavity to guarantee uniqueness but the source does not assume it. This is a direct falsification of the printed theorem, not a reinterpretation of definitions.",
+        "searches": [
+          "MDPI Mathematics 2026 14(3) 506 original Theorem 3 Corollary 1",
+          "Rosen 1965 Econometrica concave N person games theorem assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MDPI Mathematics 14 (2026), 506 full public theorem/proof text",
+          "Source equilibrium polynomial x(x²-b)"
+        ],
+        "reasoning": "General concave games may exhibit multiple equilibria, but a generic example does not automatically disprove a perturbative theorem with baseline uniqueness, compact strategies, singleton-type admissibility and vanishing nonnegative parameter. The constructed family respects those hypotheses and yields a direct theorem-specific contradiction.",
+        "searches": [
+          "Resultary: utility perturbation Bayesian games structural stability strict concavity own action counterexample bifurcation equilibria",
+          "Web: utility perturbation operators Bayesian games Theorem 3 strict concavity Jacobian Rosen counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact analytic equilibrium roots at every b in (0,1/2]",
+          "No finite-game enumeration or table used"
+        ],
+        "reasoning": "Continuous real strategy equilibria and a bifurcation for arbitrarily small positive parameter cannot be established or covered by a finite catalog of sampled games; the exact root factorization is essential.",
+        "searches": [
+          "Web: DOI 10.3390/math14030506 Theorem 3 counterexample correction",
+          "Resultary utility perturbation concave game equilibrium count"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the motivating 2026 full publisher article states Theorem 3 and derives joint Jacobian nonsingularity improperly from strict own concavity; this exact admissible singleton-type perturbation family directly refutes it. Rosen 1965 already distinguishes diagonal strict concavity from mere own concavity and explains generic nonuniqueness, but does not by itself supply an explicitly admissible source-specific perturbation with one-to-three equilibria, or identify this faulty step in the 2026 proof. Searches for an existing correction were negative, but absence is not priority proof; residual risk is independently discovered related counterexample.",
+      "residual_risks": [
+        "A published direct correction or equivalent perturbation counterexample may not be indexed.",
+        "Not a challenge to source equilibrium existence or convergence-of-equilibrium accumulation results; structural stability fails only as printed under weak hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its claimed inference own strict concavity⇒joint Jacobian nonsingularity fails on constructed example; equilibrium count contradicts local uniqueness",
+          "evidence": "Mathematics 14 (2026) 506, Theorem 3 and Corollary 1",
+          "identifier_or_url": "https://doi.org/10.3390/math14030506",
+          "material_read": "Publisher-accessible full article text including structural stability theorem, assumptions, proof using implicit-function Jacobian, and corollary",
+          "method": "Read original theorem/proof text, compare admissible perturbation sign and singleton-type definitions",
+          "title": "Utility Perturbation Operators in Bayesian Games: Structural Stability and Equilibrium Deformation",
+          "trigger": "Exact allegedly falsified Theorem 3 and Corollary 1"
+        },
+        {
+          "assessment": "Prior general theory explains insufficiency of own concavity, but does not contain the identified 2026-specific falsification",
+          "evidence": "Rosen 1965 Econometrica 33, 520–534; NASA-CR-57255",
+          "identifier_or_url": "doi:10.2307/1911749",
+          "material_read": "Accessible 1964 NASA report/bibliographic mathematical summary of diagonal strict concavity and uniqueness distinction; full Econometrica 1965 journal text not separately verified",
+          "method": "Compared Rosen uniqueness hypotheses with source 2026 assumptions",
+          "title": "Existence and Uniqueness of Equilibrium Points for Concave N-Person Games",
+          "trigger": "Classical general strict vs diagonal strict concavity and uniqueness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concise exact counterexample to a contemporary central structural-stability theorem is mathematically consequential: it identifies a missing invertible joint-Jacobian / strong diagonal regularity hypothesis and invalidates the ensuing local-equivalence corollary, while carefully preserving unaffected equilibrium existence results. The cheap algebra is substantively motivated by a demonstrable published theorem error, not asserted valuable merely because a determinant is zero.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "An admissible two-player singleton-type instance of the 2026 Bayesian utility-perturbation model has strictly concave twice differentiable own-action utilities for all b in [0,1/2] but exactly one Nash/Bayesian equilibrium at b=0 and exactly three for every b>0, contradicting the source Theorem 3 and its Corollary 1 about local equilibrium uniqueness/stability.",
+  "limitations": [
+    "Local non-uniqueness refutes Theorem 3 and dependent Corollary 1; no assertion about stronger repaired theorem or general equilibrium persistence."
+  ],
+  "schema_version": 1
+}
