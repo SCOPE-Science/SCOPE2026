@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:56:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For selected A,B in the half graph H_n (a_i adjacent to b_j iff i<=j), when both sides nonempty let q=max A, p=min B. If q<p all mixed pairs adjacent and boundary omitted witnesses cover same-side pairs; if q>p the opposite extreme pair needs both an omitted A index <=p and omitted B index >=q, sufficient for every selected pair. If q=p, precisely two all-prefix/all-suffix obstructions require inclusion-exclusion. Counting boundary cases independently gives the stated F_{q,p} terms; substituting z=1 and finite geometric arithmetic sums gives (4^(n+1)+24n-13)/9. Top coefficient one follows extremal witness. Independent definition-based shortest-path BFS enumerated all sets for n=3,4,5,6, with totals 35,123,467,1835 matching polynomial; this finite check supports the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary visibility literature supplies complete bipartite formulas and general visibility monotonicity, not a half-graph all-subset formula.",
+          "Relevant Resultary outputs include zero-forcing and resolving polynomials of chain graphs, which count distinct properties."
+        ],
+        "reasoning": "General definitions/optimization do not imply exact coefficient enumeration without the q,p classification.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "https://arxiv.org/abs/2507.01851",
+          "half graph H_n mutual visibility number visibility polynomial chain graph"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "https://arxiv.org/abs/2507.01851"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_{n,n} has every possible cross-edge; H_n has nonadjacent cross-pairs at distance 3.",
+          "The submitted formula gives V_3(1)=35 versus K_{3,3} V(1)=57, distinct and has different degree-multiplicity features."
+        ],
+        "reasoning": "Published K_{n,n} polynomials are not identities for H_n, and a known extremal count cannot supply the full polynomial.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "half graph mutual visibility polynomial full counting generating all subsets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás–Klavžar–Tian Proposition 3.2 computes V(K_{n,n})=((1+z)^n-z^n)^2+2nz^(n+1)+2z^n, not the nested-neighborhood H_n.",
+          "Half graph edges are a_i b_j only for i<=j, so same-side common-neighbor and mixed distance-three conditions differ."
+        ],
+        "reasoning": "Neither graph relabeling nor parameter substitution identifies the formulas; the source is a contrasting class.",
+        "searches": [
+          "half graph mutual visibility polynomial full counting generating all subsets",
+          "half graph H_n mutual visibility number visibility polynomial chain graph",
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar maximum 2n−2 and unique extremizer for H_n are already known; they give the degree/top coefficient only.",
+          "No matching full half-graph polynomial or closed total count was found in the targeted corpus and visible primary text."
+        ],
+        "reasoning": "A table of maximal sizes is not a table of all coefficients; negative search not conclusive.",
+        "searches": [
+          "half graph mutual visibility polynomial full counting generating all subsets",
+          "half graph H_n mutual visibility number visibility polynomial chain graph",
+          "half graph mutual visibility polynomial full counting generating all subsets"
+        ]
+      },
+      "rationale": "The complete bipartite-graph visibility polynomial formula in Bujtás–Klavžar–Tian Proposition 3.2 is for K_{n,n}; its geodesic structure differs from nested-neighborhood half graphs. The half-graph maximum 2n−2 and uniqueness is conceded prior. No inspected primary source or relevant published Resultary record gives the complete half-graph all-cardinality coefficients or total-set formula. Any unindexed chain-graph enumerator remains a reasonable risk.",
+      "residual_risks": [
+        "A more general chain-graph polynomial theorem could specialize to singleton nested-neighborhood levels; not fully excluded by accessible results.",
+        "Exhaustive enumerations cover n<=6 only; general proof depends on the boundary criterion and algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit K_{n,n} polynomial, not half graph; no theorem equating general chain-graph polynomials.",
+          "evidence": "Proposition 3.2 and proof for K_{n,n}; Springer page lines 151–185.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "material_read": "Read open Springer article definitions, Section 2 visibility results and Section 3 Proposition 3.2 with proof and complete-bipartite polynomial.",
+          "method": "Full open-access HTML, read relevant mathematical sections",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Primary origin of cardinality polynomial and possible covering graph class"
+        },
+        {
+          "assessment": "Potential general results not fully excluded.",
+          "evidence": "arXiv:2507.01851.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.01851",
+          "material_read": "Available title/abstract and bibliographic description only, no full-text negative conclusion.",
+          "method": "arXiv index/search",
+          "title": "On the Visibility Polynomial of Graphs",
+          "trigger": "Possible broader graph-family enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mutual-visibility sets are a natural graph-geodesic invariant, and the all-cardinality polynomial refines a previously known maximum for an important canonical chain graph. The boundary-index decomposition enables exact counting, size distributions, and nontrivial total counts; it is not a rephrasing of the maximum or a substitution into the complete-bipartite result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A more general chain-graph polynomial theorem could specialize to singleton nested-neighborhood levels; not fully excluded by accessible results.",
+    "Exhaustive enumerations cover n<=6 only; general proof depends on the boundary criterion and algebra.",
+    "Original model assumptions and external formal/professional certification are not independently attested; the review tests the precise source claim.",
+    "Exact assigned record-tree and RESULT.md blob were verified, but repository-root ancestry was not independently recomputed."
+  ],
+  "schema_version": 1
+}
