@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact sampling without replacement sequential coupling gives a one-step marked-ball law error ≤ binom(r,2)/(M-r+1). Iteration and a stationary coupling prove (1); independent 2-state chain eigenvalue, uniform Bernoulli local CLT, Chebyshev separation and contraction prove (2)-(3). Exact rational checker passed 1,680 finite test cases; not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Griffin et al. impose red fraction approaching a strictly positive η (Assumption 1.1), excluding r/N→0.",
+        "Alameda et al. assume equal red/white totals with balanced equal urns."
+      ],
+      "reasoning": "The closest broad macroscopic-swap mixing theorems are inapplicable to r/N→0 and provide bounds on mixing time rather than the stated sparse exact TV profile.",
+      "searches": [
+        "Bernoulli Laplace urn model with rare red particles r=o(sqrt(n)) and macroscopic swaps k proportional n; exact Gaussian total variation cutoff profile log r",
+        "Bernoulli Laplace multiple-ball swap count total variation critical Gaussian shift asymptotics",
+        "arXiv:2308.08676v1 Theorem 1.4, Section 5",
+        "arXiv:2203.08647 Theorem 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.08676v1 full HTML/PDF relevant sections",
+      "arXiv:2203.08647 PDF pp.1–6",
+      "arXiv:2409.07900v1 PDF sections 1–5",
+      "Published mathematical research search records retrieved for five topical queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Positive-red-density mixing-time estimates do not logically cover vanishing-red-density sequences.",
+        "Continuous-time single-swap cutoff does not imply bounded-step cutoff for k proportional to urn size."
+      ],
+      "reasoning": "The assumptions and clocks of the closest results exclude the new claim. One would still need a sparse-label coupling plus a local central limit theorem to obtain the explicit Gaussian TV profile; this nontrivial argument is provided here.",
+      "searches": [
+        "arXiv:2308.08676v1 Assumption 1.1/Theorem 1.4",
+        "arXiv:2203.08647 Theorem 1.2",
+        "arXiv:2409.07900v1 Theorem A",
+        "Small number of marked balls Bernoulli Laplace urn simultaneous swaps independent Markov chains coupling total variation profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The eigenvalue \\(1-kn/[m(N-m)]\\) appears in the generalized model; its cutoff theorem assumes positive red fraction (Assumption 1.1).",
+        "The single-swap model in arXiv:2409.07900v1 uses a different time scale and one swap each step."
+      ],
+      "reasoning": "Independent tagged particles and beta/binomial approximations are plausible equivalent language, but the inspected theorems do not give the explicit all-time coupling error nor the sparsely colored simultaneous-swap Gaussian total-variation profile.",
+      "searches": [
+        "Generalized Bernoulli Laplace fixed red colors sparse urn mix time independent two state particles binomial profile",
+        "Bernoulli Laplace multiple-ball swap count total variation critical Gaussian shift asymptotics",
+        "Sharp Bernoulli Laplace sparse red coloring macroscopic exchange binomial particle independence exact cutoff limit profile",
+        "Small number of marked balls Bernoulli Laplace urn simultaneous swaps independent Markov chains coupling total variation profile",
+        "arXiv:2308.08676v1 introduction and theorem 1.4",
+        "arXiv:2409.07900v1 Theorem A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical search returned nearby Bernoulli-product and concentration results rather than an exact sparse Bernoulli–Laplace formula.",
+        "The named primary sources do not contain a published database/table of the finite-time TV coupling bound."
+      ],
+      "reasoning": "The mathematical claim is an all-parameter coupling inequality and asymptotic distributional profile, not a tabulated finite invariant; no exact database covering it was found in the actual searches. This is not proof of uniqueness.",
+      "searches": [
+        "Bernoulli Laplace urn model with rare red particles r=o(sqrt(n)) and macroscopic swaps k proportional n; exact Gaussian total variation cutoff profile log r",
+        "Sharp Bernoulli Laplace sparse red coloring macroscopic exchange binomial particle independence exact cutoff limit profile",
+        "Small number of marked balls Bernoulli Laplace urn simultaneous swaps independent Markov chains coupling total variation profile"
+      ]
+    },
+    "rationale": "Compared assumptions and implications of full relevant primary sources: Griffin et al. excludes r/N→0; Alameda et al. fixes balanced color totals; Olesker-Taylor and Schmid exchanges one pair per step. No inspected source implies the all-time sparse coupling bound or the macroscopic-swap sparse Gaussian profile. This does not establish historical priority.",
+    "residual_risks": [
+      "Historical or nonindexed tagged-particle mixing results might imply the same sparse profile by a change of terminology.",
+      "The r^2 log r / N condition may not be optimal; no optimality claim.",
+      "The exact profile is for the red count, not the labeled or full permutation chain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this sparse-color regime under the explicit hypotheses.",
+        "evidence": [
+          "Assumption 1.1: 0<η≤1/2; Theorem 1.4: cutoff at log N center with O(1) bounds; §5.1 discusses other generalizations."
+        ],
+        "identifier_or_url": "arXiv:2308.08676v1 | https://arxiv.org/html/2308.08676v1",
+        "material_read": "HTML full text, Introduction Assumption 1.1, Theorem 1.4, §§2–4 argument and §5 Conclusion/Generalizations; PDF opening and primary definitions.",
+        "method": "Compared quantifiers in the limit r/N→η>0 and mixing-time theorem to sparse r/N→0, plus eigenvalue and stationarity definitions.",
+        "title": "Cutoff in the Bernoulli-Laplace Model With Unequal Colors and Urn Sizes",
+        "trigger": "Exact same generalized simultaneous-swap chain, potential stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING sparse red counts; it assumes half the balls red and balanced urns.",
+        "evidence": [
+          "PDF first page declares n red and n white in two urns of size n; Theorem 1.2 sets center log n."
+        ],
+        "identifier_or_url": "arXiv:2203.08647 | https://arxiv.org/pdf/2203.08647",
+        "material_read": "PDF pp.1–6, Abstract/Introduction/Assumption 1/Theorem 1.2 and proof outline with hypergeometric approximation.",
+        "method": "Checked population color ratio and swap regime of main theorem.",
+        "title": "Cutoff in the Bernoulli-Laplace model with O(n) swaps",
+        "trigger": "Early source on macroscopic simultaneous swaps"
+      },
+      {
+        "assessment": "NOT_COVERING macroscopic simultaneous swaps or its sparse particle coupling.",
+        "evidence": [
+          "Abstract: each step switches a pair of balls; mixing center proportional to n log min(k,sqrt(n)), not log r/(2 log(1/|rho|))."
+        ],
+        "identifier_or_url": "arXiv:2409.07900v1 | https://arxiv.org/pdf/2409.07900",
+        "material_read": "PDF Introduction, Theorem A and relevant proof sections 2–5 (19-page original preprint).",
+        "method": "Compared one-pair-per-step dynamics and rescaled time against simultaneous k=Θ(N) exchanges.",
+        "title": "Limit Profile for the Bernoulli–Laplace Urn",
+        "trigger": "Potential earlier exact limit profile in Bernoulli–Laplace"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bb84b63-9e8b-4146-b44d-ebf1a42f303a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regime r/N→0 is a mathematically natural, unaddressed boundary of macroscopic-swap mixing theorems. The new nonasymptotic TV comparison gives a reusable coupling principle, determines mixing center from log r rather than log N, and identifies a complete Gaussian worst-start cutoff profile with lattice-phase awareness.",
+    "status": "PASS"
+  }
+}
