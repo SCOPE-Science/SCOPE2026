@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-It reconstructs all thirteen normalized projective points and thirteen line normals over \\(\\mathbb F_3\\), verifies the \\(13\\times13\\) incidence matrix and the exact identity \\(BB^{\\mathsf T}=3I+J\\), constructs the symmetric rank witness, and row-reduces it over exact rational arithmetic to rank \\(13\\). Every off-diagonal zero/nonzero entry is checked against the independently constructed graph.
+## correctness
 
-The same verifier replays the explicit thirteen-vertex forcing seed and its thirteen chronological forces. It also derives the natural point/line permutations from four projective matrix generators and verifies that they generate a group of order \\(5616\\).
+PASS
 
-Exact replay output:
+The 26 vertices split as 13 projective points and 13 pairwise adjacent projective lines, with incidence matrix B satisfying BB^T=B^TB=3I+J. Symmetric graph-pattern matrix [I B;B^T B^TB] has rank13 and yields M>=13; a 13-vertex seed with explicit 13 legal forcing moves gives Z<=13. Independent separate complete enumeration of all 67,108,864 masks exactly reproduced all polynomial coefficients and orbit BFS produced 254 PGL(3,3) orbits and stated histogram. Found and corrected ancillary false assertion in source RESULT.md: coefficients sum to 19,399,940 forcing sets, NOT to 2^26; remaining 47,708,924 are nonforcing. Final corrected RESULT supplied in full.
 
-```text
-PG(2,3) incidence: 13 points, 13 lines, row/column sum 4, BB^T=3I+J
-Gram-pattern witness: exact real rank 13 and correct off-diagonal graph pattern
-explicit forcing witness mask: 1499455
-forcing sequence: [(0, 23), (1, 19), (4, 16), (8, 21), (3, 25), (5, 22), (2, 24), (14, 6), (16, 12), (18, 9), (15, 11), (20, 10), (13, 7)]
-PGL generator action: order 5616
-VERIFY_OK
-```
+## originality
 
-The standalone `enumerate.cpp` exhaustively checks all \\(2^{26}\\) vertex subsets by the standard zero forcing rule. It then enumerates all minimum sets and their orbits under the four projective generators. Stored exact output:
+PASS
 
-```text
-polynomial 13:1246986 14:3599154 15:4874220 16:4326426 17:2872233 18:1515501 19:651950 20:229801 21:65767 22:14950 23:2600 24:325 25:26 26:1
-minimum_sets=1246986 orbits=254 orbit_hist 234:1 936:9 1404:2 2808:44 5616:198
-minimum_point_profile 6:556686 7:690300
-ENUMERATE_OK
-```
+PASS best knowledge: The 26-vertex split point-line incidence graph was checked under algebraic-submodule and PG(2,3) terminology. Sources establish the graph and general zero-forcing concepts but not its entire polynomial and PGL orbit histogram. Exact finite census and ranks are not an arithmetic specialization of known values in inspected work.
 
-The finite exhaustive enumeration proves the complete polynomial and orbit census for this 26-vertex graph. The equality \\(Z=M=13\\) additionally has an independent symbolic rank lower bound and explicit forcing upper bound.
+## value
+
+PASS
+
+Natural first odd-order projective-plane subspace-intersection graph has a full zero forcing polynomial, exact real symmetric minimum rank, all minimum sets and their PGL-orbit classification. Exact finite 26-vertex benchmark is valuable despite no general-q theorem. Correction removes a misleading false all-subsets checksum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

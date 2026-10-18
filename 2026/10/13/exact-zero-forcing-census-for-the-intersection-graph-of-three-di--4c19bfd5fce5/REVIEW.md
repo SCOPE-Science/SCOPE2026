@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph is exactly the split point-line graph of \\(\\operatorname{PG}(2,3)\\): thirteen point vertices are independent, thirteen line vertices form a clique, and cross adjacency is incidence. The exact incidence identity \\(BB^{\\mathsf T}=3I+J\\) yields a real symmetric graph-pattern matrix of rank \\(13\\). Hence maximum nullity is at least \\(13\\), and the standard inequality \\(M\\le Z\\) gives \\(Z\\ge13\\). An explicit thirteen-vertex set with a replayed thirteen-step chronological forcing sequence gives \\(Z\\le13\\), so \\(Z=M=\\operatorname{mr}=13\\).
+PASS
 
-The complete polynomial is an exhaustive census of all \\(2^{26}\\) subsets. The minimum-set symmetry calculation verifies the acting group has order \\(5616\\), checks all \\(1{,}246{,}986\\) minimum sets, and partitions them into \\(254\\) orbits whose sizes sum to the minimum-set count.
+The 26 vertices split as 13 projective points and 13 pairwise adjacent projective lines, with incidence matrix B satisfying BB^T=B^TB=3I+J. Symmetric graph-pattern matrix [I B;B^T B^TB] has rank13 and yields M>=13; a 13-vertex seed with explicit 13 legal forcing moves gives Z<=13. Independent separate complete enumeration of all 67,108,864 masks exactly reproduced all polynomial coefficients and orbit BFS produced 254 PGL(3,3) orbits and stated histogram. Found and corrected ancillary false assertion in source RESULT.md: coefficients sum to 19,399,940 forcing sets, NOT to 2^26; remaining 47,708,924 are nonforcing. Final corrected RESULT supplied in full.
 
-## Originality
+## originality
 
-PASS. Full text of the module-intersection source was inspected; it defines the exact vertex convention, lists primary MSC \\(16D10\\), and contains no “zero forcing” occurrence. The vector-space-specific 2016 source advertises clique, chromatic, domination, and independence numbers rather than standard zero forcing or minimum rank. Searches under module-intersection, subspace-intersection, projective-plane incidence/split-graph, zero-forcing-polynomial, and minimum-rank formulations did not locate this polynomial, rank theorem, or orbit census.
+PASS
 
-The closest prior finite computation is at field order \\(2\\); it does not imply the ternary polynomial or its \\(\\operatorname{PGL}(3,3)\\) orbit structure. General domination results on the same family concern a different invariant.
+PASS best knowledge: The 26-vertex split point-line incidence graph was checked under algebraic-submodule and PG(2,3) terminology. Sources establish the graph and general zero-forcing concepts but not its entire polynomial and PGL orbit histogram. Exact finite census and ranks are not an arithmetic specialization of known values in inspected work.
 
-## Value
+## value
 
-PASS. This is not only a numerical zero forcing number. It supplies a complete \\(67{,}108{,}864\\)-subset forcing enumerator, an independent rank-optimality proof, and a projective symmetry classification of more than one million minimizers. The case \\(\\mathbb F_3^3\\) is the first odd-order projective-plane instance, making it a natural finite benchmark connecting module-intersection graphs, projective incidence, zero forcing, and minimum rank.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural first odd-order projective-plane subspace-intersection graph has a full zero forcing polynomial, exact real symmetric minimum rank, all minimum sets and their PGL-orbit classification. Exact finite 26-vertex benchmark is valuable despite no general-q theorem. Correction removes a misleading false all-subsets checksum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
