@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "The greedy-block criterion is necessary and sufficient for embeddings in both ordered block strings. Inserting between equal neighbors preserves each budget; two-sided and one-sided insertion lemmas fill all remaining budgets, proving maximal implies length 2m−1. The one-sided argument uses a precise minimal/maximum endpoint and forbidden-split contradiction, not an unproved counting heuristic. The ternary rational matrix and constant-term expression reproduce the binomial formula; independent exhaustive tests cover 15 input cells and DP comparisons cover 40 ternary repetitions. Boundary q=2 and m=1 are included. Finite tests are corroboration, not a proof of all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General MCS enumeration algorithms cover the instance computationally but do not assert a closed formula or that no short maximal solutions occur.",
+        "Global LCS counting methods/bounds are not exact pair-specific structural descriptions."
+      ],
+      "reasoning": "Algorithmic applicability is not implication: an algorithm that lists or counts arbitrary MCS is not a closed cardinality theorem for every repetition count, and LCS bounds cannot establish MCS=LCS. No broader theorem material read was found to entail the presented conjunction.",
+      "searches": [
+        "arXiv:2504.04757",
+        "arXiv:2307.10552",
+        "DOI:10.4230/LIPIcs.ISAAC.2023.21",
+        "arXiv:cs/0301034",
+        "arXiv:cs/0301030"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.04757",
+      "arXiv:2307.10552",
+      "DOI:10.4230/LIPIcs.ISAAC.2023.21",
+      "arXiv:cs/0301034",
+      "arXiv:cs/0301030",
+      "https://oeis.org/A396530"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Buzzega et al. 2025: complexity and enumeration algorithms for general MCS, no claimed reverse-periodic structural equality.",
+        "Hirota and Sakai 2023: efficient general pairwise enumeration, no exact reverse-block family formula.",
+        "Greenberg 2003: algorithms for number of LCS; does not imply structural inclusion-maximal equality."
+      ],
+      "reasoning": "The final conjunction is stronger on a special family: it characterizes all inclusion-maximal outputs for every q,m, proves their common length, and explicitly counts all ternary outputs. Its particular form is not a corollary of inspected algorithmic or universal-bound statements. A 2018 article remains an unresolved but not decisively contradicting preview-only risk.",
+      "searches": [
+        "Theorem: maximal common subsequences of the repeated increasing permutation 012...(q-1) and repeated decreasing permutation (q-1)...210 (m copies each) are all the longest ones; they are exactly length 2m-1 with m-1 ascents and m-1 descents. q=3 exact number binomial(2m+2,m+1)-2 binomial(2m,m)+binomial(2m-2,m-1).",
+        "Maximal common subsequences between two periodic words (abc)^m and (cba)^m, exact central binomial enumeration of all length 2m-1 maximal common subsequences; reversing permutation blocks, 2025 maximal common subsequence enumeration",
+        "arXiv:2504.04757",
+        "arXiv:2307.10552",
+        "arXiv:cs/0301034"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A maximal common subsequence is insertion-maximal, whereas longest is cardinality-maximal; these are generally distinct.",
+        "The new claim equates the two notions on a specific two-string periodic family and converts the admissible words to balanced walks."
+      ],
+      "reasoning": "Equivalent searches used the terms inclusion-maximal, length-maximal, reversing permutations, balanced ascent/descent walks, and repeated blocks. The inspected general enumeration papers do not contain the specific equivalence; no semantic match was identified in the records searched.",
+      "searches": [
+        "All maximal common subsequences coincide with longest common subsequences for reversed periodic permutation strings (0 1 ... q-1)^m and (q-1 ... 1 0)^m. Exact ternary count 3, 10, 36, 132, 490 and binomial coefficients.",
+        "Enumeration of maximal common subsequences of periodic strings; adjacent ascent descent walk encoding of reverse ordered alphabet; combinatorial generating function.",
+        "arXiv:2504.04757",
+        "arXiv:2307.10552"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A396530 lists a corresponding combination of central binomial coefficients without the specified MCS interpretation.",
+        "The formula is stated as a new interpretation and classification, not as a new integer sequence."
+      ],
+      "reasoning": "Exact numerical overlap is acknowledged. A numeric table with another meaning does not logically imply the structural characterization, though it prevents claims of novel numbers.",
+      "searches": [
+        "https://oeis.org/A396530",
+        "Exact number of distinct longest common subsequences for abcabcabc versus cbacbacba, 3 10 36 132 490, formula binom(2m+2,m+1)-2binom(2m,m)+binom(2m-2,m-1).",
+        "arXiv:cs/0301034"
+      ]
+    },
+    "rationale": "Searches of the full theorem, its transfer-matrix and ternary central-binomial form, maximal-common-subsequence algorithms, longest-common-subsequence counting and a numeric database revealed no statement implying the all-alphabet collapse plus ternary formula. Primary MCS and LCS literature was inspected materially. An arithmetic sequence coincidence and inaccessible example-level source are explicitly recorded as risks; no unqualified novelty guarantee is claimed.",
+    "residual_risks": [
+      "Full text of a 2018 string-analogy work mentioning abcabc versus cbacba could not be inspected; an example or stronger formula may appear there.",
+      "Unindexed papers or terminology not surfaced by the searched records could contain the same result.",
+      "OEIS contains related numerical values; only the precise MCS interpretation and all-q structural theorem are claimed as not previously identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It studies general enumeration complexity, not the repeated reverse-permutation family or the all-maximal-are-longest structural theorem.",
+        "evidence": [
+          "arXiv:2504.04757, definitions and main complexity/algorithmic results; first public date 2025-04-07"
+        ],
+        "identifier_or_url": "arXiv:2504.04757",
+        "material_read": "Full arXiv preprint: introduction, definitions, main complexity and algorithmic statements and relevant later sections",
+        "method": "Text inspection of the PDF and its first page; compared objects, all-pair parameterization and output-count claims",
+        "title": "The Complexity of Maximal Common Subsequence Enumeration",
+        "trigger": "Most direct modern general study of maximal common subsequences; motivating problem"
+      },
+      {
+        "assessment": "General efficient enumeration algorithms do not supply this family's maximal-to-longest collapse or ternary binomial count.",
+        "evidence": [
+          "arXiv:2307.10552, introduction and principal algorithmic results"
+        ],
+        "identifier_or_url": "arXiv:2307.10552",
+        "material_read": "Accessible arXiv PDF introduction and principal statements; inspected for periodic and reversed patterns",
+        "method": "Compared its algorithms and general outputs with precise family-specific structural implication",
+        "title": "Efficient Algorithms for Enumerating Maximal Common Subsequences of Two Strings",
+        "trigger": "Direct two-string MCS enumeration predecessor"
+      },
+      {
+        "assessment": "Compact representations do not imply the exact formula or special-pair structural collapse.",
+        "evidence": [
+          "ISAAC 2023 article, definitions and principal DAG representation statements"
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.ISAAC.2023.21",
+        "material_read": "Accessible article main definitions, compact representation and theorem statements",
+        "method": "Compared representation scope with exact structural characterization and count",
+        "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+        "trigger": "Potential stronger MCS representation and counting result"
+      },
+      {
+        "assessment": "Provides general LCS counting algorithms, not this periodic-pair formula; needs the independent MCS=LCS theorem first.",
+        "evidence": [
+          "arXiv:cs/0301034, general counting problem and algorithms"
+        ],
+        "identifier_or_url": "arXiv:cs/0301034",
+        "material_read": "Accessible preprint principal results and counting method",
+        "method": "Compared general-purpose LCS count with special-pair explicit enumeration",
+        "title": "Computing the Number of Longest Common Subsequences",
+        "trigger": "Possible exact LCS formula or counting algorithm"
+      },
+      {
+        "assessment": "Global extremal bounds do not determine exact counts for this family.",
+        "evidence": [
+          "arXiv:cs/0301030, upper- and lower-bound results"
+        ],
+        "identifier_or_url": "arXiv:cs/0301030",
+        "material_read": "Accessible paper global count bounds and principal statements",
+        "method": "Compared all-instance upper/lower bounds to exact ternary count for a fixed pair",
+        "title": "Bounds on the Number of Longest Common Subsequences",
+        "trigger": "Could dominate exponential count or imply the formula"
+      },
+      {
+        "assessment": "Same arithmetic combination appears; the entry does not supply the inspected two-string maximal-common-subsequence interpretation or structural classification. Numeric novelty is not claimed.",
+        "evidence": [
+          "OEIS A396530, central-binomial differences, inspected 2026-10-13 UTC"
+        ],
+        "identifier_or_url": "https://oeis.org/A396530",
+        "material_read": "The sequence entry, formula and numerical interpretation as central-binomial finite differences",
+        "method": "Compared exact arithmetic sequence with its stated combinatorial interpretation",
+        "title": "OEIS A396530",
+        "trigger": "The binomial-expression coefficient list may already occur in exact tables"
+      },
+      {
+        "assessment": "Possible example-level overlap; full structural theorem or formula in this source cannot be excluded without its text.",
+        "evidence": [
+          "2018 search preview mentioning repeated reversed strings; full text inaccessible"
+        ],
+        "identifier_or_url": "Search result for Y. Lepage (2018), full-text access not obtained",
+        "material_read": "Search-result preview only; full text unavailable",
+        "method": "Recorded plausible source and refrained from full-document noncoverage claim",
+        "title": "String Transformations Preserving Analogies",
+        "trigger": "Search snippet mentions strings abcabc and cbacba in an LCS context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0509ac1e-e874-40c5-8a97-1c062d3d9b90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact infinite-family classification resolves the otherwise nontrivial distinction between inclusion-maximal and cardinality-maximal common subsequences. The closed ternary formula and asymptotic give a precise exponentially growing output benchmark for enumeration of an algorithmically motivated object; unlike a small finite census this gives all repetition counts and alphabet sizes structurally.",
+    "status": "PASS"
+  }
+}
