@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed from a finite positive-mixture representation, strict Jensen convexity of \\(u/(2-u)\\), and monotone three-sample error conversion to \\(4E^2+(3-2q+3q^2)E-q(1-q)^2\\ge0\\). The unique positive root is attained by one shifted inverse; differentiating it finds the maximizing spacing, and a positive-pole shifted argument gives the SPD witness. Boundary cases with no shifted inverses, a zero approximant, optional constant weight, endpoints in limiting spacing, all positive shifts, and arbitrary finite mixture lengths are handled. `check.py` passed 999 spacing checks and 2,000 random positive-mixture tests; only the written proof carries universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2511.21858",
+        "https://arxiv.org/abs/2607.18018",
+        "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_time_uniform_error_1.m"
+      ],
+      "reasoning": "General real-pole rational approximations allow coefficients of either sign or higher-order poles; their existence/accuracy bounds do not imply lower minimax bounds for the positive simple-pole cone, even when they approximate the same exponential and can be evaluated through real shifted linear systems. A broader theorem explicitly describing the positive cone could dominate the claim, but none was available to inspect; the unavailable full text is a residual risk.",
+      "searches": [
+        "uniform-in-time rational approximation matrix exponential real poles positive residues 2026 Gutttel Shao theorem",
+        "positivity preserving exponential propagator nonnegative resolvent weights parallel shifts impossible approximation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.18018",
+      "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_three_approximants.m",
+      "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_time_uniform_error_1.m",
+      "https://arxiv.org/abs/2511.21858",
+      "https://doi.org/10.1137/0719077"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2607.18018",
+        "https://arxiv.org/abs/2511.21858",
+        "https://doi.org/10.1137/0719077"
+      ],
+      "reasoning": "The assessed theorem is an exact infimum over arbitrary-length nonnegative simple shifted-inverse sums on an explicit PSD triple and an explicit SPD triple, attained by a single pole. The inspected implementation of the 2026 motivating method does not enforce the sign restriction and therefore does not provide the cone optimality or uniform lower bound. Classical unrestricted rational approximation and related real-pole construction results do not by themselves dominate this infimum; snippets and abstracts of unavailable full manuscripts are not treated as whole-document noncoverage.",
+      "searches": [
+        "positive Stieltjes rational approximation exponential scalar e^-x three point Jensen convex lower bound real poles nonnegative residues",
+        "positivity preserving exponential propagator nonnegative resolvent weights parallel shifts impossible approximation",
+        "uniform-in-time rational approximation matrix exponential real poles positive residues 2026 Gutttel Shao theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2607.18018",
+        "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_three_approximants.m"
+      ],
+      "reasoning": "The target can be phrased equivalently as a sharp convex moment cone/Jensen restriction for a Stieltjes function on three equally spaced spectral nodes, or as a rational exponential approximation lower bound. The authors’ public implementation solves for unconstrained partial-fraction weights, so their stated degree-dependent accuracy cannot imply sharp approximation in the strictly smaller nonnegative residue cone. No equivalent three-point constant was found in inspected material.",
+      "searches": [
+        "positive Stieltjes rational approximation exponential scalar e^-x three point Jensen convex lower bound real poles nonnegative residues",
+        "sharp universal minimax approximation exp(-t x) nonnegative shifted inverses resolvents three equally spaced nodes optimal single pole 1/3 0.051566846"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1137/0719077",
+        "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_three_approximants.m"
+      ],
+      "reasoning": "The constant (2 sqrt(3)-3)/9, its defining three-point minimax polynomial, and the positive-residue pole s=(sqrt(3)-1)/2 were compared against available rational approximation numerical examples and bibliographic searches. No accessible exact positive-residue table containing this joint result was identified. Unsearchable historical tables remain a residual risk, not evidence of absence.",
+      "searches": [
+        "positive coefficients resolvents exp(-tA) three spectrum modes minimax 0.0511329578",
+        "sharp universal minimax approximation exp(-t x) nonnegative shifted inverses resolvents three equally spaced nodes optimal single pole 1/3 0.051566846"
+      ]
+    },
+    "rationale": "Available material from the 2026 real-pole exponential paper and companion numerical implementations does not imply a sharp nonnegative-residue minimax error; inspected code uses an unconstrained coefficient solve. Older real-pole and unrestricted rational works were compared by statement and implications, not title alone. A targeted claims search did not locate the exact three-mode barrier, optimal spacing, uniquely attaining effective pole, or strictly SPD condition-9 witness. This is an evidence-limited scientific originality judgment, not exhaustive novelty certification.",
+    "residual_risks": [
+      "The full original 2026 motivating manuscript, especially appendices and theorem statements, could not be inspected; a matching sign-constrained theorem there would supersede this originality assessment.",
+      "Other historical rational-approximation tables and specialist Stieltjes approximant studies may be unindexed or inaccessible.",
+      "Targeted search failure is not a proof of mathematical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Shared object and real-pole architecture; full-page theorem/appendix coverage unresolved; no claim of complete noncoverage",
+        "evidence": [
+          "https://arxiv.org/abs/2607.18018",
+          "https://github.com/nla-group/uniform-in-time-exponential"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18018",
+        "material_read": "ArXiv listing, abstract and publicly linked computational companion scripts; attempted full manuscript not accessible",
+        "method": "Read accessible public listing and inspected companion source code; arXiv PDF and HTML requests unsuccessful; institutional fallback unavailable",
+        "title": "Uniform-in-time rational approximation of the matrix exponential with real poles",
+        "trigger": "Direct motivating 2026 real-pole rational exponential approximation"
+      },
+      {
+        "assessment": "The coefficient solve coef = subCmat\\subf has no nonnegative coefficient constraint. The script does not state or prove a lower bound for the positive-residue cone.",
+        "evidence": [
+          "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_three_approximants.m"
+        ],
+        "identifier_or_url": "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_three_approximants.m",
+        "material_read": "The three-approximant driver, including real-pole coefficient-solving block and numerical evaluators",
+        "method": "Inspected accessible source text and coefficient assignment",
+        "title": "Public code: drive_three_approximants.m",
+        "trigger": "Check whether the compared 2026 construction uses nonnegative coefficients"
+      },
+      {
+        "assessment": "Degree-dependent demonstrations are for coefficient-unrestricted real-pole approximants, not an exact sign-constrained three-mode minimax.",
+        "evidence": [
+          "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_time_uniform_error_1.m"
+        ],
+        "identifier_or_url": "https://github.com/nla-group/uniform-in-time-exponential/blob/main/drive_time_uniform_error_1.m",
+        "material_read": "Degree-loop and unconstrained coefficient-computation source",
+        "method": "Inspected accessible source text; compared computations to claimed sign-restricted approximation",
+        "title": "Public code: drive_time_uniform_error_1.m",
+        "trigger": "Assess whether accuracy demonstrations presuppose signed or constrained residues"
+      },
+      {
+        "assessment": "Related repeated-real-pole construction, but potential detailed overlap in unavailable pages remains unverified.",
+        "evidence": [
+          "https://arxiv.org/abs/2511.21858"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.21858",
+        "material_read": "Title and public abstract/metadata only; full paper inaccessible",
+        "method": "Compared the abstract-described rational approximation class and pole multiplicity; no whole-document assessment made",
+        "title": "Concentrated real-pole uniform-in-time approximation",
+        "trigger": "Preceding same-author work on real poles"
+      },
+      {
+        "assessment": "Its general rational framework is not itself a sign-constrained sharp three-mode theorem; detailed article content unavailable.",
+        "evidence": [
+          "https://doi.org/10.1137/0719077"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0719077",
+        "material_read": "Public bibliographic record and description; full publication inaccessible",
+        "method": "Compared stated unrestricted approximation problem with nonnegative simple-pole restriction",
+        "title": "Rational Approximation to \\(e^{-x}\\)",
+        "trigger": "Classical rational approximation baseline"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d385804-19d9-4414-8d1c-3b57f4805695",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The restriction to nonnegative positive-shift resolvent weights is motivated by genuinely parallelizable resolvent evaluations that preserve nonnegativity for inverse-positive matrix classes. Exact minimax algebra proves an >5% three-mode error floor regardless of the number of solves; the witness survives strict positive definiteness with spectral condition number 9 and ~3.9% floor. Sharp optimizing spacing and uniquely sufficient single pole clarify a structural design boundary rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
