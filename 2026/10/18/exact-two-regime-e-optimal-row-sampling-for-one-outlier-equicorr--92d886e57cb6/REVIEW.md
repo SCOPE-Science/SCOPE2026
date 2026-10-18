@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The one-step projection identity reduces the objective to the smallest eigenvalue of an information matrix. A saturated-design strict-optimality certificate proves uniqueness among all positive probabilities. Ordinary-row permutations therefore force the global optimum to be exchangeable. A two-dimensional Gram reduction and the transverse eigenvalue yield an exact piecewise optimizer, with stationary and crossing formulas verified symbolically and in full matrices. The singular asymptotic follows by explicit eigenvalues; 2,851 checks offer reproducible corroboration, not an infinite proof.
+
+**Originality — PASS to the extent checked.** The general row-sampling semidefinite program is established prior art (Gower--Richtárik), and a different exact asymptotic MSE optimization is established by Agaskar--Wang--Lu. The older experimental-design equivalence theorem gives general implicit optimality conditions. The checked published inverse-positive coordinate-sampling result requires a condition not satisfied throughout the present parameter family. None of the inspected material states or directly computes this specific two-branch outlier/equicorrelation classification and the unbounded ratio. Equivalent unindexed specializations, particularly in older E-optimal-design theory, remain a residual risk.
+
+**Value — PASS.** A natural model for one atypical measurement among mutually correlated equations admits an unrestricted, explicit, unique optimum and a sharp mode-switch threshold. The singular regime yields a non-obvious \(m^{-1/2}\) sampling law and an arbitrarily large improvement of the exact one-step progress coefficient over equal-row sampling. It concerns guarantees for fixed iid sampling, not wall-clock performance or asymptotic error-exponent optimality.
+
+Self-review: passed. Independent audit: not yet performed.
