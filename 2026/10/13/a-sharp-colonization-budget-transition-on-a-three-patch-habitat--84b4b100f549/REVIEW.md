@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the three-patch continuous-time colonization-extinction chain, the transient generator has seven nonempty states. The exact determinant and Cramer's-rule numerator were recomputed as bivariate integer polynomial identities. The resulting mean extinction time depends on the two rates only through their sum and product. Explicit nonnegative factorizations prove the sharp three-case allocation rule for the entire positive real budget range, including all equality cases. Independent exact rational state-space calculations agree on 64 rate pairs, and a separate grid of 707 allocations checks the endpoint inequalities. No finite test substitutes for the algebraic proof.
+PASS
 
-## Originality — PASS (subject to documented access risk)
+The seven transient nonempty subsets of the three-patch path form an exact finite-state continuous-time contact-process generator, whose negative transient generator Q is nonsingular. With death rate rescaled to 1, c=x+y,u=xy,A=c^2+7c+6, independent SymPy derivation directly rebuilt all seven rates and verified det Q=2(c+2)(A+(2c+7)u) and Cramer numerator=(c+2)(u+c+2)((c+3)u+A). Thus T=((u+c+2)((c+3)u+A))/(2 mu (A+(2c+7)u)). The exact difference T(u)-T(0)=u((c+3)u+c-2)/(2mu(A+(2c+7)u)); and T(c^2/4)-T(u) factors as (c^2-4u) times strictly positive factors for c>1. For c<1 only u=0 maximizes, at c=1 exactly u=0 and u=c^2/4 maximize, for c>1 only u=c^2/4. u endpoints correspond to two concentrated allocations and the equal split, as claimed; gap equals C^2(C-mu)/(8mu^3(2C+3mu)). Finite verification is secondary to the exact all-real inequalities.
 
-The claim is the precise fixed-sum edge-rate allocation transition for a three-patch *continuous-time* occupancy chain started at the middle patch. Vuilleumier and Possingham's substantially inspected 2006 paper instead uses discrete-time Monte Carlo viability of large asymmetric patch networks. Ross and Pollett's 2010 abstract describes a stochastic Levins population-count model and general management advice, but does not show this explicit weighted-path result. Etienne and Heesterbeek's 2001 stochastic-patch heuristics are relevant, yet the complete article was not accessible here, so prior coverage cannot be ruled out. A 2024 paper on three-patch corridor effects concerns different heterogeneous migration and disturbance dynamics. Full-text access limitations and possible unindexed equivalent optimization results remain scientific novelty risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies an exact global, equality-resolved conservation-budget design law in the first habitat path with two independently fundable corridors. The switch occurs at a biologically interpretable dimensionless rate ratio, not at an arbitrarily chosen numerical grid point. It demonstrates that more evenly spread resources are not universally optimal: concentrating investment maximizes expected persistence below the threshold while balanced investment wins above it. This is a useful elementary benchmark for stochastic corridor planning, not a validated management policy for heterogeneous landscapes.
+The spatial finite-state contact process with separate edge rates and center-only initial occupancy is not the aggregate occupied-patch-count Levins model, nor the hundred-patch discrete-time simulation of Vuilleumier–Possingham. Standard Markov-chain inversion gives a method but not this phase transition or unique/equality optimizers. A closely relevant 2010 metapopulation management paper was accessible only in abstract; authorized Oxford full-text retrieval returned VPN-disconnected, leaving material risk but not evidence of coverage. No direct Resultary finding matched the exact optimization problem.
 
-## Limitations
+## value
 
-The theorem assumes three equal-quality patches, linear rate spending, independent exponential local extinctions, an initially occupied center, and permissibility of zero-rate links. The result addresses expected absorption time only. The most relevant inaccessible older optimization articles and an unindexed exact precedent remain literature risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp design switch between putting all colonization budget on one corridor and splitting it evenly, including exactly three critical optima, resolves a natural resource-allocation question for a minimal spatial stochastic epidemic/metapopulation. Complete exact objective and equality classification make this substantive despite three patches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
