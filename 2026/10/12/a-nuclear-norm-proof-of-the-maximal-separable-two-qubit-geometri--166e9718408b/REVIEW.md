@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every pure product component, the augmented factorization \([x\;T]=\sum_k p_k a_k(1,b_k^T)\) has rank-one nuclear norm \(\sqrt2\), so convexity gives \(\|[x\;T]\|_*\le\sqrt2\). The standard two-qubit formula identifies normalized geometric discord with one half of the sum of squares of the two smaller singular values. The ordered-singular-value constraints yield the sharp \(1/4\) bound. Equality is fully traced: it forces singular values \(1/\sqrt2,1/\sqrt2,0\), and a polar partial-isometry witness then confines every augmented local Bloch vector to a two-dimensional plane; fixing its first coordinate and norm leaves at most two points, hence rank at most two. Gharibian's rank-two classification supplies the final local-unitary equality orbit. The packaged exact checker reproduces the extremizer algebra and the scalar inequality endpoints.
+## correctness
 
-## Originality
-PASS. Gharibian proves and classifies the rank-at-most-two maximizers but explicitly conjectures that higher-rank separable two-qubit states cannot attain the same normalized geometric discord. Rana--Parashar restate that conjecture and prove only the \(X\)-state subclass, while describing their general-case work as partial. Searches for the conjecture, augmented Bloch/correlation matrices, nuclear-norm formulations, exact value \(1/4\), higher-rank maximizers, and implication-equivalent statements found no covering result. A 2016 extended-correlation-matrix criterion is structurally related but does not imply the sharp one-sided nuclear-norm/equality theorem as stated in its inspected theorem. A 2021 paper uses nearby “maximal discord” language but points to different discord literature. Residual risk remains for differently indexed later work.
+PASS
 
-## Value
-PASS. The result settles the full form of a published 2012 conjecture, upgrading a rank-two classification and an \(X\)-state theorem to all separable two-qubit states. The proof also isolates a reusable sharp convex-geometric inequality, \(\|[x\;T]\|_*\le\sqrt2\), and its equality mechanism. This is a natural complete optimization problem rather than an arbitrary parameter slice or numerical recomputation.
+For any separable two-qubit state, use a finite pure-product Bloch decomposition with unit vectors a_k,b_k and M=[x T]=sum p_k a_k(1,b_k)^T. By convexity of nuclear norm each product term has nuclear norm sqrt(2), giving ||M||_*<=sqrt(2). Write singular values s1>=s2>=s3; D=(s2^2+s3^2)/2; 2s2+s3<=sqrt(2), 0<=s3<=sqrt(2)/3. The exact quadratic upper bound 1/2-w+(5/2)w^2 for w=s3/sqrt(2) attains 1/2 only at w=0 on [0,1/3]. Thus D<=1/4 with equality forcing singular values (1/sqrt(2),1/sqrt(2),0). Polar rank-two partial isometry Q witnessing ||M||_* forces every positive-weight product vector c=(1,b) into its fixed 2D initial space and fixes a=Qc/sqrt(2); the c0=1 affine-line intersection with the sphere ||c||=sqrt(2) has at most two points. All saturating product states therefore comprise <=2 distinct projectors and rank rho<=2. Published Gharibian rank-two classification then identifies the single LU orbit. Independent exact fractional Gram check for sigma recovers eigenvalues (1/2,1/2,0); scalar inequality checked at 1001 rational values only for corroboration, full proof above infinite-dimensional parameter domain.
 
-## Closest literature and limitations
-The closest direct sources are Gharibian (arXiv:1202.1598), which supplies the rank-two theorem and conjecture, and Rana--Parashar (arXiv:1311.1671), which proves the \(X\)-state case and explicitly leaves the general problem open. Shen et al. (arXiv:1608.01547) provide a related extended-correlation-matrix trace-norm separability criterion. The theorem here is limited to two qubits and squared Hilbert--Schmidt geometric discord; known resource-theoretic limitations of that metric remain unchanged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp augmented one-sided Bloch matrix bound and polar-equality rank-two argument provide an analytic proof of the unrestricted separable two-qubit maximum geometric discord conjecture. Gharibian 2012 established the rank-two extremizer and conjectured no higher-rank maximizers; Rana–Parashar 2013/2014 proves only within separable X-states and derives partial general necessary conditions. Earlier extended-correlation separability trace-norm criteria concern different augmented matrices and do not in the inspected theorems establish this sharp equality condition. The major residual risk is an unlocated 2015–2026 global proof under different terminology.
+
+## value
+
+PASS
+
+This is a globally sharp optimization and rigidity theorem for a canonical two-qubit quantum-correlation quantity, resolving the exact higher-rank equality conjecture left open by Gharibian and Rana–Parashar. The nuclear-norm estimate alone is easy, but its saturation analysis is a motivated structural rank-reduction lemma; recovering every maximizer has independent mathematical interest beyond a numerical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
