@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-After normalization,
-\[
-M(s,t)^2=s^2+t^2+\frac{2}{\sqrt5}|st|.
-\]
-Smooth points reduce to \(x_z=(1,z)/\sqrt{A(z)}\), with Birkhoff tangent \(w_z=(-(z+1/\sqrt5),1+z/\sqrt5)\). The same-sign ratio is
-\[
-\frac{1+t\sqrt{B(z)/A(z)}}{\sqrt{1+4t^2/5}}.
-\]
-Every feasible interior stationary point has \(z<1/5\) and is strictly suboptimal. At the first coordinate crossing the profile is
-\[
-R(z)=\frac{z+1/\sqrt5}{\sqrt{A(z)}}+\frac{\sqrt{B(z)}}{A(z)},
-\]
-and the ratio decreases after that crossing.
+# Independent mathematical audit
 
-The exact derivative equation for \(R\) yields
-\[
-25z^6+60\sqrt5\,z^5+260z^4+96\sqrt5\,z^3+45z^2-12\sqrt5\,z-10=0.
-\]
-There is one positive root by Descartes' rule; exact signs place it in \((1/3,1/\sqrt5)\). Axis-originating Birkhoff pairs have ratio at most \(\sqrt3\), strictly below the boundary maximum. Hence the root gives the global rectangular constant.
+## correctness
 
-The numerical values
-\[
-z_*=0.35016603386984658446\ldots,\qquad
-\mu=1.83053734256591701739\ldots
-\]
-are evaluations only, not proof.
+PASS
+
+The ces_2^(2) norm linearly transforms to M(s,t)^2=s²+t²+(2/sqrt5)|st|. Smooth Birkhoff tangents w_z reduce the optimization to one scalar z and crossing t=1/(z+1/sqrt5), with unconstrained same-chamber extrema bounded below the candidate and post-crossing ratios decreasing; nonsmooth coordinate-axis tangent cones give at most sqrt3. The crossing profile has derivative vanishing at the unique positive root of the displayed sextic by positive-side squared equation and Descartes plus endpoint signs: z≈0.3501660338698, μ≈1.8305373425659. Independent numerical 2-variable maximization corroborated value but not continuum proof. Scope only real two-dimensional Cesaro exponent two.
+
+## originality
+
+PASS
+
+The same finite Cesaro norm is studied in Maligranda–Petrot–Suantai, but Section 4 computes the James constant, not the Birkhoff–James rectangular constant. Baronti–Casini–Papini's primary full rectangular text treats general results and other examples; Paul–Ghosh–Sain's polygonal reduction does not compute this smooth-nonsmooth Cesaro sphere. del Río–Benítez's authorized 1977 pages1–3 concern the two-dimensional Hilbert endpoint μ=sqrt2, not the specific Cesaro sextic. No indexed stronger exact Cesaro rectangular calculation was found; residual bibliographic access gaps remain.
+
+## value
+
+PASS
+
+The two-dimensional Cesaro sequence norm is a natural nonsmooth Banach-space benchmark, and an exact Joly rectangular constant at the smooth-to-axis crossing is not mechanically implied by known James constants or general estimates. Root-isolated sextic and optimizer classify a meaningful geometric extremum useful to benchmark normed-plane inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
