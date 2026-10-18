@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:14:14.077640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. With s=h/2 and R=(I+sL)^(-1), the exact Cayley identity C_h=2R-I reduces all finite connected undirected-graph positivity to R_ii>=1/2. In K_{p,q} the p-part resolvent diagonal is 1/n+(p-1)/[p(1+qs)]+q/[pn(1+ns)]; the q-part diagonal is no smaller for p<=q. Direct rational simplification gives R_ii-1/2=(1+ps-q(n-2)s^2)/[2(1+qs)(1+ns)], yielding h*=[p+sqrt(p²+4q(n-2))]/[q(n-2)] for n>2 and all-h nonnegativity for p=q=1. The p-part first loses positivity beyond the threshold. Independently reconstructed exact rational matrices agree for a biclique grid, including K_{2,3}, h=1, diagonals (-1/35,-1/35,1/7,1/7,1/7). This finite check is not the all-p,q proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem handles every finite irreducible reversible generator, explicitly reduces positivity to its individual spectral projector diagonals, and classifies unconditional positivity.",
+          "The K_{p,q} unit-rate chain is reversible with uniform stationary distribution and spectrum 0,q (p-1),p (q-1),p+q (one), so its two diagonal spectral sums are a direct specialization."
+        ],
+        "reasoning": "Strong implication by object inclusion and substitution: no unstated regularity or additional lemma is required for the biclique case.",
+        "searches": [
+          "Resultary published reversible Markov chains resolvent return positivity exact threshold",
+          "Crank Nicolson finite Markov complete bipartite graph exact positivity threshold resolvent diagonal K p q"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 4 2026 published resolvent-return theorem (complete RESULT.md)",
+        "Bonaventura and Della Rocca arXiv:1510.04303",
+        "Actual immutable reviewed RESULT.md and verify.py at assigned Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 SSP radius 2 provides only a generic lower positivity guarantee h<=2/q; this prior alone does not cover the exact biclique threshold.",
+          "By contrast the October 4 prior supplies the exact diagonal spectral threshold for ALL reversible chains, from which the biclique formula follows by substitution and solving 1+ps-q(n-2)s²=0."
+        ],
+        "reasoning": "The stronger source, not merely the generic SSP bound, is decisive coverage of the submitted result; its generality dominates the natural bipartite subclass.",
+        "searches": [
+          "Bonaventura Della Rocca arXiv:1510.04303 Crank Nicolson absolute monotonicity radius 2",
+          "Resultary October 4 2026 Crank Nicolson resolvent-return theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Previously published full proof has C_h=2(I-sQ)^(-1)-I and a diagonal-resolvent iff positivity criterion for ALL finite Markov generators.",
+          "For Q=-L the criterion is word-for-word the source result general-graph proposition."
+        ],
+        "reasoning": "The exact general criterion is equivalent, with only sign convention Q=-L changed. The older result is not a filtered method or a different Padé approximant.",
+        "searches": [
+          "Crank Nicolson finite Markov complete bipartite graph exact positivity threshold resolvent diagonal K p q",
+          "Resultary ID 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier biclique radical table was needed: the previously published all-reversible spectral formula provides an exact computable closed criterion for each p,q.",
+          "Original Kpq spectral decomposition already present in the source proof as standard Laplacian eigenspaces."
+        ],
+        "reasoning": "A missing row or spelling of the radical in a database is immaterial: this is an algebraic evaluation of an earlier exact theorem.",
+        "searches": [
+          "Resultary ID 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "Crank Nicolson finite Markov complete bipartite graph exact positivity threshold resolvent diagonal K p q"
+        ]
+      },
+      "rationale": "FAIL. A published October 4 research result, 'A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains', was identified in a fresh Resultary search and its complete RESULT.md inspected. It proves for arbitrary finite Markov generators exactly C_h>=0 iff every resolvent diagonal is >=1/2, and for every reversible chain the full spectral return-diagonal threshold by eigenprojectors, including a sharp threshold and unconditional-positivity characterization. K_{p,q} with unit edges is one such reversible chain, and its standard four-eigenspace spectrum inserted into that already-published criterion leads to the submitted quadratic and radical by routine simplification. Thus the graph-independent theorem is literally prior, while the named biclique formula is an immediate explicit specialization of stronger prior coverage. Different wording or the novel displayed radical does not avoid implication coverage.",
+      "residual_risks": [
+        "Strong coverage is mathematically explicit; failure does not allege a false formula or invalid finite calculations.",
+        "The older reversible theorem gives a general spectral root rather than the biclique radical written verbatim; the equivalence requires standard Kpq spectrum substitution, which is fully established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "C_h=2R-I and C_h>=0 iff R_ii>=1/2 for any finite generator; spectral formula R_ii=pi_i+sum u_{ki}²/(1+s lambda_k) for reversible chains; bicliques are reversible special cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Entire RESULT.md: finding, definitions, spectral proof, exact all-reversible formula, verification and prior-work sections",
+          "method": "Fetched complete immutable source text from published research repository; checked equations and implication",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Exact Resultary semantic match to same rational timestep method, Markov generator and resolvent diagonal"
+        },
+        {
+          "assessment": "PARTIAL_GENERAL_ONLY",
+          "evidence": "Radius 2 bounds admissible steps for worst-case SSP problem and does not itself determine the biclique sharp root.",
+          "identifier_or_url": "arXiv:1510.04303",
+          "material_read": "Source citation and radius-two methodological comparison contained in reviewed text; limited direct primary excerpt",
+          "method": "Compared the specific radius 2 statement to graph-dependent exact result",
+          "title": "Monotonicity, positivity and strong stability of TR-BDF2 and its SSP extensions",
+          "trigger": "Original record cites absolute-monotonicity radius 2 as nearest source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. A sharp numerical time-step threshold on a natural biclique graph is useful, but here the spectral return criterion and every-reversible-chain classification already provide the structural mathematical content; substituting the elementary K_{p,q} spectrum into the general formula is a routine worked example, not a separately motivated unknown invariant or research gap. Correct arithmetic, explicit coefficients, and a positive gap above a generic SSP bound do not rescue a covered specialization as new mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correctness applies to finite symmetric unit-rate Laplacians and one-step Crank–Nicolson only; publication withheld.",
+    "Previously published general theorem was absent from the source self-review, so that self-review is not adequate originality evidence.",
+    "Strong coverage is mathematically explicit; failure does not allege a false formula or invalid finite calculations.",
+    "The older reversible theorem gives a general spectral root rather than the biclique radical written verbatim; the equivalence requires standard Kpq spectrum substitution, which is fully established.",
+    "Publication remains not_ready because potentially public metadata contains operational provenance; no sanitization bypass, GitHub write or publication is authorized."
+  ],
+  "schema_version": 1
+}
