@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. Its decisive steps are:
+# Independent mathematical audit
 
-1. Parity superselection decomposes every physical two-mode state into two \(2\times2\) positive blocks.
-2. Every pure vector in either parity block is obtained from a Gaussian occupation-number state by a determinant-one matchgate block, so every physical mixed two-mode state is convex-Gaussian by spectral decomposition.
-3. The source's noisy parity-preserving gate family maps physical states to physical states, hence satisfies the stated local convex-Gaussian input-output property for every \(p\).
-4. The source's own formula has \(\eta(\mathrm{SWAP})=1\), \(C_-(U,p)=0\), and therefore \(C_+(\mathrm{SWAP},0)=1\), contradicting Eq. (35) under the stated definition.
+## correctness
 
-The accompanying checker independently replays the finite matrix identities behind steps 2--4 and confirms the stated threshold is a root of the source's concurrence expression for \(\eta=1\). The finite replay is not used as a substitute for the general spectral-decomposition and matchgate argument.
+PASS
 
-Unproved limit: no claim is made about equivalence between four-mode Choi convex-Gaussianity and a separately defined channel property stable under arbitrary fermionic reference extensions. That stronger question is outside this finding.
+Physical density operators commute with total parity and decompose into 2×2 even and odd blocks. Every normalized vector a|00>+b|11> or c|01>+d|10> is reached from a Gaussian Fock state by a determinant-one SU(2) matchgate parity block, hence is a pure Gaussian. Spectral decomposition establishes the complete convex-hull equality. Parity-preserving unitaries and parity-covariant two-qubit depolarization preserve physical states; SWAP commutes with parity. Substituting the paper’s η(SWAP)=1, p=0 into C_+(U,p)=max(0,η(1−p)(2−p)/2 +p²/8−p/2) gives 1, C_-=0. This refutes only the asserted local-preservation↔Choi condition, not a stronger complete/ancilla-safe definition.
+
+## originality
+
+PASS
+
+Oszmaniec–Gutt–Kuś establish four modes as the first nontrivial convex-Gaussian mixed-state case; it supports but does not explicitly furnish this channel-definition SWAP counterexample. A public critical review already flags the unjustified move from four-mode Choi criterion to two-mode channels; this earlier criticism limits novelty to the explicit logical contradiction and vacuity theorem, rather than discovery of missing proof. No matching result found in targeted Resultary list.
+
+## value
+
+PASS
+
+A substantive definitional counterexample to a claimed threshold for fault-tolerant fermionic simulation, distinguishing trivial local state-set preservation from nontrivial completely resource-preserving operations. This is a useful correction, not a routine numerical substitution: parity-sector collapse is the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
