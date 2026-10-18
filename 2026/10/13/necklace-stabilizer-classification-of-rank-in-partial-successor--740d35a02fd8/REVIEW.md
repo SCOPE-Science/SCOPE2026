@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem is stated for every integer \(n\ge2\) and every binary active mask \(A\subseteq\mathbb Z/n\mathbb Z\), including empty/full masks and wrap-around increments. A word commutes with each translation stabilizing \(A\), so its image contains a full stabilizer coset. In the quotient, a nonzero oriented pair gap \(d\) has an active position whose distance-\(d\) successor is inactive; rotating into that position and applying the partial successor decreases the oriented gap to \(d-1\). This gives explicit compression of every quotient pair, a quotient reset word and the matching upper bound. The fixed-weight Möbius calculation follows from primitive-root decomposition, not numerical guessing. Independent exact subset-state searches and enumerations in `verify.py` agree with the formulas. Those finite tests are not a proof for arbitrary input sizes.
+## correctness
 
-## Originality: PASS, with remaining priority risk
-The closest rank source inspected in full is Kari–Ryzhikov–Varonka (DLT 2019), whose Theorem 3 bounds shortest minimum-rank word lengths *given the rank*; their constructed examples do not enumerate minimum rank across all partial-successor masks. Volkov (2023), Rystsov–Szykuła (2023), and Hoffmann (2020) provide synchronization criteria or state-complexity statements with different hypotheses or goals. Exact-statement and equivalent-formulation searches did not identify a stronger covering theorem. General prime-degree and single-active-position synchronization facts are standard, and Möbius inversion itself is classical; the new claim is the uniform symmetry-to-rank identification and consequent full spectrum. Earlier equivalents expressed in different terminology remain possible.
+PASS
 
-## Value: PASS
-Exact minimum rank measures the smallest set of possible states remaining under any control word. For the full natural family of cyclic shift plus partial-successor automata, the theorem gives a closed-form structural decision procedure, a precise synchronization criterion, and the complete rank counts at any fixed active-set weight. It also explains why two circular automata with the same number of active transitions can have different minimum ranks. This is a complete natural classification rather than a finite numerical curiosity.
+For a cycle letter a(i)=i+1 and partial successor b_A(i)=i+1 on A, i otherwise, shifts H(A) commute with both, forcing every image to have size at least h=|H|. On cyclic quotient of order m=n/h, B=A/H has trivial stabilizer. For every nonzero directed pair separation d choose u∈B, u+d∉B; applying a^t b decreases d by exactly one, so any pair merges within m(m−1) letters. At most m−1 merge rounds compress quotient to one; lifted image has exactly h states and bound m(m−1)². Primitive binary necklace Möbius inversion supplies N_{n,d}=Σ_{e|n/d}μ(e)2^{n/(de)} and fixed-weight N_{n,d,k}=Σ_{e|gcd(n/d,k/d)}μ(e)binom(n/(de),k/(de)), zero if d∤k. Direct independent reachable-subset BFS verified every 1020 active masks n=2..9, including periodic/all/empty boundary patterns. Infinite result follows from pair-merging proof, not enumeration.
 
-## Limits
-No exact formula for shortest minimum-rank word lengths is asserted. The constructive cubic bound is not claimed sharp. An independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General primitive automaton synchronization theorems and semiconstant/unitary-letter criteria cannot handle every composite-size periodic pattern or derive exact nonunit minimum rank. Kari–Ryzhikov–Varonka treat word length/rank bounds in broad circular automata but do not in inspected summary establish stabilizer equality and exact necklace counts. Möbius primitive necklace count is classical; new assertion is equality of machine rank and stabilizer for all A with induced classification.
+
+## value
+
+PASS
+
+It determines the minimum transformation rank for an entire natural two-letter circular automaton family without a powerset search, identifies exactly when synchronizing, provides a constructive cubic reset bound in quotient size and exact rank/fixed-weight distributions. In particular, it handles nonprimitive periodic masks and composite cycles, a real structural gap beyond simple small-automaton examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
