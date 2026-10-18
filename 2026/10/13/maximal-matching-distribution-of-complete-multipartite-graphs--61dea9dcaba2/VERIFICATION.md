@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The finite computation independently checks the defining maximality condition.
+# Independent mathematical audit
 
-`artifacts/verify.py` generates every nondecreasing complete-multipartite part profile of total order \(2\) through \(8\). For each labeled graph it recursively enumerates every matching. A matching is declared maximal only if no graph edge has two unmatched endpoints. The script compares the resulting size distribution with the residual-perfect-matching formula.
+## correctness
 
-It also verifies the stated size-spectrum condition and compares the direct first moment with \(\mathcal A_G'(1)/\mathcal A_G(1)\).
+PASS
 
-Expected replay output:
+For complete multipartite G=K_(n1,…,nr), r≥2, inclusion-maximal matchings have an independent unmatched-vertex set, necessarily empty or contained in exactly one part. The empty case contributes the perfect-matching count for even N. For a nonempty unmatched set choose its unique part and u vertices; the residual graph must admit a perfect matching, giving the stated binomial-weighted polynomial without overcount. The perfect-matching sum follows by cross-part edge multiplicities; residual perfect matching exists iff its largest part has ≤ half the even residual order. This proves the exact size-spectrum condition and first-moment mean, including complete graphs, odd N, and unbalanced part profiles. Independent brute-force edge-disjoint matching enumeration matched every polynomial coefficient for 58 nondecreasing multipartite profiles on 2–8 vertices (2,448 maximal matchings); the all-orders assertion follows from the matching-to-residual bijection, not enumerated data.
 
-`ALL CHECKS PASSED; profiles=58; matchings_examined=9543; maximal_matchings=2448; orders=2..8`
+## originality
 
-The finite check does not prove the theorem for unbounded part sizes. Its role is to probe parity, perfect and near-perfect cases, highly unbalanced profiles, complete graphs, bicliques, and multipartite profiles with repeated part sizes.
+PASS
+
+The claim is the full maximal-matching polynomial and exact size support for arbitrary complete multipartite graph, not the average alone or the polynomial of all matchings. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
+
+## value
+
+PASS
+
+A complete multipartite graph is a canonical family and maximal matchings (versus maximum matchings) have a natural probabilistic average-size statistic. The all-size distribution and exact support are finer than known scalar bounds and may be used for random maximal matching calculations. Although the proof uses elementary unmatched-set decomposition, the closed finite enumerator is an independently useful complete natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

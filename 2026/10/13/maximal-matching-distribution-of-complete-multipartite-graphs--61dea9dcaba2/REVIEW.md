@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A matching is maximal exactly when the unmatched vertices form an independent set. In a complete multipartite graph every independent set is contained in one part, so a nonperfect maximal matching is uniquely specified by its unmatched set inside one part together with a perfect matching of the residual multipartite graph. This proves the enumerator without overlap. The perfect-matching count is reconstructed from edge-type multiplicities, and the exact size spectrum follows from the largest-part criterion for a perfect matching. Direct exhaustive checking through order eight agrees coefficient-by-coefficient.
+PASS
 
-## Originality
+For complete multipartite G=K_(n1,…,nr), r≥2, inclusion-maximal matchings have an independent unmatched-vertex set, necessarily empty or contained in exactly one part. The empty case contributes the perfect-matching count for even N. For a nonempty unmatched set choose its unique part and u vertices; the residual graph must admit a perfect matching, giving the stated binomial-weighted polynomial without overcount. The perfect-matching sum follows by cross-part edge multiplicities; residual perfect matching exists iff its largest part has ≤ half the even residual order. This proves the exact size-spectrum condition and first-moment mean, including complete graphs, odd N, and unbalanced part profiles. Independent brute-force edge-disjoint matching enumeration matched every polynomial coefficient for 58 nondecreasing multipartite profiles on 2–8 vertices (2,448 maximal matchings); the all-orders assertion follows from the matching-to-residual bijection, not enumerated data.
 
-PASS. Searches covered average-maximal-matching terminology, maximal-matching polynomials/enumerators, independent-edge-dominating aliases, complete multipartite graphs, and residual perfect matchings. The closest recent full-text paper treats bicyclic graphs and contains no multipartite, complete-graph, or bipartite result. The closest same-object literature counts all matchings for matching energy, not maximal matchings. The closest database result is a sharp cyclomatic-number lower bound and does not imply the exact distribution.
+## originality
 
-The main residual risk is bibliographic: the foundational 2023 average-maximal-matching paper was not lawfully available in full text during this run, so a poorly indexed special-family formula remains possible.
+PASS
 
-## Value
+The claim is the full maximal-matching polynomial and exact size support for arbitrary complete multipartite graph, not the average alone or the polynomial of all matchings. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
 
-PASS. The statement gives a complete all-cardinality distribution, not just a scalar average. It turns the average-maximal-matching problem on a standard graph class into exact residual perfect-matching data and supplies an explicit criterion for every feasible maximal-matching size.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete multipartite graph is a canonical family and maximal matchings (versus maximum matchings) have a natural probabilistic average-size statistic. The all-size distribution and exact support are finer than known scalar bounds and may be used for random maximal matching calculations. Although the proof uses elementary unmatched-set decomposition, the closed finite enumerator is an independently useful complete natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
