@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:20:23.367825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof exhausts Ω≤2, including primes, squares and products of two distinct primes, with 1 checked separately. Equality σ(n)=σ(n+1) excludes prime endpoints; the even composite is necessarily 2p with odd prime p (the exceptional 4 has prime neighbors). The odd neighbor is q² or qr. For q² and odd squarefree qr, each of the two orientations produces respectively (q−1)²=0, q²−2q+7=0, (q−2)(r−2)=3, or (q−2)(r−2)=−3. For primes 3≤q<r, only the third is solvable, q=3, r=5, p=7, yielding n=14. Independent divisor sums σ(14)=σ(15)=24 are exact. The finite sieve cited by the package is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benito enumerates 1268 solutions below 1.5×10^10; Yamada concerns distribution of shifted divisor-sum coincidences."
+        ],
+        "reasoning": "Finite enumeration and asymptotic distribution do not imply unconditional structural uniqueness in Ω≤2; direct algebraic exhaustive proof is needed.",
+        "searches": [
+          "L. Benito arXiv:0707.2190 full text",
+          "Yamada arXiv:1001.2511 equation σ(n)=σ(n+k)",
+          "Resultary semantic query: Erdos Sierpinski sigma(n)=sigma(n+1) semiprime omega(n) omega(n+1) 14 uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 4cfce6d32ff40aa93142e459ebc67e00d0fe14a5",
+        "Pinned verify.py 9472b71fb315e51e37202dc130be0cba7771a7bb",
+        "Guy–Shanks Fibonacci Quarterly 12(1974), p299 primary PDF",
+        "Benito arXiv:0707.2190 full text",
+        "OEIS A002961",
+        "Resultary semantic Erdos Sierpinski sigma(n)=sigma(n+1) semiprime omega(n) omega(n+1) 14 uniqueness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guy–Shanks display 14 as their initial constructed solution; Benito gives a large finite list and parity facts; neither supplies the displayed (q−2)(r−2)=±3 classification."
+        ],
+        "reasoning": "A known example and parametric subfamily do not imply its uniqueness under two independent Ω bounds. The present elementary factorization proof adds the global exclusion.",
+        "searches": [
+          "R. K. Guy and D. Shanks Fibonacci Quarterly 12 (1974) 299",
+          "arXiv:0707.2190 sections 1–2",
+          "Resultary semantic query: Erdos Sierpinski sigma(n)=sigma(n+1) semiprime omega(n) omega(n+1) 14 uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every Ω=2 even composite is 2p or 4, odd neighbor q² or qr; the theorem is an exact minimal multiplicative layer classification, not merely the first solution."
+        ],
+        "reasoning": "Parametrized prime-factor equations were compared algebraically, including the family n=2p, n+1=3^m q. That construction has m=1 giving 14 but does not exclude other Ω=2 configurations.",
+        "searches": [
+          "Resultary semantic query: Erdos Sierpinski sigma(n)=sigma(n+1) semiprime omega(n) omega(n+1) 14 uniqueness",
+          "Guy–Shanks 1974 constructed solutions, σ(n)=σ(n+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002961 lists n=14 first, and Benito’s table starts with 14; neither listing proves absence of larger Ω≤2 pairs."
+        ],
+        "reasoning": "Database membership and a bounded table are not a logical infinite Ω-layer classification. All four shape/orientation cases were checked symbolically.",
+        "searches": [
+          "OEIS A002961 σ(n)=σ(n+1)",
+          "Resultary semantic query: Erdos Sierpinski sigma(n)=sigma(n+1) semiprime omega(n) omega(n+1) 14 uniqueness"
+        ]
+      },
+      "rationale": "The Guy–Shanks primary construction and Benito’s full arXiv census contain the explicit 14,15 example and parametric solution families, but neither inspected result asserts unrestricted uniqueness for simultaneous Ω(n),Ω(n+1)≤2. This proof is an exact factorization argument, not an extrapolation from the OEIS list or the finite census.",
+      "residual_risks": [
+        "Earlier nonindexed elementary exercises might give the same two-semiprime layer classification under a different label.",
+        "Short elementary proof constitutes a natural minimal layer; no claim of progress on general infinitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known example and method, no displayed full Ω≤2 classification",
+          "evidence": "Initial 14,15 and construction family explicitly seen",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/12-3/shannon3.pdf",
+          "material_read": "Full one-page original construction scanned PDF, including n=14 and the n=2p, n+1=3^m q construction",
+          "method": "Full primary PDF opened and mathematical construction read",
+          "title": "A Constructed Solution of σ(n)=σ(n+1)",
+          "trigger": "Exact problem and first example"
+        },
+        {
+          "assessment": "Finite census does not state infinite semiprime-layer uniqueness",
+          "evidence": "1268 solutions through 1.5×10^10; first is n=14",
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2190",
+          "material_read": "Full 22-page paper accessible; examined abstract, theorem and tables of computed solutions",
+          "method": "Opened primary PDF and read relevant argument and enumerative sections",
+          "title": "Solutions of the problem of Erdős–Sierpiński: σ(n)=σ(n+1)",
+          "trigger": "Exact equation and potentially dominating computation"
+        },
+        {
+          "assessment": "Consistent with n=14 but not proof of full Ω layer",
+          "evidence": "Lists 14 first with many unrestricted higher members",
+          "identifier_or_url": "https://oeis.org/A002961",
+          "material_read": "Sequence definition and initial terms",
+          "method": "Opened database record",
+          "title": "OEIS A002961",
+          "trigger": "Exact integer database for start values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lowest nontrivial composite layer (two prime factors counted with multiplicity on each consecutive integer) is a canonical multiplicative-complexity boundary in the classical unsolved divisor-sum equality problem. The all-integers classification identifies the entire minimal Ω stratum and provides a precise first structural exclusion for further searches, rather than arbitrarily checking to a numerical cutoff. Its short elementary argument does not make it an arbitrary or previously implied computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Theorem classifies only simultaneous Ω≤2; higher Ω layers and the infinitude question remain untouched.",
+    "An obscure prior elementary classification remains a bibliographic residual risk."
+  ],
+  "schema_version": 1
+}

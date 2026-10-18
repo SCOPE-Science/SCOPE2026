@@ -1,41 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts every integer with \(\Omega\le2\). Prime members are
-impossible by immediate size comparison of divisor sums. The even composite
-member is either \(4\) or \(2p\); \(4\) has prime neighbors, while the odd
-composite member paired with \(2p\) is either \(q^2\) or \(qr\). Both square
-orientations reduce to impossible quadratics. The two distinct-prime
-orientations reduce respectively to
-\[
-(q-2)(r-2)=3
-\quad\text{or}\quad
-(q-2)(r-2)=-3.
-\]
-The first has the unique odd-prime solution \(q=3,r=5\), giving \(p=7\)
-and the pair \(14,15\); the second is impossible. All hypotheses,
-orientations, and boundary cases are covered.
+## correctness
 
-## Originality
-PASS. The fully inspected Guy--Shanks paper constructs several solutions and
-contains \(14\) as its first example, but it does not classify all solutions
-by \(\Omega\). Benito's full arXiv paper gives a large census, several parity
-theorems, and open questions; targeted searches found no "semiprime" or
-"prime factor" statement. The exact OEIS table lists \(14\) first and notes
-compositeness of known pairs, but does not imply the unrestricted
-two-almost-prime theorem. Distributional work on
-\(\sigma(n)=\sigma(n+k)\) is logically broader in range but does not cover
-this exact low-complexity boundary.
+PASS
 
-Residual risk remains from older computational literature that was identified
-bibliographically but was not available as searchable full text.
+The proof exhausts Ω≤2, including primes, squares and products of two distinct primes, with 1 checked separately. Equality σ(n)=σ(n+1) excludes prime endpoints; the even composite is necessarily 2p with odd prime p (the exceptional 4 has prime neighbors). The odd neighbor is q² or qr. For q² and odd squarefree qr, each of the two orientations produces respectively (q−1)²=0, q²−2q+7=0, (q−2)(r−2)=3, or (q−2)(r−2)=−3. For primes 3≤q<r, only the third is solvable, q=3, r=5, p=7, yielding n=14. Independent divisor sums σ(14)=σ(15)=24 are exact. The finite sieve cited by the package is corroboration, not the proof.
 
-## Value
-PASS. The equation \(\sigma(n)=\sigma(n+1)\) is a classical open
-Erdős--Sierpiński problem. Prime-factor complexity is a natural structural
-stratification of its solutions. The theorem closes the entire first
-nontrivial multiplicative layer and explains algebraically why the very first
-known solution \(14,15\) is the only one there, rather than merely reproducing
-a bounded table.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Guy–Shanks primary construction and Benito’s full arXiv census contain the explicit 14,15 example and parametric solution families, but neither inspected result asserts unrestricted uniqueness for simultaneous Ω(n),Ω(n+1)≤2. This proof is an exact factorization argument, not an extrapolation from the OEIS list or the finite census.
+
+## value
+
+PASS
+
+The lowest nontrivial composite layer (two prime factors counted with multiplicity on each consecutive integer) is a canonical multiplicative-complexity boundary in the classical unsolved divisor-sum equality problem. The all-integers classification identifies the entire minimal Ω stratum and provides a precise first structural exclusion for further searches, rather than arbitrarily checking to a numerical cutoff. Its short elementary argument does not make it an arbitrary or previously implied computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
