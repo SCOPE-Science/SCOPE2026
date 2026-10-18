@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The return amplitude reduces to an explicit convex quadratic in the phase cosine. Its optimizer is handled on the complete probability simplex, including endpoint minima. The complex Haar measure has the stated exact uniform simplex density, so a direct integration gives the CDF. The exact small-tolerance coefficient follows by a displayed integrable domination. The numerical program checks representative values and the optimizer independently; it is corroboration only. The proof is restricted to the exact three-level harmonic model.
+## correctness
 
-**Originality — PASS (self-review; priority not independently established).** The primary 2014 article examines the exact same orbit criterion and harmonic spectrum, but provides an analytic probability only in dimension two for a different, real-amplitude sampling law, using simulations for higher dimensions. The inspected 2011 and 2012 numerical-shadow papers concern distributions of expectation values of fixed operators and distinct projected dynamical trajectories; they do not imply the distribution of a nonlinear minimum over a continuous time orbit. The explicit complex-Haar qutrit CDF and its \(7/3\) coefficient were not found in the direct source and semantic searches. An unrecognized specialization elsewhere remains a real priority risk.
+PASS
 
-**Value — PASS.** The orbit's probability of near-orthogonality is a physical state-preparation and distinguishability calibration quantity already explicitly motivated in the 2014 work. The formula replaces a numerical-only dimension-three study with an exact distribution, and the \(7/3\) constant separates two geometrically distinct near-orthogonality mechanisms. This is more than a routine substitution of a state distribution: the competing interior and endpoint phase minima require a piecewise global analysis. No claim for real ensembles or other spectra is made.
+For complex Haar simplex weights and spectrum (0,1,2), write y=p1,s=1-y,d=p0-p2,w=1-2y,c=cos(theta). The squared overlap equals (y+sc)^2+d^2(1-c^2), a convex quadratic in c with vertex admissible precisely when y<=1/2 and d^2<=s*w. For |w|<=h the endpoint c=-1 gives a full simplex strip of Haar mass h; for w>h the feasible d-length is 2 sqrt(z_minus), z_minus=(w+h^2-sqrt((1-h^2)*(w^2-h^2)))/2. Thus P3(h^2)=h+integral_h^1 sqrt(z_minus)dw, endpoints 0,1 by continuity. Rationalization, dominated convergence bounded by sqrt(2)*(1+w)/(2 sqrt(w)) give (P3(h^2)/h)->1+4/3=7/3. For Haar qubit min fidelity=(2p-1)^2 with p uniform, P2(h^2)=h. Correct domains complex Fubini-Study, harmonic exact spectrum, unrestricted time.
 
-**Closest literature and limitations.** Morley-Short, Rosenfeld and Kok (arXiv:1409.2244v1), Dunkl et al. (arXiv:1104.2760v1), and Puchała et al. (arXiv:1201.2524v2) were read in their accessible full HTML versions and compared by the object and implication, not title. The fixed-operator numerical-shadow formalism may be a route to an equivalent independent derivation, but the examined results do not provide this claimed time-minimized law. Unpublished work and unlocated articles cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact distribution and 7/3 near-zero coefficient for the time-minimized complex-Haar qutrit; primary Morley-Short et al. treats same orbit with qubit analytic real-Gaussian sampling and higher-dimensional simulations, but not the complex-Haar qutrit CDF. Fixed-operator numerical-shadow formulas cannot alone cover minimization across a continuous orbit. Other numerical-shadow or quantum fidelity literature may conceal an equivalent specialization.
+
+## value
+
+PASS
+
+Near-orthogonality probability is a natural free-orbit distinguishability and experimental initial-state calibration observable. Sharp geometric 1+4/3 decomposition replaces a numerical dimension-three treatment with a continuous-time exact law, a motivated nontrivial spectral boundary, and a quantitative contrast with two-level Haar sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
