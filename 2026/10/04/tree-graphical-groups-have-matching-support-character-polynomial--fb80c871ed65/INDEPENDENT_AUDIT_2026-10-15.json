@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:19:22.501794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any weighted forest with nonzero edge weights over any field, leaf v adjacent to u yields a nonzero 2x2 alternating block via congruence, leaving F minus {u,v}; rank therefore recurses by +2. A maximum matching can be chosen using uv, so nu(F) recurses by +1; rank=2nu(F) follows independently of weight values and char. Support S occurs in exactly (q-1)^|S| edge labels. For odd q the O'Brien–Voll orbit/character degree conversion gives ch(T,i;q)=q^(n-2i)[z^i] sum_S(q-1)^|S|z^nu(S). Root DP state mu-mu0 in {0,1} correctly yields P0=prod(P0_child+q P1_child) and P1=z(q^k prod(P0_child+P1_child)-P0). The tree DP and rank lemma constitute all-size proofs; packaged finite q=3,5 example code is only regression evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "T. Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, arXiv:2107.05564, §1.5 Question 1.10 and §7",
+          "E. A. O'Brien and C. Voll, Enumerating classes and characters of p-groups, arXiv:1203.3050, Theorem A",
+          "Resultary coning recurrence and cycle graphical group entries"
+        ],
+        "reasoning": "O'Brien–Voll converts ranks to characters, but does not count weighted alternating ranks for every tree. Rossmann lists only partial families for character counts; coning/cycle formulas are non-dominating graph subclasses.",
+        "searches": [
+          "Resultary search: graphical groups trees irreducible character degrees weighted forest matching number rank polynomial",
+          "OBrien Voll graphical group character enumeration Rossmann question"
+        ]
+      },
+      "checked_sources": [
+        "T. Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, arXiv:2107.05564, §1.5 Question 1.10 and §7",
+        "E. A. O'Brien and C. Voll, Enumerating classes and characters of p-groups, arXiv:1203.3050, Theorem A",
+        "X. Ma, D. Wong and F. Tian, Skew-rank of an oriented graph in terms of matching number, LAA 495 (2016)",
+        "Resultary adjacent coning/cycle graphical group entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "T. Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, arXiv:2107.05564, §1.5 Question 1.10 and §7",
+          "E. A. O'Brien and C. Voll, Enumerating classes and characters of p-groups, arXiv:1203.3050, Theorem A",
+          "Weighted forest rank lemma and recursive decomposition in frozen RESULT.md"
+        ],
+        "reasoning": "Rossmann question and the general character-rank transform do not logically imply the explicit support rank distribution without the forest pivot lemma and DP; deriving it is the mathematical contribution.",
+        "searches": [
+          "Resultary search: graphical groups trees irreducible character degrees weighted forest matching number rank polynomial",
+          "Rossmann question 1.10 and OBrien Voll Theorem A tree specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T. Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, arXiv:2107.05564, §1.5 Question 1.10 and §7",
+          "Resultary tree hit and separate cycle/coning result summaries"
+        ],
+        "reasoning": "Oriented weighted forest rank via matching is a related known spectral invariant; converting all edge supports to graphical-group character multiplicities with exact tree DP is a different formula, not simply a relabelling of classical matching polynomial.",
+        "searches": [
+          "Resultary search: graphical groups trees irreducible character degrees weighted forest matching number rank polynomial",
+          "Rossmann graphical groups tree character polynomial rank matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary tree entry at https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65",
+          "T. Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, arXiv:2107.05564, §1.5 Question 1.10 and §7"
+        ],
+        "reasoning": "The same current record is indexed, but no separate exact database or table for arbitrary tree shapes was returned by the search; not proof of global novelty.",
+        "searches": [
+          "Resultary search: graphical groups trees irreducible character degrees weighted forest matching number rank polynomial",
+          "exact table graphical group tree character degrees"
+        ]
+      },
+      "rationale": "Rossmann explicitly formulates polynomial character-enumeration for graphical groups and records path/complete/edgeless cases; Section 7 on trees concerns conjugacy classes, not this full tree character-degree distribution. General orbit formula alone leaves alternating rank strata unevaluated. The forest-specific support-matching polynomial with rooted recursion is not provided by inspected primary results or nearby Resultary coning/cycle results.",
+      "residual_risks": [
+        "Full content of older skew-rank paper was not accessible, so the forest rank lemma itself may be classical (and is not treated as isolated novelty).",
+        "Odd q hypothesis essential for the cited Kirillov character formula; characteristic-two rank alone does not extend character claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the all-tree character-degree polynomial; tree results concern conjugacy classes",
+          "evidence": "Question 1.10 lists known edgeless/path/complete character cases, not arbitrary tree multiplicities",
+          "identifier_or_url": "arXiv:2107.05564",
+          "material_read": "Full arXiv paper including §1.5 Question 1.10 and §7 tree class enumeration",
+          "method": "Read primary OA PDF full text; section and term lookup",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "same group objects; explicit character-enumeration question"
+        },
+        {
+          "assessment": "Provides general Kirillov/O'Brien–Voll bridge, NOT the support matching coefficient formula for trees",
+          "evidence": "Theorem A converts alternating matrix rank strata into character counts",
+          "identifier_or_url": "arXiv:1203.3050",
+          "material_read": "Full accessible primary preprint, Theorem A and surrounding setup",
+          "method": "arXiv PDF inspection",
+          "title": "Enumerating classes and characters of p-groups",
+          "trigger": "general rank-to-character orbit formula"
+        },
+        {
+          "assessment": "Potentially covers weighted forest rank special case; not asserted globally noncovering",
+          "evidence": "Prior matching/skew-rank relation is explicitly treated as background",
+          "identifier_or_url": "DOI:10.1016/j.laa.2016.01.036",
+          "material_read": "Bibliographic metadata and abstract available; NOT full text",
+          "method": "primary bibliographic/abstract consultation only",
+          "title": "Skew-rank of an oriented graph in terms of matching number",
+          "trigger": "matching-number connection to skew adjacency matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Graphical groups are a natural open-ended enumerative family posed explicitly by Rossmann. The support-matching identity solves all trees, beyond paths, and the local two-state recurrence computes every character multiplicity without enumerating q^(n-1) edge labels. This is an extensible structural and algorithmic answer to an explicit question, not a tiny example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Character counts asserted only for odd q, although weighted forest rank identity is field-independent; some rank lemma history may predate package."
+  ],
+  "schema_version": 1
+}

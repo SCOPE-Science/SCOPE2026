@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A leaf congruence splits a weighted forest alternating matrix into a nonsingular \(2\times2\) block plus the matrix of the forest with a leaf and its neighbour deleted. The maximum matching size satisfies the same recurrence, so the rank is exactly twice the support matching number over every field. Grouping finite-field assignments by nonzero support yields \(\mathcal R_T\). O'Brien--Voll's Theorem B supplies the factor \(q^{n-2i}\), and the two-state rooted recursion follows from whether a present parent-child edge can improve the child's root-forbidden optimum. The packaged checker independently verifies matrix ranks, support enumeration, the recursion, and the degree-squared identity.
+PASS
 
-## Originality
+For any weighted forest with nonzero edge weights over any field, leaf v adjacent to u yields a nonzero 2x2 alternating block via congruence, leaving F minus {u,v}; rank therefore recurses by +2. A maximum matching can be chosen using uv, so nu(F) recurses by +1; rank=2nu(F) follows independently of weight values and char. Support S occurs in exactly (q-1)^|S| edge labels. For odd q the O'Brien–Voll orbit/character degree conversion gives ch(T,i;q)=q^(n-2i)[z^i] sum_S(q-1)^|S|z^nu(S). Root DP state mu-mu0 in {0,1} correctly yields P0=prod(P0_child+q P1_child) and P1=z(q^k prod(P0_child+P1_child)-P0). The tree DP and rank lemma constitute all-size proofs; packaged finite q=3,5 example code is only regression evidence.
 
-PASS. Rossmann explicitly asks for the graphical-group character distributions and records only edgeless graphs, paths, and complete graphs as known polynomial families. The accepted result extends the path case to every tree and gives an explicit recursive polynomial. The general Kirillov theorem does not compute these tree rank distributions, while skew-rank literature concerns fixed oriented matrices rather than all finite-field edge-weight supports and their character multiplicities. Targeted searches under equivalent graph, matrix, and matching formulations found no covering theorem. An older matrix-theoretic equivalent remains a residual bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. Trees form a broad canonical family, and the result turns an open representation-enumeration problem into an exact matching-support computation with a usable rooted recursion. It also isolates the structural reason the family is tractable and distinguishes it from cyclic supports, where cancellation can occur.
+Rossmann explicitly formulates polynomial character-enumeration for graphical groups and records path/complete/edgeless cases; Section 7 on trees concerns conjugacy classes, not this full tree character-degree distribution. General orbit formula alone leaves alternating rank strata unevaluated. The forest-specific support-matching polynomial with rooted recursion is not provided by inspected primary results or nearby Resultary coning/cycle results.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Graphical groups are a natural open-ended enumerative family posed explicitly by Rossmann. The support-matching identity solves all trees, beyond paths, and the local two-state recurrence computes every character multiplicity without enumerating q^(n-1) edge labels. This is an extensible structural and algorithmic answer to an explicit question, not a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
