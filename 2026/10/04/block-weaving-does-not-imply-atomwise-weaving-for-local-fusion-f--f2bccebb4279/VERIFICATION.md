@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The primary theorem and definitions were checked against the open-access arXiv and published versions.
+# Independent mathematical audit
 
-For the counterexample, set \(\mathcal H=\mathbb R^2\), \(I=\{1\}\), \(V_1=W_1=\mathcal H\), and \(v_1=w_1=1\). The two possible outer weavings are identical and satisfy
-\[
-\|P_{\mathcal H}x\|^2=\|x\|^2.
-\]
-Thus the fusion pair is woven with exact bounds \(1,1\).
+## correctness
 
-The local frames \((e_1,e_2)\) and \((e_2,e_1)\) are orthonormal bases, so their lower and upper frame bounds are all \(1\). Ordinary atomwise weaving allows the atomic selection that yields \((e_1,e_1)\). For \(x=e_2\),
-\[
-|\langle e_2,e_1\rangle|^2+|\langle e_2,e_1\rangle|^2=0,
-\]
-so this weaving is not a frame. This directly disproves the forward implication of the stated equivalence.
+PASS
 
-For the reverse implication, an arbitrary outer subset \(\sigma\subseteq I\) determines the block-constant atomic subset containing all \((i,j)\) with \(i\in\sigma\). If the flattened local systems are atomwise woven with bounds \(L,U\), this particular atomic weaving has those bounds. Uniform local bounds \(a>0\) and \(b<\infty\) imply \(aE_\sigma\le Q_\sigma\le bE_\sigma\), hence the corresponding fusion weaving has bounds \(L/b\) and \(U/a\).
+The pair of weighted fusion frames with a single index I={1}, V_1=W_1=R^2 and v_1=w_1=1 is woven: the only whole-block weaves select the same full space and have bounds exactly 1. Its local frames F_1=(e1,e2) and G_1=(e2,e1) are each orthonormal bases with bounds 1, satisfying the printed uniform hypotheses of Bhandari Theorem 3.1. But atomic selection of the first atom from F and the second atom from G is (e1,e1), which has zero frame energy on e2 and thus is not a frame. The claimed implication from fusion weaving to ordinary atomwise flattened weaving therefore fails. The reverse implication holds: for every outer sigma choose atomic tau={(i,j):i in sigma}; if all atomic weaves have uniform L,U and local bounds a<=A_i,C_i, B_i,D_i<=b, then a E_sigma(x)<=Q_sigma(x)<=b E_sigma(x) and L||x||^2<=Q_sigma(x)<=U||x||^2 imply L/b<=E_sigma/||x||^2<=U/a. We checked the 2024 theorem's actual quantifiers and its forward proof (only sigma subsets of outer I), and the blockwise condition in 2018 Lemma 2.2. Corrected statement distinguishes atomic from blockwise quantification; no attempt to claim novelty for blockwise characterization.
 
-The earlier arXiv:1802.03352 Lemma 2.2 was checked separately: it selects complete local blocks according to partitions of the outer fusion index. It therefore supports the blockwise replacement but does not cover atomwise weaving.
+## originality
 
-Limit: no claim is made about stronger hypotheses that might force arbitrary atomwise local weaving from fusion weaving.
+PASS
+
+Best-of-knowledge PASS for an explicit, logically decisive counterexample to a specific printed 2024/2025 theorem and its surviving direction. The older correct blockwise lemma covers that different weaker statement, not the theorem being refuted.
+
+## value
+
+PASS
+
+A concrete correction of an incorrect equivalence in published frame theory is mathematically useful despite the small witness: it distinguishes independent local-vector failure from whole-subspace stability, prevents incorrect transfer of universal weaving bounds, and records the precise one-way statement and the known blockwise substitute. The two-dimensional one-block example is minimal and fully meets the source's assumptions; it is not an unmotivated artificial slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
