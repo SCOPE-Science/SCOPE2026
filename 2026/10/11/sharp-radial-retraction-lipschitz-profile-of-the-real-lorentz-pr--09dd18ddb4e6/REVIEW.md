@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. On the exterior of the polygon, the derivative of the radial retraction is the normalized oblique projection \(I-z\otimes f\). Convexity along each facet and the full signed-permutation symmetry reduce the global operator norm to just two exact endpoint calculations. Their norms are \(1+w^2\) and \(2(1+w^2)/(1+w)^2\). Line-segment integration gives the global upper bound; exterior derivatives approaching facet endpoints give the matching lower bound. No finite sample is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The complete radial-retraction exposition by Rieffel establishes the bound \(2\), not the exact weighted-octagon profile. The complete Șerb paper supplies the Thele and rectangular-modulus identities but not the specific calculation. The full application paper of Christianson, Handina and Wierman uses the constant in Lipschitz inequalities without evaluating this family. Exact Banach--Mazur and dual Gao values for nearby or identical polygonal norms are distinct invariant statements and do not supply the nonlinear radial Lipschitz lower bound. Inaccessible historical originals remain residual risks rather than being misrepresented as checked.
+PASS
 
-## Value
-PASS. A canonical radial retraction has a concrete Lipschitz cost in norm-preserving extensions and in convex-chasing applications. This result determines that sharp nonlinear cost across the entire weighted family, gives a strict improvement over the universal bound, and identifies a unique regular-octagonal minimizer at \(4-2\sqrt2\).
+The unit ball of N_w is the octagon with vertices (±1,±w),(±w,±1), 0<w<1. At exterior differentiability points associated with active supporting facet f and normalized z, DR(x)=(I−z⊗f)/N_w(x). The norm z↦||I−z⊗f|| is convex along an edge, so the operator supremum lies at a vertex; signed-coordinate symmetries reduce to z=(1,w) and vertical/diagonal facets. Their exact images are Q_V(u,v)=(0,v−wu) and Q_D(u,v)=((wu−v)/(1+w))(1,−1). Complete evaluation of |v−wu| over the eight vertices gives 1+w²; hence ||Q_V||=1+w², ||Q_D||=2(1+w²)/(1+w)². Piecewise differentiability along generic segments and continuity prove the global upper bound; exterior derivatives approaching the same endpoints prove the matching lower bound. The branch crossover w=√2−1 uniquely minimizes at 4−2sqrt2. Independently enumerated vertex dual norms in rational arithmetic and differentiated both expressions; no grid is used for the infinite proof.
 
-## Closest literature and limitations
-Thele's general radial-constant theory and Rieffel's bound are the nearest same-object results. Șerb identifies the constant with a limiting rectangular modulus. Christianson, Handina and Wierman show its role in quantitative algorithms. The result concerns the canonical radial retraction on a real plane, not the minimum over all possible retractions, and the unread 1967, 1974 and 1983 historical original papers leave a bibliographic residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Rieffel’s full radial-retraction exposition gives the universal 2 upper bound and Hilbert case, while the specialized exact nonmonotone weighted octagonal profile and its sharp derivative witnesses do not appear in the inspected section. Thele/Șerb supply general radial and rectangular-modulus identities; related Resultary records compute other invariants of the same weighted Lorentz octagon (Joly rectangular, Banach–Mazur, Gao) that cannot automatically be equated to the particular nonlinear radial-retraction Lipschitz constant. Inaccessible historical originals are expressly residual bibliographic risks, not automatic scientific failures.
+
+## value
+
+PASS
+
+The canonical ball radial retraction is a basic nonlinear operation in Banach geometry and Lipschitz extension algorithms; its exact norm-dependent worst-case amplification matters independently of optimal projection over all possible retractions. The complete parameter phase transition and unique regular-octagon minimizer improve the universal constant 2 sharply for an entire natural weighted Banach family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

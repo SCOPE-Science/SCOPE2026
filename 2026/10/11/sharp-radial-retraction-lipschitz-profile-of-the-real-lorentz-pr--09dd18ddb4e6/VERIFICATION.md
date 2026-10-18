@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the radial Lipschitz theorem
 
-Let \(0<w<1\), \(a=1+w\), \(z=(1,w)\), and let the signed-permuted unit-ball vertices be \((\pm1,\pm w)\) and \((\pm w,\pm1)\). Define the exact norm
-\[
-N_w(u,v)=\max\left\{|u|,|v|,\frac{|u|+|v|}{a}\right\}.
-\]
+# Independent mathematical audit
 
-The supporting functionals incident with \(z\) are \(f_V(u,v)=u\) and \(f_D(u,v)=(u+v)/a\). For the linear functional \(\ell(u,v)=v-wu\), the vertex values in absolute value are precisely
-\[
-\{0,1-w^2,2w,1+w^2\}.
-\]
-Because \((1-w)^2\ge0\), its dual norm is \(\|\ell\|_{X_w^*}=1+w^2\), attained at \((-w,1)\). The two endpoint matrices, their images, and norms are
-\[
-Q_V=I-z\otimes f_V,\quad Q_V(u,v)=(0,v-wu),\quad\|Q_V\|=1+w^2,
-\]
-\[
-Q_D=I-z\otimes f_D,\quad Q_D(u,v)=\frac{wu-v}{a}(1,-1),\quad\|Q_D\|=\frac{2(1+w^2)}{a^2}.
-\]
-No exhaustive numerical grid is involved: the norm over the unit polygon is attained at its finitely many vertices, and the map \(z\mapsto\|I-z\otimes f\|\) is convex on each facet. The global radial Lipschitz bound follows by integrating derivatives on generic line segments and passing by continuity to arbitrary segments. Sharpness follows by approaching the pertinent facet endpoint from the exterior, using the unit direction \((-w,1)\), not by asserting attainment of a finite-pair supremum.
+## correctness
 
-Independent exact-rational checks evaluated the two operator norms by complete vertex enumeration at weights \(1/10\), \(1/5\), \(1/3\), \(1/2\), \(7/10\), and \(9/10\), and matched both closed expressions. These checks are independent of the analytic proof but finite and do not certify the infinite statement by themselves.
+PASS
 
-The branch equality requires \((1+w)^2=2\), giving the unique admissible parameter \(w=\sqrt2-1\). The first branch has derivative \(4(w-1)/(1+w)^3<0\); the second has derivative \(2w>0\). Their intersection is the unique global minimum \(4-2\sqrt2\). Scaling establishes radius-independence for all \(r>0\).
+The unit ball of N_w is the octagon with vertices (±1,±w),(±w,±1), 0<w<1. At exterior differentiability points associated with active supporting facet f and normalized z, DR(x)=(I−z⊗f)/N_w(x). The norm z↦||I−z⊗f|| is convex along an edge, so the operator supremum lies at a vertex; signed-coordinate symmetries reduce to z=(1,w) and vertical/diagonal facets. Their exact images are Q_V(u,v)=(0,v−wu) and Q_D(u,v)=((wu−v)/(1+w))(1,−1). Complete evaluation of |v−wu| over the eight vertices gives 1+w²; hence ||Q_V||=1+w², ||Q_D||=2(1+w²)/(1+w)². Piecewise differentiability along generic segments and continuity prove the global upper bound; exterior derivatives approaching the same endpoints prove the matching lower bound. The branch crossover w=√2−1 uniquely minimizes at 4−2sqrt2. Independently enumerated vertex dual norms in rational arithmetic and differentiated both expressions; no grid is used for the infinite proof.
+
+## originality
+
+PASS
+
+Rieffel’s full radial-retraction exposition gives the universal 2 upper bound and Hilbert case, while the specialized exact nonmonotone weighted octagonal profile and its sharp derivative witnesses do not appear in the inspected section. Thele/Șerb supply general radial and rectangular-modulus identities; related Resultary records compute other invariants of the same weighted Lorentz octagon (Joly rectangular, Banach–Mazur, Gao) that cannot automatically be equated to the particular nonlinear radial-retraction Lipschitz constant. Inaccessible historical originals are expressly residual bibliographic risks, not automatic scientific failures.
+
+## value
+
+PASS
+
+The canonical ball radial retraction is a basic nonlinear operation in Banach geometry and Lipschitz extension algorithms; its exact norm-dependent worst-case amplification matters independently of optimal projection over all possible retractions. The complete parameter phase transition and unique regular-octagon minimizer improve the universal constant 2 sharply for an entire natural weighted Banach family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
