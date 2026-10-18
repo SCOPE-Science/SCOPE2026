@@ -1,0 +1,11 @@
+# Scientific review: exact affine Hardy Hilbert--Schmidt contact profile
+
+**Correctness — PASS.** The two-variable Szegő coefficient kernel is obtained from the adjoint identity, and double Parseval reduces the norm to a nonnegative boundary integral. Separate output contacts guarantee a uniform denominator bound. Two exact circle integrations give the displayed radical; the essential nonstandard algebraic step is the factorization in equation (2) of the result. The same denominator evaluated at coincident contacts has a nonintegrable reciprocal \((1-\cos t)^{-1}\). Differentiating the exact radical proves angular monotonicity and the sharp collision coefficient. The standalone finite quadrature tests corroborate but do not replace the proof.
+
+**Originality — PASS, with priority risk.** He–Yan–Zhang–Zhao (arXiv:2609.29897, Section 3, Theorem 3.4) determine Schatten membership via common output contact; Leng–Zhao (arXiv:2610.15472, Section 3.3, Theorem 3.18/Remark 3.19) determine a general Hilbert--Schmidt integrability criterion. The inspected text does not exhibit the exact three-parameter radical or sharp contact-angle collision coefficient. An older full-length Hardy-space compactness article by Clifford–Zheng (1999) was not available for complete inspection; unrecognized prior formulas remain possible. Similarity searches of relevant published mathematical findings did not reveal an implication covering the result, but their absence does not establish uniqueness.
+
+**Value — PASS.** The image-disks-internal-tangency class is the entire natural affine boundary-contact family, not an arbitrary isolated numerical example. The result upgrades a qualitative all-Schatten/separation dichotomy to a sharp quantitative singular norm as two distinct contacts merge. It identifies the complete angular profile, its antipodal optimum, and the blow-up coefficient, potentially useful for conditioning of compact composition products near loss of compactness.
+
+**Limits.** No general Möbius-symbol norm, reverse-order norm, or control of other Schatten powers is asserted. The partial source-access limitation affects publication priority, not the independent analytic derivation of the displayed identity.
+
+Self-review: passed. Independent audit: not yet performed.
