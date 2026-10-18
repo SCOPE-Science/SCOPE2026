@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:48:46.715863Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wang Theorem 5.2 gives at most (2|Sigma|)^(depth+1) finite worlds, Lemma 5.1 transfers them to standard arithmetic without increasing worlds, and Theorem 5.6 explicitly compresses input-constant values to (|C_phi||W|+1)(B+1). Explicit successor syntax gives |Sigma|<=2n, depth<=n, |C_phi|<=n and B<=n, hence N=(4n)^(n+1) and U=(nN+1)(n+1). Guessing at most n equivalence-relation adjacency matrices, proposition and constant valuations uses O(nN²+nN log U)=2^{O(n log n)} bits. Bottom-up semantic evaluation including conditionally agreeing value pairs is polynomial in this representation. The derived SAT and complementary VAL complexity inclusions therefore hold on the asserted announcement-free explicit-syntax domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang already proves the stronger explicit witness and value range bounds over the exact successor-arithmetic language and semantics.",
+          "Ding PSPACE applies to a predecessor language lacking successor arithmetic, so does not cover the new language."
+        ],
+        "reasoning": "Wang, not Ding, is the decisive dominating source: the exact bounds imply the submitted complexity label without a new specialized lemma.",
+        "searches": [
+          "knowing value logic successor arithmetic NEXPTIME exponential model bound Hongyi Wang",
+          "arXiv:2606.31891 Theorem 5.2 Lemma 5.1 Theorem 5.6 quantitative model bounds",
+          "arXiv:1609.07684 knowing what PSPACE complexity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31891",
+        "DOI:10.4204/EPTCS.447.41",
+        "arXiv:1609.07684",
+        "Resultary search: knowing value logic successor arithmetic NEXPTIME exponential model bound Hongyi Wang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n symbols, |Sigma|<=2n and depth<=n imply (2|Sigma|)^(depth+1)<= (4n)^(n+1).",
+          "The bound on values of constants is explicitly (|C_phi||W|+1)(B+1); model checking is polynomial in the guessed finite model encoding."
+        ],
+        "reasoning": "The submitted complexity upper bound follows deductively from earlier stronger quantitative theorems via the standard NP-style certificate verification argument. It is a covered corollary, not an original theorem, even though Wang states only decidability in prose.",
+        "searches": [
+          "knowing value logic successor arithmetic NEXPTIME exponential model bound Hongyi Wang",
+          "Wang Theorem 5.2 explicit bound and Theorem 5.6 algorithm",
+          "finite model property single exponential model checking nondeterministic time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.2 provides finite witnesses of size (2|Sigma|)^(D+1), and Lemma 5.1 preserves worlds under standardization.",
+          "Theorem 5.6 compresses all relevant arithmetic values to (|C_phi|*f(|phi|)+1)*(B+1)."
+        ],
+        "reasoning": "Despite different class-language wording, the source gives the same finite certificates quantified by input size. A polynomial-time verifier of an explicit guessed model is routine, so the desired class follows.",
+        "searches": [
+          "knowing value logic successor arithmetic NEXPTIME exponential model bound Hongyi Wang",
+          "Wang 2026 Knowing-Value Logic with Successor Arithmetic Section 5 finite models",
+          "arXiv:2606.31891 NEXPTIME certificate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The new displayed N and U are syntactic substitutions into the source exact quantitative formulas, not independent table entries.",
+          "No independent finite data table is relevant; the relevant exact prior quantities are the published witness and arithmetic-value endpoints."
+        ],
+        "reasoning": "For this complexity result, database coverage means the exact published bound/formula. Those formulas are available in Wang Section 5; a search lacking the NEXPTIME word cannot negate this mathematical implication.",
+        "searches": [
+          "knowing value logic successor arithmetic NEXPTIME exponential model bound Hongyi Wang",
+          "arXiv:2606.31891 quantified finite model and value tables"
+        ]
+      },
+      "rationale": "The full primary article already gives the quantitatively stronger explicit standard finite-world witness theorem and the bounded-value compression formula, together with decidability via finite enumeration. The submitted NEXPTIME class statement is a direct standard nondeterministic-certificate corollary of these prior quantitative assertions: store their finite model and polynomially model-check it. Absence of the word NEXPTIME from the article does not make a logically forced, routine complexity-class corollary original under implication-based coverage rules.",
+      "residual_risks": [
+        "The source does not explicitly spell the exact NEXPTIME time bound, but its stronger published finite-model and value bounds mathematically force it; lack of identical wording is not novelty.",
+        "No claim of NEXPTIME-hardness, exact complexity, public-announcement complexity, or succinct successor encoding is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_COVERAGE",
+          "evidence": "The precise N and U used in the submitted result follow by substituting |Sigma|, depth, |C|, B <= O(n) into the published quantitative formulas. Standard nondeterministic model guessing supplies the announced upper class.",
+          "identifier_or_url": "arXiv:2606.31891; DOI:10.4204/EPTCS.447.41",
+          "material_read": "Primary arXiv accessible full-text Sections 3-5, specifically Lemma 5.1, Theorem 5.2 finite-world exponent, Theorem 5.6 standard-model arithmetic compression, and decision procedure.",
+          "method": "Direct primary theorem/statement and mathematical implication comparison",
+          "title": "Knowing-Value Logic with Successor Arithmetic",
+          "trigger": "Exact same language, semantics and source of the quantitative bounds"
+        },
+        {
+          "assessment": "DIFFERENT_WEAKER_LANGUAGE",
+          "evidence": "The predecessor PSPACE theorem does not cover successor arithmetic, but the decisive source for this rejection is Wang 2026 itself.",
+          "identifier_or_url": "arXiv:1609.07684",
+          "material_read": "ArXiv abstract and theorem-level PSPACE statement, not represented as entire full-text read.",
+          "method": "Statement and object-class comparison",
+          "title": "Axiomatization and complexity of modal logic with knowing-what operator on model class K",
+          "trigger": "Predecessor modal knowing-what complexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although a complexity-class label is natural for this logic, this particular contribution simply substitutes formula length into already published quantitative finite-model/value bounds and applies the standard guess-and-polynomially-check finite-structure technique. It supplies no new structural witness lemma, encoding compression, asymptotic improvement, lower bound or other nonroutine motivated step beyond the source construction. Under the explicit non-textbook-deduction standard it lacks independent mathematical value as a new research finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Input successor exponents must be explicitly written",
+    "Announcement-free language only",
+    "Published bounds already cover the certificate-size ingredients; no independent originality or value acceptance"
+  ],
+  "schema_version": 1
+}
