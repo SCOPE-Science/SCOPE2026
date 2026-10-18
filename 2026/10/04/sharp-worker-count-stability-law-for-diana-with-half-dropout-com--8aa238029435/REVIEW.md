@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Centering the shifts by the local gradients at the minimizer removes all affine offsets. Conditional branch averaging gives an exact closed recursion for \(\mathbb E[x^2]\), \(\mathbb E[x\bar e]\), and the mean worker shift energy. Its characteristic cubic is subjected to the complete real Jury test. The first Jury condition yields the closed-form boundary, and the remaining four conditions are proved strictly positive throughout the proposed interval. At the boundary the second-moment operator has eigenvalue \(1\); beyond it a necessary Jury condition fails.
+PASS
 
-Risk: the proof uses independent worker compressors and equal local curvature. Neither assumption is generalized.
+Centered worker shifts remove offsets b_i. Bernoulli half-dropout produces exact second-moment recursion on X=E x², Y=E x ebar, W=E mean e_i²; independent recomputation in sympy confirms M_n(s), char polynomial and P(1)=s[n(2+s-s²)-2s(s+2)]/(4n). Complete Jury inequalities are positive on 0<s<s_n as factored proof shows; at s_n P(1)=0, beyond necessary positivity fails. Conditional noise independence and all square-integrable initial states are in scope; arbitrary gamma<=0 not claimed. Asymptotic expansion and monotonicity checked.
 
-## Originality
+## originality
 
-PASS. The defining DIANA paper supplies the gradient-difference memory mechanism and sufficient strongly convex convergence bounds. The later EF-BV paper explicitly confirms DIANA's use with arbitrary unbiased compressors, the canonical scaling \(\lambda=1/(1+\omega)\), and the benefit of independent worker randomness. Neither inspected source gives the exact scalar worker-count stability law, the eigenvalue-one boundary, or the \(2-16/(3n)+O(n^{-2})\) approach to the uncompressed ceiling.
+PASS
 
-Focused semantic searches covered DIANA aliases, unbiased Bernoulli compression, scalar quadratics, second-moment and Schur stability, and worker averaging. No inspected source or published database record implied the complete claim.
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Independent averaging omega_av=omega/n is a qualitative ingredient of EF-BV; alone it does not yield the sharp root [n-4+sqrt(9n²+8n+16)]/[2(n+2)]. Related MARINA and EF21 have different memory transitions.
 
-## Value
+## value
 
-PASS. Independent worker compression is one of the central mechanisms by which distributed compression can average away noise. The exact formula quantifies that mechanism at the actual stability boundary rather than through a sufficient Lyapunov bound: one-worker half-dropout is highly restrictive, while increasing the worker count continuously restores the ordinary gradient-descent ceiling. The cancellation of arbitrary affine local-gradient heterogeneity also shows that the law measures compression-memory stability rather than a trivial homogeneous-data artifact.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact stability ceiling for DIANA memory plus independent Bernoulli compression as worker count grows is a motivated necessary/sufficient Schur boundary, beyond generic sufficient stepsizes. The n-dependence and limit 2 characterize a natural benchmark and can guide comparison of distributed compressor mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:18:37.350424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/04/sharp-worker-count-stability-law-for-diana-with-half-dropout-com--8aa238029435/RESULT.md",
+        "2026/10/04/sharp-worker-count-stability-law-for-diana-with-half-dropout-com--8aa238029435/verify.py"
+      ],
+      "rationale": "Centered worker shifts remove offsets b_i. Bernoulli half-dropout produces exact second-moment recursion on X=E x², Y=E x ebar, W=E mean e_i²; independent recomputation in sympy confirms M_n(s), char polynomial and P(1)=s[n(2+s-s²)-2s(s+2)]/(4n). Complete Jury inequalities are positive on 0<s<s_n as factored proof shows; at s_n P(1)=0, beyond necessary positivity fails. Conditional noise independence and all square-integrable initial states are in scope; arbitrary gamma<=0 not claimed. Asymptotic expansion and monotonicity checked.",
+      "residual_risks": [
+        "Only scalar equal-curvature independent half-dropout model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2205.04180 Proposition 3",
+          "arXiv:1901.09269 convergence statements"
+        ],
+        "reasoning": "Condat et al. Proposition 3 gives sufficient γ depending on Lmax and average variance, not necessary/sufficient s_n with exact cubic characteristic polynomial. Generic strong-convexity convergence does not determine the sharp scalar stability ceiling.",
+        "searches": [
+          "Resultary: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize",
+          "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)",
+          "arXiv:2205.04180 (Condat et al., §§2.4,4.2 Proposition 3)",
+          "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)",
+        "arXiv:2205.04180 (Condat et al., §§2.4,4.2 Proposition 3)",
+        "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2205.04180 §2.4, §4.2",
+          "Resultary MARINA/EF21 related records"
+        ],
+        "reasoning": "Independent averaging omega_av=omega/n is a qualitative ingredient of EF-BV; alone it does not yield the sharp root [n-4+sqrt(9n²+8n+16)]/[2(n+2)]. Related MARINA and EF21 have different memory transitions.",
+        "searches": [
+          "Resultary: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize",
+          "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)",
+          "arXiv:2205.04180 (Condat et al., §§2.4,4.2 Proposition 3)",
+          "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1901.09269 Algorithm 1",
+          "arXiv:2205.04180 §4.2",
+          "Resultary MARINA a7f750c71557/EF21 345138951ae0"
+        ],
+        "reasoning": "DIANA and EF-BV ν=1 instantiate the same error-feedback shift method under unbiased compression, but primary cited results provide general sufficient rates, not the exact spectral radius=1 boundary for scalar half-dropout. Distinguish related MARINA and EF21 models in Resultary.",
+        "searches": [
+          "Resultary: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize",
+          "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)",
+          "arXiv:2205.04180 (Condat et al., §§2.4,4.2 Proposition 3)",
+          "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize",
+          "independent characteristic-polynomial derivation"
+        ],
+        "reasoning": "Parameter n ranges over all positive integers, and s_n is an analytic closed form rather than a pre-existing finite table; numerical n=1,2,3 checks do not prove general classification.",
+        "searches": [
+          "Resultary: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize",
+          "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)",
+          "arXiv:2205.04180 (Condat et al., §§2.4,4.2 Proposition 3)",
+          "Resultary search: DIANA compression dropout scalar quadratic mean-square stability sharp worker count stepsize"
+        ]
+      },
+      "rationale": "Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Independent averaging omega_av=omega/n is a qualitative ingredient of EF-BV; alone it does not yield the sharp root [n-4+sqrt(9n²+8n+16)]/[2(n+2)]. Related MARINA and EF21 have different memory transitions.",
+      "residual_risks": [
+        "A prior specialized exact stochastic recurrence analysis for DIANA/half-dropout could exist under another compressor name.",
+        "Only scalar equal-curvature independent half-dropout model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes update scheme and sufficient convergence conditions, not exact scalar dropout Schur frontier.",
+          "evidence": "Algorithm 1 update h_i+alpha Delta_i and server mean of old shift plus compressed Delta.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.09269",
+          "material_read": "Primary PDF abstract, Algorithm 1 page 4 and neighboring method/convergence discussion",
+          "method": "Primary PDF algorithm page screenshot and text",
+          "title": "Distributed Learning with Compressed Gradient Differences",
+          "trigger": "Defines DIANA with shift memory"
+        },
+        {
+          "assessment": "Provides sufficient convex convergence conditions and averaged variance improvement, not necessity/sufficiency of scalar exact moment boundary.",
+          "evidence": "Proposition 3, averaging variance omega_av=omega/n for independent compressors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.04180",
+          "material_read": "Primary PDF sections 2.4 and 4.2, Proposition 3 on canonical alpha=1/(1+omega)",
+          "method": "Primary PDF page image and text",
+          "title": "EF-BV: A Unified Theory of Error Feedback and Variance Reduction",
+          "trigger": "Strongest later DIANA stepsize/independent compression analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/04/sharp-worker-count-stability-law-for-diana-with-half-dropout-com--8aa238029435/RESULT.md",
+        "arXiv:1901.09269 (Mishchenko et al., Algorithm 1 page 4)"
+      ],
+      "rationale": "Exact stability ceiling for DIANA memory plus independent Bernoulli compression as worker count grows is a motivated necessary/sufficient Schur boundary, beyond generic sufficient stepsizes. The n-dependence and limit 2 characterize a natural benchmark and can guide comparison of distributed compressor mechanisms.",
+      "residual_risks": [
+        "A prior specialized exact stochastic recurrence analysis for DIANA/half-dropout could exist under another compressor name.",
+        "Only scalar equal-curvature independent half-dropout model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior specialized exact stochastic recurrence analysis for DIANA/half-dropout could exist under another compressor name.",
+    "Only scalar equal-curvature independent half-dropout model."
+  ],
+  "schema_version": 1
+}
