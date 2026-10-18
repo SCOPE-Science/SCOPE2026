@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(A=E_1\times\cdots\times E_g\) and \(F_i=\operatorname{pr}_i^*([0_{E_i}])\). The following checks establish the claim.
+# Independent mathematical audit
 
-1. \(\mathcal O_A(H)\cong\boxtimes_i\mathcal O_{E_i}([0_{E_i}])\), so \(H=\sum_iF_i\) is a principal polarization.
-2. \(D=2F_1\) is effective and nef.
-3. \(2H-D=2\sum_{i\ge2}F_i\) is the pullback of an ample divisor from \(E_2\times\cdots\times E_g\), hence nef. It is not ample because its restriction to the first elliptic factor has degree \(0\).
-4. For \(C_1=E_1\times\{q_2\}\times\cdots\times\{q_g\}\), one has \(F_1\cdot C_1=1\) and \(F_i\cdot C_1=0\) for \(i\ge2\). Therefore \((H-D)\cdot C_1=-1\), so \(H-D\) is not nef.
-5. Applying the standard line-bundle equivalence on abelian varieties, nefness is equivalent to GV and ampleness to IT of index zero. Thus \(\mathcal O_A(2H-D)\) is GV while \(\mathcal O_A(H-D)\) is not GV.
+## correctness
 
-The numerical polynomial provides a consistency check:
-\[
-\frac{(tH-D)^g}{g!}=t^{g-1}(t-2).
-\]
-The root at \(2\) is exactly the boundary excluded when \(2H-D\) is assumed ample/IT.
+PASS
 
-No computation beyond these exact intersection identities is needed. The verification does not claim anything for indecomposable principally polarized abelian varieties.
+For each g>=2, choose A=∏E_i, F_i=pr_i^*([0]), principal H=∑F_i, effective nef D=2F_1. Then 2H-D=2∑_{i>=2}F_i is a nef pullback, hence GV but not ample/IT0; H-D=-F_1+∑_{i>=2}F_i intersects the first elliptic factor curve at -1, so is not nef and not GV. Independently the Künneth cohomology support locus of (0,2,...,2) gives V^1 codimension one, while (-1,1,...,1) gives V^1 all of Pic^0, confirming GV and failure directly. The polynomial (tH-D)^g/g!=t^(g-1)(t-2) verifies the sharp numerical boundary.
+
+## originality
+
+PASS
+
+Meng's result proves IT0/ample(2H-D) => GV/nef(H-D), and generic-vanishing positivity dictionaries are prior work. The natural proposed strengthening replaces strictly ample/IT by nef/GV. Its failure on an explicit product-principal example is not logically implied by the positive theorem. This elementary construction could be folklore or explicitly present in an inaccessible appendix of the 2026 paper; disclose that risk; best-of-knowledge O PASS on this explicit sharp boundary correction.
+
+## value
+
+PASS
+
+The example isolates the necessity of a strict hypothesis in a named current divisor implication, across every abelian dimension >=2, with effective nef D. It is a motivated boundary witness rather than a random trivial non-nef intersection; no claims for indecomposable polarizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

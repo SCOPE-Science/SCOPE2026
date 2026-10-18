@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The product polarization \(H=\sum_i F_i\) is principal. Both \(D=2F_1\) and \(2H-D=2\sum_{i\ge2}F_i\) are nef. On \(C_1=E_1\times\{q_2\}\times\cdots\times\{q_g\}\), one has \((H-D)\cdot C_1=-1\), so \(H-D\) is not nef. For line bundles on abelian varieties, GV is equivalent to nefness and IT of index zero to ampleness, giving the claimed failure of the weakened implication.
+## correctness
 
-## Originality
-**PASS.** The initiating source proves the implication under the stronger IT/ample hypothesis and does not state this product boundary counterexample. Searches were run for the exact source, the classes \(2H-D\) and \(H-D\), the equivalent nef formulation, the IT-to-GV weakening, and product principal polarizations. The published published-finding corpus corpus contained no implication-equivalent claim. The main residual risk is an unindexed folklore occurrence of this elementary example.
+PASS
 
-## Value
-**PASS.** This is a motivated sharpness test of a new theorem, not an arbitrary example. IT and GV are the natural adjacent positivity conditions in the theorem's own language; the example proves that simply replacing the strict IT premise by GV makes the implication false in every dimension \(g\ge2\). This identifies a genuine boundary of the result and prevents a natural overgeneralization.
+For each g>=2, choose A=∏E_i, F_i=pr_i^*([0]), principal H=∑F_i, effective nef D=2F_1. Then 2H-D=2∑_{i>=2}F_i is a nef pullback, hence GV but not ample/IT0; H-D=-F_1+∑_{i>=2}F_i intersects the first elliptic factor curve at -1, so is not nef and not GV. Independently the Künneth cohomology support locus of (0,2,...,2) gives V^1 codimension one, while (-1,1,...,1) gives V^1 all of Pic^0, confirming GV and failure directly. The polynomial (tH-D)^g/g!=t^(g-1)(t-2) verifies the sharp numerical boundary.
 
-## Closest literature and limitations
-Meng's arXiv:2609.11377v1 is the closest source: its Theorem 1.2 proves the interior IT-to-GV implication for divisors. Pareschi--Popa provide the broader generic-vanishing positivity framework. The construction here uses a decomposable ppav, so it does not settle the analogous boundary question for indecomposable ppav's.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meng's result proves IT0/ample(2H-D) => GV/nef(H-D), and generic-vanishing positivity dictionaries are prior work. The natural proposed strengthening replaces strictly ample/IT by nef/GV. Its failure on an explicit product-principal example is not logically implied by the positive theorem. This elementary construction could be folklore or explicitly present in an inaccessible appendix of the 2026 paper; disclose that risk; best-of-knowledge O PASS on this explicit sharp boundary correction.
+
+## value
+
+PASS
+
+The example isolates the necessity of a strict hypothesis in a named current divisor implication, across every abelian dimension >=2, with effective nef D. It is a motivated boundary witness rather than a random trivial non-nef intersection; no claims for indecomposable polarizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
