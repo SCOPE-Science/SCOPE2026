@@ -1,17 +1,21 @@
-# Scientific review: antipodal pretty good transfer on wheels
+# Independent mathematical audit
 
-## Correctness — PASS
-The adjacency decomposition has exactly two exceptional eigenvalues \(1\pm\sqrt{n+1}\) and the nontrivial cycle Fourier eigenvalues \(2\cos(2\pi k/n)\). The necessity and sufficiency of a common phase are derived from actual nonzero projections of a rim vertex. The phase products at \(n\equiv2\pmod4\) and \(n\equiv4\pmod8\) give contradictions; for odd prime factors, two independent zero-sum mode families yield incompatible limits. At power-of-two orders the elementary cyclotomic degree argument and the explicitly identified quadratic subfields of a two-power cyclotomic field establish the rational independence needed by Kronecker approximation. The exceptional order \(n=8\) is separately handled, and irrationality prevents perfect transfer for all allowed orders. All limits, parity cases and positive-time conditions are explicit. The exact graph eigenspace identities and finite phase witnesses were replayed with the included script, which is corroboration rather than an infinite proof.
+## correctness
 
-## Originality — PASS, subject to the stated residual uncertainty
-Pal–Bhattacharjya (2017), complete paper inspected (particularly Sections 2 and 3), proves a power-of-two classification for cycles and their complements, plus sufficient PGST statements for an edge union with integral circulants and certain Cartesian products. These graphs do not equal the nonregular wheel with an additional hub. Their cyclotomic independence lemma and odd-prime technique are known ingredients, not claimed here as discoveries. The new comparison is whether one can simultaneously accommodate the **hub-induced two-level spectrum**, and the closed-form wheel criterion is not stated there.
+PASS
 
-Coutinho et al. (2022), Section 3 and related sections inspected in arXiv HTML, supply the general exact PGST decision framework but do not classify wheel graphs. Kirkland–Monterde (2023), complete arXiv HTML, discusses join spectra and perfect (rather than pretty good) transfer; its general join eigenvalue formula is consistent with this calculation, not an implication of the closed-form PGST criterion. Searches with wheel, cone-over-cycle, anticodal/antipodal, adjacency, transfer and Kronecker aliases found no statement implying the complete wheel theorem. No exact matching public mathematical-record result was returned. These searches do not exclude an equivalent unindexed derivation; the fact that the wheel theorem has a simple proof also warrants caution before claiming definitive novelty.
+For W_{n+1}=K1 join C_n, Fourier rim eigenvectors give theta_k=2cos(2pi k/n) with parity (-1)^k at the antipode; rim-uniform/hub 2x2 block has lambda±=1±sqrt(n+1), and all these supported modes must approximate common target phase. For n congruent 2 mod4, opposite-parity paired modes impose incompatible gamma² and -2 phase; for n congruent 4 mod8, the zero eigenmode k=n/4 and -2 mode force a phase contradiction. For 8|n with odd p divisor, root-of-unity zero-sum across k+an/p at odd and even k forces (-gamma)^p=gamma^p=1, impossible. At n=2^r,r>=4, the real cyclotomic basis 1,theta_1,...,theta_{n/4-1} is Q-independent from sqrt(n+1), since the sole real quadratic subfield of the relevant 2-power cyclotomic field is Q(sqrt2) and n+1 is odd nonsquare. Kronecker integer-time approximation t=2pi j produces the phase demands; n=8 reduces to density of j sqrt2 mod1. No perfect transfer: zero mode gives gamma=1, -2 mode gives t=pi j, incompatible with sqrt(n+1) irrational for r>=4 or sqrt2 for r=3. The conclusion is only even n>=4, adjacency, antipodal rim vertices, not all pairs or Laplacian walk.
 
-## Value — PASS
-A wheel is the smallest natural nonregular one-hub deformation of a cycle. The theorem gives **all** even rim orders that permit arbitrarily accurate quantum transport between antipodes, not a numerical list or a routine parameter substitution. It isolates how a new hub-coupled frequency can coexist with the cyclotomic rim frequencies: the exceptional-square case at eight rim vertices and an independence mechanism at all higher powers of two. At the same time, adding a hub to the four-cycle destroys its perfect transfer even though adding a hub to larger power-of-two cycles preserves approximate transfer. This is a mathematically motivated classification for one natural infinite graph family.
+## originality
 
-## Closest sources and limitations
-Pal and Bhattacharjya, *Pretty Good State Transfer on Circulant Graphs* (2017), DOI 10.37236/6388, is the closest theorem by parameter. Coutinho et al., *Irrational quantum walks* (arXiv:2208.08971, 2022), is the eligible motivating source. Kirkland and Monterde, *Quantum walks on join graphs* (arXiv:2312.06906, 2023), provides the closest graph operation. None of these inspected results asserts the same exact existence criterion for the wheel, though analogous methods are explicitly credited. A covering thesis, terminology variant or later theorem not reached by the searches remains a possibility. Only unweighted adjacency walks on pairs of opposite rim vertices are classified; quantitative transfer times and all other transfer pairs are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycle and circulant PGST classification does not include the nonregular wheel (hub changes spectrum), and published join-graph work provides join eigenvalue and perfect-transfer constraints rather than the all-n antipodal wheel PGST iff-power-of-2 criterion. General integral quantum-walk algorithms do not by themselves print or imply a closed wheel classification without the parity/cyclotomic analysis. No exact published wheel table or Resultary equivalent found in the actual searches; this is best-of-knowledge with unindexed literature risk.
+
+## value
+
+PASS
+
+The wheel is a canonical graph obtained by adjoining one universal hub to a cycle, and the added exceptional irrational frequency makes transfer qualitatively nontrivial. An exact iff classification, explicit approximating discrete times, and PST impossibility separate PGST from PST for a natural infinite graph family, a motivated spectral classification not an arbitrary numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
