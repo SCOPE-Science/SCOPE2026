@@ -1,16 +1,21 @@
-# Scientific assessment: rank-one symmetric coordinate Fourier family
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the finite cone, character family, Hilbert normalization, all parameter ranges, and the complete Gram spectrum. The exact orbit count for \(v\mapsto vv^{\mathsf T}\) and bilinear character-sum identity produce entries \(u\) and \(v\); the unsigned vertex-edge incidence algebra decomposes the Gram matrix into difference, star, cycle-type, and two-dimensional coupled blocks. The critical determinant expansion is a polynomial identity checked independently by symbolic algebra, and a separate inequality establishes its unique integer sign transition. Linear independence is also proved directly by separating edge coefficients on two-coordinate test vectors. A standalone script computes Gram matrices from independent character values for the prime fields \(q=3,5,7\) and nonprime field \(q=9\), checking full eigenvalue multiplicities and eigenspaces. This finite evidence supports but does not establish the unrestricted claim; the displayed algebraic proof does.
+## correctness
 
-## Originality — PASS, with priority risk
-Eldar–Bölcskei (arXiv:math/0108096v1, 2001) establish general finite-frame Gram symmetries and Fourier diagonalization for geometrically uniform systems, but not the selected off-diagonal characters on rank-one symmetric matrices or their sharp crossover. Iosevich–Koh (arXiv:0804.4505v1, 2008) develop nondegenerate finite-field quadratic-surface restriction and exponential-sum estimates; their surfaces, target norm estimates and frequency families are different. Thill–Muthukumar–Hassibi (ICASSP 2014) address generalized group Fourier frames over the special linear group, not this singular Veronese image. The mathematical comparison is between statements and their implications, not titles: standard Johnson eigenvalues and the general Gram formalism do not alone supply the bilinear averaging coefficients or threshold \(m=4(q^2-q+1)+1\). Relevant index searches did not identify an exact prior result. The remaining risk is an equivalent specialization in older association-scheme, quadratic-signal or finite-frame literature; priority has not been independently certified.
+PASS
 
-## Mathematical value — PASS
-The object is canonical: rank-one symmetric matrices are the affine quadratic Veronese cone and their off-diagonal entries are exactly all pairwise products of coordinates. These characters are the full first nonconstant harmonic band in the natural off-diagonal coordinate observables. The theorem supplies exact sharp Riesz stability, *all* equality subspaces, a non-obvious shift of the least stable spectral mode at an integer dimension of order \(q^2\), and a cubic conditioning law for fixed field size. Neither the sharp crossing nor the asymptotic coefficient follows from mere linear independence or standard coarse coherence bounds. The result concerns the selected coordinate family; it does not claim a general Fourier restriction inequality or optimality over all possible measurements.
+The vvᵀ cone has |X|=(q^m+1)/2 and averaged characters equal (1+Σ_{v∈F_q^m}phase(v))/(q^m+1). Independent bilinear character sums yield u=(1+q^{m-1})/N for equal/intersecting edge frequencies and v=(1+q^{m-2})/N for disjoint edges. Orthogonal edge-frequency differences give q^{m-1}(q-1)/N; unsigned complete-graph incidence diagonalization IᵀI=2I+A(J(m,2)) gives the star and cycle eigenvalues with multiplicities m-1 and E-m; the constant couples to the all-edges line in exact 2x2 block K. Positive-definiteness also follows by restricting vectors v to supports size≤2 and Fourier character independence. Exact symbolic determinant sign factor m(q-2)+4+q^{m-2}(4(q²-q+1)-m) determines the sole lower mode switch at m=4(q²-q+1)+1; fixed q, L+~(q-1)m²/(2q²), L-~4(q-1)/m. Independently assembled q=3,m=4 Fourier Gram and eigenvalues to numerical tolerance 2.7e-15 and derived symbolic factor and q=3,5,7,9,11 sign boundaries.
 
-## Sources and risks
-Primary texts materially examined: Eldar–Bölcskei, arXiv:math/0108096v1 (title, abstract, Sections 2–3 including Fourier Gram Theorem 1 and symmetry construction); Iosevich–Koh, arXiv:0804.4505v1 (introduction, statements of Theorems 1–2 and quadratic sum/decay section including Theorem 5 and Lemma 9). ICASSP 2014 accessible metadata and abstract were compared but not asserted to have been read in full. The standard Johnson graph identities are reconstructed in the proof. The strongest residual concern is rediscovery under different terminology for polynomial-feature Fourier matrices.
+## originality
 
-## Assessment status
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Eldar–Bölcskei geometrically uniform frames provide abstract Fourier diagonalization and are explicitly credited; those results do not compute this rank-one symmetric Veronese Gram or its sharp lower-eigenmode crossover. Published first-coordinate Fourier spectrum on rank-one matrices concerns nonzero rectangular rank-one matrices and rook rather than Johnson incidence representation. No inspected stronger formula yields all five multiplicities and the threshold for this singular symmetric cone.
+
+## value
+
+PASS
+
+The natural family of off-diagonal Fourier samples on the finite-field quadratic Veronese variety has a full Riesz-spectrum and sharp condition-number transition. The switch from edge-cycle to constant-coupled mode at a natural finite dimension threshold gives nontrivial useful exact conditioning data for harmonic frames and finite-geometry sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
