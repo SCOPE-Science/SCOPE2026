@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed greedy complete-alphabet arch criterion, not assuming alphabet shrinks on short prefixes. A base-b aligned block B_j of t_b(bj+u) equals a_j+u mod (b+1), u=0..b-1, so exactly one symbol a_j-1 is missing. Digit carry identity a_q-a_(q-1)≡1+2ν_b(q) mod b+1 holds also for composite base b. For even b each pair (B_(2i),B_(2i+1)) completes an arch only at its final letter. For odd b, the unique missing letter appears in the second block at even offset d_b(q)=−2(ν_b(q)+1) mod(b+1), q=2i+1. The remaining suffix together with following even-index block still misses a_q when ν_b(q)>0, preserving induction; ν=0 gives terminal offset b-1. Thus every prefix N=bq+r obeys the claimed odd/even exact U_b(N) and arch positions. Radial density U_b(N)/N→1/(2b) and the asserted bounded discrepancy follow. Independent direct greedy scan for 20,000 prefix/base pairs (bases 2..21, 0≤N<1000) matched formulas, but proof is the all-base digit-carry induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Binomial complexity counts finite-factor subsequence patterns/equivalence for standard generalized Thue-Morse words, a different invariant from complete-alphabet universality for every prefix with modulus b+1.",
+          "An arbitrary-word insertion radius is an extremal edit question, not a closed formula for this deterministic automatic sequence."
+        ],
+        "reasoning": "Neither more general input algorithms nor different subsequence statistics mathematically imply the claimed explicit U_b(N) without missing family-specific carry identities.",
+        "searches": [
+          "arXiv:2412.18425 computing k-binomial complexity generalized Thue-Morse",
+          "arXiv:2112.05347 2-binomial complexity generalized Thue-Morse",
+          "Resultary exact full-support insertion radius universality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2304.11932",
+        "https://arxiv.org/abs/2112.05347",
+        "https://arxiv.org/abs/2412.18425",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schnoebelen–Veron provide efficient generic computation and the greedy criterion but no modular digit-carry induction specialized to s_b(n) mod(b+1).",
+          "Binary distributions treat alphabet size two and arbitrary input word; here b+1≥3 and a highly structured automatic sequence."
+        ],
+        "reasoning": "The known arch algorithm allows casewise computation but does not furnish the exact closed expression claimed; number-theoretic uniformity needs an additional proof.",
+        "searches": [
+          "Schnoebelen–Veron arXiv:2304.11932 full paper arch count theorem",
+          "Lü–Chen–Wen–Wu arXiv:2112.05347 binomial-complexity main statements",
+          "Resultary binary subsequence universality distribution record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General greedy arch theorem says number of complete arches equals universality index for any finite word.",
+          "S_b(n) mod (b+1) consists of b+1 letters and its arch endpoints depend on b parity and base-b trailing zeros, not covered by the cited generic arch-count identity."
+        ],
+        "reasoning": "Generic characterization is logically equivalent as a definition/test, but does not independently supply the evaluated exact family formula and endpoints.",
+        "searches": [
+          "arXiv:2304.11932 arch factorization subword universality finite words",
+          "Resultary: digit sum word s_b(n) modulo b+1 exact all-prefix subsequence universality arch endings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-base arch-position sequence/table was identified in bounded published results; no table absence claim beyond that search.",
+          "Generalized Thue–Morse articles tabulate other complexity quantities."
+        ],
+        "reasoning": "A computational table for a fixed small b, if later found, would not by itself dominate the all-base all-prefix classification; conversely an exact recurrence for the same family could cover the work.",
+        "searches": [
+          "Resultary: digit-sum base+1 subsequence arch exact U(N)",
+          "OEIS/web queries digit sum mod base plus one arch universality"
+        ]
+      },
+      "rationale": "Known greedy arch characterization of subsequence universality and generalized Thue–Morse binomial complexity are correctly credited. Their algorithms/invariants do not print or imply without added carry analysis this digit-sum family’s all-base all-prefix formula. Published Resultary binary word distribution and universal insertion-radius results describe different ambient alphabet/model; no direct covering theorem identified. Possible unindexed automatic-word formulas remain an explicit risk.",
+      "residual_risks": [
+        "Specialized morphic/automatic word literature may contain an all-prefix formula under an alias or shifted alphabet normalization.",
+        "Modulus exactly b+1 and complete ambient alphabet are essential; no general modulus assertion.",
+        "Finite replay across 20,000 cases is corroboration and not exhaustive proof of infinitely many bases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem equates universality to count of greedy completed arches; no explicit digit-sum modulo base-plus-one formula.",
+          "evidence": [
+            "Greedy arch characterization in early section; general finite-word algorithms later"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+          "material_read": "Full arXiv PDF, greedy arch-count definition and main algorithm/results",
+          "method": "PDF text, rendered early theorem page",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Direct algorithmic premise and potential stronger result"
+        },
+        {
+          "assessment": "Counts factor binomial-equivalence classes, not all-word subsequence universality of prefix digit-sum modulo b+1.",
+          "evidence": [
+            "Definition of binomial complexity differs from U_b(N)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.05347",
+          "material_read": "Full arXiv PDF, statement of binomial complexity of generalized Thue-Morse finite factors and definitions",
+          "method": "PDF mathematical statement comparison",
+          "title": "On the 2-binomial complexity of the generalized Thue-Morse words",
+          "trigger": "Related same word family/subsequence structure"
+        },
+        {
+          "assessment": "Distribution over arbitrary binary words does not directly cover this (b+1)-ary digit-sum word.",
+          "evidence": [
+            "Bivariate generating function (1+z)/(1-z-2uz²) for binary words"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Published title and full semantic result summary only; no source full text",
+          "method": "Resultary semantic summary comparison",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Previously published exact universality distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-prefix scattered-subsequence universality law for a natural automatic digit-sum word, across all integer bases including composite, is a meaningful enumerative invariant. The parity split and trailing-zero-dependent early arches are nonobvious structural features unavailable from generic arch-count algorithms without number-theoretic block reasoning; exact arch boundaries enable later combinatorial analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized morphic/automatic word literature may contain an all-prefix formula under an alias or shifted alphabet normalization.",
+    "Modulus exactly b+1 and complete ambient alphabet are essential; no general modulus assertion.",
+    "Finite replay across 20,000 cases is corroboration and not exhaustive proof of infinitely many bases."
+  ],
+  "schema_version": 1
+}
