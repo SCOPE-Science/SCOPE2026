@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every even factor length \\(n\\ge4\\) the forbidden 11 and 0000 patterns force one or three zeros between adjacent ones. The two parity alignments give \\(L+R=1+2I(\\mathrm{prefix00})+2I(\\mathrm{suffix00})\\), hence \\(N_{101}=2K-1-n/2+I(\\mathrm{prefix00})+I(\\mathrm{suffix00})\\). All remaining three-gram and lower-gram counts follow from explicit transition-flow identities and the 2-symbol boundaries. The substitution maps every length-m parent factor to even and odd length-2m windows with identical new weight \\(m-K\\) and explicitly determined boundary pairs. The six independently identified 8-letter base witnesses and the induction yield both weight values and all six boundary pairs for every dyadic \\(n\\ge16\\), hence exactly twelve distinct 3-Abelian classes. A standalone checker using two independent generation methods and sliding full three-gram counters returned VERIFY_OK; finite checks are corroboration, not proof. Risks: convention-sensitive boundary terms or a missing factor alignment were checked explicitly, including the last zero of odd-aligned windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1405.3532 introduction, table of contents, Sec. 5 and conclusion: 2-Abelian complexity of period-doubling; no all-ell exact formula",
+        "2015 Vandomme defense presentation slide 43/44: numerical pictures and tentative recurrence for Abelian complexity of the 3-block coding",
+        "published-finding corpus closest 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899: exact components and fibre ranks for modular 3-block difference lift"
+      ],
+      "reasoning": "General k-Abelian definitions/periodicity bounds cover conceptual prerequisites, but do not classify the special factors. A conjecture concerning only the Abelian complexity of a 3-block coding cannot directly give the original 3-Abelian count because boundary constraints split the coding classes, and in any event the conjecture is not proved there. The skew-product theorem counts different orbits and does not imply the twelve-class factor spectrum.",
+      "searches": [
+        "published-finding corpus: period doubling word length powers of two ternary block count profiles three Abelian equivalence",
+        "published-finding corpus: period doubling 3-block abelian signature 12 dyadic positions",
+        "arXiv:1301.5104 full text / period-doubling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1301.5104",
+      "arXiv:1405.3532",
+      "orbi:2268/176364",
+      "published-finding corpus:2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+      "published-finding corpus:2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+      "Originality searches for exact 3-Abelian factor classes and exact 3-block coding relations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1405.3532, Secs. 4-5, formulae for 2-abelian and 2-block-coding counts",
+        "Vandomme defense presentation, slide 43/44, conjectural 3-block-coding recurrence without endpoint split",
+        "published-finding corpus 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69: greedy string-attractor cardinalities for the same infinite word, different invariant"
+      ],
+      "reasoning": "A 2-Abelian count cannot uniquely determine 3-Abelian refinements. The 3-block-coding Abelian complexity ignores the two-symbol start/end constraints; no demonstrated implication to the exact 12 pairs is present. A greedy string-attractor theorem measures covering positions rather than factor-frequency vectors. Therefore no inspected stronger stated theorem subsumes the new claim.",
+      "searches": [
+        "published-finding corpus: 3-abelian equivalence in binary period doubling word governed by number of ones and two-letter endpoints",
+        "published-finding corpus: period doubling 3-block abelian signature 12 dyadic positions",
+        "arXiv:1405.3532 full text / 3-abelian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1301.5104, pp. 1-4, introduces k-Abelian factor-count equivalence and a general theory; no period-doubling occurrence found by full-text search",
+        "arXiv:1405.3532, Def. 3 and Sec. 5, studies period-doubling with ell=2, and Sec. 8 offers future directions",
+        "published-finding corpus closest 3-block lift 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899: modular skew-product component/fibre rank, not exact three-gram count classes"
+      ],
+      "reasoning": "The tested equivalent expression for 3-Abelian classes is equality of 3-block frequencies plus the two boundary words. The presented theorem proves a stronger explicit reduction to (ones count,prefix2,suffix2) at all even lengths and an exact dyadic support. The 2-Abelian and first-difference lift invariants do not imply these 3-gram signatures.",
+      "searches": [
+        "published-finding corpus: period-doubling infinite word 3-abelian factor complexity length 2^k exactly 12 for k >=4",
+        "published-finding corpus: 3-abelian equivalence in binary period doubling word governed by number of ones and two-letter endpoints",
+        "published-finding corpus: exact 3 abelian complexity period doubling at lengths powers of two 12 classes first two last two weight",
+        "arXiv:1405.3532 full text / 3-abelian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defense-deck 3-Abelian graph plots some early numerical values without asserting an all-k formula or six-pair classification",
+        "published-finding corpus hits reviewed for explicit dyadic powers and 3-Abelian synonyms: no matching exact twelve-class claim; closest IDs listed in checked_sources",
+        "No exact all-scale 3-Abelian class table was identified in the targeted published-finding corpus records"
+      ],
+      "reasoning": "Finite plotted values do not imply an exact infinite dyadic formula and are not an exhaustive table of classes. The present infinite proof includes every class signature. Failure of searches is treated as incomplete evidence rather than proof of novelty.",
+      "searches": [
+        "published-finding corpus: period-doubling infinite word 3-abelian factor complexity length 2^k exactly 12 for k >=4",
+        "published-finding corpus: exact 3 abelian complexity period doubling at lengths powers of two 12 classes first two last two weight",
+        "Web: period-doubling 3-abelian complexity exact formula paper",
+        "Web: period doubling 3-abelian complexity 12 16 32"
+      ]
+    },
+    "rationale": "The accessible foundational full manuscript arXiv:1301.5104 gives general k-Abelian theory and does not state this specialization. The directly relevant full arXiv:1405.3532 paper proves 2-Abelian 2-regularity and studies 2-block coding, not 3-Abelian dyadic classes. A defense presentation does display experimental 3-Abelian graphs and proposes a recurrence for the Abelian complexity of 3-block coding; these do not assert or logically yield the exact twelve-class theorem with boundary-pair completeness. Targeted published-finding corpus searches located a 3-block difference lift, but its modular topological component/rank law is not the combinatorial 3-Abelian factor partition. Residual possibility of later/unindexed precise coverage remains; database omission alone is not novelty proof.",
+    "residual_risks": [
+      "Later specialized work or unindexed combinatorics articles may independently derive the same power-of-two law.",
+      "Historical numeric graphs of the 3-Abelian complexity exist, so the numerical value 12 might be evident to prior investigators even though a proof and exact 12-class structure were not found.",
+      "Semantic published-finding corpus search and accessible slot history are not exhaustive of mathematics outside the searched records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "defines k-Abelian complexity but does not classify the period-doubling dyadic \\(k=3\\) factor classes",
+        "evidence": [
+          "arXiv:1301.5104, 2013 preprint, pp. 1-4; MSC 68R15",
+          "Full text contains no occurrence of period-doubling in the text index"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.5104",
+        "material_read": "abstract, introduction, definitions, principal result statements, and full-text search for period-doubling",
+        "method": "read full-text PDF sections via public arXiv and compared hypotheses and conclusions",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "foundational original 3-Abelian definitions and possibly generic k-Abelian bounds"
+      },
+      {
+        "assessment": "proves ell=2 complexity regularity for period-doubling and first-abelian complexity of 2-block coding, not the asserted ell=3 exact classes",
+        "evidence": [
+          "arXiv:1405.3532 pp. 2-5, 23-26, 42",
+          "Sec. 5 title is 2-abelian complexity of the period-doubling word"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.3532",
+        "material_read": "abstract, introduction, table of contents, the complete relevant Sec. 5 statement and comparison in Secs. 4 and 8",
+        "method": "read publicly available author/preprint PDF and inspect the exact k and period-doubling assertions",
+        "title": "A new approach to the 2-regularity of the ell-Abelian complexity of 2-automatic sequences",
+        "trigger": "same automatic word; known Abelian-complexity results and block coding"
+      },
+      {
+        "assessment": "contains exploratory numerical plots and a proposed recurrence for abelian complexity of 3-block coding, not a proved 3-Abelian dyadic twelve-class classification",
+        "evidence": [
+          "Slide 43/44 labels the recurrence as seems to satisfy",
+          "No exact all-k three-Abelian class proof or boundary-pair enumeration on that slide"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/176364/2/these_defense_vandomme.pdf",
+        "material_read": "relevant complexity and period-doubling slides in defense presentation, including slide 43/44 (PDF page 132 of 133)",
+        "method": "read PDF text and view the rendered prospective-study slide",
+        "title": "Contributions to combinatorics on words in an abelian context and covering problems in graphs",
+        "trigger": "plausible original source touching the precise 3-Abelian invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d39af48-176b-4a57-8bf5-9c399f1c8649",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper-defined 3-Abelian complexity is a natural local-pattern invariant for automatic sequences, and the exact values for even one infinite natural family of lengths were not supplied by the directly relevant known 2-Abelian recurrence papers. The new all-even-length reconstruction lemma and complete dyadic class signatures reveal why the complexity is eventually constant at twelve along powers of two. This is an infinite structural classification, not a small numerical gain, parameter renaming, or plot interpolation. It can inform future three-block coding and automatic regularity analyses; no downstream theorem is claimed. The broader sequence at arbitrary lengths remains unclassified.",
+    "status": "PASS"
+  }
+}
