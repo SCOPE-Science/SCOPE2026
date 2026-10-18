@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:19:06.754251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero complex a,b,c, unitary diagonal conjugation removes phases. The exact upper triangular R=(I-N)^-1 has entries 1,a,ab,abc; 1,b,bc;1,c;1. Setting x=|a|²,y=|b|²,z=|c|², independently expanded Gram characteristic polynomial P_A(t)=t⁴-A t³+B t²-Ct+1 with A=4+x+y+z+xy+yz+xyz, B=6+2(x+y+z)+xy+xz+yz, C=4+x+y+z. For fixed multiset only A varies, strictly increasing with central y: exchanging central squared weights x<y changes A by z(y-x)>0. Positive tridiagonal irreducible inverse Gram matrices ensure four distinct positive roots at realizable endpoints. The equation A=H(t)=t+B/t-C/t²+1/t³ has at most three positive critical points by Descartes; the four-intersection horizontal-level interval between endpoint A values retains simple positive roots. Implicit differentiation gives d/dA Σlambda_j^q=q times third divided difference of t^(q+2), whose third derivative q(q+1)(q+2)t^(q-1)>0 for q=p/2>0. Hence all positive p power sums strictly rise; alternating P_A' signs give singular-value pattern (+,-,+,-), and operator norm grows too. I independently calculated exact Gram characteristic polynomials for rational positive triples and spot-checked p=1/2,4 moment orderings. This finite sample is not the all-real-p proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Wang primary introduction and theorem sections optimize numerical radii of weighted shifts, a different spectral functional on N itself.",
+          "General inverse-norm bounds and singular-value algorithms supply computations and estimates, not a strict global edge-placement order for all real p."
+        ],
+        "reasoning": "The general-purpose tools and different functional results do not imply simultaneous Schatten moment monotonicity of the 4x4 resolvents.",
+        "searches": [
+          "DOI 10.1016/j.jmaa.2012.04.039 Chang Wang 2012",
+          "Higham Bounds for the Norm of the Inverse of a Triangular Matrix 2021",
+          "Li Gu Parlett An improved dqds algorithm arxiv 1209.5462"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.jmaa.2012.04.039",
+        "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+        "https://arxiv.org/abs/1209.5462",
+        "Resultary query: weighted shift inverse resolvent Schatten p norm rearrangement four site permuting edge weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing numerical radius inequalities are not Schatten inequalities on an inverse.",
+          "The exact Gram polynomial has a single placement-sensitive coefficient A, and positivity of its third spectral divided difference is the nontrivial additional argument."
+        ],
+        "reasoning": "No inspected prior theorem gives the one-coefficient spectral monotonicity across 0<p<infinity or the alternating root behavior.",
+        "searches": [
+          "doi:10.1016/j.jmaa.2012.04.039",
+          "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+          "arxiv:1209.5462"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Numerical radius of shift N is not the singular-value spectrum of R=(I-N)^-1; inversion introduces many higher superdiagonals, and the relevant functional is different.",
+          "Reversal of the two outer weights is exact R singular-value invariance under transpose plus coordinate reversal."
+        ],
+        "reasoning": "Permutation of the weights under reversal is an internal symmetry already handled; the numerical-radius papers cannot be relabeled into the current full-p resolvent theorem.",
+        "searches": [
+          "Resultary: weighted shift inverse resolvent Schatten p norm rearrangement four site permuting edge weights",
+          "Chang Wang maximizing numerical radii weighted shifts under weight permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary record computes weighted Schatten-fourth *numerical radius* of the nilpotent shift itself, not all p spectral moments of its inverse resolvent.",
+          "The current statement is a continuous real-exponent inequality on all positive triples, not a finite matrix spectrum table."
+        ],
+        "reasoning": "No fixed numerical matrix data can imply the all-real-p strict divided-difference ordering.",
+        "searches": [
+          "Resultary: strict Schatten rearrangement four-site weighted-shift resolvents",
+          "Resultary: sharp weighted Schatten fourth radii nilpotent shifts"
+        ]
+      },
+      "rationale": "Best-of-knowledge original simultaneous permutation ordering across all positive Schatten power moments of a 4-site nilpotent resolvent. Chang–Wang studies numerical radius of weighted shift N rather than singular values of (I-N)^-1, Higham supplies generic inverse norm bounds, and Li–Gu–Parlett addresses singular-value algorithms. Similar Resultary weighted-shift entries concern infinite shifts or numerical radii, not the exact four-site resolvent.",
+      "residual_risks": [
+        "Complete printable Chang–Wang original unavailable; its accessed main theorem sections study a different numerical-radius functional, but uninspected formula overlap cannot be excluded.",
+        "Finite exact rational checks do not establish continuum-p theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Concerned numerical radius of N, not singular power sums of (I-N)^-1",
+          "evidence": "Spectral functional and operator different; cannot infer strict resolvent Schatten rearrangement.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Accessible published introduction and main-theorem sections; entire printable journal article unavailable",
+          "method": "Primary publisher HTML inspection",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Same 4-site weighted-shift geometry under permutations"
+        },
+        {
+          "assessment": "Gives matrix norm bounds, not exact permutation and all-p strict rearrangement",
+          "evidence": "Bounds do not determine four singular values or moments.",
+          "identifier_or_url": "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+          "material_read": "Full public explanatory article and inverse formula",
+          "method": "Author public article",
+          "title": "Bounds for the Norm of the Inverse of a Triangular Matrix",
+          "trigger": "Triangular inverse-resolvent norms"
+        },
+        {
+          "assessment": "Algorithmic not a spectral-rearrangement theorem",
+          "evidence": "Computing singular values is distinct from proving strict ordering under edge permutation.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.5462",
+          "material_read": "Primary abstract and algorithmic introduction",
+          "method": "Lawful arXiv primary source",
+          "title": "An improved dqds algorithm",
+          "trigger": "Accurate bidiagonal singular-value computations for inverse Gram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural minimal dimension for nontrivial placement-dependence (three sites have transpose/reversal invariance). A single exact ordering theorem simultaneously handles all S_p norms, positive quasi-norm moments and operator norm despite individual singular-value crossings, a useful spectral-rearrangement fact rather than a finite numerical anecdote.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.jmaa.2012.04.039",
+    "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+    "https://arxiv.org/abs/1209.5462",
+    "Resultary query: weighted shift inverse resolvent Schatten p norm rearrangement four site permuting edge weights"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All magnitudes nonzero; p>0 moment, S_p norm only p>=1",
+    "Does not claim monotonic every singular value or every Ky Fan norm or paths longer than 4.",
+    "Full Git directory enumeration unavailable."
+  ],
+  "residual_risks": [
+    "Complete printable Chang–Wang original unavailable; its accessed main theorem sections study a different numerical-radius functional, but uninspected formula overlap cannot be excluded.",
+    "Finite exact rational checks do not establish continuum-p theorem."
+  ],
+  "schema_version": 1
+}

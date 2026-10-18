@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Gram characteristic polynomial follows from the explicitly displayed triangular inverse; the determinant and Newton identities give the invariant coefficients. Irreducibility of the inverse Gram Jacobi matrix guarantees simple positive endpoint roots. The horizontal-level characterization of all four positive roots proves that the interpolation stays in the hyperbolic region, and the third divided difference of a function with strictly positive third derivative establishes strict monotonicity for every positive exponent. The exact-arithmetic check `verify.py` reproduced the polynomial and central-coefficient comparisons on 216 rational triples. The checker is not the proof of the continuum assertions.
+## correctness
 
-## Originality
-PASS subject to historical bibliographic risk. Chang and Wang (DOI 10.1016/j.jmaa.2012.04.039) analyze a numerical-radius extremum of shifts, not the power singular spectra of their inverses. The fully inspected open-access arXiv paper by Li, Gu, and Parlett (arXiv:1209.5462; original public posting 2012-09-25) treats numerical computation of bidiagonal singular values rather than sharp rearrangement of inverse power traces. Higham's openly readable triangular-inverse analysis supplies broad norm bounds but no permutation classification for all Schatten exponents. Direct literature searches using 'nilpotent weighted shift resolvents Schatten norm rearrangement optimal order weights' and 'Schatten norm bidiagonal inverse rearrangement weights permutation 4x4', alongside equivalent spectral-moment formulations, located no stronger covering theorem. The complete Chang–Wang printable article was unavailable, although substantial indexed main-text sections were read; this remains a nonzero novelty risk. Lack of a search hit alone is not taken as proof of novelty.
+PASS
 
-## Value
-PASS. Arrangement of fixed nonzero couplings controls amplification through a feed-forward triangular system. The result solves that natural ordering question at the smallest dimension where changing positions can matter, for the entire continuum of Schatten exponents. The simultaneous strict power-majorization despite alternating directions of individual singular values is a substantive spectral structure, not a restatement of the Frobenius-norm coefficient identity.
+For nonzero complex a,b,c, unitary diagonal conjugation removes phases. The exact upper triangular R=(I-N)^-1 has entries 1,a,ab,abc; 1,b,bc;1,c;1. Setting x=|a|²,y=|b|²,z=|c|², independently expanded Gram characteristic polynomial P_A(t)=t⁴-A t³+B t²-Ct+1 with A=4+x+y+z+xy+yz+xyz, B=6+2(x+y+z)+xy+xz+yz, C=4+x+y+z. For fixed multiset only A varies, strictly increasing with central y: exchanging central squared weights x<y changes A by z(y-x)>0. Positive tridiagonal irreducible inverse Gram matrices ensure four distinct positive roots at realizable endpoints. The equation A=H(t)=t+B/t-C/t²+1/t³ has at most three positive critical points by Descartes; the four-intersection horizontal-level interval between endpoint A values retains simple positive roots. Implicit differentiation gives d/dA Σlambda_j^q=q times third divided difference of t^(q+2), whose third derivative q(q+1)(q+2)t^(q-1)>0 for q=p/2>0. Hence all positive p power sums strictly rise; alternating P_A' signs give singular-value pattern (+,-,+,-), and operator norm grows too. I independently calculated exact Gram characteristic polynomials for rational positive triples and spot-checked p=1/2,4 moment orderings. This finite sample is not the all-real-p proof.
 
-## Scientific boundaries
-Only four sites and nonzero weights are proved. The result does not provide a general rearrangement theorem for arbitrary unitarily invariant norms or longer chains, and it does not claim independent certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original simultaneous permutation ordering across all positive Schatten power moments of a 4-site nilpotent resolvent. Chang–Wang studies numerical radius of weighted shift N rather than singular values of (I-N)^-1, Higham supplies generic inverse norm bounds, and Li–Gu–Parlett addresses singular-value algorithms. Similar Resultary weighted-shift entries concern infinite shifts or numerical radii, not the exact four-site resolvent.
+
+## value
+
+PASS
+
+Natural minimal dimension for nontrivial placement-dependence (three sites have transpose/reversal invariance). A single exact ordering theorem simultaneously handles all S_p norms, positive quasi-norm moments and operator norm despite individual singular-value crossings, a useful spectral-rearrangement fact rather than a finite numerical anecdote.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
