@@ -1,19 +1,21 @@
-# Scientific review: an explicit supercritical-mass extinction construction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the Neumann mass-action system with immobile susceptibles, infection diffusivity \(10\), \(\beta=1-3\cos(\pi x)/4\), \(\gamma=2\beta\), and \(S_0=9/4+\cos(\pi x)\). For any \(H^1\) test function, mean/mean-zero decomposition and the Neumann Poincare inequality force \(\sigma(10,\beta(S_0-r))\le-1/16\); the proof supplies the exact cross-term and Young constants. An admissible witness \(\ell=(199+\cos(\pi x))/200\) has \(\sigma\le-17/400\) and mass \(9/4+1/800\). The perturbed principal eigenfunction exists by the source's Lemma 2.4, its comparison eigenvalue is at most \(-9/200\), and the infection comparison/bootstrap yields \(\|I(\cdot,t)\|_\infty\le10^{-4}e^{-t/25}\). The susceptible change never exceeds \(7/1280<1/100\). Conservation and positivity place \(N\) strictly between \(9/4\) and \(N^*_{S_0,r}\). The standalone arithmetic verifier returned `VERIFY_OK`; infinite-dimensional claims are established analytically, not inferred from finite experiments.
+PASS
 
-## Originality — PASS, with stated access risks
+PASS: On (0,1) with Neumann infected flux, β=1−(3/4)cosπx and f=S0−r=1/4+cosπx, V=β f has coefficients (1/4,13/16,−3/4) in c and integral −1/8. For u=m+v, ∫v=0, Neumann π²>9, ∥V∥∞≤2 and 4|m|∥v∥≤m²/16+64∥v∥² prove Rayleigh ≤−∥u∥²/16 for all H¹, hence σ(10,V)≤−1/16. The explicit ℓ=(199+c)/200∈[.99,1], ∥βℓ f−V∥∞≤1/50 yields σ≤−17/400 and trial mass exactly 9/4+1/800. For ψ the positive unit-sup eigenfunction of 10d²+V+β/100, eigenvalue ≤−9/200<−1/25. Exact susceptible identity S−r=f exp(−β∫I) and comparison give I≤10^{-4}exp(−t/25); induced ∥S−S0∥∞≤7/1280<1/100 closes strict first-exit bootstrap. Thus conserved N∈(9/4,9/4+10^{-4}]⊂(max{∫S0,∫r},Nstar), with uniform extinction. Exact independent checker verified all rational margins, but the infinite-dimensional proof uses Poincare, spectral and parabolic comparison.
 
-Salako and Wu [1], read in the full open version, explicitly leave this extinction alternative unresolved in Remark 3.6: prior Theorem 3.3 allows it but does not exhibit actual data in the open mass interval. The exact new result is the **simultaneous realization** of a strictly positive disease-free basin, total mass exceeding both \(\int r\) and \(\int S_0\), and an explicit strict lower bound on \(N^*_{S_0,r}\). Source Corollary 3.5 applies to constant transmission or fixed-sign initial risk, none of which holds here. The Castellano–Salako multiplicity preprint [2] was inspected including theorem statements, proofs and appendix constructions; it concerns equilibria for positive susceptible diffusion, not this trajectory at exactly zero diffusion. Deng [4] uses a nonconservative Dirichlet problem. [3] could be inspected only through its abstract; its emphasis is asymptotic endemic equilibria as both diffusion rates tend to zero. Text-search/database nonmatches alone are not novelty proofs. A complete equivalent result in inaccessible or unindexed literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies a concrete analytic resolution of a specific published open alternative and demonstrates that heterogeneous transmission weighted against initial susceptible density can overturn the naive total-mass persistence criterion. The construction has strictly positive initial infecteds, an explicit quantitative extinction rate, and a certified population interval, rather than a boundary or trivial disease-free initial state. Its applicability is intentionally limited to a concrete one-dimensional heterogeneous profile.
+PASS: Salako–Wu explicitly ask in Remark 3.6 whether extinction can occur at total N between max{∫S0,∫r} and their threshold Nstar; their theorem permits but does not realize it. The identified source Corollary 3.5 assumes constant β or fixed-sign risk, both false here. Castellano–Salako analyze equilibria with positive susceptible movement, not the displayed initial-value extinction at zero movement. This is a constructive answer to a published model-specific gap, not a new statement about all masses.
 
-## Closest literature and limitations
+## value
 
-[1] is the defining source and closest published result. [2] studies related equilibrium multiplicity with positive susceptible movement; [3] is an incompletely accessible limit-of-equilibria study; [4] differs in boundary conditions. Exact uniqueness against all unpublished or unindexed research is neither asserted nor demonstrated. This is not a global basin classification or an assertion of generic extinction for all supercritical masses.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: An explicit smooth positive-data solution with heterogeneity exhibits a qualitatively counterintuitive supercritical-mass extinction inside a posed open window; all strict spectral/mass margins are analytic and therefore usable by future modeling work. It is a meaningful motivated counterexample, not a trivial zero-infection initial condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
