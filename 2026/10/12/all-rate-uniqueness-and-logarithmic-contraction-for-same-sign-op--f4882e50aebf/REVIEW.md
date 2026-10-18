@@ -1,11 +1,21 @@
-# Scientific review of positive-sector opinion–leadership equilibrium rigidity
+# Independent mathematical audit
 
-**Correctness (PASS).** Eliminating leadership from the published equations gives the exact cubic \((x_i-(Wx)_i)^3+\rho x_i^2(x_i-a_i)=0\) at positive opinions. Each coordinate is characterized by one scalar root, whose derivative is strictly positive. The positive scalar root lies between its local weighted neighbor average and its anchor opinion. The exact logarithmic derivative \(3s(r-s)^2/[3s(r-s)^2+\rho ar^2]\) is uniformly bounded by \(q<1\) on the positive anchor box, so the implicit iteration has a unique fixed point for every positive \(\rho\), without a graph connectivity hypothesis. A convex-combination maximum principle excludes other positive equilibria outside the box. Homogeneity plus a strictly diagonally dominant signed Jacobian proves regularity of the positive branch. Exact-rational and independent finite-network computations in `verify.py` passed, though finite checks are not the infinite proof.
+## correctness
 
-**Originality (PASS, narrowly scoped).** The motivating Alutto–Zino–Johansson–Fontan manuscript [1], whose model and equilibrium section were read in full, provides a restricted sufficient condition for fixed-point uniqueness and treats common anchors separately. It does not state an all-parameter same-sign uniqueness theorem, nor the implicit positive logarithmic contraction and monotone branch. The authors' June 2026 successor [2] adopts a distinct replicator leadership law. Reynolds–Tudisco [3] proves uniqueness in a different friction-inspired nonlinear game; Raineri–Zino–Proskurnikov [4] handles memory/higher-order linear Friedkin–Johnsen updates. Searches by exact paper title, cubic equation, aliases, monotone implicit root, logarithmic contraction and nonlinear opinion-network uniqueness found no implication covering this combination. Search failure is not absolute proof of novelty, and overlap with unindexed positive-operator theory remains possible.
+PASS
 
-**Value (PASS).** Equilibrium multiplicity in coupled opinion and leadership dynamics is model-specific and practically relevant to interpretation of observed stable social positions. The theorem closes a sharp parameter gap for same-sign anchors: it removes the published restrictive sufficient condition, applies to all positive ratios and even reducible directed networks, provides a provably convergent constructive computation and anchor comparative statics, and rules out positive-branch saddle-node folds. For the explicit unequal two-agent example in `RESULT.md`, the earlier sufficient condition's left side is \(243\), not less than \(1\). The theorem deliberately refrains from inferring ODE stability, global attraction or uniqueness among zero/mixed-sign solutions.
+PASS: For row-stochastic W, rho=alpha/beta>0 and a in (0,1]^n, leader balance gives y_i=rho*x_i²/(rho*x_i²+(x_i-(Wx)_i)²). Scalar root equation G_s(r)=r+(r-s)^3/(rho*r²)=a is strictly monotone r>0. Independently checked exact derivative and identity for logarithmic derivative 3s(r-s)²/[3s(r-s)²+rho*a*r²], giving q<1 uniformly in [m,M]. Nonnegative stochastic W is nonexpansive in log-sup metric, so Banach gives unique positive equilibrium in the box. Maximum/minimum principle excludes other positive equilibria. Jacobian Jx=a>0 with nonpositive offdiagonals gives nonsingularity, smooth anchor dependence, no positive folds. Negative anchors by sign reversal. No ODE trajectory-stability assertion.
 
-**Literature and residual risk.** Closest primary results: [1] arXiv:2603.24381v1, Theorem 3/Corollary 5; [2] arXiv:2606.05825v1, distinct replicator system; [3] arXiv:2304.07556, different nonlinear Nash game; [4] arXiv:2504.06731v1, memory-augmented FJ model. An abstract monotone-operator uniqueness theorem could subsume the particular scalar contraction without matching terminology. Only independent literature review could reduce that residual concern. Mathematical correctness is established internally, but no independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
+
+## value
+
+PASS
+
+Removes the small-disagreement/parameter sufficient condition from equilibrium uniqueness for a physically motivated coevolving opinion–leadership law and supplies an explicit computable convergence rate and anchor monotonicity on arbitrary directed/reducible networks. It answers a natural positive-sector uniqueness gap, not mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

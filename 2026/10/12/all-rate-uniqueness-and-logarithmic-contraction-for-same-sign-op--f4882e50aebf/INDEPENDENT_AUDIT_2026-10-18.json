@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:19:15.946028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For row-stochastic W, rho=alpha/beta>0 and a in (0,1]^n, leader balance gives y_i=rho*x_i²/(rho*x_i²+(x_i-(Wx)_i)²). Scalar root equation G_s(r)=r+(r-s)^3/(rho*r²)=a is strictly monotone r>0. Independently checked exact derivative and identity for logarithmic derivative 3s(r-s)²/[3s(r-s)²+rho*a*r²], giving q<1 uniformly in [m,M]. Nonnegative stochastic W is nonexpansive in log-sup metric, so Banach gives unique positive equilibrium in the box. Maximum/minimum principle excludes other positive equilibria. Jacobian Jx=a>0 with nonpositive offdiagonals gives nonsingularity, smooth anchor dependence, no positive folds. Negative anchors by sign reversal. No ODE trajectory-stability assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 proves convergence under inequality; Cor 5 only uniform anchors. Later preprint abstract describes a game-theoretic/replicator leadership rule."
+        ],
+        "reasoning": "Earlier stronger dynamical conclusions in restricted regimes do not imply all-rho equilibrium uniqueness for heterogeneous positive anchors.",
+        "searches": [
+          "Alutto arXiv:2603.24381v1 Thm 3 and Cor. 5",
+          "Alutto arXiv:2606.05825"
+        ]
+      },
+      "checked_sources": [
+        "On a Co-evolving Opinion-Leadership Model in Social Networks: https://arxiv.org/html/2603.24381v1",
+        "On Leadership Emergence in Opinion Dynamics on Social Networks: https://arxiv.org/abs/2606.05825",
+        "Assigned RESULT.md and verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/all-rate-uniqueness-and-logarithmic-contraction-for-same-sign-op--f4882e50aebf/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq(4) recovers y; proof of present result derives a uniformly strict log derivative for x-update, not stated in original theorem."
+        ],
+        "reasoning": "The source cubic reduction supplies premises but does not immediately imply unique fixed point for every network/rho without the new contraction argument.",
+        "searches": [
+          "Alutto arXiv:2603.24381v1 Eq(1), Eq(4), Thm3(ii)",
+          "assigned scalar root F_rho"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Theorem 3(ii) imposes quantitative inequality 3beta(bar-under)^2/(alpha eps²)*(2M/eps+1)<1; given claim has no such restriction in positive sector."
+        ],
+        "reasoning": "Both use the same cubic equilibrium equation; current logarithmic scalar-root contraction strengthens uniqueness as an equilibrium statement, but not ODE global convergence.",
+        "searches": [
+          "Resultary: co-evolving opinion leadership model cubic equilibrium same-sign anchors logarithmic contraction all alpha beta unique fixed point",
+          "Alutto et al. arXiv:2603.24381v1 §§2,4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top 12 lacked an equivalent all-rate cubic-law result; original model only reports restricted sufficient condition."
+        ],
+        "reasoning": "No exact named database formulation found; generic monotone operator convergence literature is a residual priority risk.",
+        "searches": [
+          "Resultary semantic search: all-rate logarithmic positive-anchor opinion leadership uniqueness",
+          "Alutto Thm 3(ii)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.",
+      "residual_risks": [
+        "Literature on nonlinear Perron–Frobenius maps may contain a more abstract equivalent uniqueness theorem; not exhaustively excluded.",
+        "Original source Thm 3 combines equilibrium and trajectory convergence; this audit distinguishes these distinct claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: theorem 3(ii) only sufficient restricted convergence, uniform anchors in corollary 5",
+          "evidence": "Model Eq(1), leadership Eq(4), Thm3(ii), Cor5",
+          "identifier_or_url": "https://arxiv.org/html/2603.24381v1",
+          "material_read": "Full accessible HTML sections 2 model and 4 theorem 3 including condition (3), the equilibrium cubic and Corollary 5",
+          "method": "arXiv lawful full HTML",
+          "title": "On a Co-evolving Opinion-Leadership Model in Social Networks",
+          "trigger": "same differential equations and equilibrium theorem"
+        },
+        {
+          "assessment": "DIFFERENT_LAW; deeper text not read",
+          "evidence": "Abstract emphasizes game-theoretic leadership versus the original linear law",
+          "identifier_or_url": "https://arxiv.org/abs/2606.05825",
+          "material_read": "Abstract and model description only",
+          "method": "arXiv abstract page",
+          "title": "On Leadership Emergence in Opinion Dynamics on Social Networks",
+          "trigger": "possible follow-on by same authors"
+        },
+        {
+          "assessment": "VERIFIED",
+          "evidence": "Implicit root derivative algebra, no flow-stability claim",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/all-rate-uniqueness-and-logarithmic-contraction-for-same-sign-op--f4882e50aebf/RESULT.md",
+          "material_read": "Complete proof and verification source, including scalar logarithmic bound and diagonal dominance",
+          "method": "GitHub pinned blob read and independent symbolic derivative",
+          "title": "Assigned RESULT.md and verify.py",
+          "trigger": "mathematical algebraic certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removes the small-disagreement/parameter sufficient condition from equilibrium uniqueness for a physically motivated coevolving opinion–leadership law and supplies an explicit computable convergence rate and anchor monotonicity on arbitrary directed/reducible networks. It answers a natural positive-sector uniqueness gap, not mere parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "On a Co-evolving Opinion-Leadership Model in Social Networks: https://arxiv.org/html/2603.24381v1",
+    "On Leadership Emergence in Opinion Dynamics on Social Networks: https://arxiv.org/abs/2606.05825",
+    "Assigned RESULT.md and verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/all-rate-uniqueness-and-logarithmic-contraction-for-same-sign-op--f4882e50aebf/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent from previously authored self-review, not formal Lean or expert attestation.",
+    "Best-of-knowledge originality is not exhaustive priority certification.",
+    "Publication blocked until confidentiality sanitization; scientific decision is not imported."
+  ],
+  "residual_risks": [
+    "Literature on nonlinear Perron–Frobenius maps may contain a more abstract equivalent uniqueness theorem; not exhaustively excluded.",
+    "Original source Thm 3 combines equilibrium and trajectory convergence; this audit distinguishes these distinct claims."
+  ],
+  "schema_version": 1
+}

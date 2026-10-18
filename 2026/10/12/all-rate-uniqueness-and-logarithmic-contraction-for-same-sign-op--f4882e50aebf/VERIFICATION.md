@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from this package (Python standard library only). Successful execution prints a line beginning `VERIFY_OK` and reports 52 exact rational scalar identities, 3 high-precision directed-network parameter tests and 3 reducible boundary cases.
+## correctness
 
-The program checks the algebraic cancellation \(\rho r^3+(r-s)^2(r+2s)=3s(r-s)^2+\rho ar^2\) under the scalar root equation; positivity of the monotonicity derivative; strict logarithmic derivative below one; a concrete contraction bound for finite positive examples; recovery of both steady-state differential equations; and the anchor-order relation. Boundary examples include a reducible identity matrix. The finite calculations are **not** an exhaustive proof of all network sizes or all real parameters.
+PASS
 
-The proof for arbitrary finite dimensions is in `RESULT.md`, with the uniformly positive derivative, box invariance, log-sup Banach contraction, max/min principle, and Jacobian inverse positivity giving the decisive infinite-parameter steps. The result does not establish convergence of ODE trajectories, their local stability, or nonexistence of a zero-opinion equilibrium. No independent audit has been performed.
+PASS: For row-stochastic W, rho=alpha/beta>0 and a in (0,1]^n, leader balance gives y_i=rho*x_i²/(rho*x_i²+(x_i-(Wx)_i)²). Scalar root equation G_s(r)=r+(r-s)^3/(rho*r²)=a is strictly monotone r>0. Independently checked exact derivative and identity for logarithmic derivative 3s(r-s)²/[3s(r-s)²+rho*a*r²], giving q<1 uniformly in [m,M]. Nonnegative stochastic W is nonexpansive in log-sup metric, so Banach gives unique positive equilibrium in the box. Maximum/minimum principle excludes other positive equilibria. Jacobian Jx=a>0 with nonpositive offdiagonals gives nonsingularity, smooth anchor dependence, no positive folds. Negative anchors by sign reversal. No ODE trajectory-stability assertion.
+
+## originality
+
+PASS
+
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
+
+## value
+
+PASS
+
+Removes the small-disagreement/parameter sufficient condition from equilibrium uniqueness for a physically motivated coevolving opinion–leadership law and supplies an explicit computable convergence rate and anchor monotonicity on arbitrary directed/reducible networks. It answers a natural positive-sector uniqueness gap, not mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
