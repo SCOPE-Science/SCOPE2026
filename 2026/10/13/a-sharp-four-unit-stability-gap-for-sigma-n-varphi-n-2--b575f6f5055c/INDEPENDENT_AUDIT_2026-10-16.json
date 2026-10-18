@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:51:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write E(n)=sigma(n)-n-1 (nonunit proper divisors) and cototient C(m)=m-phi(m), so A=E(n)+C(n+2)-1. If n composite and A<5, E<=4; n=p² forces p=2,3 while non-square prime-factor pair p and n/p gives E>=2+3=5. Directly n=4 has A=5, n=9 A=3. Prime n=2 gives A=1. Odd prime n implies m=n+2 odd; for composite m with A<5, C(m)<=5 and C(m)>=m/r>=r for least prime divisor r; r=3 gives m=9 (not 15, C15=7), r=5 gives m=25; hence n=7,23. If m prime, A=0 exactly twin primes. Independent direct exact sigma/totient values for every 2<=n<10000 agreed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior literature on σ(n)-n and n-φ(n) treats components; Resultary comparable gap findings concern different arithmetic derivatives or alternating divisor functions."
+        ],
+        "reasoning": "Separate component distributions do not directly classify the shifted mixed difference σ(n)-φ(n+2); the proof combines divisor and cototient inequalities at coupled shifted arguments.",
+        "searches": [
+          "OEIS A078119 sigma(n)-phi(n+2) first positive fibers 1 2 3 4 gap",
+          "Pomerance Yang 2014 variant sum-of-proper-divisors theorem",
+          "Resultary arithmetic derivative cototient gap"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A078119 entry",
+        "Pomerance Yang 2014 primary abstract",
+        "Resultary query for sigma(n)-phi(n+2) lower positive fibers",
+        "Resultary alternating-divisor totient gap independent invariant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS supplies σ-φ shift definition and zero fiber; no direct all-n exclusion of other 1..4 occurrences in inspected entry."
+        ],
+        "reasoning": "A novel elementary upper-bound contrapositive E+C>=6 is needed; the prior values themselves do not logically prove the complete small fibers.",
+        "searches": [
+          "OEIS:A078119",
+          "Pomerance Yang DOI:10.1090/S0025-5718-2013-02775-5",
+          "OEIS A078119 sigma(n)-phi(n+2) first positive fibers 1 2 3 4 gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing sequence formula and twin-prime zero criterion coincide with A(n), but entries listing 1,2,3,4 as initial values do not assert their entire singleton fibers."
+        ],
+        "reasoning": "The new statement is equivalent to a universal minimum positive gap outside four named n; it is stronger than finite first-occurrence data.",
+        "searches": [
+          "OEIS A078119 sigma(n)-phi(n+2) first positive fibers 1 2 3 4 gap",
+          "OEIS:A078119 formula and comments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS exact database does tabulate early values A(2)=1,A(7)=2,A(9)=3,A(23)=4."
+        ],
+        "reasoning": "Recomputing those entries alone would be covered; unrestricted absence of all other preimages is the genuinely additional mathematical result.",
+        "searches": [
+          "OEIS A078119",
+          "OEIS A078119 sigma(n)-phi(n+2) first positive fibers 1 2 3 4 gap"
+        ]
+      },
+      "rationale": "The exact OEIS A078119 records shifted expression, nonnegativity and twin-prime zero fiber plus first appearances of small values, but the inspected entry does not state uniqueness of all four positive fibers or universal sharp 5 floor. Pomerance/Yang study separate unshifted components, not this coupled shifted function. The theorem upgrades initial numerical terms to unrestricted classification.",
+      "residual_risks": [
+        "An unindexed OEIS comment or elementary number-theory note may already contain the same singleton proof.",
+        "No assertion about higher fibers or infinitely many twin-prime zeros.",
+        "Independent 9998-integer enumeration supports but does not replace unrestricted proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes known zero fiber and first data; does not supply proved universal singletons in inspected text",
+          "evidence": "Definition σ(n)-φ(n+2), nonnegativity and twin-prime zero condition, displayed small values.",
+          "identifier_or_url": "https://oeis.org/A078119",
+          "material_read": "Full accessible OEIS entry formula, visible examples/initial terms and notes (not an archive of every linked comment)",
+          "method": "Public OEIS entry and internal searches",
+          "title": "OEIS A078119 a(n)=sigma(n)-phi(n+2)",
+          "trigger": "Identical integer sequence and exact table"
+        },
+        {
+          "assessment": "Related divisor-sum range but not demonstrably identical shifted σ(n)-φ(n+2) small fibers; priority risk acknowledged",
+          "evidence": "Study of σ(n)-n and related arithmetic distribution, not claimed exact A078119 theorem.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-2013-02775-5",
+          "material_read": "Primary bibliographic abstract/description, full body not accessed",
+          "method": "Public source metadata/search",
+          "title": "Variant of a theorem of Erdős on the sum-of-proper-divisors function",
+          "trigger": "Possible stronger result on divisor excess and cototient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A(n) is an established natural arithmetic sequence combining divisor sum and shifted totient, with an unresolved twin-prime zero fiber. Exact *entire* first four nonzero fibers and a sharp stability gap provide a motivated number-theoretic classification that prevents sparse database terms from being mistaken for an unbounded theorem. Its proof is elementary and its range narrow, but the exact unbounded cutoff is mathematically substantive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>1, A(n)=sigma(n)-phi(n+2)<5 precisely at twin-prime starts (A=0) and (n,A)=(2,1),(7,2),(9,3),(23,4), so each first four positive fibers is a singleton; n=4 attains next sharp gap 5.",
+  "limitations": [
+    "An unindexed OEIS comment or elementary number-theory note may already contain the same singleton proof.",
+    "No assertion about higher fibers or infinitely many twin-prime zeros.",
+    "Independent 9998-integer enumeration supports but does not replace unrestricted proof.",
+    "No source/publication GitHub writes; publication plan is declarative only."
+  ],
+  "schema_version": 1
+}
