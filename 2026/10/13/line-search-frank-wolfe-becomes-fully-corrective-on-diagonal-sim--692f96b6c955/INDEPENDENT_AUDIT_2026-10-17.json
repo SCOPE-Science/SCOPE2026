@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:50:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md @ 64ee0915897e95395ef0e373400005df7ca0db71",
+        "Frozen artifacts/verify_fw_diagonal_simplex.py @ 3683f7df9d22957d4b1078eb43b83a199e84eb3b",
+        "Jaggi PMLR:v28:jaggi13 Algorithms 3 and 4"
+      ],
+      "rationale": "KKT on face S gives a_i x_i=1/Z_S for active coordinates and zero inactive gradient, forcing an unseen vertex as any vertex linear-minimization solution when S is incomplete. Since old and new supports are disjoint, f((1−gamma)x^S+gamma e_j)=(1−gamma)^2/(2Z_S)+a_j gamma²/2; exact 1-D minimization yields gamma=a_j^−1/(Z_S+a_j^−1). Substitution equals inverse-curvature weights on enlarged support, proving induction to full support. I inspected the actual nested artifacts/verify_fw_diagonal_simplex.py with exact Fraction arithmetic and independently checked several positive-diagonal examples and the four-coordinate chain (1,2,3,6). Formula and uniqueness require aligned coordinates, positive a_i, a VERTEX oracle and initial face minimizer; arbitrary convex combinations of tied vertices are explicitly excluded.",
+      "residual_risks": [
+        "Arbitrary convex-combination linear oracle, mixed starting point, inexact line search, dense Hessian or floating-point finite termination are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic conditional-gradient convergence bounds are asymptotic and not finite termination on a particular support-growing trajectory.",
+          "The unweighted squared-distance simplex example is a special coefficient case, not a theorem for arbitrary positive diagonal coefficients."
+        ],
+        "reasoning": "Broader convergence methods do not dominate this exact face-invariance property; their hypotheses alone do not establish equality of the two update maps on weighted positive diagonal forms.",
+        "searches": [
+          "Jaggi 2013 PMLR Algorithms 3-4 and convergence rate theorem",
+          "Clarkson 2010 greedy simplex approximation",
+          "Lan Zhou OptimizationOnline:4605"
+        ]
+      },
+      "checked_sources": [
+        "PMLR:v28:jaggi13 primary PMLR HTML",
+        "DOI:10.1145/1824777.1824783 relevant primary manuscript",
+        "OptimizationOnline:4605 relevant primary portions",
+        "Resultary topical search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Segment optimizer and face optimizer generally differ; equality follows here from a_i x_i=constant on active set and zero elsewhere.",
+          "Jaggi already includes the equal-weight benchmark; the new exact formula reduces to that subcase when all a_i coincide."
+        ],
+        "reasoning": "No inspected prior guarantee gives the all-a_i step identity; the proof supplies an extra KKT-geometric premise. Priority is claimed only for explicit weighted identity, not for classical FW or face correction.",
+        "searches": [
+          "Jaggi 2013 Algorithms 3–4, simplex squared-norm example",
+          "Clarkson 2010 current-face update",
+          "Lan Zhou 2014 conditional-gradient line search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same update may be described as greedy coreset reweighting, water-filling on simplex, separable resource allocation or active-set conditional gradient.",
+          "The inspected generic method descriptions distinguish segment minimization and face minimization rather than identifying their equality for weighted quadratics."
+        ],
+        "reasoning": "Searched exact weighted-KKT / inverse-curvature terminology and algorithmic aliases; no exact same iteration theorem located.",
+        "searches": [
+          "Resultary Frank Wolfe exact line search fully corrective diagonal simplex quadratic inverse weights finite termination",
+          "PMLR:v28:jaggi13 Algorithms 3,4",
+          "Clarkson DOI:10.1145/1824777.1824783"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published-record hits concerned other line-search / descent phenomena, not this exact inverse-curvature family.",
+          "No source table of all weighted support trajectories was observed."
+        ],
+        "reasoning": "An exhaustive table is not relevant to continuous positive a_i parameters; the available explicit unweighted example is weaker than the symbolic family.",
+        "searches": [
+          "Resultary diagonal quadratic fully corrective Frank-Wolfe step weights and finite termination",
+          "PMLR:v28:jaggi13 simplex example",
+          "Clarkson author manuscript simplex greedy"
+        ]
+      },
+      "rationale": "The result pinpoints an exact geometric case where algorithms generically distinguished in Jaggi and Clarkson coincide iteratively. The equal-curvature simplex squared-norm case appears in Jaggi as a toy setup; the arbitrary heterogeneous positive diagonal formula, invariance of weighted face minimizers and exact tie-independent termination are not stated in inspected primary sources. Elementary independent-derivation risk is acknowledged.",
+      "residual_risks": [
+        "Classical separable resource-allocation, water-filling, or greedy-coreset literature could state an equivalent observation under different terminology.",
+        "The theorem is elementary for diagonal quadratics and its significance is limited to this aligned special geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND_DISTINCT_VARIANTS_AND_UNWEIGHTED_EXAMPLE_NOT_WEIGHTED_TRAJECTORY",
+          "evidence": "Line-search minimizes current segment; fully corrective reoptimizes previous atoms. Standard simplex squared-distance toy case treated, but no full arbitrary positive diagonal face-minimizer trajectory identity or tie independence theorem stated.",
+          "identifier_or_url": "PMLR:v28:jaggi13",
+          "material_read": "Complete accessible PMLR paper HTML consulted with close inspection of Algorithms 3,4 and simplex squared Euclidean-norm example",
+          "method": "primary full accessible article / relevant algorithms",
+          "title": "Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization",
+          "trigger": "Definition of exact line-search and fully corrective conditional-gradient variants; potential dominance via simplex example"
+        },
+        {
+          "assessment": "METHOD_COMPARISON_PRIOR_NOT_WEIGHTED_IDENTITY",
+          "evidence": "Ordinary line search and current-face correction are presented as alternatives, not proved identical for this complete weighted diagonal family.",
+          "identifier_or_url": "DOI:10.1145/1824777.1824783",
+          "material_read": "Accessible author-manuscript discussion of greedy exact line search and current-face optimization consulted; no claim of exhaustive paper-wide text exclusion",
+          "method": "relevant primary manuscript sections",
+          "title": "Coresets, Sparse Greedy Approximation, and the Frank-Wolfe Algorithm",
+          "trigger": "Earlier greedy simplex approximation with variants of current-face reoptimization"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_THE_FINITE_TERMINATION_CLASS",
+          "evidence": "A general conditional-gradient subroutine does not give finite support-enlarging exact termination for positive diagonal simplex quadratics.",
+          "identifier_or_url": "Optimization Online 4605 (2014)",
+          "material_read": "Accessible article overview and conditional-gradient line-search methodology inspected",
+          "method": "primary context review",
+          "title": "Conditional Gradient Sliding for Convex Optimization",
+          "trigger": "Broader method and exact-line-search references"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jaggi PMLR 2013 distinguishes two algorithms",
+        "Face-KKT invariant and exact formula in audited proof"
+      ],
+      "rationale": "A clean exact algorithmic collapse (ordinary line search equals fully corrective optimization) with m−1 finite termination from a vertex is a motivated and reusable structural benchmark. It explains when the computationally cheaper update automatically produces globally reoptimized weights, provides exact objective/gap values and a boundary to generic FW sublinear iteration results.",
+      "residual_risks": [
+        "Not robust to inexact arithmetic, nonvertex oracle, or a rotated/dense positive-definite quadratic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every positive diagonal quadratic on the probability simplex, exact vertex-oracle and exact line-search Frank–Wolfe started at the unique minimizer x^S of any nonempty face selects an unseen vertex and lands precisely on the enlarged-face minimizer with gamma=1/(1+a_j Z_S). It reaches the global minimizer in m−|S| steps; along the trajectory f=1/(2Z_S), FW gap=1/Z_S.",
+  "limitations": [
+    "Exact vertex oracle, exact line search, initial face minimizer, diagonal positive Hessian aligned with simplex only."
+  ],
+  "schema_version": 1
+}
