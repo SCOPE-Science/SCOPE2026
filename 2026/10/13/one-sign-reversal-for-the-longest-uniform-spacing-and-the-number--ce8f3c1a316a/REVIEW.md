@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Uniform-simplex conditioning yields an exact covariance identity with a running average of a strictly increasing win probability. This proves one and only one sign crossing for every finite dimension. The endpoints are justified separately, while Gamma concentration and an exact exponential-order-statistic integral supply the double-logarithmic asymptotic. Two separately derived finite inclusion–exclusion expressions agree for 1,089 exact rational tests using `verify.py`. Finite tests alone are not proofs.
+## correctness
 
-## Originality — PASS (historical uncertainty disclosed)
-Bairamov, Berred, and Stepanov (DOI: 10.1007/s00362-008-0134-3), inspected in full, analyze ordered uniform spacings, but their exceedance constructions do not establish the same-sample covariance sign theorem. Kochar (DOI: 10.5402/2012/839473), whose accessible review sections were inspected, considers ordering relations without this mixed covariance or the location asymptotic. Classical methods in Pyke (1965) and Huffer (1988) may encode the answer implicitly; those potentially relevant full articles were not accessible, and hidden priority cannot be ruled out. Exact comparisons are recorded in `AUDIT.json`. The classical simplex/exponential identities are not claimed to be original.
+PASS
 
-## Value — PASS
-Longest spacing measures extremal irregularity; the count of unusually long spacings measures multiplicity of large gaps. Their negative covariance for moderate thresholds and positive covariance for sufficiently extreme thresholds express distinct mechanisms of competition versus co-occurrence. The exact universal sign phase diagram and the asymptotically sharp double-logarithmic crossover answer a natural joint-spacing question that cannot be inferred from the classical separate marginal laws. No theorem for alternative Dirichlet shapes is claimed.
+Conditional on D_1>t, the simplex section is t+(1-t)B_1,(1-t)B_2,..., so the covariance is mt(1-t)^(m-1)(R_m(delta)-H_m/m), delta=t/(1-t). Strict growth of the shifted-coordinate win probability p_m implies strict growth of its running average and one crossing. Endpoint signs follow from the beta/simplex section law and max-indicator at t=1/2. The exponential representation B_i=E_i/sum E_j and Gamma concentration give p_m(s/m)~e^s/m uniformly for s<=3 log log m, leading to the double-logarithmic location. Rational finite checks corroborate rather than prove the all-m result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinctive global one-crossing mixed covariance and additive double-logarithmic crossover were not implied by the inspected primary spacing results. Known maximum-spacing and independent-exceedance techniques provide the basic tools but not the stated same-sample sign theorem; classical full-text historical coverage remains qualified.
+
+## value
+
+PASS
+
+A naturally defined pair of statistics of uniform spacings shows an unexpected single sign reversal and an unusually early crossover on the log-log rather than log extreme-spacing scale. The exact all-m classification and location law offer a nontrivial answer relevant to dependence between extremes and exceedance counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
