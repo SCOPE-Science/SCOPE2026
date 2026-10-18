@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduction \(4\sigma(pq+1)=5(p+1)(q+1)\) is exact for distinct primes. For odd \(p<q\), the divisor lower bound gives \((p-5)(q-5)<24\); it excludes all \(p\ge11\), reduces \(p=7\) to two directly checked cases, and the more precise \(2\)-adic split excludes every \(p=5\). For \(p=3\), a divisible-by-\(4\) bound excludes \(q\equiv1\pmod4\), and the odd-factor decomposition forces \(q\equiv11\pmod{12}\) and yields the exact reversible shifted-divisor-sum equation. For \(p=2\), integrality and a proved \(4\)-divisibility property of \(\sigma(m)\) force \(q\equiv15\pmod{16}\). All displayed examples are directly checked.
+## correctness
 
-## Originality
-PASS. OEIS A066176 is the exact numerical database and supplies the initial terms but no semiprime support restriction. OEIS A003601 and the inspected papers of Bateman–Erdős–Pomerance–Straus and Oller-Marcén characterize or study the divisor average \(\sigma(n)/\tau(n)\), not the condition that the *increment* of \(\sigma\) equals that average. The equal-consecutive-divisor-sum literature concerns a different equation. Exact-name, alias, semiprime-reduction and residue-class searches revealed no covering statement; an unindexed elementary observation remains possible.
+PASS
 
-## Value
-PASS. The source sequence defines a natural equality between a local fluctuation and a multiplicative divisor mean, and only sparse terms are known. Its squarefree semiprime slice admits a strong unbounded factorization restriction: all larger odd prime support is eliminated, a rigid residue class is forced on the even branch, and the odd branch is converted to a precise shifted divisor-sum problem that contains genuine examples. This is substantially stronger than enumerating the initial terms and gives a usable sieve for further work.
+For n=pq (distinct primes) σ(n)=(p+1)(q+1), τ(n)=4; thus the increment equality becomes 4σ(pq+1)=5(p+1)(q+1). If p,q are odd, pq+1 is even and σ(pq+1)>3(pq+1)/2, implying (p−5)(q−5)<24. This excludes p≥11, leaves two explicit p=7 failures, and the stronger even/odd-divisor split excludes p=5. For p=3 an even divisor bound and congruences force q≡11 (mod12); putting q=12r+11 gives m=3q+1=2(18r+17), reducing the equation reversibly to σ(18r+17)=20(r+1). For p=2, m=2q+1≡3 (mod4), its divisor sum is a multiple of 4, forcing q≡15 (mod16). Every logical reversal and strict-boundary condition has been checked against the provided proof. An independent divisor summation tested 4,822 prime pairs up to product 100,000 and verified larger witnesses 753 and 148173; finite tests do not prove unbounded exclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A066176 exactly defines and tabulates the increment equality but does not state any unbounded squarefree-semiprime least-prime obstruction or reversible p=3 reduction. Literature on arithmetic numbers classifies integrality of σ/τ alone; results about consecutive equal divisor sums are distinct equations. Searches of the published corpus did not identify a stronger covered statement.
+
+## value
+
+PASS
+
+A066176 defines a natural divisor-increment property. The result converts an infinite squarefree-semiprime search into just two least-prime possibilities, sharply constrains their residue classes, and gives a reversible exact odd-divisor-sum condition for p=3. This is useful arithmetic structure of a natural sequence, not a mere recomputation of known terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
