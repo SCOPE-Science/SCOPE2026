@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All pair-state transitions are explicitly computed, two branch potentials checked for exact cost drops and strict inequalities. Positive costs make the optimal policy unique for every size. The descending potential terminates by finiteness, proving attainment and universal optimality; disjoint intervals by circular gap prove the precise spectrum. Independently implemented forward BFS and reverse weighted Dijkstra agree on all tested pairs; the infinite statement is proved symbolically, not inferred from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruszil arXiv:2103.16185 studies shortest weighted reset words algorithmically for arbitrary automata.",
+        "General synchronizability and pair reductions are known, but no universal exact weighted pair formula is supplied in these texts."
+      ],
+      "reasoning": "General weighted-automata algorithms cover the problem procedurally but do not prove the explicit invariant policy and all-n strict formula. The classical full-reset theorem on Černý automata concerns a different input set.",
+      "searches": [
+        "\"weighted synchronizing word Cerny family shortest pair formula letter costs all n\"",
+        "\"Cerny\" \"pair\" \"shortest\" \"unique\" word",
+        "arxiv:2103.16185 weighted synchronization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.3972 (Vorel, binary subset synchronization)",
+      "arxiv:1404.6731 (Gusev, pair automaton and random synchronization)",
+      "arxiv:2103.16185 (Ruszil, weighted automata)",
+      "Exact k-avoiding thresholds of the Černý automata (published mathematical research record, 2026): avoidance rather than pair-merger cost",
+      "Complete certified careful-synchronizability map of the C7 one-hole ball (published mathematical research record, 2026): mutated partial automata rather than standard Černý pairs",
+      "Slow-reset census for binary one-cluster automata (published mathematical research record, 2026): different automaton/whole-set reset problem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev proves expectations of random hitting times on the Černý pair graph; these do not algebraically bound deterministic minimum cost at all positive cost ratios.",
+        "Vorel proves different lower bounds/complexities, and Ruszil approximation rather than this exact family."
+      ],
+      "reasoning": "The new potential/strict Bellman equality proves stronger deterministic path rigidity beyond the stated prior theorems; it is not simply a special numerical corollary of the expected-time results. The pre-existing full pair graph makes derivability straightforward in principle and is reported explicitly.",
+      "searches": [
+        "\"Synchronizing automata with random inputs\" Section 3 Cerny pair expected time",
+        "\"Subset Synchronization and Careful Synchronization\" Vorel pair states",
+        "\"Approximation algorithm for finding short synchronizing words in weighted automata\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev arXiv:1404.6731 §3 builds the same finite graph and computes stochastic expected coalescence times; deterministic positive-weight minima are a different objective.",
+        "Vorel arXiv:1403.3972 general subset synchronization thresholds."
+      ],
+      "reasoning": "Shortest merging word, shortest pair reset word and pair-automaton shortest path are equivalent formulations for this claim. Gusev’s graph represents these paths but his stated results on expected length do not imply positive-weight uniqueness or simultaneous separate minima without an additional inequality argument.",
+      "searches": [
+        "\"Cerny\" \"pair automaton\" \"Hamiltonian\" shortest",
+        "\"Cerny\" \"all pairs\" \"shortest\" synchronizing",
+        "\"Cerny\" \"pair\" \"weighted\" synchronization",
+        "arxiv:1404.6731 Section 3 pair automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gusev Figure 3 provides the pair transition structure, not the parameterized minimum-cost table.",
+        "No exact table with once-each unit-cost pair distances or universal optimal Parikh vectors was found among the searched records."
+      ],
+      "reasoning": "A directed pair graph is a representation, not itself an explicitly evaluated weighted shortest-path table. Because shortest paths can be computed from that graph, the extent of any implicit coverage is the principal residual risk.",
+      "searches": [
+        "\"Cerny automaton pair states all shortest merging words unique and length spectrum 1 through n choose 2\"",
+        "\"Cerny\" \"pair automaton\" \"Hamiltonian\" shortest",
+        "arxiv:1404.6731 Figure 3"
+      ]
+    },
+    "rationale": "Closest primary full text gives pair transitions and random expected times (Gusev 2014) but not a proof of unique weighted all-parameter optimal policy, simultaneous separate minima of letter counts and complete once-each pair shortest-length spectrum. Vorel treats general subset sync and Ruszil treats generic weighted approximation. Search uncertainty noted.",
+    "residual_risks": [
+      "Gusev (2014) specifies the whole Černý pair transition graph; special weighted shortest-path rigidity could have been derived implicitly without being stated.",
+      "Earlier unpublished or unindexed equivalent formulas may exist; absence from search is not uniqueness proof.",
+      "Human independent priority review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General binary subset reset complexity, not the all-pair weighted optimal word theorem.",
+        "evidence": [
+          "arxiv:1403.3972, original 2014-03-16 upload; introduction and results on exponential threshold growth."
+        ],
+        "identifier_or_url": "arxiv:1403.3972",
+        "material_read": "Introduction, definitions, and principal subset-synchronization lower-bound/complexity statements in the available full text; detailed proofs outside these sections were not relied upon.",
+        "method": "Lawful arXiv accessible paper",
+        "title": "Subset Synchronization and Careful Synchronization of Binary Finite Automata",
+        "trigger": "Earliest archival subset-synchronization source and historical ownership"
+      },
+      {
+        "assessment": "Strong structural antecedent: same pair transition graph, but stochastic expected times rather than optimal asymmetric-cost pair paths.",
+        "evidence": [
+          "arxiv:1404.6731 §3, pair automaton Figure 3 and expected synchronization-time results."
+        ],
+        "identifier_or_url": "arxiv:1404.6731",
+        "material_read": "Full-text Section 3, including the odd/even Černý pair transition discussion, graph figure and expected-hitting-time theorems",
+        "method": "Lawful arXiv full-text PDF plus graph inspection",
+        "title": "Synchronizing Automata with Random Inputs",
+        "trigger": "Exact Černý pair automaton and stochastic pair merging appear closest to the claim"
+      },
+      {
+        "assessment": "General weighted shortest reset search and approximation; no specialized pairwise cost-invariant Černý theorem found.",
+        "evidence": [
+          "arxiv:2103.16185, definitions and approximation results, primary MSC 68Q45."
+        ],
+        "identifier_or_url": "arxiv:2103.16185",
+        "material_read": "Available full-text introduction, weighted cost definitions, complexity discussion and approximation statements, especially initial sections; no claim that every page was inspected.",
+        "method": "Lawful arXiv full text",
+        "title": "Approximation Algorithm for Finding Short Synchronizing Words in Weighted Automata",
+        "trigger": "Direct weighted-automaton objective including unequal letter costs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "261334d3-d0c0-4711-838f-ce123f66dacc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full infinite family, exact unequal-control-cost optimum, universal cost-ratio invariance and joint minimization of both separate control-action counts answer a natural robustness problem in synchronization. The once-each pair distance spectrum and canonical Hamiltonian trajectory give a meaningful global structure, not a routine finite census or notation change.",
+    "status": "PASS"
+  }
+}
