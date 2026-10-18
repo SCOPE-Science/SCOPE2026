@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness (PASS)
+The exact-domain proof reduces general position in a diameter-two graph to an induced cluster graph, hence to an induced complete multipartite subgraph of the underlying simple cycle. Maximum degree two, triangle-freeness and lack of induced four-cycles force precisely the stated independent, edge, and consecutive-triple configurations. Cyclic gap counts independently justify the two full counting formulas, with the six-vertex exception explicitly handled. Strict log-concavity follows from a monotone coefficient-ratio lemma and four explicitly factored positive defects, including their exact ranges. No finite computation is used as an infinite proof. Standalone exhaustive geodesic enumerations and exact-arithmetic coefficient checks corroborate the algebra.
+
+## Originality (PASS; residual priority risk)
+Full primary sources by Anand et al. (arXiv:1812.08460), Di Stefano et al. (arXiv:2306.09965), and Iršič et al. (arXiv:2401.05696 / DOI:10.1007/s00025-024-02133-3) supply respectively a general GP characterization, the lower-GP invariant, and the general-position polynomial with formulas for ordinary cycles, not the complete antihole classification, its maximal set census, or log-concavity. A 2026 open full-text follow-up (arXiv:2603.06930) also addresses different graph families. Searches included anti-hole and complement-cycle aliases, direct coefficient data and possible stronger general characterizations. No source inspected states or directly implies the joint result without the new anti-cycle structural analysis, gap enumeration and strict-defect inequalities. Closest related published graph-family formulas concern coronas, spiders and generalized windmills. Residual risk: unindexed enumerations or stronger unnoticed statements in other graph-theory references.
+
+## Value (PASS)
+The general-position polynomial was introduced to study coefficient behavior and not just the maximum size. The anti-hole family supplies an infinite strictly log-concave class, accompanied by complete enumeration of maximal solutions and a uniquely exceptional six-vertex lower-general-position value. These are two established research invariants, and the coefficient perturbation calculation explains why the well-studied independence polynomial's log-concavity survives genuinely additional admissible subsets. The result is a substantive all-set classification rather than an isolated scalar value.
+
+Self-review: passed. Independent audit: not yet performed.
