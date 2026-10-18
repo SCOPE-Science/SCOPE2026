@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite claim is reconstructed from definitions. `verify.py` enumerates all \(120\) permutations, builds the distance-at-least-three compatibility graph, exhausts every maximal clique, and checks the complete \(240\)-element stated symmetry action. It obtains maximum size \(10\), exactly \(192\) maxima, and orbit sizes \(24,48,120\) with stabilizers \(10,5,2\). The three pair-distance spectra are recomputed directly. The proof makes no claim about the full automorphism group.
+## correctness
 
-## Originality — PASS
-The exact numerical optimum \(10\) is prior work and is explicitly excluded from the novelty claim. The foundational 2009/2010 paper, the 2024 exact-bounds paper, the 2025 upper-bound paper, exact-parameter web searches, and published-finding corpus alias/equivalence searches were compared at the statement/implication level. The later theorem \(P(n,n-2)=10\) covers the size component but does not imply a count of all attaining subsets or their symmetry orbits. No inspected source stated the \(192\) count or the \(24,48,120\) decomposition. Residual risk remains from an unindexed finite census.
+PASS
 
-## Value — PASS
-The case \(n=5\) is the natural smallest member of the exact family \(P(n,n-2)=10\), and a complete extremizer classification adds structural information beyond the known optimum. Three inequivalent symmetry types with distinct distance spectra provide a compact base case for later structural or recursive work.
+PASS: On the 120 permutations in S5, the exact Chebyshev d_infty>=3 adjacency graph has 5,340 edges; a complete independent Bron–Kerbosch bitset algorithm enumerated all 4,694,132 maximal cliques and found maximum size 10 with exactly 192 labeled maximum cliques. Applying the exact coordinate-permutation S5 action times global value reversal (240 maps) partitions maxima into 3 orbits of sizes 24,48,120, stabilizers 10,5,2 and pair-distance spectra (30,15),(25,20),(28,17) at distances 3 and 4. Independent code reconstructed everything from metric, not from certificate.json; 15-second run; no random heuristic or unsound partial enumeration.
 
-The main scientific limitation is finite scope: no classification for larger \(n\) is claimed, and only the explicit natural \(240\)-element isometry subgroup is used.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The exact optimum P(5,3)=10 is already published by Bereg et al (2023 preprint/2024 article) as the case n=5 of P(n,n−2)=10. Originality is only the complete 192 labeled-extremizer census and three natural 240-group orbits with distinguishing pair spectra. The primary initial Chebyshev-paper small table and later 2025 bounds discussion do not determine these extremizer orbit types. Resultary related (5,3) Ulam metric census is a different metric, not dominating coverage.
+
+## value
+
+PASS
+
+PASS: n=5 is the first nontrivial extremal case for the known P(n,n−2)=10 sequence. Exact counts and natural isometry orbit structure are motivated structural invariants of optimum packing codes; an exhaustive finite classification is independently worthwhile here and can support later larger-n investigations. Value does not rest on the already known P(5,3) scalar maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
