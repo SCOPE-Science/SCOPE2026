@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived exact selected inverse-sum expectation using Xi=sigma_i Yi iid Gamma(n,1), S=X1+X2 independent of T=X1/S ~ Beta(n,n), selection T>r/(1+r) for r=sigma1/sigma2. Integrating reciprocal Xi gives E[1/(sigma_J Y_J)]=1/(n-1)-x(r)^(n-1)/[(n-1)² B(n,n-1)], x=r/(1+r)². Entropy-risk subtraction yields Delta=that expectation-log(n/(n-1)). At r=1 it is strictly negative by central-binomial lower bound; as max(r,1/r)→∞ it tends to the positive constant 1/(n-1)-log(n/(n-1)). Since x decreases strictly with max(r,1/r)≥1, Delta increases strictly and has one crossing q_n∈(0,1/4), rho_n=(1+sqrt(1-4q_n))/(1-sqrt(1-4q_n)). Independently compared incomplete-beta integrals against the formula at n=2,5,8,11 and several hazard ratios; n=2 rho=4.2843765164, n=5 rho=2.6791419805, n=8 rho=2.2878314577. No universal admissibility follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2020 selected exponential paper uses quadratic loss instead of entropy risk.",
+          "Other entropy-loss estimator improvements or changed selection rules do not determine the exact risk order of the two specified constants."
+        ],
+        "reasoning": "A theorem of admissibility or domination by a third rule does not mathematically imply the pairwise difference sign threshold.",
+        "searches": [
+          "DOI:10.1007/s42519-020-00112-9 selected hazard rate 2020",
+          "Improving on Admissible Estimators Under Entropy Loss Function 2024",
+          "arXiv:2107.03848 main risk theorems"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2107.03848",
+        "https://doi.org/10.1080/02331888.2021.1954924",
+        "https://doi.org/10.1007/s42519-020-00112-9",
+        "Resultary query: in two exponential populations selected by largest sample sum entropy loss delta_N2 delta_ML risk crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source reciprocal expectation is presented as a parameter-dependent integral and is used for admissibility, while its discussion explicitly finds neither of the natural estimators uniformly better.",
+          "The closed expression requires integrating a symmetric beta-density derivative; uniqueness further needs endpoint and monotonicity bounds."
+        ],
+        "reasoning": "The stated source conclusions do not already imply the exact crossover location; they are consistent with it. Stronger improved estimators do not negate this pairwise value.",
+        "searches": [
+          "arXiv:2107.03848v1 Sections 2 and numerical comparison",
+          "DOI:10.1080/02331888.2021.1954924"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jha et al. define delta_ML=n/YJ, delta_N2=(n-1)/YJ and analyze entropy loss; their numerical discussion says no hierarchy but does not state the analytic rho_n.",
+          "Semantic published-record matches concerned Bernoulli selection/Renyi entropy, not the same two-exponential risk functional."
+        ],
+        "reasoning": "Equivalent parameterization in exponential scales would invert hazard ratios but preserve rho; searched same-object definitions, not just title.",
+        "searches": [
+          "arXiv:2107.03848 selected hazard ML BSEE entropy risk comparison",
+          "Resultary: in two exponential populations selected by largest sample sum entropy loss delta_N2 delta_ML risk crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No verified matching table of q_n or rho_n emerged; source numerical comparisons give selected values but not the exact partition."
+        ],
+        "reasoning": "No exact table coverage verified; search failure is not novelty proof.",
+        "searches": [
+          "Resultary: selected exponential two natural hazard estimators beta gamma risk threshold",
+          "Published searches: selected hazard entropy loss MLE BSEE crossover hazard ratio"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the same-model 2021 primary paper gives both estimators and a beta-integral for reciprocal risk, explicitly reports no global risk hierarchy and does not derive a full analytic hazard-ratio boundary. Quadratic-loss and alternative-selection papers do not imply this entropy-loss comparison. Older rate/scale parameterization remains a substantive residual search risk.",
+      "residual_risks": [
+        "Older exact risk comparison may be indexed under reciprocal scale or sample mean selection, and bibliographic negative searches are not decisive.",
+        "Finite numerical quadrature only corroborates the analytic beta calculation; the final claim is strictly n≥2 and exactly two populations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies inputs but does not explicitly give the claimed analytic q_n/rho_n decision boundary.",
+          "evidence": [
+            "Risk integrals in Section 2; numerical risk-hierarchy discussion in later section"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.03848v1",
+          "material_read": "Full arXiv PDF; estimator definitions, beta-gamma risk integrals, admissibility theorem, numerical discussion",
+          "method": "PDF text and screenshot of numerical discussion",
+          "title": "Inadmissibility Results for the Selected Hazard Rates",
+          "trigger": "Exactly same selected exponential populations, estimators and entropy loss"
+        },
+        {
+          "assessment": "Quadratic-loss results do not establish entropy-loss risk crossover.",
+          "evidence": [
+            "Quadratic-loss selection rather than the exact entropy loss used here"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s42519-020-00112-9",
+          "material_read": "Bibliographic abstract and problem/loss description; not full article",
+          "method": "Metadata/abstract comparison",
+          "title": "Estimation of Hazard Rate of a Selected Exponential Population",
+          "trigger": "Earlier near-identical selection model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact risk-order phase boundary for the two natural selected exponential hazard estimators resolves a concrete decision ambiguity identified in the motivating statistics paper. It tells practitioners when the MLE has smaller entropy risk than the BSEE analogue without mistaking either for admissible in the full rule class; exact analytic hazard-ratio crossover is not a routine restatement of a simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older exact risk comparison may be indexed under reciprocal scale or sample mean selection, and bibliographic negative searches are not decisive.",
+    "Finite numerical quadrature only corroborates the analytic beta calculation; the final claim is strictly n≥2 and exactly two populations."
+  ],
+  "schema_version": 1
+}

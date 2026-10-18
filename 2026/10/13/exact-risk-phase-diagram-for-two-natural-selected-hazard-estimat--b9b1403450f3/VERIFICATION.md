@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(n\ge2\) and \(r>0\), the proved reciprocal expectation is
-\[
-E\!\left[(\sigma_JY_J)^{-1}\right]
-=
-\frac1{n-1}
--
-\frac{\left(r/(1+r)^2\right)^{n-1}}
-{(n-1)^2B(n,n-1)}.
-\]
-The MLE-minus-BSEE-analogue risk difference is this expression minus
-\[
-\log\!\frac n{n-1}.
-\]
+# Independent mathematical audit
 
-The threshold calculation sets this difference to zero and solves the resulting quadratic relation between
-\[
-q_n
-\quad\text{and}\quad
-\rho_n/(1+\rho_n)^2.
-\]
+## correctness
 
-The standalone `verify.py` performs four independent checks:
+PASS
 
-1. numerical beta integration agrees with the closed reciprocal-expectation formula on deterministic \((n,r)\) cases;
-2. the risk difference is negative at equal hazards and positive for sufficiently extreme hazard ratios through a broad finite range of \(n\);
-3. the displayed \(\rho_n\) zeros the risk difference numerically;
-4. the threshold values printed for \(n=2,5,8\) match direct bisection of the risk difference.
+Derived exact selected inverse-sum expectation using Xi=sigma_i Yi iid Gamma(n,1), S=X1+X2 independent of T=X1/S ~ Beta(n,n), selection T>r/(1+r) for r=sigma1/sigma2. Integrating reciprocal Xi gives E[1/(sigma_J Y_J)]=1/(n-1)-x(r)^(n-1)/[(n-1)² B(n,n-1)], x=r/(1+r)². Entropy-risk subtraction yields Delta=that expectation-log(n/(n-1)). At r=1 it is strictly negative by central-binomial lower bound; as max(r,1/r)→∞ it tends to the positive constant 1/(n-1)-log(n/(n-1)). Since x decreases strictly with max(r,1/r)≥1, Delta increases strictly and has one crossing q_n∈(0,1/4), rho_n=(1+sqrt(1-4q_n))/(1-sqrt(1-4q_n)). Independently compared incomplete-beta integrals against the formula at n=2,5,8,11 and several hazard ratios; n=2 rho=4.2843765164, n=5 rho=2.6791419805, n=8 rho=2.2878314577. No universal admissibility follows.
 
-Expected final line:
-`VERIFY_OK rho2=4.284376516357 rho5=2.679141980534 rho8=2.287831457726`.
+## originality
 
-These finite computations are reproducibility checks only; uniqueness for every \(n\ge2\) is proved analytically.
+PASS
+
+Best-of-knowledge: the same-model 2021 primary paper gives both estimators and a beta-integral for reciprocal risk, explicitly reports no global risk hierarchy and does not derive a full analytic hazard-ratio boundary. Quadratic-loss and alternative-selection papers do not imply this entropy-loss comparison. Older rate/scale parameterization remains a substantive residual search risk.
+
+## value
+
+PASS
+
+The exact risk-order phase boundary for the two natural selected exponential hazard estimators resolves a concrete decision ambiguity identified in the motivating statistics paper. It tells practitioners when the MLE has smaller entropy risk than the BSEE analogue without mistaking either for admissible in the full rule class; exact analytic hazard-ratio crossover is not a routine restatement of a simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
