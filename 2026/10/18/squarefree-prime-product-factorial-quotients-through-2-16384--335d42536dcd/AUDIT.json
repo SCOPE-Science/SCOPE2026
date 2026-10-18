@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\geq0\\), the quotient is a positive integer with valuation floor(n/(p-1))-v_p((n+1)!). The exact 2-adic formula restricts n+1 to one or two binary ones; the exact 3-adic formula imposes parity-dependent ternary bounds. The 24-low-ternary-digit filter is a one-way valid exclusion, followed by exact ternary evaluation for all retained parameters with exponents at most 16384. This yields 42 candidates; full prime divisibility through 65664 excludes seven by square divisors and certifies the 35 displayed indices. Direct small product and small brute-force cross-checks passed. No reasoning extrapolates past the bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1973 Senge--Straus theorem implies that n+1 cannot have uniformly bounded binary and ternary digit sums at arbitrarily large n.",
+        "By the Legendre identities in the proof, squarefreeness enforces small digit sums in both bases."
+      ],
+      "reasoning": "Senge--Straus plus the published valuation framework implies qualitative global finiteness; this stronger qualitative coverage is explicitly acknowledged and not presented as novel. It does not give the finite cutoff \\(2^{16384}\\), the complete list of 35 values, or the seven prime-square obstruction certificates. The new claim is this exact finite classification.",
+      "searches": [
+        "Senge Straus theorem bounded digit sums two multiplicatively independent bases finite 1973",
+        "Senge-Straus digital sums squarefree A091137(n) / (n+1)!"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2207.07957",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Farhi/farhi32.pdf",
+      "https://oeis.org/A363596",
+      "https://oeis.org/A096288",
+      "https://doi.org/10.1007/BF02018464"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bedhouche--Farhi arXiv:2207.07957v1 and Journal of Integer Sequences 26 Article23.1.5 supply prime-product definitions and valuation identities.",
+        "OEIS A363596 records finite searches and a tentative last occurrence, not a complete large-cutoff theorem.",
+        "The computational claim follows from a complete reduction to 42 explicit candidates, then checks all relevant prime valuations."
+      ],
+      "reasoning": "Published product and factorial valuations imply the necessary one-/two-binary-digit reduction. Senge--Straus implies only finiteness in the limit. The present exhaustive finite calculation and list of all 35 survivors require new bounded enumeration and are not statements implied by the cited prior search range.",
+      "searches": [
+        "Bedhouche Farhi product prime p^(floor(n/(p-1))) quotient (n+1)! squarefree n=1055",
+        "On Some Products Taken over Prime Numbers Theorem 10 valuation digit sum",
+        "Prime factorial quotient A363596 last squarefree n=1055 exhaustive n<2^16384 finite 35 squarefree values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A363596 comments identify n=1055 as the last observed squarefree index after investigation \\(n\\leq20737\\); no assertion of exact classification below \\(2^{16384}\\).",
+        "The public 2022 Bedhouche--Farhi manuscript defines the product and treats valuations, without a squarefree index table of this bound."
+      ],
+      "reasoning": "An equivalent exact 35-index census for this sequence would cover the final claim regardless of naming; none was found in the indexed comparisons. The existence of an earlier finite scan does not assert completeness across the new bound.",
+      "searches": [
+        "A363596 squarefree terms finite simultaneous binary ternary digit sums Senge Straus Stewart",
+        "Prime factorial quotient A363596 last squarefree n=1055 exhaustive n<2^16384 finite 35 squarefree values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A363596 records experimental decomposition data through index 20737 and explicitly entertains squarefree terms after 1055.",
+        "The independent verifier exhausts 134+ million binary one/two-bit patterns through the specified much larger bound; exact index set and code are supplied."
+      ],
+      "reasoning": "A database observation through 20737 does not imply no later term below \\(2^{16384}\\); no existing table certified that enormous range. A search miss is not proof of uniqueness, so unindexed computations remain a residual risk.",
+      "searches": [
+        "OEIS A363596 squarefree last 1055",
+        "squarefree terms of quotient A091137(n)/(n+1)!; 2-adic digital necessary conditions, sparse O(log^2 x), binary support"
+      ]
+    },
+    "rationale": "The exact classification across the specified enormous finite prefix is not found in the originating paper, OEIS sequence entry, or targeted mathematical-result searches. Global finiteness through Senge--Straus is acknowledged as already implied and excluded from the novelty claim. The OEIS reported only a finite scan to 20737, without proving a last index. Unindexed computations are a remaining risk.",
+    "residual_risks": [
+      "An unindexed earlier exhaustive computer calculation over the same extreme cutoff cannot be ruled out by searching.",
+      "The full 1973 Senge--Straus original was not accessible, but the standard theorem statement is corroborated and affects only acknowledged prior qualitative background.",
+      "No classification beyond the stated finite bound and no formal independent certificate are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the product and generic valuation framework; no complete \\(2^{16384}\\) squarefree-index result located.",
+        "evidence": [
+          "arXiv:2207.07957v1, definition of sigma_n and arithmetic propositions",
+          "arXiv v1 public date July 16, 2022"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.07957v1",
+        "material_read": "Original article definition and arithmetic results; relevant sections inspected through searchable full text and parallel journal text",
+        "method": "Full-text relevant-result comparison against quotient, valuation formula, and squarefree enumeration",
+        "title": "On some products taken over the prime numbers (original preprint)",
+        "trigger": "Originating prime-product construction and stronger factorial identities"
+      },
+      {
+        "assessment": "Gives factorial divisibility and valuation tools, not the exact finite squarefree census.",
+        "evidence": [
+          "JIS 26 (2023), Article 23.1.5, pp. 1-16",
+          "Theorem 10 studies valuations of sigma_n/n! for p>sqrt(n+1), not all squarefree index positions"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Farhi/farhi32.pdf",
+        "material_read": "Definition and introductory scope, arithmetic sections, Theorem 10 and its proof, references and discussion of analytic estimates",
+        "method": "Full text extracted and relevant formulas and journal page 11 inspected",
+        "title": "On Some Products Taken over Prime Numbers (journal article)",
+        "trigger": "Highly relevant primary source with same object and potential stronger coverage"
+      },
+      {
+        "assessment": "Records observed last squarefree term at index 1055 over \\(n\\leq20737\\), explicitly noting further possibilities. Does not claim \\(2^{16384}\\) completion.",
+        "evidence": [
+          "Comment: a(1055) last squarefree seen, possible later values congruent -1 mod 24",
+          "Original sequence entry dated Aug 3, 2023"
+        ],
+        "identifier_or_url": "https://oeis.org/A363596",
+        "material_read": "Sequence definition, formulas, comments about squarefree entries, examples, linked data and bibliography",
+        "method": "Public database entry text examined",
+        "title": "OEIS A363596",
+        "trigger": "Exact quotient sequence and most plausible prior finite table"
+      },
+      {
+        "assessment": "Provides background finiteness of bounded digit sums in two multiplicatively independent bases, not the explicit census.",
+        "evidence": [
+          "Comment attributed to David Radcliffe dated Jan 16, 2024"
+        ],
+        "identifier_or_url": "https://oeis.org/A096288",
+        "material_read": "Digit-sum definition and comment explicitly stating Senge--Straus theorem",
+        "method": "Database theorem citation comparison",
+        "title": "OEIS A096288",
+        "trigger": "Background classical simultaneous digit-sum restriction"
+      },
+      {
+        "assessment": "Clearly covers qualitative global finiteness after valuation reduction, but does not give the exact stated finite cutoff.",
+        "evidence": [
+          "Senge and Straus, Period. Math. Hungar. 3 (1973), 93--100"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02018464",
+        "material_read": "Original full text unavailable; theorem statement corroborated by independent mathematical references including OEIS A096288 and Bugeaud--Cipu--Mignotte summary",
+        "method": "Bibliographic identification and secondary-source theorem check",
+        "title": "PV-numbers and sets of multiplicity",
+        "trigger": "Classical theorem that dominates qualitative finiteness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "335d4253-6dcd-4da1-9e4d-a185c6330f16",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is an established integer sequence with an explicit open-ended squarefree-last-occurrence observation. The complete 35-index census for all n<\\(2^{16384}\\) closes a natural substantial finite cutoff, expanding substantially beyond the reported source search \\(n\\leq20737\\) and giving seven explicit obstructions. The novel value is exact finite cutoff information; neither code correctness nor novelty alone establishes it, and the unsolved global last occurrence is disclosed.",
+    "status": "PASS"
+  }
+}
