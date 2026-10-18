@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct summation gives \(N^*=\Lambda/\mu\); the infection-free vaccination chain gives \(S^*=\Lambda k_3/D\); and the two infected equations give \(\mathcal R_{\mathrm{tot}}=\beta\phi\mu k_3/(k_1k_2D)\). The 2026 printed expression lacks the factor \(k_3\) present in the cited 2024 expression and therefore has time units under the source's rate definitions. The 2024 expression is exactly the reduced-normalizer value using \(S^*+V_1^*+V_2^*\), and exact subtraction yields the stated positive recovered-mass gap. The Jacobian proves the local-stability iff condition.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the 2026 source, the cited 2024 predecessor, and the closest open-access double-dose measles comparison found no statement of the corrected full-total threshold, the two-layer missing-factor/normalizer diagnosis, or the exact gap. Scientific-database searches for source, formula, unit-invariance, recovered-class, and equivalent-threshold aliases found no dominating result. A prior own finding on the 2026 paper concerns a distinct Milstein drift inconsistency and does not imply this deterministic correction.
+PASS
 
-## Value
-PASS. A basic reproduction number must be dimensionless and is used as the source's organizing disease-free threshold. The result identifies why the 2026 displayed value cannot serve that role, reconstructs the actual threshold, and shows that even the factor-restored predecessor can reverse local-stability classification. This is a structural correction to the model's threshold logic.
+PASS: Direct equilibrium balances yield V1=ψS/k3, V2=κψS/(k3k4), R=ωκψS/(μk3k4), N*=Λ/μ and S*=Λk3/D with D=μk3+ψ(κ+μ); infected E,I block equals [[-k1,βS*/N*],[φ,-k2]], giving R_tot=βφμk3/(k1k2D). The 2026 display is βφ k4/(k1k2Q), 2024 display restores k3, and subtraction simplifies to βφ k3 ψκω/(k1k2 D Q). Under all-rate unit rescaling R26 scales inversely, while correct Rtot and R24 are invariant. Local Jacobian block determinant k1k2(1−Rtot) and negative trace give stability below one, instability above; at equality a zero eigenvalue (no nonlinear classification). Independent SymPy exact algebra verified every identity and witness Rtot=93/100 versus R24=31/30 at the stated positive rates. This does not assess stochastic or global conclusions.
 
-## Closest literature and limitations
-Farhan et al. (2024), DOI 10.1140/epjp/s13360-024-05838-0, is the closest source because Din (2026) cites it for the calculation. It contains the missing rate factor but also the recovered-mass omission. Kuddus et al. (2021), DOI 10.1038/s41598-021-95913-8, uses a different mass-action/constant-population model. The present claim is local and deterministic; stochastic and global consequences require separate analysis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The 2026 full primary source equation (2.1), Table 1, and printed R_D at PDF-text p.18719 independently confirm the dimensionful expression; the 2024 full author-posted primary predecessor indeed retains k3 but normalizes by S*+V1*+V2*, omitting R* despite its six-class N. Neither corrects both defects or gives their exact positive gap. The other published measles finding concerns Milstein drift, not deterministic R0 normalization. Searches of source-specific formulas and equivalent claims identified no prior combined correction.
+
+## value
+
+PASS
+
+PASS: R0 is supposed to be dimensionless and its comparison to 1 directly controls DFE local stability. The two independent errors make the 2026 number physically noninvariant and even the 2024 fixed-factor version can predict the opposite disease-free regime (the exact 93/100 vs31/30 witness). A substantive correction to a currently published mathematical model, not cosmetic dimensional editing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

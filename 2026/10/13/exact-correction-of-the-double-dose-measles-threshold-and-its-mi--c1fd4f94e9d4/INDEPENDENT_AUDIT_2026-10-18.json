@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:58:04.482319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Direct equilibrium balances yield V1=ψS/k3, V2=κψS/(k3k4), R=ωκψS/(μk3k4), N*=Λ/μ and S*=Λk3/D with D=μk3+ψ(κ+μ); infected E,I block equals [[-k1,βS*/N*],[φ,-k2]], giving R_tot=βφμk3/(k1k2D). The 2026 display is βφ k4/(k1k2Q), 2024 display restores k3, and subtraction simplifies to βφ k3 ψκω/(k1k2 D Q). Under all-rate unit rescaling R26 scales inversely, while correct Rtot and R24 are invariant. Local Jacobian block determinant k1k2(1−Rtot) and negative trace give stability below one, instability above; at equality a zero eigenvalue (no nonlinear classification). Independent SymPy exact algebra verified every identity and witness Rtot=93/100 versus R24=31/30 at the stated positive rates. This does not assess stochastic or global conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuddus–Mohiuddin–Rahman Scientific Reports 2021 doi:10.1038/s41598-021-95913-8 uses a different model/normalization.",
+          "Other epidemic model reproduction-number corrections do not imply these exact two linked defects."
+        ],
+        "reasoning": "The exact 2026 and 2024 equations define the applicable comparison; broader threshold frameworks identify generic next-generation method, not this source-specific correction.",
+        "searches": [
+          "Double dose measles disease free reproduction threshold Din Farhan missing denominator recovered normalization R0",
+          "measles SEIV1V2R reproduction number recovered compartment omitted denominator",
+          "Kuddus Mohiuddin Rahman 2021 double-dose measles incidence"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+        "https://www.researchgate.net/publication/386394129_A_novel_physics-informed_neural_network_approach_to_assess_the_impact_of_double-dose_vaccination_on_measles_transmission",
+        "doi:10.1038/s41598-021-95913-8",
+        "Resultary semantic search, claim and alias queries on 2026-10-18 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 formula lacks the factor k3 of 2024 but neither includes R* in old denominator.",
+          "Independent rational rates give corrected 93/100 and 2024 31/30, so previous threshold statements cannot be equivalent to the correct local invasion threshold."
+        ],
+        "reasoning": "Missing k3 alone is an incomplete repair: even the old dimensionless formula changes the local classification because it normalizes by a proper subset of six population classes. Prior results do not imply corrected statement.",
+        "searches": [
+          "https://www.researchgate.net/publication/386394129_A_novel_physics-informed_neural_network_approach_to_assess_the_impact_of_double-dose_vaccination_on_measles_transmission",
+          "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Din 2026 full author-shared text p18719 equation (2.1) uses β SI/N with N defined by six compartments, prints βφ(ω+μ)/[(φ+μ)(γ+φ1+μ)((ω_v+κ+μ)(ω+μ)+ψ_v(ω+μ+κ))].",
+          "Farhan et al 2024 exact normalizer S/(S+V1+V2) rather than S/N visible in its next-generation section."
+        ],
+        "reasoning": "Equivalent expressions include omitted k3 factor, dimensionful R_D, recovered-class exclusion and DFE local stability reversal; searched by source names/DOIs/formulas rather than title-only.",
+        "searches": [
+          "Double dose measles disease free reproduction threshold Din Farhan missing denominator recovered normalization R0",
+          "\"10.3934/math.2026761\" \"R_D\" measles",
+          "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published mathematical record 2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06 is a stochastic discretization inconsistency in same source, not a deterministic reproduction-number correction.",
+          "Exact R26, R24 and recovered-mass gap not found in published-index search."
+        ],
+        "reasoning": "No exact published result or formula table found correcting the six-class R0; search limitation is retained.",
+        "searches": [
+          "Double dose measles disease free reproduction threshold Din Farhan missing denominator recovered normalization R0",
+          "\"10.3934/math.2026761\" \"R_D\" measles",
+          "published SCOPE Milstein measles scheme drift inconsistency"
+        ]
+      },
+      "rationale": "PASS: The 2026 full primary source equation (2.1), Table 1, and printed R_D at PDF-text p.18719 independently confirm the dimensionful expression; the 2024 full author-posted primary predecessor indeed retains k3 but normalizes by S*+V1*+V2*, omitting R* despite its six-class N. Neither corrects both defects or gives their exact positive gap. The other published measles finding concerns Milstein drift, not deterministic R0 normalization. Searches of source-specific formulas and equivalent claims identified no prior combined correction.",
+      "residual_risks": [
+        "The resulting deterministic local threshold does not automatically invalidate all stochastic/global conclusions; those were not assessed.",
+        "No published erratum located in bounded sources; a recent unindexed correction remains possible.",
+        "If incidence were intentionally normalized excluding R, it would be a different model than the printed N=S+E+I+V1+V2+R."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HAS_DIMENSIONFUL_THRESHOLD, not a prior correction.",
+          "evidence": [
+            "p18719 R_D numerator βφ(ω+μ) and denominator four rate factors; six-class N includes recovered R."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+          "material_read": "Full author-shared publicly indexed article text, specifically Section 2 equation (2.1), Table 1, and p18719 displayed R_D, and stochastic model scope; full article accessible as HTML rendered text.",
+          "method": "Primary full text (not a downloaded-but-unread PDF); direct formula and parameter check.",
+          "title": "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise",
+          "trigger": "Primary 2026 model and disputed printed R_D"
+        },
+        {
+          "assessment": "PARTIAL_PREDECESSOR_COVERAGE: supplies missing k3, but omits recovered mass in incidence normalizer.",
+          "evidence": [
+            "F has S0/(S0+V10+V20), despite R0 represented in six-compartment model; dimensionless but not correct when R*>0."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/386394129_A_novel_physics-informed_neural_network_approach_to_assess_the_impact_of_double-dose_vaccination_on_measles_transmission",
+          "material_read": "Full author-posted article text, especially pp.3–5 model, disease-free equilibrium, next-generation F,V and threshold.",
+          "method": "Read primary author-deposited full text and verified its formula against directly reconstructed N*.",
+          "title": "A novel physics-informed neural network approach to assess the impact of double-dose vaccination on measles transmission",
+          "trigger": "Exact 2024 predecessor cited by 2026 for detailed R0"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL: mass-action/constant-population setting; no full-document negative claim.",
+          "evidence": [
+            "Earlier vaccination model does not directly provide this six-compartment N normalization correction."
+          ],
+          "identifier_or_url": "doi:10.1038/s41598-021-95913-8",
+          "material_read": "Article abstract, parameters and scope, not every full-text result rechecked.",
+          "method": "Publication search and source model comparison.",
+          "title": "Mathematical analysis of a measles transmission dynamics model in Bangladesh with double dose vaccination",
+          "trigger": "Earlier general double-dose literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: R0 is supposed to be dimensionless and its comparison to 1 directly controls DFE local stability. The two independent errors make the 2026 number physically noninvariant and even the 2024 fixed-factor version can predict the opposite disease-free regime (the exact 93/100 vs31/30 witness). A substantive correction to a currently published mathematical model, not cosmetic dimensional editing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+    "https://www.researchgate.net/publication/386394129_A_novel_physics-informed_neural_network_approach_to_assess_the_impact_of_double-dose_vaccination_on_measles_transmission",
+    "doi:10.1038/s41598-021-95913-8"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The resulting deterministic local threshold does not automatically invalidate all stochastic/global conclusions; those were not assessed.",
+    "No published erratum located in bounded sources; a recent unindexed correction remains possible.",
+    "If incidence were intentionally normalized excluding R, it would be a different model than the printed N=S+E+I+V1+V2+R."
+  ]
+}
