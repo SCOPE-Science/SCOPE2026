@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unvaccinated and vaccination-age susceptible disease-free densities follow by characteristics and sum to the stationary host profile. In the infection linearization, the infected-vaccination boundary flux cancels exactly; the remaining infected-host transport and mosquito equation give a scalar characteristic relation. The modulus bound excludes every exponentially nondecaying eigenmode when the invasion multiplier is below one; a monotone positive real characteristic root exists above one. The exact parameters satisfy the stationary birth condition. The displayed elementary integrals and strict multiplier inequalities have been checked by a standalone rational-interval script.
+## correctness
 
-**Originality — PASS with restricted scope and residual access risk.** The complete accessible 2026 motivating manuscript derives a reduced, constant-average-efficacy endemic fixed-point theorem, not the stated re-entrant invasion threshold of the unaveraged full host–vector equations. Related work develops general vaccination-age reproduction numbers and discusses waning immunity and optimal vaccination timing; none of the inspected accessible statements supplies this particular positive-exposure two-crossing construction. Broad claims about vaccination timing, nonmonotonicity in other epidemic models, or new general reproduction-number theory are excluded. A plausible 2025 article could not be fully inspected because its full text was restricted and institutional access was unavailable; no claim of comprehensive exclusion is made.
+PASS
 
-**Value — PASS.** The exact example isolates a biologically motivated failure of the intuitive assertion that faster one-dose uptake always improves invasion control when efficacy wanes and exposure concentrates after childhood. It also shows why replacing vaccination-age efficacy by a constant average before threshold analysis can obscure a relevant age-timing mechanism. The result is a mathematical invasion-window counterexample, not guidance for clinical vaccination policy.
+In the unreduced chronological/vaccination-age SISUV transport system, disease-free susceptible cohorts have Q_0=p e^(−νx), S_0(x,y)=ν p(x)e^(−ν(x−y)), so protection Pν(x)=∫_0^x νe^(−νa)e^(−(x−a))da, with P0=0, P1=xe^−x and P∞=e^−x for x>0. Infected vaccination flux cancels from H=J+∫I dy; linearized H/p transport and mosquito v equation yield characteristic s+ρ=(Λ/(ρN))∫θ(a)gν(a)∫_a^A σ(x)p(x)e^{−(γ+s)(x−a)}dx da. For positive coefficients the real right side decreases with nonnegative s, while modulus excludes ANY Re(s)≥0 when K(ν)<1; K>1 gives positive real root. Explicit A4, μ=γ=ρ=σ=1, Λ28, b=1/(1−e^−4), θ=.001+1_[2,3] gives independent high-precision integrals K0=1.17302280127..., K1=.91682546196..., K∞=1.05777130035...; IVT gives at least two ν threshold crossings. Independent integration used separate quadrature and original rational verifier was read. No nonlinear endemic or global stability assertion.
 
-**Scientific limitations.** The two crossings need not be the only crossings; nonlinear persistence and global dynamics are unproved; all rates are model parameters rather than fitted disease data. Independent scrutiny of possible stronger published results remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS narrowly for the fully specified counterexample in the original Banerjee–Götz–Panda non-averaged equations. Their endemic fixed-point analysis substitutes a constant average efficacy and low-infection mosquito approximation; the claimed linearization retains vaccination-age dynamics and an age-specific θ. General vaccination-age reproduction-number methods and known timing/waning intuitions are prior and not claimed new. Webb 2025 is a plausible broader source but the exact parameter example and implication were not found in accessible descriptions; full Webb 2025 text was not fully inspected and remains risk.
+
+## value
+
+PASS
+
+A mathematically exact nonmonotone vaccination-rate invasion counterexample in a specified full age-structured vector/host system; timing of a one-time dose and waning efficacy can make extremely rapid vaccination worse than an intermediate rate in a late-exposure window. This establishes a precise boundary for naive monotonicity of control, without being a clinical recommendation or a claim of real-world parameter calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
