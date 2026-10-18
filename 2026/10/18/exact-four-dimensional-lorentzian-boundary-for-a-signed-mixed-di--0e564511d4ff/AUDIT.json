@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Under orthogonal diagonalization, \\(Q_Z(A)=v^{\\mathsf T}Wv/24-\\sum_{i<j}w_{ij}a_{ij}^2/12\\). For nonzero Z, W is nonzero trace-zero, hence at least one positive direction; any negative \\(w_{ij}\\) adds another positive. For \\(w_{ij}\\)>=0, Perron–Frobenius and trace zero show that W has either one or two positive eigenvalues, with second positive iff det W>0. The direct polynomial identity \\(\\det W=-4(e_1e_3-4e_4)\\) proves the exact equivalence including zeros. All normalization factors and rational counterexample values were checked by symbolic coefficients of det(tA+rZ+uI), with a standalone verifier. Reverse CS follows from one-positive inertia and the PSD principal minors. Boundary Z=0 explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ross–Süss–Wannerer Theorem 8.2 assumes reference quadratic forms positive definite and a dually Lorentzian polynomial; it cannot instantiate a single indefinite reference matrix Z=diag(-1,3,4,100) merely by changing notation.",
+        "Brauner–Ortega-Moreno Theorem B has sufficient spectral balance for indefinite matrices but no maximality or converse in the specified signed base case."
+      ],
+      "reasoning": "General AF statements can dominate special cases, but their hypotheses were compared: positive reference forms or spectral balance exclude the signed unbalanced Lorentzian witness. Neither quoted theorem implies an exact necessary-and-sufficient spectral test.",
+      "searches": [
+        "\"mixed discriminant\" \"one positive eigenvalue\" pairwise sums eigenvalues",
+        "symmetric matrix mixed discriminant Lorentzian quadratic form indefinite matrix exact signature eigenvalues pairwise sums",
+        "\"mixed discriminant\" \"four\" \"Lorentzian\" \"spectrally\"",
+        "arxiv:2304.08399 §8.1 Theorems 8.1 and 8.2"
+      ]
+    },
+    "checked_sources": [
+      "Brauner–Ortega-Moreno (2026), arXiv:2610.08746v1, §4.1 Lemma 4.2 and §4.2 Proposition 4.5, https://arxiv.org/html/2610.08746v1",
+      "Ross–Süss–Wannerer, Dually Lorentzian Polynomials, arXiv:2304.08399, §8.1 Theorems 8.1–8.2, https://link.springer.com/article/10.1007/s00605-025-02134-6",
+      "Shenfeld–van Handel, Mixed volumes and the Bochner method, arXiv:1811.08710, https://arxiv.org/abs/1811.08710",
+      "Published published-finding corpus semantic searches on fixed signed mixed discriminants, aliases, determinant boundary and positive-definite counterexamples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior balance requires \\(\\lambda_1+\\lambda_2+\\lambda_3\\ge\\lambda_4\\), but \\(Z=\\operatorname{diag}(-1,3,4,100)\\) has \\(6<100\\) and the new criterion passes with \\(e_1e_3-4e_4=56528\\).",
+        "Prior spectral two-positivity alone is insufficient: \\(Z=\\operatorname{diag}(-1,1,2,3)\\) has \\(\\lambda_1+\\lambda_2=0\\) and \\(e_1e_3-4e_4=-1\\); for the displayed positive-definite arguments, the AF deficit equals \\(-5t^2/144\\).",
+        "Classical positive-definite reference theorem has no indefinite Z in its domain."
+      ],
+      "reasoning": "The strict inclusion witness blocks subsumption by the exact original sufficient hypothesis; the counterexample separates the novel second inequality from the already published spectral-positivity condition. The existing source identities are credited, while the determinant inertia equivalence is newly proved.",
+      "searches": [
+        "arxiv:2610.08746v1 Lemma 4.2 Proposition 4.5 Theorem B",
+        "mixed discriminant first counterexample 4x4 spectrally positive not spectrally balanced positive definite reverse Cauchy Schwarz failed",
+        "arxiv:2304.08399 Theorems 8.1 8.2 generalized mixed discriminant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2610.08746v1 Proposition 4.5, the sufficient strict balance gives negativity specifically on trace-zero matrices; the new theorem solves the full inertia equivalence by detW, which is weaker.",
+        "The 4x4 orthostochastic tetrahedral cone result is on a different matrix variety and its determinant is unrelated to quadratic mixed discriminants."
+      ],
+      "reasoning": "Equivalences through determinant polarization, diagonalization, trace-zero hyperplanes, spectral balance, and pair-complement weights were explicitly tested at the statement level. No inspected result gives the two simultaneous necessary-and-sufficient inequalities or the strict PD witness.",
+      "searches": [
+        "Brauner Ortega-Moreno 2610.08746 Proposition 4.5 exact four-dimensional characterization hyperbolic quadratic form D(A,A,Z,I) eigenvalue complement pair sums determinant e1(Z)e3(Z)-4 det Z",
+        "four dimensional mixed discriminant indefinite reference Z Lorentzian iff smallest two eigenvalues nonnegative sum and determinant 4x4 zero diagonal weighted matrix nonpositive",
+        "\"4x4\" \"mixed discriminant\" Lorentzian signature indefinite spectral",
+        "\"e_1\" \"e_3\" \"4e_4\" hyperbolic mixed discriminant",
+        "published-finding corpus IDs: 2026/10/4/SCOPE-tetrahedral-tangent-cone-on-the-balanced-block-circulant-line--884a846bd45d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact quartic boundary \\(\\det W=-4(e_1e_3-4e_4)\\) was recomputed as a polynomial identity; database hits on hyperdeterminants or \\(4\\times4\\) orthostochastic varieties concern unrelated invariants.",
+        "No relevant tabulated mixed-discriminant inertia classification was found in the retrieved published records."
+      ],
+      "reasoning": "The object is a continuous algebraic signature classification, not a finite census or table entry; database searches concerned the determinant identity and exact rational counterexample. Negative search is not treated as proof of priority.",
+      "searches": [
+        "Brauner Ortega-Moreno 2610.08746 Proposition 4.5 exact four-dimensional characterization hyperbolic quadratic form D(A,A,Z,I) eigenvalue complement pair sums determinant e1(Z)e3(Z)-4 det Z",
+        "four dimensional mixed discriminant indefinite reference Z Lorentzian iff smallest two eigenvalues nonnegative sum and determinant 4x4 zero diagonal weighted matrix nonpositive",
+        "mixed discriminant first counterexample 4x4 spectrally positive not spectrally balanced positive definite reverse Cauchy Schwarz failed",
+        "published-finding corpus IDs: 2026/10/4/SCOPE-a-multiplicity-256-local-model-for-the-eight-sub-hyperdeterminan--390fde7f3d7f",
+        "\"e_1\" \"e_3\" \"4e_4\" hyperbolic mixed discriminant"
+      ]
+    },
+    "rationale": "The dated 2026 primary paper proves the base-case signed mixed-discriminant AF inequality under a sufficient spectral-balance condition, not an if-and-only-if four-dimensional inertia criterion. Its Prop. 4.5 makes the trace-zero hyperplane negative, whereas the new classification allows a positive index one while that hyperplane can fail to be negative. Direct expansion and Perron–Frobenius give a non-implied determinant boundary; the signed spectral-positive counterexample has an explicit strictly positive-definite AF failure. Generalized AF for dually Lorentzian differential operators covers positive-definite reference forms, not this fixed indefinite signed spectral threshold. Materially relevant primary sources were read; incomplete historical coverage remains a risk.",
+    "residual_risks": [
+      "An older unindexed spectral theorem for quadratic mixed discriminants could imply the determinant criterion; semantic search absence is not a novelty certificate.",
+      "The 2018 classical reference was not comprehensively inspected beyond primary citations and metadata; it is not used for a negative whole-document coverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves sufficient hyperbolicity under strictly spectrally (n-2)-balanced Z; does not state exact 4D necessary-and-sufficient determinant boundary.",
+        "evidence": [
+          "arXiv:2610.08746v1, lines 33-94, 381-471; Proposition 4.5 formula and trace-zero argument"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.08746v1",
+        "material_read": "Full HTML introduction, definitions, Section 4.1 Lemmas 4.1–4.3, Section 4.2 Theorem 4.4 and Proposition 4.5 with proof and formula",
+        "method": "Read arXiv HTML line material, including theorem hypotheses and proof, not snippets only",
+        "title": "Hyperbolicity Beyond Convexity in the Alexandrov–Fenchel Inequality",
+        "trigger": "Same two-free-matrix quadratic mixed discriminant and new spectral-balance theorem"
+      },
+      {
+        "assessment": "The generalized AF theorem requires positive definite input reference matrices and dually Lorentzian polynomial operators; its domain does not contain the indefinite Z witness.",
+        "evidence": [
+          "Theorems 8.1–8.2 require positive-definite q_1,...,q_n; §8.1 proof uses the positive-definite cone."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00605-025-02134-6",
+        "material_read": "Full-text open-access HTML §8.1, Theorems 8.1–8.2 and proof, with definitions in introduction",
+        "method": "Read Springer lawful OA HTML full-text §§1 and 8.1",
+        "title": "Dually Lorentzian Polynomials",
+        "trigger": "Possible broader AF theorem potentially subsuming the signed case"
+      },
+      {
+        "assessment": "Foundational PSD AF treatment; no full-document negative coverage claim made.",
+        "evidence": [
+          "Referenced as classical modern proof in arXiv:2610.08746v1 Introduction and Lemma 4.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.08710",
+        "material_read": "Public metadata and primary-reference role, not an exhaustive full-text read",
+        "method": "arXiv metadata and 2026 primary source references",
+        "title": "Mixed Volumes and the Bochner Method",
+        "trigger": "Classical mixed volume/discriminant AF general theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e564511-d4ff-46c4-809a-2e80a61c1771",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source explicitly extends Alexandrov–Fenchel beyond convex reference forms with only a sufficient balance cone. A complete necessary-and-sufficient four-dimensional spectral boundary is a natural missing problem, not an arbitrary parameter choice; signed configurations outside the balance cone show genuinely broader nontrivial valid inequalities. The rational PD counterexample precisely distinguishes spectral positivity from hyperbolicity, while zero-boundary cases are included. It identifies a sharp structural test with immediate proof-theoretic and geometric significance; general n or multiple references are not claimed.",
+    "status": "PASS"
+  }
+}
