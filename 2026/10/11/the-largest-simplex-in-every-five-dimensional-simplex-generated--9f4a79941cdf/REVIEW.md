@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The object and all volume normalizations are explicit. Centering leaves precisely one linear relation among six generators, producing the \(62\) exposed subset-sum vertices; Živaljević's cubulation gives total volume \(6D\). An exact integer determinant enumeration with three subset-size orbit representatives gives maxima \(14,17,18\) on exhaustive sets of \(5{,}949{,}147\) configurations each. A separate \(38{,}760\)-case exhaustive middle-layer enumeration confirms exactly \(30\) maxima and, with an independent determinant expansion, compares the exact perfect-matching construction. The no-shared-five condition plus multi-affinity proves that no nonvertex simplex can maximize. The arithmetic and critical loops have been reconstructed and executed from the supplied source. Limits: no claims beyond this dimension or family.
+## correctness
 
-**Originality — PASS with named risk.** The full original 2013 introduction of \(\Delta\)-zonotopes, including its cubulation and fair-division applications, supplies the object but not the inscribed-simplex volume or the classification. The inspected hypersimplex \(\Delta(3,6)\) subdivision work concerns regular subdivisions and their orbit counts, not a single largest simplex inside the **whole zonotope**. The known binary \(6\times6\) maximum determinant is \(9\) and directly covers the central-layer numerical maximum \(18\); the central numerical value alone is **not** original. The new claim incorporates the remaining subset-size layers of the projected cube, the sharp zonotope volume ratio, the exact 30 matching-cycle extremizers, and all-point rigidity. Older maximum-simplex-in-cube literature treats a different feasible body; transferring such a result to a projected cube requires a nontrivial comparison not given by the accessible abstract. Searches for the cyclic pairing, dimension, determinant, hypersimplex, cube projection, and volume-ratio equivalences did not identify a covering theorem. The complete 1996 cube-simplex paper was inaccessible and may conceivably contain an equivalent projection argument. A negative search is not proof of historical priority.
+PASS
 
-**Value — PASS.** Determining the exact maximum-volume simplex of a natural five-dimensional affine family is a motivated extremal invariant. The finite calculation is linked to a structural characterization by perfect matchings and cyclic orientations and proves the absence of nonvertex maximizers. The ratio is affine invariant and has a sharp, complete equality description; the task is not an arbitrary one-off list of determinants.
+For six centered generators with their unique dependence, the 62 distinct nonempty proper subset sums are exactly the exposed zonotope vertices. Choosing a1..a5 as basis gives volume(Z)=6D, where D=|det(a1,...,a5)|. Independently implemented exact integer Bareiss enumeration of all 3*C(61,5)=17,847,441 orbit-representative 5-completions (each size class 1,2,3) reproduced sharp determinants 14,17,18; the 20-subset middle layer has exactly 30 determinant-18 six-tuples, all distinct five-subset deletions (180), agreeing with the 15 pairings and two 3-pair cycles of the manuscript. A multilinear determinant convex-combination argument reduces arbitrary contained simplices to vertex tuples; the no-common-five-winners fact excludes nonvertex maximizers. Hence optimal ratio (18D/120)/(6D)=1/40 and exactly 30 rigid maximizers. Finite enumeration covers this 62-vertex finite model only, not all convex bodies.
 
-**Scientific scope.** All findings are conditional only on a centered nondegenerate five-simplex; all test simplices are allowed. The proof is a combination of a finite exhaustive integer certificate and a general convex-geometric reduction, not an extrapolation from experiments.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original Živaljević paper establishes the Δ-zonotope construction and cubulation, not the contained 5-simplex optimum. The known maximum 6x6 binary determinant 9 already covers the middle-layer numerical determinant 18, which is credited rather than claimed new. The new statement requires comparing all 42 off-middle vertices, proving rigid global maximizers against nonvertex points, and classifying all 30 by pair cycles. Hudelson–Klee–Larman (1996) optimizes simplices in unprojected cubes; projecting a simplex can change volume and feasible sets, and the accessible abstract provides no specific projection result. Full 1996 text was unavailable and is a residual coverage risk, not automatic rejection.
+
+## value
+
+PASS
+
+The maximum contained simplex and complete equality set are natural affine invariants of a canonical nontrivial Δ-zonotope family. The dimension-five sharp ratio and cycle-indexed 30-solution classification identify a meaningful extremal-geometric benchmark at the boundary of 0-1 determinant phenomena. The all-point rigidity conclusion is not mechanically supplied by knowing the central-layer determinant value alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
