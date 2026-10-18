@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Directed-edge strong Markov decomposition H=zq+z(1-q)HB and B=zr+z(1-r)HB gives an exact quadratic valid even with escapes. Selecting the unique analytic branch yields H(1)=q/(1-r), and differentiation yields E[T|return]=2(d-1)/(d-2). Factored discriminant has unique dominant square-root singularity at lambda^-2 with lambda<1 and positive coefficient, giving the stated asymptotic. Exact rational direct radial-chain propagation and independent coefficient expansions agreed on 660 finite-time values, plus 60 identities/range checks (720 total). Singular endpoints are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Noferini and Quintana 2023, arXiv:2307.14200, Sections 1 and 4, backtrack-downweighted generating functions",
+        "Arrigo, Higham and Noferini 2021, doi:10.1137/20M1384725, finite-graph backtrack-downweighted walk enumerators"
+      ],
+      "reasoning": "Finite-graph matrix resolvents enumerate weighted walks broadly, but do not explicitly yield the defective first-return law or its conditional-mean invariance on the infinite homogeneous tree in the inspected text. A spectral specialization may potentially cover the statement; treated as residual risk rather than ignored.",
+      "searches": [
+        "node2vec persistent backtracking random walk homogeneous d regular tree first return generating function exact algebraic Green function",
+        "second order Markov nearest neighbor persistent walk regular tree first return hitting time Green function radius",
+        "backtracking parameter regular tree return generating function Ihara zeta q backtracking walk",
+        "backtrack-downweighted walks infinite regular tree first return Green function"
+      ]
+    },
+    "checked_sources": [
+      "Avena et al. 2026, arXiv:2604.13681v1, Theorem 3.10 and Sections 2, 3, 6",
+      "Tishby, Biham, Katzav 2021, arXiv:2106.10449, simple-walk Bethe-lattice return profile",
+      "Noferini and Quintana 2023, arXiv:2307.14200, Sections 1 and 4, backtrack-downweighted generating functions",
+      "Arrigo, Higham and Noferini 2021, doi:10.1137/20M1384725, finite-graph backtrack-downweighted walk enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Avena et al. 2026, arXiv:2604.13681v1, Theorem 3.10 and Sections 2, 3, 6",
+        "Tishby, Biham, Katzav 2021, arXiv:2106.10449, simple-walk Bethe-lattice return profile",
+        "Noferini and Quintana 2023, arXiv:2307.14200, Sections 1 and 4, backtrack-downweighted generating functions",
+        "Arrigo, Higham and Noferini 2021, doi:10.1137/20M1384725, finite-graph backtrack-downweighted walk enumerators"
+      ],
+      "reasoning": "The 2026 recurrence theorem says both walks are transient for a degree-at-least-three regular tree, a qualitative corollary of the new return formula, but not the explicit probability, distribution or conditional mean. The 2021 Bethe-lattice first-return result is the alpha=gamma specialization, so does not imply parameter invariance. Prior generalized weighted-walk resolvents are stronger as counting frameworks but were proved for finite graphs; determining whether a direct infinite-volume limit contains the exact conditional moment needs external priority review.",
+      "searches": [
+        "node2vec persistent backtracking random walk homogeneous d regular tree first return generating function exact algebraic Green function",
+        "backtracking parameter regular tree return generating function Ihara zeta q backtracking walk",
+        "conditional mean backtracking regular tree return"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Avena et al. 2026, arXiv:2604.13681v1, Theorem 3.10 and Sections 2, 3, 6",
+        "Tishby, Biham, Katzav 2021, arXiv:2106.10449, simple-walk Bethe-lattice return profile"
+      ],
+      "reasoning": "The event of return is equivalent to an edge-orientation first-passage problem, to an infinite-tree excursion generating function, and to a weighted path enumeration normalized to probabilities. The 2021 random regular graph paper gives only the simple random walk; the 2026 paper gives recurrence without the weighted conditional moments.",
+      "searches": [
+        "node2vec persistent backtracking random walk homogeneous d regular tree first return generating function exact algebraic Green function",
+        "alpha-backtracking random walk regular tree return probability alpha over alpha plus d minus 2 gamma, first passage distribution",
+        "second order Markov nearest neighbor persistent walk regular tree first return hitting time Green function radius",
+        "2604.13681 node2vec or triangle biased walks tree return generating function transient recurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Avena et al. 2026, arXiv:2604.13681v1, Theorem 3.10 and Sections 2, 3, 6",
+        "Tishby, Biham, Katzav 2021, arXiv:2106.10449, simple-walk Bethe-lattice return profile"
+      ],
+      "reasoning": "Published semantic-index searches produced unrelated tree/path and persistent-walk results; no exact coefficient table or formula for positive-backtracking first returns was found. Failure to retrieve is not proof of novelty.",
+      "searches": [
+        "alpha-backtracking random walk regular tree return probability alpha over alpha plus d minus 2 gamma, first passage distribution",
+        "2604.13681 node2vec or triangle biased walks tree return generating function transient recurrence",
+        "conditional mean backtracking regular tree return"
+      ]
+    },
+    "rationale": "Exact first-return PGF and constant return-conditioned mean for positive-backtracking node2vec on a homogeneous infinite regular tree were not located in inspected primary texts, which establish recurrence equivalence, finite-graph weighted walk counts, or the special simple-walk case. This is a qualified best-knowledge comparison, not a proof of uniqueness. The near-equivalent finite-graph weighted generating functions may yield this result after a nontrivial infinite-volume/first-return specialization; external priority confirmation remains pending.",
+    "residual_risks": [
+      "Specialized older Bethe-lattice persistent first-return Green-function calculations may contain equivalent formulas.",
+      "An infinite-volume limit of the 2021/2023 weighted walk resolvent may imply the result without a separately named theorem.",
+      "Arrigo–Higham–Noferini 2021 full manuscript not comprehensively read; independent literature review necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies model and recurrence equivalence; no quantitative first-return PGF or constant conditional mean located in read sections",
+        "evidence": [
+          "Definition 2.1 equation (2.9)",
+          "Theorem 3.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.13681v1",
+        "material_read": "Definitions and transition weights in Section 2, main contribution and Theorem 3.10 in Section 3, discussion of regular graphs and recurrence proof sections",
+        "method": "Read publisher-hosted arXiv full-text HTML and compared the statements/implications",
+        "title": "node2vec or triangle-biased random walks: stationarity, regularity & recurrence",
+        "trigger": "Exact same second-order transition and qualitative regular-graph recurrence theorem"
+      },
+      {
+        "assessment": "Covers equal backtrack/forward probability but not dependence on the separate memory weight",
+        "evidence": [
+          "First-return Bethe-lattice discussion",
+          "Ordinary simple random walk model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.10449",
+        "material_read": "Open arXiv textual full-paper body, Introduction and Bethe-lattice first-return section",
+        "method": "Read original arXiv textual rendition and compare parameter domains",
+        "title": "Analytical results for the distribution of first return times of random walks on random regular graphs",
+        "trigger": "Same first-return event on infinite Bethe lattice in unweighted simple-walk specialization"
+      },
+      {
+        "assessment": "General finite-graph backtrack-downweighted resolvent found; could underpin an unlocated infinite-volume derivation, but the stated conditional-mean result was not found",
+        "evidence": [
+          "Equation (8)",
+          "Theorem 4.13",
+          "Finite graph assumption in Section 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.14200",
+        "material_read": "Original arXiv textual paper Sections 1 and 4, including equation (8), Section 4.2 and Theorem 4.13",
+        "method": "Compared finite-graph weighted walk enumeration with infinite-tree defective first-return conditioning",
+        "title": "Generating functions of non-backtracking walks on weighted digraphs: radius of convergence and Ihara theorem",
+        "trigger": "Potential broader finite-graph weighted-return generating-function framework"
+      },
+      {
+        "assessment": "Finite-graph matrix generating framework; material inaccessible beyond summary to present comparison, priority risk recorded",
+        "evidence": [
+          "SIAM Journal on Matrix Analysis and Applications 42 (2021), abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1384725",
+        "material_read": "Publisher abstract and institutional open-access manuscript metadata; full manuscript not read in this execution",
+        "method": "Scope comparison from openly available abstract and references in arXiv:2307.14200",
+        "title": "A Theory for Backtrack-Downweighted Walks",
+        "trigger": "Most plausible stronger general backtracking walk enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b32785cd-4eb3-4896-ac12-cfb6d3f2a6d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first-return generating function for a genuinely memory-dependent graph walk is a natural observable left unresolved by a qualitative recurrence criterion. Its conditional first-return mean is completely independent of the memory weight, whereas the probability of ever returning and the exponential rate of rare return times change with that weight; this contrast cannot be inferred from ordinary simple-walk formulas alone. The full law applies to all positive weights and all d>=3 and is relevant to temporal exploration and repeated visits in network random walks.",
+    "status": "PASS"
+  }
+}
