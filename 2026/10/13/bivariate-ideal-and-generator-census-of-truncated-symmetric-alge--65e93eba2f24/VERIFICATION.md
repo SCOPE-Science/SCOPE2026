@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-Run `python3 check_ideals.py` with Python 3. The program independently enumerates every subspace of the maximal ideal in row-reduced echelon form and directly tests closure under multiplication by each degree-one monomial. For each ideal it computes the minimal generator count by the rank of the linear product span. It separately computes the predicted Gaussian-binomial polynomial, comparing dictionaries of coefficients.
+# Independent mathematical audit
 
-Exhaustive cases: dimension-parameter and field sizes `(1,2)`, `(1,3)`, `(2,2)`, `(2,3)`, with total ideal counts respectively 4, 4, 27, 46 and final `VERIFY_OK`. The verifier uses prime-field modular arithmetic; extension fields and all larger parameters are covered by the written proof, not by numerical testing.
+## correctness
 
-The proof's critical equalities are \(W/VU\cong\operatorname{Sym}^2(V/U)\), the lift count \(q^{r(b_r-j)}\), and \(\mu(I)=\dim(I/\mathfrak m I)=r+j\). Each is proved in `RESULT.md`.
+PASS
+
+For A=F_q[x_1,...,x_d]/m³, d≥1 any prime-power q, split radical m=V⊕W with W=Sym²V, h=dim W. Every proper ideal projects to U≤V, dim U=r, intersects W in C containing VU; conversely every such pair and linear graph map U→W/C determines a unique ideal. W/VU≅Sym²(V/U) of dimension b_r=binom(d-r+1,2) in all characteristics including 2. Gaussian choices [d r]_q[b_r j]_q q^{r(b_r-j)} give dimension r+h-b_r+j. Nakayama μ(I)=dim I/mI=r+j, and A contributes unique X^{1+d+h}Y. Principal count follows from r+j=1. Independent exhaustive RREF enumeration of 374 subspaces of five-dimensional F2 radical for d=2 checked ideal closure under x,y and μ via product-span rank; got exactly 27 ideals with the asserted eight bivariate coefficients. General argument is exact, not inferred from finite experiment.
+
+## originality
+
+PASS
+
+The standard local-submodule argument and Gaussian counting/Nakayama are classical tools, which are credited, but inspected Ringel and Ringel–Zhang manuscripts ask existence of reflexive or Gorenstein-projective modules over short local algebras, not a joint polynomial counting every embedded ideal of this free truncation by vector-space dimension and minimal generator number over all finite fields. Search for finite-ring ideal zeta polynomials and truncated multivariate rings did not demonstrate a previously stated bivariate formula. A known general ideal-zeta specialization is a live residual risk, not a proof of coverage.
+
+## value
+
+PASS
+
+The free commutative length-three local algebra is a canonical finite-field test family for radical-cube-zero rings; the number and sizes of embedded ideals, refined by minimal generators, are natural enumeration invariants. The formula includes nonhomogeneous ideals, all prime powers and arbitrary embedding dimension and distinguishes ideals invisible to dimension-only counts, making the exact result independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

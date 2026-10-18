@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies every proper ideal, including nonhomogeneous graphs, by \(U\le V\), \(C\ge UV\), and the unique lift map \(U\to W/C\). The symmetric-square quotient and Nakayama's generator formula identify the exponents exactly; the field characteristic plays no role. A standalone exhaustive subspace checker, `check_ideals.py`, tests the computed bivariate coefficients over the prime fields and dimensions listed in the result, and returns `VERIFY_OK`. Those finite checks corroborate the complete bijective proof.
+## correctness
 
-## Originality — PASS, residual risk noted
-Ringel (arXiv:2211.16885) and Ringel--Zhang (arXiv:1912.02081) study reflexive or Gorenstein-projective modules over short local algebras, not a universal ideal enumeration; the concrete Hilbert type in Ringel's main theorem differs from this free truncation. Nearby published studies of short local algebra isomorphism types do not imply the full embedded-ideal count. Searches for ideal-zeta, regular-module subobject, truncated-symmetric algebra and generator-dimension aliases did not yield a covering statement. An implicit Hall-polynomial specialization or unidentified equivalent treatment is an unresolved originality risk.
+PASS
 
-## Value — PASS
-The result determines a complete and naturally defined bivariate invariant over all finite fields and embedding dimensions. In particular it separates ideals of identical lengths with different minimal generator counts, a distinction inaccessible from the ordinary dimension enumerator. Its free length-three algebra is a benchmark for commutative short local quotients.
+For A=F_q[x_1,...,x_d]/m³, d≥1 any prime-power q, split radical m=V⊕W with W=Sym²V, h=dim W. Every proper ideal projects to U≤V, dim U=r, intersects W in C containing VU; conversely every such pair and linear graph map U→W/C determines a unique ideal. W/VU≅Sym²(V/U) of dimension b_r=binom(d-r+1,2) in all characteristics including 2. Gaussian choices [d r]_q[b_r j]_q q^{r(b_r-j)} give dimension r+h-b_r+j. Nakayama μ(I)=dim I/mI=r+j, and A contributes unique X^{1+d+h}Y. Principal count follows from r+j=1. Independent exhaustive RREF enumeration of 374 subspaces of five-dimensional F2 radical for d=2 checked ideal closure under x,y and μ via product-span rank; got exactly 27 ideals with the asserted eight bivariate coefficients. General argument is exact, not inferred from finite experiment.
 
-## Relationship and limits
-The exact implication comparisons, searched variants, inspected primary texts and remaining uncertainty are documented in `AUDIT.json`. The calculation is neither a finite-table-only observation nor a count of ideals up to conjugacy. Independent specialist verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard local-submodule argument and Gaussian counting/Nakayama are classical tools, which are credited, but inspected Ringel and Ringel–Zhang manuscripts ask existence of reflexive or Gorenstein-projective modules over short local algebras, not a joint polynomial counting every embedded ideal of this free truncation by vector-space dimension and minimal generator number over all finite fields. Search for finite-ring ideal zeta polynomials and truncated multivariate rings did not demonstrate a previously stated bivariate formula. A known general ideal-zeta specialization is a live residual risk, not a proof of coverage.
+
+## value
+
+PASS
+
+The free commutative length-three local algebra is a canonical finite-field test family for radical-cube-zero rings; the number and sizes of embedded ideals, refined by minimal generators, are natural enumeration invariants. The formula includes nonhomogeneous ideals, all prime powers and arbitrary embedding dimension and distinguishes ideals invisible to dimension-only counts, making the exact result independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
