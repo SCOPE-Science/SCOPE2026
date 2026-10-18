@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the cyclic \(b\)-symbol spectrum
+# Independent mathematical audit
 
-Execute `python3 verify_quadratic_tail.py` with Python 3.8 or later. The script uses only the standard library, constructs all coefficient masks of Boolean polynomials of degree at most two, enumerates all their codewords by a Gray-code recurrence, and counts nonzero cyclic read windows directly. It checks every legal high-window width in dimensions \(m=3,4,5\), comparing complete coefficient maps rather than only minimum weights.
+## correctness
 
-The second, independent phase enumerates every codimension-two affine subspace of \(\mathbb F_2^m\) by an independent pair of dual linear forms. It deduplicates dual bases, examines each of four cosets, and computes minimal circular containing intervals for \(3\le m\le8\); only the eight predicted span-\(2^{m-2}\) flats lie below the threshold.
+PASS
 
-Expected terminal output: `VERIFY_OK quadratic_tail_m3_to_m5 affine_flats_m3_to_m8`.
+For lexicographically ordered binary RM(2,m), N=2^m, m≥3, Q=N/4 and K=1+m+m(m−1)/2. Quadratic polar forms have even rank 2r. The character-sum decomposition makes any nonzero word below weight 3N/8 a weight-Q rank-two quadratic, equivalently the indicator of an affine codimension-two flat. A cyclic window with b>5N/8 zeros confines support to an interval shorter than 3Q/2. Projecting such a flat to the two most significant bits rules out all but four aligned quarter blocks and four neighboring boundary half-quarter blocks, exactly eight length-Q runs with starts multiples of Q/2. Each has a zero gap of length 3Q and hence b-symbol weight b+Q−1 for b≤3Q; all others have full weight. Above b=3Q all nonzero words have full weight, and the strict lower cutoff has extra flats. Dimension K yields coefficients 2^K−9 and 2^K−1. Independently exhaustive Boolean polynomial enumerations for m=3,4,5 at every admissible integer width reproduced complete coefficient tables; the rank/flat argument supplies the all-m proof.
 
-The general theorem and the sharpness of the width boundary are deduced symbolically in `RESULT.md`. The finite enumerations do not establish an infinite theorem on their own. The coordinate order, cyclic wrap, even-rank condition, exponent counts and small-dimension boundary are explicit.
+## originality
+
+PASS
+
+Pan–Ling–Liu Theorem4.6 gives the exact first nonzero b-symbol distance for the same RM(2,m) code but not multiplicity eight or the complete high-window enumerator. Zhu–Li–Shi–Xia–Solé bound cardinality of distinct weights, which does not count words per weight. Irreducible cyclic-code enumerators address different code families, and the published first-order RM case is a proper smaller subcode. This is a coefficientwise infinite-family refinement.
+
+## value
+
+PASS
+
+This exact all-dimensional two-coefficient tail enumerator for classical quadratic Reed–Muller codes determines not just minimum distance but the full rare-event multiplicity, a natural coding-theoretic invariant for sliding-window/b-symbol channels. The constant eight and sharp 5/8 threshold arise from rigid affine-flat support geometry. It is a meaningful structural classification over an infinite family rather than arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
