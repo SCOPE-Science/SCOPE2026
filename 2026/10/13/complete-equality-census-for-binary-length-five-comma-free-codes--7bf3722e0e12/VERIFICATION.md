@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the directory containing this file. The verifier uses only the Python standard library.
+# Independent mathematical audit
 
-It performs two exhaustive searches over the complete finite domain. The necklace-transversal search checks all \(5^6=15625\) choices of one representative from each primitive cyclic necklace. A separate subset search checks all \(\binom{30}{6}=593775\) six-subsets of primitive words using independently constructed pair-compatibility masks. Both must produce exactly the same \(86\) maximum codes.
+## correctness
 
-The verifier then reconstructs the Hamming-weight profile, complement/reversal fixed-point counts, all orbits under the declared order-four natural group, and the size-two stabilizer types. It compares these values with `census.json` and verifies that `maxima.txt` is exactly the regenerated maximum-code list.
+PASS
 
-The computation proves only this finite length-five binary statement. It does not infer an infinite theorem from experimentation, and it does not test whether the declared natural group is the full automorphism group.
+The definition checks every nontrivial overlap of any ordered codeword pair, including self-overlaps. Prime length five leaves 30 primitive words and six necklaces of size five; the rotation obstruction proves at most one codeword per necklace, hence size at most six. A complete independent 5^6=15625 necklace-transversal enumeration establishes exactly 86 size-six feasible codebooks, cross-checked against the actual package certificate and the existence of feasible size-six codes. Binomial counts of necklaces by weights 1,2,3,4 are 1,2,2,1; forcing (1,2,2,3,3,4). Explicit complement/reversal action on all 86 yields fixed counts 10,0,4 and Burnside (86+10+0+4)/4=25, orbit sizes 18×4+7×2. No unsearched necklaces or larger words enter this finite exact result.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete 86-code equality set and 25-orbit census, not for the classical maximum six. The original 1958 maximum theorem and 1963 survey establish bound and constructions but no identified same-predicate, same-parameter equality census. The distinct cross-bifix/non-overlapping code literature has different admissible sets and binary optimum two.
+
+## value
+
+PASS
+
+PASS: maximal comma-free codes are a classical synchronization construction; the exact equality-set census is a complete naturally defined small-case classification, and the weight and 25-orbit rigidity materially refines the known optimum rather than recomputing its size. The invariant describes all designs satisfying the sharp boundary and could support equivalence/comparative coding studies without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

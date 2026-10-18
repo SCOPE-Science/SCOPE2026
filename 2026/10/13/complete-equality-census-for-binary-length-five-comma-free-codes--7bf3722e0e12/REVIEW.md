@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primitive-necklace upper bound is reconstructed directly, so every optimum is forced to choose one word from each of six primitive necklaces. Two independent exhaustive enumerations cover respectively all \(5^6=15625\) necklace transversals and all \(\binom{30}{6}=593775\) six-subsets of primitive words, and they return exactly the same \(86\) codes. The bundled verifier additionally rechecks the weight multiset, fixed-point counts, natural-group orbits, and stabilizers from the regenerated code list.
+## correctness
 
-## Originality
-PASS. The closest primary source, Golomb–Gordon–Welch (1958), proves the general primitive-necklace upper bound and attainability for length five, so it implies the known optimum \(6\) but not the number or symmetry classes of binary equality cases. Jiggs (1963) summarizes extremal sizes and constructions rather than equality-case counts. Focused searches for the exact binary length-five parameter, primitive-necklace formulations, and symmetry-equivalent phrasing found no implication-equivalent published classification. The closest database result concerns non-overlapping codes, a strictly different condition with binary length-five optimum \(2\). Residual risk remains that an obscure or poorly indexed historical enumeration exists.
+PASS
 
-## Value
-PASS. The equality cases of the first nontrivial binary length-five instance form a natural finite extremal classification attached directly to the foundational comma-free coding theorem. The result adds information not recoverable from the optimum alone: exact labeled multiplicity, a forced weight profile, and a symmetry-reduced census. These data provide a compact exact benchmark for constructions and enumeration algorithms in self-synchronizing coding.
+The definition checks every nontrivial overlap of any ordered codeword pair, including self-overlaps. Prime length five leaves 30 primitive words and six necklaces of size five; the rotation obstruction proves at most one codeword per necklace, hence size at most six. A complete independent 5^6=15625 necklace-transversal enumeration establishes exactly 86 size-six feasible codebooks, cross-checked against the actual package certificate and the existence of feasible size-six codes. Binomial counts of necklaces by weights 1,2,3,4 are 1,2,2,1; forcing (1,2,2,3,3,4). Explicit complement/reversal action on all 86 yields fixed counts 10,0,4 and Burnside (86+10+0+4)/4=25, orbit sizes 18×4+7×2. No unsearched necklaces or larger words enter this finite exact result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete 86-code equality set and 25-orbit census, not for the classical maximum six. The original 1958 maximum theorem and 1963 survey establish bound and constructions but no identified same-predicate, same-parameter equality census. The distinct cross-bifix/non-overlapping code literature has different admissible sets and binary optimum two.
+
+## value
+
+PASS
+
+PASS: maximal comma-free codes are a classical synchronization construction; the exact equality-set census is a complete naturally defined small-case classification, and the weight and 25-orbit rigidity materially refines the known optimum rather than recomputing its size. The invariant describes all designs satisfying the sharp boundary and could support equivalence/comparative coding studies without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
