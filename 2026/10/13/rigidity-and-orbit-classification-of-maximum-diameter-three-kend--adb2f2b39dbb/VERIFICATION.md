@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and analytic limits
 
-Execute `python3 verify.py` in the package directory. No third-party dependencies are needed.
+# Independent mathematical audit
 
-The verifier constructs all permutations for each of \(n=5\) and \(n=6\). For each ordered permutation pair, it independently computes Kendall distance (1) from the symmetric difference of inversion sets and (2) using breadth-first shortest paths in the adjacent-swap graph; all entries must agree. The complete diameter-three compatibility graph is then traversed by exact Bron--Kerbosch enumeration of maximal cliques. All maximum cliques must match the independently constructed family of adjacent-center unions of radius-one balls, with a unique edge for every union. The exact action of all common label permutations and optional position reversal is computed and the specified orbit sizes and stabilizers are checked.
+## correctness
 
-An independent local enumeration in each of \(n=5,6,7\) checks that the rank-two inversion sets are exactly the disjoint-simple and overlapping-simple patterns and have the degrees used in the proof.
+PASS
 
-The expected final line is:
+Split diameter-three anticode by inversion parity; each slice has diameter <=2. Normalize a slice member to identity: other members correspond to two-inversion graph edges. Pairwise intersecting edges form a star or triangle; maximum degree n-2, and equality for n>=5 yields a full star (no triangles when n=5). This identifies each full parity slice as unique N(a). For equality total 2(n-1), both slices are such neighborhoods, and if centers are not adjacent a large-inversion neighbor violates cross distance <=3. Adjacent center double balls attain bound, center edge unique; counting edges yields n!(n-1)/2 and orbit positions i~n-i. Independent enumeration verified two-inversion patterns for n5/6/7 and all 240/1800 double balls with distinct center edges for n5/6; unrestricted proof does not rely on finite tests.
 
-`VERIFY_OK n5_max=8 n5_count=240 n6_max=10 n6_count=1800 rank2_n5_to_n7=true`
+## originality
 
-**Scope:** This code is an exhaustive finite cross-check for two complete instances and a third local lemma instance. The mathematical proof in `RESULT.md`, not these finite enumerations, establishes the theorem for all \(n\ge5\). No external independent audit has been performed.
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+Determines all equality shapes in an established natural Kendall permutation anticode extremal theorem for every n>=5, not merely reproducing known optimal size. Center-edge uniqueness, exact labeled count and isometry-subgroup orbits are meaningful rigidity refinements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
