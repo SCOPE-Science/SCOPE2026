@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem has two logically separate components.
+# Independent mathematical audit
 
-First, `artifacts/verify.py` performs an exhaustive finite table calculation. Each product of two group-like basis vectors is encoded as one of `0`, `g0`, or `g1`, so all \(3^4=81\) labeled tables are checked. The script verifies exactly \(21\) self-distributive compatible tables, \(13\) simultaneous-swap orbits, \(6\) orbits with no zero entry, \(5\) swap-fixed tables, and \(3\) swap-fixed tables with no zero entry. The recorded run ends with `CHECK_OK`.
+## correctness
 
-Second, the arbitrary finite-field statement is symbolic. A two-dimensional finite étale algebra over \(\mathbb F_q\) is either \(\mathbb F_q\times\mathbb F_q\) or \(\mathbb F_{q^2}\). The quadratic extension is separable for every finite field, including characteristic \(2\), so its dual coalgebra splits after scalar extension and the nontrivial Galois automorphism swaps the two group-like factors. Galois-fixed tables are exactly the descended products. The nonsplit coalgebra automorphism group is the same order-two Galois group, which fixes each descended table, so the five fixed tables represent five distinct isomorphism classes.
+PASS
 
-The checker does not certify general Galois descent or the classification of finite étale algebras; those are used as proved algebraic steps in the written proof. No independent audit has been performed.
+The only degree-two finite étale dual algebras over Fq are Fq×Fq and Fq². In a split group-like basis compatible products of any two basis elements must be 0,g0,g1 by comultiplication, so a complete table space has 3^4=81 elements. Independent enumeration of the self-distributive identity gives 21 labeled tables, 13 under swap, 6 swap-orbits nonzero for multiplicative counit. For nonsplit dual Fq², quadratic extension is separable even in characteristic2, and Galois swap descent gives exactly five fixed tables, of which three nonzero; the nonsplit automorphism group of size2 fixes each descended table. Therefore 13+5=18, 6+3=9. These are isomorphism class counts, not raw table counts. Finite 81-table enumeration confirms the algebraic classification but characteristic-free descent is a mathematical proof step, not a finite check.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Carter–Crans–Elhamdadi–Saito published the 21 split raw tables and Bardakov–Kozlovskaya–Talalaev classified split two-dimensional forms up to 13 orbits; the published Resultary quadratic-nonsquare theorem establishes five nonsplit products and three counital only for characteristic different from two. The submitted result explicitly credits all these ingredients and proves the missing characteristic-two nonsplit identification by finite separable quadratic descent, and combines both finite-field forms into a uniform complete 18/9 classification. Existing accessible statements do not imply the characteristic-two portion as a stated theorem without additional argument.
+
+## value
+
+PASS
+
+PASS: Classifying the two canonical finite-field étale dual coalgebras is a complete natural two-dimensional slice. The Galois twist in characteristic two cannot be handled by the existing square-root coordinates, and the uniform 18/9 count resolves a genuine field-of-definition issue rather than recomputing a known single-form result. No broader nonétale classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
