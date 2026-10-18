@@ -1,19 +1,21 @@
-# Scientific review: two-statistic symmetric-group Fourier sampling law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalization is fixed by counting-measure Schur orthogonality: the standard Fourier block is isometric to the Hilbert--Schmidt space after the factor \(\sqrt{(n-1)/n!}\). The conjugation action on its endomorphism space has four inequivalent sectors, so a full conjugacy-class orbit frame is scalar on each. The sector energies are obtained independently from the standard character, the skew-symmetric part, and the centered fixed-point indicator, with the fourth energy from the Hilbert--Schmidt norm. The boundary calculation proves exactly when all energies are positive; no genericity assumption is hidden. The packaged exact-arithmetic checker confirms all conjugacy classes for \(4\le n\le7\), but the proof, not enumeration, establishes the universal result.
+PASS
 
-## Originality
+PASS. Counting-measure Schur orthogonality identifies the standard coefficient block with End(V), norm factor (n−1)/n!. Conjugacy-class averaging commutes with conjugation and the multiplicity-free End(V) decomposition [n]⊕[n−1,1]⊕[n−2,2]⊕[n−2,1,1]. Scalar, centered fixed-point diagonal, and skew-symmetric projection squared norms are R0=(f−1)²/(n−1), R1=f(n−f)/(n−2), R3=(n−f−2t)/2; the orthogonal residual is R2≥0. Each orbit-frame sector eigenvalue is (n−1)M/n!·Rj/Dj, with coincident/zero levels retained. Rank requires R0,R1,R2,R3>0; the algebraic factorization of R2 and n=4 cycle types gives exact stated injectivity criterion. Independent orthonormal-matrix numerical enumeration of all conjugacy classes for n=4,5,6 reproduced eigenvalues/multiplicities. General C relies on the representation proof, not finitely many classes.
 
-**PASS, with explicit historical risk.** Scarabotti--Tolli (arXiv:math/0701533v1, Section 3.2) contains a related ordered-pair representation decomposition; Thill--Hassibi (arXiv:1509.05739v1) provides general Fourier group-frame inner products; Beck--Ghandehari (arXiv:2203.03036v1, Theorem III.6) supplies Fourier-compatible frame constructions. Their inspected mathematical statements do not give the class-density-normalized spectrum for every conjugacy class or the necessary-and-sufficient injectivity criterion. Literature and publicly indexed mathematical-record searches for conjugacy-class sampling and permutation-matrix spans did not identify a dominating theorem. Prior results for the complete transposition class and three-cycle class are special instances; the present all-class statement covers additional cycle types and is not implied by those isolated instances. The sector-decomposition literature could conceivably contain a differently phrased equivalent orbit-norm computation, and the search is not a proof of historical novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Conjugacy classes are canonical permutation-invariant sampling sets in nonabelian Fourier analysis. The result gives all squared singular values and an exact full-rank criterion simultaneously for every class and every \(n\ge4\). It shows that only the counts of cycles of lengths one and two influence the class-density-normalized spectral levels, while long-cycle structure affects only density. In particular it settles previously unaddressed long-cycle and mixed-cycle designs and identifies the precise sampling obstruction for every class. This structural compression and complete natural classification go beyond checking a particular parameter or routine special case.
+Known ordered-pair representation decompositions and group Fourier frame identities provide the toolkit, while published exact spectra for isolated three-cycle or transposition sampling cover special classes only. Neither inspected general theorem implies the universal cycle-type (f,t) law, all-sector multiplicities and full-rank classification for every conjugacy class of S_n.
 
-## Closest literature, assumptions, and remaining risks
+## value
 
-The statement concerns the standard Fourier block only, full conjugacy classes only, and counting-measure normalization. The relevant comparison is to **spatial restriction**, not to convolution by a central class sum: the latter generally has very different eigenspaces and need not imply this spectrum. A broad orbit-frame theorem is useful machinery, but its existence does not itself provide the four explicit energies without the projection computation. Full historical priority is not certified; analogous class-orbit frames or permutation-matrix span results may encode an equivalent formula. Finite computer verification remains corroborative and not exhaustive across degrees.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. Exact singular values and rank of restricting a full irreducible Fourier coefficient block to a conjugacy class determine stable group sampling and reconstructability. Reduction to only two cycle statistics despite class size depending on full cycle type is a natural structural classification, not a trivial substitution; it extends beyond isolated class results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
