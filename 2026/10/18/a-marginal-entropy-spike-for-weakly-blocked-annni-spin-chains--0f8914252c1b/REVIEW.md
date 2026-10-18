@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Each site's exact spin-flip energy increment gives the five-site admissibility rule; the cyclic de Bruijn matrix therefore counts all labelled blocked configurations exactly. Exact integer matrix characteristic polynomials provide finite-volume algebraic counts. A unique primitive cyclic SCC controls each asymptotic entropy. Positive integer Perron vectors provide strict rational bounds, proving the peak without dependence on floating-point approximations. Independent full-Hamiltonian checks cover 24,480 small labelled configurations. The proof is analytical for all lengths at least five.
+
+**Originality — PASS within accessible evidence.** Redner–Krapivsky (1998) and Sen–Dasgupta (2004) directly study the same competing-coupling chain, emphasizing kinetic coarsening, persistence and neutral moves at the marginal coupling. Their full-text analyses do not provide the exact marginal quintic or strong-frustration septic weak-local-minimum entropy laws. Dhar–Shastry–Dasgupta (2000) study a different equilibrium degeneracy at half coupling. Previously established weak-coupling domain counts are explicitly excluded from the new contribution. Literature that indexes these same local minima under alternate terminology remains a residual originality risk.
+
+**Mathematical value — PASS.** The natural observable counts every configuration locally protected against a strictly energy-decreasing individual flip, a measure of the model's energy-landscape complexity distinct from typical quench outcomes. The exact entropy has a strict isolated maximum at a physically distinguished neutral-move threshold and its two new branches have explicit nontrivial minimal algebraic polynomial descriptions. The effect persists exponentially with chain length and is not a finite-size curiosity.
+
+**Limitations.** Weak blocking is not absorbing for dynamics that permit energy-neutral flips. No assertion concerns equilibrium phase boundaries, typical coarsening trajectories, or cooperative flips. Equivalent enumerations in uninspected literature cannot be ruled out. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
