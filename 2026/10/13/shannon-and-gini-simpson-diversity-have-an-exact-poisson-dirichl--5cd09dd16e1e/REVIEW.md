@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The central mixed identity is derived from the equal-index and distinct-index decomposition of two Poisson–Dirichlet power sums. The distinct-index term is reconstructed directly from the first two independent beta stick-breaking factors, so it does not depend on an unverified formal differentiation.
+PASS
 
-The mixed moment is analytic around the required exponents. Differentiating it at the Shannon endpoint gives the exact mixed logarithmic moment. Subtracting the independently known marginal means simplifies to
-\[
-\operatorname{Cov}(D,H)
-=
-\frac{\theta+\alpha}{(\theta+1)^2(\theta+2)}.
-\]
-The variance of Gini–Simpson diversity follows independently from the same mixed power-sum identity at equal quadratic exponents. The Shannon variance used for correlation agrees with the inspected entropy literature.
+Reconstructed E[S_u S_v] from same-index plus distinct size-biased-beta terms (P1=V1, P2=(1-V1)V2), differentiated at (u,v)=(2,1) to obtain Cov(S2,H) with the negative sign, then derived Var(S2) by u=v=2. The Shannon variance follows logarithmic double differentiation; trigamma recurrence gives Var(H)~[(1-alpha)psi1(1-alpha)-1]/theta. Mpmath independent high-precision gamma derivatives checked covariance and variance at multiple parameter pairs including alpha=0 and 0<alpha<1. Finite checks only corroborate analytic all-parameter proof. Boundary theta>-alpha and alpha=0 require theta>0; no degenerate theta=-alpha case claimed.
 
-The packaged checker compares two independently programmed mixed-moment routes over a broad parameter grid and checks the asymptotic correlation formula.
+## originality
 
-## Originality
+PASS
 
-PASS, with a specific residual risk. Cerquetti's full paper is the strongest same-family source inspected: it provides separate marginal moments for Tsallis and Shannon diversity under Gnedin–Pitman and Poisson–Dirichlet priors, but its theorem statements and proofs do not state the Shannon/Gini–Simpson cross-covariance.
+Cerquetti’s inspected PD/Tsallis and Shannon formulas are separate marginal moments; Archer–Park–Pillow’s inspected entropy theory does not state cross-index covariance or the nonvanishing standardized correlation. General PD mixed-power moments are classical; their derivative implication may be an implicit earlier theorem, kept as a substantive historical-priority risk rather than a novelty certificate. Best-of-knowledge O PASS restricted to explicit cross-index law and limiting dependence, not to beta identities.
 
-Archer, Park, and Pillow provide the full size-biased derivation of Shannon entropy moments but do not treat Simpson or Gini–Simpson diversity. Recent Gini–Simpson inference work identifies Shannon and Gini–Simpson as standard companion indices but develops the latter rather than their joint law.
+## value
 
-A prior finite-simplex finding on Greenwood concentration and spacing entropy is not covering: it concerns a finite \(\operatorname{Dirichlet}(1,\ldots,1)\) vector whose total concentration grows with dimension, whereas the present theorem concerns the infinite two-parameter Poisson–Dirichlet family and includes a discount parameter and a distinct exact covariance law.
+PASS
 
-The remaining risk is that an older Poisson–Dirichlet source may have recorded this derivative consequence of classical mixed power-sum machinery under different notation.
+Exact dependence between entropy and Simpson/Gini–Simpson of a canonical random discrete probability vector is a natural cross-diversity invariant; its positive limiting correlation when theta increases is a useful structural counterpoint to shrinking marginal variances, beyond a routine single marginal.
 
-## Value
-
-PASS. Shannon and Gini–Simpson diversity are canonical, complementary measures of evenness. Their separate means and variances are routinely used in Bayesian nonparametric diversity analysis, so their exact cross-dependence is a natural missing joint quantity.
-
-The result is stronger than a sign observation. It gives a closed finite-parameter covariance and an explicit nonzero limiting correlation, showing that increasing concentration shrinks both fluctuations without asymptotically decoupling the two indices. That distinction matters when both indices are reported, combined, or used as partially redundant summaries.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Deterministic replay: `VERIFY_OK mixed_checks=30 covariance_checks=60 variance_checks=90 correlation_checks=30 asymptotic_checks=5 dirichlet_limit=0.8804959104761448`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

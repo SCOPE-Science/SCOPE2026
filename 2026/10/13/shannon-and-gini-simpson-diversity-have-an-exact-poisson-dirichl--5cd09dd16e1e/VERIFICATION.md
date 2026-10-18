@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The standalone checker evaluates the mixed moment by two separate deterministic routes.
+# Independent mathematical audit
 
-The first route uses
-\[
-\mathbb E[S_uS_v]
-=
-\frac{
-(1-\alpha)_{u+v-1}
-+
-(\theta+\alpha)
-(1-\alpha)_{u-1}
-(1-\alpha)_{v-1}
-}{
-(\theta+1)_{u+v-1}
-}
-\]
-and differentiates numerically at
-\[
-(u,v)=(2,1).
-\]
+## correctness
 
-The second route works directly with
-\[
-V_1\sim\operatorname{Beta}(1-\alpha,\theta+\alpha)
-\]
-and
-\[
-V_2\sim\operatorname{Beta}(1-\alpha,\theta+2\alpha),
-\]
-using beta-function derivatives for the logarithmic moments. This independently reconstructs
-\[
-\mathbb E[S_2H].
-\]
+PASS
 
-Across the tested parameter grid, both routes agree with
-\[
-\operatorname{Cov}(D,H)
-=
-\frac{\theta+\alpha}{(\theta+1)^2(\theta+2)}
-\]
-to high precision. The checker also verifies the quadratic variance formula, positivity and valid magnitude of the exact correlation, and convergence toward the large-concentration limit.
+Reconstructed E[S_u S_v] from same-index plus distinct size-biased-beta terms (P1=V1, P2=(1-V1)V2), differentiated at (u,v)=(2,1) to obtain Cov(S2,H) with the negative sign, then derived Var(S2) by u=v=2. The Shannon variance follows logarithmic double differentiation; trigamma recurrence gives Var(H)~[(1-alpha)psi1(1-alpha)-1]/theta. Mpmath independent high-precision gamma derivatives checked covariance and variance at multiple parameter pairs including alpha=0 and 0<alpha<1. Finite checks only corroborate analytic all-parameter proof. Boundary theta>-alpha and alpha=0 require theta>0; no degenerate theta=-alpha case claimed.
 
-The finite grid does not establish the theorem. The all-parameter proof is the beta-integral derivation and analytic differentiation in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact deterministic replay: `VERIFY_OK mixed_checks=30 covariance_checks=60 variance_checks=90 correlation_checks=30 asymptotic_checks=5 dirichlet_limit=0.8804959104761448`.
+Cerquetti’s inspected PD/Tsallis and Shannon formulas are separate marginal moments; Archer–Park–Pillow’s inspected entropy theory does not state cross-index covariance or the nonvanishing standardized correlation. General PD mixed-power moments are classical; their derivative implication may be an implicit earlier theorem, kept as a substantive historical-priority risk rather than a novelty certificate. Best-of-knowledge O PASS restricted to explicit cross-index law and limiting dependence, not to beta identities.
+
+## value
+
+PASS
+
+Exact dependence between entropy and Simpson/Gini–Simpson of a canonical random discrete probability vector is a natural cross-diversity invariant; its positive limiting correlation when theta increases is a useful structural counterpoint to shrinking marginal variances, beyond a routine single marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

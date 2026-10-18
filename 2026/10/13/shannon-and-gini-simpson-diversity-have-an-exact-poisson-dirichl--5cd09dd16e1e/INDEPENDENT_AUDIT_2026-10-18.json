@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:03:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed E[S_u S_v] from same-index plus distinct size-biased-beta terms (P1=V1, P2=(1-V1)V2), differentiated at (u,v)=(2,1) to obtain Cov(S2,H) with the negative sign, then derived Var(S2) by u=v=2. The Shannon variance follows logarithmic double differentiation; trigamma recurrence gives Var(H)~[(1-alpha)psi1(1-alpha)-1]/theta. Mpmath independent high-precision gamma derivatives checked covariance and variance at multiple parameter pairs including alpha=0 and 0<alpha<1. Finite checks only corroborate analytic all-parameter proof. Boundary theta>-alpha and alpha=0 require theta>0; no degenerate theta=-alpha case claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General mixed power-sum E[S_u S_v] is a known tool used as a premise; none of the inspected primary theorem statements explicitly supplies the derivative consequence"
+        ],
+        "reasoning": "Check scope: General Gnedin–Pitman or two-index PD power-sum formulas. An earlier published unrestricted two-index covariance identity could dominate the result even without the same terminology; original Pitman–Yor general source not fully read, a significant residual O risk.",
+        "searches": [
+          "arXiv:1404.3441",
+          "Pitman–Yor (1997)",
+          "Resultary search: Poisson Dirichlet Pitman Yor entropy Shannon Simpson Gini covariance joint moments asymptotic correlation"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Inspected fixed-index variance and entropy moment statements do not directly provide cross-index Shannon/Gini–Simpson covariance or nonzero standardized limit",
+          "identifier_or_url": "arXiv:1404.3441",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors"
+        },
+        {
+          "assessment": "Entropy-specific moments; no identified Simpson cross-covariance or joint concentration limit in inspected passages",
+          "identifier_or_url": "arXiv:1302.0328",
+          "title": "Bayesian Entropy Estimation for Countable Discrete Distributions"
+        },
+        {
+          "assessment": "General mixed-power-sum identity underlies calculation; risk an earlier derivative version already supplies same formula; cannot certify no implication from uninspected broader work",
+          "identifier_or_url": "Pitman–Yor (1997), Annals of Probability 25",
+          "title": "The two-parameter Poisson–Dirichlet distribution derived from a stable subordinator"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Individual E[H], Var(H), E[S2], Var(S2) do not algebraically determine Cov(H,S2); a general joint power-sum identity does allow differentiation"
+        ],
+        "reasoning": "Check scope: Do entropy/Simpson marginal formulae entail the claimed joint law?. Marginal results alone cannot imply correlation; general univariate statistics lack cross-moment. The known mixed-moment identity gives a short calculation, so priority is qualified and no novelty is asserted for that ingredient.",
+        "searches": [
+          "arXiv:1404.3441",
+          "arXiv:1302.0328",
+          "Pitman–Yor (1997)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cerquetti fixed-index Tsallis and Shannon moments, Archer entropy-only beta formulas"
+        ],
+        "reasoning": "Check scope: Pitman–Yor entropy–Simpson covariance; cross-index Tsallis derivative at order 1 and order 2. The claimed covariance is a mixed-index derivative rather than either fixed-index marginal moment; inspected accessible source passages do not identify the exact equivalent mixed-index derivative.",
+        "searches": [
+          "arXiv:1404.3441",
+          "arXiv:1302.0328"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact joint table in inspected search hits or Cerquetti fixed-index tables"
+        ],
+        "reasoning": "Check scope: Exact correlation table for PD entropy and Simpson concentration. The theorem is all two-parameter analytic, not a fixed numerical tabulation; no inspected exact prior database states the cross-covariance.",
+        "searches": [
+          "Resultary search: Poisson Dirichlet Pitman Yor entropy Shannon Simpson Gini covariance joint moments asymptotic correlation",
+          "arXiv:1404.3441"
+        ]
+      },
+      "rationale": "Cerquetti’s inspected PD/Tsallis and Shannon formulas are separate marginal moments; Archer–Park–Pillow’s inspected entropy theory does not state cross-index covariance or the nonvanishing standardized correlation. General PD mixed-power moments are classical; their derivative implication may be an implicit earlier theorem, kept as a substantive historical-priority risk rather than a novelty certificate. Best-of-knowledge O PASS restricted to explicit cross-index law and limiting dependence, not to beta identities.",
+      "residual_risks": [
+        "Potential equivalent derivative of published unrestricted PD mixed-power-sum identity under different notation",
+        "Pitman–Yor original 1997 full manuscript not independently read line by line; no absolute historical novelty certification",
+        "Prior vs posterior covariance carefully distinguished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected fixed-index variance and entropy moment statements do not directly provide cross-index Shannon/Gini–Simpson covariance or nonzero standardized limit",
+          "evidence": "Cerquetti 2014 Theorem 1/Theorem 2; arXiv:1404.3441 PDF pages containing diversity-moment formulas",
+          "identifier_or_url": "arXiv:1404.3441",
+          "material_read": "Primary accessible PDF: model, Theorem 1 and 2, separate Tsallis/Simpson and Shannon moment formulas and surrounding derivations, with page-image cross-check; did not assert unseen portions not covering",
+          "method": "Lawful arXiv complete PDF text and inspected page images",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors",
+          "trigger": "Two-parameter PD power-sum diversity and Shannon variance; plausible general cross-moment coverage"
+        },
+        {
+          "assessment": "Entropy-specific moments; no identified Simpson cross-covariance or joint concentration limit in inspected passages",
+          "evidence": "Archer–Park–Pillow (2014) JMLR, entropy moments/appendix beta integrals",
+          "identifier_or_url": "arXiv:1302.0328",
+          "material_read": "Primary open full manuscript: abstract, entropy mean/variance and size-biased stick-breaking discussion; not every page inspected",
+          "method": "arXiv full-text PDF with page screenshot",
+          "title": "Bayesian Entropy Estimation for Countable Discrete Distributions",
+          "trigger": "Entropy mean/variance and two size-biased beta stick breaks underlying the mixed moments"
+        },
+        {
+          "assessment": "General mixed-power-sum identity underlies calculation; risk an earlier derivative version already supplies same formula; cannot certify no implication from uninspected broader work",
+          "evidence": "PD identity E[S_uS_v] with same-index and different-index contributions; source RESULT equation (8)",
+          "identifier_or_url": "Pitman–Yor (1997), Annals of Probability 25",
+          "material_read": "Classical general formula identified through the reviewed proof and source citations; original complete article not inspected in this execution",
+          "method": "Derived and checked explicit two-index identity from source and queried primary bibliographic references",
+          "title": "The two-parameter Poisson–Dirichlet distribution derived from a stable subordinator",
+          "trigger": "Potential dominating general PD mixed power sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact dependence between entropy and Simpson/Gini–Simpson of a canonical random discrete probability vector is a natural cross-diversity invariant; its positive limiting correlation when theta increases is a useful structural counterpoint to shrinking marginal variances, beyond a routine single marginal.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Inspected fixed-index variance and entropy moment statements do not directly provide cross-index Shannon/Gini–Simpson covariance or nonzero standardized limit",
+      "identifier_or_url": "arXiv:1404.3441",
+      "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors"
+    },
+    {
+      "assessment": "Entropy-specific moments; no identified Simpson cross-covariance or joint concentration limit in inspected passages",
+      "identifier_or_url": "arXiv:1302.0328",
+      "title": "Bayesian Entropy Estimation for Countable Discrete Distributions"
+    },
+    {
+      "assessment": "General mixed-power-sum identity underlies calculation; risk an earlier derivative version already supplies same formula; cannot certify no implication from uninspected broader work",
+      "identifier_or_url": "Pitman–Yor (1997), Annals of Probability 25",
+      "title": "The two-parameter Poisson–Dirichlet distribution derived from a stable subordinator"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical originality with explicit residual risks, not an exhaustive historical-priority certificate.",
+    "Independent finite checks corroborate but do not replace infinite proofs, except the self-contained finite-set exact enumeration for the fixed family in record 4.",
+    "No external expert certification or Lean formal proof asserted.",
+    "Publication withheld pending neutral metadata sanitation and guards."
+  ],
+  "residual_risks": [
+    "Potential equivalent derivative of published unrestricted PD mixed-power-sum identity under different notation",
+    "Pitman–Yor original 1997 full manuscript not independently read line by line; no absolute historical novelty certification",
+    "Prior vs posterior covariance carefully distinguished."
+  ],
+  "schema_version": 1
+}
