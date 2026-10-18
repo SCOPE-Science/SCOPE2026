@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is reconstructed directly from Campbell’s finite binomial formula. The \(a=0\) slice has the exact valuation \(3(s_2(b)+s_2(n-b))-2s_2(n)\). For \(a>0\), Lucas parity and a two-carry lemma force every summand to be divisible by \(4\); the exact involution \(b\mapsto n-3a-b\) then cancels all nonfixed pairs modulo \(8\). A fixed point survives modulo \(8\) exactly for \((a,b,n)=(2^k,0,3\cdot2^k)\). The remaining \(a=0\) contribution is \(4\pmod8\) exactly for \(n=2^k\). The bundled checker independently verifies the formula/recurrence agreement and bounded instances of every algebraic step. Finite computation is corroborative, not the infinite proof.
+## correctness
 
-## Originality
-**PASS.** The primary 2026 paper was inspected through its definition, recurrence, explicit double-binomial formula, and constant-term construction; it does not state the mod-\(8\) classification. OEIS A284756 lists the recurrence and references without such a congruence. The 2025 Apéry-like Galois paper was inspected at its level-\(11\) table: it concerns reductions modulo primes and a factorization law for the truncated generating polynomial, not lifts modulo \(8\). Exact semantic searches for the A284756 congruence and equivalent valuation formulation found no covering result. The claim is therefore not implied by the inspected closest literature.
+PASS
 
-## Value
-**PASS.** This is a natural arithmetic invariant of a longstanding modular coefficient sequence, made newly approachable by the 2026 finite binomial formula. The result gives a complete structural classification of the indices attaining the minimum positive dyadic valuation, with the two exceptional families characterized by binary support rather than by a finite census. It exposes a reusable pairing-and-carry mechanism for the new level-\(11\) formula.
+The full statement is for n>=1 and exactly the c11(n) coefficients defined by Campbell’s published double-binomial formula, not another level-11 normalization. Split the summation into a=0 and a>0. In the a=0 slice the central binomial factors have exact valuation 3[s_2(b)+s_2(n-b)]-2s_2(n); Kummer/Lucas show its mod-8 contribution is 4 precisely for n a power of two. For a>0, the summand is divisible by 4: when the squared middle binomial is odd, its Lucas-disjoint supports force the bit nu_2(a) of the relevant w to vanish, and two carries give 4|C(2w,w-a); when even, its square already supplies 4. The exact involution b -> n-3a-b preserves the summand, so nonfixed terms cancel modulo 8. At a fixed point 2b=n-3a, direct bit parity reduces the unique possible nonzero class to a=2^k,b=0,n=3*2^k. Thus c11(n) mod 8 is 4 exactly at 2^k and 3*2^k, zero otherwise. Independently reconstructed Campbell’s sum and checked all n=1..37 and separate Kummer two-carry instances; finite examples corroborate the unrestricted digit proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Campbell 2026 gives the exact double sum and the known modular recurrence but not its uniform mod-eight index classification. OEIS A284756 lists recurrence, initial values and references without a dyadic-index theorem. Caruso–Fürnsinn–Vargas-Montoya–Zudilin 2025 has the same sequence in the level-11 row of its Apéry-like mod-prime Galois table, but the reported mod-prime reductions do not furnish mod 8 or the exact two exceptional binary rays. Published mathematical record searches and targeted exact-congruence searches revealed no covering equivalent or stronger law. Novelty is only best-of-knowledge; same sequence and strongest nearby papers were examined rather than comparing titles.
+
+## value
+
+PASS
+
+The minimum dyadic valuation of a fixed classical Ramanujan–Sato coefficient sequence is a natural uniform arithmetic invariant. The exact two-ray index classification explains a nontrivial 2-adic pattern for an infinite modular sequence using a reusable involution-and-carry mechanism. It is neither a recurrence restatement nor a finite tabulation and is motivated by Campbell’s newly established closed binomial formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

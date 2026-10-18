@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable Git RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "John M. Campbell, On a problem on Ramanujan-Sato series of level 11, arXiv:2610.00551v1 eq. (5) p. 3",
+        "Independent exact checker CAMPBELL_MOD8_DIRECT_SUM_AND_TWO_CARRY_BOUND_OK"
+      ],
+      "rationale": "The full statement is for n>=1 and exactly the c11(n) coefficients defined by Campbell’s published double-binomial formula, not another level-11 normalization. Split the summation into a=0 and a>0. In the a=0 slice the central binomial factors have exact valuation 3[s_2(b)+s_2(n-b)]-2s_2(n); Kummer/Lucas show its mod-8 contribution is 4 precisely for n a power of two. For a>0, the summand is divisible by 4: when the squared middle binomial is odd, its Lucas-disjoint supports force the bit nu_2(a) of the relevant w to vanish, and two carries give 4|C(2w,w-a); when even, its square already supplies 4. The exact involution b -> n-3a-b preserves the summand, so nonfixed terms cancel modulo 8. At a fixed point 2b=n-3a, direct bit parity reduces the unique possible nonzero class to a=2^k,b=0,n=3*2^k. Thus c11(n) mod 8 is 4 exactly at 2^k and 3*2^k, zero otherwise. Independently reconstructed Campbell’s sum and checked all n=1..37 and separate Kummer two-carry instances; finite examples corroborate the unrestricted digit proof.",
+      "residual_risks": [
+        "No valuation classification beyond whether nu_2(c11(n))=2 or >=3; no assertion for a different level-11 modular normalization.",
+        "Finite checks do not replace the all-n bit/carry lemma; its hypotheses n>=1 and 3a+b<=n were explicitly inspected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campbell’s nine-page preprint proves the binomial sum not the mod-eight pattern.",
+          "Caruso et al Table 1 p. 10 lists level-11 mod-prime polynomial data, not mod-8 lifts for all coefficients."
+        ],
+        "reasoning": "Even a uniform reduction mod 2 or odd primes does not imply the precise mod 8 support. The broad generating-series result does not imply the two-valuation split without additional carry analysis.",
+        "searches": [
+          "level 11 Ramanujan Sato c11(n) binomial coefficients mod 8 parity 2-adic valuation powers of 2 three times power of 2",
+          "Apéry-like Galois reductions level 11 A284756 characteristic two higher lifts",
+          "arXiv:2510.23298"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00551v1, eq. (5)",
+        "OEIS A284756",
+        "arXiv:2510.23298 Table 1",
+        "Published mathematical-record semantic search level 11 Ramanujan Sato c11(n) binomial coefficients mod 8 parity 2-adic valuation powers of 2 three times power of 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact double sum is a genuine prior input; Kummer carries, involution pairing, and fixed-point analysis are additional deductions.",
+          "Campbell’s theorem gives no explicit 2-adic minimum pattern."
+        ],
+        "reasoning": "The candidate is not credited for deriving Campbell’s original double sum or the recurrence. Its all-n binary support congruence is a further consequence not already stated or obtained immediately from a previous theorem with stronger parameters.",
+        "searches": [
+          "arXiv:2610.00551 eq. (5) and its proof",
+          "OEIS:A284756",
+          "arXiv:2510.23298 level-11 table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c11(n)=A284756(n) under Campbell/Cooper normalization; equivalent claim is nu_2(c11(n))=2 iff oddpart(n) belongs to {1,3}.",
+          "OEIS A284756 provides recurrence and initial values, but no index classification of nu_2."
+        ],
+        "reasoning": "The mod-eight and exact-minimum-valuation formulations are equivalent for n>=1, because the sequence is divisible by four; no source located asserting either full classification.",
+        "searches": [
+          "level 11 Ramanujan Sato c11(n) binomial coefficients mod 8 parity 2-adic valuation powers of 2 three times power of 2",
+          "\"A284756\" \"mod 8\" \"valuation\"",
+          "arXiv:2610.00551"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A284756 lists 819 tabulated coefficients and a recurrence; Caruso et al gives finite polynomial tabulations for primes."
+        ],
+        "reasoning": "Any finite database can suggest the index pattern but does not cover the all-n result; inspected sequence page has no stated congruence rule.",
+        "searches": [
+          "OEIS:A284756",
+          "arXiv:2510.23298 Table 1",
+          "\"A284756\" \"4 mod 8\" 2^k 3*2^k"
+        ]
+      },
+      "rationale": "Campbell 2026 gives the exact double sum and the known modular recurrence but not its uniform mod-eight index classification. OEIS A284756 lists recurrence, initial values and references without a dyadic-index theorem. Caruso–Fürnsinn–Vargas-Montoya–Zudilin 2025 has the same sequence in the level-11 row of its Apéry-like mod-prime Galois table, but the reported mod-prime reductions do not furnish mod 8 or the exact two exceptional binary rays. Published mathematical record searches and targeted exact-congruence searches revealed no covering equivalent or stronger law. Novelty is only best-of-knowledge; same sequence and strongest nearby papers were examined rather than comparing titles.",
+      "residual_risks": [
+        "An equivalent unindexed congruence in modular-form or Apéry-like valuation literature may exist.",
+        "The initial recurrence alone permits numerical investigation but is not accepted as a prior all-n theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORMULA_PRIOR_NOT_CLASSIFICATION",
+          "evidence": [
+            "Eq. (5) exactly matches audited summand; original conclusion is an explicit double-binomial expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00551",
+          "material_read": "Nine-page original arXiv PDF, introduction, recurrence (1), modular definition (2), binomial formula (5) on p. 3 and derivation",
+          "method": "Read PDF text, inspected rendered p. 3 and searched for modulo/valuation claims",
+          "title": "On a problem on Ramanujan–Sato series of level 11",
+          "trigger": "Same exact coefficient sequence and nearest stronger result"
+        },
+        {
+          "assessment": "NO_ALL_N_MOD8_LAW_LISTED",
+          "evidence": [
+            "A284756 recurrence has c(0)=1,c(1)=4,c(2)=28, plus Campbell and Caruso references."
+          ],
+          "identifier_or_url": "https://oeis.org/A284756",
+          "material_read": "Official complete sequence entry: terms, recurrence, comments, references and code",
+          "method": "Read entry and targeted mod-eight equivalent searches",
+          "title": "OEIS A284756",
+          "trigger": "Exact sequence database and possible indexed congruence"
+        },
+        {
+          "assessment": "MOD_PRIME_NOT_MOD_EIGHT",
+          "evidence": [
+            "Table 1 p. 10 identifies OEIS A284756 with a mod-prime factorization row, not binary valuation indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.23298",
+          "material_read": "Twelve-page arXiv primary text, level-11/Table 1 row for A284756 and mod-prime Galois framework",
+          "method": "Read original full PDF and inspect table/parameter distinction",
+          "title": "Galois Groups of Apéry-like Series Modulo Primes",
+          "trigger": "Strong same-sequence arithmetical coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Campbell 2026 explicit level-11 coefficient identity",
+        "OEIS A284756 recurrence/sequence",
+        "All-n Kummer/Lucas proof and independent exact cross-check"
+      ],
+      "rationale": "The minimum dyadic valuation of a fixed classical Ramanujan–Sato coefficient sequence is a natural uniform arithmetic invariant. The exact two-ray index classification explains a nontrivial 2-adic pattern for an infinite modular sequence using a reusable involution-and-carry mechanism. It is neither a recurrence restatement nor a finite tabulation and is motivated by Campbell’s newly established closed binomial formula.",
+      "residual_risks": [
+        "No complete higher-valuation spectrum or general modular-form supercongruence is claimed; worth is the exact minimum-valuation locus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Minimum valuation is classified, not every higher 2-adic valuation.",
+    "Originality is best-of-knowledge given unindexed literature.",
+    "Source metadata contains operational provenance, so publication not ready."
+  ],
+  "schema_version": 1
+}
