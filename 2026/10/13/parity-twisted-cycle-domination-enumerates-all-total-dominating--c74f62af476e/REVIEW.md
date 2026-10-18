@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is a weight-preserving bijection for every integer \(n\ge3\): for odd \(n\), Chinese-remainder reindexing maps each open prism neighborhood to one closed triple of the doubled cycle; for even \(n\), two parity words give independent closed-cycle domination conditions. The cyclic-gap count of the cycle polynomial is complete, with the correct rotation multiplicity \(m/k\). The optional rational representation is backed by the exact symbolic sixteen-state determinant and trace reconstruction in `verify.py`. The independent exhaustive test covers every binary subset for orders \(3\) to \(10\), and symbolic checks reach larger orders. Finite experiments are corroboration, not the all-order proof.
+## correctness
 
-## Originality — PASS, with documented priority risk
-Chaluvaraju–Chaitra (2014, DOI `10.26713/jims.v6i2.256`) gives foundational total-domination-polynomial identities; Hu and coauthors (2016, arXiv:`1607.00400v1`) give general polynomial methods. Azarija–Henning–Klavžar (2017, DOI `10.37236/6288`) already covers bipartite-prism *minimum* total domination and anticipates the **even** factorization conceptually; the even case is not asserted as independently new. That paper's odd-prism minimum statements do not determine the full cardinality distribution. OEIS `A296102` contains the ungraded total, `A303053` contains the minimum-size count, and `A302405` contains the minimum size itself: all already known and explicitly credited. These do not imply the complete coefficient sequence of \(D_{2n}(z)\) for odd \(n\). The inspected Dod dissertation provides general reliability motivation but no corresponding all-order prism polynomial identity. Actual published-finding corpus searches over cyclic ladders, total domination, polynomial identities, parity conversion, and neighborhood hypergraphs returned related findings on other graph classes, not this structural formula. The residual risk is an obscure equivalent hypergraph-cover identity or earlier graded enumeration not retrieved by the bounded searches. Search absence is not proof of worldwide priority.
+PASS
 
-## Value — PASS
-The parity change between a **single doubled cycle** and **two independent cycles** is a structural classification of the exact constraints, not merely a recomputation of the known minimum or total counts. It determines the full distribution for a natural cubic product-graph family and the reliability probability for arbitrary independent node-availability parameter \(p\), which cannot be reconstructed from the already-published scalar data. The claim includes a closed finite coefficient formula and direct reproducibility. This is a motivated graph-enumeration contribution; its even branch is included only as the natural complementary half of the parity classification.
+For Y_n=C_n square K2, total domination is Boolean x_{i-1,r}∨x_{i+1,r}∨x_{i,1-r}. When n odd, CRT bijection j mod2n ↔ (j mod n,j mod2) transforms all conditions into no cyclic 000 triple of length 2n, exactly ordinary C_{2n} domination. When n even, the two classes y_i^(s)=x_{i,(i+s) mod2} partition all positions into two independent length-n cyclic words, each avoiding 000. Both maps preserve selected-vertex number, giving T_n=D_{2n} odd or D_n² even for all n>=3. Cyclic run-gap lengths 1,2,3 yield D_m coefficient m(k−1)!/(a!b!c!) with a+2b+3c=m. The transfer log-det identity follows from the 16-state weighted transition matrix and formal trace determinant; inspected the exact verifier implementation. Independent brute enumeration of all 2^(2n) subsets for n=3..7 matched the complete polynomial (totals 39,121,443,1521,5071); this is corroboration, not the all-n proof.
 
-## Scientific limits
-The complete review is same-model only and does not establish external novelty or independent validation. Any earlier equivalent odd-prism hypergraph formula could supersede the priority assertion. The theorem applies to \(n\ge3\) and not to degeneracies with smaller cycles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Azarija–Henning–Klavžar, arXiv:1606.08143, establish minimum total-domination equality for bipartite prism graphs and study odd cycle prisms; their proof anticipates even splitting but does not give coefficientwise T_n(z)=D_n(z)^2 or the odd n degree-doubling T_n=D_{2n}. Hu et al. arXiv:1607.00400 establish polynomial recursions for cycles and paths but not a prism factorization. OEIS A296102/A303053/A302405 tabulate scalar totals/minima; those scalars do not determine every coefficient. The odd-parity exact bijection and uniform complete size enumerator survive.
+
+## value
+
+PASS
+
+Total domination is a natural network coverage invariant, and a full cardinality polynomial controls all set sizes and independent-site-selection reliability, unlike minimum or ungraded totals. The odd/even parity structure is an exact, surprising double-length cycle versus independent-cycle square reduction with reusable weight-preserving bijections, not a tiny computed sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

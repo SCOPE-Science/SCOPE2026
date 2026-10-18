@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:14:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Y_n=C_n square K2, total domination is Boolean x_{i-1,r}∨x_{i+1,r}∨x_{i,1-r}. When n odd, CRT bijection j mod2n ↔ (j mod n,j mod2) transforms all conditions into no cyclic 000 triple of length 2n, exactly ordinary C_{2n} domination. When n even, the two classes y_i^(s)=x_{i,(i+s) mod2} partition all positions into two independent length-n cyclic words, each avoiding 000. Both maps preserve selected-vertex number, giving T_n=D_{2n} odd or D_n² even for all n>=3. Cyclic run-gap lengths 1,2,3 yield D_m coefficient m(k−1)!/(a!b!c!) with a+2b+3c=m. The transfer log-det identity follows from the 16-state weighted transition matrix and formal trace determinant; inspected the exact verifier implementation. Independent brute enumeration of all 2^(2n) subsets for n=3..7 matched the complete polynomial (totals 39,121,443,1521,5071); this is corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theorem γ_t(G square K2)=2γ(G) for bipartite G yields only minimum exponents, not full coefficient polynomial.",
+          "Hu et al. derive total-domination polynomials of cycles, a different graph family; not Cartesian cycle prisms."
+        ],
+        "reasoning": "A stronger family-level MINIMUM theorem does not imply a full polynomial. Distinct odd-order prism behavior needs the new cyclic reindexing.",
+        "searches": [
+          "arXiv:1606.08143 pp.4–7",
+          "arXiv:1607.00400 §2"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 4fc429406bf3faba59578cb2fb0e5b4ceb6c62d2",
+        "Pinned verify.py blob b0b7394c2edd2d4f3c5be35ea3e96c5bd18e0b69",
+        "arXiv:1606.08143 full PDF",
+        "arXiv:1607.00400 full PDF",
+        "OEIS A296102/A303053/A302405 scalar records",
+        "Resultary query 3 and 12 retrieved hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bipartite-prism minimum proof conceptually anticipates even splitting but does not state generating-function square.",
+          "General polynomial identities for paths/cycles do not show the odd-prism CRT bijection."
+        ],
+        "reasoning": "The prior results give useful antecedents, but their displayed statements are strictly weaker than all-n full coefficient factorization.",
+        "searches": [
+          "arXiv:1606.08143 Theorem 1.1",
+          "arXiv:1607.00400 Theorem 2,4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Total domination is transversal of open-neighborhood hypergraph; ordinary cycle domination is transversal of closed neighborhoods.",
+          "For C_n square K2, adjacency constraints split into parity-twisted disjoint cycles when n even and a single length-2n cycle when n odd."
+        ],
+        "reasoning": "A hypergraph-neighborhood reinterpretation gives the bijection, but inspected literature provides only minimum cardinality or generic recurrence, not the all-cardinality equality.",
+        "searches": [
+          "Resultary query: total domination polynomial prism C_n Cartesian K2 parity ordinary domination polynomial even odd cyclic binary",
+          "arXiv:1606.08143 Theorem 1.1 and Proposition 4.1",
+          "arXiv:1607.00400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A296102 gives T_n(1), A303053 counts minimum-size sets and A302405 gives γ_t(Y_n).",
+          "Example n=5 polynomial has 7 nonzero degree coefficients with total 443, not fixed by its minimum and aggregate alone."
+        ],
+        "reasoning": "Existing scalar sequences cannot recover all coefficients and do not cover exact cardinality-distribution identity.",
+        "searches": [
+          "OEIS A296102",
+          "OEIS A303053",
+          "OEIS A302405",
+          "Resultary query: total domination polynomial prism C_n Cartesian K2 parity ordinary domination polynomial even odd cyclic binary"
+        ]
+      },
+      "rationale": "Azarija–Henning–Klavžar, arXiv:1606.08143, establish minimum total-domination equality for bipartite prism graphs and study odd cycle prisms; their proof anticipates even splitting but does not give coefficientwise T_n(z)=D_n(z)^2 or the odd n degree-doubling T_n=D_{2n}. Hu et al. arXiv:1607.00400 establish polynomial recursions for cycles and paths but not a prism factorization. OEIS A296102/A303053/A302405 tabulate scalar totals/minima; those scalars do not determine every coefficient. The odd-parity exact bijection and uniform complete size enumerator survive.",
+      "residual_risks": [
+        "Prior hypergraph or reliability terminology may contain equivalent odd-parity all-coefficient bijection.",
+        "Complete historical index of total-domination polynomials may not be exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves minimum-number bipartite splitting and odd-cycle cases; not full polynomial statement.",
+          "evidence": [
+            "Theorem 1.1 γ_t(G square K2)=2γ(G) for bipartite G; Proposition 4.1 treats γ_t(C_{6k+1} square K2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.08143",
+          "material_read": "Statement of Theorem 1.1, Section 3 proof pp.4–6, Proposition 4.1 and Section 4 odd-prism analysis; other sections searched.",
+          "method": "Open arXiv PDF text and visual page examination.",
+          "title": "(Total) Domination in Prisms",
+          "trigger": "Same prism graphs and total domination"
+        },
+        {
+          "assessment": "No prism-specific polynomial; treats paths/cycles and reduction formulas.",
+          "evidence": [
+            "Abstract and Theorems 1–4 concern graph recursions, paths and cycles; PDF does not mention prism."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.00400",
+          "material_read": "Abstract, introductory scope and Theorems 1–4 polynomial reduction descriptions; 14-page PDF text searched for prism.",
+          "method": "Open arXiv PDF text and PDF search.",
+          "title": "Total domination polynomials of graphs",
+          "trigger": "Potential broader coefficient formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Total domination is a natural network coverage invariant, and a full cardinality polynomial controls all set sizes and independent-site-selection reliability, unlike minimum or ungraded totals. The odd/even parity structure is an exact, surprising double-length cycle versus independent-cycle square reduction with reusable weight-preserving bijections, not a tiny computed sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 4fc429406bf3faba59578cb2fb0e5b4ceb6c62d2",
+    "Pinned verify.py blob b0b7394c2edd2d4f3c5be35ea3e96c5bd18e0b69",
+    "arXiv:1606.08143 full PDF",
+    "arXiv:1607.00400 full PDF",
+    "OEIS A296102/A303053/A302405 scalar records",
+    "Resultary query 3 and 12 retrieved hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only simple cycle prisms n>=3, not generalized prisms or stronger domination variants.",
+    "Even minimum splitting is known; existing ungraded totals and minimum counts are not new."
+  ],
+  "schema_version": 1
+}
