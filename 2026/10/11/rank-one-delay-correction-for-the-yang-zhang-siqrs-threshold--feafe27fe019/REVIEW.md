@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium equations of printed (5.1) determine \(S_p=320/197\) from the infected balance, then determine \(Q_p\), \(R_p\), and \(I_p\) linearly. Exact substitution verifies the rational equilibrium. The delayed infection Jacobian has rank one, forcing the characteristic determinant to be affine in \(e^{{-\lambda\tau_1}}\); an exact rational reconstruction gives the displayed \(P\) and \(Q\). The zero-delay quartic satisfies the Routh–Hurwitz inequalities. The imaginary-root condition reduces to a quartic \(F(u)\) with \(F(0)<0\) and \(F'(u)>0\) for \(u>0\), proving a unique positive frequency. The smallest compatible phase delay is \(13.87960223606146\ldots\), and implicit differentiation gives a positive crossing speed. The packaged verifier independently replays these algebraic checks from the finalized formulas.
+## correctness
 
-## Originality
-PASS. The primary article was inspected at the model definition, linearization/characteristic equation, one-delay theorem, parameter table, and numerical verification. It prints an \(e^{{-2\lambda\tau_1}}\) term and reports \(\omega_{{10}}=0.0786\), \(\tau_{{10}}=9.3985\), rather than the rank-one cancellation and corrected threshold. Targeted searches of the DOI, exact equilibrium coordinates, threshold values, SIQRS aliases, and characteristic-equation language found no corrigendum or stronger published statement implying the correction. Closest published findings found in the mathematical-results database concern unrelated equilibrium or Hopf corrections in other dynamical systems and do not imply this source-specific result. Residual risk remains for unindexed commentary or a correction not discoverable through the searched sources.
+PASS
 
-## Value
-PASS. The correction is not merely a decimal adjustment. The extra exponential term changes the characteristic equation and moves the first linear stability boundary from the paper's reported \(9.3985\) to \(13.87960223606146\ldots\). It also shows that the displayed numerical equilibrium is inconsistent with both the printed system and the Table 1 specialization. These points directly affect the paper's numerical verification of its first-delay stability/Hopf claim and provide a reproducible corrected spectral boundary.
+PASS. Direct exact rational solution of printed (5.1), keeping -0.48Q as printed rather than replacing by Table 1 0.38, gives positive equilibrium (320/197,1371240/665663,399945/665663,1313079/665663). Table 1 parameters imply eta+d+alpha2=0.38, directly inconsistent with the numerical equation. The linearized delayed infection Jacobian has rank one, so det(lambda I-J0-z Jdelay) is affine in z=e^{-lambda tau1}, contradicting published z². Independent SymPy symbolic differentiation/determinant derivation exactly reproduced the two integer polynomials P(lambda), Q(lambda), modulus quartic F(u), whose derivative is positive for u>0 and F(0)<0; thus exactly one imaginary frequency exists. Independent numerical evaluation gives omega=0.1447950754167241, earliest tau1=13.87960223606146 and positive real derivative 0.0017462878979220143. The original omega=0.0786 gives strictly negative nonzero F(omega²), impossible at any tau1. Zero-delay Hurwitz positivity, nonzero determinant at lambda=0 and continuity of roots confirm first loss of linear stability. These computations do NOT establish nonlinear Hopf branch direction or general two-delay behavior.
 
-## Closest literature and limitations
-The closest source is the Yang–Zhang article itself, DOI 10.3934/math.2021242. A later SEIQRS paper (PMC12136457) reproduces the general quarantine-removal structure \(d+\alpha_2+\eta\), but does not provide the corrected equilibrium or first-delay spectral threshold established here. The present result is limited to printed system (5.1) with \(\tau_2=0\); it does not establish the nonlinear Hopf coefficient at the corrected crossing.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. The complete original Yang–Zhang paper reports the inconsistent Table 1/system (5.1) coefficients and different equilibrium and crossing numbers, not these corrected values or rank-one cancellation. A related SEIQRS later analysis repeats the general quarantine coefficient but does not give the exact correction. Targeted numerical/DOI, characteristic-alias and Resultary searches surfaced no published corrigendum for the same printed benchmark; absence from search is not independent priority proof.
+
+## value
+
+PASS
+
+PASS. The corrected equilibrium and first linear stability threshold address a materially wrong published numerical verification of a delay-induced Hopf theorem, including an algebraic structural cancellation; this is a substantive model-consistency and stability correction, not a rounding or cosmetic typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

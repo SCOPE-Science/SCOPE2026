@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:53:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md",
+        "doi:10.3934/math.2021242 (source printed Table 1 and system5.1)",
+        "Independent SymPy exact rational determinant/equilibrium computation /mnt/data/scope_worker03_independent_checks_20261017T1838Z.py"
+      ],
+      "rationale": "PASS. Direct exact rational solution of printed (5.1), keeping -0.48Q as printed rather than replacing by Table 1 0.38, gives positive equilibrium (320/197,1371240/665663,399945/665663,1313079/665663). Table 1 parameters imply eta+d+alpha2=0.38, directly inconsistent with the numerical equation. The linearized delayed infection Jacobian has rank one, so det(lambda I-J0-z Jdelay) is affine in z=e^{-lambda tau1}, contradicting published z². Independent SymPy symbolic differentiation/determinant derivation exactly reproduced the two integer polynomials P(lambda), Q(lambda), modulus quartic F(u), whose derivative is positive for u>0 and F(0)<0; thus exactly one imaginary frequency exists. Independent numerical evaluation gives omega=0.1447950754167241, earliest tau1=13.87960223606146 and positive real derivative 0.0017462878979220143. The original omega=0.0786 gives strictly negative nonzero F(omega²), impossible at any tau1. Zero-delay Hurwitz positivity, nonzero determinant at lambda=0 and continuity of roots confirm first loss of linear stability. These computations do NOT establish nonlinear Hopf branch direction or general two-delay behavior.",
+      "residual_risks": [
+        "Only tau2=0 and printed equation (5.1), including .48Q, and first linear stability crossing; nonlinear first Lyapunov coefficient not recalculated.",
+        "RESULT.md has KaTeX double-brace array formatting in source, a separate display/transport defect not a mathematical gap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later paper retains correct general quarantine removal coefficient d+alpha2+eta, but no inspected matching determinant/crossing correction."
+        ],
+        "reasoning": "Broader model formulations with two delays do not imply the exact one-delay correction when the printed specialization is inconsistent.",
+        "searches": [
+          "Yang Zhang SIQRS two delays 2021 later SEIQRS article PMC12136457",
+          "Resultary: rank one delay correction Yang Zhang SIQRS"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2021242",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12136457/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank-one Jdelay forces affine characteristic polynomial in z, unlike source quadratic z term."
+        ],
+        "reasoning": "The source displayed model and reported tau are inconsistent with the exact reconstructed determinant; no general-source formula automatically supplies this corrected number without recomputation.",
+        "searches": [
+          "AIMS Mathematics 2021 doi:10.3934/math.2021242 Sections 3 and 5",
+          "Yang Zhang SIQRS 0.48 rank one delayed Jacobian determinant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Section 5 gives omega10=0.0786 and tau10=9.3985, while recomputed char modulus has no root there."
+        ],
+        "reasoning": "An alternate numerical first crossing of the *same printed system*, not a reparametrization of the original claimed threshold.",
+        "searches": [
+          "Yang Zhang 10.3934/math.2021242 SIQRS 0.48 0.38 first Hopf delay",
+          "Resultary: Yang Zhang SIQRS virus two delays coefficient 0.48 0.38 characteristic equation correct Hopf frequency rank one delay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original paper contains conflicting table and printed numerical equation; the reconstructed equilibrium and char quartic are not listed as corrections."
+        ],
+        "reasoning": "This is a source-specific exact numerical benchmark, but the exact table itself is shown wrong by direct rational substitution; no published erratum located.",
+        "searches": [
+          "Yang Zhang SIQRS 9.3985 0.0786 corrected",
+          "10.3934/math.2021242 Table 1 and eq (5.1)"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The complete original Yang–Zhang paper reports the inconsistent Table 1/system (5.1) coefficients and different equilibrium and crossing numbers, not these corrected values or rank-one cancellation. A related SEIQRS later analysis repeats the general quarantine coefficient but does not give the exact correction. Targeted numerical/DOI, characteristic-alias and Resultary searches surfaced no published corrigendum for the same printed benchmark; absence from search is not independent priority proof.",
+      "residual_risks": [
+        "Unindexed corrigendum, thesis, supplemental code or discussion may contain the same correction.",
+        "The corrected linear characteristic crossing is not a recomputation of the nonlinear Hopf coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary printed numbers do not satisfy exact equilibrium and modulus condition; rank-one delayed block proves no z² term",
+          "evidence": [
+            "Table 1 eta=.1,d=.1,alpha2=.18 implies coefficient .38, while (5.1) prints .48; reported E* and omega/tau differ from correct specialization."
+          ],
+          "identifier_or_url": "doi:10.3934/math.2021242",
+          "material_read": "Complete primary PDF accessible, specifically general model equations, characteristic Section 3, Table 1 and numerical system (5.1) in Section 5",
+          "method": "Primary PDF text plus page 14 screenshot and general-model screenshot inspected",
+          "title": "Dynamics of a nonlinear SIQRS computer virus spreading model with two delays",
+          "trigger": "Source of alleged equilibrium, characteristic equation and first Hopf delay"
+        },
+        {
+          "assessment": "Confirms general removal coefficient convention; does not supply this source-specific correction in the inspected material",
+          "evidence": [
+            "Quarantine coefficient structure d+alpha2+eta, but distinct model."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12136457/",
+          "material_read": "Accessible material describing general SEIQRS quarantine equation, not a reconstructed full erratum",
+          "method": "Article text query and relevant model comparison",
+          "title": "Related SEIQRS model retaining Yang–Zhang quarantine coefficient",
+          "trigger": "Check whether later source fixes coefficient or numerical threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yang–Zhang 2021, Section 5 printed numerical Hopf benchmark"
+      ],
+      "rationale": "PASS. The corrected equilibrium and first linear stability threshold address a materially wrong published numerical verification of a delay-induced Hopf theorem, including an algebraic structural cancellation; this is a substantive model-consistency and stability correction, not a rounding or cosmetic typo.",
+      "residual_risks": [
+        "Changing system5.1 to match Table1 .38 leads to another distinct equilibrium and threshold; this result intentionally covers only the literal .48 printed model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only tau2=0 and printed equation (5.1), including .48Q, and first linear stability crossing; nonlinear first Lyapunov coefficient not recalculated.",
+    "RESULT.md has KaTeX double-brace array formatting in source, a separate display/transport defect not a mathematical gap."
+  ],
+  "schema_version": 1
+}

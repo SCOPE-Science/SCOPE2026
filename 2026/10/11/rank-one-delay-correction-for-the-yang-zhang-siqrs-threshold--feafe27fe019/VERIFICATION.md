@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`. A successful replay prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The verifier performs these checks:
+## correctness
 
-1. It confirms from exact Table 1 fractions that \(\eta+d+\alpha_2=19/50=0.38\), distinct from the printed coefficient \(12/25=0.48\).
-2. It reconstructs the unique positive equilibrium of printed (5.1) with exact rational arithmetic and checks all four equilibrium equations.
-3. It evaluates the reported rounded point and verifies that its quarantine residual cannot be removed by rounding at the displayed precision, under either coefficient convention.
-4. It reconstructs the exact polynomials \(P\) and \(Q\) from the rank-one delayed infection block and confirms that no quadratic power of \(e^{-\lambda\tau_1}\) is generated.
-5. It checks the exact zero-delay Hurwitz determinants.
-6. It derives the exact quartic \(F(\omega^2)=|P(i\omega)|^2-|Q(i\omega)|^2\), verifies \(F'(u)>0\) for \(u>0\), and verifies exactly that the reported \(\omega=0.0786\) does not solve it.
-7. It brackets the unique positive root of \(F\), reconstructs \(\omega_*\) and the smallest positive phase delay \(\tau_{1,*}\), checks the characteristic residual numerically, and verifies positive transversality.
+PASS
 
-The finite-precision part only locates the unique root whose existence and uniqueness were already proved by the exact coefficient signs. It does not certify a nonlinear Hopf coefficient or simulate trajectories.
+PASS. Direct exact rational solution of printed (5.1), keeping -0.48Q as printed rather than replacing by Table 1 0.38, gives positive equilibrium (320/197,1371240/665663,399945/665663,1313079/665663). Table 1 parameters imply eta+d+alpha2=0.38, directly inconsistent with the numerical equation. The linearized delayed infection Jacobian has rank one, so det(lambda I-J0-z Jdelay) is affine in z=e^{-lambda tau1}, contradicting published z². Independent SymPy symbolic differentiation/determinant derivation exactly reproduced the two integer polynomials P(lambda), Q(lambda), modulus quartic F(u), whose derivative is positive for u>0 and F(0)<0; thus exactly one imaginary frequency exists. Independent numerical evaluation gives omega=0.1447950754167241, earliest tau1=13.87960223606146 and positive real derivative 0.0017462878979220143. The original omega=0.0786 gives strictly negative nonzero F(omega²), impossible at any tau1. Zero-delay Hurwitz positivity, nonzero determinant at lambda=0 and continuity of roots confirm first loss of linear stability. These computations do NOT establish nonlinear Hopf branch direction or general two-delay behavior.
+
+## originality
+
+PASS
+
+PASS best of knowledge. The complete original Yang–Zhang paper reports the inconsistent Table 1/system (5.1) coefficients and different equilibrium and crossing numbers, not these corrected values or rank-one cancellation. A related SEIQRS later analysis repeats the general quarantine coefficient but does not give the exact correction. Targeted numerical/DOI, characteristic-alias and Resultary searches surfaced no published corrigendum for the same printed benchmark; absence from search is not independent priority proof.
+
+## value
+
+PASS
+
+PASS. The corrected equilibrium and first linear stability threshold address a materially wrong published numerical verification of a delay-induced Hopf theorem, including an algebraic structural cancellation; this is a substantive model-consistency and stability correction, not a rounding or cosmetic typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
