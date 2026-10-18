@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is reduced to a finite rational polyhedral certificate.
+# Independent mathematical audit
 
-Write
-\[
-K
-=
-\{x:|x_j|\le1,\ \|x\|_1\le2\}
-\]
-and
-\[
-K_{1/13}
-=
-\{x:|x_j|\le12/13,\ \|x\|_1\le25/13\}.
-\]
-The verifier represents these by their fourteen linear inequalities.
+## correctness
 
-The six centers are
-\[
-(1,-1/4,-1/4),\quad
-(-1,1/4,1/4),\quad
-(1/4,1,-1/4),
-\]
-\[
-(-1/4,-1,1/4),\quad
-(1/4,1/4,1),\quad
-(-1/4,-1/4,-1).
-\]
-Exact checks confirm that each is on
-\[
-\partial K
-\]
-and that each pairwise difference is outside
-\[
-\operatorname{int}K.
-\]
+PASS
 
-The boundary of \(K\) is decomposed into six square facets and eight triangular facets. Each facet has an explicit two-dimensional rational parametrization. On a fixed facet, nonmembership in one translated inset
-\[
-z_i+K_{1/13}
-\]
-is a disjunction of fourteen half-plane violations. The verifier recursively branches through those disjunctions for all six centers and clips the facet polygon by exact rational line intersections.
+For K=[-1,1]^3 intersect ||x||_1<=2, each of the six rational centers ±(1,-1/4,-1/4), ±(1/4,1,-1/4), ±(1/4,1/4,1) lies on a square facet of boundary K; each pair difference has some coordinate absolute >=5/4 (antipodal at least 2), so centers are separated outside int K and translates K+2z_i touch K without overlapping interiors. The strict boundary-cover criterion reduces blocking to ∂K subset union_i(z_i+int K). The proposed polyhedral inset K_delta for delta=1/13 has |u_j|<=12/13 and sum|u_j|<=25/13, thus K_delta compactly within int K. Independently ran exact Fraction half-plane disjunctive polygon-clipping on six square and eight triangular facets for all six centers and 14 inset inequalities: every surviving complement branch is eliminated by sixth center on every facet; no random grid/tolerance was used. The complement uses >= violating inequalities, a conservative superset, and still empties, hence certifies the closed inset cover and strict blocking criterion. This proves only b(K)<=6, no matching lower bound.
 
-If an uncovered boundary point existed, it would survive in at least one branch after all six centers. The final branch set is empty on each of the fourteen facets. Hence
-\[
-\partial K
-\subset
-\bigcup_{i=1}^6(z_i+K_{1/13}).
-\]
+## originality
 
-Since
-\[
-K_{1/13}\subset\operatorname{int}K,
-\]
-this gives the strict boundary cover required by the blocking criterion.
+PASS
 
-Running the packaged script prints `VERIFY_OK`, the six exact centers, the clearance \(1/13\), and fourteen facet reports whose final surviving-branch count is zero.
+Zong introduced blocking number and general translate-boundary characterization; Wang–Zhang treatment contains the boundary-cover equivalence and six-blocker statements for ℓ_p balls and other specific bodies, but full relevant article text inspected shows neither regular cuboctahedron nor its six rational centers. Published six-blocking regular truncated-octahedron construction is a combinatorially distinct body and does not transfer by affine invariance; cube/octahedron family illumination results concern a different invariant with no implication to six blocking. No earlier exact cuboctahedral six-center configuration or positive rational clearance was located in actual primary searches. Older unindexed translative blocking examples remain a specific risk.
 
-The checker establishes only the finite coverage and separation certificates. The implication from those certificates to a blocking configuration is the cited geometric boundary-cover lemma. No lower bound \(b(K)\ge6\) is claimed.
+## value
+
+PASS
+
+Regular cuboctahedron is an Archimedean solid and a canonical cube–octahedron intersection in geometric covering/packing. Its blocking number is a natural open-type convex-geometric invariant. An explicit interior six-translate blocking configuration with independent exact rational certificate and positive clearance answers a substantive upper-bound question; absence of a lower bound and nonoptimal clearance are correctly scoped, and no invented exact equality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
