@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The known Ko–Park integral first-homology theorem applies because the Heawood graph is triconnected and nonplanar; its girth-six, 14-vertex, 21-edge structure also makes the two-particle Abrams model applicable. Exact cell counts (91, 252, 168), Euler characteristic 7 and the free nature of the kernel of the degree-two boundary give second Betti rank 14. The equivariant chain map forgetting the stationary particle induces a rational first-homology isomorphism: its image contains all 28 lifted six-cycles spanning the eight-dimensional graph cycle space. Therefore both characters are determined from explicit signed chain traces. The complete 336-element automorphism enumeration, 8-class trace table, and vanishing group averages agree with the chain formulas and two executable cross-checks. Repeated finite-field ranks are corroboration, not an inference that experiments alone establish integral Smith invariants.
+
+## Originality — PASS
+The most closely related published Heawood configuration calculation concerns ordered two-particle mod-two Betti numbers, not the degree-one and degree-two rational character of the unordered space under all 336 symmetries. Ko–Park establishes first integral homology but not the automorphism action on second homology. An–Knudsen studies second homology of planar graph braid groups, so its principal structural theorem does not apply to the nonplanar Heawood graph. Lawrence–Wilson establishes the graph symmetries but no induced configuration-homology representation. Separate symmetry studies for Petersen, dodecahedral, and cuboctahedral configuration spaces concern different graphs. Targeted database and scholarly literature searches found no covering characterization, but an unindexed equivalent remains a residual originality risk.
+
+## Mathematical value — PASS
+The Heawood graph is a canonical highly symmetric finite incidence graph, and graph-particle configuration spaces are natural topological invariants. The theorem supplies the complete 336-element graded rational character, an invariant not determined by previously available integral Betti groups. In particular, it proves that both the full automorphism quotient and the index-two point-line-preserving quotient are rationally acyclic after degree zero, despite fourteen original second-homology generators. The value lies in an exact symmetry-sensitive topological classification for a natural object, not in simply recomputing its Betti numbers.
+
+## Sources and limitations
+K. H. Ko and H. W. Park, *Characteristics of graph braid groups* (arXiv:1101.2648), Theorem 3.16; B. H. An and B. Knudsen, *On the second homology of planar graph braid groups* (arXiv:2008.10371); E. D. Lawrence and R. T. Wilson, *The Structure of the Heawood Graph* (arXiv:1907.11978). Comparison to the database record on ordered two-point Heawood configurations was based on its accessible ranked summary, not full source text. No integral equivariant character, homotopy classification, or independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
