@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each possible uniform parent V, a new terminal appears and V loses terminal status iff V was terminal. Sibling pairs gain ℓ_V when V is nonterminal and lose ℓ_parent(V)-1 otherwise. The sum of those losses over all terminal V is 2C. Crucially E(ΔL ΔC|tree)=L/n. These give exact recurrences for E L, E L², E C and E LC. Bases at n=2 and n=3 and induction yield Cov(L,C)=\\(n/8\\) for n≥4 and slope \\(3/2\\). An independent birth-index product yields Pr(i,j terminal siblings)=(i-1)/((n-1)(n-2)). Exact enumerations through n=8 and moment recurrences through n=150 passed 6596 rational assertions; unbounded validity rests on the algebraic proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson 2004/2005 abstract concerns counts by a vertex’s own outdegree, not adjacency of multiple terminal children to a common parent.",
+        "Hartle–Krapivsky (2025), sections II–III, gives marginal leaf-neighbor frequency and separate leaf-count distribution but not their mixed moment."
+      ],
+      "reasoning": "A degree-count vector cannot determine how terminal children are clustered among parent vertices. Knowledge of separate means or marginal covariances cannot determine the mixed covariance of L with the terminal-sibling pair count. Janson’s complete article was unavailable, so a stronger implicit extension remains possible.",
+      "searches": [
+        "random recursive tree leaf neighbor degree cherries clustering stochastic covariance",
+        "recursive tree total number of leaves number of vertices with two terminal children factorial offspring degree mixed moments",
+        "doi:10.1002/rsa.20046",
+        "arxiv:2511.04085v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0809.4741v1 (28-page PDF: selected primary sections actually inspected)",
+      "doi:10.1002/rsa.20046 (publisher abstract and provenance; complete article unavailable)",
+      "arxiv:2511.04085v1 (HTML relevant full-text sections II–III)",
+      "Published mathematical-result snippets on recursive trees and leaf counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 paper proves one-dimensional large deviations and CLTs for uniform-recursive leaf counts and a separate Yule cherry count.",
+        "The 2004 degree-count theorem studies the outdegree histogram.",
+        "The 2025 paper’s equations (34)–(37) provide moments of total leaf count, not terminal-sibling clustering.",
+        "Published closest root-degree/leaf covariance theorem concerns a distinct local statistic."
+      ],
+      "reasoning": "None of the material actually inspected contains a statement whose specialization gives Cov(L,C)=n/8 for rooted recursive trees. Leaf means, Yule cherry means, and outdegree-class covariance do not imply a mixed moment of child adjacency. It remains conceivable that general increasing-tree or motif generating functions imply the result after additional calculation; this is a residual historical risk, not claimed impossible.",
+      "searches": [
+        "arxiv:0809.4741",
+        "doi:10.1002/rsa.20046",
+        "arxiv:2511.04085",
+        "uniform random recursive tree terminal leaf count covariance with pairs of sibling terminal vertices exact n/8 regression 3/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "ArXiv:0809.4741 sections 1.2.2 and 1.2.3 distinguish uniform recursive tree leaves from Yule cherries.",
+        "Closest published search result 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f involves root degree, not sibling pairs."
+      ],
+      "reasoning": "Equivalent phrasings include terminal sibling-pair count, pair factorial moment of the terminal-child profile and cherry-pair count in multifurcating rooted recursive trees. The distinct Yule and rooted-recursive attachment dynamics exclude identifying their count laws by terminology alone; the closest record concerns a different second statistic.",
+      "searches": [
+        "Uniform random recursive tree number of cherries sibling leaf pairs total leaf count exact covariance n/8",
+        "Rooted recursive tree leaf-sibling pair count covariance with number leaves",
+        "Large deviations for the leaves in some random trees arxiv:0809.4741"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite exact covariance table or value n/8 appeared in the inspected mathematical records.",
+        "Older recursive-tree leaf-count sources give univariate moments; numerical values for the new mixed moments were independently recomputed, not copied from a table."
+      ],
+      "reasoning": "Published databases/search results did not surface an existing mixed-moment table. A negative search is not treated as proof of uniqueness; the affirmative implication comparison supplies the substantive originality assessment.",
+      "searches": [
+        "Random recursive trees cherry count mean n/6 variance joint moments",
+        "random recursive tree cherries leaf siblings pair expectation n/6 covariance leaf count",
+        "Random recursive trees cherry count mean n/6 variance joint moments"
+      ]
+    },
+    "rationale": "The inspected 2008 primary paper handles leaf counts in uniform recursive trees but cherries in a different Yule splitting process. Janson’s outdegree-count covariance formulas concern degree classes rather than leaf-child adjacency, which is not determined by the degree-class counts. The later 2025 leaf-neighbor-profile analysis and published mathematical research records provide no directly covering exact joint moment. The surviving novelty is the \\(n/8\\) finite-size covariance and universal \\(3/2\\) linear slope, not the classical \\(n/2\\) leaf mean; an inaccessible older full text and implicit motif moment expansions remain specific residual risks.",
+    "residual_risks": [
+      "The full 2004 outdegree-count article was unavailable through the attempted access paths; it could contain a more general motif identity not evident from the abstract.",
+      "Prior increasing-tree motif generating functions may implicitly contain the exact mixed moment and merit independent historical-priority review.",
+      "The later 2025 paper uses an undirected degree-one leaf convention that must not be silently substituted for zero outdegree."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper identifies the leaf-count Markov chain for uniform recursive trees, but discusses cherries only for Yule leaf-splitting trees; its displayed limit and large-deviation statements do not imply the new finite mixed moment.",
+        "evidence": [
+          "arXiv v1 date 2008-09-27 and primary MSC 60F10 are visible on PDF page 1.",
+          "Uniform recursive trees versus Yule models are defined separately in Sections 1.2.2 and 1.2.3; the covariance expression n/8 is absent from the inspected results."
+        ],
+        "identifier_or_url": "arxiv:0809.4741v1, https://arxiv.org/pdf/0809.4741",
+        "material_read": "Primary PDF pages 1, 4, 7 and 8 (printed pages); introduction, Theorems 1.1/1.4 and Sections 1.2.2 and 1.2.3, plus text searching for covariance.",
+        "method": "PDF page and text inspection against the exact joint variable definitions and conditional increments.",
+        "title": "Large deviations for the leaves in some random trees",
+        "trigger": "Same random recursive attachment model, terminal-vertex counts, and a separately discussed sibling-leaf cherry statistic."
+      },
+      {
+        "assessment": "Abstract describes asymptotic covariances of the numbers of vertices classified by their own outdegrees. These do not directly specify the parent grouping of terminal offspring; full text was not inspected, so possible implicit extensions remain an explicit risk.",
+        "evidence": [
+          "Publisher publication history records version of record first online on 2004-11-16.",
+          "Retrieved primary abstract and preprint introduction specify outdegree-count laws, not terminal-sibling mixed moments."
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.20046, https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+        "material_read": "Primary publisher abstract, bibliography, version-of-record publication metadata, and a search-index excerpt of the author-hosted introduction. Entire PDF not retrieved.",
+        "method": "Author-hosted open PDF fetch attempted twice, both timed out; publisher full text not available; authorized institutional full-text route required a disconnected VPN, which was not bypassed.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Highly relevant primary older article with asymptotic outdegree-count covariances; potential broader coverage."
+      },
+      {
+        "assessment": "The inspected sections concern mean leaf-neighbor profiles and separately the marginal leaf-count distribution; no mixed covariance for terminal sibling pairs is stated. Distinct root convention explains the finite mean difference.",
+        "evidence": [
+          "Section III equations (34)-(37) give the marginal leaf-count recursion and moments.",
+          "Section II treats mean numbers of vertices with specified leaf-neighbor degree.",
+          "The paper is a later supporting comparison, not the archive source that assigns the claim."
+        ],
+        "identifier_or_url": "arxiv:2511.04085v1, https://arxiv.org/abs/2511.04085",
+        "material_read": "Accessible arXiv full-text HTML sections II.3, II.4 and III, including displayed equations for means and variances of total degree-one leaf count.",
+        "method": "Compare the defined leaf-neighbor profile, degree-one root convention and marginal moments against rooted zero-outdegree joint moments.",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "Later detailed study of leaf-neighbor degrees and total leaf-count distributions in recursive growth, a potential marginal or stronger joint theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "261fc92c-ae7c-4660-aca4-3bfe70a0b106",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Global terminal count and local sibling clustering are basic and noninterchangeable random-tree summary statistics: the degree-class count of terminals does not say whether two terminals share a parent. A closed positive covariance \\(n/8\\) for every tree order and a sample-size invariant least-squares slope \\(3/2\\) quantify this relationship exactly; the birth-order-resolved pair law gives independent structural explanation and a second route to the mean. This is a natural mixed-moment question motivated by classical recursive-tree leaf laws and the distinction from Yule sibling counts; neither exact correctness nor the mere novelty search is the value argument.",
+    "status": "PASS"
+  }
+}
