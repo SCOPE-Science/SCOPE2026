@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two axial mixed volumes reduce exactly to orthogonal projection volumes, and the lens's spherical mean support function has two branches meeting at \(t=a\). Dividing by the transverse radius before differentiating cancels boundary terms and produces the strictly negative integral (2). A beta-integral endpoint calculation gives the stated sharp constant. Bilinearity, the segment projection formula, and continuity establish optimality over all zonoid auxiliary pairs. A standalone standard-library checker corroborates the nonsingular angular integrals and special dimensions but is not the infinite-parameter proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 simplex-characterization paper supplies the segment/overlap test criterion, not this exact normalized function or its strict monotonicity. An already published lens mean-width formula supplies the denominator and the two-branch support function: those components are expressly credited, rather than claimed as new. Its strict *decrease of mean width* is a different statement from strict *decrease of mean width divided by transverse radius*. The latter is certified by a new sign identity and connects the canonical witness path to a sharp zonoid coefficient. The 2025 zonoid Bézout theorem has different ambient-body quantifiers and a coarser dimension-three bound. Unindexed direct treatment of this normalized ratio remains possible.
+PASS
 
-## Value — PASS
-The 2026 theorem singles out precisely these segment/intersection test bodies without quantifying the resulting failure of the constant-one Bézout inequality. The present theorem evaluates the full-dimensional canonical witness family with sharp endpoints and a strict ordering of witnesses, and locates its limiting strength at a natural independently extremal two-zonoid coefficient in every dimension. It is not proposed as a general optimality theorem or a recomputation of mean width.
+Reconstructed mixed-volume segment projection identity, the two lens support branches, the positive spherical density and moving-limit cancellation: derivative of 1/R_n has strictly negative integral with weight (1−t²)^((n−3)/2). Beta endpoint yields C_n; wedge norm bounds all finite segment sums and Hausdorff continuity gives zonoids, including degenerate segments. The all-dimension proof is analytic, not based on verify.py samples.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new strict monotonicity of the normalized canonical ball-lens quotient and its exact connection to the independently sharp all-dimensional ball/zonoid coefficient. Earlier lens mean width, simplex witness characterization and a coarser 3D zonoid inequality are explicitly credited; none of their examined statements implies the parameter derivative sign.
+
+## value
+
+PASS
+
+Canonical witness bounds are a geometrically motivated part of a recent simplex-characterization problem; the exact strict trajectory and equality only asymptotically at the independently sharp zonoid coefficient are useful structural quantitative answers, not merely a routine numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

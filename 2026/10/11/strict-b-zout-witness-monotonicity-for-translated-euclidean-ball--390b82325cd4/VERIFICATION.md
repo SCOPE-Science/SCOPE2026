@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the Bézout lens profile
 
-The normalized quotient is derived in four exact steps in `RESULT.md`: two projection mixed volumes, a spherical integral for the lens support function, differentiation after division by the transverse projection radius, and a beta endpoint. Each is valid for any integer \(n\ge2\) and all \(0<a<1\). In particular, the strict inequality follows from a negative integrand on a positive-measure interval, not sampling.
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python standard library only) to check dimensions \(2,3,4,5,8,20\) and the parameters \(a=0.001,0.2,0.5,0.8,0.999\). The script avoids the integrable endpoint singularity for dimension \(2\) through the change of variables \(t=\sin\theta\), compares values and derivative signs, and verifies the two closed forms. Relative comparisons near the high-dimensional limiting endpoint allow \(10^{-11}\) floating-point tolerance. Observed output: `VERIFY_OK`.
+## correctness
 
-Numerical integrations are diagnostics, not certificates of infinite-dimensional or continuous-parameter assertions. The limiting coefficient for zonoids has a separate exact mixed-volume proof. No independent audit has been performed.
+PASS
+
+Reconstructed mixed-volume segment projection identity, the two lens support branches, the positive spherical density and moving-limit cancellation: derivative of 1/R_n has strictly negative integral with weight (1−t²)^((n−3)/2). Beta endpoint yields C_n; wedge norm bounds all finite segment sums and Hausdorff continuity gives zonoids, including degenerate segments. The all-dimension proof is analytic, not based on verify.py samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge new strict monotonicity of the normalized canonical ball-lens quotient and its exact connection to the independently sharp all-dimensional ball/zonoid coefficient. Earlier lens mean width, simplex witness characterization and a coarser 3D zonoid inequality are explicitly credited; none of their examined statements implies the parameter derivative sign.
+
+## value
+
+PASS
+
+Canonical witness bounds are a geometrically motivated part of a recent simplex-characterization problem; the exact strict trajectory and equality only asymptotically at the independently sharp zonoid coefficient are useful structural quantitative answers, not merely a routine numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
