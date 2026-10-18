@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed richness and total abundance, Berger–Parker ranking is exactly ranking by the maximum excess count, while Simpson ranking is exactly ranking by the excess sum of squares. The extremal bounds \(Q_{\max}(r,m)\) and \(Q_{\min}(r,m)\) exclude reversal for every \(r\le7\). Complete partition enumeration at \(r=8\) gives exactly four unrestricted reversing excess-pair types, and the fixed-richness length constraint yields first-layer counts \(1,2,3,4\) for \(k=3,4,5,\ge6\). The universal witness and the equivalence of the two Simpson conventions are replayed by the packaged verifier, which returns `VERIFY_OK`.
+## correctness
 
-Risk: zero-abundance categories, unequal totals, or arbitrary real-valued weights define different boundary problems.
+PASS
 
-## Originality
-**PASS.** Prior ecological literature directly compares Berger–Parker and Simpson dominance and already shows that diversity indices can produce different community rankings. That generic disagreement is not new. The accepted claim is the sharp positive-integer fixed-richness threshold and complete first layer. Searches using exact vectors, smallest-resolution language, fixed richness, integer abundance, ranking reversal, and majorization language did not locate the \(k+8\) theorem or its first-layer classification.
+Writing n_i=1+y_i with sum y_i=r gives fixed-total Berger-Parker order by M=max y_i and Simpson order by Q=sum y_i^2. For fixed r and smaller maximum m, Q is at most floor(r/m)m^2+(r mod m)^2, while with larger maximum m′ it is at least m′^2+(r-m′); direct finite algebra check for every r<=7 and m<m′ ensures no opposite order. Independent partition generator (not package verifier) exhaustively found strict-reversal counts 0 through r=7 and four at r=8. Four explicitly listed partitions have maximum-coordinate versus sum-of-squares reversal. At k>=3 excess (1,2,5) vs (4,4) yields (2,3,6) vs (1,5,5), M=5>4 but Q=30<32; k-padding preserves both. Four types require 6,5,4,3 nonzero coordinates, giving 1,2,3,4 for increasing richness. Two shares p>=1/2 have p and p²+(1-p)² monotone, proving all N nonreversal at k=2. Finite-sample Simpson is fixed-total affine transform and retains ranking.
 
-Risk: the reduction is elementary enough that an unindexed teaching example or software test could contain the same eleven-individual witness.
+## originality
 
-## Value
-**PASS.** Berger–Parker and Simpson are established dominance summaries that intentionally weight abundant species differently. The smallest integer community resolution at which that weighting choice can reverse a comparative judgment is a natural interpretive benchmark. The excess-unit normalization shows that the threshold is independent of richness, and the complete first layer provides a compact diagnostic suite rather than a single arbitrary numerical example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The measures and qualitative non-equivalence are classical; the fully quantified sharp positive-integer excess threshold and four-type first-layer census are not consequences of the examined ecological index definitions or qualitative ranking comparisons. Full relevant ecological source text was read; this is a best-of-knowledge assessment with the identified residual unindexed-example risk.
+
+## value
+
+PASS
+
+Berger-Parker and Simpson are natural, widely used indices; exact minimal integer resolution at which they induce opposite strict comparisons under controlled richness and total is a meaningful sampling-design boundary. The all-k theorem and full first-layer classification are genuine finite extremal results, not merely a numerical sample: a researcher deciding when discordance is combinatorially possible can use the precise k+8 threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

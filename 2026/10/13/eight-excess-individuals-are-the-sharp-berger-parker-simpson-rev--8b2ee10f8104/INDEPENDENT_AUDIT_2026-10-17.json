@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:47:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing n_i=1+y_i with sum y_i=r gives fixed-total Berger-Parker order by M=max y_i and Simpson order by Q=sum y_i^2. For fixed r and smaller maximum m, Q is at most floor(r/m)m^2+(r mod m)^2, while with larger maximum m′ it is at least m′^2+(r-m′); direct finite algebra check for every r<=7 and m<m′ ensures no opposite order. Independent partition generator (not package verifier) exhaustively found strict-reversal counts 0 through r=7 and four at r=8. Four explicitly listed partitions have maximum-coordinate versus sum-of-squares reversal. At k>=3 excess (1,2,5) vs (4,4) yields (2,3,6) vs (1,5,5), M=5>4 but Q=30<32; k-padding preserves both. Four types require 6,5,4,3 nonzero coordinates, giving 1,2,3,4 for increasing richness. Two shares p>=1/2 have p and p²+(1-p)² monotone, proving all N nonreversal at k=2. Finite-sample Simpson is fixed-total affine transform and retains ranking.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morris et al. 2014 full text treats richness/dominance sensitivity, not fixed-richness sample thresholds.",
+          "Bonilla-Rosso et al. show general diversity metric ranking disagreements, not a universal r<=7 exclusion."
+        ],
+        "reasoning": "General divergence in relative sensitivity does not imply any specific integer minimal count, especially under fixed N and k. The theorem gives a sharper new natural resolution boundary beyond prior qualitative discussion.",
+        "searches": [
+          "Resultary: Berger Parker Simpson dominance reversal fixed richness count integer composition minimal eleven individuals 8 excess partition",
+          "web: Choosing and using diversity indices Morris 2014 Berger Parker Simpson rankings",
+          "web: microbial diversity Berger Parker Simpson metric rankings"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/ece3.1155 (Morris et al. 2014, full OA)",
+        "doi:10.1111/j.1574-6941.2012.01405.x (Bonilla-Rosso et al. 2012, accessible preview)",
+        "doi:10.1038/163688a0 (original Simpson bibliographic record)",
+        "doi:10.1126/science.168.3937.1345 (Berger-Parker original publisher/abstract)",
+        "Resultary semantic search on ranking reversal and fixed sample boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical indices imply the formulas M and Q but not a simultaneous extremal partition inequality at every integer r<=7.",
+          "The four reversal-type enumeration is a separate integer classification under new explicit constraints."
+        ],
+        "reasoning": "Prior measure definitions allow computation of any finite example, but neither yield the sharp necessary and sufficient boundary automatically nor classify all sharp-layer equality types; exact proof and enumeration contribute independent useful facts.",
+        "searches": [
+          "primary: doi:10.1002/ece3.1155 diversity-index definitions/table",
+          "primary: doi:10.1111/j.1574-6941.2012.01405.x simulated metric ranking"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Morris et al. 2014 defines Berger-Parker max share versus Simpson abundance-sensitive concentration.",
+          "The audited criterion is equivalent to max-versus-quadratic-sum on integer partitions of the excess count."
+        ],
+        "reasoning": "Searched both named ecological indices and their elementary max/second-power equivalents. Existing source discussion does not state an integer sharp cutoff or enumerate the first partition layer; absence is a residual, not a proof of priority.",
+        "searches": [
+          "Resultary: Berger Parker Simpson dominance reversal fixed richness count integer composition minimal eleven individuals 8 excess partition",
+          "Resultary: Berger-Parker Simpson dominance reversal",
+          "web: 1 5 5 2 3 6 Berger Parker Simpson dominance smallest reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected full article tabulates reversal types for excess r<=8.",
+          "An independent exact integer-partition enumeration recreated counts [0,0,0,0,0,0,0,0,4]."
+        ],
+        "reasoning": "Source comparison and exact-vector search detected no existing equality table; independently enumerated rather than treated as a preexisting dataset; undigitized teaching material remains a stated risk.",
+        "searches": [
+          "web: Berger-Parker Simpson eleven individuals three species smallest reversal (2,3,6) (1,5,5)",
+          "Resultary: Berger Parker Simpson dominance reversal fixed richness count integer composition minimal eleven individuals 8 excess partition"
+        ]
+      },
+      "rationale": "The measures and qualitative non-equivalence are classical; the fully quantified sharp positive-integer excess threshold and four-type first-layer census are not consequences of the examined ecological index definitions or qualitative ranking comparisons. Full relevant ecological source text was read; this is a best-of-knowledge assessment with the identified residual unindexed-example risk.",
+      "residual_risks": [
+        "An unindexed teaching example or specialist note might contain the eleven-individual vector, but no inspected source provides universal threshold and exact four-type classification.",
+        "The result fails to extend as stated to unequal richness or census total, absent species, continuous proportions, or diversity-index orientation conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Discusses both ecological indices and their distinct sensitivity; does not supply an integer sample-resolution optimum for maximum-coordinate versus quadratic concentration.",
+          "evidence": "Berger-Parker depends only on largest species proportion, Simpson on squared shares, explaining possibility of divergent rankings.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.1155",
+          "material_read": "Open full-text HTML, diversity-index definitions/table and ecological discussion of sensitivity to dominant species.",
+          "method": "Read accessible open-access article text, formulas/table and discussion",
+          "title": "Choosing and using diversity indices: insights for ecological applications from the German Biodiversity Exploratories",
+          "trigger": "Comparison of Berger-Parker and Simpson concentration and interpretation."
+        },
+        {
+          "assessment": "Generic different rankings among diversity indices are prior art, not the finite integer threshold.",
+          "evidence": "Definitions and comparative simulations distinguish the dominance versus concentration criteria.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1574-6941.2012.01405.x",
+          "material_read": "Accessible abstract/publisher methodological descriptions of the measures and community-rank comparisons; full-text noncoverage not inferred.",
+          "method": "Inspected accessible publisher abstract and methodological preview, not represented as complete full text",
+          "title": "Understanding microbial community diversity metrics derived from metagenomes: performance evaluation using simulated data sets",
+          "trigger": "Published study explicitly comparing Simpson and Berger-Parker metrics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Berger-Parker and Simpson are natural, widely used indices; exact minimal integer resolution at which they induce opposite strict comparisons under controlled richness and total is a meaningful sampling-design boundary. The all-k theorem and full first-layer classification are genuine finite extremal results, not merely a numerical sample: a researcher deciding when discordance is combinatorially possible can use the precise k+8 threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At fixed richness k>=3, same total N and positive integer species counts, Berger-Parker dominance versus Simpson concentration cannot have opposite strict rankings when N-k<=7; eight excess individuals are necessary and sufficient. The first excess layer has 1,2,3,4 unlabeled reversing profile-pair types for k=3,4,5,k>=6. Two-species communities never reverse.",
+  "limitations": [
+    "Same fixed richness, equal total abundance, strictly positive integers, Berger-Parker maximum and Simpson concentration orientation.",
+    "Existing ecological index formulas/qualitative differences are credited; unindexed finite example remains possible."
+  ],
+  "schema_version": 1
+}
