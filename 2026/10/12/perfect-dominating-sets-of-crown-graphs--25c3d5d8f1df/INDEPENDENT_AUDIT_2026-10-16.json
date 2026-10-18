@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:57:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git blob RESULT.md:97eaf2cae459e3de02babfa7dde0beb69fe1e6f3",
+        "Independent exhaustive 2^(2n) subset condition for n=3..8",
+        "Nayaka et al 2021 standard perfect-domination polynomial definition"
+      ],
+      "rationale": "For D chosen in both parts, set I={i:a_i in D}, J={j:b_j in D}; an omitted a_i has |J|-1_{i in J} selected neighbors and an omitted b_j has |I|-1_{j in I}. If a side is full, n>=3 forces the whole graph. Otherwise nonempty side-complements force |I|,|J| in {1,2}; (1,1) gives matched nonedge pair; mixed (1,2) impossible; (2,2) requires I union J=[n], possible only n=3,4, in exactly six ordered cases each. This yields n*x^2+6*x^4+x^{2n} for n=3,4 and n*x²+x^{2n} else. Independent direct subset enumeration for n=3..8 matched all coefficients, n=3..8 counts 10,11,6,7,8,9, and checked induced connectivity. General statement follows symbolically, not from enumerations.",
+      "residual_risks": [
+        "Perfect domination here constrains only outside D; not efficient domination, which also constrains vertices in D. n=2 excluded, as disconnected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nayaka calculates perfect-domination polynomials for various standard families incl K_mn, not crown; Dalal–Johnson abstract theorem about >=3 multipartite parts does not directly imply two-part matching-deleted crown; restrained/roman crown problems have different admissibility."
+        ],
+        "reasoning": "General polynomial constructions or values of distinct domination invariants do not logically give the all-size outside-neighbor-one enumeration.",
+        "searches": [
+          "Nayaka et al 2021 full paper",
+          "Dalal–Johnson DOI:10.5556/j.tkjm.44.2013.975",
+          "Resultary published crown restrained domination profile",
+          "Resultary published perfect Roman crown"
+        ]
+      },
+      "checked_sources": [
+        "Nayaka et al 2021 DOI:10.14445/22315373/IJMTT-V67I4P515",
+        "Dalal–Johnson 2013 DOI:10.5556/j.tkjm.44.2013.975",
+        "Resultary published crown restrained and perfect Roman results",
+        "Resultary query perfect domination polynomial crown graph K n n minus matching exact enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For Cr_n the exact outside neighbor count is |J|-1_{i in J}, not simply |J| for K_n,n. Six size-four exceptional solutions for n3,4 arise only from deleted matching and have no analogue in K_n,n standard formula."
+        ],
+        "reasoning": "The new size-profile classification does not follow by direct parameter substitution or renaming of the source theorems.",
+        "searches": [
+          "Nayaka 2021 perfect domination polynomial complete bipartite formula",
+          "Resultary SCOPE restrained-dominating-set profile of crown graphs",
+          "Resultary SCOPE perfect Roman domination of crown graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent graph aliases Cr_n, crown graph, K_{n,n}-M_n, bipartite cocktail crown; distinction perfect domination (outside-only) versus efficient domination (closed-neighborhood uniqueness)."
+        ],
+        "reasoning": "An exact polynomial for complete bipartite K_{n,n} cannot simply be applied after deleting a perfect matching. Under the outside-only definition the full set is allowed, unlike efficient independent domination.",
+        "searches": [
+          "perfect domination polynomial crown graph K n n minus matching exact enumerator",
+          "Nayaka et al DOI:10.14445/22315373/IJMTT-V67I4P515"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE restrained profile and perfect Roman classification concern different polynomials/labelings; prior SCOPE matching pairs of minimum size agree, but six exceptional quartets and full-set coefficient not part of those results."
+        ],
+        "reasoning": "Identical minimum-size pairs do not dominate the polynomial with exceptional n3/4 layer; finite checked cases alone not a stronger existing database proof.",
+        "searches": [
+          "perfect domination polynomial crown graph K n n minus matching exact enumerator",
+          "Resultary crown graph perfect Roman/restrained searches",
+          "crown graph K n n minus matching enumerator"
+        ]
+      },
+      "rationale": "Nayaka et al 2021 defines perfect-domination polynomial and handles complete bipartite and other named families, but the crown is a matching-deleted K_{n,n}, not a direct specialization of that result; the n matching nonedge pairs and two n=3,4 exceptional layers require accounting for missing edges. Published Resultary restrained-domination and perfect-Roman results on crowns share minimum pairs but are different properties and do not imply the full all-size perfect-domination polynomial.",
+      "residual_risks": [
+        "Complete Dalal–Johnson 2013 article not read; unknown whether an edge-deletion corollary already supplies this precise all-size polynomial. Unindexed crown perfect-domination formula could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not treat matching-deleted complete bipartite crowns; its K_mn coefficients do not directly entail the crown exceptional layers.",
+          "evidence": "Definition d_p(G,i) and generating polynomial; full crown case unaddressed.",
+          "identifier_or_url": "https://ijmttjournal.org/public/assets/volume-67/issue-4/IJMTT-V67I4P515.pdf",
+          "material_read": "Complete four-page open PDF including definition Section II and standard families (including complete bipartite)",
+          "method": "Parsed full PDF and inspected page image at theorem section",
+          "title": "Perfect Domination Polynomial of a Graph",
+          "trigger": "Primary proposed source of a potentially dominating polynomial formula"
+        },
+        {
+          "assessment": "Potential overlap not decided across the whole paper; abstract result for complete multipartite at least three parts is inapplicable verbatim to two-part crown.",
+          "evidence": "At-least-three-part complete-multipartite theorem cannot be substituted for Cr_n=K_{n,n}-matching.",
+          "identifier_or_url": "DOI:10.5556/j.tkjm.44.2013.975",
+          "material_read": "Abstract and accessible first-page material only",
+          "method": "Open-access abstract/metadata; complete article not available through attempted route",
+          "title": "On graphs with no proper perfect dominating set",
+          "trigger": "Potential broad edge-perturbation classification"
+        },
+        {
+          "assessment": "Covers restrained domination of crowns, not exact outside-neighbor-one perfect domination of every set.",
+          "evidence": "Matching nonedge min pairs overlap, but selected-set conditions and polynomial are distinct.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+          "material_read": "Published Resultary title and full returned mathematical finding summary",
+          "method": "Authorized Resultary semantic search; summary only",
+          "title": "Restrained-dominating-set profile of crown graphs",
+          "trigger": "Same named graph and identical minimum pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nayaka et al 2021 polynomial definition",
+        "Independent n3..8 exhaustive enumeration"
+      ],
+      "rationale": "A complete all-cardinality polynomial and support classification for a natural standard graph family is a reproducible invariant useful for perfect-domination enumeration, not simply recomputation of a known K_n,n table. It identifies two sharp low-order exceptions and the exact connectedness threshold; these are natural structural facts even though the proof is short.",
+      "residual_risks": [
+        "Easy family-specific closed form need not imply broad computational complexity results or analogous formulas for arbitrary bipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only connected Cr_n, n>=3; standard outside-only perfect domination, not efficient/total or weighted alternatives; 2013 perturbation paper partly accessible."
+  ],
+  "schema_version": 1
+}
