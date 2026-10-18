@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` reconstructs the 13-point poset \(P_2^2\) from the incidence data in the cited source and the four-point circle \(C\) from its four order relations. It exhaustively checks all \(13^4\) set maps and obtains exactly \(853\) order-preserving maps.
+# Independent mathematical audit
 
-It constructs the pointwise order on the full mapping set and verifies exactly two comparability components, of sizes \(721\) and \(132\). It independently constructs the target order complex, verifies \(36\) edges and \(24\) triangles, computes mod-two boundary ranks \(12\) and \(23\), and hence verifies \(\dim H_1(P_2^2;\mathbf F_2)=1\). It then maps the fundamental cycle of the source order complex and verifies that exactly \(132\) maps give the nonzero homology class and that these are precisely the smaller mapping-poset component.
+## correctness
 
-For the larger component, the script carries out \(708\) beat-point deletions while preserving the constants. Before each deletion it checks, in the current induced subposet, the required least strict upper neighbor or greatest strict lower neighbor. The remaining \(13\) points are exactly the constant maps, and their inherited order is checked against \(P_2^2\).
+PASS
 
-The exact replay output is stored in `verification_output.txt`. The exhaustive computations certify the finite counts and reduction. The implication from comparability components to finite-space homotopy classes, and the fact that beat-point deletion is a strong deformation retraction, are established general results and are not reproved computationally here.
+Using the exact Cianci–Ottina P_2^2 13-point incidence poset and C=S0*S0, independently enumerated all 13^4 maps, finding 853 monotone maps, comparability components 721 and 132, 36 strict comparable edges and 24 three-chains with GF(2) boundary ranks 12 and 23. Exactly 132 maps send C fundamental cycle nontrivially in H1(P;F2), all in one component. Independent beat-point deletion recomputation removes 708 (184 up,524 down), retaining precisely 13 constant maps. Standard finite-space homotopy/beat-point and pi1(RP2)=Z/2 establish direct realization of both classes.
+
+## originality
+
+PASS
+
+This is a direct finite mapping-poset calculation, not implied by Cianci–Ottina classification of the target or general Stong/May homotopy correspondence, which does not guarantee every classical homotopy class is realized without barycentric subdivision. Related Resultary findings concern opposite source/target direction or different finite spaces.
+
+## value
+
+PASS
+
+Precisely measures subdivision-free representability of both nontrivial classical loop classes and identifies a noncontractible null mapping component; this is natural finite-model homotopy information rather than merely enumerating arbitrary maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
