@@ -1,19 +1,21 @@
-# Review of sharp alignment decay in rank-one tangent-polar refinement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The point \(W=e_1e_1^{\mathsf T}\) has tangent projector deleting precisely the bottom-right entry. The chosen symmetric \(g\) has opposite-sign eigenvalues and is invertible because \(b>0\). The explicit orthogonal polar factor is obtained by a two-eigenvalue calculation; repeated projection doubles the off-diagonal-to-diagonal ratio at every step, which establishes the closed-form \(X_t\). Its pairing with \(g\) and the exact nuclear norm produce \(R_t\), whose continuous-parameter derivative proves strict decrease. The full derivative of the squared ratio in \(y=b^2/a^2\) has a unique change from negative to positive at \(1/(2^{t+1})\), proving the global sharp envelope and attaining examples, including the \(t=1\) boundary. Exact-rational, symbolic, and direct polar-SVD checks in `verify.py` corroborate, but are not substitutes for, the complete proof.
+PASS
 
-## Originality — PASS, subject to stated retrieval risk
+On real 2x2 rank-one tangent plane T_W at W=e1e1^T, P_T deletes bottom-right entry. For a,b>0, g=[[a,b],[b,0]] is invertible symmetric indefinite and polar(g) is its sign matrix [[a,2b],[2b,-a]]/sqrt(a²+4b²). Iteration yields X_t=[[a,2^t b],[2^t b,0]]/sqrt(a²+4^t b²), all t≥1; the exact nuclear norm of g is sqrt(a²+4b²). Differentiation of the alignment in k=2^t proves strict decrease after t=1; factoring d/dy of squared alignment gives (k-2)^2(2ky-1)(2ky+1)/((1+k²y)^2(1+4y)^2), so the global minimum over y=b²/a²>0 at y=1/(2k) is 8k/(k+2)^2, with sharp alignment 2sqrt(2k)/(k+2). Independently factored derivative with symbolic algebra and evaluated fresh exact rational and polar examples; t=3 is 4/5 and t=5 is 8/17. The t=1 boundary is exactly 1. No spectral-norm feasibility or optimizer convergence failure is asserted.
 
-The complete arXiv:2609.02734v1 preprint describes this same alternating operation and gives a conditional alignment premise plus an existing best-inner-iterate safeguard, but its relevant methods, theorem discussion, and appendices do not supply the exact multi-step rank-one formula or sharp worst-case envelope. The complete arXiv:2507.12142v2 preprint discusses repeated tangent orthogonalization and one-step approximation, but the inspected relevant sections do not imply a quantitative strict monotone loss and exact \(t\)-dependent extremal ratio. Separate mathematical-result searches of similarly worded, equivalent, and dominating forms identify no published record that states or implies this precise classification; this is evidence, not proof of unique discovery. A rephrasing hidden in older projected-polar and alternating-projection literature remains a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating algorithm uses multiple inner iterations to flatten singular values, but its convergence hypothesis requires a separate descent-alignment lower bound. The explicit worst-case ratio is \(4/5\) after three steps and \(8/17\) after five, and tends to zero as the number of raw inner steps grows. Thus the quantified trade-off is not a generic counterexample to a conditional theorem: it gives a sharp, naturally parameterized limitation for choosing refinement depth, while explaining why the previously proposed alignment safeguard can matter. It is a complete boundary within the smallest nontrivial fixed-rank tangent geometry; no downstream theorem or claim about large networks is required for this limited finding.
+No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.
 
-## Closest literature and limitations
+## value
 
-Andriianov et al. (arXiv:2609.02734v1) supply the exact recurrence and explicitly propose the safeguard. Bogachev et al. (arXiv:2507.12142v2) precede them in discussing projected orthogonalization. The novelty claim is restricted to the formula, strict monotonicity, and sharp finite-horizon minimum on the specified family. The result does not show universal degradation, failure of a safeguarded choice, or lack of convergence of the full optimization algorithm.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A directly motivated extremal limitation of the actual raw alternating tangent-polar update: more inner steps can strictly degrade descent correlation, and the sharp worst-case bound decays to zero with horizon, explaining the pre-existing safeguard. The theorem quantifies a nontrivial canonical low-rank geometry and exact practical iteration horizons without claiming a full algorithm divergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

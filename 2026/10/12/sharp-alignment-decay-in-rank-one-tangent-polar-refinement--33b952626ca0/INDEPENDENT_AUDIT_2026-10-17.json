@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:54:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On real 2x2 rank-one tangent plane T_W at W=e1e1^T, P_T deletes bottom-right entry. For a,b>0, g=[[a,b],[b,0]] is invertible symmetric indefinite and polar(g) is its sign matrix [[a,2b],[2b,-a]]/sqrt(a²+4b²). Iteration yields X_t=[[a,2^t b],[2^t b,0]]/sqrt(a²+4^t b²), all t≥1; the exact nuclear norm of g is sqrt(a²+4b²). Differentiation of the alignment in k=2^t proves strict decrease after t=1; factoring d/dy of squared alignment gives (k-2)^2(2ky-1)(2ky+1)/((1+k²y)^2(1+4y)^2), so the global minimum over y=b²/a²>0 at y=1/(2k) is 8k/(k+2)^2, with sharp alignment 2sqrt(2k)/(k+2). Independently factored derivative with symbolic algebra and evaluated fresh exact rational and polar examples; t=3 is 4/5 and t=5 is 8/17. The t=1 boundary is exactly 1. No spectral-norm feasibility or optimizer convergence failure is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 preprint Section3.3, Algorithm1 and Section5 analyze tangent sign projections and conditional convergence; 2025 AppendixD treats approximate oracle/one-step tangent orthogonalization.",
+          "Neither materially inspected section states the strict all-step decline or exact optimal constants 4/5 and 8/17 on the symmetric rank-one family."
+        ],
+        "reasoning": "General convergence assumptions or alternating projection descriptions do not mathematically imply this quantitative original-gradient alignment envelope; a constrained oracle interpretation must not be substituted for raw projected-polar output.",
+        "searches": [
+          "Resultary: LoRA TSD tangent projection polar iterations rank one sharp gradient alignment decay",
+          "https://pdfs.assets.alphaxiv.org/2609.02734v1.pdf",
+          "https://arxiv.org/pdf/2507.12142"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2609.02734v1.pdf",
+        "https://arxiv.org/pdf/2507.12142",
+        "https://www.alphaxiv.org/abs/2609.02734"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source notes lack of optimality guarantee and enforces A4 by choosing best inner step; this does not prove how fast unprotected alignment can deteriorate.",
+          "The source gives c0=1 for tau=1 but does not calculate sharp unsafeguarded c_tau for tau>1."
+        ],
+        "reasoning": "The fresh theorem supplies an actual negative quantitative witness and sharp constants, not a routine repetition of the safeguard or old convergence theorem.",
+        "searches": [
+          "Resultary: LoRA TSD tangent projection polar iterations rank one sharp gradient alignment decay",
+          "arXiv:2609.02734v1 Section5 A4 and safeguard",
+          "arXiv:2507.12142v2 Section3.3, Appendix D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LoRA-TSD Eq.(12) is exactly the alternating projection/matrix-sign recurrence studied.",
+          "Source Assumption A4 assumes alignment; for tau>1 the text explicitly proposes a best-inner-iterate safeguard rather than deriving the raw-iterate sharp lower envelope."
+        ],
+        "reasoning": "The theorem is a same-recurrence rank-one exact extremum, not a different notion of constrained optimality. The pre-existing safeguard is credited as prior.",
+        "searches": [
+          "Resultary: LoRA TSD tangent projection polar iterations rank one sharp gradient alignment decay",
+          "arXiv:2609.02734v1 Eq.(12), Assumption 4",
+          "arXiv:2507.12142v2 Eq.(13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table4 reports empirical task accuracies for several tau, and Figure2(b) reports empirical descent ratio; neither is the global analytic minimax value for the 2x2 tangent slice."
+        ],
+        "reasoning": "These empirical tables cannot dominate an exact worst-case all-parameter theorem.",
+        "searches": [
+          "Resultary: LoRA TSD tangent projection polar iterations rank one sharp gradient alignment decay",
+          "2026 LoRA-TSD Table4 varying tau=1..5",
+          "2026 LoRA-TSD Figure2(b) descent alignment"
+        ]
+      },
+      "rationale": "No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.",
+      "residual_risks": [
+        "Equivalent elementary projected-polar counterexample in unindexed operator-splitting literature remains possible; the actual source already proposed the best-iterate safeguard.",
+        "The unsafeguarded X_t is not required to remain in the spectral unit ball and the theorem is not an oracle suboptimality ratio."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence and alignment safeguard already published; no sharp 2x2 t-dependent decay law observed in inspected relevant sections",
+          "evidence": [
+            "Eq12 X_{t+1}=P_T(msign(X_t)); Assumption4 and τ=1 proof; for τ>1 choose argmax inner iterates; conclusion says inner oracle lacks optimality guarantee"
+          ],
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2609.02734v1.pdf",
+          "material_read": "Full preprint available, materially read method Section3.3 Eq(11)–(14), Algorithm1 p6, Assumption A4 and safeguard p10, Table4, conclusion; screenshots of p6 and p10 directly inspected",
+          "method": "full primary preprint PDF, mathematical sections and figures",
+          "title": "LoRA-TSD: Tangent-Space Spectral Descent for LoRA via Muon-Style Updates",
+          "trigger": "Identical tangent-polar algorithm and motivating convergence premise"
+        },
+        {
+          "assessment": "Earlier tangent projected orthogonalization/repetition, but no inspected sharp gradient pairing law of the new claim",
+          "evidence": [
+            "Eq12 one-step tangent Ortho; Eq13 optional repeated projection; Eq14 constrained LMO"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.12142",
+          "material_read": "Full PDF retrieved; directly inspected p5 Section3.3 equations (12)-(14), screenshot, and description of Appendix D scope",
+          "method": "primary PDF relevant full-text sections",
+          "title": "LoRA meets Riemannion: Muon Optimizer for Parametrization-independent Low-Rank Adapters",
+          "trigger": "Closest original projected orthogonalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A directly motivated extremal limitation of the actual raw alternating tangent-polar update: more inner steps can strictly degrade descent correlation, and the sharp worst-case bound decays to zero with horizon, explaining the pre-existing safeguard. The theorem quantifies a nontrivial canonical low-rank geometry and exact practical iteration horizons without claiming a full algorithm divergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent elementary projected-polar counterexample in unindexed operator-splitting literature remains possible; the actual source already proposed the best-iterate safeguard.",
+    "The unsafeguarded X_t is not required to remain in the spectral unit ball and the theorem is not an oracle suboptimality ratio."
+  ],
+  "schema_version": 1
+}
