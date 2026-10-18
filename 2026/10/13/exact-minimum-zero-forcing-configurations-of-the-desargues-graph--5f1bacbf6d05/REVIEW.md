@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is the incidence graph on the two- and three-subsets of a five-set. The oriented triangle-edge incidence has rank six, proved by simplicial boundary exactness and recomputed over the rationals. Its four-dimensional kernels on each side force all zero-forcing sets to meet both sides in at least four vertices. The explicit eight-set has a twelve-move forcing sequence. The exhaustive \(44\,100\)-candidate balanced enumeration and independent \(125\,970\)-candidate Petersen-model enumeration both obtain \(13\,520\); orbit generation under all \(240\) automorphisms reproduces \(67\) disjoint orbits. Reproducible full code and representative certificates are included.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Butler–Grout–Hall (2015, Section 5) already give \(Z(D)=8\) and a singular signed matrix on the Desargues graph, so neither the scalar minimum nor the general kernel trick is credited as new. The present claim is instead the complete exact multiplicity and symmetry classification. Rashidi–Shajareh Poursalavati–Tavakkoli (2020) study scalar bounds for generalized Petersen graphs, and the Krishnan correction (2026) reports small-order scalar enumerations. The inspected full texts of the 2015 and 2020 papers do not report the \(13\,520\) minimum-set count or the \(67\)-orbit list. The correction's full text was unavailable, and an equivalent unindexed enumeration cannot be ruled out absolutely.
+PASS
 
-**Value — PASS.** Minimum zero-forcing sets are the canonical optimal initial-state placements for a local propagation process, linked to matrix maximum-nullity bounds. A complete classification of optimal placements on the Desargues graph gives considerably more than the previously known optimum size, including a verified orbit-by-orbit reduction to \(67\) symmetry types and a geometric reason for the balanced constraint. This is a natural finite classification, not an arbitrary choice of subcases or a mere recomputation of the known scalar.
+The graph is exactly the bipartite incidence graph on the ten 2-subsets and ten 3-subsets of a 5-element ground set. The signed edge-triangle simplicial boundary matrix B has rank 6, giving nullity four on each side; forcing-kernel principle implies any forcing set contains at least four vertices from each side. Explicit size-eight witness proves Z(D)=8. An eight-set must thus be 4+4, leaving exactly choose(10,4)^2=44100 finite cases. Independently reconstructed graph adjacency and zero-forcing closure accepted exactly 13520; reconstructed all 240 S5 times complement actions and independently partitioned accepted masks into 67 orbits of sizes 20x1, 60x1, 120x18, 240x47. The source includes complete orbit representative CSV and independently implemented Petersen-graph verifier. This is exhaustive for this finite graph, not an extrapolated family result.
 
-**Limitations and closest literature.** The result is a single finite graph classification; its exact cardinality and orbit counts are certified by exhaustive reproducible search, not a short closed-form enumeration. The closest direct primary treatment is Butler, Grout and Hall (2015), DOI 10.13001/1081-3810.2900. The full 2026 correction to the generalized Petersen scalar claim was inaccessible in this comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.
+
+## value
+
+PASS
+
+Minimum zero-forcing configurations of a canonical 20-vertex symmetric graph encode complete controllability/extremal forcing combinatorics. The total number and decomposition under the entire automorphism group, with auditable representatives, are natural exact invariants not implied by the previously known scalar Z=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
