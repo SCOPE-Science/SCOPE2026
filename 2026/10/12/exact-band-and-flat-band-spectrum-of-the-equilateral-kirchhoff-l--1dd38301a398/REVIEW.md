@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For \(k\notin\pi\mathbb Z\), solving the unit backbone and loop edge equations from their vertex values gives the exact Kirchhoff recurrence \(u_{j+1}+u_{j-1}=2(2\cos k-1)u_j\). Floquet substitution therefore gives \(\cos\theta=2\cos k-1\), and real quasimomentum exists exactly for \(\cos k\ge0\). At \(k=n\pi\), direct derivative balance reduces to \(a_j-(-1)^n a_{j-1}+(1-(-1)^n)b_j=0\), which produces one-loop modes for even \(n\) and three-edge compact modes for odd \(n\). The Floquet decomposition accounts for all remaining energies, and nonnegativity excludes negative spectrum. The packaged checker confirms the algebra but is not used as a substitute for proof.
+## correctness
 
-## Originality
-**PASS.** The closest source is Balmaseda–Di Cosmo–Pérez-Pardo, which gives the same unit loop-chain model and all-zero-parameter boundary equations but explicitly warns that those equations only produce candidates for generalized eigenfunctions and do not decide spectral membership. Kuchment's periodic-graph theorem and Exner's review cover generic compactly supported eigenfunctions and Dirichlet flat bands, not this graph's exact discriminant, complete band set, or odd-resonance three-edge mode. A 2024 infinite-necklace paper uses a different topology with parallel arcs between successive vertices. Targeted searches for the exact discriminant, standard Kirchhoff loop-chain spectrum, pendant-loop flat bands, and equivalent terminology found no covering statement.
+PASS
 
-Residual risk remains that the same elementary Floquet computation occurs in older or poorly indexed literature under another name for the graph.
+Derived outgoing edge derivatives from elementary solutions of -u''=k^2u: each adjacent backbone gives k(u_neighbor-u_j cos k)/sin k; one loop with equal endpoint values gives net 2k u_j tan(k/2). Kirchhoff sum reduces to u_(j+1)+u_(j-1)=2(2 cos k-1)u_j; Floquet real theta iff cos k>=0. At k=n*pi, zero vertex amplitudes yield exact sine-coefficient relation a_j-(-1)^n a_(j-1)+(1-(-1)^n)b_j=0. For even n, one loop sine is an eigenfunction; for odd n, choose a_0=1 and b_0=b_1=-1/2, rest zero; translated compact eigenfunctions are linearly independent. Nonnegative self-adjoint Kirchhoff Laplacian excludes E<0; periodic Floquet decomposition rules out nonresonant spectral remainder. Verified analytic recurrence and resonance balance directly; source verify.py contains limited floating checks, which are not used to infer spectrum completeness.
 
-## Value
-**PASS.** The primary source leaves an explicit spectral-membership gap after deriving its candidate generalized eigenfunctions. The result closes that gap completely for the most natural standard equilateral member: it identifies every band and every flat band, shows that all Dirichlet energies have infinite multiplicity, and reveals a parity change in localization mechanism. In particular, odd Dirichlet modes are not one-loop states; they are compact three-edge states that sit inside the forbidden Bloch intervals. This is a natural complete classification of the source's baseline periodic model rather than an arbitrary parameter slice.
+## originality
 
-## Closest literature and limitations
-The classification is limited to unit edge lengths and standard Kirchhoff coupling. Generic periodic-quantum-graph results predict compactly supported point spectrum but do not imply the displayed graph-specific formulas. No statement is made for nonzero quasi-\(\delta\) parameters or unequal lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full primary 2019 paper uses precisely this loop chain and all-zero quasi-delta phase special case but explicitly says generalized boundary-solution candidates need not be in the spectrum (after Eq.4.31). Neither its boundary formalism nor general compact-mode existence proves the exact spectral set/odd flat-band mechanism. Older necklace-graph spectral literature with alternate geometric terminology is the main risk.
+
+## value
+
+PASS
+
+The full spectrum of the standard equilateral member answers the precise spectral-membership question left open by its motivating primary analysis. The dispersion/band-edge classification plus the parity reversal of compact flat-band localization, with genuine odd gap eigenvalues, form a natural complete classification of this baseline quantum graph, not an arbitrary cosmetic parameter re-labeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:42:50.367032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived outgoing edge derivatives from elementary solutions of -u''=k^2u: each adjacent backbone gives k(u_neighbor-u_j cos k)/sin k; one loop with equal endpoint values gives net 2k u_j tan(k/2). Kirchhoff sum reduces to u_(j+1)+u_(j-1)=2(2 cos k-1)u_j; Floquet real theta iff cos k>=0. At k=n*pi, zero vertex amplitudes yield exact sine-coefficient relation a_j-(-1)^n a_(j-1)+(1-(-1)^n)b_j=0. For even n, one loop sine is an eigenfunction; for odd n, choose a_0=1 and b_0=b_1=-1/2, rest zero; translated compact eigenfunctions are linearly independent. Nonnegative self-adjoint Kirchhoff Laplacian excludes E<0; periodic Floquet decomposition rules out nonresonant spectral remainder. Verified analytic recurrence and resonance balance directly; source verify.py contains limited floating checks, which are not used to infer spectrum completeness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuchment-type general periodic-graph results predict flat bands from compactly supported eigenfunctions, not their precise energy/parity and dispersion relation.",
+          "2019 primary shows all-zero boundary relations but warns they do not determine spectral membership."
+        ],
+        "reasoning": "Neither the generic Floquet theorem nor the 2019 boundary candidate equations alone computes the stated cos theta=2cos k-1 band criterion and odd-resonance three-edge mode.",
+        "searches": [
+          "arXiv:1908.04214 Section4",
+          "Kuchment math-ph/0411003 periodic quantum graph compact eigenfunctions",
+          "Exner topologically induced spectral behavior loop flat bands",
+          "Resultary semantic search Periodic metric quantum graph pendant loops backbone equal edge lengths Kirchhoff Floquet cos theta 2 cos k minus one spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.04214 Section4 same graph and limitations",
+        "Kuchment math-ph/0411003 and Exner review named in source and Resultary contextual search",
+        "Resultary q3 nearest ten published quantum-graph results",
+        "Frozen RESULT.md and verify.py full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-paper caution states satisfying boundary equations leaves possibly nonspectral candidates.",
+          "Compact-mode existence in periodic graphs does not specify whether odd n*pi is a gap eigenvalue or what Bloch bands are."
+        ],
+        "reasoning": "The spectral-membership test and explicit resonant balance add nontrivial information beyond constructing formal generalized eigenfunction candidates.",
+        "searches": [
+          "arXiv:1908.04214 Eqs.(4.24)-(4.31), paragraph after Eq.(4.31)",
+          "Kuchment math-ph/0411003",
+          "Exner review generic loop flat bands"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published loop chain has each cell a unit backbone connection and a loop, with quasi-delta boundary matrices.",
+          "At phases zero and delta zero the graph reduces to standard Kirchhoff, but the original paper discusses generalized boundary solutions, not exact Floquet bands."
+        ],
+        "reasoning": "A periodic comb graph, loop necklace or pendant-loop quantum graph may be equivalent; a different parallel-arc necklace is not topologically identical.",
+        "searches": [
+          "Periodic metric quantum graph pendant loops backbone equal edge lengths Kirchhoff Floquet cos theta 2 cos k minus one spectrum",
+          "\"Kirchhoff\" \"loop chain\" \"cos\" band",
+          "arXiv:1908.04214 Section4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-dispersion tabulation was identified in Resultary 10 nearest matches; returned papers concern other quantum-graph geometries and resonators.",
+          "The inspected relevant pages of 2019 primary do not list the complete bands."
+        ],
+        "reasoning": "Search cannot exclude a historically named comb-chain calculation with the same simple discriminant; prior-source boundaries remain explicit.",
+        "searches": [
+          "Periodic metric quantum graph pendant loops backbone equal edge lengths Kirchhoff Floquet cos theta 2 cos k minus one spectrum",
+          "\"cos theta\" \"2 cos k - 1\" metric quantum loop",
+          "\"periodic pendant-loop\" quantum graph flat-band spectrum",
+          "Resultary semantic search Periodic metric quantum graph pendant loops backbone equal edge lengths Kirchhoff Floquet cos theta 2 cos k minus one spectrum"
+        ]
+      },
+      "rationale": "Full primary 2019 paper uses precisely this loop chain and all-zero quasi-delta phase special case but explicitly says generalized boundary-solution candidates need not be in the spectrum (after Eq.4.31). Neither its boundary formalism nor general compact-mode existence proves the exact spectral set/odd flat-band mechanism. Older necklace-graph spectral literature with alternate geometric terminology is the main risk.",
+      "residual_risks": [
+        "An older differently named comb, pendant-loop or quantum necklace analysis may have published the identical elementary Floquet discriminant.",
+        "Full general-source monographs on graph spectral bands were not exhaustively checked; nearest literature comparison focuses on the initiating same-graph article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and boundary formalism covered, but complete spectral classification not stated in inspected source",
+          "evidence": [
+            "After Eq.(4.31), original explicitly cautions that algebraic candidate generalized eigenfunctions may lie outside the operator spectrum (PDF p.18)."
+          ],
+          "identifier_or_url": "arXiv:1908.04214",
+          "material_read": "Sections 3-4 relevant graph/specialization, equations (4.24)-(4.31), paragraph immediately following them, and conclusions",
+          "method": "Opened full public arXiv PDF; inspected exact original equations and parsed text across Section4",
+          "title": "On Z-Invariant Self-Adjoint Extensions of the Laplacian on Quantum Circuits",
+          "trigger": "Exact unit-loop chain and zero-phase quasi-delta family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full spectrum of the standard equilateral member answers the precise spectral-membership question left open by its motivating primary analysis. The dispersion/band-edge classification plus the parity reversal of compact flat-band localization, with genuine odd gap eigenvalues, form a natural complete classification of this baseline quantum graph, not an arbitrary cosmetic parameter re-labeling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the infinite unit-edge, standard-Kirchhoff pendant-loop chain, nonresonant Bloch dispersion is cos(theta)=2 cos(k)-1, continuous spectrum lies where cos k>=0, and every positive (n*pi)^2 is an infinite-multiplicity flat-band eigenvalue, with one-loop compact states for even n and three-edge compact states for odd n.",
+  "limitations": [
+    "Only unit-length, standard Kirchhoff zero-phase zero-delta loop chain; no unequal lengths, magnetic coupling, spectral perturbations.",
+    "Finite numerical verify.py is merely algebraic corroboration; all-energy argument is Floquet plus resonance completeness."
+  ],
+  "schema_version": 1
+}
