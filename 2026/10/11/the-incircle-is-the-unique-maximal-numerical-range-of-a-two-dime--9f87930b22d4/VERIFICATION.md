@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the incircle compression theorem
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the universal claim; finite diagnostics are additional checks only. In particular, Lagrange interpolation proves the squared incenter polynomial and the side-contact construction proves the disk has radius equal to the inradius for every nondegenerate triangle, without relying on samples.
+## correctness
 
-The standalone `verify_incircle.py` uses SymPy to check exactly the polynomial identity for the \(3\)-\(4\)-\(5\) right triangle, and NumPy/SciPy to form compressions for five fixed triangles. The latter compare the repeated eigenvalues, square-zero centered part, and disk radius with the elementary triangle inradius. It prints `INCIRCLE_COMPRESSION_EXACT_AND_FINITE_OK` on success.
+PASS
 
-Reproduce in a Python 3 environment with `sympy`, `numpy`, and `scipy` installed using `python verify_incircle.py`.
+Reconstructed inclusion W(N_S)⊆conv σ(N), giving disk radius ≤2A/P. The angle-bisector argument makes p_i=(z_i-c)^2/Π_{j≠i}(z_i-z_j) positive, quadratic Lagrange interpolation gives ∑p_i=1 and det(wI-D_{n⊥})=(w-c)^2. Therefore the 2×2 compression has a centered disk numerical range. Side-supported vectors sqrt(p_j)e_i−sqrt(p_i)e_j place a numerical-range point on each side, forcing radius r. Any maximizing elliptical numerical range contains the unique inball and touches all three triangle sides; a nonnegative degree-2 trigonometric polynomial on the inball circle has three double zeros, hence is identically zero, forcing the disk. Three spectral projections suffice in infinite dimensions. Independent 200 seeded random noncollinear triangle reconstructions checked p_i>0, ∑p_i=1, squared nilpotent part zero, disk radius r; finite diagnostic does not prove general theorem. The finite-matrix positive-block formula relies on Sababheh's pre-existing Φ(X)=δ₂(X), not an independent proof here.
 
-Unproved extensions: the formula for spectra with more than three distinct points; the finite-matrix positive-block identity for arbitrary bounded operators outside the cited source setting; any fixed-block higher-index defect. No independent audit or external validation has been performed.
+## originality
+
+PASS
+
+A construction and unique maximizing range for arbitrary noncollinear spectral triangles is a nontrivial additional step beyond general normal-compression tangency and beyond the general positive-block identity. Resultary semantic search returned this same record plus a four-corner-rectangle optimization; the four-corner statement has a different spectral polygon and cannot imply the triangle construction. Sababheh's 2026 exact block-defect identity does not itself evaluate the triangle's optimal compression. The 2002 Adam–Maroulas tangency result is a weaker necessary geometric property. Gau–Wu (2004) and inverse Poncelet/inellipse literature remain highly relevant prior-priority risks because their full texts could not be read; no blanket NOT_COVERING assertion about them.
+
+## value
+
+PASS
+
+The three-point case is the first genuinely noncollinear spectral regime for normal operators. An explicit spectral inradius formula and a unique maximizing numerical-range set are natural exact invariants and extremal constructions; finite-dimensional norm-defect evaluation supplies a separate application. This is more than a renamed numerical example or generic block-defect identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

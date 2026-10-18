@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-three-point spectral decomposition reduces the lower bound to a diagonal triple. Angle-bisector geometry proves the weights are strictly positive; quadratic Lagrange interpolation makes them sum to one and forces the compression's characteristic polynomial to be a perfect square centered at the incenter. The two-dimensional elliptical-range theorem makes its numerical range a disk; side-intersection vectors force its radius to equal the inradius. Inclusion in the full spectral triangle proves the matching universal upper bound. The uniqueness argument uses a nonnegative degree-two trigonometric polynomial with three double zeros, which must vanish identically. It applies in infinite-dimensional Hilbert spaces by choosing one eigenvector in each of the three spectral subspaces. The finite-dimensional positive-block consequence uses the cited extremal identity exactly within its published hypotheses.
+## correctness
 
-## Originality — PASS, with substantive residual risk
-Targeted research-record searches and the prior scientific literature found no exact three-point normal spectral formula for elliptical width, no statement that its unique maximal compression numerical-range set equals the incircle, and no corresponding explicit optimal block defect. Sababheh (2026) gives the defect/elliptical-width identity and a special symmetric example, not arbitrary spectral triangles. Adam–Maroulas (2002) proves all-edge tangency of a family of compressed ellipses, not the optimality/uniqueness of the incircle. Gau–Wu (2004) and Adam (2011) study related normal-compression geometry. The inaccessible predecessor Gau–Wu paper leaves a genuine possibility that a stronger Poncelet/inellipse theorem would subsume this formula; there is no claim of exhaustive priority verification.
+PASS
 
-## Value — PASS
-This determines a natural exact operator invariant for an entire three-point-spectrum class, including arbitrary multiplicities, and yields a closed spectral formula for the optimal positive-block norm correction in the finite-dimensional case. Its construction and uniqueness provide the optimizing compression, not merely an existence bound. The three-point spectral class is the first genuinely noncollinear normal-operator regime; two-point spectra necessarily give zero elliptical width.
+Reconstructed inclusion W(N_S)⊆conv σ(N), giving disk radius ≤2A/P. The angle-bisector argument makes p_i=(z_i-c)^2/Π_{j≠i}(z_i-z_j) positive, quadratic Lagrange interpolation gives ∑p_i=1 and det(wI-D_{n⊥})=(w-c)^2. Therefore the 2×2 compression has a centered disk numerical range. Side-supported vectors sqrt(p_j)e_i−sqrt(p_i)e_j place a numerical-range point on each side, forcing radius r. Any maximizing elliptical numerical range contains the unique inball and touches all three triangle sides; a nonnegative degree-2 trigonometric polynomial on the inball circle has three double zeros, hence is identically zero, forcing the disk. Three spectral projections suffice in infinite dimensions. Independent 200 seeded random noncollinear triangle reconstructions checked p_i>0, ∑p_i=1, squared nilpotent part zero, disk radius r; finite diagnostic does not prove general theorem. The finite-matrix positive-block formula relies on Sababheh's pre-existing Φ(X)=δ₂(X), not an independent proof here.
 
-## Scientific limitations
-No infinite-dimensional block-defect equality or results for more than three spectral points are asserted. The exact rational and finite-precision checks are diagnostics and not substitutes for the proof. Remaining priority uncertainty is associated particularly with classical normal-compression and inverse inellipse theory.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A construction and unique maximizing range for arbitrary noncollinear spectral triangles is a nontrivial additional step beyond general normal-compression tangency and beyond the general positive-block identity. Resultary semantic search returned this same record plus a four-corner-rectangle optimization; the four-corner statement has a different spectral polygon and cannot imply the triangle construction. Sababheh's 2026 exact block-defect identity does not itself evaluate the triangle's optimal compression. The 2002 Adam–Maroulas tangency result is a weaker necessary geometric property. Gau–Wu (2004) and inverse Poncelet/inellipse literature remain highly relevant prior-priority risks because their full texts could not be read; no blanket NOT_COVERING assertion about them.
+
+## value
+
+PASS
+
+The three-point case is the first genuinely noncollinear spectral regime for normal operators. An explicit spectral inradius formula and a unique maximizing numerical-range set are natural exact invariants and extremal constructions; finite-dimensional norm-defect evaluation supplies a separate application. This is more than a renamed numerical example or generic block-defect identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
