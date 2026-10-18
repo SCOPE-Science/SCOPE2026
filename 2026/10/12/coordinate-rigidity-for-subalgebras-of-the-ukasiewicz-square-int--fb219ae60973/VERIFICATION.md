@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The bundled `verify_coordinate_rigidity.py` is a standalone Python 3 standard-library script. It verifies the exact dyadic ramp formula on every dyadic point with denominator \(256\), for every \(0\le k\le8\) and \(0\le j<2^k\); it separately tests the definable-zero term on the same grid. It enumerates every endpoint-preserving nondecreasing mapping between the standard full grids of denominators \(1\) through \(9\), then checks preservation of negation, square and join. It also enumerates every pair of subalgebras of standard grids through denominator \(7\), screens all endpoint-preserving nondecreasing maps, and operation-checks survivors against the inclusion criterion. On a chain, preservation of join implies nondecreasingness, so the restricted candidate generation is exhaustive after endpoint preservation.
+## correctness
 
-The replay returned:
+PASS
 
-```
-VERIFY_OK 131994 exact structural assertions; 131327 exact ramp evaluations; 92368 full-chain monotone candidate maps screened; 23 actual full-chain homomorphisms; 324 subalgebra pairs; 10364 subalgebra monotone maps screened; 162 actual subalgebra homomorphisms
-```
+On every nonempty concrete subalgebra of ([0,1], max, 1-x, max(0,2x-1)), the term *(neg(x∨neg x)) equals zero and forces preservation of 0 and 1. Define lambda=neg*neg and sigma=*: their scalar actions are clipping 2x and 2x-1. Iterating yields unary term ramps R_{k,j}(x)=[2^k x-j]_0^1 for all k>=0,0<=j<2^k. If a<j/2^k then R(a)=0 forces h(a)<=j/2^k; if (j+1)/2^k<a then R(a)=1 forces h(a)>=(j+1)/2^k. Density of dyadic cuts gives h(a)=a without continuity, injectivity, or finiteness assumptions. All maps therefore are inclusions, and S_n⊆S_m iff n divides m; singleton/endpoint cases are explicitly covered.
 
-A final boundary test exhibits a nonidentity homomorphism in the join-and-negation reduct of the five-element grid that fails to preserve square; another test shows that negation and square alone permit endpoint interchange on the Boolean two-element subalgebra, which fails to preserve join.
+## originality
 
-The program exhausts only the indicated finite ranges. The general theorem, including arbitrary infinite domains, is established by the dyadic squeezing argument in `RESULT.md`; no independent audit has been performed.
+PASS
+
+The Coniglio--Esteva--Flaminio--Godo full paper gives detailed finite representability, skeleton structure, and componentwise embeddings (notably Proposition 5.9 and Theorem 5.16). That work is relevant and accounts for finite representable embeddings but it does not state a complete hom-set classification for *arbitrary*, including uncountable, concrete subalgebras, nor rule out all noninjective reduct-homomorphisms through dyadic term cuts. Full MV signature rigidity cannot simply be applied because this reduct is not always term-equivalent to MV-chains. Searches found no earlier equivalent full-category theorem; acknowledge potential implicit consequences of prior finite skeleton construction.
+
+## value
+
+PASS
+
+This resolves a natural semantic morphism problem: whether the square-and-join reduct admits genuinely new homomorphisms despite losing MV operations. The answer gives an exact inclusion-poset category and rigidity for arbitrary subalgebras, including infinite and non-finitely generated ones, with explicit term separation. It is a complete structural statement and not a finite-grid count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

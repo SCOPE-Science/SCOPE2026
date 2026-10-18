@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The statement fixes the concrete signature and includes arbitrary, not only finite, subalgebras. The zero term is valid on the real interval and forces endpoint preservation. The recursion for all dyadic clipping ramps is an exact inductive identity. Since dyadic upper and lower cuts are dense, preservation of these terms and endpoints forces every homomorphism to fix every element, with no continuity assumption. This proves the complete hom-set and the divisibility corollary. A standalone exhaustive finite verifier independently evaluates terms and operation tables. It cannot certify the infinite quantifier, which is handled by the proof.
+## correctness
 
-## Originality
-The 2021 primary paper analyzes object-level expressibility and skeletons of finite subalgebras. Its Theorem 5.16 discusses componentwise embeddings into standard chains, so the finite uniqueness consequence is close to existing material. However, the inspected full text does not classify all maps between arbitrary concrete subalgebras or prove an infinite-domain hom-set theorem. Classical full-signature MV results do not imply that deleting operations creates no new morphisms, because the primary paper exhibits failure of term-equivalence at many denominators. Targeted published-finding corpus and web searches did not find this same broad statement; unindexed or implicitly derivable antecedents remain a risk.
+PASS
 
-## Value
-This is a complete morphism classification for the natural standard semantics of the reduced signature, not a small computed numerical invariant. It resolves whether the reduced operations introduce new finite or infinite homomorphisms and proves that standard representation has unique coordinates even when proper exotic subalgebras exist. Dropping the square permits nonidentity monotone involution-preserving maps, while dropping join permits a two-point involution swap; both operations are essential. The sharp signature boundary and unrestricted domain make the result structurally useful.
+On every nonempty concrete subalgebra of ([0,1], max, 1-x, max(0,2x-1)), the term *(neg(x∨neg x)) equals zero and forces preservation of 0 and 1. Define lambda=neg*neg and sigma=*: their scalar actions are clipping 2x and 2x-1. Iterating yields unary term ramps R_{k,j}(x)=[2^k x-j]_0^1 for all k>=0,0<=j<2^k. If a<j/2^k then R(a)=0 forces h(a)<=j/2^k; if (j+1)/2^k<a then R(a)=1 forces h(a)>=(j+1)/2^k. Density of dyadic cuts gives h(a)=a without continuity, injectivity, or finiteness assumptions. All maps therefore are inclusions, and S_n⊆S_m iff n divides m; singleton/endpoint cases are explicitly covered.
 
-## Scope and limits
-No assertion is made about nonrepresentable abstract algebras or originality beyond searchable published literature. All proof and computation checks are internal; there is no independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Coniglio--Esteva--Flaminio--Godo full paper gives detailed finite representability, skeleton structure, and componentwise embeddings (notably Proposition 5.9 and Theorem 5.16). That work is relevant and accounts for finite representable embeddings but it does not state a complete hom-set classification for *arbitrary*, including uncountable, concrete subalgebras, nor rule out all noninjective reduct-homomorphisms through dyadic term cuts. Full MV signature rigidity cannot simply be applied because this reduct is not always term-equivalent to MV-chains. Searches found no earlier equivalent full-category theorem; acknowledge potential implicit consequences of prior finite skeleton construction.
+
+## value
+
+PASS
+
+This resolves a natural semantic morphism problem: whether the square-and-join reduct admits genuinely new homomorphisms despite losing MV operations. The answer gives an exact inclusion-poset category and rigidity for arbitrary subalgebras, including infinite and non-finitely generated ones, with explicit term separation. It is a complete structural statement and not a finite-grid count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
