@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed tree order, degree centralization is determined exactly by maximum degree because the tree degree sum is \(2(n-1)\). Tree betweenness is computed exactly from component-size products after deleting a vertex. Exhaustive Prüfer generation plus complete tree-isomorphism canonicalization produces every unlabeled tree through order \(8\), reproduces the standard counts \(1,2,3,6,11,23\), and gives strict-reversal counts \(0,0,0,0,0,8\). The spider witness is independently checked from exact degree and betweenness lists, and the packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: exhaustive finite classification proves only the stated cutoff and first layer; it is not an asymptotic theorem about all trees.
+PASS
 
-## Originality
-**PASS.** Freeman already establishes the two centralization measures and explicitly shows that degree-, betweenness-, and closeness-based centralization rank some general five-point graphs differently. His full five-point table therefore dominates any claim that ranking disagreement merely exists. The accepted claim is instead tree-specific and sharp: no strict reversal through seven vertices, first reversal at eight, exactly eight unordered pairs at the first layer, with a compact spider witness. Result-database searches and targeted literature searches did not locate this tree threshold.
+For every n-vertex tree, Σd(v)=2(n-1), so the degree gap numerator is nΔ-2(n-1). Unique tree geodesics give b(v)=Σ_{i<j}s_i s_j for components of T-v. For A=S(4,1,1,1), Δ=4 and degree gap 18, betweenness max15 and gap77, yielding C_D=3/7 and C_B=11/21. For B=S(3,2,2), Δ=3 and gap10, betweenness max16 and gap84, yielding C_D=5/21 and C_B=4/7; signs reverse. Independently, networkx nonisomorphic_trees enumerated every unlabelled tree at n=3..8 (counts 1,2,3,6,11,23), recomputed betweenness centrally using its own algorithm, and compared pairs exactly; reversal counts 0,0,0,0,0,8. This finite exhaustive cut-off establishes minimality at n≤8, not all-order comparisons.
 
-Risk: Freeman's tabulation makes small-order centralization comparison a natural finite question, so an unindexed exercise or implementation test may contain the same witness. Failed search is not proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** Freeman interprets degree centrality as communication activity and betweenness as control or brokerage, and his canonical examples include tree communication networks such as the star, fork, and chain. The sharp tree threshold identifies the smallest acyclic communication network on which those two network-level centralization concepts make opposite strict comparative judgments. The spider witness isolates the structural mechanism without cycles or weighted edges.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Freeman’s full primary article defines both normalized measures and tabulates all 34 five-vertex graph structures, exhibiting broader general-graph rank disagreement. That does not imply the minimum *tree-only strict* reversal or eight reversing pairs at the first occurrence: his table only concerns order five, and even differences of weak rankings can arise through ties. No same threshold was returned by the exact Resultary tree/spider query. An unindexed exercise or data table may nevertheless contain it.
+
+## value
+
+PASS
+
+Trees include canonical star, fork, and chain communication networks and remove path multiplicity as a confounder. Identifying the sharp smallest acyclic network size for opposite ranking of activity (degree) versus brokerage (betweenness), with complete boundary census and an interpretable spider witness, is a motivated precise finite structural cutoff rather than a random eight-vertex statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

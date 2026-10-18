@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_freeman_tree_centralization_reversal.py` gives an exhaustive exact replay.
 
-For every order
-\[
-3\le n\le8,
-\]
-all labeled trees are generated from all Prüfer sequences of length \(n-2\). Tree isomorphism classes are then deduplicated using the standard center-or-bicenter recursive branch code.
+# Independent mathematical audit
 
-The recovered unlabeled-tree counts are
-\[
-1,\ 2,\ 3,\ 6,\ 11,\ 23.
-\]
+## correctness
 
-For a tree \(T\), degree centralization is computed exactly from the degree list. Betweenness of a vertex is computed without shortest-path numerics: if deleting the vertex produces component sizes
-\[
-s_1,\ldots,s_k,
-\]
-then
-\[
-b(v)=\sum_{i<j}s_i s_j.
-\]
+PASS
 
-The strict-reversal counts for orders \(3\) through \(8\) are
-\[
-0,\ 0,\ 0,\ 0,\ 0,\ 8.
-\]
+For every n-vertex tree, Σd(v)=2(n-1), so the degree gap numerator is nΔ-2(n-1). Unique tree geodesics give b(v)=Σ_{i<j}s_i s_j for components of T-v. For A=S(4,1,1,1), Δ=4 and degree gap 18, betweenness max15 and gap77, yielding C_D=3/7 and C_B=11/21. For B=S(3,2,2), Δ=3 and gap10, betweenness max16 and gap84, yielding C_D=5/21 and C_B=4/7; signs reverse. Independently, networkx nonisomorphic_trees enumerated every unlabelled tree at n=3..8 (counts 1,2,3,6,11,23), recomputed betweenness centrally using its own algorithm, and compared pairs exactly; reversal counts 0,0,0,0,0,8. This finite exhaustive cut-off establishes minimality at n≤8, not all-order comparisons.
 
-For the witness,
-\[
-S(4,1,1,1):
-\quad
-C_D=\frac37,\quad C_B=\frac{11}{21},
-\]
-and
-\[
-S(3,2,2):
-\quad
-C_D=\frac5{21},\quad C_B=\frac47.
-\]
+## originality
 
-Run:
+PASS
 
-`python3 verify_freeman_tree_centralization_reversal.py`
+Freeman’s full primary article defines both normalized measures and tabulates all 34 five-vertex graph structures, exhibiting broader general-graph rank disagreement. That does not imply the minimum *tree-only strict* reversal or eight reversing pairs at the first occurrence: his table only concerns order five, and even differences of weak rankings can arise through ties. No same threshold was returned by the exact Resultary tree/spider query. An unindexed exercise or data table may nevertheless contain it.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
+
+Trees include canonical star, fork, and chain communication networks and remove path multiplicity as a confounder. Identifying the sharp smallest acyclic network size for opposite ranking of activity (degree) versus brokerage (betweenness), with complete boundary census and an interpretable spider witness, is a motivated precise finite structural cutoff rather than a random eight-vertex statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
