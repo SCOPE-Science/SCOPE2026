@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-Every positive momentum is partitioned by which of the three edge-length sines vanish. For fully nonsingular edges the exact fiber determinant has a nonzero \(\cos(2t)\) coefficient. At singular lengths, explicit endpoint propagation and free Dirichlet sine derivatives produce the three necessary and sufficient cases; no division at a Dirichlet point is used. The half-flux witness is checked with exact trigonometric double-angle identities. A magnetic-covariant constant on a connected graph cannot give zero energy at positive-measure Bloch phases.
+## correctness
 
-## Originality (PASS)
-The primary source of Kiselev–Ryadovkin works with every edge length equal to one and obtains flat levels \((\pi n)^2\). It does not address unequal transverse lengths, the parity-mismatched exclusion, or the one-rung half-flux cotangent resonance. Published comparisons with the two-dimensional magnetic square lattice and a different tight-binding two-leg ladder do not cover the same metric Kirchhoff setting. The published literature comparisons did not identify an equivalent statement. Residual risk: a differently indexed metric ladder or transfer-matrix treatment could contain an equivalent length-resonance criterion.
+PASS
 
-## Value (PASS)
-The result completely determines localization for the most direct three-length deformation of a physically motivated magnetic tube. Its three mechanisms expose a robust rung-cycle class, an arithmetic rail–rung coincidence, and a new magnetic half-flux resonance requiring only one transverse Dirichlet edge. The explicit flux-induced example persists outside the equal-length calculation, so the exact classification is not merely a parameter rename or the source's theorem restated.
+The non-Dirichlet Bloch determinant has cos(2t) coefficient 2/sin(kh)^2, so it cannot vanish on a positive-measure set of t. For sin(kh)=0, at generic Bloch phases both vertex values vanish and free rail-sine amplitudes solve the two Kirchhoff conditions if and only if some rung is Dirichlet. When rails are not Dirichlet, two Dirichlet rungs with unequal cos signs have a nonsingular 2x2 endpoint-derivative constraint; equal cos signs provide an opposite-rung compact eigenstate. With exactly one Dirichlet rung d, elimination of its free derivative gives 2(cos t cos A-cos kh)/sin kh-cot(ke)+cos(kd)csc(ke)=0, constant in t iff cos A=0. At k=0 a covariantly constant nonzero Bloch eigenstate can occur only at isolated compatible phases, not a flat band. Exact flux-only example h=3/4,r=1,s=2atan(1/2)/pi,A=pi/2,k=pi satisfies -2+3/4+5/4=0; symbolic verifier checks these edge cases.
 
-## Limits
-No band-gap sizes, higher-dimensional tubes, or full density-of-states formula are asserted. Literature coverage is bounded by the inspected primary articles and targeted searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.
+
+## value
+
+PASS
+
+A complete if-and-only-if classification of positive flat energies in a natural unequal-length extension of a studied periodic tubular quantum graph, exposing a half-flux flat band supported by only one Dirichlet rung. The new branch is not a relabeling of equal-length Dirichlet levels and can inform spectral engineering and spectral localization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

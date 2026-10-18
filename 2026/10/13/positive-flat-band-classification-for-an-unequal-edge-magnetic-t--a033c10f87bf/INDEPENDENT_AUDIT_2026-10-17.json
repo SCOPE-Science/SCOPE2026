@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:48:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/positive-flat-band-classification-for-an-unequal-edge-magnetic-t--a033c10f87bf/RESULT.md",
+        "Source blob 76781671dc3da69dc61be9bc82998b07d177ca6d",
+        "Exact frozen Git tree and RESULT.md blob checked; verify.py inspected (symbolic harmonic and exact resonance).",
+        "Independent algebraic reconstruction of determinant harmonic, Dirichlet edge compatibility, and zero-energy Bloch exception."
+      ],
+      "rationale": "The non-Dirichlet Bloch determinant has cos(2t) coefficient 2/sin(kh)^2, so it cannot vanish on a positive-measure set of t. For sin(kh)=0, at generic Bloch phases both vertex values vanish and free rail-sine amplitudes solve the two Kirchhoff conditions if and only if some rung is Dirichlet. When rails are not Dirichlet, two Dirichlet rungs with unequal cos signs have a nonsingular 2x2 endpoint-derivative constraint; equal cos signs provide an opposite-rung compact eigenstate. With exactly one Dirichlet rung d, elimination of its free derivative gives 2(cos t cos A-cos kh)/sin kh-cot(ke)+cos(kd)csc(ke)=0, constant in t iff cos A=0. At k=0 a covariantly constant nonzero Bloch eigenstate can occur only at isolated compatible phases, not a flat band. Exact flux-only example h=3/4,r=1,s=2atan(1/2)/pi,A=pi/2,k=pi satisfies -2+3/4+5/4=0; symbolic verifier checks these edge cases.",
+      "residual_risks": [
+        "The convention for outward magnetic derivatives and phase gauge is fixed in the package; changing convention without adjusting A/t would invalidate a naive reuse.",
+        "The statement does not determine flat multiplicities at exceptional Bloch phases or negative energies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked source restricts all metric edges to unit length.",
+          "Brüning–Geyler–Pankrashkin square magnetic periodic graph and Huang–Hosur–Pal tight-binding ladder employ distinct graph/operator models."
+        ],
+        "reasoning": "General Floquet machinery does not automatically supply the all-Dirichlet-case and mixed-length if-and-only-if theorem; broader-looking sources have nonidentical hypotheses.",
+        "searches": [
+          "web source: arXiv:2303.00872 / SIAM DOI 10.1137/23M157274X",
+          "Resultary search: Periodic quantum graph magnetic tubular ladder unequal horizontal rail and parallel rung lengths positive flat bands Dirichlet half flux criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://epubs.siam.org/doi/10.1137/23M157274X",
+        "arXiv:2303.00872",
+        "DOI:10.1007/s00220-006-0050-0",
+        "DOI:10.1103/PhysRevB.102.155429"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing h=r=s=1 recovers the source case.",
+          "At h=3/4,r=1,s=2atan(1/2)/pi,A=pi/2,k=pi, only one rung is Dirichlet and the new criterion holds."
+        ],
+        "reasoning": "The new theorem implies the old flat levels on specialization; the converse cannot imply a resonance outside the older theorem’s fixed-length hypotheses.",
+        "searches": [
+          "SIAM J Applied Mathematics 84 (2024) Section 5, M matrix and Theorem 5.2",
+          "web query: Kiselev Ryadovkin tubular magnetic ladder unequal rungs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiselev–Ryadovkin (arXiv:2303.00872) gives h=r=s=1 Bloch M matrix and Dirichlet flat levels (pi n)^2.",
+          "No identical two-rung unequal-edge cotangent-and-parity criterion was located in the actual Resultary 12-hit search."
+        ],
+        "reasoning": "Matching the Floquet formalism does not equate the fixed equal-length spectrum with the three-length classification; in particular the one-rung half-flux resonance is absent from its domain.",
+        "searches": [
+          "Resultary search: Periodic quantum graph magnetic tubular ladder unequal horizontal rail and parallel rung lengths positive flat bands Dirichlet half flux criterion",
+          "web query: periodic tubular magnetic structure unequal edge lengths flat bands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equal-length spectral tables determine (pi n)^2, not the continuum of length-dependent single-rung resonances."
+        ],
+        "reasoning": "An existing equal-length table is not an exact table of the three-length spectrum. The negative search does not establish priority.",
+        "searches": [
+          "Resultary search: Periodic quantum graph magnetic tubular ladder unequal horizontal rail and parallel rung lengths positive flat bands Dirichlet half flux criterion",
+          "web query: tubular structure flat bands unequal edges quantum graphs"
+        ]
+      },
+      "rationale": "Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.",
+      "residual_risks": [
+        "A weakly indexed equivalent unequal-edge transfer-matrix theorem may exist.",
+        "Two broad analogical papers were inspected only at abstract level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equal-edge model; not the uneven-length resonance",
+          "evidence": "The metric model fixes all edges to length 1 and the flat levels to (pi n)^2.",
+          "identifier_or_url": "arXiv:2303.00872; DOI:10.1137/23M157274X",
+          "material_read": "Full accessible SIAM HTML: graph definition, Floquet M-matrix, Section 5 Lemma 5.1 and Theorem 5.2, discussion of unit-edge lengths",
+          "method": "Lawful full HTML theorem-and-equation comparison",
+          "title": "Phase Transition in a Periodic Tubular Structure",
+          "trigger": "Identical two-rail two-parallel-rung topology and magnetic phases"
+        },
+        {
+          "assessment": "Different 2D square metric lattice; whole-document exclusion not asserted",
+          "evidence": "Publication describes Cantor and band spectra on magnetic 2D square graph.",
+          "identifier_or_url": "DOI:10.1007/s00220-006-0050-0",
+          "material_read": "Published abstract/metadata only; entire source not accessible in this audit",
+          "method": "Abstract-level comparison",
+          "title": "Cantor and Band Spectra for Periodic Quantum Graphs with Magnetic Fields",
+          "trigger": "Broad spectral result on magnetic periodic quantum graphs"
+        },
+        {
+          "assessment": "Tight-binding hopping ladder differs from Kirchhoff metric graph; noncoverage not certified",
+          "evidence": "Physical hopping model and quasi-flat bands, not periodic metric-edge Dirichlet conditions.",
+          "identifier_or_url": "DOI:10.1103/PhysRevB.102.155429",
+          "material_read": "Published abstract only; full document not read",
+          "method": "Abstract-level comparison",
+          "title": "Quasi-flat-band physics in a two-leg ladder model and its relation to magic-angle twisted bilayer graphene",
+          "trigger": "Potential equivalent ladder name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://epubs.siam.org/doi/10.1137/23M157274X",
+        "arXiv:2303.00872",
+        "DOI:10.1007/s00220-006-0050-0",
+        "DOI:10.1103/PhysRevB.102.155429"
+      ],
+      "rationale": "A complete if-and-only-if classification of positive flat energies in a natural unequal-length extension of a studied periodic tubular quantum graph, exposing a half-flux flat band supported by only one Dirichlet rung. The new branch is not a relabeling of equal-length Dirichlet levels and can inform spectral engineering and spectral localization.",
+      "residual_risks": [
+        "No complete band/gap or density-of-states classification is supplied; value attaches to the exact flat-band classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For k>0 in the specified two-rail Kirchhoff metric graph with h-length rails and parallel transverse edges r,s, positive flat bands are exactly the two Dirichlet conditions and the single-rung cos A=0 cotangent resonance described in RESULT.md; k=0 has none.",
+  "limitations": [
+    "The convention for outward magnetic derivatives and phase gauge is fixed in the package; changing convention without adjusting A/t would invalidate a naive reuse.",
+    "The statement does not determine flat multiplicities at exceptional Bloch phases or negative energies.",
+    "No complete band/gap or density-of-states classification is supplied; value attaches to the exact flat-band classification.",
+    "A weakly indexed equivalent unequal-edge transfer-matrix theorem may exist.",
+    "Two broad analogical papers were inspected only at abstract level."
+  ],
+  "schema_version": 1
+}
