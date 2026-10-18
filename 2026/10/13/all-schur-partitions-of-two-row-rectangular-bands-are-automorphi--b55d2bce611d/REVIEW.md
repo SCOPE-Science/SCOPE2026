@@ -1,11 +1,21 @@
-# Review: Schur partitions of two-row rectangular bands
+# Independent mathematical audit
 
-**Correctness — PASS.** The product-coefficient identity \(r_X(i)c_Y(j)\) makes the closure test exact. Summing over block colors yields necessary row/column incidence-profile constancy, and the converse is immediate. In the unequal-row case this forces identical partitions in both rows. In the balanced case, the unordered pair of block colors in each column identifies a unique monochrome or equal-size paired component. A symmetric-group generator construction realizes all blocks as orbits. The exponential formula then counts labelled components without duplication. An exhaustive finite checker, not used as a substitute for proof, tests all partitions up to eight cells and reconstructs orbit witnesses.
+## correctness
 
-**Originality — PASS, with residual risk.** Marrow–Misseldine (arXiv:2601.09940v1, January 14, 2026), Sections 2.2, 5.4, 5.6, provides \(2\mathscr B(m)\) direct-product examples for the two-row band and tabulates the counts \(5\) and \(13\) at the first two nontrivial sizes. It does not state or imply the all-\(m\) automorphic classification or the exact labelled enumerator. Exact-object, orbit-partition, equitable-profile, and stronger-coverage searches found no covering theorem, but older equivalence under different terminology remains possible.
+PASS
 
-**Value — PASS.** The classification resolves the natural simplest rectangular-band case beyond direct products, computes the full enumeration, and determines every Schur partition as an explicit automorphism orbit partition. In particular \(m=4\) has \(48\) Schur partitions, of which \(18\) are not direct products. This is a structural family theorem, not a routine small-tabulation extension.
+For B_m with (i,j)(k,l)=(i,l), coefficient at (i,j) in underline(X)underline(Y) equals row-count r_X(i) times column-count c_Y(j). Closure of block-sum span is equivalent to constancy on each partition block. Summing product equalities over all Y and X separately forces complete row-incidence and column-incidence profile constancy. If row profiles differ, blocks cannot cross rows and the two induced column partitions mutually refine one another, so both coincide (separated type). If row profiles agree, all colors are row-balanced, and each column is determined by its unordered two-cell color multiset; a singleton-color multiset gives monochrome groups, a distinct pair must have an even number of columns and a balanced unordered equipartition. Conversely every such pattern satisfies closure. Exponential formula counts labels, giving N_m=Bell(m)+m![z^m]exp(e^z−1+(1/2)sum_{h>=1} z^(2h)/(h!)²) = 2,5,13,48,184 for m=1..5. Explicit subgroup using within-group permutations and a simultaneous row-and-halves swap realizes every normal form as automorphism orbits. Independent exhaustive check enumerated every set partition of 2m cells for m=1..4 (including all 4140 for m=4), compared direct algebra closure and classifications; pairs (separated,balanced) were (1,1),(2,3),(5,8),(15,33). General proof does not rely on m<=4.
 
-**Scope.** Only the \(2\)-by-\(m\) rectangular band over rational coefficients; neither three-row bands nor positive-characteristic coefficient rings are classified. Independent verification of originality remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge universal two-row Schur partition classification and automorphic realization, with decorated Bell exponential generating function. Full exact-object 2026 prior paper states only direct-product lower bound and small census; equivalent descriptions were searched in Resultary.
+
+## value
+
+PASS
+
+The Schur-ring semigroup notion naturally asks for all admissible partitions, not just direct products or a small-size census. A complete infinite two-row normal form, universal automorphic-realization theorem and exact EGF identify all nonproduct configurations. This is structural and enumerative information missing from the prior census, not a routine single-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

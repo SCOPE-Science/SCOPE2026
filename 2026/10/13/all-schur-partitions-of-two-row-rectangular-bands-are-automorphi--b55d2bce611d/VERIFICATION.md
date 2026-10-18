@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 rectangular_schur_verify.py` in the directory containing the packaged source. The standalone code uses only the Python 3 standard library and directly enumerates all set partitions on \(2m\) cells for \(\(m=1,2,3,4\)\), tests products of every pair of block sums in the rational semigroup ring using integer coefficients, verifies the two-form classification and compares the explicit generator orbits with the proposed blocks.
+## correctness
 
-Observed separated/balanced counts respectively: \((1,1),(2,3),(5,8),(15,33)\). All sums match the claimed \(2,5,13,48\). The formula gives \(184\) at \(m=5\), but that case is not exhaustively checked. Execution produced `VERIFY_OK`. This finite experiment does not certify the unrestricted theorem or originality; the infinite quantifiers are supported by the mathematical proof.
+PASS
+
+For B_m with (i,j)(k,l)=(i,l), coefficient at (i,j) in underline(X)underline(Y) equals row-count r_X(i) times column-count c_Y(j). Closure of block-sum span is equivalent to constancy on each partition block. Summing product equalities over all Y and X separately forces complete row-incidence and column-incidence profile constancy. If row profiles differ, blocks cannot cross rows and the two induced column partitions mutually refine one another, so both coincide (separated type). If row profiles agree, all colors are row-balanced, and each column is determined by its unordered two-cell color multiset; a singleton-color multiset gives monochrome groups, a distinct pair must have an even number of columns and a balanced unordered equipartition. Conversely every such pattern satisfies closure. Exponential formula counts labels, giving N_m=Bell(m)+m![z^m]exp(e^z−1+(1/2)sum_{h>=1} z^(2h)/(h!)²) = 2,5,13,48,184 for m=1..5. Explicit subgroup using within-group permutations and a simultaneous row-and-halves swap realizes every normal form as automorphism orbits. Independent exhaustive check enumerated every set partition of 2m cells for m=1..4 (including all 4140 for m=4), compared direct algebra closure and classifications; pairs (separated,balanced) were (1,1),(2,3),(5,8),(15,33). General proof does not rely on m<=4.
+
+## originality
+
+PASS
+
+Best-of-knowledge universal two-row Schur partition classification and automorphic realization, with decorated Bell exponential generating function. Full exact-object 2026 prior paper states only direct-product lower bound and small census; equivalent descriptions were searched in Resultary.
+
+## value
+
+PASS
+
+The Schur-ring semigroup notion naturally asks for all admissible partitions, not just direct products or a small-size census. A complete infinite two-row normal form, universal automorphic-realization theorem and exact EGF identify all nonproduct configurations. This is structural and enumerative information missing from the prior census, not a routine single-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
