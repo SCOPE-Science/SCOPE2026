@@ -1,15 +1,21 @@
-# Mathematical review: reciprocal-square bi-unitary divisor sums
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplicative prime-power rule excludes the central term only at even exponents. The exact rational certificate independently enumerates bi-unitary divisors for integers up to 256, and verifies every displayed finite prime-tail inequality and all eight small-prime multipliers. Ramanujan's fifth-prime inequality \(\pi(x)-\pi(x/2)\ge5\) for \(x\ge41\) closes the infinite case; the binary-series interval lemma then proves the full tail continuum. The interval overlap and universal upper bound complete the proof. The finite checker deliberately does not purport to establish Ramanujan's external theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Tóth (2009) studies bi-unitary Euler and gcd-sum functions, not reciprocal-square image topology. The OEIS bi-unitary divisor-sum entry records arithmetic values and the divisor-system definition, not a closure theorem. Defant's unitary negative-power image and Sanna's ordinary negative-power image differ from the bi-unitary object; their disconnected conclusions at exponent two do not cover or imply a connectedness theorem for this third divisor system. Targeted literature, database, equivalent-formulation, and prior-record comparisons identified no stronger theorem implying this specific closure. An earlier unindexed bi-unitary range result remains possible.
+PASS
 
-## Value — PASS
-This is the complete answer for a natural exact topological invariant at the first bounded integer negative exponent. Its mechanism is mathematically distinct from the unitary/ordinary cases: the bi-unitary exponent-two factor \(17/16\) bridges the small-prime Euler-product layers. The value does not rest on computational novelty or on claiming a new general no-gap lemma.
+For n product of prime powers the bi-unitary condition removes only the middle divisor p^{a/2} for even exponent a, so F(p^a)=Σ_{j=0}^a p^{-2j}-1_{2|a}p^{-a}. Its local closure contains 1 and C_p=(1-p^-2)^-1. For primes p>=5, independently verified 10 finite rational witness products; for p>=41, fifth Ramanujan prime R5=41 gives five primes p<q<2p, forcing ∏_{q>p}C_q>C_p. Thus the binary-series interval lemma applied to log C_p fills [1,T=π²/9] by finite-support approximations. The eight independent scale factors from p=2 and3 are {1,17/16,9/8,153/128,5/4,4/3,45/32,3/2}; their maximum adjacent ratio is 16/15<T, so scaled intervals overlap and fill [1,(3/2)T]=[1,π²/6]. The universal divisor bound gives the other inclusion. Independent direct bi-unitary divisor enumeration for n<=256 and exact rational witness checks corroborated steps, but cannot replace Ramanujan or the series lemma.
 
-## Boundaries
-The result concerns closure rather than actual attainment and does not classify other exponents. The infinite step depends on the unconditional published Ramanujan-prime theorem. Independently published overlap not found by these searches cannot be ruled out in absolute terms.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tóth 2009 studies bi-unitary Euler/gcd-sum analogues and asymptotic sums, not the reciprocal-square value-set topology. Defant explicitly treats unitary divisor sums, with different local factors 1+p^{-2a} and a disconnected reciprocal-square range. Sanna treats ordinary divisor sums, where the reciprocal-square range has three components. Neither theorem covers bi-unitary middle-divisor deletion or its extra 17/16 factor and interval bridging. Targeted Resultary and literature searches found no exact covering bi-unitary closure theorem; the possibility of an unindexed one remains.
+
+## value
+
+PASS
+
+This determines a natural complete range-closure invariant at the first integer exponent beyond absolute harmonic convergence. It explains a sharp qualitative difference among ordinary, unitary and bi-unitary divisor systems at the same exponent, using the unusual exponent-two 17/16 multiplier to eliminate gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
