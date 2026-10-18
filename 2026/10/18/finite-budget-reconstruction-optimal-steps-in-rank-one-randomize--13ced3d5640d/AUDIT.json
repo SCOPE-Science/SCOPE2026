@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact residual recursion, independent multinomial covariance, and sharp weighted Cauchy–Schwarz establish the unique unrestricted finite-horizon global optimum; the separate interpolation constraint and constant-step threshold follow from the same identity. The attached exact rational enumerator directly reconstructs finite trajectories and matches each derived formula. Infinite claims rely on algebra, not samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1503.08235, Theorem 4.1: extended Gauss–Seidel convergence to least-norm solution",
+        "arXiv:2405.13340v1, Theorem 2.9: strong convergence under full-column-rank factor"
+      ],
+      "reasoning": "The older extended-method theorem uses a different two-channel algorithm; the 2024 strong result assumes structural full-column-rank and targets asymptotic convergence, not optimal finite-time risk of standard single-coordinate updates. Neither theorem dominates the new exact schedule comparison.",
+      "searches": [
+        "randomized block coordinate Landweber zero initialization minimum norm finite iteration noninterpolating optimal schedule bias variance nullspace",
+        "randomized coordinate descent one constraint optimal finite time expected Euclidean error minimum norm stopping before zero residual",
+        "single equation many coordinates randomized block descent exact covariance solution minimum norm bias deterministic residual"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.13340v1, 2024-05-22, Algorithm 1, Lemma 2.1, Theorem 2.9",
+      "arXiv:1503.08235, Sections 3.3 and 4",
+      "Accessible previously recorded scientific claims (52 items) with targeted coordinate-descent, rank-deficient, nullspace, and finite-budget term comparison",
+      "Published mathematical-record results for sharp finite-horizon Kaczmarz overrelaxation and optimal coordinate sampling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jin–Liu 2024, Algorithm 1 and Lemma 2.1: update and stability, not reconstruction-optimal schedule",
+        "Ma–Needell–Ramdas 2015, Section 3.3: qualitative non-minimum-norm convergence, no formula for sharp deterministic schedule",
+        "Prior own claim 4bcb907c-8026-460f-8ca3-0f505d7aacd0 concerns Gaussian-subspace constrained corrections rather than coordinate-iterative inverse-problem risk"
+      ],
+      "reasoning": "Known feasibility without minimum norm does not imply the attained best expected distance, uniqueness of the increasing step sequence, the strict positive terminal residual, or the exact monotonicity threshold at 2/b. The full-column-rank result excludes the single-row repeated-column operator for b>1. No inspected source is a logically stronger theorem covering the new statements.",
+      "searches": [
+        "finite horizon optimal coordinate descent stepsizes underdetermined rank one exact min norm expected error deterministic sequence 1/(N+b-1-k)",
+        "randomized block coordinate Landweber zero initialization minimum norm finite iteration noninterpolating optimal schedule bias variance nullspace",
+        "randomized coordinate descent one constraint optimal finite time expected Euclidean error minimum norm stopping before zero residual",
+        "randomized coordinate descent underdetermined rank deficient least squares limiting random minimizer variance nullspace sum of geometric Bernoulli iterates",
+        "single equation many coordinates randomized block descent exact covariance solution minimum norm bias deterministic residual"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.13340v1, Algorithm 1 and Section 2",
+        "arXiv:1503.08235, Section 3.3",
+        "Mathematical-record query results: sharp finite-horizon Kaczmarz relaxation and optimal coordinate sampling address different operators/objectives"
+      ],
+      "reasoning": "The rank-one iteration is a randomized Gauss–Seidel method, and its effective scalar weights reduce risk minimization to a quadratic simplex problem. Its all-weights-equal optimum may conceivably be known under optimal weighting terminology, but the inspected Gauss–Seidel and inverse-problem results do not identify these exact weights, the unique schedule, or the noninterpolation optimum.",
+      "searches": [
+        "finite horizon optimal coordinate descent stepsizes underdetermined rank one exact min norm expected error deterministic sequence 1/(N+b-1-k)",
+        "randomized block coordinate Landweber zero initialization minimum norm finite iteration noninterpolating optimal schedule bias variance nullspace",
+        "randomized coordinate descent underdetermined rank deficient least squares limiting random minimizer variance nullspace sum of geometric Bernoulli iterates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical-record search returned sharp finite-horizon two-row Kaczmarz overrelaxation, and sharp coordinate sampling for inverse-positive SPD quadratics; both have other update rules and other operators",
+        "52 accessible historical numerical-optimization research claims were searched for coordinate descent/minimum norm/nullspace/finite-horizon aliases; none expressed this theorem"
+      ],
+      "reasoning": "The result specifies a closed-form real-parameter family and optimizer, not a finite experimental table. No known exact database of this trajectory distribution or step schedule was found; search incompleteness is an explicit risk.",
+      "searches": [
+        "finite horizon optimal coordinate descent stepsizes underdetermined rank one exact min norm expected error deterministic sequence 1/(N+b-1-k)",
+        "randomized coordinate descent one constraint optimal finite time expected Euclidean error minimum norm stopping before zero residual",
+        "single equation many coordinates randomized block descent exact covariance solution minimum norm bias deterministic residual"
+      ]
+    },
+    "rationale": "The novelty claimed is the fully sharp finite-budget risk/schedule theorem, nonzero residual at the optimum, and the exact constant-step reconstruction-monotonicity frontier, not the already known failure of plain randomized Gauss–Seidel to find the minimum-norm solution. The 2024 source establishes the algorithm and weak/conditional stronger convergence; the 2015 source proves the qualitative underdetermined failure but not this finite-budget optimal design. Targeted mathematical-record searches and the 52 accessible own scientific claims revealed no implication of the complete result. Equivalent formulations in older stochastic-approximation weight-optimality literature are a residual risk.",
+    "residual_risks": [
+      "A finite-horizon equal-weight schedule with this risk may appear in older randomized approximation or optimal stochastic-approximation literature under different terminology.",
+      "The motivating operator is a very narrow but canonical rank-deficient inverse problem; no extension to general tomography or arbitrary operators is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the algorithm and convergence framework; the inspected theorems do not optimize the expected minimum-norm reconstruction risk over deterministic finite-horizon step sequences. Its strong minimum-norm result requires a full-column-rank structural factor absent here.",
+        "evidence": [
+          "arXiv:2405.13340v1, Algorithm 1, eqs. (9), (12)-(13), Theorem 2.9"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.13340v1",
+        "material_read": "Full-text HTML: introduction and Algorithm 1, Section 2.1 stability estimate, Theorem 2.9 and its assumptions, and related rank-structure discussion",
+        "method": "Read displayed update equations and theorem hypotheses; compare deterministic step schedules, observation residuals and Euclidean reconstruction claims",
+        "title": "Randomized block coordinate descent method for linear ill-posed problems",
+        "trigger": "Same randomized block-coordinate method; potential finite-budget and minimum-norm coverage"
+      },
+      {
+        "assessment": "Qualitative minimum-norm failure is prior art and excluded from novelty claim. The inspected treatment does not provide the unique time-varying optimum or the exact sharp reconstruction risk for the stated rank-one benchmark.",
+        "evidence": [
+          "arXiv:1503.08235, Sec. 3.3, and Sec. 4, Thm. 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.08235",
+        "material_read": "Primary PDF pages 1, 5–6 and 8–9, including Section 3.3 and the extended Gauss–Seidel algorithm and its theorem",
+        "method": "Read primary pages and the full relevant Section 3.3; compare qualitative failure and extended-method convergence against the exact finite-budget optimum of the unextended method",
+        "title": "Convergence Properties of the Randomized Extended Gauss-Seidel and Kaczmarz Methods",
+        "trigger": "Known failure of ordinary randomized coordinate descent to reach least-norm solutions in underdetermined systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13ced3d5-640d-4cf7-bc47-002b6fa45451",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact natural small inverse-problem model shows residual minimization and minimum-norm reconstruction are different finite-budget objectives. The theorem uniquely optimizes all deterministic step schedules, identifies why deliberately leaving a residual minimizes expected error, and determines the exact threshold where constant steps improve measured residual while worsening reconstruction. The schedule is implementable with only coordinate updates and remains at or below 1/b, a practically relevant conservative step scale.",
+    "status": "PASS"
+  }
+}
