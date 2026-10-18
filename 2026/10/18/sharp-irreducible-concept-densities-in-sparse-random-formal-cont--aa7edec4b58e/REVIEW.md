@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** In all finite contexts, the candidate's local proxy differs from the actual join-irreducible count by at most four times the number of incidence four-cycles plus two; the dual estimate is proved similarly. The proof derives the exact proxy expectation by a three-category multinomial count, obtains bounded expected four-cycle error, and applies Efron–Stein to get quantitative concentration. Direct exhaustive concept-lattice verification checked 74,384 small contexts and eight rational expectation identities; finite tests are supplementary, not a proof of the limit.
+
+**Originality — PASS, with residual risk.** Syau, Lin and Liau (2023, Propositions 2–3) give a deterministic irreducibility criterion, not a sparse-random density law. Sakurai (2021) computes the expectation and a lower bound for the total number of concepts, not join-/meet-irreducibles. Felde and Hanika (2018) address random context generation. Prior exact individual-object reducibility results do not count distinct irreducible concepts after duplicate clarification; their output omits the positive singleton-collision correction. Related concept *cover* reductions of Zhou et al. (2021) optimize a different invariant. Search results cannot rule out an equivalent theorem in older probabilistic lattice or random-graph literature.
+
+**Mathematical value — PASS.** The two-sided limiting densities quantify the intrinsic size of a canonical reduced formal context in a natural sparse-data regime, with an explicit finite four-cycle stability certificate. The strictly positive gap between individually nonreducible rows and required distinct irreducible object concepts identifies a structural obstacle to naive simultaneous reduction, not just a row-counting curiosity. The theorem gives bounded expectation error and an explicit \(L^1\) convergence rate.
+
+Limits: fixed \(\alpha,c>0\), sparse Bernoulli incidence, no fluctuation CLT or uniform-in-parameter claim. The originality investigation included published-finding corpus semantic records, accessible previous claims and full relevant primary text, but does not certify priority.
+
+Self-review: passed. Independent audit: not yet performed.
