@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact uses only the Python standard library and was replayed from its packaged path.
+# Independent mathematical audit
 
-It constructs the reduced comaximal graph directly from the tuple of field orders. For \((2,3)\), \((3,3)\), \((2,2,2)\), and \((2,2,3)\), it exhaustively enumerates graph automorphisms and then checks every vertex subset until the first determining size is reached. The resulting determining numbers and counts of minimum sets agree with the theorem in all four cases.
+## correctness
 
-It also verifies the closed non-Boolean formulas on \((2,3,3)\), \((3,4,5)\), and \((2,2,5,3)\), and constructs optimal Boolean separating families for \(2\le r\le8\).
+PASS
 
-Exact replay output:
+PASS: Adjacency among nonunit nonzero elements of ∏F_q is disjointness of nonempty proper zero sets. Twin fibers C_Z have size ∏_{i∉Z}(q_i−1), and quotient D_r has automorphism S_r because vertex degrees identify singleton layer and adjacency to singletons recovers each subset. A stabilizer fixing a determining set can permute omitted twins, so at most one per fiber may be omitted. When any q_k>2, fibers complementary to nonbinary singleton, then mixed-pair complements, force each coordinate permutation trivial, giving sufficiency. Independent fiber choices yield factorized determining polynomial, minimum N−(2^r−2) and product multiplicity count. In all-Boolean case equal incidence columns permit coordinate transpositions and k rows give at most 2^k distinct columns; explicit binary labels attain ceil(log2 r). Independent parameter arithmetic reproduced (2,3): (N=3, Det=1, minima=2), (3,3): (4,2,4), (2,2,3): (9,3,8), (2,3,3): (13,7,64), (3,4,5): (35,29,13824). These numerical cases do not prove the general theorem.
 
-```text
-CASE (2, 3) vertices 3 automorphisms 2 determining 1 minimum_sets 2
-CASE (3, 3) vertices 4 automorphisms 8 determining 2 minimum_sets 4
-CASE (2, 2, 2) vertices 6 automorphisms 6 determining 2 minimum_sets 12
-CASE (2, 2, 3) vertices 9 automorphisms 16 determining 3 minimum_sets 8
-FORMULA (2, 3, 3) determining 7 minimum_sets 64
-FORMULA (3, 4, 5) determining 29 minimum_sets 13824
-FORMULA (2, 2, 5, 3) determining 37 minimum_sets 2097152
-BOOLEAN 2 determining 1
-BOOLEAN 3 determining 2
-BOOLEAN 4 determining 2
-BOOLEAN 5 determining 3
-BOOLEAN 6 determining 3
-BOOLEAN 7 determining 3
-BOOLEAN 8 determining 3
-VERIFY_OK
-```
+## originality
 
-The exhaustive computations validate finite boundary cases. The general theorem is proved by the support-fiber and coordinate-stabilizer argument; no finite experiment is used as an infinite proof.
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: All determining subsets and their polynomial for the natural reduced comaximal graph are classified. The Boolean/non-Boolean phase boundary shifts minimum base size from ceil(log2 r) to almost the full vertex set; this is a motivated exact graph invariant and gives more than an isolated calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

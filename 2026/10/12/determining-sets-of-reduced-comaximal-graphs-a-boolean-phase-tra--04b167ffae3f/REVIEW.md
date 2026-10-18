@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The support classes \(C_Z\) are false-twin classes because adjacency depends only on disjointness of zero sets. The quotient automorphism group is forced by its singleton layer: subset size is degree-determined and adjacency to singleton vertices recovers every subset. In the non-Boolean case, omitting two vertices in one fiber gives an immediate stabilizing transposition, while selecting all but at most one vertex in every fiber fixes every nonbinary coordinate through a co-singleton fiber and every binary coordinate through a two-coordinate complement with one already-fixed nonbinary coordinate. This kills the quotient action and all internal fiber permutations. The factorized polynomial and minimum-set count then follow by independent fiber choices. At the Boolean boundary, the stabilizer is exactly the product of symmetric groups on equal incidence columns, so triviality is equivalent to coordinate separation and gives the logarithmic bound.
+PASS
 
-## Originality
+PASS: Adjacency among nonunit nonzero elements of ∏F_q is disjointness of nonempty proper zero sets. Twin fibers C_Z have size ∏_{i∉Z}(q_i−1), and quotient D_r has automorphism S_r because vertex degrees identify singleton layer and adjacency to singletons recovers each subset. A stabilizer fixing a determining set can permute omitted twins, so at most one per fiber may be omitted. When any q_k>2, fibers complementary to nonbinary singleton, then mixed-pair complements, force each coordinate permutation trivial, giving sufficiency. Independent fiber choices yield factorized determining polynomial, minimum N−(2^r−2) and product multiplicity count. In all-Boolean case equal incidence columns permit coordinate transpositions and k rows give at most 2^k distinct columns; explicit binary labels attain ceil(log2 r). Independent parameter arithmetic reproduced (2,3): (N=3, Det=1, minima=2), (3,3): (4,2,4), (2,2,3): (9,3,8), (2,3,3): (13,7,64), (3,4,5): (35,29,13824). These numerical cases do not prove the general theorem.
 
-PASS. The 2010/2011 structural source supplies the support-class blow-up, and the later automorphism paper is treated as prior for automorphism-group structure. The determining-set literature inspected covers other graph families and particular blow-ups, while the comaximal metric-dimension paper concerns a different invariant. Searches under determining set, base size, separating family, comaximal graph, reduced semisimple ring, and Boolean disjointness terminology found no statement implying the exact all-determining-set classification, its polynomial, or the Boolean/non-Boolean transition. The inaccessible full text of the 2025 automorphism article remains a residual literature risk, but its public abstract advertises automorphism groups rather than determining invariants.
+## originality
 
-## Value
+PASS
 
-PASS. This is a natural exact invariant of a standard algebra-defined graph family, not an arbitrary parameter slice. The result explains a structural phase transition: a single nonbinary factor activates large false-twin fibers and forces nearly all vertices into every determining set, whereas the fully Boolean graph has no fiber multiplicity and reduces to optimal coordinate separation with logarithmic size. The complete characterization and factorized polynomial retain more information than the minimum number alone and provide a reusable template for studying nonreduced semilocal extensions.
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: All determining subsets and their polynomial for the natural reduced comaximal graph are classified. The Boolean/non-Boolean phase boundary shifts minimum base size from ceil(log2 r) to almost the full vertex set; this is a motivated exact graph invariant and gives more than an isolated calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
