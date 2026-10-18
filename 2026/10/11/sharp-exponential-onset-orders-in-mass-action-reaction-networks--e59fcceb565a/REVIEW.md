@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central factorization \(\dot c_i=P_i(c)+c_iQ_i(c)\) has nonnegative production \(P_i\) and exact polynomial \(Q_i\). For initially absent species the variation-of-constants formula prevents cancellation at the smallest monomial exponent. Structural closure identifies exactly the coordinates that activate; Taylor analyticity makes their orders integer and positive. The min-plus recursion and its leading coefficient formula follow from integrating the leading term. The molecularity bound comes from \(H_\ell=1+mH_{\ell-1}\), and the serial inflow/conversion network attains it. An exact rational arithmetic checker passed 152 finite diagnostics; the infinite proof does not depend on sampling. These conclusions require positive rate constants and mass-action kinetics.
+PASS
 
-## Originality — PASS with documented residual risks
+Write each component of the mass-action ODE as c_i'=P_i(c)+c_iQ_i(c), where P_i is a sum of nonnegative monomials from reactions producing i without consuming it. Analyticity and positivity of the integrating factor give rate-independent leading exponent 1+min sum_j alpha_{rj}h_j and strictly positive leading coefficient; support closure determines exactly which species activate. Every contributing reactant has strictly smaller exponent, so the cost recursion is acyclic, and at most s nonempty closure rounds give the bound H_s=1+mH_{s-1}. The inflow-plus-serial conversion chain attains equality for all integer m,s, with orders 1,1+m,1+m+m²,... . Independently checked m=1,2,3 serial four-species orders 4,15,40; source exact-rational checker inspected for its 152 bounded tests. Assumes positive rates, polynomial mass action, nonnegative initial data; not an absolute observation-time bound.
 
-Peter and Ibrahim, arXiv:2608.27201v1, prove support-level admissibility and closure transitions; their fully inspected Sections 2–5 do not derive these Taylor-order laws. Vance, Arkin and Ross (PNAS, 2002) study stationary-state perturbation pulses and initial-slope connectivity, and Soliman, Fages and Radulescu (Algorithms for Molecular Biology, 2014) study parameter-dependent tropical equilibration. Full primary text for each of those two closer technical analogues was compared on objects, quantifiers and implications. Neither covers the claimed sharp all-molecularity onset orders. Published-record searches on boundary vanishing, min-plus valuations and bimolecular chains produced no exact equivalent. A 2021 Peter–Ibrahim–Dittrich full paper could not be read beyond its abstract, and generic earlier chemical-kinetics methods remain an acknowledged originality risk; neither supports a decisive subsuming theorem on accessible evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result converts a qualitative species-presence closure into an exact quantitative Taylor-order invariant, with no dependence on positive rate values. The sharp bound \((m^s-1)/(m-1)\) and the bimolecular exponential realization explain why immediate mathematical positivity can be effectively invisible near the initial time. Its motivating gap is structural, and the completed theorem covers all finite mass-action networks within its stated assumptions. The scope excludes absolute observation thresholds, discontinuous interventions, nonanalytic kinetics and long-time persistence.
+Peter–Ibrahim 2026 full text proves qualitative admissible species-transition closure; its theorem/sections do not calculate the first nonzero initial-time Taylor exponent or the sharp m-molecularity exponential bound. Soliman–Fages–Radulescu 2014 full primary HTML uses tropical min-plus equilibration under parameter rescaling and opposing dominant reaction fluxes, a distinct asymptotic object. Vance–Arkin–Ross PNAS 2002 addresses causal connectivity of pulses at stationary states (accessible abstract), not universally positive initial-boundary Taylor jets. Resultary semantic search found no stronger primary record besides the exact assigned finding. Best-of-knowledge PASS, retaining risk of old jet/valuation interpretations and the 2021 Peter–Ibrahim–Dittrich full text not read.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first nonzero Taylor coefficient quantifies a natural gap between structural activation and numerically visible production in chemical kinetics. An exact min-plus structural invariant and a sharp exponentially large onset order achieved by bimolecular chains supply a complete motivated boundary in all network sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
