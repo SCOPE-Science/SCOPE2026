@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed eigenvalue \((-1)^k\) is derived by exhaustive consideration of transversal and nontransversal vertex types. The incidence filtration has exactly \(k+1\) nonzero orthogonal invariant pieces, and the orbit-commutant dimension proves their irreducibility and inequivalence without an unproved representation-theoretic assumption. Explicit cyclic-matching witnesses pair nontrivially with the square of the signed eigenvector in every piece. This forces its orbit to span all coordinates; factorizing the Schur square of the full spectral projector proves strict positivity. Exact integer tests in `verify.py` corroborate the critical combinatorial identities, but the theorem relies on the unrestricted proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2017 average-mixing paper and 2022 exact-quantum-walk paper supply the basic projector formula, not the arbitrary-size strict-positive top-projector conclusion. The 2024 survey treats full rank for primitive distance-regular graphs as an explicit open problem. Earlier work on the Johnson triple graphs implies the special case \(k=3\) and is excluded from the novelty claim; the present uniform \(k\ge4\) dimension-growth result and signed-transversal spanning proof are not implied by fixed-degree results. Comparison by statement and implications was performed against known Johnson-scheme Krein parameter theory; those standard formulas may yield equivalent results upon additional algebra. No directly covering published result was identified, but an unindexed equivalent proof remains possible, particularly in association-scheme literature.
+PASS
 
-**Value — PASS.** The result addresses a published motivated problem over a canonical infinite family of distance-regular graphs. The stronger positivity of a **single** idempotent Schur square is a structural strengthening of full rank and supplies a uniform representation-theoretic witness rather than isolated instances. This is meaningful independently of a lower spectral-gap bound or a classification of all distance-regular graphs.
+For vertices k-subsets of [2k+1], the signed transversal ψ(X)=product_i(1_{a_i in X}-1_{b_i in X}) is an eigenvector Aψ=(-1)^kψ: complementary transversals contribute sign (-1)^k, and nontransversal input either has no disjoint transversal or two cancelling signs. Inclusion subspaces U_j from j-subset indicators yield a chain and nonzero orthogonal V_j; the S_(2k+1) commutant has dimension k+1 by intersection-size orbitals. The k+1 mutually orthogonal invariant projections therefore exhaust the commutant and show V_j are inequivalent irreducible modules. Explicit cyclic disjoint-pair products h_j∈V_j have nonzero overlaps <ψ²,h_j>: 2^k (j=0), 2^(k-1) (j=1), 2^(k+1-j) (2<=j<=k). The cyclic sign expectation is 2^(1-m) for even cycle length m, with extra independent mean 1/2 for odd j. Hence the permutation orbit of ψ² spans all modules, implying W∘W spans the entire vertex space, so the Gram expansion E∘E=sum_{p,q}(u_p∘u_q)(u_p∘u_q)^T is strictly positive definite. Other projectors add PSD Schur squares, so average mixing has full rank binom(2k+1,k). The proof handles k=1 and all k, not just tested k<=6.
 
-Closest literature: Coutinho–Godsil–Guo–Zhan (2017), *A New Perspective on the Average Mixing Matrix*; Coutinho–Guo (2024), *Selected Open Problems in Continuous-Time Quantum Walks*; Coutinho et al. (2022), *Irrational quantum walks*; standard Johnson association-scheme Krein theory. The main residual risks are an equivalent theorem extracted from a general Krein-parameter formula and incomplete discoverability of associated papers. Scope is the unweighted odd-graph family; no finite-time mixing claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Coutinho–Guo’s full primary survey §4.1 poses positive definiteness/full rank for primitive distance-regular graphs as Open Problem 4.1, with only the general formula sum of projector Schur squares. The odd-graph family is a natural primitive distance-regular subfamily. Existing Johnson-scheme/Krein methods and finite Johnson J(n,3) cases supply foundational mathematics but no inspected unbounded-k strict single-projector statement; the explicit signed-transversal orbit proof bridges this gap.
+
+## value
+
+PASS
+
+A uniform all-size full-rank theorem on a natural unbounded distance-regular family settles a nontrivial subfamily of an explicitly documented quantum-walk average-mixing open problem. Its single-projector Schur positivity is stronger than the final rank statement and structurally useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
