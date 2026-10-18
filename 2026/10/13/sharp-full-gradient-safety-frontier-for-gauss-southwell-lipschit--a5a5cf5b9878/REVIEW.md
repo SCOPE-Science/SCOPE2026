@@ -1,37 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a selected coordinate, the GSL-admissible gradients form an explicit cone, and exact coordinate minimization gives a one-row gradient map. Maximizing over that cone yields the fixed-matrix criterion
-\[
-q^2+2qs\le1.
-\]
-The remaining problem is a complete two-variable spectral optimization. Minimizing the two-by-two condition-number spread over the unsafe set gives
-\[
-u_*=\frac{4-\sqrt{13}}3
-\]
-and
-\[
-\delta_*^2
-=
-\frac{97-26\sqrt{13}}{27},
-\]
-hence the stated \(\kappa_*\). The proof also supplies a monotone sharpness path for every larger condition number. The packaged checker replays the algebraic threshold and the exact condition-\(3\) witness.
+## correctness
 
-## Originality
-PASS with stated residual risks. Nesterov's coordinate-descent framework and objective-progress bounds are prior work. Nutini, Schmidt, Laradji, Friedlander, and Koepke introduce GSL and show that, for quadratics with exact coordinate optimization, it is the optimal myopic coordinate update for immediate objective decrease.
+PASS
 
-The new statement concerns the Euclidean norm of the complete gradient after that update. The full GSL paper was inspected around its exact-optimization and GSL sections, and targeted full-text searches found no matching gradient-norm monotonicity or condition-number theorem. Published-record searches found nearby full-sweep Gauss-Seidel transients and randomized coordinate-sampling results but no implication-equivalent one-coordinate GSL classification.
+Starting from g+=(0,g2-c*g1/a), GSL selection imposes |g2/g1|<=sqrt(b/a)=s. The exact worst opposite-sign ratio yields q^2+2qs<=1 (q=|c|/a). For fixed q²=u and s²=y the normalized spectral spread delta²=[(1-y)²+4u]/(1+y)² is minimized over unsafe region. Along boundary y=(1-u)²/(4u), stationarity gives 3u²-8u+1=0, u*=(4-sqrt13)/3, delta_*²=(97-26sqrt13)/27. For larger q range the minimal spread >=1/8>delta_*², so the threshold is global. Strict unsafe matrices for every larger kappa arise increasing s at fixed q*. Independent exact rational check for A=[[1,1/2],[1/2,1]], g=(1,-9/10): g+=(0,-7/5), norm squared factor 196/181>1 while objective decreases 1/2. Boundary equality includes GSL ties. Verification script algebra inspected; finite checks are not the proof.
 
-The principal residual risk is older coordinate-relaxation literature using different terminology.
+## originality
 
-## Value
-PASS. The rule being analyzed is designed to make the largest immediate objective progress, while full-gradient norm is a common stopping and stationarity measure. The exact threshold
-\[
-\kappa_*=2.0639445610\ldots
-\]
-identifies where these two natural diagnostics cease to align, and a rational condition-\(3\) example shows strict disagreement after a single exact update.
+PASS
 
-## Closest literature and limitations
-The closest full source is the 2015 GSL paper; the foundational coordinate-descent source supplies the primary optimization classification. The theorem is two-dimensional and assumes exact GSL scores and exact coordinate minimization. It does not classify blocks, approximate selection, proximal variants, higher dimensions, or finite precision.
+Nutini et al (2015), Section 6 GSL, establishes argmax |g_i|/sqrt(L_i) maximizes immediate objective improvement on quadratics, but the searched full primary text does not provide a threshold for Euclidean norm of the whole gradient. Nesterov studies objective complexity, not this diagnostic. The semantically nearest published Resultary Gauss–Seidel transient theorem optimizes two-coordinate one-sweep solution-error amplification, not a single GSL update or full gradient. The new claim is the global sharp two-dimensional threshold, not GSL itself. Best-of-knowledge pass, extensive older coordinate-relaxation work residual.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Gradient norm is a standard practical stationarity stopping diagnostic, while a GSL update is chosen to maximize objective decrease. A sharp matrix-condition boundary for whether this distinct diagnostic can worsen has direct structural and algorithmic meaning. The explicit fixed-matrix cone criterion and a unique-choice counterexample show exactly why objective descent does not guarantee gradient-norm descent. Not merely a normalization of the GSL definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:58:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from g+=(0,g2-c*g1/a), GSL selection imposes |g2/g1|<=sqrt(b/a)=s. The exact worst opposite-sign ratio yields q^2+2qs<=1 (q=|c|/a). For fixed q²=u and s²=y the normalized spectral spread delta²=[(1-y)²+4u]/(1+y)² is minimized over unsafe region. Along boundary y=(1-u)²/(4u), stationarity gives 3u²-8u+1=0, u*=(4-sqrt13)/3, delta_*²=(97-26sqrt13)/27. For larger q range the minimal spread >=1/8>delta_*², so the threshold is global. Strict unsafe matrices for every larger kappa arise increasing s at fixed q*. Independent exact rational check for A=[[1,1/2],[1/2,1]], g=(1,-9/10): g+=(0,-7/5), norm squared factor 196/181>1 while objective decreases 1/2. Boundary equality includes GSL ties. Verification script algebra inspected; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 6 defines GSL and derives quadratic progress.",
+          "Coordinate Lipschitz and objective decrease as standard prior.",
+          "Two-update best-order threshold ~8.35241 is not 2.06394 single-step threshold."
+        ],
+        "reasoning": "General coordinate-descent convergence/objective decrease results control f(x), not necessarily ||grad f||. No implication from immediate objective optimality to stationarity monotonicity; independent explicit witness disproves such implication.",
+        "searches": [
+          "Resultary: Gauss Southwell Lipschitz coordinate descent exact coordinate update gradient norm contraction two dimensional condition number",
+          "Nutini et al 2015 Gauss-Southwell-Lipschitz full text sections on exact myopic coordinate decrease",
+          "Nesterov 2012 coordinate descent gradient norm monotonicity condition number",
+          "Resultary: two-coordinate Gauss-Seidel Euclidean transient threshold"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "GSL algorithm and objective guarantee are prior; no inspected full-gradient norm frontier",
+          "identifier_or_url": "arXiv:1506.00552; https://friedlander.io/files/pdf/nutini15.pdf",
+          "title": "Coordinate Descent Converges Faster with the Gauss-Southwell Rule Than Random Selection"
+        },
+        {
+          "assessment": "Objective complexity not shown to imply full-gradient nonexpansion",
+          "identifier_or_url": "DOI:10.1137/100802001",
+          "title": "Efficiency of coordinate descent methods on huge-scale optimization problems"
+        },
+        {
+          "assessment": "Uses full prescribed sweep and Euclidean error, not single-coordinate GSL or gradient norm",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+          "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 defines GSL and derives quadratic progress.",
+          "Coordinate Lipschitz and objective decrease as standard prior.",
+          "Two-update best-order threshold ~8.35241 is not 2.06394 single-step threshold."
+        ],
+        "reasoning": "Prior GSL selection + quadratic update formulas are ingredients but do not themselves state or prove the constrained spectral minimax over unsafe 2x2 matrices; the u,y minimization supplies that classification.",
+        "searches": [
+          "Resultary: Gauss Southwell Lipschitz coordinate descent exact coordinate update gradient norm contraction two dimensional condition number",
+          "Nutini et al 2015 Gauss-Southwell-Lipschitz full text sections on exact myopic coordinate decrease",
+          "Nesterov 2012 coordinate descent gradient norm monotonicity condition number",
+          "Resultary: two-coordinate Gauss-Seidel Euclidean transient threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 6 defines GSL and derives quadratic progress.",
+          "Coordinate Lipschitz and objective decrease as standard prior.",
+          "Two-update best-order threshold ~8.35241 is not 2.06394 single-step threshold."
+        ],
+        "reasoning": "Full-gradient change in exact coordinate relaxation, symmetric Gauss–Seidel one-step operator and gradient-cone nonexpansion are equivalent reformulations; the Resultary two-update error-norm theorem is not the same operator or norm.",
+        "searches": [
+          "Resultary: Gauss Southwell Lipschitz coordinate descent exact coordinate update gradient norm contraction two dimensional condition number",
+          "Nutini et al 2015 Gauss-Southwell-Lipschitz full text sections on exact myopic coordinate decrease",
+          "Nesterov 2012 coordinate descent gradient norm monotonicity condition number",
+          "Resultary: two-coordinate Gauss-Seidel Euclidean transient threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 6 defines GSL and derives quadratic progress.",
+          "Coordinate Lipschitz and objective decrease as standard prior.",
+          "Two-update best-order threshold ~8.35241 is not 2.06394 single-step threshold."
+        ],
+        "reasoning": "Checked GSL published algorithm formulas and nearby Resultary mathematical results; no exact 2.06394456 threshold or all-matrix cone table appeared. A failed search does not certify absence.",
+        "searches": [
+          "Resultary: Gauss Southwell Lipschitz coordinate descent exact coordinate update gradient norm contraction two dimensional condition number",
+          "Nutini et al 2015 Gauss-Southwell-Lipschitz full text sections on exact myopic coordinate decrease",
+          "Nesterov 2012 coordinate descent gradient norm monotonicity condition number",
+          "Resultary: two-coordinate Gauss-Seidel Euclidean transient threshold"
+        ]
+      },
+      "rationale": "Nutini et al (2015), Section 6 GSL, establishes argmax |g_i|/sqrt(L_i) maximizes immediate objective improvement on quadratics, but the searched full primary text does not provide a threshold for Euclidean norm of the whole gradient. Nesterov studies objective complexity, not this diagnostic. The semantically nearest published Resultary Gauss–Seidel transient theorem optimizes two-coordinate one-sweep solution-error amplification, not a single GSL update or full gradient. The new claim is the global sharp two-dimensional threshold, not GSL itself. Best-of-knowledge pass, extensive older coordinate-relaxation work residual.",
+      "residual_risks": [
+        "Extensive pre-2015 coordinate-relaxation literature might formulate exact 2D stationarity amplification under another name.",
+        "Old results on nonnormal products could provide a broader implication not detected by semantic searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GSL algorithm and objective guarantee are prior; no inspected full-gradient norm frontier",
+          "evidence": "Section 6 defines GSL and derives quadratic progress.",
+          "identifier_or_url": "arXiv:1506.00552; https://friedlander.io/files/pdf/nutini15.pdf",
+          "material_read": "Full PDF selected substantive Sections 4-6 (including GSL formula and exact quadratic myopic progress)",
+          "method": "OA author PDF full-text inspection",
+          "title": "Coordinate Descent Converges Faster with the Gauss-Southwell Rule Than Random Selection",
+          "trigger": "Same precise GSL selection and objective improvement"
+        },
+        {
+          "assessment": "Objective complexity not shown to imply full-gradient nonexpansion",
+          "evidence": "Coordinate Lipschitz and objective decrease as standard prior.",
+          "identifier_or_url": "DOI:10.1137/100802001",
+          "material_read": "Original framework and objective-convergence statements via relevant retrieved materials; full source not exhaustively inspected",
+          "method": "Published result/abstract comparison",
+          "title": "Efficiency of coordinate descent methods on huge-scale optimization problems",
+          "trigger": "General faster coordinate-descent algorithms"
+        },
+        {
+          "assessment": "Uses full prescribed sweep and Euclidean error, not single-coordinate GSL or gradient norm",
+          "evidence": "Two-update best-order threshold ~8.35241 is not 2.06394 single-step threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+          "material_read": "Resultary semantic record statement, title, and abstract; underlying full Git mathematical record not inspected",
+          "method": "Semantic published-record comparison",
+          "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering",
+          "trigger": "Nearest published Resultary alias, coordinate relaxation gradient/transient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gradient norm is a standard practical stationarity stopping diagnostic, while a GSL update is chosen to maximize objective decrease. A sharp matrix-condition boundary for whether this distinct diagnostic can worsen has direct structural and algorithmic meaning. The explicit fixed-matrix cone criterion and a unique-choice counterexample show exactly why objective descent does not guarantee gradient-norm descent. Not merely a normalization of the GSL definition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "GSL algorithm and objective guarantee are prior; no inspected full-gradient norm frontier",
+      "identifier_or_url": "arXiv:1506.00552; https://friedlander.io/files/pdf/nutini15.pdf",
+      "title": "Coordinate Descent Converges Faster with the Gauss-Southwell Rule Than Random Selection"
+    },
+    {
+      "assessment": "Objective complexity not shown to imply full-gradient nonexpansion",
+      "identifier_or_url": "DOI:10.1137/100802001",
+      "title": "Efficiency of coordinate descent methods on huge-scale optimization problems"
+    },
+    {
+      "assessment": "Uses full prescribed sweep and Euclidean error, not single-coordinate GSL or gradient norm",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent mathematics is best-of-knowledge, not formal certification.",
+    "Historical priority not exhaustively established; source inspections have explicit material scope.",
+    "The source verify.py was read but not executed as an opaque artifact; independent checks were separately computed.",
+    "No GitHub writes or dispatcher completion endpoint calls made."
+  ],
+  "residual_risks": [
+    "Extensive pre-2015 coordinate-relaxation literature might formulate exact 2D stationarity amplification under another name.",
+    "Old results on nonnormal products could provide a broader implication not detected by semantic searches."
+  ],
+  "schema_version": 1
+}

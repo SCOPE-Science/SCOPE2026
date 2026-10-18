@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,70 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem is analytic. The checker replays the threshold identities and exact witness.
 
-The sharp spread parameter is
-\[
-\delta_*^2
-=
-\frac{97-26\sqrt{13}}{27},
-\]
-with
-\[
-\kappa_*
-=
-\frac{1+\delta_*}{1-\delta_*}.
-\]
-The checker verifies numerically at high precision that
-\[
-9\kappa_*^4+\kappa_*^3-43\kappa_*^2+\kappa_*+9=0
-\]
-and that
-\[
-\kappa_*
-=
-2.0639445610119587707\ldots.
-\]
+# Independent mathematical audit
 
-For the exact witness
-\[
-A=
-\begin{pmatrix}
-1&1/2\\
-1/2&1
-\end{pmatrix},
-\qquad
-g=
-\begin{pmatrix}
-1\\
--9/10
-\end{pmatrix},
-\]
-the checker verifies that coordinate \(1\) is the unique GSL choice, that exact coordinate minimization produces
-\[
-g^+
-=
-\begin{pmatrix}
-0\\
--7/5
-\end{pmatrix},
-\]
-that the objective decrease equals
-\[
-1/2,
-\]
-and that
-\[
-\frac{\|g^+\|_2^2}{\|g\|_2^2}
-=
-\frac{196}{181}>1.
-\]
+## correctness
 
-It also checks representative matrices just below and above the analytic frontier against the fixed-matrix condition
-\[
-q^2+2qs\le1.
-\]
+PASS
 
-Finite replay is corroborative only. The all-matrix threshold follows from the constrained minimization in `RESULT.md`.
+Starting from g+=(0,g2-c*g1/a), GSL selection imposes |g2/g1|<=sqrt(b/a)=s. The exact worst opposite-sign ratio yields q^2+2qs<=1 (q=|c|/a). For fixed q²=u and s²=y the normalized spectral spread delta²=[(1-y)²+4u]/(1+y)² is minimized over unsafe region. Along boundary y=(1-u)²/(4u), stationarity gives 3u²-8u+1=0, u*=(4-sqrt13)/3, delta_*²=(97-26sqrt13)/27. For larger q range the minimal spread >=1/8>delta_*², so the threshold is global. Strict unsafe matrices for every larger kappa arise increasing s at fixed q*. Independent exact rational check for A=[[1,1/2],[1/2,1]], g=(1,-9/10): g+=(0,-7/5), norm squared factor 196/181>1 while objective decreases 1/2. Boundary equality includes GSL ties. Verification script algebra inspected; finite checks are not the proof.
 
-Unproved limits include dimensions three and higher, block rules, approximate GSL selection, inexact coordinate minimization, proximal variants, and finite-precision effects.
+## originality
+
+PASS
+
+Nutini et al (2015), Section 6 GSL, establishes argmax |g_i|/sqrt(L_i) maximizes immediate objective improvement on quadratics, but the searched full primary text does not provide a threshold for Euclidean norm of the whole gradient. Nesterov studies objective complexity, not this diagnostic. The semantically nearest published Resultary Gauss–Seidel transient theorem optimizes two-coordinate one-sweep solution-error amplification, not a single GSL update or full gradient. The new claim is the global sharp two-dimensional threshold, not GSL itself. Best-of-knowledge pass, extensive older coordinate-relaxation work residual.
+
+## value
+
+PASS
+
+Gradient norm is a standard practical stationarity stopping diagnostic, while a GSL update is chosen to maximize objective decrease. A sharp matrix-condition boundary for whether this distinct diagnostic can worsen has direct structural and algorithmic meaning. The explicit fixed-matrix cone criterion and a unique-choice counterexample show exactly why objective descent does not guarantee gradient-norm descent. Not merely a normalization of the GSL definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
