@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:10:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact inequality is B^n<A^(n+1) for A=pi(n^2)>0 and B=A+d=pi((n+1)^2). For n>=1000, Brun-Titchmarsh controls the number of new primes d<=2(2n+1)/log(2n+1), and Rosser-Schoenfeld pi(n^2)>n^2/(2log n). From log n<n/100 derive A>50n>=50000 and log A>9; meanwhile n log(1+d/A)<nd/A<8+4/n<9. The interval width satisfies required x>=1, y>=2 and y<=x in this range. Independently generated exact sieve to 1,000,000 (pi=78498) and arbitrary-precision powers check all 997 integers 3<=n<=999, matching inspected verify.py. All indices are covered; finite tests do not prove the analytic tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brun-Titchmarsh and Rosser-Schoenfeld bound new primes/total primes separately; neither alone states B^n<A^(n+1). Conjecture 2.7(i) compares pi(kn) with pi((k+1)n) at fixed n, not consecutive squares."
+        ],
+        "reasoning": "Verified algebra of the combined inequalities and index mismatch in related conjecture. The combined two-estimate consequence could be a simple unstated corollary of classical inequalities; absent exact published implication in checked sources.",
+        "searches": [
+          "Montgomery-Vaughan Brun Titchmarsh 1973",
+          "Rosser-Schoenfeld pi(x)>x/log x x>=17",
+          "Sun Conjecture 2.7(i) compared with 2.14(ii)"
+        ]
+      },
+      "checked_sources": [
+        "Sun, arXiv:1402.6641v12, Conjecture 2.14(ii) actual PDF",
+        "OEIS A038107 and A000720, prime counts at squares",
+        "Montgomery-Vaughan (1973) Brun-Titchmarsh short interval inequality",
+        "Rosser-Schoenfeld (1962), explicit pi lower bound",
+        "Resultary semantic query for pi(n²) root monotonicity, no matching hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=1000, nlog(1+d/A)<8+4/n<9<log A follows directly; for n<=999 exact sieve closes the remaining cases."
+        ],
+        "reasoning": "Published inequalities imply the large-n claim only after the supplied elementary comparison; they do not themselves constitute a previously published all-n assertion, which additionally needs finite closure. No distinct established stronger theorem found in the checked literature.",
+        "searches": [
+          "Sun arXiv:1402.6641v12 Conj 2.14(ii) and Conj 2.7(i)",
+          "Montgomery-Vaughan large sieve Brun-Titchmarsh short intervals",
+          "Rosser-Schoenfeld 1962 explicit lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun Conjecture 2.14(ii): strict decrease of (pi(n^2)^(1/n)) for n>=3, identical indices and exponents; OEIS A038107 counts primes < n^2, equal to pi(n^2) for n>=2 since n^2 composite."
+        ],
+        "reasoning": "Exact identity with an outstanding conjecture is evidence of motivation, not pre-existing proof. Search surfaced no later proof of the exact inequality; avoid conflating unrelated Sun root conjectures.",
+        "searches": [
+          "Sun Problems on combinatorial properties of primes Conjecture 2.14(ii) arXiv:1402.6641v12",
+          "OEIS A038107 nth root pi(n^2)",
+          "Resultary semantic prime roots query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A038107 prime counts at squares and an open-conjecture note are data/claims, not a certificate of strict all-n monotonicity. Independent complete sieve covers n=3..999 only."
+        ],
+        "reasoning": "No exact database supplies all infinite inequalities; a finite checked table alone would fail correctness. Analytic tail separately proved.",
+        "searches": [
+          "OEIS A038107",
+          "Sun Conjecture 2.14(ii) published 2014",
+          "prime counting values at consecutive squares tables"
+        ]
+      },
+      "rationale": "Sun Conjecture 2.14(ii) in the full 2014 prime-problems source is literally the same sequence pi(n^2)^(1/n); inspected the conjecture page. We did not locate a subsequent full proof after targeted Sun/prime-root searches and Resultary semantic comparison. Related Sun Conjecture 2.7 fixes scale n while varying multiplicative k and does not imply this next-square inequality by either natural substitution. Classical prime-counting estimates are prior; the claimed contribution is their use to settle this exact conjectured all-n monotonicity.",
+      "residual_risks": [
+        "Unindexed or very recent proof of the same conjecture not excluded by search; prioritize continued historical verification before public originality certification.",
+        "Two classical analytical inequalities are accepted mathematical premises, not re-proved from first principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source explicitly posits this same strict root monotonicity; no proof accompanies the conjecture",
+          "evidence": "Conj. 2.14(ii): pi(n²)^(1/n) strictly decreasing n>=3; adjacent Conj. 2.7 uses fixed scale.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.6641",
+          "material_read": "Primary arXiv PDF, conjecture listing including §2.14(ii) and adjacent §2.7(i), actual square-root indices",
+          "method": "Read PDF text and visually inspected the conjecture page",
+          "title": "Problems on combinatorial properties of primes",
+          "trigger": "Exact statement Conjecture 2.14(ii) and possible stronger conjectures"
+        },
+        {
+          "assessment": "Provides an external tail premise, not the next-square monotonicity conclusion",
+          "evidence": "The hypothesis x>=17 is satisfied for n>=1000.",
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255631807",
+          "material_read": "Identified published inequality pi(x)>x/log x for x>=17 as quoted and tested in reviewed proof; primary article full text not read during this run",
+          "method": "Mathematical lemma comparison and exact numerical sanity check",
+          "title": "Approximate formulas for some functions of prime numbers",
+          "trigger": "Explicit prime-counting lower bound"
+        },
+        {
+          "assessment": "Classical upper bound on d, not full root monotonicity",
+          "evidence": "At x=n², y=2n+1, n>=1000 gives y<=x and d<=2y/log y.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579300004708",
+          "material_read": "Identified Montgomery-Vaughan classical bound for y>=2, y<=x; full paper not read in this execution",
+          "method": "Cross-checked parameter substitution in reviewed proof",
+          "title": "The large sieve",
+          "trigger": "Short interval Brun-Titchmarsh premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a specific published prime-counting monotonicity conjecture for every n>=3, with a rigorously closed analytic tail and finite prefix. It is a natural boundary on growth of prime counts between consecutive squares and not an arbitrary small data check. It does not imply Legendre or Firoozbakht conjectures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Root monotonicity applies to n>=3 and exactly the square argument; no other power family or prime-gap conjecture follows.",
+    "Independent finite closure n=3..999 is exact arithmetic; tail depends on published inequalities."
+  ],
+  "schema_version": 1
+}
