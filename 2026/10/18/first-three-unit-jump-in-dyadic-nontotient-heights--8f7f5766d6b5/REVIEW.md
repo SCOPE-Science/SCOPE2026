@@ -1,0 +1,11 @@
+# Review of the exact first Nontotient height jump
+
+**Correctness — PASS.** The claim is deliberately finite. An exhaustive certificate covers every integer through \(2^{19}\), with two independently implemented exact totient recurrences, two full height computations, an exact enumeration of the dyadic maxima, and a second direct witness/uniqueness check. Both totient algorithms follow elementary factorization identities, while \(n-\varphi(n)<n\) validates the height dynamic program by induction. A finite census is sufficient to prove this *finite first-crossing* claim. The entire program is bundled and executable.
+
+**Originality — PASS relative to inspected evidence.** The nearest identified source is Ellis et al. (arXiv:2309.01231), especially Theorem 4.8. That theorem determines the consecutive nature of the possible heights for even integers in dyadic intervals, but does not compute the upper endpoints, their jumps, or the earliest three-unit jump and its unique extremizer. The paper's numerical table stops at the earliest values of \(C(n)\). Semantic searches for the threshold, the witness, the recurrence, and possible implied stronger results did not identify an exact predecessor. Residual risk: an unindexed stopping-time enumeration or software table could already contain the same cutoff.
+
+**Value — PASS.** The first jump exceeding the previously observed one- or two-step regime is a natural boundary statistic for the paper's dyadic height stratification, not an arbitrary sampled slice. It determines a sharp, reproducible qualitative transition and uniquely identifies the first exceptional extremizer. The finite first-crossing fact stands alone even without a classification of subsequent jumps. Its interest is limited to a specific arithmetic stopping-time invariant; no large general theorem is inferred.
+
+**Closest literature and limitations.** Ellis, Shi, Thanatipanonda, Tu, *Two Games on Arithmetic Functions: SALIQUANT and NONTOTIENT*, arXiv:2309.01231, Section 4. The proof is exhaustive only through \(2^{19}\) and no behavior above that bound is established. Full-text comparison and result searches cannot exclude all unindexed prior calculations. All checks are same-model; independent validation is absent.
+
+Self-review: passed. Independent audit: not yet performed.
