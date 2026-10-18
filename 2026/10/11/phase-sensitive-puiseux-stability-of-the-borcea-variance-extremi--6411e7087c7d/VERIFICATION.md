@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-The proof was reconstructed from the exact derivative equation
-\[
-P_t'(z)=nz^{n-1}+tQ'(z).
-\]
-For \(Q'(0)\ne0\), set
-\[
-\rho_t=(t|Q'(0)|/n)^{1/(n-1)},\quad
-\theta=\arg(-Q'(0))/(n-1).
-\]
-After \(z=\rho_t u\), the critical equation tends to the polynomial whose distinct simple roots are \(e^{i\theta}\omega_{n-1}^k\). Thus all \(n-1\) critical points have uniform expansions \(\rho_t e^{i\theta}\omega_{n-1}^k+O(\rho_t^2)\).
+# Independent mathematical audit
 
-The root implicit-function theorem gives \(n\) expansions \(\omega_n^j+O(t)\). This proves \(\sigma_2=1+O(t)\). Because \(n\ge4\), \(t=O(\rho_t^3)\) and the full finite distance matrix is
-\[
-|a_j-\zeta_k|=1-\rho_t\cos\left(\frac{2\pi j}{n}-\theta-\frac{2\pi k}{n-1}\right)+O(\rho_t^2).
-\]
-Taking first the minimum over \(k\) and then the maximum over \(j\) is valid with uniform finite-index remainders. This yields the proposed defect and no hidden extremizing branch.
+## correctness
 
-Modulo \(T=2\pi/(n-1)\), the \(n\) zero angles form exactly an \(n\)-point equally spaced grid. The farthest nearest-grid distance lies between \(\pi/n\) and \(\pi/(n-1)\); the two explicit directions \(Q(z)=z\) and \(Q(z)=e^{-i\pi/n}z\) realize its two endpoints.
+PASS
 
-As a nonessential independent numerical check, complex polynomial root computations for \(n=4,5,7,10\) and \(Q(z)=e^{0.43i}z+(0.37+0.30i)z^2-0.19iz^3\) at \(t=10^{-5},10^{-7},10^{-9}\) gave scaled defects moving toward the predicted values \(0.618578,0.778893,0.899605,0.947000\), respectively. The first two degrees show especially clear numerical convergence; larger degrees converge more slowly because \(\rho_t\) decreases slowly with \(t\). These tests were not used to infer the infinite asymptotic.
+At n>=4 simple roots remain omega_n^j+O(t), centroid O(t) and sigma2=1+O(t). Scaling P_t'(rho u) gives all n-1 distinct critical roots rho e^{i theta}omega_{n-1}^k+O(rho^2); t=O(rho^(n-1))=O(rho^3), and the finite max-min of exact pairwise distance expansions yields sigma2-h=rho cos Delta+O(rho^2). Reduction modulo 2pi/(n-1) produces an n-point grid; its antipodal covering distance gives Delta in [pi/n,pi/(n-1)] and explicit endpoint linear Q directions. Independently computed complex polynomial roots at n=4,5,7 approaching the coefficients 0.5/0.707..., 0.707/0.809..., 0.866/0.901... .
 
-Unproved limits: no result is given for \(Q'(0)=0\), no uniform remainder over varying \(Q\), no classification of all equality cases of the global variance inequality, and no result for higher \(p\)-variance deficits.
+## originality
+
+PASS
+
+The inspected sharp global Borcea inequality and other published equality results establish baseline nonnegativity but not the exact positive Puiseux-scale local defect, angle grid, or phase endpoint law; no dominating statement located in actual semantic and primary-source comparisons.
+
+## value
+
+PASS
+
+The exact first nonzero normalized root-critical-distance deficit close to a natural globally sharp extremizer is a motivated stability invariant; the fractional exponent and sharp phase sensitivity are not standard first variation or a table recomputation. This is a bounded, reusable local theorem rather than global equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

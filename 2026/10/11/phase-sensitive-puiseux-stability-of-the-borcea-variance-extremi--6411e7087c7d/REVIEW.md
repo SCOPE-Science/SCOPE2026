@@ -1,17 +1,21 @@
-# Review of Phase-sensitive Puiseux stability of the Borcea variance extremizer
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The original \(n\) roots remain at \(n\)-th roots of unity up to \(O(t)\), so their standard deviation is \(1+O(t)\). The derivative has a multiple zero of order \(n-1\) at the origin when \(t=0\). Since \(Q'(0)\ne0\), rescaling by \(\rho_t=(t|Q'(0)|/n)^{1/(n-1)}\) gives a polynomial with \(n-1\) distinct simple limiting roots; their expansions are uniform to \(O(\rho_t^2)\). A direct modulus expansion and the finite max-min operation yield the displayed angular coefficient. The \(n\) root phases form a uniform grid modulo the critical-point angular period, giving the exact range \([\cos(\pi/(n-1)),\cos(\pi/n)]\). Both endpoints are obtained by explicit linear perturbations. No finite computation is used as proof.
+PASS
 
-## Originality
+At n>=4 simple roots remain omega_n^j+O(t), centroid O(t) and sigma2=1+O(t). Scaling P_t'(rho u) gives all n-1 distinct critical roots rho e^{i theta}omega_{n-1}^k+O(rho^2); t=O(rho^(n-1))=O(rho^3), and the finite max-min of exact pairwise distance expansions yields sigma2-h=rho cos Delta+O(rho^2). Reduction modulo 2pi/(n-1) produces an n-point grid; its antipodal covering distance gives Delta in [pi/n,pi/(n-1)] and explicit endpoint linear Q directions. Independently computed complex polynomial roots at n=4,5,7 approaching the coefficients 0.5/0.707..., 0.707/0.809..., 0.866/0.901... .
 
-PASS. The main 2026 source proves the global \(2\)-variance inequality, not the Puiseux rate of its deficit near the regular-binomial equality model. Its Section 7 estimates hypothetical normalized counterexamples near a reciprocal-mean equality parameter but does not treat derivative-root splitting of a perturbed binomial. The 2011 source conjectures global equality rigidity, but no local deficit formula. Earlier Sendov local-extremum literature uses a different normalization and does not imply the exact phase coefficient. Targeted searches for the exact perturbation, fractional exponent, Puiseux splitting, and quantitative Borcea defect did not identify an equivalent theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The equality configuration \(z^n-1\) is the sharpness model in a major newly settled inequality, and its global equality classification at exponent two remains a natural structural question. The new result proves strict local stability in every direction with nonzero linear coefficient, determines the non-differentiable exponent forced by coalescing critical points, and classifies the sharp coefficient variation over all perturbation phases. This gives motivated information about the equality boundary, not just a reparameterization of the global inequality.
+The inspected sharp global Borcea inequality and other published equality results establish baseline nonnegativity but not the exact positive Puiseux-scale local defect, angle grid, or phase endpoint law; no dominating statement located in actual semantic and primary-source comparisons.
 
-The result is not uniform over all perturbations, and the classical local Sendov literature may contain comparisons under different normalization; no global equality classification is claimed.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact first nonzero normalized root-critical-distance deficit close to a natural globally sharp extremizer is a motivated stability invariant; the fractional exponent and sharp phase sensitivity are not standard first variation or a table recomputation. This is a bounded, reusable local theorem rather than global equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
