@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:53:04.752793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f6b0dd720a8e9bd37f14278dfa7c9d26d9f94c90",
+        "Independent Q(sqrt5) coefficient computation in _scope06_quick_checks.py",
+        "Amanbayeva–Wang vertex description arxiv 2104.08454"
+      ],
+      "rationale": "The permutation-group symmetry and Löwner/Kiefer-Wolfowitz logdet covariance duality give an exact orbit-weight optimization J_n=(Σw V_{n,k}/[n^2(n-1)])^(n-1) * n Var_w(S_{n,k}/n^2). Verified orbit mean and transverse covariance independently for multiple (n,k). The continuum polynomials h(s)=s-s²/2, v(s)=s-2s²+(4/3)s³-s⁴/4 and exact quartic gap identity in Q(sqrt5)[s] were independently expanded. Two-orbit weights 1/(n+1),n/(n+1) give optimal determinant lower ratio h*²/e. The uniform sharp gap and quantified mass bounds in the paper imply n(M_n-alpha_n)>= (5/3)beta_n-o(1), with the matching upper bound pinning beta_n→h*²; alpha_n→v*. Equality of limiting vertex enclosure yields contact layers only at 0,u. The analytic proof covers integer n→infty, unlike n≤7 orbit checks.",
+      "residual_risks": [
+        "Contact accumulation does not assert both layers present for every n.",
+        "The finite verifier does not certify asymptotics; proof relies on uniform O(1/n),O(1/n²) q bounds and covariance determinant duality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanada–Lentfer–Vindas-Meléndez 2023 generalizes parking polytopes, computes volumes and facets and partial permutahedron equivalences.",
+          "Bayer et al 2024 generalized b-parking polytopes, their vertex/facet/polymatroid results do not explicitly contain a min-volume ellipsoid coefficient formula in inspected statements."
+        ],
+        "reasoning": "An affine-integral equivalence to a partial permutahedron does not directly preserve the same Euclidean shape constants. A general optimal-design theorem might give a route, but the claimed golden-ratio 3/5 ratio and contact-layer support still require this object-specific quartic gap.",
+        "searches": [
+          "Löwner minimum enclosing ellipsoid classical parking function polytope limiting axial anisotropy golden ratio",
+          "arxiv:2212.06885 intro/sections 2–3",
+          "arxiv:2403.07387 general polymatroid description"
+        ]
+      },
+      "checked_sources": [
+        "The Convex Hull of Parking Functions of Length n https://arxiv.org/pdf/2104.08454",
+        "Generalized Parking Function Polytopes https://arxiv.org/pdf/2212.06885",
+        "Combinatorics of Generalized Parking-Function Polytopes https://arxiv.org/pdf/2403.07387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source literature determines orbit types and volume; the new variational covariance duality reduces Löwner shape to J_n(w)=alpha^(n-1)*beta.",
+          "Sharp identity v*-v(s)-(5/3)(h(s)-h*)^2 = s(s-u)^2(sqrt5-1-s)/6 produces distinct contact limits 0,u and optimal B/A=3/5."
+        ],
+        "reasoning": "The published combinatorics serve as hypothesis input, not a theorem implying the global determinant optimum. Finite Löwner computations for n<=4 cannot establish n→infty constants; an analytic sharp concentration and upper bound are required.",
+        "searches": [
+          "Löwner minimum enclosing ellipsoid classical parking function polytope limiting axial anisotropy golden ratio",
+          "Amanbayeva–Wang 2022 sections 1–5",
+          "Hanada et al 2023 volume theorem",
+          "Bayer et al 2024 generalized vertex theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amanbayeva–Wang 2022 gives vertex permutations of (1,...,1,k+1,...,n).",
+          "The claim is min-volume enclosing anisotropic ellipsoid, equivalently max logdet centered vertex covariance over orbit masses; not a minimum Euclidean ball or John inscribed ellipsoid."
+        ],
+        "reasoning": "Possible aliases are Löwner–John minimum-volume ellipsoid, D-optimal experimental design for symmetric vertex orbit family, or Loewner-John contact strata. Combinatorial vertex formulas alone do not evaluate the two n^3-scale eigenvalues and shape ratio.",
+        "searches": [
+          "Löwner minimum enclosing ellipsoid classical parking function polytope limiting axial anisotropy golden ratio",
+          "arxiv:2104.08454 parking function polytope vertices",
+          "arxiv:2212.06885 generalized parking polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact face/volume tables describe the polytope, not its unique minimum-volume enclosing ellipsoid.",
+          "Claimed limit constants are for n→infty, not a short finite-dimensional recomputation."
+        ],
+        "reasoning": "No table inspected lists all-n ellipsoid coefficients or contact asymptotics. An unsearched D-optimal design table remains residual risk; failed Resultary search is not evidence of uniqueness.",
+        "searches": [
+          "Löwner minimum enclosing ellipsoid classical parking function polytope limiting axial anisotropy golden ratio",
+          "arxiv:2104.08454 enumerative f-vectors",
+          "arxiv:2212.06885 volume formulas",
+          "arxiv:2403.07387 generalized face structure"
+        ]
+      },
+      "rationale": "Best-of-knowledge new asymptotic Löwner shape/contact result for classical parking-function polytope. Stronger generalizations describe vertices, inequalities, faces, volume and polymatroids, but the same-coordinate min-volume ellipsoid and golden-ratio anisotropy do not follow as their direct corollary from inspected statements.",
+      "residual_risks": [
+        "A paper phrased in D-optimal design/partial permutahedron terminology may cover these constants.",
+        "No exhaustive whole-paper equivalence assessment for every one of the 31-page/27-page general-family articles; no false NOT_COVERING claim.",
+        "Resultary unavailable and does not prove novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_VERTEX_DESCRIPTION_NOT_SHAPE_FORMULA",
+          "evidence": "§2 Definition 2.2 gives permutations (1,...,1,k+1,...,n); article studies edges, faces, volume and lattice point decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.08454",
+          "material_read": "Read introductory vertex characterization and Sections 2–5 organization, vertex/edge/f-vector statements, and volume/permutation-layer discussions; consulted original PDF text and page 4 image. No ellipse theorem in inspected sections.",
+          "method": "Author arXiv primary 12-page PDF, targeted full-text terms for ellipsoid and minimum enclosing ball, page-image confirmation.",
+          "title": "The Convex Hull of Parking Functions of Length n",
+          "trigger": "Exactly classical parking polytope and claimed source of vertex orbit layers."
+        },
+        {
+          "assessment": "GENERAL_COMBINATORIAL_AND_VOLUME_COVERAGE_ONLY",
+          "evidence": "Main theorem concerns normalized volume X_n(a,b); no min-volume ellipsoid values located in inspected claims.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.06885",
+          "material_read": "Original 31-page PDF abstract, Introduction, theorem and sections describing generalized vertices, facets, and volume; targeted exact ellipsoid search.",
+          "method": "Author arXiv primary PDF text; inspected introduction and stated volume/face results.",
+          "title": "Generalized Parking Function Polytopes",
+          "trigger": "More general family could dominate classical Loe wner statement."
+        },
+        {
+          "assessment": "GENERAL_PERMUTAHEDRAL_STRUCTURE_NOT_LOEWNER_CONSTANT",
+          "evidence": "Article claims minimal inequality/vertex descriptions and h-polynomial and combinatorial/circuit diameter, not the 3/5 Löwner eigenratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07387",
+          "material_read": "Original 27-page PDF introduction, theorem summaries and polymatroid geometry claims; searched complete parsed PDF for ellipsoid.",
+          "method": "Author arXiv primary PDF text, relevant opening statements and targeted search.",
+          "title": "Combinatorics of Generalized Parking-Function Polytopes",
+          "trigger": "Later stronger b-generalized vertex/inequality framework, plausible indirect dominance."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Amanbayeva–Wang and Hanada–Lentfer–Vindas-Meléndez give object motivation",
+        "Independent quartic gap and determinant benchmark"
+      ],
+      "rationale": "The minimum-volume enclosing ellipsoid is a natural affine-geometric invariant of a canonical enumeration polytope. A precise limiting axial ratio 3/5 (not isotropic), center scale and contact-stratum concentration provide an exact asymptotic geometric classification not mechanically given by face/volume counts. A future researcher using asymptotic convex geometry or extremal designs can use the exact constants.",
+      "residual_risks": [
+        "Asymptotic classical model only; no finite-n closed coefficients or generalized b-polytopes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In standard Euclidean coordinates, classical parking-function polytope Löwner ellipsoid satisfies t_n/n→(sqrt5-1)/4, A_n/n^3→5(3-sqrt5)/24, B_n/n^3→(3-sqrt5)/8, B_n/A_n→3/5; every contact vertex layer accumulates only at k/n=0 or (3-sqrt5)/2.",
+  "limitations": [
+    "Only leading-order n→infty constants; not finite-n all contact multiplicities.",
+    "Löwner ellipsoid uses STANDARD coordinate Euclidean metric; lattice/affine equivalence cannot silently identify it.",
+    "No universal originality guarantee; Resultary temporarily_unavailable."
+  ],
+  "schema_version": 1
+}

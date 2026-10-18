@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the parking-function Löwner ellipsoid limit
 
-The proof establishes an asymptotic statement for all integer dimensions \(n\ge2\) using exact orbit covariance formulas, a determinant duality argument and the polynomial identity in \(\mathbb Q(\sqrt5)[s]\). No finite experiment proves the infinite limit. The uniform perturbation argument is written in Step 4 of `RESULT.md`.
+# Independent mathematical audit
 
-Reproduce the included checks by running `python3 verify.py` in the unpacked artifact directory, using only a standard Python 3 installation. This checks coefficient-by-coefficient equality in the quartic identity, permutation-orbit means and covariance for 27 cases in dimensions 2 through 7, exact finite Löwner contact certificates in dimensions 2, 3 and 4, and six two-orbit determinant lower benchmarks up to dimension 1280. The larger benchmarks are *dual designs* rather than purported exact optimal ellipsoids. No external solver, expert review, or independent audit was invoked. The proof's limiting upper bound and all contact-layer conclusions remain analytic, not computationally certified by enumeration.
+## correctness
 
-The geometric scope is ordinary Euclidean coordinates, not arbitrary affine images. Finite-dimensional exact coefficients and exact finite-dimensional counts of contacting layers remain outside the claim.
+PASS
+
+The permutation-group symmetry and Löwner/Kiefer-Wolfowitz logdet covariance duality give an exact orbit-weight optimization J_n=(Σw V_{n,k}/[n^2(n-1)])^(n-1) * n Var_w(S_{n,k}/n^2). Verified orbit mean and transverse covariance independently for multiple (n,k). The continuum polynomials h(s)=s-s²/2, v(s)=s-2s²+(4/3)s³-s⁴/4 and exact quartic gap identity in Q(sqrt5)[s] were independently expanded. Two-orbit weights 1/(n+1),n/(n+1) give optimal determinant lower ratio h*²/e. The uniform sharp gap and quantified mass bounds in the paper imply n(M_n-alpha_n)>= (5/3)beta_n-o(1), with the matching upper bound pinning beta_n→h*²; alpha_n→v*. Equality of limiting vertex enclosure yields contact layers only at 0,u. The analytic proof covers integer n→infty, unlike n≤7 orbit checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge new asymptotic Löwner shape/contact result for classical parking-function polytope. Stronger generalizations describe vertices, inequalities, faces, volume and polymatroids, but the same-coordinate min-volume ellipsoid and golden-ratio anisotropy do not follow as their direct corollary from inspected statements.
+
+## value
+
+PASS
+
+The minimum-volume enclosing ellipsoid is a natural affine-geometric invariant of a canonical enumeration polytope. A precise limiting axial ratio 3/5 (not isotropic), center scale and contact-stratum concentration provide an exact asymptotic geometric classification not mechanically given by face/volume counts. A future researcher using asymptotic convex geometry or extremal designs can use the exact constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
