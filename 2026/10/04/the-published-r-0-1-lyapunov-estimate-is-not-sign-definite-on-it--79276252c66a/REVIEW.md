@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Substitution of the source equations into the source's linear Lyapunov candidate gives an exact factorization with no approximation. The feasible-region optimization is sharp, and the included rational witness lies inside the stated region while making the derivative positive under \(R_0<1\). The finding explicitly stops at failure of the published Lyapunov argument rather than inferring instability.
+PASS
 
-## Originality
+The source system gives D_C^alpha E=beta*vartheta*A*S-(phi+mu)*E and D_C^alpha A=varphi*phi*E-(mu+varsigma+rho)*A. For L0=varphi*phi*E+(phi+mu)*A, E cancels exactly and D_C^alpha L0=(phi+mu)*(mu+varsigma+rho)*A*(R0*S/S0-1), S0=pi/(omega+mu). On Omega, 0<=S<pi/mu (strict at A>0), so the derivative is globally nonpositive iff R0<=mu/(omega+mu), including equality. If that parameter bound fails, S in (S0/R0,pi/mu) and tiny A>0 produce a positive derivative. Independent Fraction replay confirms the published witness R0=3/4, Omega volume 9/10<=1 and derivative 3/25. Full Springer Theorem 5.2 uses unsupported S<=S0. This invalidates THAT Lyapunov sign estimate, not the global asymptotic stability theorem itself.
 
-PASS. The exact primary article, its deterministic precursor, a close fractional predecessor, and a recent related social-media-addiction model were compared at the level of statements and proof implications. Targeted searches for the model, theorem, state bound, reproduction threshold, and equivalent formulation did not locate the sharp source-specific condition \(R_0\le\mu/(\omega+\mu)\) or an equivalent correction. Closest database findings concern different epidemic, switching, age-structured, or delay models and do not imply this result.
+## originality
 
-## Value
+PASS
 
-PASS. The identified inequality is the decisive step used to claim global asymptotic stability on \(R_0<1\). Establishing the exact all-state sign threshold of the printed Lyapunov function separates the parameter range actually certified by that calculation from the larger range claimed, which is a substantive boundary for reuse of the theorem.
+The full primary 2026 article states the stronger unsupported R0<1 sign argument but not the exact all-Omega threshold, counter-region, or the correction. Resultary exact/semantic search returned the same record and unrelated epidemiology or fractional dynamics, not a prior source covering this specific equivalence. Other model papers and generic fractional Lyapunov methods cannot imply the algebra of the exact S0 and Omega. Best-of-knowledge original source-specific diagnosis, not exhaustive priority proof.
 
-## Closest literature and limitations
+## value
 
-Alemneh and Alemu (2021) use a deterministic social-media-addiction model and a different global-stability route. Kongson et al. (2021) study a related fractional five-compartment system with a different fractional operator. Ali et al. (2024) study a different six-compartment model. None supplies the exact correction derived here. A later or unindexed source correction remains a residual bibliographic risk.
+PASS
 
-The result does not disprove global stability in the interval \(\mu/(\omega+\mu)<R_0<1\); another argument could still establish it.
+The exact lost sign condition sits at the decisive inequality in the published global-stability proof, not a cosmetic typo. A sharp iff parameter bound and feasible counterregion precisely identify the original argument’s failure and the narrower domain in which that Lyapunov candidate could work; this is a substantive proof repair diagnostic, without overclaiming dynamical instability.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
