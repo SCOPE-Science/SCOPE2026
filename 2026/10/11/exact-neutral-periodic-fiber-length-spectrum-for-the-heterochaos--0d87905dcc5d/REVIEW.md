@@ -1,19 +1,21 @@
-# Review of neutral-periodic fiber length spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central derivative is the step product of \(M^{-1}\) on the \(\alpha\)-branches and \(M\) on the \(\beta\)-branches. Balanced words are the only neutral iterate words. Cyclic minimum rotation and exact bracket cancellation give an identity central return precisely for matched nested labels and produce an original-time center interval of length \(M^{-j}\), where \(j\) is the bridge's maximum downward excursion. The stable and unstable periodic coordinates are uniquely determined and lie in strict branch interiors. Reflection gives the displayed finite histogram. Dominated convergence and Stirling produce the claimed Hausdorff measure; telescoping binomial probabilities and length weighting produce the two sampling laws. A bundled standard-library checker enumerated rational cases \(M=2,3\), \(m=1,2,3\) and returned CHECK_OK. It is a cross-check, not an infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For balanced 2m branch words center derivative M^{#β−#α}=1, so odd n have none. On a cyclic minimum cut the center maps g_k and admissible inverses cancel iff nested labels match; M^m valid label choices per binary bridge. At original cut the negative excursion minimum -j leaves j contractions and a center interval of physical length M^{-j}; strictly interior periodic base/stable coordinates are unique by expansion and contraction. Reflection principle counts B_m(j)=binom(2m,m+j)−binom(2m,m+j+1). Verify ∑B=binom(2m,m). From m B_m(j)/binom(2m,m)→2j+1, bounded by 2j+1, geometric weighting M^{-j} allows dominated convergence yielding C_M=M(M+1)/(M−1)^2; Stirling produces (4M)^m/(sqrt(pi)m^{3/2}). Telescoping reflection formula and Gaussian bridge ratio yield CDF 1−e^{-x²}; length-weighted fixed-j law follows by same dominating bound. Independently enumerated center interval constraints using exact rational arithmetic for M=2,3 and m≤3, including M=2,m=2 counts 8,12,4 for lengths 1,1/2,1/4; this finite check is corroboration, not all-period proof.
 
-The exact unweighted neutral symbolic count is already in Takahasi (2024), Equation (2.6). Saiki–Takahasi–Yorke (2018), Takahasi–Yamamoto (2022), and Saiki–Takahasi–Yamamoto–Yorke (2024) already identify period-two continua and/or Dyck-coded central fibers. These are credited and the new statement is not their total count. The primary papers' relevant full-text sections do not supply the geometric interval-length distribution or its length-weighted statistics. Takahasi–Tsujii (2024) studies an analogous random-walk exponent for mixing at a special parameter, a different quantity. Saiki–Takahasi–Yorke (2023) studies Cantor intersections in a different smooth horseshoe setting. published-finding corpus and textual searches located no implication-covering record. Unindexed equivalent results or stronger general weighted-bridge geometric theories remain priority risks, and absolute novelty is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The continuum of neutral fixed points had been excluded from the primary periodic-point distribution analysis. Its total one-dimensional geometric size is a natural replacement for point counting and is not determined by the known symbolic total. The exact histogram and sharp asymptotic expose why typical intervals are much shorter than those selected by physical length. This is a meaningful new invariant for the original baker-map dynamics.
+Previously known M^m binom(2m,m) neutral-word count and existence of center segments are not claimed. The new claim refines them into exact Euclidean interval lengths and natural inequivalent sampling distributions; no inspected primary implies those refinements.
 
-## Boundaries and evidence
+## value
 
-The result concerns fixed-by-iterate center-neutral points in the smooth two-sided core, not primitive-period points or discontinuity-boundary extensions. Its asymptotic assumes fixed \(M\ge2\). The theorem is established analytically; finite checks do not replace the proof. Independent validation is not performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A complete finite-period Euclidean fiber-length classification for a natural heterochaos model and its weighted measure/selection laws are motivated dynamical invariants; finer than established symbolic word counts and not mechanically determined by the total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

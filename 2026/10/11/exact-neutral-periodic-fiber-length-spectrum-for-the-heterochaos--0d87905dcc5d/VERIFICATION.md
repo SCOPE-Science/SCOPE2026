@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is explicit in RESULT.md. The center return maps are \(g_k(c)=(c+k-1)/M\) on an opening branch and \(g_k^{-1}\) on a closing branch. At a cyclic excursion minimum, exact bracket cancellation fixes every allowed center value and leaves an original-time fiber of length \(M^{-j}\). The classical reflection formula counts paths with minimum \(-j\); dominated convergence with \(M^{-j}\), Stirling, and the exact bridge-binomial CDF establish the asymptotic and depth distributions. None of the conclusions is extrapolated from numerical data.
+## correctness
 
-The package includes `verify.py`, requiring only Python 3 standard library. Run `python3 verify.py` within the extracted package. Its `verify()` exhaustively enumerates word lengths \(2m\) for \(m=1,2,3\) and branch counts \(M=2,3\). Using `fractions.Fraction`, it derives fixed-center admissible intervals, verifies exact unstable/stable periodic coordinates at test parameters \(a=1/(M+2)\), \(b=1/(M+3)\), and checks each histogram against \(M^m[\binom{2m}{m+j}-\binom{2m}{m+j+1}]\). It prints `CHECK_OK`; this test covers only those finite cases.
+PASS
 
-The full theorem requires strict interior itineraries in the two-sided smooth core; boundary conventions and primitive-period restrictions are not asserted. No external independent audit has been performed.
+For balanced 2m branch words center derivative M^{#β−#α}=1, so odd n have none. On a cyclic minimum cut the center maps g_k and admissible inverses cancel iff nested labels match; M^m valid label choices per binary bridge. At original cut the negative excursion minimum -j leaves j contractions and a center interval of physical length M^{-j}; strictly interior periodic base/stable coordinates are unique by expansion and contraction. Reflection principle counts B_m(j)=binom(2m,m+j)−binom(2m,m+j+1). Verify ∑B=binom(2m,m). From m B_m(j)/binom(2m,m)→2j+1, bounded by 2j+1, geometric weighting M^{-j} allows dominated convergence yielding C_M=M(M+1)/(M−1)^2; Stirling produces (4M)^m/(sqrt(pi)m^{3/2}). Telescoping reflection formula and Gaussian bridge ratio yield CDF 1−e^{-x²}; length-weighted fixed-j law follows by same dominating bound. Independently enumerated center interval constraints using exact rational arithmetic for M=2,3 and m≤3, including M=2,m=2 counts 8,12,4 for lengths 1,1/2,1/4; this finite check is corroboration, not all-period proof.
+
+## originality
+
+PASS
+
+Previously known M^m binom(2m,m) neutral-word count and existence of center segments are not claimed. The new claim refines them into exact Euclidean interval lengths and natural inequivalent sampling distributions; no inspected primary implies those refinements.
+
+## value
+
+PASS
+
+A complete finite-period Euclidean fiber-length classification for a natural heterochaos model and its weighted measure/selection laws are motivated dynamical invariants; finer than established symbolic word counts and not mechanically determined by the total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
