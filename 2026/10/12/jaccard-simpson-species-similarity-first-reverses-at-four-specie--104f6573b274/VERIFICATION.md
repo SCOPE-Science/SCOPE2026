@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,66 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof reduces both similarities to exact monotone functions of two mismatch ratios.
 
-After normalizing site labels so that
-\[
-b\le c,
-\]
-\[
-S=\frac{1}{1+b/a},
-\qquad
-J=\frac{1}{1+(b+c)/a}.
-\]
+# Independent mathematical audit
 
-Therefore two signatures reverse exactly when
-\[
-\left(
-\frac{b}{a}-\frac{B}{A}
-\right)
-\left(
-\frac{b+c}{a}-\frac{B+C}{A}
-\right)
-<0.
-\]
+## correctness
 
-The embedded `verify_jaccard_simpson_minimal_reversal.py` checks this criterion against direct exact-fraction comparisons for every normalized Venn signature through gamma richness \(8\).
+PASS
 
-It verifies signature counts
-\[
-1,\ 4,\ 9,\ 17
-\]
-through gamma richness \(1,2,3,4\), strict-reversal counts
-\[
-0,\ 0,\ 0,\ 3,
-\]
-and exactly the three first-layer pairs
-\[
-(1,0,2)\leftrightarrow(2,1,1),
-\]
-\[
-(1,0,3)\leftrightarrow(1,1,1),
-\]
-and
-\[
-(1,0,3)\leftrightarrow(2,1,1).
-\]
+Both similarities are strictly decreasing functions 1/(1+t) of the minimum-unique/shared and total-unique/shared ratios, respectively; hence opposite strict order is equivalent to the negative product sign. Cases with a=0 have both similarities zero and never induce strict reversal. Independently enumerated all nonempty-site normalized Venn signatures (1,4,9,17 through gamma richness N=1..4), checked all unordered pair comparisons with exact Fraction arithmetic, finding zero, zero, zero, three reversals and exactly the three advertised pairs. For P_r=(1,0,r), Q_r=(r,1,1), differences J(Q_r)−J(P_r)=(r^2−2)/((r+1)(r+2))>0 for integer r>=2 while S(P_r)=1>S(Q_r), establishing infinite family. No extrapolation from the finite enumeration.
 
-It also checks the structural family
-\[
-(1,0,r)\leftrightarrow(r,1,1)
-\]
-for every integer
-\[
-2\le r\le500.
-\]
+## originality
 
-Run:
+PASS
 
-`python3 verify_jaccard_simpson_minimal_reversal.py`
+Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The infinite family and general reversal criterion are proved algebraically in `RESULT.md`; the finite replay is a consistency check and an exhaustive certificate for the sharp first boundary.
+The smallest possible richness at which these widely used dissimilarity-based species ranking methods can disagree is a natural, ecologically interpretable finite cutoff; the complete three-signature first layer distinguishes perfectly nested communities from richer shared-but-nonnested pairs. The general order criterion and exact minimal witnesses can be used as test cases for cross-index comparisons. Although elementary, this is a motivated sharp classification rather than an arbitrary unmotivated numerical slice; it does not purport to settle measure selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
