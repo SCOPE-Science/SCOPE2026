@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two modal clauses reduce, on the complete upset chain, to the independent suffix minima \(B\) and \(D\) of neighborhood extrema. This yields full-language sufficiency by formula induction and necessity by one atomic threshold; explicit size-one/two neighbourhood families realize every monotone profile pair. The terminal-world obstruction proves optimality. Exhaustive small-frame and complete representative-profile checks reproduced the predicted counts. Critical assumptions are the finite nonempty total order, nonempty neighbourhood families, nonempty members, and at least one propositional letter.
+
+**Originality — PASS, with residual literature risk.** The 2026 semantic/proof-theoretic study provides the precise constructive neighbourhood clauses and its \(\mathsf N\), \(\mathsf P\) conditions, but does not state a labelled-chain full-language semantic quotient, the squared-binomial census, or the sharp two-neighbourhood sparsification. The 2025 translation paper has a different order-varying neighbourhood semantics; its canonical proof contains many neighbourhoods and does not imply the exact finite-chain statement as printed. A previous finite relational four-modal chain theorem concerns a different operator and frame class, so neither direction of implication supplies this result. Literature searches did not identify an equivalent theorem, but older neighbourhood-algebra results under other terminology are possible.
+
+**Value — PASS.** The exact quotient replaces doubly exponential families of local neighbourhood choices by two monotone length-\(n\) profiles while preserving every formula, not merely a bounded fragment. The independently realizable profiles give a natural complete exact count, and the sharp two-neighbourhood compression supplies small representatives for semantic testing. This is a structural finite-frame classification, not an arbitrary fixed numerical census.
+
+**Limits.** The theorem does not cover arbitrary posets, empty neighbourhoods, up-to-isomorphism counts, or order-varying neighbourhood semantics. The program checks finite cases only; the proof supplies the general result. Literature novelty remains subject to independent historical verification.
+
+Self-review: passed. Independent audit: not yet performed.
