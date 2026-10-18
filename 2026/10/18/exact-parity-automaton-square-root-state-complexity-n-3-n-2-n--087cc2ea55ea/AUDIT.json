@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For all n≥1 and both possible nonzero endpoint orbits, the kernel identity K_m(X,Y)=sum X_{0p}X_{qr}Y_{pq}Y_{rm} is proved. Square-free coordinate monomials are independent as Boolean functions. The two symmetry/cancellation cases yield exact rank n³−n²+n. The residual-Hankel theorem proves the upper bound; three explicit generator matrices produce the entire binary matrix monoid and therefore realize the lower rank exactly. Full matrix Hanks ranks 6 and 21 were independently recomputed for n=2 and 3, and a binary 6×6 minor was checked. Source minimality n follows from the unsquared full-monoid Hankel rank. Finite checks support but do not replace the all-dimension proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Onishchenko, arXiv:2605.02957v1, Sections 3--4, shows an ordinary-NFA universal n^3 bound and existential-acceptance lower bounds for n at least six.",
+        "Chistikov et al., arXiv:2607.00742v1, Introduction and Defs. 3--6, develop the GF(2) parity model and computational complexity, not square-root state complexity."
+      ],
+      "reasoning": "An ordinary NFA accepts whenever at least one path exists, whereas an XNFA accepts when the number of paths is odd. The NFA theorem neither yields the strictly smaller parity upper bound nor establishes parity lower bounds. A general weighted-automaton Hankel minimization theorem is not an exact square-root rank calculation and does not imply the displayed polynomial without the new monomial-support analysis.",
+      "searches": [
+        "Literature search: Nondeterministic state complexity of square root Onishchenko 2026",
+        "Literature search: \"square root\" \"XNFA\" state complexity",
+        "Research-record semantic query: state complexity of the square-root operation for parity automata weighted automata over GF(2), general two-state exact bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.02957v1 (full five pages)",
+      "arXiv:2607.00742v1 (abstract/introduction/definitions and contributions)",
+      "Berstel--Reutenauer, Chapter 2 (publisher summary only)",
+      "Targeted mathematical research-index records for weighted automata and square-root operations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Onishchenko arXiv:2605.02957v1 proves an NFA n^3 bound over the Boolean semiring; the text does not treat XNFA parity acceptance.",
+        "Chistikov et al. arXiv:2607.00742v1 introduce and analyze XNFA but the examined contributions concern acceptance algorithms, emptiness, and equivalence.",
+        "Berstel--Reutenauer, Ch. 2 (DOI above), develops the general rank/minimization correspondence."
+      ],
+      "reasoning": "The claimed all-dimension parity bound is n^3-n^2+n, with a ternary-alphabet lower bound; neither of the two most relevant current papers implies it. Ordinary-NFA results about n=2 or general n do not transfer because Boolean and GF(2) path aggregation differ. The finite matrix-monoid rank is computed explicitly in the proof rather than inferred from a theorem title. Potential rediscovery in specialized weighted-series literature remains a risk.",
+      "searches": [
+        "Research-record semantic query: binary and ternary symmetric difference automata square root operation state complexity",
+        "Literature search: \"square root\" \"parity automata\" \"state complexity\"",
+        "Primary full text: arXiv:2605.02957v1, Sections 1--4 and references",
+        "Primary text: arXiv:2607.00742v1, abstract, Introduction and definitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berstel--Reutenauer, Ch. 2: minimization of weighted linear representations by Hankel rank; DOI:10.1017/CBO9780511760860.003.",
+        "Chistikov et al., arXiv:2607.00742v1, Def. 5: XOR-path parity as a weighted automaton over GF(2)."
+      ],
+      "reasoning": "Compared the exact kernel e0^T(XY)^2 e_m with equivalent formulations in GF(2) rational-series language, XOR-NFA/XNFA language recognition, quadratic matrix-coefficient functions, and finite matrix-monoid Hankel rank. These share general machinery but the examined statements do not give the exact rank n^3-n^2+n. Different formulations could exist in older algebraic-automata work; a missing search hit is not proof of priority.",
+      "searches": [
+        "Research-record semantic query: matrix coefficient lambda M(word)^2 gamma square root of GF2 rational series weighted automaton",
+        "Literature search: \"square root\" \"weighted automata\" \"GF(2)\" state complexity",
+        "Literature search: \"word squares\" \"Hankel rank\" \"matrix\" automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or published indexed formula matching the characteristic-two matrix-product Hankel kernel was returned by the stated searches.",
+        "Berstel--Reutenauer, Ch. 2, documents abstract Hankel minimization rather than this matrix-monoid rank sequence."
+      ],
+      "reasoning": "Checked whether the exact sequence 1,6,21,52,105,... was already tabulated as language-root XNFA state complexity or as the full binary-matrix-monoid kernel rank. No directly covering table was recovered. This is limited evidence, not a mathematical uniqueness certificate.",
+      "searches": [
+        "Research-record semantic query: \"n^3-n^2+n\" parity automata square root weighted",
+        "Research-record semantic query: \"n(n^2-n+1)\" square root of regular language GF2",
+        "Literature search: \"n^3 - n^2 + n\" weighted automata",
+        "Literature search: \"squaring\" \"weighted automata\" \"Hankel rank\""
+      ]
+    },
+    "rationale": "The 2026 ordinary-NFA square-root state theorem has Boolean path acceptance and an n³ bound, not the exact n³−n²+n parity bound. The 2026 XNFA paper studies decision-problem complexity, not the state complexity of square root. Classical weighted Hankel minimization supplies only a general tool. Actual research-record and literature queries for the formula and its GF(2) equivalents did not recover a covering prior theorem; risks from unindexed algebraic-series work remain.",
+    "residual_risks": [
+      "A previously published equivalent calculation of this finite matrix-monoid Hankel kernel could exist under rational-series or syntactic-algebra terminology without matching automata-operation keywords.",
+      "Full coverage of all older noncommutative rational-series sources was not possible; the XNFA article appendix was not inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem is for existential NFA paths; the stated n^3 bound is not the GF(2)-weighted sharp bound.",
+        "evidence": "arXiv:2605.02957v1, pp. 1--5, Sections 3--4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.02957",
+        "material_read": "Five-page original preprint, including statements, three-state-coordinate construction, lower-bound witness, and references (all pages).",
+        "method": "Page text and a rendered view of the upper/lower-bound definitions.",
+        "title": "Nondeterministic state complexity of square root",
+        "trigger": "Exactly the same language operation, with a different acceptance semiring."
+      },
+      {
+        "assessment": "The inspected results concern algorithmic acceptance, equivalence, and emptiness, not a language square-root operation. The unexamined appendix remains a low but nonzero coverage uncertainty.",
+        "evidence": "arXiv:2607.00742v1, Introduction §§1--2, Definitions 3--6.",
+        "identifier_or_url": "https://arxiv.org/html/2607.00742",
+        "material_read": "Abstract, Introduction, contribution statements, related-work discussion, and definitions of weighted automata/NFA/XNFA; the remaining appendix was not inspected.",
+        "method": "Open full-text HTML, inspected content through the defining sections and contribution overview.",
+        "title": "Algorithms and fine-grained complexity for nondeterministic and symmetric difference automata",
+        "trigger": "Current primary definition and properties of parity-acceptance automata."
+      },
+      {
+        "assessment": "Supports prior existence of general minimization machinery but not an inspected exact formula for the current matrix-squaring kernel.",
+        "evidence": "Berstel--Reutenauer, Chapter 2 overview, sections 2.1--2.3.",
+        "identifier_or_url": "https://doi.org/10.1017/CBO9780511760860.003",
+        "material_read": "Publisher chapter summary and section titles; not the complete chapter.",
+        "method": "Publisher bibliographic and summary page; the standard rank lemma was reproved directly.",
+        "title": "Noncommutative Rational Series with Applications, Chapter 2: Minimization",
+        "trigger": "Foundational minimal linear representation/Hankel-rank equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "087cc2ea-55ea-46e5-95b1-066b3b61884c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the exact all-parameter operational state complexity of a natural language operation under parity acceptance, rather than a narrow finite table. The polynomial n³−n²+n strictly improves the familiar n³ cubic cost at every n≥2, is attained over a fixed three-letter alphabet, and follows from a structural characteristic-two cancellation mechanism. It gives an explicit quantitative contrast between Boolean and GF(2) automata and certifies that the extremal sources really require n states.",
+    "status": "PASS"
+  }
+}
