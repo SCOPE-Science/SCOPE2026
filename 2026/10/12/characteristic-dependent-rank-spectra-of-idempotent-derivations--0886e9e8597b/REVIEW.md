@@ -1,9 +1,21 @@
-# Scientific review: idempotent derivations of triangular matrix algebras
+# Independent mathematical audit
 
-**Correctness — PASS.** Every derivation is proved inner by subtracting an explicitly constructed commutator derivation that agrees on diagonal idempotents. The remaining derivation scales the one-dimensional Peirce components and is diagonal-inner. Since an idempotent operator is semisimple in all characteristics, its triangular inner generator is semisimple modulo the scalar center, hence upper-unitriangularly diagonalizable. The diagonal differences must belong to \(\{0,1\}\). This yields precisely one-cut labels in odd characteristic and arbitrary binary labels in characteristic two. Orbit-stabilizer computes \(q^{k(n-k)}\) distinct derivations per normalized label and directly computes the same rank. Finite exhaustive direct calculations independently checked nine concrete cases; they are not substituted for the algebraic proof.
+## correctness
 
-**Originality — PASS, with limitations.** The closest primary full text on Jordan superderivations (Cheraghpour--Jafari, arXiv:2402.12611v1, introduction and main results) does not present this composition-idempotent classification. Prior derivation descriptions (Vladeva 2022; Jøndrup 1995) cover the general inner nature of derivations but, on inspected accessible material, do not provide rank multiplicities of projections. Idempotent upper triangular matrix classifications (Hou 2019; Wright 2020) overlap with the diagonal projection geometry but address idempotent *elements* rather than idempotent *derivation maps*. The semiring results of Vladeva concern a non-field setting. Mathematically, no inspected theorem directly implies both enumerators. Complete text of some plausible publisher sources was inaccessible, leaving a genuine equivalence/indirect-corollary risk; restricted access is not evidence of noncoverage. Independent literature review is still needed before a publication novelty claim.
+PASS
 
-**Value — PASS.** The precise natural invariant is the rank distribution of projections within the derivation algebra of a standard family of finite-dimensional associative algebras. The classification characterizes every such derivation over every field, not merely a finite numerical example; the jump from ordered cuts to arbitrary binary labelings is a structural arithmetic distinction. The answer gives closed multiplicities for every rank and dimension, and relates them to conjugacy orbits of triangular matrices. This supplies complete information beyond classifying scalar inner generators or counting idempotent matrices themselves.
+Derivations of T_n(K) are inner, unique modulo scalar matrices, by Peirce-component multiplications. Composition-idempotent ad_H is semisimple, so the nilpotent part in its commuting Jordan decomposition vanishes modulo the scalar center; upper unitriangular diagonalization then gives λ_i−λ_j∈{0,1} for i<j. With λ_1=0 odd characteristic forces one 0-to−1 cut; characteristic two permits any binary label string. A labeling with k opposite entries has c=k(n−k) unequal ordered pairs, orbit size q^c and derivation rank c. This yields the displayed parity-dependent rank enumerators. Independently enumerated upper triangular generators modulo scalars and checked D²=D plus rank distributions: (n,q)=(3,2) gives 1+12t², (3,3) 1+18t², (4,2) 1+32t³+48t⁴, matching formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge exact rank profile for projection derivations rather than idempotent triangular elements or Jordan superderivations; structural innerness is credited to earlier algebra work. Relevant idempotent matrix literature could imply pieces, but no inspected accessible source contains both characteristic regimes and full rank multiplicities.
+
+## value
+
+PASS
+
+An exact classification and rank enumerator for natural projection operators on finite-dimensional triangular matrix algebras, separating characteristic two from odd characteristic; informs derivation-space geometry over all finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
