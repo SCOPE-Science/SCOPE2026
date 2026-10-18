@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact rank-one eigenvalue follows by a rational Rayleigh-quotient computation. The Gaussian-square ratio has the stated beta-prime density. A rescaling makes the expected trace excess an explicit nonnegative integral with an integrable majorant, and dominated convergence yields the Gamma constant. The special \(\theta=1\) identity agrees with exact rational test cases; the almost-sure conclusion follows from a fixed-sketch expansion. The finite checker supplements but cannot replace the all-parameter proof.
+## correctness
 
-**Originality — PASS, with literature risk.** Persson–Kressner give the algorithm and multi-column bounds rather than a one-column sharp Gaussian transformed-trace asymptotic; Gittens–Mahoney give a deterministic alignment bound on power Nyström, not an expected transformed-function trace law. The known unpowered Gaussian residual behavior is not claimed as original. A narrower earlier one-column Gaussian residual law would not determine the all-pass transformed-function asymptotic without an additional argument. Detailed statement-versus-implication searches and source inspections are in `AUDIT.json`. A specialized unindexed calculation remains a priority risk.
+PASS
 
-**Value — PASS.** The contrast-dependent separation between typical and mean error is directly tied to whether a single Gaussian matrix-function sketch gives a trustworthy expected trace approximation. The sharp \(\theta=1/2\) one-pass threshold and the universal two-pass recovery across \(0<\theta\le1\) give a concrete pass-versus-function-smoothness boundary. Even for this minimal system, bounds requiring oversampling do not answer the expectation question.
+Let T=G1^2/G2^2 with density [pi sqrt(T)(1+T)]^-1 and tau=(kappa^(2q)G1^2+G2^2)/(kappa^(2q-1)G1^2+G2^2). The Nyström residual A-N is PSD by its orthogonal-projector factorization; for 0<theta<=1, operator monotonicity yields A^theta-N^theta PSD, so nuclear error is kappa^theta+1-tau^theta. Rescaling z=kappa^(2q-1)T gives exact normalized half-Cauchy integral. Its pointwise limit has integrable majorant z^-1/2[1-(z/(1+z))^theta] (bounded at origin as z^-1/2, infinity O(z^-3/2)); dominated convergence gives Ctheta=(2theta Gamma(theta+1/2))/(sqrt(pi) Gamma(theta+1)), yielding kappa^(theta-q+1/2) equivalent. At theta=1 the Cauchy integral gives EΔ=(kappa-1)/(1+kappa^(q-1/2)). Coupled fixed T>0 makes Δ~theta kappa^(theta-2q+1)/T; q=1 theta=1 is the separate 1/T limit. Independently integrated transformed exact Gaussian expression at kappa=5000 for theta=0.5,0.75,1 and q=1,2: normalized constants within 1.5 percent of predicted, theta=1 exact formula within 0.1 percent; bounded quadrature supports but does not replace uniform proof. Valid strictly for real 2x2 two-eigenvalue one Gaussian column, fixed q and theta.
 
-**Closest literature and limits.** See Persson–Kressner (arXiv:2209.11023) and Gittens–Mahoney (JMLR 17:117, 2016). Results are two-dimensional, Gaussian, asymptotic at fixed pass count, and exact-arithmetic only. Independent publication-priority verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Persson-Kressner gives funNyström and a nuclear-norm EXPECTATION upper bound under sketch size and oversampling conditions, notably >=2 columns (Theorem 3.9); the exact one-column untruncated 2x2 Gaussian trace excess, its sharp exponent/pass phase transition and mean/typical gap are not covered by the inspected theorem. Gittens-Mahoney Theorem 4 gives a deterministic alignment-sensitive Nyström error bound, not this integrated matrix-power expectation. The elementary half-Cauchy ratio and projector formula are credited premises. Searches revealed no direct published same-model asymptotic; originality qualified by broader unindexed literature risk.
+
+## value
+
+PASS
+
+One-column no-oversampling Nyström is exactly the regime omitted by common expectation guarantees. A sharp stochastic mean-risk law, critical square-root functional exponent, transition from one to two passes, and a mathematically explicit uniform-integrability failure are motivated diagnostics for low-rank matrix-function approximation. The two-eigenvalue restriction is a transparent model rather than an arbitrary unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

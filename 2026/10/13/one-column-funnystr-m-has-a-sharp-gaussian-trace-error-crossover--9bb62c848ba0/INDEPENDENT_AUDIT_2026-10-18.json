@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:00:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/VERIFICATION.md"
+      ],
+      "rationale": "Let T=G1^2/G2^2 with density [pi sqrt(T)(1+T)]^-1 and tau=(kappa^(2q)G1^2+G2^2)/(kappa^(2q-1)G1^2+G2^2). The Nyström residual A-N is PSD by its orthogonal-projector factorization; for 0<theta<=1, operator monotonicity yields A^theta-N^theta PSD, so nuclear error is kappa^theta+1-tau^theta. Rescaling z=kappa^(2q-1)T gives exact normalized half-Cauchy integral. Its pointwise limit has integrable majorant z^-1/2[1-(z/(1+z))^theta] (bounded at origin as z^-1/2, infinity O(z^-3/2)); dominated convergence gives Ctheta=(2theta Gamma(theta+1/2))/(sqrt(pi) Gamma(theta+1)), yielding kappa^(theta-q+1/2) equivalent. At theta=1 the Cauchy integral gives EΔ=(kappa-1)/(1+kappa^(q-1/2)). Coupled fixed T>0 makes Δ~theta kappa^(theta-2q+1)/T; q=1 theta=1 is the separate 1/T limit. Independently integrated transformed exact Gaussian expression at kappa=5000 for theta=0.5,0.75,1 and q=1,2: normalized constants within 1.5 percent of predicted, theta=1 exact formula within 0.1 percent; bounded quadrature supports but does not replace uniform proof. Valid strictly for real 2x2 two-eigenvalue one Gaussian column, fixed q and theta.",
+      "residual_risks": [
+        "Best-of-knowledge originality; exact two-dimensional Gaussian quadrature may exist in unindexed numerical linear algebra literature.",
+        "Independent kappa=5000 quadrature is finite and cannot establish the unrestricted asymptotic or dominated convergence.",
+        "All claims fix pass count and exponent before kappa->infinity; no high-dimensional, multi-column, roundoff, or non-Gaussian guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Persson-Kressner arXiv:2209.11023 Theorem 3.9 requires target/sketch dimensions and oversampling >=2, excluding precisely the single-column case; Gittens-Mahoney Theorem 4 is alignment-dependent deterministic bound."
+        ],
+        "reasoning": "Neither broader theorem furnishes sharp constants, phase threshold theta=1/2 for q=1, or almost-sure/mean separation; assumptions differ or bounds are too coarse.",
+        "searches": [
+          "Resultary semantic query: Gaussian power Nyström one sketch column 2 by 2 diagonal matrix power trace norm expected error theta phase transition"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/RESULT.md",
+        "https://github.com/Resultary/2026",
+        "JMLR 17(117) (2016)",
+        "arXiv:2209.11023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Persson-Kressner arXiv:2209.11023, Theorem 3.9 and formula (3); Gittens-Mahoney JMLR 2016 Theorem 4."
+        ],
+        "reasoning": "Common Nyström projector identities imply positivity but not the exact exponent–pass asymptotic or coefficient. The one-column excluded case is a substantive gap; our delta-method/integral derivation closes this slice.",
+        "searches": [
+          "Resultary semantic query: Gaussian power Nyström one sketch column 2 by 2 diagonal matrix power trace norm expected error theta phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Persson-Kressner arXiv:2209.11023 funNyström formula (3), Theorem 3.9 nuclear expectation; Gittens-Mahoney JMLR 17(117) Theorem 4."
+        ],
+        "reasoning": "The submitted matrix is rank-one power Nyström on diag(kappa,1), equivalent to a half-Cauchy sketch-angle integral, but the inspected sources do not evaluate its matrix-power expected residual with one column and no oversampling.",
+        "searches": [
+          "Resultary semantic query: Gaussian power Nyström one sketch column 2 by 2 diagonal matrix power trace norm expected error theta phase transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Gaussian Nyström query; unrelated returned Gaussian-operator and spectral asymptotic records, no matching Nyström exact trace formula."
+        ],
+        "reasoning": "An analytic continuous-parameter Gaussian expectation theorem is not a fixed known integer table; source theorem conditions and absence of exact integration, not keyword silence, support noncoverage.",
+        "searches": [
+          "Resultary semantic query: Gaussian power Nyström one sketch column 2 by 2 diagonal matrix power trace norm expected error theta phase transition"
+        ]
+      },
+      "rationale": "Persson-Kressner gives funNyström and a nuclear-norm EXPECTATION upper bound under sketch size and oversampling conditions, notably >=2 columns (Theorem 3.9); the exact one-column untruncated 2x2 Gaussian trace excess, its sharp exponent/pass phase transition and mean/typical gap are not covered by the inspected theorem. Gittens-Mahoney Theorem 4 gives a deterministic alignment-sensitive Nyström error bound, not this integrated matrix-power expectation. The elementary half-Cauchy ratio and projector formula are credited premises. Searches revealed no direct published same-model asymptotic; originality qualified by broader unindexed literature risk.",
+      "residual_risks": [
+        "Best-of-knowledge originality; exact two-dimensional Gaussian quadrature may exist in unindexed numerical linear algebra literature.",
+        "Independent kappa=5000 quadrature is finite and cannot establish the unrestricted asymptotic or dominated convergence.",
+        "All claims fix pass count and exponent before kappa->infinity; no high-dimensional, multi-column, roundoff, or non-Gaussian guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior algorithm and multi-column bounds; one-column exact asymptotic not provided in material inspected",
+          "evidence": [
+            "arXiv:2209.11023v3",
+            "Theorem 3.9"
+          ],
+          "identifier_or_url": "arXiv:2209.11023",
+          "material_read": "Full available preprint PDF, formula (3), nuclear expectation Theorem 3.9, parameter assumptions and related bounds",
+          "method": "open PDF reading and rendered theorem-page inspection",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "same matrix-function Nyström algorithm and expected Schatten-1 error"
+        },
+        {
+          "assessment": "Deterministic alignment bound does not imply integrated Gaussian-power trace asymptotics",
+          "evidence": [
+            "https://www.jmlr.org/papers/v17/gittens16a.html",
+            "Theorem 4"
+          ],
+          "identifier_or_url": "JMLR 17(117) (2016)",
+          "material_read": "Accessible Theorem 4 and surrounding deterministic error bound, not a complete standalone priority census",
+          "method": "primary theorem comparison",
+          "title": "Revisiting the Nyström Method for Improved Large-scale Machine Learning",
+          "trigger": "same deterministic power-Nyström trace model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/RESULT.md",
+        "arXiv:2209.11023",
+        "JMLR 17(117) (2016)"
+      ],
+      "rationale": "One-column no-oversampling Nyström is exactly the regime omitted by common expectation guarantees. A sharp stochastic mean-risk law, critical square-root functional exponent, transition from one to two passes, and a mathematically explicit uniform-integrability failure are motivated diagnostics for low-rank matrix-function approximation. The two-eigenvalue restriction is a transparent model rather than an arbitrary unmotivated slice.",
+      "residual_risks": [
+        "Best-of-knowledge originality; exact two-dimensional Gaussian quadrature may exist in unindexed numerical linear algebra literature.",
+        "Independent kappa=5000 quadrature is finite and cannot establish the unrestricted asymptotic or dominated convergence.",
+        "All claims fix pass count and exponent before kappa->infinity; no high-dimensional, multi-column, roundoff, or non-Gaussian guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; exact two-dimensional Gaussian quadrature may exist in unindexed numerical linear algebra literature.",
+    "Independent kappa=5000 quadrature is finite and cannot establish the unrestricted asymptotic or dominated convergence.",
+    "All claims fix pass count and exponent before kappa->infinity; no high-dimensional, multi-column, roundoff, or non-Gaussian guarantee."
+  ],
+  "schema_version": 1
+}
