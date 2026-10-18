@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:44:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact original Exner--Tater coefficients c1 and c3 have Q terms +2Q*sinh(κℓ) and +2Q*sinh(κℓ). Hence ∂_Q Σ c_jκ^j=2κ(1+κ²)sinh(κℓ)>0 for every κ,ℓ>0, regardless of interior μ. Q(θ1,θ2)=cosθ1+cosθ2 is nonconstant analytic so every single level set is measure-zero in T²; a direct-integral eigenvalue requires positive-measure fiber eigenspace. Negative hyperbolic edge solution has no missing sin(kℓ)=0 Dirichlet singularity since sinh(κℓ)≠0. Independently reconstructed and simplified symbolic secular polynomial using SymPy, matching the actual frozen artifacts/verify.py; proof is analytic, not finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exner--Turek general theorem alone permits negative point eigenvalues under other vertex couplings; not decisive.",
+          "Exner--Tater special exact secular equation fully specializes to submitted μ/ℓ family and directly rules out flat negative bands."
+        ],
+        "reasoning": "The relevant stronger coverage is the 2021 SAME-MODEL formula for every negative κ, not the unrelated general square-lattice result or the positive-sector finding.",
+        "searches": [
+          "Exner--Tater 2021 source exact negative spectral equation (22)",
+          "Exner--Turek 2010 general square-lattice spectral bands",
+          "Resultary 9198ffe5a513 positive point spectrum and a6701995 negative band asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Exner--Tater 2021 lawfully available full primary relevant pages and equation (22)",
+        "Exner--Turek 2010 abstract",
+        "Resultary: 9198ffe5a513 and 3c084f970a58 and a6701995-e3cf-4237-96bf-491749493a69 (returned findings, summaries only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From 2021 c1=−2(2cos2μ coshκℓ−Q)sinhκℓ and c3=2(2cos2μ coshκℓ+Q)sinhκℓ; the Q-coefficient in Σ c_j κ^j is exactly 2κ(1+κ²)sinhκℓ>0.",
+          "For each κ, a fixed-energy Bloch solution appears only on Q=qκ, measure-zero in T², hence no point eigenvector in direct integral.",
+          "Original primary authors already describe negative μ=0 flat band turning dispersive for μ>0."
+        ],
+        "reasoning": "The submitted no-point-spectrum claim is mathematically implied by the exact prior dispersion relation for the SAME parameter domain, with only collecting already-visible terms and invoking the standard Bloch criterion. Therefore even if the one-line global quantifier is not separately displayed, the prior work logically covers it.",
+        "searches": [
+          "Exner--Tater 2021 Eq(22) and explicit discussion of μ=0 negative flat band becoming absolutely continuous",
+          "Periodic direct-integral point-spectrum criterion",
+          "Submitted RESULT.md exact derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Eq(22) contains EXACT same c0,…,c4 of negative energy and their full dependence on Q.",
+          "Original source writes that flat negative band at μ=0 becomes absolutely continuous for μ>0.",
+          "Submitted claimed coefficient is directly obtained by collecting the Q terms in the same equation."
+        ],
+        "reasoning": "Searching negative Bloch flat bands and phase-rotated preferred-orientation square lattice leads to the exact original formula, which already determines the point-spectrum answer. The source talks about the negative transition, so its mathematical coverage is stronger than a merely similar title.",
+        "searches": [
+          "Primary Exner--Tater arXiv:2108.04708v1 / OA UT Austin PDF equation (22) and p.9 statement",
+          "Resultary: phase twisted square quantum graph negative point spectrum flat Bloch band Exner Tater",
+          "Resultary positive point spectrum finding 9198ffe5a513"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical invariant/table is at issue; this is a universal spectral absence criterion.",
+          "Existing equation (22) is a complete symbolic all-energy/all-quasimomentum certificate: coefficient sign is manifest without a new computation."
+        ],
+        "reasoning": "The exact_database_or_table check is inapplicable because this is not a discrete enumerative problem; the original exact secular equation and standard criterion dominate it.",
+        "searches": [
+          "Eq. (22) in 2021 source; displayed coefficient values in full text",
+          "Resultary negative spectrum asymptotic a6701995-e3cf-4237-96bf-491749493a69",
+          "Search exact coefficient 2*kappa*(1+kappa^2)*sinh(kappa*ell)"
+        ]
+      },
+      "rationale": "The ORIGINAL Exner--Tater paper already prints the exact entire negative-energy secular equation (22), affine in Q=cosθ1+cosθ2 with coefficient 2κ(1+κ²)sinh(κℓ) strictly nonzero for every κ,ℓ>0, and explicitly observes that the negative flat band at μ=0 becomes absolutely continuous for μ>0 (p.9 of source). The claimed no-negative-point-spectrum is a direct elementary corollary of this prior complete all-quasimomentum spectral description and the standard Bloch flat-band criterion. It cannot gain originality by a separate no-flat-band slogan.",
+      "residual_risks": [
+        "The original paper gives Eq(22), and the present deduction uses a standard criterion; no independent new spectral mechanism.",
+        "The 2021 sentence specifically mentions one negative flat band; universal exclusion follows instead from their stronger full Eq(22), not solely that sentence.",
+        "Boundary μ=0 and μ=π/2 excluded; no assertion about continuous negative band count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original article already gives the complete affine formula that yields submitted no-negative-point-spectrum, and explicitly describes negative flat band becoming AC for interior μ.",
+          "evidence": "Eq(22) c1,c3 dependence on Q and p.9: negative flat band at μ=0 becomes absolutely continuous for μ>0.",
+          "identifier_or_url": "https://web.ma.utexas.edu/mp_arc/c/21/21-43.pdf",
+          "material_read": "Full OA 11-page paper relevant pp.5-9, particularly Eq(22) PDF index5 rendered and discussion of negative spectrum/flat band page index8 rendered; not all introductory coupling derivations reread.",
+          "method": "Lawful institutional webpage OA paper, parsed text and screenshots",
+          "title": "Quantum graphs: self-adjoint, and yet exhibiting a nontrivial PT-symmetry",
+          "trigger": "Same equilateral phase-twisted square model, complete negative secular relation and flat-band transition"
+        },
+        {
+          "assessment": "General coupling results can allow point spectrum; not decisive for this specialized phase-twisted U.",
+          "evidence": "Abstract: bands may be flat for general square lattice couplings.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1446",
+          "material_read": "Abstract only; full body not read in this audit.",
+          "method": "ArXiv abstract",
+          "title": "High-energy asymptotics of the spectrum of a periodic square-lattice quantum graph",
+          "trigger": "General spectral decomposition possible stronger coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The question is physically motivated by a disappearing negative flat band, but the original 2021 source already explicitly discusses its transition into absolutely continuous spectrum and prints the exact all-negative-energy Bloch determinant. The only added calculation is collecting two visible Q terms and applying a standard direct-integral level-set observation. With the same-object stronger formula already published, this is a routine negative/type check rather than a substantive new structural lemma or unknown natural invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For equilateral phase-twisted square lattice U=e^{iμ}R, 0<μ<π/2, ℓ>0, and E=−κ²<0, the direct-integral operator has no negative point spectrum because its Bloch secular polynomial has nonvanishing Q coefficient 2κ(1+κ²)sinh(κℓ).",
+  "limitations": [
+    "Only equilateral nonmagnetic square lattice, ℓ>0 and E<0, interior 0<μ<π/2.",
+    "Scientific rejection rests on prior formula implication and lack of independent value, not on computational or transport failure."
+  ],
+  "schema_version": 1
+}
