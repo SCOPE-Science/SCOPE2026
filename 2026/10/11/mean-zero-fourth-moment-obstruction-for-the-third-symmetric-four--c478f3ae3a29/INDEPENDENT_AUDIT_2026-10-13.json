@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T06:10:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/mean-zero-fourth-moment-obstruction-for-the-third-symmetric-four--c478f3ae3a29/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/mean-zero-fourth-moment-obstruction-for-the-third-symmetric-four--c478f3ae3a29/verify_bessel.py",
+        "https://arxiv.org/abs/2609.28938"
+      ],
+      "rationale": "The explicit boundary function f_t(e^{iθ})=e^{iθ}exp(it cos2θ) is continuous, unimodular, odd and therefore mean zero. Jacobi–Anger gives Fourier coefficients of S3 f_t at n=−3,−1,1,3 equal −J2(t), iJ1(t), J0(t), iJ1(t). The squared modulus has nonzero frequency lags 0, ±2, ±4, ±6 with |g|² hat(0)=A²+2B²+C², hat(2)=−iBC, hat(4)=B²−AC, hat(6)=−iBC; Parseval gives fourth moment (A²+2B²+C²)^2+4B²C²+2(B²−AC)^2. Independent symbolic expansion from Bessel power series gives 1+5t^6/576−11t^8/2304+473t^10/460800+O(t^12); positive sixth-order coefficient proves an interval of nonzero t with norm>1. At t=1 independently checked the exact rational alternating Bessel interval bound using k=0..9 lower and k=0..10 upper and obtained certified rational lower surplus ≈0.004814465479050505; floating evaluation 1.00481446547905 agrees but is not the proof. Normalized Haar Lp monotonicity extends violation to all p≥4. S3 is a sharp symmetric projector, not the Poisson multiplier; the asserted endpoint conjecture is untouched.",
+      "residual_risks": [
+        "Only operator noncontractivity is established, not sharp S3 norm or minimal frequency cutoff among arbitrary inputs.",
+        "Small-t series is local; t=1 uses a separate exact rational certificate; no inference from a finite numerical experiment to all t is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovalev Proposition 4.1 is universal in N but only p≤3; its Remark 4.3 is non-zero-mean S1 supercritical, not zero-mean p=4 S3.",
+          "Public SCOPE endpoint-deficit theorem concerns P_r acting on rational Blaschke-like f_epsilon, proves positive Poisson deficit."
+        ],
+        "reasoning": "The stronger-N coverage in Kovalev does not extend to p=4. The prior canonical family result has a different multiplier and direction of inequality; no implication yields the S3 failure.",
+        "searches": [
+          "symmetric Fourier partial sum S3 mean zero unimodular norm L infinity to L4 Jacobi Anger Bessel obstruction",
+          "https://arxiv.org/abs/2609.28938",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635",
+          "https://arxiv.org/abs/1005.1842"
+        ]
+      },
+      "checked_sources": [
+        "symmetric Fourier partial sum S3 mean zero unimodular norm L infinity to L4 Jacobi Anger Bessel obstruction",
+        "Poisson Schwarz-contractivity L infinity zero mean L4 canonical obstruction Fourier S3 odd unimodular e^{iθ}exp(it cos 2θ)",
+        "https://arxiv.org/abs/2609.28938",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635",
+        "https://arxiv.org/abs/1005.1842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kovalev Prop 4.1: ||S_N||_{L∞→L³}≤1; Remark 4.3: p>3 fails S1 for exp(iεcosθ), whose mean is nonzero; Prop 4.4: p>4 fails Poisson for zero-mean odd rational f_epsilon.",
+          "Audited claim: p=4 fails S3 already on zero-mean odd Jacobi–Anger f_t."
+        ],
+        "reasoning": "None of the prior theorem hypotheses and inequalities logically forces failure at the stronger zero-mean S3 p=4 endpoint; the new construction is not a corollary of the prior p>4 Poisson obstruction.",
+        "searches": [
+          "https://arxiv.org/abs/2609.28938",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635",
+          "https://arxiv.org/abs/1005.1842"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S3 is the sharp multiplier 1_{|n|≤3} on complex zero-mean L∞, not the Abel mean P_r with multiplier r^{|n|}.",
+          "Kovalev Section 4 proves p≤3 for S_N; his known counterexample S1 uses nonzero mean, whereas the audited Bessel family is odd and has zero mean."
+        ],
+        "reasoning": "Matching target exponent four or using odd test functions in another multiplier does not make those the same operator/norm statement.",
+        "searches": [
+          "symmetric Fourier partial sum S3 mean zero unimodular norm L infinity to L4 Jacobi Anger Bessel obstruction",
+          "Poisson Schwarz-contractivity L infinity zero mean L4 canonical obstruction Fourier S3 odd unimodular e^{iθ}exp(it cos 2θ)",
+          "Kovalev Proposition 4.1 symmetric S3 L∞ L4 mean zero contraction",
+          "odd unimodular Fourier cutoff Jacobi-Anger Bessel 5/576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary self-entry appeared; other Fourier entries concern finite abelian characters or unrestricted coefficient norms and do not give the exact mean-zero boundary-function section witness.",
+          "The exact sixth-order 5/576 term and t=1 rational inequality were not observed in those distinct records."
+        ],
+        "reasoning": "A fourth-moment table of unrestricted coefficient polynomials does not automatically exhibit a valid unimodular L∞ boundary input with the necessary zero-mean property.",
+        "searches": [
+          "symmetric Fourier partial sum S3 mean zero unimodular norm L infinity to L4 Jacobi Anger Bessel obstruction",
+          "Poisson Schwarz-contractivity L infinity zero mean L4 canonical obstruction Fourier S3 odd unimodular e^{iθ}exp(it cos 2θ)",
+          "Resultary sharp fourth moment Fourier section mean zero S3"
+        ]
+      },
+      "rationale": "The full primary 13-page Kovalev manuscript was acquired and read, including Proposition 4.1, Remark 4.3, Proposition 4.4 and Conjecture 5.1. It proves L∞ to L3 contractivity of symmetric Fourier sections; Remark 4.3 gives an S1 >3 obstruction using an input with nonzero mean; Proposition 4.4 constructs odd zero-mean data to obstruct Poisson Lp for p>4, but neither evaluates mean-zero S3 at p=4 nor states the sixth-order Bessel fourth-moment failure. The prior published Poisson endpoint-deficit result, read in full, proves a different unimodular family satisfies the finite-radius Poisson p=4 inequality; that does not entail a sharp-cutoff S3 norm. Related one-sided Riesz projection contractivity likewise has a distinct multiplier. Best-of-knowledge O PASS with residual risk of unindexed Fourier-section norm counterexamples; lack of complete priority index does not imply novelty.",
+      "residual_risks": [
+        "A historically unindexed mean-zero sharp Fourier section L4 counterexample may exist under convolution/Dirichlet-kernel terminology; searches are bounded.",
+        "No claimed resolution of the Poisson p=4 endpoint; direct Fourier-section obstruction alone cannot rule out cancellations in its positive Abel sum.",
+        "Original RESULT.md bibliography [4] has a malformed URL containing a space, requiring safe authorized citation repair before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NO_EXACT_COVERAGE",
+          "evidence": "Sharp S_N contraction only for p≤3; S1 failure witness has nonzero mean; odd zero-mean p>4 result concerns P_r and does not cover S3 p=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28938",
+          "material_read": "Complete 13-page arXiv primary PDF text, especially pp.10–12 Proposition 4.1, Remark 4.3, Proposition 4.4 and Conjecture 5.1",
+          "method": "First attempted arXiv/OA PDF and HTML, then read through authorized Oxford full text; did not redistribute primary PDF",
+          "title": "Schwarz-contractivity of the Poisson operator",
+          "trigger": "Closest same Fourier sections and conjectural endpoint source"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": "Proves finite-radius P_r p=4 satisfies strict inequality for its canonical rational odd family; does not address S3 on exp(it cos2θ).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635",
+          "material_read": "Entire Resultary public RESULT.md, exact rational Poisson multiplier expansion and all-radii Bernstein positivity proof",
+          "method": "Fetched and read complete public mathematical record",
+          "title": "Exact endpoint deficit for the canonical complex Poisson obstruction family",
+          "trigger": "Published endpoint claim with potential p=4 dominance"
+        },
+        {
+          "assessment": "ONE_SIDED_PRIOR_NOT_COVERING",
+          "evidence": "One-sided Riesz projection has L∞→L4 contraction, but symmetric sharp cutoff is the composition of one-sided tails with only L3 guaranteed by Kovalev.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.1842",
+          "material_read": "Open eight-page arXiv primary PDF, especially Section 2 Theorem 1 and its proof of the one-sided P+ L∞ to L4 endpoint",
+          "method": "Fetched and read primary PDF and visually inspected rendered second page",
+          "title": "L∞ to Lp constants for Riesz projections",
+          "trigger": "One-sided frequency-projection theorem potentially relevant via factorization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/mean-zero-fourth-moment-obstruction-for-the-third-symmetric-four--c478f3ae3a29/RESULT.md",
+        "https://arxiv.org/abs/2609.28938",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635"
+      ],
+      "rationale": "A rigorously certified endpoint obstruction for a precise sharp symmetric Fourier section is a motivated counterexample to a natural proof strategy arising from a current harmonic-analysis conjecture. The zero-mean and unimodular restrictions sharply distinguish it from the known S1 example and make the sixth-order loss mathematically informative. No exact operator norm, broader theorem or resolution of the Poisson conjecture is required for this correct natural negative result to be valuable.",
+      "residual_risks": [
+        "The main conjecture may nevertheless hold because a positive Poisson Abel mixture can cancel individual section-level violations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only operator noncontractivity is established, not sharp S3 norm or minimal frequency cutoff among arbitrary inputs.",
+    "Small-t series is local; t=1 uses a separate exact rational certificate; no inference from a finite numerical experiment to all t is made.",
+    "A historically unindexed mean-zero sharp Fourier section L4 counterexample may exist under convolution/Dirichlet-kernel terminology; searches are bounded.",
+    "No claimed resolution of the Poisson p=4 endpoint; direct Fourier-section obstruction alone cannot rule out cancellations in its positive Abel sum.",
+    "Original RESULT.md bibliography [4] has a malformed URL containing a space, requiring safe authorized citation repair before publication.",
+    "The main conjecture may nevertheless hold because a positive Poisson Abel mixture can cancel individual section-level violations."
+  ],
+  "schema_version": 1
+}
