@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the definition to the exact pair of inequalities
-\[
-q+d_i\ge k,\qquad p-d_i\ge k,
-\]
-with \(d_i\in\{-1,0,1\}\), and exhausts all boundary cases. The counting decomposition is disjoint after the explicit diagonal correction. A standalone exhaustive verifier checks every subset for \(3\le n\le8\) and every feasible \(k\).
+## correctness
 
-## Originality
-PASS. Searches under crown graph, \(K_{n,n}\) minus a perfect matching, bipartite Kneser \(H(n,1)\), and \(K_n\) tensor \(K_2\) found no equivalent all-set \(k\)-tuple domination classification or enumerator. The closest primary same-invariant paper gives general upper-number and complexity results, not crown-specific enumeration. The closest same-object records concern restrained domination or other predicates.
+PASS
 
-## Value
-PASS. The claim classifies the entire multiple-domination hierarchy on a standard symmetric graph family and yields an exact bivariate profile, minimum value, and minimum-set count for every feasible \(k\). The result is structurally informative and is not a one-parameter numerical lookup.
+For Cr_n with chosen index sets P,Q, define d_i=1_P(i)-1_Q(i). Literal closed-neighborhood tests reduce to q+d_i>=k and p-d_i>=k for every i; the only one-sided exceptions are k=1, S=A/B. Otherwise p,q>=k and p=k forces P⊆Q, q=k forces Q⊆P. Binomial enumeration partitions interior and exact boundaries with the diagonal counted once, giving stated bivariate F_{n,k} and D_{×k}, minimum 2k and binom(n,k) minima. Independent direct neighborhood set enumeration for n=3..7 checked all k and every bivariate coefficient; proof is all n>=3.
 
-## Closest literature and limitations
-The closest primary source is Chang et al., *Upper k-tuple domination in graphs*, DMTCS 14:2 (2012), DOI 10.46298/dmtcs.593. It defines the same invariant but does not treat crown graphs. Residual bibliographic risk remains for obscure special-case literature, especially \(k=2\), and the finite checker is only a consistency check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Chang et al. supply definition and bounds/complexity, not this all-k bivariate crown set classification on inspected material. Published Resultary restrained-crown and complete-multipartite variants use different predicates or graph classes. A full copy of Chang et al. was not retrieved (publisher landing/abstract inspected; HAL access denied), preserved as bibliographic risk.
+
+## value
+
+PASS
+
+Exact all-set side-profile counting of a natural matching-deletion family describes redundancy thresholds and inclusion constraints, giving minimum and every cardinality coefficient for arbitrary n,k. This is motivated finite graph-family structure, not recomputation of a known scalar table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

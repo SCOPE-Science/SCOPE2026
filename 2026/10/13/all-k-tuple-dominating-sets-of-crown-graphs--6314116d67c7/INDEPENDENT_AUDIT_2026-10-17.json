@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:01:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cr_n with chosen index sets P,Q, define d_i=1_P(i)-1_Q(i). Literal closed-neighborhood tests reduce to q+d_i>=k and p-d_i>=k for every i; the only one-sided exceptions are k=1, S=A/B. Otherwise p,q>=k and p=k forces P⊆Q, q=k forces Q⊆P. Binomial enumeration partitions interior and exact boundaries with the diagonal counted once, giving stated bivariate F_{n,k} and D_{×k}, minimum 2k and binom(n,k) minima. Independent direct neighborhood set enumeration for n=3..7 checked all k and every bivariate coefficient; proof is all n>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang et al. analyze upper minimal k-tuple domination for regular graphs",
+          "A crown graph is regular degree n-1 but their regular upper bound does not determine all feasible subsets"
+        ],
+        "reasoning": "General upper bound or NP-completeness cannot imply every (p,q) coefficient; complete multipartite results do not contain crown graphs.",
+        "searches": [
+          "https://dmtcs.episciences.org/en/articles/593",
+          "Resultary upper k-tuple domination complete multipartite"
+        ]
+      },
+      "checked_sources": [
+        "https://dmtcs.episciences.org/en/articles/593",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+        "Resultary crown/complete-multipartite search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New proof resolves boundary p=k or q=k by containments and exceptional S=A,B for k=1"
+        ],
+        "reasoning": "Earlier general scalar bounds do not force containment restrictions or the counting formula; conversely specialization of new formula can yield ordinary domination count.",
+        "searches": [
+          "https://dmtcs.episciences.org/en/articles/593",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed counts |N[a_i]∩S|=q+1_{i∈P}-1_{i∈Q}, paired B count p-d_i"
+        ],
+        "reasoning": "Searched crown/removed-matching and bipartite Kneser aliases; no known equivalent full side-sensitive formula found.",
+        "searches": [
+          "crown graph k tuple domination closed neighborhood",
+          "K_nn minus perfect matching k tuple domination polynomial",
+          "bipartite Kneser H(n,1) k-tuple"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed crown table is restrained-domination polynomial, different predicate"
+        ],
+        "reasoning": "No verified exact table of closed-neighborhood all-k crown bivariate coefficients. Unsuccessful search not novelty certification.",
+        "searches": [
+          "k tuple domination crown graph enumerator binomial generating polynomial",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Chang et al. supply definition and bounds/complexity, not this all-k bivariate crown set classification on inspected material. Published Resultary restrained-crown and complete-multipartite variants use different predicates or graph classes. A full copy of Chang et al. was not retrieved (publisher landing/abstract inspected; HAL access denied), preserved as bibliographic risk.",
+      "residual_risks": [
+        "Potential unindexed full-text crown formula or special k=2 case",
+        "2012 Chang full text inaccessible in current attempt; only abstract scoped, no whole-text NOT_COVERING",
+        "Decoded source text displayed control-like escapes in some KaTeX sequences; verify underlying public UTF-8 presentation before publishing"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies upper cardinality of minimal sets and general regular bounds/complexity; cannot conclude full-text exclusion of crown all-set result from abstract alone",
+          "evidence": [
+            "DMTCS 14(2) (2012) 285–292, DOI:10.46298/dmtcs.593"
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/593",
+          "material_read": "Publisher title, abstract, theorem scope from article page; full PDF not obtained, HAL returned access-denied page",
+          "method": "Publisher OA landing page and HAL attempted",
+          "title": "Upper k-tuple domination in graphs",
+          "trigger": "Same closed-neighborhood k-tuple predicate"
+        },
+        {
+          "assessment": "Restrained domination is open-neighbor condition outside the set, not closed-neighborhood k-tuple domination; no direct implication",
+          "evidence": [
+            "Resultary query crown graph k tuple domination polynomial"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+          "material_read": "Published Resultary semantic hit including statement about outside neighbors and bivariate enumerator",
+          "method": "Resultary indexed abstract",
+          "title": "Restrained-dominating-set profile of crown graphs",
+          "trigger": "Same crown graph, distinct domination predicate"
+        },
+        {
+          "assessment": "Crown graphs are not complete multipartite (missing a perfect matching); also upper minimal cardinality does not give complete bivariate counts",
+          "evidence": [
+            "Resultary crown graph query, hit upper k-tuple domination multipartite"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-upper-k-tuple-domination-of-complete-multipartite-graphs--ba8c8eb62dc8",
+          "material_read": "Published Resultary indexed title and theorem summary",
+          "method": "Semantic indexed summary",
+          "title": "Upper k-tuple domination of complete multipartite graphs",
+          "trigger": "Possible general graph-family dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-set side-profile counting of a natural matching-deletion family describes redundancy thresholds and inclusion constraints, giving minimum and every cardinality coefficient for arbitrary n,k. This is motivated finite graph-family structure, not recomputation of a known scalar table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3, 1<=k<=n, closed neighborhoods only. Metadata contains privacy-sensitive provenance."
+  ],
+  "schema_version": 1
+}

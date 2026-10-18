@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic proof was checked from the closed-neighborhood identities
-\[
-|N[a_i]\cap S|=q+\mathbf 1_{i\in P}-\mathbf 1_{i\in Q},
-\qquad
-|N[b_i]\cap S|=p+\mathbf 1_{i\in Q}-\mathbf 1_{i\in P}.
-\]
-The only side-size value below \(k\) compatible with all inequalities is the \(k=1\) full-side exception. At \(q=k\), feasibility is exactly \(Q\subseteq P\); at \(p=k\), it is exactly \(P\subseteq Q\). For larger side sizes the corresponding inequalities are automatic.
 
-`checker.py` exhaustively tests every subset of \(\operatorname{Cr}_n\) for \(3\le n\le8\) and every \(1\le k\le n\). It verifies the iff criterion, the bivariate and univariate coefficient tables, and the claims \(\gamma_{\times k}=2k\) and \(m_k=\binom nk\). Its expected terminal line is:
+# Independent mathematical audit
 
-`VERIFY_OK n_range=3..8 k_values=33 subset_checks=669888 criterion_checks=669888 bivariate_checks=199684 coefficient_checks=546 minimum_checks=33 max_order=16`
+## correctness
 
-No finite computation is used to justify the infinite theorem. The literature comparison is limited by normal bibliographic coverage and does not constitute a proof of global uniqueness.
+PASS
+
+For Cr_n with chosen index sets P,Q, define d_i=1_P(i)-1_Q(i). Literal closed-neighborhood tests reduce to q+d_i>=k and p-d_i>=k for every i; the only one-sided exceptions are k=1, S=A/B. Otherwise p,q>=k and p=k forces P⊆Q, q=k forces Q⊆P. Binomial enumeration partitions interior and exact boundaries with the diagonal counted once, giving stated bivariate F_{n,k} and D_{×k}, minimum 2k and binom(n,k) minima. Independent direct neighborhood set enumeration for n=3..7 checked all k and every bivariate coefficient; proof is all n>=3.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Chang et al. supply definition and bounds/complexity, not this all-k bivariate crown set classification on inspected material. Published Resultary restrained-crown and complete-multipartite variants use different predicates or graph classes. A full copy of Chang et al. was not retrieved (publisher landing/abstract inspected; HAL access denied), preserved as bibliographic risk.
+
+## value
+
+PASS
+
+Exact all-set side-profile counting of a natural matching-deletion family describes redundancy thresholds and inclusion constraints, giving minimum and every cardinality coefficient for arbitrary n,k. This is motivated finite graph-family structure, not recomputation of a known scalar table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
