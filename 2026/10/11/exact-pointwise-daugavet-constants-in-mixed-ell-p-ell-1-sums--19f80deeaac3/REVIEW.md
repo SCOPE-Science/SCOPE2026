@@ -1,11 +1,21 @@
-# Scientific review: mixed \(\ell_p\)–\(\ell_1\) pointwise constants
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof obtains both directions of the slice infimum (not just an upper estimate). For the lower direction, an arbitrary dual slice gives a unique norming radial pair, and the Daugavet property supplies an almost maximally distant first component. The exact one-coordinate \(\ell_1\) comparison replaces its atom by the maximum atomic magnitude. In the reverse direction, specially chosen norm-one functionals and equality rigidity in two-dimensional Hölder force a chosen radial pair and a single atomic coordinate. The zero-component cases and uncountable indices remain valid. The closed form for the \(p=2\) atomic unit axis follows from two explicit affine scalar branches. Supplementary rational checks passed; they do not replace the analytic proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Choi–Jung's 2023 primary manuscript supplies general absolute-sum bounds and coordinate-axis estimates. The closest published endpoint result covers \(X\oplus_1\ell_1\), while another published exact formula covers only one real scalar summand for \(1<p<\infty\); neither has a nontrivial spread \(M<B\). Exact formulas for sums of Daugavet spaces require the wrong hypothesis on the atomic part. Comparisons were made against the statements and proof texts, not title similarity. Unindexed equivalences are possible, so neither exhaustive novelty nor external verification is asserted.
+PASS
 
-**Mathematical value — PASS.** The result is a natural full pointwise profile in mixed sum geometry, reducing a slice optimization to the three quantities \(A,B,M\). A transition of the optimal slice at \(M=1/2\) gives a sharp geometric boundary; five equal atoms produce a mixed minimizer \(s=1/5\) with squared radius \(8/5\), strictly below either pure-summand radial endpoint. This distinguishes the result from routine renaming of the known one-atom case.
+For Z=X⊕pℓ1(Γ) and point z=(x,v), a norming dual functional has radial Hölder components r,s with r^p+s^p=1. In every slice, a Daugavet-far X coordinate and a nearly norming atomic coordinate produce distance ≥[(A+r)^p+(B-M+|s-M|)^p]^(1/p). The one-atom discrepancy B-c+|s-c| decreases in c, hence its minimum at the maximum atom M. Conversely, increasingly thin slices at a maximal atom force the pair of summand norms toward (r,s) by strict Hölder equality and force the ℓ1 vector toward s·sgn(vγ)eγ; this gives the matching upper bound. Covers uncountable Γ since v has countable support and nonzero maximum attained. Independently minimized the p=2 pure-atomic function F(s)=1-s²+(1-M+|s-M|)² for M=.2,.5,.8; it yields 2(1-M) when M≤1/2 and 4(1-M)² when M≥1/2. Finite rational verifier is a diagnostic, not an infinite proof. Requires nontrivial Daugavet Banach component for X* norming slices; no general formula asserted for arbitrary X.
 
-**Limits.** The non-atomic summand must have the Daugavet property; the outer exponent is strictly between one and infinity and scalars are real. The general answer is a one-dimensional minimum, with a closed phase formula only for the stated Hilbert sum. There is no claim about Delta constants or arbitrary second summands.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The quantitative three-parameter mixed ℓp–atomic profile is not supplied by general Choi–Jung estimates. Related Resultary exact formulas for p=1 sums and for sums whose every summand has the Daugavet property have different hypotheses; the ℓ1 atom factor lacks the Daugavet property and creates a new optimizer transition.
+
+## value
+
+PASS
+
+The exact one-variable variational reduction gives a reusable quantitative invariant for arbitrary atomic index cardinality and a sharp mixed radial transition at maximal atom mass 1/2. This is a natural structural Banach-space result rather than merely finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

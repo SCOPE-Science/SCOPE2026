@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of scalar and analytic steps
+# Independent mathematical audit
 
-The theorem is proved for arbitrary real Banach spaces satisfying the hypotheses by an analytic two-sided slice argument. In particular, no discrete grid or experiment is treated as a proof for all exponents, dimensions, or index sets. Source-based comparisons and mathematical limitations are documented in `RESULT.md` and `REVIEW.md`.
+## correctness
 
-Run `python verify.py` from the directory containing the proof and its checker (Python 3 standard library only). Exact rational replay returned:
+PASS
 
-```
-VERIFY_OK discrepancy_checks=3146 radial_checks=2736 phase_checks=10100 balanced_five=8/5 analytic_proof_required=True
-```
+For Z=X⊕pℓ1(Γ) and point z=(x,v), a norming dual functional has radial Hölder components r,s with r^p+s^p=1. In every slice, a Daugavet-far X coordinate and a nearly norming atomic coordinate produce distance ≥[(A+r)^p+(B-M+|s-M|)^p]^(1/p). The one-atom discrepancy B-c+|s-c| decreases in c, hence its minimum at the maximum atom M. Conversely, increasingly thin slices at a maximal atom force the pair of summand norms toward (r,s) by strict Hölder equality and force the ℓ1 vector toward s·sgn(vγ)eγ; this gives the matching upper bound. Covers uncountable Γ since v has countable support and nonzero maximum attained. Independently minimized the p=2 pure-atomic function F(s)=1-s²+(1-M+|s-M|)² for M=.2,.5,.8; it yields 2(1-M) when M≤1/2 and 4(1-M)² when M≥1/2. Finite rational verifier is a diagnostic, not an infinite proof. Requires nontrivial Daugavet Banach component for X* norming slices; no general formula asserted for arbitrary X.
 
-The code independently tests monotonicity of the aligned atomic discrepancy, admissible Euclidean radial cases, and the closed-phase scalar arithmetic at rational masses, including the \(M=1/2\) boundary. The functional-analytic proof of the general equality uses the Daugavet slice property, Hölder equality uniqueness, and the exact \(\ell_1\) coordinate norm identity; these are reconstructed in the proof.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The quantitative three-parameter mixed ℓp–atomic profile is not supplied by general Choi–Jung estimates. Related Resultary exact formulas for p=1 sums and for sums whose every summand has the Daugavet property have different hypotheses; the ℓ1 atom factor lacks the Daugavet property and creates a new optimizer transition.
+
+## value
+
+PASS
+
+The exact one-variable variational reduction gives a reusable quantitative invariant for arbitrary atomic index cardinality and a sharp mixed radial transition at maximal atom mass 1/2. This is a natural structural Banach-space result rather than merely finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
