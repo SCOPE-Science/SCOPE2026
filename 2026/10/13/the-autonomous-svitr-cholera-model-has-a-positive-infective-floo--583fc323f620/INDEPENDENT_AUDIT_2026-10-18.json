@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:08:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tirfe et al. model (2.1) prints V'=alpha*Pi-(eta+mu)V and I'=beta*I*S/N+(1-p)*eta*V-hI, h=omega+mu+xi>0. Under alpha,Pi,eta,mu>0,0<p<1 and nonnegative states with N>0, V(t)->alpha*Pi/(eta+mu). Because incidence is nonnegative, variation of constants gives liminf I>= (1-p)*eta*alpha*Pi/((eta+mu)*h)>0. At any equilibrium, I*>=that same positive number, so proposed disease-free I*=0 with V*>0 is not an equilibrium. Independent exact witness Pi=2,alpha=1/2,eta=mu=omega=1,p=1/2,xi=0 gives residual 1/4 and floor 1/8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic next-generation methodology assumes disease-free invariance, and a different 2023 SEIR model has an importation floor. Neither gives the infected floor for Tirfe et al. model with this autonomous V equation."
+        ],
+        "reasoning": "Known general comparison principles motivate the proof, but do not previously analyze the contradicting vaccinated inflow in this source-specific five-compartment cholera model.",
+        "searches": [
+          "van den Driessche and Watmough 2002 DOI:10.1016/S0025-5564(02)00108-6",
+          "Resultary vaccination monotonicity and an exact importation amplification bound in an SEIR model"
+        ]
+      },
+      "checked_sources": [
+        "Tirfe et al. JPRM 2026 full printed model and equilibrium sections",
+        "van den Driessche–Watmough 2002 methodological invariance criterion",
+        "Resultary related different SEIR importation-floor result",
+        "Exact rational residual and liminf bound witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published model and the published candidate equilibrium are internally inconsistent. The general next-generation premise excludes spontaneous positive inflow; linear comparison gives a numerical lower bound."
+        ],
+        "reasoning": "Prior theory gives the abstract disease-free-invariance condition but the new correction is the direct model-specific failure, with an explicit bound. The original printed threshold conclusions cannot be transported unchanged.",
+        "searches": [
+          "Tirfe et al 2026 JPRM model (2.1) and disease-free point",
+          "van den Driessche Watmough 2002 next-generation assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The printed I equation gives positive residual at V*=alpha Pi/(eta+mu) and I*=0; this is equivalent to non-invariance of the disease-free face and failure of the proposed equilibrium."
+        ],
+        "reasoning": "Disease-free obstruction, positive asymptotic infective floor and source-term importation are mathematically related, but the exact printed source is necessary to identify the incorrect equilibrium.",
+        "searches": [
+          "SVITR cholera disease-free equilibrium vaccinated inflow (1-p) eta V persistent infective floor",
+          "Tirfe et al 2026 cholera model (1-p) eta V disease-free equilibrium",
+          "infectious importation floor disease-free invariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source displays a cholera-free point with I*=0 and V*=alpha Pi/(eta+mu); substitution gives nonzero infected residual (1-p)eta V*>0."
+        ],
+        "reasoning": "The published equilibrium table is incorrect in the stated nondegenerate parameter domain; no exact correct infective-floor table for the printed model was found.",
+        "searches": [
+          "SVITR cholera disease-free equilibrium vaccinated inflow (1-p) eta V persistent infective floor",
+          "SVITR cholera model (2.1) positive infective lower bound",
+          "Tirfe et al JPRM 2026 cholera-free equilibrium and source equilibrium table"
+        ]
+      },
+      "rationale": "The exact published SVITR model includes a density-independent vaccinated-to-infected inflow, while the paper nonetheless evaluates threshold and bifurcation criteria at a proposed I=0 equilibrium. General next-generation theory already requires an invariant disease-free set; the source-specific contradiction and quantified asymptotic infective floor are the assessed correction, not a newly claimed general threshold method.",
+      "residual_risks": [
+        "This assesses model (2.1) as printed; a corrected model with infection-dependent vaccinated flow could remove the obstruction.",
+        "No assertion that a positive equilibrium exists uniquely or is stable, nor about controlled equations.",
+        "The disease-free method failure is a standard principle; originality is the source-specific exposed inconsistency and strict quantitative floor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive constant vaccinated inflow remains in infectious equation; paper drops this condition when setting I=0 in equilibrium.",
+          "evidence": "V'=alpha Pi-(eta+mu)V; I'=beta I S/N+(1-p)eta V-hI; E0 has I=0,V=alpha Pi/(eta+mu).",
+          "identifier_or_url": "https://jprm.sms.edu.pk/index.php/jprm/article/view/279",
+          "material_read": "Publisher-accessible full 28-page PDF: printed model (2.1) on p4, disease-free equilibrium and threshold sections around p7, plus relevant claims",
+          "method": "Lawful primary publisher PDF text and page screenshots",
+          "title": "Optimal Control and Bifurcation Analysis of Cholera Model",
+          "trigger": "Identical autonomous SVITR equations and advertised cholera-free equilibrium"
+        },
+        {
+          "assessment": "The next-generation construction assumes no noninfection-independent inflow at disease-free states; method does not furnish this model-specific floor.",
+          "evidence": "Disease-free states must be invariant under the intended infection-free dynamics.",
+          "identifier_or_url": "https://doi.org/10.1016/S0025-5564(02)00108-6",
+          "material_read": "Model assumptions and disease-free invariance premise, method-level comparison; no claim of full article review",
+          "method": "Published foundational mathematical framework comparison",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+          "trigger": "General next-generation construction may dominate source-specific obstruction"
+        },
+        {
+          "assessment": "Similar mechanism in a different SEIR model; no direct proof of the printed cholera SVITR theorem from summary alone.",
+          "evidence": "Reports I_imp=alpha A1/(mu1 mu2) for a 2023 SEIR model, not Tirfe 2026.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-vaccination-monotonicity-and-an-exact-importation-amplification--17788b7e7dfb",
+          "material_read": "Resultary title and summary, no original full-text inspection claimed",
+          "method": "Semantic published-result comparison",
+          "title": "Vaccination monotonicity and an exact importation amplification bound in an SEIR model",
+          "trigger": "Related mathematical importation floor in different model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The obstruction invalidates a named disease-free fixed point and every local stability/bifurcation interpretation based on it for the actually printed nondegenerate vector field. The explicit positive liminf lower bound quantifies how long-time infection cannot vanish even when transmission is negligible. This addresses a central structural error, not a minor algebraic typo.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires Pi,alpha,eta,mu>0; 0<p<1, N>0 and nonnegative state trajectory.",
+    "No conclusion for degenerate cases p=1, alpha=0, Pi=0, or eta=0."
+  ],
+  "schema_version": 1
+}
