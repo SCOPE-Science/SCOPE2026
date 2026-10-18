@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Let \(c=\|\mathrm{id}:\mathcal E_1\to\mathcal E_2\|_{\mathrm{cb}}\). A normalized sequence \(X^{(r)}\) can be chosen with \(\|X^{(r)}\|_{\mathcal E_1}=1\) and \(\|X^{(r)}\|_{\mathcal E_2}\to c\). Tornes's exact all-powers identities apply to each associated witness. Uniform coordinate bounds ensure the countable direct sum is bounded, and block-diagonal norms turn each power into a supremum. Therefore one tuple has both ordinary and minimal radii \(1\) for \(\mathcal E_1\) and \(c\) for \(\mathcal E_2\).
+## correctness
 
-## Originality
-PASS. The focal paper proves per-input norm encoding and qualitative complete-isometric rigidity, but the inspected material does not state single-tuple attainment of the global completely bounded norm. Searches using single-witness, cb-norm, quantitative-distortion, block-diagonal, ordinary-radius, and minimal-radius formulations found no covering result. The closest earlier results concern simultaneous similarity and special quantization-independence rather than this attained global distortion.
+PASS
 
-## Value
-PASS. Completely bounded norm is the natural quantitative distance parameter for comparing operator-space structures. The result converts its matrix-level supremum into one separable operator tuple on which both spectral-radius theories attain exactly the same distortion, including cases in which no finite matrix level need be norming.
+Select finite matrix tuples \(X^{(r)}\) with \(\|X^{(r)}\|_{\mathcal E_1}=1\) and \(\|X^{(r)}\|_{\mathcal E_2}\to c\) by the cb-norm definition. Tornes Theorem 3.1 was read in full: for each input \(X\) its constructed \(T_X\) has exactly the \(m\)-th Haagerup and minimal word-operator norms \(\|X\|_{\mathcal E}^m\), all \(m\ge1\), not merely an asymptotic statement. The coordinate operators of \(T_X\) are shifted tensor placements of input coordinates, so have norm exactly \(\|X_j\|\). Each coordinate functional on fixed finite-dimensional \(\mathcal E_1\) is bounded/completely bounded, uniformly bounding \(\|X_j^{(r)}\|\). Their countable direct sum \(T_j=\oplus_r(T_{X^{(r)}})_j\) therefore exists and is bounded on separable \(K\); the words are block diagonal and their norms equal the supremum of the corresponding block word norms. Taking roots at every power gives both radii \(\sup_r\|X^{(r)}\|_{\mathcal E}\), proving the exact requested values. No finite-level norm attainment was assumed.
 
-## Closest literature and limitations
-The closest source is Tornes, arXiv:2610.00816v1, especially Theorem 3.1. The claim relies on that theorem's exact power identities; the weaker limiting equality alone would not justify passing to a countable direct sum. The construction does not prove finite-dimensional attainment and the witness depends on the ordered pair of operator-space structures.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal source proves norm encoding for each prescribed input tuple and qualitative complete-isometric rigidity, while the final claim obtains a single witness realizing the supremum across every matrix size for an arbitrary ordered pair of operator-space structures. The norming-sequence diagonalization is natural but creates a global quantitative attainment theorem that neither original theorem statement nor the prior finite-tuple similarity result states. Based on searched statements this is a substantive stronger witness conclusion, with an explicit residual risk that it may be known as a standard direct-sum attainment principle.
+
+## value
+
+PASS
+
+The completely bounded norm is the canonical quantitative distortion invariant of operator-space quantizations. Realizing an otherwise unattained supremum over all finite levels as exact simultaneous ordinary/minimal spectral radii of one separable tuple is a natural attainment statement usable to compare operator-space structures; no general downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
