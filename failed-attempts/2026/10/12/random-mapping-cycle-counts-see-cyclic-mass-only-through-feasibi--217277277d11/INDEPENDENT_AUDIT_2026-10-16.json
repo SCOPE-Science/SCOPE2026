@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:16:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the number m of cyclic vertices gives a uniform m-subset and uniform permutation on it; ordered disjoint length-ell cycle collections have exact factorial mean ell^(-r) for m>=r*ell and zero otherwise. The rooted-forest count m*n^(n-m-1) is constant across cyclic sets/permutations (including m=n). Summing the exact law Pr(L=m)=m(n)_m/n^(m+1) telescopes to Pr(L>=s)=(n)_s/n^s. Conditional expectations, threshold covariance, fixed-label independence, Cov(F^2,L)=(E L-1)/n, and fixed-s Gaussian-scale asymptotic follow. Own independent exact checker tested 103 admissible moment cases at n=2..5; original verify.py enumerates n=2..6 but this was read rather than rerun. Finite data not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "https://doi.org/10.1002/rsa.3240030310"
+        ],
+        "reasoning": "Hansen–Jaworski construct the random mapping from cyclic vertices, forest and uniform permutation, covering the joint model used by every submitted equation; Arratia–Tavaré treat wider combinatorial component structures. The latter asymptotic alone would not cover exact claims, but the former finite conditional law does.",
+        "searches": [
+          "Uniform random mappings conditional cyclic points number cycles length ell factorial moments fixed points independence cyclic vertices covariance",
+          "random mapping components conditional cyclic vertices uniform permutation Hansen Jaworski"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "https://arxiv.org/abs/2606.18956",
+        "https://doi.org/10.1002/rsa.3240030310"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "https://arxiv.org/abs/2606.18956"
+        ],
+        "reasoning": "Prior finite conditional law and standard cycle moment yield (1) with no new hypothesis. The law of total covariance yields (2); the classical cyclic-point tail yields (3)–(5); the r=ell=1,2 substitutions yield (6)–(7). Therefore the whole final scientific claim is directly covered.",
+        "searches": [
+          "Uniform random mappings conditional cyclic points number cycles length ell factorial moments fixed points independence cyclic vertices covariance",
+          "uniform permutation fixed-point factorial moments exact E (F)_r"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "https://arxiv.org/abs/2606.18956"
+        ],
+        "reasoning": "The event threshold is precisely the ordinary finite permutation feasibility cutoff m>=r*ell under the prior exact conditional uniform-permutation representation. Not merely a terminological alias: its factorial moment is the well-known permutation-cycle identity.",
+        "searches": [
+          "Uniform random mappings conditional cyclic points number cycles length ell factorial moments fixed points independence cyclic vertices covariance",
+          "Hansen Jaworski given number cyclical points pdf conditional random permutation cycle count",
+          "uniform permutation cycle counts factorial moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "https://arxiv.org/abs/2606.18956"
+        ],
+        "reasoning": "No special lookup table is required: the elementary labeled forest count and uniform permutation factorial moment give every finite n,ell,r exactly. A table search would be weaker than the controlling distributional identity.",
+        "searches": [
+          "Uniform random mappings conditional cyclic points number cycles length ell factorial moments fixed points independence cyclic vertices covariance",
+          "exact random mapping cyclic points distribution number mappings m cyclic vertices"
+        ]
+      },
+      "rationale": "Hansen–Jaworski (2010), pp.342–344, explicitly supply the conditional uniform permutation of cyclic vertices and identify its conditional cycle-count law as well known. The standard exact uniform-permutation cycle factorial-moment identity E[(C_ell)_r]=ell^(-r) when m>=r*ell (zero otherwise) immediately yields the submitted master identity by substituting m=L. The remaining claimed covariances are direct conditional-expectation and tail-telescoping consequences, and fixed-label first-order independence follows by the familiar (m/n)*(1/m)=1/n exchangeability computation. These are consequences of the published structural theorem plus elementary permutation counting; absence of identical phrasing is not novelty.",
+      "residual_risks": [
+        "None required to overturn rejection: direct prior implication is decisive; other older monographs may contain the full formula verbatim.",
+        "Some older random-mapping cycle literature remains unread; this is not the basis of the rejection because the 2010 uniform conditional law and a June 2026 explicit exact joint factorial moment already imply the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_ESSENTIAL_LEMMA",
+          "evidence": "PDF pp.342–344 states cyclic restriction is uniform conditional on L; p.344 says conditional number of cycles is the uniform-permutation cycle law.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "Publisher-hosted 19-page primary PDF visually inspected on pp.341–344, including explicit pp.342–344 conditional uniform permutation construction and citation to Feller for classical #cycles; later pages not required for the decisive implication and were not treated as read.",
+          "method": "Visual PDF pages 0–3 through publisher PDF with explicit comparison of its exact conditional law to submitted falling-factorial identities.",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Same uniform mapping T_n, same L_n, exact conditioning on cyclic vertices"
+        },
+        {
+          "assessment": "COVERING_STANDARD_LEMMA",
+          "evidence": "June 2026 §8 explicitly gives E[product_j (C_j)_(a_j)]=product_j j^(-a_j) provided m>=sum j a_j; set one index ell and a_ell=r.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.18956",
+          "material_read": "Complete lawful arXiv rendered full text inspected §3 (uniform random permutation cycle law) and §8 (exact finite joint factorial moment over all cycle lengths, with cutoff); theorem compares exactly to submitted conditional formula.",
+          "method": "Read primary mathematical proof, not search excerpt; substitute conditional uniform permutation with m=L.",
+          "title": "A Combinatorial Generalization of a Random-Player Game",
+          "trigger": "Explicit preexisting joint finite permutation-cycle factorial moment identity"
+        },
+        {
+          "assessment": "BROADER_ASYMPTOTIC_CONTEXT",
+          "evidence": "Approximate joint component structure, not needed for the decisive finite identity.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240030310",
+          "material_read": "Publisher abstract, introduction scope and references only; not full primary text.",
+          "method": "Checked abstract claims and avoided asserting full-article theorem-level noncoverage.",
+          "title": "Limit theorems for combinatorial structures via discrete process approximations",
+          "trigger": "Broader random-mapping and permutation count background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the fixed-point first-moment orthogonality versus second-moment dependence is an instructive probability illustration, the package supplies only short algebraic corollaries of the published exact conditional-permutation model and textbook cycle-count factorial moments. It neither resolves a distinct motivated open invariant nor adds a nontrivial structural lemma beyond that model; its finite replay and exact presentation do not make a new mathematically substantive contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Correct but directly implied by prior exact conditional model; no original theorem survives under the assigned final claim.",
+    "Fixed-point count F_n and cyclic-vertex count L_n are not independent, notwithstanding E[F_n|L_n]=1."
+  ]
+}
