@@ -1,0 +1,15 @@
+# Self-review: exact regular-nonagon chord quadrilateral
+
+## Correctness — PASS
+For a regular nonagon, all chord-parallel support normals form the 18-direction angular grid, with exactly two support offsets depending on parity. Tightening any circumscribed chord side produces one of the candidates covered by the geometric reduction. The vertex-intersection condition and shoelace expression are derived explicitly in RESULT.md. `verify_nonagon.py` exhausts all 3060 four-normal sets; it uses rational operations in a cubic field, rational root isolation and exact sign comparisons, obtaining precisely 1548 bounded feasible candidates, the stated minimum algebraic value, and exactly nine optimizer quadruples. The proof is finite because the definition restricts side directions to polygon chords; the certificate is not an extrapolation from numerical experiments. A direct shoelace cross-check of one optimizer agrees. Limit: no unrestricted-direction optimum is claimed.
+
+## Originality — PASS, with residual literature risk
+Vígh, arXiv:2610.08168v1 (2026), is the closest primary source and has been inspected across its definitions, experiments, principal theorems, examples and conclusion. It establishes the chord setup and broad estimates, lists a regular-heptagon numerical value, and illustrates an arbitrary nonagon, but does not give the exact minimum for the **regular nonagon** or enumerate its equality quadrilaterals. Fodor and Grundbacher, arXiv:2506.05185v1, provide an unrestricted global upper estimate, not an exact restricted nine-sided computation. The pentagon exact theorem referenced in those works has a different domain. Searches included synonyms for the enclosing problem, the exact value, the tangent-contact configuration, and mathematical-record comparisons; no inspected statement implied the claim. Unindexed older geometry literature or uninspected special-case calculations could still cover it. Search failure by itself is not treated as proof of priority.
+
+## Value — PASS
+This is the exact natural finite-dimensional benchmark of a recently posed polygonal approximation conjecture for the first regular odd polygon beyond the heptagon and the exceptional pentagon in the corresponding residue class. It identifies all optimal quadrilaterals, shows that the natural all-edge-tangent restriction is strictly suboptimal, and establishes the specific vertex-contact trapezoid geometry. The classification is an exact geometric optimization fact, not an arbitrarily chosen statistic or a reproduction of a known table. It does not resolve the general conjecture, claim a general all-polygons formula, or assert independent validation.
+
+## Limitations and evidence
+The embedded exact certificate is reproducible with Python 3 standard library; its mathematical reduction and source comparisons are documented in RESULT.md and AUDIT.json. Checked primary sources are Vígh (2026) and Fodor–Grundbacher (2025). Potential historical coverage and the unknown unrestricted minimum remain outside the conclusion.
+
+Self-review: passed. Independent audit: not yet performed.
