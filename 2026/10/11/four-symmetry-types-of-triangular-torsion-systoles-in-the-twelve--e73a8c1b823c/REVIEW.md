@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact facet list reconstructs \(f=(12,60,96,48)\) and the six-edge antipodal matching missing from the one-skeleton. There are exactly \(160\) three-vertex cliques and \(64\) nonfacial triangular cycles. Exact mod-two reduction gives one-dimensional \(H_1\) and checks every one of those \(64\) cycles is nonzero. The published topology gives \(H_1(K;\mathbb Z)\cong\mathbb Z/2\), so universal coefficients identify every such cycle with the unique integral torsion generator. Exhaustive symmetry testing gives the full order-\(24\) automorphism group and carrier orbits \(4,12,24,24\).
+## correctness
 
-## Originality
-PASS. The published exact-object classification already supplies the topology, face vector, \(24\)-cell quotient description, and full automorphism-group order; none of those are claimed as new. Focused semantic searches and the inspected exact-object sources did not state the complete \(64\)-carrier torsion theorem, its four symmetry orbits, or the exceptional disjoint four-loop parallel class. The closest owned result concerns a different eleven-vertex triangulation of \(\mathbb{RP}^3\), so it does not imply the incidence and orbit structure here.
+PASS
 
-## Value
-PASS. This triangulation is a canonical highly symmetric realization of \(\mathbb{RP}^3\), obtained from the regular \(24\)-cell. The complete shortest torsion-loop layer is therefore a natural combinatorial systolic invariant. Its four symmetry types, especially the size-\(4\) vertex-partition orbit, add structural information not contained in the known homology group or automorphism-group order and are not a mere face-count recomputation.
+Independently reconstructed all 48 tetrahedra from the frozen 48-facet list, obtaining f=(12,60,96,48), missing graph-edge pairs {(1,7),...,(6,12)}, 160 three-cliques and exactly 64 nonfacial triangular loops. Exact mod-two boundary rank 48 inside 49-dimensional graph cycle space gives H1(F2) dimension 1; direct reduction finds each of 64 nonfacial boundaries nonzero. Published topology RP3 implies integral H1=Z2, and H0 torsion-free means mod-two reduction of its unique torsion generator is nonzero, so these are exactly the simple integral 3-edge systoles. Exhausted all 6!·2^6=46080 permutations of six opposite pairs, precisely 24 facet-preserving automorphisms, and computed orbit sizes 4/12/24/24, representatives (1,5,9),(1,2,12),(1,2,4),(1,2,6); four smallest orbit triangles cover all 12 vertices disjointly. No geometric/Riemannian-length conclusion.
 
-## Closest literature and limitations
-The Köhler--Lutz vertex-transitive classification and Lutz's exact facet database are the decisive sources. They determine the object and its full symmetry group but do not give the shortest homology-carrier classification. The result is limited to this one triangulation and the unit-edge simple-cycle notion.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication assessment: The classification and underlying 48 facets allow reproduction but neither the published topology nor the 24-cell quotient fact logically states or forces the four shortest-carrier orbits without additional computation. Relevant primary exact-object sources and indexed findings were checked by object, invariant and quantifiers; inaccessible plausible material is retained explicitly as risk, not treated as automatic scientific rejection.
+
+## value
+
+PASS
+
+The antipodal regular 24-cell quotient is a canonical vertex-transitive RP3 triangulation. Its complete simple shortest nonzero integral homology layer is a natural combinatorial systolic invariant. The 64-carrier count, four symmetry orbits and disjoint parallel class refine the known RP3 topology and group order, not arbitrary cherry-picked enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

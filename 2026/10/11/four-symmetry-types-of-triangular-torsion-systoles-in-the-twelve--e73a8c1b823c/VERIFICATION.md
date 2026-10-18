@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(48\)-facet presentation of the twelve-vertex complex and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(12,60,96,48),
-\]
-checks that the six missing graph edges form the antipodal matching, enumerates all \(160\) three-vertex cliques, and identifies exactly \(64\) nonfacial triangular cycles.
+## correctness
 
-Exact bit-vector elimination over \(\mathbf F_2\) gives facial-boundary rank \(48\) in a graph cycle space of dimension \(49\). Every one of the \(64\) nonfacial triangles reduces to the unique nonzero class.
+PASS
 
-The complement graph forces every simplicial automorphism to permute the six antipodal pairs. The script therefore exhausts all \(6!\,2^6=46{,}080\) possible pair-preserving permutations, retains exactly \(24\) facet-preserving maps, and computes the four carrier orbits.
+Independently reconstructed all 48 tetrahedra from the frozen 48-facet list, obtaining f=(12,60,96,48), missing graph-edge pairs {(1,7),...,(6,12)}, 160 three-cliques and exactly 64 nonfacial triangular loops. Exact mod-two boundary rank 48 inside 49-dimensional graph cycle space gives H1(F2) dimension 1; direct reduction finds each of 64 nonfacial boundaries nonzero. Published topology RP3 implies integral H1=Z2, and H0 torsion-free means mod-two reduction of its unique torsion generator is nonzero, so these are exactly the simple integral 3-edge systoles. Exhausted all 6!·2^6=46080 permutations of six opposite pairs, precisely 24 facet-preserving automorphisms, and computed orbit sizes 4/12/24/24, representatives (1,5,9),(1,2,12),(1,2,4),(1,2,6); four smallest orbit triangles cover all 12 vertices disjointly. No geometric/Riemannian-length conclusion.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=12,60,96,48 missing_edges=6 H1_F2_dim=1 cliques3=160 facial3=96 essential3=64 aut=24 carrier_orbits=4,12,24,24 reps=159|1212|124|126 orbit_vertex_degrees=1,3,6,6 small_orbit_parallel=yes total_vertex_degree=16`
+PASS
 
-The integral interpretation uses the published homeomorphism \(K\cong\mathbb{RP}^3\), hence \(H_1(K;\mathbb Z)\cong\mathbb Z/2\), together with the universal coefficient theorem.
+Best-of-knowledge statement/implication assessment: The classification and underlying 48 facets allow reproduction but neither the published topology nor the 24-cell quotient fact logically states or forces the four shortest-carrier orbits without additional computation. Relevant primary exact-object sources and indexed findings were checked by object, invariant and quantifiers; inaccessible plausible material is retained explicitly as risk, not treated as automatic scientific rejection.
+
+## value
+
+PASS
+
+The antipodal regular 24-cell quotient is a canonical vertex-transitive RP3 triangulation. Its complete simple shortest nonzero integral homology layer is a natural combinatorial systolic invariant. The 64-carrier count, four symmetry orbits and disjoint parallel class refine the known RP3 topology and group order, not arbitrary cherry-picked enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
