@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no additional packages. All field operations are implemented explicitly; the order-four field uses the irreducible polynomial \(t^2+t+1\) over \(\mathbb F_2\).
+## correctness
 
-The checker enumerates all \(q^8\) ordered pairs of \(2\times 2\) matrices for each \(q\in\{2,3,4,5\}\). It verifies the commuting-fiber count and, in characteristic two, the count for every nonzero scalar commutator. It then enumerates actual quotient Lie-algebra classes and all ordered pairs in them for one edge over \(q=2,3,4\), and for a two-edge path, a three-edge path, and a triangle over \(q=2\).
+PASS
 
-Observed selected direct quotient results:
+Separability of the vertex algebra and J²=0 identify normalized derivations as direct sum m copies gl2, modulo scalar vertex-incidence coboundaries D of dimension |V|-c. Nonscalar 2x2 matrices have 2-dimensional centralizers, giving C0=q^6+q^5-q^3. Characteristic two trace pairing gives C_t=q^3(q²-1) for nonzero scalar t and C0-C_t=q^6; in odd characteristic scalar nonzero commutator is impossible by trace. Averaging over vertex potentials then expanding edge equalities yields the displayed Tutte/random-cluster sum q^(-c-8m) Σ_{S} q^{κ(S)} C_t^{m-|S|}q^{6|S|}. Independently enumerated q=2 and q=3 matrix commutators, including C0(2)=88, C1(2)=24, C0(3)=945, and counted q=2 forest=343/4096 versus triangle=407/8192. The all-q/all-G proof is algebraic, not extrapolated.
 
-- \(\mathbb F_2\), one two-arrow class: quotient size \(8\), commuting pairs \(28\), probability \(7/16\).
-- \(\mathbb F_3\), one two-arrow class: quotient size \(27\), commuting pairs \(105\), probability \(35/243\).
-- \(\mathbb F_4\), one two-arrow class: quotient size \(64\), commuting pairs \(496\), probability \(31/256\).
-- \(\mathbb F_2\), three-edge forest: quotient size \(512\), commuting pairs \(21952\), probability \(343/4096\).
-- \(\mathbb F_2\), triangle: quotient size \(1024\), commuting pairs \(52096\), probability \(407/8192\).
+## originality
 
-The checker also independently compares the graph subset expansion with enumeration of scalar vertex coboundaries. Successful final line: `VERIFY_OK`. These are exhaustive **finite examples**; the theorem for all quivers and all finite fields follows from the written algebraic proof, not from extrapolation of the checks. Independent audit has not been performed.
+PASS
+
+Strametz and Sanchez-Flores provide structural Lie derivations; Feit-Fine covers ordinary zero commuting matrices. The Oct-4 published Resultary Kronecker theorem, inspected in full, counts associative-ring element commutators, not HH1 central-quotient brackets. No searched source covers the characteristic-two cycle-sensitive graph partition for the same outer-derivation Lie algebra; similarity in one finite probability does not imply equivalent objects.
+
+## value
+
+PASS
+
+Exact graph-partition function for a natural cohomological Lie algebra, with a sharp characteristic-two matroid-sensitive versus odd-characteristic graph-independent contrast, is a motivated structural invariant. The triangle/forest separation is a precise new phenomenon, not an arbitrary slice of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

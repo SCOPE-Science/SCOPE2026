@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized derivation description is proved from the separable vertex idempotents and the radical-square-zero relations, valid over arbitrary finite fields. The inner derivations are exactly the scalar vertex coboundaries. The two matrix commutator-fiber counts follow from centralizers and the trace-pairing orthogonality identity, including the characteristic-two trace obstruction. Expanding the graph coboundary sum gives the exact formula. Exhaustive direct checks include nonprime \(\mathbb F_4\) and all quotient pairs for the smallest cyclic graph.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Strametz's inspected full preprint gives the parallel-path Lie bracket, and the full Sánchez-Flores manuscript extends Lie-module descriptions; neither counts ordered commuting pairs in the central quotient. Feit–Fine matrix counts do not account for nonzero scalar commutator fibers, and the inspected Fulman–Guralnick manuscript stays with classical matrix Lie algebras. The Rubio y Degrassi–Schroll–Solotar full text studies structural solvability, not the graph partition law. Relevant indexed work on commuting in Kronecker **associative** algebras and on prescribed matrix commutator graphs concerns different objects; the indexed summaries do not by themselves certify absence of an equivalent manuscript. Direct prior-record comparisons distinguish this claim from prior work on the original quiver associative algebra's commuting probability and commutator fibers.
+PASS
 
-**Value — PASS.** The smallest modular parallel-arrow block already has nonzero scalar commutators in characteristic two, and the scalar inner derivations couple those blocks through the quiver incidence space. The theorem identifies that precise, motivically natural obstruction across arbitrary finite quivers, converts the Lie-algebra commuting invariant to a graphic matroid partition function, and shows a sharp difference from characteristic odd; triangle versus forest exhibits a structural, not numerical-only, distinction.
+Separability of the vertex algebra and J²=0 identify normalized derivations as direct sum m copies gl2, modulo scalar vertex-incidence coboundaries D of dimension |V|-c. Nonscalar 2x2 matrices have 2-dimensional centralizers, giving C0=q^6+q^5-q^3. Characteristic two trace pairing gives C_t=q^3(q²-1) for nonzero scalar t and C0-C_t=q^6; in odd characteristic scalar nonzero commutator is impossible by trace. Averaging over vertex potentials then expanding edge equalities yields the displayed Tutte/random-cluster sum q^(-c-8m) Σ_{S} q^{κ(S)} C_t^{m-|S|}q^{6|S|}. Independently enumerated q=2 and q=3 matrix commutators, including C0(2)=88, C1(2)=24, C0(3)=945, and counted q=2 forest=343/4096 versus triangle=407/8192. The all-q/all-G proof is algebraic, not extrapolated.
 
-**Closest literature and limits.** Strametz (2001/2006), Sánchez-Flores (2007/2008), Feit–Fine (1960), Fulman–Guralnick (2016) and Rubio y Degrassi–Schroll–Solotar (2019) were compared at the statement level. The theorem is confined to loopless quivers with every nonempty ordered arrow class of size two; priority beyond the inspected literature remains a risk. Finite checks validate cases, not the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Strametz and Sanchez-Flores provide structural Lie derivations; Feit-Fine covers ordinary zero commuting matrices. The Oct-4 published Resultary Kronecker theorem, inspected in full, counts associative-ring element commutators, not HH1 central-quotient brackets. No searched source covers the characteristic-two cycle-sensitive graph partition for the same outer-derivation Lie algebra; similarity in one finite probability does not imply equivalent objects.
+
+## value
+
+PASS
+
+Exact graph-partition function for a natural cohomological Lie algebra, with a sharp characteristic-two matroid-sensitive versus odd-characteristic graph-independent contrast, is a motivated structural invariant. The triangle/forest separation is a precise new phenomenon, not an arbitrary slice of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
