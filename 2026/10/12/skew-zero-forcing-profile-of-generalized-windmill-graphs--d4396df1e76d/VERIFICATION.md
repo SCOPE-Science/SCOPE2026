@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and does not depend on finite enumeration. A standalone checker exhausts every subset for the parameter pairs listed in its output, computes skew closure using the rule that any vertex with exactly one white neighbor may force, and compares the result against the blade-occupancy criterion. It then compares the observed size distribution with coefficients obtained from
-\[
-(1+x)\left(x^m+m x^{m-1}+\binom{m}{2}x^{m-2}\right)^k-\binom{m}{2}^k x^{k(m-2)}.
-\]
-It separately checks \(Z_-(W_{k,m})=k(m-2)+1\) and the minimum-set multiplicity \(\binom{m}{2}^{k-1}(\binom{m}{2}+km)\).
+# Independent mathematical audit
 
-Finite exhaustive checks support implementation correctness only; they are not evidence for the infinite quantifiers. The infinite claim rests on the white-neighbor count proof in RESULT.md. No independent audit has been performed.
+## correctness
+
+PASS
+
+A peripheral white vertex has epsilon+w_i-1 white neighbors, a blue peripheral vertex epsilon+w_i, and the central vertex sum_i w_i. If any blade has at least three whites, no permissible skew force can reduce that blade below three even after all other blades clear. With blue center and w_i<=2, pairs of whites force each other then a blue blade vertex forces the remaining single white (m>=3). With white center, the profile w_i=2 for all blades is stalled, whereas any w_j=0 or 1 permits forcing the center first and then clearing. Counting admissible blue sets gives (1+x)F_m(x)^k-C(m,2)^k x^{k(m-2)} with F_m=x^m+mx^{m-1}+C(m,2)x^{m-2}. Exact coefficient analysis gives Z_-=k(m-2)+1, minimum-set count C(m,2)^(k-1)[C(m,2)+km] and failed forcing number km-2. Independently exhaustively enumerated all 2^N sets of W_(2,3), W_(2,4), W_(3,3), matching criterion, polynomial and extrema; infinite quantifiers rely on occupancy proof.
+
+## originality
+
+PASS
+
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
+
+## value
+
+PASS
+
+The complete all-initial-set skew forcing profile and exact size enumerator for an infinite natural graph family substantially strengthen knowledge of an extremal forcing number. Explicit local occupancy constraints and the unique global dead profile are natural combinatorial structural facts; the two-edge friendship boundary is expressly separated as prior knowledge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
