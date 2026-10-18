@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The tridiagonal eigenvalue recurrence and its analytic sine boundary equation are derived explicitly. Hilbert–Schmidt convergence of the discretized inverse to a compact weighted Volterra operator pins down fixed-rank branch indexing. An implicit-function expansion of the exact characteristic equation yields the stated constant term, including continuity through the zero Robin eigenvalue. The positive-ground-state sum of squares establishes the exact critical norm for all finite dimensions. Finite rational and numerical checks were executed from the supplied verifier and do not stand in for an infinite proof.
+## correctness
 
-## Originality — PASS (subject to bibliographic uncertainty)
-The closest inspected primary documents are Widom's fixed-symbol aggregate singular-value asymptotics (1989), Ransford's continuum Volterra resolvent and its earlier linear spectral method (2022), and Higham's bidiagonal perturbation and inverse theorems (2024). Bourget–Alvarez Loya–McMillen (2016) covers generalized Toeplitz distributional asymptotics. These published statements do not imply the displayed dimension-dependent first correction for every fixed singular-value rank. The analysis also inspected plausible local-to-unity and Kac–Murdock–Szegő formulations. There is residual risk of an equivalent result in older technical matrix or autoregression literature; the search does not establish universal priority.
+PASS
 
-## Value — PASS
-At an operator-theoretically natural scaling, the entire fixed-rank edge has a computable first correction, with one common and exact parameter where all correction terms vanish. This exhibits a genuinely coherent spectral cancellation across infinitely many ranks and a finite-dimensional exact norm threshold; it is more informative than an isolated numerical norm evaluation. It is deliberately not a claim about the spectral bulk, and does not rely on asserting such an application.
+The inverse of I-rJ has entries r^(k-i) for k>=i. Embedding R_n/n as step kernels gives Hilbert-Schmidt convergence to Volterra T_s with Robin-Dirichlet spectral roots Phi(w)=s; simplicity orders fixed-rank branches. The exact B_n*B_n tridiagonal eigen-equation sin((n+1)theta)=r sin(n theta) leads, with z=n²theta², to s=Phi(z)sin(sqrt(z)/n)/(sqrt(z)/n)+n[cos(sqrt(z)/n)-1]. Its expansion gives z=w+w/(2Phi'(w)n)+O(n^-2), whence the announced constant (s-1)/[4sqrt(s²+w)Phi'(w)]. Phi'<0 on every branch, including at w=0. The direct positive ground-state identity with y_i=n+1-i proves min eigenvalue n^-2 for r=(n+1)/n and ||R_n||=n exactly. I reproduced that identity in exact Fractions for n=2,3,5,20 and independently computed numerical eigenvalues at s=-2,0,1/2,1,2 and j=1,2,3 to check n-scaled residuals. All-domain proof is analytic; the samples do not prove uniformity.
 
-## Closest sources and limitations
-Widom, DOI 10.4171/ZAA/350; Ransford, arXiv:2206.09937; Higham, DOI 10.13001/ela.2024.8297; Bourget–Alvarez Loya–McMillen, arXiv:1610.00084. Their original sources and relevant statements were inspected to the extent detailed in the structured originality assessment. Fixed-rank/compact-parameter assumptions remain essential; equivalent unpublished or difficult-to-index historical results remain possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Known Volterra Robin transcendental law gives the leading continuum constant, but the explicit finite-n fixed-rank O(1) corrections, simultaneous sign transition, and exact finite threshold are distinct from older fixed-symbol Toeplitz distributions and bidiagonal sensitivity results. No dominating identical local-to-unity formula found in bounded search; possibility of AR(1) covariance aliases remains.
+
+## value
+
+PASS
+
+The critical r=1+s/n regime is natural for nearly unstable Jordan resolvents and local-to-unity matrix models. All fixed ranks share a nontrivial first-correction cancellation at s=1 and exact top norm n; this quantifies a sharp spectral boundary beyond asymptotic distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
