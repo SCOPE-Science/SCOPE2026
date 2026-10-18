@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:19:53.997133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Source RESULT.md c2bfe9db88d0632fd097eca98641c3e15952f3ba inspected. Membership in cube+t*cross-polytope is sum_i (abs(x_i)-1)_+<=t; choosing the k excess coordinates in signed orthants proves vol(K)=2^d sum_{k<=d}binom(d,k)t^k/k!. Polar support inequality ||y||_1+t||y||_infty<=1; ordering nonnegative absolute coordinates and putting y_i=sum_{j>=i}z_j (unit Jacobian) yields polar volume 2^d/prod_{j=1}^d(t+j). R_d(t) thus exact and R_d(0)=R_d(infty)=1, R_d'(0)=d-H_d>0 for d>=2 so finite interior maximizer. Uniform Stirling/Laplace with t=ds produces saddle rho^2=s(1-rho) and Psi(s)=rho-log(1-rho)-(1+s)log(1+s)+s log s. Derivative under saddle gives h(y)=y-log(1+y+y^2), y=(1-rho)/rho; h'(y)=y(y-1)/(1+y+y^2) establishes single positive saddle y*>1 and positive max gamma. Independent arbitrary-precision root y*=1.793282132900761..., s*=0.199634949883..., gamma*=0.261152459394... and exact Fraction R_d(t)>1 for d=2,3,4,5,8,20 at t=1/2,1. For any global t_d, bounds R_d(t)<=exp(2 sqrt(d*t)) and <=exp(d^2/t) exclude t_d/d->0 or infinity; compact-uniform convergence + unique Psi maximizer give all t_d/d->s*, (log max R_d)/d->gamma. High-d independent log-sum-exp checks d=50,150,500 give rates tending gamma. No finite computation substituted for infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Hanner bodies are volume-product local minima, and primal cube-plus-crosspolytope volumes at t=1 are tabulated in d=2..5."
+        ],
+        "reasoning": "General Mahler conjectures/stability do not imply this global one-parameter maximum or optimizer localization. Finite d=5 exact rays do not imply any d->infinity exponential rate.",
+        "searches": [
+          "Kim-Zvavitch arXiv:1302.5719",
+          "Fradelizi-Meyer-Zvavitch arXiv:2301.06131",
+          "Fisikopoulos Athens 2013 slides, published low-d table"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c2bfe9db88d0632fd097eca98641c3e15952f3ba, verification source verify.py 3f3ee267fb61c2e06aabdd2d4fe7556607c4f383",
+        "Kim-Zvavitch arXiv:1302.5719",
+        "Fradelizi-Meyer-Zvavitch arXiv:2301.06131",
+        "Fisikopoulos Athens 2013 low-d primal values",
+        "Independent exact-rational d=2,3,4,5,8,20 and log-sum-exp d=50,150,500 and high precision root",
+        "Resultary unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The d-dimensional full exact ratio and saddle rate are analytic extrapolations beyond prior low-d tables; tail bounds force global maximizing parameters into the compact saddle regime."
+        ],
+        "reasoning": "No fixed-d numerical output or local-minimality theorem determines limit of argmax t_d/d. A separate uniform saddle/escape argument is essential.",
+        "searches": [
+          "Kim-Zvavitch 2013 local minimality",
+          "Fisikopoulos 2013 finite t=1 primal table",
+          "Mahler-quotient Laguerre saddle analysis from inspected frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_d(t) is a finite generalized Laguerre L_d(-t) quotient; polar of cube+t*crosspolytope is {||y||_1+t||y||_infty<=1}."
+        ],
+        "reasoning": "Checked equivalence under polarity, norm duality, and classical polynomial notation: finite exact profile might be in prior Laguerre literature, but no inspected full all-dimension t~ds maximizing theorem matches.",
+        "searches": [
+          "cube cross polytope Minkowski sum Mahler volume product asymptotic optimizing parameter large dimension [Resultary search_internal_error; search_completed=false, not a finding]",
+          "Fradelizi-Meyer-Zvavitch Volume Product arXiv:2301.06131",
+          "Laguerre polynomial generating function sum binom(d,k)t^k/k!"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent low-d primal volumes exactly reproduce 14,136/3,418/3,6184/15 for d=2..5; this is acknowledged as prior, not novelty."
+        ],
+        "reasoning": "Known table entries do not answer growth of the optimizing t_d or max R_d over d. SCOPE 5D prior was not independently full-text recovered, so its detailed overlap remains a residual risk.",
+        "searches": [
+          "Fisikopoulos 2013 slide 33 d=2-5 at t=1",
+          "public finite 5D SCOPE ray record cited by RESULT.md",
+          "GitHub SCOPE-Science query Mahler cross polytope [no matches]"
+        ]
+      },
+      "rationale": "PASS for the growing-dimensional optimization, subject to historical Laguerre asymptotic risk. Volume formula and cube plus cross-polytope low-d evaluations are partly known (Fisikopoulos 2013), the general volume product/mimimum problem is classical (Kim-Zvavitch 2013, Fradelizi-Meyer-Zvavitch 2023), and a public 5D ray computation covers limited d=5 specializations. None of these finite tables or local-minimality statements implies the unique global maximizer scale t_d/d->s* and exponential maximum rate gamma*. Polynomial numerator is a Laguerre polynomial, so a different notation in classical asymptotic optimization could potentially give exact same theorem; that risk is retained. Resultary unavailable, not evidence of novelty.",
+      "residual_risks": [
+        "Classical Laguerre-polynomial growing-argument asymptotics could already imply same optimizer by translation; not exhaustively checked.",
+        "Same-parameter finite 5D published finding not read in original; no whole-document noncoverage claim.",
+        "Low-dimensional numerical/replay data do not prove global d-limit; analytic uniform saddle/escape estimates required.",
+        "Resultary search unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known local minima and stability do not establish the requested global one-parameter maximizing scale; abstract alone does not exclude unpublished exact quotient",
+          "evidence": "Covers Hanner and unconditional volume product background, not claimed precise interpolation asymptotic.",
+          "identifier_or_url": "arXiv:1302.5719",
+          "material_read": "Title/abstract and cited theorem scope; full paper not newly downloaded",
+          "method": "Primary arXiv metadata and scholarly search",
+          "title": "Stability of the reverse Blaschke–Santaló inequality for unconditional convex bodies",
+          "trigger": "Mahler stability for symmetric unconditional/Hanner polytopes"
+        },
+        {
+          "assessment": "Dominating conjectures concern minima, not this interpolation maximum; full survey not claimed exhausted",
+          "evidence": "Historical coverage risk remains.",
+          "identifier_or_url": "arXiv:2301.06131",
+          "material_read": "Abstract, high-level introduction/scope from public metadata; not full text",
+          "method": "Primary arXiv scholarly metadata",
+          "title": "Volume Product",
+          "trigger": "broad classical Mahler survey"
+        },
+        {
+          "assessment": "Those values already known; no d->infty Mahler max identified by this comparison",
+          "evidence": "Exact primal volumes 14,136/3,418/3,6184/15 d=2..5.",
+          "identifier_or_url": "Fisikopoulos Athens 2013 slides, slide 33",
+          "material_read": "Referenced slide-33 low-dimensional entries reproduced and independently checked; PDF not freshly inspected page-by-page",
+          "method": "Published slide metadata plus record citation and independent exact arithmetic",
+          "title": "Algorithms for high-dimensional polytopes defined by oracles",
+          "trigger": "same primal cube-plus-crosspolytope at t=1"
+        },
+        {
+          "assessment": "Potential same-family coverage in d=5 acknowledged; full original comparison incomplete, but fixed dimension does not dominate d->infty theorem",
+          "evidence": "The five-dimensional calculation is a special case, not all-dimensional optimization.",
+          "identifier_or_url": "public mathematical finding 2026, identifier 2026/9/9/SCOPE077",
+          "material_read": "Source-package citation and its described finite-parameter results; underlying original not independently recovered",
+          "method": "Published-finding title and record description only",
+          "title": "Transverse slope-10 Mahler-product growth along the canonical 5D unconditional ray",
+          "trigger": "polar-equivalent finite-dimensional 5D family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The volume product is a central affine-invariant object and the cube/cross-polytope are canonical Hanner extremizers. Determining how their Minkowski interpolation develops a global interior maximum, with exact asymptotic maximizing scale and exponential growth rate in unbounded d, is a natural unresolved quantitative convex-geometry question, not an arbitrary finite slice or a mere restatement of classical stability. The proof provides universal localization of all global maximizers and a new variational asymptotic. No claim about global Mahler conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c2bfe9db88d0632fd097eca98641c3e15952f3ba, verification source verify.py 3f3ee267fb61c2e06aabdd2d4fe7556607c4f383",
+    "Kim-Zvavitch arXiv:1302.5719",
+    "Fradelizi-Meyer-Zvavitch arXiv:2301.06131",
+    "Fisikopoulos Athens 2013 low-d primal values",
+    "Independent exact-rational d=2,3,4,5,8,20 and log-sum-exp d=50,150,500 and high precision root",
+    "Resultary unavailable"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only cube+t crosspolytope Minkowski path; not convex hull, intersection, arbitrary unconditional bodies, or global Mahler conjecture.",
+    "No finite-d optimizer uniqueness, no explicit rate for t_d/d convergence."
+  ],
+  "residual_risks": [
+    "Classical Laguerre-polynomial growing-argument asymptotics could already imply same optimizer by translation; not exhaustively checked.",
+    "Same-parameter finite 5D published finding not read in original; no whole-document noncoverage claim.",
+    "Low-dimensional numerical/replay data do not prove global d-limit; analytic uniform saddle/escape estimates required.",
+    "Resultary search unavailable."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known local minima and stability do not establish the requested global one-parameter maximizing scale; abstract alone does not exclude unpublished exact quotient",
+      "evidence": "Covers Hanner and unconditional volume product background, not claimed precise interpolation asymptotic.",
+      "identifier_or_url": "arXiv:1302.5719",
+      "material_read": "Title/abstract and cited theorem scope; full paper not newly downloaded",
+      "method": "Primary arXiv metadata and scholarly search",
+      "title": "Stability of the reverse Blaschke–Santaló inequality for unconditional convex bodies",
+      "trigger": "Mahler stability for symmetric unconditional/Hanner polytopes"
+    },
+    {
+      "assessment": "Dominating conjectures concern minima, not this interpolation maximum; full survey not claimed exhausted",
+      "evidence": "Historical coverage risk remains.",
+      "identifier_or_url": "arXiv:2301.06131",
+      "material_read": "Abstract, high-level introduction/scope from public metadata; not full text",
+      "method": "Primary arXiv scholarly metadata",
+      "title": "Volume Product",
+      "trigger": "broad classical Mahler survey"
+    },
+    {
+      "assessment": "Those values already known; no d->infty Mahler max identified by this comparison",
+      "evidence": "Exact primal volumes 14,136/3,418/3,6184/15 d=2..5.",
+      "identifier_or_url": "Fisikopoulos Athens 2013 slides, slide 33",
+      "material_read": "Referenced slide-33 low-dimensional entries reproduced and independently checked; PDF not freshly inspected page-by-page",
+      "method": "Published slide metadata plus record citation and independent exact arithmetic",
+      "title": "Algorithms for high-dimensional polytopes defined by oracles",
+      "trigger": "same primal cube-plus-crosspolytope at t=1"
+    },
+    {
+      "assessment": "Potential same-family coverage in d=5 acknowledged; full original comparison incomplete, but fixed dimension does not dominate d->infty theorem",
+      "evidence": "The five-dimensional calculation is a special case, not all-dimensional optimization.",
+      "identifier_or_url": "public mathematical finding 2026, identifier 2026/9/9/SCOPE077",
+      "material_read": "Source-package citation and its described finite-parameter results; underlying original not independently recovered",
+      "method": "Published-finding title and record description only",
+      "title": "Transverse slope-10 Mahler-product growth along the canonical 5D unconditional ray",
+      "trigger": "polar-equivalent finite-dimensional 5D family"
+    }
+  ]
+}
