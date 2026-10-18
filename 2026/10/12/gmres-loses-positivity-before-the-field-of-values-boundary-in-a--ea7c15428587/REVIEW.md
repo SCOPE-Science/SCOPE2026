@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The family \(A_t=I-tS\) is a nonsingular \(M\)-matrix for every \(t>0\) because \(S\ge0\) is nilpotent, giving an explicit nonnegative inverse. The Hermitian-part eigenvalues give the exact right-half-plane numerical-range interval \(0<t<\sqrt5-1\). The first and second GMRES iterates follow from exact normal equations. The second-step Gram determinant is positive for \(t>0\), and the coordinate formulas show that only the fourth coordinate changes sign in the relevant interval, exactly at \(t=1\). The packaged rational replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual historical risk. GMRES residual minimization, Krylov-polynomial representations, nonnormality, and field-of-values convergence theory are prior work and are explicitly excluded. Searches for \(M\)-matrix, positive-orthant, nonnegative-iterate, Jordan-family, and field-of-values formulations did not locate an implication-equivalent statement. The closest indexed GMRES result concerns Euclidean error amplification for symmetric GMRES(1), not coordinatewise positivity for a nonsymmetric inverse-positive system. Older positivity-preserving Krylov or monotone-iteration literature remains a residual terminology risk.
+PASS
 
-## Value
-PASS. \(M\)-matrices are a canonical class in which positive right-hand sides have nonnegative exact solutions. The result separates four commonly reassuring facts—positive inverse, positive exact solution, spectrum fixed at \(1\), and a numerical range strictly in the right half-plane—from actual coordinatewise safety of GMRES iterates. The exact gap between \(t=1\) and \(t=\sqrt5-1\) supplies a simple diagnostic counterexample rather than a qualitative warning.
+Nilpotence S^4=0 gives A_t^−1=I+tS+t²S²+t³S³≥0 for t>0. Spectrum of path adjacency gives Hermitian positive-definiteness iff 0<t<sec(pi/5)=sqrt5−1. First GMRES coefficient alpha=2(5−4t)/(9t²−16t+10)>0 in that interval. Exact 2x2 normal equations yield the stated x2 coordinates over positive Gram D(t), with fourth coordinate −2(t−1)(8t²−15t+13)/D(t). Quadratic is everywhere positive, first three coordinates are positive on 0<t<sqrt5−1 by monotonicity/evaluations at 5/4. Independent rational normal equations at t=6/5 give x1=(5,10,10,5)/47, x2=(6445,5630,2000,−815)/1777, and positive exact x*. Direct residual-square check 10>468/47>6480/1777 corroborates valid GMRES decrease. A counterexample is not a claim about later iterates or general M-matrices.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical GMRES and numerical-range convergence theorems are prior work, but their residual-polynomial/field-of-values estimates do not imply coordinatewise nonnegativity. Published Resultary neighbor theorems concern other algorithms (MINRES, CG, SOR, steepest descent), different SPD settings and universal condition-number barriers. No compared primary result states this family-specific exact M-matrix GMRES sign boundary.
+
+## value
+
+PASS
+
+Inverse-positive M-matrices naturally arise in monotone linear systems, and preservation of nonnegative intermediate approximate solutions is a useful algorithmic requirement. The exact 4-state t=1 threshold separates GMRES cone safety from a wider 0<t<sqrt5−1 numerical-range stability regime. This independently motivated counterexample cleanly disproves several natural but false inference chains without extrapolating to all M-matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

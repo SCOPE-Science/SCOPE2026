@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned record 5 RESULT.md Git blob beb719c5bdce85a00008383d0977c91a3bbbfda2",
+        "Saad and Schultz, GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems, SIAM J Sci Stat Comput 7 (1986), DOI 10.1137/0907058",
+        "Greenbaum and Trefethen, GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems, SIAM J Sci Comput 15 (1994), DOI 10.1137/0915025",
+        "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES (2026-10-04); Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems (2026-10-04)"
+      ],
+      "rationale": "Nilpotence S^4=0 gives A_t^−1=I+tS+t²S²+t³S³≥0 for t>0. Spectrum of path adjacency gives Hermitian positive-definiteness iff 0<t<sec(pi/5)=sqrt5−1. First GMRES coefficient alpha=2(5−4t)/(9t²−16t+10)>0 in that interval. Exact 2x2 normal equations yield the stated x2 coordinates over positive Gram D(t), with fourth coordinate −2(t−1)(8t²−15t+13)/D(t). Quadratic is everywhere positive, first three coordinates are positive on 0<t<sqrt5−1 by monotonicity/evaluations at 5/4. Independent rational normal equations at t=6/5 give x1=(5,10,10,5)/47, x2=(6445,5630,2000,−815)/1777, and positive exact x*. Direct residual-square check 10>468/47>6480/1777 corroborates valid GMRES decrease. A counterexample is not a claim about later iterates or general M-matrices.",
+      "residual_risks": [
+        "The finite rational certificate checks a witness; interval-wide threshold requires the analytic denominator/numerator signs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GMRES/FOV prior work bounds the residual; positivity threshold work for MINRES/CG assumes different symmetric matrix classes and different iteration schemes."
+        ],
+        "reasoning": "Neither GMRES residual bounds nor a result for a distinct Krylov iteration implies this sign-loss threshold. A broader all-GMRES positivity taxonomy was not located in checked sources.",
+        "searches": [
+          "Saad–Schultz GMRES original",
+          "Greenbaum–Trefethen GMRES polynomial analysis",
+          "Resultary condition-2 MINRES positivity",
+          "Resultary CG Stieltjes example"
+        ]
+      },
+      "checked_sources": [
+        "Assigned record 5 RESULT.md Git blob beb719c5bdce85a00008383d0977c91a3bbbfda2",
+        "Saad and Schultz, GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems, SIAM J Sci Stat Comput 7 (1986), DOI 10.1137/0907058",
+        "Greenbaum and Trefethen, GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems, SIAM J Sci Comput 15 (1994), DOI 10.1137/0915025",
+        "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES (2026-10-04); Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems (2026-10-04)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theory optimizes ||r_m|| or describes polynomial operators, not the signs of components of x2 in this inverse-positive nonnormal example."
+        ],
+        "reasoning": "One must compute a coordinatewise polynomial numerator to discover this independent property. Existing matrix eigenvalue/FOV or monotone inverse guarantees do not imply iterate positivity.",
+        "searches": [
+          "Saad–Schultz DOI:10.1137/0907058",
+          "Greenbaum–Trefethen DOI:10.1137/0915025",
+          "Resultary CG/MINRES positivity boundaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GMRES iterates solve norm-minimizing normal equations, not a monotone nonnegative cone projection; fixed all-ones eigenvalue Jordan family is a nonnormal special case."
+        ],
+        "reasoning": "Searched cone-preserving Krylov, nonnegative M-matrix iterates and Hermitian positive numerical range aliases; related methods found, but no equivalent exact two-step family statement in inspected sources.",
+        "searches": [
+          "GMRES positivity nonnegative iterates for M-matrices positive numerical range upper bidiagonal shift t=1 threshold 4x4",
+          "M-matrix inverse positivity + Krylov GMRES positive orthant",
+          "Saad–Schultz GMRES polynomial viewpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 4x4 upper-shift GMRES t=1 / sqrt5−1 positivity-separation table or witness found; indexed nearest results had other methods."
+        ],
+        "reasoning": "The rational witness is an exact normal-equation fact not a known tabulated invariant; semantic nonhits alone are not a global novelty proof.",
+        "searches": [
+          "GMRES positivity nonnegative iterates for M-matrices positive numerical range upper bidiagonal shift t=1 threshold 4x4",
+          "Resultary MINRES/CG/SOR positivity-frontier records"
+        ]
+      },
+      "rationale": "Classical GMRES and numerical-range convergence theorems are prior work, but their residual-polynomial/field-of-values estimates do not imply coordinatewise nonnegativity. Published Resultary neighbor theorems concern other algorithms (MINRES, CG, SOR, steepest descent), different SPD settings and universal condition-number barriers. No compared primary result states this family-specific exact M-matrix GMRES sign boundary.",
+      "residual_risks": [
+        "Older positive-cone preserving iteration/M-matrix Krylov literature may contain a similar sign-loss example under different search terms; not an absolute first-example claim.",
+        "The threshold t=1 is special to the given 4-by-4 family and right-hand side; not universal or minimal in dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines method only, no inspected coordinatewise M-matrix positivity frontier",
+          "evidence": [
+            "Norm minimization differs from coordinate cone invariance."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0907058",
+          "material_read": "Available source summaries, core residual-minimization definition and bibliographic abstract; full 1986 article not read in this execution",
+          "method": "Primary metadata/algorithm comparison",
+          "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems",
+          "trigger": "Foundational exact algorithm"
+        },
+        {
+          "assessment": "Krylov-polynomial framework not a matching M-matrix positivity theorem in inspected text",
+          "evidence": [
+            "Nonnormal convergence and positivity are different predicates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0915025",
+          "material_read": "Available introduction/abstract and mathematical summary, not entire paper",
+          "method": "Primary bibliographic and scope comparison",
+          "title": "GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems",
+          "trigger": "Nonnormal polynomial approximation prior art"
+        },
+        {
+          "assessment": "Different MINRES on symmetric Stieltjes systems, not nonsymmetric GMRES",
+          "evidence": [
+            "Condition-number universal bound is not this GMRES family-specific t threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731",
+          "material_read": "Resultary published indexed title/summary only",
+          "method": "Semantic record comparison",
+          "title": "Condition two is the sharp second-iterate positivity frontier for MINRES",
+          "trigger": "Potential second-step positivity dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned record 5 RESULT.md Git blob beb719c5bdce85a00008383d0977c91a3bbbfda2",
+        "Saad and Schultz, GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems, SIAM J Sci Stat Comput 7 (1986), DOI 10.1137/0907058",
+        "Greenbaum and Trefethen, GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems, SIAM J Sci Comput 15 (1994), DOI 10.1137/0915025",
+        "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES (2026-10-04); Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems (2026-10-04)"
+      ],
+      "rationale": "Inverse-positive M-matrices naturally arise in monotone linear systems, and preservation of nonnegative intermediate approximate solutions is a useful algorithmic requirement. The exact 4-state t=1 threshold separates GMRES cone safety from a wider 0<t<sqrt5−1 numerical-range stability regime. This independently motivated counterexample cleanly disproves several natural but false inference chains without extrapolating to all M-matrices.",
+      "residual_risks": [
+        "Scope does not include preconditioned, restarted or later GMRES iterations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned record 5 RESULT.md Git blob beb719c5bdce85a00008383d0977c91a3bbbfda2",
+    "Saad and Schultz, GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems, SIAM J Sci Stat Comput 7 (1986), DOI 10.1137/0907058",
+    "Greenbaum and Trefethen, GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems, SIAM J Sci Comput 15 (1994), DOI 10.1137/0915025",
+    "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES (2026-10-04); Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems (2026-10-04)"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Special four-state family and b, no minimal-dimension assertion or all-GMRES theorem."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Defines method only, no inspected coordinatewise M-matrix positivity frontier",
+      "evidence": [
+        "Norm minimization differs from coordinate cone invariance."
+      ],
+      "identifier_or_url": "https://doi.org/10.1137/0907058",
+      "material_read": "Available source summaries, core residual-minimization definition and bibliographic abstract; full 1986 article not read in this execution",
+      "method": "Primary metadata/algorithm comparison",
+      "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems",
+      "trigger": "Foundational exact algorithm"
+    },
+    {
+      "assessment": "Krylov-polynomial framework not a matching M-matrix positivity theorem in inspected text",
+      "evidence": [
+        "Nonnormal convergence and positivity are different predicates."
+      ],
+      "identifier_or_url": "https://doi.org/10.1137/0915025",
+      "material_read": "Available introduction/abstract and mathematical summary, not entire paper",
+      "method": "Primary bibliographic and scope comparison",
+      "title": "GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems",
+      "trigger": "Nonnormal polynomial approximation prior art"
+    },
+    {
+      "assessment": "Different MINRES on symmetric Stieltjes systems, not nonsymmetric GMRES",
+      "evidence": [
+        "Condition-number universal bound is not this GMRES family-specific t threshold."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731",
+      "material_read": "Resultary published indexed title/summary only",
+      "method": "Semantic record comparison",
+      "title": "Condition two is the sharp second-iterate positivity frontier for MINRES",
+      "trigger": "Potential second-step positivity dominance"
+    }
+  ]
+}
