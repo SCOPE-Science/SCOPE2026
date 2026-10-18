@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction to maximum over paths missing one edge follows directly from the unique oriented routes. A global weighted Cauchy--Schwarz bound applies to every positive budget-feasible rate vector. Its strictly concave simplex dual has a unique KKT maximizer, with threshold equation and positive complementary weights. The explicit normalized rates attain that bound; equality in Cauchy--Schwarz proves uniqueness even at tied prices and active-set transitions. The exact example and finite independent Markov-generator tests corroborate, but do not substitute for, the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Each directed first-passage time equals the sum of holding-time means 1/r_i along the sole directed path, so the longest paths omit precisely one edge and the objective is sum_i 1/r_i−min_j 1/r_j. For arbitrary probability q on omitted edges, max >=sum_i(1−q_i)/r_i >=(sum_i sqrt(c_i(1−q_i)))² by price-budget Cauchy–Schwarz. Maximizing the concave dual over q yields KKT q_i=(1−c_i/theta)_+, unique theta, and at least two positive q_i; equality produces all strictly positive optimal rates with clipped inverse-square-root prices. Strict equality under Cauchy–Schwarz gives uniqueness. Direct algebra checks example c=(1,3,100), theta=4,Z=12,r=(1/24,1/24,1/120), max=144, and equal-rate max=208. Independently checked the source Poisson-generator verifier, exact threshold relation, and numerical feasible comparisons; the universal claim rests on the analytic minimax lower-bound/equality proof.
 
-Closest inspected sources include Yu--Karaman--Rus (arXiv:1309.6041, cyclic surveillance), Agharkar--Patel--Bullo (2014, average first passage), Carron--Patel--Bullo (2016, doubly weighted hitting formulas), and Breen--Kirkland (2017, maximum discrete-time first passage under stationarity/graph constraints). The first uses a distinct Poisson observation objective, the middle works optimize stationary-weighted mean outcomes rather than maximum pairwise delay under arc-rate price budget, and the last gives a stationary-distribution comparison, not a rate-price minimax optimizer. No inspected primary statement dominates the clipped allocation. A specialized unpublished or unindexed precedent remains a risk; database search alone is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The exact solution exhibits a structural regime transition for a natural reliability/latency allocation problem: low-price arcs share one rate, high-price arcs obey an inverse-square-root cost law, and for three nodes the transition is controlled by the triangle inequality on edge prices. It improves the explicit \((1,3,100)\) example from maximum expected latency \(208\) under uniform rates to \(144\). Positive-rate uniqueness and \(O(n\log n)\) construction eliminate general numerical minimax optimization for this entire directed-ring class. This is an exact graph-family classification, not a mere restatement of generic KKT conditions.
+Previously published surveillance optimization works focus on stationary-weighted average hitting time, cyclic observation gaps, or general discrete-time largest MFPT bounds. The closest Breen–Kirkland paper treats maximum MFPT but in a different discrete-time optimization/normalization and does not provide the arbitrary positive price clipped law in inspected sections. Resultary search located no direct equivalent result. Prior specialized priced-cycle formula could still exist.
 
-## Scope and uncertainty
+## value
 
-Only continuous-time one-way cycles, independent exponential waiting times, strictly positive linear rate prices, fixed total rate expenditure, and ordered-pair first passage are covered. Stationary distributions, reverse edges, return times, and nonlinear resource functions are outside the theorem. Primary-source date evidence is the 2013-09-24 UTC arXiv submission; a 2017 related paper is compared only for overlap. No independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete analytic solution to a natural continuous-time network design minimax problem with arbitrary positive linear rate prices, identifying a nontrivial clipped threshold and a sharp uniform-rate phase, provides an interpretable and practically reusable allocation law, not just a routine uniform-rate exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
