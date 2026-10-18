@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The script `verify_super_leafbundles.py` uses the Python 3 standard library. Its `direct` routine creates the leaf-extended adjacency list, enumerates each candidate selected subset, and tests the original super domination predicate for each omitted vertex. Its `formula` routine independently evaluates the proposed boundary-subset polynomial and sums exact coefficients. It also computes connected components and tests the proposed minimum-set product and the high-degree coefficient relation.
+## correctness
 
-Observed result: `VERIFY_OK {'instances': 1150, 'direct_subsets': 2435884, 'random_seed': 271828}`. All labeled simple graphs on up to four original vertices and multiplicities one or two were checked; seeded random cases on five and six original vertices were added. Every pair of integer coefficient distributions matched, along with the two stated coefficient identities. The complete output is in `verification_output.txt`.
+PASS
 
-To reproduce, put the two supplied files in the same directory and run `python3 verify_super_leafbundles.py`. The program needs no external modules or external files. No execution of other packages or previously produced logs is assumed. Finite enumeration is limited to the exact domains above, and is **not** a proof for arbitrary graph orders; the independent general bijection in `RESULT.md` supplies that proof. This is a self-reviewed result; no independent audit has been performed.
+For a super dominating set S, its omitted roots U cannot have omitted private leaves because an omitted leaf would lack a selected neighbor. Any selected root may support at most one omitted private leaf, and if it does, no adjacent base root may be omitted or the root would have two omitted neighbors. Conversely selecting all other vertices witnesses each omitted root by any own selected leaf (r_v>=1), and each allowable omitted leaf by its selected root. This gives a bijection with U and zero/one leaf choices at v outside N[U]. Counting selected vertices gives R+|N(U)\U| plus factors x+r_v. Constant term requires U a component union, yielding the component product. With two omissions, disallowed pairs are two leaves of one bundle, root/own leaf, and neighbor root/leaf, yielding the coefficient formula. Independent direct defining-predicate brute force agreed with the polynomial on all 74 base/multiplicity instances n<=3, including isolated/disconnected roots. No claim that finite checks prove arbitrary n.
+
+## originality
+
+PASS
+
+The scalar gamma_sp(G o N_r)=nr and a full one-leaf minimum-set count 2^{c(G)} are already published, as are polynomial definition and formulas for other graph families. The claimed new part is the entire heterogeneous all-subset boundary polynomial with its weighted edge coefficient and component product for arbitrary positive r_v. No inspected primary statement implies these distributions automatically; Kaidash 2024 chapter remains inaccessible after lawful OA and authorized access attempts.
+
+## value
+
+PASS
+
+An exact all-cardinality enumerator on arbitrary base graphs with heterogeneous leaf bundles is a natural graph polynomial that refines the known scalar super-domination number and captures both component structure and a weighted edge statistic. The closed bijection is useful for extracting further coefficient identities; this is not mere recomputation of known minimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
