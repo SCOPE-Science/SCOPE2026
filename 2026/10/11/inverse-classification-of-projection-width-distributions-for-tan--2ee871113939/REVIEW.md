@@ -1,15 +1,21 @@
-# Scientific review: inverse projection-width law for tangential symmetric polygons
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact proof uses the vertex common to each pair of consecutive tangent lines. On the corresponding normal cone the support function is a secant-scaled cosine, giving the stated arc-length survival probability after normalization. Differentiation gives a sum of positive square-root singularities. Their distinct locations recover the angle gaps and their positive coefficients recover multiplicities without cancellation; the essential minimum width recovers the inradius. The cyclic gap word modulo rotation and reversal is exactly the congruence datum for this polygon class. Direct finite geometric and distributional checks corroborate, but do not replace, the all-parameter argument. Boundary cases \(m=2,3\), repeated gaps, and the strict gap condition were included in proof review.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The most directly comparable primary paper, Kim–Yaskin–Zvavitch (arXiv:1512.07289v1, Sections 1 and 3, Proposition 2 and Theorem 4), studies distributions of projection sizes and proves general nonuniqueness and a comparison with ellipsoids, but does not give a reconstruction of the angular gaps of centrally symmetric tangential polygons or the sharp first-ambiguity classification. García-Pelayo (arXiv:1501.00292v1) studies distributions of random affine-invariant *chord lengths*, rather than widths under a random **direction**. Abdallah–Mérigot (arXiv:1402.5010) addresses a different observation, random sampled surface normals. Comparisons were made at the level of objects, data and implication, not titles. Earlier elementary gap-rearrangement results and equivalent terminology remain possible, and the latter two comparisons are based on their abstracts rather than full-paper inspection.
+PASS
 
-## Value — PASS
-The width histogram is a natural direction-unlabelled datum in geometric tomography. The result solves its exact inverse problem on a geometrically distinguished, infinite-dimensional-in-side-count class: it reconstructs all metrically significant normal separations but identifies precisely what the law cannot see. The sharp transition at eight sides, a constructive counterexample, and the complete generic fiber count are structural and could not be inferred from the general nonuniqueness examples in the cited initiating work. This is a complete family classification, rather than an arbitrary finite numerical instance.
+For a tangential centrally symmetric 2m-gon, adjacent tangent normals separated by 2delta determine vertex v=r*sec(delta)*u(midpoint). The vertex maximizes support on exactly that angular normal cone, giving width/(2r)=sec(delta)*cos(phi-midpoint). Integration over the m half-turn intervals gives Pr[T>t]=(2/pi)sum_{t<sec(delta_j)}acos(t*cos(delta_j)) for t>=1; no atoms. Differentiation gives density (2/pi)sum cos(delta)/sqrt(1-t^2 cos^2(delta)) with positive square-root singularities precisely at tau=sec(delta), coefficient k*sqrt(2cos(delta))/pi for multiplicity k. Therefore exact law recovers all gaps with repetition, and unnormalized essential minimum 2r recovers scale. The cyclic gap word classifies congruences modulo the dihedral action. For m<=3 this is the full permutation action; for pairwise distinct m>=4, m!/(2m) classes. The given m=4 two words are not dihedrally equivalent. Side tangent lengths give perimeter 4r sum tan(delta) and area half r times perimeter. Checked boundaries m=2,3, repeated gaps, 0<delta<pi/2; positive singularities cannot cancel. Finite grid checks in repository do not certify this analytic inverse theorem.
 
-## Scope and outstanding limits
-Only exact uniform-direction widths are treated, and the polygons must be centrally symmetric and circumscribed about a circle. No quantitative stability from noisy data, arbitrary convex-body inverse theorem, or exhaustive historical-uniqueness claim is made. Independent evaluation has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+In the natural exact uniform-direction projection-width inverse problem, full primary Kim-Yaskin-Zvavitch 2015 establishes broad nonuniqueness among general symmetric convex bodies, but does not determine the full normal-gap multiset within centrally symmetric tangential polygons or its sharp eight-side ambiguity and finite dihedral orbit count. Random normal measurements and chord-length distributions observe different data, not consequences of the same law. Earlier tangential-polygon gap permutation observations may exist and are a real residual risk, not ruled out by negative searches.
+
+## value
+
+PASS
+
+Distribution of random projection widths is a natural direction-unlabelled tomography datum. The result exactly reconstructs all unordered tangent-normal gaps in a class of arbitrary even side count, pinpoints the only loss (cyclic order), and classifies congruence fibers with a first nonuniqueness at eight sides. The m-fold family classification and area/perimeter recovery are meaningful complete inverse data, not arbitrary finite examples or re-tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
