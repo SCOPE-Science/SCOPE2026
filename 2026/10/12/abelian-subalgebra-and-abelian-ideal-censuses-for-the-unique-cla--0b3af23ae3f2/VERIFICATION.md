@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. No third-party dependencies or external services are needed. The code uses the five-coordinate Lie bracket of the paper and exact modular arithmetic. It enumerates all reduced-row-echelon subspaces of \(\mathbf F_q^5\) for \(q=3,5\), tests the abelian-subalgebra condition and the ideal property directly, and compares the resulting dimension distributions to the claimed Gaussian-binomial formulas. For \(q=3\), it also checks all noncentral-element centralizer sizes by direct pair enumeration.
+## correctness
 
-An independent extension-field check represents \(\mathbf F_9\) as \(\mathbf F_3[t]/(t^2+1)\), enumerates all triples in the three-dimensional extension-field quotient, verifies that commuting triples are exactly proportional triples, and counts its \(91\) distinct projective lines.
+PASS
 
-Expected concluding output is `VERIFY_OK`. The exhaustive computation is finite and does not establish an all-field statement by itself; the proof in RESULT.md establishes that statement using commutator minors, unique containment, and ideal rigidity. The starting Lie algebra and its classification are from the cited 2022 primary preprint, not a newly proved classification here. No independent external mathematical audit has been performed.
+For odd q and extension degree m>=1, the explicit 5-coordinate K=F_{q^m} Lie bracket (h,h+2alpha,h+2beta) in its last 3 components is an invertible linear transform of all 2x2 minors of the first three coordinates. Thus commuting triples are K-proportional, so each noncentral abelian F_q-subalgebra is uniquely contained in Z plus one K-projective line (dim_Fq 3m); the projective plane has Q^2+Q+1 members, pairwise intersecting at Z (dim 2m). Count subspaces central or in exactly one maximal noncentral abelian plane to get A_d=[2m d]_q+(Q^2+Q+1)([3m d]_q-[2m d]_q). Ideal condition: containing any (a,b)!=0 forces a noncommuting derived bracket; hence abelian ideals lie in L'. A noncentral element of L' forces Z contained, so ideals are precisely subspaces I<=Z or Z<=I<=L', giving J_d=[2m d]_q+[m d-2m]_q-1_{d=2m}. Includes d=0 and d>3m. Independently enumerated 2,664 and 42,176 literal RREF subspaces of F_3^5/F_5^5, checked bracket closure/ideal property and reproduced A=(1,121,157,13,0,0), J=(1,4,1,1,0,0) and A=(1,781,931,31,0,0), J=(1,6,1,1,0,0). Arbitrary m follows structural proof not finite cases.
+
+## originality
+
+PASS
+
+Kundu–Naik–Singh's original complete primary text proves the classification of the Lie algebra and computes centralizer dimensions and equations; that algebra, same commutator minors and center dimensions are prior and credited. We checked the original Proposition 3.2; it does not state the full F_q-dimension-indexed abelian subspace and ideal census. Other finite Lie algebra commutativity and low-dimensional lists do not dominate these all-q,m Gaussian coefficients. Main originality is the unique-containment and ideal-lattice counting, not discovery of the original algebra or commuting condition.
+
+## value
+
+PASS
+
+The dimension-by-dimension abelian subalgebra and abelian ideal counts for a natural uniquely characterized nilpotent breadth family are intrinsic algebraic invariants. They show a strong structural distinction between the projective-plane family of maximal abelian subalgebras and the unique maximal abelian ideal; the result is complete for all odd q and all extension degrees. This is not just a known centralizer dimension repeated or isolated small-field enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

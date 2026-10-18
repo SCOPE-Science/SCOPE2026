@@ -1,19 +1,21 @@
-# Scientific review of the abelian-subspace census
+# Independent mathematical audit
 
-## Correctness — PASS
-The bracket and definition of the unique class-three stem breadth family are those in Kundu–Naik–Singh (2022). The derived proof independently checks that three bracket coordinates form an invertible linear transform of the three minors of two vectors over \(\mathbf F_{q^m}\), using odd characteristic. Thus commuting is equivalent to extension-field proportionality, and noncentral abelian subalgebras lie in exactly one maximal abelian centralizer. Standard Gaussian subspace counts give the full dimension distribution without overlaps. The ideal-rigidity argument forces every abelian ideal inside the derived algebra and, unless central, to contain the center. Direct reduced-row-echelon enumeration over \(\mathbf F_3\) and \(\mathbf F_5\), and an extension-field pair check over \(\mathbf F_9\), independently match the formulas. Boundary dimensions and the zero subalgebra are included. No characteristic-two assertion is established.
+## correctness
 
-## Originality — PASS (subject to documented residual risk)
-The originating arXiv full text [1] gives the algebra, its centralizer dimensions, and linear equations; these are credited as prior. It does not state the complete maximal-abelian subalgebra incidence/census or the all-dimensional abelian-ideal classification and counts. Sriwongsa [2] treats general projective noncommuting graphs/abelian-cover relations but not these finite-field dimension distributions. The Šnobl–Winternitz low-dimensional lists [3] describe maximal abelian ideals for five-dimensional algebras and may cover some \(m=1\) qualitative conclusions, but were not found to state this all-\(m\) Gaussian census. Published research-record searches returned nearby three-dimensional/Heisenberg/filiform questions, not a statement implying both formulas. The remaining risk is an overlooked group-analogue or algebra-subspace zeta computation under other terminology; absence from searches does not prove global novelty.
+PASS
 
-## Value — PASS
-This is a complete natural incidence-and-counting classification for a uniform family singled out by the class-three breadth theorem, rather than an isolated low-order numeric evaluation. It quantitatively separates numerous maximal abelian subalgebras, indexed by extension-field projective geometry, from the unique maximal abelian ideal, and determines every dimensional stratum for all odd finite fields and all extension degrees. The exact invariants are not immediate from centralizer dimension alone; they require the unique-containment and ideal-rigidity structural arguments. The result is reproducible with a small finite-field checker while its infinite family is established by proof.
+For odd q and extension degree m>=1, the explicit 5-coordinate K=F_{q^m} Lie bracket (h,h+2alpha,h+2beta) in its last 3 components is an invertible linear transform of all 2x2 minors of the first three coordinates. Thus commuting triples are K-proportional, so each noncentral abelian F_q-subalgebra is uniquely contained in Z plus one K-projective line (dim_Fq 3m); the projective plane has Q^2+Q+1 members, pairwise intersecting at Z (dim 2m). Count subspaces central or in exactly one maximal noncentral abelian plane to get A_d=[2m d]_q+(Q^2+Q+1)([3m d]_q-[2m d]_q). Ideal condition: containing any (a,b)!=0 forces a noncommuting derived bracket; hence abelian ideals lie in L'. A noncentral element of L' forces Z contained, so ideals are precisely subspaces I<=Z or Z<=I<=L', giving J_d=[2m d]_q+[m d-2m]_q-1_{d=2m}. Includes d=0 and d>3m. Independently enumerated 2,664 and 42,176 literal RREF subspaces of F_3^5/F_5^5, checked bracket closure/ideal property and reproduced A=(1,121,157,13,0,0), J=(1,4,1,1,0,0) and A=(1,781,931,31,0,0), J=(1,6,1,1,0,0). Arbitrary m follows structural proof not finite cases.
 
-## Closest literature and limitations
-[1] Kundu–Naik–Singh, arXiv:2208.07676v1, Theorem 1.3 and Proposition 3.2, supplies the algebra and centralizer constraints.
-[2] Sriwongsa, arXiv:2505.00726v1, Theorem 2.18, has general noncommuting-graph cover results without a dimension census for this algebra.
-[3] Šnobl–Winternitz, *Classification and Identification of Lie Algebras* (2014), low-dimensional structural tables; some small-dimensional qualitative information may be known.
+## originality
 
-The result assumes odd characteristic and counts labeled \(\mathbf F_q\)-linear subspaces rather than isomorphism classes. Independent comparison against every historical Lie-algebra or finite-group analogue is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kundu–Naik–Singh's original complete primary text proves the classification of the Lie algebra and computes centralizer dimensions and equations; that algebra, same commutator minors and center dimensions are prior and credited. We checked the original Proposition 3.2; it does not state the full F_q-dimension-indexed abelian subspace and ideal census. Other finite Lie algebra commutativity and low-dimensional lists do not dominate these all-q,m Gaussian coefficients. Main originality is the unique-containment and ideal-lattice counting, not discovery of the original algebra or commuting condition.
+
+## value
+
+PASS
+
+The dimension-by-dimension abelian subalgebra and abelian ideal counts for a natural uniquely characterized nilpotent breadth family are intrinsic algebraic invariants. They show a strong structural distinction between the projective-plane family of maximal abelian subalgebras and the unique maximal abelian ideal; the result is complete for all odd q and all extension degrees. This is not just a known centralizer dimension repeated or isolated small-field enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
