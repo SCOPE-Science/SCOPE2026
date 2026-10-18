@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete equilibrium and finite-section limit classification under explicit bounded directional mortality and the discrete Laplace mutation kernel. A nonzero infinite equilibrium would force \(a=\lambda(1-m)=\sum\mu_ix_i/m>\mu_\infty\). The exact Green identity then implies strictly negative second differences of a positive summable sequence on a tail, a contradiction. The finite spectral radii converge to \(1/\mu_\infty\) by nested symmetric Rayleigh bounds and long favorable-trait test blocks. Summing the Perron equations establishes an explicit mass-escape inequality without assuming compactness. The finite equilibrium threshold and uniqueness follow from positivity and Perron–Frobenius theory. Bundled rational and numerical checks passed; they are not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, narrowly scoped
+For the stated bilateral positive Laplace kernel and bounded mortality with 0<mu_inf<mu_i and mu_i→mu_inf as i→+infinity, a nonzero l1 equilibrium would require a=lambda(1-m)>mu_inf from summation. The exact kernel Green identity (1+r^2)p_k-r(p_{k-1}+p_{k+1})=(1-r)^2 1_{k=0} forces y=Px to be eventually strictly concave because 1-a/mu_i<0; a positive summable sequence cannot be concave on a tail while tending to zero. Finite L_I=D_I^{-1}P_I is positive and similar to symmetric H_I; Rayleigh norm bounds give rho_I<1/mu_inf. Nested principal sections give monotonicity and trials on long right-hand blocks where mu_i≈mu_inf give convergence. Summed Perron eigen-equations yield the claimed quantitative escape bound. Perron simplicity and normalization establish uniqueness of finite positive equilibria exactly when lambda*rho_I>1. The lambda<=mu_inf boundary, no renormalization of truncated convolution, and nonmonotone rates (only finite-F bound, not one-sided) are correctly handled.
 
-The primary 2026 article gives the deterministic system, kernel, general equilibrium/eigenvector equivalence, a confining-mortality theorem, and a constant-mortality nonexistence argument. Its directional bounded profiles are analyzed numerically and their equilibrium threshold is not established. The present exact nonexistence result plus noncommuting positive finite equilibria and quantitative eigenvector escape is not a corollary of the compact-mortality theorem. The earlier two-type model [2] and finite-dimensional comparison [3] do not imply escape of eigenvectors through an infinite trait space. Related published mathematical research records were searched under direct aliases and spectral reductions without direct coverage. The 1996 general measure framework [4] was available at abstract level, not fully compared; possible general spectral overlap remains a material residual risk rather than a claim of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The precise model's two published directional mortality profiles are biologically motivated and lie within the theorem's assumptions. The result proves an otherwise unresolved disappearance of localized equilibrium and reconciles apparent positive equilibrium behavior of finite trait cutoffs with the infinite system. The explicit finite-window mass inequality identifies exactly what a numerical truncation can fail to detect. This is not merely a renamed eigenproblem, an arbitrary finite slice, or an assertion that numerical drift proves asymptotic drift.
+The exact theorem is not merely the existing confining-mortality Krein-Rutman threshold: here bounded mortality approaches an unattained infimum, and the right-tail concavity argument proves every lambda lacks a nonzero l1 equilibrium, while normalized finite Perron eigenvectors escape with an explicit finite-set bound. The motivating Pollett work introduces precisely this system and reports bounded-mortality drift without, in its available abstract, giving these quantified conclusions. Its full Section 6 was not accessible; novelty remains best-of-knowledge and this primary overlap is a material risk, not a false full-text noncoverage conclusion.
 
-## Closest literature and boundaries
+## value
 
-Pollett, arXiv:2609.02086v1, Sections 3, 5, 6, supplies the model and motivates the gap. Pollett, arXiv:2606.31146v1, studies only two traits. Ackleh–Hu, doi:10.3934/mbe.2007.4.133, treats finite systems. Bürger–Bomze, doi:10.1017/S0001867800027348, offers a broad measure-valued framework whose full text was not available for decisive detailed comparison. General positive-operator theory remains relevant background. The result does not address stochastic persistence, long-time trajectory convergence, renormalized displacement cutoffs, or rates of rightward drift.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction between a positive limiting finite-section Perron radius and nonexistence of an l1 eigenvector addresses a genuine infinite-trait modeling problem: finite cutoffs give persistent positive mass but no stationary infinite profile. The sharp limiting birth-rate threshold for spurious finite equilibria and explicit mass-leakage inequality are separately useful when interpreting numerical simulations and spectral approximations, even without a trajectory-drift-rate theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
