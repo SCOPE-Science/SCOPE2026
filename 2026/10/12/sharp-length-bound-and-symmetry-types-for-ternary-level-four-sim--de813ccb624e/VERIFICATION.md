@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` (standard Python 3, no third-party dependencies). The checker constructs all \(120\) allowable nonempty subsequences, traverses every reachable append-signature state, and confirms the complete depth census, \(334202\) reachable signatures, and exactly \(1002606\) examined transitions. The enumeration queue empties, so these are exhaustive transition-closed states, not observations from a finite prefix. Three extremal symmetry orbits are calculated from all alphabet permutations and reversal, with exact coverage of the eighteen farthest signatures.
+## correctness
 
-The checker also enumerates actual index combinations to reconstruct subsequence sets of every extremal word independently of the transition recurrence, and computes forward/backward shortest-ranker attributes. All extremal words satisfy the published minimality condition.
+PASS
 
-Expected first output line:
+The 120-bit signature is by definition the set of nonempty length<=4 scattered subsequences. The precise append recurrence S(wa)=S(w) union {a} union {ua: u in S(w), |u|<=3} is an equality both ways. Because each of 3 possible append transitions is evaluated for EVERY reached state, a BFS that exhausts its queue visits the entire finite quotient, and first distance is the minimal representative length. I independently reimplemented the 120-bit automaton transition, BFS, and symmetry actions rather than relying on the package's expected histogram; obtained exactly 334202 states and 1002606 transitions with maximum depth 18, 18 extremals and disjoint six-state orbits covering them. Depth histogram independently matched every one of 19 levels. Independent position-combination oracle and published ranker criterion in checked package provide separate witness checks. Exhaustion is genuine transition closure, not incomplete search.
 
-`VERIFY_OK alphabet=3 level=4 classes=334202 max_minimal_length=18 extremal_classes=18 symmetry_orbits=3`
+## originality
 
-The scientific claim does not extend to other levels or alphabets; the finite checks do not by themselves imply such an extension. The literature comparison cannot exclude an unindexed or inaccessible prior enumeration. Independent external audit has not been performed.
+PASS
+
+Previously published total quotient index 334202 and generic shortlex normal-form algorithms are credited; they do not determine the maximum minimum representative length or the three extremal symmetry types. Full-text Pach and Fleischer-Kufleitner comparisons did not disclose the precise length/orbit census. Potential earlier specialized level-four normal-form conference paper could contain it and was not fully inspected.
+
+## value
+
+PASS
+
+The maximum shortest representative length is the sharp intrinsic normal-form cutoff for the first nonbinary alphabet at level four. This complete sharp finite invariant and all maximum symmetry types could inform exact algorithms and finite witness bounds; the known total class count does not mechanically determine radius or orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

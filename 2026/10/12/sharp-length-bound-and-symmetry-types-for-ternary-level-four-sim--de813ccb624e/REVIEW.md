@@ -1,11 +1,21 @@
-# Scientific review: ternary level-four Simon normal-form length
+# Independent mathematical audit
 
-**Correctness — PASS.** The congruence signature is exactly the set of scattered subsequences of lengths one through four; the append recurrence is proved in both directions. Exhaustive breadth-first closure examines every reachable signature and its three outgoing transitions, producing \(334202\) states, a maximum shortest-path length of \(18\), and exactly \(18\) terminal-depth states. The independent position-subsequence oracle agrees for every extremal witness, and the Fleischer–Kufleitner ranker criterion confirms all eighteen are individually length-minimal. The finite computation is a complete quotient enumeration, not a bounded-prefix experiment.
+## correctness
 
-**Originality — PASS, with residual risk.** Pach (online 2017) and Fleischer–Kufleitner (2018) establish canonical shortest representatives and algorithms, but the accessible full 2018 paper does not give this exact ternary/level-four radius and extremal orbit classification. The 2023 Fleischmann–Höfer–Huch–Nowotka paper supplies binary-class and partial ternary theory, not this finite depth spectrum. The earlier reported index \(334202\) is credited and is not the novelty claim. A 2015 Pach level-four normal-form conference paper and the 2017 original have only partially accessible online material here; a coincident enumeration inside them or otherwise unindexed remains possible. Such inaccessible papers are not asserted to be non-covering in full.
+PASS
 
-**Mathematical value — PASS.** The maximum shortest representative length is an intrinsic worst-case canonical-form complexity and a sharp uniform witness cutoff for level-four piecewise-testable properties over the first nonbinary alphabet. Neither the known total index nor generic normalization algorithms imply the numeric sharp threshold or three extremal symmetry types. This is a natural complete finite extremal classification, not an arbitrary word sample.
+The 120-bit signature is by definition the set of nonempty length<=4 scattered subsequences. The precise append recurrence S(wa)=S(w) union {a} union {ua: u in S(w), |u|<=3} is an equality both ways. Because each of 3 possible append transitions is evaluated for EVERY reached state, a BFS that exhausts its queue visits the entire finite quotient, and first distance is the minimal representative length. I independently reimplemented the 120-bit automaton transition, BFS, and symmetry actions rather than relying on the package's expected histogram; obtained exactly 334202 states and 1002606 transitions with maximum depth 18, 18 extremals and disjoint six-state orbits covering them. Depth histogram independently matched every one of 19 levels. Independent position-combination oracle and published ranker criterion in checked package provide separate witness checks. Exhaustion is genuine transition closure, not incomplete search.
 
-All mathematical claims apply only to the stated alphabet and congruence level. The code's exhaustiveness is justified by transition closure and BFS, not by a runtime log alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published total quotient index 334202 and generic shortlex normal-form algorithms are credited; they do not determine the maximum minimum representative length or the three extremal symmetry types. Full-text Pach and Fleischer-Kufleitner comparisons did not disclose the precise length/orbit census. Potential earlier specialized level-four normal-form conference paper could contain it and was not fully inspected.
+
+## value
+
+PASS
+
+The maximum shortest representative length is the sharp intrinsic normal-form cutoff for the first nonbinary alphabet at level four. This complete sharp finite invariant and all maximum symmetry types could inform exact algorithms and finite witness bounds; the known total class count does not mechanically determine radius or orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:58:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-length-bound-and-symmetry-types-for-ternary-level-four-sim--de813ccb624e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-length-bound-and-symmetry-types-for-ternary-level-four-sim--de813ccb624e/verify.py"
+      ],
+      "rationale": "The 120-bit signature is by definition the set of nonempty length<=4 scattered subsequences. The precise append recurrence S(wa)=S(w) union {a} union {ua: u in S(w), |u|<=3} is an equality both ways. Because each of 3 possible append transitions is evaluated for EVERY reached state, a BFS that exhausts its queue visits the entire finite quotient, and first distance is the minimal representative length. I independently reimplemented the 120-bit automaton transition, BFS, and symmetry actions rather than relying on the package's expected histogram; obtained exactly 334202 states and 1002606 transitions with maximum depth 18, 18 extremals and disjoint six-state orbits covering them. Depth histogram independently matched every one of 19 levels. Independent position-combination oracle and published ranker criterion in checked package provide separate witness checks. Exhaustion is genuine transition closure, not incomplete search.",
+      "residual_risks": [
+        "The proof concerns only alphabet size three and subsequence level four.",
+        "The finite closure rests on precise semantics and a completed enumeration; it is not a formula for unbounded alphabet or level."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:1804.10459v1 fully inspected mathematical algorithm sections"
+        ],
+        "reasoning": "Fleischer-Kufleitner solve normalization algorithmically for arbitrary k and alphabet sizes but do not state any level-specific sharp worst-case minimal length; their ranker bounds provide tests of examples, not the target census.",
+        "searches": [
+          "Resultary_Search:Simon congruence ternary alphabet k=4 maximum shortest representative length 18 extremal 18 classes 334202 level four",
+          "web:Simon congruence ternary alphabet k=4 maximum shortest representative length 18",
+          "DOI:10.1007/s00233-017-9910-5",
+          "arxiv:1804.10459",
+          "arxiv:2306.14192",
+          "MathOverflow:133375 Simon congruence index"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s00233-017-9910-5",
+        "https://arxiv.org/abs/1804.10459",
+        "https://arxiv.org/abs/2306.14192"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pach DOI 10.1007/s00233-017-9910-5; arxiv:2306.14192; arxiv:1804.10459"
+        ],
+        "reasoning": "Pach's general shortlex normal form proves shortestness of a given word but does not imply the specific numerical maximum and orbit classification without a separate complete quotient computation; 2023 binary/partial ternary factorization paper also lacks this precise exhaustive classification.",
+        "searches": [
+          "Resultary_Search:Simon congruence ternary alphabet k=4 maximum shortest representative length 18 extremal 18 classes 334202 level four",
+          "web:Simon congruence ternary alphabet k=4 maximum shortest representative length 18",
+          "DOI:10.1007/s00233-017-9910-5",
+          "arxiv:1804.10459",
+          "arxiv:2306.14192",
+          "MathOverflow:133375 Simon congruence index"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pach, Normal forms under Simon's congruence, Semigroup Forum 2018; Fleischer-Kufleitner, Testing Simon's congruence 2018"
+        ],
+        "reasoning": "Equality of all length<=4 scattered-subsequence signatures is exactly Simon's congruence, and the normal form shortest length equals BFS graph distance in this state automaton. Generic normal-form algorithms do not enumerate its extremal level-four ternary states.",
+        "searches": [
+          "Resultary_Search:Simon congruence ternary alphabet k=4 maximum shortest representative length 18 extremal 18 classes 334202 level four",
+          "web:Simon congruence ternary alphabet k=4 maximum shortest representative length 18",
+          "DOI:10.1007/s00233-017-9910-5",
+          "arxiv:1804.10459",
+          "arxiv:2306.14192",
+          "MathOverflow:133375 Simon congruence index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://mathoverflow.net/questions/133375/congruence-on-words-having-the-same-scattered-subwords-of-length-at-most-n"
+        ],
+        "reasoning": "Public 2013 MathOverflow report gives 334202 ternary-level-four equivalence classes; this total is NOT counted as original. Neither this index nor a catalog of class counts by itself implies radius 18 or its three disjoint extremal orbits.",
+        "searches": [
+          "Resultary_Search:Simon congruence ternary alphabet k=4 maximum shortest representative length 18 extremal 18 classes 334202 level four",
+          "web:Simon congruence ternary alphabet k=4 maximum shortest representative length 18",
+          "DOI:10.1007/s00233-017-9910-5",
+          "arxiv:1804.10459",
+          "arxiv:2306.14192",
+          "MathOverflow:133375 Simon congruence index"
+        ]
+      },
+      "rationale": "Previously published total quotient index 334202 and generic shortlex normal-form algorithms are credited; they do not determine the maximum minimum representative length or the three extremal symmetry types. Full-text Pach and Fleischer-Kufleitner comparisons did not disclose the precise length/orbit census. Potential earlier specialized level-four normal-form conference paper could contain it and was not fully inspected.",
+      "residual_risks": [
+        "The proof concerns only alphabet size three and subsequence level four.",
+        "The finite closure rests on precise semantics and a completed enumeration; it is not a formula for unbounded alphabet or level.",
+        "An earlier specialized enumeration might undermine priority even though no accessible exact coverage was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "generic shortest representative algorithm, no seen ternary level-4 worst-case length/orbit census",
+          "evidence": [
+            "Pach Semigroup Forum 97 (2018) 251-267; related 2015 conference PDF unavailable"
+          ],
+          "identifier_or_url": "doi:10.1007/s00233-017-9910-5",
+          "material_read": "Full lawful open-access paper sections on minimal normal forms and normalization algorithm; searched for ternary four-level worst-case length",
+          "method": "lawful OA full text",
+          "title": "Normal forms under Simon's congruence",
+          "trigger": "closest same normal-form object"
+        },
+        {
+          "assessment": "individual minimality criterion; no exact 334202-state depth histogram or 3 orbits",
+          "evidence": [
+            "Fleischer and Kufleitner 2018 arxiv:1804.10459v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.10459",
+          "material_read": "Full open arXiv text including ranker minimality criterion",
+          "method": "arXiv full text",
+          "title": "Testing Simon's congruence",
+          "trigger": "stronger general ranker/shortlex algorithm"
+        },
+        {
+          "assessment": "focuses binary case and factorization, does not state target finite ternary/level4 extremal quotient",
+          "evidence": [
+            "Fleischmann et al arxiv:2306.14192"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.14192",
+          "material_read": "Accessible full arXiv article text, binary classification and ternary discussion",
+          "method": "arXiv HTML full text",
+          "title": "Alpha-beta-Factorization and the Binary Case of Simon's Congruence",
+          "trigger": "later exact binary and partial ternary work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.1007/s00233-017-9910-5",
+        "https://arxiv.org/abs/1804.10459",
+        "https://arxiv.org/abs/2306.14192"
+      ],
+      "rationale": "The maximum shortest representative length is the sharp intrinsic normal-form cutoff for the first nonbinary alphabet at level four. This complete sharp finite invariant and all maximum symmetry types could inform exact algorithms and finite witness bounds; the known total class count does not mechanically determine radius or orbits.",
+      "residual_risks": [
+        "An earlier specialized enumeration might undermine priority even though no accessible exact coverage was found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-length-bound-and-symmetry-types-for-ternary-level-four-sim--de813ccb624e/RESULT.md",
+    "doi:10.1007/s00233-017-9910-5",
+    "https://arxiv.org/abs/1804.10459",
+    "https://arxiv.org/abs/2306.14192"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof concerns only alphabet size three and subsequence level four.",
+    "The finite closure rests on precise semantics and a completed enumeration; it is not a formula for unbounded alphabet or level.",
+    "An earlier specialized enumeration might undermine priority even though no accessible exact coverage was found."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "generic shortest representative algorithm, no seen ternary level-4 worst-case length/orbit census",
+      "evidence": [
+        "Pach Semigroup Forum 97 (2018) 251-267; related 2015 conference PDF unavailable"
+      ],
+      "identifier_or_url": "doi:10.1007/s00233-017-9910-5",
+      "material_read": "Full lawful open-access paper sections on minimal normal forms and normalization algorithm; searched for ternary four-level worst-case length",
+      "method": "lawful OA full text",
+      "title": "Normal forms under Simon's congruence",
+      "trigger": "closest same normal-form object"
+    },
+    {
+      "assessment": "individual minimality criterion; no exact 334202-state depth histogram or 3 orbits",
+      "evidence": [
+        "Fleischer and Kufleitner 2018 arxiv:1804.10459v1"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1804.10459",
+      "material_read": "Full open arXiv text including ranker minimality criterion",
+      "method": "arXiv full text",
+      "title": "Testing Simon's congruence",
+      "trigger": "stronger general ranker/shortlex algorithm"
+    },
+    {
+      "assessment": "focuses binary case and factorization, does not state target finite ternary/level4 extremal quotient",
+      "evidence": [
+        "Fleischmann et al arxiv:2306.14192"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2306.14192",
+      "material_read": "Accessible full arXiv article text, binary classification and ternary discussion",
+      "method": "arXiv HTML full text",
+      "title": "Alpha-beta-Factorization and the Binary Case of Simon's Congruence",
+      "trigger": "later exact binary and partial ternary work"
+    }
+  ]
+}
