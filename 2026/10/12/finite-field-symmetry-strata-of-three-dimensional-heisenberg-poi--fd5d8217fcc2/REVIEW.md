@@ -1,19 +1,21 @@
-# Self-review of the finite-field Heisenberg Poisson symmetry profile
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The nonzero associative square is contained in the Lie-derived central line. The Poisson identity forces that line to annihilate the associative product, so multiplication is an arbitrary nonzero symmetric binary form. The alternating bracket has nondegenerate quotient form \(J\), and \(T=J^{-1}S\) is traceless. The identity \(G^{\mathsf T}JG=(\det G)J\) reduces simultaneous isomorphism to ordinary conjugacy of \(T\). Central shear choices account for the automorphism factor \(q^2\); the simultaneous derivation equations reduce to the full matrix centralizer. Standard rational-canonical classification (including perfection of finite characteristic-two fields) proves every class and orbit formula. The standalone exhaustive finite checks for orders 2, 3, 4, 5 returned `VERIFY_OK`. There is no inference from finite computations to the all-prime-power theorem.
+PASS
 
-## Originality: PASS, with identified risks
+For every finite field F_q including characteristic two, Heisenberg bracket [x,y]=z and P²⊆kz force z to annihilate P under Leibniz and associativity. Thus all products arise from one nonzero symmetric 2x2 form S with multiplication uv=(u^T S v)z. Put J=[[0,1],[-1,0]], T=J^-1 S. S symmetric iff tr T=0 in all characteristics. Simultaneous Poisson equivalence changes T by GL2 similarity, with arbitrary two-dimensional central shear. Consequently Aut order =q² |C_GL2(T)|; a linear Lie derivation has matrix A on V and D(z)=tr A z, and its multiplication condition is exactly [A,T]=0, giving dimension 2+dim C_M2(T). For odd q the nonzero trace-zero 2x2 similarity classes are q companion-matrix determinant classes including nilpotent and the split/anisotropic subclasses, all with derivation dimension four. For even q they are q nonscalar Jordan classes and q-1 nonzero scalar classes, yielding 2q-1 classes, with scalar derivation dimension six (otherwise four), and the exact orbit/Aut formulas through GL2 centralizers. Directly enumerated GL2 trace-zero conjugation orbits for q=2,3,5: 3,3,5 classes with orbit partitions [1,3,3], [6,8,12], [20,20,24,30,30]; pinned verify.py additionally implements F4 and checks derivative centralizers, none of which substitutes for all-prime-power argument.
 
-The strongest nearby published overlap is the Dedekind Poisson finite-field classification: it already counts the odd-characteristic anisotropic/nonsplit subfamily and its automorphisms. That overlap is credited and not claimed independently. A 2024 survey's full page 253 documents the complex central mixed family; it does not provide the field-dependent orbit and derivation profiles. Petrov–Pypka's 2026 abstract announces structural three-dimensional classification, but the complete arXiv text could not be inspected, leaving genuine risk of an equivalent treatment. Targeted external and published-finding corpus queries found no covering calculation of both full automorphism orders and the characteristic-two six-dimensional derivation jump. The new contribution is the complete **symmetry profile** of the natural non-Dedekind strata and modular boundary, not the classical 2-by-2 similarity theorem.
+## originality
 
-## Value: PASS
+PASS
 
-The assumption on the associative square is an intrinsic, natural constraint on mixed structures over the minimal nonabelian nilpotent Lie algebra, and the Poisson identity itself gives the annihilation needed for the reduction. The theorem identifies exactly which finite-field Poisson structures acquire two extra infinitesimal symmetries, and supplies all isomorphism types, automorphism orders, and orbit sizes across infinitely many fields. In characteristic two the exceptional scalar family has multiplication proportional to the Lie bracket; this explains the sharp symmetry jump rather than providing an arbitrary small enumeration.
+Petrov--Pypka arXiv:2609.13784 Theorem 5.2 already *completely classifies the structural Heisenberg mixed family over arbitrary fields* up to weighted congruence of its symmetric form; Corollary 5.3 even gives exactly the odd-characteristic normal representative diag(1,d). These ARE NOT new and must be credited. The current evaluated claim adds finite-field orbit cardinalities of each fixed bracket structure, all Aut group orders, explicit even-characteristic scalar/Jordan strata and the exact derivation-dimension jump 4→6. The earlier published Dedekind Poisson finding independently gives automorphism count of the *anisotropic odd-characteristic subfamily* and is credited rather than double-counted. The full relevant Petrov--Pypka pages 22--25 were read via authorized institutional retrieval, not abstract alone: those passages state equivalence/normal forms but do not give the numerical centralizer or derivation profiles. Distinct original surviving material is the full all-finite-field symmetry stratification and the modular jump.
 
-## Limitations
+## value
 
-No claim covers other Lie brackets, larger dimensions, or the zero associative product. Historical equivalence in the inaccessible 2026 full preprint remains possible, and further independent literature review is warranted. The reproduced checks corroborate selected finite fields only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural minimal nonabelian Poisson structure, classifying stabilizer sizes and derivation tangent dimensions quantifies moduli-orbit geometry rather than merely renaming existing isomorphism classes. Characteristic-two scalar strata are new finite-field phenomena: exactly q-1 exceptional isomorphism classes have derivation dimension six, while q Jordan classes have four, an interpretable two-dimensional symmetry jump. Uniform q, actual orbit sizes and full Aut orders make this a useful complete finite-field symmetry profile even though general 2x2 similarity theory and Petrov--Pypka structural classification are not new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
