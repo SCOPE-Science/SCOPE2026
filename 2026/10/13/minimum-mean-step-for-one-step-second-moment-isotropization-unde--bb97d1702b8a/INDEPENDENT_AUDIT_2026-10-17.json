@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:46:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In u=(ωq,p), midpoint acts via orthogonal Cayley matrix R(t), t=ωH/2, with complex second harmonic Z=((1+it)/(1−it))². Independence multiplies E(z_k²) by conjugate E(Z)^k and preserves tr S, proving iff for universal isotropy and all future steps. Rational Re/Im formulas yield exact identity t−(1−ReZ−ImZ)/2 = t(t−1)²(t²+2t+3)/(1+t²)² >=0. Integrating against any nonnegative H of finite mean with EZ=0 gives E t>=1/2. Equality support only t=0,1, with unique equal masses since Z(0)=1,Z(1)=−1. For every m=ωμ>1, s=(m+2−sqrt(m²+8))/2 in (0,1), r=(1+s)/(1−s), s+r=m and Z(s)=−Z(r), making the two positive H values isotropize at mean μ. Arc Z([0,T]) subtends angle <π iff T<1, separating zero from convex hull; at T=1 exact endpoint law requires H=0, and T>1 enables strictly positive pair. I rederived exact symbolic polynomial identity and quarter-turn parameters, separately from packaged checker. Applicability only to second moments with independent initial law, not full phase uniformization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General randomized RK geometric-invariant theory covers per-step preservation for midpoint, not optimal E H under EZ=0.",
+          "HMC jitter study uses velocity-Verlet, acceptance and autocorrelations; differs from fixed-energy Cayley rotation moment annihilation.",
+          "Harmonic Langevin calculations concern friction/forcing and stationary covariance bias, not conservative isotropic mixing."
+        ],
+        "reasoning": "Published broader algorithms control numerical invariant preservation or asymptotic error, which do not logically imply universal one-step traceless-moment cancellation or the optimal mean.",
+        "searches": [
+          "Abdulle and Garegnani arXiv:1801.01340 full paper Sections 2,6,9.5",
+          "Christiansen Errica Alesiani arXiv:2309.13593",
+          "Resultary: harmonic equilibrium bias and randomized ULMC 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 09451ef9ef804bdad1bd52c8dffbae64c39f57d3",
+        "arXiv:1801.01340",
+        "arXiv:2309.13593",
+        "Resultary harmonics/integrators lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quadratic preservation gives tr S_1=tr S_0, which is necessary but not sufficient for isotropic matrix S_1; traceless second harmonic may remain nonzero.",
+          "The algebraically nonnegative global dual polynomial establishes a new sharp optimization implication absent from energy preservation."
+        ],
+        "reasoning": "Even a theorem for every quadratic invariant of each timestep map cannot force isotropy after random averaging or lower bound on average H; source proof supplies the missing distribution constraint.",
+        "searches": [
+          "arXiv:1801.01340 Theorem 4 first-integral preservation",
+          "arXiv:2309.13593 Sections III.3 IV.1 HMC jitter",
+          "Resultary published harmonic Langevin equilibrium-bias summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Energy-normalized midpoint map is Cayley planar rotation; standard generic Fourier mixing condition E e^{2iθ}=0 may be restated as a trigonometric moment design.",
+          "Random-time Runge–Kutta paper's published quadratic-integral preservation establishes tr S invariant but leaves traceless harmonic unrestricted."
+        ],
+        "reasoning": "Equivalent phase/complex Fourier formulation was checked, as were randomized symplectic and HMC timestep aliases. The sharp mean-support characterization is not merely a restatement of invariant preservation.",
+        "searches": [
+          "Resultary search: random timesteps implicit midpoint harmonic oscillator second moment isotropy dephasing optimum mean duration Cayley transform",
+          "arxiv:1801.01340 randomized time-step Runge Kutta quadratic invariants",
+          "arxiv:2309.13593 jitter Hamiltonian Monte Carlo oscillator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The optimal two-atom law and polynomial slack were derived from the angular criterion and exact inequality, not read off a known table.",
+          "Relevant published summaries returned different harmonic numerical analyses, none an exact mean/cap dephasing table."
+        ],
+        "reasoning": "No exact numerical prior table was identified among inspected material; search absence alone does not prove novelty.",
+        "searches": [
+          "Search: random-time implicit midpoint harmonic oscillator covariance one-step isotropization table",
+          "Resultary exact randomized harmonic oscillator isotropy mean step",
+          "Search: 1/omega minimum random implicit midpoint rotation phase cancellation"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp all-law dephasing mean bound, unique endpoint law, prescribed-mean constructive inverse design and support-cap frontier; midpoint energy conservation and Fourier harmonics are prior general tools.",
+      "residual_risks": [
+        "Potential prior solution to the same constrained trigonometric moment extremization under a different name could be unindexed.",
+        "No multiperiod or multi-frequency/matrix oscillator conclusion; no claim of full energy-circle uniformity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers invariant preservation, not exact all-law one-step second-moment isotropization or minimum mean-duration frontier",
+          "evidence": "Theorem 4 treats first integrals of randomized geometric integrators; Section 9.5 tests preservation at small random steps.",
+          "identifier_or_url": "arXiv:1801.01340",
+          "material_read": "Full lawful primary PDF; Sections 2 and 6, Theorem 4, Section 9.5 numerical angular-momentum example; 38-page document",
+          "method": "Web/arXiv PDF inspection including page screenshots and searchable pages",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Most directly related randomized time-step geometric midpoint"
+        },
+        {
+          "assessment": "Related randomness but different update/objective; not logical coverage",
+          "evidence": "Uses HMC/Verlet trajectories and acceptance metrics, not a Cayley rotation with vanishing harmonic for all initial S.",
+          "identifier_or_url": "arXiv:2309.13593",
+          "material_read": "Public primary arXiv abstract and pertinent sections describing jitter, numerical integrator and efficiency objective",
+          "method": "Lawful arXiv full HTML/text and targeted comparison",
+          "title": "Self-Tuning Hamiltonian Monte Carlo for Accelerated Sampling",
+          "trigger": "Oscillator sampling with timestep jitter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimizing mean elapsed physical timestep while killing all anisotropy of second moments is a well-motivated inverse-design question in randomized geometric integration. Unique sharp two-point extremizer, all-supercritical-mean realizations and support-cap phase transition are exact structural answers for an infinite-dimensional law class; a global polynomial dual certificate supplies nontrivial proof beyond a normalization check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a fixed-frequency harmonic oscillator under iid independent nonnegative random-time implicit midpoint, universal one-step isotropization of uncentered second moments iff E[((1+iωH/2)/(1−iωH/2))^2]=0; all such laws E H>=1/ω with unique minimizing law H=0 or 2/ω each probability 1/2; every larger mean admits strictly positive equiprobable two-point law and bounded timesteps are feasible exactly when cap>=2/ω (strict-positive cap>2/ω).",
+  "limitations": [
+    "Fixed ω>0 planar linear harmonic oscillator only; iid required for k>1, independent exogenous H for one-step.",
+    "Uncentered moments, centered covariance only initially centered ensemble; isotropization not angular uniformity or trajectory accuracy.",
+    "Strict H>0 cannot attain sharp lower mean; cap equal to 2/ω requires H=0 endpoint."
+  ],
+  "schema_version": 1
+}
