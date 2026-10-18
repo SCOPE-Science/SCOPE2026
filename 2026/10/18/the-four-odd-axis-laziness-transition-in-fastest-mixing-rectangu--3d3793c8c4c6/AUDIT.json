@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Symmetrization over cycle translations/reflections yields direction rates without increasing the convex SLEM. Fourier eigenvalue extrema give exactly max(1-t,sum_i w_i Delta_i-1). With t=min_i w_i delta_i, the lower bound max(1-t,R t-1) on 0<=t<=1/(2S) is attained at t*=min(1/(2S),2/(1+R)) by w_i=t*/delta_i. Uniqueness in the direction-invariant class follows from the active spectral/budget constraints. Odd-length half-angle contributions equal 1/(4 cos^2(pi/(2n))), which prove the strict holding threshold. Long-thin asymptotics follow from delta_N=4 pi^2/N^2+O(N^-4). The actual packaged verifier completed 2993 finite assertions; it does not certify infinite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao (2009), Thm 2.1 averages over automorphisms; Thm 3.1 explicitly assumes edge transitivity; §3.2 provides product eigenvalues and the equal-side square-torus example.",
+        "Boyd, Diaconis, Xiao (2004) formulates general fastest mixing as SDP for arbitrary graphs."
+      ],
+      "reasoning": "General SDP reducibility does not furnish an explicit closed form or parity-count threshold. The published single-orbit theorem cannot be substituted for the unequal-factor multi-orbit optimization. All identical-length specializations are prior covered, acknowledged, and not relied upon for the originality assessment.",
+      "searches": [
+        "web: fastest mixing Markov chain Cartesian products of two graphs formula product of cycles Markov chain exact",
+        "web: fastest mixing Markov chain product of edge transitive graphs multiple edge orbits formula",
+        "published-finding corpus: Cartesian product cycles exact optimizer SLEM min transition direction spectral gaps product inhomogeneous tori"
+      ]
+    },
+    "checked_sources": [
+      "Boyd et al. (2009), arXiv:0709.0955v1, full PDF §§2–3",
+      "Boyd et al. (2004), DOI 10.1137/S0036144503423264, full PDF introduction",
+      "Boyd et al., Mixing Times for Random Walks on Geometric Random Graphs, §3.2",
+      "published-finding corpus search queries documented by each named check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest main source gives an equal-side two-factor torus and a generic orbit SDP, not the scalar lower bound t=min_i w_i delta_i with independently variable axis probabilities.",
+        "The geometric-graph source studies L-infinity neighborhoods, tensor-product chains, and mixing-time lower bounds, not the exact nearest-neighbor anisotropic SLEM optimum."
+      ],
+      "reasoning": "The present analysis derives an orbit-heterogeneous exact optimizer and a phase criterion K=sum_odd [4 cos^2(pi/(2n_i))]^-1 crossing one. The old square-torus value and homogeneous Cartesian powers are subsumed by prior literature; the mixed-length formulas and asymptotic dimension-fold comparison do not follow as stated corollaries of any identified stronger result.",
+      "searches": [
+        "web: fastest mixing Markov chain inhomogeneous Cartesian product rectangular torus anisotropic optimal transition directions",
+        "web: fastest mixing Markov chain Cartesian products of graphs spectral radius optimizer closed form theorem",
+        "published-finding corpus: Boyd Diaconis Xiao graph symmetry torus fastest mixing products nonedge transitive cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., arXiv:0709.0955v1, §3.2.1 displays only the C_n Cartesian C_n symmetric single-weight optimum.",
+        "Boyd, Diaconis, Xiao (2004), §1 provides the general symmetric-SLEM convex optimization formulation, not this parameter classification."
+      ],
+      "reasoning": "The two-dimensional equal-side torus is a covered special case. Other nearest-neighbor products with unequal cycle lengths generally have several edge orbits; no equivalent multi-orbit optimizer or mixed-parity holding threshold was found.",
+      "searches": [
+        "published-finding corpus: fastest mixing Markov chain symmetric nearest neighbor random walk on rectangular torus Cartesian product cycles anisotropic exact spectral radius",
+        "published-finding corpus: optimal anisotropic torus Markov transition probabilities Fourier eigenvalues rectangular periodic lattice",
+        "web: fastest mixing rectangular torus optimized transition weight anisotropic graph",
+        "web: fastest mixing anisotropic torus transition probability odd parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record/table returned for the multi-axis SLEM formula; nearest indexed hits were on unrelated torus homology, quantum mixing or other spectral-optimization objects.",
+        "The directly inspected 2009 paper contains tabulated analytic examples for C_n and C_n square C_n but not a table covering independently variable lengths and all dimensions."
+      ],
+      "reasoning": "This is a negative search observation, not evidence of mathematical uniqueness or novelty by itself. Full-text implication checks distinguish known equal-factor cases.",
+      "searches": [
+        "published-finding corpus: four odd cyclic factors threshold optimal holding probability vanishes fastest mixing Markov chain Cartesian product rectangular torus anisotropic cycle lengths",
+        "published-finding corpus: fastest mixing nonlazy weighted random walk high dimensional rectangular tori odd cycle factors even factors eigenvalue minimax",
+        "web: fastest mixing odd cycles holding probability dimension"
+      ]
+    },
+    "rationale": "The key 2009 primary paper proves convex automorphism reduction, a single-weight theorem for edge-transitive graphs, and an equal-side two-dimensional torus. These imply equal-factor cases but do not directly settle distinct-direction edge orbits on unequal-factor products. The present explicit full multi-orbit minimax, mixed-parity holding classification and sharp anisotropic asymptotic comparison were not identified in checked prior sources or indexed research findings; a separately titled product-walk formula remains a risk.",
+    "residual_risks": [
+      "A differently named or unindexed older Cartesian-product optimization theorem might state the mixed-axis formula, so originality is best-knowledge rather than independently established.",
+      "The canonical source expressly notes that Cartesian-product spectra simplify the problem; the degree of independent novelty of this explicit multi-orbit and parity classification merits external specialist review.",
+      "All claims of uniqueness are restricted to direction-invariant kernels; other optimal spatially inhomogeneous kernels have not been classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background and equal-factor cases covered; no independently varying cycle-length allocation or mixed odd-count holding threshold stated.",
+        "evidence": "Thm 2.1, Thm 3.1 (edge-transitive hypothesis), eqs (3.5)–(3.6), §3.2.1 square-torus formulas.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full main article parsed; closely relevant §§2.2–2.3, 3.1–3.2 and actual pages 799–800 visually inspected.",
+        "method": "Primary open full-text PDF and inspect theorem statements, product formulas and equal-side example",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Identical fastest-mixing objective, Fourier product spectra and square torus"
+      },
+      {
+        "assessment": "Provides general SDP and performance metric, not this Cartesian product formula.",
+        "evidence": "§1.1.3 formulates unconstrained symmetric FMMC; no torus or Cartesian-product specification found in text.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full text was available; introduction and formulation on pages 667–669 inspected, and occurrences of torus/product searched.",
+        "method": "Full-text PDF inspection and explicit term searches",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational arbitrary-edge convex spectral minimax setting"
+      },
+      {
+        "assessment": "Different graph adjacency and asymptotic mixing-time bounds; does not cover the exact mixed-cycle nearest-neighbor SLEM optimizer.",
+        "evidence": "§3.2 defines G_kk with L-infinity edges and proves a mixing-time lower bound rather than exact edge weights.",
+        "identifier_or_url": "https://web.stanford.edu/~balaji/papers/05mixingtimes.pdf",
+        "material_read": "§3.2, pp.3–4 and underlying graph definition/full PDF searched for torus and Fourier product.",
+        "method": "Read full-text sections describing product and L-infinity grid neighborhood",
+        "title": "Mixing Times for Random Walks on Geometric Random Graphs",
+        "trigger": "Optimal reversible mixing on toroidal lattices might dominate exact claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d3793c8-c4c6-4b11-84a8-e736292999c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arbitrary-dimensional rectangular torus is a natural periodic network model with independent axis sizes. The theorem provides a usable global optimum despite unrestricted edge weights, an exact phase transition governed by the count of odd cycle factors (not raw dimension), and a sharp dimension-fold gap advantage in slender limits. These distinct mixed-factor consequences have motivation beyond verifying a textbook identity.",
+    "status": "PASS"
+  }
+}
