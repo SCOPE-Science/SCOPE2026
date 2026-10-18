@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The natural adjacency graph follows directly from the explicitly stated affine branches. The sequence \(w_1=w_2=w_3=1\), \(w_i=2r^{i-3}\) for \(i\ge4\), \(r=(3-\sqrt5)/2\), is an exact positive eigenvector of its adjacency matrix with eigenvalue \(2+\sqrt5\). Its normalized Markov chain has strictly negative drift outside four states and finite small-state jump means, giving positive recurrence and the exact exponential closed-walk rate. The invariant density is built from the published summable stationary cell masses; the uniformly expanding branches make the partition generating, with a geometric successor law. The attached symbolic checks independently reproduce the critical algebra. Finite truncated spectra are supporting diagnostics only.
+
+**Originality — PASS with residual priority uncertainty.** Ji--Ma (2023, doi:10.3934/math.2023424) gives the auxiliary map, Markov adjacency and invariant cell masses, but does not evaluate either requested entropy, let alone their uniform strict gap; the full relevant source sections were read. Sarig (1999, doi:10.1017/S0143385799146820) develops general theory for countable Markov shifts, but does not compute this graph's nonstandard Perron eigenvector or the map's metric entropy. Searches for the exact graph and both formulas yielded no matching published result; a reparameterized antecedent is a residual priority risk. The elementary geometric-row entropy is acknowledged as a consequence of the existing transition matrix; novelty rests on its *quantitative comparison with the newly evaluated Gurevich entropy*.
+
+**Value — PASS.** The exact growth constant and uniform positive gap are natural dynamical invariants of the concrete Markov scheme controlling the 2023 recurrence phase transition. They distinguish symbolic orbit complexity from statistics under its physical absolutely continuous invariant probability, without confusing the auxiliary process with the original Fibonacci bimodal map. No extraneous parameter slices are imposed.
+
+The result has not been independently audited, and the unindexed-equivalence risk remains.
+
+Self-review: passed. Independent audit: not yet performed.
