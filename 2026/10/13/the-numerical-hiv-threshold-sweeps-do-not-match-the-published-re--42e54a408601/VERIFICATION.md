@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker evaluates the source's Example 6.2 reproduction number using exact rational table values.
 
-It verifies
-\[
-B
-=
-\frac{N\beta_1\Lambda}{cd}
-+
-\frac{\beta_2\Lambda}{\delta_I d}
-=
-\frac{508}{23},
-\]
-and
-\[
-\frac{\alpha}{\alpha+\delta_L}=\frac57.
-\]
+# Independent mathematical audit
 
-For the Figure 1 setting it verifies
-\[
-\mathcal R_0(\tau)
-=
-\frac{444373}{20125}e^{-\tau},
-\]
-with corrected values approximately \(13.39258876\) and \(3.83704092\).
+## correctness
 
-For the Figure 2 setting it verifies
-\[
-\mathcal R_0(0.05)\approx3.783306997,
-\qquad
-\mathcal R_0(0.025)\approx3.810722266,
-\]
-and proves the derivative with respect to \(\xi\) is negative.
+PASS
 
-It also verifies the uniform lower bound
-\[
-\mathcal R_0(\xi)>1
-\]
-for every \(0\le\xi\le1\) at the Figure 2 delay.
+The source formula factors into B=Nβ1Λ/(cd)+β2Λ/(δ_I d)=508/23 and delay fraction α/(α+δ_L)=5/7. Under m1=m2=1,τ1=τ2=τ, this gives (508/23)(1−2ξ/7)e^(−τ). With ξ=.001, prefactor 444373/20125 and τ crossing log(prefactor)=3.0947014765; at .5 and 1.75 both R0>1. At τ=1.75, ξ=.05 and .025 give exact prefactors 762/35 and 17653/805; derivative wrt ξ is −1016/161 e^(−7/4)<0. For all ξ∈[0,1], R0≥(2540/161)e^(−7/4)>2.74. Independently recomputed all rational prefactors and numerical values; source verify.py actual blob also inspected. Calculations concern published formula/table/captions, not hidden simulation code.
 
-The verification is exact arithmetic plus high-precision evaluation of exponentials; no trajectory simulation is used.
+## originality
+
+PASS
+
+The delayed-HIV threshold formula and delay-survival mechanism are established, so they are explicitly not claimed as new. The exact source-specific numerical contradiction, its sign reversal, and disappearance of both advertised R0=1 crossings were not found in the initiating article or searched corrigenda.
+
+## value
+
+PASS
+
+Both figures are used as evidence for crossing a biologically meaningful epidemic threshold; exact printed parameters keep every illustrated case supercritical and reverse the stated latency effect. This materially changes interpretation of the published numerical validation and is not a negligible rounding difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

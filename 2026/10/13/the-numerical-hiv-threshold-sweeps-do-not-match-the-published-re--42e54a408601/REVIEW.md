@@ -1,28 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Example 6.2 formula and Table 1 reduce, for equal delays, to
-\[
-\mathcal R_0(\tau,\xi)
-=
-\frac{508}{23}
-\left(1-\frac{2\xi}{7}\right)e^{-\tau}.
-\]
-This exact reduction reproduces none of the four caption labels. It gives both Figure 1 cases and both Figure 2 cases above one. It also proves that decreasing \(\xi\) increases \(\mathcal R_0\), opposite to the Figure 2 labels. The bundled checker replays the calculation exactly.
+PASS
 
-## Originality
+The source formula factors into B=Nβ1Λ/(cd)+β2Λ/(δ_I d)=508/23 and delay fraction α/(α+δ_L)=5/7. Under m1=m2=1,τ1=τ2=τ, this gives (508/23)(1−2ξ/7)e^(−τ). With ξ=.001, prefactor 444373/20125 and τ crossing log(prefactor)=3.0947014765; at .5 and 1.75 both R0>1. At τ=1.75, ξ=.05 and .025 give exact prefactors 762/35 and 17653/805; derivative wrt ξ is −1016/161 e^(−7/4)<0. For all ξ∈[0,1], R0≥(2540/161)e^(−7/4)>2.74. Independently recomputed all rational prefactors and numerical values; source verify.py actual blob also inspected. Calculations concern published formula/table/captions, not hidden simulation code.
 
-PASS. The exponential-delay threshold mechanism is established literature. The accepted contribution is source-specific: it reconciles the motivating article's own formula, table, and captions and shows that both advertised numerical threshold crossings disappear. Exact DOI/title, figure-number, numerical-label, correction, and prior-ledger searches found no equivalent published correction.
+## originality
 
-## Value
+PASS
 
-PASS. The figures are used to illustrate the biological conclusion that changing delay and the latent fraction can suppress infection by crossing \(\mathcal R_0=1\). The corrected arithmetic leaves every displayed case supercritical and reverses one comparative-static direction, so the published numerical validation is not reproducible from the stated inputs.
+The delayed-HIV threshold formula and delay-survival mechanism are established, so they are explicitly not claimed as new. The exact source-specific numerical contradiction, its sign reversal, and disappearance of both advertised R0=1 crossings were not found in the initiating article or searched corrigenda.
 
-## Closest literature and limitations
+## value
 
-The 2017 latent-HIV predecessor uses the same broad delay-survival threshold architecture and confirms that this modeling mechanism is prior art. It does not contain the source-specific numerical labels or their correction.
+PASS
 
-Undocumented simulation settings could explain the trajectories, so the finding is limited to the published formula, table, captions, and the interpretation attached to them.
+Both figures are used as evidence for crossing a biologically meaningful epidemic threshold; exact printed parameters keep every illustrated case supercritical and reverse the stated latency effect. This materially changes interpretation of the published numerical validation and is not a negligible rounding difference.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

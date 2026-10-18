@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:43:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Jiang 2022 Example 6.2 R0 formula, Table 1, Figure 1/2 captions",
+        "verify.py blob 0d6b6a7a7e9b334eabf2520a3465a65adb7b7546",
+        "independent Fraction/float re-evaluation"
+      ],
+      "rationale": "The source formula factors into B=Nβ1Λ/(cd)+β2Λ/(δ_I d)=508/23 and delay fraction α/(α+δ_L)=5/7. Under m1=m2=1,τ1=τ2=τ, this gives (508/23)(1−2ξ/7)e^(−τ). With ξ=.001, prefactor 444373/20125 and τ crossing log(prefactor)=3.0947014765; at .5 and 1.75 both R0>1. At τ=1.75, ξ=.05 and .025 give exact prefactors 762/35 and 17653/805; derivative wrt ξ is −1016/161 e^(−7/4)<0. For all ξ∈[0,1], R0≥(2540/161)e^(−7/4)>2.74. Independently recomputed all rational prefactors and numerical values; source verify.py actual blob also inspected. Calculations concern published formula/table/captions, not hidden simulation code.",
+      "residual_risks": [
+        "Undocumented simulation inputs might explain trajectories; not assessed.",
+        "No re-evaluation of general infinite-dimensional delay-model threshold theorems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 predecessor develops a related delayed cell-to-cell / virus-to-cell infection mechanism, not the 2022 caption values or that article’s Table 1 mismatch."
+        ],
+        "reasoning": "General threshold/monotonicity theorems do not yield these specific arithmetic checks without the target article’s printed parameters.",
+        "searches": [
+          "Jiang DOI:10.3934/math.2022138",
+          "Wang Tang Song Rong 2017 DOI:10.1080/17513758.2016.1242784"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2022138",
+        "https://doi.org/10.1080/17513758.2016.1242784"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim conflicts with original figure annotations: R0(1.75) is 3.837>1 not .669<1; ξ decreasing raises R0, not lowers it."
+        ],
+        "reasoning": "Prior article provides the raw equation enabling deduction but asserts opposite numerical conclusions; this does not count as prior publication of the contradiction. Only this arithmetic mismatch is assessed.",
+        "searches": [
+          "Jiang 2022 Example 6.2 printed reproduction number",
+          "Jiang 2022 Figures 1 and 2 captions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Initiating article lists all four caption labels and its analytic formula; direct substitution gives four incompatible values."
+        ],
+        "reasoning": "Searched numeric-caption strings as well as R0 basic-reproduction-number and intracellular-delay aliases; no known erratum stating these exact corrections located.",
+        "searches": [
+          "Resultary_Search semantic query: delayed HIV reproduction number threshold discrepancy Figure 1 Figure 2 latency fraction parameter numerical corrections",
+          "Jiang 2022 Figure 1 8.1268 0.6690 Figure 2 1.4686 0.7188 correction",
+          "delayed HIV latency fraction xi exponential reproduction number mismatch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original numerical labels in captions are 8.1268,0.6690,1.4686,0.7188; direct exact prefactors are 444373/20125,762/35 and17653/805."
+        ],
+        "reasoning": "No checked corrected data table carries these four values; the discrepancy concerns an unpublished computation of exact printed parameters, not a textbook formula.",
+        "searches": [
+          "Resultary_Search semantic query: delayed HIV reproduction number threshold discrepancy Figure 1 Figure 2 latency fraction parameter numerical corrections",
+          "published Jiang AIMS Mathematics 2022 Table 1 508/23 parameters",
+          "Figure 1 HIV R0 8.1268 and 0.6690 erratum"
+        ]
+      },
+      "rationale": "The delayed-HIV threshold formula and delay-survival mechanism are established, so they are explicitly not claimed as new. The exact source-specific numerical contradiction, its sign reversal, and disappearance of both advertised R0=1 crossings were not found in the initiating article or searched corrigenda.",
+      "residual_risks": [
+        "Unpublished simulation program may have used different parameters; reported correction is only internal consistency with published inputs.",
+        "Possible unpublished correction or erratum not indexed in searched DOI/figure caption queries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both captions explicitly claim crossing or decreasing latency fraction lowers R0; exact source-specified coefficients contradict all four labels. No numerical erratum appears in inspected article.",
+          "evidence": [
+            "Example 6.2 reproduction number, Figure 1 caption τ=0.5/1.75 values 8.1268/.6690, Figure 2 ξ=.05/.025 values 1.4686/.7188"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2022138",
+          "material_read": "Full AIMS Mathematics 7 (2022) primary paper PDF; inspected Example 6.2 printed reproduction-number formula, Table 1, both numbered figure captions and parameter discussion",
+          "method": "Lawful publisher full-text plus rendered PDF pages / Figure captions",
+          "title": "Threshold dynamics of a general delayed HIV model with double transmission modes and latent viral infection",
+          "trigger": "Published numerical threshold sweeps are object of claim"
+        },
+        {
+          "assessment": "Establishes underlying delay-survival mechanism as prior art but does not address Jiang 2022 numerical captions.",
+          "evidence": [
+            "Wang et al Journal of Biological Dynamics 2017 11:455–483"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2016.1242784",
+          "material_read": "Published abstract, model formulation context and reproduction-threshold type; not identical numerical figures",
+          "method": "Primary literature comparison via lawful available text",
+          "title": "Mathematical analysis of an HIV latent infection model including both virus-to-cell infection and cell-to-cell transmission",
+          "trigger": "Closest predecessor on delayed double-route HIV infection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiang Figure 1/2 source numerical discussion and exact Table 1"
+      ],
+      "rationale": "Both figures are used as evidence for crossing a biologically meaningful epidemic threshold; exact printed parameters keep every illustrated case supercritical and reverse the stated latency effect. This materially changes interpretation of the published numerical validation and is not a negligible rounding difference.",
+      "residual_risks": [
+        "Does not challenge unrelated analytic stability theorems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "From Jiang 2022 Equation 6.2 and Table 1, equal delays give R0(τ,ξ)=(508/23)(1−2ξ/7)e^(−τ), so at τ=.5,1.75 (ξ=.001), values 13.39258876 and 3.83704092 (not caption 8.1268 and .6690). At τ=1.75 with ξ=.05,.025, values 3.783306997 and 3.810722266 (not 1.4686,.7188); no printed sweep crosses R0=1, and reducing ξ increases R0.",
+  "limitations": [
+    "No simulation code or unpublished parameter file available; cannot reconstruct the plotted trajectories.",
+    "Only exact published equation, table and captions are compared."
+  ],
+  "schema_version": 1
+}
