@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T21:07:39.573839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Li--Leng--Huang Theorem 5 the displayed implication incorrectly turns the operator norm upper bound ||Tx||<=||T|| ||x|| into a lower estimate. On H=R^2 choose K=I, Lambda1=I, T=diag(1,0); all printed hypotheses hold, but e2 witnesses lower-frame inequality failure. Sufficiency of a positive lower bound m for T on Range(K*) follows from sum_i||Lambda_i T f||^2 >=A||K*T f||^2=A||T K*f||^2>=A m^2||K*f||^2, with upper B||T||^2||f||^2. Necessity for universal preservation follows by taking the valid single-operator K-g-frame Lambda1=K*: its composed lower bound is exactly a lower bound for T on the range. If T=0 or K=0, the formal composed upper constant B||T||^2 may be zero; choose any positive larger Bprime, leaving the exact lower equivalence unchanged. No closed-range assumption required.",
+      "risk": [
+        "The necessity statement quantifies over EVERY K-g-frame for fixed commuting (K,T), not one special family.",
+        "Bound B||T||^2 is zero in degenerate T=0 cases and should be replaced by any positive admissible upper bound if necessary; this does not affect the claim."
+      ],
+      "sources": [
+        "Frozen tree 8e630513f83d380876c28c5edbe53f2cc9c7c186; RESULT.md blob 863407b593afc678be3710433d2d77aa5e250e42",
+        "Li--Leng--Huang (2017) doi:10.7153/oam-2017-11-74 full primary PDF Theorem 5 and displayed lower-estimate mistake",
+        "Direct R2 projection witness and canonical one-operator test Lambda1=K* for arbitrary H"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 primary theorem provides preservation when a commuting operator is an isometry, which has lower bound m=1 on the entire Hilbert space.",
+          "Its scalable-frame setting is more specialized and proves no necessity for all K-g-frames at a fixed pair (K,T)."
+        ],
+        "reasoning": "The later isometry theorem is logically contained in the sufficient half of the proposed characterization, not conversely; it does not dominate the universal if-and-only-if boundary or provide this failure witness.",
+        "searches": [
+          "Kumar Malhotra Khanna 2024 Scalability of Generalized Frames for Operators Theorem 19(i)",
+          "\"K g frame\" \"isometry\" right composition commuting"
+        ]
+      },
+      "checked_sources": [
+        "Li--Leng--Huang (2017) full primary Theorem 5 and proof",
+        "Kumar--Malhotra--Khanna (2024) full primary Theorem 19(i)",
+        "Published SCOPE exact phrase search on K-g-frame composition (no results; non-exhaustive)",
+        "Attempted Resultary search unavailable; not a successful absence check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2017 claim is false for T=diag(1,0), and its argument confuses lower and upper norm bounds.",
+          "The 2024 stronger sufficient condition is T isometric; it does not imply bounded-below-on-R(K*) is necessary for universal preservation."
+        ],
+        "reasoning": "The proposed statement corrects a named invalid theorem and identifies the optimal universal replacement, including a necessary direction not supplied by the later isometry result. The implication comparison is explicit rather than relying on title similarity.",
+        "searches": [
+          "doi:10.7153/oam-2017-11-74 Theorem 5 full PDF",
+          "doi:10.1155/2024/8358987 Theorem 19(i) full PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li--Leng--Huang Theorem 5 requires only commutation TK*=K*T and bounded T; the proof uses the directionally incorrect norm inequality.",
+          "The valid universal characterization is equivalent to lower boundedness of the restricted map T|Range(K*) with no closed-range requirement."
+        ],
+        "reasoning": "Equivalent formulations include coercivity ||TK*f||>=m||K*f|| for all f and bounded-below restriction to R(K*). The 2017 theorem does not contain the condition, and the simple orthogonal projection disproves its stated universal conclusion.",
+        "searches": [
+          "\"Some properties of g-frames for Hilbert space operators\" theorem 5 commuting",
+          "\"K-g-frame\" \"bounded below\" \"Range(K*)\" composition",
+          "\"K g frame\" commuting operator projection counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original theorem and counterexample concern arbitrary operators, not a finite database.",
+          "The R2 projection is the smallest transparent witness, and the necessity proof works for arbitrary Hilbert spaces."
+        ],
+        "reasoning": "No exact instance table is relevant to a universal functional-analytic theorem; the one finite 2D witness is a counterexample, not a novel count or precomputed database entry.",
+        "searches": [
+          "2017 operators and matrices 11 1075 1085 theorem 5 erratum",
+          "2017 K g frames composition theorem corrected bounded below"
+        ]
+      },
+      "rationale": "The exact counterexample and necessary/sufficient universal repair were compared against the original erroneous full-text Theorem 5 and a later full-text isometry-preservation theorem. The latter covers an isometry as a strict sufficient special case but not the precise range-bounded-below iff. The universal necessity via Lambda1=K* is explicit; no indexed erratum was verified, an honest remaining priority risk.",
+      "residual_risks": [
+        "An unindexed author erratum or thesis may previously have supplied the optimal universal characterization.",
+        "Resultary search failure cannot prove absent prior SCOPE coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed commutation-only theorem is false; its lower estimate has the wrong inequality direction",
+          "evidence": "Theorem 5 states TK*=K*T with bounded T suffices for Lambda_i T; proof uses ||T K*f||>=||T|| ||K*f|| instead of a legitimate lower bound.",
+          "identifier_or_url": "DOI:10.7153/oam-2017-11-74",
+          "material_read": "Full primary PDF, especially definition and Theorem 5/proof around page 7",
+          "method": "Full PDF text reading and visual theorem/proof inspection",
+          "title": "Some properties of g-frames for Hilbert space operators",
+          "trigger": "Direct target of a claimed incorrect theorem"
+        },
+        {
+          "assessment": "Uses commuting isometry and is consistent with exact range-bounded-below condition; does not state necessity",
+          "evidence": "An isometry has ||Tx||=||x||, strictly stronger than a positive lower bound on R(K*).",
+          "identifier_or_url": "DOI:10.1155/2024/8358987",
+          "material_read": "Full accessible primary article, including Theorem 19(i)",
+          "method": "Primary full-text read, targeted theorem comparison",
+          "title": "Scalability of Generalized Frames for Operators",
+          "trigger": "Later related composition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A false general operator construction theorem corrupts lower-frame estimates. A concrete rank-one projection kills the claim even in a Parseval setting, while the exact iff identifies when *every* K-g-frame is preserved and supplies quantitative bounds. This is a motivated correction with reusable criterion, not merely an obvious normalization check.",
+      "risk": [
+        "The correction proof is short, but identifying and repairing a genuinely wrong named general theorem has mathematical value."
+      ],
+      "sources": [
+        "2017 Theorem 5 error and exact counterexample",
+        "2024 isometry-only sufficient case"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The 2017 commutation-only K-g-frame composition theorem is false; for bounded K,T with T K*=K*T, preservation of every K-g-frame by right composition with T is equivalent to T being bounded below on Range(K*), with exact lower bound A m^2 for any original lower bound A.",
+  "limitations": [
+    "Universal preservation of every K-g-frame for commuting K,T only; no conclusion for a single special frame or noncommuting operators.",
+    "No closed-range hypothesis on K; degenerate T=0 upper bound must use an arbitrary positive admissible upper frame constant."
+  ],
+  "schema_version": 1
+}

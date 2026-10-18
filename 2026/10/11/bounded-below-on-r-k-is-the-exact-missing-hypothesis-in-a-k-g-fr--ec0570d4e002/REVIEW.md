@@ -1,15 +1,21 @@
-# Review: Bounded below on \(R(K^*)\) is the exact missing hypothesis in a \(K\)-\(g\)-frame composition theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The primary theorem and its displayed proof were inspected in the full article. The proof attempts to infer a lower estimate for \(\|Tx\|\) from the operator norm \(\|T\|\), which is not valid for a general bounded operator. The counterexample \(K=I\), \(\Lambda_1=I\), and \(T=\operatorname{diag}(1,0)\) satisfies every published hypothesis and fails the lower frame inequality on \(e_2\). The repaired universal statement is proved in both directions: bounded-below behavior on \(R(K^*)\) gives the lower bound \(Am^2\), while testing universal preservation on \(\Lambda_1=K^*\) forces exactly that bounded-below condition.
+## correctness
 
-## Originality
-**PASS.** Exact-title, theorem-specific, commutation, right-composition, projection-counterexample, and \(R(K^*)\)-bounded-below formulations were checked against indexed mathematical findings and the current relevant literature. No checked source states the same counterexample together with the exact universal if-and-only-if boundary. The closest later result inspected is the 2024 scalable \(K\)-\(g\)-frame theorem requiring a commuting isometry; it is a strict special case because an isometry has lower bound \(1\). The main residual originality risk is an unindexed erratum, thesis remark, or informal correction.
+PASS
 
-## Value
-**PASS.** The issue affects a named frame-construction theorem, not only a cosmetic proof step. Failure occurs already for an ordinary Parseval frame and an orthogonal projection, so the obstruction is structural. The repair identifies the exact universal hypothesis and supplies quantitative frame bounds rather than merely giving a counterexample.
+In Li--Leng--Huang Theorem 5 the displayed implication incorrectly turns the operator norm upper bound ||Tx||<=||T|| ||x|| into a lower estimate. On H=R^2 choose K=I, Lambda1=I, T=diag(1,0); all printed hypotheses hold, but e2 witnesses lower-frame inequality failure. Sufficiency of a positive lower bound m for T on Range(K*) follows from sum_i||Lambda_i T f||^2 >=A||K*T f||^2=A||T K*f||^2>=A m^2||K*f||^2, with upper B||T||^2||f||^2. Necessity for universal preservation follows by taking the valid single-operator K-g-frame Lambda1=K*: its composed lower bound is exactly a lower bound for T on the range. If T=0 or K=0, the formal composed upper constant B||T||^2 may be zero; choose any positive larger Bprime, leaving the exact lower equivalence unchanged. No closed-range assumption required.
 
-## Closest literature and limitations
-The 2017 source is the theorem being corrected. The 2024 scalable-frame article gives a preservation result under an isometry hypothesis and therefore supports, but does not subsume, the bounded-below boundary. The final claim retains the source theorem's commutation assumption and does not characterize the noncommuting case or preservation of a single specially chosen frame.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact counterexample and necessary/sufficient universal repair were compared against the original erroneous full-text Theorem 5 and a later full-text isometry-preservation theorem. The latter covers an isometry as a strict sufficient special case but not the precise range-bounded-below iff. The universal necessity via Lambda1=K* is explicit; no indexed erratum was verified, an honest remaining priority risk.
+
+## value
+
+PASS
+
+A false general operator construction theorem corrupts lower-frame estimates. A concrete rank-one projection kills the claim even in a Parseval setting, while the exact iff identifies when *every* K-g-frame is preserved and supplies quantitative bounds. This is a motivated correction with reusable criterion, not merely an obvious normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
