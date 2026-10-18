@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-dimensional proof is given in `RESULT.md`.
 
-Critical checks:
-- the source gives \(\ell_k=\|Aq_k\|\) and \(\sum_k\ell_k^2=\operatorname{tr}(A^2)=1\);
-- \(n\)-volume is \(2^n\prod_k\ell_k\);
-- Hadamard's determinant inequality gives \(\prod_k\ell_k\ge\det A\), with equality exactly when the frame diagonalizes \(A\);
-- arithmetic-geometric mean gives \(\prod_k\ell_k\le n^{-n/2}\);
-- the constant-diagonal lemma constructs an orthonormal frame satisfying \(\|Aq_k\|^2=1/n\) for every \(k\);
-- continuity and connectedness give every volume between the two endpoints;
-- polarity gives \(C_Q=\operatorname{conv}\{\pm q_k/\ell_k\}\), so \(\operatorname{Vol}(C_Q)=2^n/(n!\prod_k\ell_k)\);
-- corresponding polar volumes multiply to \(4^n/n!\).
+# Independent mathematical audit
 
-`verify.py` checks deterministic anisotropic positive matrices in dimensions \(2\) through \(7\). It recursively constructs constant-diagonal frames, verifies both endpoint formulas, samples additional orthogonal frames inside the sharp interval, and checks the polar volume product. The finite replay is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+The claimed family is parametrized by orthonormal frames Q under tr(A²)=1 (Gibson–Saldanha–Tomei, Theorem 2). For B=A²>0, d_k=q_k^TBq_k>0 and Σd_k=1. Hadamard yields (det A)² ≤ ∏d_k, equality exactly when Q diagonalizes B; AM–GM yields ∏d_k≤n^(−n), equality exactly when every d_k=1/n. The constant-diagonal lemma is proved by picking a Rayleigh-quotient-c vector then compressing inductively at preserved mean trace, so the upper cube is attained even for repeated eigenvalues. SO(n) connected for n≥2 and sign-changing a column preserves volume, giving the full interval; polar cross-polytope volume is (2^n)/(n!∏√d_k), yielding the exact reciprocal spectrum and fixed Mahler product 4^n/n!. Correct all n≥2, A positive definite, tr(A²)=1; finite tests do not establish infinite scope.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Gibson–Saldanha–Tomei establishes existence and O(n) parametrization and the exact half-edge formula, not the range or extremal frame characterizations of Euclidean volume. Schur–Horn/constant-diagonal, Hadamard and AM–GM are classical tools but do not by themselves state the constrained geometric classification. Searches of published exact-result corpus and literature showed the same posted claim and other ellipsoid/polytope invariants, not a distinct prior theorem subsuming this spectrum.
+
+## value
+
+PASS
+
+The complete volume image and equality geometry of the canonical tight Fuss family, including a uniformly available regular cube for every admissible anisotropic ellipsoid and its polar spectrum, answer a natural quantitative refinement of the known existence/parameterization theorem. It is a compact structural classification rather than a bare repeated inequality or arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
