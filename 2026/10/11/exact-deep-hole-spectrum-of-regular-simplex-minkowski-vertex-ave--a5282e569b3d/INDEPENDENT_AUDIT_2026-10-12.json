@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T12:15:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 9aa1038375d29b10d176ec6fb570eaa0a4e29861",
+        "frozen verify.py Git blob 7c5e85cf063fd6c2c046e9f6ee08e57397811b88",
+        "Meyer arXiv:2604.20387v2 lawful full text",
+        "van Hintum arXiv:2606.10815v1 lawful full text",
+        "classical A_n root lattice covering radius",
+        "private independent_checks.py exact fraction composition distance 30 parameter pairs"
+      ],
+      "rationale": "Identify a regular side-ℓ n-simplex with ℓ/√2 times standard coordinate simplex Δ_{d−1}, d=n+1; averaged vertices give all integer compositions m of k scaled by 1/k. For q=kp, nonnegative floors b_i and fractions f_i, r=Σf_i is an integer 0≤r≤min(k,d−1). Exchange argument shows nearest integer composition rounds up exactly the r largest fractions, so squared error is min_{|S|=r}||f−1_S||². The hypersimplex {f in [0,1]^d:Σf_i=r} is convex hull of r-subset indicators: averaging over its indicator vertices gives bound r−Σf_i²≤r(d−r)/d. Equality forces all f_i=r/d and is attained there; each r class feasible via b composition of k−r. Maximize concave integer r(d−r) to obtain r*=min(k,floor(d/2)); tied r when odd d at large k. Undo scaling gives ℓ/k sqrt(r*(d−r*)/(2d)); all deep holes p_i=(b_i+r/d)/k with b summing k−r and count Σ_r binom(k−r+d−1,d−1). Edge d=2,k=1 and d odd ties included. Independent exact Fraction re-enumeration of every predicted deep hole and its nearest grid squared distance for 30 (d,k) pairs 2≤d≤7,1≤k≤5 passed; infinite result rests on hypersimplex argument.",
+      "residual_risks": [
+        "The nearest-composition exchange proof must handle both underfloor and ≥floor+2 entries; the supplied argument does so while maintaining nonnegative entries.",
+        "No arbitrary distorted simplex, arbitrary compact point sets or non-Euclidean norms claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "van Hintum general contraction threshold uses lifted simplex plus points for counterexample construction; high-k covering radius known from A_n lattice geometry.",
+          "Meyer general planar p-subadditivity does not pin down all dimensions and k for the finite regular simplex grid."
+        ],
+        "reasoning": "The known unrestricted covering radius covers the saturated high-k numerical branch, but not finite-boundary restriction, early k transition or count of equality sites; no dominating bounded-domain theorem materially identified.",
+        "searches": [
+          "arXiv:2604.20387",
+          "arXiv:2606.10815",
+          "Conway–Sloane A_n lattice covering radius",
+          "finite barycentric simplex grid deep holes integer compositions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.20387",
+        "arXiv:2606.10815",
+        "Conway–Sloane A_n lattice covering radius",
+        "finite barycentric simplex grid deep holes integer compositions",
+        "simplex Minkowski vertex averages",
+        "Hausdorff convexification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A lattice full-space worst distance bounds finite simplex-grid distances from above but does not imply equality at all k<floor(d/2), nor classification of bounded-domain deep holes.",
+          "General Minkowski convexification threshold theorems do not give exact D_{n,k} for this vertex family."
+        ],
+        "reasoning": "Hypersimplex rounding and feasible r restriction are essential to derive finite-k branch, point counts and uniqueness; these are genuinely different conclusions from the prior unrestricted constant.",
+        "searches": [
+          "arXiv:2604.20387",
+          "arXiv:2606.10815",
+          "Conway–Sloane A_n lattice covering radius",
+          "finite barycentric simplex grid deep holes integer compositions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k-fold Minkowski mean of pure regular-simplex vertices equals barycentric compositions with denominator k; under affine isometry nearest composition lattice quantization is equivalent."
+        ],
+        "reasoning": "Explicitly matched root lattice A_n offset, simplex hypersimplex rounding, discrete barycentric deep holes and Hausdorff convexification, not titles alone.",
+        "searches": [
+          "arXiv:2604.20387",
+          "arXiv:2606.10815",
+          "Conway–Sloane A_n lattice covering radius",
+          "finite barycentric simplex grid deep holes integer compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical A_n covering radius numerical formula, recorded in Conway–Sloane and mathematical lattice references.",
+          "No separate finite-simplex barycentric deep-hole count table verified."
+        ],
+        "reasoning": "Do not claim lattice covering constant new; the exact constrained finite-grid census gives additional integer-composition geometry and is not simply a lookup of the full-space radius.",
+        "searches": [
+          "arXiv:2604.20387",
+          "arXiv:2606.10815",
+          "Conway–Sloane A_n lattice covering radius",
+          "finite barycentric simplex grid deep holes integer compositions"
+        ]
+      },
+      "rationale": "The full-space root-lattice A_n covering radius and its high-k numerical expression are known and expressly NOT original. The exact finite-domain low-k radius profile, threshold, and all farthest-site count for a regular simplex vertex Minkowski average constitute the narrow remainder. Meyer and van Hintum address more general convexification bounds/thresholds but do not supply this fully classified constrained grid in material inspected.",
+      "residual_risks": [
+        "Required published-finding semantic search returned temporarily_unavailable/search_completed:false; no negative novelty inference.",
+        "Public AUDIT.json and METADATA.json at frozen Git trees contain scope_run_id internal provenance and are not safe for unsanitized publication.",
+        "Older lattice quantization or barycentric mesh covering publications may already tabulate finite simplex deep holes.",
+        "Unrestricted lattice branch known; novelty hinges on constrained finite k and equality classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_LP_HAUSDORFF_NO_EXACT_SIMPLEX_GRID",
+          "evidence": [
+            "Planar p-subadditive inequality does not calculate all-dimensional barycentric-grid spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.20387",
+          "material_read": "Lawful full v2 PDF, definitions and main planar p-subadditivity theorem and related discussion",
+          "method": "arXiv full PDF / page visual review",
+          "title": "A sharp p-subadditive bound for the l_p Hausdorff distance from convex hull",
+          "trigger": "General Hausdorff distance convexification potentially dominating the result"
+        },
+        {
+          "assessment": "GENERAL_CONTRACTION_AND_LIFTED_SIMPLEX_NOT_PURE_VERTEX_GRID",
+          "evidence": [
+            "Lifted simplex with additional points differs from pure regular-simplex vertices; no exact all-k finite grid deep hole list."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.10815",
+          "material_read": "Lawful available full article text including theorem statements and constructed high-dimensional counterexamples; original arXiv PDF unavailable but lawful author copy read.",
+          "method": "Public lawful full text and formula review",
+          "title": "The sharp threshold for Hausdorff convexification under Minkowski addition",
+          "trigger": "Same repeated k-fold Minkowski average and possible dominating theorem"
+        },
+        {
+          "assessment": "COVERS_UNRESTRICTED_ROOT_LATTICE_RADIUS",
+          "evidence": [
+            "Known ρ(A_n)^2=floor(d/2)ceil(d/2)/d; high-k numerical branch is not new."
+          ],
+          "identifier_or_url": "Conway–Sloane, 3rd ed. (1999)",
+          "material_read": "Classical A_n covering-radius identity as cited by mathematical references; the entire textbook was not read.",
+          "method": "Standard mathematical formula and supporting lattice reference",
+          "title": "Sphere Packings, Lattices and Groups",
+          "trigger": "Potential exact known lattice covering identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 9aa1038375d29b10d176ec6fb570eaa0a4e29861",
+        "frozen verify.py Git blob 7c5e85cf063fd6c2c046e9f6ee08e57397811b88",
+        "Meyer arXiv:2604.20387v2 lawful full text",
+        "van Hintum arXiv:2606.10815v1 lawful full text",
+        "classical A_n root lattice covering radius"
+      ],
+      "rationale": "A regular simplex is the natural highly symmetric test case for Hausdorff convexification under repeated Minkowski averaging. Exact radius for every dimension and averaging count, the sharp threshold between finite-boundary and saturated lattice behavior, and all worst-case barycentric configurations/counts give a complete motivated exact model. This value is not claimed to be a general contraction theorem or a new large-k lattice radius.",
+      "residual_risks": [
+        "A known lattice branch reduces originality; the finite-domain profile and equality enumeration supply the independent purpose."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The nearest-composition exchange proof must handle both underfloor and ≥floor+2 entries; the supplied argument does so while maintaining nonnegative entries.",
+    "No arbitrary distorted simplex, arbitrary compact point sets or non-Euclidean norms claimed.",
+    "Required published-finding semantic search returned temporarily_unavailable/search_completed:false; no negative novelty inference.",
+    "Public AUDIT.json and METADATA.json at frozen Git trees contain scope_run_id internal provenance and are not safe for unsanitized publication.",
+    "Older lattice quantization or barycentric mesh covering publications may already tabulate finite simplex deep holes.",
+    "Unrestricted lattice branch known; novelty hinges on constrained finite k and equality classification.",
+    "A known lattice branch reduces originality; the finite-domain profile and equality enumeration supply the independent purpose."
+  ]
+}

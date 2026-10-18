@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A regular simplex becomes the standard coordinate simplex after a scale factor. The nearest integer composition of a point is obtained by independently flooring coordinates and rounding up the appropriate number of largest fractional parts; an exchange argument proves the rule. The fractional vector lies in a hypersimplex and is the marginal vector of a distribution over its binary vertices. Averaging squared rounding error and applying Cauchy--Schwarz proves the sharp upper bound
-\[
-\frac{r(d-r)}{d}
-\]
-with equality only for uniform fractional coordinates. All feasible fractional-count classes occur, which proves the formula, all exact equalizers, and the stars-and-bars count. The packaged finite computations are sanity tests only, not a substitute for proof.
+PASS
 
-## Originality
+Identify a regular side-ℓ n-simplex with ℓ/√2 times standard coordinate simplex Δ_{d−1}, d=n+1; averaged vertices give all integer compositions m of k scaled by 1/k. For q=kp, nonnegative floors b_i and fractions f_i, r=Σf_i is an integer 0≤r≤min(k,d−1). Exchange argument shows nearest integer composition rounds up exactly the r largest fractions, so squared error is min_{|S|=r}||f−1_S||². The hypersimplex {f in [0,1]^d:Σf_i=r} is convex hull of r-subset indicators: averaging over its indicator vertices gives bound r−Σf_i²≤r(d−r)/d. Equality forces all f_i=r/d and is attained there; each r class feasible via b composition of k−r. Maximize concave integer r(d−r) to obtain r*=min(k,floor(d/2)); tied r when odd d at large k. Undo scaling gives ℓ/k sqrt(r*(d−r*)/(2d)); all deep holes p_i=(b_i+r/d)/k with b summing k−r and count Σ_r binom(k−r+d−1,d−1). Edge d=2,k=1 and d odd ties included. Independent exact Fraction re-enumeration of every predicted deep hole and its nearest grid squared distance for 30 (d,k) pairs 2≤d≤7,1≤k≤5 passed; infinite result rests on hypersimplex argument.
 
-PASS for the finite restricted simplex-grid formula and full deep-hole classification. The two recent primary papers develop Hausdorff convexification for planar sums and arbitrary repeated Minkowski averages rather than calculate this canonical all-parameter example. Classical root-lattice theory already proves the numerical covering radius for the **unrestricted lattice**, and thus covers the high-\(k\) branch; this known part is not claimed as an original theorem. The dimension-dependent early-\(k\) constrained-radius regime, equality transition, and finite-grid deep-hole census are not statements of the inspected sources. Searches with barycentric, integer-composition, root-lattice, and Minkowski-average aliases found no stronger published assertion subsuming that finite-domain result.
+## originality
 
-Residual risk: some lattice-quantization literature may contain the constrained formula under different language.
+PASS
 
-## Value
+The full-space root-lattice A_n covering radius and its high-k numerical expression are known and expressly NOT original. The exact finite-domain low-k radius profile, threshold, and all farthest-site count for a regular simplex vertex Minkowski average constitute the narrow remainder. Meyer and van Hintum address more general convexification bounds/thresholds but do not supply this fully classified constrained grid in material inspected.
 
-PASS. Exact Hausdorff convexification under iterated Minkowski averaging is a current, motivated geometric invariant. The theorem gives its entire profile for the most symmetric simplex vertex set, identifies the sharp finite-boundary crossover, and classifies every worst case by an explicit integer composition. This provides a complete natural model alongside the general contraction and counterexample theory, while avoiding any unsupported claim about arbitrary compact sets.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limits
+A regular simplex is the natural highly symmetric test case for Hausdorff convexification under repeated Minkowski averaging. Exact radius for every dimension and averaging count, the sharp threshold between finite-boundary and saturated lattice behavior, and all worst-case barycentric configurations/counts give a complete motivated exact model. This value is not claimed to be a general contraction theorem or a new large-k lattice radius.
 
-Meyer, arXiv:2604.20387, and van Hintum, arXiv:2606.10815, motivate the convexification metric and its repeated-sum behavior. The classical unrestricted \(A_n\) covering radius fully explains the eventual numerical regime but not the finite-grid early regime. This theorem is Euclidean and requires the complete regular-simplex vertex set; it does not yield general sharp convexification inequalities.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
