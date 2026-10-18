@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:58:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-mean-and-cap-envelope-for-invasion-in-a-random-gathering-s--e2dd868ed075/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-mean-and-cap-envelope-for-invasion-in-a-random-gathering-s--e2dd868ed075/verify.py"
+      ],
+      "rationale": "Cortez's exact invasion formula is R0=C E[Theta(Theta-1)]. For every integer n the factor (n-k)(n-k-1) >=0 yields lower affine support and equality at k,k+1; n(K-n)>=0 yields upper chord and equality exactly 0,K. Taking expectations gives bounds, and the explicitly constructed two-point laws with masses 1-delta/delta and 1-m/K/m/K satisfy the mean constraint; their mixtures fill the interval because the expectation is linear. The no-cap 0/L mixture gives Cm(L-1)->infinity. Checked sample K=10,m=3,C=1/10 giving exactly 3/5 vs 27/10. This is a valid universal discrete-moment theorem, not a numerical extrapolation.",
+      "residual_risks": [
+        "Endpoint law uses Theta=0; different nonempty-gathering support gives a different optimum.",
+        "No claim about full nonlinear epidemic trajectories or welfare."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilja Klebanov, Graph convex hull bounds as generalized Jensen inequalities, BLMS 56 (2024), Theorem 3.4, https://doi.org/10.1112/blms.13116"
+        ],
+        "reasoning": "Klebanov Theorem 3.4 applies to arbitrary function f on arbitrary finite support K, for every distribution of fixed expectation, with sharp lower and upper convex hull envelopes and full attainability. The present f(n)=n(n-1) on integer support gives adjacent-vertex lower hull and endpoint upper edge. Thus the complete claim is a direct corollary of stronger published generality, not merely similar terminology.",
+        "searches": [
+          "Resultary_Search:random gathering SIR reproduction number fixed mean capped size sharp factorial second moment variance extremizers convex order",
+          "web:fixed mean support bounded extremal second moment sharp convex hull",
+          "DOI:10.1112/blms.13116",
+          "arxiv:2203.08260",
+          "DOI:10.1017/jpr.2023.65"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1112/blms.13116",
+        "https://arxiv.org/abs/2203.08260",
+        "doi:10.1016/j.epidem.2022.100620"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cortez (2024) arxiv:2203.08260, sections on R0 and gathering cap; Klebanov (2024) Theorem 3.4"
+        ],
+        "reasoning": "Cortez's published equality R0=C E f(Theta) + Klebanov's published sharp fixed-mean E f graph-hull theorem implies both endpoint functions and all attainable intermediate values. Converting to robust threshold tests multiplies by C and compares to 1, adding no independent mathematical invariant. The application is motivational but does not undo strong mathematical coverage.",
+        "searches": [
+          "Resultary_Search:random gathering SIR reproduction number fixed mean capped size sharp factorial second moment variance extremizers convex order",
+          "web:fixed mean support bounded extremal second moment sharp convex hull",
+          "DOI:10.1112/blms.13116",
+          "arxiv:2203.08260",
+          "DOI:10.1017/jpr.2023.65"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cortez 2024, SIR model with social gatherings, reproduction number equation; Klebanov 2024 Theorem 3.4"
+        ],
+        "reasoning": "Cortez reproduction formula times C already reduces the application to a familiar discrete second factorial moment with fixed mean. Graph-convex-hull vertical slice of points (n,n(n-1)) is the EXACT target interval.",
+        "searches": [
+          "Resultary_Search:random gathering SIR reproduction number fixed mean capped size sharp factorial second moment variance extremizers convex order",
+          "web:fixed mean support bounded extremal second moment sharp convex hull",
+          "DOI:10.1112/blms.13116",
+          "arxiv:2203.08260",
+          "DOI:10.1017/jpr.2023.65"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Klebanov 2024 Theorem 3.4 and Bhatia-Davis variance inequality for finite support"
+        ],
+        "reasoning": "This is not an unexplored table case; classical sharp fixed-mean variance extremizers and convex hull faces already give all finite-K endpoints. Numerical K=10 witness is a substitution into the covered bound.",
+        "searches": [
+          "Resultary_Search:random gathering SIR reproduction number fixed mean capped size sharp factorial second moment variance extremizers convex order",
+          "web:fixed mean support bounded extremal second moment sharp convex hull",
+          "DOI:10.1112/blms.13116",
+          "arxiv:2203.08260",
+          "DOI:10.1017/jpr.2023.65"
+        ]
+      },
+      "rationale": "FAIL: Theorem 3.4 in Klebanov (2024) supplies the EXACT SHARP upper/lower range of E f(X) at fixed E X for ANY finite support/domain/function as vertical sections of the graph convex hull. Apply it with support K={0,...,K} and f(n)=n(n-1): its lower faces join consecutive integer points and its upper face joins (0,0) to (K,K(K-1)). It therefore IMPLIES the entire purported new sharp envelope, attainability, equality laws, and mixtures; Cortez (2024) already provides the factor C. The threshold tests are immediate comparisons with 1 and no-cap unboundedness immediate 0/L law. The exact original statement is thus a routine specialization of stronger prior results, even though Cortez does not write it verbatim.",
+      "residual_risks": [
+        "Endpoint law uses Theta=0; different nonempty-gathering support gives a different optimum.",
+        "No claim about full nonlinear epidemic trajectories or welfare.",
+        "Correct elementary applied example may be pedagogically useful but fails the required incremental mathematical value standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.4 directly covers target mean-cap envelope by f(n)=n(n-1), n in 0..K; exact mathematical implication, not merely topic overlap",
+          "evidence": [
+            "Klebanov 2024 BLMS 56 3061-3074 Theorem 3.4"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.13116",
+          "material_read": "Complete lawful online full text; Introduction, Definition of graph convex hull, Theorem 3.4 with proof and sharpness/attainability paragraph, finite-domain discussion",
+          "method": "Wiley full open HTML",
+          "title": "Graph convex hull bounds as generalized Jensen inequalities",
+          "trigger": "stronger published fixed-mean sharp E[f(X)] theorem"
+        },
+        {
+          "assessment": "Source supplies R0=C E[Theta(Theta-1)] but no new moment extremal theorem; combining it with general published sharp envelope directly covers this proposed application",
+          "evidence": [
+            "Cortez 2024 J. Appl. Prob. 61, 667-684, DOI 10.1017/jpr.2023.65"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.08260",
+          "material_read": "Source full mathematical paper: random-gathering formulation, fixed-cap allowance, R0 in terms of second factorial moment",
+          "method": "arXiv paper downloaded/read earlier in scientific window",
+          "title": "SIR model with social gatherings",
+          "trigger": "identical underlying epidemic R0 formula"
+        },
+        {
+          "assessment": "different nonlinear incidence model; provides motivation, not an independent novelty-defending theorem",
+          "evidence": [
+            "Boyer et al Epidemics 40 (2022) 100620"
+          ],
+          "identifier_or_url": "doi:10.1016/j.epidem.2022.100620",
+          "material_read": "OA full text theory section on gathering-size distributions and incidence averaging",
+          "method": "lawful OA full text",
+          "title": "Infectious disease dynamics and restrictions on social gathering size",
+          "trigger": "additional epidemic sensitivity/cap model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1112/blms.13116",
+        "https://arxiv.org/abs/2203.08260",
+        "doi:10.1016/j.epidem.2022.100620"
+      ],
+      "rationale": "FAIL: Sharp random-variable second-moment envelopes at a fixed mean and support are classical convex-hull/Jensen consequences, explicitly covered by a 2024 general theorem. Multiplying the inherited envelope by an existing epidemic reproduction formula and comparing it to 1 is a routine immediate exercise; the policy interpretation alone is not a substantive mathematical gap or independently unknown exact invariant.",
+      "residual_risks": [
+        "Correct elementary applied example may be pedagogically useful but fails the required incremental mathematical value standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-mean-and-cap-envelope-for-invasion-in-a-random-gathering-s--e2dd868ed075/RESULT.md",
+    "https://doi.org/10.1112/blms.13116",
+    "https://arxiv.org/abs/2203.08260",
+    "doi:10.1016/j.epidem.2022.100620"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Endpoint law uses Theta=0; different nonempty-gathering support gives a different optimum.",
+    "No claim about full nonlinear epidemic trajectories or welfare.",
+    "Correct elementary applied example may be pedagogically useful but fails the required incremental mathematical value standard."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Theorem 3.4 directly covers target mean-cap envelope by f(n)=n(n-1), n in 0..K; exact mathematical implication, not merely topic overlap",
+      "evidence": [
+        "Klebanov 2024 BLMS 56 3061-3074 Theorem 3.4"
+      ],
+      "identifier_or_url": "https://doi.org/10.1112/blms.13116",
+      "material_read": "Complete lawful online full text; Introduction, Definition of graph convex hull, Theorem 3.4 with proof and sharpness/attainability paragraph, finite-domain discussion",
+      "method": "Wiley full open HTML",
+      "title": "Graph convex hull bounds as generalized Jensen inequalities",
+      "trigger": "stronger published fixed-mean sharp E[f(X)] theorem"
+    },
+    {
+      "assessment": "Source supplies R0=C E[Theta(Theta-1)] but no new moment extremal theorem; combining it with general published sharp envelope directly covers this proposed application",
+      "evidence": [
+        "Cortez 2024 J. Appl. Prob. 61, 667-684, DOI 10.1017/jpr.2023.65"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2203.08260",
+      "material_read": "Source full mathematical paper: random-gathering formulation, fixed-cap allowance, R0 in terms of second factorial moment",
+      "method": "arXiv paper downloaded/read earlier in scientific window",
+      "title": "SIR model with social gatherings",
+      "trigger": "identical underlying epidemic R0 formula"
+    },
+    {
+      "assessment": "different nonlinear incidence model; provides motivation, not an independent novelty-defending theorem",
+      "evidence": [
+        "Boyer et al Epidemics 40 (2022) 100620"
+      ],
+      "identifier_or_url": "doi:10.1016/j.epidem.2022.100620",
+      "material_read": "OA full text theory section on gathering-size distributions and incidence averaging",
+      "method": "lawful OA full text",
+      "title": "Infectious disease dynamics and restrictions on social gathering size",
+      "trigger": "additional epidemic sensitivity/cap model"
+    }
+  ]
+}
