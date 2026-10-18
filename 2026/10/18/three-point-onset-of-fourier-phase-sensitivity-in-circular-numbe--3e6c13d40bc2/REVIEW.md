@@ -1,0 +1,15 @@
+# Research review
+
+## Correctness — PASS
+The two positive circular densities integrate to one. A configuration-wise pair-kernel identity reduces number variance to sums over unordered observation pairs. The shared-vertex variance combinatorics has exactly \(N(N-1)(N-2)\) ordered adjacent pair pairs; disjoint terms are independent. The half-circle convolution suppresses even Fourier harmonics and yields the common conditional kernel \(\varepsilon\cos(2\pi x)/\pi^2\). Integration against the two densities gives the exact covariance difference \(\varepsilon^3/(4\pi^4)\), hence the stated all-sample variance gap. Fourier power-spectrum equality gives equality in law of the entire curve when there are at most two points. The supplied exact arithmetic checker and direct geometric integration tests reproduce the critical steps. No finite computation is used to infer the theorem for all sample sizes.
+
+## Originality — PASS, with literature risks
+The closest primary source, Aistleitner–Hörmann–Manskova (arXiv:2610.11687v1), treats uniform independent points and computes the null variance, not two inhomogeneous homometric densities. Rajala–Olhede–Grainger–Murrell (2023), Sections I and V, develops fourth-order spectral moments under spatial homogeneity; the paper explicitly defers inhomogeneous point-process extensions. Rosenblatt–Seymour (1982) supplies classical background on equal autocorrelations but does not, in the abstract available for inspection, supply this finite-sample number-variance separation. General triple-correlation/bispectrum formulas are conceptually related, but the exact half-circle phase-sensitivity cutoff and all-\(N\) cubic gap were not found in targeted literature and mathematical-finding searches. Residual risks: an unindexed equivalent derivation, a more general inhomogeneous Fourier-moment theorem with the same result as an immediate corollary, and inaccessible relevant source material.
+
+## Mathematical value — PASS
+Circular number variance is a standard multiscale randomness statistic. This result isolates precisely which level of sampling first reveals information beyond the complete two-point difference law, in an explicit pair of physically admissible smooth densities with the same spectrum. The exact, nonzero, all-sample variance gap supplies the strength and sign of that information loss; the half-circle window is a canonical symmetric window that kills even Fourier harmonics, making the third-order phase contribution unambiguous. This is a motivated sharp sampling threshold, not an arbitrary numerical slice or recomputation of the uniform-null variance.
+
+## Scientific limitations
+The result is restricted to the stated two-harmonic family, with no assertion that the half-circle variance identifies general densities. Numerical checks illustrate a proved identity, not a certification of uniqueness or statistical power. An independent assessment of originality and correctness has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
