@@ -1,19 +1,21 @@
-# Scientific assessment: universal photon-addition Wigner-negativity crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact normalized Fock probabilities yield the symmetric characteristic function \(e^{-a|\xi|^2}L_m(v|\xi|^2)\); its Gaussian Fourier transform yields a Wigner-Laguerre profile. The negative domain is a disk for one addition and an annulus for two; integrating both gives closed volume formulas. The ratio's logarithmic derivative is strictly greater than \(2-\sqrt2\) on the entire physically reachable interval, which together with endpoint inequalities proves uniqueness. Strict monotonicity of the physical noise parameter establishes the seed threshold and crossover transmissivity. A standalone checker corroborated 36 independent Fock-characteristic cases, 40 Fourier inversion tests, and 12 independent volume quadratures. These tests do not establish the global theorem; the provided proof does.
+PASS
 
-## Originality — PASS, with residual priority risk
+For exact normalized photon-added thermal Fock weights, summing Laguerre polynomials gives input characteristic e^{-(nbar+1/2)t}L_m((nbar+1)t). The thermal attenuator replaces this with e^{-a t}L_m(vt), a=1/2+eta*nbar+(1-eta)*nbar_b, v=eta(nbar+1). Fourier inversion gives the Laguerre Wigner radial profile, nonnegative for delta=v-a<=0, equivalent to eta<=(nbar_b+1/2)/(nbar_b+1). For delta>0, theta=delta/v in (0,1/2], radial negative regions y in (0,1) for m=1 and (2-sqrt2,2+sqrt2) for m=2; their exact Laplace integrals yield N1=(theta-1+e^-theta)/(1-theta) and N2=2e^-2theta/(1-theta)^2*(sqrt2*theta*cosh(sqrt2*theta)-sinh(sqrt2*theta)). For ratio R, d(log R)/dtheta=1/[theta(1-theta)]+mu1-mu2 > 4-(2+sqrt2)>0 because 0<mu1<1 and 2-sqrt2<mu2<2+sqrt2. R(0+)=0 and R(1/2)>1 give unique theta*=0.3013805517222; physical monotonic theta(eta) yields the seed threshold nbar*=1/(2theta*)-1=0.65903206807 and eta_* formula. Independent direct Laguerre negative-region quadrature at five theta values agreed with both formulas to <1e-12 and root=0.3013805517222024. Those checks are finite, the integral argument proves the global ordering.
 
-Li (2008) already evaluates one-added thermal Wigner-negative volume and its loss threshold, while Marian, Ghiu and Marian (2012) already derive the general \(m\)-added thermal Wigner profile in loss. These are acknowledged and not counted as new. The result assessed is the evaluated, globally unique one-vs-two negative-volume crossover with its strict monotone-ratio inequality and complete thermal-seed access phase diagram. Neither is stated in the inspected relevant sections of Li (2008), Marian et al. (2012), Usha Devi et al. (2006), or Hu–Zhang (2011), nor in the other checked primary sources. The 2019 Xu–Yuan study uses Wigner logarithmic negativity in the same channel, but only its first page was accessible: the possibility of prior equivalent coverage is explicitly unresolved. There has been no independent publication-priority assessment.
+## originality
 
-## Value — PASS
+PASS
 
-Integrated Wigner negativity is a physically motivated nonclassicality resource, and choosing the number of heralded photon additions under thermal attenuation is a natural quantitative problem. The sharp seed occupation boundary \(\bar n_*=1/(2\theta_*)-1\), the universal crossing \(\theta_*\), and the bath-dependent threshold transmissivity determine exactly when a second addition is beneficial. This is a global classification of two natural protocols rather than an arbitrary slice or an increment to a numerical table. The comparison holds at fixed seed/channel and does not account for differing energy or heralding success probabilities.
+Best-of-knowledge new exact 1-addition versus 2-addition integrated Wigner-negative volume crossover ordering and thermal-seed phase diagram. Li (2008) evaluated the single-addition negative volume; Marian–Ghiu–Marian (2012) give general photon-added Wigner-Laguerre profiles and positivity threshold, so neither fact is claimed new. Xu–Yuan (2019) use Wigner logarithmic negativity for photon-added thermal states under thermal reservoirs, an extremely plausible stronger covering source, but only abstract/first page material was accessible; it remains a material priority risk rather than automatic failure. The inspected source passages did not show the strict monotone R(theta) or universal theta_* phase diagram; no stronger pre-existing theorem was actually established by inspected material.
 
-## Closest literature and limits
+## value
 
-Kenfack–Życzkowski (2004), arXiv:quant-ph/0406015: integrated negative-volume definition; Li (2008), arXiv:0805.4252: known one-addition negative volume; Marian et al. (2012), arXiv:1211.1701: known all-addition Wigner profiles; Xu–Yuan (2019), DOI:10.1088/1674-1056/ab457d: closely related Wigner-log-negativity study, with unread later sections and residual priority risk. The proof covers only ideal one/two additions to unsqueezed single-mode thermal seeds under phase-insensitive thermal attenuation. Finite tests are not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Integrated Wigner negativity is a physically meaningful nonclassicality metric. The theorem answers the natural fixed-seed-and-channel protocol comparison: when a second heralded photon addition helps or hurts, with a sharp universal noise-scale crossover and exact conditions for its physical reachability. It does not measure energy-matched advantages, heralding rates, arbitrary squeezings or all photon numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

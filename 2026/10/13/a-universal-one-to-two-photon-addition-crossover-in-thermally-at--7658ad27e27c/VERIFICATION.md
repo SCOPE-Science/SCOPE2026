@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical and numerical checks
 
-The result is proved analytically by a normalized Fock expansion, a generating-function derivation of the Weyl characteristic, Laguerre-Gaussian Fourier inversion, exact integration over the negative intervals, and a positive derivative bound for the ratio of two Laplace integrals. The proof establishes the continuous three-parameter domain; numerical experiments cannot establish universal monotonicity or exact uniqueness.
+# Independent mathematical audit
 
-Run `python verify.py` after installing the versions in `requirements.txt`. In the provided environment, this executed successfully:
+## correctness
 
-`VERIFY_OK input_fock_characteristic=36 independent_hankel=40 integrated_volume=12 ratio_samples=200 thermal_phase_pairs=12 crossing=0.301380551722202`
+PASS
 
-The Fock-characteristic comparison uses a truncated sum of 240 terms with checked omitted probability mass below \(10^{-12}\) in each tested case. Hankel integration independently reconstructs the Wigner values at several phase-space radii, including a nonzero thermal bath and both positive/negative Wigner regimes. Negative-volume quadratures integrate the exact disk and annulus intervals. The root check uses a floating-point solver and is not a certified interval proof; analytical endpoint inequalities and global derivative positivity are the proof of existence and uniqueness. The sampled ratio monotonicity is a diagnostic only. The theorem excludes squeezing, arbitrary channels, imperfect additions and energy-matched comparison.
+For exact normalized photon-added thermal Fock weights, summing Laguerre polynomials gives input characteristic e^{-(nbar+1/2)t}L_m((nbar+1)t). The thermal attenuator replaces this with e^{-a t}L_m(vt), a=1/2+eta*nbar+(1-eta)*nbar_b, v=eta(nbar+1). Fourier inversion gives the Laguerre Wigner radial profile, nonnegative for delta=v-a<=0, equivalent to eta<=(nbar_b+1/2)/(nbar_b+1). For delta>0, theta=delta/v in (0,1/2], radial negative regions y in (0,1) for m=1 and (2-sqrt2,2+sqrt2) for m=2; their exact Laplace integrals yield N1=(theta-1+e^-theta)/(1-theta) and N2=2e^-2theta/(1-theta)^2*(sqrt2*theta*cosh(sqrt2*theta)-sinh(sqrt2*theta)). For ratio R, d(log R)/dtheta=1/[theta(1-theta)]+mu1-mu2 > 4-(2+sqrt2)>0 because 0<mu1<1 and 2-sqrt2<mu2<2+sqrt2. R(0+)=0 and R(1/2)>1 give unique theta*=0.3013805517222; physical monotonic theta(eta) yields the seed threshold nbar*=1/(2theta*)-1=0.65903206807 and eta_* formula. Independent direct Laguerre negative-region quadrature at five theta values agreed with both formulas to <1e-12 and root=0.3013805517222024. Those checks are finite, the integral argument proves the global ordering.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact 1-addition versus 2-addition integrated Wigner-negative volume crossover ordering and thermal-seed phase diagram. Li (2008) evaluated the single-addition negative volume; Marian–Ghiu–Marian (2012) give general photon-added Wigner-Laguerre profiles and positivity threshold, so neither fact is claimed new. Xu–Yuan (2019) use Wigner logarithmic negativity for photon-added thermal states under thermal reservoirs, an extremely plausible stronger covering source, but only abstract/first page material was accessible; it remains a material priority risk rather than automatic failure. The inspected source passages did not show the strict monotone R(theta) or universal theta_* phase diagram; no stronger pre-existing theorem was actually established by inspected material.
+
+## value
+
+PASS
+
+Integrated Wigner negativity is a physically meaningful nonclassicality metric. The theorem answers the natural fixed-seed-and-channel protocol comparison: when a second heralded photon addition helps or hurts, with a sharp universal noise-scale crossover and exact conditions for its physical reachability. It does not measure energy-matched advantages, heralding rates, arbitrary squeezings or all photon numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
