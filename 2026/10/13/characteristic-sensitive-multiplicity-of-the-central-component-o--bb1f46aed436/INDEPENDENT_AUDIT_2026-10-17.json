@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:49:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From first-jet equations u_i u_j=0 and u_i v_j+v_i u_j=0, localizing at P inverts independent v_i and puts z_i=u_i/v_i, yielding z_i+z_j=0, z_i z_j=0 for every edge. Along each connected graph component, path parities force z_i=±t. An odd cycle gives 2t=0 and kills t in odd characteristic; in char2 all signs agree. Each retained component has an edge imposing t²=0, no cross-component constraints, so the local Artin algebra is tensor product of b dual-number factors with squarefree monomial basis length2^b and P minimal. Independently recomputed unsigned incidence nullities and quadratic relations on all 814 graphs on n=2..5 with no isolated vertices across F2,F3,F5 (2442 graph/field instances), matching predicted signless incidence nullity; for a triangle local length is 1 (odd char) vs2 (char2). The structural proof extends beyond finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Single-monomial hypersurfaces are graph with one edge as a special case; general graphs have multiple overlapping edge generators. Published paper explicitly leaves general clutters component multiplicities open."
+        ],
+        "reasoning": "Special edge case may be covered, but arbitrary connected odd-cycle dependence on characteristic and disconnected component multiplication are not obtained by specializing single hypersurface multiplicity.",
+        "searches": [
+          "Goward–Smith, The jet scheme of a monomial scheme, 2006 §3",
+          "Yuen multiplicities of jets simple-normal-crossing hypersurface (2007)",
+          "Galetto–Iammarino–Yu 2025 open Question8.2"
+        ]
+      },
+      "checked_sources": [
+        "Galetto–Iammarino–Yu 2025 open-access original §§2–3,8",
+        "Goward–Smith 2006 author 8-page PDF",
+        "arXiv:2610.02585v1 public abstract",
+        "Resultary semantic published-index search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galetto Cor3.4 proves multiplicity 1 for jets of lifted minimal vertex covers of the original graph; our P=(all u_i) is a different component in general and can have length 2,4,... depending on graph and field. Xie studies a particular Gram-map subclass with different objectives."
+        ],
+        "reasoning": "The new generic local algebra requires localizing all v_i and solving z_i+z_j=0 plus z_i z_j=0, not furnished by the reduced irreducible-component descriptions.",
+        "searches": [
+          "Galetto et al 2025 Theorem3.3, Cor3.4, Question8.2",
+          "Goward–Smith 2006 §3 Theorem3.1",
+          "Xie arXiv:2610.02585v1 scalar Gram-map jet subcase"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radical equality and minimal primes of jet ideals are not equal to the local nonreduced Artin K-algebra and generic length. Existing lifted-vertex-cover components have length1, while the constant-zero P need not be such a lifted vertex-cover component."
+        ],
+        "reasoning": "Different object levels (reduced components vs nonreduced generic local structure) prevent prior radical formulas from implying the 2^b multiplicities.",
+        "searches": [
+          "Resultary published semantic search 2026-10-17: multiplicity primary component generic central jet first jets edge ideals graph bipartite characteristic 2",
+          "Goward–Smith 2006 Theorem3.1 and Theorem3.2",
+          "Galetto–Iammarino–Yu 2025 Cor3.4, Question8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table located of b_k(G)-dependent 2^b generic multiplicity for central P; an open 2025 article asks exactly for such primary-component multiplicity computations."
+        ],
+        "reasoning": "The result addresses a natural unknown component invariant rather than recomputing a known table. Search noncoverage is not absolute guarantee.",
+        "searches": [
+          "Resultary published semantic search 2026-10-17: multiplicity primary component generic central jet first jets edge ideals graph bipartite characteristic 2",
+          "Galetto–Iammarino–Yu 2025 Cor3.4/Question8.2",
+          "web: graph edge ideal jet central component generic multiplicity bipartite characteristic two"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the literature determines radicals/components of monomial jets and multiplicity-one lifted vertex-cover components, but its explicit Question 8.2 asks for generic component multiplicities. Current uniform characteristic-dependent square-zero algebra of constant-zero first-jet component is an independently computed natural answer for all finite graphs without isolates.",
+      "residual_risks": [
+        "Unindexed commutative-algebra papers might express same local algebra through signless-incidence row rank or algebraic matroids.",
+        "Theorem limited to one central first-jet component; does not solve all primary-component multiplicities asked in 2025."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_OPEN_PROBLEM_NOT_COVERED",
+          "evidence": "Cor3.4 says length1 for lifted vertex cover; Q8.2 explicitly asks generic multiplicity of arbitrary minimal-prime components. It does not give central graph component 2^b.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01453-z, Journal of Algebraic Combinatorics 62 (2025)",
+          "material_read": "Complete open-access HTML article was accessible and inspected: introduction, §§2–3, Theorem3.3, Corollary3.4, Remark3.5, and explicit §8 Question8.2 plus references",
+          "method": "Full author/publisher OA HTML text",
+          "title": "Jets and principal components of monomial ideals and very well-covered graphs",
+          "trigger": "Most relevant primary possible prior multiplicity result"
+        },
+        {
+          "assessment": "REDUCED_COMPONENTS_NOT_GENERIC_LENGTH",
+          "evidence": "Goward and Smith compute sqrt(J_m(I)) and minimal primes, not the nilpotent length for arbitrary overlapping graph edges.",
+          "identifier_or_url": "https://sites.lsa.umich.edu/kesmith/wp-content/uploads/sites/1309/2024/06/jets.pdf, Communications in Algebra 34 (2006)",
+          "material_read": "Eight-page author full PDF: Theorems2.2, 3.1, 3.2, generator/radical and minimal prime component descriptions; page 5 screenshot independently examined",
+          "method": "Author-hosted PDF text plus screenshot",
+          "title": "The jet scheme of a monomial scheme",
+          "trigger": "Potential all-graph generic multiplicity formula"
+        },
+        {
+          "assessment": "POTENTIAL_SPECIAL_CASE_NOT_GENERAL",
+          "evidence": "Off-diagonal Gram map scalar case touches complete graph edge ideals, but generic length for every finite graph was not found in inspected scope.",
+          "identifier_or_url": "arXiv:2610.02585v1",
+          "material_read": "ArXiv abstract/source scope inspected; no confirmed complete full text",
+          "method": "Public arXiv metadata",
+          "title": "Sharp FRS and singularity thresholds for off-diagonal Gram maps",
+          "trigger": "Potential scalar complete-graph jet specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computing generic nilpotent multiplicity of a natural distinguished component in graph-jet schemes directly addresses a published open type of component-invariant problem. The dependence on bipartiteness and field characteristic is a meaningful structural boundary, not a small arbitrary graph census; classifies one component exactly for all graphs in a broad natural class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the first jet scheme of any finite simple graph edge ideal without isolated vertices, the constant-zero component P=(u_i) has generic local algebra over K=k(v_i) isomorphic to K[ε_1,...,ε_b]/(ε_1²,...,ε_b²), with b equal to the number of bipartite connected components if char(k)≠2, and all connected components if char(k)=2. Its generic multiplicity is 2^b.",
+  "limitations": [
+    "Only finite simple graphs with no isolated vertices and at least one edge; first jets and central zero-constant component only.",
+    "No primary decomposition or generic lengths of the other components claimed; residual unindexed equivalence risk."
+  ],
+  "schema_version": 1
+}
