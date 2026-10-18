@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every 5-bit binary de Bruijn cycle corresponds uniquely to one feedback function f(x0,t)=x0 XOR g(t) with g on all 16 possible four-bit states. Enumerating all 65536 g, accepting only 32-state Hamiltonian returns to 00000, exhausts rotation classes without duplicates. Circular discrepancy equals the range of 33 integer prefix sums because the period contains 16 of each symbol. Direct canonical rotation tests of c/r/cr yield all 2048 counts, conditional 64 CR counts and orbit-size distribution. A completely separate anti-palindromic 16-bit halfword census tests all 65536 X and independently finds 128 valid halfwords, 64 distinct rotation classes and conditional 16/16/24/8. Mathematical coverage arguments, not finite sampling assumptions, make computation a complete finite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Álvarez–Becher–Mereb–Pajor–Soto arXiv:2407.17367v1: universal minimum-discrepancy construction, not a distribution by CR action; inspected public author-version Sections 4–5, tables and algorithms.",
+        "Chang–Wang arXiv:2408.01794v1: general odd-order construction and divisibility theorem; their global statements do not determine precise counts at each discrepancy."
+      ],
+      "reasoning": "Existence of balanced CR words, the global optimum D=5 and generic upper/lower bounds do not imply a joint histogram or orbit sizes. A distribution of the total 2048 cycles cannot determine how a symmetry-restricted subset is distributed among discrepancies.",
+      "searches": [
+        "published-finding corpus: minimum discrepancy in complement-reversal de Bruijn sequences CR sequence distribution",
+        "published-finding corpus: Chang Wang 2024 order 5 CR de Bruijn sequences discrepancy spectrum",
+        "web: \"de Bruijn sequences\" \"discrepancy\" \"orbit\" complement reversal",
+        "web: \"de Bruijn\" \"symmetry\" \"discrepancy\" \"order 5\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.01794v1 Chang–Wang full 14-page preprint (CR characterization and counts)",
+      "arXiv:2005.01638v2 Gabric–Sawada discrepancy definitions/construction analyses",
+      "arXiv:2407.17367v1 Álvarez et al., accessible 25-page author-version manuscript",
+      "Prior recorded item 2c8828a3-eb45-4778-9a6e-993201d0b395 (unrestricted histogram and optimal orbit stratification)",
+      "published-finding corpus semantic record searches and web queries above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older all-cycle marginals and D=5 group orbit split imply only D=5 CR=16 and the 2048-cycle totals, not the CR D=6,7,8 allocation.",
+        "Chang–Wang Theorem 3.6 predicts a multiple-of-16 total CR count at order 5 but no discrepancy statistic.",
+        "Gabric–Sawada investigate discrepancy of constructions and asymptotic bounds rather than CR-conditioned exact counts."
+      ],
+      "reasoning": "Knowing all-cycle counts plus a single optimal symmetry stratum cannot determine three nonoptimal conditional frequencies; e.g. even with total CR count fixed at 64, the remaining 48 CR cycles could be allocated among discrepancies 6,7,8 in many ways. Computing the exact 16,24,8 allocation resolves a distinct joint-invariant question.",
+      "searches": [
+        "published-finding corpus: de Bruijn order five reverse complement cycles discrepancy color balance exact count",
+        "published-finding corpus: order five binary de Bruijn complement reverse CR symmetric discrepancy distribution 16 16 24 8",
+        "web: \"de Bruijn\" \"symmetry\" \"discrepancy\" \"order 5\"",
+        "Chang–Wang arXiv:2408.01794v1 Lemma 1.1, Theorem 3.6",
+        "Gabric–Sawada arXiv:2005.01638v2 Sections 1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chang–Wang arXiv:2408.01794v1, Lemma 1.1 (CR iff a rotation is X cr(X)); Section 3, including Theorem 3.6 (divisibility of CR count), no conditional discrepancy spectrum.",
+        "Gabric–Sawada arXiv:2005.01638v2, section 1 (circular imbalance discrepancy) and section 1.2 (construction-specific comparisons), no CR-subgroup enumeration."
+      ],
+      "reasoning": "Equivalent descriptions include reverse-complement-fixed necklaces, anti-palindromic de Bruijn halfwords, reflection-complement orbits and a balance statistic conditioned on CR symmetry. The searched primary texts and published-finding corpus records do not give the four conditional discrepancy cells. The halfword normal form is known and credited; its enumerated distribution is the new claim.",
+      "searches": [
+        "published-finding corpus: order five binary de Bruijn complement reverse CR symmetric discrepancy distribution 16 16 24 8",
+        "published-finding corpus: de Bruijn order five reverse complement cycles discrepancy color balance exact count",
+        "web: \"CR de Bruijn\" \"discrepancy\" table",
+        "web: \"de Bruijn\" \"complement\" \"reverse\" \"discrepancy\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previous related recorded claim 2c8828a3-eb45-4778-9a6e-993201d0b395 already gives the unrestricted histogram 224,688,912,224, and the optimal-D=5 symmetry orbit split (eight 2-orbits, 52 4-orbits).",
+        "The new complete CR-fixed vector is 16,16,24,8; the D=6,7,8 entries are not in that earlier claim.",
+        "Published published-finding corpus hit 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a concerns nonoverlapping codes, not discrepancy or CR symmetry."
+      ],
+      "reasoning": "The known histogram and lowest-discrepancy orbit cell are credited without novelty claims. They leave the allocation of the remaining CR cycles over three discrepancy classes undetermined. The present full joint table supplies that missing natural information. No covering searchable tabulation was located.",
+      "searches": [
+        "published-finding corpus: order five binary de Bruijn complement reverse CR symmetric discrepancy distribution 16 16 24 8",
+        "web: \"order five\" \"CR\" \"de Bruijn\" \"discrepancy\"",
+        "web: \"de Bruijn\" \"reverse complement\" \"discrepancy\" enumeration"
+      ]
+    },
+    "rationale": "The full 5/6/7/8 reverse-complement-conditioned discrepancy distribution is not specified or implied by the inspected primary papers. The existing 2048-cycle discrepancy histogram and minimal-D=5 orbit split are explicitly credited, not advanced as new; they do not determine CR counts at D=6,7,8. The two source themes are independently motivated and were compared by statements and implications rather than keywords. A residual possibility of an unindexed prior equivalent remains.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent CR-by-discrepancy enumeration may exist; failed retrieval is not proof of priority.",
+      "General finite group-orbit identities are elementary; the specific nonminimal joint frequencies, not those identities or earlier marginals, are the distinct new data."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant construction and characterization, but does not state exact cyclic discrepancy distribution in CR subclasses.",
+        "evidence": "arXiv first public 2024-08-03; Lemma 1.1 CR factorization X cr(X); Theorem 3.6 CR count divisible by 2^((n+3)/2).",
+        "identifier_or_url": "https://arxiv.org/pdf/2408.01794",
+        "material_read": "Entire available 14-page preprint including abstract, Lemma 1.1, Section 3, Theorem 3.6, examples and references.",
+        "method": "Full-text PDF review, exact term search for discrepancy and attention to CR counting and linear-complexity theorems.",
+        "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+        "trigger": "Exactly the reverse-complement-fixed de Bruijn objects under study; publication-date anchor."
+      },
+      {
+        "assessment": "Covers discrepancy of selected constructions and asymptotic scales, not the CR-fixed order-five conditional distribution.",
+        "evidence": "Section 1 defines discrepancy as maximum absolute imbalance over all cyclic factors; section 1.2 reports construction-specific results and goals.",
+        "identifier_or_url": "https://arxiv.org/pdf/2005.01638",
+        "material_read": "Abstract, complete Introduction through Section 1.2, definitions, construction tables, listed contributions and targeted searches through the 20-page PDF.",
+        "method": "PDF textual read and term searches for reversal/reflection; compared parameters and invariants, not just title.",
+        "title": "Investigating the discrepancy property of de Bruijn sequences",
+        "trigger": "Foundational source defining cyclic discrepancy and quantifying de Bruijn word balance."
+      },
+      {
+        "assessment": "Establishes attainability of absolute global minimum and gives examples, not the CR-conditioned orbit spectrum.",
+        "evidence": "Section 5, Theorem discussion, Table 2 on minimum discrepancy; absence of CR-class frequency enumeration.",
+        "identifier_or_url": "https://staff.dc.uba.ar/becher/papers/optimal.pdf",
+        "material_read": "Public 25-page author manuscript: definitions, Sections 4–5, Table 2, Table 3 and algorithms, plus text searches for reversal and CR.",
+        "method": "Read public full-text PDF after checking initial arXiv source; compared theorem-level minimum versus full symmetry-conditioned frequency.",
+        "title": "De Bruijn Sequences with Minimum Discrepancy",
+        "trigger": "Potentially dominating exact global discrepancy theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5757992c-b45f-4feb-b5cf-a9af9224b53d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Circular symbol discrepancy affects balance and spectral concentration, while CR symmetry defines a recognized constrained de Bruijn family. This supplies the exact complete interaction at the first nontrivial odd order where the two constraints vary: all CR frequencies, optimal-within-symmetry fraction and every complement/reversal orbit size, including previously unreported nonoptimal strata. Natural finite classification is motivated without claiming a higher-order general theorem. The D=6..8 cells distinguish symmetry-conditioned design options not implied by general existence or marginal counts.",
+    "status": "PASS"
+  }
+}
