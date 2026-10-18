@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly defines all open neighborhoods and establishes a necessary and sufficient total-domination criterion: each column contains a selected edge-vertex, both rows are nonempty, and a singleton row must be supported by the opposite paired edge-vertex or by its hub/peripheral vertex. At n>=3, simultaneous singleton rows are impossible. The three disjoint counting categories exhaust all edge selections, and binomial algebra yields the stated formula. The minimum coefficient and Bernoulli law are deduced symbolically. A standalone checker independently enumerated all 1,198,080 subsets for n=3,4,5,6 and confirmed every coefficient, but finite tests do not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazemnejad et al. (2022), arXiv:2204.07040, Proposition 2.15 proves gamma_t(M(K_{m,n})) but gives no all-size cardinality enumerator.",
+        "Latheeshkumar (2017), Section 4.3, Theorems 4.3.3 and 4.3.4: polynomial of M(K_{1,n}) and middle graphs of pendant-augmented core graphs.",
+        "Hu (2016), arXiv:1607.00400, Sections 1-2: graph-general vertex/edge reductions, not a closed two-row biclique polynomial."
+      ],
+      "reasoning": "A scalar minimum does not imply the count of other feasible cardinalities. K_{2,n} has no leaves for n>=3 and is not covered by the pendant-forcing hypotheses in the thesis. Generic recursion can compute any finite graph in principle but does not state or imply the present explicit closed expression as an established named family result.",
+      "searches": [
+        "total domination number of middle graphs complete bipartite graphs Kazemnejad Proposition 2.15",
+        "total domination polynomials of graphs middle graph 2017 thesis",
+        "middle graph total domination polynomial universal formula",
+        "total domination polynomial of middle graphs of complete bipartite 2020"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.07040",
+      "https://www.ejgta.org/index.php/ejgta/article/view/1227",
+      "https://scholar.uoc.ac.in/items/e118d633-90ec-4fe3-b284-a78eb20f4fc3",
+      "https://arxiv.org/html/1607.00400v1",
+      "https://arxiv.org/abs/2008.02975"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 result gives gamma_t=n when n>=4, and gamma_t=4 at n=3, while the present polynomial determines d_t(H_n,k) for every k.",
+        "The 2017 thesis gives D_t(M(K_{1,n}),z)=z^n(1+z)^{n+1}, whose forced-edge premise fails for K_{2,n} with n>=3.",
+        "The general polynomial recurrence arXiv:1607.00400 has no specialized M(K_{2,n}) coefficient formula in the inspected text."
+      ],
+      "reasoning": "The new result strictly contains more enumerative information than the known scalar values; its probabilistic law is obtained by exact probability substitution and does not follow from gamma_t alone. The closest explicit middle-graph polynomial in the thesis applies to a different graph family. It is not claimed that the general recurrence is noncomputational or mathematically independent.",
+      "searches": [
+        "Kazemnejad Pahlavsay Palezzato Torielli 2022 total domination middle graph complete bipartite count optimal sets",
+        "Latheeshkumar middle graph total domination polynomial 2017 bipartite K2n",
+        "Total domination size distribution and enumerator of middle graphs of complete bipartite graphs K2n counting total dominating sets and cardinalities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is the incidence-extended line graph of K_{2,n}, with two row-cliques and n paired edge-vertices; its adjacency is explicitly given in the proof.",
+        "The 2017 thesis defines the same middle graph operator and treats middle graphs of other graph families."
+      ],
+      "reasoning": "The same operator and equivalent incidence-expanded descriptions were searched. Neither the 2022 complete-bipartite scalar theorem nor the 2017 star/pendant enumerator is identical to a total-domination size polynomial for M(K_{2,n}). A search miss is not a novelty proof.",
+      "searches": [
+        "middle graph biclique two left n right complete total dominating subsets weight enumerator binomial exact size distribution",
+        "total dominating sets of M(K_{2,n}) size generating function 2022 middle graph Kazemnejad",
+        "enumerating total dominating sets subdivision line graph of complete bipartite",
+        "total domination polynomial middle graph exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches surfaced unrelated minimum total-dominating-set tables (for pan and king graphs) and a different complete multipartite-minus-matching polynomial, with no identified coefficient table for M(K_{2,n}).",
+        "The calculated exact distributions are given in verification_output.txt for n=3..6."
+      ],
+      "reasoning": "A finite numerical table that happened to share some coefficients would not alone imply the closed formula. No exact database entry for this family was found; completeness of all databases is not asserted.",
+      "searches": [
+        "OEIS middle graph K2n total dominating sets 6 20 50",
+        "OEIS minimum total domination middle graph complete bipartite number of sets",
+        "graph polynomial database total domination middle graph K2n",
+        "middle graph complete bipartite total domination polynomial generating function K2n"
+      ]
+    },
+    "rationale": "Directly relevant full-text sources determine either the scalar total domination number on biclique middle graphs (2022), or the full polynomial for star/pendant-derived middle graphs (2017); neither supplies the full polynomial for the leaf-free two-row biclique middle graph. The generic 2016 reduction identities do not state the explicit family formula. Indexed mathematical record and web searches for equivalent exact expressions yielded no covering statement. This is a best-evidence priority assessment rather than a proof of uniqueness or independent priority certification.",
+    "residual_risks": [
+      "Unindexed, renamed or inaccessible work could contain the same family enumeration.",
+      "General recurrence algorithms can compute graph polynomials in principle; the originality claim is about the explicit formula and its derivation, not independence from generic algorithms.",
+      "No external independent priority assessment has been obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SCALAR_ONLY; reports minimum total domination number but not the complete polynomial.",
+        "evidence": [
+          "Proposition 2.15, complete-bipartite case n_1=2, n_2=n.",
+          "Section 2 distinguishes gamma_t from size distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.07040",
+        "material_read": "Full available HTML-text paper with Section 2, definition, Lemma 2.1, Proposition 2.15 and its proof; metadata confirms 2022 initial posting.",
+        "method": "Read exact hypotheses, quantifiers and statements, compared gamma_t result to all-coefficient claim",
+        "title": "Total domination number of middle graphs",
+        "trigger": "Same graph operator and complete-bipartite parameter family; possible dominating theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; star and pendant-derived graph polynomials, not this leaf-free two-row biclique family.",
+        "evidence": [
+          "Theorem 4.3.3 gives M(K_{1,n}) enumerator.",
+          "Theorem 4.3.4 and Corollaries 4.3.5–4.3.9 depend on pendant edges."
+        ],
+        "identifier_or_url": "https://scholar.uoc.ac.in/server/api/core/bitstreams/6fa92a20-cef6-4313-b02b-d000bf29f6df/content",
+        "material_read": "Chapter 4 Section 4.3 around original printed pp. 69–73; text extraction and rendered PDF pages containing Theorems 4.3.3 and 4.3.4 and following corollaries.",
+        "method": "Matched graph families and forced pendant hypotheses against K_{2,n}",
+        "title": "Total Domination Polynomials: A New Approach",
+        "trigger": "Plausible full-polynomial coverage of middle graphs"
+      },
+      {
+        "assessment": "GENERAL_RECURRENCE_ONLY; no two-row middle-graph formula in inspected relevant material.",
+        "evidence": [
+          "Theorems 1 and 3 give vertex/edge reduction formulas for arbitrary graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.00400v1",
+        "material_read": "Introduction and Section 2 reduction formulas (including Theorem 1, Theorem 3, and applications to paths/cycles).",
+        "method": "Compared general deletion recurrence with specialized closed all-n identity",
+        "title": "Total domination polynomials of graphs",
+        "trigger": "Potential generic identity implying a specialized count"
+      },
+      {
+        "assessment": "DISTINCT_INVARIANT; does not imply total-domination polynomial.",
+        "evidence": [
+          "The abstract explicitly treats ordinary domination numbers, not total-domination enumerators."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.02975",
+        "material_read": "Abstract and bibliographic metadata.",
+        "method": "Verified distinct invariant (closed rather than total/open domination)",
+        "title": "Domination number of middle graphs",
+        "trigger": "Same operator with ordinary domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83e3833d-8095-4199-9f32-9c4023b0b10f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 published literature supplies the scalar optimum for middle graphs of complete bipartite graphs, creating a natural motivated gap: the structure and number of feasible sets of every size. The new exact polynomial resolves this for the non-pendant two-row biclique family, including all optimal multiplicities and the critical Bernoulli selection window with nondegenerate limit e^{-lambda^2}. These are not consequences of only the published scalar minimum. The result is an all-cardinality structural enumeration, not an arbitrary finite slice or nominal parameter renaming.",
+    "status": "PASS"
+  }
+}
