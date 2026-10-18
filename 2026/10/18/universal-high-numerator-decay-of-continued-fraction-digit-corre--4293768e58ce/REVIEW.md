@@ -1,0 +1,12 @@
+# Scientific review: high-numerator digit-correlation scaling
+
+## Correctness — PASS
+The exact transfer kernel and probability density agree with Lascu's stationary \(N\)-continued-fraction setting. For integer digit thresholds the first image is precisely \((N+x)/(m+x)\) almost everywhere, with affine coefficient \(u_N(1-u_N)/N\) and \(O(N^{-2})\) Lipschitz error. The trigamma identity for the image of the coordinate function implies a uniform derivative \(-1/(2N)+O(N^{-2})\). Ordered inverse-branch kernels give the crucial quantitative Lipschitz contraction; induction consequently yields the coefficient at every fixed lag with \(O_k(N^{-k-1})\) error. Stationary transfer duality and integration give the final covariance. The standalone verifier independently checks exact first- and second-lag formulas and finite special cases. No finite calculation is treated as a proof of the all-lag asymptotic.
+
+## Originality — PASS, residual priority risk acknowledged
+Lascu, arXiv:1510.02052, **Proposition 4.2 explicitly proves monotonicity reversal and the \(1/(N+1)\) variation contraction**. These results—and the immediate alternating covariance sign corollary—are excluded from the claimed novelty. His companion arXiv:1510.03606 addresses Gauss–Kuzmin convergence. Sebe–Lascu, arXiv:1707.08393, treats two-dimensional convergence bounds. Their inspected statements do not establish the coefficient \((-1)^k u(1-u)v(1-v)/2^k\) for fixed lag as the numerator increases; a fixed-parameter spectral or mixing bound alone cannot supply a sharp constant at every lag. The derivation from the exact coordinate mean and a rank-one high-parameter iteration supplies this missing comparison. An unindexed high-parameter spectral calculation could cover it; priority is not independently certified.
+
+## Mathematical value — PASS
+The size of dependence between continued-fraction digits is an intrinsic statistic of the symbolic dynamical system. The finding quantifies *exactly how* these digit tails approach independence as the numerator parameter grows, and discovers a universal alternating factor per temporal lag. It substantially refines qualitative monotonicity and nonsharp exponential estimates in a natural unbounded-alphabet family. The statement controls all fixed lags and all interior macroscopic thresholds, not one arbitrary numerical slice. No large-lag-uniform or nonstationary conclusion is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
