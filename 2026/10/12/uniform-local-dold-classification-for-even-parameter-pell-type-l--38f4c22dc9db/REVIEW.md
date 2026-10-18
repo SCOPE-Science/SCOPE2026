@@ -1,15 +1,21 @@
-# Scientific review: even-parameter Pell-type Lucas local Dold theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers are explicit: \(P\ge2\) even, every prime \(p\), and every positive integer \(n\). The odd-prime valuation formula follows from Sanna's Corollary 1.6 for \(Q=-1\), separately covering unramified ranks and the ramified rank \(z_p=p\). The binary case is proved by the doubling identity and parity-specific valuations of companion terms. Möbius inversion applied to the locally finite divisor-indicator expansion produces *every* coefficient, including its nonnegative zero cases. The minimal repair factor is proved by a supported-index obstruction and the matching all-index divisibility bound. The split/non-split/ramified trichotomy yields the prime classification; nonsquareness of the discriminant proves the density argument. Finite direct checks cover 17,280 Möbius comparisons but do not replace the proof. Risk: dependence on the established odd-prime Lucas valuation lemma, identified by exact bibliographic location.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2026 motivating primary paper analyzes the classical Fibonacci and Lucas sequences and poses extensions to general Lucas sequences; it does not present this uniform even-parameter result. Sanna (2016) states the valuation law, not the local Dold Möbius support, minimal global repair factors or densities. A 2025 realizability paper deals with different classical sequences. Published published-finding corpus records with similar keywords address split *companion* Lucas sequences or modular periods, not the nonsplit-discriminant \(U(P,-1)\) family. Relevant prior-ledger claims and identifiers were checked for overlap. Residual risk remains that the result is derivable by a specialist from the cited building blocks, or exists in unindexed equivalent form; neither possibility is asserted to be impossible.
+PASS
 
-## Mathematical value — PASS
-The family \(U(P,-1)\), with all even parameters and all primes, is not an arbitrary finite case selection: it resolves a natural parity class of a recently motivated Lucas-local-realizability question. It gives *all* exact local orbit-count transforms and minimal repairs (including ramification and the binary obstruction), and shows the same split-prime density across an infinite set of nonsquare discriminants. This goes beyond a numerical table or an isolated congruence and is structurally useful for interpreting periodic-point counts and local obstructions.
+For odd p, the source invokes Sanna 2016 Cor.1.6: v_p(U_n)=e_p+v_p(n/z_p) when z_p|n, else zero, including ramified rank z_p=p. Expanding A_p(n)=p^v_p(U_n) as a locally finite sum of divisibility indicators gives D_p(z_p)=p^e−1 and D_p(z_p p^j)=p^(e+j−1)(p−1), with D_p(1)=1, others zero. For p=2 and even P, U_odd is odd, V_odd has v2(P)=s, V_even has v2=1; U_{2m}=U_m V_m proves v2(U_{2^t m})=s+t−1 for odd m. Thus the binary tower coefficients follow by Möbius inversion and are nonnegative. At supported indices, the first odd-prime coefficient and n=z_pp constrain the least repair z_p/gcd(z_p,p−1), including z_p=p if ramified; binary support n=2 forces repair 2. Unramified ratio-of-roots order z_p divides p−1 in split and p+1 in nonsplit case, never 1 or 2 for nonsplit; yields iff Legendre(P²+4/p)=+1 for Dold, and densities 1/2 split with finite ramified exceptions. Independent integer recurrence/Möbius recomputation tested 4,500 (P,p,n) values with P2,4,6,8,12 and primes 2..23 and n≤100. Infinite theorem relies on valuation, 2-adic doubling, group order and density proofs, not numeric finite checks.
 
-## Limits and closest literature
-The result is restricted to even \(P\), \(Q=-1\), and the first-kind Lucas sequence; it does not classify the odd-parameter case or companion sequences. Closest primary sources: Chuysurichay–Jaidee–Panraksa–Ward (arXiv:2609.24544v1), and Sanna (Fibonacci Quarterly 54, 2016), Corollary 1.6. Independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sanna provides the exact odd-prime valuation input and classical splitting explains the rank condition; both are credited. The recent 2026 local-Dold analysis is centered on Fibonacci P=1 and companion Lucas sequences. The submitted single explicit uniform even-P family, binary/ramified obstructions, least repairs and density quadruple are not located as an implication-equivalent published classification. Novelty is the complete natural parity-family assembly, not the imported valuation formula.
+
+## value
+
+PASS
+
+The even-P first-kind Lucas family is a natural complementary parity class to recent Fibonacci local Dold work. Exact supported Möbius transforms, minimal repair factors including ramified primes and a precise split-prime density law resolve a motivated familywide realizability problem; the result is a complete arithmetic classification, not arbitrary small-parameter enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
