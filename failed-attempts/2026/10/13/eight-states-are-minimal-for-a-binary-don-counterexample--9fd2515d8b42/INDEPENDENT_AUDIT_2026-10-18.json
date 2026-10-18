@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:56:44.248912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the published full-cycle-letter necessity for binary complete reachability, choosing b(q)=q+1 mod n and enumerating all a:Q->Q is exhaustive. Reproduced with separately compiled C++ exact subset-image BFS for all n=2..8, including all 8^8=16,777,216 letter maps: completely reachable counts 2,18,128,1200,9936,105840,1093632 and violations 0 through n7, exactly 544 at n8. Every violating presentation has one six-element target at minimum distance17. Cyclic conjugation partitions 544 into 68 free size8 orbits. An independent Python BFS confirms every one of the 255 subsets reachable for the representative a=(0,0,3,5,1,2,6,7), unique violation S={0,1,2,4,5,6}, shortest witness abbbbbbabbbbbabbb of length17. Counting is finite but exhaustive after normalization, not an asymptotic inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu establishes binary complete reachability counterexamples with 8 states and larger even family >=10; necessary full cycle letter also given."
+        ],
+        "reasoning": "Known analytic >=10 family does NOT mean first occurrence 10; older primary also contains smaller numerical examples, directly covering submitted sharp first-state threshold.",
+        "searches": [
+          "arxiv:2402.19089v1 Sections 3–4",
+          "Ferens Szykuła Recognizing Completely Reachable Automata in Quadratic Time"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and census.cpp at blobs 2a6c515d478e03f90dadd05555cc72d0b4e4a479 and 7b01c101f0bb3bf8517b8ee025078ee567b5cb5a",
+        "Y. Zhu arxiv:2402.19089 full primary PDF Table1/Figure1",
+        "Ferens–Szykuła 2026 DOI 10.1145/3798283"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published explicit 8-state Don violation falsifies claim the threshold 8 is new; original table 68 examples, in agreement with submitted 68 orbits."
+        ],
+        "reasoning": "An existing witness at 8 and no smaller from published classification or direct exhaustive census establishes same onset. Newly replayed enumeration confirms C without refuting O prior coverage.",
+        "searches": [
+          "Full arxiv PDF 2402.19089 page7 Table1",
+          "Submitted census.cpp complete BFS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu Table1 8-state violating automata with 68 nonisomorphic classes and explicit Figure1 witness; cycle-conjugacy normalization translates 68 classes to 544 labeled ones."
+        ],
+        "reasoning": "Identical threshold and equivalence under standard cycle relabeling make published result dominating, regardless of different wording.",
+        "searches": [
+          "Zhu Around Don conjecture binary completely reachable automata arxiv:2402.19089 eight 8 states Table 1 68",
+          "Resultary binary completely reachable Don bound n n minus subset 8 states 544"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhu Table1 already states 68 non-isomorphic 8-state examples; submitted count 544=68×8 under free cyclic labeling."
+        ],
+        "reasoning": "The exact first-layer quotient count is in the primary table. The change from 68 quotient classes to 544 normalized presentations is not novelty.",
+        "searches": [
+          "Zhu 2402.19089v1 Table 1 eight states 68",
+          "Zhu Figure1 eight state counterexample"
+        ]
+      },
+      "rationale": "FAIL: Zhu’s original 2024 *Around Don’s conjecture for binary completely reachable automata* itself explicitly reports 8-state counterexamples and 68 nonisomorphic cases (Table 1, around pages 7–8), as well as Figure 1 8-state witness, in addition to constructing an infinite family at even n>=10. The submission incorrectly reads the analytic family lower cutoff as the prior known smallest counterexample; the sharp 8-state onset and the 68 classes were already published. The 544 presentations are exactly 68 cyclic-labeling copies because these rank-(n-1) cyclic maps have free rotation action. New single-subset/17-step details, even if not printed there, cannot restore the false claimed new sharp minimum.",
+      "residual_risks": [
+        "Earlier table is an explicit prior-coverage rejection, independent of other unpublished census possibilities.",
+        "The normalization counts presentations, not unqualified abstract automorphism classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Pages around 7–8 explicitly present 8-state violating automata and 68 nonisomorphic cases; distinguish finite finding from analytic infinite family.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.19089",
+          "material_read": "Full arXiv primary PDF including Table 1, Figure 1 and discussion of 8-state and n>=10 constructions",
+          "method": "Web PDF text and screenshot of relevant pages",
+          "title": "Around Don’s conjecture for binary completely reachable automata",
+          "trigger": "Closest original published counterexample family and small-state data"
+        },
+        {
+          "assessment": "NOT_DETERMINATIVE",
+          "evidence": "Later general algorithm does not erase the 8-state counterexamples already in Zhu.",
+          "identifier_or_url": "https://doi.org/10.1145/3798283",
+          "material_read": "Accessible indexed summary/cited structural discussion, not full primary article",
+          "method": "Primary citation and abstract search",
+          "title": "Recognizing Completely Reachable Automata in Quadratic Time",
+          "trigger": "Later overview and full-cycle structural claim"
+        },
+        {
+          "assessment": "NOT_DETERMINATIVE",
+          "evidence": "Subset positive results do not contradict known eight-state general counterexamples.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.00077",
+          "material_read": "Abstract/stated class restrictions, not full source",
+          "method": "Primary arXiv citation search",
+          "title": "Don’s conjecture for binary completely reachable automata: an approach and its limitations",
+          "trigger": "Nearby subclass positive results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The mathematically motivating milestone—the first binary completely reachable Don counterexample at eight states and 68 classes—is an existing published result. Re-enumerating normalized labeled maps and tabulating the one-step overrun on already-classified examples has no substantiated distinct mathematical question or structural role sufficient to survive as an independent claim. Computational correctness alone is not value, and disclaimers cannot rescue the already-covered main result.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and census.cpp at blobs 2a6c515d478e03f90dadd05555cc72d0b4e4a479 and 7b01c101f0bb3bf8517b8ee025078ee567b5cb5a",
+    "Y. Zhu arxiv:2402.19089 full primary PDF Table1/Figure1",
+    "Ferens–Szykuła 2026 DOI 10.1145/3798283"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only binary completely reachable automata, normalized by necessarily present full-cycle letter, and n<=8 sharp cutoff."
+  ]
+}
