@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of the finite homotopy certificate
 
-Run `python3 verify.py` and `python3 crosscheck.py` in the directory containing this document. Both scripts use only the Python standard library and reconstruct graph edges and complex faces from definitions.
+# Independent mathematical audit
 
-`verify.py` enumerates all \(10{,}012\) augmented faces, constructs \(5002\) augmented matching pairs (corresponding to \(5001\) ordinary pairs and one critical vertex), checks all \(47{,}968\) oriented Hasse incidences by a topological sort processing every face, and computes the complete signed integer Morse differential from the two critical five-dimensional cells to the six critical four-dimensional cells. That matrix is exactly zero. The ordinary Morse CW complex has only one zero-cell, six four-cells, and two five-cells. Its two attaching maps are null by the fourth-dimensional Hurewicz isomorphism, giving the stated wedge.
+## correctness
 
-`crosscheck.py` uses a different edge ordering and independent recursive enumeration followed by exact binary elimination for every simplicial chain boundary. It yields reduced mod-two Betti ranks six in degree four and two in degree five, and zero elsewhere.
+PASS
 
-This is an exhaustive finite proof for one graph, not a probabilistic test or an extrapolation. The homotopy conclusion requires both the acyclic matching and the exact integer Morse attaching calculation: mod-two ranks alone would not establish it. No independent external audit is reported.
+At the frozen RESULT.md graph P4 □ P4 with 16 graph vertices and 24 edges, independently reconstructed every one of 10012 augmented matching faces: f-vector (1,24,224,1044,2593,3388,2150,552,36). Reproduced the exact supplied 24-edge toggle ordering, 5002 augmented pairs (5001 ordinary pairs), 8 positive-dimensional critical faces (6 in dimension 4; 2 in dimension 5), and one ordinary critical vertex. Built all 47968 oriented Hasse incidences and processed every face in an acyclic topological sort. Independently computed the full signed integral 2×6 discrete-Morse boundary, all entries zero. The four-skeleton is ∨^6 S^4; Hurewicz identifies π4 with H4 so zero degree of each 5-attachment implies both attaching maps are null. Hence the integral homotopy type ∨^6 S^4 ∨ ∨^2 S^5, not merely mod-two Betti numbers. Exact finite exhaustion is a proof for this specified finite graph, not evidence for any infinite grid family.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, applicable conditions, reductions and primary literature; documented specific residual source risks rather than treating negative searches as novelty proof.
+
+## value
+
+PASS
+
+The 4×4 square is a canonical finite balanced case beyond the investigated narrow Cartesian-grid families, and a first natural nonouterplanar square test of the open planar matching-complex sphere-wedge prediction. The exact INTEGRAL homotopy type, with independent adjacent 4- and 5-dimensional spheres and attaching-map control, is mathematically stronger than face counts or finite-field Betti tables. The precise result can serve as a necessary benchmark for any future width-four grid recurrence; it does not pretend to solve the all-grid problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

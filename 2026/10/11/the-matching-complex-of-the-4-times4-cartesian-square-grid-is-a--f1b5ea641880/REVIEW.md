@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph and entire face set are reconstructed from explicit definitions, without reliance on an external table. The eight surviving critical positive-dimensional cells, the additional critical basepoint, and the acyclicity of the full Hasse matching are checked exhaustively in `verify.py`. Crucially, the **signed integral** gradient-path differential from the two critical five-cells to the six critical four-cells is computed and is zero. Because \(\pi_4(\bigvee^6S^4)\to H_4(\bigvee^6S^4;\mathbb Z)\) is an isomorphism, that vanishing proves the attaching maps are null, and therefore proves the homotopy classification. A second verifier builds the matching sets by a separate recursion and reproduces all mod-two Betti ranks. Risk: the proof depends on the supplied exhaustive finite certificate and standard discrete-Morse and Hurewicz theorems; source code and every finite check are included for reproduction.
+## correctness
 
-**Originality: PASS, qualified.** Matsushita (2019) proves results for two-row grids and generalized associated line graphs, not for the ordinary \(4\times4\) Cartesian grid. Chauhan–Sharma–Shukla (2026) study \(3\times n\) and explicitly describe the broader rectangular problem as unresolved. The general theorem of Bayer–Jelić Milutinović–Vega applies to outerplanar graphs, while this grid is not outerplanar; their general planar extension remains conjectural. The categorical-product path-grid results do not apply to the Cartesian grid. The known \(4\times4\) *cut* complex and the Möbius–Kantor and Heawood *matching* complexes are inequivalent constructions or other graphs, respectively. Searches of public indexed mathematical findings and matching-complex sources identified no theorem or table already determining this precise integral homotopy type. Risk: search failure does not prove priority; unindexed computations or unseen stronger literature may cover it.
+PASS
 
-**Value: PASS.** This is the first natural balanced instance beyond the already studied one-, two-, and three-row Cartesian grid families, a finite benchmark motivated directly by the contemporary literature's unsolved wider rectangular-grid problem. The exact integral homotopy description identifies two adjacent dimensions of sphere classes, going substantially beyond face counts or mod-two Betti numbers. It is a concrete nonouterplanar planar graph consistent with the published planar matching-complex wedge conjecture, without claiming to prove that conjecture. Risk: it is a single finite grid, not a uniform theorem for all widths or lengths.
+At the frozen RESULT.md graph P4 □ P4 with 16 graph vertices and 24 edges, independently reconstructed every one of 10012 augmented matching faces: f-vector (1,24,224,1044,2593,3388,2150,552,36). Reproduced the exact supplied 24-edge toggle ordering, 5002 augmented pairs (5001 ordinary pairs), 8 positive-dimensional critical faces (6 in dimension 4; 2 in dimension 5), and one ordinary critical vertex. Built all 47968 oriented Hasse incidences and processed every face in an acyclic topological sort. Independently computed the full signed integral 2×6 discrete-Morse boundary, all entries zero. The four-skeleton is ∨^6 S^4; Hurewicz identifies π4 with H4 so zero degree of each 5-attachment implies both attaching maps are null. Hence the integral homotopy type ∨^6 S^4 ∨ ∨^2 S^5, not merely mod-two Betti numbers. Exact finite exhaustion is a proof for this specified finite graph, not evidence for any infinite grid family.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, applicable conditions, reductions and primary literature; documented specific residual source risks rather than treating negative searches as novelty proof.
+
+## value
+
+PASS
+
+The 4×4 square is a canonical finite balanced case beyond the investigated narrow Cartesian-grid families, and a first natural nonouterplanar square test of the open planar matching-complex sphere-wedge prediction. The exact INTEGRAL homotopy type, with independent adjacent 4- and 5-dimensional spheres and attaching-map control, is mathematically stronger than face counts or finite-field Betti tables. The precise result can serve as a necessary benchmark for any future width-four grid recurrence; it does not pretend to solve the all-grid problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
