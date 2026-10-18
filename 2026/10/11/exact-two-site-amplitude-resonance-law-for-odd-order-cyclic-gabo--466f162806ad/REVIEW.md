@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every odd order, every defect separation and every real amplitude, the proof enumerates all four disjoint lag/frequency cases. The critical step is the explicit factorization for disjoint defect pairs and the cosine cancellation at overlapping pairs, with exact multiplicity \(d\). The full statement follows from the established Gabor projector-Gram rank identity and an exact Fourier expansion; finite direct summation checks corroborate rather than certify the infinite parameter family.
+## correctness
 
-**Originality — PASS.** The closest published foundational theorem counts nonzero ambiguity entries for arbitrary windows, but leaves the amplitudes to be computed. Neither the one-coordinate amplitude classification nor the two-hole specialization determines the full real-amplitude resonance set and rank multiplicities for two defects at arbitrary (possibly noncoprime) separations. The all-parameter classification is not just its known zero-amplitude special case. Targeted semantic searches did not identify an equivalent; older or unindexed coverage is still a risk.
+PASS
 
-**Value — PASS.** Two equal calibration perturbations are the smallest nontrivial interaction of local amplitude defects. The complete odd-order result identifies precisely when a structured minimal tomographic measurement loses operator directions: isolated **positive** defect amplitudes can cause rank loss even with a full-support window, and composite-spacing gcds amplify the rank loss from \(4\) to \(4d\). It gives a natural all-size classification, not an arbitrary numerical slice or a mere genericity statement.
+For odd N≥5, the positive normalization N−2+2z² cannot vanish. Inspected Gabor rank=number nonzero ambiguity theorem in the primary source; reconstructed t=0, t=±a and t other nonzero phase factorizations, b=0 separate. Multiplication b↦ab has fibers of size d=gcd(N,a), yielding exceptional cosines of m=N/d and loss factors 4d, plus special losses N−1, N−3 and 2(d−1). Odd-order roots forbid accidental factors equal to −1 and odd algebraic-integer arguments rule out collision with z=1−N/4. Independent direct complex ambiguity sums for 35 selected cases N=5,7,9,15 (varied a,z) matched formula; unlike proof, finite floating tests do not establish all odd N or all real z.
 
-**Closest literature and limits.** Goldberger–Kang–Okoudjou, arXiv:2106.01509v1, Theorems 1–2, supplies the covariance rank identity but not this two-defect calculation. Later finite WH stability papers address different optimization and construction questions. The two-site result is restricted to real amplitudes and odd cyclic orders; no numerical conditioning guarantee is inferred. An unindexed equivalent remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after comparison of statements/implications in inspected primary literature, accounting for explicit known subcases and broader baseline results. The unsuccessful Resultary lookup is NOT positive novelty evidence; its outage and any uninspected papers remain disclosed risks.
+
+## value
+
+PASS
+
+Two equally perturbed amplitudes are the first interacting departure from a constant cyclic Gabor window. The universal odd-order rank-loss formula provides exact calibration resonance amplitudes (including a positive amplitude with full nonzero window) and gcd-dependent degeneration for every spacing; this directly informs algebraic informational completeness, distinct from conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
