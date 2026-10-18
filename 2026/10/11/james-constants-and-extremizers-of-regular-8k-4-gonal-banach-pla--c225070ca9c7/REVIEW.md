@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The sharp upper bound follows from the exact circumradius/apothem sandwich and the Euclidean parallelogram identity. For odd \(m\), quarter-turn vertex pairs attain the bound because their sum and difference lie on edge-normal rays. Equality in the upper-bound chain forces both unit vectors onto the Euclidean circumcircle, hence onto polygon vertices, and then forces Euclidean orthogonality. The converse is explicit.
+## correctness
 
-## Originality
-PASS. The closest primary literature characterizes the James-\(\sqrt2\) endpoint and the \(\pi/2\)- versus \(\pi/4\)-rotation dichotomy, but does not determine exact values above that endpoint. Current and prior archive ledgers contain isolated regular-polygon results but no \(8k+4\) family theorem. Broad semantic-index and web searches found no equivalent family formula. A narrowly targeted semantic-index query failed after a bounded retry and is retained as an explicit bibliographic risk rather than being treated as negative evidence.
+PASS
 
-## Value
-PASS. The result quantifies an infinite and natural parity class singled out by the published rotation-invariance theorem. It explains both the exact amount by which the James constant exceeds \(\sqrt2\) and the complete maximizing geometry, so it is substantially stronger than an isolated polygon calculation.
+For every odd m>=1 the 4m-vertex circumradius-one regular polygon has apothem c=cos(pi/(4m)) and c B2 subset P subset B2, hence Euclidean norm <= polygonal gauge <= Euclidean norm/c. For unit x,y, the parallelogram identity yields min(N(x+y),N(x-y))<=sqrt(2)/c. Every quarter-turn pair of polygon vertices has both sum and difference on edge normals because m is odd, giving equality. Any achieving pair forces both Euclidean chord norms sqrt(2), both original vectors of Euclidean length 1, so polygon vertices, and dot(x,y)=0. Those vertices are exactly (v_j, +/-v_{j+m}); converse holds, including square m=1. The full equality proof is complete, analytic and all-quantified.
 
-## Closest literature and limitations
-Komuro--Saito--Tanaka provide the endpoint classification and rotation-invariance criterion. The theorem here covers regular \(8k+4\)-gons only and does not give a unified formula for every regular polygon. A differently phrased historical polygonal calculation remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The earlier dodecagon-specific theorem at 13:10:54Z establishes only m=3. The general record at 13:10:55Z establishes every odd m and complete equality set, not a routine corollary of the single instance. Komuro–Saito–Tanaka Corollary 2.7 gives only J=sqrt(2) iff pi/4 rotation invariant among pi/2 invariant norms; it implies J>sqrt(2) for odd m, not the exact formula/extremizers. Other surveyed published records concern different constants or the octagon. No older all-m covering theorem was identified after statement-based searches and checking relevant primary text.
+
+## value
+
+PASS
+
+PASS: Complete exact James constant and all maximizing-pair classification across an infinite natural congruence class of regular polygonal Banach planes. This is a natural geometry-of-norms invariant, explains strict pi/4 symmetry break and rigidity of equality; useful benchmark for geometric constants. It is not inferred solely from numerical experiments or one dodecagon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
