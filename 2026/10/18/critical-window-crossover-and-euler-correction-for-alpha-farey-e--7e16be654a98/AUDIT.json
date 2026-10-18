@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) is the established exact spectral-root condition. The proof reconstructs the positive root, the telescoping first renewal moment, uniformly controls the sum-integral discrepancy for every exponent tending to one, and dominates the exponential remainder using n gamma -> 0. A differentiable sum-integral discrepancy plus the second moment bound gives the claimed compact-window Euler correction with correct O(log(n)^-2) relative error. No computational result is used to infer an infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonanno--Tikekar arXiv:2601.15908, theorem 3.6: fixed parabolic index, rather than simultaneous exponent/hole limit.",
+        "Bonanno--Chouari arXiv:1512.04432: smooth Farey-map hole approximations, no parameter-detuned family formula."
+      ],
+      "reasoning": "Neither a fixed-index trichotomy nor a smooth-map hole computation directly dominates the joint \\(\theta_n\to1\\) theorem or its uniform first-order correction; published general renewal results might eventually be shown to cover it.",
+      "searches": [
+        "arxiv:2601.15908 theorem 3.6 example 3.3",
+        "Knight Munday 2014 piecewise alpha Farey open system small hole escape rate uniform crossover finite infinite invariant measure theta=1 critical window",
+        "arxiv:1512.04432 Farey map escape rates"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1411.3515 full relevant mathematical sections",
+      "arxiv:1512.04432 relevant sections",
+      "arxiv:2601.15908 theorem 3.6 and example 3.3",
+      "Related published mathematical-result semantic queries for Farey escape, moving exponent, spectral zeta and crossover"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier source fixes \\(\theta>1\\), \\(\theta=1\\) or \\(\theta<1\\) as \\(n\to\\infty\\); present claim holds for any \\(\theta_n\to1\\), including \\((\theta_n-1)\\log n\\) unbounded.",
+        "Exact determinant is prior known and is stated as such; uniform estimates of its root and second-order finite bias are established here."
+      ],
+      "reasoning": "One cannot interchange fixed-parameter and shrinking-hole limits based on the primary theorem alone; the new first-moment comparison proves the missing uniformity and Euler correction.",
+      "searches": [
+        "arxiv:1411.3515 equation 12 and sections 4.2-4.5",
+        "arxiv:2601.15908 theorem 3.6",
+        "\"alpha-Farey\" \"escape\" \"critical\" \"crossover\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knight--Munday arXiv:1411.3515, Eq. (12), sections 4.3--4.5: separate finite, borderline and infinite regimes; no joint window.",
+        "The new leading expression is equivalent to \\(\\gamma_n\\sim n^{-\theta_n}/\\int_1^n x^{-\theta_n}\\,dx\\), uniformly for \\(\theta_n\to1\\); the finite Euler correction is stronger."
+      ],
+      "reasoning": "The moving-parameter truncated first moment and its uniform exponential error are necessary; a pointwise asymptotic for each fixed parameter is not a uniform statement.",
+      "searches": [
+        "\"alpha-Farey\" \"escape\" \"critical\" \"crossover\"",
+        "alpha-Farey intermittent escape rate harmonic partition power law tail t_k=k^{-theta} near critical theta=1 scaling theta-1 proportional to 1/log n universal crossover profile c/(exp(c)-1)",
+        "arxiv:1411.3515 sections 3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results returned related countable Markov entropy corrections and Zipf finite-alphabet dimension crossovers, not a matching Farey escape-rate table or claimed uniform coefficient.",
+        "Knight--Munday provide numerical plots at fixed parameters; their figures do not tabulate the detuned limit."
+      ],
+      "reasoning": "Finite fixed-parameter plots and unrelated spectral or dimension tables cannot supply the exact moving-window escape law. Database coverage is incomplete and does not establish absolute novelty.",
+      "searches": [
+        "Piecewise linear alpha-Farey maps with Markov holes, escape-rate pressure polynomial sum a_k exp(k gamma)=1, parameter theta close to one at scale 1/log n, explicit critical crossover profile and Euler constant correction",
+        "sum_{k<n} z^k(k^{-theta}-(k+1)^{-theta}) root in near critical theta 1 logarithmic finite size scaling",
+        "Critical-window crossover and Euler correction for alpha-Farey escape n log n gamma theta near one c over exp(c)-1"
+      ]
+    },
+    "rationale": "The full relevant sections of the identical 2014 power-tail Markov-hole paper supply separate fixed-exponent escape asymptotics, but not a jointly moving exponent or its Euler bias. Later Farey and parabolic escape studies do not supply parameter-uniform control of this family. A fixed-exponent theorem cannot imply a moving-parameter theorem without uniform errors. Searches against related mathematical-result records did not expose exact prior coverage; general renewal theory and unindexed calculations remain residual risks.",
+    "residual_risks": [
+      "Unindexed historical calculations or general renewal theorems with uniform parameter error may imply the leading moving-window law.",
+      "Literature priority assessment is not an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_COVERS determinant and fixed-exponent asymptotics; does not give the moving-exponent crossover or Euler bias",
+        "evidence": [
+          "Equation (12), sections 4.2--4.5, and summary of fixed parameter regimes in section 5."
+        ],
+        "identifier_or_url": "arxiv:1411.3515; https://arxiv.org/pdf/1411.3515",
+        "material_read": "Sections 2--5, including open transfer matrix, Eq. (12), power-tail parameter cases and conclusion, with PDF figures and relevant pages inspected",
+        "method": "Direct reading of open PDF text and page images",
+        "title": "Escape rate scaling in infinite measure preserving systems",
+        "trigger": "Identical alpha-Farey model and Markov-hole spectral polynomial"
+      },
+      {
+        "assessment": "Smooth Farey-map open-hole setting; no equivalent moving power-tail family result located",
+        "evidence": [
+          "Different map/hole formulation; no simultaneous power-tail parameter and Markov cutoff."
+        ],
+        "identifier_or_url": "arxiv:1512.04432; https://arxiv.org/abs/1512.04432",
+        "material_read": "Abstract, introduction and relevant sections on analytic transfer operator and smoothing of holes",
+        "method": "Open-access text inspection",
+        "title": "Escape rates for the Farey map with approximated holes",
+        "trigger": "Potential stronger treatment of Farey hole asymptotics"
+      },
+      {
+        "assessment": "Fixed-index trichotomy; missing uniform \\(\theta_n\to1\\) estimates and Euler correction",
+        "evidence": [
+          "Theorem 3.6 and example 3.3 use fixed parabolic index."
+        ],
+        "identifier_or_url": "arxiv:2601.15908; https://arxiv.org/abs/2601.15908",
+        "material_read": "Introduction and assumptions, theorem 3.6, example 3.3 and surrounding power-tail discussion",
+        "method": "Open-access scientific text inspection",
+        "title": "On the escape rate for intermittent maps with holes shrinking around the indifferent fixed point",
+        "trigger": "Potential general theorem dominating the parameter transition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e16be65-4a98-4826-9af8-2ffad1b9820a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies a finite-to-infinite invariant-measure transition at the critical power tail but its fixed-parameter results do not quantify how close the exponent must approach one as the Markov hole shrinks. The crossover profile and Euler correction resolve this natural critical finite-size gap and predict quantitative escape-rate shifts. The unrestricted detuning leading equivalence has significance beyond a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
