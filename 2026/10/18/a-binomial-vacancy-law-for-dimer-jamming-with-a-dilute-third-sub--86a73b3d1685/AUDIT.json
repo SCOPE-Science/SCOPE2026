@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact acceptance-chain rates ab,ac,bc are correct; tagged rare-part survival is bounded at each min(a,b)=s by probability at least 1/(s+r) of matching, giving the telescoping product (h+r-1)/(n+r). The A/B imbalance never exceeds r; each rare attachment differs from a fair coin by at most r/(4h), leading by coupling to the stated TV bound. After the rare vertices are used, remaining AB matching leaves the absolute coin imbalance. Choosing \\(h\\sim\\sqrt{nr}\\) and applying the binomial CLT proves both scaling claims. Independent labeled-vertex and edge-permutation finite-state checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Frieze (1991) abstract: general fixed-graph RANDOM-EDGE matching, sparse planar/forest classes, forest approximation-ratio bound. Full text not obtained.",
+        "Arnosti (2021), full PDF core scope: comparison of RANDOM-EDGE, RANDOM-VERTEX, RANKING on bipartite graphs with random edge sets; no third vertex class.",
+        "Evans (1993) abstract: broad RSA review of lattice and continuum kinetics, not a stated complete-tripartite finite-vacancy asymptotic."
+      ],
+      "reasoning": "A theorem for all fixed graphs giving the terminal matching law could dominate the claim, but no such theorem was located. General algorithmic guarantees and expectation inequalities do not imply this complete finite-defect distribution. Because Dyer–Frieze full text was inaccessible, residual bibliographic uncertainty remains; its identifiable primary results concern sparse families rather than the tripartite limit.",
+      "searches": [
+        "DOI:10.1002/rsa.3240020104 randomized greedy matching Dyer Frieze 1991",
+        "DOI:10.1287/stsy.2021.0082 greedy matching bipartite random graphs",
+        "DOI:10.1103/RevModPhys.65.1281 random sequential adsorption Evans 1993",
+        "\"random greedy maximal matching\" \"complete tripartite\"",
+        "\"random greedy matching\" \"complete multipartite\" asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "Evans (1993), DOI:10.1103/RevModPhys.65.1281 (abstract and verified date)",
+      "Dyer–Frieze (1991), DOI:10.1002/rsa.3240020104 (abstract; full text inaccessible)",
+      "Turban (2019), arXiv:1908.00940 (primary PDF, core model/results inspected)",
+      "Arnosti (2021), author PDF / DOI:10.1287/stsy.2021.0082 (primary PDF, core scope inspected)",
+      "Published mathematical finding, 'Sharp variance of random greedy maximal independent sets on complete multipartite graphs' (2026), distinct vertex-occupation invariant.",
+      "Published mathematical finding, 'Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers' (2026), distinct static invariant."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dyer–Frieze DOI:10.1002/rsa.3240020104 abstract gives performance bounds, not a terminal-law identity.",
+        "Turban arXiv:1908.00940, Section 2.1 explicitly assumes any k distinct vertices form an admissible k-mer, unlike forbidden same-part edges here.",
+        "Arnosti DOI:10.1287/stsy.2021.0082 compares algorithms on bipartite random graphs; fixed tripartite substrate and dilution regime are excluded.",
+        "Earlier distinct results concern two cliques bridged, dimers on cycles, and vertex adsorption rather than three-part complete-graph dimer jamming."
+      ],
+      "reasoning": "A stronger probabilistic theorem could imply the target via specialization, but an arbitrary-graph approximation ratio or single-number expectation does not entail the binomial TV coupling. Uniform complete-graph covering time formulas cannot be specialized by merely replacing N with part sizes, since forbidden intrapart edges are essential. Previous own claims have different graph geometry and processes and cannot recover the dilute-defect asymptotic.",
+      "searches": [
+        "Dyer Frieze randomized greedy matching forest approximation fixed graph",
+        "Turban 2019 fully connected dimers absorbing jamming final coverage",
+        "Arnosti 2021 RANDOM-EDGE bipartite random graph theorems",
+        "own earlier claims: clique-pair dimer jamming, alternating-rate cyclic dimer coverage, vertex RSA shortcut"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Turban (arXiv:1908.00940), Section 2.1: k-mers are sampled among all distinct sites of a one-type fully connected graph, and complete coverage is always possible.",
+        "Arnosti (2021 manuscript), Introduction and Definition 1: RANDOM-EDGE acts on bipartite jobs-days graphs, not a fixed complete three-part graph.",
+        "Searches for absolute simple-random-walk, half-normal vacancy law and dilute third part returned no corresponding statement in the examined results."
+      ],
+      "reasoning": "The relevant equivalents would call the process a random-edge greedy maximal matching, Poisson-arrival dimer deposition, or a three-color annihilation urn. The submitted theorem identifies the finite-defect law on the complete tripartite family, not just an expected matching size. Turban is a one-part fully connected process, Arnosti bipartite, and found tripartite mentions did not make this distributional assertion.",
+      "searches": [
+        "Complete tripartite K_{n,n,r}, random-edge greedy maximal matching, dimer deposition, unmatched vertices, absolute simple random walk binomial distribution",
+        "Random sequential dimer adsorption on complete multipartite graph with dilute third part: limiting vacancy distribution and half normal limit",
+        "\"random greedy matching\" \"complete tripartite\" vertices",
+        "\"random sequential adsorption\" \"complete tripartite\" dimers matching",
+        "arXiv:1908.00940: terms \"multipartite\", \"partition\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Turban Section 2.1 formula (2.1) and Sections 3–4 provide one-type covering time formulas rather than tripartite vacancy probabilities.",
+        "The returned published result on sharp variance of random greedy maximal independent sets of complete multipartite graphs concerns vertex occupation, not edge-dimer greedy matchings.",
+        "The published result on dissociation polynomials of complete multipartite graphs enumerates static vertex subsets, not stochastic terminal matching vacancies."
+      ],
+      "reasoning": "An exact table of the proposed terminal distribution on \\(K_{n,n,r}\\) would cover its fixed-r limit. The inspected dense-substrate results concern complete uncolored graph adsorption times, while indexed multipartite tables were for unrelated static invariants. No exact same-object table was found.",
+      "searches": [
+        "random sequential adsorption dimers complete graph complete multipartite lattice monomers bipartite",
+        "Random sequential adsorption of k-mers fully-connected lattice Loic Turban arxiv 2019",
+        "random greedy maximal matching complete tripartite residual unmatched distribution table",
+        "published research-index query: random sequential adsorption of dimers complete bipartite graphs jamming count parity threshold exact generating function"
+      ]
+    },
+    "rationale": "Direct searches of synonymous process descriptions, published mathematical records and primary literature found no derivation or dominating theorem for the complete-tripartite dilute-class vacancy distribution with explicit TV error and half-normal regime. The closest full-text sources describe complete one-type substrates or bipartite random-graph matching and do not imply this statement. The older Dyer–Frieze paper was only abstract-accessible, leaving a real priority risk that does not supply a decisive contrary implication.",
+    "residual_risks": [
+      "The 1991 Dyer–Frieze full text was unavailable through open sources; full text was not obtained. An unindexed complete-graph example could conceivably specialize to this family.",
+      "General priority cannot be inferred from search absence; potential related forms include random-edge greedy matching, urn depletion, and defect jamming.",
+      "The quantitative estimate may be improvable and the broader dilute regime remains open in this package."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-type complete graph permits any k-set and obtains covering-time distributions; not a three-part fixed graph terminal-vacancy law",
+        "evidence": [
+          "Section 2.1 explicitly states that every k distinct sites can be occupied by a k-mer and that full coverage is always possible; Section 2.3 describes time distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.00940",
+        "material_read": "PDF title/abstract, Introduction, Section 2.1 model including equation (2.1), main-result framing and Sections 3–4 roadmap; also scanned for multipartite/partition vocabulary",
+        "method": "Open-access arXiv PDF visually checked and relevant passages read",
+        "title": "Random sequential adsorption of k-mers on the fully-connected lattice: probability distributions of the covering time and extreme value statistics",
+        "trigger": "Closest full-connected dimer RSA paper, possible stronger full-graph coverage statement"
+      },
+      {
+        "assessment": "Fixed bipartite jobs-days matching with random edges and comparisons among algorithms; neither \\(K_{n,n,r}\\) nor final dilute-vacancy distribution appears in inspected relevant scope",
+        "evidence": [
+          "Introduction, Definition 1 and discussion of RANDOM-EDGE."
+        ],
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "PDF title/abstract, Introduction and section 1.1 definitions, portions of proof sections 2–3 and bibliography; checked for tripartite statements",
+        "method": "Open author manuscript visually checked and relevant definitions/theorems read",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Same edge-greedy procedure; possible algorithmic implication"
+      },
+      {
+        "assessment": "Relevant and potentially overlapping method; abstract identifies sparse graph and forest performance results, but full contents not verified; retained as a residual risk",
+        "evidence": [
+          "Dyer–Frieze 1991 abstract discusses forests and general algorithm bounds, not an identified tripartite law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract, bibliographic description; full text unavailable after open-access/arXiv searches ",
+        "method": "Publisher bibliographic record; full text not read",
+        "title": "Randomized greedy matching",
+        "trigger": "Old random-edge greedy matching paper on arbitrary fixed graphs, potentially dominating framework"
+      },
+      {
+        "assessment": "Establishes physical process context; cannot be taken as evidence that the full review excludes a specialized result",
+        "evidence": [
+          "APS lists publication 1993-10-01; abstract defines irreversible RSA and jamming."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+        "material_read": "Publisher article metadata and abstract; full review not read",
+        "method": "APS source metadata/abstract",
+        "title": "Random and cooperative sequential adsorption",
+        "trigger": "Archived foundational RSA literature and earliest dated public source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86a73b3d-1685-4d9c-ad6c-27a8b6a6c475",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adding a finite dilute third sublattice to the perfectly jammable balanced complete bipartite substrate produces a nontrivial macroscopic probability of a local jamming defect (for r=2, two vacant vertices with limiting probability 1/2), while coverage density alone would hide it. The result provides all fixed-r vacancy distributions, an explicit convergence error and the emerging half-normal crossover for many dilute vertices, tied to a clear physical irreversible adsorption mechanism rather than a cosmetic finite graph computation.",
+    "status": "PASS"
+  }
+}
