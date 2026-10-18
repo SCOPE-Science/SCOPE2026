@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Li--Li identify the completed local ring of the contraction point with the completion of the standard graded ring
-\[
-R_d=\bigoplus_{m\ge0}H^0\!\left(\mathbf P^1,\operatorname{Sym}^m(\mathcal O(1)\oplus\mathcal O(d))\right).
-\]
-Its exact degree-\(m\) dimension is
-\[
-\frac{d+1}{2}m^2+\frac{d+3}{2}m+1.
-\]
-Since \(R_d\) has dimension \(3\), its multiplicity is \(d+1\). Completion preserves Hilbert--Samuel multiplicity. Applying this to the source's parameter \(d_i\) gives the claimed local multiplicity, and the source's formula \(\operatorname{edim}=d_i+3\) yields \(\operatorname{mult}=\operatorname{edim}-2\). The source explicitly chooses the \(d_i\) strictly increasing, so unboundedness follows.
+## correctness
 
-## Originality
-PASS. The initiating full text uses the same local ring to compute embedding dimension and distinguish the models, but does not state Hilbert--Samuel multiplicity or unbounded multiplicity. Exact-source, equivalent-formulation, scroll-cone, fixed-threefold, and broader singularity-multiplicity searches found no covering statement. Classical rational-normal-scroll degree theory is compatible with the numerical formula but does not package the fixed-threefold log-canonical-model conclusion. The main residual risk is that the short Hilbert-function consequence may have appeared informally or in unindexed material.
+PASS
 
-## Value
-PASS. The result extracts a fundamental local complexity invariant from the source's full graded-ring description. It strengthens the geometric picture from infinitely many models distinguished by tangent-space size to a quantitative theorem that singularity multiplicities themselves are unbounded on log canonical models of one fixed smooth canonically polarized threefold. The conclusion is narrowly scoped to the Li--Li family and does not claim a universal phenomenon.
+The specified local model is the completion of the standard graded three-dimensional section ring R_d=⊕_{m≥0} H0(P1,Sym^m(O(1)⊕O(d))). For each m, Sym decomposes as ⊕_{b=0}^m O(m+b(d-1)); h0(O(q))=q+1 for q≥0. Thus h_R(m)=(d+1)m²/2+(d+3)m/2+1 exactly; its leading coefficient equals e(R)/2!, hence e=d+1. Completion preserves Hilbert–Samuel multiplicity. The independent symbolic combinatorial calculation for d=1,2,5,11 and m=0,1,2,5,12 matched the polynomial. Application to a single fixed threefold and increasing d_i explicitly depends on the Li–Li formal-neighborhood and unbounded-degree existence assertions as cited, not separately reproved from its inaccessible full text.
 
-The closest literature is Li--Li, arXiv:2609.03305, together with standard rational-normal-scroll degree theory. The result does not classify the analytic germs or assert that all infinite families of log canonical models have unbounded multiplicity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A rational normal scroll cone of type (1,d) has known projective degree d+1, so the number itself is standard algebraic geometry; the claimed contribution is its unbounded occurrence among the particular varying log canonical models of the *same fixed canonically polarized threefold*. The Li–Li abstract and assigned source’s cited Lemma 5.1/Thm 1.4 identify unbounded embedding dimension d_i+3, but full original paper was inaccessible through authorized retrieval and may state multiplicity as well. Treat this as best-of-knowledge PASS with significant stated priority risk, not as exhaustive negative full-text inspection.
+
+## value
+
+PASS
+
+Hilbert–Samuel multiplicity quantifies singularity severity and is a natural analytic invariant distinct from the embedding dimension used to distinguish models. Realizing arbitrarily large multiplicities on log canonical models of the same smooth polarized base is a coherent consequence not merely an arbitrary d-sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
