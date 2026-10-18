@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the fixed positivity function, the factor distance inequalities follow directly from the displayed transition tables. The product states \((0,0)\) and \((0,2)\) have positive distances exactly three in both directions; all shorter positive words are explicitly exhausted. The two-state classification uses the forced transition \(a(0)=0\) and splits into the only two permitted forms, proving the minimum total size. The reset word \(\mathtt{aba}\) works on every state of both factors. The independent BFS checker reproduces each finite claim. The proof needs no statistical inference.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Bradshaw–Clow–Stacho, *A cornering strategy for synchronizing a DFA*, arXiv:2405.00826v3, §6, immediately before Theorem 6.1, states that whether a pair of individual \(f\)-corners remains an \(f\)-corner is unclear. Its theorem proves target synchronization, a strictly weaker property demonstrated by the present example. Topical research-record and web searches did not identify an equivalent minimal binary counterexample. This negative result does not refute the three-factor synchronization conjecture. The 2026 journal full text was not independently inspected and an unindexed equivalent remains a priority risk.
+PASS
 
-**Value — PASS.** The exact failure settles a named structural uncertainty in the product-synchronization argument and explains why the product theorem cannot be proved merely by inheriting its premise. Strong connectivity of both factors rules out unreachable-state artifacts, and the sharp five-state minimum makes the obstruction canonical for the fixed, elementary regular positivity language. No claims about other positivity functions are required for its relevance.
+For the fixed language of positive words {epsilon}∪a{a,b}*, the given binary transitions A=(a:00,b:10) and B=(a:002,b:120) produce strongly connected automata with strict f-positive distance corner 0. Product z=(0,0), q=(0,2) have exactly length-three positive routes z->q via abb and q->z via aba, while positive words shorter than three are just a,aa,ab and cannot traverse either pair; hence equality 3=3 defeats strict f-corner inheritance. aba nevertheless resets all six product states, so this does not contradict product synchronizability. The universal five-state minimum follows by classifying all two-state positive-corner automata (four Type I reset-a automata, one Type II identity-a/reset-b), verifying every 2x2 type pair retains its corner and singleton factors cannot create failure. Independently enumerated 16 two-state binary automata, found exactly 5 with corner 0 and all 25 two-by-two pairs good, and checked the 2x3 witness metrics and reset. The fixed alphabet and positivity-function restriction is essential.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bradshaw–Clow–Stacho arXiv:2405.00826v3 states immediately before Theorem 6.1 that it is unclear whether f-corners remain corners in the product. Theorem 6.1 establishes that the product can be synchronized to the designated pair, which is strictly weaker. The explicit 2x3 counterexample both satisfies their synchronized-target theorem and disproves the proposed stronger inheritance, with complete sharp size minimum for this fixed f. The 2026 journal text was not directly compared page by page.
+
+## value
+
+PASS
+
+Resolves an explicitly raised structural question in synchronizing automata by a minimal, strongly-connected and still synchronizable counterexample. The exhaustive lower bound (no total size <5 for this positivity language) makes the obstruction sharp and reusable for understanding product arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

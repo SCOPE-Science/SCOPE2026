@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed language of positive words {epsilon}∪a{a,b}*, the given binary transitions A=(a:00,b:10) and B=(a:002,b:120) produce strongly connected automata with strict f-positive distance corner 0. Product z=(0,0), q=(0,2) have exactly length-three positive routes z->q via abb and q->z via aba, while positive words shorter than three are just a,aa,ab and cannot traverse either pair; hence equality 3=3 defeats strict f-corner inheritance. aba nevertheless resets all six product states, so this does not contradict product synchronizability. The universal five-state minimum follows by classifying all two-state positive-corner automata (four Type I reset-a automata, one Type II identity-a/reset-b), verifying every 2x2 type pair retains its corner and singleton factors cannot create failure. Independently enumerated 16 two-state binary automata, found exactly 5 with corner 0 and all 25 two-by-two pairs good, and checked the 2x3 witness metrics and reset. The fixed alphabet and positivity-function restriction is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 only guarantees simultaneous synchronizability, and source remarks that product corner status is unclear",
+          "The witness is synchronizable by aba and nevertheless not itself a corner"
+        ],
+        "reasoning": "Stronger reset ability does not imply positive-distance strict inequality: there is no prior coverage by the source synchronization theorem.",
+        "searches": [
+          "arXiv:2405.00826v3 Section 6 Theorem 6.1",
+          "Resultary: f-corner synchronous direct product counterexample cornering synchronizing automata Bradshaw Clow Stacho"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md pinned Git SHA 90ecacb5067716f9ec08df7597ef31dd92c1a8cd",
+        "arXiv:2405.00826v3 Sections 4.1,6,7; Theorem 6.1",
+        "DOI:10.1016/j.tcs.2026.115864 (metadata only)",
+        "Resultary automata product semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The authors explicitly distinguish proved product synchronizability from uncertain f-corner inheritance",
+          "Constructed product satisfies aba reset and fails strict product corner at q=(0,2)"
+        ],
+        "reasoning": "The prior theorem is logically compatible, rather than implying, the new negative conclusion; a stronger theorem would be contradicted by the witnessed equality.",
+        "searches": [
+          "Bradshaw Clow Stacho arXiv:2405.00826v3 Theorem 6.1 and paragraph immediately preceding",
+          "DOI:10.1016/j.tcs.2026.115864 metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bradshaw–Clow–Stacho Section 4.1 defines d_f^+ and strict f-corner; this is exactly a shortest-path asymmetry over a regular first-letter language",
+          "New witness gives equality d_f^+(z,q)=d_f^+(q,z)=3 for z=(0,0), q=(0,2)"
+        ],
+        "reasoning": "Equivalent formulation is failure of positive-language metric strict asymmetry under synchronous products, not failure of reset synchronization. No matching published minimal witness identified; no exhaustive search claim.",
+        "searches": [
+          "Resultary: f-corner synchronous direct product counterexample cornering synchronizing automata Bradshaw Clow Stacho",
+          "web: f-positive shortest path designated product corner binary automata equality counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Figure 6 treats non-strong connectivity of some product, not these two f-corner factors",
+          "The complete 16-automaton 2-state census gives 5 admissible 0-corner maps and 25 qualifying 2x2 pairs"
+        ],
+        "reasoning": "There was no preexisting identified exact 2x3 matching transition table; local complete enumeration proves minimality but is not evidence of global bibliographic absence.",
+        "searches": [
+          "arXiv:2405.00826v3 Figure 6 and Section 6",
+          "web: product f-corner two-state three-state transition table minimal binary"
+        ]
+      },
+      "rationale": "Bradshaw–Clow–Stacho arXiv:2405.00826v3 states immediately before Theorem 6.1 that it is unclear whether f-corners remain corners in the product. Theorem 6.1 establishes that the product can be synchronized to the designated pair, which is strictly weaker. The explicit 2x3 counterexample both satisfies their synchronized-target theorem and disproves the proposed stronger inheritance, with complete sharp size minimum for this fixed f. The 2026 journal text was not directly compared page by page.",
+      "residual_risks": [
+        "Final journal full text (2026) not checked line by line; an added counterexample could overlap.",
+        "Minimality only over complete binary automata for this specific f, not all positivity predicates or alphabet sizes.",
+        "Source-tree ancestor verification and full package privacy clearance were not completed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves synchronization; explicitly flags f-corner product property as unclear, so this witness is not covered",
+          "evidence": "Page 21 before Theorem 6.1 remarks uncertainty whether product corners inherit; theorem resets target pair.",
+          "identifier_or_url": "arXiv:2405.00826v3",
+          "material_read": "Actual lawfully available full preprint PDF, especially Section 4.1 definitions, Section 6 figure, discussion and Theorem 6.1, Section 7; rendered relevant page 21",
+          "method": "arXiv open PDF text and rendered-page inspection",
+          "title": "A cornering strategy for synchronizing a DFA",
+          "trigger": "Same authors introduce f-corners and directly discuss product inheritance"
+        },
+        {
+          "assessment": "No assessment of amendments after preprint version 3; retained priority risk",
+          "evidence": "Preprint revision 2025-08-20 versus published 2026 version",
+          "identifier_or_url": "DOI:10.1016/j.tcs.2026.115864 (2026 journal edition)",
+          "material_read": "Journal bibliographic metadata only; full journal text not retrieved or asserted read",
+          "method": "publisher metadata / DOI record",
+          "title": "A cornering strategy for synchronizing a DFA",
+          "trigger": "Potential updated final version of same exact question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves an explicitly raised structural question in synchronizing automata by a minimal, strongly-connected and still synchronizable counterexample. The exhaustive lower bound (no total size <5 for this positivity language) makes the obstruction sharp and reusable for understanding product arguments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md pinned Git SHA 90ecacb5067716f9ec08df7597ef31dd92c1a8cd",
+    "arXiv:2405.00826v3 Sections 4.1,6,7; Theorem 6.1",
+    "DOI:10.1016/j.tcs.2026.115864 (metadata only)",
+    "Resultary automata product semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Final journal full text (2026) not checked line by line; an added counterexample could overlap.",
+    "Minimality only over complete binary automata for this specific f, not all positivity predicates or alphabet sizes.",
+    "Source-tree ancestor verification and full package privacy clearance were not completed.",
+    "Potentially public original METADATA.json includes scope_run_id operational provenance; neutral complete replacements and package-wide semantic privacy clearance are absent.",
+    "Record-root Git tree ancestry was not independently reconstructed from Git tree API objects (read-only connector returned the pinned file blobs; assigned tree identity is not independently proven).",
+    "The complete public package has not been sanitized and verified with exact guarded UTF-8 replacement bytes."
+  ],
+  "residual_risks": [
+    "Final journal full text (2026) not checked line by line; an added counterexample could overlap.",
+    "Minimality only over complete binary automata for this specific f, not all positivity predicates or alphabet sizes.",
+    "Source-tree ancestor verification and full package privacy clearance were not completed."
+  ],
+  "schema_version": 1
+}
