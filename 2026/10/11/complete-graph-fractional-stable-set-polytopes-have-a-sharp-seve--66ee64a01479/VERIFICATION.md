@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-dimensional mathematical proof is in `RESULT.md`.
 
-The critical checks are:
-- The exact half-integral vertex lemma implies that for a clique, all and only half-indicator supports of cardinality at least three can appear as fractional vertices; integral vertices are zero or a singleton indicator.
-- For a center \(t\mathbf1\), the squared distances to zero, a unit vector, and a half-support indicator of size \(k\) are respectively
-  \[
-  nt^2,\qquad nt^2+1-2t,\qquad nt^2+k(1/4-t).
-  \]
-- At \(t=1/n\), the unit-vector-centered simplex ball contains the fractional vertices exactly for integers \(3\le n\le6\).
-- At \(t=(n-4)/(4(n-2))\) for integers \(n\ge7\), the unit-vector and full-half distances are equal, and the distances of every smaller half-support layer are strictly less.
-- The contact combination weights for \(n\ge7\) are \(a_n=n/(2(n-2)^2)\) on each unit vector and \(b_n=(n^2-8n+8)/(2(n-2)^2)\) on the full-half vertex. Both are positive, sum to one over the contact multiset, and yield the center.
-- Weighted squared-distance averaging proves global minimality and uniqueness for arbitrary translated centers.
-- Exact algebra gives the integer-to-fractional squared-radius gap and its asymptotic behavior.
+# Independent mathematical audit
 
-`verify.py` independently enumerates the half-indicator vertex types for \(3\le n\le12\), checks all distance and contact formulas, confirms the barycentric weights with rational arithmetic, and solves the full epigraph minimum enclosing ball numerically for \(3\le n\le8\). Finite experiments corroborate the symbolic proof and are not infinite certification or an originality assessment.
+## correctness
+
+PASS
+
+Verified the exact meaning of \(\mathrm{FRAC}(K_n)\): pair inequalities and nonnegative coordinates, not the stronger clique-sum inequality. Standard half-integrality and odd-cycle tight-edge criterion, specialized to the clique, yield all vertices \(0,e_i,\frac12\mathbf1_S\) for \(|S|\ge3\). Symmetric uniqueness restricts the center to \(t\mathbf1\); squared vertex distances are \(nt^2\), \(nt^2+1-2t\), and \(nt^2+k(1/4-t)\). For \(n\le6\), the unit-vertex simplex center \(t=1/n\) contains all fractional vertices strictly; for \(n\ge7\) it excludes the full-half vertex, and equality of active distances yields \(t=(n-4)/(4(n-2))\), radius squared \(n^3/[16(n-2)^2]\). Positive barycentric coefficients \(a=n/[2(n-2)^2]\), \(b=(n^2-8n+8)/[2(n-2)^2]\) place the center in the convex hull of sphere contacts, proving global optimality and uniqueness by variance identity, not by local numerical minimization. Independently enumerated all half-support sizes and their exact distances/contact sets for \(3\le n\le12\), including the \(n=7\) gap \(1/2800\). Finite checks corroborate the all-n symbolic proof.
+
+## originality
+
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+The standard fractional edge relaxation of a clique has a surprisingly sharp metric phase transition: it matches the integral stable-set simplex sphere through dimension six but requires a fractional contact from dimension seven, with a growing explicit radius gap. The exact center, contacts, and threshold are motivated quantitative geometric facts about a canonical combinatorial relaxation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

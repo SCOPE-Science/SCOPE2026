@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cited half-integral odd-cycle criterion gives exactly the complete-graph vertex family used in the proof. Coordinate-permutation symmetry and uniqueness force a scalar center. The exact squared distances from that center to zero, unit vectors, and every half-support layer reduce the sphere to two relevant orbits. The simplex-center ball remains feasible through dimension six; starting in dimension seven, the all-half vertex forces a new contact and the displayed balancing center. Positive weights on the contact vertices prove global minimality and uniqueness directly. The integrality-gap expression is obtained by exact algebra, not a numerical extrapolation.
+## correctness
 
-## Originality
-PASS. The primary circuit-diameter full text was inspected in its fractional-stable-set section and does not determine ambient Euclidean enclosing radii. The supporting full-text Ehrhart paper was inspected at the exact half-integral vertex lemma and likewise does not determine a radius or contact theorem. Published-result, indexed, and semantic database searches covered complete-graph and truncated-orthant aliases, circumradius, minimum enclosing ball, Chebyshev center, seven-dimensional transition, and exact tables. The triangle is both a clique and a cycle, but for four or more vertices the graph edge systems differ and a cycle-specific radius formula does not itself imply the complete-graph transition. Classical convex-geometry terminology remains an indexing risk.
+PASS
 
-## Value
-PASS. The body is a canonical edge relaxation for stable-set optimization. The theorem identifies the precise point at which a fractional vertex first becomes indispensable for its minimum enclosing sphere, proves the exact full-dimensional contact classification, and shows that the Euclidean relaxation gap thereafter grows without bound relative to the integral simplex benchmark.
+Verified the exact meaning of \(\mathrm{FRAC}(K_n)\): pair inequalities and nonnegative coordinates, not the stronger clique-sum inequality. Standard half-integrality and odd-cycle tight-edge criterion, specialized to the clique, yield all vertices \(0,e_i,\frac12\mathbf1_S\) for \(|S|\ge3\). Symmetric uniqueness restricts the center to \(t\mathbf1\); squared vertex distances are \(nt^2\), \(nt^2+1-2t\), and \(nt^2+k(1/4-t)\). For \(n\le6\), the unit-vertex simplex center \(t=1/n\) contains all fractional vertices strictly; for \(n\ge7\) it excludes the full-half vertex, and equality of active distances yields \(t=(n-4)/(4(n-2))\), radius squared \(n^3/[16(n-2)^2]\). Positive barycentric coefficients \(a=n/[2(n-2)^2]\), \(b=(n^2-8n+8)/[2(n-2)^2]\) place the center in the convex hull of sphere contacts, proving global optimality and uniqueness by variance identity, not by local numerical minimization. Independently enumerated all half-support sizes and their exact distances/contact sets for \(3\le n\le12\), including the \(n=7\) gap \(1/2800\). Finite checks corroborate the all-n symbolic proof.
 
-## Closest literature and limitations
-Kafer--Pashkovich--Sanità analyze circuit diameters; Hamano--Hibi--Ohsugi classify fractional vertices and Ehrhart data. Neither addresses the reported Euclidean minimum-sphere phase transition. The result is restricted to the standard edge-relaxation of complete graphs; general graphs and stronger clique-inequality relaxations are not covered.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+The standard fractional edge relaxation of a clique has a surprisingly sharp metric phase transition: it matches the integral stable-set simplex sphere through dimension six but requires a fractional contact from dimension seven, with a growing explicit radius gap. The exact center, contacts, and threshold are motivated quantitative geometric facts about a canonical combinatorial relaxation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

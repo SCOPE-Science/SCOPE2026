@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T22:08:53.285012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the exact meaning of \\(\\mathrm{FRAC}(K_n)\\): pair inequalities and nonnegative coordinates, not the stronger clique-sum inequality. Standard half-integrality and odd-cycle tight-edge criterion, specialized to the clique, yield all vertices \\(0,e_i,\\frac12\\mathbf1_S\\) for \\(|S|\\ge3\\). Symmetric uniqueness restricts the center to \\(t\\mathbf1\\); squared vertex distances are \\(nt^2\\), \\(nt^2+1-2t\\), and \\(nt^2+k(1/4-t)\\). For \\(n\\le6\\), the unit-vertex simplex center \\(t=1/n\\) contains all fractional vertices strictly; for \\(n\\ge7\\) it excludes the full-half vertex, and equality of active distances yields \\(t=(n-4)/(4(n-2))\\), radius squared \\(n^3/[16(n-2)^2]\\). Positive barycentric coefficients \\(a=n/[2(n-2)^2]\\), \\(b=(n^2-8n+8)/[2(n-2)^2]\\) place the center in the convex hull of sphere contacts, proving global optimality and uniqueness by variance identity, not by local numerical minimization. Independently enumerated all half-support sizes and their exact distances/contact sets for \\(3\\le n\\le12\\), including the \\(n=7\\) gap \\(1/2800\\). Finite checks corroborate the all-n symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamano--Hibi--Ohsugi general theorem covers half-integrality/odd cycles for all graphs.",
+          "A general Euclidean minimal enclosing ball criterion gives optimality when a center is a convex barycenter of farthest contacts, but does not choose the farthest vertices or the dimension threshold."
+        ],
+        "reasoning": "The general vertex and convexity tools are known ingredients; neither contains the two-orbit radius minimization, exact contact transition at dimension seven, or relaxation radius gap. Their use is credited without claiming new underlying lemmas.",
+        "searches": [
+          "arXiv:1603.09613",
+          "arXiv:1709.09642",
+          "fractional stable set clique polytope minimum enclosing Euclidean ball circumsphere radius dimensions"
+        ]
+      },
+      "checked_sources": [
+        "Hamano, Hibi, Ohsugi (2016/2018), arXiv:1603.09613, full PDF Lemma 2.2 and main results.",
+        "Kafer, Pashkovich, Sanita (2017/2019), arXiv:1709.09642, doi:10.1137/17M1152115; abstract and scope."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The half-integral odd-cycle vertex theorem yields candidate extreme points, not a minimum enclosing sphere.",
+          "The full-half vector first violates the simplex sphere precisely when \\(n^2-8n+8>0\\), i.e. integer \\(n\\ge7\\)."
+        ],
+        "reasoning": "A nontrivial barycentric contact certificate and threshold comparison are necessary beyond prior polyhedral combinatorics. The exact squared gap and contact list do not follow merely from a prior circuit-diameter theorem.",
+        "searches": [
+          "arXiv:1603.09613",
+          "arXiv:1709.09642",
+          "fractional stable set clique polytope minimum enclosing Euclidean ball circumsphere radius dimensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamano--Hibi--Ohsugi Lemma 2.2 characterizes half-integral vertices using odd-cycle support and directly yields the clique fractional vertex set.",
+          "Kafer--Pashkovich--Sanita defines the same fractional stable-set edge-relaxation but asks circuit diameter questions."
+        ],
+        "reasoning": "The vertex classification is explicitly prior and not the novel claim. The Euclidean smallest-sphere metric invariant differs from Ehrhart, circuit diameter and ordinary stability polytope invariants.",
+        "searches": [
+          "arXiv:1603.09613",
+          "arXiv:1709.09642",
+          "fractional stable set clique polytope minimum enclosing Euclidean ball circumsphere radius dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical clique stable-set simplex radius squared \\(1-1/n\\) is elementary and acknowledged.",
+          "No matching minimum-enclosing-ball contact/radius table for the fractional clique edge-relaxation was located in the inspected Ehrhart/circuit sources."
+        ],
+        "reasoning": "The precise transition and asymptotic separation are exact natural invariants not a transcription of the vertex enumeration or the known simplex radius. A general simplex-plus-half-vector circumradius result under other terminology remains an explicit risk.",
+        "searches": [
+          "arXiv:1603.09613",
+          "arXiv:1709.09642",
+          "fractional stable set clique polytope minimum enclosing Euclidean ball circumsphere radius dimensions"
+        ]
+      },
+      "rationale": "This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.",
+      "residual_risks": [
+        "Other naming conventions for Euclidean Chebyshev centers or simplex-plus-half-support convex hulls could contain an unlocated dominating general result.",
+        "Resultary unavailable; absence of semantic-index results has not been inferred.",
+        "The theorem does not cover general graphs, affine images, or stronger clique-inequality relaxations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides half-integral vertex criterion but does not study Euclidean enclosing spheres in material read",
+          "evidence": "Lemma 2.2 and main Ehrhart theorems.",
+          "identifier_or_url": "arXiv:1603.09613",
+          "material_read": "Full arXiv primary PDF including Lemma 2.2 and core Ehrhart/Gorenstein results",
+          "method": "Full PDF with page screenshot",
+          "title": "Ehrhart series of fractional stable set polytopes of finite graphs",
+          "trigger": "Exact graph fractional vertex description and any possibly stronger result"
+        },
+        {
+          "assessment": "Studies circuit steps/dimensions, not a checked enclosing-ball radius or contact classification",
+          "evidence": "Article title, abstract, fractional stable-set scope.",
+          "identifier_or_url": "arXiv:1709.09642;doi:10.1137/17M1152115",
+          "material_read": "Abstract and bibliographic/scope portions identifying circuit diameter setting",
+          "method": "Abstract and indexed article record",
+          "title": "On the Circuit Diameter of Some Combinatorial Polytopes",
+          "trigger": "Same FRAC edge relaxation and potential exact polytope geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard fractional edge relaxation of a clique has a surprisingly sharp metric phase transition: it matches the integral stable-set simplex sphere through dimension six but requires a fractional contact from dimension seven, with a growing explicit radius gap. The exact center, contacts, and threshold are motivated quantitative geometric facts about a canonical combinatorial relaxation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all clique dimensions \\(n\\ge3\\), the exact minimum enclosing Euclidean ball of the fractional stable-set edge-relaxation polytope \\(\\mathrm{FRAC}(K_n)\\), its unique center, every sphere contact, and the exact squared-radius gap from the true stable-set simplex, with the first fractional contact at \\(n=7\\).",
+  "limitations": [
+    "Other naming conventions for Euclidean Chebyshev centers or simplex-plus-half-support convex hulls could contain an unlocated dominating general result.",
+    "Resultary unavailable; absence of semantic-index results has not been inferred.",
+    "The theorem does not cover general graphs, affine images, or stronger clique-inequality relaxations.",
+    "Independent exact checks use bounded witnesses/finite enumerations where specified and do not replace universal proof.",
+    "All checked source contents are evidence, not operational instructions; prior reviews are not this round's evidence."
+  ],
+  "schema_version": 1
+}
