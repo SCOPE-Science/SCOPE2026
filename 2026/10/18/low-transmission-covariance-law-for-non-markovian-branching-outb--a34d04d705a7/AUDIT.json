@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For F in {T,S,TS}, sum N=1 and N=2 histories exactly. Their first-order rates are (1/2,1,2 E Q²); every N>=3 contribution is O_B(lambda²), using Poisson(lambda B) total-progeny domination and bounded T<=S<=BN. Therefore covariance expansion holds with all quantifiers and boundary cases. Exact finite-support checks agree, but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1408.0641v1 Theorem 1 and Section 3.1: E[T] and E[S] only.",
+        "arXiv:1808.08418v2 Section II: offspring events at exponential clocks; Section III considers critical-population correlations."
+      ],
+      "reasoning": "The exact separate means for every lifetime law do not determine E[TS]; Markovian conditional avalanche shapes and critical temporal moments do not cover general iid lifetimes or small birth rates.",
+      "searches": [
+        "arXiv:1408.0641v1#Theorem-1-and-Section-3.1",
+        "arXiv:1808.08418v2#Sections-II-III"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1304.8014v1",
+      "arXiv:1408.0641v1",
+      "arXiv:1808.08418v2",
+      "2026/10/11/SCOPE-a-stationary-size-biased-moment-floor-and-delayed-recruitment-co--1ea78ae46723",
+      "2026/10/4/SCOPE-sharp-dispersion-frontier-for-composition-closed-stopping-models--bdcd55c38f3e",
+      "2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 formulas give E[T]=-log(1-lambda)/lambda and E[S]=1/(1-lambda).",
+        "The 2013 abstract gives E[A_k], not E[TS].",
+        "The 2018 field theory fixes an exponential waiting-time Markov model and studies near-critical scaling."
+      ],
+      "reasoning": "Separate first moments do not imply covariance: coupling information is missing. Markov-only and critical-asymptotic results cannot imply the explicit arbitrary bounded non-Markovian lifetime-variance response.",
+      "searches": [
+        "arXiv:1408.0641v1#Theorem-1",
+        "arXiv:1304.8014v1",
+        "arXiv:1808.08418v2#Section-II"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Britton and Neal arXiv:1304.8014 abstract identifies first moments of occupancy only.",
+        "Ball, Britton, Neal arXiv:1408.0641v1 Sections 2–3.1 supply first means but not a joint λ-derivative.",
+        "No inspected source states a first-order covariance equal to 1/2 plus twice life-length variance."
+      ],
+      "reasoning": "Alternative terms inspected include extinction time, busy period, epidemic duration, accumulated infectious person-time, outbreak severity, and total lifetimes. No equivalent dependence coefficient was located.",
+      "searches": [
+        "branching process nonexponential infectious lifetime distribution small infection birth rate expansion covariance epidemic extinction duration total infection person time accumulated lifetime",
+        "Ball Britton Neal 2014 duration total person-time insensitivity covariance extinction time and total life length",
+        "\"Cov(T,S)\" \"Var(Q)\" \"lambda\" branching total lifetimes extinction duration sensitivity",
+        "age-dependent branching process covariance of extinction duration and accumulated person time slope 1/2 + 2 variance of lifetime",
+        "arXiv:1408.0641v1#Section-3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest record on Nicholson blowflies concerns stationary delayed-recruitment covariance, not branching extinction.",
+        "Closest composition-closed stopping-model record concerns scalar stopping-time variance, not two duration/total-load statistics."
+      ],
+      "reasoning": "Comparisons were by process definition, the two observables and first-order rate coefficient rather than by title similarity. No directly matching exact identity or table was found.",
+      "searches": [
+        "covariance duration severity general branching process iid life length Poisson offspring birth low reproduction number first order variance",
+        "\"Cov(T,S)\" \"Var(Q)\" \"lambda\" branching total lifetimes extinction duration sensitivity",
+        "age-dependent branching process covariance of extinction duration and accumulated person time slope 1/2 + 2 variance of lifetime",
+        "early branching total severity duration covariance first derivative transmission rate bounded infectious period variance"
+      ]
+    },
+    "rationale": "The inspected 2014 theorem computes separate expectations of extinction time and total lifetime, not the mixed moment or distribution-sensitive first derivative. The 2013 predecessor states mean occupation-time identities. The 2018 memoryless branching study is in a different lifetime class and parameter regime. Existing nearby published covariance findings concern stationary delay systems, generic stopping moments, or renewal residual lives and do not imply the small-birth age-dependent branching law. Full-text and semantic comparisons support originality, without excluding an unindexed equivalent.",
+    "residual_risks": [
+      "Equivalent non-Markovian birth–death/busy-period mixed-moment perturbation may be indexed under different terminology.",
+      "2013 predecessor full text was not accessible; only the abstract is used for its scope, never a whole-document novelty exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal means and occupation means only; no mixed TS moment or first-order covariance theorem",
+        "evidence": [
+          "Theorem 1 equations (2.7)–(2.14); Section 3.1 equations (3.5)–(3.7)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1408.0641v1",
+        "material_read": "Full primary HTML, model, Theorem 1, proof and branching subsection 3.1, plus related SIS discussion",
+        "method": "Read source expressions for T,S, occupation times and assumptions; inspect for joint or covariance results",
+        "title": "On expected durations of birth-death processes, with applications to branching processes and SIS epidemics",
+        "trigger": "Same branching model and exact marginal insensitivity theorem"
+      },
+      {
+        "assessment": "Abstract concerns expected occupation time, not covariance; full-text equivalence cannot be excluded solely from abstract",
+        "evidence": [
+          "Abstract: E[A_K]=delta^(K-1)/(k(1 vee delta)^K) independent of lifetime law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.8014",
+        "material_read": "Accessible abstract and original-publication metadata; full text was not available for this comparison",
+        "method": "Compare stated central assertion and assumptions only; no whole-document exclusion inferred",
+        "title": "On the expected time a branching process has K individuals alive",
+        "trigger": "Earlier source in the same birth/lifetime model"
+      },
+      {
+        "assessment": "Uses Poissonian event-clock Markov branching, so does not include arbitrary nonexponential lifetimes or the light-birth response",
+        "evidence": [
+          "Section II equation (1): constant-rate Markov master equation; Section III: temporal moments and avalanche observables"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.08418v2",
+        "material_read": "Primary HTML abstract, Section I, Section II model definition and Section III observable descriptions",
+        "method": "Check reproduction and waiting-time assumptions and critical scaling limits against general iid durations",
+        "title": "Field-theoretic approach to the universality of branching processes",
+        "trigger": "Potential stronger branching avalanche correlation results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a34d04d7-05a7-464f-ae85-1a29abf68724",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a nontrivial, distribution-sensitive mixed moment in the precise model with established lifetime-insensitive separate means; the first rate response classifies all mean-one bounded lifetime laws through their variance and has sharp universal floor 1/2. This isolates sparse-transmission duration/burden dependence across deterministic and variable infectious periods.",
+    "status": "PASS"
+  }
+}
