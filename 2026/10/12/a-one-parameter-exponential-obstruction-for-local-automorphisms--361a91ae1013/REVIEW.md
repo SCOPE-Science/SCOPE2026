@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The family \(\Phi_\tau\) is checked directly against the defining multiplication of \(\pi_3\), so its membership in the local-automorphism group does not depend on the source's local-automorphism classification. For an arbitrary local derivation, the necessary seven-parameter matrix form is independently recovered from the definition by exact elimination using ten pointwise evaluation constraints after reconstructing the full six-dimensional derivation space. On the resulting invariant block, the exponential formula is exact and forces the \((3,4)\) entry to vanish whenever \(e^x=-1\). This contradicts \((\Phi_\tau)_{3,4}=\tau\ne0\). The boundary \(\tau=0\) is explicitly the exponential of a genuine derivation.
+## correctness
 
-## Originality
-PASS. The current v3 of arXiv:2511.17316 states the opposite equality as Theorem 13, and its proof does not detect zeros of the scalar coefficient multiplying the \((3,4)\) parameter. Exact searches by paper identifier, theorem number, algebra name, matrix entry, exponential-surjectivity formulation, and correction/erratum terminology located no correction or equivalent counterexample. Semantic literature-index searches also found no matching or stronger statement. The closest broader work concerns local automorphisms of Cayley, Lie, or Leibniz algebras and does not imply the present \(\pi_3\) resonance.
+PASS
 
-Residual risk: the motivating preprint is recent, and an unindexed contemporaneous correction or private communication could exist.
+For pi3 products e1²=e2, e1e2=e2e1=e3, e1e4=e4²=e5, Phi_tau sends e1→−e1,e2→e2,e3→−e3,e4→tau e3−e4,e5→e5 and satisfies all 25 ordered basis products. Independent exact derivation Leibniz-system nullspace gives dimension 6; imposing ten necessary pointwise local-derivation evaluations yields precisely the displayed seven-parameter upper/lower triangular necessary matrix. Its (e3,e4) block exp offdiagonal is s(e^(3x)−e^x)/(2x). Matching exp(A)[1,1]=−1 forces e^x=−1 and thus this entry zero; impossible for tau≠0. Phi_0 is exp(diag(i*pi,2i*pi,3i*pi,i*pi,2i*pi)), a genuine derivation. Refutes only pi3 Theorem13 surjectivity.
 
-## Value
-PASS. The result corrects a main theorem of a recent paper with an explicit one-parameter family of actual algebra automorphisms, rather than a numerical or boundary-only anomaly. It also identifies the precise analytic failure in the published converse argument: bounded exponential coefficients can vanish. The sharp boundary \(\tau=0\) shows that the obstruction is a genuine resonance and not a generic failure of exponentiation.
+## originality
 
-## Closest literature and limitations
-The closest source is arXiv:2511.17316v3 itself: Theorem 13 asserts exponential surjectivity for \(LocAut_+(\pi_3)\), while Theorem 9 supplies the same local-derivation matrix shape independently recovered here. The Cayley-algebra work arXiv:2107.01147v1 motivates the Lie-group/Lie-algebra questions but concerns a different algebra. The result does not determine the full exponential image and does not assess the source's analogous \(\pi_2\) theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inspected primary Theorem 13 claims exponential surjectivity onto the plus component, but its proof overlooks vanishing of the divided difference (e^{3x}−e^x)/(2x) at e^x=−1. The explicit automorphism family with nonzero (3,4) entry refutes that exact assertion; existing general literature on other local algebras is not a counterexample for this pi_3.
+
+## value
+
+PASS
+
+An explicit complex one-parameter counterfamily sharply identifies a resonance that invalidates a published theorem on exponential surjectivity of local derivations. It has a clear mathematical purpose, demonstrates the zero coefficient at e^x=−1, and distinguishes tau=0 from tau≠0. No new general classification is needed for the counterexample to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

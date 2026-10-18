@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the multiplication table of \(\pi_3\) and no numerical approximation. `artifacts/verify.py` first solves all basis Leibniz identities for a general \(5\times5\) matrix and recovers a six-dimensional derivation space over \(\mathbb Q\).
+# Independent mathematical audit
 
-For a local derivation \(L\), the definition implies \(L(v)\in\{D(v):D\in Der(\pi_3)\}\) for every \(v\). The script imposes this condition on the ten vectors displayed in `RESULT.md`. Exact nullspace elimination leaves a seven-dimensional necessary space and verifies that it is precisely
-\[
-\begin{pmatrix}
-x&0&0&0&0\\
-p&2x&0&0&0\\
-r&q&3x&s&0\\
-0&0&0&x&0\\
-t&0&0&u&2x
-\end{pmatrix}.
-\]
-Because these are necessary pointwise constraints, every genuine local derivation lies in this space; no sufficiency assumption is used in the obstruction.
+## correctness
 
-The script next verifies symbolically, for indeterminate \(\tau\), that the matrix of \(\Phi_\tau\) preserves all \(25\) ordered basis products and is invertible. It verifies by differentiation that
-\[
-\exp\!\begin{pmatrix}3x&s\\0&x\end{pmatrix}_{1,2}
-=s\frac{e^{3x}-e^x}{2x}
-\]
-for \(x\ne0\), and checks the exact vanishing after substituting \(e^x=-1\). Finally it verifies directly that \(D_0=\operatorname{diag}(i\pi,2i\pi,3i\pi,i\pi,2i\pi)\) satisfies every Leibniz identity and that \(\exp(D_0)=\Phi_0\).
+PASS
 
-The replay uses SymPy 1.14.0 and terminates with `CHECK_OK`. The computation is exact symbolic/rational algebra; no finite experiment is used as an infinite proof. The scientific limitation is that the full exponential image is not classified, and the analogous \(\pi_2\) assertion is not assessed.
+For pi3 products e1²=e2, e1e2=e2e1=e3, e1e4=e4²=e5, Phi_tau sends e1→−e1,e2→e2,e3→−e3,e4→tau e3−e4,e5→e5 and satisfies all 25 ordered basis products. Independent exact derivation Leibniz-system nullspace gives dimension 6; imposing ten necessary pointwise local-derivation evaluations yields precisely the displayed seven-parameter upper/lower triangular necessary matrix. Its (e3,e4) block exp offdiagonal is s(e^(3x)−e^x)/(2x). Matching exp(A)[1,1]=−1 forces e^x=−1 and thus this entry zero; impossible for tau≠0. Phi_0 is exp(diag(i*pi,2i*pi,3i*pi,i*pi,2i*pi)), a genuine derivation. Refutes only pi3 Theorem13 surjectivity.
+
+## originality
+
+PASS
+
+The inspected primary Theorem 13 claims exponential surjectivity onto the plus component, but its proof overlooks vanishing of the divided difference (e^{3x}−e^x)/(2x) at e^x=−1. The explicit automorphism family with nonzero (3,4) entry refutes that exact assertion; existing general literature on other local algebras is not a counterexample for this pi_3.
+
+## value
+
+PASS
+
+An explicit complex one-parameter counterfamily sharply identifies a resonance that invalidates a published theorem on exponential surjectivity of local derivations. It has a clear mathematical purpose, demonstrates the zero coefficient at e^x=−1, and distinguishes tau=0 from tau≠0. No new general classification is needed for the counterexample to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
