@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The graph, edge ordering, cap-two face condition, bit encodings and precise homotopy claim are explicit. For each vertex of the cubic graph, the only prohibited face condition is containing its three incident edges. The standalone program exhausts all 4095 candidate nonempty edge sets, obtains 1698 faces, constructs 847 valid disjoint cover pairs, and identifies precisely one critical vertex and three critical five-faces. The full reoriented face-poset graph has 7980 directed covers; a certified total topological order rules out directed cycles. Forman's discrete-Morse theorem produces a CW complex with one zero-cell and three five-cells, all trivially attached; therefore the claimed integral wedge is proved. A separate chain-rank computation matches the Betti ranks but is not used to substitute for the homotopy argument. Source: `verify.py`, `certificate.json`, `verification_output.txt`.
+
+## Originality — PASS with residual risk
+The complete relevant sections of Ghosh–Selvaraja, *Shellability in Clique-Free Complexes of Graphs* (arXiv:2602.09623v1), and Vega, *2-Matching Complexes* (arXiv:1909.10406), were compared. The former's main theorems concern chordal graph classes and clique attachments and do not apply to this induced-four-cycle-containing line graph. The latter establishes a language and Morse framework and computes other graph families, not this object. Previously published results for the ordinary matching complex of the cube, the ordinary matching complex of its line graph, the cube's discrete-Morse complex, and two-matchings of distinct graphs use genuinely different incidence constraints or underlying graphs; no implication to this precise nonpure cube classification was identified. An unindexed equivalent or stronger theorem remains a residual risk. Absence of search hits is not offered as a uniqueness proof.
+
+## Mathematical value — PASS
+The fixed graph is not a contrived parameter slice: the cube is a canonical regular graph, and the cap-two step is the first strict relaxation from the ordinary matching complex. The equivalent three-clique-free formulation is a natural test just outside the chordal sufficient shellability regime. Unlike a bare f-vector or field-homology computation, the result establishes a full integral homotopy equivalence for a nonpure seven-dimensional complex. The explicit exhaustive acyclic matching makes the classification reproducible and suitable as a benchmark for topology beyond chordal graph classes. No larger classification is claimed.
+
+## Related literature and limitations
+Ghosh–Selvaraja (arXiv:2602.09623v1, 2026-02-10) motivates the higher clique-free problem. Vega (arXiv:1909.10406, 2019-09-23) defines the degree-bounded matching context. Possible stronger unindexed equivalent results remain the material originality risk. Finite verification covers all cells of only the stated object; an independent audit of proof and novelty has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
