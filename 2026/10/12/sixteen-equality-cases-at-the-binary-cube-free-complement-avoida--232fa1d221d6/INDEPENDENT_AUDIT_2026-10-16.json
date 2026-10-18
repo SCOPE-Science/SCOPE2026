@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:11:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently implemented complete binary prefix extension with exhaustive suffix-cube rejection and length-six complement-pair rejection. Both constraints are factorial; every forbidden newly created cube terminates at the newly appended bit, and every newly formed complementary pair of length at least six has a forbidden complementary length-six prefix. The independently obtained survivor counts for lengths 0..51 exactly equal the stated 52-term list; at length 50 there are 16 distinct words and at length 51 none. The complete equality set is preserved by bit complement and reversal, splitting into four disjoint size-four orbits. I compared actual RESULT.md and both engines in verify.py; complete prefix recursion proves exhaustion, not only sampled word checks. The published length-50 upper bound is explicitly prior work.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source Theorem 3(b) reports that no binary cube-free word with no complementary factors of length >=6 can be longer than 50 and displays one extremal example.",
+          "Source Theorem 4(b) concerns a different bound on number of complemented words, not the complete equality family."
+        ],
+        "reasoning": "The original upper-bound proof could have computationally produced all extremizers internally but the inspected published mathematical assertions do not imply their count 16 or orbit sizes.",
+        "searches": [
+          "Currie Dvořáková Ochem Opočenská Rampersad Shallit Complement Avoidance in Binary Words Theorem 3b",
+          "arXiv:2209.09598 max length 50 cube-free complementary factors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.09598v1",
+        "doi:10.37236/11555",
+        "Resultary semantic published-finding search: binary cube-free words no complementary length 6 factors length 50 number extremizers symmetry reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of one equality witness and an upper bound of 50 yield neither the number of boundary words nor the number of symmetry classes.",
+          "Complete prefix enumeration generates the missing equality information from definitions; related Resultary binary-word maxima involve different constraints."
+        ],
+        "reasoning": "The published maximum does not imply the 16/4 counts mathematically without an additional exhaustive classification; an author-held unpublished enumeration is an originality residual risk.",
+        "searches": [
+          "arXiv:2209.09598 Theorem 3(b) extremizers orbit",
+          "Resultary semantic query binary cube-free words no complementary length 6 factors length 50 number extremizers symmetry reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement avoidance at every length >=6 is exactly equivalent to no six-factor and its bit complement both appearing.",
+          "Reversal and complement generate a Klein-four symmetry action on the equality layer."
+        ],
+        "reasoning": "The reformulation permits complete prefix-based classification without a separate infinite-search assumption; searched for matching equality classes under both word-combinatorics phrasings.",
+        "searches": [
+          "cube-free binary words avoiding complement pairs length >=6",
+          "factorial binary language no complementary six-factors extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original article publishes one word of length 50, not a table of all 16.",
+          "No relevant published comprehensive equality table identified in searches; this is a bounded absence statement, not novelty certification."
+        ],
+        "reasoning": "Exact word-list query used non-source representative to seek prior enumeration, while the source witness alone cannot establish unique optimizer or orbit cardinalities.",
+        "searches": [
+          "\"00110010010110010010110010110010010110010110010010\"",
+          "\"00101001001101001001101001101001001101001101001001\"",
+          "length 50 cube-free no complemented pair 16 extremal words"
+        ]
+      },
+      "rationale": "The original complement-avoidance paper supplies the bound 50 and one concrete length-50 cube-free witness (Theorem 3(b)), not the equality-layer list or symmetry orbit census in its inspected proof; the finite equality classification is extra information, although the authors may possess unpublished backtracking output. Related threshold theorems with different exponent/complement conditions do not determine all sixteen equality cases.",
+      "residual_risks": [
+        "The source authors may have unpublished backtracking data with the same 16 extremizers or code not indexed in the searched material.",
+        "Exhaustiveness follows from factorial prefix search; a program with an implementation error could still miscount, but independent verifier form and reproduced census reduce this risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published bound and one example are prior; no 16-word equality or four-orbit theorem in material inspected",
+          "evidence": "Theorem 3(b) says longest such finite cube-free word has length 50 by backtracking and displays one example.",
+          "identifier_or_url": "arXiv:2209.09598v1; doi:10.37236/11555",
+          "material_read": "Primary PDF theorem/proof section including Theorem 3(b), example, and related Theorem 4(b); inspected page images and searchable PDF text",
+          "method": "Opened lawful arXiv PDF; read theorem and obstruction proof passages and inspected page image",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Same original objects, threshold, and displayed length-50 word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a sharp and naturally motivated finite obstruction in combinatorics on words, a complete set of optimizers and its natural reversal/complement orbit structure can be independently useful for extremal word constructions and testing rigidity; not an arbitrary length cut from an unknown sequence. No claim to discovering the known maximum length 50.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The max length 50 was previously established; only complete equality layer and symmetry orbit count assessed.",
+    "No claim about other cube-free/complement threshold problems.",
+    "The source authors may have unpublished backtracking data with the same 16 extremizers or code not indexed in the searched material.",
+    "Exhaustiveness follows from factorial prefix search; a program with an implementation error could still miscount, but independent verifier form and reproduced census reduce this risk."
+  ]
+}

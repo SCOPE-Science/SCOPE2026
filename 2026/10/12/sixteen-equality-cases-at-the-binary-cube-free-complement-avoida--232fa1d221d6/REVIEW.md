@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The admissible language is factorial, so exhaustive prefix extension is complete. Complement avoidance for every factor length at least \(6\) reduces exactly to the length-\(6\) condition. Two independent exact enumeration engines agree at every length through \(51\), giving \(16\) words at length \(50\) and none at length \(51\). Every boundary word is then rescanned directly for cubes and complementary factors at all relevant lengths, and the symmetry action yields four orbits of size \(4\).
+## correctness
 
-## Originality
-PASS. The primary article states the scalar maximum \(50\) and displays one witness but does not enumerate the equality layer or its reversal/complement orbits. Searches under the source terminology, the local length-\(6\) equivalent condition, equality/extremizer language, and exact representative strings found no covering published classification. Current and previous research records contain no implication of this claim.
+PASS
 
-A residual risk is that unpublished source-author backtracking output or an unindexed auxiliary file contains the same sixteen words.
+Independently implemented complete binary prefix extension with exhaustive suffix-cube rejection and length-six complement-pair rejection. Both constraints are factorial; every forbidden newly created cube terminates at the newly appended bit, and every newly formed complementary pair of length at least six has a forbidden complementary length-six prefix. The independently obtained survivor counts for lengths 0..51 exactly equal the stated 52-term list; at length 50 there are 16 distinct words and at length 51 none. The complete equality set is preserved by bit complement and reversal, splitting into four disjoint size-four orbits. I compared actual RESULT.md and both engines in verify.py; complete prefix recursion proves exhaustion, not only sampled word checks. The published length-50 upper bound is explicitly prior work.
 
-## Value
-PASS. This is the complete equality layer at the sharp finite obstruction used for the first nontrivial cube-free complement-avoidance threshold in the primary theorem. The classification exposes four distinct symmetry types beyond the single printed witness and supplies an exact reproducible boundary certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original complement-avoidance paper supplies the bound 50 and one concrete length-50 cube-free witness (Theorem 3(b)), not the equality-layer list or symmetry orbit census in its inspected proof; the finite equality classification is extra information, although the authors may possess unpublished backtracking output. Related threshold theorems with different exponent/complement conditions do not determine all sixteen equality cases.
+
+## value
+
+PASS
+
+At a sharp and naturally motivated finite obstruction in combinatorics on words, a complete set of optimizers and its natural reversal/complement orbit structure can be independently useful for extremal word constructions and testing rigidity; not an arbitrary length cut from an unknown sequence. No claim to discovering the known maximum length 50.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
