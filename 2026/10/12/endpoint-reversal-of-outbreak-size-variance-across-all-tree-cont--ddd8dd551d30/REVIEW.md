@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** For each tree, unique-path indicators give the first two coefficients of the mean and second moment. Single-edge deletion gives the high-transmission coefficient exactly as the Wiener index. The stated bounded finite-difference derivative argument makes the common \(1/(100n^6)\) order-preserving neighborhoods rigorous, and the elementary tree-index extremal arguments yield strict uniqueness. Exhaustive exact-rational checks on 1,437 labeled trees corroborate the computations. The general statement does not rest on enumeration.
+## correctness
 
-**Originality: PASS, with a material-access risk.** The strongest adjacent published work is the 2020 Jevtić–Lanchier–La Salle calculation of exact moments on paths and stars. The special four-vertex comparison is a consequence of those known types of formulas, and is not treated as the original part. The differentiating claim is the all-tree ordering theorem and explicit universal endpoint neighborhoods controlled by two different invariants. The accessible 2021 paper of Lanchier–La Salle is about regular graphs, while the Moore–Newman work studies small-world epidemics. The 2020 paper's full text could not be reviewed, so an uninspected stronger statement remains possible. The standard path/star extrema of the Wiener index are acknowledged as preexisting.
+PASS
 
-**Value: PASS.** Uncertainty in outbreak size is operationally relevant to interpreting contact topology. The theorem shows a sharp structural change: concentrated contact trees maximize variance for weak transmission, while spread-out paths maximize it near certain transmission, for every fixed network order. The two-phase order laws distinguish degree concentration from global distances rather than merely comparing one numerical example.
+For a finite tree of order n≥4 with independent homogeneous Bernoulli-open contact edges and one uniform random seed, the unique path formula gives E S=1+2(n−1)p/n+2B(T)p²/n+O(p³). Triple path unions in E S² have 6 contributions per one-edge union and 12 per two-edge union, yielding the stated p² coefficient in Var S. A single deleted edge partitions into sizes s,n−s and contributes s(n−s) q to the variance when q=1−p; summing edge cuts is exactly W(T). For uniform δ_n=1/(100n^6), treating Var as an expectation over two independent percolation/seed copies bounds the k-th Bernoulli derivative by (4(n−1))^k n², so Taylor errors on differences are O(m³n²p³) or O(m²n²q²). Because differences of B and W are nonzero integers, the stated interval dominates the remainders for all trees of order n. Degree convexity and the Wiener cut/leaf argument give unique path/star extremes in opposite regimes. Independently reconstructed exact n=4 variance difference as p²(1−p)(8−6p−5p²−p³)/4, giving exactly one positive interior crossing. Nonuniqueness at intermediate p is NOT asserted.
 
-Limitations: The windows are sufficient rather than optimal; no claims are made about intermediate transmissibility, cycles, heterogeneous transmission, or empirically calibrated epidemics. Novelty remains conditional on the documented inaccessible full text, and verification is internal rather than independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing 2020 paper studies first and second bond-percolation cluster moments on rings, paths and stars, so its special-shape formulas and n=4 comparison are not treated as novel. The assigned all-tree coefficient and strictly uniform all-pair B/W comparison has broader quantifiers than the accessible path/ring/star abstract. The full 2020 paper was not accessed: it is specifically plausible and might contain a broader hidden theorem, which is carried as residual risk, not an automatic failure. Other published tree-variance results from similarity search concerned zonotope widths, a different probability model.
+
+## value
+
+PASS
+
+A genuinely global, uniform-in-all-trees ordering reversal of a stochastic epidemic outcome is useful beyond known path/star moment formulas: low-transmission variance is controlled by wedge count, high-transmission variance by Wiener index, and the opposite unique extrema are proved with explicit simultaneous neighborhoods. The tree family and the two invariants are natural, not an arbitrary finite slice. Model limitations are specified rather than conflated with empirical epidemic outcomes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
