@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,48 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof has no computational premise.
+## correctness
 
-For any admissible set \(X\), let
-\[
-K=\overline{\operatorname{conv}}(X).
-\]
-Then
-\[
-\omega(K)=\omega(X),
-\qquad
-A(X)\le A(K).
-\]
-If \(u\) is a minimum-width direction and \(v\perp u\), the orthogonal bounding rectangle gives
-\[
-A(K)\le w_u(K)w_v(K)
-=
-\omega(X)w_v(K)
-\le
-\omega(X)D(\Omega).
-\]
-This verifies the universal lower bound.
+PASS
 
-For the upper bound, a diameter segment of length \(D(\Omega)\) and any interior point at perpendicular height \(h\) span a triangle contained in \(\Omega\). At height \(s\), its section parallel to the diameter has length
-\[
-D(\Omega)\left(1-\frac{s}{h}\right).
-\]
-Integrating from \(0\) to \(t\) gives
-\[
-D(\Omega)t\left(1-\frac{t}{2h}\right).
-\]
-The corresponding ambient slice lies in a strip of width \(t\), so its quotient is at most
-\[
-\frac{1}{D(\Omega)\left(1-\frac{t}{2h}\right)},
-\]
-which tends to \(1/D(\Omega)\).
+For any positive-area measurable X, closed convexification preserves minimal width and can only increase area. Bounding rectangle in a minimizing width direction gives A(X)<=ω(X)D(Ω). A diameter chord pq and off-chord interior point r provide a triangular section of length D(1−s/h), so 0<t<h slices satisfy ω(X_t)/A(X_t)<=1/[D(1−t/2h)] ->1/D. Equality would force a positive-width D-by-ω rectangle within Ω, whose diagonal exceeds D(Ω), contradiction. Noncompact X is handled by closed hull.
 
-For nonattainment, equality in the full lower-bound chain would force a positive-width convex hull to fill an orthogonal rectangle with side lengths \(\omega(X)\) and \(D(\Omega)\). That rectangle has diagonal
-\[
-\sqrt{D(\Omega)^2+\omega(X)^2}>D(\Omega),
-\]
-contradicting containment in \(\Omega\).
+## originality
 
-No finite experiment, timeout, or numerical approximation is used as evidence for the theorem.
+PASS
+
+Cañete explicitly proposes the replacement-functional Cheeger question with minimal width in Remark 11; Ftouhi–Masiello–Paoli keep the perimeter-based Cheeger constant, and their width inequalities do not optimize ω(X)/area over subsets. No equivalent reciprocal-diameter all-Ω result identified in targeted or published SCOPE search; older geometry formula remains possible.
+
+## value
+
+PASS
+
+An exact universal solution to an explicitly proposed natural Cheeger-type functional, including nonattainment and a geometric minimizing construction; distinguishes degeneration from the ordinary perimeter Cheeger problem and is not an arbitrary test shape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
