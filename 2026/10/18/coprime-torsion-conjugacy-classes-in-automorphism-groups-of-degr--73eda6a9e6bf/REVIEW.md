@@ -1,0 +1,11 @@
+# Scientific review: split coprime torsion classes
+
+**Correctness — PASS.** The algebra \(A=\mathbb F_q\oplus V\oplus(V\otimes V)\) admits exactly a \(q^{d^3}\)-element quadratic-kernel extension of \(\operatorname{GL}_d(\mathbb F_q)\). The semidirect product action on \(\operatorname{Hom}(V,V\otimes V)\) is derived directly. Under \(\ell\mid(q-1)\), the norm-kernel relation \(\ker N=\operatorname{im}(I-\rho(g))\) follows from diagonalizability; all torsion lifts are conjugate to their linear parts. Counting each eigenspace resonance gives \(H(r)\) and the claimed class cardinality. A standalone checker independently verified six dimension-two prime-field instances. The general proof, not that finite enumeration, establishes the arbitrary-\(d\) and arbitrary-prime-power assertions.
+
+**Originality — PASS within inspected literature.** The public 2021 article of Militaru gives an abstract automorphism/gradation classification but not the class-size census for this algebra. A truncated coordinate-cross result concerns a different commutative algebra with monomial linear automorphisms. A published dimension-two tensor-fixed-space distribution overlaps the \(d=2\) resonance calculation but does not state the full torsion distribution for all \(d,\ell\). Novelty attaches to the complete explicit finite-field eigenspace-refined census, not to the classical coprime-action conjugacy principle. Equivalent general semidirect-product enumeration in unindexed literature remains the main risk.
+
+**Value — PASS.** The theorem computes a natural full conjugacy-class distribution, sharp exact-order strata, and a concrete cubic resonance statistic for finite-order symmetries of a canonical free nilpotent associative algebra. This is finer than an automorphism-group order or an existence criterion, and is uniform in generator number and splitting order. The characteristic and nonsplit boundaries are explicit.
+
+**Closest literature and limits.** G. Militaru, arXiv:2105.12669v1 (2021); published mathematical records on truncated coordinate-cross automorphisms and dimension-two fixed tensors. The result only applies when \(\ell\mid(q-1)\); independent specialist novelty and correctness audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
