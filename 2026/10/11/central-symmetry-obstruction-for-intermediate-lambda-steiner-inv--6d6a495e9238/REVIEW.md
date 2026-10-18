@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Center the original body. Its opposite fibers have equal length. The source's exact \(\lambda\)-Steiner formula sends a fiber of length \(\ell(y)\) to
-\[
-[-\lambda\ell(y),(1-\lambda)\ell(y)].
-\]
-If the transformed body is centrally symmetric, its center projects to the unique center of the projected body. Comparing the fiber above \(y\) with the reflected fiber above \(-y\) gives
-\[
-2t=(1-2\lambda)\ell(y).
-\]
-For \(\lambda<1/2\), the chord length is constant. Convexity of both boundary functions then forces them to be affine, yielding an exact prism. The converse is immediate. Distinct prism directions give distinct facet pairs up to sign, and the finite surface area of a convex body implies that its facets are countable. Affine equivalence preserves central symmetry, so an invariant centrally symmetric body would require every spherical direction to belong to a countable set, impossible.
+PASS
 
-## Originality
+For centrally symmetric K, ℓ(y)=ℓ(-y) is even. By definition the λ-Steiner fiber is [-λℓ(y),(1-λ)ℓ(y)]. If the symmetral is centrally symmetric, uniqueness of the center of its projected body forces symmetry center tu; reflected fibers give 2t=(1-2λ)ℓ(y). The nonzero factor for 0≤λ<1/2 forces a common positive length L. Lower/upper chord-boundary functions are convex and sum -L, making each affine and giving K as a prism F+[0,L]u. Conversely constant-length chords give a product P×[-λL,(1-λ)L] after graph shear, centrally symmetric. Facet pairs are countable by finite boundary measure, with at most ±u for each prism facet translation, so symmetry-preserving directions are countable. Affine equivalence to the original centrally symmetric K would preserve symmetry for every u, contradicting this countability. Conclusion concerns centrally symmetric class, not all bodies.
 
-PASS. Kipp--Sagmeister explicitly leave the intermediate higher-dimensional invariant-body case unresolved and state Conjecture 7.2. Their flat-direction machinery does not state the central-symmetry/prism equivalence or the countability obstruction. Broader classical symmetrization and recent fiber-combination literature was compared, and targeted exact-object searches found no covering theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves the source's higher-dimensional invariant-body conjecture on the full centrally symmetric class, thereby excluding ellipsoids and every other centrally symmetric candidate at intermediate parameters. The exact one-step prism characterization is independently useful and identifies the geometric reason central symmetry cannot persist generically.
+Kipp–Sagmeister introduces intermediate λ-Steiner invariance and conjectures that a higher-dimensional λ-invariant body must occur only at λ=1/2 and be an ellipsoid. The proved countability/prism result is a nontrivial full centrally symmetric subcase using symmetry of transformed chord midpoints, not merely an ellipse test. The exact primary preprint full text could not be retrieved via permitted arXiv/OA and protected institutional route; comparison of its accessible abstract, theorem/conjecture statements quoted in frozen package, and Resultary hits supports a best-of-knowledge PASS while retaining material risk that its full flat-direction results may overlap.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Kipp--Sagmeister, arXiv:2610.05113v1, which introduces the operation, proves the planar classification, develops \(\lambda\)-flat directions, and poses the higher-dimensional conjecture. Bianchi--Gardner--Gronchi provide classical symmetrization structure, and Hoehner provides recent fiber-combination machinery, but neither inspected source contains the displayed theorem.
+Characterizes every symmetry-preserving direction under the new operation, identifies prisms as exact exceptions, and excludes all centrally symmetric candidates for a stated higher-dimensional invariant-body conjecture. This structural theorem applies to every convex body of the symmetric class and gives a general countability obstruction without finite experiments.
 
-The result does not treat non-centrally-symmetric invariant bodies and gives no quantitative stability estimate away from prism directions. An older equivalent segment-summand lemma under different terminology remains a residual bibliographic possibility.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

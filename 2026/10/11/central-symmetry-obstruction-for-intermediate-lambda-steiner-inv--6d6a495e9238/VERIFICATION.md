@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite statement is established analytically in `RESULT.md`.
+# Independent mathematical audit
 
-The one-step calculation uses the exact transformed fiber
-\[
-[-\lambda\ell,(1-\lambda)\ell].
-\]
-Reflection about the possible center \(tu\) changes this to
-\[
-[2t-(1-\lambda)\ell,\;2t+\lambda\ell].
-\]
-Equality with the opposite fiber gives
-\[
-2t=(1-2\lambda)\ell.
-\]
-For \(\lambda<1/2\), this can hold for all projected fibers only when their length is constant.
+## correctness
 
-The constant-length condition makes the two convex boundary functions sum to a constant. Hence each is affine, and the body is exactly the Minkowski sum of one facet and a segment in direction \(u\).
+PASS
 
-The countability step uses only that distinct facets have disjoint relative interiors of positive \((n-1)\)-dimensional Hausdorff measure and that the boundary of a convex body has finite surface area.
+For centrally symmetric K, ℓ(y)=ℓ(-y) is even. By definition the λ-Steiner fiber is [-λℓ(y),(1-λ)ℓ(y)]. If the symmetral is centrally symmetric, uniqueness of the center of its projected body forces symmetry center tu; reflected fibers give 2t=(1-2λ)ℓ(y). The nonzero factor for 0≤λ<1/2 forces a common positive length L. Lower/upper chord-boundary functions are convex and sum -L, making each affine and giving K as a prism F+[0,L]u. Conversely constant-length chords give a product P×[-λL,(1-λ)L] after graph shear, centrally symmetric. Facet pairs are countable by finite boundary measure, with at most ±u for each prism facet translation, so symmetry-preserving directions are countable. Affine equivalence to the original centrally symmetric K would preserve symmetry for every u, contradicting this countability. Conclusion concerns centrally symmetric class, not all bodies.
 
-The bundled checker confirms the interval-reflection algebra for exact rational sample parameters, verifies the resulting symmetry center for prism fibers, and checks a representative strictly convex ellipsoid has nonconstant parallel chord lengths.
+## originality
 
-Finite checks are supplementary and are not used as a substitute for the all-dimensional proof.
+PASS
+
+Kipp–Sagmeister introduces intermediate λ-Steiner invariance and conjectures that a higher-dimensional λ-invariant body must occur only at λ=1/2 and be an ellipsoid. The proved countability/prism result is a nontrivial full centrally symmetric subcase using symmetry of transformed chord midpoints, not merely an ellipse test. The exact primary preprint full text could not be retrieved via permitted arXiv/OA and protected institutional route; comparison of its accessible abstract, theorem/conjecture statements quoted in frozen package, and Resultary hits supports a best-of-knowledge PASS while retaining material risk that its full flat-direction results may overlap.
+
+## value
+
+PASS
+
+Characterizes every symmetry-preserving direction under the new operation, identifies prisms as exact exceptions, and excludes all centrally symmetric candidates for a stated higher-dimensional invariant-body conjecture. This structural theorem applies to every convex body of the symmetric class and gives a general countability obstruction without finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
