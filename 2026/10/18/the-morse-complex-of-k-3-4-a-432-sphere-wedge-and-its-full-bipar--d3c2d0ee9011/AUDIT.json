@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The 24 incidence vertices and explicit acyclic rooted-forest criterion specify every face. Exhaustive independent enumerations produce 12,800 distinct faces and match the rooted-forest Laplacian polynomial. An explicitly defined greedy matching has 6,181 pairs; full 12,799-vertex directed-Hasse topological sort proves acyclicity, leaving critical cells in dimensions 0,4,5 with counts 1,2,434. Exact gradient-path computation of all 434 attaching degrees gives a 2x434 integral boundary with a displayed determinant ±1 minor and entries ±1 or 0, hence a wedge of 432 five-spheres. A separate mod-two top rank check gives 3024−2592=432. Exact signed fixed-face traces for all 144 S3xS4 elements, with reduced Lefschetz correction, give every character entry and the integral nonnegative Specht multiplicities. Code was run successfully from actual included standalone files; there is no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scoville–Zaremsky Theorem 4.3 bounds connectivity, without ranks or equivariant traces.",
+        "Scoville 2026 treats simplex and simplex-boundary Morse complexes rather than K_{3,4}.",
+        "Published complete-graph directed-tree computations and complete-bipartite examples at K_{3,3} and K_{2,n} have different graph hypotheses."
+      ],
+      "reasoning": "A theorem for complete graphs or one bipartition class of size two does not imply one for K_{3,4}: a graph inclusion is not a homotopy-equivalence theorem for the Morse complexes. Topological connectivity alone neither forces a wedge-of-spheres type nor determines a 15-class character.",
+      "searches": [
+        "arxiv:2004.10481 Theorem 4.3 Example 4.6",
+        "arxiv:2604.18172 simplex Morse matchings",
+        "Morse complex K3,4 homology 432",
+        "Morse complexes of complete bipartite graphs K_{3,4} representation 432 S5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2004.10481v2, definitions, Theorem 4.3 and Example 4.6",
+      "arxiv:1909.11440, introductory theorem statements and studied graph cases",
+      "arxiv:1109.4475, PDF directed-tree criteria",
+      "arxiv:2604.18172, abstract only",
+      "2026/10/4/SCOPE-the-morse-complex-of-k-3-3-is-a-wedge-of-80-four-spheres--ada39e4b9bea",
+      "2026/10/4/SCOPE-the-morse-complex-of-k-2-n-is-a-wedge-of-n-2-1-n-spheres--6e0567ab1610",
+      "2026/10/4/SCOPE-the-two-matching-complex-of-k-3-4-is-a-5-sphere--cb67b6c453ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full primary paper yields (at most) higher connectivity for the entire graph family, including K_{3,4}; it provides no Betti or representation data.",
+        "Jojić studies directed-forest shellability under hypotheses absent for the bidirected K_{3,4} (cycles and no universal source).",
+        "Morse complex of K_{3,3} ≃ wedge^80 S^4 and K_{2,n} ≃ wedge^{n²−1} S^n do not cover (3,4)."
+      ],
+      "reasoning": "The precise new conclusion concerns an integral homotopy type and a 432-dimensional group representation. Neither prior connectivity nor shellability claims, nor smaller/unequal-parameter identities, entails it. Inapplicable source conditions are compared directly rather than inferred from title mismatch.",
+      "searches": [
+        "arxiv:2004.10481 full §§1,4,5",
+        "arxiv:1109.4475 shellability directed trees",
+        "Morse complex of complete bipartite graphs top homology S_m symmetry",
+        "acyclic matching directed rooted forest complex complete bipartite K_{3,4}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full arXiv:2004.10481v2 §1 defines the same acyclic incidence-vector-field complex; §4.1 Example 4.6 gives only complete-bipartite connectivity and explicitly notes the exact homotopy type was then unknown.",
+        "The examined arXiv:1909.11440 results treat other graph families, without a K_{3,4} equivalence.",
+        "The independently generated incidence complex has 24 vertices and 12,800 faces, with a 432-dimensional rational top-homology character explicitly given on all 15 classes."
+      ],
+      "reasoning": "The prime alias is the complex of acyclic partial matchings on the vertex-edge Hasse diagram, equivalently compatible oriented rooted forests. These are all the same object and are included in the comparison; surveyed theorem statements do not determine this specific homotopy/character. A failed search is not itself a proof of novelty.",
+      "searches": [
+        "arxiv:2004.10481: 'Morse complex' 'complete bipartite' 'homotopy type'",
+        "arxiv:1909.11440: 'complexes of discrete Morse functions'",
+        "ordinary Morse complex K_{3,4} homotopy wedge 432 five spheres",
+        "Morse complex complete bipartite K3,4 equivariant S3 S4 homology character 432 wedge of spheres"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published same-graph entry computes the 2-matching complex M_2(K_{3,4}) ≃ S^5, with faces consisting of original graph-edge sets of degree at most two.",
+        "The K_{3,3} and K_{2,n} Morse-complex publications concern other graphs and do not tabulate K_{3,4}.",
+        "The integer boundary, face-vector and 15-class rational representation table are computed here for the incidence-pair complex."
+      ],
+      "reasoning": "Equal graph name does not mean an identical simplicial complex. A two-matching or graph-matching table is not an exact database of acyclic incidence vector fields. None of the identified exact tables supplies these integers or the representation, subject to residual indexing risk.",
+      "searches": [
+        "ordinary Morse complex K_{3,4} homotopy wedge 432 five spheres",
+        "Morse complex K3,4 homology 432",
+        "Morse complex complete bipartite K3,4 equivariant S3 S4 homology character 432 wedge of spheres",
+        "Morse complexes of complete bipartite graphs K_{3,4} representation 432 S5",
+        "published-finding corpus: two-matching complex of K_{3,4}",
+        "arxiv:2006.13632 higher matching complex K_{3,4}"
+      ]
+    },
+    "rationale": "The owning published paper arXiv:2004.10481 fully defines this construction and only proves connectivity, explicitly noting the complete-bipartite homotopy gap in Example 4.6. Closest published complete-bipartite calculations address K_{3,3} or K_{2,n}, while the same-graph K_{3,4} two-matching complex has a different face definition. Inspection of the directly relevant directed-tree and discrete-Morse-complex literature did not reveal a theorem that implies either this finite wedge classification or its full group character. Unindexed equivalent work remains a residual risk.",
+    "residual_risks": [
+      "An equivalent acyclic-directed-forest or graph-Morse calculation may be unindexed, and some published result summaries could not be escalated to full source text.",
+      "No claim is made of independent review or an equivariant homotopy classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same Morse object; known connectivity only, no K_{3,4} wedge or action character",
+        "evidence": "§4.1 Example 4.6 explicitly discusses complete bipartite graphs without exact homotopy types; Theorem 4.3 gives only a connectivity bound.",
+        "identifier_or_url": "https://arxiv.org/html/2004.10481v2",
+        "material_read": "Definitions 1.1–1.2 and Theorems 4.3, 5.4, Examples 4.5–4.6, introduction and bibliography",
+        "method": "Read accessible full-text HTML",
+        "title": "Higher connectivity of the Morse complex",
+        "trigger": "The exact defining object and the literature's complete-bipartite open gap"
+      },
+      {
+        "assessment": "Does not give K_{3,4} homotopy or full symmetry action",
+        "evidence": "Studies graph Morse-complex homotopy and strong homotopy in alternative families; the compared statements do not include the complete bipartite (3,4) case.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.11440",
+        "material_read": "Available primary manuscript's introductory results and studied graph-family cases",
+        "method": "Examined open-access manuscript text",
+        "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+        "trigger": "Plausible directly related paper title"
+      },
+      {
+        "assessment": "Its sufficient shellability hypotheses do not cover the bidirected K_{3,4}; no wedge/character computed",
+        "evidence": "Directed graph K_{3,4} has directed 4-cycles and lacks a universal vertex; this prevents direct invocation of identified hypotheses.",
+        "identifier_or_url": "https://arxiv.org/abs/1109.4475",
+        "material_read": "Source definitions and stated shellability theorems, including PDF pages 1 and 3",
+        "method": "Inspected available primary PDF and rendered pages",
+        "title": "Shellability of complexes of directed trees",
+        "trigger": "Directed-tree complex may be equivalent to the acyclic-incidence model"
+      },
+      {
+        "assessment": "Explicit main objects are n-simplices and boundaries, not complete bipartite graphs; bibliographic uncertainty remains",
+        "evidence": "The abstract lists Δ^3, ∂Δ^3 and Δ^4, with no formula for K_{3,4}.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.18172",
+        "material_read": "Abstract and enumeration of principal claims only; full-text comparison not completed",
+        "method": "Inspected arXiv metadata and abstract",
+        "title": "The complex of discrete Morse matchings of the n-simplex: homotopy types and structural results",
+        "trigger": "Newer research with plausible general Morse matching statements"
+      },
+      {
+        "assessment": "Other graph parameters; no logical general implication for K_{3,4}",
+        "evidence": "K_{3,3} is a wedge of 80 S^4; K_{2,n} is a wedge of n²−1 S^n. Neither graph family contains K_{3,4} as a member.",
+        "identifier_or_url": "2026/10/4/SCOPE-the-morse-complex-of-k-3-3-is-a-wedge-of-80-four-spheres--ada39e4b9bea ; 2026/10/4/SCOPE-the-morse-complex-of-k-2-n-is-a-wedge-of-n-2-1-n-spheres--6e0567ab1610",
+        "material_read": "Published record titles and scientific abstracts; source files were not material-accessible",
+        "method": "Read returned published summary records",
+        "title": "Published graph Morse-complex computations for K_{3,3} and K_{2,n}",
+        "trigger": "Closest same-construction parameter results"
+      },
+      {
+        "assessment": "Different complexes; its two-matching faces are edge subsets, not incidence vector fields",
+        "evidence": "The claim is M_2(K_{3,4})≃S^5, versus 24 vertices and 12,800 acyclic incidence-vector-field faces here.",
+        "identifier_or_url": "2026/10/4/SCOPE-the-two-matching-complex-of-k-3-4-is-a-5-sphere--cb67b6c453ce",
+        "material_read": "Published record title and scientific abstract; source files were not material-accessible",
+        "method": "Read published summary record",
+        "title": "The two-matching complex of K_{3,4} is a 5-sphere",
+        "trigger": "Exact same graph, possible confusing title synonym"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3c2d0ee-9011-4cdc-ac5b-45879b97e053",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite complete bipartite graph K_{3,4} is the first naturally asymmetric bipartite extension after the separately classified K_{3,3} and K_{2,n} cases. The published primary paper explicitly identifies the complete-bipartite homotopy classification as unresolved. A 432-sphere integral homotopy classification and a complete nontrivial S3xS4 homology character across 15 conjugacy classes are precise natural invariants of this symmetry-rich complex, distinguish equivariant behavior beyond Betti number 432, and provide a reproducible benchmark for structural methods. This is not just an Euler-characteristic or scalar table recomputation; exact attaching maps and the full representation are determined.",
+    "status": "PASS"
+  }
+}
