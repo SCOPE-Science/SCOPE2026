@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-At the noninteracting point \(J=J_p=h=0\), the Hamiltonian is identically zero. Therefore every admissible spin configuration has weight one and the proof reduces to exact state counting.
+# Independent mathematical audit
 
-For a fixed root spin and \(|V_n|=2^{n+1}-1\),
-\[
-Z_{i_0}^{(n)}=2^{|V_n|-1}.
-\]
-Substitution \(\theta=\phi=u=1\) into the printed Theorem 1 gives local factor
-\[
-(2+4+2)^2+(2+4+2)^2=128.
-\]
-The verifier checks these formulas for several shells and checks that the limiting base-two exponent densities are \(1\) and \(7/4\).
+## correctness
 
-The script is a replay aid only. Correctness follows from exact all-weights-equal state counting and direct symbolic substitution.
+PASS
 
-The verification does not test nonzero couplings, construct a replacement interacting free energy, or assess the separate phase-transition fixed-point argument.
+Original 2022 paper defines Z_i0^(n) by summing over spin configurations with root fixed, and at J=J_p=h=0 Hamiltonian identically vanishes. Tree order 2 has |V_n|=2^(n+1)-1 so exact Z_fixed=2^(2^(n+1)-2). Original Theorem 1 (11) at theta=phi=u=1 has two local brackets each 8²=64 giving 128^(2^(n-1)-1): n=2 gives 128 instead of exact 64; n=3 gives 2^21 > total unrestricted 2^15. Original Theorem 2 limit gives 7 ln 2/(4beta), whereas direct count gives ln2/beta. All primary displayed formulas were inspected on PDF page screenshots, and independently recomputed exact integer comparisons. This is printed formula contradiction only, not claim about separately executed simulations.
+
+## originality
+
+PASS
+
+Counting independent binary spins is elementary and not claimed new. The specific corrected implication is a contradiction between the published root-conditioned definition and Theorems 1 and 2, including the incorrect thermodynamic density. Exact 2022 PDF was inspected; searches for noninteracting erratum and same-author 2023 follow-up did not find this specific correction. The 2023 same-author paper is plausible but full text inaccessible, retained as significant risk.
+
+## value
+
+PASS
+
+The discrepancy doubles the finite root-conditioned partition in the first nontrivial shell and changes the zero-coupling thermodynamic free-energy coefficient by 7/4. Both formulas underpin claimed exact thermodynamic computations, so the correction materially affects interpretation even though the counterexample is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
