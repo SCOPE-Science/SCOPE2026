@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the original congruences to one forbidden residue per coordinate using \(Q^{-1}\). Even \(m\) is handled by zero-sum pairs in \(\{-1,0,1\}\). Odd \(m\) reduces to one three-coordinate block: for \(\ell\ge5\), the \(19\) zero-sum triples in \([-2,2]^3\) outnumber the at most \(15\) triples removed by three forbidden coordinate slices; for \(\ell=3\), two-element allowed residue sets give a zero-sum residue triple and an explicit representative replacement turns any canonical sum \(\pm3\) into zero. The lower bounds are exact: radius \(0\) is impossible for the all-zero forbidden profile, and radius \(1\) is impossible for odd \(m\) by parity. The finite-set consequences follow from the same zero-sum selection and the triangle inequality. The attached exhaustive verifier corroborates the local cases but is not used to infer the universal statement.
+## correctness
 
-## Originality
-PASS. Chen's Lemma 2.2 states the same avoidance task with \(|t_i|\le m+1\) and derives factors \(2m+3\) and \(m(m+1)Q\); Lemma 2.8(ii) propagates those constants. The printed proof can produce a shift of magnitude \(m\), so the source does not already contain the parity-sharp radius as a hidden stated consequence. Searches of the source, a constructional predecessor, published mathematical findings, and broad web literature did not locate an equivalent or stronger bounded-integer-lift theorem. Classical prime-field sumset results do not imply the exact bounded integer representatives with zero integer sum.
+PASS
 
-Residual risk: because the lemma is elementary, an equivalent result could exist under different terminology. No decisive covering source was found.
+Reduce each forbidden x_i+t_i Q=b mod ell to a residue c_i. Two-coordinate shifts (s,-s), s in {-1,0,1}, face at most two excluded candidates, since ell odd, establishing even m. For odd m pair all but three; the 19 zero-sum triples in [-2,2]^3 face at most 3*5=15 forbidden values for ell>=5. At ell=3, two-element allowed residue sets have full pairwise sumset, yielding a zero-sum residue triple; lift representatives in {-1,0,1} and, if their sum is ±3, change one ±1 by ∓3 into ∓2 to realize integer zero-sum. For c_i=0, radius0 impossible always and radius1 impossible when m odd by parity. Applying shifts tuplewise yields sumset inclusion, 3|F_i|/5|F_i| and displacement m B_m Q. Independent dynamic programming checked 3835 forbidden-residue vectors at ell=3,5,7,11 over nontrivial m ranges; finite checks corroborate, not replace all-prime proof.
 
-## Value
-PASS. The smallest uniform radius is a natural invariant of the recent perturbation mechanism, not an arbitrary parameter slice. Determining it exactly collapses a radius growing with \(m\) to \(1\) or \(2\), with corresponding direct finite-set overhead \(3\) or \(5\) and displacement \(mQ\) or \(2mQ\). The parity obstruction gives a structural boundary. The result does not change the motivating paper's exponent range by itself, but it materially sharpens a reusable quantitative lemma and the constants it feeds into.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared to Shi-Qiang Chen Lemma 2.2 (2026) bound |t_i|<=m+1 and multiplier 2m+3, this is a quantitatively sharp parity-dependent replacement improving radius to 1 or 2, not a restatement. Full arXiv paper could not be read in this execution owing unavailable PDF/OA and protected Oxford VPN, but the precise lemma and bound are quoted and given in the inspected claim package; originality qualified best knowledge with source-access risk explicit. An inaccessible source alone is not rejection, but we do not claim that inaccessible whole paper is excluded.
+
+## value
+
+PASS
+
+This is an exact and substantial uniform improvement of a concrete additive-number-theory perturbation lemma used in asymptotic-basis constructions: radius m+1 becomes 1/2 and cardinality multipliers become 3/5. The parity obstruction is sharp, the congruence-zero-sum compatibility nontrivial and reusable, and no improvement of the downstream main theorem is overclaimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
