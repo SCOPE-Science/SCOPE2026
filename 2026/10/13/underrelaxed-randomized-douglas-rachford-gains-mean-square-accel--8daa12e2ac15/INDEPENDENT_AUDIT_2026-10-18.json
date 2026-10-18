@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Algorithm 2 of Han–Su–Xie at A=I_2, b=0, two independent with-replacement uniform row reflections have product I or −I with probability 1/2. Thus the fixed-momentum scheme has scalar iid c_t∈{1,1−2alpha}, and exact recurrence x_(t+1)=(c_t+beta)x_t-beta*x_(t−1) for source x^1=x^0≠0. Fresh-sample independence gives the 3×3 second-moment matrix with first row (s+2mu beta+beta²,−2beta(mu+beta),beta²), second (mu+beta,−beta,0), third (1,0,0), s=1−2alpha+2alpha², mu=1−alpha. The simple leading eigenvalue s at beta=0 has derivative 2alpha(1−alpha)(2alpha−1)/s. This proves local strict acceleration 0<alpha<1/2 and worsening for alpha>1/2, with initial state exciting the dominant mode. At alpha=1/2, direct characteristic polynomial gives rho=1/2+beta²+O(beta³), hence no local speedup. At alpha=1/4,beta=1/10, independent exact symbolic determinant reproduces cubic 1000z³−685z²+56z−1; three rational disjoint sign-change intervals locate all roots and rho≈0.593480527629743<3/5<5/8. The original Theorem 4.1 sufficient stability coefficients are gamma1=87/100, gamma2=19/200. Theorem is about actual E||x||² rate, not ||E x||² or wall clock.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo et al. alter sampling and use adaptive momentum; product distribution need not be equal Bernoulli ±I.",
+          "Other heavier general theorems use different samplers/metrics and do not give this exact spectral-radius equality."
+        ],
+        "reasoning": "Broader convergence guarantees do not necessarily compare the precise actual rates of two fixed β settings for this instance.",
+        "searches": [
+          "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation",
+          "arxiv:2506.10261 Guo Xiang Han Xie adaptive randomized DR",
+          "arxiv:2206.07553 minibatch heavy ball rate",
+          "arxiv:2208.05437 pseudoinverse-free acceleration"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md SHA dee12e19ae11c014894dca07e3e9003161327001",
+        "verify.py SHA 45b7a9b087bef7cbd718634ae3e39d04a0ca09ac",
+        "arxiv:2207.04291v4 Alg2 Thms4.1–4.2",
+        "arxiv:2506.10261",
+        "arxiv:2206.07553",
+        "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Because Jensen gives ||E x||²≤E||x||², first-moment acceleration cannot imply second-moment acceleration.",
+          "The source bound deteriorating does not imply actual deterioration: exact recurrence gives counterexample."
+        ],
+        "reasoning": "No comparison theorem read dominates the exact α threshold or exhibits this source-specific stable mean-square speedup; nearest paper gives the opposite behavior only for an upper bound.",
+        "searches": [
+          "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation",
+          "Han Su Xie Theorems 4.1 and 4.2 actual squared error versus squared expectation",
+          "Bollapragada Chen Ward minibatch heavy ball acceleration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Theorem 4.1 controls E||error||² via inequality, not equality of actual 3×3 moment dynamics.",
+          "Its Theorem 4.2 concerns ||E error||² and hence is not equivalent to the second-moment claim."
+        ],
+        "reasoning": "The source carefully distinguishes a bound worsening with beta from actual mean-square dynamics; original acceleration for first moments does not settle second moments.",
+        "searches": [
+          "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation",
+          "Han Su Xie arxiv:2207.04291v4 Algorithm 2 and Theorem 4.1",
+          "heavy-ball moment spectral radius randomized double row reflections identity two-dimensional"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source gives gamma1 gamma2 and upper bound q≈0.9681, not the exact 0.59348 spectral rate.",
+          "No exact previously published parameter table for α=1/4, β=1/10 identified."
+        ],
+        "reasoning": "The rational witness is computed from the original algorithm, not a transcription of an existing benchmark rate table.",
+        "searches": [
+          "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation",
+          "source Theorem 4.1 gamma1 gamma2 formula",
+          "randomized double Douglas Rachford exact 3x3 moment transition polynomial"
+        ]
+      },
+      "rationale": "The original paper's Theorem 4.1 gives a valid but pessimistic expected-SQUARED-error upper bound which worsens with momentum; Theorem 4.2 instead accelerates a bound for the norm of expected error. Neither implies the actual second-moment spectral-radius improvement shown here inside the sufficient regime. Later adaptive/without-replacement sampling changes the Bernoulli reflection law. Related generalized stochastic-heavy-ball and pseudoinverse-free acceleration results lack this exact recurrence/phase boundary. Resultary hits on related accelerated splitting and stochastic momentum differ in algorithm, metric or sampling; no implication-equivalent published statement found.",
+      "residual_risks": [
+        "General stochastic heavy-ball spectral literature may contain an algebraically equivalent two-state moment recursion without mentioning Douglas–Rachford."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean-square upper bound q worsens under momentum, but expected-iterate norm bound may accelerate; exact spectral second moments not classified",
+          "evidence": "Algorithm 2 uses independent uniform two-row choices, source x1=x0; Theorem 4.1 bounds E||error||²; Theorem 4.2 bounds ||E error||².",
+          "identifier_or_url": "https://arxiv.org/html/2207.04291v4",
+          "material_read": "HTML primary manuscript Algorithm 2, Sections 3–4, Theorems 4.1–4.2 and relevant proofs",
+          "method": "Inspected full accessible HTML relevant algorithm/theorem/proof passages",
+          "title": "Randomized Douglas–Rachford methods for linear systems: Improved accuracy and efficiency",
+          "trigger": "Original algorithm, same recurrence and conflicting bound comparison"
+        },
+        {
+          "assessment": "Adaptive or without-replacement scheme changes probability law and is not identical to fixed-parameter with-replacement theorem",
+          "evidence": "New method uses improved sampling/adaptive momentum, so exact ±I reflection process does not automatically transfer.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.10261",
+          "material_read": "Primary abstract and method changes visible in accessible summary; no full-text noncoverage claim",
+          "method": "Read abstract/method synopsis and compared sampling definitions",
+          "title": "Enhanced randomized Douglas–Rachford method: Improved probabilities and adaptive momentum",
+          "trigger": "Same family follow-up with possibly dominating result"
+        },
+        {
+          "assessment": "Quadratic minimization speedup under batch-size assumptions; no exact double-reflection moment factor established from accessible text",
+          "evidence": "Different stochastic oracle/iterate recursion from Algorithm 2 under with-replacement reflections.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+          "material_read": "Primary abstract and theorem synopsis, not complete independent full-text exclusion",
+          "method": "Read accessible abstract and compare gradient/mini-batch model",
+          "title": "On the fast convergence of minibatch heavy ball momentum",
+          "trigger": "Potential broader acceleration theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mathematically motivated exact counterexample showing that an established mean-square upper bound can reverse the ranking of two actual schemes even inside its sufficient stability range. The explicitly derived second-moment matrix, local alpha=1/2 sign boundary, critical quadratic term, and rational stable numerical witness explain the mechanism. It is an instructive model-specific structural fact, not an unsupported universal algorithmic speedup claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md SHA dee12e19ae11c014894dca07e3e9003161327001",
+    "verify.py SHA 45b7a9b087bef7cbd718634ae3e39d04a0ca09ac",
+    "arxiv:2207.04291v4 Alg2 Thms4.1–4.2",
+    "arxiv:2506.10261",
+    "arxiv:2206.07553",
+    "Resultary semantic: Mean-square acceleration randomized Douglas Rachford heavy ball two reflections orthogonal identity matrix alpha underrelaxation",
+    "Pinned METADATA.json blob f6dd7c180e8f46039f01bbb7f731257548974e29",
+    "Pinned AUDIT.json blob eec54f4e379201812798e5fe4ac4e3e15a36d360"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Small-momentum α-dependent transition is local; rational witness is finite positive momentum.",
+    "A=I2, homogeneous consistent system, with-replacement two row draws, source initialization.",
+    "Only expected squared error contraction per outer iteration, not full runtime or optimal algorithm complexity."
+  ],
+  "schema_version": 1
+}

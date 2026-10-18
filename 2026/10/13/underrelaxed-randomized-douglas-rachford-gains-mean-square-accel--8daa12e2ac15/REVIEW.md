@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For the two-row identity system, all ordered pairs of the defining reflections are computed exactly, yielding an independent two-point scalar multiplier. Its squared-norm and adjacent-cross-moment recurrences close in three variables. The simple eigenvalue of that exact matrix has the claimed derivative, while the rational example has three real roots rigorously isolated below \(3/5\). The original source Theorem 4.1 constants are recomputed exactly and satisfy their sufficient-condition inequality.
+PASS
 
-Scientific limit: the phase boundary is for infinitesimal positive momentum, and the strict explicit witness is for the stated parameters only.
+For Algorithm 2 of Han–Su–Xie at A=I_2, b=0, two independent with-replacement uniform row reflections have product I or −I with probability 1/2. Thus the fixed-momentum scheme has scalar iid c_t∈{1,1−2alpha}, and exact recurrence x_(t+1)=(c_t+beta)x_t-beta*x_(t−1) for source x^1=x^0≠0. Fresh-sample independence gives the 3×3 second-moment matrix with first row (s+2mu beta+beta²,−2beta(mu+beta),beta²), second (mu+beta,−beta,0), third (1,0,0), s=1−2alpha+2alpha², mu=1−alpha. The simple leading eigenvalue s at beta=0 has derivative 2alpha(1−alpha)(2alpha−1)/s. This proves local strict acceleration 0<alpha<1/2 and worsening for alpha>1/2, with initial state exciting the dominant mode. At alpha=1/2, direct characteristic polynomial gives rho=1/2+beta²+O(beta³), hence no local speedup. At alpha=1/4,beta=1/10, independent exact symbolic determinant reproduces cubic 1000z³−685z²+56z−1; three rational disjoint sign-change intervals locate all roots and rho≈0.593480527629743<3/5<5/8. The original Theorem 4.1 sufficient stability coefficients are gamma1=87/100, gamma2=19/200. Theorem is about actual E||x||² rate, not ||E x||² or wall clock.
 
-## Originality
+## originality
 
-PASS. The defining paper compares **upper bounds** for actual mean-square error and proves improved convergence separately for **mean error**; those are distinct. Its bound cannot imply the present true expected-squared-error acceleration or sharp relaxation threshold. The later improved-sampling/adaptive-momentum continuation and broader randomized heavy-ball analyses do not state the same fixed with-replacement exact three-state law in the inspected material.
+PASS
 
-Residual risk: a generic unindexed Bernoulli-heavy-ball analysis could imply the present exact recursion under different terminology.
+The original paper's Theorem 4.1 gives a valid but pessimistic expected-SQUARED-error upper bound which worsens with momentum; Theorem 4.2 instead accelerates a bound for the norm of expected error. Neither implies the actual second-moment spectral-radius improvement shown here inside the sufficient regime. Later adaptive/without-replacement sampling changes the Bernoulli reflection law. Related generalized stochastic-heavy-ball and pseudoinverse-free acceleration results lack this exact recurrence/phase boundary. Resultary hits on related accelerated splitting and stochastic momentum differ in algorithm, metric or sampling; no implication-equivalent published statement found.
 
-## Value
+## value
 
-PASS. The source identifies why momentum looks unhelpful in its squared-error bound. The example demonstrates, within that source theorem’s own sufficient region, that the actual contraction factor is strictly better than without momentum. The exact relaxation transition explains when this discrepancy can arise, and distinguishes genuine mean-square acceleration from merely faster mean iterates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically motivated exact counterexample showing that an established mean-square upper bound can reverse the ranking of two actual schemes even inside its sufficient stability range. The explicitly derived second-moment matrix, local alpha=1/2 sign boundary, critical quadratic term, and rational stable numerical witness explain the mechanism. It is an instructive model-specific structural fact, not an unsupported universal algorithmic speedup claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
