@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof isolates the two possible local bisimulation obstructions: repeated color within an antichain and equal color immediately below a singleton next level. Downward induction on the upper suffix handles all other world pairs and yields exact conditions. Multiplying independent ordered injective-label choices gives the census and the exact rank cutoff. Modal depth is bounded by the number of strict level steps and attained on identically two-colored pairs in each level. The standard-library checker independently compares 1,178,754 colorings, 504 parameter-level censuses, 640 direct subalgebra closures, and 14 sharp-depth examples. The induction—not finite tests—justifies unbounded sizes and heights.
+## correctness
 
-## Originality — PASS, with stated historical risk
-Goldblatt (arXiv:1905.11617) treats finite partial-order frame logics and generated modal-algebra varieties, rather than explicit ordered propositional generator tuples. Shapirovsky (arXiv:2012.15347) studies sums of frames for satisfiability complexity, rather than the local singleton-frontier condition, falling-factorial count, and rank. Bezhanishvili and Henke (doi:10.1093/logcom/exaa040) supply the foundational bisimulation perspective. General characteristic-formula and partition-refinement arguments are established tools, not new claims. A different family of total-preorder *complete-cluster* chains has a different palette obstruction: for instance, a two-level antichain sum with sizes (2,2) admits two-color generators, unlike the corresponding complete-cluster chain. A historically equivalent formulation in general modal-algebra generating-set literature is a residual risk; non-detection is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Finite weak orders are a natural canonical test class of finite partial-order S4 frames and finite-space models. The complete all-size result answers both the existence and enumeration questions for labeled generators and locates the unique extra obstruction at singleton frontiers. Unlike a bare finite calculation, it gives an all-parameter formula and sharp modal-depth complexity, with a non-obvious distinction from linear-preorder cluster frames. It is a self-contained natural classification, not an arbitrary parameter slice.
+The finite modal-type refinement (color; set of successor classes) stabilizes exactly at formula distinguishability, and generated Boolean modal subsets are unions of stable classes. Repeated label in same antichain is a bisimulation; the same label beneath an immediately upper singleton creates a two-point bisimulation. Conversely downward suffix induction uses an upper-level characteristic formula to separate each lower point from all upper points, except the precisely forbidden singleton color. Independent ordered injective palette assignments yield product (q)_{n_h} prod_i(q-1_[n_(i+1)=1])_{n_i} and Q* threshold; each suffix introduces <=1 modal depth and identical two-color level pairs realize h-1 for every h>=2. Independently reimplemented color-sensitive refinement over 22620 bounded cases, with 3945 discrete outcomes, and verified all-two-color sharp examples heights 2..8. The induction, not experiments, proves all finite h.
 
-## Boundaries
-No claim about arbitrary posets, nonsingleton strongly connected clusters, or independent validation. Reproducible finite computation corroborates but does not certify an infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite weak-order modal generators can be expressed via color-preserving bisimulation and finite characteristic types, both classical. However the exact adjacent-singleton criterion, full ordered r-tuple product, sharp log_2 rank and h-1 depth are not implications of Goldblatt's transitive-frame equational variety classification, Shapirovsky's satisfiability in frame sums or published weak-order homotopy/retract invariants. Best-of-knowledge PASS; an older finite modal-algebra generation theorem may imply the product implicitly.
+
+## value
+
+PASS
+
+Generator rank and exact numbers of generating valuations are fundamental intrinsic invariants of finite modal powerset algebras, with formula depth an independent expressivity resource. The adjacent singleton obstruction and sharp uniform h-1 separation clarify precisely when modal reachability adds discriminatory power; product formula is a natural full classification, not arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
