@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The generating-function decomposition gives A_h=T(T/(1-T))^h and B_h=A_h+2A_{h+1}; Lagrange inversion yields exact a_{n,h}; their ratio simplifies to the claimed polynomial sign, with highest-depth and n=2 boundaries verified. A uniform h=O(sqrt n) logarithmic expansion of the exact binomial ratio yields 4(1-2t^2)e^{-t^2}. Embedded verify.py independently exhausts 82,499 Catalan trees and verifies 45,024 assertions, which are supporting finite checks and not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Cambridge full distance-profile article analyzes conditioned forest decomposition near the root and global profile limits, but contains no stated exact finite covariance formula or sign threshold of the claimed kind.",
+        "Janson 2003 abstract and Theorem 3.1 give joint asymptotics for Wiener index and internal path length, without root offspring."
+      ],
+      "reasoning": "Broader asymptotic profile and root-degree-conditioned forest results motivate the question and could lead to a derivation. They do not assert or immediately subsume the exact all-n, all-h polynomial sign characterization, which requires evaluating a distinct mixed generating function. Risk: general exact multivariate generating-function machinery could hide the formula as an implicit consequence.",
+      "searches": [
+        "Published index query: simply generated plane tree degree at root versus generation population size joint expectation depth h",
+        "Published index query: plane rooted tree height profile root degree correlation exact sign threshold",
+        "Full HTML: The distance profile of rooted and unrooted simply generated trees; find root degree, covariance, joint; inspect root-conditioned forest sections",
+        "Janson 2003 DOI:10.1002/rsa.10074, complete pp.1-22"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1112.0510",
+      "doi:10.1002/rsa.10074",
+      "The distance profile of rooted and unrooted simply generated trees (Cambridge Core full HTML)",
+      "doi:10.1017/S0963548314000443 (abstract only)",
+      "published research index published-finding semantic searches (multiple exact and alias queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011 Janson marginal offspring law alone cannot determine covariance with depth-h population.",
+        "2003 Janson mixed path-length/Wiener limit does not feature distinguished-root offspring.",
+        "Distance-profile conditional-forest theory explains potentially relevant mechanisms but does not display the exact sign boundary at n=2h^2+h-1."
+      ],
+      "reasoning": "Neither a marginal profile law nor a path-length joint law implies the finite mixed covariance. The exact root-marked coefficient B_h=A_h+2A_{h+1}, followed by Lagrange inversion and sign reduction, supplies a separate calculation. Potential indirect implication via fully general multivariate tree enumeration is acknowledged but not found to dominate the claim as stated.",
+      "searches": [
+        "arXiv:1112.0510 full paper sections on plane trees/root degree and height profiles",
+        "DOI:10.1002/rsa.10074 whole paper pp.1-22",
+        "Cambridge The distance profile of rooted and unrooted simply generated trees full HTML sections on root conditioning",
+        "Published index query: root degree depth sum random plane trees exact mixed moment generating function Catalan 4^n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson 2011 arXiv:1112.0510 defines simply generated plane trees, marginal root offspring and profile variables, but the full-text material inspected did not provide an exact root-degree-by-each-depth covariance.",
+        "Janson 2003 DOI:10.1002/rsa.10074 treats path length and Wiener index mixed moments, distinct from root degree and individual generation counts."
+      ],
+      "reasoning": "Equivalent variables include the root offspring/first-generation population and the depth-h level width/generation size. The mixed generating function is not merely a restatement of a marginal profile law: it differentiates a root-marked series. No exact equivalent claim was located in the inspected full sources or published research index results.",
+      "searches": [
+        "Published index query: uniform random rooted plane Catalan trees exact covariance root outdegree total path length all n negative -2n",
+        "Published index query: root degree depth sum random plane trees exact mixed moment generating function Catalan 4^n",
+        "Published index query: random ordered rooted tree root offspring count total internal path length covariance negative",
+        "web: random plane tree root outdegree level profile covariance ordered trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published research index search returned other tree invariants and probabilistic inequalities rather than entries for the root-degree/generation-width covariance polynomial.",
+        "Catalan-number and generation-width coefficient tables determine marginals only; the target is a new mixed-moment/sign expression."
+      ],
+      "reasoning": "No exact table or already-tabulated covariance at these parameters was identified. Nonmatching database results are not a proof of novelty, and implicit derivability from classical exact enumerators remains a residual risk.",
+      "searches": [
+        "Published index query: uniform plane tree root outdegree and depth profile width covariance changes sign at 2h^2+h=n+1",
+        "Published index query: plane rooted tree height profile root degree correlation exact sign threshold",
+        "web: exact root degree generation size covariance plane trees Catalan binomial"
+      ]
+    },
+    "rationale": "Full-text comparisons with Janson 2011, Janson 2003, and the later full distance-profile paper reveal root-degree marginals, profile laws, and path-length joint moments, not the exact root-degree-by-level covariance or its sharp integer and square-root-depth sign transitions. published research index alias/parameter searches did not expose an equivalent finding. General multivariate enumeration might implicitly encode the calculation and historical priority is not independently certified.",
+    "residual_risks": [
+      "A broad earlier bivariate/multivariate Catalan-tree generating-function theorem could imply the covariance without spelling out the polynomial or crossover.",
+      "The 2014 additive-tree parameter paper was abstract-only; stronger material not read.",
+      "published research index is incomplete and searches do not establish novelty against unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports domain and marginal distributions; does not state root-degree/depth-h covariance formula in inspected material",
+        "evidence": [
+          "arXiv first version 2011-12-02; Catalan plane tree and root-degree results in sections on simply generated trees."
+        ],
+        "identifier_or_url": "arxiv:1112.0510",
+        "material_read": "Full PDF inspected for model, ordered tree coefficients, root degree laws, and root and depth profile text; relevant sections including general simply generated and root-degree results",
+        "method": "Open-access arXiv full PDF, text extraction and targeted page inspection",
+        "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+        "trigger": "Verified archival anchor and foundational uniform plane-tree/root-degree reference"
+      },
+      {
+        "assessment": "Joint Wiener/path-length result, no exact root-degree-by-generation-width covariance",
+        "evidence": [
+          "Paper abstract and Theorem 3.1 state joint Wiener-index/internal-path-length limit and Brownian-excursion representation."
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.10074",
+        "material_read": "All 22 pages including Theorem 3.1, coefficient/moment methods, final section and references",
+        "method": "Authorized full-paper PDF extraction, pages 1 through 22",
+        "title": "The Wiener Index of Simply Generated Random Trees",
+        "trigger": "Closest established joint path-length moment theorem in conditioned Galton–Watson trees"
+      },
+      {
+        "assessment": "Root-degree-conditioned tree-forest decomposition and profile limits are relevant but no displayed all-n mixed covariance or unique sign boundary found",
+        "evidence": [
+          "Root conditioning in local profile section; global depth-profile scaling theorems."
+        ],
+        "identifier_or_url": "Cambridge Core full article, The distance profile of rooted and unrooted simply generated trees",
+        "material_read": "Full HTML searched for covariance/root degree and original results; inspected root-conditioned forest statements and depth-profile theorems",
+        "method": "Open-access HTML text and focused section inspection",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Highest material relevance: generation profile and conditioned root degree"
+      },
+      {
+        "assessment": "Additive-tree CLT is different from the exact root-degree versus level-width covariance; absence of full text remains uncertainty",
+        "evidence": [
+          "2014 online publication abstract covers additive parameters with small toll functions."
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548314000443",
+        "material_read": "Title and abstract only; complete text not read",
+        "method": "Public publisher metadata and abstract",
+        "title": "Central Limit Theorems for Additive Tree Parameters with Small Toll Functions",
+        "trigger": "General random plane tree additive-statistic method potentially relevant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba566fae-9851-40a4-a9c7-b7a20f193fc4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A root’s offspring and the full generation-width profile are canonical tree observables. The result gives a complete exact depth-by-depth dependence sign classification, a discrete zero law n=2h^2+h-1, and a nontrivial continuum covariance 4(1-2t^2)e^{-t^2}. This resolves a motivated size-conditioning question and goes beyond marginal root degree or generation-width formulas.",
+    "status": "PASS"
+  }
+}
