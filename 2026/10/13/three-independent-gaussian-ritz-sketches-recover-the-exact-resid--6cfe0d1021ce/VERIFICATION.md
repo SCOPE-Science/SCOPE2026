@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and proven limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and NumPy installed. The script checks 585 generated generalized eigenvalue pencils against the exact projected Gaussian quotient: dimensions \(m\in\{2,3,4,6\}\), ambient sizes \(n=m+1\) and \(n=m+7\), several trial angles, plus nontrivial complex trial vectors supported in three eigenmodes of a larger ambient space. It checks the exact spectator eigenvalues, compares the complex-Cauchy unit-scale radial tail with its exact value \(1/2\), verifies the three-median second-moment value numerically, and checks the beta-integral constant \(1/2\) algebraically. In one reproducible execution, the script returned `VERIFY_OK: 585 compressed-eigenvalue checks; Cauchy tail and 3-median Monte Carlo; beta integral`.
+## correctness
 
-Proof-critical identities requiring no finite simulation: conditional independence of the orthogonal Gaussian projections; the pencil determinant factorization; the exact complex-Cauchy density; the real-coordinate order-statistic density \(3/[4(1+x^2)^{5/2}]\); the mean-square identity \(\mathbb E|M_3-\lambda|^2=\|(A-\lambda I)w\|_2^2\); and the binomial tail exponent \(k+1\) for odd replication counts. Numerical runs only test finite cases; they neither certify all matrix dimensions nor establish divergent moments. The latter follow solely from the displayed integrations and asymptotics in `RESULT.md`.
+PASS
 
-No independent audit or independent validation was performed. No result is asserted for non-invariant spectator spaces, correlated sketches, or general nonlinear eigenproblems.
+The determinant of Omega^H(A-zI)[w,V] factors as det(D-zI)*[(rho-z)det(g,B)+sigma det(h,B)] because V is invariant and residual perpendicular V,w. Gaussian unitary invariance and conditioning on B makes the ratio a quotient of independent circular complex normals. Its radial tail 1/(1+t^2) gives infinite q>=2 moments. Independent symbolic differentiation of the exact real-marginal CDF .5(1+x/sqrt(1+x^2)) gives median-of-three density 3/[4(1+x^2)^(5/2)]; SymPy exact integral computes its coordinate second moment 1/2. Real+imag variances sum to sigma^2 and centering gives (rho-lambda)^2+sigma^2=||(A-lambda I)w||^2. Median tails of k=2h+1 have order t^-2(h+1), giving threshold q<k+1. Finite sketch simulation not used as infinite proof.
+
+## originality
+
+PASS
+
+Shao (2026) introduces square complex-Gaussian randomized Rayleigh–Ritz and high-probability O(epsilon) Ritz convergence; its refinement is a different statistic. Nakatsukasa–Tropp (2024) use oversampled sketched pseudoinverse; Gu (2020) treats Gaussian quotient probability, which is acknowledged. The exact invariant-spectator ratio reduction plus three-median residual-scale identity was not identified in read source sections.
+
+## value
+
+PASS
+
+A high-probability stable randomized eigenvalue extraction can have infinite mean-square loss; the exact dimension-free replacement risk and minimal odd repetition count are nontrivial risk-calibration facts for that specific unrefined estimator. Does not claim advantage over deterministic Hermitian Rayleigh quotient or robustness in arbitrary trial geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

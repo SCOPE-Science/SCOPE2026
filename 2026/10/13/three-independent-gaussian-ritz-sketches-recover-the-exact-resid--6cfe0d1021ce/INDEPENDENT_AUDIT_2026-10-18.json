@@ -1,0 +1,61 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:02:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/verify.py"
+      ],
+      "rationale": "The determinant of Omega^H(A-zI)[w,V] factors as det(D-zI)*[(rho-z)det(g,B)+sigma det(h,B)] because V is invariant and residual perpendicular V,w. Gaussian unitary invariance and conditioning on B makes the ratio a quotient of independent circular complex normals. Its radial tail 1/(1+t^2) gives infinite q>=2 moments. Independent symbolic differentiation of the exact real-marginal CDF .5(1+x/sqrt(1+x^2)) gives median-of-three density 3/[4(1+x^2)^(5/2)]; SymPy exact integral computes its coordinate second moment 1/2. Real+imag variances sum to sigma^2 and centering gives (rho-lambda)^2+sigma^2=||(A-lambda I)w||^2. Median tails of k=2h+1 have order t^-2(h+1), giving threshold q<k+1. Finite sketch simulation not used as infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.01037",
+        "https://doi.org/10.6028/jres.125.030",
+        "Resultary semantic search: randomized Rayleigh Ritz complex Gaussian square sketches infinite moment Ritz generalized eigenvalue median three residual mean square"
+      ],
+      "rationale": "Shao (2026) introduces square complex-Gaussian randomized Rayleigh–Ritz and high-probability O(epsilon) Ritz convergence; its refinement is a different statistic. Nakatsukasa–Tropp (2024) use oversampled sketched pseudoinverse; Gu (2020) treats Gaussian quotient probability, which is acknowledged. The exact invariant-spectator ratio reduction plus three-median residual-scale identity was not identified in read source sections.",
+      "residual_risks": [
+        "A robust sketched-Ritz or matrix-pencil paper may already contain the exact median identity under another statistical formulation.",
+        "Coordinatewise complex median depends on choice of axes; random root must be mathematically identified as non-spectator, not selected by a practical heuristic.",
+        "For Hermitian A, deterministic Rayleigh quotient already has bounded/possibly better error; practical superiority is not established."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.01037",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/RESULT.md"
+      ],
+      "rationale": "A high-probability stable randomized eigenvalue extraction can have infinite mean-square loss; the exact dimension-free replacement risk and minimal odd repetition count are nontrivial risk-calibration facts for that specific unrefined estimator. Does not claim advantage over deterministic Hermitian Rayleigh quotient or robustness in arbitrary trial geometry.",
+      "residual_risks": [
+        "Value restricted to exact stated mathematical object: Under Hermitian A, invariant (m-1)-dimensional spectator V, unit w perpendicular V with nonzero Rayleigh residual sigma, each square independent complex Gaussian sketch has an..."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/verify.py",
+    "https://arxiv.org/abs/2604.01037",
+    "https://doi.org/10.6028/jres.125.030",
+    "Resultary semantic search: randomized Rayleigh Ritz complex Gaussian square sketches infinite moment Ritz generalized eigenvalue median three residual mean square"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality judgment with specified residual literature risks; not exhaustive global priority search, formal proof attestation, or external expert certification.",
+    "No claim of publication readiness: original source metadata contains operational provenance; not_ready transport does not alter C/O/V science.",
+    "A robust sketched-Ritz or matrix-pencil paper may already contain the exact median identity under another statistical formulation.",
+    "Coordinatewise complex median depends on choice of axes; random root must be mathematically identified as non-spectator, not selected by a practical heuristic.",
+    "For Hermitian A, deterministic Rayleigh quotient already has bounded/possibly better error; practical superiority is not established."
+  ],
+  "residual_risks": [
+    "A robust sketched-Ritz or matrix-pencil paper may already contain the exact median identity under another statistical formulation.",
+    "Coordinatewise complex median depends on choice of axes; random root must be mathematically identified as non-spectator, not selected by a practical heuristic.",
+    "For Hermitian A, deterministic Rayleigh quotient already has bounded/possibly better error; practical superiority is not established."
+  ],
+  "schema_version": 1
+}

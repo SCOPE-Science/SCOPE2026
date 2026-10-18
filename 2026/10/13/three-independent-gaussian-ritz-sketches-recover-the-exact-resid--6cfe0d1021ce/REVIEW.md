@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For Hermitian \(A\) with an invariant spectator subspace, the pencil determinant factors into the spectator characteristic polynomial and a linear random factor. Conditional Gaussian projection gives an exact complex-Gaussian quotient; elementary polar integration proves the infinite raw second moment. The median-of-three density \(3/[4(1+x^2)^{5/2}]\) has second moment \(1/2\); the two coordinates therefore give the exact residual mean-square identity. Binomial order-statistic tails prove the sharp moment threshold for every odd replication count. All dimensions, nonzero residuals, and real comparison values are quantified; code only supplements the analytic proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Shao's arXiv:2604.01037 develops the same square Gaussian generalized Ritz pencil but treats high-probability eigenpair guarantees and Rayleigh-quotient refinement, not the exact unrefined-branch law, mean-square divergence, and three-sketch residual identity. Nakatsukasa–Tropp's 2024 sketched Ritz method uses a rectangular embedding and pseudoinverse. Gu 2020 and older probability literature already cover Gaussian quotients; ordinary order-statistic formulas also predate this result, and neither is presented as an independent new theorem. The new comparison concerns the **implication gap** between such facts and the dimension-independent spectral identity for a specified generalized pencil. An equivalent result in unindexed eigenvalue-sketching or median-estimation literature remains possible.
+PASS
 
-**Value — PASS.** The 2026 high-probability analysis has confidence-dependent factors characteristic of small random denominators, so the validity of unconditional mean-square eigenvalue claims is a motivated numerical-analysis question. The theorem shows that a single unrefined Ritz value can have infinite squared risk even as a trial direction approaches an exact eigenvector, identifies the exact minimum odd number of independent replications needed to regain second moments, and recovers precisely the squared eigen-residual as that risk. The full odd-replication tail exponent gives a meaningful moment-budget tradeoff. This is an exact benchmark for unrefined generalized eigenvalue output, not a claim that the median beats cheap deterministic Hermitian refinement.
+The determinant of Omega^H(A-zI)[w,V] factors as det(D-zI)*[(rho-z)det(g,B)+sigma det(h,B)] because V is invariant and residual perpendicular V,w. Gaussian unitary invariance and conditioning on B makes the ratio a quotient of independent circular complex normals. Its radial tail 1/(1+t^2) gives infinite q>=2 moments. Independent symbolic differentiation of the exact real-marginal CDF .5(1+x/sqrt(1+x^2)) gives median-of-three density 3/[4(1+x^2)^(5/2)]; SymPy exact integral computes its coordinate second moment 1/2. Real+imag variances sum to sigma^2 and centering gives (rho-lambda)^2+sigma^2=||(A-lambda I)w||^2. Median tails of k=2h+1 have order t^-2(h+1), giving threshold q<k+1. Finite sketch simulation not used as infinite proof.
 
-**Primary comparisons and limits.** Shao, *Stabilizing the Rayleigh--Ritz procedure by randomization*, arXiv:2604.01037, Algorithm 1 and §§4.2–4.4 and 5.3. Nakatsukasa and Tropp, SIAM JMAA 2024, §6 and DOI 10.1137/23M1565413. Gu, J. Res. NIST 2020, §§1–2 and DOI 10.6028/jres.125.030. Exact spectator invariance and independent complex-Gaussian square sketches are essential. The claim concerns a mathematically labeled non-spectator root, not arbitrary nearest-shift root selection; prior equivalent variants may be unindexed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shao (2026) introduces square complex-Gaussian randomized Rayleigh–Ritz and high-probability O(epsilon) Ritz convergence; its refinement is a different statistic. Nakatsukasa–Tropp (2024) use oversampled sketched pseudoinverse; Gu (2020) treats Gaussian quotient probability, which is acknowledged. The exact invariant-spectator ratio reduction plus three-median residual-scale identity was not identified in read source sections.
+
+## value
+
+PASS
+
+A high-probability stable randomized eigenvalue extraction can have infinite mean-square loss; the exact dimension-free replacement risk and minimal odd repetition count are nontrivial risk-calibration facts for that specific unrefined estimator. Does not claim advantage over deterministic Hermitian Rayleigh quotient or robustness in arbitrary trial geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
