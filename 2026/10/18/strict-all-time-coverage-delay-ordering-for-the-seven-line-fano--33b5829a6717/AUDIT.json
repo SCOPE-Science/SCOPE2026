@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Inclusion-exclusion over all 128 absent-point subsets yields explicit Fano and full-model survival laws for every integer t>=1. The seven Fano lines and 35 unrestricted triples give the stated signed avoidance counts. The difference equals (21*5^t-35*4^t+35)/35^t and has zero values t=1,2. Writing a_t=(4^t-1)/5^t gives a_1=a_2=3/5 and a_t-a_(t+1)=(4^t-4)/5^(t+1)>0 for t>=2, proving positivity for every t>=3; t=0 has equal tails. The local standalone exact Fraction checker verifies 128 subset counts against independent forward Markov DP for t=0..12, exact t=3 difference 12/1225 and mean gap 7/527. No infinite proof is inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grunbaum–Yaakobi, arXiv:2510.25305v1, introduction, Sections III and VII, develops expectation and recovery-set comparisons for general fair mechanisms.",
+        "Berend–Sher, arXiv:2509.17201v1, Theorem 2.1 and Section 2, compares mean coverage times of alternative group-draw laws, not the specified Fano/full all-time tails."
+      ],
+      "reasoning": "Expectation or recovery-set mean identities are weaker than all-horizon stochastic order and do not force its direction. General asymptotic coupon-collector limit laws on growing point sets do not cover this fixed seven-point exact comparison. The Fano source provides the Markov transition data for one mechanism, but a joint inequality with the uniform 35-block model does not follow directly without new cancellation/sign analysis.",
+      "searches": [
+        "general fair coupon coverage mechanisms projective plane stochastic ordering completion time strong domination expected time",
+        "coupon collector simultaneous coverage group draws 7 coupons 3 subsets exact stochastic dominance Fano projective plane",
+        "\"Fano Geometry and Slow Coupon Collecting\" \"distribution\" \"stochastic\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.28216v1 — Theorem 2.1, Table 1, Section 3 and Section 5",
+      "arXiv:2510.25305v1 — introduction, general counting tool, fair-model expectation Section VII",
+      "arXiv:2509.17201v1 — introduction, Theorem 2.1 and Section 2",
+      "Semantically retrieved mathematical records for Fano coupon collector, survival tails, stochastic domination and equivalent formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.28216v1 Section 3, pp. 7–8: explicit Fano process stages and E[T_F]=163/30, then comparison with E[T_full] using inclusion-exclusion.",
+        "arXiv:2606.28216v1 Section 5: subsequent investigation proposed for geometric mechanisms and comparison with the full model."
+      ],
+      "reasoning": "The primary theorem yields only E[T_F]>E[T_U], which does not imply P(T_F>t)>=P(T_U>t) for all t. Its stage transition rates are sufficient to recover Fano marginals but not the sign of the difference with full-model tails. The new inclusion-exclusion grouping identifies the exact difference and proves all-time positivity using (4^t-1)/5^t. The primary paper could inspire this derivation but does not contain the final stated stochastic comparison.",
+      "searches": [
+        "Fano plane coupon collector stochastic dominance all times survival probability compared full uniform triples 7 points 3 subsets",
+        "Fano plane seven lines full 35 triples coverage time generating function survival tail exact 21 35 4/5 stochastic ordering",
+        "general fair coupon coverage mechanisms projective plane stochastic ordering completion time strong domination expected time",
+        "Exact completion time distribution and tail stochastic dominance for Fano plane lines 7 coupons versus uniform 35 triples; inclusion exclusion 21 5^t -35 4^t +35"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barak-Pelleg–Berend, arXiv:2606.28216v1, Theorem 2.1 gives strict mean comparison only.",
+        "No title or summary of the relevant searched mathematical records stated the Fano/full stochastic-order formula."
+      ],
+      "reasoning": "An equivalent statement would compare Fano/full completion CDFs, survival probabilities, increasing functions of completion times, or yield an ordered coupling for the marginal stopping times. The three inspected papers neither assert such a universal-in-horizon assertion nor compute the signed survival difference. Equivalence with an expected-time comparison fails because positive mean difference does not establish tail dominance.",
+      "searches": [
+        "Fano plane coupon collector stochastic dominance all times survival probability compared full uniform triples 7 points 3 subsets",
+        "coupon collector Fano plane seven lines versus all 35 triples exact tail survival stochastic dominance",
+        "Exact completion time distribution and tail stochastic dominance for Fano plane lines 7 coupons versus uniform 35 triples; inclusion exclusion 21 5^t -35 4^t +35",
+        "\"Fano plane\" \"stochastic dominance\" \"coupon collector\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Barak-Pelleg–Berend, arXiv:2606.28216v1, Table 1 lists the Fano/full expectations 163/30 and 85691/15810, not the tail difference.",
+        "Nearest retrieved mathematical records concerned Fano-containing Steiner-triple censuses and constant-weight cover-free families, not the probability law of coverage time."
+      ],
+      "reasoning": "The expectation pair is known and explicitly disclaimed as new. The entire gap as a function of time and its strict positivity are absent from the tables and nearby results inspected. Similar point counts and incidence parameters alone are not implication or exact-database coverage.",
+      "searches": [
+        "exact probability 7-point Fano line coupon collector tail inclusion exclusion P(T>n) projective plane 2026",
+        "Fano plane seven lines full 35 triples coverage time generating function survival tail exact 21 35 4/5 stochastic ordering",
+        "Exact completion time distribution and tail stochastic dominance for Fano plane lines 7 coupons versus uniform 35 triples; inclusion exclusion 21 5^t -35 4^t +35"
+      ]
+    },
+    "rationale": "The all-integer strict first-order stochastic ordering is not implied by an expectation inequality alone. The directly relevant source arXiv:2606.28216v1 (Theorem 2.1 and Section 3) proves the two means, and its Fano Markov-stage data are not an all-time comparison against the full 35-triple law. The new result derives both exact distributional formulas and proves positivity at every horizon through an avoidance-factor cancellation and monotone ratio. Further primary studies are expectation-focused and no semantically searched record was found covering this all-time claim; coverage risks remain and this is not an absolute novelty certificate.",
+    "residual_risks": [
+      "An earlier result absent from indexed records or not found under the tested equivalent terms could state or imply the same inequality.",
+      "The Fano stages in the 2026 paper contain enough data to derive its marginal law; a previously unrecognized published full-model comparison could imply the tail ordering.",
+      "No claim is made for larger projective planes or for arbitrary fair mechanisms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expected-time Fano/full comparison and staged Markov proof present; all-time survival-gap identity and stochastic ordering not stated or proved.",
+        "evidence": [
+          "Theorem 2.1 at PDF p. 4 and Table 1 at p. 4.",
+          "Section 3 pp. 7–8 presents Fano stage probabilities and expectation, then compares with the full expected value.",
+          "Section 5 raises order comparisons as further investigation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.28216v1",
+        "material_read": "13-page arXiv v1 PDF text including abstract, Theorem 2.1 and Table 1, entire Section 3 on projective planes, Section 5 and references; page image of the Section 3 proof opening and first-page classification.",
+        "method": "Primary open-access full-text inspection with page-image spot check and statement/implication comparison.",
+        "title": "Fano Geometry and Slow Coupon Collecting",
+        "trigger": "Same two mechanisms and exact mean comparison; highest-risk potentially covering source."
+      },
+      {
+        "assessment": "General fair-mechanism expected coverage time and bounds, not the exact first-order Fano/full comparison.",
+        "evidence": [
+          "Abstract and Section I characterize the objective as expected number of draws.",
+          "Section VII discusses batch sampling and expectation monotonicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.25305v1",
+        "material_read": "Open HTML text, abstract, introduction, statements of coverage framework and Sections III, VI, VII relevant to extremality.",
+        "method": "Full-text open-access HTML navigation and scientific comparison.",
+        "title": "General Coverage Models: Structure, Monotonicity, and Shotgun Sequencing",
+        "trigger": "Original expectation extremality conjecture for fair mechanisms and general counting methods."
+      },
+      {
+        "assessment": "Theorem 2.1 compares expected completion times against other group-drawing distributions; no Fano/full survival ordering.",
+        "evidence": [
+          "Theorem 2.1 states expectation comparisons for near-decomposition or arc laws.",
+          "Remark 2.3 discusses exceptional parameters (7,3) without the Fano-tail identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.17201v1",
+        "material_read": "Open HTML abstract, introduction, Section 2 main theorem and proof structure; relevant distributional and finite-parameter passages.",
+        "method": "Full-text open-access HTML statement inspection.",
+        "title": "On a Conjecture of Schilling Regarding the Coupon Collector's Problem",
+        "trigger": "Alternative group-sampling distributions and possible stronger general comparisons."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33b5829a-6717-4267-8c0b-bb5c0edd4c03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This canonical seven-line design is the first explicitly proved expectation-level fair-covering counterexample. The new theorem strengthens the claim structurally to all stopping-time quantiles and all increasing costs (when integrable), revealing a uniform-in-time coverage-delay mechanism rather than a small aggregate mean difference. The exact formula makes the effect attributable to triple-avoidance counts even though one-point and pair structure agree. A full stochastic-order resolution for the natural first example is a motivated precise invariant and useful boundary case independent of any larger-plane classification. The previously known means are credited, and larger-design significance is not claimed.",
+    "status": "PASS"
+  }
+}
