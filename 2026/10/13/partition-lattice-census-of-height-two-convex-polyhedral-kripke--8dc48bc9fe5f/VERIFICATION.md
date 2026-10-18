@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` checks the census in two independent ways. First, for every tested pair \((t,e)\) with \(t\le4\), it explicitly generates all choices of singleton-or-pair neighborhoods for every labeled depth-one point, forms the graph on top points induced by pair choices, and tests connectivity directly. Those exhaustive counts are compared to the partition-lattice Möbius formula.
+# Independent mathematical audit
 
-Second, independently of brute-force connectivity, the script checks the connected-component recurrence equivalent to the two-sort exponential identity
-\[
-A(x,y)=\exp C(x,y)
-\]
-through \(t\le8\) and \(e\le10\), where \(A\) counts all incidence systems and \(C\) counts connected ones. It also verifies \(N_{2,e}=3^e-2^e\) and the stated globally labeled totals \(R_m\).
+## correctness
 
-The recorded run is
+PASS
 
-```text
-N(t,e) rows (e=1..7 where shown):
-1 [1, 1, 1, 1, 1, 1, 1]
-2 [1, 5, 19, 65, 211, 665, 2059]
-3 [0, 6, 78, 690, 5190, 35826, 235158]
-4 [0, 0, 96, 2472, 40800, 552360, 6705216]
-5 [0, 0, 0, 3000, 131640, 3566400, 77322000]
-R_m (distinguished root; m labeled nonroot points):
-[2, 6, 34, 255, 2541, 31948, 482308]
-VERIFY_OK 136 exact formula/recurrence assertions; exhaustive assignment grid through t=4
-```
+Use Adam-Day et al structural theorem for finite PL_2 rooted frames: height<=2, depth-one points have at most two strict successors, strict upset of root connected. Exactly-height-two frames therefore correspond bijectively to connected bipartite incidence systems with each depth-one labeled point incident with one or two labeled tops. For a partition π of top set, permissible choices per depth-one label are t+sum_B choose(|B|,2); Möbius inversion coefficient (-1)^(|π|-1)(|π|-1)! gives N_(t,e). Two-sort exponential formula log sum exp(choose(t+1,2)y)x^t/t! counts connected systems; choose top labels for global R_m. Independently enumerated 20 small (t,e) grids and matched partition lattice counts. Finite verification supplemental to combinatorial bijection.
 
-The replay verifies the finite combinatorics only. The geometric completeness theorem and finite-frame characterization are cited premises from the primary source.
+## originality
+
+PASS
+
+Adam-Day et al establish exact frame structure, but the identified results do not enumerate these rooted PL_2 frames by t,e. Standard partition-lattice Möbius inversion and exponential formula are not new. The new claimed object-specific all-parameter enumeration transfers that structure to a natural logical census; t=2 case 3^e−2^e is explicitly classical.
+
+## value
+
+PASS
+
+Exact labeled count of finite frames for the logic of a fixed two-dimensional convex polyhedron is a natural structural invariant useful for finite-model enumeration and complexity benchmarking, not a random parameter slice. Full bivariate census and generating function are self-contained despite using standard combinatorial tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
