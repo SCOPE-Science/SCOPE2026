@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded `verification/verify.py` uses SymPy exact rational arithmetic. It reconstructs the mean and variance of the two possible ambiguous media payoffs at \(y=0\), differentiates the payoff-consistent two-strategy replicator with respect to \(\lambda\), and checks
-\[
-\partial_{\lambda}\dot z_{\mathrm{util}}
-=x(1-x)z(1-z)^3(F_m-F'_m)^2.
-\]
-For the source's fine rates \(F_m=7/2\) and \(F'_m=4/5\), at \(x=z=1/2\), it obtains the exact rational \(729/6400\). The separate \(\lambda\) coefficient printed in Equation (18) gives \(729/3200\) on the same face.
+# Independent mathematical audit
 
-The final media drift of Equation (21) reduces on this face to
-\[
-F_z=z[-C_m-R_m+(1-z)(xF_m+(1-x)F'_m)],
-\]
-which has identically zero \(\lambda\) derivative. Equations (19)–(24) and updates (42)–(44) were also manually checked for absence of \(\lambda\).
+## correctness
 
-The observed absence of a parameter from a complete published vector field is the mathematical proof of nonidentifiability for its well-posed solution law; symbolic tests independently check the nonzero risk effects of the original payoff game. No finite simulation is used to certify an infinite-time property. The interpretation or validity of unpublished numerical code is unproved.
+PASS
+
+Direct inspection of the actual Su–Long manuscript shows λ in mean−variance payoff and the intermediate media Eq (18), but no λ in final governing drift equations (19)–(24) or the discrete updates (42)–(44). For identical other parameters, initial states and noise, identical maps produce identical iterates, and well-posed ODE/SDE models have the same trajectories/laws under standard uniqueness assumptions. On admissible y=0 face the ambiguous media payoff has two outcomes separated by (1−z)(F_m−F_m prime) with probabilities x,1−x, giving variance x(1−x)(1−z)^2(F−F prime)^2 and payoff-correct replicator sensitivity x(1−x)z(1−z)^3(F−F prime)^2. Exact fractions with x=z=1/2, fines 7/2 and 4/5 give 729/6400; source Eq18 gives 729/3200; final equations zero. Checked source verification/verify.py arithmetic and independently multiplied fractions. No inference about actual unpublished simulator is made.
+
+## originality
+
+PASS
+
+General identifiability observations and a different published stochastic-coalition error are known, but the demonstrated absence of risk coefficient lambda from Su–Long 2026 final Eqs 19–24/42–44, contrasted with the nonzero exact payoff sensitivity, is a specific source contradiction not found covered by prior targeted searches; no assertion about private code.
+
+## value
+
+PASS
+
+Identifies a consequential within-paper contradiction between promised sensitivity to media risk preferences and the only published evolution and numerical laws; zero Fisher information under defined likelihood and exact observational equivalence make the policy/interpretation limit explicit. Not just a cheap normalization check: it invalidates inference about λ from the stated model and contrasts with an independently computed nonzero payoff-level response.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
