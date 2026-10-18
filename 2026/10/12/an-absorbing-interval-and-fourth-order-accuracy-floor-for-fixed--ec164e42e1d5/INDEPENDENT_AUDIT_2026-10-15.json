@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/an-absorbing-interval-and-fourth-order-accuracy-floor-for-fixed--ec164e42e1d5/RESULT.md",
+        "Pinned full actual Git tree object f725f77cc376a93d3946452ea40e91cac78d257c",
+        "Private independent check /mnt/data/scope_worker04_checks.py"
+      ],
+      "rationale": "Pinned scalar CARS Algorithm 1: d_r(x)=(f(x+r)-f(x-r))/(2r), positive centered curvature h_r, proposal y=x-d_r/(Lhat h_r), and safeguard argmin of x,y,x±r. Global strong convexity gives d_r increasing with derivative at least mu and unique zero. C^3 Taylor gives z_r-x*= -f_three(x*) r²/(6 f_two(x*))+o(r²); objective defect f_three(x*)² r^4/(72f_two(x*))+o(r^4). Between minimizer and displaced zero fprime and d_r have opposite signs; proposal moves outward and hence worsens f; probes ±r worsen by positive 1/2 f_two(x*)r²+o(r²), uniformly for |x-x*|=O(r²). At minimizer candidate also worsens, at displaced root candidate is incumbent; thus whole closed interval is fixed under every Rademacher sign and every Lhat>0. For f=x²/2+(sin x-x)/2, f_two=1-sin x/2>=1/2, d_r=x-1/2+(sin r)/(2r)cos x, root 0<z<=r²/6<=r/6 for 0<r<=1; f(x±r)>=25r²/144>r²/48>=f(x) throughout [0,z]. Independent exact SymPy expansion solved z=r²/12-7r^4/2880+O(r^6), f(z)=r^4/288-13r^6/51840+O(r^8). No step requires finite experiments for infinite quantifiers.",
+      "residual_risks": [
+        "Open 2023 doctoral dissertation on CARS inspection strategies read only via abstract/metadata; unindexed prior exact fixed-radius absorption is a priority risk.",
+        "Only scalar fixed positive radius and independent Rademacher directions; no claim against target-dependent, vanishing radius, noisy or high-dimensional methods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source CARS Algorithm 1 and Theorem 2.6 give sufficient target-dependent r=O(epsilon^1/4) under Lipschitz Hessian, not an example attaining r^4 or an absorbing continuum. Prior STP safeguard without curvature-aware candidate cannot imply the four-choice obstruction. The 2023 thesis abstract mentions inspection strategies, but its full body was not available for a decisive comparison."
+        ],
+        "reasoning": "Source CARS Algorithm 1 and Theorem 2.6 give sufficient target-dependent r=O(epsilon^1/4) under Lipschitz Hessian, not an example attaining r^4 or an absorbing continuum. Prior STP safeguard without curvature-aware candidate cannot imply the four-choice obstruction. The 2023 thesis abstract mentions inspection strategies, but its full body was not available for a decisive comparison.",
+        "searches": [
+          "CARS curvature aware random search fixed sampling radius absorbing interval nonoptimal stencil gradient bias accuracy fourth power stronger general theorem dominated corollary",
+          "https://arxiv.org/pdf/2109.13391"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/an-absorbing-interval-and-fourth-order-accuracy-floor-for-fixed--ec164e42e1d5/RESULT.md",
+        "https://arxiv.org/pdf/2109.13391",
+        "https://arxiv.org/html/1902.03591v3",
+        "https://escholarship.org/uc/item/8z24w59c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existence of a small centered-difference bias does not itself prove the full algorithm stalls: comparison of all three other candidates, including the additional finite-difference Newton point, establishes the new lower-bound obstruction. The original sufficient radius scaling is consistent, not equivalent to a matching necessity or full absorption."
+        ],
+        "reasoning": "The existence of a small centered-difference bias does not itself prove the full algorithm stalls: comparison of all three other candidates, including the additional finite-difference Newton point, establishes the new lower-bound obstruction. The original sufficient radius scaling is consistent, not equivalent to a matching necessity or full absorption.",
+        "searches": [
+          "CARS curvature aware random search fixed sampling radius absorbing interval nonoptimal stencil gradient bias accuracy fourth power published result implies exact claim",
+          "https://arxiv.org/pdf/2109.13391"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source CARS Algorithm 1 and Theorem 2.6 give sufficient target-dependent r=O(epsilon^1/4) under Lipschitz Hessian, not an example attaining r^4 or an absorbing continuum. Prior STP safeguard without curvature-aware candidate cannot imply the four-choice obstruction. The 2023 thesis abstract mentions inspection strategies, but its full body was not available for a decisive comparison."
+        ],
+        "reasoning": "The existence of a small centered-difference bias does not itself prove the full algorithm stalls: comparison of all three other candidates, including the additional finite-difference Newton point, establishes the new lower-bound obstruction. The original sufficient radius scaling is consistent, not equivalent to a matching necessity or full absorption.",
+        "searches": [
+          "CARS curvature aware random search fixed sampling radius absorbing interval nonoptimal stencil gradient bias accuracy fourth power",
+          "https://arxiv.org/html/1902.03591v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No canonical finite table applies: result quantifies over all scalar strongly convex C³ objectives with nonzero third derivative and arbitrarily small radii; explicit analytic trigonometric example is not a finite census."
+        ],
+        "reasoning": "No canonical finite table applies: result quantifies over all scalar strongly convex C³ objectives with nonzero third derivative and arbitrarily small radii; explicit analytic trigonometric example is not a finite census.",
+        "searches": [
+          "CARS curvature aware random search fixed sampling radius absorbing interval nonoptimal stencil gradient bias accuracy fourth power exact table database classification",
+          "https://arxiv.org/html/1902.03591v3"
+        ]
+      },
+      "rationale": "Best-of-knowledge surviving original contribution; compare mathematical implication rather than titles/parameters. Source CARS Algorithm 1 and Theorem 2.6 give sufficient target-dependent r=O(epsilon^1/4) under Lipschitz Hessian, not an example attaining r^4 or an absorbing continuum. Prior STP safeguard without curvature-aware candidate cannot imply the four-choice obstruction. The 2023 thesis abstract mentions inspection strategies, but its full body was not available for a decisive comparison.",
+      "residual_risks": [
+        "Open 2023 doctoral dissertation on CARS inspection strategies read only via abstract/metadata; unindexed prior exact fixed-radius absorption is a priority risk.",
+        "Only scalar fixed positive radius and independent Rademacher directions; no claim against target-dependent, vanishing radius, noisy or high-dimensional methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CARS uses four-way safeguard and target-dependent radius; no demonstrated absorbing nonoptimal interval in inspected treatment",
+          "evidence": [
+            "Algorithm 1: y=x-d/(Lhat h)u, argmin(y,x,x±ru); the epsilon-dependent radius theorem is sufficient only."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.13391",
+          "material_read": "Full available PDF, Algorithm 1 and §2.1/§4.1 relevant claims and proof material",
+          "method": "Read original full manuscript and visually inspected Algorithm 1 PDF page",
+          "title": "Curvature-Aware Derivative-Free Optimization",
+          "trigger": "Exact algorithm, radius restriction, convergence theorem"
+        },
+        {
+          "assessment": "STP does not have CARS extra curvature-aware candidate",
+          "evidence": [
+            "Safeguard three choices are not the full four-choice CARS update."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1902.03591v3",
+          "material_read": "Public arXiv manuscript, algorithm/method comparison",
+          "method": "Read accessible manuscript method material",
+          "title": "Stochastic Three Points Method for Unconstrained Smooth Minimization",
+          "trigger": "Earlier three-point safeguard"
+        },
+        {
+          "assessment": "NOT excluded; residual comparison risk retained",
+          "evidence": [
+            "No whole-thesis noncoverage assertion"
+          ],
+          "identifier_or_url": "https://escholarship.org/uc/item/8z24w59c",
+          "material_read": "Landing-page metadata and abstract only; thesis body not read",
+          "method": "Open landing-page attempt; inaccessible complete text",
+          "title": "Enhancing Local Derivative-Free Optimization with Curvature Information and Inspection Strategies",
+          "trigger": "Plausible same-topic 2023 dissertation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/an-absorbing-interval-and-fourth-order-accuracy-floor-for-fixed--ec164e42e1d5/RESULT.md",
+        "https://arxiv.org/pdf/2109.13391",
+        "https://arxiv.org/html/1902.03591v3"
+      ],
+      "rationale": "A sharp fixed-radius failure mode of a published derivative-free method is motivated by its asserted target accuracy guarantee: an entire continuum of nonoptimal starts cannot improve, and attained fourth-order objective gap proves the sufficiency exponent cannot be uniformly weakened on the class. The universal local mechanism and all-radius analytic witness add substantive algorithmic information beyond generic truncation error.",
+      "residual_risks": [
+        "Open 2023 doctoral dissertation on CARS inspection strategies read only via abstract/metadata; unindexed prior exact fixed-radius absorption is a priority risk.",
+        "Only scalar fixed positive radius and independent Rademacher directions; no claim against target-dependent, vanishing radius, noisy or high-dimensional methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Open 2023 doctoral dissertation on CARS inspection strategies read only via abstract/metadata; unindexed prior exact fixed-radius absorption is a priority risk.",
+    "Only scalar fixed positive radius and independent Rademacher directions; no claim against target-dependent, vanishing radius, noisy or high-dimensional methods."
+  ],
+  "schema_version": 1
+}

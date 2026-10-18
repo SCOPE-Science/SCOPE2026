@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a globally strongly convex \(C^3\) scalar objective, the centered derivative is strictly increasing with derivative at least \(\mu\), yielding a unique shifted zero. Taylor's theorem fixes the root shift and fourth-order objective gap. Between the shifted zero and the true minimizer, the approximate derivative has the wrong sign and the curvature-corrected proposal moves away from the minimizer; the two direct-sampling probes are uphill uniformly for sufficiently small radius. The explicit sine-modulated quadratic provides nonasymptotic inequalities through radius one. The reproducibility script checks finite instances, while the analytic proof covers every stated quantifier and boundary.
+PASS
 
-## Originality — PASS
+Pinned scalar CARS Algorithm 1: d_r(x)=(f(x+r)-f(x-r))/(2r), positive centered curvature h_r, proposal y=x-d_r/(Lhat h_r), and safeguard argmin of x,y,x±r. Global strong convexity gives d_r increasing with derivative at least mu and unique zero. C^3 Taylor gives z_r-x*= -f_three(x*) r²/(6 f_two(x*))+o(r²); objective defect f_three(x*)² r^4/(72f_two(x*))+o(r^4). Between minimizer and displaced zero fprime and d_r have opposite signs; proposal moves outward and hence worsens f; probes ±r worsen by positive 1/2 f_two(x*)r²+o(r²), uniformly for |x-x*|=O(r²). At minimizer candidate also worsens, at displaced root candidate is incumbent; thus whole closed interval is fixed under every Rademacher sign and every Lhat>0. For f=x²/2+(sin x-x)/2, f_two=1-sin x/2>=1/2, d_r=x-1/2+(sin r)/(2r)cos x, root 0<z<=r²/6<=r/6 for 0<r<=1; f(x±r)>=25r²/144>r²/48>=f(x) throughout [0,z]. Independent exact SymPy expansion solved z=r²/12-7r^4/2880+O(r^6), f(z)=r^4/288-13r^6/51840+O(r^8). No step requires finite experiments for infinite quantifiers.
 
-The source CARS paper proves convergence to a prespecified tolerance under a radius bound of order \(\varepsilon^{1/4}\) and uses the original four-choice safeguard. It does not state the universal absorbing-interval mechanism, the signed third-derivative displacement, or a matched lower obstruction on required radius scaling. The STP precursor lacks CARS's extra Newton-style proposal, so fixed-step limitations of STP alone do not imply this obstruction. Targeted published-literature searches and accessible primary full text found no dominating statement. This is a provisional scientific priority assessment, not a proof against unindexed publications.
+## originality
 
-## Value — PASS
+PASS
 
-This is a structural boundary for a published zeroth-order optimizer under its natural smooth strongly convex hypotheses, not a small ad hoc numerical example. It establishes the necessity of the **exponent** in the source's accuracy-dependent radius regime by an attainable counterexample, identifies a continuum of permanent nonoptimal points, and explains a mechanism that remains after curvature correction and safeguarding. The scope is deliberately limited to fixed-radius scalar updates.
+Best-of-knowledge surviving original contribution; compare mathematical implication rather than titles/parameters. Source CARS Algorithm 1 and Theorem 2.6 give sufficient target-dependent r=O(epsilon^1/4) under Lipschitz Hessian, not an example attaining r^4 or an absorbing continuum. Prior STP safeguard without curvature-aware candidate cannot imply the four-choice obstruction. The 2023 thesis abstract mentions inspection strategies, but its full body was not available for a decisive comparison.
 
-The CARS full-text algorithm and proof, the STP primary full text, and a 2023 thesis abstract/landing page were compared. The thesis full text was blocked by its landing-page access interstitial; specialized unindexed priority remains a disclosed residual risk. No independent validation was performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A sharp fixed-radius failure mode of a published derivative-free method is motivated by its asserted target accuracy guarantee: an entire continuum of nonoptimal starts cannot improve, and attained fourth-order objective gap proves the sufficiency exponent cannot be uniformly weakened on the class. The universal local mechanism and all-radius analytic witness add substantive algorithmic information beyond generic truncation error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
