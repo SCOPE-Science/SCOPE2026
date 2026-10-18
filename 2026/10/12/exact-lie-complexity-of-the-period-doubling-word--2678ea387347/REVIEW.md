@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is self-contained from the period-doubling substitution. Every \(1\) in the fixed point occurs at an odd global position, and a short substitution argument excludes \(0000\). These facts give a unique desubstitution of any qualifying even-length circular class after at most one rotation.
+## correctness
 
-The map
-\[
-[u]_C\longmapsto[\delta(u)]_C
-\]
-is proved to be a bijection on qualifying classes. Even rotations are direct morphic images; odd rotations are realized by starting one symbol inside an occurrence of an image. Conversely, qualifying image rotations with a \(1\) are forced to occur at the aligned parity and therefore desubstitute. The only possible odd-shift collapse would force an all-zero image, which cannot occur for length at least four.
+PASS
 
-At odd length at least five, a qualifying circular word needs at least two \(1\)'s. A cyclic cut separating two \(1\)'s changes the relative parity of exactly the wrapped group because the length is odd, contradicting the one-parity property of every period-doubling factor. Direct base cases at lengths \(1\) and \(3\) finish the proof.
+For the fixed point of δ(0)=01, δ(1)=00, even global positions equal zero, 11 and 0000 are absent. A qualifying even-length cyclic word, after an appropriate parity rotation, uniquely desubstitutes; the presence of a 1 forces a morphic occurrence to start on an even global index. Odd rotated δ(v) factors occur by entering an aligned image at offset one. This gives a bijection of qualifying conjugacy classes at lengths m and 2m (including the m=1 base separately). At odd length at least five, a qualifying word contains at least two 1s; some odd cyclic rotation separates the relative parities of the two groups of 1s, contradicting the parity restriction. Lengths 1 and 3 have two classes each. Therefore L(n)=2 exactly when the odd part of n is 1 or 3 and zero otherwise, with the claimed explicit δ-iterate classes. Independent enumeration from the actual morphism over n≤128 reproduces the values/classes; this finite check is only regression evidence.
 
-The standalone verifier independently enumerates factor sets and cyclic classes through length \(192\), checks the doubling law through half-length \(96\), and confirms the structural forbidden factors.
+## originality
 
-## Originality
-PASS. Bell and Shallit's primary paper introduces ordinary Lie complexity and computes closed formulas for several classical automatic words, but the inspected examples do not include period-doubling. The later extension paper by Li likewise contains no period-doubling occurrence. Older work on cyclic complexity explicitly treats period-doubling, but its quantifier is weaker: one conjugate need occur rather than all of them.
+PASS
 
-Targeted exact-formula, invariant-name, conjugacy, automaticity, and dyadic-support searches found no covering ordinary Lie-complexity formula. Current and prior research ledgers contain other period-doubling invariants but no Lie-complexity statement. Residual risk remains for an unindexed Walnut computation or note.
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
 
-## Value
-PASS. This completes a natural missing classical example for an invariant introduced to study exactly this kind of conjugacy closure. The theorem is stronger than a finite automatic output table: it identifies the two qualifying conjugacy classes at every nonzero length and explains the support by a morphic bijection plus a sharp odd-length obstruction.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lie complexity of a natural canonical automatic sequence is a structural language invariant distinct from cyclic complexity. An exact all-n formula together with explicit two conjugacy families is useful for classifying cyclic factor closure, testing automatic-sequence conjectures, and distinguishing the stronger all-rotations condition. It is not a renaming of Bell–Shallit automaticity, which gives computability but not this exact spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
