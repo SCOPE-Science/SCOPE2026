@@ -1,0 +1,15 @@
+# Scientific review: Heawood two-particle configuration homology
+
+## Correctness
+PASS. The ordered deleted product is an equivariant strong deformation retract of the continuous ordered two-point configuration space by the cited Barnett–Farber result; the free particle-swap quotient produces the unordered cubical model. The verifier rebuilds all cells and exact boundary signs, checks the chain identity, and exhibits a 154-dimensional boundary minor of determinant +2. The mod-two rank is 153. Fourteen explicit disjoint-hexagon product cycles lie in the integer kernel and have a 14-by-14 coefficient minor equal to +1. These facts rigorously imply the integral two-cycle basis and the precise first-homology torsion. Exhaustive signed Lefschetz traces for 336 automorphisms give the character; norm-one orthogonality establishes absolute irreducibility. Risk: finite certificate is dependent on faithful cell definitions, whose orientations and boundaries are independently specified in the written proof; every certificate is replayable.
+
+## Originality
+PASS, with bibliographic risk. Ko–Park's first-homology theorem and Barnett–Farber's cubical model cover the already-known first-homology and the Betti numbers; those are credited as background, not claimed original. Lawrence–Wilson's published 42 disjoint-hexagon pairs and orbit transitivity do not imply that fourteen specific product tori form a **primitive integral basis** of graph-configuration homology. The full 336-element irreducible homology character is likewise not implied by the known cycle enumeration, graph first-homology rank, or reports on ordered or three-particle Heawood spaces. Related automorphism computations for the Heawood matching or independence complex and two-point configurations on other graphs concern different complexes. Indexed-result comparisons and primary full-text examinations support noncoverage; undiscovered literature remains possible.
+
+## Mathematical value
+PASS. The Heawood graph is the canonical smallest cubic girth-six graph and the incidence graph of the Fano plane. For graph configuration spaces, geometrically embedded product-torus classes are useful but not automatically a spanning integral set, especially in nonplanar graphs; a primitive basis is stronger than computing a Betti number. The symmetry calculation distinguishes two irreducible building-related modules and determines every rotation, collineation, duality, and fixed homology space. It adds mathematically motivated exact geometric and equivariant structure to a classical topological object.
+
+## Closest literature and limitations
+Barnett–Farber (arXiv:0903.2180), Ko–Park (arXiv:1101.2648), and Lawrence–Wilson (arXiv:1907.11978) are the closest primary sources. Their relevant model, graph-braid homology, and disjoint-hexagon enumerations are expressly credited. The claim does not determine a full homotopy or fundamental-group classification or an integral decomposition under graph automorphisms. Independent audit remains outstanding, and exhaustive literature coverage is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
