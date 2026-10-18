@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reconstructs the source's scalar reduction and derives the cusp from exact stationary-point identities. The fold discriminant supplies the square-root root splitting, while the nonzero mixed and cubic derivatives of \(F\) yield the integrated \(3/2\) law. The binary-tree specialization agrees exactly with the source's independently displayed endpoint.
+PASS
 
-## Originality
+For each fixed k>=2 and only the z0=1 translation-invariant boundary-law branch, source folds solve x²+[2-(b-1)(k-1)]x+b=0. Coalescence b0=((k+1)/(k-1))² and x_c=(k+1)/(k-1) gives a_c=x_c^-(k+1), hence lambda_c=2[(k+1)/sqrt(k²+6k+1)]^(k+1). The mixed/cubic derivatives F_xb=(k-1)^4/[4k(k+1)²] and F_xxx=-(k-1)^4/[2k²(k+1)²], and discriminant D=4kε+O(ε²) yield a log-fold gap proportional to ε^(3/2); epsilon=b-b0=theta_c^-3(theta_c-theta)+O((theta_c-theta)²). This proves exact K_k=lambda_c(k²+6k+1)^(9/4)/[3(k+1)² sqrt(k(k-1))] and O((theta_c-theta)^(5/2)) remainder. Independently high-precision evaluated k=2,3,6 near critical, ratios near 1; no claims outside branch or uniform k.
 
-PASS. The primary paper states the fold ingredients and the \(k=2\) special endpoint but not the all-degree cusp field or explicit opening coefficient. Focused searches of the primary source, related Cayley-tree external-field literature, exact formulas, and published records found no implication-equivalent result. The closest Potts-model cusp analysis concerns a different interaction.
+## originality
 
-## Value
+PASS
 
-PASS. The source's two fold curves delimit a natural multi-solution window. Their exact meeting point and local width are motivated phase-boundary data, and the result supplies an all-degree structural law rather than a numerical refinement.
+Rahmatullaev–Karshiboev 2021/22 supplies fold quadratic, theta_c and k=2 meeting endpoint. Its same-model general-k formulas leave thresholds implicit; no evaluated all-k fold meeting field or explicit opening coefficient in inspected primary material. The generic 3/2 cusp exponent is classical, not claimed original; explicit coefficient and full k-dependence are the finding.
 
-## Closest literature and limitations
+## value
 
-The closest source is Rahmatullaev--Karshiboev, arXiv:2110.00730 / *Positivity* 26 (2022), which contains the scalar fold equations. Bogachev--Rozikov, arXiv:1903.11440, studies cusp-shaped critical curves for the Potts model, but does not imply the SOS coefficient. The result here is limited to the source's \(z_0=1\) translation-invariant branch and does not classify the full boundary-law system or Gibbs-measure extremality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source’s two fold thresholds delimit the multi-solution region of a natural SOS tree model. Exact cusp coordinates and how fast this window closes identify model-specific phase-diagram geometry and distinguish k dependence. This is a motivated all-degree boundary fact beyond a generic cusp re-labeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
