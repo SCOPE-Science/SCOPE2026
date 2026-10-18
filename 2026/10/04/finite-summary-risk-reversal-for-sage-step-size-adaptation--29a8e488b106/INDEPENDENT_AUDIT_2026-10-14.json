@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T10:22:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let M=(ns barV_s+nt barV_t)/(ns+nt), D=barV_t-barV_s and source scatter S_s. Gaussian covariance gives M independent of (D,S_s), with mean theta and variance sigma^2/(ns+nt). With W=ns S_s/sigma^2 Wishart_r(I,ns-1) and Z=D/(sigma sqrt(1/ns+1/nt)), inverse-Wishart Schur complement yields Q=ns X/Y for independent X~chi2_r and Y~chi2_{ns-r}. For T=(Q/r-1)+ the adaptation residual is (1-r/Q) 1_{Q>r}(1-rho)D. Orthogonal risk decomposition plus independent S=X+Y~chi2_ns and U=X/S~Beta(r/2,(ns-r)/2) yields the displayed exact K beta integral and risk r sigma^2/(ns+nt)+sigma^2 ns K/(nt(ns+nt)). Comparison to source risk r sigma^2/ns yields nt/ns>sqrt(K/r). Independently evaluated K_{4,100}=0.6087790589777287, cutoff 0.3901214743441229, H4=4 exp(-2). ns>=r+1 ensures the covariance inverse a.s. These numbers are only checks, not universal proof. The mapping to the source paper Algorithm 2 could not be independently compared to its full text due access; this is explicitly a limited C provenance risk, whereas the stated estimator and conditional mathematical formula are self-contained and proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SAGE abstract asserts asymptotic risk reductions, not unconditional finite-sample dominance for the fitted gamma.",
+          "Han et al. and Green--Strawderman use different James--Stein-type estimator constructions with sample-mean/prediction-risk dominance."
+        ],
+        "reasoning": "Asymptotic statements for fixed/consistent step-size cannot dominate finite-sample risk of this plug-in positive-part estimator. Other shrinkage rules cannot imply this rule's threshold.",
+        "searches": [
+          "arXiv:2609.30908 SAGE mean target excess risk",
+          "DOI:10.1093/biomtc/ujae072",
+          "DOI:10.1080/01621459.1991.10475144"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.30908v1",
+        "DOI:10.1093/biomtc/ujae072",
+        "DOI:10.1080/01621459.1991.10475144",
+        "Resultary semantic search SAGE Gaussian risk threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SAGE abstract addresses asymptotic transfer risk and makes no finite-sample gamma risk claim.",
+          "Known dominance results apply to different estimators and hence cannot imply either the extra risk or its reversal threshold for this explicitly defined weight."
+        ],
+        "reasoning": "Deriving the threshold requires new Gaussian/Wishart law of Q and exact quadratic-risk calculation. A full source-level comparison of Algorithm 2 could refine this assessment when authorization is restored.",
+        "searches": [
+          "arXiv:2609.30908 abstract and reported Algorithm 2 structure",
+          "Han Li Park Mukherjee Taylor Biometrics 2024 finite-sample James Stein",
+          "Green Strawderman JASA 1991 James Stein estimator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary abstract gives distribution-shift asymptotic gains and data-adaptive step-size, not the finite Gaussian beta-integral risk.",
+          "Resultary search returned the present record as its nearest hit; other risk/reversal records are for different estimators or processes."
+        ],
+        "reasoning": "A positive-part adaptive weight resembles James--Stein shrinkage algebra but the exact Q, source covariance and target-vs-source risk rule are distinct.",
+        "searches": [
+          "Resultary semantic search: SAGE summary powered prediction adaptive step-size Gaussian mean finite-sample excess risk no shift source-only threshold",
+          "arXiv:2609.30908 Algorithm 2 positive part gamma",
+          "Gaussian adaptive pooling chi-square beta finite-sample risk threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct Resultary entry gives K_{r,ns} or its exact boundary.",
+          "Numerical quadrature independently confirms the example, which is not merely a known tabulated constant."
+        ],
+        "reasoning": "The main contribution is an analytic family risk identity and exact phase condition rather than finite table lookup.",
+        "searches": [
+          "Resultary semantic search: SAGE summary powered prediction adaptive step-size Gaussian mean finite-sample excess risk no shift source-only threshold",
+          "SAGE no shift r 4 ns 100 K beta integral"
+        ]
+      },
+      "rationale": "The paper SAGE is known through its primary abstract and source-package step-size transcription to address asymptotic optimality, whereas the new formula isolates finite-dimensional penalty in an explicit Gaussian no-shift setting. Distinct James--Stein external-information estimators have different shrinkage weights and dominance conclusions, so they do not imply the threshold for the exact estimator defined here. No prior Resultary record besides the self-indexed item stated the same risk boundary. Full source paper inaccessible this execution is a bounded remaining equivalence risk.",
+      "residual_risks": [
+        "Full SAGE paper and precise Algorithm 2 covariance normalization were not independently obtainable; Oxford institutional retrieval returned vpn_disconnected and was not retried.",
+        "Alternative unpublished finite-sample analyses of the same estimator might exist beyond indexed sources.",
+        "No implication outside no-shift isotropic Gaussian mean estimation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Incomplete full-text comparison, not declared NOT_COVERING",
+          "evidence": "Abstract asserts asymptotic performance and an adaptive step-size but does not specify the finite-sample beta risk; inaccessible full text is material residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.30908",
+          "material_read": "Primary abstract and bibliographic metadata; Algorithm 2 description transcribed in source research package; primary full text not obtained",
+          "method": "arXiv + lawful OA searches; authorized Oxford Download returned vpn_disconnected",
+          "title": "Summary-powered prediction under distribution shift",
+          "trigger": "Direct motivating SAGE algorithm, possibly dominating finite-sample claims"
+        },
+        {
+          "assessment": "Different estimator, no direct implication found",
+          "evidence": "Dominance concerns James--Stein weights in a regression setting.",
+          "identifier_or_url": "https://doi.org/10.1093/biomtc/ujae072",
+          "material_read": "Public abstract and indexed theorem summary, not full article",
+          "method": "OA bibliographic and indexed abstract comparison",
+          "title": "Improving prediction of linear regression models by integrating external information from heterogeneous populations: James-Stein estimators",
+          "trigger": "Nearby external-summary positive-part shrinkage with dominance"
+        },
+        {
+          "assessment": "Different shrinkage geometry, no direct implication found",
+          "evidence": "No claim about SAGE positive-part variance inflation beta-integral risk.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1991.10475144",
+          "material_read": "Primary abstract/theorem description, not entire paper",
+          "method": "indexed primary abstract comparison",
+          "title": "A James-Stein Type Estimator for Combining Unbiased and Possibly Biased Estimators",
+          "trigger": "Classical source/target combination dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An analytically sharp finite-sample failure regime for a proposed distribution-shift adaptive step-size in the no-shift Gaussian benchmark is a motivated counterexample to naively extrapolating asymptotic gains. It quantifies a target/source sample ratio separating improvement from harm and shows how a summary dimension controls the boundary, indicating when a finite-sample safeguard could matter. The statement is limited to the exact estimator defined, not practical SAGE in full generality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full SAGE paper and precise Algorithm 2 covariance normalization were not independently obtainable; Oxford institutional retrieval returned vpn_disconnected and was not retried.",
+    "Alternative unpublished finite-sample analyses of the same estimator might exist beyond indexed sources.",
+    "No implication outside no-shift isotropic Gaussian mean estimation."
+  ],
+  "schema_version": 1
+}
