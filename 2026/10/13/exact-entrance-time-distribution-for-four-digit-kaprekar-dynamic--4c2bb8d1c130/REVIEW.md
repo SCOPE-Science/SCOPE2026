@@ -1,19 +1,21 @@
-# Review of the entrance-time distribution
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The integer difference-state dynamics are well-defined for every odd base \(B\ge5\), and the first-entry stopping time is unambiguous. The proof separately classifies interior, diagonal and zero-inner-difference states. It then counts the corresponding states and four-digit words using an exact multinomial weight, with all sums performed symbolically. The finite verifier independently checks 49 odd bases by state enumeration and four small bases by direct word enumeration, without substituting finite cases for the proof.
+PASS
 
-## Originality
+For any odd B=2m+1≥5, the stable region consists of distinct positive odd difference pairs. The published four-digit difference-coordinate transition cases imply exact time classes: T itself time zero; the mixed-parity interior line d+e=B, every diagonal d=e, and specified odd boundary e=0 states time two; the unique time-three state is (m+1,0), with others time one. Counting the partition gives N0=m(m−1)/2, N1=(3m²−m−2)/2+δ, N2=4m−δ, N3=1, where δ=1 for even m. Every (d,e) has multiplicity (B−d)(12d−4) for e=0, 24(B−d)(d−e) for 0<e<d, and 6(B−d) for e=d; summing these disjoint classes yields W0=4m(m−1)(m+1)(m+2), W2=16m³+32m²+10m−(12m²+8m)δ, W3=4m(3m+2), W1=B⁴−B−W0−W2−W3. Independent code derives K_B by sorting actual four digits, exhausts all difference states for 75 odd bases 5..153 and all nonconstant digit strings for B=5,7,9,11,13. This corroborates, not replaces, the general casewise and sum derivation; asymptotics follow from polynomial degrees.
 
-**PASS, with scope and residual risk.** The closest primary source, Chen--Ono--Schwartz--Thakur (2026), proves entry within three steps and gives a one-step transition table. Those inputs are explicitly reused, but the complete closed-form weighted entrance-depth distribution, including a uniform-word probability law, is not stated there. Devlin--Zeng (2021) addresses fixed-point distances and attraction proportions; Kay--Downes-Ward (2022) addresses odd-base terminal cycles. Actual semantic searches of published research for Kaprekar depth, preperiod, first entrance and the stable region found no equivalent distribution. A stronger local formula is available in the source and implies the ability to perform these counts, so the new contribution is quantitative enumeration rather than a new transition law. Unindexed exact counts remain a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Sharp transient statistics distinguish the rare worst case from typical digit inputs: one state needs three steps, while a uniformly chosen nonconstant string has three-step probability asymptotic to \(3/B^2\). The all-base distribution reveals the parity-dependent finite-size correction and simultaneously supplies a complete state-level and digit-level classification. This is a motivated exact invariant of the recent odd-base Kaprekar model, not a selected numerical table.
+The 2026 journal paper proves at-most-three-step entry and provides casewise transition tables, but its formulas count terminal cycles and lengths, not first entry by initial difference state and by initial digit string. The reviewed polynomial frequency law is a weighted global enumeration of that map and acknowledges the prior transition mechanism. Resultary search did not expose an equivalent table; priority is conditional on no obscure prior transient enumeration.
 
-## Limitations
+## value
 
-The stopping time is entry into the invariant odd region, not convergence to a terminal cycle. The proof uses known casewise dynamics. No claim is made for even bases or arbitrary digit length. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp three-step entrance tail and entire transient-depth profile answer a natural probabilistic question about a classical finite dynamical system: how fast a randomly chosen state or string enters the invariant projective-doubling regime. These are two different sampling ensembles with nontrivial weights. Exact rarity O(B^{-2}) for the sole three-step state can inform initialization statistics and interpretations of the published structure; the formula is not just a restated maximum hitting time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

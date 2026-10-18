@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any odd B=2m+1≥5, the stable region consists of distinct positive odd difference pairs. The published four-digit difference-coordinate transition cases imply exact time classes: T itself time zero; the mixed-parity interior line d+e=B, every diagonal d=e, and specified odd boundary e=0 states time two; the unique time-three state is (m+1,0), with others time one. Counting the partition gives N0=m(m−1)/2, N1=(3m²−m−2)/2+δ, N2=4m−δ, N3=1, where δ=1 for even m. Every (d,e) has multiplicity (B−d)(12d−4) for e=0, 24(B−d)(d−e) for 0<e<d, and 6(B−d) for e=d; summing these disjoint classes yields W0=4m(m−1)(m+1)(m+2), W2=16m³+32m²+10m−(12m²+8m)δ, W3=4m(3m+2), W1=B⁴−B−W0−W2−W3. Independent code derives K_B by sorting actual four digits, exhausts all difference states for 75 odd bases 5..153 and all nonconstant digit strings for B=5,7,9,11,13. This corroborates, not replaces, the general casewise and sum derivation; asymptotics follow from polynomial degrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original theorem bounds entry ≤3 and §2 Tables 1–2 determines the one-step map. Its later sections count cycles via projective doubling."
+        ],
+        "reasoning": "The transition table can be used as input to calculate the new histogram, but a uniform bound alone and terminal-period data do not imply the full weighted entrance-time frequency expressions without extra counting.",
+        "searches": [
+          "Chen–Ono–Schwartz–Thakur JIS 2026 Theorem 1 and §2 case 11",
+          "Devlin–Zeng 2021 maximum distances Kaprekar",
+          "Kay–Downes-Ward JIS 2022 odd-base cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL29/Ono/ono3.pdf Section 2 Table 1 and Theorem 1",
+        "arXiv:2606.20439 abstract/version context",
+        "Devlin–Zeng 2021 cited as distance to fixed point, full article not inspected",
+        "Kay–Downes-Ward 2022 cited as odd-base cycles, full article not inspected",
+        "Resultary query: four digit Kaprekar odd bases entrance times stable odd unequal difference states"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source already proves K_B³(X_B)⊆T_B, which proves the support {0,1,2,3} but not the distribution."
+        ],
+        "reasoning": "The reviewed work gives an additional decomposition and exact word multiplicities. It does not claim a new maximum entry time, new fixed point or new conjugacy; no earlier theorem supplies W0..W3 as a direct stated value.",
+        "searches": [
+          "JIS 2026 Theorem 1, Lemma 11 Cases 11.1–11.3, §4 cycle counts",
+          "Devlin–Zeng odd-base fixed-point basin work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original authors define X_B and T_B and show K_B³(X_B)⊆T_B. They do not state counts of depth 0,1,2,3 starting states in either ensemble."
+        ],
+        "reasoning": "Searched “preperiod length”, “hitting time” and “entrance depth” as aliases. The terminal-cycle variable is not the same observable as entrance to the stable triangular region.",
+        "searches": [
+          "Resultary four digit Kaprekar odd bases entrance times stable odd unequal difference states",
+          "Kaprekar odd base preperiod hitting time distribution word ensemble",
+          "Journal of Integer Sequences 2026 Article 26.4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 1 is a per-state transition table and gives examples of a depth-three state; it is not a frequency table N_t or W_t."
+        ],
+        "reasoning": "The new result is a closed symbolic formula for every odd base, not a published table of selected bases. No identical histogram was found in the inspected full primary text.",
+        "searches": [
+          "JIS 2026 PDF Section 2 Table 1",
+          "Journal Integer Sequences previous odd-base cycle census",
+          "Resultary semantic query four-digit Kaprekar exact entrance-time law"
+        ]
+      },
+      "rationale": "The 2026 journal paper proves at-most-three-step entry and provides casewise transition tables, but its formulas count terminal cycles and lengths, not first entry by initial difference state and by initial digit string. The reviewed polynomial frequency law is a weighted global enumeration of that map and acknowledges the prior transition mechanism. Resultary search did not expose an equivalent table; priority is conditional on no obscure prior transient enumeration.",
+      "residual_risks": [
+        "Because the source casewise map is complete, an overlooked table or easy consequence might reproduce the full frequency law.",
+        "Other non-indexed digit dynamics sources may enumerate transient layers.",
+        "Counting preperiod to a terminal cycle is distinct and not covered by the claimed theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ENTRANCE_HISTOGRAM_NOT_STATED_IN_CHECKED_MATERIAL",
+          "evidence": "The paper proves every state enters by three steps and lists casewise transitions; the requested N_t, W_t histogram is an additional enumeration.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Ono/ono3.pdf",
+          "material_read": "Primary full 21-page PDF material from Abstract, Theorem 1 and Section 2.1 including Table 1, Cases 11.1–11.3, and §3 projective-doubling setup; bibliography and scope of cycle counts",
+          "method": "Official JIS full PDF text and page image comparison",
+          "title": "Four-Digit Kaprekar Dynamics in Odd Bases",
+          "trigger": "Same four-digit odd-base state space, invariant region, and original transition cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp three-step entrance tail and entire transient-depth profile answer a natural probabilistic question about a classical finite dynamical system: how fast a randomly chosen state or string enters the invariant projective-doubling regime. These are two different sampling ensembles with nontrivial weights. Exact rarity O(B^{-2}) for the sole three-step state can inform initialization statistics and interpretations of the published structure; the formula is not just a restated maximum hitting time.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL29/Ono/ono3.pdf Section 2 Table 1 and Theorem 1",
+    "arXiv:2606.20439 abstract/version context",
+    "Devlin–Zeng 2021 cited as distance to fixed point, full article not inspected",
+    "Kay–Downes-Ward 2022 cited as odd-base cycles, full article not inspected",
+    "Resultary query: four digit Kaprekar odd bases entrance times stable odd unequal difference states"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "B odd ≥5, exactly four digits with leading zeroes allowed; uniform word and uniform difference-state measures differ.",
+    "Finite exhaustive examples cannot replace the all-odd-base polynomial summations."
+  ],
+  "residual_risks": [
+    "Because the source casewise map is complete, an overlooked table or easy consequence might reproduce the full frequency law.",
+    "Other non-indexed digit dynamics sources may enumerate transient layers.",
+    "Counting preperiod to a terminal cycle is distinct and not covered by the claimed theorem."
+  ],
+  "schema_version": 1
+}
