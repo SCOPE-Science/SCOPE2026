@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:46:07.360784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob eeb741f994fa586dc505545a1453d9f73a360362",
+        "verify.py Git blob f450b532bdb6a6cbbf89ec1773f78d135e9e4234",
+        "certificate.json Git blob 87d3056a5c9d4dc764cfa34b839a1761273b8fd1",
+        "Independent exhaustive generator and alternation checker /mnt/data/scope09_science_checks_0429.py"
+      ],
+      "rationale": "Take an X-letter x0 and rotate between its occurrences: each Y-letter must appear once in each interval by cross-part alternation; every other X-letter must occur twice together in one interval, enclosing that interval’s Y-occurrences, and nested X-intervals give P B P^R; the opposite interval similarly Q C Q^R. Y nonalternation forces C=B^R; rotation produces A B A^R B^R. Reverse construction verifies alternation for every cross edge and nonalternation within each part. Parameter pairs (A,B) and (A^R,B^R) give the sole cyclic duplication when N=m+n>=3, with 2N distinct rotations; count follows. Graph is connected and not complete for N>=3, so published square-free theorem applies. Independently enumerated all 2N-letter double-occurrence words through N=5 (113400 at N=5), for every bipartition, and matched the classification and counts. Infinite all-m,n proof is the nesting argument.",
+      "residual_risks": [
+        "Cycles count identifies rotations but not reversal as a separate equivalence.",
+        "N=2 has a special periodicity and representation-number exception, handled separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.4 states all k-uniform representations of connected graph of representation number k are square-free.",
+          "Theorem 3.1 counts n*n! for complete K_n, not complete bipartite K_mn.",
+          "Circle-graph results handle existence/structural recognition, not this labeled all-representants count."
+        ],
+        "reasoning": "The connected square-free theorem supplies only the square-free consequence once the new structural classification is known; it cannot imply its exact count.",
+        "searches": [
+          "Das Hariharasubramanian arXiv:2402.14426v1 Lemma 2.4 Theorem 3.1",
+          "Halldorsson Kitaev Pyatkin 2016 circle graphs",
+          "Brijder Hoogeboom arXiv:1504.01143"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: complete bipartite graph Kmn 2-uniform word representations enumeration double occurrence chord diagrams",
+        "arXiv:2402.14426v1",
+        "DOI:10.1016/j.dam.2015.07.033",
+        "arXiv:1504.01143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published count concerns complete graphs and makes no K_mn enumeration in full 12-page inspected preprint.",
+          "A circle-graph existence theorem merely gives at least one double-occurrence word, whereas this classifies all and counts them."
+        ],
+        "reasoning": "The final result adds a substantive classification and counting theorem beyond the precise implication of those prior statements.",
+        "searches": [
+          "arXiv:2402.14426v1 theorem 3.1 and lemma 2.4",
+          "word-representation number 2 circle graph equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Double occurrence words encode chord diagrams and circle-graph interlacement; complete bipartite graph is the fixed interlacement graph.",
+          "General circle graph correspondence is not a count of all labeled representations."
+        ],
+        "reasoning": "Equivalent diagrams could contain a prior formula, so alternate terminology was explicitly searched; none found in read material.",
+        "searches": [
+          "complete bipartite graph Kmn 2-uniform word representations enumeration double occurrence chord diagrams",
+          "circle graph interlacement chord diagram complete bipartite intersection representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed table or primary theorem read matched (m+n)m!n! or m!n!/2 for all m,n.",
+          "Independent N<=5 table matches but is only a replay check, not novelty evidence."
+        ],
+        "reasoning": "Exact formula for all part sizes would dominate the claim even if called chord diagrams; checked likely aliases and found none.",
+        "searches": [
+          "complete bipartite graph Kmn 2-uniform word representations enumeration double occurrence chord diagrams",
+          "K_{m,n} (m+n)m!n! double occurrence word 2 uniform count"
+        ]
+      },
+      "rationale": "Circle graphs and double-occurrence words supply equivalent objects, but general 2-word representability only guarantees existence, not all labeled double-occurrence words or enumeration. The foundational Das–Hariharasubramanian paper proves k-uniform square-freeness and counts complete-graph K_n words, not all K_mn words. No covering all-m,n count was found in the inspected literature, though older chord-diagram enumeration remains possible.",
+      "residual_risks": [
+        "Unindexed older double-occurrence/chord-diagram census could encode the exact same count.",
+        "A finite brute-force run through N=5 is correctness corroboration only, not an originality result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves generic square-freeness and K_n count; does not classify or count K_mn double-occurrence words.",
+          "evidence": [
+            "https://pdfs.assets.alphaxiv.org/2402.14426v1.pdf",
+            "Theorem 3.1 page 7; Lemma 2.4 page 5"
+          ],
+          "identifier_or_url": "arXiv:2402.14426v1 / DOI:10.1007/s00373-025-03000-w",
+          "material_read": "Full accessible 12-page preprint, definitions, Lemma 2.4, Section 3/Theorem 3.1, and last section; rendered PDF page 6 inspected.",
+          "method": "Opened lawful open PDF and rendered page image; compared exact theorem statements",
+          "title": "Square-free Word-representation of Word-representable Graphs",
+          "trigger": "Closest source by square-free statement and representation-number layer"
+        },
+        {
+          "assessment": "Existence equivalence does not enumerate representations.",
+          "evidence": [
+            "DOI:10.1016/j.dam.2015.07.033"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.dam.2015.07.033",
+          "material_read": "Known equivalent formulation and publicly accessible bibliographic statement; full article not reread here.",
+          "method": "Statement/abstract comparison",
+          "title": "Semi-Transitive Orientations and Word-Representable Graphs",
+          "trigger": "Standard circle-graph equivalence"
+        },
+        {
+          "assessment": "Different cubic circle-graph structure problem, does not yield full K_mn count from inspected material.",
+          "evidence": [
+            "arXiv:1504.01143"
+          ],
+          "identifier_or_url": "arXiv:1504.01143",
+          "material_read": "Public source metadata and defining terminology, not the full manuscript in this run.",
+          "method": "Title and equivalent-object comparison",
+          "title": "Splitting cubic circle graphs",
+          "trigger": "Alternate chord-diagram/interlacement terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Das–Hariharasubramanian arXiv:2402.14426v1, square-free counting program",
+        "Structural nested interval proof for general m,n"
+      ],
+      "rationale": "This classifies an entire representation-number-minimal word layer for the fundamental connected noncomplete family K_mn and counts labeled linear and cyclic words. The exact classification is a natural answer to the original source’s word-counting direction and a usable reference for double-occurrence word enumeration, not an arbitrary small parameter slice.",
+      "residual_risks": [
+        "Specific to bipartite complete graphs and 2-uniform layer; does not count all higher-uniformity squarefree words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every 2-uniform representing word of labeled complete bipartite K_{m,n}, m,n>=1, is a cyclic rotation of A B A^R B^R with A,B permutations of the fixed parts. The linear count is (m+n)m!n!; if m+n>=3 the cyclic count is m!n!/2 and all such words are square-free. For K1,1 the two linear words abab,baba are square words and cyclically equivalent.",
+  "limitations": [
+    "Parts fixed and labeled; cyclic equivalence rotates but does not quotient by all relabelings.",
+    "Exceptional K1,1 separately non-squarefree and representation number 1.",
+    "Finite brute force through N=5 is not used to prove generality."
+  ],
+  "schema_version": 1
+}
