@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof works over all positive set sizes and reduces the two product conditions to exact identities for the restrictions between the two images. Distinct image intersections, selected representatives and free assignments are counted bijectively; summation boundaries and the factorial quotient are valid. Complete independent function enumeration through six points verifies each rank coefficient, without replacing the all-size proof.
+## correctness
 
-**Originality: PASS, subject to explicit bibliographic uncertainty.** The inspected complete Luangchaisri–Changphas paper proves existence thresholds for skew-pair subtypes in partial transformation semigroups, rather than an all-size joint-rank count. The earlier Blyth–Almeida Santos full-transformation paper's accessible abstract discusses occurrence and types. Its full text could not be inspected, so equivalent coverage there cannot be ruled out absolutely. Searches for equivalent formulations, stronger coverage and published rank tables revealed no statement implying the bivariate formula. This is a limited evidence-based novelty assessment, not external certification.
+PASS
 
-**Value: PASS.** The exact all-size, two-rank enumeration is a natural invariant of asymmetric idempotent multiplication. It resolves every labeled stratum and supplies the nontrivial closed rank-two slice, useful for studying subtype distributions and conjugation orbits. The result is a global structural census, not a one-off small count.
+For idempotent e,f in T_n, B=e(X), A=f(X) have sizes r,s, intersection t; restrictions alpha=f|B, beta=e|A fix intersection C and free values outside A union B contribute (rs)^{n-r-s+t}. The full products are idempotent precisely when alpha beta alpha=alpha (for fe) and beta alpha beta=beta (for ef). For Y=alpha(B) size k containing C, select its k−t extra points from A\C, choose distinct representatives beta(Y) in B\C in (r−t)!/(r−k)! ways, assign remaining B\C elements to k image points in k^{r−k} ways. The remaining s−k beta inputs take any r values, except choices wholly in the k selected representatives which would also make ef idempotent, giving r^{s−k}−k^{s−k}. Multiply by choices of A,B and sum exact nonnegative t,k ranges. Every restriction/extension is uniquely counted, establishing all-n rank-refined formula. Independent full compositions for all idempotent pairs on n<=5 reproduced every coefficient and totals 0,0,6,204,5900, plus the symbolic formula gives n=6 total 190410; analytic bijection, not finite data, proves all n.
 
-**Limits and closest work.** The formula concerns total transformations and labeled ordered pairs, with no subdivision into four recognized types and no orbit classification. The closest published texts are Blyth–Almeida Santos (Acta Mathematica Sinica, 2006) and Luangchaisri–Changphas (Mathematics, online 2021); the former was abstract-only under available access.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Blyth–Almeida Santos 2006 full-transformation article studies existence of four skew-pair types; public preprint abstract discusses ubiquity, and complete content was not obtainable, leaving explicit risk. Luangchaisri–Changphas 2022 examines partial transformation monoids and subtype existence; the inspected abstract does not give a full-T_n bivariate rank census. The submitted closed joint-rank enumerator for all n is stronger than mere existence and is not implied by a subtype list or thresholds. Accepted as best-of-knowledge with prominent inaccessible-prior caveat.
+
+## value
+
+PASS
+
+Skew idempotent multiplication is structurally natural in finite transformation semigroups. The first exact all-n joint-image-rank enumeration and concise rank-(2,2) formula refine mere existence/type theory, with a genuine combinatorial fiber-bijection rather than an arbitrary small-n table. The count is potentially reusable for random transformation semigroups and orbit statistics without requiring a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

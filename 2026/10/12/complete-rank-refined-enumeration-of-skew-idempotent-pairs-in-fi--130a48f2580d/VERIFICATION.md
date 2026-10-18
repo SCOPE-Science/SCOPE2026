@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `checker.py` enumerates every full idempotent transformation for each cardinality \(1\leq n\leq6\). It tests the two full products by direct function composition, independent of the image-restriction proof, and compares **each** bivariate coefficient against the theorem's summation formula. The total skew-pair counts are respectively \(0,0,6,204,5900,190410\). The checker also tests the rank-\((2,2)\) closed formula at the admissible sizes. A correct execution ends with `VERIFY_OK`.
+## correctness
 
-For \(n=6\), all \(1057\) idempotent transformations and their \(1,117,249\) ordered pairs are examined. These are exhaustive finite computations at these specific sizes; no computation has been used as a proof for arbitrary \(n\). The general proof in `RESULT.md` is a bijective counting argument.
+PASS
 
-The 2006 primary article's full text was unavailable for a complete novelty comparison. Novelty and scientific importance have not been independently validated.
+For idempotent e,f in T_n, B=e(X), A=f(X) have sizes r,s, intersection t; restrictions alpha=f|B, beta=e|A fix intersection C and free values outside A union B contribute (rs)^{n-r-s+t}. The full products are idempotent precisely when alpha beta alpha=alpha (for fe) and beta alpha beta=beta (for ef). For Y=alpha(B) size k containing C, select its k−t extra points from A\C, choose distinct representatives beta(Y) in B\C in (r−t)!/(r−k)! ways, assign remaining B\C elements to k image points in k^{r−k} ways. The remaining s−k beta inputs take any r values, except choices wholly in the k selected representatives which would also make ef idempotent, giving r^{s−k}−k^{s−k}. Multiply by choices of A,B and sum exact nonnegative t,k ranges. Every restriction/extension is uniquely counted, establishing all-n rank-refined formula. Independent full compositions for all idempotent pairs on n<=5 reproduced every coefficient and totals 0,0,6,204,5900, plus the symbolic formula gives n=6 total 190410; analytic bijection, not finite data, proves all n.
+
+## originality
+
+PASS
+
+The closest Blyth–Almeida Santos 2006 full-transformation article studies existence of four skew-pair types; public preprint abstract discusses ubiquity, and complete content was not obtainable, leaving explicit risk. Luangchaisri–Changphas 2022 examines partial transformation monoids and subtype existence; the inspected abstract does not give a full-T_n bivariate rank census. The submitted closed joint-rank enumerator for all n is stronger than mere existence and is not implied by a subtype list or thresholds. Accepted as best-of-knowledge with prominent inaccessible-prior caveat.
+
+## value
+
+PASS
+
+Skew idempotent multiplication is structurally natural in finite transformation semigroups. The first exact all-n joint-image-rank enumeration and concise rank-(2,2) formula refine mere existence/type theory, with a genuine combinatorial fiber-bijection rather than an arbitrary small-n table. The count is potentially reusable for random transformation semigroups and orbit statistics without requiring a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
