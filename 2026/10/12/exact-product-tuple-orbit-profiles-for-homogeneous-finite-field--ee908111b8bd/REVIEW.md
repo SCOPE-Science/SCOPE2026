@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-Kamsma proves that existentially closed models are finitely injective, that quantifier-free type determines complete type, and that finite fields give quantifier elimination. For a tuple, its coordinate-kernel and pullback bilinear form therefore give a complete orbit invariant; finite injectivity realizes every admissible pair. Counting kernels and matrices yields the Gaussian sums. The symmetric and alternating products are direct substitutions in the finite q-binomial theorem. The asymptotic normalization follows from the products and a uniform geometric bound in the unrestricted case.
+## correctness
 
-## Originality
-Targeted searches using “bilinear spaces,” “tuple orbit,” “Gaussian binomial,” “symmetric,” “alternating,” Kamsma's name, and the exact q-exponents did not locate the orbit formulas or product identities in model-theoretic form. Kamsma states only finiteness of n-types over finite fields. Earlier work of Kantor–Liebeck–Macpherson supplies structural context rather than this census. The closest comparison in the prior result corpus is an exact kernel-plus-pullback formula for a universal homogeneous cubic space; that result has a different tensor arity and does not imply the bilinear product collapse or the factor-of-two asymptotic distinction.
+PASS
 
-The principal risk is folklore because the derivation is compact once the premises are assembled.
+For a tuple, the kernel K of the coordinate map F_q^n→M plus the descended pullback form on F_q^n/K fixes the finite induced subspace isometry type, and homogeneous finite injectivity realizes every pair and extends every finite isometry. For rank r, number of kernels {n choose r}_q times q^(r²), q^(r(r+1)/2) or q^(r(r-1)/2) matrices gives three exact sums, including characteristic-2 alternating zero-diagonal forms. q-binomial identity at t=1 and t=q proves products, then ratio. The unrestricted codimension k normalized term is bounded by q^(-nk)/product_j(1-q^(-j)), giving limit 1; products give C_q and 2C_q. Independent Python checked Gaussian sums/products/ratio exactly for q=2,3,5 and n=1..7 (21 cases).
 
-## Value
-The result turns qualitative omega-categoricity into closed orbit profiles and exposes a sharp arity-two phenomenon: symmetry constraints make dependence strata contribute a persistent constant factor, while in unrestricted bilinear spaces independent tuples asymptotically exhaust the orbit profile. The exact relation \(S_n/A_n=(1+q^n)/2\) gives a particularly simple comparison of two natural homogeneous theories.
+## originality
 
-## Closest literature and limitations
-Kamsma is the direct structural source. Kantor–Liebeck–Macpherson is the closest older finite-field context. No claim is made for varying-field bilinear theories, and the enumeration is of ordered tuple orbits rather than isometry classes of forms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge derived exact oligomorphic profile rather than an original homogeneity/quantifier-elimination theorem. Inspected Kamsma structural primary paper proves finite injectivity, qf types and omega-categoricity but only qualitative finiteness of tuple types. The exact Gaussian profiles, symmetric/alternating q-binomial product collapses and different asymptotic dependence factors are additional quantified enumerations not stated in inspected primary text. Folklore risk significant because derivation from classical q-binomial theorem is concise.
+
+## value
+
+PASS
+
+Computing exact natural oligomorphic profiles for three canonical homogeneous bilinear theories makes qualitative omega-categoricity quantitatively useful. The all-arity symmetric/alternating product formulas, simple exact ratio and distinct limiting contributions of dependent tuples are motivated structural comparisons, despite the derivation being short and relying on standard q-binomial algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` checks the finite combinatorial shadow of the proof in several independent ways.
+# Independent mathematical audit
 
-1. It enumerates subspaces by adjoining vectors and reducing to canonical row-echelon bases for \(\mathbb F_2^n\) through \(n=4\) and \(\mathbb F_3^n\) through \(n=3\), then compares the dimension counts with Gaussian binomial coefficients.
-2. It directly enumerates small matrices over \(\mathbb F_2\) and \(\mathbb F_3\), testing the defining equations for arbitrary, symmetric, and alternating forms, and verifies the counts \(q^{r^2}\), \(q^{r(r+1)/2}\), and \(q^{r(r-1)/2}\).
-3. For \(q\in\{2,3,5,7\}\) and \(0\le n\le8\), it computes all three Gaussian-binomial sums, checks the symmetric and alternating product formulas, and checks \(2S_n=(1+q^n)A_n\).
-4. It numerically checks the normalized product limits for several larger \(n\).
+## correctness
 
-A successful replay prints `VERIFY_OK 208 exact/numerical assertions`.
+PASS
 
-The verifier does not prove the model-theoretic orbit classification or literature priority. Those are established by the structural argument and source inspection. No independent audit has been performed.
+For a tuple, the kernel K of the coordinate map F_q^n→M plus the descended pullback form on F_q^n/K fixes the finite induced subspace isometry type, and homogeneous finite injectivity realizes every pair and extends every finite isometry. For rank r, number of kernels {n choose r}_q times q^(r²), q^(r(r+1)/2) or q^(r(r-1)/2) matrices gives three exact sums, including characteristic-2 alternating zero-diagonal forms. q-binomial identity at t=1 and t=q proves products, then ratio. The unrestricted codimension k normalized term is bounded by q^(-nk)/product_j(1-q^(-j)), giving limit 1; products give C_q and 2C_q. Independent Python checked Gaussian sums/products/ratio exactly for q=2,3,5 and n=1..7 (21 cases).
+
+## originality
+
+PASS
+
+Best-of-knowledge derived exact oligomorphic profile rather than an original homogeneity/quantifier-elimination theorem. Inspected Kamsma structural primary paper proves finite injectivity, qf types and omega-categoricity but only qualitative finiteness of tuple types. The exact Gaussian profiles, symmetric/alternating q-binomial product collapses and different asymptotic dependence factors are additional quantified enumerations not stated in inspected primary text. Folklore risk significant because derivation from classical q-binomial theorem is concise.
+
+## value
+
+PASS
+
+Computing exact natural oligomorphic profiles for three canonical homogeneous bilinear theories makes qualitative omega-categoricity quantitatively useful. The all-arity symmetric/alternating product formulas, simple exact ratio and distinct limiting contributions of dependent tuples are motivated structural comparisons, despite the derivation being short and relying on standard q-binomial algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
