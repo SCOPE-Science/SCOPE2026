@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equilibrium equation is obtained from the symmetric fixed-intrinsic-opinion averaging rule; connectedness makes the Laplacian's zero eigenvalue simple. Removing the constant spectral mode yields a proper rational function with at most \(n-1\) distinct positive-eigenvalue poles and therefore a numerator of degree at most \(n-2\). Distinct simple eigenvalues on the unweighted path and nonzero first-edge eigenmode differences yield an invertible residue assignment; any prescribed positive roots are realized through proper partial fractions and positive affine rescaling of intrinsic opinions. Finally, the spectral expansion of centered expressed opinions proves strictly negative variance derivative for each nonconstant initial vector. An exact SymPy checker independently verifies rational identities on paths with three through six vertices, including the explicit five-vertex formula. Computations are not used to prove the arbitrary-order assertion. The statement excludes identically tied comparisons as a degenerate case, and all parameter and boundary restrictions are explicit.
+PASS
 
-## Originality — PASS, with residual risk
+For connected undirected weighted L, the pair difference d^T(I+tL)^{-1}s is a rational function with poles at distinct negative inverse positive eigenvalues and numerator degree <=m-1<=n-2 after the mean mode cancels. Therefore every strict sign reversal requires a distinct positive numerator root, proving the upper bound. On P_n the n-1 distinct positive eigenvalues have nonzero first-edge eigenvector coordinate differences; partial fraction inversion realizes an arbitrary numerator with n-2 prescribed distinct positive roots via a real intrinsic s. A positive affine rescaling puts all s in (0,1) without changing roots. Global variance V(t)=sum a_k^2/(1+t lambda_k)^2 has strictly negative derivative for s nonconstant. An independent exact rational spectral/interpolation checker verified n3..6 and the exact n5 witness with roots 1,2,3. The proof is for equilibrium parameter variation, not temporal dynamics.
 
-The closest underlying model source, Bindel–Kleinberg–Oren (arXiv:1203.2973), was inspected in its mathematical model, theorem statements, price-of-anarchy analysis and network-design discussion; no all-order pairwise reversal bound or arbitrary prescribed-reversal construction appeared. Dandekar–Goel–Lee (arXiv:1209.5998) analyze a global edgewise squared-disagreement index under opinion updates, not reversals of **pairwise ordering over a parameterized equilibrium family**. Boudourides (arXiv:2602.08704) studies response-based broadcaster/receiver ranking across susceptibility profiles and network families, not the sharp crossing count of two coordinates as one common edge strength varies. Direct searches of published mathematical findings and relevant social-influence literature found no logically dominating result. No claim of novelty follows merely from missing search hits: a general positive-definite resolvent or spectral interpolation theorem could encompass this specific sharp statement, and independent evaluation remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The precise \(n-2\) limit and its attainable arbitrary crossing schedule provide an exact complexity benchmark for comparative statics of stubborn-opinion equilibria. The same construction proves that any fixed pair can change signed ordering repeatedly even while a standard population-level disagreement measure contracts strictly. This is a substantive distinction between a globally monotone stability metric and local pairwise order statistics, not an arbitrary single-network numeric observation. The result makes no empirical claim about actual populations or agents.
+The scalar Friedkin–Johnsen equilibrium and its spectral smoothing are well established in Bindel–Kleinberg–Oren. The mathematical contribution is the sharp pairwise order-crossing bound with full prescribed-node attainability on an unweighted path even while total variance decreases, not new diagonalization or monotonicity alone. Relevant prior material concerned disagreement and model response, not arbitrary prescribed scalar-t crossing locations for two expressed opinions; stronger old resolvent root-counting theorems remain an alias-risk.
 
-## Relationship to prior work and limitations
+## value
 
-The rational Laplacian-resolvent representation and spectral decay are established analytical tools. Novelty is restricted to the stated sharp universal pairwise-order crossing bound with path attainability at freely prescribed strengths and the simultaneous global-variance law. Relevant reviewed sources and remaining literature coverage risks are in the structured audit. Scope excludes directed networks, heterogeneous susceptibility changes, nonlinear influence, binary-only opinions, and real-time evolution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pairwise order crossings are an intrinsic observable of parameter-dependent opinion equilibria. The optimal uniform n-2 bound and arbitrary prescribed crossing positions separate individual ranking behavior from monotonically decreasing global disagreement and are a nontrivial complete sharp classification for this natural model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
