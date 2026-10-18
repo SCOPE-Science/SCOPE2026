@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T04:16:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT blob d440c80b8b6d8875a649d7bb275bf11e06f3a391",
+        "Git verifier blob 27ef32c418832dc55831d266729e6b1f3b15bdff",
+        "https://arxiv.org/pdf/1611.04292",
+        "Independent SciPy all mixed element pairs n=2..10"
+      ],
+      "rationale": "For all n≥2 every pair of graph vertices is an exact resolving neighborhood: {u1,u2} via apices, {u_a,v_i} via spoke vertex–edge pair, and {v_i,v_j} via corresponding spoke edges. Singleton neighborhoods arise only from incident vertex–edge pairs; n=2 forces all 4, n=3 forces u1,u2,v1,v3, n≥4 forces v1,vn. Remaining neighborhoods contain ≥2 vertices and are implied by the pair inequalities. For n≥4 the n free vertices form fractional vertex cover of K_n; summing all pair constraints yields weight at least n/2, tight exactly when all free weights equal 1/2 (n≥3). Endpoint weights contribute 2: λ=(n+4)/2. The n=2,3 exceptions follow. Independently reconstructed all original mixed-distance neighborhoods and solved indicator and original absolute-difference LP for n=2,...,10 using SciPy HiGHS, obtaining predicted optima and same vectors; finite replay corroborates, arbitrary n follows the proof.",
+      "residual_risks": [
+        "Explicit λ_M is the indicator resolving-cover relaxation; the published binary optimization coefficients are not generally equivalent after LP relaxation.",
+        "n≥3 integer gap uses existing integer theorem; n=2 exception."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source papers treat integer mixed dimension, not all fractional optima; no verified stronger fractional theorem implies the asserted exact double-fan optimizer."
+        ],
+        "reasoning": "The integer formula n+1 does not imply the n/2 fractional optimum; pair-neighborhood polyhedral argument is substantive.",
+        "searches": [
+          "https://arxiv.org/pdf/1611.04292",
+          "https://arxiv.org/abs/2305.19620",
+          "https://doi.org/10.35508/jd.v6i1.12526",
+          "fractional mixed resolving sets mixed metric graph LP integrality gap"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1611.04292",
+        "https://arxiv.org/abs/2305.19620",
+        "https://doi.org/10.35508/jd.v6i1.12526",
+        "GitHub SCOPE2026 scoped code search of composite mathematical query (2026-10-12): 0 hits, NOT conclusive because code-search coverage/combined terms are limited."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary mdim=n+1 is compatible with many different LP relaxations; the original integer formulation does not give the optimal fractional solution or near-two gap."
+        ],
+        "reasoning": "Prior formulas do not imply the specific unique continuous optimizer without proving the resolving-neighborhood structure and fractional complete-graph cover.",
+        "searches": [
+          "https://arxiv.org/pdf/1611.04292",
+          "https://arxiv.org/abs/2305.19620",
+          "https://doi.org/10.35508/jd.v6i1.12526"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published IP has binary distance differences; the submitted explicit continuous indicator-cover LP has a unique optimizer; SciPy independent comparisons for n=2..10 also agree with absolute-difference relaxation."
+        ],
+        "reasoning": "The ordinary mixed dimension and the binary optimization formula are equivalent at binary weights but do not determine a unique fractional relaxation in all graphs; using the exact 0-1 support LP and proving every pair-resolving neighborhood distinguishes this claim.",
+        "searches": [
+          "fractional mixed metric dimension double fan LP 2026 web search",
+          "GitHub SCOPE2026 scoped code search of composite mathematical query (2026-10-12): 0 hits, NOT conclusive because code-search coverage/combined terms are limited.",
+          "Resultary semantic search 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT a negative finding.",
+          "arXiv:1611.04292 Sec.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known published integer table is different invariant; existing source package is same record and not independent prior."
+        ],
+        "reasoning": "No exact fractional double-fan table was identified in accessible inspected sources; search incompleteness retained.",
+        "searches": [
+          "site:arxiv.org \"fractional mixed metric\" \"double fan\"",
+          "SCOPE2026 composite code-search no indexed hits (limited)",
+          "Resultary semantic search 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT a negative finding."
+        ]
+      },
+      "rationale": "Fractional optima and optimizer rigidity are not the preexisting integer mixed metric dimension; the full pair/singleton resolving-neighborhood reduction supplies a new precise fractional-polyhedral result for double fans. Originality is best-of-knowledge, not a claim that all unindexed sources were excluded.",
+      "residual_risks": [
+        "Resultary semantic search 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT a negative finding.",
+        "No exhaustive exclusion of differently named fractional mixed-resolving literature; Rahmadi full journal PDF not independently read on this run.",
+        "Terminology caveat: original Section 2 binary IP coefficients are absolute differences, versus the paper’s explicitly defined indicator LP; the independent finite replay agrees on these double fans but no global equivalence is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces binary covering optimization; does not explicitly state this double-fan fractional optimum or unique optimizer. Original binary IP uses |d(s,a)-d(s,b)| coefficients, while submitted explicit fractional definition uses 0-1 resolving indicators; these are equivalent for binary variables but NOT universally interchangeable under relaxation. The double-fan optimum was tested both ways for n=2..10.",
+          "evidence": [
+            "Sec.2 exact IP uses sum |d_ij-d_il| y_i>=1; RESULT.md explicitly defines sum_{s in R(a,b)}y_s>=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04292",
+          "material_read": "Section 2 pp. 2–3 inspected including original optimization constraints (absolute distance differences); theorem/families and text checked for fractional variant.",
+          "method": "Accessible arXiv PDF, text plus page screenshot",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Defines original mixed-element resolving set and binary optimization formulation"
+        },
+        {
+          "assessment": "The reported n=2 integer endpoint is explicitly acknowledged as prior; no claim of excluding fractional statements from unread sections.",
+          "evidence": [
+            "Full-order mixed metric dimension is an integer property, not λ_M."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.19620",
+          "material_read": "Title and bibliographic detail with n=2 full-order comparison quoted in the submitted package; primary arXiv theorem body NOT independently read during this run.",
+          "method": "Submitted package references and source metadata, not direct full-text examination of this paper",
+          "title": "Graphs whose mixed metric dimension is equal to their order",
+          "trigger": "Endpoint n=2 K4 minus edge integer value"
+        },
+        {
+          "assessment": "Integer n+1 (n≥3) is prior-covered; separate fractional optimizer and integrality gap are not stated in inspected material.",
+          "evidence": [
+            "Double-fan integer comparison n+1 for n≥3; n=2 exception K4-e."
+          ],
+          "identifier_or_url": "https://doi.org/10.35508/jd.v6i1.12526",
+          "material_read": "Title, abstract, and source comparison from available journal/index material; not full journal PDF in this execution",
+          "method": "Publisher metadata/index and original record bibliographic detail",
+          "title": "Mixed Metric Dimension of Double Fan Graph",
+          "trigger": "Exact preexisting integer mdim(F_2,n)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1611.04292",
+        "https://doi.org/10.35508/jd.v6i1.12526",
+        "Git RESULT blob d440c80b8b6d8875a649d7bb275bf11e06f3a391"
+      ],
+      "rationale": "The standard mixed-resolving LP for a named infinite graph family has an exact unique optimum and a near-factor-two integrality gap. This describes a natural relaxation’s polyhedral weakness, rather than a renaming, a tiny isolated computation, or recomputation of known integer mdim.",
+      "residual_risks": [
+        "Only double fans; does not yield an integrality-gap theorem for arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Explicit λ_M is the indicator resolving-cover relaxation; the published binary optimization coefficients are not generally equivalent after LP relaxation.",
+    "n≥3 integer gap uses existing integer theorem; n=2 exception.",
+    "Resultary semantic search 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT a negative finding.",
+    "No exhaustive exclusion of differently named fractional mixed-resolving literature; Rahmadi full journal PDF not independently read on this run.",
+    "Terminology caveat: original Section 2 binary IP coefficients are absolute differences, versus the paper’s explicitly defined indicator LP; the independent finite replay agrees on these double fans but no global equivalence is asserted.",
+    "Only double fans; does not yield an integrality-gap theorem for arbitrary graphs."
+  ],
+  "schema_version": 1
+}
