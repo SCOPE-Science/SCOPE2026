@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct block-determinant factorization (including Jordan cases) yields the exact scalar modal characteristic polynomial. Cayley invariance fixes a one-parameter orbit; bounding both modal square roots gives q<=2 sqrt(r)/(1+r) for every real theta and omega. Inverting the inequality gives a global bound, and explicit theta and omega yield a repeated root at equality. The equality-chain conditions prove uniqueness for u!=0; endpoint cases distinguish unattained infima. The bundled program executes 9,209 supporting finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Louka–Missirlis, DOI:10.1002/nla.70068, full HTML Sections 2 and 3, especially §3.2, states real generalized-spectrum hypothesis and a remaining complex-spectrum problem.",
+        "Botta–Veldman (1982), Section 2, equations (4)–(8), accessible repository PDF page 5, establishes standard complex-Jacobi SOR spectral ellipses for fixed splitting and relaxation.",
+        "Hocking–Greif, arXiv:2508.02052v1, HTML Sections 1 and 2, studies rates for an optimal relaxation given a fixed complex Jacobi spectral segment."
+      ],
+      "reasoning": "The two-cyclic complex-SOR theorems cover a broader class of fixed Jacobi spectra and are explicitly credited. They do not give the minimizing BPSOR parameter for the spectrum after coupling it to a real Möbius preconditioner. The 2026 BPSOR full text assumes real W-inverse-T spectra, so it does not imply the nonreal case.",
+      "searches": [
+        "GSOR PGSOR BPSOR Möbius mapped conjugate complex spectrum globally optimal theta omega spectral radius, sharp eigenvalues u plus minus i v",
+        "Necessary and sufficient elliptic spectral convergence region for real relaxation block SOR on complex symmetric real block system W+i T with nonreal generalized eigenvalues |Im mu|<1",
+        "arXiv:2508.02052v1"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1002/nla.70068, full HTML §§1–3",
+      "Botta–Veldman, J Comput Phys 48 (1982), relevant PDF pages 4–7",
+      "arXiv:2508.02052v1, full HTML Sections 1–2",
+      "DOI:10.1002/nla.1987, primary abstract (full unavailable)",
+      "Published mathematical-result records compared by scientific implication for SOR and preconditioned relaxation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Louka–Missirlis, DOI:10.1002/nla.70068, full HTML Sections 2 and 3, especially §3.2, states real generalized-spectrum hypothesis and a remaining complex-spectrum problem.",
+        "Botta–Veldman (1982), Section 2, equations (4)–(8), accessible repository PDF page 5, establishes standard complex-Jacobi SOR spectral ellipses for fixed splitting and relaxation.",
+        "Hocking–Greif, arXiv:2508.02052v1, HTML Sections 1 and 2, studies rates for an optimal relaxation given a fixed complex Jacobi spectral segment.",
+        "Hezari–Edalatpour–Salkuyeh (2015), DOI:10.1002/nla.1987, abstract and scope, specializes the PGSOR method to complex symmetric systems; no nonreal joint optimum identified in accessible material."
+      ],
+      "reasoning": "The 2026 article gives a real-spectrum optimized family; the 1982 article gives complex-spectrum SOR ellipses without varying this BPSOR preconditioner. The current theorem combines them with a new nontrivial globally sharp Cayley-invariant bound, explicit equality reconstruction, and boundary nonattainment, rather than asserting either source result as novel. The accessible 2015 abstract does not decisively settle all detailed results, so full older coverage remains a stated residual risk.",
+      "searches": [
+        "Optimal two-parameter preconditioned block successive overrelaxation BPSOR for non-real conjugate eigenvalues of W inverse T, Cayley hyperbolic invariant circle, unique optimal real preconditioner and relaxation",
+        "DOI:10.1002/nla.70068",
+        "Botta-Veldman-JComputPhys-48-127-149-1982"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Louka–Missirlis, DOI:10.1002/nla.70068, full HTML Sections 2 and 3, especially §3.2, states real generalized-spectrum hypothesis and a remaining complex-spectrum problem.",
+        "Botta–Veldman (1982), Section 2, equations (4)–(8), accessible repository PDF page 5, establishes standard complex-Jacobi SOR spectral ellipses for fixed splitting and relaxation.",
+        "Hocking–Greif, arXiv:2508.02052v1, HTML Sections 1 and 2, studies rates for an optimal relaxation given a fixed complex Jacobi spectral segment."
+      ],
+      "reasoning": "Compare the Cayley-geometric joint optimization against classical complex-spectrum SOR, preconditioned GSOR, spectral-circle conjugations and Möbius normalizations. The classical ellipse gives a fixed-Jacobi-spectrum constraint, not the exact infimum over this real one-parameter Möbius orbit and relaxation simultaneously. No equivalent two-parameter equality law was identified.",
+      "searches": [
+        "Optimal two-parameter preconditioned block successive overrelaxation BPSOR for non-real conjugate eigenvalues of W inverse T, Cayley hyperbolic invariant circle, unique optimal real preconditioner and relaxation",
+        "GSOR PGSOR BPSOR Möbius mapped conjugate complex spectrum globally optimal theta omega spectral radius, sharp eigenvalues u plus minus i v",
+        "Conformal hyperbolic Cayley geometry optimal successive overrelaxation preconditioner nonreal complex spectrum spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible relevant papers contain no exact joint-parameter conjugate-pair table; the fixed-spectrum Botta–Veldman ellipse is distinct.",
+        "Directly checked mathematical published records closest to SOR and two-parameter stationary methods did not contain the same conjugate-pair minimizer."
+      ],
+      "reasoning": "The claim is a continuous two-parameter minimum, not a value from a finite precomputed table. Search cannot rule out unindexed equivalent computations; this remains a risk.",
+      "searches": [
+        "Optimal two-parameter preconditioned block successive overrelaxation BPSOR for non-real conjugate eigenvalues of W inverse T, Cayley hyperbolic invariant circle, unique optimal real preconditioner and relaxation",
+        "GSOR PGSOR BPSOR Möbius mapped conjugate complex spectrum globally optimal theta omega spectral radius, sharp eigenvalues u plus minus i v",
+        "DOI:10.1002/nla.70068"
+      ]
+    },
+    "rationale": "New claim is the exact globally joint two-parameter optimum and uniqueness/attainment classification for nonreal conjugate generalized spectra. The motivating 2026 BPSOR article studies real spectra only; earlier complex-spectrum SOR results hold a fixed Jacobi splitting, and their theorems are credited. A targeted published-result comparison and historical-claim search did not identify domination. Unindexed preconditioner literature and the unavailable full 2015 text are acknowledged as residual bibliographic risks.",
+    "residual_risks": [
+      "An unindexed or inaccessible preconditioned complex-SOR paper could establish an equivalent joint optimum; the 2015 source full text was not inspected.",
+      "The result governs spectral radius only and need not control transient nonnormal growth.",
+      "General complex spectra with multiple distinct pairs need a different minimax argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover nonreal conjugate-pair joint optimum; treats real spectra and says complex case is an interesting problem",
+        "evidence": "§3.2 first paragraph; equations (17), (23), (24) and Theorem 4; first-published notice 2026-02-24",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.70068",
+        "material_read": "Full accessible HTML, with detailed reading of §§1–3, spectral mapping, parameter theorem, §3.2 text and discussion",
+        "method": "Primary full-text HTML inspection and equation-to-claim comparison",
+        "title": "The Block Preconditioned SOR Method for Solving Indefinite Complex Linear Systems",
+        "trigger": "Defines exact BPSOR operator and explicitly raises complex generalized spectra as unaddressed"
+      },
+      {
+        "assessment": "Covers fixed-Jacobi-spectrum SOR ellipse and optimum relaxation, credited; no specific real BPSOR Möbius optimization found in inspected scope",
+        "evidence": "Journal of Computational Physics 48 (1982), p. 131, equations (5)–(8)",
+        "identifier_or_url": "https://pure.rug.nl/ws/files/3427889/1981JCompPhysBotta.pdf",
+        "material_read": "Relevant full Section 2 development, PDF pages 4–7, equations (4)–(13); page-5 rendering inspected",
+        "method": "Repository source PDF text and visual equation comparison",
+        "title": "On Local Relaxation Methods and Their Application to Convection-Diffusion Equations",
+        "trigger": "Classical complex Jacobi ellipse can dominate convergence criteria"
+      },
+      {
+        "assessment": "Fixed Jacobi complex line-segment spectra and sometimes complex optimal relaxation; does not vary real block preconditioner theta, nor give its joint optimum",
+        "evidence": "Introduction (1.5), (1.8), (1.9); Section 2",
+        "identifier_or_url": "https://arxiv.org/html/2508.02052v1",
+        "material_read": "Full accessible HTML including Sections 1–2, setup, spectral assumptions, and optimal-complex-relaxation discussion",
+        "method": "Primary arXiv full-text reading and hypothesis/parameter comparison",
+        "title": "Convergence Analysis of Optimal SOR for a Class of Consistently Ordered 2-Cyclic Matrices with Complex Spectra",
+        "trigger": "Recent complex-SOR optimum could imply the claimed spectral result"
+      },
+      {
+        "assessment": "Describes complex symmetric systems and optimum parameters but does not resolve nonreal generalized-spectrum claim from accessible text; residual coverage risk remains",
+        "evidence": "Published 2015-04-24; publisher abstract and 2026 article’s explicit characterization of its assumptions",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.1987",
+        "material_read": "Publisher abstract, scope and references only; full body not available in this round",
+        "method": "Primary abstract inspection with explicit incomplete-full-text risk",
+        "title": "Preconditioned GSOR Iterative Method for a Class of Complex Symmetric System of Linear Equations",
+        "trigger": "Original 2015 PGSOR paper may contain a stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b7ac6ec-85ea-4e26-8c8c-8502789425fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonreal conjugate-pair class is the natural minimal nonsymmetric spectral case explicitly excluded by the motivating 2026 analysis; joint preconditioner and relaxation tuning is a real solver-design question. The theorem determines the complete sharp global rate, unique optimal parameters when u!=0, and limiting attainment phenomena. A nonsingular test system with u=1,v=2 has no convergent unpreconditioned real SOR but has tuned factor 0.03940575785. No unsupported floating-point or runtime gain is claimed.",
+    "status": "PASS"
+  }
+}
