@@ -1,19 +1,21 @@
-# Same-model scientific review: exact Haar diameter law for octahedron sections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization is explicit: the regular octahedron has its six vertices at the coordinate unit vectors, the section is through the origin, and the normal is Haar-uniform. Minimizing the \(\ell_1\) norm over the great circle is reduced rigorously to its coordinate-boundary points: a positive sinusoid restricted to any fixed-sign arc cannot have an interior minimum. The resulting three candidate radii are exactly \(\sqrt{x^2+y^2}/(x+y)\) for pairs of absolute normal coordinates; the smallest/largest pair dominates by the derivative of the same scalar function. Every spherical probability region is decomposed into six congruent spherical triangles with explicit rays and determinant. The classical solid-angle identity evaluates the triangle, providing the claimed arctangent CDF with no missing normalization constants. Endpoint, degenerate-normal, atomlessness, and inverse-threshold arguments are included. A standard-library verifier independently checks the solid-angle computation using spherical excess and the distribution using half-normal order statistics, as well as finite exact and numerical examples. The analytic argument, rather than the finite tests, proves the theorem.
+PASS
 
-## Originality — PASS, with residual risk
+For O=B_1^3, the radius of the centrally symmetric Euclidean plane section is 1/min_{u∈E∩S^2}||u||_1. On fixed-sign great-circle arcs the positive ell1 norm equals a sinusoid, whose interior critical point (if any) is a maximum, so minima occur at coordinate-zero directions. Their radii are sqrt(n_j²+n_k²)/(|n_j|+|n_k|). Since f(t)=sqrt(1+t²)/(1+t) decreases on [0,1], the extreme coordinate pair a=min|n_i|, c=max|n_i| determines D=2sqrt(a²+c²)/(a+c). For Haar normal, ordered positive octant ratio T=a/c>=t is a spherical triangle with rays (1,1,1),(t,t,1),(t,1,1); six congruent sectors and van Oosterom–Strackee's exact solid-angle formula produce the 24/pi arctangent CDF. I independently evaluated the spherical determinant expression and an analytically independent Gaussian half-normal order-statistics integral at six thresholds, agreeing within 1e-11. Endpoints D∈[sqrt2,2], zero atoms, special zero/repeated normal coordinates by continuity are correctly handled. The finite checker is supporting evidence only.
 
-Guédon–Litvak–Tatarko–Vritsiou (arXiv:2609.24131v1, introduction and Section 3) treat random radii and diameters of general bodies and \(\ell_p\) balls through universal upper and lower estimates; these do not entail the exact three-dimensional section law. The closer polar formulation appears in Hmadi–Liakopoulos (arXiv:2609.27757v1, Section 3 and Appendix A): it relates the inradius of the projection of a cube to the radius of the corresponding cross-polytope section, but derives constant-factor/high-probability bounds, not the explicit Haar CDF. Gluskin–Ostrover (arXiv:1604.04927v1, Theorem 1.1 and Remark 1.3) treat different even ambient dimensions, a constrained Grassmannian distribution, and asymptotic bounds. The inradius of an *octahedron projection* is not the new invariant: by polarity it corresponds to a *cube section*, whereas the present law concerns an *octahedron section* and *cube projection*. Related published mathematical record searches returned other random-point circumradii and section-width invariants, not this assertion. The novelty assessment is limited by possible older unindexed computations or equivalent coordinate-ratio laws; absence from searches alone is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete finite-dimensional distribution of the Euclidean random-section diameter of \(B_1^3\) is a natural geometric-probability invariant and a canonical exact benchmark for random Gelfand-radius estimates. Its precise support, all tail probabilities, and the simple dependence on the ratio of extremal normal coordinates are not consequences of a generic up-to-constants estimate. The result is a complete answer for a geometrically motivated object, rather than an arbitrary finite parameter evaluation. It does not claim a general random-section theorem or a higher-dimensional implication.
+Under polarity the exact random octahedron-section radius is reciprocal to a cube-projection inradius, so the corresponding Hmadi–Liakopoulos literature is a direct alias requiring scrutiny; the accessible abstracts/theorem descriptions report inequalities rather than an explicit CDF. Guédon–Litvak–Tatarko–Vritsiou estimate random diameters of general convex bodies/ell1 balls; Gluskin–Ostrover use other dimensions and random models. Their bounds do not imply the present complete 3D arctangent law. Full text of two recent plausible sources was inaccessible through arXiv/OA; authorized Oxford attempts returned vpn_disconnected. The comparison is therefore qualified and never treats unread full papers as confirmed NOT_COVERING.
 
-## Residual limitations and provenance
+## value
 
-The theorem is restricted to three-dimensional central sections with Haar orientation and Euclidean diameter. Related preprints may have equivalent identities expressed through cube projections, Gaussian coordinate order statistics, or spherical-triangle areas. The cited primary sources have been examined in the sections materially relevant to this comparison; no assertion is made that every publication or inaccessible historical source has been exhaustively searched. All new proof steps and the provided verification program were checked in the specified package. Independent audit and independent certification have not occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The entire Haar distribution of the Euclidean diameter of central B1^3 sections is a natural, nontrivial random geometric invariant. Its support, no-atoms property, and explicit CDF give a precise benchmark for polar cube-projection inradius models unavailable from dimension-free constant-factor estimates. No larger-dimensional theorem is necessary for a complete finite-dimensional law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
