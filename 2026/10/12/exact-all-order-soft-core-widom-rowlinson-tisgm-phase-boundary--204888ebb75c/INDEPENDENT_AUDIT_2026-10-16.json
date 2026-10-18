@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:08:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=4, 0<theta<1, lambda>0, reconstruct the Kissel–Külske–Rozikov positive boundary-law equations u=a(1+u^k+theta v^k)/(1+u^k+v^k), v=a(1+theta u^k+v^k)/(1+u^k+v^k), a=lambda^(1/k). Symmetric u=v=r branch has strictly increasing a(r). For u≠v the source linear elimination is reversible; q=v/u>1, D=sum_{0..k}q^j,E=sum_{0..k-1}q^j,C=sum_{1..k-1}q^j and H=C-theta D give u^k=1/H and lambda=D^k/(E^k H). H>0 iff theta<(k-1)/(k+1) and 1<q<q_theta, by monotonic sinh((k-1)x)/sinh((k+1)x), q=e^(2x). Strict derivative positivity follows the universal coefficient identity N_theta/(q-1)=(1-theta)D P_k+k q^(k-1) R_k with all P,R coefficients >0. Endpoint at q=1 gives lambda_c=((k+1)/k)^k/(k-1-(k+1)theta); endpoint H=0 gives infinity. Precisely one nonsymmetric pair exists iff lambda>lambda_c; plus unique symmetric branch gives exact count 1/3. Independently expanded the claimed polynomial factorization over rational/symbolic theta for k=4..12, verified representative reconstructions in the original system; unbounded conclusion rests on coefficient formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2019 static boundary-law theorem bounds counts from below and excludes some regimes, leaving Conjecture 1.",
+          "2023 dynamics paper concerns time-evolved Gibbs/non-Gibbs transitions, not number of invariant solutions of static algebraic equations."
+        ],
+        "reasoning": "Larger scope of tree Gibbs measures or dynamic phenomena does not supply an exact static TISGM count for the constrained physical region.",
+        "searches": [
+          "Kissel Kulske Rozikov Hard-Core and Soft-Core Widom-Rowlinson models on Cayley trees 2019",
+          "Bergmann Kissel Kulske Dynamical Gibbs non-Gibbs transitions Widom Rowlinson models on trees arXiv 2012.09718"
+        ]
+      },
+      "checked_sources": [
+        "S. Kissel, C. Külske, U. A. Rozikov, Hard-Core and Soft-Core Widom-Rowlinson models on Cayley trees, arXiv:1901.09258 (2019), Section 4/Theorem 6/Conjecture 1.",
+        "Bergmann, Kissel, Külske, arXiv:2012.09718 (2020), later dynamical topic, abstract-level comparison.",
+        "Resultary published search Widom Rowlinson ferromagnetic soft-core model Cayley tree translation invariant splitting Gibbs measures all orders k>=4 exact one three phase boundary conjecture Kissel Kulske Rozikov"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source eliminates a and a theta but stops at an unproved constrained-minimum condition.",
+          "Audited reduction sets q=v/u, proves domain H>0, then establishes a new positive-coefficient polynomial identity for derivative sign."
+        ],
+        "reasoning": "The theorem does not follow by substitution in Theorem 6; the missing global monotonicity excludes additional nonsymmetric branches. The original constrained-minimum problem is directly solved rather than assumed.",
+        "searches": [
+          "Kissel et al Theorem 6 and attempted proof of Conjecture 1 linear elimination",
+          "soft-core Widom Rowlinson phase coexistence uniqueness arXiv 1901.09258"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kissel et al. Theorem 6 p.13 states at least one or at least three; their Conjecture 1 asserts exactly one or exactly three.",
+          "Audited theorem proves Conjecture 1 on precisely ferromagnetic soft-core k>=4, lambda>0, theta∈(0,1)."
+        ],
+        "reasoning": "This is an explicit earlier conjecture, not a prior theorem. The novelty consists in the proof of exactness, not discovering the critical curve itself.",
+        "searches": [
+          "Widom Rowlinson ferromagnetic soft-core model Cayley tree translation invariant splitting Gibbs measures all orders k>=4 exact one three phase boundary conjecture Kissel Kulske Rozikov",
+          "arXiv 1901.09258 Conjecture 1 Theorem 6",
+          "Widom-Rowlinson k>=4 translation invariant splitting Gibbs one three exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kissel et al. arXiv:1901.09258 p.14 explicitly reports Mathematica agreement only k=4..15.",
+          "No exact k>=4 analytic monotonicity certificate appears in that bounded numerical table."
+        ],
+        "reasoning": "A finite list of fitted orders is not an all-k proof and does not constitute covering exact database evidence.",
+        "searches": [
+          "Widom Rowlinson ferromagnetic soft-core model Cayley tree translation invariant splitting Gibbs measures all orders k>=4 exact one three phase boundary conjecture Kissel Kulske Rozikov",
+          "Kissel thesis k=4..15 Mathematica constrained minimum numerical verification"
+        ]
+      },
+      "rationale": "Kissel–Külske–Rozikov (2019) Theorem 6 explicitly gives one or at least three in separated regimes and then Conjecture 1 posits exact one/three for k>=4, with only Mathematica evidence k=4..15. The new globally monotone activity-vs-ratio parametrization resolves precisely that open statement, unlike later time-dependent Gibbs–non-Gibbs results. No Resultary or literature equivalent all-order proof was found; weak-indexed later resolution remains possible.",
+      "residual_risks": [
+        "Later same-model resolution of Conjecture 1 could be weakly indexed or use an equivalent parametrization.",
+        "The positive polynomial identity was independently checked only through k=12; the all-k certificate is the explicit finite-sum coefficient argument and was read as a symbolic identity, not computational extrapolation.",
+        "TISGM classification does not settle extremality or classify all Gibbs measures, periodic or nonperiodic splittings, or the antiferromagnetic case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_ONLY: conjectured exact count, proved existence/lower counts, remaining all-k exactness not established",
+          "evidence": [
+            "Theorem 6 and Conjecture 1 at PDF pp.13–14; p.14 source states Mathematica checked k=4..15 only."
+          ],
+          "identifier_or_url": "arXiv:1901.09258; https://arxiv.org/pdf/1901.09258",
+          "material_read": "Read original PDF Section 3/4 boundary-law system, Theorem 6, Conjecture 1, source linear elimination and numerical constrained-minimum discussion pp.12–15; inspected PDF page image p.13",
+          "method": "Lawful arXiv primary full text and page image",
+          "title": "Hard-Core and Soft-Core Widom-Rowlinson models on Cayley trees",
+          "trigger": "Identical exact model and unresolved Conjecture 1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a named phase-diagram conjecture for every k>=4 and proves there are no hidden branches beyond the symmetric state and one spin-exchanged pair. The coefficientwise positivity identity supplies a reusable global monotonicity mechanism, stronger than merely reproducing an observed numerical critical curve. These are major structural constraints on a natural tree Gibbs specification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exact one/three count concerns positive translation-invariant splitting measures only; no claims for extremality, non-TI splittings, all Gibbs measures or dynamics.",
+    "Novelty restricted to soft-core 0<theta<1, k>=4; hard-core endpoint theta=0 is excluded."
+  ]
+}

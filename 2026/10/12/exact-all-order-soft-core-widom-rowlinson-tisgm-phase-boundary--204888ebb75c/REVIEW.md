@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is reconstructed from the published positive boundary-law system. The symmetric branch is strictly monotone and unique. Every nonsymmetric solution is equivalently parameterized by its positive ratio \(q\), and the activity becomes the explicit scalar function \(\Lambda_\theta(q)\). The physical-domain boundary is proved globally by a hyperbolic-sine ratio, while an exact positive-coefficient identity proves \(\Lambda_\theta'(q)>0\) for every \(q>1\) in that domain. The endpoint values then give exactly zero or one nonsymmetric pair. Finite verifier cases are not used as an infinite proof.
+PASS
 
-## Originality
+For k>=4, 0<theta<1, lambda>0, reconstruct the Kissel–Külske–Rozikov positive boundary-law equations u=a(1+u^k+theta v^k)/(1+u^k+v^k), v=a(1+theta u^k+v^k)/(1+u^k+v^k), a=lambda^(1/k). Symmetric u=v=r branch has strictly increasing a(r). For u≠v the source linear elimination is reversible; q=v/u>1, D=sum_{0..k}q^j,E=sum_{0..k-1}q^j,C=sum_{1..k-1}q^j and H=C-theta D give u^k=1/H and lambda=D^k/(E^k H). H>0 iff theta<(k-1)/(k+1) and 1<q<q_theta, by monotonic sinh((k-1)x)/sinh((k+1)x), q=e^(2x). Strict derivative positivity follows the universal coefficient identity N_theta/(q-1)=(1-theta)D P_k+k q^(k-1) R_k with all P,R coefficients >0. Endpoint at q=1 gives lambda_c=((k+1)/k)^k/(k-1-(k+1)theta); endpoint H=0 gives infinity. Precisely one nonsymmetric pair exists iff lambda>lambda_c; plus unique symmetric branch gives exact count 1/3. Independently expanded the claimed polynomial factorization over rational/symbolic theta for k=4..12, verified representative reconstructions in the original system; unbounded conclusion rests on coefficient formula.
 
-PASS. The 2019 primary paper states the higher-order one-versus-three assertion as Conjecture 1, gives only a sufficient nonuniqueness result in Theorem 6, and says the remaining constrained-minimum step was checked numerically only for \(k=4,\ldots,15\). The first author's 2019 thesis repeats the conjecture and unresolved step. Targeted searches for the source identifier, conjecture, exact critical curve, ratio parameterization, and all-order exact TISGM count found no implication-equivalent resolution. Later tree work found in the search concerns dynamical Gibbs--non-Gibbs behavior rather than this static count. Residual risk remains for a weakly indexed equivalent proof under different variables.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves an explicit phase-diagram conjecture for every higher tree order and upgrades “at least three” to an exact one-versus-three classification. The new ratio reduction also supplies the missing global mechanism: uniqueness of the symmetry-broken pair, not merely another sufficient inequality or numerical threshold.
+Kissel–Külske–Rozikov (2019) Theorem 6 explicitly gives one or at least three in separated regimes and then Conjecture 1 posits exact one/three for k>=4, with only Mathematica evidence k=4..15. The new globally monotone activity-vs-ratio parametrization resolves precisely that open statement, unlike later time-dependent Gibbs–non-Gibbs results. No Resultary or literature equivalent all-order proof was found; weak-indexed later resolution remains possible.
 
-## Closest literature and limitations
+## value
 
-The closest literature is the motivating paper itself and the first author's dissertation, both of which stop at the same unproved constrained-minimum step. The claim is intentionally limited to soft-core TISGMs and does not address extremality, periodic/nonperiodic measures, or the full Gibbs simplex.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem resolves a named phase-diagram conjecture for every k>=4 and proves there are no hidden branches beyond the symmetric state and one spin-exchanged pair. The coefficientwise positivity identity supplies a reusable global monotonicity mechanism, stronger than merely reproducing an observed numerical critical curve. These are major structural constraints on a natural tree Gibbs specification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
