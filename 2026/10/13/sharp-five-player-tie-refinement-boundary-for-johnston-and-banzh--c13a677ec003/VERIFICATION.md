@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_johnston_banzhaf_proper_first_layer.py` performs an exact finite replay using only the Python standard library.
 
-It enumerates every simple game through five players from its antichain of minimal winning coalitions and directly checks properness.
+# Independent mathematical audit
 
-Banzhaf power is computed independently by:
-1. adding a player to losing coalitions and counting losing-to-winning swings;
-2. removing a player from winning coalitions and counting winning-to-losing swings.
+## correctness
 
-Johnston power is computed independently by:
-1. coalition-centered equal division among all critical players of each winning coalition;
-2. player-centered recomputation of critical-player counts for every coalition.
+PASS
 
-All arithmetic is exact rational arithmetic.
+A complete independent enumeration of all nonempty antichains of subsets of n players and their induced proper monotone simple games was performed for n=1,2,3,4,5, using exact rational arithmetic for Johnston scores and integer critical-winning-coalition counts for Banzhaf. Proper labeled counts are exactly 1,3,11,80,2645; weak ranking disagreements are 0 through n=4 and 480 at n=5. Among the 480, no strict Banzhaf pair comparison reverses under Johnston: 420 games refine two unordered pairs and 60 refine four. Canonicalization of all five-player divergent minimal-winning antichains under 120 player permutations yields precisely nine classes, seven orbit-60 and two orbit-30. This independently reproduces the pinned package's exact exhaustive finite proof domain and the listed representative scores, with strict properness and both weak rank ties tested. There is no extrapolation to six players or non-proper games.
 
-The verifier confirms:
-- simple-game counts \(1,4,18,166,7579\);
-- proper-game counts \(1,3,11,80,2645\);
-- proper-game isomorphism counts \(1,2,5,14,86\);
-- no weak-ranking divergence through four players;
-- exactly \(480\) divergent proper five-player games;
-- exact incidence \(96/529\);
-- exactly nine divergent player-relabeling classes;
-- orbit sizes seven times \(60\) and twice \(30\);
-- no strict pairwise rank reversal in any divergent game;
-- \(420\) games refining exactly \(2\) unordered player comparisons and \(60\) refining exactly \(4\);
-- every displayed canonical family and vector.
+## originality
 
-Run:
+PASS
 
-`python3 verify_johnston_banzhaf_proper_first_layer.py`
+Published Resultary October 4, 2026 proves the strictly broader *qualitative* five-player Johnston/Banzhaf separation boundary for all simple games, as well as the 34 of 208 isomorphism-class unrestricted census and the unique sparsest three-minimal-winner witness. Therefore the naked five-player cutoff is ALREADY COVERED and is not claimed original here. What survives is the motivated quantitative classification of the proper subclass: exactly 480/2645 first-layer discrepancies, precisely nine symmetry classes and the new structural tie-refinement/no-strict-reversal property. The October 4 full RESULT.md was inspected and does not contain these restricted counts. Freixas's full 2011 presentation gives the formulas and semicomplete equivalence theorem; the inaccessible 2012 full journal paper may contain further examples/tables, so only best-of-knowledge priority for the *proper exact census* is asserted.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated finite boundary through five players.
+Properness is a fundamental condition on voting games, independent of semicompleteness. An exact first-disagreement census within that natural subclass answers how often two classical criticality indices disagree and whether the disagreement is a strict reversal or only tie-splitting; classifying precisely nine symmetry types and 96/529 incidence gives a reusable benchmark for voting-power theory. Its value rests on these previously unrecorded finer statistics, not on repeating the covered five-player cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
