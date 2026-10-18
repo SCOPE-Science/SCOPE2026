@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:13:44.998035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For homogeneous absorbing unit-rate N-state pure-birth Q, E_N(h)=2(I−hQ/2)^−2−(I−hQ)^−1 is a rational matrix function of the nilpotent transient shift S; row sums are one. Scalar r(z)=2/(1+z/2)^2−1/(1+z)=(−z²+4z+4)/((z+1)(z+2)^2), and transient superdiagonals a_k=(−h)^k r^(k)(h)/k!. For N≤5, a0≥0 exactly 0≤h≤2+2sqrt2=U, while a1,a2,a3>0 for 0<h≤U via the explicit one-positive-root polynomials and their negative values at U. Absorbing entry in first row for N=5 equals h^4 p(h)/((h+1)^4(h+2)^5), p=h^5+18h^4+52h³+48h²+2h−12, unique positive zero η in (.3959,.3960); for N2,3,4 corresponding absorbing entries are positive for all h>0 until diagonal barrier U. Thus re-entry N5 at {0}∪[η,U]; h>U fails by diagonal. Independently assembled rational resolvent matrices at h=0,1/4,1,4,5 for N2..5 and symbolically factored N5 absorbing term; exact h=1/4 negative absorbing entry −7799/36905625. Finite checks corroborate all-h sign proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fornberg–Zuev–Lee 2005/2007 assesses extrapolated-wave stability; Bonaventura–Della Rocca 2015 studies TR-BDF2 positivity; neither inspected statement determines this exact pure-birth matrix sign region."
+        ],
+        "reasoning": "General stability/SSP techniques provide methods, but a universal bound for general ODEs does not supply re-entry on this fixed nilpotent chain.",
+        "searches": [
+          "Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant"
+        ]
+      },
+      "checked_sources": [
+        "Frozen 2026/10/13/re-entrant-positivity-of-richardson-extrapolated-backward-euler--c08f9b38b493/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7, blob 4a1087bb2f7e8ae222436b1cb7cfd64bf31c19e1",
+        "Frozen record tree fd38a83de8c1f09ee766aff475a4c5cfbdccd4f7 inspected recursively",
+        "Resultary semantic query: Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant",
+        "https://www.colorado.edu/amath/sites/default/files/attached-files/extrap03.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "https://arxiv.org/abs/1510.04303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Richardson scalar positivity U coincides with a0 restriction; N5 p(h) sign requires nilpotent higher derivatives and absorbing complement."
+        ],
+        "reasoning": "No implication from scalar sign to full Markov nonnegativity; the relevant new content is the complete matrix classification.",
+        "searches": [
+          "Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary scalar Richardson cutoff U is a0(h)≥0 only; N5 re-entry controlled by absorbing residual 1−∑a_k and exact p(h)."
+        ],
+        "reasoning": "Scalar y′=−λy positivity cannot determine off-diagonal absorbing entry or re-entrant hole.",
+        "searches": [
+          "Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary prior “Richardson acceleration creates a sharp positivity barrier for backward Euler” lists U; earlier “Eight-state barrier for Markov positivity of [2/2] Padé map” lists a different η≈0.59664."
+        ],
+        "reasoning": "Different rational method and state dimension do not cover polynomial p or current five-state window.",
+        "searches": [
+          "Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete N2–5 Richardson-backward-Euler stochasticity windows and first N5 re-entrant interval. The general extrapolation method, SSP conditions and scalar positivity cutoff U are prior work. Published Resultary entry “Richardson acceleration creates a sharp positivity barrier for backward Euler” explicitly gives the scalar U but does not mention the nilpotent N5 absorbing-column obstruction or η polynomial. The [2/2] Padé eight-state barrier uses a different rational stability map, and no result mechanically implies the target sign polynomial. Fornberg–Zuev–Lee investigate extrapolation and stability for Maxwell wave equations, not Markov transition positivity. Residual older SSP derivative-coefficient literature acknowledged.",
+      "residual_risks": [
+        "Older numerical SSP/absolute-monotonicity literature might include matrix derivative criteria specialized to pure-birth chains; an equivalent explicit N5 threshold was not located.",
+        "Resultary nearest scalar record was inspected as summary, not full paper; no whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Concerns wave-equation extrapolation/stability domains, not the N5 pure-birth stochasticity threshold.",
+          "evidence": "Study frames survival of unconditional stability under Richardson extrapolation.",
+          "identifier_or_url": "https://www.colorado.edu/amath/sites/default/files/attached-files/extrap03.pdf",
+          "material_read": "Full 21-page public preprint PDF accessible and inspected, intro, extrapolation/stability analysis; first page visual verification.",
+          "method": "Primary publisher-hosted author PDF",
+          "title": "Stability and accuracy of time-extrapolated ADI-FDTD methods for solving wave equations",
+          "trigger": "Oldest directly motivating Richardson time extrapolation"
+        },
+        {
+          "assessment": "Strong coverage of scalar diagonal cutoff, NOT sufficient to assert absence/presence of uninspected five-state calculation. Residual risk retained.",
+          "evidence": "Summary specifies scalar decay y′=−λy and general refinement r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+          "material_read": "Resultary published title/summary (not full Git package) read: scalar r=2 refinement positivity ends U=2+2sqrt2.",
+          "method": "Resultary source-summary inspection only",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Nearest published same integrator and scalar threshold"
+        },
+        {
+          "assessment": "Background, no whole-document noncoverage conclusion.",
+          "evidence": "Studies TR-BDF2 and SSP monotonicity rather than the stated extrapolation formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+          "material_read": "Abstract/accessible summary only, no complete primary document inspection; method differs from Richardson BE.",
+          "method": "Abstract-level comparison",
+          "title": "Monotonicity, positivity and strong stability of TR-BDF2 method and its SSP extensions",
+          "trigger": "Relevant general method positivity and SSP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact sharp Markov-positivity classification for a canonical numerical acceleration scheme on natural absorbing birth chains and a nonmonotone small-step pathology: shrinking the timestep can lose positivity, then increasing it restores positivity for a finite interval. Five states is the first state dimension for this homogeneous hierarchy; N4 scalar bound alone does not predict the re-entry. This is a meaningful method-specific boundary, not an arbitrary negative-entry test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen 2026/10/13/re-entrant-positivity-of-richardson-extrapolated-backward-euler--c08f9b38b493/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7, blob 4a1087bb2f7e8ae222436b1cb7cfd64bf31c19e1",
+    "Frozen record tree fd38a83de8c1f09ee766aff475a4c5cfbdccd4f7 inspected recursively",
+    "Resultary semantic query: Richardson extrapolated backward Euler monotonicity positivity pure birth Markov chain negative transition absorbing row reentrant",
+    "https://www.colorado.edu/amath/sites/default/files/attached-files/extrap03.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+    "https://arxiv.org/abs/1510.04303"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only homogeneous constant-rate absorbing pure-birth N=2..5 and one Richardson combination; no assertion about arbitrary generators, larger N, or other extrapolations."
+  ],
+  "residual_risks": [
+    "Older numerical SSP/absolute-monotonicity literature might include matrix derivative criteria specialized to pure-birth chains; an equivalent explicit N5 threshold was not located.",
+    "Resultary nearest scalar record was inspected as summary, not full paper; no whole-document noncoverage claim."
+  ],
+  "schema_version": 1
+}
