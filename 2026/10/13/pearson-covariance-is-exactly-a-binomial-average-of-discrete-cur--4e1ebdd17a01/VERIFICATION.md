@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact domain is an equiprobable multinomial sample with \(m,n\ge2\). The cell score \(h\) is arbitrary on the finite set \(\{0,\ldots,n\}\), so the main identity has no regularity assumption.
+# Independent mathematical audit
 
-The critical proof steps are:
+## correctness
 
-1. Pearson's statistic is exactly affine in the pair-collision count:
-   \[
-   X^2=m-n+\frac{2m}{n}C.
-   \]
-2. Exchangeability reduces \(\operatorname{Cov}(C,T_h)\) to one distinguished-pair covariance.
-3. Conditioning that pair to be equal or unequal changes \(\mathbb E T_h\) by exactly \(\mathbb E\Delta^2h(Y)\), with \(Y\sim\operatorname{Binomial}(n-2,1/m)\).
-4. The probability of pair equality is \(1/m\), yielding the displayed coefficient.
-5. For Cressie--Read statistics, the cell score is a positive or negative multiple of \(k^{\lambda+1}\); its curvature sign matches the normalization so that covariance is strictly positive for every \(\lambda>-1\). The continuous \(\lambda=0\) limit uses \(k\log k\).
+PASS
 
-`checker.py` enumerates multinomial count vectors, weights them by multinomial multiplicity, and independently recomputes the relevant covariances. It checks the likelihood-ratio specialization on a finite grid, representative negative and positive power-divergence parameters, and the quadratic consistency specialization. A large finite calculation checks the stated fixed-cell asymptotic numerically.
+For iid uniform cell labels Z_a, C=sum_{a<b}1[Z_a=Z_b] and X²=m−n+(2m/n)C. By pair exchangeability Cov(C,T_h)=choose(n,2)Cov(I12,T_h). Conditioning on pair collision versus distinct cells gives E[T_h|I=1]−E[T_h|I=0]=E[h(Y+2)−2h(Y+1)+h(Y)], Y~Bin(n−2,1/m). Cov(I,T_h)=(m−1)/m² times that, obtaining coefficient (n−1)(m−1)/m. For D_lambda, the sign of prefactor cancels convexity reversal across lambda=0, so covariance>0 all lambda>−1. For G², discrete convex f(k)=k log k, n E Δ²f(Y)→m, giving 2(m−1) limit; tail bounds justify interchange. Exhaustively independently enumerated sample label sequences and confirmed 60 covariance identities. The m,n≥2 and empty-cell conventions verified.
 
-Finite computations are supplementary. The all-\(m,n\) identity and sign theorem follow from the symbolic argument above, not from enumeration.
+## originality
 
-No claim is made for \(\lambda=-1\), where empty cells can make the modified likelihood statistic divergent, or for nonuniform cell probabilities.
+PASS
+
+The power-divergence family, its large-sample common chi-square limit and algorithms for exact marginal distributions are classical. The checked Marhuenda et al complete article deals with separate exact laws and critical values and does not furnish the joint covariance for arbitrary additive score. The general finite-sample binomial-curvature mixed-moment identity and positive covariance at every λ>−1 are distinctive. Foundational Cressie–Read 1984 original full text could not be acquired: a publisher abstract and opening page are visible, and Oxford returned no verified PDF. Best-of-knowledge PASS with priority risk rather than treating inaccessible text as failure.
+
+## value
+
+PASS
+
+The joint finite-sample behavior of classical goodness-of-fit statistics determines agreement in noisy categorical tests. An exact covariance identity for every additive cell score, with immediate global sign determination across the power-divergence family and chi-square limit, is useful beyond any one numeric sample regime and not a marginal-test recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

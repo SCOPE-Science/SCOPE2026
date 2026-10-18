@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:19:05.146614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform cell labels Z_a, C=sum_{a<b}1[Z_a=Z_b] and X²=m−n+(2m/n)C. By pair exchangeability Cov(C,T_h)=choose(n,2)Cov(I12,T_h). Conditioning on pair collision versus distinct cells gives E[T_h|I=1]−E[T_h|I=0]=E[h(Y+2)−2h(Y+1)+h(Y)], Y~Bin(n−2,1/m). Cov(I,T_h)=(m−1)/m² times that, obtaining coefficient (n−1)(m−1)/m. For D_lambda, the sign of prefactor cancels convexity reversal across lambda=0, so covariance>0 all lambda>−1. For G², discrete convex f(k)=k log k, n E Δ²f(Y)→m, giving 2(m−1) limit; tail bounds justify interchange. Exhaustively independently enumerated sample label sequences and confirmed 60 covariance identities. The m,n≥2 and empty-cell conventions verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marhuenda et al 2003 sections 1–4 and appendix enumerate exact individual statistic distributions and powers; full text contains no covariance or joint occurrences."
+        ],
+        "reasoning": "Prior exact marginal laws cannot determine mixed covariance; available general asymptotic chi-square limit gives only n→∞, not exact finite coefficient. Foundational full text remains unread.",
+        "searches": [
+          "Cressie–Read 1984",
+          "Marhuenda et al 2003",
+          "Pearson multinomial covariance second difference binomial search"
+        ]
+      },
+      "checked_sources": [
+        "https://www.kybernetika.cz/content/2003/1/55/paper.pdf",
+        "https://doi.org/10.1111/j.2517-6161.1984.tb01318.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1984 summary introduces family and asymptotic difference; 2003 methods enumerate support and calculate exact marginal distributions/powers; 2008 exact-test paper introduces software."
+        ],
+        "reasoning": "No inspected implication-equivalent mixed-moment identity established. General binomial conditioning is standard but its evaluated covariance for all cell scores is a natural structural special identity.",
+        "searches": [
+          "Cressie–Read 1984 publisher summary",
+          "Marhuenda–Marhuenda–Morales 2003 complete text",
+          "Jann 2008 exact multinomial tests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cressie–Read 1984 definition of Dλ and second-order asymptotic focus; Marhuenda et al 2003 complete paper describes exact marginal distributions.",
+          "Finite-sample identity Cov(X²,Σh(Ni)) = ((n−1)(m−1)/m)E Δ²h(Bin(n−2,1/m)) is a pair-collision Hoeffding projection."
+        ],
+        "reasoning": "The binomial curvature equivalence and general cell-score form differ from known separate power-divergence marginal laws. Generic U-statistic projection is a route to the identity, not verified earlier exact publication.",
+        "searches": [
+          "Pearson chi square multinomial covariance additive occupancy statistic discrete second difference binomial Stein collision identity",
+          "Pearson chi square covariance power divergence exact",
+          "Cressie Read 1984 DOI:10.1111/j.2517-6161.1984.tb01318.x",
+          "Marhuenda Marhuenda Morales 2003 Kybernetika 39 pp55-74 DMLCZ:135508"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available tables are single-statistic critical values for λ choices; no two-statistic joint moment entries."
+        ],
+        "reasoning": "A finite test-statistic table does not equal a uniform n,m,h covariance transform or all-λ positivity theorem.",
+        "searches": [
+          "Marhuenda Marhuenda Morales 2003 DMLCZ:135508",
+          "Pearson chi-square covariance G squared exact multinomial queries"
+        ]
+      },
+      "rationale": "The power-divergence family, its large-sample common chi-square limit and algorithms for exact marginal distributions are classical. The checked Marhuenda et al complete article deals with separate exact laws and critical values and does not furnish the joint covariance for arbitrary additive score. The general finite-sample binomial-curvature mixed-moment identity and positive covariance at every λ>−1 are distinctive. Foundational Cressie–Read 1984 original full text could not be acquired: a publisher abstract and opening page are visible, and Oxford returned no verified PDF. Best-of-knowledge PASS with priority risk rather than treating inaccessible text as failure.",
+      "residual_risks": [
+        "Full 1984 Cressie–Read JRSSB 46 (1984) 440–464 and 1989 comparative review were not fully inspected; may contain equivalent joint covariance or general moment reduction.",
+        "Prior multinomial occupancy/U-statistic covariance formula may imply the same binomial transform under another name, despite scoped searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the mixed covariance identity; marginal and power tables only",
+          "evidence": "Text has no occurrences covariance or joint; details separate test statistic distribution",
+          "identifier_or_url": "https://www.kybernetika.cz/content/2003/1/55/paper.pdf",
+          "material_read": "Full 20-page PDF parsed; sampled original page 56, checked definitions, algorithms sections, exact-distribution/power tables, full-text covariance and joint keyword search",
+          "method": "Lawful OA PDF text + page screenshot",
+          "title": "On the Computation of the Exact Distribution of Power Divergence Test Statistics",
+          "trigger": "Closest exact finite multinomial law source"
+        },
+        {
+          "assessment": "COVERAGE NOT DECIDABLE from available material; risk recorded; not taken as a disproof",
+          "evidence": "Publisher summary says primarily asymptotic differences with some finite computations; absent entire text cannot conclude missing joint covariance",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1984.tb01318.x",
+          "material_read": "Publisher abstract, mathematical definition and first-page search rendering; attempted NYU full OA PDF (404), arXiv/preprint search failed, authorized Oxford returned no_pdf",
+          "method": "Publisher HTML and scholarly search; no full text obtained",
+          "title": "Multinomial Goodness-Of-Fit Tests",
+          "trigger": "Foundational 1984 original could contain hidden mixed moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint finite-sample behavior of classical goodness-of-fit statistics determines agreement in noisy categorical tests. An exact covariance identity for every additive cell score, with immediate global sign determination across the power-divergence family and chi-square limit, is useful beyond any one numeric sample regime and not a marginal-test recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.kybernetika.cz/content/2003/1/55/paper.pdf",
+    "https://doi.org/10.1111/j.2517-6161.1984.tb01318.x"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 1984 Cressie–Read JRSSB 46 (1984) 440–464 and 1989 comparative review were not fully inspected; may contain equivalent joint covariance or general moment reduction.",
+    "Prior multinomial occupancy/U-statistic covariance formula may imply the same binomial transform under another name, despite scoped searches.",
+    "Independent bounded checks corroborate only tested finite cases; unrestricted statements evaluated from source proofs.",
+    "All publication plans not_ready pending confidentiality safeguards."
+  ],
+  "residual_risks": [
+    "Full 1984 Cressie–Read JRSSB 46 (1984) 440–464 and 1989 comparative review were not fully inspected; may contain equivalent joint covariance or general moment reduction.",
+    "Prior multinomial occupancy/U-statistic covariance formula may imply the same binomial transform under another name, despite scoped searches."
+  ],
+  "schema_version": 1
+}
