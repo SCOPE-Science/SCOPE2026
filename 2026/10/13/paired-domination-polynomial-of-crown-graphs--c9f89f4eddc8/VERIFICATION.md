@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker constructs each crown graph directly, enumerates all vertex subsets, checks domination from the adjacency relation, and tests whether the induced bipartite subgraph has a perfect matching using an augmenting-path matcher. It independently compares those results with the theorem’s criterion \(p=q\ge2\).
+# Independent mathematical audit
 
-It then verifies the coefficient identity \(d_{\mathrm{pr}}(\operatorname{Cr}_n,2t)=\binom{n}{t}^2\), the minimum-set count \(\binom{n}{2}^2\), the total count \(\binom{2n}{n}-n^2-1\), and the assertion that inclusion-minimal paired-dominating sets are exactly the size-
-\(4\) sets. The packaged run exhausts \(3\le n\le8\), comprising \(87{,}360\) subsets and graphs of order up to \(16\).
+## correctness
 
-The finite computation is only a stress test. The infinite statement rests on the written Hall-theorem proof. No external solver, table, or probabilistic inference is used.
+PASS
+
+Any induced perfect matching forces equal selected bipartition counts; t=1 is either a nonedge or leaves a matched vertex undominated. With t>=2, all omitted vertices have selected neighbors. Each selected A vertex has at least t-1 B neighbors, while every two-or-more selected A vertices collectively see all selected B, proving Hall for any subset and hence perfect matching. Counting two independent t-subsets and Vandermonde gives coefficients and total; every larger set contains a four-vertex paired dominating subset.
+
+## originality
+
+PASS
+
+Puttaswamy and Nayaka establish the minimum paired-domination cardinality four and one explicit crown witness; full polynomial and equal-occupancy classification are absent from that read article. Complete multipartite paired-polynomial results do not directly include a crown after deleting its matching. The abstract-only 2016 polynomial proceeding creates an acknowledged unresolved priority risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+The entire balanced-set enumerator, minimal-set classification and total cardinality sequence are exact natural combinatorial invariants for the standard crown family. Although the Hall argument is short and classical, the all-n polynomial is not logically given by the known minimum-size result or unmodified K_nn formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

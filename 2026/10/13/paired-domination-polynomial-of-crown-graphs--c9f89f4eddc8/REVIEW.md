@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes the exact crown normalization and paired-domination definition. Equal bipartition counts are necessary for a perfect matching. The one-per-side boundary is excluded explicitly. For equal counts at least two, domination and Hall’s condition are both proved for all indices and all selected subsets. The coefficient formula, minimum count, total count, and minimality claim then follow. Exhaustive direct verification for \(3\le n\le8\) agrees with the theorem on all \(87{,}360\) vertex subsets.
+## correctness
 
-## Originality
-**PASS, with stated access risk.** The closest same-object full text, Puttaswamy–Nayaka (2016), uses one four-vertex minimum paired-dominating set of the crown in an energy calculation. It therefore covers the scalar minimum \(4\), which is not presented here as independently new, but it does not supply the all-set classification or polynomial in the inspected crown theorem. The 2016 paired-domination-polynomial proceedings item publicly available during review is only a one-page abstract naming unspecified standard families; targeted crown and \(S_n^0\) searches did not locate the present formula. A fuller inaccessible proceedings version remains a genuine residual priority risk.
+PASS
 
-## Value
-**PASS.** The result gives a complete structural classification on a standard graph family already used in paired-domination research, not merely another minimum-value computation. It determines all coefficients of the natural polynomial, all minimum sets, the total number of feasible sets, and the upper paired-domination number through the stronger fact that every inclusion-minimal paired-dominating set is minimum.
+Any induced perfect matching forces equal selected bipartition counts; t=1 is either a nonedge or leaves a matched vertex undominated. With t>=2, all omitted vertices have selected neighbors. Each selected A vertex has at least t-1 B neighbors, while every two-or-more selected A vertices collectively see all selected B, proving Hall for any subset and hence perfect matching. Counting two independent t-subsets and Vandermonde gives coefficients and total; every larger set contains a four-vertex paired dominating subset.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Puttaswamy and Nayaka establish the minimum paired-domination cardinality four and one explicit crown witness; full polynomial and equal-occupancy classification are absent from that read article. Complete multipartite paired-polynomial results do not directly include a crown after deleting its matching. The abstract-only 2016 polynomial proceeding creates an acknowledged unresolved priority risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+The entire balanced-set enumerator, minimal-set classification and total cardinality sequence are exact natural combinatorial invariants for the standard crown family. Although the Hall argument is short and classical, the all-n polynomial is not logically given by the known minimum-size result or unmodified K_nn formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
