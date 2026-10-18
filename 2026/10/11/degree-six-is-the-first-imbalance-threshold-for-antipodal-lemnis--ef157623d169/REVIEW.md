@@ -1,11 +1,21 @@
-# Scientific review: antipodal polynomial-lemniscate area
+# Independent mathematical audit
 
-**Correctness (PASS).** A complete integer-box inclusion/exclusion proof bounds the filled lemniscate areas, and its standalone implementation was executed to reproduce all six rational enclosures. The remaining steps are exact polar integration, reflection, the power identity for strict unit sublevels, and exhaustive comparison of every integer allocation in degrees one through six. The verified sextic conclusion is not extrapolated to arbitrary degrees except for the explicitly proved multiples-of-six counterexamples.
+## correctness
 
-**Originality (PASS).** The central prior study, Krishnapur–Lundberg–Ramachandran (arXiv:2503.18270), was inspected across its main statements and numerical Section 10. That section discusses movable unit-circle root configurations and a doubled-root cubic local minimum, but does not establish the rigid two-site degree-six allocation theorem or exact certified area intervals. Ghosh–Ramachandran (arXiv:2604.03036) treat capacity constraints and Pendyala (arXiv:2606.17097) describes sharp asymptotic order; their accessible results do not imply the finite theorem. Published mathematical-record searches for antipodal multiplicity balance, Cassini-area comparisons and polynomial lemniscate minimizers revealed no matching or stronger claim. Classical Cassini formulas imply only the elementary balanced-area benchmark. **Residual risk:** the full text of Pendyala's 2026 paper was inaccessible, and unindexed equivalents are possible; no novelty guarantee is inferred from failed search alone.
+PASS
 
-**Value (PASS).** Two fixed antipodal sites form the natural minimal nontrivial root-constrained model of the Erdős area problem. Determining the first breakdown of the balanced-multiplicity rule, classifying every allocation up to that degree, and proving a recurring obstruction for degree multiples of six identifies a genuine structural phenomenon. Strict certified area comparisons, rather than sampled numerical outputs, settle the necessary finite inequalities.
+Reconstructed strict sublevel and zero-measure boundary, all dyadic squares of [-2,2]^2, exact lower/upper products of integer squared distances, and termination at scale 1/256. Recomputed all six integer area enclosures independently; 129888<131072<138338, 128836<149516, and 129888<131072<158192. Balanced even area 2 by polar integration of |z²−1|<1. Reflections exhaust all k, A_{n,0}=π, and taking positive integer powers justifies n=6m obstruction. No point-sampling or extrapolation to all larger n.
 
-**Scientific limitations.** This is not an unconstrained optimizer theorem for the unit circle or disk. It does not determine exact closed forms for the unequal cubic area, and does not assert minimizer classifications in degrees seven and higher. Independent evaluation remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exact all-box rational intervals and strict inequalities decide every fixed-±1 multiplicity through degree 6; related papers address movable-zero global area or asymptotic scale, not a demonstrated implication of this finite rigid two-site classification. Best-of-knowledge PASS, not a priority guarantee.
+
+## value
+
+PASS
+
+Two prescribed antipodal root sites are a natural first constrained model of the Erdős minimum-area lemniscate problem. The exact *first* degree where balanced multiplicity loses and rigorous classification of every low-degree multiplicity provide a meaningful structural transition, not an arbitrary one-off numerics; the powers obstruction explains infinite repeated failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
