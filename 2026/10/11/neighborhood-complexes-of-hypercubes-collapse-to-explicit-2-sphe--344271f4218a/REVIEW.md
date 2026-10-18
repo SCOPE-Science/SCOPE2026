@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the two parity components, proves the unique-facet property for every face with at least three vertices, and gives an explicit descending-cardinality elementary collapse inside each neighborhood simplex. Shared faces have dimension at most one and are retained, so the local collapse sequences concatenate globally. The resulting \(2\)-complex has a direct simply-connectedness proof by reducing diagonal halved-cube edges to cube-generator paths and filling every coordinate square with two retained triangles. Euler characteristic then gives \(\mu_d=2^{d-3}(d^2-5d+8)-1\), and the standard simply-connected \(2\)-complex argument gives the wedge of \(2\)-spheres. The packaged verifier independently reconstructs the complexes for \(4\le d\le7\), checks the matching data, and recomputes the homology.
+## correctness
 
-## Originality
-PASS. published-finding corpus searches were run for hypercube neighborhood complexes, Boolean-cube common-neighbor complexes, Lovász-neighborhood homology, and explicit wedge-rank formulations. The nearest published-finding corpus records treat the icosahedral neighborhood complex or different hypercube functors such as Morse and Vietoris–Rips complexes. A prior-result overlap check found a Steiner-design incidence-graph neighborhood theorem with circle-wedge components, which does not cover hypercubes or the present \(2\)-sphere formula. Kozlov's full text supplies the general framework but no hypercube calculation. Shukla's full text covers maximum-degree-three graphs and four-regular circulant graphs but does not state the all-dimensional hypercube theorem. Residual risk remains from older literature using different terminology for halved cubes or common-neighbor complexes.
+PASS
 
-## Value
-PASS. Hypercubes are a canonical infinite graph family, and their neighborhood facets have dimension \(d-1\). The theorem shows that all higher-dimensional topology collapses to dimension two and gives the exact sphere multiplicity \(2^{d-3}(d^2-5d+8)-1\). This is a structural all-parameter result rather than a finite census or a routine recomputation of Betti numbers.
+Q_d is bipartite; open-neighborhood complex separates into the even and odd word components, exchanged by odd translation. Each odd y induces a d-point simplex F_y={y+e_i}; different centers have at most two common neighbors, so every face of dimension≥2 has exactly one facet. In each F_y choose apex y+e_1 and descending-cardinality elementary collapse pairs σ⊂σ∪{apex}, |σ|≥3, preserving the entire shared 1-skeleton and every apex triangle. This gives 2D L_d. Edges of the halved cube have differences e_i+e_j; triangles factor each non-generator edge into e_1+e_j cube-generator edges and pairs of triangles fill every coordinate square. The (d−1)-cube 2-skeleton is simply connected, so L_d has π1=0. Exact faces f0=2^(d−1), f1=2^(d−2)binom(d,2), f2=2^(d−1)binom(d−1,2), giving free H2 of rank μ=2^(d−3)(d²−5d+8)−1 by Euler; Whitehead gives a μ-fold wedge S² for each component. Independent integer count d=4,5,6,7 produces μ=7,31,111,351; this is corroboration, not a finite proof of every d≥4.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+An exact published odd-folded hypercube finding covers the odd-dimensional component: for odd d, selecting the unique even representative of each antipodal pair identifies N(FQ_d) simplicially with the even component of N(Q_d), since the antipodal complement of an even x is odd and its cube-neighbors produce identical facets. This is a genuine strong partial prior implication and is not hidden. It does not cover even d, and the audited all-d theorem includes every even d≥4 with its explicit parity-paired components and a separate all-dimensional collapse. Best-of-knowledge original surviving even-dimensional contribution and full parity statement.
+
+## value
+
+PASS
+
+The ordinary open-neighborhood complex of the canonical hypercube family has high-dimensional facets but collapses to a 2-dimensional sphere wedge. Even after removing the genuine odd-dimensional prior coverage, every even dimension d≥4 remains with explicit connectivity, collapse and exact μ_d. A complete parity-split even-dimensional infinite family has independent combinatorial-topological motivation and value, rather than a tiny exceptional computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
