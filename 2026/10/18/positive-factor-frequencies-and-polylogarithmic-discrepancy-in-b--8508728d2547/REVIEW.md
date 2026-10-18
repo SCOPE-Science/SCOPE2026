@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Exact occurrence accounting across the deleted prefix and the new block boundary establishes the recurrence \(C_{i+1}=2C_i-e_i+c_i\), where \(e_i\le i\) and \(c_i\le |v|-1\). This yields an absolutely convergent series and an explicit tail bound. The all-prefix decomposition shortens the argument to at most two-thirds, proving \(O_v((\log N)^2)\) discrepancy. Every admissible factor occurs arbitrarily late by the source paper's proved recurrence and language theorems, and its copies double long enough to force strictly positive limiting frequency. All finite boundary identities were checked independently by the packaged program. The program is corroboration, not the infinite proof.
+
+**Originality — PASS within examined evidence.** The closest primary work, Shallit's *Brik's sequence: a strange recursion* (arXiv:2605.07542v1), establishes factor-language membership, recurrence, and the limiting density of ones; it does not state existence and strict positivity for every finite pattern with a polylogarithmic additive discrepancy. Searches for alternative names of the recursion, factor frequencies, cylinder measures, and equivalent quantitative claims did not locate a prior covering theorem. Research-record hits for different automatic words, coded shifts, and generic measures do not imply this particular recursion's all-cylinder theorem. Residual risk: an unindexed or differently formulated general prefix-copying theorem might imply some or all of the claim.
+
+**Value — PASS.** The source word is nonuniformly recurrent yet has exponential factor complexity. Recurrence alone allows zero-frequency factors, and a letter density does not control higher-order cylinders. The theorem proves full-support statistical regularity at all scales, together with an effective discrepancy bound and an explicit convergent frequency formula. The result determines a qualitative invariant of the natural dynamical system, not an arbitrary short numerical slice.
+
+**Limitations.** The error bound may not be optimal and gives no assertion of ergodicity. Positive frequencies of very long blocks can be tiny. The priority assessment is limited to the inspected primary source and available scientific searches. Independent verification is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
