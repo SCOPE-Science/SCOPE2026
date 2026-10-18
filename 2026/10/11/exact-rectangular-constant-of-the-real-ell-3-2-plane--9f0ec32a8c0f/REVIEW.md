@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every Birkhoff--James orthogonal pair in the real \(\ell_3^2\) plane to explicit tangent coordinates, proves an analytic \(2^{2/3}\) ceiling on all noncritical branches, exhibits a configuration strictly above that ceiling, and then exhausts the interior stationary set by a symbolic resultant and exact Sturm isolation. The surviving common stationary branch is unique and therefore gives the attained global maximum. The standalone symbolic checker reproduces the resultant and root counts.
+## correctness
 
-## Originality
-PASS. The original Gastinel--Joly computation gives only a numerical \(p=3\) entry, and the 2021 Baronti--Casini--Papini paper improves it to \(1.7285\) while giving general bounds. Focused searches for the exact \(\ell_3\) rectangular constant, polynomial formulations, and Birkhoff--James equivalents did not find a source stating the algebraic value here. Closest indexed exact results concern other constants on \(\ell_3^2\) or a generalized rectangular constant on \(\ell_4^2\).
+PASS
 
-## Value
-PASS. Joly's rectangular constant is a classical Banach-space geometric invariant, and \(\ell_3\) is a standard canonical example. The fact that the same value has persisted as a numerical table entry from 1970 through a 2021 revisit makes an exact, uniquely isolated algebraic evaluation mathematically motivated and reusable.
+Every nonzero real Birkhoff-orthogonal pair in l_3^2 reduces by signed-coordinate interchange to x=(1,t), y=±s(t²,-1), 0<=t<=1, s>=0. The noncompetitive branches are bounded by 2^(2/3) and explicit t=1/3,s=4/3 exceeds this bound. Interior stationarity yields E1(t,s)=0 and G(t,s)=0; exact resultant factors with degree-14 P(t³), Sturm gives precisely two roots in (0,1) and only the first admits s>t. Exact isolated t≈0.30927767737,s≈1.23472445472 yield μ≈1.72853813848209; independent numerical optimization corroborated not proved the global bound. Script was read and symbolic certificate structure checked against proof.
 
-## Closest literature and limitations
-Gastinel and Joly (1970) report the \(p=3\) value numerically as \(1.703\). Baronti, Casini, and Papini (2021) report the more accurate numerical value \(1.7285\) and general upper estimates. Desbiens (1990) supplies the homogeneous formulation used here, and Paul--Ghosh--Sain (2017) prove finite-dimensional attainment. The result does not solve arbitrary \(p\), and the exact value is root-defined rather than a short radical.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full Baronti–Casini–Papini primary rectangular-constant paper explicitly reports the p=3 value only numerically (1.7285) rather than the root-isolated exact algebraic characterization. The Paul–Ghosh–Sain arXiv full text proves attainment and polygonal reductions but no exact l3 parameter. Published Resultary comparisons returned distinct cubic generalized and l4 constants, not the same l3 Joly constant; uniqueness beyond searched sources not guaranteed.
+
+## value
+
+PASS
+
+The exact sharp classical rectangular constant of the non-Hilbert l3^2 benchmark replaces an established only-approximate numerical value with a rigorous isolated algebraic root and unique optimizer. It is a natural invariant whose exact value is useful for testing geometric inequalities and precise extremal comparisons, rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
