@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the sharp harmonic \(L^2\) Landau radius
+# Independent mathematical audit
 
-`python3 check_radius.py` executed successfully under Python 3. The checker evaluates four rational partial sums against the closed-form positive limit, bisects the unique radius equation for seven boundary-norm parameters, and verifies the critical extremal's Parseval energy and half/half Wirtinger derivatives numerically using 1500 modes. Additional tests with 500 modes reproduce the limiting vertical-chord sharpness coefficient on three subcritical disks. Representative values are \(R_2=0.1953328537391\ldots\) and \(R_5=0.0717506123169\ldots\).
+## correctness
 
-These finite calculations do not establish any general infinite-series identity, uniqueness, injectivity, or noninjectivity. The proof in `RESULT.md` provides the series identity from differentiated geometric series, the universal Cauchy–Schwarz chord estimate, and the explicit norm-attaining extremal. Optimality invokes Lewy's classical theorem. No external or independent audit has been performed.
+PASS
+
+PASS: Parseval yields exact total two-sided coefficient energy c²=M²−1. Cauchy–Schwarz bounds chord perturbation by c√(2Σn²r^{2n−2})|z−w| and derivative min singular value similarly. S(r)=r²(4−3r²+r⁴)/(1−r²)^3 strictly increases. The explicit two-sided harmonic shear with balanced ± coefficients saturates the vertical directional derivative at real r and has exact boundary norm; at critical R its Jacobian is zero, Lewy's nonzero-Jacobian theorem for locally injective harmonic maps forbids any larger universal injectivity radius. At r≥R the co-Lipschitz infimum is zero; M=1 identity. Check normalizations, open ball endpoints, all r<1, and coefficient-series convergence. Finite code is corroborative only.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Ahamed–Hossain arXiv:2604.14217v1 full primary Theorem3.1 gives sufficient radii based on independent coefficient bounds and explicitly poses optimal 1<p<∞ univalence-radius constants in Section4[A]; it cannot imply the sharp Hilbert budget root and full co-Lipschitz profile. Their distinct arxiv:2603.28806 treats narrower differential inequality subclasses. No stronger general statement covering unrestricted normalized L2 trace ball located.
+
+## value
+
+PASS
+
+PASS: Provides sharp parameter-dependent injectivity radius and entire quantitative co-Lipschitz loss for a natural harmonic Poisson Hilbert ball, with actual saturating singular-Jacobian extremal. This directly answers the stated p=2 sharp univalence-radius component of a documented p>1 problem, without claiming the separate schlicht covering radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

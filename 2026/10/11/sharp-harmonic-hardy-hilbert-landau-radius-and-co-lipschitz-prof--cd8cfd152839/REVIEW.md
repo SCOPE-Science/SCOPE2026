@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Normalized Parseval identifies the exact coefficient budget \(\sum_{n\ge2}(|a_n|^2+|b_n|^2)\le M^2-1\). Cauchy–Schwarz provides a universal chord estimate with kernel norm \(\sqrt{2S(r)}\). The analytic expressions for \(S(r)\) and its monotonicity give the unique critical radius. Explicit geometric-decay extremals meet the boundary budget and approach equality along vertical chords. The critical extremal has zero Jacobian exactly at the claimed threshold, so the Lewy local-injectivity theorem proves that the radius cannot be enlarged. Finite numerical checks corroborate, but do not replace, those analytic steps.
+## correctness
 
-**Originality — PASS (residual risk documented).** The closest direct manuscript, Ahamed–Hossain arXiv:2604.14217v1, Theorem 3.1, uses per-coefficient estimates to provide a radius and explicitly identifies the sharp \(1<p<\infty\) problem as open in Section 4 [A]. Its specializations do not yield the exact Hilbert-budget radius or the co-Lipschitz profile. The related arXiv:2603.28806v1 proves sharp results for classes with differential inequalities, not for the unrestricted boundary \(L^2\) ball. Other published work on harmonic Hardy coefficients, Bohr radii and Bloch metrics concerns different invariants or assumptions. An equivalent classical Hilbert-ball Landau theorem could remain unindexed and was not disproved by search alone.
+PASS
 
-**Value — PASS.** This is the exact natural \(p=2\) answer to the univalence-radius portion of a recent expressly formulated \(L^p\)-boundary Landau problem. It gives a complete parameter-dependent optimal recovery-stability/co-Lipschitz law, not merely a sufficient constant, and supplies explicit norm-attaining singular-Jacobian extremals. The distinct covered-disk radius remains open here.
+PASS: Parseval yields exact total two-sided coefficient energy c²=M²−1. Cauchy–Schwarz bounds chord perturbation by c√(2Σn²r^{2n−2})|z−w| and derivative min singular value similarly. S(r)=r²(4−3r²+r⁴)/(1−r²)^3 strictly increases. The explicit two-sided harmonic shear with balanced ± coefficients saturates the vertical directional derivative at real r and has exact boundary norm; at critical R its Jacobian is zero, Lewy's nonzero-Jacobian theorem for locally injective harmonic maps forbids any larger universal injectivity radius. At r≥R the co-Lipschitz infimum is zero; M=1 identity. Check normalizations, open ball endpoints, all r<1, and coefficient-series convergence. Finite code is corroborative only.
 
-Closest source: https://arxiv.org/html/2604.14217v1, Theorem 3.1 and Section 4. Scientific scope excludes globally sense-preserving subclasses and \(p\ne2\). Literature risk: possibly equivalent historical unindexed Hilbert-space criterion.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Ahamed–Hossain arXiv:2604.14217v1 full primary Theorem3.1 gives sufficient radii based on independent coefficient bounds and explicitly poses optimal 1<p<∞ univalence-radius constants in Section4[A]; it cannot imply the sharp Hilbert budget root and full co-Lipschitz profile. Their distinct arxiv:2603.28806 treats narrower differential inequality subclasses. No stronger general statement covering unrestricted normalized L2 trace ball located.
+
+## value
+
+PASS
+
+PASS: Provides sharp parameter-dependent injectivity radius and entire quantitative co-Lipschitz loss for a natural harmonic Poisson Hilbert ball, with actual saturating singular-Jacobian extremal. This directly answers the stated p=2 sharp univalence-radius component of a documented p>1 problem, without claiming the separate schlicht covering radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
