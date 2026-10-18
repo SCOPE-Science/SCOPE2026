@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces group invertibility to the exact minimum-rank condition forced by the diagonal. For a fixed diagonal, the two terminal cases give exhaustive recurrences: a nonzero final diagonal contributes an arbitrary vector in \(\mathbb F_q^{n-1}\), while a zero final diagonal forces that vector into an image space of dimension \(n-k\). Both recurrences evaluate to \(q^{\binom n2-\binom k2}\). Choosing nonzero diagonal positions and values then gives the stated rank enumerator. The packaged verifier independently agrees in exhaustive finite cases, including \(\mathbb F_4\).
+PASS
 
-## Originality
+For upper-triangular A with k zero diagonal entries, group invertibility (Drazin index ≤1) is equivalent to semisimplicity of eigenvalue 0, hence rank A=n−k (its minimum rank). Partition the last diagonal entry: if nonzero, q^{n−1} unrestricted final-column choices preserve preceding rank; if zero, the column must lie in image B, of dimension n−k, yielding q^{n−k} choices. Induction gives q^{binom(n,2)−binom(k,2)} for every fixed diagonal. Choosing positions and nonzero values yields binom(n,r)(q−1)^r q^{binom(n,2)−binom(n−r,2)}. Independent modular-rank enumeration checked every 2^10 upper triangular 4x4 matrix over F2 and every 3^6 upper triangular 3x3 over F3, including fixed zero-position counts.
 
-PASS. Targeted published-finding corpus searches used group inverse, Drazin-index-one, rank-square, finite-field, and triangular-matrix formulations. The current ledger through generation 58 and the prior-week ledger through generation 52 were also checked for overlap. Mary (2015) supplies structural group-inverse facts for triangular matrices over Dedekind-finite rings; Hartwig--Shoaf (1977) gives existence criteria for bidiagonal and triangular Toeplitz matrices; Meyer--Rose (1977) gives block-triangular Drazin-index machinery. None of the inspected material states the fixed-diagonal completion count or the rank-stratified census for all of \(T_n(\mathbb F_q)\).
+## originality
 
-Residual risk: a historical finite-semigroup enumeration could use “group elements” or “completely regular elements” without generalized-inverse terminology. The targeted alias searches did not retrieve such a covering statement. Meyer--Rose was available only at abstract level, but the abstract describes index bounds and inverse formulas rather than enumeration.
+PASS
 
-## Value
+Mary's author-hosted full preprint addresses group inverse reverse-order laws and Lemma 3.14 asserts shape preservation of inverses for triangular matrices over Dedekind-finite rings, not counting upper-triangular completions. Hartwig–Shoaf provide invertibility conditions for bidiagonal and triangular Toeplitz special families; their full publisher PDF is about those restricted matrix shapes, not a finite-field T_n rank census. Meyer–Rose give Drazin index and block-form structural bounds, not an indexed exact upper-triangular count. Searches of completely regular/group elements and finite triangular semigroups found no full fixed-diagonal formula, but hidden semigroup enumeration remains priority risk.
 
-PASS. The result quantifies a standard generalized-inverse property throughout the full upper-triangular finite-field algebra. The pattern-independence statement is structural: once the complete diagonal is fixed, the number of group-invertible completions depends only on the number of zeros, not their positions or the chosen nonzero diagonal values. The rank enumerator is therefore a natural all-dimension exact census rather than a narrow finite table.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A full dimension- and rank-stratified exact census for a standard finite matrix semigroup is a natural invariant for generalized inverses. The fixed-diagonal position independence is a structural uniformity theorem, and the closed all-n formula is more than an isolated small-field table. No numerical claim about arbitrary coefficient rings is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

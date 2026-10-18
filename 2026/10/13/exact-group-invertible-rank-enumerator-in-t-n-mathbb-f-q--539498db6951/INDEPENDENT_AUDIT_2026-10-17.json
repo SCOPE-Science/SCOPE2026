@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:10:01.138218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For upper-triangular A with k zero diagonal entries, group invertibility (Drazin index ≤1) is equivalent to semisimplicity of eigenvalue 0, hence rank A=n−k (its minimum rank). Partition the last diagonal entry: if nonzero, q^{n−1} unrestricted final-column choices preserve preceding rank; if zero, the column must lie in image B, of dimension n−k, yielding q^{n−k} choices. Induction gives q^{binom(n,2)−binom(k,2)} for every fixed diagonal. Choosing positions and nonzero values yields binom(n,r)(q−1)^r q^{binom(n,2)−binom(n−r,2)}. Independent modular-rank enumeration checked every 2^10 upper triangular 4x4 matrix over F2 and every 3^6 upper triangular 3x3 over F3, including fixed zero-position counts.",
+      "risk": [
+        "Bounded checks do not replace unrestricted logical or algebraic proof."
+      ],
+      "sources": [
+        "Frozen RESULT.md ce08b4c40818c55955930baecbca5fce305cf365",
+        "Independent exact checker independent_1663_checks.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General equivalence rank A²=rank A provides group-inverse criterion, but alone gives no uniform count without the full triangular recursion.",
+          "Arbitrary matrix similarity counts do not immediately count upper-triangular members, which are not similarity-invariant as a subset."
+        ],
+        "reasoning": "Consider prior more general mathematical theorems and whether the claimed formula is an actual corollary. Mary's author-hosted full preprint addresses group inverse reverse-order laws and Lemma 3.14 asserts shape preservation of inverses for triangular matrices over Dedekind-finite rings, not counting upper-triangular completions. Hartwig–Shoaf provide invertibility conditions for bidiagonal and triangular Toeplitz special families; their full publisher PDF is about those restricted matrix shapes, not a finite-field T_n rank census. Meyer–Rose give Drazin index and block-form structural bounds, not an indexed exact upper-triangular count. Searches of completely regular/group elements and finite triangular semigroups found no full fixed-diagonal formula, but hidden semigroup enumeration remains priority risk.",
+        "searches": [
+          "finite upper triangular matrices group invertible group inverse rank enumerator semisimple zero diagonal completions",
+          "group elements completely regular upper triangular matrices finite field counting",
+          "Xavier Mary, Reverse Order Law for the Group Inverse in Semigroups and Rings, author full preprint, Lemma 3.14; DOI:10.1080/00927872.2014.900562",
+          "R. E. Hartwig and J. Shoaf, Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices, DOI:10.1017/S1446788700020036"
+        ]
+      },
+      "checked_sources": [
+        "Xavier Mary, Reverse Order Law for the Group Inverse in Semigroups and Rings, author full preprint, Lemma 3.14; DOI:10.1080/00927872.2014.900562",
+        "R. E. Hartwig and J. Shoaf, Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices, DOI:10.1017/S1446788700020036",
+        "Meyer and Rose, The Index and the Drazin Inverse of Block Triangular Matrices, DOI:10.1137/0133001 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mary shape-preservation and Hartwig/Shoaf restricted structure do not state the fixed-diagonal enumeration; combining rank criterion with the new recursion is a finite linear algebra calculation, so any earlier generic recurrence could imply it and is a residual risk."
+        ],
+        "reasoning": "A source implication can cover an exact fact even without its displayed constants. This comparison records precisely what existing statements do and do not imply; residual risk remains.",
+        "searches": [
+          "finite upper triangular matrices group invertible group inverse rank enumerator semisimple zero diagonal completions",
+          "group elements completely regular upper triangular matrices finite field counting",
+          "Xavier Mary, Reverse Order Law for the Group Inverse in Semigroups and Rings, author full preprint, Lemma 3.14; DOI:10.1080/00927872.2014.900562",
+          "R. E. Hartwig and J. Shoaf, Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices, DOI:10.1017/S1446788700020036"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mary page 18, Lemma 3.14 proves triangular inverse stays triangular but no counting.",
+          "Hartwig–Shoaf full PDF title, introduction and triangular-Toeplitz cases concern prescribed special forms, not all triangular completions."
+        ],
+        "reasoning": "Compare the same objects, operations and measured invariants, not similarity of titles. Mary's author-hosted full preprint addresses group inverse reverse-order laws and Lemma 3.14 asserts shape preservation of inverses for triangular matrices over Dedekind-finite rings, not counting upper-triangular completions. Hartwig–Shoaf provide invertibility conditions for bidiagonal and triangular Toeplitz special families; their full publisher PDF is about those restricted matrix shapes, not a finite-field T_n rank census. Meyer–Rose give Drazin index and block-form structural bounds, not an indexed exact upper-triangular count. Searches of completely regular/group elements and finite triangular semigroups found no full fixed-diagonal formula, but hidden semigroup enumeration remains priority risk.",
+        "searches": [
+          "finite upper triangular matrices group invertible group inverse rank enumerator semisimple zero diagonal completions",
+          "group elements completely regular upper triangular matrices finite field counting",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/46DA3F0956C9C6787B0C224C6C73F2A2/S1446788700020036a.pdf/group_inverses_and_drazin_inverses_of_bidiagonal_and_triangular_toeqlitz_matrices.pdf",
+          "Xavier Mary, Reverse Order Law for the Group Inverse in Semigroups and Rings, author full preprint, Lemma 3.14; DOI:10.1080/00927872.2014.900562"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary and web searches for completely regular, group elements, rank-square, triangular matrices did not surface the all-n formula or fixed-diagonal table; negative evidence not absolute priority proof."
+        ],
+        "reasoning": "Search actual indexed quantitative profiles under direct terminology and aliases; a negative search alone cannot establish novelty.",
+        "searches": [
+          "finite upper triangular matrices group invertible group inverse rank enumerator semisimple zero diagonal completions",
+          "group elements completely regular upper triangular matrices finite field counting",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/46DA3F0956C9C6787B0C224C6C73F2A2/S1446788700020036a.pdf/group_inverses_and_drazin_inverses_of_bidiagonal_and_triangular_toeqlitz_matrices.pdf",
+          "Meyer and Rose, The Index and the Drazin Inverse of Block Triangular Matrices, DOI:10.1137/0133001 (abstract only)"
+        ]
+      },
+      "rationale": "Mary's author-hosted full preprint addresses group inverse reverse-order laws and Lemma 3.14 asserts shape preservation of inverses for triangular matrices over Dedekind-finite rings, not counting upper-triangular completions. Hartwig–Shoaf provide invertibility conditions for bidiagonal and triangular Toeplitz special families; their full publisher PDF is about those restricted matrix shapes, not a finite-field T_n rank census. Meyer–Rose give Drazin index and block-form structural bounds, not an indexed exact upper-triangular count. Searches of completely regular/group elements and finite triangular semigroups found no full fixed-diagonal formula, but hidden semigroup enumeration remains priority risk.",
+      "residual_risks": [
+        "A finite matrix semigroup enumeration may give exactly the same rank counts under completely regular or group element nomenclature.",
+        "Meyer–Rose full article was not read; abstract appears focused on indices and block inverses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes equivalence of group elements and completely regular elements, and shape of inverse; no count in inspected material",
+          "evidence": [
+            "Lemma 3.14: upper-triangular group inverse stays upper triangular over Dedekind-finite ring"
+          ],
+          "identifier_or_url": "https://xmary.perso.math.cnrs.fr/Articles/Reverse%20order%20law%20in%20Dedekind%20finite%20rings%20Commalg%20%2808-07-13%29.pdf",
+          "material_read": "Full 26-page author-hosted manuscript; introduction, definitions, Section 3 and Lemma 3.14 page 18 inspected",
+          "method": "Read full-text primary PDF and visually examined page 19 of manuscript index (PDF page 18)",
+          "title": "Reverse Order Law for the Group Inverse in Semigroups and Rings",
+          "trigger": "Same group inverse and upper-triangular matrix setting"
+        },
+        {
+          "assessment": "Concentrates on bidiagonal/triangular Toeplitz group inverses, not general finite-field enumeration",
+          "evidence": [
+            "Abstract: necessary and sufficient conditions for bidiagonal and triangular Toeplitz matrices"
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/46DA3F0956C9C6787B0C224C6C73F2A2/S1446788700020036a.pdf/group_inverses_and_drazin_inverses_of_bidiagonal_and_triangular_toeqlitz_matrices.pdf",
+          "material_read": "Full 25-page Cambridge PDF, first pages, preliminaries and named special matrix families examined",
+          "method": "Publisher OA primary full PDF, first page image inspected",
+          "title": "Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices",
+          "trigger": "Closest older triangular group inverse paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full dimension- and rank-stratified exact census for a standard finite matrix semigroup is a natural invariant for generalized inverses. The fixed-diagonal position independence is a structural uniformity theorem, and the closed all-n formula is more than an isolated small-field table. No numerical claim about arbitrary coefficient rings is made.",
+      "risk": [
+        "A finite matrix semigroup enumeration may give exactly the same rank counts under completely regular or group element nomenclature.",
+        "Meyer–Rose full article was not read; abstract appears focused on indices and block inverses."
+      ],
+      "sources": [
+        "Xavier Mary, Reverse Order Law for the Group Inverse in Semigroups and Rings, author full preprint, Lemma 3.14; DOI:10.1080/00927872.2014.900562",
+        "R. E. Hartwig and J. Shoaf, Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices, DOI:10.1017/S1446788700020036",
+        "Meyer and Rose, The Index and the Drazin Inverse of Block Triangular Matrices, DOI:10.1137/0133001 (abstract only)"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All prime-power q, n>=1, ranks 0..n, group invertibility only; not full Drazin index or arbitrary finite rings.",
+    "RESULT.md carries broken decoded math controls in displayed n×n and matrix block formatting; sanitize/restore complete public bytes before importing."
+  ],
+  "schema_version": 1
+}
