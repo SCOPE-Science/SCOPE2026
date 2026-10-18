@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS.  The claim is scoped to the source's \(128\)-map Theorem 4.5 family and fixed information set.  The lower bound uses a necessary subset of the \(2\)-PD requirements: the \(64\) vertical coordinate pairs.  Exactly three vertical fibers are wholly check fibers, so a map with first-coordinate translation \(a\) covers exactly the three vertical fibers indexed by \(a+T\), where \(T\) is a three-point subset of a four-element \(\mathbb F_2\)-subspace.  The \(16\) affine cosets therefore force at least two distinct translations each, hence at least \(32\) maps.  The included exact verifier reconstructs the source point set and information/check split and confirms that the explicit \(32\)-map witness covers all \(8128\) unordered coordinate pairs.
+## correctness
 
-## Originality
-PASS.  The primary source gives a \(128\)-element partial \(2\)-PD family and explicitly names smaller PD sets as future work, but it does not state a smaller subfamily or an optimum for Example 4.6.  Searches by source identifier, code parameter, curve equation, PD-set terminology, vertical-fiber language, and exact candidate size found no statement equivalent to the \(32\)-map minimum.  The earlier Hermitian/norm-trace paper supplies related automorphism-derived PD sets, and design-code literature supplies examples of shrinking large PD sets, but neither implies this exact code-specific incidence bound or witness.
+PASS
 
-## Value
-PASS.  PD-set cardinality enters the number of automorphisms/syndrome tests in permutation decoding, so reducing the source's only fully explicit arbitrary-two-position example from \(128\) maps to the exact optimum \(32\) directly sharpens the decoding workload within the proposed method.  The result also identifies the geometric obstruction responsible for the optimum: three-point translates inside \(16\) affine four-point fiber blocks.  This is a natural complete optimization of the source construction, not an arbitrary finite slice.
+Reconstructed exact GF(64) bit-polynomial arithmetic, all 128 rational affine points, 64 information and 64 check coordinates, 128 source automorphisms and their permutation action. Exactly T={0,1,theta^56} vertical fibers lie wholly in H; W=span_F2(1,theta^56) has size four and partitions x-values into sixteen cosets, each map covers just 3 of 4 vertical pairs in a coset, forcing >=2 parameters per coset -> >=32 maps. Independently verified the displayed 32 selected maps each belong to family and cover every one of C(128,2)=8128 unordered position pairs with minimum multiplicity one; exact cover histogram reproduced. This is complete finite exhaustive verification plus structural universal subfamily bound, not a heuristic solver timeout.
 
-## Closest literature and limitations
-Castellanos--Tizziotti--Olaya-León is the same-object source and is the closest comparison; it proves coverage by all \(128\) maps but leaves smaller PD sets open.  Lichtenwalner--López--Matthews--Seneviratne proves analogous PD-set constructions for Hermitian and norm-trace codes, including a Hermitian \(2\)-PD set of size \(q(q^2-1)\), but does not cover this generalized-Hermitian example or its fixed source information set.  Crnković--Mostarac shows that smaller PD sets can sometimes be extracted from larger automorphism-derived sets for design codes, establishing that the broad optimization idea is prior art while leaving this exact statement untouched.
+## originality
 
-The minimum is not asserted over the entire permutation automorphism group or over alternative information sets, and absolute novelty cannot be guaranteed against unindexed material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The primary named source constructs a 128-map partial 2-PD family. Accessible bibliographic abstract and partial preview did not disclose a 32-map optimized subfamily; full same-source text could not be retrieved via OA, arXiv or authorized Oxford due disconnected VPN, so its actual Theorem 4.5/Example 4.6 and possible appendix optimization were not fully checked. The independent exact certificate establishes what the new claimed computation says but cannot by itself prove priority. Best-of-knowledge O PASS with major explicit source-access risk, subject to later full-text check. Another published Hermitian/norm-trace PD result concerns different codes.
+
+## value
+
+PASS
+
+For a published explicit family of 128 permutation-decoding maps, minimizing the number of maps while retaining complete 2-error coverage reduces decoder trial complexity fourfold. The exact 32 lower bound is a natural fixed-family optimization with a combinatorial coset obstruction and verifiable complete finite certificate; no downstream broad theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
