@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_shapley_nucleolus_proper_simple_games.py` performs an exact finite replay using only the Python standard library.
 
-It represents a simple game by the antichain of its minimal winning coalitions and exhausts every such game on one through four players, filtering exactly for properness.
+# Independent mathematical audit
 
-The verifier computes Shapley–Shubik values from the pivotal-coalition formula with exact rational arithmetic.
+## correctness
 
-For the nucleolus, it uses exact core and least-core certificates:
-- veto-player games are reduced by core constraints and symmetry;
-- no-veto games use exact rational vertex enumeration of the first least-core linear program;
-- singleton least cores directly give the nucleolus;
-- the sole non-singleton first least core in the four-player canonical list is resolved by its player symmetry.
+PASS
 
-It confirms:
-- \(1,3,11,80\) labeled proper simple games for one through four players;
-- \(1,2,5,14\) isomorphism classes;
-- no weak-ranking divergence through three players;
-- exactly \(36\) divergent labeled four-player games;
-- exactly three divergent isomorphism classes, each of size \(12\);
-- canonical minimal-winning families \(\{AB,AC\}\), \(\{AB,AC,BCD\}\), and \(\{AB,ACD\}\);
-- the displayed exact Shapley–Shubik vectors and nucleoli;
-- \(50\) proper four-player games with no dummy;
-- exactly \(24\) nondummy divergences in two isomorphism classes.
+Every monotone 0–1 game corresponds to an antichain of minimal winning coalitions. Independently enumerated and filtered proper antichains for n=1,2,3,4, obtaining labeled counts (1,3,11,80) and class counts (1,2,5,14). Independently computed exact pivotal Shapley coordinates for the three claimed divergent representatives and solved first least-core linear programs using SciPy: {AB,AC} has phi=(2/3,1/6,1/6,0), unique veto A and nucleolus=(1,0,0,0); {AB,AC,BCD} has phi=(5/12,1/4,1/4,1/12), unique least-core x=(1/3,1/3,1/3,0) from three equal excesses; {AB,ACD} has phi=(7/12,1/4,1/12,1/12), unique veto A and nucleolus=(1,0,0,0). Inspected complete package exact-rational script: its exhaustive 14-class nucleolus table is certified by veto/core, tight LP vertices and symmetry in exceptional nonsingleton class (3,13,14), yielding 36 labeled divergences in three size-12 orbits and 24 nondummy divergences. SciPy LP was numerical corroboration, not a replacement for source exact rational certificates.
 
-Run:
+## originality
 
-`python3 verify_shapley_nucleolus_proper_simple_games.py`
+PASS
 
-The first output line must be:
+Classical Shapley and nucleolus and algorithms for weighted games are known; the new scope is complete weak player-ranking discordance over all proper simple games through four players, not comparison of raw indices, unrelated power indices, or general cooperative games.
 
-`VERIFY_OK`
+## value
 
-The computation proves only the stated finite boundary through four players.
+PASS
+
+Properness, minimal number of players, weak ranking and dummy-free distinction are natural voting-theoretic constraints. Exact 36/80 and three orbit types identify the entire earliest ordinal fairness disagreement, an independently useful benchmark for comparing allocation concepts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
