@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Plancherel gives an exact Fourier integral. For common bias p, each squared characteristic-function factor is cos²(wθ/2)+(1−2p)²sin²(wθ/2). Expanding yields coefficients that are integrals of positive almost-everywhere products for nonzero integer weights, hence all strictly positive. Normalization follows by summing the factors, the complete-monotone derivative formula is an exact polynomial derivative, and the sharp chord envelope and equality cases follow termwise. The standalone checker independently passed 9,681 exact-rational assertions; the universal proof requires no finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li arXiv:2609.01529, inspected full text pp. 1–11: Theorems 1.4, 1.5 concern multiplicative comparison of Rényi orders for uniformly distributed Bernoulli vectors. Remark 2.2 and §4 distinguish biased variables as a separate question.",
+        "Madiman–Melbourne–Roberto, arXiv:2103.00896: available abstract concerns Fourier bounds and variance versus Rényi entropy of Poisson-Bernoulli sums. Full text could not be inspected."
+      ],
+      "reasoning": "Cross-order entropy comparisons at a fixed fair bias do not imply monotonicity or an exact coefficient hierarchy as the common bias changes. General Fourier methods could potentially contain a more general theorem, so a residual literature risk remains; no stronger covering claim was established.",
+      "searches": [
+        "Rényi entropy of weighted Bernoulli convolution monotonic bias p 1/2",
+        "weighted Bernoulli sums collision probability complete monotonicity p(1-p) all derivatives alternating Fourier",
+        "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.05546v1",
+      "arXiv:2609.01529v2",
+      "arXiv:1706.05178 (abstract)",
+      "Hillion–Johnson (2017; abstract)",
+      "arXiv:2103.00896 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neunhäuserer arXiv:2609.05546v1, Proposition 3.1 proves Shannon concavity for binomial and no-overlap cases and explicitly leaves the general overlap problem open.",
+        "Li arXiv:2609.01529, Theorems 1.4–1.5 and Remark 2.2: bias variation is not established by fixed-bias cross-order comparisons.",
+        "Hillion–Johnson (2017): the Shepp–Olkin result concerns ordinary unit-weight Bernoulli sums, not arbitrary positive integer weights."
+      ],
+      "reasoning": "Shannon entropy concavity does not entail the claimed positive-coefficient collision polynomial, and fixed-order Rényi comparisons do not entail its bias derivative hierarchy. Results for up to four weights or for unit weights do not cover all finite positive integer vectors. The Fourier factorization supplies new all-length information even with additive relations.",
+      "searches": [
+        "recursive overlap Bernoulli distributions entropy concavity conjecture weighted Bernoulli sums integer coefficients Shepp Olkin 2026",
+        "Three-step overlap Bernoulli entropy strictly concave weighted sums",
+        "Strict entropy concavity four positive weighted Bernoulli summands Neunhauserer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neunhäuserer arXiv:2609.05546v1, §§2–4, discusses Shannon entropy for overlapping Bernoulli sums, not order-two collision profiles.",
+        "Raşa arXiv:1706.05178, title and abstract describe binomial index-of-coincidence log-convexity, a special equal-weight regime and a different inequality."
+      ],
+      "reasoning": "A two-copy coincidence probability is the same object as the index of coincidence or the exponential of negative order-two Rényi entropy; the searched alternate terminology yielded no known statement of positive coefficients in squared bias for arbitrary integer weights. The binomial case does not imply the result for weights admitting subset-sum collisions.",
+      "searches": [
+        "\"index of coincidence\" \"Bernoulli convolution\" \"p\"",
+        "\"collision probability\" \"weighted Bernoulli\" \"bias\" \"half\"",
+        "weighted Bernoulli convolutions collision probability complete monotonicity p(1-p) all derivatives alternating Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Neunhäuserer arXiv:2609.05546v1, §4 supplies finite computational evidence for Shannon entropy rather than tables of the polynomial collision coefficients.",
+        "The claimed domain is every finite positive integer weight vector, not a numerical entry or isolated parameter list."
+      ],
+      "reasoning": "No inspected table or finite computational database supplies the arbitrary-weight theorem; the exact coefficients are derived analytically. This search result does not establish uniqueness by itself.",
+      "searches": [
+        "\"index of coincidence\" \"weighted Bernoulli sums\"",
+        "collision polynomial in squared bias all coefficients positive for sums independent Bernoulli",
+        "Neunhauserer recursive overlap Bernoulli distribution entropy concavity strict collision entropy"
+      ]
+    },
+    "rationale": "The inspected 2026 weighted-Bernoulli sources cover Shannon-entropy conjectures or fair-input comparisons among Rényi orders, rather than a positive-coefficient bias polynomial, all-order variance-parameter sign hierarchy and sharp global envelope for all overlapping integer weights. Unit-weight binomial and up-to-four-weight results are insufficient to imply the general statement. Search supports a differentiated claim but cannot rule out older spectral formulations.",
+    "residual_risks": [
+      "A general Fourier positive-product or symmetric-convolution theorem under different terminology could subsume the coefficient result.",
+      "Complete original text of Madiman–Melbourne–Roberto (2023) was unavailable, so only its abstract could be compared.",
+      "Original full text of Raşa (2017) was not inspected; its available abstract restricts its headline statement to binomial laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides original weighted-Bernoulli recursion and conjectures Shannon entropy concavity; does not state the present Rényi-two coefficient theorem.",
+        "evidence": [
+          "Primary MSC 60C05 on title page.",
+          "§3 Conjecture 3.1 and Proposition 3.1; §4 computational experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.05546",
+        "material_read": "Complete HTML manuscript sections 1–4 and references; PDF pages 1 and 3 visually inspected.",
+        "method": "Read original open manuscript and rendered paper pages.",
+        "title": "Recursive overlap Bernoulli distributions and an entropy concavity conjecture",
+        "trigger": "Primary motivating model; possible containing result"
+      },
+      {
+        "assessment": "The principal comparison concerns entropy orders under fair, not varying, Bernoulli bias; §4 identifies biased extensions as an unsolved direction.",
+        "evidence": [
+          "Theorems 1.4–1.5 impose uniform cube input.",
+          "Remark 2.2 says the coupling breaks for biased Bernoulli inputs.",
+          "§4 lists biased-input extensions as a further direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.01529",
+        "material_read": "Full 11-page primary manuscript, including Theorems 1.4–1.5, their proofs, Remark 2.2, §4, and references.",
+        "method": "Read full-text page extraction and compared theorem hypotheses and conclusions.",
+        "title": "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums",
+        "trigger": "Same weighted sums and Rényi entropy; strongest plausible neighboring treatment"
+      },
+      {
+        "assessment": "The stated domain is the ordinary binomial distribution; broad extension beyond unit weights cannot be excluded from unread text.",
+        "evidence": [
+          "Abstract identifies binomial index-of-coincidence log-convexity and Rényi applications."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05178",
+        "material_read": "Title and abstract only; original full text not material read.",
+        "method": "Read publicly indexed bibliographic record and abstract.",
+        "title": "The index of coincidence for the binomial distribution is log-convex",
+        "trigger": "Possible equality of collision-probability formulation"
+      },
+      {
+        "assessment": "Treats sums of independent Bernoulli random variables with unit weights; it does not directly state a collision-polynomial result for weighted sums.",
+        "evidence": [
+          "Abstract: entropy of the sum of independent Bernoulli random variables is concave in the individual parameters."
+        ],
+        "identifier_or_url": "https://research-information.bris.ac.uk/en/publications/a-proof-of-the-shepp-olkin-entropy-concavity-conjecture/",
+        "material_read": "Publication record and abstract only.",
+        "method": "Read academic publication abstract.",
+        "title": "A proof of the Shepp–Olkin entropy concavity conjecture",
+        "trigger": "Classical Shannon entropy concavity possibly dominating the weighted model"
+      },
+      {
+        "assessment": "The abstract concerns variance/Rényi-entropy comparisons and a Littlewood–Offord application; general Fourier techniques could overlap with the new polynomial identity and remain a priority risk.",
+        "evidence": [
+          "Abstract describes Fourier theoretic means and entropy/variance comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.00896",
+        "material_read": "Abstract and bibliographic information; original paper full text unavailable.",
+        "method": "Checked accessible abstract and attempted full-text access.",
+        "title": "Bernoulli sums and Rényi entropy inequalities",
+        "trigger": "Plausible general Fourier proof subsuming a bias-profile theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2f0e941-a5ae-4652-bbcf-306b8eac2bad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Collision probability is both a natural order-two entropy invariant and the two-sample meeting probability for the recently proposed recursive overlap Bernoulli model. The theorem controls every positive integer overlap profile and every bias without asymptotics, proving strict alternating signs for all derivatives and an exact sharp global quadratic envelope. It provides a rigorous structural analogue and explicit bounds in an area where Shannon concavity remains conjectural; it does not claim to solve that stronger conjecture.",
+    "status": "PASS"
+  }
+}
