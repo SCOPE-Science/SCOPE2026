@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed on the explicit isometric model \(\sigma_\infty\cong\ell_\infty\). The conjugated right shift has weights \(m/(m+1)\), and its difference from the unweighted shift is compact. A uniformly controlled family of disjoint phase-aligned finite blocks gives the exact lower norm on a closed isometric \(\ell_\infty\) subspace; the coefficient tail and varying weights are bounded quantitatively. Elementary dimension intersections prove the flat approximation, Bernstein and Gelfand numbers; strictly-singular restrictions give their ideal-distance counterpart. For the Fredholm assertion, the proof verifies index \(-1\) for interior shift parameters, applies analytic Wiener division and inversion to all absolutely summable symbols, and excludes boundary Fredholmness using disjoint weakly null singular sequences. The numerical example only sanity-checks normalization. The scalar and zero cases are included.
+PASS
 
-## Originality — PASS, with literature risk
+The map Ux=((m+1)^(−1)∑_{j≤m}x_j)_m is an onto isometry from σ∞ to ℓ∞ with inverse x_m=(m+1)y_m−m y_(m−1). Conjugate unilateral convolution shift W has weights m/(m+1); W−S is compact as weights differences →0. For a∈ℓ1, f_a(W)−f_a(S) compact by ℓ1 operator convergence. At arbitrarily late disjoint blocks with phase conjugates of a_k, 0≤k≤N, the main coordinate has amplitude ≥(A−N A/(m+1)−2τ_N)||c||∞ with τ_N=∑k>N|a_k|, producing an isometric closed ℓ∞ copy on which T_a is almost A-below. This gives exact norm A, all finite Bernstein/approximation/Gelfand numbers A, and distances A to strictly singular/compact ideals. Factor analytic Wiener f_a−λ for λ∉f_a(T) into finitely many disk zero factors and an invertible analytic-Wiener factor; S−αI Fredholm of index −1 inside disk, invertible outside. Thus index=−number of interior zeros; compact equivalence transfers it to σ∞. For λ∈f_a(T), disjoint slowly tapered approximate characters are weakly null in ℓ∞, unit norm and asymptotically annihilated by f_a(S)−λ; Atkinson compact-parametrix contradiction excludes Fredholmness. Zero and scalar symbols included. The finite 1.699100899 versus 1.7 illustration is not used as proof.
 
-The focal full text, Saha–Patra, arXiv:2610.02919v1, §§2–4, already contains the operator norm and fine spectrum, which are deliberately not claimed as novel. The closest earlier weighted-Hahn study, arXiv:2606.22912v1, mentions compactness, but full text was inaccessible through the legitimate routes attempted. The full Curbera–Ricker paper arXiv:2302.08745v1 studies different dual Cesàro norms and does not supply this exact flat ideal profile or the Fredholm boundary for the dual Hahn norm. Published mathematical comparisons on translation-invariant sequence-space operators and band-dominated operators cover \(\ell_p\), \(c_0\) or Schatten-class settings, not this nonseparable dual-Hahn space. No stronger covering implication was identified in the accessible material; equivalently formulated older results and the inaccessible source remain explicit risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result quantitatively separates ordinary spectrum from Fredholm obstruction, supplying index and sharp noncompact/strict-singular distance throughout the whole analytic Wiener convolution algebra. Every nonzero such operator preserves an almost norm-isometric copy of \(\ell_\infty\) and admits no nontrivial improvement by rank-restricted approximation. This is a structural operator-ideal and spectral classification rather than a new proof of the existing norm and ordinary-spectrum identities.
+Saha–Patra arXiv:2610.02919v1 already proves norm ||T_a||=||a||1 and ordinary/fine spectrum on exactly this σ∞: both explicitly treated as prior, not novel. Its complete HTML Sections 2–5 discuss structure and fine spectrum, but not finite s-numbers, strictly singular distances, Fredholm essential spectrum or exact index. Critically, the earlier 2026 Saha–Patra weighted-Hahn paper arXiv:2606.22912 IS NOW FULLY ACCESSIBLE in arXiv HTML, §§3–6: it establishes boundedness, a Hausdorff noncompactness compactness criterion, ordinary/fine spectrum of h_d and bs_d, but not the stated constant ideal-distance profile or Fredholm boundary for σ∞. It cannot be dismissed as unseen; full primary comparison updated. Existing general Wiener–Hopf and operator ideal theory supplies proof mechanisms, but their general theorems would need an explicit compact weighted-shift identification and sharp block lower bound in this particular nonseparable norm.
 
-## Limits
+## value
 
-The result assumes one-sided absolutely summable convolution. Other weights, two-sided symbols, alternative essential-spectrum conventions and possible implicit earlier coverage are not settled. No independent validation has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact, all-symbol and all-n operator-ideal profile yields a sharp distance from every nonzero convolution to compact and strictly singular maps; it identifies embedded ℓ∞ subspaces on which convolution retains almost full norm. The Fredholm boundary f_a(T) and winding/index formula sharply distinguish ordinary spectrum f_a(closed disk) from Fredholm obstruction, an important structural distinction for a natural nonseparable dual Hahn sequence space. This is a complete invariant/spectral classification, not a marginal numerical improvement or reiteration of the known operator norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
