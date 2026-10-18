@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound is an explicit injection, not a probabilistic or experimental estimate. Each parameter tuple produces a word with a displayed partition into two identical subsequences. Its zero-run vector recovers the tuple uniquely. The generating-function coefficient is exactly \(\binom{n+k}{2k}\), and the upper bound counts all binary words with the prescribed \(2k\) ones. For fixed \(k\), both bounds have degree \(2k\) with positive leading constants.
+## correctness
 
-The standalone verifier checks the construction, the inverse parameter recovery, and the exact lower-family count across a nontrivial finite grid. It also brute-forces all fixed-weight binary words through length \(10\) and reproduces the source table in that range.
+PASS
 
-## Originality
-PASS. The direct 2023 source defines the same sets and explicitly leaves their fixed-\(k\) asymptotic order open after solving \(k=1\). The closest earlier broad enumeration theorem counts all binary shuffle squares without conditioning on weight, so it does not imply a lower bound for a prescribed fixed-weight slice. A later root-counting paper studies different multiplicities and does not state this union-level asymptotic.
+Select a weak composition p0+⋯+pk=n−k and choices ci∈[0,pi], i<k. A constructive interleaving of two copies of X=0^p0 1 ⋯ 1 0^pk has gap vector (p0+c0,p0−c0,...,p_(k−1)+c_(k−1),p_(k−1)−c_(k−1),2pk). It is explicitly a shuffle square, and the gap vector uniquely recovers p,c. Thus the number of distinct outputs is ∑_compositions∏_(i<k)(pi+1)=[z^(n−k)](1−z)^(−(2k+1))=binom(n+k,2k); upper bound binom(2n,2k) counts all words with 2k ones. Both are Θ_k(n^(2k)) for fixed k; no assertion of leading constant for k>=2. Independently enumerated construction/inverse at small n,k; analytic injection is the infinite proof.
 
-Targeted searches under the source notation, fixed-weight and Hamming-weight aliases, total-count implications, and root-count formulations found no covering theorem. Residual risk remains for an unindexed or unpublished elementary observation.
+## originality
 
-## Value
-PASS. The result directly resolves a stated asymptotic-order problem for every fixed \(k\), rather than extending a finite table. The injective construction exposes why the exponent is \(2k\), and the binomial bounds quantify the remaining leading-constant gap.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+Resolves the asymptotic polynomial *order* expressly requested in a primary combinatorics paper for every fixed 2k-one slice (new when k≥2), with a clean explicit injective lower-bound construction. It is a motivated enumerative problem, not an arbitrary small table; leading constants remain open and are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

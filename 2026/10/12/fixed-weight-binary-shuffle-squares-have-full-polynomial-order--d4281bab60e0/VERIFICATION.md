@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier constructs the lower-bound family for \(1\le k\le4\) and \(k\le n\le10\). It carries an explicit label on every output position identifying which copy of the root supplied that symbol, then checks that the two labeled subsequences are identical to the claimed root.
+## correctness
 
-For every constructed word, the verifier computes the zero-run vector and applies the inverse formulas
-\[
-p_i=\frac{g_{2i}+g_{2i+1}}2,
-\qquad
-c_i=\frac{g_{2i}-g_{2i+1}}2,
-\qquad
-p_k=\frac{g_{2k}}2.
-\]
-It confirms exact parameter recovery, output injectivity, and the count \(\binom{n+k}{2k}\).
+PASS
 
-Independently, it brute-forces the shuffle-square property for every binary fixed-weight word through total length \(10\), reproducing the published rows
-\[
-(1,1),\ (1,4,1),\ (1,10,10,1),\ (1,19,42,19,1),\ (1,31,128,128,31,1).
-\]
+Select a weak composition p0+⋯+pk=n−k and choices ci∈[0,pi], i<k. A constructive interleaving of two copies of X=0^p0 1 ⋯ 1 0^pk has gap vector (p0+c0,p0−c0,...,p_(k−1)+c_(k−1),p_(k−1)−c_(k−1),2pk). It is explicitly a shuffle square, and the gap vector uniquely recovers p,c. Thus the number of distinct outputs is ∑_compositions∏_(i<k)(pi+1)=[z^(n−k)](1−z)^(−(2k+1))=binom(n+k,2k); upper bound binom(2n,2k) counts all words with 2k ones. Both are Θ_k(n^(2k)) for fixed k; no assertion of leading constant for k>=2. Independently enumerated construction/inverse at small n,k; analytic injection is the infinite proof.
 
-These finite checks validate the construction and implementation. The general lower bound, upper bound, and \(\Theta_k(n^{2k})\) conclusion follow symbolically from `RESULT.md`; no infinite claim is inferred from the finite tests.
+## originality
+
+PASS
+
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+Resolves the asymptotic polynomial *order* expressly requested in a primary combinatorics paper for every fixed 2k-one slice (new when k≥2), with a clean explicit injective lower-bound construction. It is a motivated enumerative problem, not an arbitrary small table; leading constants remain open and are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

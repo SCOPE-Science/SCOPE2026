@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:57:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Select a weak composition p0+⋯+pk=n−k and choices ci∈[0,pi], i<k. A constructive interleaving of two copies of X=0^p0 1 ⋯ 1 0^pk has gap vector (p0+c0,p0−c0,...,p_(k−1)+c_(k−1),p_(k−1)−c_(k−1),2pk). It is explicitly a shuffle square, and the gap vector uniquely recovers p,c. Thus the number of distinct outputs is ∑_compositions∏_(i<k)(pi+1)=[z^(n−k)](1−z)^(−(2k+1))=binom(n+k,2k); upper bound binom(2n,2k) counts all words with 2k ones. Both are Θ_k(n^(2k)) for fixed k; no assertion of leading constant for k>=2. Independently enumerated construction/inverse at small n,k; analytic injection is the infinite proof.",
+      "residual_risks": [
+        "n≥k≥1 and fixed k in the asymptotic; when k grows with n the Θ_k statement is not uniform.",
+        "The exact n^(2k) exponent does not determine the leading coefficient for k≥2."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Huang–Nam–Thaper lower-bound total number of binary shuffle squares aggregated over all weights.",
+          "Datko–Pawlik study root multiplicities and number of words generated from an individual root."
+        ],
+        "reasoning": "Aggregate exponential bound across k does not entail a polynomial-order lower bound for any fixed k, and per-root counts may overcount words across roots; the injective family avoids that issue.",
+        "searches": [
+          "fixed Hamming weight binary shuffle squares number asymptotic n to the 2k order count Grytczuk Pawlik Pleszczynski",
+          "binary shuffle squares fixed weight polynomial order binomial lower bound",
+          "arxiv:2109.12455",
+          "doi:10.3390/sym17020305"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2308.13882v1",
+        "https://doi.org/10.3390/sym17020305",
+        "arxiv:2109.12455",
+        "doi:10.3390/sym17020305"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published k=1 formula 3n(n−1)/2+1 implies k1 Θ(n²).",
+          "Published total shuffle-square count and fixed-root multiplicities do not provide a uniform lower bound of order n^(2k) on distinct words with exactly 2k ones for k≥2."
+        ],
+        "reasoning": "The new injection proves the missing fixed-weight lower bound, which is not an immediate implication of the known k1 row, total count, or root-level counting.",
+        "searches": [
+          "fixed Hamming weight binary shuffle squares number asymptotic n to the 2k order count Grytczuk Pawlik Pleszczynski",
+          "binary shuffle squares fixed weight polynomial order binomial lower bound",
+          "arxiv:2308.13882v1",
+          "doi:10.3390/sym17020305"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grytczuk–Pawlik–Pleszczyński Section 2.5 defines B(2n,2k), solves k=1 and explicitly asks for at least asymptotic order at fixed k.",
+          "Their k=1 quadratic case already proves Θ(n²); this source supplies all fixed k, with an injective word-level family for k≥2."
+        ],
+        "reasoning": "Fixed-root shuffle counts and total binary shuffle squares are different count problems from B(2n,2k) at fixed Hamming weight; k1 specifically has known exponent.",
+        "searches": [
+          "fixed Hamming weight binary shuffle squares number asymptotic n to the 2k order count Grytczuk Pawlik Pleszczynski",
+          "binary shuffle squares fixed weight polynomial order binomial lower bound",
+          "arxiv:2308.13882v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original small fixed-weight table up to 2n=10 gives counts (1,4,1), (1,10,10,1), (1,19,42,19,1), etc.",
+          "The source theorem is all n and fixed k with binomial bounds, not a recomputation of that table."
+        ],
+        "reasoning": "Finite numerical rows cannot determine an all-n polynomial growth exponent; precise bound proved by an explicit injective construction.",
+        "searches": [
+          "fixed Hamming weight binary shuffle squares number asymptotic n to the 2k order count Grytczuk Pawlik Pleszczynski",
+          "binary shuffle squares fixed weight polynomial order binomial lower bound",
+          "arxiv:2308.13882v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.",
+      "residual_risks": [
+        "A later unindexed solution of Section 2.5 or a root-counting corollary could imply the exponent; no absolute novelty proof from search.",
+        "The k=1 exponent is already published; originality restricted to k≥2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_OPEN_PROBLEM_PARTIALLY_SOLVED",
+          "evidence": "k1 case known; source explicitly leaves k>=2 fixed-weight growth order open.",
+          "identifier_or_url": "https://arxiv.org/html/2308.13882v1",
+          "material_read": "Full Section 2.5 including definition of B(2n,2k), k1 formula, small table and explicit request for at least asymptotic order",
+          "method": "Primary lawful arXiv HTML full section",
+          "title": "Variations on shuffle squares",
+          "trigger": "Directly states the exact open asymptotic-order problem"
+        },
+        {
+          "assessment": "DIFFERENT_COUNTING_PROBLEM",
+          "evidence": "Per-root counts and multiple roots do not furnish union fixed-weight asymptotics by direct inspection.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+          "material_read": "Abstract and relevant counting/root sections of openly available HTML",
+          "method": "Publisher open access article, selected sections",
+          "title": "Roots of Binary Shuffle Squares",
+          "trigger": "Later work on root counts potentially implying growth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the asymptotic polynomial *order* expressly requested in a primary combinatorics paper for every fixed 2k-one slice (new when k≥2), with a clean explicit injective lower-bound construction. It is a motivated enumerative problem, not an arbitrary small table; leading constants remain open and are not claimed.",
+      "residual_risks": [
+        "A later unindexed solution of Section 2.5 or a root-counting corollary could imply the exponent; no absolute novelty proof from search.",
+        "The k=1 exponent is already published; originality restricted to k≥2."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/RESULT.md",
+        "https://arxiv.org/html/2308.13882v1",
+        "https://doi.org/10.3390/sym17020305"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/verify.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0/VERIFICATION.md",
+    "https://arxiv.org/html/2308.13882v1",
+    "https://doi.org/10.3390/sym17020305"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "k1 growth was previously known, k>=2 leading constant remains unresolved.",
+    "n≥k≥1 and fixed k in the asymptotic; when k grows with n the Θ_k statement is not uniform.",
+    "The exact n^(2k) exponent does not determine the leading coefficient for k≥2.",
+    "A later unindexed solution of Section 2.5 or a root-counting corollary could imply the exponent; no absolute novelty proof from search.",
+    "The k=1 exponent is already published; originality restricted to k≥2."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DIRECT_OPEN_PROBLEM_PARTIALLY_SOLVED",
+      "evidence": "k1 case known; source explicitly leaves k>=2 fixed-weight growth order open.",
+      "identifier_or_url": "https://arxiv.org/html/2308.13882v1",
+      "material_read": "Full Section 2.5 including definition of B(2n,2k), k1 formula, small table and explicit request for at least asymptotic order",
+      "method": "Primary lawful arXiv HTML full section",
+      "title": "Variations on shuffle squares",
+      "trigger": "Directly states the exact open asymptotic-order problem"
+    },
+    {
+      "assessment": "DIFFERENT_COUNTING_PROBLEM",
+      "evidence": "Per-root counts and multiple roots do not furnish union fixed-weight asymptotics by direct inspection.",
+      "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+      "material_read": "Abstract and relevant counting/root sections of openly available HTML",
+      "method": "Publisher open access article, selected sections",
+      "title": "Roots of Binary Shuffle Squares",
+      "trigger": "Later work on root counts potentially implying growth"
+    }
+  ]
+}
