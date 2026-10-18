@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The unique inverse polynomial is Q_alpha(z)=P_X(1-1/alpha+z/alpha); because X has maximum n, any alpha>0 preimage has maximum n. Its coefficients are binom(n,k) alpha^(-n) E[W^k(alpha-W)^(n-k)]. Beta size biasing reduces each odd exponent to a Beta(A,B) shifted odd moment. An integration-by-parts Stein identity proves by induction that E[(c-V)^m]>=0 for c>=(A+m-1)/(A+B+m-1). With A=a+k and m=n-k all thresholds coincide exactly at (a+n-1)/(a+b+n-1). Even powers are nonnegative. Normalization follows from polynomial evaluation at one. The n-1 coefficient is a strictly positive factor times (alpha-rho), establishing impossibility below and a zero at rho. The exact-rational checker run from the actual standalone program passed 288 parameter cases, which are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kella-Löpker Theorem 19 holds for general mixing distributions but only characterizes a finite maximization of root locations; it does not evaluate the Beta(a,b) root maximum.",
+        "Peyhardi Theorem 1 concerns closure under convolution/quasi-Polya thinning, a different random operator.",
+        "Jones 2024 derives dual convolution-mixture relationships for those operators, not the inverse Bernoulli scale."
+      ],
+      "reasoning": "The general predecessor applies but does not state or immediately supply the closed-form maximum without proving positivity of all shifted odd Beta moments; the proof here does that uniformly and identifies the sharp coefficient. Beta-binomial appearance as a conditional law in a separate operator does not dominate a minimal scalar de-thinning classification.",
+      "searches": [
+        "Kella Löpker On Binomial Thinning and Mixing theorem 19 sigma_n(W) maximum odd shifted-moment roots explicit Beta(a,b) formula",
+        "beta-binomial distribution as alpha thinned count sharp inverse de-thinning alpha=(a+n-1)/(a+b+n-1)",
+        "inverse binomial thinning beta binomial maximum positive root generalized mixing beta parameters a b finite n",
+        "2022 2024 beta-binomial law thinning index alpha \"a+n-1\"",
+        "binomial thinning beta binomial distribution sharp de thinning parameter",
+        "beta binomial thickening minimal thinning coefficient Löpker Kella Example",
+        "2024 \"Duals of convolution thinned relationships\" beta binomial alpha minimal"
+      ]
+    },
+    "checked_sources": [
+      "O. Kella and A. Löpker, arXiv:2202.10296v3, Theorem 19, Example 10, and Sections 2, 4, 6 (primary MSC 60E05; public v1 date 2022-02-21).",
+      "J. Peyhardi, On quasi Pólya thinning operator, doi:10.1214/23-BJPS585 (author-uploaded full-text sections available and publisher overview).",
+      "M. C. Jones, Duals of convolution thinned relationships, doi:10.1111/stan.12337 (accessible full-text definitions, Theorem 1 relations, main examples).",
+      "Accessible prior research claims including local beta-binomial log-concavity record 346b4369-fd3a-4569-874f-8fc21963e667.",
+      "Six targeted mathematical-record semantic searches and relevant web-indexed searches on minimal thinning, inverse thinning, Beta-binomial, and odd Beta moments."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 19 reduces rho to the maximum of unique positive roots g_k without closed Beta root ordering; Example 10 handles a=b=1 via integration by parts.",
+        "The beta-binomial ordinary log-concavity record has a different predicate on adjacent probabilities, not inverse-PGF coefficient nonnegativity.",
+        "The Peyhardi-Jones beta-binomial mixing role is the thinning kernel, not the marginalized X being de-thinned with Bernoulli survivors."
+      ],
+      "reasoning": "The new formula refines an implicit predecessor. The odd Beta moment lemma is needed to conclude that the degree-(n-1) root dominates every other odd-moment root for all positive real shapes. No located article states or dominates that explicit dependence.",
+      "searches": [
+        "Kella Löpker On Binomial Thinning and Mixing theorem 19 sigma_n(W) maximum odd shifted-moment roots explicit Beta(a,b) formula",
+        "beta binomial probability mass inverse thinning positivity polynomial pgf compositional dilation",
+        "beta binomial thickening minimal thinning coefficient Löpker Kella Example",
+        "2024 \"Duals of convolution thinned relationships\" beta binomial alpha minimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kella-Löpker Theorem 19 gives max of roots of E[W^k(alpha-W)^(n-k)] and Example 10 exactly rho=n/(n+1) for uniform mixing.",
+        "The beta-binomial inverse-PGF coefficient condition is identical to ordinary Bernoulli de-thinning.",
+        "published-finding corpus top-ranked Beta records addressed tail concentration, variance, and sampling rather than inverse binomial thinning."
+      ],
+      "reasoning": "Aliases include minimal thinning index rho, sigma_n(W), dilation, inverse thinning, de-thinning, thickening, and Beta-binomial PGF composition. The searched literature supplies an implicit computation and one subfamily, not this exact two-shape formula.",
+      "searches": [
+        "minimal binomial thinning index beta binomial distributions beta mixing sharp parameter rho (a+n-1)/(a+b+n-1)",
+        "beta binomial probability mass inverse thinning positivity polynomial pgf compositional dilation",
+        "odd moments beta random variables threshold upper-tail shifted power expectations root",
+        "beta binomial distribution minimum binomial thinning parameter index rho beta shape a b n",
+        "beta binomial inverse binomial thinning thickening parameter rho explicit",
+        "Kella Löpker On Binomial Thinning and Mixing arxiv first submitted 2022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact rho(a,b,n) table emerged from six targeted published-record searches.",
+        "Kella-Löpker Example 10 explicitly tabulates the a=b=1 case only; the full two-shape table was not present in inspected source sections."
+      ],
+      "reasoning": "The known special case rho=n/(n+1) is subsumed but is excluded from any separate novelty claim. No checked exact database/table covered every n,a,b; negative search evidence is not uniqueness proof.",
+      "searches": [
+        "minimal binomial thinning index beta binomial distributions beta mixing sharp parameter rho (a+n-1)/(a+b+n-1)",
+        "beta-binomial distribution as alpha thinned count sharp inverse de-thinning alpha=(a+n-1)/(a+b+n-1)",
+        "beta binomial distribution minimum binomial thinning parameter index rho beta shape a b n",
+        "binomial thinning beta binomial distribution sharp de thinning parameter"
+      ]
+    },
+    "rationale": "Closest explicit mathematical predecessor is the 2022 Kella-Löpker implicit maximal-odd-root characterization and its uniform beta(1,1) example. The new claim evaluates that maximum in closed form for every positive pair of Beta shapes using a nontrivial uniform odd-moment induction. The 2023 Peyhardi and 2024 Jones articles treat convolution/quasi-Polya thinning and dual mixture closure, not minimal independent Bernoulli de-thinning of beta-binomial marginals. Accessible historical claims and targeted mathematical records did not establish equivalence or stronger coverage. Unindexed equivalent derivations remain a genuine originality risk.",
+    "residual_risks": [
+      "Theorem 19 in Kella-Löpker implicitly determines this index and might be called an equivalent algorithmic characterization; the contribution is its nontrivial full Beta closed-form evaluation, not an independent general root framework.",
+      "A differently named classical result concerning beta-binomial factorial moments, absolute monotonicity, or inverse Pólya mixing could be equivalent and unindexed.",
+      "Peyhardi publisher PDF could not be fully retrieved; its accessible sections and the fully readable Jones article show distinct operator focus, but this access gap remains.",
+      "Automated semantic search ranking is not exhaustive and is not a proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General implicit maximization and uniform special case explicitly established; no inspected full two-shape Beta closed form",
+        "evidence": "Theorem 19 on PDF page 21: sigma_n is the maximum of unique positive g_k roots; Example 10 on pages 22-23: uniform rho=n/(n+1); beta-binomial mentioned as application in introduction.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.10296",
+        "material_read": "ArXiv public-date/MSC record; preprint introduction, thinning definitions, finite-support criterion, Section 6 mixture results, Theorem 19 and its proof, Example 10 uniform and neighboring Gamma discussion; inspected full available paper structure and relevant mathematical passages",
+        "method": "Read primary arXiv PDF text and PDF page visual for Section 6, checking the actual g_k formula and a=b=1 example",
+        "title": "On Binomial Thinning and Mixing",
+        "trigger": "Defines minimal thinning index and general binomial mixture roots; highly relevant central source"
+      },
+      {
+        "assessment": "The paper studies quasi-Pólya and convolution thinning closure with beta-binomial as operator/kernel; no observed precise minimal Bernoulli thinning index for beta-binomial marginal",
+        "evidence": "Discussion identifies quasi Pólya operator family and associated closure; Jones 2024 describes the corresponding Theorem 1 relations.",
+        "identifier_or_url": "https://doi.org/10.1214/23-BJPS585",
+        "material_read": "Accessible author-uploaded text: abstract, introduction, Section 3 operator/closure discussion, discussion; publisher PDF endpoint intermittently returned a gateway error, so the complete publisher PDF was not inspected",
+        "method": "Reviewed accessible author-uploaded text and publisher abstract/issue result and compared conditional operations",
+        "title": "On quasi Pólya thinning operator",
+        "trigger": "Contains beta-binomial terms and generalized thinning, a plausible competing method"
+      },
+      {
+        "assessment": "Beta-binomial serves as conditional convolution thinning kernel; no statement evaluating minimal Bernoulli inverse scale of beta-binomial marginal",
+        "evidence": "Section 3 formula (6) beta-binomially thins a negative-binomial count; duals concern closure, not the sharp inverse scale rho.",
+        "identifier_or_url": "https://doi.org/10.1111/stan.12337",
+        "material_read": "Accessible full-text introduction, notation, Sections 3.1-3.3 formulas and Section 4 consequences",
+        "method": "Read publicly rendered primary article sections and compared ordinary thinning inverse-PGF predicate with its convolution duality statements",
+        "title": "Duals of convolution thinned relationships",
+        "trigger": "2024 work with explicit beta-binomial thinning relations and possible duality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96ff16d9-f745-45a7-8577-b60a424397ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The beta-binomial family is the canonical finite exchangeable success-count model with heterogeneous latent Bernoulli rates. A sharp minimum independent-Bernoulli thinning scale is a natural identifiable structural invariant that tells exactly which survival probabilities admit any finite latent count. The two-real-shape, all-n closed form removes the general predecessor's nontrivial odd-polynomial root search, extends the documented uniform subcase, and supplies an explicit boundary preimage with a zero n-1 cell. The result is a complete structural classification rather than a manufactured parameter slice; no broader application theorem is asserted.",
+    "status": "PASS"
+  }
+}
