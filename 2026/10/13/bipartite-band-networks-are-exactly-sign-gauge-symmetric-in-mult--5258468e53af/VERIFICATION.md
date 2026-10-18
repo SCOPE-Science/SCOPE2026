@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Let \(G_V\) be bipartite and choose \(s_a\in\{-1,+1\}\) with \(s_as_b=-1\) on each edge. The unitary \(U\) defined by \((U\psi)_a=s_a\psi_a\) satisfies
-\[
-UK_TU^*=K_T,\qquad UV^{\mathrm d}U^*=V^{\mathrm d},\qquad UV^{\mathrm{od}}U^*=-V^{\mathrm{od}}.
-\]
-Hence \(UH_T(\lambda,\kappa)U^*=H_T(\lambda,-\kappa)\). Equality of spectra and of the positivity sets used to define \(T_c\) follows immediately.
+# Independent mathematical audit
 
-For the converse gauge statement, a diagonal phase gauge requires \(e^{i(\theta_a-\theta_b)}=-1\) on every nonzero inter-band block. Such phases exist exactly when every cycle has even length, i.e. exactly when \(G_V\) is bipartite.
+## correctness
 
-No finite computation is used. The result does not claim that non-bipartite graphs necessarily produce sign-dependent \(T_c\); they only obstruct this global bandwise sign gauge.
+PASS
+
+On direct-sum band Hilbert space the diagonal K_T and V^d commute with any band-sign unitary U. A bipartition supplies s_a s_b=-1 for every nonzero off-diagonal interaction block, yielding U H_T(lambda,kappa) U*=H_T(lambda,-kappa) for every T>0,lambda>0,real kappa. Full spectral/positivity equivalence proves exact even critical temperature; symmetry of the source Proposition 1.4 equality interval gives kappa_c^+=kappa_c^- when thresholds defined as there. Conversely any diagonal constant-phase unitary mapping V^od to -V^od requires each edge phase difference π, contradicting odd cycles; even cycles permit signs. Disconnected components and isolated bands are included. Explicit independent 4-band path matrix conjugation verified and odd-triangle edge-product contradiction checked. No unjustified nonbipartite spectral converse.
+
+## originality
+
+PASS
+
+Underlying bipartite adjacency sign switching is classical; it is not claimed as a new graph lemma. The specific result applies that structural criterion to the exact multiband BCS linearized operator and physically meaningful critical-temperature/threshold symmetry at arbitrary coupling. The source HLL Proposition 1.4 explicitly allows asymmetric positive/negative thresholds and discusses sign dependence for at least three bands, but the inspected full original does not state the bipartite graph all-coupling criterion. Other GL and isotropic matrix models differ in assumptions. The particular operator-specific statement was not found already implied by the inspected literature.
+
+## value
+
+PASS
+
+The same-model critical-temperature dependence on the sign of a common interband coupling is a motivated model question. The all-temperature, all-coupling bipartite criterion and its sharp odd-cycle gauge obstruction are a structural explanation valid beyond two bands, not a disconnected numerical case or an arbitrary renaming of adjacency matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

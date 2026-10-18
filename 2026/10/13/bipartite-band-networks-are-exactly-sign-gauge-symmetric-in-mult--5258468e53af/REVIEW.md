@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source operator is diagonal in band index except for \(V^{\mathrm{od}}\). A bipartition supplies a diagonal sign unitary that fixes \(K_T\) and \(V^{\mathrm d}\) and negates every nonzero off-diagonal block, yielding exact unitary equivalence for all \(T\), \(\lambda\), and \(\kappa\). The critical-temperature and threshold consequences follow directly from the source definition and Proposition 1.4. The converse gauge criterion follows by multiplying the required phase difference \(\pi\) around cycles.
+## correctness
 
-## Originality
-PASS. The primary source treats attractive and repulsive inter-band coupling, permits asymmetric positive and negative threshold magnitudes, and notes possible sign dependence for three or more bands, but it does not formulate a band interaction graph or a bipartite all-coupling unitary symmetry. Yerin--Drechsler--Fuchs establish two-band sign independence and exhibit three-band sign effects in a different Ginzburg--Landau model, without the arbitrary-band bipartite criterion. published-finding corpus and public-literature searches for bipartite band graphs, bandwise sign gauges, exact \(\kappa\)-evenness, and odd-cycle obstructions found no covering statement. Yang's 2005 paper is a residual access risk because only its abstract/index material was available.
+PASS
 
-## Value
-PASS. The source explicitly highlights that the sign of inter-band coupling can matter once multiple bands are present. The theorem replaces the coarse distinction between two bands and three-or-more bands by a structural criterion valid for any number of bands: trees, even cycles, and all bipartite coupling networks are exactly sign-blind at the entire linearized spectral level. It also pinpoints odd cycles as the exact obstruction to removing a global sign reversal by band phases, clarifying where sign sensitivity can first arise.
+On direct-sum band Hilbert space the diagonal K_T and V^d commute with any band-sign unitary U. A bipartition supplies s_a s_b=-1 for every nonzero off-diagonal interaction block, yielding U H_T(lambda,kappa) U*=H_T(lambda,-kappa) for every T>0,lambda>0,real kappa. Full spectral/positivity equivalence proves exact even critical temperature; symmetry of the source Proposition 1.4 equality interval gives kappa_c^+=kappa_c^- when thresholds defined as there. Conversely any diagonal constant-phase unitary mapping V^od to -V^od requires each edge phase difference π, contradicting odd cycles; even cycles permit signs. Disconnected components and isolated bands are included. Explicit independent 4-band path matrix conjugation verified and odd-triangle edge-product contradiction checked. No unjustified nonbipartite spectral converse.
 
-## Closest literature and limitations
-The closest literature is the source itself, the 2013 three-band Ginzburg--Landau analysis of Yerin, Drechsler, and Fuchs, and Yang's 2005 multiband BCS analysis. The claim is limited to the common scalar scaling of all inter-band blocks and does not say that every odd-cycle model has sign-dependent critical temperature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Underlying bipartite adjacency sign switching is classical; it is not claimed as a new graph lemma. The specific result applies that structural criterion to the exact multiband BCS linearized operator and physically meaningful critical-temperature/threshold symmetry at arbitrary coupling. The source HLL Proposition 1.4 explicitly allows asymmetric positive/negative thresholds and discusses sign dependence for at least three bands, but the inspected full original does not state the bipartite graph all-coupling criterion. Other GL and isotropic matrix models differ in assumptions. The particular operator-specific statement was not found already implied by the inspected literature.
+
+## value
+
+PASS
+
+The same-model critical-temperature dependence on the sign of a common interband coupling is a motivated model question. The all-temperature, all-coupling bipartite criterion and its sharp odd-cycle gauge obstruction are a structural explanation valid beyond two bands, not a disconnected numerical case or an arbitrary renaming of adjacency matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
