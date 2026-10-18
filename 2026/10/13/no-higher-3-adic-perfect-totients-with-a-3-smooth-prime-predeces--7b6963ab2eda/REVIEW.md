@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(A\ge1\) and \(B\ge0\), direct summation of the totient trajectory gives
-\[
-H(A,B)=2^{A-1}\left(3^{B+1}+1\right)-1.
-\]
-With \(p-1=2^a3^b\), this yields
-\[
-S(3^k p)=2^a\left(3^{k+b}+1\right)-1,
-\]
-whereas
-\[
-3^k p=2^a3^{k+b}+3^k.
-\]
-Thus equality is exactly \(2^a=3^k+1\). Reduction modulo \(8\) forces \(a=1\) when \(k\) is even, which is impossible, and forces \(a=2\) when \(k\) is odd, giving \(k=1\). The proof covers every allowed exponent and does not infer an infinite statement from the packaged finite checks.
+## correctness
 
-## Originality
-PASS. The 2003 primary paper studies the same family \(3^k p\), but its higher-layer nonexistence theorem assumes a nested prime predecessor \(p=2^c3^d q+1\) with a further prime \(q=2^a3^b+1\). The present endpoint \(p-1=2^a3^b\) has no such prime \(q\) and is not a specialization. The 2009 sequel treats a still longer nested chain. The closest published support sieve for \(p-1=2^a3^b u\) becomes vacuous at \(u=1\). Exact-form, alias, database, and implication searches found no theorem supplying the new higher-layer exclusion. A 2006 thesis with potentially relevant additional forms could not be downloaded; its abstract was inspected and is recorded as a residual risk rather than treated as covering evidence.
+PASS
 
-## Value
-PASS. The source paper explicitly centers the family \(3^k p\) and leaves the unrestricted \(k\ge4\) existence problem open. Primes whose predecessor is \(3\)-smooth are a natural endpoint of the same predecessor-chain mechanism and include the classical \(k=1\) family. The theorem completely closes this infinite structural subclass for every higher \(3\)-adic exponent with a short exact formula, rather than extending a finite search range.
+Independent calculation for A≥1,B≥0: iterated Euler-totient tail H(2^A3^B)=2^(A−1)(3^(B+1)+1)−1, since φ(2^A3^B)=2^A3^(B−1) for B>0 followed by 2^A,2^(A−1),…,1. For n=3^k p with p−1=2^a3^b, φ(n)=2^(a+1)3^(b+k−1), so S(n)=2^a(3^(k+b)+1)−1 and n=2^a3^(k+b)+3^k. Equality iff 2^a−1=3^k. Mod 8: even k yields 2^a≡2 mod8 forcing a=1 and impossible; odd k yields 2^a≡4 mod8 forcing a=2 and k=1. Independent exact totient trajectory comparison for 156 prime/exponent instances confirms the formula; not a proof beyond grid.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact empty k≥2 endpoint p−1=2^a3^b of the classical 3^k p perfect-totient problem. The 2003 and 2009 complete/principal references genuinely involve extra nested predecessor primes; neither directly covers the endpoint with no extra prime. Classical k=1 positive family is acknowledged, not claimed original. Thesis full-text access is a residual risk.
+
+## value
+
+PASS
+
+The prime predecessor p−1=2^a3^b is the natural zero-extra-prime endpoint of established nested-prime trees in the open classification of perfect totients 3^k p. Uniformly ruling out ALL higher k here closes a structurally motivated infinite subclass and cleanly delineates the known positive k=1 family; it is not an arbitrary numerical slice. Although the final modulo-eight obstruction is short, the explicit tail normalization and rigorous endpoint boundary are needed to compare with published longer-chain results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

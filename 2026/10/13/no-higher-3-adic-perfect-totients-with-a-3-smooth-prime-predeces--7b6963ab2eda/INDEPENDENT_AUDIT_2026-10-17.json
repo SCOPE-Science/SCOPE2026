@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:44:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent calculation for A≥1,B≥0: iterated Euler-totient tail H(2^A3^B)=2^(A−1)(3^(B+1)+1)−1, since φ(2^A3^B)=2^A3^(B−1) for B>0 followed by 2^A,2^(A−1),…,1. For n=3^k p with p−1=2^a3^b, φ(n)=2^(a+1)3^(b+k−1), so S(n)=2^a(3^(k+b)+1)−1 and n=2^a3^(k+b)+3^k. Equality iff 2^a−1=3^k. Mod 8: even k yields 2^a≡2 mod8 forcing a=1 and impossible; odd k yields 2^a≡4 mod8 forcing a=2 and k=1. Independent exact totient trajectory comparison for 156 prime/exponent instances confirms the formula; not a proof beyond grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 (2003) applies to a strictly different nested chain requiring extra prime q>1, not endpoint u=1.",
+          "Deng (2009) explicitly treats four-prime nested predecessor chains for k≥4, again requiring primes absent in this configuration."
+        ],
+        "reasoning": "These are not stronger theorems covering a=1,b arbitrary with p−1 smooth; the infinite endpoint elimination follows instead from the explicit totient-tail formula.",
+        "searches": [
+          "2003 JIS:6:03.4.5 complete 7-page primary paper relevant pp1-5",
+          "2009 JIS:12:09.6.2 complete PDF relevant introduction",
+          "Resultary support sieve b152560651c4"
+        ]
+      },
+      "checked_sources": [
+        "JIS 2003 complete PDF relevant pp.1-5",
+        "JIS 2009 PDF abstract/introduction",
+        "Resultary prime support sieve b152560651c4",
+        "OEIS A082897 mention not complete entry inspection",
+        "Belmonte thesis repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known k=1 branch was previously proved; it is repeated only to describe full endpoint classification.",
+          "Since u=1 makes sieve hypothesis automatically satisfied, the inequality does not imply emptiness of higher k.",
+          "Modulo-8 analysis of 2^a=3^k+1 forces (a,k)=(2,1) without extra prime q."
+        ],
+        "reasoning": "Prior positive k=1 family and bounded nested-chain nonexistence do not logically imply all smooth-predecessor higher layers vanish; the exact comparison is recorded with hypotheses.",
+        "searches": [
+          "Iannucci et al 2003 pp.3-5: hypotheses p=2^c3^d q+1, q prime",
+          "Deng 2009 intro: strictly longer chain hypothesis",
+          "Resultary b152560651c4 prime-support sieve statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest published SCOPE support sieve treats p−1=2^a3^b u, with u coprime 6; for u=1 its bound φ(u)/u>3(p+2)/(4(p−1)) is not an exclusion.",
+          "2003 Iannucci--Moujie--Cohen (Thm5) assumes p=2^c3^d q+1 with q prime 2^a3^b+1."
+        ],
+        "reasoning": "Equivalent shapes searched through the predecessor endpoint u=1, 3-smooth p−1, prime of form 2^a3^b+1, and Diophantine 2^a−3^k=1; neither mixed-support sieve nor nested-chain theorem covers it.",
+        "searches": [
+          "Resultary: perfect totient 3^k p p minus one 2^a 3^b nonexistence",
+          "Resultary prior 2026/10/4/SCOPE-a-prime-support-sieve-for-perfect-totients-of-the-form-3-k-p--b152560651c4",
+          "Web: perfect totient 3^k p p-1 2^a3^b no 3^2p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A082897 lists perfect totients and the known Venkataraman positive family 3p when p=4*3^b+1; finite sequence enumeration cannot exclude all k≥2.",
+          "A 2006 thesis abstract advertises additional forms but does not identify the smooth-predecessor endpoint; full text unread."
+        ],
+        "reasoning": "No exact infinite endpoint table/classification located in material actually read. Absence of table is uncertainty, not novelty proof.",
+        "searches": [
+          "OEIS A082897 sequence referenced in 2003 primary paper",
+          "Web: perfect totient number multiples and powers of three",
+          "Prime predecessor exact support condition p−1=2^a3^b"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact empty k≥2 endpoint p−1=2^a3^b of the classical 3^k p perfect-totient problem. The 2003 and 2009 complete/principal references genuinely involve extra nested predecessor primes; neither directly covers the endpoint with no extra prime. Classical k=1 positive family is acknowledged, not claimed original. Thesis full-text access is a residual risk.",
+      "residual_risks": [
+        "Belmonte 2006 MSc thesis full body unavailable; it may contain a related endpoint elimination.",
+        "Only p>3 prime with p−1=2^a3^b, a≥1,b≥0; no general k≥4 nonexistence claimed.",
+        "Finite verification cannot certify all exponents; modular proof does."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 concerns a nested additional prime q and cannot be instantiated with u=1.",
+          "evidence": "Theorem 5: p=2^c3^d q+1, q=2^a3^b+1 prime, k≥4.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Cohen2/cohen50.pdf",
+          "material_read": "PDF seven pages; examined intro and Theorems 1–5 including p.3-5 screenshot and nested-prime hypotheses, plus algorithmic proof context.",
+          "method": "Lawful journal OA full PDF, parsed math and page screenshots",
+          "title": "On Perfect Totient Numbers",
+          "trigger": "Same 3^k p family and possible k≥4 prior exclusion"
+        },
+        {
+          "assessment": "Does not have endpoint p−1=2^a3^b as its domain.",
+          "evidence": "Deng 2009 abstract: s,r,q,p form a multi-prime predecessor chain.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Deng/deng1.pdf",
+          "material_read": "Abstract/introduction and specific nested-chain hypotheses in PDF pp.1-2, later tables not exhaustively read.",
+          "method": "Lawful OA full PDF parsed sections",
+          "title": "A Note On Perfect Totient Numbers",
+          "trigger": "Plausible stronger no-k≥4 result on same family"
+        },
+        {
+          "assessment": "Potential coverage unresolved; cannot infer absence from abstract.",
+          "evidence": "Abstract characterizes thesis as exposition plus additional forms.",
+          "identifier_or_url": "https://animorepository.dlsu.edu.ph/etd_masteral/3449/",
+          "material_read": "Repository abstract and metadata only; full thesis not read.",
+          "method": "Public repository abstract",
+          "title": "On perfect totient numbers, Belmonte 2006 MSc thesis",
+          "trigger": "Same topic, abstract states additional forms of perfect totients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prime predecessor p−1=2^a3^b is the natural zero-extra-prime endpoint of established nested-prime trees in the open classification of perfect totients 3^k p. Uniformly ruling out ALL higher k here closes a structurally motivated infinite subclass and cleanly delineates the known positive k=1 family; it is not an arbitrary numerical slice. Although the final modulo-eight obstruction is short, the explicit tail normalization and rigorous endpoint boundary are needed to compare with published longer-chain results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For p>3 prime with p−1=2^a3^b, a≥1,b≥0, the perfect-totient condition for 3^k p is equivalent to 2^a=3^k+1, hence occurs exactly for (a,k)=(2,1), in which case p=4*3^b+1 prime. In particular no k≥2 member of this smooth-predecessor family is perfect totient.",
+  "limitations": [
+    "Only p−1 3-smooth, p>3; p-1 allowed b=0; no unrestricted k≥4 solution.",
+    "Thesis primary full text not read; could affect historical novelty."
+  ],
+  "schema_version": 1
+}
