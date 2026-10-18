@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Define both binary codes on the same \(64\) field-labeled positions. Every affine four-point line satisfies the parity, first-moment and fifth-moment checks. Exhaustive exact binary linear algebra gives ranks \(13\) for the check matrix and \(51\) for the \(336\) line incidence vectors; thus inclusion is equality. The independently enumerated \(336\) weight-four solutions coincide with the lines. The included program recomputes these facts without external dependencies.
+## correctness
 
-**Originality — PASS with residual literature risk.** Rifà–Zinoviev (2026) give the cyclic code, not the affine-line span identification. Crnković–Rodrigues–Rukavina–Tonchev (2016) give the classic affine-line code, its rank, and its symmetry, not its identification with the cyclic zero-set \(\{1,5\}\). The explicit cross-description equality is not implied by sharing parameters. Search comparisons included equivalence aliases, relevant historical full text and current published mathematics; an unindexed earlier linkage remains possible. The old line-code rank and group are historical work, not new claims.
+PASS
 
-**Value — PASS.** The exact geometric realization of this concrete completely regular cyclic code imports a substantial existing finite-geometry, automorphism and design framework, distinguishing a structural equality from mere numerical parameter matching. It is restricted to one naturally highlighted \(m=6\) member, with a complete proof rather than an arbitrary parameter scan. No general statement for other values of \(m\) is inferred.
+The 13 independent checks (overall binary parity and two F64 field moments of exponents 1,5) leave dimension 64-13=51. The four points a+v F4 have vanishing zero, first and fifth moments because sum t=sum t^2=0 and t^4=t in F4. Every 4-point zero-syndrome set has form {a,a+s,c,c+s}; the fifth moment forces ((a+c)/s)^4=(a+c)/s and distinctness yields the two nontrivial subfield values. Exact independent GF64 arithmetic enumerated 336 distinct lines, checked all zero syndromes and rank 51 for their GF2 incidence vectors, and exhausted 336 weight-four solutions; so inclusion plus equal dimension yields equality. Earlier known line automorphism group is transferred, not rediscovered.
 
-**Closest prior work and limits.** The 2016 affine-line incidence code of \(\operatorname{AG}(3,4)\) has known dimension \(51\) and known full collineation group. The 2026 source already knows the extended-code parameters \([64,51,4]\) and explicitly discusses \(m=6\) graph parameters. Only the identification of the two coded objects is new here. An unavailable complete historical publication could contain an earlier statement of the same equivalence. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. The near-corollary potential for the code bridge has been acknowledged and its coordinate-level identification is the narrow accepted contribution.
+
+## value
+
+PASS
+
+The coordinate-level equivalence of a newly constructed cyclic completely regular code with a classical affine geometry incidence code identifies its minimum supports and makes established geometric structure immediately applicable to a separately defined code. This is a useful exact cross-description bridge, although not a new rank, automorphism group or parameter theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
