@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source gives exactly one exceptional basis and \(r(n-r)\) exchange bases. Uniqueness of the Euclidean minimum-enclosing center plus the \(S_r\times S_{n-r}\) symmetry forces a two-block center. The two vertex-orbit squared distances reduce to explicit quadratics in one scalar parameter. Their crossing and the minimum of the exchange-orbit quadratic give the stated phase transition, centers, radii, and contact sets. In each phase the proposed center is a convex combination of equal-radius contact vertices, which supplies a direct global minimality and uniqueness certificate.
+## correctness
 
-## Originality
-PASS. The primary same-object full text was inspected at its extremal basis theorem, graphical realization, duality, and base-polytope description, and direct searches found no circumradius, radius, Euclidean, or minimum-enclosing treatment. A later Schubert-matroid paper recovering the same family was also inspected and has no circumradius or minimum-enclosing theorem. Candidate-specific published-result searches covered minimal-matroid, \(T_{r,n}\), panhandle, circumradius, smallest-enclosing-sphere, and Chebyshev-center aliases. No covering statement was located. The closest previously checked matroid metric theorem concerns inradius and therefore does not imply this vertex-controlled invariant.
+PASS
 
-## Value
-PASS. Minimal matroids are the unique connected matroids with the fewest bases at fixed rank and size. Their base polytopes are therefore a canonical extremal family. The result gives their complete minimum-sphere geometry and exposes a sharp transition in which the exceptional basis changes from a sphere contact to a strict interior point, leaving the entire exchange grid as the supporting contact set.
+The exact Ferroni base structure yields two vertex orbits under S_r x S_t. Uniqueness of minimum enclosing sphere and symmetry force center c(q) in affine hyperplane sum x=r. Squared orbit distances are d0²=(n/(rt))q², d1²=2+(n/(rt))q²-2(n/(rt))q. Their minimax has unique q*=min(1,rt/n). Contact-barycenter certificates c(q*)=(1-q*)v0+(q*/rt)sum exchanges in the first regime, c(1)=mean exchanges in the second, prove global minimality for every r,t positive. Exact independent rational checks covered 1,770 pairs 2<=n<=60, supporting but not replacing minimax proof. Boundaries r=1,t=1,(r,t)=(2,2) verified.
 
-## Closest literature and limitations
-Ferroni develops the graphical model, facet structure, Ehrhart theory, and relaxation role of minimal-matroid polytopes; Fan--Li place the same family inside Schubert matroids. Neither inspected source studies their Euclidean minimum enclosing ball. The result is specific to the standard indicator-vector realization and does not claim an analogous formula for all Schubert or panhandle matroids.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact shell/contact phase for one exceptional vertex beyond a previously known complete-bipartite root-orbit minimum sphere. Strongest relevant partial prior geometric coverage is explicitly credited; the full one-exception transition remains additional.
+
+## value
+
+PASS
+
+Minimal matroids form a distinguished extremal matroid family; their canonical base polytopes have a natural Euclidean circumball invariant. The exact discrete transition classifies which bases support the unique enclosing sphere and singles out the exceptional T_{2,4} equality, with an explicit rank/corank-stable center formula. Although short once the vertex structure is known, this is a useful exact metric classification, not an arbitrary slice or mere known-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

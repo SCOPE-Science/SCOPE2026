@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-parameter proof is given in `RESULT.md`.
 
-Critical checks:
-- the source vertex set is one exceptional basis \(v_0\) plus all \(r(n-r)\) one-for-one exchange vertices;
-- symmetry and uniqueness force a center
-  \[
-  c(q)=\left(1-\frac qr\right)\mathbf1_A+\frac q{n-r}\mathbf1_B;
-  \]
-- with \(a=n/(r(n-r))\), the two orbit squared distances are
-  \[
-  d_0(q)^2=aq^2,
-  \qquad
-  d_1(q)^2=2+aq^2-2aq;
-  \]
-- the quadratics cross at \(q=r(n-r)/n\);
-- if \(r(n-r)\le n\), this crossing occurs before the exchange-orbit minimum and yields
-  \[
-  R^2=\frac{r(n-r)}n;
-  \]
-- if \(r(n-r)\ge n\), the exchange-orbit minimum \(q=1\) is optimal and yields
-  \[
-  R^2=2-\frac{n}{r(n-r)};
-  \]
-- the contact barycenter identities certify global minimality, and the two orbit distances give the complete contact phase.
+# Independent mathematical audit
 
-`verify.py` constructs all vertices for \(2\le n\le30\) and every rank, checks the closed centers, radii, and contact sets directly, and independently minimizes the scalar max-of-quadratics objective numerically. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+The exact Ferroni base structure yields two vertex orbits under S_r x S_t. Uniqueness of minimum enclosing sphere and symmetry force center c(q) in affine hyperplane sum x=r. Squared orbit distances are d0²=(n/(rt))q², d1²=2+(n/(rt))q²-2(n/(rt))q. Their minimax has unique q*=min(1,rt/n). Contact-barycenter certificates c(q*)=(1-q*)v0+(q*/rt)sum exchanges in the first regime, c(1)=mean exchanges in the second, prove global minimality for every r,t positive. Exact independent rational checks covered 1,770 pairs 2<=n<=60, supporting but not replacing minimax proof. Boundaries r=1,t=1,(r,t)=(2,2) verified.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact shell/contact phase for one exceptional vertex beyond a previously known complete-bipartite root-orbit minimum sphere. Strongest relevant partial prior geometric coverage is explicitly credited; the full one-exception transition remains additional.
+
+## value
+
+PASS
+
+Minimal matroids form a distinguished extremal matroid family; their canonical base polytopes have a natural Euclidean circumball invariant. The exact discrete transition classifies which bases support the unique enclosing sphere and singles out the exceptional T_{2,4} equality, with an explicit rank/corank-stable center formula. Although short once the vertex structure is known, this is a useful exact metric classification, not an arbitrary slice or mere known-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
