@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:56:55.766552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At n<=3 there is no solution, n=4 and n=7 are the exceptional solutions. For even n, an odd prime factor of n=2u forces Omega(n+2)>=3, except n=4. For odd n with both endpoint Omega<=2, systematically eliminate prime/prime, prime/square, square/prime, semiprime/prime, prime/semiprime, both squares, square/semiprime and semiprime/square by the totient and product/sum identities or AM-GM. In the remaining distinct-odd-semiprime case n=pq, n+2=rs, equality of totients and product difference give r+s=p+q+2; ordered prime gaps e=s-r,d=q-p satisfy e^2-d^2=4(p+q-1). Therefore A=(e-d)/2, B=(e+d)/2 are uniquely determined odd integers 3<=A<B, with the four prime formulas in pinned RESULT.md. Direct expansion gives rs=pq+2 and equal totients in the converse. The result is genuinely unbounded in n; enumeration only cross-checks. Independent Euler totient/sieve through n=250000 found precisely 4,7,6497,12317,133787,181427 with nontrivial pairs (A,B)=(7,23),(13,17),(17,43),(23,37).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graham–Holt–Pomerance 1999, Theorem 1 (j,j+k sharing support)",
+          "Ford arXiv:2002.12155 abstract"
+        ],
+        "reasoning": "Both broader works address arbitrary n and fixed k, but neither inspected statement classifies exactly the Omega(n),Omega(n+2)<=2 slice or implies the two-parameter inverse from a displayed theorem; no automatic claim of novelty from absence alone.",
+        "searches": [
+          "Resultary semantic search: Euler totient gap two phi(n)=phi(n+2) at most two prime factors semiprime complete parametrization",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Graham–Holt–Pomerance 1999, Theorem 1 (j,j+k sharing support)"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.dartmouth.edu/~carlp/phi.pdf",
+        "arXiv:2002.12155",
+        "https://oeis.org/A001494",
+        "Resultary semantic published-finding search: Euler totient gap two phi(n)=phi(n+2) at most two prime factors semiprime complete parametrization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GHP p.10 construction p,p+2,2p-1,2p+3",
+          "Resultary topical semantic hit 2026/10/4/SCOPE-exact-first-three-fibers-of-the-alternating-divisor-totient-gap--5f607fcab7e7"
+        ],
+        "reasoning": "Old four-prime family is a proper one-parameter subfamily and does not force n=4,7 or show no other low-Omega cases. Alternating-divisor-totient gap result is a distinct arithmetic equation.",
+        "searches": [
+          "Resultary semantic search: Euler totient gap two phi(n)=phi(n+2) at most two prime factors semiprime complete parametrization",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "GHP p.10 construction p,p+2,2p-1,2p+3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graham–Holt–Pomerance 1999, Theorem 1 and p.10 four-prime family",
+          "OEIS A001494"
+        ],
+        "reasoning": "A=3 of the submitted scheme recovers the GHP gap-two 4-prime construction, but the parameters A>=5 and all excluded types plus unique inversion are not supplied by a mere renaming. Prime-factor-type aliases and two-semiprime totient coincidences were searched.",
+        "searches": [
+          "Resultary semantic search: Euler totient gap two phi(n)=phi(n+2) at most two prime factors semiprime complete parametrization",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "Graham–Holt–Pomerance 1999, Theorem 1 and p.10 four-prime family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001494 entries for phi(n)=phi(n+2)",
+          "GHP 1999 Table 1"
+        ],
+        "reasoning": "These databases enumerate values or solution totals, not the unrestricted two-parameter biconditional; finite tables and an exact natural classification are not interchangeable.",
+        "searches": [
+          "Resultary semantic search: Euler totient gap two phi(n)=phi(n+2) at most two prime factors semiprime complete parametrization",
+          "Published GitHub/primary literature targeted searches for stated object and aliases",
+          "OEIS A001494 entries for phi(n)=phi(n+2)"
+        ]
+      },
+      "rationale": "The exact biconditional covers ALL separately low-Omega endpoint types and uniquely inverts a two-parameter prime quadruple. Graham–Holt–Pomerance 1999 already gives a four-prime family, and for gap two its construction is precisely A=3, so that special case receives no novelty credit. Their Theorem 1 yields another class and is not a complete classification of the low-Omega layer. Ford studies the fixed-gap problem generally. An OEIS solution list is not a symbolic exhaustive classifier. Best-of-knowledge no source inspected dominates the full result; a hidden elementary classification remains possible.",
+      "residual_risks": [
+        "An older unpublished or unindexed classification of semiprime equal-totient neighbors may exist; broad source title or search failure is not priority proof.",
+        "No infinitude or density of prime quadruple parameters is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prime quadruple at k=2 is a proper A=3 slice; no full low-Omega type classification or unique A,B inverse displayed",
+          "evidence": [
+            "Theorem 1 around PDF lines 124–139 gives a prime-generated family under j,j+k matching prime support",
+            "p.10 lines 572–575: if b even,k=bc and p,p+b,(c+1)p-c,(c+1)(p+b)-c are prime, gives phi(n)=phi(n+k); k=2 forces b=2,c=1 and corresponds exactly to A=3"
+          ],
+          "identifier_or_url": "https://www.math.dartmouth.edu/~carlp/phi.pdf",
+          "material_read": "Primary 15-page PDF: abstract and Sections 1–4, Theorem 1, Table 1, and p.10 four-prime formula at PDF lines 572–580; page images of relevant statements",
+          "method": "Full primary PDF inspection by text/page image",
+          "title": "On the Solutions to phi(n)=phi(n+k)",
+          "trigger": "Same equality with k=2 and a potentially covering four-prime construction"
+        },
+        {
+          "assessment": "Addresses fixed-gap solutions and asymptotics, not verified to contain full separate Omega<=2 classification",
+          "evidence": [
+            "Fixed gap Euler totient equality is its central subject; remaining whole-text coverage is a residual priority risk"
+          ],
+          "identifier_or_url": "arXiv:2002.12155",
+          "material_read": "Bibliographic record/abstract and article scope; no claim of reading its complete theorem body",
+          "method": "arXiv scholarly search/abstract comparison",
+          "title": "Solutions of phi(n)=phi(n+k) and sigma(n)=sigma(n+k)",
+          "trigger": "General fixed-gap totient literature and potential dominating theorem"
+        },
+        {
+          "assessment": "Finite term enumeration includes concrete solutions but cannot imply a complete unbounded prime-factor-type classification",
+          "evidence": [
+            "OEIS enumerates n with phi(n)=phi(n+2); no stated unique A,B semiprime inverse theorem verified"
+          ],
+          "identifier_or_url": "https://oeis.org/A001494",
+          "material_read": "Sequence definition and published initial listed examples",
+          "method": "Public database comparison",
+          "title": "OEIS A001494",
+          "trigger": "Exact database or table of gap-two equality solutions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, unconditional, infinite-domain arithmetic classification of the first nontrivial prime-factor complexity layer in a long-studied fixed-gap totient equation is an independently useful structural result. The unique inverse parameters and converse give an exact practical recognizer without pretending to prove infinitely many prime quadruples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older unpublished or unindexed classification of semiprime equal-totient neighbors may exist; broad source title or search failure is not priority proof.",
+    "No infinitude or density of prime quadruple parameters is claimed.",
+    "All findings apply only to theorem's explicit hypotheses, parameter/graph/modulus ranges and quantifiers in pinned RESULT.md; finite tests not extrapolated to infinite theorem.",
+    "Source-derived numerical verification logs alone do not establish originality/value; no external independence, published audit certificate, or formal Lean/expert proof claimed."
+  ],
+  "schema_version": 1
+}
