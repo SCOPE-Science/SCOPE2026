@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 the linearly forbidden-11 overlap graph has F(n+2) arcs and is strongly connected. Adding each admissible 0u0 containing a one once balances the exact in/out degree formulas and yields a closed Euler walk. The initial-zero potential decreases by at most one on every arc and by exactly one on each specified duplicate; pairing any balanced extra flow with the original divergence gives >=F(n)-1 extra traversals. This is an infinite proof independent of the finite checker; check.py replay verified constructions/potentials for n=2..17 and exhaustive shorter cyclic candidates for n=2..5.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2403.01454, introduction and Theorems 2.11–2.12 optimize maximum distinct-window constrained cycles, not minimum edge-covering closed walks.",
+        "arXiv:2404.13674, Introduction defines a Hamming-radius R covering problem.",
+        "General directed postman optimization identifies an algorithmic framework but does not, without additional exact analysis, imply the explicit Fibonacci value or duplicate set."
+      ],
+      "reasoning": "Neither general de Bruijn cycles nor distinct-window RLL maxima include the repeated-edge constrained cover objective. Hamming-radius covering is another coverage relation. The provided graph-specific balancing and tight potential solve an exact infinite-family specialization rather than restating a general algorithm.",
+      "searches": [
+        "shortest common cyclic superstring of binary strings avoiding 11 constrained de Bruijn cover",
+        "restricted de Bruijn covering sequence repetitions consecutive ones minimum length",
+        "arXiv:2403.01454 maximum length RLL sequences distinct windows",
+        "arXiv:2404.13674 de Bruijn covering Hamming radius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.11934 (March 12, 2026, accessible full text)",
+      "arXiv:0711.1695 (accessible full text)",
+      "arXiv:2403.01454 (accessible full text)",
+      "arXiv:2404.13674 (accessible full text)",
+      "arXiv:math/0310385 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.11934, Sections 1 and 4–5, concern bounded-weight de Bruijn sequence ranking and unranking.",
+        "arXiv:0711.1695, Section 2.1, defines admissibility by periodic repetition and Section 1 lexicographic objective.",
+        "arXiv:2403.01454, Abstract and Section 2, maximize distinct allowed windows."
+      ],
+      "reasoning": "The 2026 weight-constrained cyclic sequence algorithm does not require avoidance of 11, while 2007 golden-mean restricted cycles omit linearly allowed but periodically inadmissible windows and 2024 RLL work does not allow repeated windows for minimum complete coverage. Thus none of the actually inspected statements implies this theorem without an additional balancing and sharp dual argument.",
+      "searches": [
+        "golden mean shift edge-covering closed walk Chinese postman de Bruijn graph every admissible n-block with minimum repetitions",
+        "arXiv:2603.11934 bounded-weight universal cycles decoding",
+        "arXiv:0711.1695 Golden Mean restricted language periodic admissibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno and Matamala arXiv:0711.1695, Section 2.1 explicitly requires periodic-repetition admissibility; their Section 1 specifies lexical minimization.",
+        "The candidate statement is equivalently a minimum-cost closed directed postman walk covering every arc of the linearly constrained binary overlap graph."
+      ],
+      "reasoning": "The directed-postman reformulation is exactly equivalent, not a different claim. The inspected older restricted-language cycle theorem concerns periodically admissible windows: for order three it does not require the linearly admissible word 101. No inspected theorem gives the complete cost F(n)-1 for the larger all-linearly-admissible arc set.",
+      "searches": [
+        "Golden-mean shift Fibonacci constrained de Bruijn words all admissible blocks minimum cyclic superstring postman exact size",
+        "Chinese postman golden mean de Bruijn graph avoid 11 repeat edges Fibonacci minimum length",
+        "\"golden mean\" \"Chinese postman\" \"de Bruijn\" shortest",
+        "\"no consecutive ones\" \"universal cycle\" all length n words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked published references do not present a table or formula for this forbidden-11 all-window postman length.",
+        "Independent finite certificates reproduce optimal lengths 3,6,10,17 for n=2,3,4,5 and a symbolic proof covers every n>=2."
+      ],
+      "reasoning": "The claim is an infinite exact formula and full exhibited optimal multiplicity multiset, not a recomputation of an identified lookup table. No exact covering sequence table examined dominates the all-n claim.",
+      "searches": [
+        "shortest circular superstring admissible words for SFT forbidden 11 Fibonacci redundancy",
+        "shortest cyclic Fibonacci universal covering word forbidding 11, containing every admissible length-n binary window, exact minimum length F(n+2)+F(n)-1",
+        "\"Fibonacci\" \"de Bruijn\" \"postman\" binary strings"
+      ]
+    },
+    "rationale": "The exact all-linearly-admissible cyclic postman length and an optimal complete duplication multiset were not implied by inspected restricted-language de Bruijn, bounded-weight, RLL distinct-window, or Hamming-cover statements. Crucially, older Golden Mean cycles use periodic admissibility and do not demand 101 as an order-three word. Semantic and bibliographic searches detected no exact stronger implication; originality is evidence-bounded, not a claimed proof of priority.",
+    "residual_risks": [
+      "A less discoverable specific directed-route-inspection solution for golden-mean overlap graphs might contain the same formula.",
+      "The entire full text of the earlier Hamming covering-codes article was not examined, although its stated objects differ.",
+      "The 2003 predecessor to the 2007 restricted-language work was characterized through its accessible later treatment rather than directly inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact forbidden-11 every-linear-block minimum closed cover theorem; weight and decoding problems are not this optimization.",
+        "evidence": "arXiv posted March 12, 2026; initial abstract and Theorem 4.7 specify polynomial-time ranking for weight-bounded universal cycles.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.11934",
+        "material_read": "Abstract; Introduction, definitions of S_k(n,w-up/down); Sections 4 and 5 statements on bounded-weight de Bruijn ranking/unranking, Theorem 4.7.",
+        "method": "Read arXiv accessible HTML text and compared object, constraint, and theorem statements.",
+        "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+        "trigger": "Recent public paper motivating renewed study of constrained universal cycles and efficient decoding"
+      },
+      {
+        "assessment": "Defines admissible words by periodic repetition and minimizes lexicographic label; 101 linearly avoids 11 but periodic 101 does not, proving different required sets.",
+        "evidence": "Section 2.1 explicitly: w is in language if periodic word w-infinity belongs to SFT; Section 1 emphasizes minimal lexicographical label.",
+        "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+        "material_read": "Full accessible introduction, Section 2.1 Definitions, Theorem 2.1 and graph construction discussion; Golden Mean example.",
+        "method": "Read arXiv text and compared periodic admissibility and ordering objective with complete linearly admissible required windows.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Golden Mean forbidden-11 language explicitly discussed; strongest obvious coverage risk"
+      },
+      {
+        "assessment": "Treats maximizing length of a sequence with distinct RLL n-windows; cannot imply shortest cyclic walk covering all allowed windows with duplication.",
+        "evidence": "Definition of an (n,s)-sequence requires windows to be distinct; abstract explicitly says maximum length.",
+        "identifier_or_url": "https://arxiv.org/html/2403.01454v2",
+        "material_read": "Abstract, Introduction (n,s definitions), Section 2 Theorems 2.11–2.12 and consequences, construction algorithm overview, conclusions.",
+        "method": "Read accessible arXiv full-text HTML definitions and main theorem statements.",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Potentially dominating binary adjacency-constraint de Bruijn graph construction"
+      },
+      {
+        "assessment": "Coverage uses Hamming distance radius R over all words, not exact coverage of linearly forbidden-11 language.",
+        "evidence": "Introduction defines an (n,R) covering sequence by Hamming-radius covering code; optimized constructions are of that type.",
+        "identifier_or_url": "https://arxiv.org/html/2404.13674v2",
+        "material_read": "Abstract, Introduction and Definition of Hamming-radius covering sequences, construction outlines.",
+        "method": "Read accessible arXiv full-text HTML material and compared exact-string versus Hamming-radius cover.",
+        "title": "On de Bruijn Covering Sequences and Arrays",
+        "trigger": "Identical phrase de Bruijn covering sequences, possible broader covering claim"
+      },
+      {
+        "assessment": "Abstract concerns Hamming-symbol-change radius, so probably different; complete-paper overlap not ruled out by that excerpt.",
+        "evidence": "Abstract describes q-ary sequences covering every q-ary n-word within R symbol changes.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0310385",
+        "material_read": "Accessible abstract and definition of covering by up to R symbol changes.",
+        "method": "Read arXiv abstract; did not infer whole-paper noncoverage from abstract alone.",
+        "title": "De Bruijn Cycles for Covering Codes",
+        "trigger": "Earlier source underlying radius-covering concept and possible terminology collision"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "115d2faf-86fa-4847-9760-d62817f08377",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural forbidden-factor finite-type language lacks a classical perfect one-visit full linear-block cycle once imbalance appears. The theorem gives the exact shortest repair for every span, a complete constructive optimal window multiplicity profile, and a tight dual certificate useful for constrained-window coding and graph route-inspection test instances. It is not a bare table of finite values, routine substitution, or an unmotivated arbitrary cutoff.",
+    "status": "PASS"
+  }
+}
