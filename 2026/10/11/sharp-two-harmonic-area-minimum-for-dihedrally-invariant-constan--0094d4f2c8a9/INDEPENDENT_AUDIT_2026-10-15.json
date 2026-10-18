@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:02:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Odd dihedral symmetry and constant width force h=w/2+a cos(n theta)+b cos(3n theta). The support-function convexity condition h+h''>=0 becomes ||alpha cos t+beta cos3t||_infty<=1, and the support area formula gives A=pi w^2/4 -pi w^2(alpha^2+r_n beta^2)/[8(n^2-1)]. Quadrants beta>=0 or alpha=0 give objective <=1; for beta/alpha=-s<0 the cubic Chebyshev norm has m(s)=1-s for s<=1/9 and m(s)^2=(1+3s)^3/(27s) thereafter. Direct symbolic differentiation confirms F'(s)=27(1-6s+3r_n s^2)/(1+3s)^4. The sole global maximizing ratio s_n=1/[3(1+sqrt(1-r_n/3))], where F_n>4/3, fixes exactly two opposite coefficients. They give convex bodies with exactly 2n zero-curvature normal directions; n=3 numerical check yields F_3=1.337068308... . The proof holds for all odd n>=3 and w>0; finite checks are not used for the continuum.",
+      "residual_risks": [
+        "Reuleaux unrestricted equality does not saturate finite Fourier cutoff",
+        "Finite scripts and checked examples only corroborate the explicit general proof, not its unrestricted quantifiers."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-two-harmonic-area-minimum-for-dihedrally-invariant-constan--0094d4f2c8a9/RESULT.md",
+        "Bundled verification source at frozen commit verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Falcó--Myroshnychenko abstract classifies unrestricted odd-dihedral minimizing Reuleaux n-gons.",
+          "Those Reuleaux support functions are not finite Fourier-degree 3n polynomials."
+        ],
+        "reasoning": "The unrestricted minimum is a lower bound for the restricted minimum, not a sharp formula for the restricted one: class inclusion reverses the useful implication here.",
+        "searches": [
+          "constant width planar convex bodies dihedral odd n area minimization first and third cosine Fourier harmonics sharp optimum",
+          "arXiv:2608.05125"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-degree-four-fourier-cutoff-for-constant-3-order-width--3d02b0d1cd5f/RESULT.md",
+        "arXiv:2608.05125",
+        "DOI:10.3934/cpaa.2019095",
+        "constant width planar convex bodies dihedral odd n area minimization first and third cosine Fourier harmonics sharp optimum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full-class Reuleaux minimizers have higher Fourier harmonics; equality in that theorem is impossible in the two-frequency class.",
+          "Constant 3-order width is not ordinary constant width."
+        ],
+        "reasoning": "The new formula requires exact continuous cubic supnorm optimization; it is not obtained by specializing a broader but nonsaturating area lower bound.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-degree-four-fourier-cutoff-for-constant-3-order-width--3d02b0d1cd5f/RESULT.md",
+          "arXiv:2608.05125",
+          "constant width planar convex bodies dihedral odd n area minimization first and third cosine Fourier harmonics sharp optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constant width forces only odd Fourier modes, and dihedral D_n permits n,3n under cutoff.",
+          "Kawohl--Sweers 2019 addresses parametrizations and approximation rather than a displayed exact two-coefficient area minimax."
+        ],
+        "reasoning": "Fourier-support and trigonometric Chebyshev formulations are equivalent to the new constrained optimization but no prior exact optimizer under the same constraint was located; incomplete primary access is explicit.",
+        "searches": [
+          "constant width planar convex bodies dihedral odd n area minimization first and third cosine Fourier harmonics sharp optimum",
+          "Kawohl Sweers On a formula for sets of constant width in 2d Fourier approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published constant 3-order width cutoff uses modes 2,4 and a different width functional.",
+          "Published discrete Carathéodory--Fejér first/third harmonic note is an integer-mesh positivity problem, not continuous support-function area."
+        ],
+        "reasoning": "Neither table computes the continuous two-harmonic area value F_n or exactly two dihedral optimizers.",
+        "searches": [
+          "constant width planar convex bodies dihedral odd n area minimization first and third cosine Fourier harmonics sharp optimum",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-degree-four-fourier-cutoff-for-constant-3-order-width--3d02b0d1cd5f/RESULT.md"
+        ]
+      },
+      "rationale": "No retrieved theorem yields the two-mode fixed-dihedral area optimum. The stronger unrestricted Reuleaux minimum has a different (non-polynomial) equality class and is not attained under the spectral cutoff.",
+      "residual_risks": [
+        "Highly relevant arXiv:2608.05125 full text was unavailable via arXiv and OA in this run, and authorized Oxford reported vpn_disconnected; only abstract was read.",
+        "Kawohl--Sweers body and historical finite-trigonometric Chebyshev optimizations not fully read; a hidden equivalent exact cutoff remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its width is the sum over 3 rotated normals and its modes are 2,4. Present theorem has ordinary constant width and modes n,3n, so no direct parameter/relabeling implication.",
+          "evidence": [
+            "Prior area bound 77 pi Lambda^2/1053; no comparable fixed-dihedral ordinary-width two-frequency minimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-degree-four-fourier-cutoff-for-constant-3-order-width--3d02b0d1cd5f/RESULT.md",
+          "material_read": "Entire published RESULT.md and proof including Fejer-Riesz reduction",
+          "method": "Read-only GitHub fetch_file",
+          "title": "Sharp degree-four Fourier cutoff for constant 3-order width",
+          "trigger": "Close finite-mode area minimization with similar support-function calculus"
+        },
+        {
+          "assessment": "Unrestricted minimizer is a Reuleaux polygon, not a degree-3n trigonometric support function; its bound is not sharp for finite-mode subset by logical implication. No full-body negative assertion.",
+          "evidence": [
+            "Public abstract: for odd n>=3 exact unrestricted dihedral minimizers are regular Reuleaux n-gons."
+          ],
+          "identifier_or_url": "arXiv:2608.05125",
+          "material_read": "Public abstract and theorem summary only; arXiv HTML/PDF and ar5iv full text inaccessible; Oxford returned VPN disconnected job b34915470d6cdd1dfc67f4b25ffdf3c3",
+          "method": "Search plus lawful-preprint attempts; authorized Oxford attempt after failure",
+          "title": "Area Minimization Among Group-Invariant Planar Convex Bodies of Constant Width",
+          "trigger": "Same dihedral n odd symmetry, unrestricted constant-width area optimum"
+        },
+        {
+          "assessment": "Provides representation and approximation, with no observed explicit two-mode minimization; full-text checking remains a residual risk.",
+          "evidence": [
+            "Kawohl--Sweers abstract describes construction/approximation of all planar constant-width sets."
+          ],
+          "identifier_or_url": "DOI:10.3934/cpaa.2019095",
+          "material_read": "Abstract, publication page and short HTML snippets, not the full paper",
+          "method": "Public OA scholarly search",
+          "title": "On a formula for sets of constant width in 2d",
+          "trigger": "Possible dominating constructive Fourier parametrization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two admissible Fourier harmonics are the first meaningful spectral refinement beyond a one-harmonic dihedral constant-width class. A sharp area minimum with two explicit extremizers, finite-band gain factor, and curvature-contact geometry solves a natural variational cutoff rather than an arbitrary parameter slice; its strict >4/3 gain is quantitatively meaningful.",
+      "residual_risks": [
+        "Oxford returned VPN disconnected on arXiv:2608.05125 after OA routes failed",
+        "Finite scripts and checked examples only corroborate the explicit general proof, not its unrestricted quantifiers."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-two-harmonic-area-minimum-for-dihedrally-invariant-constan--0094d4f2c8a9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-degree-four-fourier-cutoff-for-constant-3-order-width--3d02b0d1cd5f/RESULT.md",
+        "arXiv:2608.05125"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Reuleaux unrestricted equality does not saturate finite Fourier cutoff",
+    "Oxford returned VPN disconnected on arXiv:2608.05125 after OA routes failed",
+    "Finite scripts and checked examples only corroborate the explicit general proof, not its unrestricted quantifiers."
+  ],
+  "schema_version": 1
+}

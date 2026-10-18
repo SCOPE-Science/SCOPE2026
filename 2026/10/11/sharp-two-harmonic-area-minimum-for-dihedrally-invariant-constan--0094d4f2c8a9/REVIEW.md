@@ -1,15 +1,21 @@
-# Scientific assessment: sharp dihedral two-harmonic area minimum
+# Independent mathematical audit
 
-## Correctness — PASS
-The support representation follows from the fixed reflection, rotation and constant-width identities, and the area computation uses exact trigonometric orthogonality. The convexity inequality becomes an exact uniform norm of \(\alpha\cos t+\beta\cos3t\). Every coefficient quadrant is treated; the adverse-sign quadrant reduces to an odd cubic whose interior maximum and endpoint competitors are compared explicitly. The rational derivative factorization has precisely the claimed maximizing root, and its value strictly dominates both the positive-sign regime and the limit at infinity. Substitution reconstructs valid support functions and the complete equality class. The standalone numerical program checks independent integrations and extremum computations but is not substituted for the analytic argument. No extension beyond two permitted harmonics is proved.
+## correctness
 
-## Originality — PASS with residual risk
-The full 2026 Falcó–Myroshnychenko manuscript supplies the general Fourier identity and classifies unrestricted odd-dihedral equality as Reuleaux polygons, but does not compute the restricted two-mode weighted cubic maximum or the algebraic pair of Fourier coefficients. The materially read 2019 Kawohl–Sweers construction and approximation manuscript gives Fourier approximation mechanisms, not the exact two-mode optimum. Two strongly related published finite-harmonic mathematical notes were read: the constant 3-order-width area result uses a distinct three-directional width and frequencies 2 and 4; the isolated-third-harmonic Carathéodory–Fejér result optimizes a linear coefficient on a discrete grid rather than a continuous curvature norm with a quadratic area objective. Published constant-width support stability bounds are of different inequality direction and do not fix this area minimum. Targeted searches revealed no stronger equivalent coverage. Specialized historical Chebyshev or constant-breadth Fourier literature could contain an earlier equivalent calculation; searches cannot prove absence.
+PASS
 
-## Value — PASS
-The first and third odd multiples of the dihedral symmetry order form the smallest nontrivial Fourier design space compatible with constant width. The sharp formula resolves a natural finite-dimensional extremal question that is not answered quantitatively by the unrestricted Reuleaux theorem. It also proves that the second harmonic yields a strict, more-than-one-third improvement in the disk-area deficit over the one-mode family, identifies the unique coefficient ratio and the curvature-contact structure, and offers a reproducible analytic benchmark for low-bandwidth approximation. No arbitrary parameter slice or purely numerical improvement is used.
+Odd dihedral symmetry and constant width force h=w/2+a cos(n theta)+b cos(3n theta). The support-function convexity condition h+h''>=0 becomes ||alpha cos t+beta cos3t||_infty<=1, and the support area formula gives A=pi w^2/4 -pi w^2(alpha^2+r_n beta^2)/[8(n^2-1)]. Quadrants beta>=0 or alpha=0 give objective <=1; for beta/alpha=-s<0 the cubic Chebyshev norm has m(s)=1-s for s<=1/9 and m(s)^2=(1+3s)^3/(27s) thereafter. Direct symbolic differentiation confirms F'(s)=27(1-6s+3r_n s^2)/(1+3s)^4. The sole global maximizing ratio s_n=1/[3(1+sqrt(1-r_n/3))], where F_n>4/3, fixes exactly two opposite coefficients. They give convex bodies with exactly 2n zero-curvature normal directions; n=3 numerical check yields F_3=1.337068308... . The proof holds for all odd n>=3 and w>0; finite checks are not used for the continuum.
 
-## Closest literature and limits
-Falcó–Myroshnychenko, arXiv:2608.05125v1 (2026); Kawohl–Sweers, DOI:10.3934/cpaa.2019095 (2019); published finite-Fourier constant 3-order-width note; published isolated-third-harmonic discrete Carathéodory–Fejér note; published planar constant-width Hausdorff support-stability notes. The theorem does not characterize unrestricted constant-width smooth minimizers, higher Fourier cutoffs, or arbitrary phase choices under cyclic symmetry. Its algebraic curvature density has isolated zeros and an unindexed earlier finite-harmonic result remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No retrieved theorem yields the two-mode fixed-dihedral area optimum. The stronger unrestricted Reuleaux minimum has a different (non-polynomial) equality class and is not attained under the spectral cutoff.
+
+## value
+
+PASS
+
+The exact two admissible Fourier harmonics are the first meaningful spectral refinement beyond a one-harmonic dihedral constant-width class. A sharp area minimum with two explicit extremizers, finite-band gain factor, and curvature-contact geometry solves a natural variational cutoff rather than an arbitrary parameter slice; its strict >4/3 gain is quantitatively meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
