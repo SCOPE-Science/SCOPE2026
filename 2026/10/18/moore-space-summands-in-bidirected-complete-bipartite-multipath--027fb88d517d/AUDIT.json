@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md Steps 1–5",
+      "verify_bidirected_k2n.py: exhaustive construction, matching, Hasse sort, signed Morse boundary, mod-two ranks",
+      "verify_integer_cancellation.py: independently reconstructed signed integral unit-pivot cancellation",
+      "2026-10-11 verified local execution: VERIFY_OK and four CANCEL_OK lines"
+    ],
+    "rationale": "Complete face enumeration is finite because every selected arc meets one of the two central vertices, each with at most one incoming/outgoing arc, bounding the face size at four. The exact augmented face counts are 115,313,711,1417 for n=3,4,5,6. Sequential arc-type toggling pairs respectively 54,152,339,624 faces with disjoint cofaces; topological sorting of all 288,896,2200,4608 oriented Hasse incidences proves acyclicity. One empty-face match yields an ordinary Morse model with a single vertex. Independent integral signed chain cancellations confirm the critical-cell dimensions and boundary matrices (1x6 zero; 8x1 content 2; 1x32 content 2; 0x169 zero). Hurewicz/degree classification of attaching maps to S^1 or wedges of S^2 and unimodular changes yield the four actual homotopy types, not just homology. The unstable dynamical-module assertion follows from directed 2-/4-cycle closure of any contained arc and positive in/outdegrees. Both standalone programs executed successfully after copies were inspected.",
+    "risks": [
+      "Proof is a finite exact computation for four inputs; no infinite-parameter assertion",
+      "Integer chain reductions and homotopy-group deductions require their specified conventions, fully documented in the result"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2401.01248: Proposition 4.7 bounds torsion uniformly for bounded-genus quivers but does not compute groups; Theorem 4.20 assumes no oriented cycles",
+        "https://arxiv.org/pdf/2601.05670: Theorems 2.8 and 2.10 apply to bidirected polygons only",
+        "https://arxiv.org/pdf/2208.04656: Theorem 1.1 decomposes dynamical modules but does not classify this unstable module"
+      ],
+      "reasoning": "Global finite-generation or bounded-exponent theorems cannot imply the exact mod-two Moore-space type or four multiplicities. Matching-complex reductions require absence of oriented cycles, which fails dramatically. A decomposition into dynamical modules is trivial here: the entire host is one unstable module.",
+      "searches": [
+        "directed multipath complex complete bipartite two-way orientation K_{2,n} integer homology",
+        "circle-free chessboard complex of bipartite bidirected graph degree two 2-torsion",
+        "\"multipath complex\" \"unstable dynamical module\" torsion"
+      ]
+    },
+    "checked_sources": [
+      "Caputi–Collari–Smith 2026, arXiv:2601.05670v1, bidirected polygonal multipath results and open problem",
+      "Caputi–Collari–Di Trani–Smith 2022, arXiv:2208.04656v1, §3.2 complete bipartite one-way and §4 dynamical modules",
+      "Caputi–Collari–Ramos 2024, arXiv:2401.01248v1, bounded torsion and acyclic comparison",
+      "Publicly indexed calculation of the ordinary Morse complex of K_{2,n}: different simplicial faces",
+      "Publicly indexed calculation of the two-matching complex of K_{3,4}: different simplicial faces"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/2208.04656: Introduction states torsion in a dynamical module implies stable, as a conjecture; Definition 4.2 defines modules via directed-cycle closure",
+        "https://arxiv.org/pdf/2401.01248: Theorem 4.20 covers no-oriented-cycle digraphs only, while our graphs have directed two-cycles",
+        "https://arxiv.org/pdf/2601.05670: §1 says torsion for general multipath complexes was already possible and explicitly restricts its separate wedge question to bidirected polygons"
+      ],
+      "reasoning": "The 2022 proposed implication has the reverse direction from its known stable/matching examples; demonstrating torsion in a provably unstable module is a genuine new boundary and not a corollary of its supporting observations. Neither the 2024 boundedness theorem nor the 2026 polygon results determine a torsion group for these strongly cyclic hosts. The work makes no claim that torsion in multipath complexes was previously unknown or that the separate polygon conjecture fails.",
+      "searches": [
+        "\"dynamical module\" \"torsion\" \"stable\" multipath conjecture counterexample",
+        "\"bidirected complete bipartite\" \"multipath\"",
+        "\"multipath complex\" \"unstable dynamical module\" torsion",
+        "Caputi Collari Di Trani Smith 2022 unstable dynamical module torsion conjecture",
+        "The weak categorical quiver minor theorem 2401.01248 multipath torsion oriented cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/2601.05670: Def. 1.2 on multipath complexes; §§1–2 treat bidirected polygons and paths",
+        "https://arxiv.org/pdf/2208.04656: §3.2 identifies the paper’s complete bipartite digraph as one-way oriented",
+        "Search for cycle-free chessboard and Moore-space aliases found no identification of these exact bidirected K_{2,n} complexes"
+      ],
+      "reasoning": "The multipath complex of a bidirected K_{2,n} is not the chessboard complex of an alternating one-way K_{2,n}, nor the ordinary matching complex of that undirected host. Bidirected arcs allow length-two paths and directed 2-/4-cycles; the face predicates and torsion differ. A 2026 bidirected polygon is a single cycle, not K_{2,n} for n>=3.",
+      "searches": [
+        "\"multipath complex\" \"bidirected\" \"complete bipartite\" torsion",
+        "\"multipath complex\" \"K_{2,4}\" \"torsion\"",
+        "\"multipath\" \"Moore space\" \"bipartite\"",
+        "\"cycle-free chessboard\" \"Moore\" bidirectional graph",
+        "multipath complex of bidirected complete bipartite graphs K_{2,n}, directed path forest homotopy wedge spheres",
+        "Moore space Z/2 torsion multipath complex bidirected complete bipartite K2,4 K2,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table for the four bidirected complete-bipartite multipath complexes was found in accessible indexed references",
+        "Previously indexed values for the ordinary Morse complex of K_{2,n} concern discrete gradient fields rather than path-forest simplices",
+        "https://arxiv.org/pdf/2208.04656: Theorem 3.7 gives Euler characteristics only for one-way complete bipartite digraphs"
+      ],
+      "reasoning": "The reported two-torsion invariant in n=4,5 is certified by integral Morse matrices and mod-two/odd-prime checks. Other finite graph-complex tables do not specify the same simplex criterion. Negative search results are not a mathematical novelty proof.",
+      "searches": [
+        "\"multipath complex\" \"K_{2,4}\" \"torsion\"",
+        "bidirected complete bipartite K_{2,4} multipath complex wedge eight 2-spheres one 3-sphere",
+        "bidirected complete bipartite K_{2,5} multipath complex one 2-sphere 32 3-spheres",
+        "bidirected K_{2,6} multipath complex wedge 169 3-spheres",
+        "bidirected complete bipartite K_{2,4} K_{2,5} multipath homology integral table"
+      ]
+    },
+    "rationale": "The 2026 motivating article deals with bidirected path and polygon hosts and establishes their homology/partial homotopy, whereas this work classifies bidirected complete bipartite hosts with torsion. The 2022 paper studies its complete bipartite digraph with one-way orientation, §3.2, and hence only the chessboard complex; its introduction explicitly conjectures that torsion of a dynamical module implies stability, which these newly calculated unstable modules contradict. The 2024 weak categorical quiver-minor paper proves genus-bounded torsion existence/bounds and a matching-complex equivalence only for digraphs without oriented cycles; it does not determine these complexes. Record searches of graph Morse complexes and higher matching complexes have different face definitions and do not dominate the statement. The searches were source-, object-, parameter-, alias-, and reduction-aware, and no explicit published equivalent or stronger covering theorem was identified. Absolute priority is not claimed.",
+    "residual_risks": [
+      "Unindexed, later or unpublished computations could yield equivalent homotopy decompositions, so absence in searched sources does not certify priority.",
+      "Theoretical papers on other complexes can contain embedded examples outside title/abstract indexing; inspected the most plausible primary full texts but cannot certify exhaustive worldwide coverage.",
+      "The n=3..6 classification does not establish persistence, absence, or periodicity of two-torsion beyond n=6."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the same multipath property but computes bidirected paths/cycles, not bidirected complete bipartite hosts",
+        "evidence": "Introduction and Theorems 2.8/2.10; §1 definitions; the statement after Theorem 2.10 concerns polygons only",
+        "identifier_or_url": "arXiv:2601.05670v1 / https://arxiv.org/pdf/2601.05670",
+        "material_read": "Full-text introduction; Definitions 1.1–1.3, Theorems 2.8 and 2.10 and their discussion; cited earlier work and open problems",
+        "method": "Open-access PDF text extraction with rendered-page inspection",
+        "title": "Multipath complexes of bidirectional polygonal digraphs",
+        "trigger": "The 2026 literature-led problem of exact homotopy versus homology for bidirected host graphs"
+      },
+      {
+        "assessment": "The complete-bipartite object is a one-way orientation and the paper gives Euler characteristics, not these bidirected homotopy types. Its torsion/stability conjecture is contradicted by the two explicit examples.",
+        "evidence": "Theorem 3.7 and lines defining arcs (v_i,w_j) only; Intro conjecture; §4.1 Definitions 4.1–4.4",
+        "identifier_or_url": "arXiv:2208.04656v1 / https://arxiv.org/pdf/2208.04656",
+        "material_read": "Introduction and its conjecture, Definition 2.2, §3.2 (Theorem 3.7, including exact edge orientation), and §4.1 (Definitions 4.1, 4.2, 4.4 and module properties)",
+        "method": "Open-access PDF text extraction with rendered-page inspection and section-level comparison",
+        "title": "On the homotopy type of multipath complexes",
+        "trigger": "Plausible complete-bipartite prior theorem and stated torsion/stability conjecture"
+      },
+      {
+        "assessment": "Bounds possible torsion for bounded genus but does not give values; its matching-complex equivalence excludes directed cycles, so it cannot determine our directed two-cycle-rich complexes",
+        "evidence": "Proposition 4.7 and Theorem 4.20 hypotheses; Theorem 4.25 excludes oriented and alternating cycles",
+        "identifier_or_url": "arXiv:2401.01248v1 / https://arxiv.org/pdf/2401.01248",
+        "material_read": "Abstract, Introduction, Proposition 4.7, Theorem 4.20, Theorems 4.23 and 4.25, and §4 discussion of oriented cycles",
+        "method": "Open-access PDF text extraction with rendered-page inspection and theorem-hypothesis checks",
+        "title": "The weak categorical quiver minor theorem and its applications: matchings, multipaths, and magnitude cohomology",
+        "trigger": "Plausible stronger torsion theorem for arbitrary quivers and matching-complex reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "027fb88d-517d-4c29-ad7f-6d4671bfdedd",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "https://arxiv.org/pdf/2208.04656: introduction states torsion/stability conjecture",
+      "https://arxiv.org/pdf/2601.05670: exact homotopy types beyond simple bidirected hosts are an explicit motivation",
+      "RESULT.md: finite exact homotopy classifications and uniform module lemma"
+    ],
+    "rationale": "Bidirected complete bipartite hosts are a canonical highly symmetric next family after the newly studied bidirected paths and polygons. The first four nonpolygonal widths reveal a mathematically meaningful transition: torsion-free wedge, then mod-two Moore summands in two successive widths, then a pure high-dimensional wedge. The exact CW attaching degrees isolate the unstable homotopy obstruction and yield precise integral homotopy types that Betti numbers alone cannot establish. Most importantly, a short uniform directed-cycle lemma makes the two torsion-bearing hosts unstable dynamical modules, directly negating a specific stated torsion-implies-stability conjecture. This supplies genuine conceptual significance for otherwise finite classifications. No paper-sized or all-width theorem is claimed.",
+    "risks": [
+      "Does not classify larger complete-bipartite widths",
+      "The 2026 polygon conjecture is a distinct statement and is not affected"
+    ],
+    "status": "PASS"
+  }
+}
