@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is proved for arbitrary positive boundary defects, even when they vary with matrix size. The simple Perron eigenpair of the tridiagonal norm pencil yields an exact constrained-radius envelope; the intact central block and entrywise comparison give uniform two-sided tridiagonal bounds. All possible minimizers are confined to a common compact set when \(c>0\), so the uniform expansion determines the limit. The \(c=0\) endpoint is separately squeezed by the numerical radii of two path matrices. A standalone finite diagnostic passed 276 assertions; it is not an infinite proof.
+
+**Originality — PASS subject to priority risk.** The most directly related earlier exact profile treats only constant-weight Jordan shifts, not arbitrarily perturbed positive boundary weights, so its quantifiers do not cover the uniform weighted-family result. Published scaled \(q\)-numerical dilation and spectral-set papers provide no weighted long-shift critical layer. The 2014 weighted-shift paper concerns the ordinary numerical radius, and an infinite one-edge shift result does not imply the coupled finite-size constrained radius. Targeted research-record and literature searches found no statement with the same weighted-family quantifiers. Older alternative formulations and inaccessible complete text remain potential priority risks; absence from search is not proof of priority.
+
+**Mathematical value — PASS.** The entire sharp crossover profile is insensitive to arbitrary fixed-width end defects (even size-dependent defects approaching zero), while individual finite-dimensional singular values and higher corrections depend on those defects. This is a structural universality theorem for a natural perturbation class rather than a substitution into the unweighted Jordan formula. The sharp transition occurs at a genuinely nontrivial \(n^{-2}\) balance between numerical-radius edge loss and constrained overlap.
+
+Limitations: Only finite-width boundary defects and fixed \(c\) are considered; no claim for bulk defects, macroscopic defect counts, higher-order coefficients, or independent priority validation.
+
+Self-review: passed. Independent audit: not yet performed.
