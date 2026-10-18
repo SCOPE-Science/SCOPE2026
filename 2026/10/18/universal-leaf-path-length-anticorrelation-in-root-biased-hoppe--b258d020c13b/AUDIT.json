@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "All parent-selection probabilities are explicit; recurrences for the leaf count, path length and leaf-depth sum follow from conditional expectation. The derived δ_n recursion has positive initial value and strictly positive forcing for all θ>0; C_{n+1}=C_n−δ_n/W_n gives C_n<0 for n≥3. A closed δ_n expression and finite summation yield the exact covariance. Harmonic bounds give Oθ(log n/n); Leckey–Neininger Theorems 2.5/2.6 supply separate positive leading variances for the correlation constant. Exact-rational full enumeration verified five θ values and n=2..9, 231165 tree instances and 208 assertions. No inference of infinite truth from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hiesmayr–Işlak weighted recursive trees give degree/leaf results but do not treat mixed leaf–internal-path covariance.",
+        "Lundblad–Wagner 2026 increasing-tree model attaches according to child-count-dependent weights and has no distinguished exceptional root parameter."
+      ],
+      "reasoning": "The complete multivariate generating function from Lundblad–Wagner is stronger for θ=1 and is credited, but its homogeneous-parent attraction rule has no root-only bias; the source does not imply the θ≠1 covariance. Path length variance asymptotics in Leckey–Neininger alone cannot determine correlation with leaves.",
+      "searches": [
+        "\"recursive trees mixed moments leaf depth sums Hoppe urn covariance path length\"",
+        "\"Hoppe random recursive trees exact finite covariance leaf number internal path length total depth negative\"",
+        "\"leaf count and internal path length joint moments root weighted Hoppe trees theta\"",
+        "\"linear preferential attachment recursive trees joint generating function leaves and internal path length 2026\"",
+        "arXiv:1712.03572v1 model comparison",
+        "doi:10.4230/LIPIcs.AofA.2026.2 Section 2 attachment model"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.2439v3 (Theorems 2.5–2.7; pp. 3–4 and proofs pp. 7–9)",
+      "arXiv:1712.03572v1 (Hoppe trees, leaf degree statistics)",
+      "doi:10.4230/LIPIcs.AofA.2026.2 (Theorem 6 and equation (13); pp. 6, 12–13)",
+      "doi:10.1017/S0963548399003855 (1999 original abstract/bibliographic record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorems 2.5–2.6 of arXiv:1202.2439 separately provide Var(L), Var(P), but do not specify their covariance or strict sign.",
+        "2026 Eq. (13) determines the joint uniform recursive-tree law, so θ=1 is already covered. Section 5 analyzes average leaf depth minus mean depth, not root-biased leaf/count covariance.",
+        "Dobrow–Fill 1999 describes total path length under uniform recursion; full text not inspected."
+      ],
+      "reasoning": "Separate marginal laws admit many couplings with opposite covariance signs and cannot imply the claimed Cθ(n). The 2026 stronger homogeneous recursive-tree generating equation implies only θ=1, while exceptional-root θ≠1 is not its specialization. The full θ-dependent formula and universal negativity require evaluating the new cross-statistic δ_n.",
+      "searches": [
+        "\"exact covariance number leaves internal path length Hoppe trees parameter theta negative universal\"",
+        "\"uniform random recursive trees covariance leaf count total depths -(n-2)/4\"",
+        "\"weighted recursive trees negative dependence leaves total path length correlation theta\"",
+        "\"recursive trees mixed moments leaf depth sums Hoppe urn covariance path length\"",
+        "\"Hoppe random recursive trees exact finite covariance leaf number internal path length total depth negative\"",
+        "\"leaf count and internal path length joint moments root weighted Hoppe trees theta\"",
+        "\"linear preferential attachment recursive trees joint generating function leaves and internal path length 2026\"",
+        "\"random recursive trees total path length and leaves covariance -n/4\"",
+        "\"Hoppe tree covariance number leaves total path length internal path length exact mixed moments\"",
+        "\"recursive trees covariance number of leaves total internal path length\"",
+        "\"weighted recursive trees joint distribution leaves path length Hoppe theta covariance\"",
+        "arXiv:1202.2439v3 full marginal theorem statements",
+        "doi:10.4230/LIPIcs.AofA.2026.2 Theorem 6 and (13)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leckey–Neininger 2012 Theorems 2.5 and 2.6 give separate marginals but no mixed moment.",
+        "Lundblad–Wagner 2026 Eq. (13) is a full implicit joint generating-function equation for (leaves,total path length,external path length) in uniform recursive trees. Thus the θ=1 case is covered implicitly."
+      ],
+      "reasoning": "Mixed covariance is the second mixed derivative of the joint probability generating function. Hence the θ=1 case is subsumed by the 2026 generating-function identity even though no matching closed covariance polynomial is printed. Neither equation (13) nor the 2012 separate marginals produces the exceptional-root constant θ≠1 model; the new θ-dependent covariance and strict sign need a separate joint moment recursion.",
+      "searches": [
+        "\"Hoppe trees leaves internal path length joint limit independent\"",
+        "\"exact covariance number leaves internal path length Hoppe trees parameter theta negative universal\"",
+        "\"uniform random recursive trees covariance leaf count total depths -(n-2)/4\"",
+        "\"weighted recursive trees negative dependence leaves total path length correlation theta\"",
+        "arXiv:1202.2439v3 Theorems 2.5–2.7",
+        "doi:10.4230/LIPIcs.AofA.2026.2 equation (13)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record retrieval included a paper on missing-mass covariance in species sampling and another on random-walk ranges on graphs; both concern different probability models and do not imply the present Hoppe-tree mixed covariance.",
+        "An existing result on root-child count jointly with leaves when the root weight grows linearly with tree order treats a different statistic and parameter regime."
+      ],
+      "reasoning": "No exact table/database match was returned for the root-biased mixed covariance. This is a bounded search comparison, not a proof of nonexistence, and the earlier Hoppe-tree result belongs to a distinct parameter regime and object.",
+      "searches": [
+        "\"random recursive tree fringe subtree counts root depth covariance exact finite asymptotic\"",
+        "\"random recursive trees joint Gaussian leaf count non Gaussian total path length martingale limit asymptotic independence\"",
+        "\"random recursive trees total path length and leaves covariance -n/4\"",
+        "\"Hoppe tree covariance number leaves total path length internal path length exact mixed moments\"",
+        "\"recursive trees covariance number of leaves total internal path length\"",
+        "\"weighted recursive trees joint distribution leaves path length Hoppe theta covariance\""
+      ]
+    },
+    "rationale": "Specific θ≠1 Hoppe root-bias cross-covariance and strict all-θ sign are not entailed by the inspected 2012 Hoppe marginal results, 2017 weighted recursive-tree degree results, or 2026 homogeneous recursive-tree multivariate generator. The θ=1 special case is acknowledged as implicitly covered and is not used to claim novelty. Targeted published-record searches and comparisons with prior scientific results found no stronger θ≠1 claim. Potential inaccessible early path-length results remain a priority uncertainty, not a demonstrated dominating theorem.",
+    "residual_risks": [
+      "The 2026 multivariate generating-function identity implicitly determines θ=1 moments and must remain credited; θ=1 is not a standalone original result.",
+      "The complete Dobrow–Fill 1999 paper was not materially available; it might contain a relevant alternative mixed-moment calculation for uniform recursion.",
+      "Unindexed or earlier arbitrary-root-weight joint statistics could supersede the novelty assessment; semantic retrieval cannot establish absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_MATCH_WITH_SEPARATE_MARGINAL_COVERAGE, not covering exceptional-root mixed covariance",
+        "evidence": [
+          "Theorem 2.5 gives leaf mean, variance, and marginal normality; Theorem 2.6 gives internal path-length mean and variance coefficient.",
+          "Proof of Theorem 2.5 uses a leaf-only martingale; Theorem 2.6 a path-length-only martingale. No joint covariance theorem is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.2439",
+        "material_read": "Original manuscript 11 pages; theorem statements pp. 3–4, conditional updates and proof on pp. 7–9, plus title/abstract and references",
+        "method": "Read rendered PDF, inspect relevant proofs/equations including 2.5, 2.6, 2.7 and locate mixed-moment terms",
+        "title": "Asymptotic analysis of Hoppe trees",
+        "trigger": "Exact source model and both marginal observables"
+      },
+      {
+        "assessment": "LEAF_OBSERVABLE_COVERAGE_ONLY, no documented mixed internal path length",
+        "evidence": [
+          "Article studies weighted recursive trees, leaves and related degree statistics; no mixed internal-path-length covariance displayed."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1712.03572v1",
+        "material_read": "Open full HTML paper, definition, leaf result sections, conclusions; searched occurrences of covariance and total path length",
+        "method": "Read HTML main text and mathematical statements, not metadata alone",
+        "title": "Asymptotic results on Hoppe trees and its variations",
+        "trigger": "Possible stronger root-weight/tree-statistics coverage"
+      },
+      {
+        "assessment": "IMPLICIT_STRONGER_COVERAGE_OF_THETA_1_ONLY, not exceptional-root θ≠1",
+        "evidence": [
+          "Equation (13) is an exact multivariate generating function including leaves and path lengths for uniform recursive trees, so the uniform case is not claimed as new.",
+          "Theorem 6 is about average depths in α-linear preferential trees, whose α denotes degree reinforcement for every vertex, not one exceptional root weight."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol381-aofa2026/LIPIcs.AofA.2026.2/LIPIcs.AofA.2026.2.pdf",
+        "material_read": "Read full 20-page searchable PDF with results pp. 2–6, increasing-tree generating functions pp. 11–13, recursive-tree examples and appendix; visually checked pages 6 and 12",
+        "method": "Original PDF theorem-by-theorem and equation (13) inspection plus appendix search",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Highly relevant joint path/leaf statistics and possible coverage"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_PRIMARY_SOURCE, priority risk recorded",
+        "evidence": [
+          "1999 paper studies total internal path length of uniform recursive trees; completeness of related mixed-moment computations was not established."
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548399003855",
+        "material_read": "Author/title/bibliographic information and abstract only; complete original unavailable",
+        "method": "Read bibliographic description and original-work reference list; not asserted noncoverage from snippets",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Early path-length original for uniform recursive trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b258d020-c13b-400e-a621-4e2444b54016",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf count measures peripheral branching while total root-to-vertex depth measures global search cost. Their dependence is mathematically natural but marginal Hoppe-tree CLTs and path-length limits do not determine mixed covariance, sign, or the universal −n/4 slope. The all-positive-root-weight strict anticorrelation and exact root-weight-dependent n^{-1/2} correlation coefficient reveal an interpretable finite-size and asymptotic structural relation rather than a chosen arbitrary parameter slice. The θ=1 special case is appropriately treated as prior implicit coverage.",
+    "status": "PASS"
+  }
+}
