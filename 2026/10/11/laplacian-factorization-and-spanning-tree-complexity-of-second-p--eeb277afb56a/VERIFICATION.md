@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Using Python 3, run `python3 verify.py` from the extracted package folder. The file has no dependencies beyond the standard library and builds the graph independently from its four explicit edge families, then computes integer determinants using fraction-free Bareiss elimination.
+## correctness
 
-The exact grounded-Laplacian determinants equal \(1445\), \(60742656\), \(689041148403125\), and \(3381513651486720000000000\) for \(m=3,4,5,6\), respectively. Each agrees with the claimed product. The complete characteristic-polynomial identities were verified at eleven distinct integers for \(m=3\) and eighteen for \(m=4\), and every constructed vertex has degree \(m\).
+PASS
 
-For \(m=3,4\), equality of the two degree-\(m^2+1\) characteristic polynomials at \(m^2+2\) distinct integer values is a complete polynomial identity for those respective finite dimensions, not for all dimensions. For \(m=3,4,5,6\), an exact Laplacian cofactor gives the stated tree count. The universal result is independently proved by invariant-subspace decomposition and the matrix-tree theorem in RESULT.md. This package does not represent external, independent, or machine-formal certification.
+For m>=3 the P(m,2) halfspace model has o,a_i,b_ij as its m^2+1 simple vertices and exactly the four listed edge families, each vertex degree m. In L, the B_{ij} zero-row/column space decomposes into symmetric and antisymmetric dimensions m(m-3)/2 and (m-1)(m-2)/2, with eigenvalues m,m+2. Its complement splits into scalar T_m and m-1 standard M_m blocks, whose explicitly computed determinant factors account for the entire dimension. Kirchhoff cancels the scalar nonzero product m^2+1 to yield the formula. Signs of cubic at 1 and 1+1/m, monotonicity below 2, and the quadratic/root alternatives justify the unique spectral-gap root. Independent exact constructed Laplacians for m=3,4 gave matching full characteristic polynomials and grounded cofactors 1445 and 60742656; finite tests are corroborative, not a proof of all m.
+
+## originality
+
+PASS
+
+Primary partial-permutohedron papers supply its vertices, halfspaces, faces, volume and Ehrhart counts, but not the evaluated Laplacian determinant, tree count, or gap. A query across graph-spectral, partially truncated simplex and polytope aliases in the published record index returned only the target and spectral results for different graph families. The full P(m,2) spectral block evaluation is not an already stated corollary of the general matrix-tree theorem. Alternative partial-truncation names remain a genuine residual risk.
+
+## value
+
+PASS
+
+The second-parameter-two partial permutohedra have a studied natural face/Ehrhart geometry, yet the unweighted one-skeleton has independent spectral reliability invariants. The complete all-m Laplacian factorization, closed spanning-tree complexity and nontrivial limit of the m-regular algebraic connectivity quantify structure absent from basic face counts; not a finite table or arbitrary dimension slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

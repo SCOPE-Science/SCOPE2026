@@ -1,19 +1,21 @@
-# Scientific review: Laplacian factorization and spanning-tree complexity of second partial permutohedra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The halfspace description of \(\mathcal P(m,2)\) is explicitly verified in the source (Behrend et al., arXiv:2207.14253, Theorem 5.11). All vertices are enumerated, and the active-facet test at each simple vertex gives exactly the four edge families stated in RESULT.md. Each row of the combinatorial Laplacian is reconstructed from that edge list. Its zero-row-and-column invariant subspace splits into symmetric and antisymmetric parts of provably computed dimensions. The complement decomposes into a 3-dimensional scalar block and \(m-1\) identical 3-dimensional standard blocks, giving the complete polynomial and accounting for all \(m^2+1\) coordinates. The matrix-tree theorem then gives the closed count, and explicit sign/monotonicity comparisons identify the algebraic connectivity. Exact integer determinants from the standalone checker corroborate small cases. There is no reliance on a numerical root fit or a finite census to prove an infinite family.
+PASS
 
-## Originality — PASS with literature-coverage risk
+For m>=3 the P(m,2) halfspace model has o,a_i,b_ij as its m^2+1 simple vertices and exactly the four listed edge families, each vertex degree m. In L, the B_{ij} zero-row/column space decomposes into symmetric and antisymmetric dimensions m(m-3)/2 and (m-1)(m-2)/2, with eigenvalues m,m+2. Its complement splits into scalar T_m and m-1 standard M_m blocks, whose explicitly computed determinant factors account for the entire dimension. Kirchhoff cancels the scalar nonzero product m^2+1 to yield the formula. Signs of cubic at 1 and 1+1/m, monotonicity below 2, and the quadratic/root alternatives justify the unique spectral-gap root. Independent exact constructed Laplacians for m=3,4 gave matching full characteristic polynomials and grounded cofactors 1445 and 60742656; finite tests are corroborative, not a proof of all m.
 
-The closest primary paper (Behrend et al., arXiv:2207.14253, pages 25–28, notably Proposition 5.7, Remark 5.9 and Theorem 5.11) provides the geometry, combinatorial edge criterion, lattice Ehrhart polynomial, and volume; it does **not** state the Laplacian polynomial, its eigenvalue multiplicities, the spanning-tree product, or the spectral gap. The original Heuer–Striker source (arXiv:2012.09901) establishes partial-permutohedron face geometry, not these spectral invariants. Behrend's 2024 paper (arXiv:2403.06975, introduction and Theorem 1) focuses on Ehrhart polynomials, chiefly \(n\ge m-1\). Clique-insertion Laplacian papers concern the graph obtained as the line graph of a subdivided graph, which replaces **every** vertex by a clique. Here exactly one simplex vertex remains untruncated, and the graph has \(m^2+1\), rather than \(m(m+1)\), vertices. Those general statements cannot yield this polynomial merely by parameter substitution. Related published spectral computations concern different graphs. Independent undiscovered publications, particularly alternative names for partial truncations of simplices, remain a real but unresolved literature-search risk; database nonmatches alone are not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-Partial permutohedra are a natural, explicitly defined family with independently studied faces, volumes and lattice-point counts. The slice at second parameter two is the first non-simplex slice, and its graph has quadratically many vertices as the geometric dimension grows. The theorem gives every eigenvalue and multiplicity and an exact product for the graph's spanning-tree complexity, rather than a generic determinant algorithm. The result supplies electrical-network reliability information and a non-obvious spectral-gap phenomenon: despite growing degree, algebraic connectivity tends to one. The proof reduces growing determinant computations to two fixed-size blocks and two elementary eigenspaces. This is structurally motivated, not an arbitrary isolated numerical example.
+Primary partial-permutohedron papers supply its vertices, halfspaces, faces, volume and Ehrhart counts, but not the evaluated Laplacian determinant, tree count, or gap. A query across graph-spectral, partially truncated simplex and polytope aliases in the published record index returned only the target and spectral results for different graph families. The full P(m,2) spectral block evaluation is not an already stated corollary of the general matrix-tree theorem. Alternative partial-truncation names remain a genuine residual risk.
 
-## Limits and closest work
+## value
 
-This review supports only the unweighted one-skeleton of \(\mathcal P(m,2)\) for integers \(m\ge3\). Extension to other partial-permutohedron parameters, other truncation patterns, edge-length weights, and higher-dimensional Laplacians is not claimed. The closest literature is arXiv:2012.09901, arXiv:2207.14253, arXiv:2403.06975, and DOI:10.1155/2021/7671212; see the exact scientific comparisons in AUDIT.json. The risk of earlier equivalent spectral results under graph-operation terminology is documented. An independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The second-parameter-two partial permutohedra have a studied natural face/Ehrhart geometry, yet the unweighted one-skeleton has independent spectral reliability invariants. The complete all-m Laplacian factorization, closed spanning-tree complexity and nontrivial limit of the m-regular algebraic connectivity quantify structure absent from basic face counts; not a finite table or arbitrary dimension slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
