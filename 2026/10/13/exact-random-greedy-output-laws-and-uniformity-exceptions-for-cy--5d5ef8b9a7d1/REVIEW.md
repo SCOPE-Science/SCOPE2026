@@ -1,15 +1,21 @@
-# Scientific review: exact greedy laws on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(C_n\) with \(n\ge3\), a maximal independent set is characterized by cyclic successive gaps of size \(2\) or \(3\). The order certificate is proved in both directions, not assumed. Integrating independent outside priorities gives kernels \(1-\min(u,v)\) for gap \(2\) and \((1-u)(1-v)\) for gap \(3\). Rank-one factorization yields all profile probabilities, including the single selected vertex of \(C_3\). Rational polynomial integration computes all moments. The all-2 trace generating function is proved by a trace-class Fredholm determinant and a rank-one perturbation. The uniformity classification includes explicit distinct rational probability pairs for the seven small nonuniform orders and positive moment-determinant differences for every larger odd and even order. Independent exact-rational first-choice recurrence checks all 637 maximal independent sets across cycles of orders 3 through 18, and exhaustive permutation simulation checks 46,230 orders through order 8. These tests reinforce, but do not replace, the symbolic proof. The two classes of nonuniform witnesses exhaust all orders not in \(\{3,4,5,7\}\).
+## correctness
 
-## Originality — PASS, bounded literature uncertainty
-The closest inspected 2026 primary full manuscript (Fairfax-Ball, arXiv:2610.02276v1) proves exact uniformity obstruction on **trees** and identifies extension beyond trees as a separate question; no theorem there covers the cycle classification or the labeled-set law. Full inspected published mathematical work on chain graphs gives an exact law on nested-neighborhood bipartite graphs but cannot imply the cycle statement except the \(C_4\) subcase. Krivelevich et al. (arXiv:1907.07216) study asymptotic greedy occupancy densities; Pippenger (1989) treats occupancy/jamming probabilities. Actual targeted searches compared aliases under random priorities, random sequential adsorption, jammed state probability, configuration probabilities, and cyclic maximal independent sets, with no covering full theorem identified. Kryven–Versendaal–de Vries (arXiv:2608.07239) may be relevant but its complete text was inaccessible; equivalent older configuration-resolved adsorption work remains possible. The detailed scientific implication checks and residual risks are retained in `AUDIT.json`, rather than upgrading nonfindings into a novelty certificate.
+PASS
 
-## Value — PASS
-The problem is motivated by an explicit 2026 tree-only uniformity theorem and a natural question of whether exact greedy uniformity survives a single cycle. The answer is not a routine one-number evaluation: \(C_3,C_4,C_5,C_7\) are exactly the four exceptional cycles, and every other order has a constructive positive gap between two exact labeled-set probabilities. The integral-kernel factorization computes the entire finite terminal-set distribution, including dependence on the cyclic **arrangement** of gaps, not just independent-set size. A single positive moment determinant yields a uniform symbolic nonuniformity proof for infinitely many orders. No assertion is made for general graphs or global optimality.
+For every simple labeled C_n, n>=3, maximal independent sets have cyclic selected-vertex gaps 2 or 3. The earliest-accepted-outside-vertex contradiction proves the priority certificate in both directions. Conditional independent outside priorities give kernel A(u,v)=1-min(u,v) for 2-gaps and rank-one b(u)b(v), b=1-u, for 3-gaps. Cyclic trace factorization proves the complete labeled-set law: all-2 gap probability tr(A^k), otherwise product of phi_a=<b,A^a b>. A=J-M with M the Brownian min-kernel gives trace-class Fredholm D(z)=cosh(sqrt z)-sqrt z sinh(sqrt z) and sum tr(A^k)z^k=-zD'/D. Rational polynomial recurrence verifies phi0=1/3,phi1=1/5,phi2=1/7,phi3=8/81,phi4=34/495. Single dihedral orbit gives uniformity n=3,4,5,7; explicit unequal small profiles handle n=6,8,9,10,11,12,14, and phi0 phi2-phi1^2=4/525>0 gives distinct configurations for every remaining odd n>=13 and even n>=16. Fresh independent first-selected-vertex recursion exactly matched the kernel probabilities for all 83 maximal sets across n=3..11; rational trace identities were checked, not used as an infinite-order proof.
 
-## Boundaries
-The same uniform random permutation model is essential; the result does not cover other arrival laws. The checked finite range is \(3\le n\le18\); the proof covers all \(n\ge3\). The 2026 uniformity preprint and older adsorption papers leave residual indexing or access risk, so originality is a bounded self-review. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: a complete configuration-resolved probability formula and exact uniformity iff n in {3,4,5,7} for all simple cycles are distinct from existing tree obstruction, Ferrers/threshold graph laws and size/local-limit studies. Unread potentially relevant general uniformity preprint remains a priority risk.
+
+## value
+
+PASS
+
+Exact law gives the probability of each labeled jammed configuration, not just its size, and completely resolves the natural cycle analog of a published tree-only uniformity problem. The four exceptional orders and positive all-n obstruction provide a structural, reusable probability invariant of cycle graphs; nontrivial moments and trace generating function make it more than a routine small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

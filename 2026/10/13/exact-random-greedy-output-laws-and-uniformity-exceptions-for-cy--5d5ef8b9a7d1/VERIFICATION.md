@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` from the directory containing this file and `verify.py` (Python 3 standard library only). The exact program and actual standard output are both included; no external package, data file, network connection, or theorem prover is needed. Reproduced checks:
+# Independent mathematical audit
 
-1. Enumerate every maximal independent set of each labeled cycle \(C_n\) for \(3\le n\le18\): 637 sets in total. Use two mathematically distinct methods to compute every rational probability: first-arrival recursion on vertex masks, and the theorem's kernel moment/trace recurrences. Check exact equality and per-graph total probability equal to one.
-2. Count all vertex permutations of \(C_n\) for \(3\le n\le8\) (46,230 permutations altogether). Compare exact observed probabilities to the theorem for all outputs.
-3. Independently assert values \(\phi_0=1/3\), \(\phi_1=1/5\), \(\phi_2=1/7\), \(\phi_3=8/81\), \(\phi_4=34/495\), \(T_3=1/3\), \(T_4=7/30\), \(T_5=17/105\), and \(\phi_0\phi_2-\phi_1^2=4/525\).
-4. Check the uniformity classification on all 16 tested graph orders, but **do not** confuse these finite tests with the infinite proof in `RESULT.md`.
+## correctness
 
-No exhaustive validation for all graph orders is possible by finite enumeration. The infinitary uniformity proof uses exact algebraic positivity; the all-2 trace identity uses a classical trace-class Fredholm determinant and is derived explicitly in `RESULT.md`. Source-access and potential unindexed equivalence risks persist. No independent external validation was performed.
+PASS
+
+For every simple labeled C_n, n>=3, maximal independent sets have cyclic selected-vertex gaps 2 or 3. The earliest-accepted-outside-vertex contradiction proves the priority certificate in both directions. Conditional independent outside priorities give kernel A(u,v)=1-min(u,v) for 2-gaps and rank-one b(u)b(v), b=1-u, for 3-gaps. Cyclic trace factorization proves the complete labeled-set law: all-2 gap probability tr(A^k), otherwise product of phi_a=<b,A^a b>. A=J-M with M the Brownian min-kernel gives trace-class Fredholm D(z)=cosh(sqrt z)-sqrt z sinh(sqrt z) and sum tr(A^k)z^k=-zD'/D. Rational polynomial recurrence verifies phi0=1/3,phi1=1/5,phi2=1/7,phi3=8/81,phi4=34/495. Single dihedral orbit gives uniformity n=3,4,5,7; explicit unequal small profiles handle n=6,8,9,10,11,12,14, and phi0 phi2-phi1^2=4/525>0 gives distinct configurations for every remaining odd n>=13 and even n>=16. Fresh independent first-selected-vertex recursion exactly matched the kernel probabilities for all 83 maximal sets across n=3..11; rational trace identities were checked, not used as an infinite-order proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: a complete configuration-resolved probability formula and exact uniformity iff n in {3,4,5,7} for all simple cycles are distinct from existing tree obstruction, Ferrers/threshold graph laws and size/local-limit studies. Unread potentially relevant general uniformity preprint remains a priority risk.
+
+## value
+
+PASS
+
+Exact law gives the probability of each labeled jammed configuration, not just its size, and completely resolves the natural cycle analog of a published tree-only uniformity problem. The four exceptional orders and positive all-n obstruction provide a structural, reusable probability invariant of cycle graphs; nontrivial moments and trace generating function make it more than a routine small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
