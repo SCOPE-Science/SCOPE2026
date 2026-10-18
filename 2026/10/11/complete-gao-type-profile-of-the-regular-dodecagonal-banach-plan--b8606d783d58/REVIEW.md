@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof has two independent sharp geometric ingredients. The Euclidean comparison for the circumscribed regular dodecagon gives \(A^2+B^2\ge2+\sqrt3\). When the smaller of \(A=N_{12}(x+y)\) and \(B=N_{12}(x-y)\) is at most \(1/2\), exact edge separation forces the corresponding unit points onto the same or adjacent edges; adjacent-edge coordinates give \(A+(2-\sqrt3)B\ge2\) after the harmless sign swap that exchanges \(A\) and \(B\). For \(1<p\le2\), strict one-variable minimization yields \(q_p=(2-\sqrt3)^{1/(p-1)}\), while the complementary region is ruled out by concavity on the quadratic boundary. For \(p\ge2\), the quadratic bound and the power-mean inequality are sharp at the coordinate pair. Explicit unit pairs attain both branches. The bundled exact checker verifies every finite dodecagonal facet certificate and the algebraic identities used by the continuum proof.
+## correctness
 
-## Originality
-PASS. The defining 2022 paper, the 2022 paper devoted to Gao-type constants on absolute normalized planes, targeted public-web searches, the public research index, and the current own ledger were compared by statement and implication. The general published comparison theorem gives bounds and its exact lower-bound criterion is an exponent-two statement; it does not imply the nonlinear \(1<p<2\) branch or the optimizer transition. No checked source or record states the regular-dodecagonal all-\(p\) profile.
+PASS
 
-## Value
-PASS. Exact concrete-space values of the Gao-type constant are an explicit motivation of the primary literature. The regular dodecagon is a canonical symmetric polyhedral plane, and the finding determines every exponent at once. The transition at \(p=2\) is a structural change of extremizer, not a routine numerical substitution, and the proof isolates a local-edge mechanism likely useful for other polygonal norms.
+Reconstructed the geometric proof for the six-normal regular-dodecagonal norm. The Euclidean comparison yields \(A^2+B^2\ge2+\sqrt3\). For \(B\le1/2\), nonincident edges are excluded because all edge separations at least \(2(2-\sqrt3)>1/2\); independent exact symbolic supporting-functional checks of all five cyclic separation cases corroborate this. On same/adjacent edges signed facets force \(A+(2-\sqrt3)B\ge2\). For \(1<p\le2\), constrained minimization gives \(q=(2-\sqrt3)^{1/(p-1)}\) and the stated first formula, with its minimizer within \(B\le1/2\); concavity of the squared-distance power handles \(B\ge1/2\). For \(p\ge2\), quadratic lower bound and power means give the balanced formula, attained by coordinate unit vectors. Independently recalculated the explicit adjacent-edge extremizers for \(p=1.05,1.4,1.95,2\) and balanced ones for \(p=2.5,3,7\); the numerical checks corroborate but do not establish the all-real exponent theorem. The \(p=1\) triangle-equality case and matching \(p=2\) junction were checked.
 
-## Closest literature and limitations
-Ahmad, Xie, Bi and Li introduced \(c_{\mathrm{NJ}}^{(p)}\) and published their paper online on 27 September 2022. Zuo, Huang, Huang and Wang developed the absolute-normalized-norm computation framework in Mathematics 10 (2022), 4591, published 4 December 2022, with primary MSC 46B20. Their inspected full text gives bounds and examples but no regular-dodecagonal profile. The closest public indexed profiles concern different invariants or different planes. The present result does not classify all regular \(2n\)-gons, and bibliographic search cannot prove absolute uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+The natural complete lower Gao-type profile of a standard symmetric finite-dimensional norm, with a geometrically informative sharp adjacent-edge phase and exact transition to balanced coordinate extremizers at exponent two. Precise dependence on all exponents is new structure not mechanically supplied by the quadratic distortion bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

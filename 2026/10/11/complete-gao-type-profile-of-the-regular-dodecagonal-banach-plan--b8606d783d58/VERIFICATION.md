@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification target is the complete formula for
-\[
-c_{\mathrm{NJ}}^{(p)}(X_{12})
-=
-\inf_{x,y\in S_{X_{12}}}
-\frac{N_{12}(x+y)^p+N_{12}(x-y)^p}{2^p}.
-\]
 
-`verify.py` uses exact symbolic arithmetic in \(\mathbb Q(\sqrt3)\). It reconstructs the twelve regular-dodecagon vertices and the twelve signed supporting facets, verifies all edge incidences, and checks the five dihedral nonincident-edge support certificates whose smallest value is \(4-2\sqrt3>1/2\). This is the finite input needed to reduce the small-difference case to equal or adjacent edges.
+# Independent mathematical audit
 
-The checker verifies the adjacent-edge algebraic identities, including
-\[
-(2-\sqrt3)(2+\sqrt3)=1,
-\qquad
-4(2-\sqrt3)=1+(2-\sqrt3)^2,
-\]
-and the exact one-parameter extremizer family
-\[
-x=\bigl(1,r(1-2t)\bigr),
-\qquad
-y=\bigl(1-rt,r+\sqrt3rt\bigr),
-\]
-for which
-\[
-N_{12}(x-y)=t,
-\qquad
-N_{12}(x+y)=2-rt.
-\]
-It also verifies the balanced coordinate pair used for \(p\ge2\).
+## correctness
 
-The minimization in the real exponent \(p\) is proved analytically in `RESULT.md`: strict calculus on the adjacent-edge line for \(1<p\le2\), concavity on the quadratic boundary for the complementary subquadratic region, and the power-mean inequality for \(p\ge2\). Finite sampling is not used as an infinite proof. No independent audit or independent validation has been performed.
+PASS
+
+Reconstructed the geometric proof for the six-normal regular-dodecagonal norm. The Euclidean comparison yields \(A^2+B^2\ge2+\sqrt3\). For \(B\le1/2\), nonincident edges are excluded because all edge separations at least \(2(2-\sqrt3)>1/2\); independent exact symbolic supporting-functional checks of all five cyclic separation cases corroborate this. On same/adjacent edges signed facets force \(A+(2-\sqrt3)B\ge2\). For \(1<p\le2\), constrained minimization gives \(q=(2-\sqrt3)^{1/(p-1)}\) and the stated first formula, with its minimizer within \(B\le1/2\); concavity of the squared-distance power handles \(B\ge1/2\). For \(p\ge2\), quadratic lower bound and power means give the balanced formula, attained by coordinate unit vectors. Independently recalculated the explicit adjacent-edge extremizers for \(p=1.05,1.4,1.95,2\) and balanced ones for \(p=2.5,3,7\); the numerical checks corroborate but do not establish the all-real exponent theorem. The \(p=1\) triangle-equality case and matching \(p=2\) junction were checked.
+
+## originality
+
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+The natural complete lower Gao-type profile of a standard symmetric finite-dimensional norm, with a geometrically informative sharp adjacent-edge phase and exact transition to balanced coordinate extremizers at exponent two. Precise dependence on all exponents is new structure not mechanically supplied by the quadratic distortion bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
