@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:54:40.659997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact source vector field is x_dot=-a*x+y*z, y_dot=a*x-x*z, z_dot=-a*z+x^2+a with a>0. Solve -ax+yz=0, x(a-z)=0, x^2=a(z-1), giving E0=(0,0,1) and E±=(±sqrt(a(a-1)),±sqrt(a(a-1)),a) for a≥1 (coincident at a=1). E0 linearization has characteristic (λ+a)[λ²+aλ+1-a], hence stable for 0<a<1, real saddle for a>1; at a=3 its three eigenvalues are real, contradicting the source's saddle-focus label. At E±, compute λ³+2aλ²+a(2-a)λ+2a²(a-1); its cubic Routh determinant is 2a²(3-2a), giving stability 1<a<3/2 and instability after 3/2. At a=3/2 the spectrum is -3,±i sqrt(3)/2. Independent exact SymPy reconstruction from the actual ODE gave the nondegenerate first Lyapunov coefficient l1=-2sqrt(3)/3 using normalized adjoint eigenvectors, and the crossing derivative 6/13 from the characteristic polynomial; therefore a supercritical local Hopf on each symmetric branch, not just numerical oscillations. From z_dot+a(z-1)=x², every bounded complete solution satisfies z(t)-1=∫_0∞exp(-as)x(t-s)² ds ≥0; non-equilibrium complete orbits have strict z(t)>1. Initial transients for merely forward trajectories are explicitly excluded. No assertion that cycles extend globally to a=3 or that chaos is rigorously established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4 studies a≥3 numerical Lyapunov/dynamics and reports a=3 eigenvalue-based classification, but not local a=1.5 analytic bifurcation.",
+          "Generic Hopf/normal-form literature gives a method, not the sign and numerical coefficient for this system."
+        ],
+        "reasoning": "A broad numerical high-parameter chaotic analysis cannot imply local low-parameter branch stability or the bounded-complete memory law, which requires solving a linear filter equation.",
+        "searches": [
+          "Yan Jie Zhang 2022 chaotic systems variable index image encryption Hopf",
+          "local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2"
+        ]
+      },
+      "checked_sources": [
+        "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4",
+        "Resultary semantic findings for exact Yan/Jie/Zhang field, Hopf a=3/2, and other source-specific dynamics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4 published equations imply the result only after new equilibrium elimination, cubic Routh-Hurwitz analysis, and center-manifold coefficient evaluation.",
+          "The paper's plots begin outside the 1<a<3/2 regime and do not impose boundedness for all backward times."
+        ],
+        "reasoning": "The new precise bifurcation/stability claims are not special cases of an existing stronger analytic theorem in the inspected article.",
+        "searches": [
+          "\"Chaotic systems with variable indexs for image encryption application\" Yan Jie Zhang 2022",
+          "\"x'= -a x + yz\" \"z'= -a z + x^2 +a\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4 supplies the exact polynomial ODE under \"variable indexs\" terminology; its displayed a=3 discussion calls E0 saddle-focus and numerical scan focuses a≥3.",
+          "Resultary nearest different-system Hopf-zero statements use unrelated vector fields; identical a=3/2 numerical parameters without conjugacy would not imply equivalence."
+        ],
+        "reasoning": "Equivalent equilibria and eigenvalues were compared at equation level; searches for the specific vector field and first Lyapunov coefficient did not find a separate published result.",
+        "searches": [
+          "local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2",
+          "Yan Jie Zhang 2022 chaotic systems variable index image encryption Hopf",
+          "\"x'= -a x + yz\" \"z'= -a z + x^2 +a\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary self-match is the under-audit target. Other SCOPE Hopf-zero and recurrence-threshold records concern different ODEs; source 2022 paper records E± existence and a=3 examples only."
+        ],
+        "reasoning": "The exact a=1.5 threshold or coefficient was not present in the checked source-specific database material; this is not a proof no outside reference exists.",
+        "searches": [
+          "local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2",
+          "Resultary: local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact parameter a=3/2 local Hopf, exact l1, lower-parameter equilibrium partition and complete-trajectory half-space on this exact Yan–Jie–Zhang polynomial ODE. Full introducing 2022 Scientific Reports article read, including original equations, stated equilibria, a=3 eigenvalues and numerical parameter scan. Its results do not state the lower parameter Hopf or memory constraint. Broader generic Hopf theorems do not supply coefficients without calculation.",
+      "residual_risks": [
+        "An unindexed normalization-equivalent local-bifurcation analysis for the same ODE could exist.",
+        "No global continuation of locally born periodic orbits, boundedness of arbitrary positive-time orbits, or certification of numerical chaos."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object but not source-specific a=3/2 Hopf, l1 or bounded-complete backward filter; source E0 at a=3 mistakenly characterized as saddle-focus.",
+          "evidence": [
+            "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4",
+            "Equations, equilibria, numerical parameter sweep"
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41598-022-24142-4",
+          "material_read": "Full open-access primary HTML inspected through model equations, equilibrium tables and a=3 classification, numerical a≥3 and conclusion sections; exact vector field and claims compared.",
+          "method": "Read complete available primary HTML sections and targeted text.",
+          "title": "Yan, Jie and Zhang (2022), Chaotic systems with variable indexs for image encryption application, Scientific Reports 12:19585, DOI 10.1038/s41598-022-24142-4",
+          "trigger": "Same exact ODE, equilibria and numerical parameter sweep; most plausible coverage"
+        },
+        {
+          "assessment": "Different fields and vector fields do not imply this ODE claim, but titles alone cannot exclude every mathematical equivalence.",
+          "evidence": [
+            "local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2"
+          ],
+          "identifier_or_url": "Resultary: local first Lyapunov coefficient Hopf analysis for Yan Jie Zhang 2022 chaotic systems variable index a=3/2",
+          "material_read": "Ranked titles/synopses and identifiers only; the audited target self-match was excluded as independent coverage.",
+          "method": "Read Resultary search entries, not external full text.",
+          "title": "Resultary published findings on nearby Hopf-zero systems",
+          "trigger": "Possible more general same-parameter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise supercritical Hopf and stable-equilibrium interval supply the missing transition below the source's high-parameter numerical chaos regime, while the backward filter excludes z≤1 for every nontrivial bounded complete orbit and corrects the published eigenvalue classification at a=3. These are source-specific structural dynamical constraints, not routine substitution alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hopf is local at each nonzero equilibrium; no inferred global chaos, periodic-orbit continuation or universal boundedness.",
+    "At a=1 branches merge; no claim that three distinct equilibria exist there.",
+    "Public metadata/review/verification files contain operational provenance; independent scientific PASS does not authorize their publication."
+  ],
+  "schema_version": 1
+}
