@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For supports that overlap, pair-distance cannot exceed four. For disjoint supports the pair-distance equals eight minus the number of induced cycle edges. The cycle deletion bound \(e(S)\ge4m-n\), combined with the pairwise edge cap \(e(S)\le\binom m2\), proves the three small exceptions; explicit supports attain them. Four-regular circulant Euler circuits yield the sharp all-length construction, and an equality-case rigidity argument proves the converse for every even fully covered length. At length ten the only graph is \(K_5\); an exact ten-edge subset recurrence returns \(528\) closed trails starting at vertex zero, and a separate exhaustive clique search returns \(22\) code sets and three dihedral orbits of sizes \(2,10,10\). Both scripts completed successfully from the packaged sources. Infinite-length assertions follow from the combinatorial argument, not a finite check.
+## correctness
 
-**Originality — PASS, with residual risk.** Chee et al., arXiv:1211.1728, Section 3-C and Example 3.1, already use Euler circuits and \(K_5\) for general MDS symbol-pair constructions; that idea is not claimed new. Elishco et al., DOI 10.1109/TIT.2019.2942283, Lemma 3, identify the even distance-eight pair-weight-four optimum, which does not imply the distance-seven equality classification. Zhao–Chang, DOI 10.1007/s10623-025-01598-9, addresses distance seven with pair-weight four, so its broad numerical-optimality claims may subsume part of the size formula, and a full-text comparison remains unavailable. The claimed contribution is the sharp fixed-Hamming-weight-two structural characterization and exact all-extremizer census at the first length ten. Comparisons of published mathematical-record abstracts and earlier recorded claims yielded no theorem implying \(22\) / three orbits or the universal full-support converse. Bibliographic uncertainty is disclosed.
+PASS
 
-**Value — PASS.** The sharp length-ten threshold is the first nontrivial length at which every coordinate is occupied in an optimal weight-two code of minimum cyclic pair-distance seven. Classifying all such designs, including their exact symmetry types, is a motivated finite extremal classification rather than an arbitrary parameter sample. The equality-case bijection connects constrained binary codebooks to standard, independently enumerable Eulerian structures and generalizes to every even full-support length. No improvement for unrestricted codes is implied.
+Disjointness of two-support codewords follows from shared-one Hamming distance two and d_pair≤4. For disjoint P,Q, d_pair=8-e(C_n[P∪Q]), so each union has at most one cycle edge. Incidence counting excludes n=7,8 with three supports and n=9 with four. Circulant simple connected 4-regular graphs provide Euler tours at all even n≥10; inserting a common zero does not lower pair distance, providing odd n. At full even support each position receives one word label twice and no adjacent same-label positions, and pair-distance forces no repeated graph edge. Independent exhaustive enumeration of all 945 perfect matchings of 10 coordinate positions, using direct cyclic pair-distance rather than the submitted Euler recurrence, found exactly 22 admissible matchings and three dihedral orbits of sizes 2,10,10. The source independent K5 tour checker was read and gives 528 tours from a fixed start, agreeing 5*528/5!=22.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior Chee et al. use K5 Euler tours to construct other MDS pair codes; that graph idea and likely numerical optimal-size portions are not new. The complete converse classifying all even full-support extremizers and exact 22-set/three-orbit census are separate from inspected generic pair-weight bounds. The highly relevant 2025 Zhao–Chang paper is not available in complete text and could overlap the classification, a material priority risk.
+
+## value
+
+PASS
+
+The first attained full-partition case and complete equality-set and dihedral classification answer a natural extremal coding theory question; an exact equality census is meaningful even if broader code-size bounds were established previously.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

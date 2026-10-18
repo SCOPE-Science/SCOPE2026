@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-## Finite verification
-Both source files run with Python 3 and the standard library only, from the directory in which all package files were extracted:
+# Independent mathematical audit
 
-```
-python3 verify.py
-python3 verify_independent.py
-```
+## correctness
 
-The first enumerates the \(45\) weight-two words at blocklength ten, constructs compatibility edges directly from the cyclic pair-distance, exhausts all compatible subsets, and gets \(22\) optima of size \(5\). It also computes exact maxima \(1,1,1,1,1,2,2,3,5\) for lengths \(2\) through \(10\), respectively, and partitions the length-ten optima into three dihedral orbits of sizes \(2,10,10\). The second uses a state recursion over unused edges of \(K_5\) and a separate explicit Euler-tour generator. It returns \(528\) closed trails starting at graph vertex zero and \(22\) distinct support-code sets after forgetting graph labels; each member is checked directly for cyclic pair-distance at least seven.
+PASS
 
-Observed successful output includes:
+Disjointness of two-support codewords follows from shared-one Hamming distance two and d_pair≤4. For disjoint P,Q, d_pair=8-e(C_n[P∪Q]), so each union has at most one cycle edge. Incidence counting excludes n=7,8 with three supports and n=9 with four. Circulant simple connected 4-regular graphs provide Euler tours at all even n≥10; inserting a common zero does not lower pair distance, providing odd n. At full even support each position receives one word label twice and no adjacent same-label positions, and pair-distance forces no repeated graph edge. Independent exhaustive enumeration of all 945 perfect matchings of 10 coordinate positions, using direct cyclic pair-distance rather than the submitted Euler recurrence, found exactly 22 admissible matchings and three dihedral orbits of sizes 2,10,10. The source independent K5 tour checker was read and gives 528 tours from a fixed start, agreeing 5*528/5!=22.
 
-```
-VERIFY_OK direct_45_words_10_length10=22 orbit_sizes=[2, 10, 10]
-INDEPENDENT_VERIFY_OK K5_tours_start0=528 K5_color_sequences=2640 optimal_unlabeled_sets=22
-```
+## originality
 
-## Beyond the finite domain
-The \(n\ge10\) existence and optimality statement is justified by a graph construction and a support-disjointness upper bound. The even-length equality converse is proved from the partition of occupied coordinates; no experimental extrapolation is used. The numerical orbit enumeration is restricted to \(n=10\), not extended to arbitrary lengths.
+PASS
 
-## Evidence and limits
-The historical Chee et al. Eulerian construction and the Elishco et al. even-distance constant-pair-weight theorem were compared at the level of their mathematical statements. Zhao–Chang's later distance-seven study was available as an abstract and first-page preview, not as readable full text; it remains an originality risk and is not treated as definitively excluding overlap. Independent audit has not been performed.
+Prior Chee et al. use K5 Euler tours to construct other MDS pair codes; that graph idea and likely numerical optimal-size portions are not new. The complete converse classifying all even full-support extremizers and exact 22-set/three-orbit census are separate from inspected generic pair-weight bounds. The highly relevant 2025 Zhao–Chang paper is not available in complete text and could overlap the classification, a material priority risk.
+
+## value
+
+PASS
+
+The first attained full-partition case and complete equality-set and dihedral classification answer a natural extremal coding theory question; an exact equality census is meaningful even if broader code-size bounds were established previously.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

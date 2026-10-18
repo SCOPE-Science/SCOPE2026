@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:01:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob bca8ff316fc2b7641a1cb3217500ba5886c3feec",
+        "verify_independent.py blob cd95aacd25841230d788440c066416cf8bcc3003"
+      ],
+      "rationale": "Disjointness of two-support codewords follows from shared-one Hamming distance two and d_pair≤4. For disjoint P,Q, d_pair=8-e(C_n[P∪Q]), so each union has at most one cycle edge. Incidence counting excludes n=7,8 with three supports and n=9 with four. Circulant simple connected 4-regular graphs provide Euler tours at all even n≥10; inserting a common zero does not lower pair distance, providing odd n. At full even support each position receives one word label twice and no adjacent same-label positions, and pair-distance forces no repeated graph edge. Independent exhaustive enumeration of all 945 perfect matchings of 10 coordinate positions, using direct cyclic pair-distance rather than the submitted Euler recurrence, found exactly 22 admissible matchings and three dihedral orbits of sizes 2,10,10. The source independent K5 tour checker was read and gives 528 tours from a fixed start, agreeing 5*528/5!=22.",
+      "residual_risks": [
+        "Length-10 finite enumeration is exhaustive for 945 perfect matchings but not proof of the all-n formula, which rests separately on the graph argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao–Chang abstract explicitly covers some optimal constant-pair-weight 4, distance 7 codes, potentially covering size formulas; Elishco et al. bound for pair distance 8 is a different extremal regime."
+        ],
+        "reasoning": "A stronger prior numerical size result would cover the size formula, but not automatically classify all labelled extremizers and three dihedral orbits; inaccessible 2025 text is a material residual risk.",
+        "searches": [
+          "doi:10.1007/s10623-025-01598-9",
+          "doi:10.1109/TIT.2019.2942283"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob bca8ff316fc2b7641a1cb3217500ba5886c3feec",
+        "verify_independent.py blob cd95aacd25841230d788440c066416cf8bcc3003",
+        "Chee et al. Maximum Distance Separable Codes for Symbol-Pair Read Channels, arXiv:1211.1728",
+        "Elishco–Gabrys–Yaakobi Bounds and Constructions of Codes Over Symbol-Pair Read Channels, doi:10.1109/TIT.2019.2942283",
+        "Zhao–Chang Bounds and constructions of optimal symbol-pair codes with constant pair-weight, doi:10.1007/s10623-025-01598-9",
+        "Resultary semantic query: binary weight two cyclic symbol-pair distance seven optimal 22 Euler K5 dihedral"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An Eulerian K5 example proves existence, while general capacity bounds can establish maximum sizes but not enumerate all maximizers."
+        ],
+        "reasoning": "Complete equality characterization and orbit census do not follow from numerical existence/bounds without converse and combinatorial enumeration.",
+        "searches": [
+          "arXiv:1211.1728",
+          "Elishco et al., Lemma 3",
+          "Zhao–Chang 2025 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weight-two binary codes identify positions with edges in K_n, and full-partition equality identifies cyclic double occurrence words/Euler circuits of simple 4-regular graphs."
+        ],
+        "reasoning": "Chee et al. pioneered Eulerian graph pair-code construction but do not provide the inspected converse/equality census for precisely this constant Hamming weight two layer.",
+        "searches": [
+          "Resultary: binary weight two cyclic symbol-pair distance seven optimal 22 Euler K5 dihedral",
+          "arXiv:1211.1728"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent code census: 22 labelled coordinate code sets split into dihedral orbits 2+10+10."
+        ],
+        "reasoning": "No exact published enumeration table was located among inspected accessible materials; an unindexed table could cover the finite census.",
+        "searches": [
+          "Resultary binary pair-distance 22 Euler K5 query",
+          "K5 Euler tours 528 count"
+        ]
+      },
+      "rationale": "Prior Chee et al. use K5 Euler tours to construct other MDS pair codes; that graph idea and likely numerical optimal-size portions are not new. The complete converse classifying all even full-support extremizers and exact 22-set/three-orbit census are separate from inspected generic pair-weight bounds. The highly relevant 2025 Zhao–Chang paper is not available in complete text and could overlap the classification, a material priority risk.",
+      "residual_risks": [
+        "Complete Zhao–Chang 2025 source inaccessible; Oxford job b62769487d0fcef219ca5d77847b6cad returned vpn_disconnected after open/OA attempts.",
+        "All-length proof concerns weight exactly 2 and pair distance 7, not all constant pair weight four or other alphabet sizes.",
+        "Length-10 finite enumeration is exhaustive for 945 perfect matchings but not proof of the all-n formula, which rests separately on the graph argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "pair-weight-four distance-eight bound is not the weight-two distance-seven equality classification",
+          "evidence": [
+            "Lemma 3 at twice pair weight, distinct target distance."
+          ],
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2020/07/47_Symbol_Pair_IT20.pdf",
+          "material_read": "full accessible PDF opened, symbol-pair definitions and Lemma 3 treatment examined, page2 screenshot inspected",
+          "method": "web PDF with screenshot",
+          "title": "Bounds and Constructions of Codes Over Symbol-Pair Read Channels",
+          "trigger": "Constant-pair-weight bound potentially dominating claim"
+        },
+        {
+          "assessment": "K5 Euler technique prior; no exact 22-set census established in inspected portion",
+          "evidence": [
+            "Methodological overlap acknowledged."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1211.1728v2",
+          "material_read": "accessible HTML descriptions of Section 3-C and Example 3.1; not fully reread this run",
+          "method": "web arXiv HTML",
+          "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+          "trigger": "Prior K5 Euler construction directly matching technique"
+        },
+        {
+          "assessment": "not assessed as noncovering; significant originality uncertainty",
+          "evidence": [
+            "vpn_disconnected; job b62769487d0fcef219ca5d77847b6cad."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-025-01598-9",
+          "material_read": "publisher abstract and preview only; no complete paper; authorized retrieval blocked",
+          "method": "public abstract then Oxford institutional tool",
+          "title": "Bounds and constructions of optimal symbol-pair codes with constant pair-weight",
+          "trigger": "Same distance and pair-weight; plausible claim domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "verify_independent.py blob cd95aacd25841230d788440c066416cf8bcc3003",
+        "Chee et al. Maximum Distance Separable Codes for Symbol-Pair Read Channels, arXiv:1211.1728",
+        "Elishco–Gabrys–Yaakobi Bounds and Constructions of Codes Over Symbol-Pair Read Channels, doi:10.1109/TIT.2019.2942283",
+        "Zhao–Chang Bounds and constructions of optimal symbol-pair codes with constant pair-weight, doi:10.1007/s10623-025-01598-9"
+      ],
+      "rationale": "The first attained full-partition case and complete equality-set and dihedral classification answer a natural extremal coding theory question; an exact equality census is meaningful even if broader code-size bounds were established previously.",
+      "residual_risks": [
+        "Complete Zhao–Chang 2025 source inaccessible; Oxford job b62769487d0fcef219ca5d77847b6cad returned vpn_disconnected after open/OA attempts.",
+        "All-length proof concerns weight exactly 2 and pair distance 7, not all constant pair weight four or other alphabet sizes.",
+        "Length-10 finite enumeration is exhaustive for 945 perfect matchings but not proof of the all-n formula, which rests separately on the graph argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete Zhao–Chang 2025 source inaccessible; Oxford job b62769487d0fcef219ca5d77847b6cad returned vpn_disconnected after open/OA attempts.",
+    "All-length proof concerns weight exactly 2 and pair distance 7, not all constant pair weight four or other alphabet sizes.",
+    "Length-10 finite enumeration is exhaustive for 945 perfect matchings but not proof of the all-n formula, which rests separately on the graph argument."
+  ],
+  "schema_version": 1
+}
