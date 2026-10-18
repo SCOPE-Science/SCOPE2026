@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact Markov transition rates for neighbor-exclusion sampling are derived by conditioning. The backward mean-hitting-time equations reduce to a finite exact product sum; its ratio satisfies a quadratic double tangency at density 1/4 with coefficient 32/3. Uniform cubic exponential bounds and a summable 1/(1+u^2) envelope justify critical inner/outer Riemann sums, giving the positive n^(4/3) limit F(s). A two-variable change of variables evaluates the universal gamma constant. Above the critical density, a geometric-ratio bound and near-consensus coupon-collector harmonic sum prove leading coefficient one. Rational Gaussian elimination for n=3..9 independently reproduces recurrence; numerical n<=200000 is merely supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukhopadhyay arXiv:2208.12245 Theorem 1, Lemmas 1-3 (visit-count reduction)",
+        "Cruciani et al. arXiv:2007.15306, synchronous k-majority phase-transition theorems",
+        "Indexed record 2026/10/4/SCOPE-critical-scaling-at-the-gamma-mean-phase-transition--acf8f14e63b9"
+      ],
+      "reasoning": "General critical-diffusion heuristics motivate the cubic integral but none of the inspected stronger or broader statements provides the exact model-dependent coefficient, initial-state crossover, and original neighbor-exclusion transition law. The indexed gamma phase-transition record is about minimizers of an unrelated special-function probability tail, so cannot imply this result.",
+      "searches": [
+        "saddle node critical noisy majority 2 choice consensus hitting time n 4/3 finite population",
+        "finite size critical scaling biased majority dynamics n 4/3 gamma first passage",
+        "critical saddle-node birth-death chain n^{4/3} mean consensus time complete social network"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.12245 (primary full text)",
+      "doi:10.1017/S0269964823000098 (journal full-text theorem/model)",
+      "arxiv:2007.15306 (full-text model and theorems)",
+      "Mathematical research semantic search, queries recorded in four named originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mukhopadhyay arXiv:2208.12245 Theorem 1 explicitly restricts the low case to α∈(0,1/9) and the high case to α∈(1/9,1)",
+        "Mukhopadhyay abstract informally writes low α∈(0,1/9], but the actual theorem and derivations do not prove equality",
+        "Cruciani et al. arXiv:2007.15306 studies synchronous neighbor-sampling and majority survival, not full asynchronous absorption"
+      ],
+      "reasoning": "Neither strict inequality implies any rate at the excluded endpoint; in particular an exponentially slow α<1/9 claim cannot be extrapolated to equality. The abstract of the motivating work mentions the endpoint, creating a wording discrepancy, but does not formulate or establish an endpoint theorem. Our limit is specific to equality and uses exact finite-size products and a critical cubic scale. Other sources differ in update rule or observable.",
+      "searches": [
+        "Arpan Mukhopadhyay biased 2-choices at critical alpha 1/9  n^4/3 absorption consensus expected hitting time gamma universal scaling n^2/3 threshold",
+        "biased two choices rule alpha 1/9 critical consensus time n^(4/3) Mukhopadhyay",
+        "2023 2024 opinion dynamics Friedkin Johnsen polarization intervention asymmetry media stubborn agents exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mukhopadhyay arXiv:2208.12245, Section 3, Theorem 1 and first-step transition formula",
+        "Related research search closest record 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32"
+      ],
+      "reasoning": "Checked the aliases two-choices, 2-choices, biased majority, critical bias, consensus absorption, first passage, hitting time. The motivating theorem contains only strict parameter cases. The nearby indexed opinion-switching result has a deterministic bounded-confidence graph-switching model, not biased asynchronous two-choice birth-death absorption.",
+      "searches": [
+        "Arpan Mukhopadhyay biased 2-choices at critical alpha 1/9  n^4/3 absorption consensus expected hitting time gamma universal scaling n^2/3 threshold",
+        "biased two choices rule alpha 1/9 critical consensus time n^(4/3) Mukhopadhyay",
+        "asynchronous biased 2-choices rule strong bias phase transition alpha=1/9 critical polynomial hitting time saddle node"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact model/parameter hit among returned ranked research records; closest records 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32 and 2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1"
+      ],
+      "reasoning": "No precomputed critical consensus table or exact critical constant was located. Returned records address unrelated voting, Gamma or two-state process problems; their numerical or symbolic parameters do not entail the proposed theorem. Absence of an indexed match is evidence of limited overlap only, not a uniqueness proof.",
+      "searches": [
+        "Arpan Mukhopadhyay biased 2-choices at critical alpha 1/9  n^4/3 absorption consensus expected hitting time gamma universal scaling n^2/3 threshold",
+        "opinion dynamics critical bias 1/9 complete graph polynomial mean consensus time 4/3",
+        "finite size critical scaling biased majority dynamics n 4/3 gamma first passage"
+      ]
+    },
+    "rationale": "In the exact original biased two-choices model of Mukhopadhyay, Theorem 1 establishes separate α>1/9 and α<1/9 regimes and explicitly omits the critical equality. The inspected main proofs do not compute expected time at equality. An explicit cubic-potential scaling law for α=1/9, including the critical initial-state window and gamma constant, is not implied by either strict inequality. The synchronous biased-majority reference uses a different chain and target event. Actual mathematical research searches revealed no covering same-model statement. Residual risk persists from broad unindexed work on saddle-node birth-death scaling and a source abstract that imprecisely groups the endpoint with the low-bias regime.",
+    "residual_risks": [
+      "An unindexed general saddle-node birth-death critical scaling theorem might cover the integral kernel by specialization.",
+      "The motivating 2022 abstract uses an inclusive low-bias range despite Theorem 1 being strictly subcritical; this is an unresolved rhetorical ambiguity, not a proved covering theorem.",
+      "The motivating work designates stochastic-process classification as its primary MSC and mathematical sociology as secondary; this new opinion-consensus statement is categorized here by its social dynamics subject.",
+      "Finite experiments do not verify the infinite scaling result; that rests on the analytic product bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No proved equality case in Theorem 1; model definition exactly matches the new original-chain transitions; abstract endpoint wording is broader than theorem and is retained as an ambiguity risk",
+        "evidence": [
+          "arXiv:2208.12245v3 Section 2 (neighbor-only, with-replacement sampling)",
+          "Section 3 Theorem 1, all three cases specify strictly α<1/9 or strictly α>1/9",
+          "Section 3 equation (2) analyzes slightly modified self-sampling chain",
+          "Abstract low-bias bracket includes equality without supporting endpoint theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.12245v3",
+        "material_read": "Complete accessible HTML: abstract, Section 1 related work, Section 2 update mechanism, Section 3 main Theorem 1, visit-count lemmas and absorbing-chain transition formulas, subsequent argument, numerical and concluding sections",
+        "method": "Direct HTML full-text inspection, including explicit comparison of Theorem 1 quantifiers and the abstract endpoint wording",
+        "title": "Phase Transitions in Biased Opinion Dynamics with 2-choices Rule",
+        "trigger": "Exact motivating model, same critical bias and same full-consensus stopping time"
+      },
+      {
+        "assessment": "No critical equality scaling statement established in inspected journal sections; journal date does not override first public arXiv posting",
+        "evidence": [
+          "Theorem 1 and Section 3 strict high and low cases",
+          "Online journal appearance 2023, initial preprint 2022"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964823000098",
+        "material_read": "Accessible online full-text section on model, theorem and main proofs",
+        "method": "Read journal HTML full text and compared theorem hypotheses and critical-point quantifiers with arXiv",
+        "title": "Phase Transitions in Biased Opinion Dynamics with 2-choices Rule (journal version)",
+        "trigger": "Possible later extension of exact same model and claim"
+      },
+      {
+        "assessment": "Different synchronous dynamics and majority-maintenance objective cannot imply asynchronous absorption mean scaling",
+        "evidence": [
+          "arXiv:2007.15306 abstract describes synchronous rounds",
+          "Analysis concerns preservation or disruption of a majority under a communication adversary"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.15306v3",
+        "material_read": "Full accessible HTML, with model setup, phase-transition theorem and main result discussion",
+        "method": "Compared synchronous/asynchronous update quantifiers, majority sampling and hitting-time objective",
+        "title": "Phase Transition of the k-Majority Dynamics in Biased Communication Models",
+        "trigger": "Plausibly covering earlier critical biased-majority result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fcdfb77-3188-4f54-ad5c-465c4af4b098",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact critical point was excluded from the motivating article main theorem, despite separating previously established exponential and n log n regimes. Determining the polynomial n^(4/3) bottleneck, gamma coefficient and complete n^(2/3) initial-state crossover resolves a structurally unavoidable gap in stochastic social adoption dynamics and gives expected-time predictions for near-threshold initial populations. The proof is not an arbitrary finite special case, routine parameter substitution or unmotivated tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
