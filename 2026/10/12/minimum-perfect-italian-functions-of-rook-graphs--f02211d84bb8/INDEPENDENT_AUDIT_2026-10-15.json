@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:19:57.651627Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every zero rook cell, r_i+c_j=2 is exactly the closed labeling condition because neighbor sum excludes its own zero label. A zero row and zero column cannot coexist. Square case: n minimum weight forces every row and column sum 1, yielding n! permutation matrices. For 2<=m<n, all rows and columns positive if weight<2m; any row sum>=2 must be completely positive (since positive columns forbid zeros), yielding weight>=n+m-1>=2m, whereas all row sums 1 contradict n positive columns. For equality: a zero column forces all row sums 2 and only fully filled columns, hence one 2-column or two 1-columns. With no zero columns, the weight bound h(n-1)<=m forces a single all-one full row at n=m+1; zero equations force nonheavy rows to select a common column. Independently reconstructed definition-level bounded cases (m,n)=(2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5), matching counts 2,12,10,15,6,22,15 and no lower weight; finite cases only corroborate all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior product formula n (square) or 2m (rectangular) is strictly less informative than the new exact n!, n+binom(n,2), and n+binom(n,2)+mn equality enumerations.",
+          "Resultary exact semantic search found perfect Italian weight enumerators for complete multipartite graphs, which are NOT rook graphs for m,n>=2."
+        ],
+        "reasoning": "A stronger theorem would have to classify all label-1/2 zero-cell equality assignments, not just bound the optimal weight; none was located in the checked sources.",
+        "searches": [
+          "arxiv:1910.12260 product Italian domination theorem",
+          "perfect Italian dominating functions Cartesian product complete graphs rook graphs K_m square K_n exact minimum labeling structure counting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.12260",
+        "https://arxiv.org/abs/1905.06293",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/minimum-perfect-italian-functions-of-rook-graphs--f02211d84bb8/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known gamma=2m is implied by the classification but does not conversely imply its three exhaustive equality families.",
+          "Zero-row/column equation gives new equality rigidity, particularly n=m+1 boundary."
+        ],
+        "reasoning": "Prior theorem does not logically imply the count without additional nontrivial equality analysis.",
+        "searches": [
+          "Varghese Lakshmanan Theorem 4.4 equality classification",
+          "perfect Italian dominating functions Cartesian product complete graphs rook graphs K_m square K_n exact minimum labeling structure counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Varghese–Lakshmanan, arXiv:1910.12260 Theorem 4.4 proves gamma_I^p(K_m square K_n), while inspected theorem here enumerates all equality labelings.",
+          "The rook graph is exactly K_m Cartesian K_n with rows and columns cliques."
+        ],
+        "reasoning": "Equivalent graph notation matches the prior scalar invariant, but the published scalar theorem does not determine optimizer multiplicities or support geometries.",
+        "searches": [
+          "perfect Italian dominating functions Cartesian product complete graphs rook graphs K_m square K_n exact minimum labeling structure counting",
+          "\"perfect Italian\" \"rook graph\" minimum functions",
+          "arxiv:1910.12260"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent bounded cases m,n=(2,3),(3,4) yield 12 and 22 minimum functions and match the formula.",
+          "Published source arXiv:1910.12260 reports gamma value, not this count table."
+        ],
+        "reasoning": "No exact precomputed all-minimum-function table found; finite testing corroborates and is not novelty proof.",
+        "searches": [
+          "perfect Italian rook graph optimal configurations numbers permutation minimum labelings",
+          "perfect Italian dominating functions Cartesian product complete graphs rook graphs K_m square K_n exact minimum labeling structure counting"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a complete structural classification and counting, not for scalar domination values already computed. Compared row/column conditions, equalities and graph class to relevant original Cartesian-product paper and published same-topic records. No evidenced prior theorem implies all optimizer families/counts.",
+      "residual_risks": [
+        "Unindexed equality-classification paper or table could predate this exact result.",
+        "Finite brute cases test only indicated small (m,n); arbitrary values rely on independently reconstructed row/column proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar optimum is prior covered, equality enumeration not presented.",
+          "evidence": "Theorem 4.4 has n for m=n and 2m for m<n; row-sum technique does not enumerate all minimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.12260",
+          "material_read": "Original full arXiv PDF, theorem on K_m square K_n and its proof and equality discussion",
+          "method": "full PDF text and PDF page inspection",
+          "title": "Perfect Italian Domination Number of Graphs",
+          "trigger": "exact same Cartesian product graph and invariant"
+        },
+        {
+          "assessment": "No general all-optimizer classification of rook graphs identified.",
+          "evidence": "K_3 square K_2 appears as a small graph case, not a parameterized equality theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.06293",
+          "material_read": "Public original paper discussion of regular/cubic graph cases and examples",
+          "method": "primary full text comparison described in reviewed RESULT.md",
+          "title": "Perfect Italian domination on planar and regular graphs",
+          "trigger": "same domination parameter, includes cubic Cartesian-product example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum value alone does not reveal whether every optimizer is column-supported or when mixed row-column solutions occur. The complete equality classification and sharp n=m+1 extra-family threshold is a natural exact structural refinement of a well-studied domination invariant, not merely parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1910.12260",
+    "https://arxiv.org/abs/1905.06293",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/minimum-perfect-italian-functions-of-rook-graphs--f02211d84bb8/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed equality-classification paper or table could predate this exact result.",
+    "Finite brute cases test only indicated small (m,n); arbitrary values rely on independently reconstructed row/column proof."
+  ],
+  "schema_version": 1
+}
