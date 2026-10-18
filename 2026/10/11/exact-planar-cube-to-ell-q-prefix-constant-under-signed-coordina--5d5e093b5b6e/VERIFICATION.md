@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is universal and analytic. The following checks were performed on the final claim.
+# Independent mathematical audit
 
-1. For \(v=(a,b)\), the change of variables \(m=(a+b)/2\), \(d=(a-b)/2\) satisfies \(|m|+|d|=\max\{|a|,|b|\}\).
-2. The four pairs \((\alpha,\beta)\in\{-1,1\}^2\) yield exactly the allowed images \(\pm(a,b)\) and \(\pm(b,a)\).
-3. Choosing each scalar sign against its current scalar partial sum gives \(|S+x|\le\max\{|S|,|x|\}\), so both transformed prefix coordinates remain in \([-1,1]\).
-4. The map \((M,D)\mapsto\|(M+D,M-D)\|_q\) is convex for every \(1\le q\le\infty\). Its values at all four vertices of \([-1,1]^2\) are exactly \(2\), proving the upper bound on the whole square.
-5. For \(v_1=(1,1)\) and \(v_2=(1,-1)\), every allowed second prefix is one of \((\pm2,0)\) or \((0,\pm2)\), proving the lower bound \(2\).
-6. Substituting \(n=2,p=\infty\) into Theorem 9 of arXiv:2610.02127v1 gives \(R_{2,q}=2^{1/q}\), \(C_{2,\infty}=1\), and a second term \(2^{1/q}\), hence source bound \(2^{1+1/q}\) for finite \(q\); the \(q=\infty\) endpoint is \(2\).
+## correctness
 
-No finite enumeration, numerical optimization, or timeout-based inference is used to establish the theorem. The originality review does not assert exhaustive global literature coverage; an unindexed historical formulation remains a stated residual risk.
+PASS
+
+Write m=(a+b)/2 and d=(a−b)/2. Exactly four signed coordinate permutations of v=(a,b) become (αm,βd) independently with α,β∈{±1}. Input cube yields |m|+|d|=max{|a|,|b|}≤1; at each step greedy scalar sign against the current scalar prefix keeps |M_k|,|D_k|≤1 by |S−sign(S)x|≤max{|S|,|x|}. The inverse linear map (M,D)↦(M+D,M−D) sends the four invariant-square vertices to (±2,0),(0,±2). Convexity of every ℓ_q norm, including q=1 and q=∞, gives max≤2 on the entire square and ALL prefixes, with no lookahead. For v1=(1,1),v2=(1,−1), every admissible second prefix is a signed coordinate axis vector of magnitude 2; bound sharp for all q. Universal analytic proof, no numerical extrapolation.
+
+## originality
+
+PASS
+
+The target is the finite-q exact cross-norm prefix constant, not the already-covered q=∞ endpoint. The 2026 lead paper states general bounds for permutation balancing; its Theorem 9 specialization as recorded in the inspected package is 2^(1+1/q) for finite q. Classical planar sign-sequence theorem controls the SAME norm, and sign-only balancing does not allow independent diagonal greedy choices. The recent lead paper full text remained inaccessible, hence comparison is bounded and material-read risk is explicitly retained.
+
+## value
+
+PASS
+
+The lead 2026 paper explicitly introduces signed-permutation prefix balancing; determining exact small-dimensional cross-exponent constants is a natural structural boundary case. The constant 2 is uniform across the full q-range and sharp with a two-vector witness. The sign+swap representation decomposes into two scalar online sign games, explaining a nontrivial improvement by the factor 2^(1/q) over the stated general finite-q estimate. Not an unmotivated handpicked norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

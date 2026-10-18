@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof conjugates the four allowed signed-permutation operations to two independent signs in diagonal coordinates. The scalar greedy step preserves the invariant square exactly, convexity gives the sharp target-norm bound on that square, and the two-vector witness forces equality. The endpoint cases \(q=1\) and \(q=\infty\), sequence-length quantifier, and online character were checked explicitly.
+## correctness
 
-## Originality
-**PASS.** arXiv:2610.02127v1 gives a general explicit \(B_p^n\)-to-\(\ell_q\) prefix bound; at \(n=2,p=\infty\) it yields \(2^{1+1/q}\) for finite \(q\), not the exact value \(2\). Its \(q=\infty\) endpoint already equals \(2\), which is acknowledged rather than claimed as a new isolated endpoint. Lund--Magazinov's planar sign-sequence theorem has constant \(2\) in a single norm and does not imply the finite-\(q\) cross-norm improvement. Exact and alias searches found no checked covering statement. Residual risk remains from unindexed historical formulations.
+PASS
 
-## Value
-**PASS.** The source explicitly studies the full \(\ell_p\)-to-\(\ell_q\) signed-permutation problem. Determining the entire planar cube-input target-exponent profile is a natural exact boundary problem, and the diagonalization of the allowed action explains why every target exponent collapses to the same sharp constant. The result is structural and exact, not a routine numerical refinement.
+Write m=(a+b)/2 and d=(a−b)/2. Exactly four signed coordinate permutations of v=(a,b) become (αm,βd) independently with α,β∈{±1}. Input cube yields |m|+|d|=max{|a|,|b|}≤1; at each step greedy scalar sign against the current scalar prefix keeps |M_k|,|D_k|≤1 by |S−sign(S)x|≤max{|S|,|x|}. The inverse linear map (M,D)↦(M+D,M−D) sends the four invariant-square vertices to (±2,0),(0,±2). Convexity of every ℓ_q norm, including q=1 and q=∞, gives max≤2 on the entire square and ALL prefixes, with no lookahead. For v1=(1,1),v2=(1,−1), every admissible second prefix is a signed coordinate axis vector of magnitude 2; bound sharp for all q. Universal analytic proof, no numerical extrapolation.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.02127v1, followed by the same-norm planar sign-sequence theorem arXiv:1510.04536v1 and the sign-only \(\ell_p\)-to-\(\ell_q\) framework arXiv:2007.05634. The theorem is limited to dimension two and cube-bounded inputs; it neither determines finite-\(p\) planar constants nor higher-dimensional cube constants.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The target is the finite-q exact cross-norm prefix constant, not the already-covered q=∞ endpoint. The 2026 lead paper states general bounds for permutation balancing; its Theorem 9 specialization as recorded in the inspected package is 2^(1+1/q) for finite q. Classical planar sign-sequence theorem controls the SAME norm, and sign-only balancing does not allow independent diagonal greedy choices. The recent lead paper full text remained inaccessible, hence comparison is bounded and material-read risk is explicitly retained.
+
+## value
+
+PASS
+
+The lead 2026 paper explicitly introduces signed-permutation prefix balancing; determining exact small-dimensional cross-exponent constants is a natural structural boundary case. The constant 2 is uniform across the full q-range and sharp with a two-vector witness. The sign+swap representation decomposes into two scalar online sign games, explaining a nontrivial improvement by the factor 2^(1/q) over the stated general finite-q estimate. Not an unmotivated handpicked norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
