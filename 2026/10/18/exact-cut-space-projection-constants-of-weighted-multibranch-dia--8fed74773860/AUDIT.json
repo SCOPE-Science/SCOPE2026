@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every projection can be averaged over m independent pair swaps, producing P_alpha without greater norm; exact column norms yield F_j=max(1,|alpha_j|)+((R-r_j)/r_j)|alpha_j|. The lower bound 1+1/H holds for all coefficient signs, and alpha_j=(r_j/(R-r_j))/H attains it. Strict Jensen gives equal-weight rigidity; symbolic differentiation gives the one-defect law. A direct proof has full universal quantifiers. The bundled standard-library checker passed 120 exact instances; an independent unrestricted-projection LP passed 50 numeric cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.12582v1 §2.1 and the contents pp. 1, 9–10: cycle-space projections mainly for tori/Hamming graphs.",
+        "arXiv:1807.03814v1 §5.1 pp. 23–24: the figure 2(n−1)/n is for a cycle-space object on K2,n, not the cut-space target.",
+        "Blatter and Cheney 1974: hyperplane target only, based on published abstract."
+      ],
+      "reasoning": "Even a stronger theorem on cycles or a formula for an edge quotient is not a projection theorem onto this cut range; the ranges are distinct. No inspected theorem implies the all-positive-weight reciprocal sum.",
+      "searches": [
+        "minimal projection constant onto graph cycle space for theta graphs consisting of three or more internally disjoint paths, arbitrary path lengths, transportation cost spaces",
+        "sharp projection norms of generalized theta graphs weighted ℓ1 cycle spaces, minimal cut projections, Banach",
+        "cut projection ℓ1 edge space to gradients of two-terminal m arm parallel paths, sharp projection norm 2-1/m",
+        "Cycle spaces: invariant projections and applications to transportation cost 2023",
+        "Lipschitz free spaces on finite metric spaces 2018 K2,n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.12582v1: sections and PDF pages stated in source_inspections",
+      "arXiv:1807.03814v1: sections and PDF pages stated in source_inspections",
+      "Blatter–Cheney 1974 abstract and bibliographic record",
+      "published-finding corpus semantic matches: cactus coordinate, complete-bipartite Hilbert distortion, clustered projection constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At unit weights the 2018 K2,m cycle value is 2−2/m, whereas the new cut minimum equals 2−1/m; complementarity of subspaces alone does not equate their ℓ1 projection minima.",
+        "arXiv:2305.12582v1 establishes λ(Z(G),ℓ1) and bounds on Lip and TC spaces, not a formula for λ(B(G),ℓ1) on weighted K2,m.",
+        "Hyperplane theorems concern codimension one while dim(X/B)=m−1≥2."
+      ],
+      "reasoning": "The current theorem requires minimizing projection onto B(G) for arbitrary positive branch lengths; the prior results either optimize projections onto Z(G), concern different graphs/invariants, or treat only hyperplanes. None of these statements yields the asserted all-weight formula by direct restriction or reduction.",
+      "searches": [
+        "exact minimum l1 projection norm onto graph cut space of complete bipartite K2,m with unequal edge weights, conductance 1+ reciprocal sum",
+        "cut projection ℓ1 edge space to gradients of two-terminal m arm parallel paths, sharp projection norm 2-1/m",
+        "arXiv:1807.03814v1 5.1 K2,n α",
+        "arXiv:2305.12582v1 projection minimum cut cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cut subspace has codimension m−1≥2; Blatter–Cheney applies to codimension-one hyperplanes.",
+        "arXiv:2305.12582v1 pp. 2–4 identifies B(G)=ran D^T and Z(G)=ker D and their distinction."
+      ],
+      "reasoning": "Aliases examined: cut space, graph-gradient range, orthogonal complement of the circulation space, and multibranching diamond graph. None of the inspected statements identifies the higher-codimensional weighted minimax expression as a hyperplane corollary.",
+      "searches": [
+        "exact minimum l1 projection norm onto graph cut space of complete bipartite K2,m with unequal edge weights, conductance 1+ reciprocal sum",
+        "optimal cut-space projection constant for diamond graph first level K_{2,n}, one long branch weighted, edge ℓ1",
+        "metric Lipschitz gradient graph K2,m minimal projections weighted branch lengths pairs",
+        "Blatter Cheney minimal projections on hyperplanes sequence spaces 1974"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd treats cactus coordinate projections, not the noncactus K2,m cut space.",
+        "published-finding corpus record 2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810 determines Hilbert distortion, not weighted cut projection.",
+        "published-finding corpus record 2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3 treats distinct clustered metric subspaces."
+      ],
+      "reasoning": "Searches including aliases, weighted parameters, and proposed closed form returned no exact cut-space K2,m table. Database incompleteness is explicitly retained as a risk.",
+      "searches": [
+        "exact minimum l1 projection norm onto graph cut space of complete bipartite K2,m with unequal edge weights, conductance 1+ reciprocal sum",
+        "optimal cut-space projection constant for diamond graph first level K_{2,n}, one long branch weighted, edge ℓ1",
+        "sharp cut space projection constant weighted K_{2,m} edge ℓ1, 1 + reciprocal sum of r_i over sum other lengths"
+      ]
+    },
+    "rationale": "The strongest matching published graph family in arXiv:1807.03814v1 §5.1 gives a cycle-space constant, while the target here is the distinct codimension-(m-1) cut subspace; the 2023 primary source establishes definitions and investigates cycle projections on tori/Hamming graphs, not this all-weight cut formula. Classical hyperplane projection coverage fails for m>=3. Targeted database comparisons did not return an implication or exact table. General subspace projection coverage in inaccessible literature is a residual risk.",
+    "residual_risks": [
+      "Unindexed or terminology-shifted general formula for projections onto common-sum subspaces could imply the result.",
+      "Only an abstract, not the full article, was accessible for the 1974 hyperplane source; its codimension-one scope does not decide higher-codimension equivalences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary framework, not an identified all-weight K2,m projection onto the cut range",
+        "evidence": "At pp. 2–3 B(G)=Z(G) perpendicular; at pp. 9–10 projection results focus on cycles and discrete tori/Hamming graphs, while p. 9 discusses dual ℓ∞ cut projections without giving this weighted ℓ1 minimax.",
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "arXiv PDF v1 abstract, table of contents, §1.1 pp. 2–3, §1.3 pp. 4–5, §1.6 p. 9, §2.1 pp. 9–10, and keyword matches for cut space in later sections",
+        "method": "Full-text text search and visual PDF pages",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "The exact same graph cut/cycle Banach space framework and candidate broader projection theorem"
+      },
+      {
+        "assessment": "Provides the K2,m cycle-space comparison, not the target cut-space projection constant",
+        "evidence": "Section 5.1 identifies α=2(n−1)/n associated with cycles of K2,n; the present theorem at equal weights has 2−1/n for projections onto the cut space.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.03814",
+        "material_read": "arXiv PDF v1 introduction, definitions pp. 5–6, §5.1 pp. 23–24, and surrounding condition 7 statement",
+        "method": "Full-text search and visual PDF pages",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Identical base graph K2,m appears as the multibranching diamond"
+      },
+      {
+        "assessment": "Hyperplane targets do not directly cover codimension m−1≥2; applicability of unpublished general reductions remains a risk",
+        "evidence": "1974 article abstract explicitly says projection constants of hyperplanes in c0 and ℓ1 are determined.",
+        "identifier_or_url": "https://doi.org/10.1007/BF02417105",
+        "material_read": "Published bibliographic abstract available via bibliographic indexing; full article not accessible in this comparison",
+        "method": "Bibliographic and abstract inspection",
+        "title": "Minimal projections on hyperplanes in sequence spaces",
+        "trigger": "Potential classical stronger coverage through an ℓ1 projection theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fed7477-3860-4636-9b91-eb7bbe8def6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An infinite family of graph-gradient Banach subspaces receives a complete arbitrary-positive-weight, all-projections optimum; the equal-arm vector uniquely maximizes the complementability obstruction at fixed m, while a highly unequal vector tends to norm one. The explicit distinction between cut and cycle constants and sharp tunable asymptotics address a motivated structural problem, not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
