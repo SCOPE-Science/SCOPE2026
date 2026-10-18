@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The binary transfer matrices follow directly from the recurrence. Four explicitly named palindromes at every length >=8 have verified Stern values ell, 4ell-12, 9ell-42, and 16ell-104; their gcd is gcd(ell,2). Modulo 2, the Stern sequence vanishes precisely on multiples of 3, while even-length binary palindromes are multiples of 3, giving the matching lower bound. Exact full short-length enumeration covers ell=1..7. Reproducible independent bit-transfer enumeration checks all 4094 palindromic indices at ell=1..22 and symbolic coefficients, but infinite proof rests on matrices/parity. No extrapolation or unverified lemma is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Luca–De Luca, arXiv:1410.4085v1 §§5–6 and 9, gives general continuant evaluations and entire-level length distributions/total sums and extremes.",
+        "Coons–Shallit, arXiv:1105.0086, gives a universal expansion usable to compute any finite sample of Stern values."
+      ],
+      "reasoning": "A general exact algorithm or universal recurrence permits evaluating finitely many values but does not state or automatically prove a uniform greatest common divisor for all palindromic indices at arbitrary length. The closest broader published statements do not imply the four uniform gcd witnesses or short exceptional classification without the added argument. This distinction is substantive but literature coverage is not exhaustive.",
+      "searches": [
+        "Exact gcd of Stern diatomic sequence values indexed by all binary palindromes of fixed digit length L: for L>=8 gcd 1 if L odd, 2 if even; exceptions L=3,4,6",
+        "Stern diatomic Stern-Brocot 2-regular sequence greatest common divisor palindromic binary word length anomalous gcd 6",
+        "Stern diatomic sequence palindromic binary words continued fraction quadratic form",
+        "Stern diatomic sequence binary palindrome words gcd fixed length common divisor s(n)"
+      ]
+    },
+    "checked_sources": [
+      "Coons and Shallit, arXiv:1105.0086v1/v2; original arXiv full-text HTML.",
+      "A. de Luca and A. De Luca, arXiv:1410.4085v1; original arXiv full-text HTML §§2,5,6,9.",
+      "OEIS A002487, Stern diatomic sequence page.",
+      "Published mathematical-index search, 6 actual focused queries, including exact final claim.",
+      "A published study of two-adic parity cancellation in diagonal rational partitions: different object.",
+      "A published study of binary necklaces in Toeplitz recurrence factors: different object."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coons–Shallit, arXiv:1105.0086v2, Theorem 1.1 and Lemmas 2.1–2.2, supply exact individual formulas but no palindrome-index GCD statement.",
+        "De Luca–De Luca, arXiv:1410.4085v1, Proposition 5.4 and Proposition 6.3 plus §9, treat reversal invariance, continuants, and whole-level value sums/extrema rather than gcd on palindromic-index subsets.",
+        "Published results on two-adic parity cancellation in rational partitions and cyclic binary-word orbit factorizations in Toeplitz recurrences concern different mathematical objects."
+      ],
+      "reasoning": "Published continuant identities are valid input methods and could recover any one witness via computation, but they do not supply the four simultaneous affine witness formulas, their gcd consequence, or the complete exceptional-length statement. The published-index results are neither stronger nor directly reducible to Stern palindromic-index GCDs.",
+      "searches": [
+        "Exact gcd of Stern diatomic sequence values indexed by all binary palindromes of fixed digit length L: for L>=8 gcd 1 if L odd, 2 if even; exceptions L=3,4,6",
+        "Stern sequence values at palindromic integer binary representations common factor gcd fixed length",
+        "Stern diatomic sequence binary palindromic indices greatest common divisor all values fixed length",
+        "Stern diatomic palindrome subsequence gcd values 2 odd even binary length",
+        "arXiv:1105.0086 full HTML §§1–3",
+        "arXiv:1410.4085 full HTML §§5,6,9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coons–Shallit, arXiv:1105.0086v2, Theorem 1.1: individual digit-pattern expansion, not a gcd across palindromic arguments.",
+        "De Luca–De Luca, arXiv:1410.4085v1, Proposition 5.4: individual value is invariant under bit reversal, including for non-palindromic indices.",
+        "published-finding corpus searches returned no palindromic-index Stern gcd statement; closest hits concern unrelated binary sequences."
+      ],
+      "reasoning": "The reversal invariance of one Stern value does not force a common divisor across the restricted palindromic index set. Whole-index Stern identities and arbitrary palindrome word combinatorics are not equivalent to an exact gcd by bit length. All explicit alternatives returned by the recorded searches were distinct.",
+      "searches": [
+        "greatest common divisor Stern diatomic sequence values at binary palindrome indices of fixed bit length; parity gcd 1 or 2",
+        "binary palindromes fusc Stern sequence common divisibility all length L indices",
+        "Stern diatomic palindromic bit strings gcd of values, matrix method",
+        "Stern diatomic palindrome subsequence gcd values 2 odd even binary length",
+        "fusc of binary palindrome length divisibility gcd all palindromes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002487 lists the Stern diatomic sequence and general level/column observations, including palindromic *rows* of Stern values; it does not specify this digit-palindrome-index gcd by length.",
+        "The short-gcd prefix 1,2,3,4,1,6,1 and stabilized even/odd law were compared with OEIS and targeted search results."
+      ],
+      "reasoning": "Palindromicity of contiguous *value blocks* in the ordinary Stern array is different from evaluating Stern at indices whose own binary digits form palindromes. No inspected table directly tabulates the new invariant. An unindexed table remains possible.",
+      "searches": [
+        "site:oeis.org Stern palindromic gcd binary",
+        "\"Stern\" \"palindromes\" \"gcd\" binary sequence",
+        "\"1, 2, 3, 4, 1, 6, 1, 2\" Stern",
+        "OEIS A002487 sequence page; searched palindromic and gcd subject matter"
+      ]
+    },
+    "rationale": "Focused published mathematical-index and literature searches with actual statement-level comparisons identified digit-pattern identities, reversal symmetry, continuant evaluations, and entire-level statistics, not the gcd of Stern values over canonical palindrome indices for each length. The four-witness uniform result and exception at length six require an additional argument. OEIS A002487 records a distinct palindrome phenomenon in value blocks. Earlier unindexed equivalent coverage remains possible.",
+    "residual_risks": [
+      "An earlier unindexed paper, note, or direct corollary from other general Stern results may already record the same gcd classification.",
+      "OEIS searches and published-index semantic retrieval do not demonstrate global absence; searched material could omit an unnamed equivalent formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general digit-pattern formula and individual Stern identities; no exact common divisor across all palindromic binary indices of fixed length.",
+        "evidence": [
+          "arXiv:1105.0086v2, Theorem 1.1, Lemmas 2.1–2.2 and §3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1105.0086v2",
+        "material_read": "Full HTML text including Theorem 1.1, both auxiliary lemmas, entire proof, and references; arXiv record separately verifies first public version on 30 April 2011.",
+        "method": "Read original openly available full-text arXiv HTML, not snippets.",
+        "title": "A Pattern Sequence Approach to Stern’s Sequence",
+        "trigger": "Direct same numerical sequence, binary digit expansions, and potentially dominating identities."
+      },
+      {
+        "assessment": "General continuant and whole-level results do not state or imply the palindrome-index gcd-by-length classification without further witness and parity arguments.",
+        "evidence": [
+          "arXiv:1410.4085v1, Proposition 5.4, Proposition 6.3, §9 Lemmas 9.1–9.4 and Theorem 9.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1410.4085v1",
+        "material_read": "Introduction, palindrome constructions in §2, exact reversal identity Proposition 5.4, continuant Proposition 6.3, full relevant distribution argument and neighboring theorems in §9, and section/statement index.",
+        "method": "Read the named sections of openly available original arXiv full-text HTML, not a downloaded but unread source.",
+        "title": "Sturmian words and the Stern sequence",
+        "trigger": "Highly related original research on binary words, palindromization, reversal symmetry, continuants, and fixed-level Stern values."
+      },
+      {
+        "assessment": "Its palindromic contiguous blocks are a different phenomenon; no exact binary-palindromic-index GCD by length was identified.",
+        "evidence": [
+          "OEIS:A002487; notes on palindromic rows and arithmetic-progressive columns."
+        ],
+        "identifier_or_url": "https://oeis.org/A002487",
+        "material_read": "Sequence record, comments on palindromic blocks and level/column formulas, and linked reference descriptions.",
+        "method": "Read OEIS sequence page.",
+        "title": "OEIS A002487: Stern's diatomic sequence",
+        "trigger": "Closest canonical integer-sequence database and potential earlier exact-gcd table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2436ee83-c6ef-4aca-9d47-1a9e291b3461",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform classification of exact shared prime obstructions on a natural digit-defined family with exponentially many indices is a substantive arithmetic invariant of Stern’s classical recurrence. The isolated length-six exception and explicit four-template universal witnesses give structural information not implied by finite enumeration. The claim neither invents an arbitrary numerical cutoff nor requires downstream application; it is a complete motivated classification.",
+    "status": "PASS"
+  }
+}
