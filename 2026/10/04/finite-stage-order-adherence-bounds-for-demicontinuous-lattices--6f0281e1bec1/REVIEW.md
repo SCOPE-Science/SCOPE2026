@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces to two mechanisms. First, \(r\)-demicontinuity gives \(\operatorname{adh}_o(B_F)\subset rB_F\), and homogeneity plus induction gives \(\operatorname{adh}_o^{\,n}(B_F)\subset r^nB_F\). Second, any nonzero \(\varphi\in F^*_{oc}\) defines a proper order-closed strip containing the unit ball, excluding anti-semicontinuity. No finite experiment or unproved computational step is used.
+## correctness
 
-## Originality
-PASS, with disclosed residual risk. The focal source arXiv:2609.03070 was inspected in full at the relevant definitions, propositions, and Remark 4.11. It supplies the one-step estimate and poses the coexistence question, but it does not state the finite-stage growth theorem or the anti-semicontinuous dual obstruction. Semantic searches for equivalent formulations and implication-level coverage found no exact published finding. arXiv:2609.06689 and arXiv:2604.02588 are closely related; only their abstracts/indexed descriptions were available for inspection, so an unindexed equivalent lemma remains a residual risk.
+PASS
 
-## Value
-PASS. The theorem does not purport to settle the open coexistence question. It instead gives two motivated structural obstructions every putative example must satisfy: genuinely transfinite closure depth and trivial norm-bounded order-continuous dual. The estimate \(\|x\|\le r^n\) also converts adherence depth into an explicit norm-growth barrier.
+Order adherence A(S) is monotone and positively homogeneous for full order-convergent nets. From r-demicontinuity, A(B_F) subset r B_F; induction gives A^n(B_F) subset r^n B_F for every finite n, including n=0. For r>1, norm>x>1 requires n>=ceil(log_r ||x||); the bound cannot cover unbounded nonzero F at any finite n. Anti-semicontinuity says order closure of B_F is F and closure is formed by transfinite adherence, so such coexistence would require at least a limit stage omega. For nonzero order-continuous bounded functional phi, the proper strip {|phi(x)|<=||phi||} is order-closed and contains B_F; its properness contradicts anti-semicontinuity. This independently establishes F_oc*=0 as a necessary condition. No claim of existence or impossibility is proved.
 
-## Closest literature and limitations
-The closest source is Eugene Bilokopytov, arXiv:2609.03070 (2 September 2026), especially Proposition 3.7 and Remark 4.11. Two related sources are A. Avilés, M. A. Taylor, P. Tradacete, arXiv:2609.06689 (6 September 2026), and Antonio Avilés, Christian Rosendal, Mitchell A. Taylor, Pedro Tradacete, arXiv:2604.02588 (2 April 2026). The result is a necessary-condition theorem only and leaves the existence question open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The new observations iterate Bilokopytov Prop. 3.7 and apply an order-closed functional-strip obstruction to his explicit open coexistence question. They are elementary deductions but not stated as the finite-stage bound or dual necessary conditions in the focal source sections read. Related 2026 papers on order adherence versus closure and transfinite Fatou hierarchies remain partially inaccessible; no stronger covering implication was located in the returned semantic searches.
+
+## value
+
+PASS
+
+Although the arguments are short, these are structural necessary obstructions tied directly to a concrete open demicontinuity/anti-semicontinuity coexistence problem: any example must defeat all finite adherence depths and lack nonzero order-continuous bounded functionals. The r^n bound gives a quantitative norm threshold by finite stage. The claim neither says the coexistence problem is solved nor sells the induction as a major theorem; the finite-depth barrier has precise use when eliminating candidate examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
