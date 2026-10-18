@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The final claim is checked in two complementary parts. First, a uniqueness-preserving recursion enumerates every monotone Boolean function on up to five variables; after imposing the simple-game boundary conditions, exact rational arithmetic checks every pairwise weak-order comparison for all \(1,4,18,166,7579\) games. Second, the six-player witness is reconstructed directly from its minimal winning coalitions and its Banzhaf and Shapley–Shubik vectors are independently recomputed from critical coalitions.
+PASS
 
-## Originality
+PASS for the final mathematical theorem, with one non-substantive count typo flagged. The recursive representation of monotone Boolean functions by ordered restriction pairs f0≤f1 enumerates all games exactly. Independently enumerated the complete 1,4,18,166,7579 simple games on 1..5 labeled players (TOTAL 7768) and calculated every Banzhaf/SS pairwise order using exact fractions: 0 mismatches. The specified six-player minimal-winning coalitions {2345},{156},{36},{26} yield raw swings (2,8,8,2,4,24), SS (1/30,1/6,1/6,1/20,1/12,1/2), so Banzhaf ties players 1 and 4 while SS separates them. The source RESULT.md accidentally says 5768 total games in its Verification paragraph, although its enumerated per-size counts and actual program correctly total 7768. This editorial error does not alter quantifiers, exhaustive coverage or sharp result; it blocks uncorrected public-file publication.
 
-PASS relative to the checked literature. The closest prior work studies ordinal equivalence via swap robustness, desirability, complete or weakly linear games, and semicomplete sufficient classes. The inspected material did not state the universal all-simple-game cutoff through five players or the displayed six-player witness. The lower bound is not inferred from those class results; it is established by complete finite enumeration.
+## originality
 
-A residual literature risk remains: the full text of the highly relevant 2012 article on Johnston, Banzhaf and Shapley ordinal equivalence could not be inspected because publisher access required interactive human verification. Its abstract describes class-level results and does not expose the present cutoff, but an unobserved example cannot be excluded from abstract evidence alone.
+PASS
 
-## Value
+PASS (best of knowledge, with explicit inaccessible-primary risk). Freixas’s 2011 primary lecture (materially read) and related power-index theory establish ordinal-equivalence definitions and sufficient classes such as weakly complete or semicomplete games, but do not supply an all-simple-game sharp first separation at n=6. Resultary’s close Johnston 5-player and Deegan–Packel boundaries compare different indices. A highly relevant 2012 Freixas–Marciniak–Pons full article was not accessible: OA/preprint attempts yielded only metadata and authorized institutional retrieval reported an expired human-verification tab; no claim that its full text lacks the result. That risk remains explicit, rather than automatically failing O.
 
-PASS. A sharp first-divergence threshold for two canonical voting-power rankings is a natural invariant of the ordinal-equivalence problem. The result pinpoints exactly when universal small-committee agreement ends, rather than adding an arbitrary finite case.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest checked sources are Diffo Lambo–Moulen on swap robustness and ordinal equivalence, Friedman–McGrath–Parker on achievable hierarchies in swap-robust games, Freixas–Pons on simple-game hierarchies, and Freixas–Marciniak–Pons on Johnston/Banzhaf/Shapley ordinal equivalence. The finding concerns weak-order equivalence only, gives a tie-versus-strict six-player separation, and does not classify all six-player counterexamples.
+PASS. The exact first-order divergence threshold for two canonical voting-power rankings over ALL monotone simple games is a natural finite classification question. Exhaustion of 7,768 games establishes the universal small-n bound, and the explicit n=6 witness proves sharpness. Tie-to-strict separation is still genuinely ordinal inequivalence; no stronger reversal is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
