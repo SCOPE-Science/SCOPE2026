@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces all convexity constraints to
-\[
-O\cdot u_j\le c_k,
-\qquad
-0\le j<3k,
-\]
-where
-\[
-c_k=\cos\!\left(\frac{\pi(k+1)}{3k}\right).
-\]
+# Independent mathematical audit
 
-The key local identity is obtained by rotating one pair of endpoint vertices to
-\[
-(c_k,-s_k),\qquad(c_k,s_k),
-\]
-with
-\[
-s_k=\sin\!\left(\frac{\pi(k+1)}{3k}\right).
-\]
-For a rotated center \((x,y)\),
-\[
-\det(P_j-O,P_{j+k+1}-O)
-=
-2s_k(c_k-x).
-\]
-Therefore the sign controlling whether the source's wedge angle is at most \(\pi\) is exactly the sign of the claimed half-plane slack.
+## correctness
 
-For \(k\ge3\), the half-plane normals are equally spaced by \(2\pi/(3k)\). Hence the feasible region is a regular \(3k\)-gon with
-\[
-R_k
-=
-\frac{c_k}{\cos(\pi/(3k))}
-=
-\frac12-\frac{\sqrt3}{2}\tan\!\left(\frac{\pi}{3k}\right),
-\]
-and
-\[
-A_k
-=
-3k c_k^2\tan\!\left(\frac{\pi}{3k}\right).
-\]
-For \(k=2\), \(c_k=0\) and opposite half-planes collapse the center set to the origin.
+PASS
 
-The bundled checker samples these identities for all \(2\le k\le200\), reconstructs polygon vertices from adjacent support lines, verifies their circumradii and shoelace areas, and checks the stated limits numerically.
+For center O outside/on unit disk, the visible circle directions occupy ≤π radians and leave an angular gap ≥π of zero arclength mass. Positive 1/(3k) mass in each basic sector forces the gap into at most two consecutive sectors; the containing convex (k+1)-wedge (k≥2) then has angle >π, contradiction. For interior O, radial projection of the support circle to directions about O preserves cyclic order, hence 1/n arclength per basic sector means intercepts P_j at equally spaced angles φ+2πj/n. For m=k+1, Δ=2πm/n≤π and sin(Δ/2)>0. det(P_j−O,P_{j+m}−O)=2 sin(Δ/2)[cos(Δ/2)−O·u_j] directly equates wedge convexity with one half-plane. The n equally spaced normals give a regular polygon with inradius c=cos(π(k+1)/(3k)); k=2 has c=0 and collapses to origin, k≥3 has circumradius c/cos(π/(3k))=(1/2)−(√3/2)tan(π/(3k))<1/2. Reversible construction, standard area n c²tan(π/n), rotating union/intersection and limit π/4 complete proof. Independently tested determinant for k=2..119 and phase/radius identities; finite checks not proof.
 
-Those finite checks are supplementary. The classification for every \(k\ge2\) follows from the exact determinant identity and regular-polygon geometry, not from sampling.
+## originality
 
-No claim is made about non-spiral equicoverings or measures other than normalized arclength on the unit circle.
+PASS
+
+Best-of-knowledge: the original 2025 introduction treats general spiral existence/parameter regimes; the 2026 focal paper’s accessible abstract states convex (3k,k+1) universal existence for every planar mass, not a complete circular-mass center-moduli polygon. The latter full text could not be read despite lawful access attempts, a genuine residual priority risk (not proof of absence). Ten-result-family semantic searches under circle mass, center locus, and fan partitions yielded only the indexed candidate and unrelated circular geometry; no definite covering stronger result was found.
+
+## value
+
+PASS
+
+The circle is a canonical singular planar mass satisfying the source’s no-mass-on-lines condition. The complete center/phase moduli classification is a motivated exact solution of the new (3k,k+1) convex-spiral existence regime, not merely one example. It identifies rigid k=2, the positive-area regular center polygons for k≥3, two distinct radial feasibility thresholds and quantitative convergence to a radius-1/2 disk. These are independently useful precise facts for partition geometry even absent a general-mass theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
