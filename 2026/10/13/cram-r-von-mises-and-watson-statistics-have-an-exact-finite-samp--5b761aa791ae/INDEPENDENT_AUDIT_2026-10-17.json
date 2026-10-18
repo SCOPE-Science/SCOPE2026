@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:05:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under fully specified continuous F0 and n≥2, applying the exact iid centered-Hilbert quadratic-form covariance formula to W_n²=⟨S,I S⟩ and U_n²=⟨S,P S⟩ yields Cov=(n−1)/(180n), Var W=(4n−3)/(180n), Var U=(n−1)/(360n), Corr=sqrt(2(n−1)/(4n−3)). Independently integrated Brownian-bridge kernel C(s,t)=min(s,t)−st to obtain tr Σ²=1/90, ||Σe||²=1/120, ⟨e,Σe⟩=1/12; so tr ΣPΣ=1/360 and tr ΣPΣP=1/720. For each one-observation bridge Z_y, ||Z_y||²=(y−1/2)²+1/12 and ⟨Z_y,PZ_y⟩=1/12 constant; one-sample joint covariance zero. Pairings give all n exactly; n=2 and the n→∞ correlation limit follow. This proof, not finite experiment or prior checker log, controls every n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Integrated-empirical-measures framework derives marginal limit eigenvalues and MGFs."
+        ],
+        "reasoning": "Marginal distribution results, even for a more general statistic family, do not imply finite-n joint covariance without additional joint information.",
+        "searches": [
+          "arXiv:2404.06040 abstract and distribution structure",
+          "Pearson–Stephens 1962 §§1–5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1093/biomet/49.3-4.397 1962 pp.397–402 all pages read",
+        "arXiv:2404.06040 abstract",
+        "Resultary semantic query finite-sample Cramér/Watson covariance",
+        "Git assigned RESULT.md sha 5401123b741b7afee322bf4f0d013c905458442c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic cumulant ratios concern law of each statistic individually, whereas the new covariance uses their shared empirical process."
+        ],
+        "reasoning": "Neither cited marginal result fixes the joint coupling, so the exact finite-n formula is not a mere specialization.",
+        "searches": [
+          "Pearson–Stephens 1962 §5",
+          "Hwang–Kuriki arXiv:2404.06040"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Watson U²=W²−n(average F0(X)−1/2)². Section 5 of 1962 source compares univariate limiting cumulants κ_s(U∞)=2^(1−s)κ_s(W∞), not joint cumulants."
+        ],
+        "reasoning": "A relation between separate marginal characteristic functions does not determine Cov(W_n²,U_n²) because joint dependence is required.",
+        "searches": [
+          "Pearson–Stephens DOI:10.1093/biomet/49.3-4.397 pp.397–402",
+          "Hwang–Kuriki arXiv:2404.06040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The old paper tabulates marginal moments and percentage points, no corresponding exact cross-correlation column."
+        ],
+        "reasoning": "Bounded exact-record search found no direct table. An absent search hit is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search Cramér von Mises Watson finite sample covariance",
+          "Pearson–Stephens 1962 tables 1–5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for an explicit exact joint finite-n second moment linking two natural goodness-of-fit statistics. Closest original Pearson–Stephens 1962 article was newly retrieved through authorized academic access and all six pages materially read: sections 2–4 deal with marginal W and U behavior, section 5 relates asymptotic marginal cumulants, not finite-n joint covariance. Hwang–Kuriki 2024 handles separate limiting eigenlaws; neither source supplies the cross-statistic covariance formula.",
+      "residual_risks": [
+        "Other classic Watson/circular empirical-process papers may give the mixed second moment under a different parameterization.",
+        "Watson 1961 and full Hwang–Kuriki manuscript were not read anew; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING finite-n joint covariance",
+          "evidence": "Paper sec.2 W marginal moments; sec.4 U marginal Monte Carlo; sec.5 asymptotic κ_s relation, no mixed moment.",
+          "identifier_or_url": "DOI:10.1093/biomet/49.3-4.397",
+          "material_read": "All six pages, introduction, finite-sample moment table, Monte Carlo marginal distributions, final characteristic-function section and references",
+          "method": "Authorized Oxford full text extraction, both page ranges 1–3 and 4–6",
+          "title": "The goodness-of-fit tests based on W_n² and U_n²",
+          "trigger": "Same two statistics, most plausible 1962 priority"
+        },
+        {
+          "assessment": "UNDETERMINED full-text but apparently marginal rather than joint",
+          "evidence": "Abstract emphasizes limiting eigenvalues and marginal MGFs, not covariance. Full-text comparison remains residual risk.",
+          "identifier_or_url": "arXiv:2404.06040",
+          "material_read": "Abstract and published summary, not full manuscript in this run",
+          "method": "arXiv bibliographic page and metadata",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+          "trigger": "Modern broader family includes both test names"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint finite-sample dependence, nonzero asymptotic correlation 1/sqrt(2), and monotone n-dependence are natural useful quantitative diagnostics for statistical-test comparison; this is not a renaming of marginal moments. The exact deterministic projected single-observation contribution explains non-obvious simplification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1093/biomet/49.3-4.397 1962 pp.397–402 all pages read",
+    "arXiv:2404.06040 abstract",
+    "Resultary semantic query finite-sample Cramér/Watson covariance",
+    "Git assigned RESULT.md sha 5401123b741b7afee322bf4f0d013c905458442c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Simple fully specified continuous null only, n≥2; parameter-estimated and two-sample empirical processes excluded.",
+    "Second-order coupling not joint law.",
+    "Other classic Watson/circular empirical-process papers may give the mixed second moment under a different parameterization.",
+    "Watson 1961 and full Hwang–Kuriki manuscript were not read anew; no exhaustive priority claim.",
+    "Scientific acceptance is best-of-knowledge and does not imply external expert certification, exhaustive priority, or publication."
+  ],
+  "residual_risks": [
+    "Other classic Watson/circular empirical-process papers may give the mixed second moment under a different parameterization.",
+    "Watson 1961 and full Hwang–Kuriki manuscript were not read anew; no exhaustive priority claim."
+  ],
+  "schema_version": 1
+}

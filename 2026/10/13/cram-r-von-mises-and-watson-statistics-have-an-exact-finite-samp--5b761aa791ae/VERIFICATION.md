@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses a Hilbert-space quadratic-form identity. The accompanying checker uses a different route based on classical order-statistic formulas.
+# Independent mathematical audit
 
-For iid uniforms with order statistics \(Y_{(1)}<\cdots<Y_{(n)}\), it constructs
-\[
-W_n^2
-=
-\frac1{12n}
-+
-\sum_{i=1}^n
-\left(
-Y_{(i)}-\frac{2i-1}{2n}
-\right)^2
-\]
-and
-\[
-U_n^2
-=
-W_n^2
--
-n\left(\overline Y-\frac12\right)^2
-\]
-as exact multivariate polynomials.
+## correctness
 
-Each monomial is integrated over
-\[
-0<Y_{(1)}<\cdots<Y_{(n)}<1
-\]
-against density \(n!\). For exponents \(a_1,\ldots,a_n\), the checker uses the exact iterated-integral identity
-\[
-n!\int_{0<y_1<\cdots<y_n<1}
-\prod_{i=1}^ny_i^{a_i}\,dy
-=
-\frac{n!}{
-\prod_{k=1}^n
-\left(k+\sum_{i=1}^ka_i\right)
-}.
-\]
+PASS
 
-All arithmetic is rational. For \(1\le n\le8\), the checker recomputes both means, both variances, and the covariance from the polynomial integrals and compares them to the theorem. For \(2\le n\le8\), it also verifies the exact squared-correlation formula.
+Under fully specified continuous F0 and n≥2, applying the exact iid centered-Hilbert quadratic-form covariance formula to W_n²=⟨S,I S⟩ and U_n²=⟨S,P S⟩ yields Cov=(n−1)/(180n), Var W=(4n−3)/(180n), Var U=(n−1)/(360n), Corr=sqrt(2(n−1)/(4n−3)). Independently integrated Brownian-bridge kernel C(s,t)=min(s,t)−st to obtain tr Σ²=1/90, ||Σe||²=1/120, ⟨e,Σe⟩=1/12; so tr ΣPΣ=1/360 and tr ΣPΣP=1/720. For each one-observation bridge Z_y, ||Z_y||²=(y−1/2)²+1/12 and ⟨Z_y,PZ_y⟩=1/12 constant; one-sample joint covariance zero. Pairings give all n exactly; n=2 and the n→∞ correlation limit follow. This proof, not finite experiment or prior checker log, controls every n.
 
-These finite checks do not prove the all-\(n\) theorem; the arbitrary-\(n\) proof is the independent quadratic-form derivation in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Deterministic replay result: `VERIFY_OK sample_sizes=8 exact_moment_checks=40 exact_correlation_squared_checks=7`.
+Best-of-knowledge PASS for an explicit exact joint finite-n second moment linking two natural goodness-of-fit statistics. Closest original Pearson–Stephens 1962 article was newly retrieved through authorized academic access and all six pages materially read: sections 2–4 deal with marginal W and U behavior, section 5 relates asymptotic marginal cumulants, not finite-n joint covariance. Hwang–Kuriki 2024 handles separate limiting eigenlaws; neither source supplies the cross-statistic covariance formula.
+
+## value
+
+PASS
+
+Joint finite-sample dependence, nonzero asymptotic correlation 1/sqrt(2), and monotone n-dependence are natural useful quantitative diagnostics for statistical-test comparison; this is not a renaming of marginal moments. The exact deterministic projected single-observation contribution explains non-obvious simplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

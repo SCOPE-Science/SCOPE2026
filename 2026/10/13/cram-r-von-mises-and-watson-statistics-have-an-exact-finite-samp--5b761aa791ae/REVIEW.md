@@ -1,34 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The probability integral transform reduces every fully specified continuous null to iid uniforms. The proof writes the two statistics as quadratic forms of the same centered empirical-process sum: Cramér–von Mises uses the identity operator and Watson uses orthogonal projection away from constants.
+PASS
 
-An exact iid quadratic-form covariance identity separates a Gaussian pairing term from the one-observation fourth-cumulant correction. The Brownian-bridge covariance kernel gives the three needed traces by elementary double integration. At the one-observation level, the Watson quadratic form is exactly \(1/12\), so its variance and its covariance with the unprojected one-observation norm vanish. Substitution yields all three finite-\(n\) second moments and therefore the correlation formula.
+Under fully specified continuous F0 and n≥2, applying the exact iid centered-Hilbert quadratic-form covariance formula to W_n²=⟨S,I S⟩ and U_n²=⟨S,P S⟩ yields Cov=(n−1)/(180n), Var W=(4n−3)/(180n), Var U=(n−1)/(360n), Corr=sqrt(2(n−1)/(4n−3)). Independently integrated Brownian-bridge kernel C(s,t)=min(s,t)−st to obtain tr Σ²=1/90, ||Σe||²=1/120, ⟨e,Σe⟩=1/12; so tr ΣPΣ=1/360 and tr ΣPΣP=1/720. For each one-observation bridge Z_y, ||Z_y||²=(y−1/2)²+1/12 and ⟨Z_y,PZ_y⟩=1/12 constant; one-sample joint covariance zero. Pairings give all n exactly; n=2 and the n→∞ correlation limit follow. This proof, not finite experiment or prior checker log, controls every n.
 
-The checker independently integrates the order-statistic computing formulas with exact rational arithmetic for \(1\le n\le8\), rather than reusing the operator derivation.
+## originality
 
-## Originality
+PASS
 
-PASS, subject to a small historical-access risk. Pearson and Stephens's 1962 paper is the strongest directly relevant full source inspected. It studies both statistics jointly in the same article, gives finite moments for the Cramér–von Mises statistic, Monte Carlo distributions for Watson's statistic, and a relation between cumulants of their asymptotic marginal laws. Its six pages do not state a finite-sample covariance, joint moment, or correlation.
+Best-of-knowledge PASS for an explicit exact joint finite-n second moment linking two natural goodness-of-fit statistics. Closest original Pearson–Stephens 1962 article was newly retrieved through authorized academic access and all six pages materially read: sections 2–4 deal with marginal W and U behavior, section 5 relates asymptotic marginal cumulants, not finite-n joint covariance. Hwang–Kuriki 2024 handles separate limiting eigenlaws; neither source supplies the cross-statistic covariance formula.
 
-Hwang and Kuriki's full public manuscript treats the classical Cramér–von Mises and Watson statistics and their explicit limiting eigenstructures, but text searches found no covariance or correlation between the two. Targeted web and semantic searches for the exact finite formulas likewise found no matching statement.
+## value
 
-Watson's 1961 source could not be obtained in full after bounded access attempts. Because the later Pearson--Stephens paper explicitly defines the same two statistics and cites Watson's construction, this is a residual historical risk rather than a decisive unresolved comparison.
+PASS
 
-## Value
+Joint finite-sample dependence, nonzero asymptotic correlation 1/sqrt(2), and monotone n-dependence are natural useful quantitative diagnostics for statistical-test comparison; this is not a renaming of marginal moments. The exact deterministic projected single-observation contribution explains non-obvious simplification.
 
-PASS. Cramér–von Mises and Watson are classical, widely used quadratic goodness-of-fit statistics. Their separate null distributions are extensively tabulated, while their exact redundancy is a natural quantity whenever the tests are compared, combined, simulated jointly, or used as benchmarks.
-
-The result is not a routine restatement of marginal moments: it identifies a simple finite-sample joint law,
-\[
-\operatorname{Corr}(W_n^2,U_n^2)
-=
-\sqrt{\frac{2(n-1)}{4n-3}},
-\]
-and explains structurally why Watson centering removes exactly one component while leaving a persistent asymptotic correlation \(1/\sqrt2\).
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Deterministic replay: `VERIFY_OK sample_sizes=8 exact_moment_checks=40 exact_correlation_squared_checks=7`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
