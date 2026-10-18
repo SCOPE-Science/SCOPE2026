@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact companion matrix has rank \(9\), zero Gram matrix, and exhaustive ordinary weight enumeration reproduces the published minimum distance \(16\). Every subspace of \(\mathbb F_2^9\) is enumerated exactly once in reduced row-echelon form. The resulting support histograms sum to the correct Gaussian-binomial totals and give
-\[
-(16,24,29,33,36,38,40,42,43)
-\]
-with minimum-support multiplicities
-\[
-(24,20,4,9,28,8,7,43,1).
-\]
-All columns are nonzero and distinct, and exhaustive triple testing finds exactly seven dependent triples, proving dual distance \(3\) with exactly seven weight-\(3\) words.
+PASS
 
-## Originality
+Pinned binary G matrix has rank nine, GG^T=0, and 512 independent message vectors. A freshly written independent subspace enumerator generated each F_2^9 RREF space exactly once at sizes (511,43435,788035,3309747,3309747,788035,43435,511,1); all nine minima (16,24,29,33,36,38,40,42,43) and argmin multiplicities (24,20,4,9,28,8,7,43,1) matched. It independently confirmed word frequencies 1,24,95,123,107,91,45,17,9 for weights 0,16,...,30, distinct nonzero columns and the exact seven dependent triples. The finite claim is exhaustively proved for one matrix, not an infinite family.
 
-PASS. The primary article reports the new optimal code only through \([n,k]\), ordinary minimum distance, and automorphism-group order; its full text contains no generalized-Hamming-weight, weight-hierarchy, or minimum-support statement. The companion source provides the generator but no higher-support analysis. Exact-parameter, hierarchy, minimizer-count, and dual-layer searches found no prior same-object result. General generalized-weight theory does not imply these exact invariants from self-orthogonality and \(d_1=16\).
+## originality
 
-## Value
+PASS
 
-PASS. The code is a newly published optimal self-orthogonal witness, so its higher-support hierarchy is a natural structural invariant rather than an arbitrary slice. The extremal-subcode multiplicities substantially refine the hierarchy, and the exact dual weight-\(3\) layer supplies a projective-geometric boundary invariant of the same construction.
+The origin paper supplies the exact new optimal code but not the computed generalized-weight/minimizer incidence in the accessible material. No identical same-object result was located among concrete Resultary hits; searches are qualified by missing primary full text.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Full higher-support profile and projective dual distance are natural structural invariants of a newly optimal self-orthogonal code, refining both minimum distance and ordinary weight distribution; exhaustive computation covers the complete finite object, not an arbitrary parameter interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
