@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 77dd7a915ad491e7c961ed6cfec618117ecaf5e4 and package verify.py",
+        "Independent symbolic checker EXPONENTIAL_SIR_LOTKA_VOLTERRA_ENERGY_AND_WAVES_OK",
+        "Classical two-species Lotka-Volterra positive-orbit first integral and convex level-set argument"
+      ],
+      "rationale": "Starting from the exact closed homogeneous SIR equations with beta(t)=beta0 exp(at), set Q=beta S/(gamma N), P=beta I/(a N) for a>0. Direct differentiation gives Qdot=aQ(1-P), Pdot=gamma P(Q-1+a/gamma), a genuine predator-prey Lotka-Volterra system. Its first integral H=gamma Q-(gamma-a)log Q+aP-a log P is conserved. For 0<a<gamma, H is strictly convex and coercive in log coordinates; all non-minimal levels are compact regular periodic curves. dI/dt=gamma I(Q-1); the orbit crosses Q=1 exactly twice, generating one strict maximum and minimum each period iff E>H(1,1)=gamma+a. For E<=gamma+a no interior maximum. Incidence logarithmic derivative at the Q turning points is gamma(Q-1), giving at least one strict incidence peak each cycle in the supercritical case. Periodicity of Q,P and exponential beta give exact S,I,C attenuation e^{-aT}. For a<=0, Q strictly decreases; for a>=gamma, P increases, Q has at most one turning point and I at most one maximum. Independent polynomial conservation and exact exemplar (N=gamma=1,a=1/2,beta0=5,S0=2/5,I0=1/10) checked. Finite computations do not establish global periodicity, which follows from compact regular level sets.",
+      "residual_risks": [
+        "The count concerns exact strict maxima of infinitesimally small amplitude at late times.",
+        "The infinite-horizon transmission coefficient is unbounded; no empirical claim of repeated observable disease waves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rabajante 2026 proves representability of flexible multiwave SIR trajectories with time-varying beta and formulates minimal peak-preserving complexity with numerical inference.",
+          "Perakis et al 2023 use wave-specific piecewise-constant transmission and therefore increase parameter regimes with wave count."
+        ],
+        "reasoning": "Flexibly chosen rates can realize many peaks, but do not imply arbitrarily many peaks under the highly constrained exogenous beta0 exp(at), nor E>gamma+a and exact attenuation.",
+        "searches": [
+          "Exponentially forced SIR transmission beta(t)=beta0 exp(a t) exact Lotka Volterra periodic orbit infinitely many epidemics prevalence peaks",
+          "Rabajante arxiv:2610.05556 exponential two endpoint knots multiwave criterion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05556v1 primary manuscript",
+        "Maheshwari et al., CoSIR, medRxiv:2020.11.10.20211995",
+        "Earn and Parsons, arXiv:2511.01939 epidemic momentum overview",
+        "Resultary independent semantic search Exponentially forced SIR transmission beta(t)=beta0 exp(a t) exact Lotka Volterra periodic orbit infinitely many epidemics prevalence peaks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maheshwari et al. CoSIR uses a feedback policy ensuring unscaled bounded LV-like infective oscillations over a constrained depletion horizon.",
+          "The source Rabajante paper allows arbitrary time-dependent rate to fit waves; it does not require rate exponential or establish periodic rescaling."
+        ],
+        "reasoning": "Neither theorem implies the fixed-exponential construction. A universal existence result over all time-varying beta does not imply existence in this one-dimensional subclass.",
+        "searches": [
+          "Exponentially forced SIR transmission beta(t)=beta0 exp(a t) exact Lotka Volterra periodic orbit infinitely many epidemics prevalence peaks",
+          "CoSIR Lotka Volterra optimal control feedback infectives finite depletion time",
+          "arXiv:2610.05556v1 peak preserving complexity conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q=beta S/(gamma N),P=beta I/(aN) is a deterministic time-dependent scaling turning the exponentially forced SIR flow into a classical autonomous LV flow.",
+          "CoSIR (Maheshwari et al.) maps SIR to LV using state-feedback transmission; that is not a fixed beta0 exp(at) input."
+        ],
+        "reasoning": "The SIR/LV equivalence for this precise exogenous exponential input is the central construction. Existing feedback-controlled LV analogies are not equivalent because their beta depends on the state.",
+        "searches": [
+          "Exponentially forced SIR transmission beta(t)=beta0 exp(a t) exact Lotka Volterra periodic orbit infinitely many epidemics prevalence peaks",
+          "\"exponential transmission\" SIR \"Lotka-Volterra\" conserved first integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant source contains case studies/stress tests, not a numerical table determining the all-energy phase boundary for a single exponential beta(t)."
+        ],
+        "reasoning": "This is an analytic infinite-horizon dynamical theorem rather than a finite census; tabulated epidemiological wave examples are inapplicable to its exact quantifiers.",
+        "searches": [
+          "Exponentially forced SIR transmission beta(t)=beta0 exp(a t) exact Lotka Volterra periodic orbit infinitely many epidemics prevalence peaks",
+          "SIR exponential beta infinitely many waves two knot exact threshold"
+        ]
+      },
+      "rationale": "The Lotka-Volterra periodicity itself is classical, and state-feedback controlled SIR-to-LV reductions predate this work. However the exogenous single-exponential beta law, exact scaled conjugacy, sharp energy threshold for repeated strict prevalence peaks and attenuation are more specific than earlier general multiwave SIR representability, with no dominating equivalence found after targeted comparison.",
+      "residual_risks": [
+        "Classical LV conjugacies could be re-used under alternative nomenclature in older epidemic theory; exact historical priority cannot be certified.",
+        "Late peaks decay geometrically and would not be visible above fixed noise thresholds; no claim of data-based MPPC equal to two."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FLEXIBLE_RATE_NOT_EXPONENTIAL_LV",
+          "evidence": [
+            "Flexible time-varying beta and peak-preserving complexity do not state the E>gamma+a criterion for a globally exponentially forced rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.05556v1",
+          "material_read": "Primary HTML full manuscript, mathematical representability/peak conditions, interpolation parameterization, inference and limitations",
+          "method": "Open arXiv full-text HTML and targeted section review",
+          "title": "How Simple Models Can Reproduce Multiple Epidemic Waves: Peak Topology, Minimal Dynamic Complexity, and Inference for Time-Varying Transmission",
+          "trigger": "Direct source of the two-endpoint modelling and peak-complexity motivation"
+        },
+        {
+          "assessment": "STATE_FEEDBACK_NOT_EXOGENOUS_EXPONENTIAL",
+          "evidence": [
+            "Its state-selected beta is not externally fixed beta0 exp(at), and its oscillating variables have different global behavior."
+          ],
+          "identifier_or_url": "https://doi.org/10.1101/2020.11.10.20211995",
+          "material_read": "Open primary manuscript sections describing the state-feedback transmission and controlled oscillations",
+          "method": "Lawful open primary HTML, source algorithm and control setting comparison",
+          "title": "CoSIR: Optimal control of SIR epidemic dynamics by mapping to Lotka-Volterra System",
+          "trigger": "Closest named prior LV transformation applied to SIR"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rabajante 2026 peak-preserving model-complexity motivation",
+        "Exact closed SIR-to-LV transformation and prevalence/incidence sign analysis"
+      ],
+      "rationale": "The coexistence of unbounded transmission growth and indefinitely many *strict* yet geometrically decaying epidemic prevalence/incidence peaks in a closed, non-replenished SIR model is a nonobvious dynamical boundary. It demonstrates that a single log-affine forcing segment can generate unlimited mathematical peak count and provides an exact parameter/energy phase classification, which is useful to distinguish structural peak count from statistical wave-complexity claims. It is not merely an LV relabeling because the original physical observables and attenuation are classified.",
+      "residual_risks": [
+        "Model transmission grows without bound over infinite time; no finite amplitude or observational wave-count conclusion is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No practical claim that two interpolation endpoints adequately fit arbitrarily many observed high-amplitude outbreaks.",
+    "Peak amplitudes tend to zero; exactly one maximum per period only refers to the nonstationary energy-above-threshold case.",
+    "Publication withheld pending operational metadata sanitization."
+  ],
+  "schema_version": 1
+}

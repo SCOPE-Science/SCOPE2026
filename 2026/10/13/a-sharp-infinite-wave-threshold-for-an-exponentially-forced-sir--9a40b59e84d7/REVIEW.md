@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact closed SIR equations with \(\beta(t)=\beta_0e^{at}\), the transformation into \((Q,P)\) was differentiated from first principles and inverted. Polynomial cancellation gives the stated conserved Hamiltonian. Strict convexity and coercivity in logarithmic coordinates give compact regular cycles; their intersection with \(Q=1\) establishes the **if-and-only-if** energy cutoff \(E>\gamma+a\) for recurring prevalence maxima. The incidence claim follows from the opposite signs of its log derivative at the two \(Q\) extrema. The complement \(a\le0\) and \(a\ge\gamma\) was checked directly, as was global positivity. The exact example has energy greater than the threshold because \(\log2<1\). `verify.py` gives reproducible exact algebraic checks. Analytic periodicity, not time-series sampling, supports infinitely many peaks.
+PASS
 
-## Originality — PASS, with documented residual risk
+Starting from the exact closed homogeneous SIR equations with beta(t)=beta0 exp(at), set Q=beta S/(gamma N), P=beta I/(a N) for a>0. Direct differentiation gives Qdot=aQ(1-P), Pdot=gamma P(Q-1+a/gamma), a genuine predator-prey Lotka-Volterra system. Its first integral H=gamma Q-(gamma-a)log Q+aP-a log P is conserved. For 0<a<gamma, H is strictly convex and coercive in log coordinates; all non-minimal levels are compact regular periodic curves. dI/dt=gamma I(Q-1); the orbit crosses Q=1 exactly twice, generating one strict maximum and minimum each period iff E>H(1,1)=gamma+a. For E<=gamma+a no interior maximum. Incidence logarithmic derivative at the Q turning points is gamma(Q-1), giving at least one strict incidence peak each cycle in the supercritical case. Periodicity of Q,P and exponential beta give exact S,I,C attenuation e^{-aT}. For a<=0, Q strictly decreases; for a>=gamma, P increases, Q has at most one turning point and I at most one maximum. Independent polynomial conservation and exact exemplar (N=gamma=1,a=1/2,beta0=5,S0=2/5,I0=1/10) checked. Finite computations do not establish global periodicity, which follows from compact regular level sets.
 
-The first-public 2026 source arXiv:2610.05556v1 formulates log-linear transmission and a data-oriented peak-complexity program, but neither a constant log-slope, two-endpoint infinite-wave construction nor this sharp energy threshold is established there. The closest structural predecessor, Maheshwari et al.'s CoSIR SIR–LV mapping, uses a feedback-selected rate and unscaled cyclical prevalence with finite-duration susceptible depletion. The current theorem uses a prescribed exponential rate and a separate scaling of both \(S\) and \(I\), giving global geometrically damped waves. Earn–Parsons conservation geometry and Perakis et al.'s piecewise-constant epidemic-wave model also do not imply this specific result. Direct semantic scholarly-record and literature searches covered exponential-rate aliases, Hamiltonian equivalences, SIR–LV reductions, prior source IDs, and the exact two-knot claim; no dominating statement was identified. Search coverage is not a proof of universal priority, and historical unnoticed equivalents remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not a routine alternate parameterization of classical Lotka–Volterra: it gives a sharp initial-condition invariant separating monotone and endlessly oscillatory prevalence in a real nonautonomous SIR epidemic, proves genuine incidence peaks, classifies growth-rate boundaries, and shows that **arbitrarily many strict peaks need not require more transmission-rate knots**. It supplies a precise structural stress test motivated by peak-preserving parsimony and delineates why bare peak count is distinct from amplitude-aware statistical complexity. Peaks decay exponentially; no empirical interpretation or exact posterior complexity is claimed.
+The Lotka-Volterra periodicity itself is classical, and state-feedback controlled SIR-to-LV reductions predate this work. However the exogenous single-exponential beta law, exact scaled conjugacy, sharp energy threshold for repeated strict prevalence peaks and attenuation are more specific than earlier general multiwave SIR representability, with no dominating equivalence found after targeted comparison.
 
-## Scientific limits and closest literature
+## value
 
-Constant-rate SIR cannot have repeated prevalence maxima, whereas CoSIR creates LV cycles using state-dependent feedback rather than a specified exponential law. Infinite-horizon exponential contact rates are unrealistic, and the eventual peaks become arbitrarily small. The closest known SIR–LV prior is expressly credited. No independent audit or empirical validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coexistence of unbounded transmission growth and indefinitely many *strict* yet geometrically decaying epidemic prevalence/incidence peaks in a closed, non-replenished SIR model is a nonobvious dynamical boundary. It demonstrates that a single log-affine forcing segment can generate unlimited mathematical peak count and provides an exact parameter/energy phase classification, which is useful to distinguish structural peak count from statistical wave-complexity claims. It is not merely an LV relabeling because the original physical observables and attenuation are classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
