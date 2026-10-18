@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:53:17.098684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On K_N minus a perfect matching, three eigenvalues N-2, -2,0 give antipodal amplitude -1/2+(1/2-1/N)exp(2it)+(1/N)exp(-i(N-2)t). Its squared modulus satisfies a sum-of-three-nonnegative-terms deficit identity. For N=2m with odd m>=3, setting t=pi/2+eps reduces the lower bound to g_m(eps)=(m-1)sin^2(eps)+cos^2((m-1)eps). Differentiating gives -2(m-1)cos(m eps)sin((m-2)eps); all critical candidates and endpoints show min g_m=m sin^2(pi/(2m)), achieved at eps=+/-pi/(2m) where the discarded nonnegative term also vanishes. Hence exact global max cos^2(pi/N), equality at t=pi/2 +/- pi/N modulo pi. Independently formed adjacency matrices and diagonalized for N=6,10,14, reproducing optima 0.75, 0.904508497187..., 0.950484433951...; finite matrices merely verify the exact proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angeles-Canul et al address perfect-transfer existence and parity on integral circulant/cocktail-party graph family.",
+          "Chan–Zhan pretty-good transfer paper concerns discrete-time walks and therefore a different unitary operator."
+        ],
+        "reasoning": "Perfect-state-transfer existence theorems establish impossibility of fidelity 1 for bad parity, not the exact subunit maximum for a continuous-time adjacency walk. A general spectral-max theorem might, but none was identified among checked sources.",
+        "searches": [
+          "arXiv:0907.2148",
+          "arXiv:2105.03762",
+          "Resultary query: cocktail party graph cross polytope optimal quantum state transfer probability cosine squared pi N antipodal"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md/verify_cross_polytope_optimum.py tree 0cc0e9f50355a4c086c38aa3828fd6967972a57c",
+        "Tsomokos et al arXiv:0808.2261 Section IV",
+        "Angeles-Canul et al arXiv:0907.2148",
+        "Chan–Zhan arXiv:2105.03762 discrete-time walk",
+        "Resultary query cocktail party graph cross polytope optimal quantum state transfer probability cosine squared pi N antipodal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source evaluates nonperfect class at t=pi/2 and obtains (1-2/N)^2.",
+          "The audited sharp max at times pi/2 +/- pi/N is larger and yields N^-2 rather than N^-1 infidelity."
+        ],
+        "reasoning": "The original fixed-time calculation is an input, not a theorem about the global optimum; later perfect-transfer parity theorems do not determine the exact best subperfect probability.",
+        "searches": [
+          "Tsomokos et al arXiv:0808.2261 Section IV transfer formula",
+          "arXiv:0907.2148 PST graph parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-polytope, cocktail-party and hyperoctahedral are graph aliases for K_N minus matching.",
+          "Prior evaluation P(pi/2)=(1-2/N)^2 is strictly less than cos^2(pi/N) for all N=4k+2>=6."
+        ],
+        "reasoning": "The same amplitude from the prior source does not, without global maximization, state the optimal time and maximum; our proof supplies that optimization. Graph aliases were included in the search.",
+        "searches": [
+          "cocktail party graph cross polytope optimal quantum state transfer probability cosine squared pi N antipodal",
+          "arXiv:0808.2261 cross polytope transfer source"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Family invariant depends on N continuously by explicit elementary cosine expression.",
+          "Returned Resultary top hit is target itself and nearest related Laplacian double cone is a different graph/hamiltonian."
+        ],
+        "reasoning": "Not a known fixed finite table or discrete exact database classification; broader graph-theoretic tabulations would require an implication proof not supplied by search snippets.",
+        "searches": [
+          "cocktail party graph cross polytope optimal quantum state transfer probability cosine squared pi N antipodal",
+          "cocktail party graph maximum transfer probability eigenvalue spectral"
+        ]
+      },
+      "rationale": "The Tsomokos–Plenio–de Vega–Huelga source proves perfect transfer on N=4k graphs and reports near-perfect N=4k+2 transfer at t=pi/2, value (1-2/N)^2, but it does not maximize continuously over time in the inspected analytical section. Cocktail-party perfect-transfer existence and discrete-time pretty-good transfer are not the full subperfect continuous-time optimum. The exact cosine-squared best fidelity and optimal times supply the narrow additional claim; a hidden general strongly-regular-graph transfer maximization could dominate it and remains a risk.",
+      "residual_risks": [
+        "A general spectral theorem for strongly regular graphs may imply this optimum under a different graph alias.",
+        "The result excludes weighted/laplacian/decoherent walks and all non-antipodal vertex pairs.",
+        "Numerical grid checks alone would not certify global optimality; the audited analytic minimization does."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FIXED_TIME_NO_EXPLICIT_GLOBAL_MAX_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "Source Eq. near cross-polytope section evaluates t=pi/2, with infidelity order 1/N; the audited theorem optimizes t over R."
+          ],
+          "identifier_or_url": "arXiv:0808.2261",
+          "material_read": "Full-text graph definitions and analytic spectral/transfer discussion including Section IV fixed-time formula.",
+          "method": "Read relevant primary full-text sections with equations; compared theorem hypotheses and conclusions, not just titles or abstracts.",
+          "title": "State Transfer in Highly Connected Networks and a Quantum Babinet Principle",
+          "trigger": "Original cross-polytope continuous-time amplitude and N=4k+2 near-PST evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global maximum success probability—not an arbitrary fixed-time sample—is the natural performance invariant of quantum state transfer. Optimizing the time changes infidelity from order N^-1 in the older evaluation to the exact sharp N^-2 law and specifies attainable times across an infinite graph family; a meaningful physical and mathematical correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N=4k+2>=6, unweighted continuous-time adjacency Hamiltonian and antipodal missing-matching pair only.",
+    "No claim for perturbed weights, Laplacian, decoherence, or other vertices.",
+    "Global maximum concerns squared transition amplitude, not amplitude modulus confusion in original source."
+  ],
+  "schema_version": 1
+}
