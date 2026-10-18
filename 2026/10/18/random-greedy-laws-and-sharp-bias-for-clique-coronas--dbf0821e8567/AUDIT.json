@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The bijection between corona maximal independent sets and independent core sets with one private representative per unchosen cluster is exact. Independent continuous priorities give independent Bernoulli hub candidates and iid cluster-minimum times; the latter are independent of candidate identities. Core-greedy selection on the induced candidate graph follows because a candidate hub can only be blocked by a previously accepted core neighbour. Private winners are independent exchangeable labels conditional on the core outcome, so total variation reduces to the core distribution. The all-private event gives a strict partition-function comparison precisely for cores with edges. Formal Taylor coefficients: empty discrepancy |E(H)|t^2, singleton discrepancy deg(v)t^2/2, and all multi-hub discrepancy O_H(t^3). The handshake lemma yields the sharp |E(H)|/s^2 coefficient. Equalities in the complete-core case are exact by symmetry. For heterogeneous blocks only the independently proven all-private argument is asserted. An independent direct permutation implementation compared 24 graph/size cases and 1,418,450 full orders using exact rational probabilities; all passed. No finite computation is used to prove the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2608.07239v1, Proposition 3.8 (sufficient regular-independent-set condition)",
+        "arxiv:2610.02276v1, Theorems 1.1 and 1.2 (trees and mixed spiders)",
+        "doi:10.1002/rsa.21200, sections 1 and 1.1 (local-limit density framework)"
+      ],
+      "reasoning": "The tree obstruction does not cover the many triangle-containing coronas; even tree coronas yield no sharp |E(H)|/s^2 asymptotic from the paper. The regular-independent-set condition is one-way and does not classify arbitrary coronas. Local-limit density results do not imply the labelled terminal-set TV comparison. Exact conditioning and partition-function expansion are additional claims.",
+      "searches": [
+        "total variation greedy MIS uniform clique coronas base graph edge count over attachment clique size squared",
+        "random greedy maximal independent sets on graph corona H o K_s asymptotic total variation from uniform equals number of core edges divided by s squared",
+        "random greedy maximal independent set uniformity generalized corona arbitrary graph clique attachments",
+        "random greedy maximal independent set corona graph uniform random permutation attached clique corona graph random sequential adsorption",
+        "Kryven Versendaal de Vries random maximal independent sets regular independent sets Proposition 3.8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.02276v1",
+      "arxiv:2608.07239v1",
+      "doi:10.1002/rsa.21200",
+      "2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+      "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+      "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+      "2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.02276v1: finite-tree exact-uniformity classification and mixed-spider bias",
+        "arxiv:2608.07239v1: regular-independent-set sufficient uniformity theorem and 2-uniform graph classification",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "Accessible prior claim with item_id 2e300b3d-e215-4f64-82e9-31ed1bae413e: clique-corona limited-domination polynomial",
+        "Accessible prior claim with item_id 7409a1c6-3395-464a-8ecb-404578b0c148: clique-bouquet greedy-output distribution"
+      ],
+      "reasoning": "Neither similar syntax nor shared graph vocabulary establishes implication. The prior clique-corona polynomial enumerates dominating sets subject to outside-neighbour capacities, not random-order maximal independent-set probabilities; the clique bouquet joins one vertex to separate cliques rather than attaching one private clique to each vertex of an arbitrary graph. Threshold/chain graph laws do not imply a result uniform over all possible core graphs. The equality test and asymptotic coefficient require the new private-cluster coupling.",
+      "searches": [
+        "greedy maximal independent sets clique corona K_s core graph any graph all private probability independence polynomial uniform law",
+        "total variation greedy MIS uniform clique coronas base graph edge count over attachment clique size squared",
+        "random greedy maximal independent set corona edge obstruction uniformity induced hard core independence polynomial",
+        "random greedy maximal independent set uniform probability graph corona K_n graph blowup independent polynomial",
+        "Kryven Versendaal de Vries random maximal independent sets regular independent sets Proposition 3.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.02276v1, section 2 (permutation-fibre definition)",
+        "arxiv:2608.07239v1, section 3.2 (iterative MIS terminology)",
+        "doi:10.1002/rsa.21200, section 1 (random priorities/random sequential adsorption)"
+      ],
+      "reasoning": "Uniform random vertex orders, independent continuous priorities, random sequential adsorption, and iterative greedy MIS are equivalent finite processes, but the checked sources do not derive the clique-corona Bernoulli-candidate core law, exact uniformity criterion, or sharp edge-count bias. The full random maximal-set terminal law is stronger than a size distribution.",
+      "searches": [
+        "greedy maximal independent sets clique corona K_s core graph any graph all private probability independence polynomial uniform law",
+        "clique corona H corona K_s random greedy maximal independent sets distribution Bernoulli thinning uniform iff base H edgeless",
+        "independent-set hard-core model compared to random greedy independent set Bernoulli percolation candidate set corona graph",
+        "\"random greedy\" \"corona\" \"maximal independent sets\" uniform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+        "2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+      ],
+      "reasoning": "Ranked published finding records concern exact random-greedy laws on threshold and chain graphs, random-greedy size variance on complete multipartite graphs, and general-position polynomials of complete-graph coronas. None contains this corona graph terminal law or a tabulation that dominates the universal fixed-core asymptotic. The named record identifiers are the closest compared, not proof of database exhaustiveness.",
+      "searches": [
+        "greedy maximal independent sets clique corona K_s core graph any graph all private probability independence polynomial uniform law",
+        "random greedy maximal independent set corona edge obstruction uniformity induced hard core independence polynomial",
+        "\"greedy uniformity\" \"corona\" maximal independent set"
+      ]
+    },
+    "rationale": "Full-text checks distinguish the October 2026 tree-only obstruction and spider probabilities from arbitrary clique-corona marginal laws, strict rigidity, and a universal edge-count asymptotic. Kryven–Versendaal–de Vries Proposition 3.8 gives only a sufficient regular-independent-set uniformity criterion, and its 2-uniform-graph classification is neither a converse for arbitrary graphs nor a small-activity total-variation calculation. Krivelevich and coauthors focus on expected greedy-set sizes and local graph limits. Relevant indexed exact greedy-output results concern threshold and chain graphs; the clique-corona indexed result concerns general-position polynomials. A private same-week claim about clique coronas concerns limited domination, not random-greedy MIS; another about clique bouquets concerns a different join graph. The exact claim is not an immediate corollary of these statements. No matching stronger/equivalent published result was identified after semantic, alias, parameter, and full-text comparisons. Priority uncertainty remains.",
+    "residual_risks": [
+      "Similar coupling or edge-count small-activity coefficient may appear in unindexed random-sequential-adsorption, hard-core-model, or stochastic graph-corona literature.",
+      "Database and web non-hits are not a proof of novelty or a substitute for independent literature review.",
+      "The independently evaluated complete paper texts are restricted to cited sources; closest indexed threshold/chain results were compared at abstract/claim level only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the unrestricted clique-corona theorem, shared greedy definition and tree background only",
+        "evidence": [
+          "First posted October 1, 2026; main theorems classify uniformity on trees and bias on mixed spiders",
+          "Section 9 explicitly leaves classification beyond trees open; the extracted text has no corona occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.02276v1",
+        "material_read": "Abstract; introduction and Theorems 1.1/1.2; section 2 model and permutation fibres; section 3 related work; limitations section; searched entire extracted text for corona",
+        "method": "Accessible primary full-text HTML, substantive sections and exact theorem statements",
+        "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+        "trigger": "Direct motivating recent paper on identical greedy/uniform terminal-MIS comparison"
+      },
+      {
+        "assessment": "NOT_COVERING the necessary and sufficient all-core corona classification nor sharp bias expansion",
+        "evidence": [
+          "Proposition 3.8 is a sufficient condition for exact uniformity under regular independent sets",
+          "2-uniformity classifies strong structural condition, not all graphs with uniform outcomes",
+          "No corona occurrence in extracted text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07239",
+        "material_read": "Introduction, the exact sufficient uniformity statement in Proposition 3.8, the 2-uniformity classification outline, and a text search over the accessible arXiv rendering for corona.",
+        "method": "Public arXiv full-text rendering including 2,693 lines, targeted exact section and text searches",
+        "title": "Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints",
+        "trigger": "The closest proposed sufficient framework for uniform random greedy terminal MIS"
+      },
+      {
+        "assessment": "NOT_COVERING terminal-law TV over all maximal sets of clique coronas; analyzes output densities/local limits",
+        "evidence": [
+          "Section 1 identifies independent continuous arrival times as an equivalent process",
+          "Theorems in section 1.1 address asymptotic expected independence ratios and local limits",
+          "No corona occurrence in extracted text"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Full accessible introductory section, continuous-priority representation, results overview and local-limit statements; title and abstract; searched for corona",
+        "method": "Lawfully open access primary article full-text HTML",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Foundational full-text work on the same uniformly random-order greedy process"
+      },
+      {
+        "assessment": "Insufficiently broad: threshold creation-sequence law, not all clique coronas",
+        "evidence": [
+          "Summary states exact product-form law restricted to threshold graphs"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "material_read": "Published abstract/claim summary returned by scientific record search",
+        "method": "Semantic record and mathematical-domain comparison; no full text read",
+        "title": "Exact random-greedy independent-set law on threshold graphs",
+        "trigger": "Closest indexed complete output law on a structured graph class"
+      },
+      {
+        "assessment": "Insufficiently broad: nested bipartite chain graphs, not general clique coronas",
+        "evidence": [
+          "Summary states law supported on Ferrers corners of connected chain graphs"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "material_read": "Published abstract/claim summary returned by scientific record search",
+        "method": "Semantic record and mathematical-domain comparison; no full text read",
+        "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+        "trigger": "Closest indexed exact probability law for another class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbf0821e-8567-47c7-9ea7-fa43b2c1e9e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a structural law for a natural infinite graph operation over arbitrary finite base graphs and a sharp necessary/sufficient uniformity classification. The all-private event links stochastic greediness to the independence polynomial (hard-core partition function), while a second-order cancellation yields a universal coefficient equal to the core edge count. This is a mathematically motivated new invariant calculation with a meaningful asymptotic law and explicit sharp complete-core examples, not merely a particular small computation or a known-table restatement.",
+    "status": "PASS"
+  }
+}
