@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unique automorphism-invariant even theta characteristic of the Klein quartic, the cited primary Theorem 5.4 supplies 24 unlabelled heptagons constituting one PSL(2,7) orbit with heptagon stabilizer a cyclic H of order 7. The pinned program reconstructs points R_i=[b(a zeta^i)^3:a zeta^i:1] in K(a), K=Q(zeta_7), a^7=-(b+1)/b^3, seven sides and 14 residual quartic intersections, then closes projective automorphism matrices to |G|=168, tests a constituent-line stabilizer exactly as {id}, and gets 24 cosets. Critical claim can also be checked structurally: cross-product line coordinates L_0 are proportional over K to (c0,c2 a^2,c3 a^3), all c_i nonzero in K. Since T^7-const is irreducible over K, 1,a^2,a^3,a^4,a^5,a^6 are K-independent. If any K-matrix fixes this line projectively, eliminating its eigenvalue from second/third coordinate equations forces all off-diagonal entries zero and diagonal entries equal; it is projectively identity. Thus ANY subgroup of PGL3(K), including G, acts freely on L0; seven sides form H-orbit and distinct H-cosets are disjoint. Sympy independent irreducibility factorization of the degree-seven polynomial confirmed. General 168-line count relies on exact source group order, not float sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.4 computes two labelled heptagon orbits and 24 dihedral-quotient classes.",
+          "Known group order 168 bounds possible orbit sizes but does not determine constituent line stabilizers."
+        ],
+        "reasoning": "The stronger prior heptagon orbit description does not dominate the new line-regularity assertion; a line may in principle be shared among distinct heptagons.",
+        "searches": [
+          "Plane quartics and heptagons 2024 Section 5",
+          "Klein quartic automorphism group PSL(2,7) order 168",
+          "Resultary query: Klein quartic symmetric theta heptagon 168 lines regular orbit trivial line stabilizer 24 heptagons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.15759v1",
+        "Magma handbook explicit Klein quartic automorphism generators",
+        "Git tree 9fbc4fd0a8b0ed070945e773f6cc1c25d8f9bf49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves C7 rotates the seven sides and Aut(C) acts transitively on the 24 heptagons.",
+          "Trivial stabilizer of any single line is an additional property certified by exact field linear independence and the source verifier."
+        ],
+        "reasoning": "The primary theorem plus a separately proved nontrivial stabilizer lemma yields the new line incidence count; prior heptagon orbit alone does not imply it.",
+        "searches": [
+          "Agostini et al. arXiv:2408.15759 Section 5",
+          "Magma Handbook automorphism generator references cited in pinned source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary orbit of 24 heptagons is a quotient G/H with |H|=7.",
+          "The asserted new statement concerns G acting freely on an individual line and H-orbits of its 168-element line set."
+        ],
+        "reasoning": "Distinguished line configuration, regular PSL(2,7) torsor and coset partition are equivalent statements. Existing heptagon orbit theorem is not equivalent without an extra line-stabilizer computation.",
+        "searches": [
+          "Klein quartic symmetric theta heptagon 168 lines regular orbit trivial line stabilizer 24 heptagons",
+          "Agostini et al. arXiv:2408.15759 Theorem 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source counts 336 labelled objects and 24 heptagon classes, not an exhaustive 168-line incidence table.",
+          "The new 24x7 line partition is a separate combinatorial incidence invariant."
+        ],
+        "reasoning": "The pre-existing 24-heptagon table by itself cannot certify disjoint lines; full line orbit is not a known database recomputation.",
+        "searches": [
+          "Plane quartics and heptagons Example 5.3 and Theorem 5.4",
+          "Resultary query: Klein quartic symmetric theta heptagon 168 lines regular orbit trivial line stabilizer 24 heptagons"
+        ]
+      },
+      "rationale": "Agostini–Plaumann–Sinn–Wesner Theorem 5.4 gives 24 dihedral-quotient heptagons, the order-seven side rotation and 168 automorphisms, but does not identify a free 168-element orbit of individual constituent lines or disjointness between seven-line side sets. The line-level property is not implied by freeness of the action on labelled heptagons. Targeted Resultary and public searches found no covering independent statement; classical configuration descriptions may exist under another name.",
+      "residual_risks": [
+        "An older classical 168-line Klein configuration reference might already establish the same regular orbit.",
+        "Exact group closure algorithm read, not independently run end-to-end in this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_HEPTAGON_LEVEL_ONLY",
+          "evidence": "Theorem 5.4 shows heptagon-level symmetry and 24 cosets; no inspected statement counts distinct constituent lines or establishes line stabilizer=1.",
+          "identifier_or_url": "https://www.researchgate.net/publication/383494459_Plane_quartics_and_heptagons",
+          "material_read": "Open full-text reproduction: Sections 4–5, Theorems 5.1/5.4, explicit point coordinates, symmetry construction, 24 quotient classes, labelled fibre counting and references",
+          "method": "Lawful accessible full-text reproduction with page and formula inspection",
+          "title": "Plane quartics and heptagons",
+          "trigger": "Exact same Klein quartic, heptagon construction and even theta characteristic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sides of the distinguished finite heptagon fibre form a geometrically canonical 168-element set. Showing that each line occurs once and is a regular PSL(2,7) orbit yields an exact orbit-stabilizer invariant and coset partition, not a gratuitous small parameter census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2408.15759v1",
+    "Magma handbook explicit Klein quartic automorphism generators",
+    "Git tree 9fbc4fd0a8b0ed070945e773f6cc1c25d8f9bf49"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only distinguished symmetric theta heptagon fibre over C, not generic quartics or other theta characteristic classes.",
+    "Degree-seven irreducibility and line coefficients over cyclotomic field are essential; finite-field specializations would not certify full result."
+  ],
+  "schema_version": 1
+}

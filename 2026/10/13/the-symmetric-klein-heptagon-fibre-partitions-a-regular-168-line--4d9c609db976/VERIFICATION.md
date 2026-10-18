@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The attached `verify_heptagon_line_orbit.py` performs exact symbolic checks with SymPy 1.14.0. It works over \(\mathbf Q(\zeta_7,a)\), proves the defining degree-seven polynomial for \(a\) is irreducible over \(\mathbf Q(\zeta_7)\), and verifies the explicit seven-line heptagon and all \(14\) residual points.
+# Independent mathematical audit
 
-It independently closes the displayed projective generators of the Klein quartic automorphism group to exactly \(168\) elements and checks their invariance of the quartic. The order-seven element \(\phi\) cycles the seven sides and generates a subgroup with exactly \(24\) left cosets. Applying every group element to one side through the dual projective action finds exactly one stabilizing element. Therefore the side orbit has size \(168\), and the \(24\) cosets yield disjoint seven-line blocks.
+## correctness
 
-Fresh replay output:
+PASS
 
-`VERIFY_OK field_degree=42 group=168 residual_points=14 line_stabilizer=1 line_orbit=168 heptagon_partition=24x7`
+For the unique automorphism-invariant even theta characteristic of the Klein quartic, the cited primary Theorem 5.4 supplies 24 unlabelled heptagons constituting one PSL(2,7) orbit with heptagon stabilizer a cyclic H of order 7. The pinned program reconstructs points R_i=[b(a zeta^i)^3:a zeta^i:1] in K(a), K=Q(zeta_7), a^7=-(b+1)/b^3, seven sides and 14 residual quartic intersections, then closes projective automorphism matrices to |G|=168, tests a constituent-line stabilizer exactly as {id}, and gets 24 cosets. Critical claim can also be checked structurally: cross-product line coordinates L_0 are proportional over K to (c0,c2 a^2,c3 a^3), all c_i nonzero in K. Since T^7-const is irreducible over K, 1,a^2,a^3,a^4,a^5,a^6 are K-independent. If any K-matrix fixes this line projectively, eliminating its eigenvalue from second/third coordinate equations forces all off-diagonal entries zero and diagonal entries equal; it is projectively identity. Thus ANY subgroup of PGL3(K), including G, acts freely on L0; seven sides form H-orbit and distinct H-cosets are disjoint. Sympy independent irreducibility factorization of the degree-seven polynomial confirmed. General 168-line count relies on exact source group order, not float sampling.
 
-The computation is finite and exact. It does not use floating-point evidence as proof. The \(24\)-heptagon identification with the symmetric-theta fibre uses the cited theorem of Agostini--Plaumann--Sinn--Wesner; the script verifies the additional line-level claim and the exact group/coset geometry.
+## originality
+
+PASS
+
+Agostini–Plaumann–Sinn–Wesner Theorem 5.4 gives 24 dihedral-quotient heptagons, the order-seven side rotation and 168 automorphisms, but does not identify a free 168-element orbit of individual constituent lines or disjointness between seven-line side sets. The line-level property is not implied by freeness of the action on labelled heptagons. Targeted Resultary and public searches found no covering independent statement; classical configuration descriptions may exist under another name.
+
+## value
+
+PASS
+
+The sides of the distinguished finite heptagon fibre form a geometrically canonical 168-element set. Showing that each line occurs once and is a regular PSL(2,7) orbit yields an exact orbit-stabilizer invariant and coset partition, not a gratuitous small parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
