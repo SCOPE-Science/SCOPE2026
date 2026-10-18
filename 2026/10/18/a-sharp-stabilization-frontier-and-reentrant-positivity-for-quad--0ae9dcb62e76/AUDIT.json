@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Derived the method gain from the actual predictor/corrector and proved the all-step unit-disk inequality for 0<t<=2, and instability at some finite large steps for t>2. Certified a negative gain at t=11/10 using e^6>400 and positivity at t=3/2 by strictly positive entire-function coefficients. Proved the spectral-midpoint minimax formula by two monotone envelopes. Replayed 3958 checks from the standalone standard-library verifier. Strict boundary, scalar normalization and no noncommuting assertion were explicitly examined.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu, Shen and Yang, arXiv:2402.15142v2, equations (2.7), (3.4)-(3.7), Theorem 2.1 and section 4.3; full HTML materially inspected.",
+        "Li, Qiao, Wang and Zheng, arXiv:2406.06272v1, abstract only; no whole-document noncoverage conclusion."
+      ],
+      "reasoning": "Fu--Shen--Yang prove broad nonlinear sufficient energy dissipation for beta at least the nonlinearity Lipschitz constant. That does not logically entail necessity, the smaller half-difference spectral threshold, the non-monotone positivity witness, or the minimax stiff-limit stabilizer. The Li--Qiao--Wang--Zheng PFC paper concerns a particular nonlinear model; full text was not obtained, so complete noncoverage is not asserted.",
+      "searches": [
+        "ETDRK2 stabilized quadratic gradient flow exact necessary sufficient energy stability beta half eigenvalue positivity nonmonotone",
+        "published-finding corpus query: exponential time differencing Runge Kutta second order sharp optimal stabilization parameter quadratic energy decreasing",
+        "\"ETDRK2\" \"stabilization\" \"1/2\" energy stable quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.15142v2 full HTML (relevant sections)",
+      "arXiv:2406.06272v1 abstract only",
+      "published-finding corpus published hit IDs enumerated under source_inspections",
+      "Accessible current-week ledger claims 70 historical finding rows"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu, Shen and Yang, arXiv:2402.15142v2, equations (2.7), (3.4)-(3.7), Theorem 2.1 and section 4.3; full HTML materially inspected.",
+        "Li, Qiao, Wang and Zheng, arXiv:2406.06272v1, abstract only; no whole-document noncoverage conclusion.",
+        "published-finding corpus SCOPE 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98 and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1: method differs; title/summary-level record comparisons only."
+      ],
+      "reasoning": "The claimed necessity follows by letting h tend to infinity in the exact scalar gain, a logical step not supplied by the cited sufficient energy theorem. Its sharp spectral condition can be strictly weaker than beta at least max(a_j). The explicit beta=2,19/11,1 positivity contrast and spectral-midpoint stiff-step optimization do not follow from the cited general theorem without new modal and sign arguments. Relevant older positivity and stabilization sources remain a qualified risk.",
+      "searches": [
+        "ETDRK2 stabilized quadratic gradient flow exact necessary sufficient energy stability beta half eigenvalue positivity nonmonotone",
+        "exponential time differencing Runge Kutta2 scalar linear Allen Cahn energy stable minimum stabilization parameter signed positivity",
+        "\"ETDRK2\" linear test equation amplification factor stability beta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fu, Shen and Yang, arXiv:2402.15142v2, equations (2.7), (3.4)-(3.7), Theorem 2.1 and section 4.3; full HTML materially inspected.",
+        "published-finding corpus SCOPE 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98 and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1: method differs; title/summary-level record comparisons only."
+      ],
+      "reasoning": "Equivalent descriptions could use scalar ETD2 amplification, exponential Euler correction, or positivity of a stability function. The source equation fixes the precise method, but the reviewed ETDRK2 original-energy result is only a general sufficient stabilizer criterion. The related record hits use stabilized CN/AB or Richardson, not this ETDRK2 amplification. The basic modal reduction is acknowledged as standard; no absolute uniqueness asserted.",
+      "searches": [
+        "ETDRK2 stabilized quadratic gradient flow exact necessary sufficient energy stability beta half eigenvalue positivity nonmonotone",
+        "exponential time differencing Runge Kutta2 scalar linear Allen Cahn energy stable minimum stabilization parameter signed positivity",
+        "published-finding corpus query: ETDRK2 sharp stabilization scalar linear gradient energy nonincrease all timestep beta half Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus SCOPE 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98 and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1: method differs; title/summary-level record comparisons only."
+      ],
+      "reasoning": "The closest results describe positivity thresholds for other numerical methods, not a tabulation of this ETDRK2 gain and its reentrant sign behavior. Search absence does not rule out an older ETD stability-function table; this is a residual originality risk.",
+      "searches": [
+        "exponential time differencing Runge Kutta2 scalar linear Allen Cahn energy stable minimum stabilization parameter signed positivity",
+        "stabilized exponential Runge Kutta second order time-delay nonmonotonic positivity over stabilization",
+        "published-finding corpus query: Cox Matthews ETDRK3 linear scalar sharp unconditionally contractive stabilization"
+      ]
+    },
+    "rationale": "The 2024 Fu--Shen--Yang paper and related 2024 ETDRK2 literature were checked at available depth. The paper supplies the method and sufficient nonlinear energy stability, but not the sharp commuting-quadratic necessary-and-sufficient frontier combined with reentrant positivity and stiff-step minimax. Actual published-finding corpus and previous ledger claim searches found no identical or logically dominating claim, though hidden equivalent old stability analysis remains possible.",
+    "residual_risks": [
+      "An older ETD2 scalar stability-function or SSP/positivity study could contain an equivalent gain or imply the threshold without the same wording.",
+      "Related arXiv:2406.06272 full text could not be inspected; only abstract-level differences are supported.",
+      "Published published-finding corpus record summaries and finite search are not exhaustive evidence of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers method and broad sufficiency, not explicit necessary-sufficient modal threshold or positivity reentry.",
+        "evidence": "Fu, Shen and Yang, arXiv:2402.15142v2, equations (2.7), (3.4)-(3.7), Theorem 2.1 and section 4.3; full HTML materially inspected.",
+        "identifier_or_url": "https://arxiv.org/html/2402.15142v2",
+        "material_read": "Section 2.1 splitting; section 2.2 ETDRK2 equations; section 2.3 Lipschitz sufficient theorem and proof; section 3.2 corollary and its proof; section 4.3 stabilization-delay discussion",
+        "method": "Primary full HTML text, relevant proof and formulas read",
+        "title": "Higher-Order Energy-Decreasing Exponential Time Differencing Runge--Kutta methods for Gradient Flows",
+        "trigger": "The exact algorithm and putative dominating energy theorem"
+      },
+      {
+        "assessment": "No whole-document NOT_COVERING judgment; document analyzes nonlinear PFC energy stability; equivalent spectral result cannot be excluded.",
+        "evidence": "Li, Qiao, Wang and Zheng, arXiv:2406.06272v1, abstract only; no whole-document noncoverage conclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.06272",
+        "material_read": "Public abstract and bibliographic description only; full text inaccessible in this pass",
+        "method": "arXiv abstract search; full HTML retrieval unsuccessful",
+        "title": "Global-in-time energy stability analysis for the exponential time differencing Runge-Kutta scheme for the phase field crystal equation",
+        "trigger": "Potentially broader ETDRK2 energy theorem"
+      },
+      {
+        "assessment": "Different stabilized Crank--Nicolson/Adams--Bashforth method, not the claimed ETDRK2 multiplier.",
+        "evidence": "published-finding corpus SCOPE 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98 and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1: method differs; title/summary-level record comparisons only.",
+        "identifier_or_url": "2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98",
+        "material_read": "Published result title and published-finding corpus short summary",
+        "method": "published-finding corpus semantic record search",
+        "title": "Sharp pointwise-reversal threshold for stabilized CN/AB Allen--Cahn stepping",
+        "trigger": "Stabilized time-integrator positivity reversal"
+      },
+      {
+        "assessment": "Different two-level Richardson-extrapolated method; not a scalar ETDRK2 result.",
+        "evidence": "published-finding corpus SCOPE 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98 and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1: method differs; title/summary-level record comparisons only.",
+        "identifier_or_url": "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "material_read": "Published result title and published-finding corpus short summary",
+        "method": "published-finding corpus semantic record search",
+        "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+        "trigger": "Exact positivity boundaries for second-order integrators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ae9dcb6-2e76-4254-aae2-f03d96a6197f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold halves or improves a broad sufficient stabilization budget for natural commuting linearized gradient systems, and a rigorous sign-reentry example shows that energy and positivity respond nonmonotonically to stabilizer strength. The accompanying exact spectral-midpoint optimizer specifies which stable stabilizer gives optimal stiff-limit damping. Each answers a concrete design question in a published energy-decreasing integration method; no generic mathematical restatement or arbitrary slicing is offered.",
+    "status": "PASS"
+  }
+}

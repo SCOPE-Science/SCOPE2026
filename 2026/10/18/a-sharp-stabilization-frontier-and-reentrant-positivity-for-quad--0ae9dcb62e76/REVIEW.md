@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The precise published ETDRK2 predictor and corrector (Fu--Shen--Yang, equations (3.4)--(3.5)) were independently reduced to the scalar multiplier. The strict finite-step region follows from elementary bounded exponential factors; the necessity is the large-step limit. The signed example is certified by a rational exponential bound and an all-positive power series; the minimax proof uses the exact two monotone envelope branches. The accompanying checker replays the method, but infinite-step universality relies on the analytic argument, not on experiments.
+
+**Originality — PASS (self-review, residual uncertainty).** Full-text inspection of Fu--Shen--Yang's method, stability theorem, ETDRK2 corollary and discussion of delay finds a sufficient general nonlinear criterion, not the exact necessary-and-sufficient modal threshold combined with reentrant positivity. Published related ETD studies address nonlinear phase-field energy or maximum bounds. Targeted record searches and claim-level comparison against accessible prior entries identified no containing result, though older exponential-integrator test-equation or SSP/positivity literature could already express parts of the result equivalently. The basic scalar modal calculations are classical tools and are not claimed as novel techniques.
+
+**Value — PASS.** A precise necessary-and-sufficient reduction in stabilization has immediate parameter-selection meaning for a standard energy-decreasing ETDRK2 method; the signed reentry proves that stronger numerical stabilization is not monotonically related to positive-time accuracy or positivity. The spectral-midpoint optimizer gives a natural sharp stiff-step design criterion. The claims deliberately exclude nonlinear and noncommuting extensions.
+
+**Closest literature.** Fu--Shen--Yang, arXiv:2402.15142v2, sections 2.2--2.3, 3.2 and 4.3; Li--Qiao--Wang--Zheng, arXiv:2406.06272, available abstract (full text not accessed); Jiang et al., institutional manuscript extract on maximum-bound-preserving ETD methods (full document not systematically read). Residual risk: an older test-equation analysis may imply the modal threshold and sign phenomenon; search absence does not prove absolute novelty.
+
+Self-review: passed. Independent audit: not yet performed.
