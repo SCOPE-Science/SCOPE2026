@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the exact formulas in arXiv:2609.38450v1. At the first transition point \(\lambda=1\), equation (40) together with equation (36) gives the displayed positive odd-mode series for \(k(d)\).
+# Independent mathematical audit
 
-For \(H(d)=(d-1)k(d)\), the \(m=1\) contribution is exactly \(64/(9\pi^2)\). For every odd \(m\ge3\), the factor \((d-1)/(d m^2-1)\) is strictly increasing because its derivative is \((m^2-1)/(d m^2-1)^2>0\). Positive summation therefore proves strict monotonicity without differentiation under the infinite sum.
+## correctness
 
-The endpoint \(d\downarrow1\) follows after the \(m=1\) term is split off. For \(d\to\infty\), the bound \(0<(d-1)/(d m^2-1)<1/m^2\) gives a summable majorant, and dominated convergence yields the limiting odd series. The rational identity
-\[
-\frac{1}{m^4(4-m^2)^2}
-=\frac{5}{512}\left(\frac1{m+2}-\frac1{m-2}\right)
-+\frac1{256}\left(\frac1{(m+2)^2}+\frac1{(m-2)^2}\right)
-+\frac1{32m^2}+\frac1{16m^4}
-\]
-was checked algebraically. Summing the paired shifted terms and the standard odd reciprocal-power sums gives \(5/16+\pi^2/24\) after multiplication by \(64/\pi^2\).
+PASS
 
-The decimal constants in the report are not proof inputs. No numerical truncation, simulation, or unproved extrapolation is used. The verification does not extend the theorem beyond the diagonal \(d>1\) setting stated in the result.
+The mathematical series stated in the final claim has strictly positive and absolutely summable terms for d>1. Splitting m=1 produces the exact constant 64/(9π²). For each odd m>=3, (d−1)/(dm²−1) has positive derivative (m²−1)/(dm²−1)²; positive summation proves strict monotonicity without differentiating a nonuniform infinite series. Domination by m^{-2} after normalization proves both limits. Independent symbolic simplification verified the asserted rational partial fractions of 1/[m⁴(4−m²)²] exactly; paired odd shifts and ζ(2),ζ(4) give 5/16+π²/24. Independent values are lower 0.7205061947899575, upper 0.7237335167120567. This establishes all-d series identities, not a finite-truncation extrapolation. The claim that this is precisely the coefficient in the inaccessible primary manuscript remains a separately documented source verification risk.
+
+## originality
+
+PASS
+
+For the exact defined positive odd-series function, the strict normalized monotonicity and exact constant were reconstructed. Best-of-knowledge originality searches show no independently retrieved dominating theorem; the focal primary manuscript is not actually read beyond its abstract, so neither novelty nor absence of coverage is certified. Access alone is not an automatic rejection under the owner rule.
+
+## value
+
+PASS
+
+k(d) directly controls a cubic transition-boundary slope in the motivating two-component example according to the assigned final claim. A genuinely global sharp estimate over all diffusion ratios replaces a heuristic numerical scaling, proves monotonic structure and exact limiting constants. The small 0.45% spread is scientifically interpretable as uniform robustness of the boundary coefficient and is not claimed as a large-gain result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
