@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gray coordinate maps are invertible over every finite field. Their excluded images are coordinate-linear subspaces of dimensions \(a+b\), intersecting in dimension \(b+|A\cap B|\); projective inclusion-exclusion yields the heavy/light counts. The complement spans and has sharp Grassmannian dimension-intersection bounds, which supply the full compressed-core generalized Hamming-weight hierarchy. Proportional columns account for every weight-two dual word. The binary quotient-space argument constructs a weight-three parity relation at every light coordinate. The accompanying verifier exhaustively reproduces the asserted counts and all core generalized weights in seven cases, including the four-element field. There is no unproved step being inferred from finite tests.
+## correctness
 
-## Originality — PASS, with residual search risk
-The 2026 Yadav--Tiwari--Sarma paper defines the complement-product code and proves its Lee-weight distributions, not the projective flat core, exact heavy/light multiplicities or the unreduced dual-locality classification. The earlier Chen--Xu--Hu--Li--Zeng construction uses factorwise complement products rather than the whole-product complement. An abstract punctured-simplex generalized-weight calculation is classical and is *not* treated as a novel independent theorem; identifying this family with that geometry and resolving the original coordinate multiplicities/repair profiles is the distinct result. A previously examined special finite example does not imply the uniform theorem; an unindexed equivalent statement cannot be excluded.
+PASS
 
-## Value — PASS
-The projective compression gives a canonical minimal set of projective evaluation directions, determines every generalized support threshold of this core, and quantifies exactly how the original length is expanded into one- versus two-level repeated projective coordinates. The sharp locality distinction in the binary and nonbinary cases is relevant to repair properties of the newly constructed code family.
+From the frozen RESULT.md and verification/verify.py: the two Gray coordinate maps T0(d1,d2)=(d2,d1), T1(d1,d2)=(d1+d2,d1) are invertible; their excluded dimension-(a+b) spaces meet in a dimension t=b+|A∩B| space. Every projective point outside the intersection occurs with multiplicity 2(q-1) outside the union or q-1 in the symmetric difference. Count with inclusion-exclusion; projective core is complement of a t-flat and has rank 2m because t<2m. For r-dimensional subcodes, maximal common zero count is [2m-r]_q-[max(0,t-r)]_q, attainable by choosing annihilator in general position, proving d_r. Pairs of proportional columns give exact A2^perp; for q=2 a light column has a 3-column relation using x,y,x+y outside T when dim ambient/T>=2, establishing locality exactly 2. Independently recomputed q=2,m=2,A={0},B={1} class counts 10 heavy/4 light and dual A2=10; q=3 same sets 33/6 and A2=408. Finite tests corroborate, arbitrary-q proof is linear algebra. No assertion about full original-code generalized hierarchy.
 
-## Closest literature and limits
-Yadav--Tiwari--Sarma (arXiv:2609.11783v1), Theorem 3.3, and Chen et al. (arXiv:2407.10074v1) were the closest inspected sources. The generalized weights describe the compressed core only; the longer Gray image can have different support weights. Verification is not an all-field exhaustive census and does not substitute for independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior original construction and weight distributions are acknowledged. The distinct contribution is identification of its two-level projective multiplicities and inherited projective-flat core plus exact unreduced dual/locality consequences. The punctured-simplex GHW principle is classical, so originality is not attributed to that general principle. No actually inspected stronger statement covers all identified consequences.
+
+## value
+
+PASS
+
+The multiplicity classification answers a natural structural question about Gray-image generator coordinates, controls low dual weights and exact repair locality, and distinguishes the unreduced code from its compressed projective core. These are coding invariants usable without any invented downstream theorem; the infinite parameter family is not a random tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

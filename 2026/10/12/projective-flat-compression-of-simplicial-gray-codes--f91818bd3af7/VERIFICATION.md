@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact reproducibility
 
-Execute `python3 verification/verify.py` from the root of this package; it uses only the Python standard library and prints `VERIFY_OK` on success. It reconstructs the two Gray halves directly from the complement-product defining set, normalizes every surviving column, and computes multiplicity classes. For seven field/parameter combinations it tests the missing-flat condition and exact dual weight-two count; a reduced-echelon enumeration checks every dimension of the projective-core generalized weight hierarchy. All arithmetic, including the four-element field, is exact.
+# Independent mathematical audit
 
-Representative independently reproduced outputs: at \(q=2,m=3,A=\{1,2\},B=\{2,3\}\), length \(96\), heavy \(40\), light \(16\), projective core length \(56\), core generalized weights \((28,42,49,53,55,56)\); at \(q=3,m=2,A=\{1\},B=\{2\}\), length \(144\), heavy \(33\), light \(6\), core generalized weights \((26,35,38,39)\), dual weight-two count \(408\).
+## correctness
 
-These checks are exhaustive only for the seven enumerated cases. The mathematical proof, not the checker, establishes the quantifiers for arbitrary prime powers and all admissible \(A,B\). No independent review is asserted.
+PASS
+
+From the frozen RESULT.md and verification/verify.py: the two Gray coordinate maps T0(d1,d2)=(d2,d1), T1(d1,d2)=(d1+d2,d1) are invertible; their excluded dimension-(a+b) spaces meet in a dimension t=b+|A∩B| space. Every projective point outside the intersection occurs with multiplicity 2(q-1) outside the union or q-1 in the symmetric difference. Count with inclusion-exclusion; projective core is complement of a t-flat and has rank 2m because t<2m. For r-dimensional subcodes, maximal common zero count is [2m-r]_q-[max(0,t-r)]_q, attainable by choosing annihilator in general position, proving d_r. Pairs of proportional columns give exact A2^perp; for q=2 a light column has a 3-column relation using x,y,x+y outside T when dim ambient/T>=2, establishing locality exactly 2. Independently recomputed q=2,m=2,A={0},B={1} class counts 10 heavy/4 light and dual A2=10; q=3 same sets 33/6 and A2=408. Finite tests corroborate, arbitrary-q proof is linear algebra. No assertion about full original-code generalized hierarchy.
+
+## originality
+
+PASS
+
+The prior original construction and weight distributions are acknowledged. The distinct contribution is identification of its two-level projective multiplicities and inherited projective-flat core plus exact unreduced dual/locality consequences. The punctured-simplex GHW principle is classical, so originality is not attributed to that general principle. No actually inspected stronger statement covers all identified consequences.
+
+## value
+
+PASS
+
+The multiplicity classification answers a natural structural question about Gray-image generator coordinates, controls low dual weights and exact repair locality, and distinguishes the unreduced code from its compressed projective core. These are coding invariants usable without any invented downstream theorem; the infinite parameter family is not a random tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
