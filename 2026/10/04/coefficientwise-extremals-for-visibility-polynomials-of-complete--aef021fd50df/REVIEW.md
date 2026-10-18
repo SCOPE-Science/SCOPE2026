@@ -1,18 +1,21 @@
-# Review of Coefficientwise extremals for visibility polynomials of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a complete multipartite graph, only selected pairs from the same part require an internal geodesic vertex; such a pair is visible exactly when some unselected vertex lies outside that part. Passing to the nonempty complement gives a disjoint bad-event count
-\[
-r_{N-t}=\binom Nt-\sum_{n_i\ge t+2}\binom{n_i}t.
-\]
-This yields the coefficientwise maximum class immediately. It also shows that the star is the unique cubic-coefficient minimizer, while
-\(r_{N-1}=\sum_{n_i\le2}n_i\), producing the sharp obstruction from \(K_{3,N-3}\) for every \(N\ge6\).
-The small orders \(N=3,4,5\) are completely resolved by the same two coefficients. Definition-level exhaustive verification agrees through order ten, and partition-level checks agree through order thirty.
+## correctness
 
-## Originality
-PASS. The closest direct polynomial source already gives the complete-bipartite polynomial and a general join recurrence, so the basic multipartite counting formula is treated as prior-implied machinery rather than as the novelty. The 2026 complete-multipartite game paper gives the maximum mutual-visibility number and maximal-set structure but does not compare complete coefficient vectors across multipartite partitions. The other inspected 2026 polynomial paper treats wheels, friendship graphs, shell graphs, and bow graphs. Targeted searches for coefficientwise extremals, multipartite visibility-polynomial orderings, and absence of a minimum did not locate the stated fixed-order extremal theorem. The surviving claim is specifically the coefficientwise maximum class and the exact \(N=6\) threshold at which a minimum ceases to exist.
+PASS
 
-## Value
-PASS. Coefficientwise comparison is a natural strengthening of comparing only the largest feasible set: it asks whether one graph has at most or at least as many feasible visibility sets at every size. The theorem identifies all maximizers and proves a sharp structural boundary for minimization. The nonexistence result is not an isolated numerical crossing: it holds for every \(N\ge6\) and is forced by two mathematically distinct regimes, the cubic coefficient and the near-top coefficient.
+The domain is connected noncomplete complete multipartite graphs on fixed N>=3. Every selected pair in different parts is adjacent; two selected vertices in one part are geodesically visible exactly if an omitted vertex lies outside their part. For complement T of t>=1 vertices, the mutually disjoint bad events are T contained in some part of size >=t+2; hence r_{N-t}=C(N,t)-sum_{n_i>=t+2}C(n_i,t), and r_N=0. Parts at most 2 make every proper set visible, and a part >=3 produces a nonvisible proper set. For r_3, only the star has any bad triple and r_3(star)=C(N-1,3); for r_{N-1}, the exact formula is sum_{n_i<=2}n_i. At N>=6, K_{3,N-3} has near-top coefficient 0, below the star's 1, so no minimum; N=3,4,5 are checked by the remaining nontrivial coefficients. Independent elementary partition enumeration for N=3..13 reproduced maximum and threshold; actual verifier checks direct geodesics through N=10, partition enumeration through N=30; these computations corroborate the all-N proof, not replace it.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The new mathematical assertion is the fixed-order coefficientwise extremal classification and sharp nonexistence threshold. General join and complete-bipartite polynomial formulas are prior coverage of the counting machinery, not independently novel. Comparing the proof implications, maximum mutual-visibility NUMBER results and fixed-family coefficient formulas do not state the full cross-partition coefficient partial-order theorem. Best-of-knowledge original after a search of equivalent extremal language and closest primary texts, with explicit historical-phrase risk.
+
+## value
+
+PASS
+
+Coefficientwise distributional extremality is a natural stricter problem than largest mutual-visible set size. Classifying all maximizers and the sharp N=6 first obstruction to a minimum reveals a genuine incompatibility of cubic and near-top extremizers. This is a substantive all-order structure theorem rather than a single small-graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
