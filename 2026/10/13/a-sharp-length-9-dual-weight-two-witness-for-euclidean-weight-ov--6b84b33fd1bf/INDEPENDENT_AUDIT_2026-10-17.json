@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 624fd62f7f2c651240e5c76bbcc07680eb6d9bd5",
+        "Primary Wood 2026 arXiv:2601.02608v1 Example 9.1 exact finite-field Euclidean weight",
+        "Independent complete C++ census EUCLIDEAN_F5_SHARP_9_PROVEN_BY_FINITE_COMPLETE_CENSUS_OK and witness A2=14,10"
+      ],
+      "rationale": "The Euclidean weight on F5 assigns e(0)=0,e(±1)=1,e(±2)=4. The explicit 2-by-9 full-rank matrices C,D have identical 25-message primal Euclidean weight enumerators, yet dual A2=14 and 10. A dual weight-two word has exactly two nonzero ±1 entries; its two generator columns therefore coincide modulo sign, yielding A2=2 sum over the 12 normalized ±column classes of binom(eta_j,2). Independent C++ exhaustive reconstruction algorithmically generated the 12 nonzero F5^2/± orbits, computed every normalized multiplicity vector of effective length 2 through 8 with rank2, grouped by the complete sorted weight multiset for 24 nonzero messages, and found no conflicting dual A2. Full-rank state counts were exactly 60,340,1335,4332,12334,31776,75528. The displayed n=9 pair was independently recalculated. Since every no-zero-column rank2 generator is covered up to sign/permutation and any row basis, this finite enumeration is exhaustive for the stated sharpness domain, not an asymptotic extrapolation.",
+      "residual_risks": [
+        "Only effective dimension two and the *first* dual Euclidean-weight coefficient A2, not the globally shortest MacWilliams failure across dimensions or all dual weights.",
+        "The finite enumeration proves a classification only because the ± column orbit normalization covers all full-rank candidates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wood Theorem 2.8 establishes wide failure of duality for non-Hamming field weights, including this Euclidean case.",
+          "Langevin–Wood and Tang–Zhu–Kai investigate extension and MacWilliams-type identities rather than this min-length-A2 threshold."
+        ],
+        "reasoning": "A general existence theorem with no specified minimal length does not imply an exact shortest dimension-two A2-detectable witness.",
+        "searches": [
+          "F5 Euclidean weight MacWilliams identity failure shortest dimension 2 length 9 dual Euclidean weight two nonzero column multiplicities",
+          "weights finite fields Wood generic dimension two duality failure theorem",
+          "Lee Euclidean weight MacWilliams nonexistence extension theorem"
+        ]
+      },
+      "checked_sources": [
+        "Wood arXiv:2601.02608v1 full primary HTML and Example 9.1",
+        "Langevin–Wood, Designs Codes Cryptography 82 (2017), 329–345, literature context",
+        "Tang–Zhu–Kai, Linear Algebra Appl. 516 (2017), 147–159, literature context",
+        "Resultary independent query F5 Euclidean weight MacWilliams identity failure shortest dimension 2 length 9 dual Euclidean weight two nonzero column multiplicities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wood Example 9.1 gives dual-weight-two difference in a larger pair, so prior work covers the possibility of failure at A2.",
+          "The candidate proves minimal n=9 within a precisely stated restricted class by exhaustive finite reasoning."
+        ],
+        "reasoning": "The broad MacWilliams failure is prior; the candidate adds an optimized witness and a sharp exhaustive lower bound, which are neither a reparameterization nor a special-case corollary of the prior construction.",
+        "searches": [
+          "F5 Euclidean weight MacWilliams identity failure shortest dimension 2 length 9 dual Euclidean weight two nonzero column multiplicities",
+          "arXiv:2601.02608 Example 9.1 Euclidean weight matrix W lengths 18 30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wood Example 9.1 explicitly uses the same 12 normalized F5^2 column representatives and dual doubletons.",
+          "The identity A2=2 sum_j binom(eta_j,2) is an equivalent projective-column collision statistic."
+        ],
+        "reasoning": "Column-multiplicity language and MacWilliams dual-weight-two language were directly matched; the exact minimizing effective length n=9 and complete no-witness boundary n<=8 are extra, not synonyms for prior existence.",
+        "searches": [
+          "F5 Euclidean weight MacWilliams identity failure shortest dimension 2 length 9 dual Euclidean weight two nonzero column multiplicities",
+          "Wood Euclidean F5 Example 9.1 18 30 columns weight 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly relevant Example 9.1 lists n=18 and 30 constructions, not the n=9 witness or an exhaustive <=8 dual-A2 census.",
+          "The independent census grouped 125705 full-rank normalized states of n<=8 and all 25-message weights, with no conflicting A2."
+        ],
+        "reasoning": "The exact smallest-length question is a bona fide finite classification; older existence examples or a lookup of high-level parameters cannot logically establish the absence of all shorter code pairs.",
+        "searches": [
+          "F5 Euclidean weight MacWilliams identity failure shortest dimension 2 length 9 dual Euclidean weight two nonzero column multiplicities",
+          "Euclidean F5 code 9 shortest A2 dual 14 10 MacWilliams table",
+          "Wood 2026 Example 9.1 length 18 length 30"
+        ]
+      },
+      "rationale": "Wood 2026 Example 9.1 is the highly relevant same-field, same-weight, same-dimension, same-dual-A2 primary source; it constructs length-18 and length-30 pairs and does not prove minimality at length nine. The present displayed shorter code pair and exhaustive exact <=8 cutoff are not the same conclusion and are not implied by existence of longer pairs.",
+      "residual_risks": [
+        "An unindexed length-nine counterexample or shorter-threshold census in older Euclidean-code literature remains possible; historical priority is best-of-knowledge.",
+        "The exact n=9 witness is not a claim of uniqueness or all-dimension optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_WEIGHT_PRIOR_LONGER_WITNESSES_ONLY",
+          "evidence": [
+            "Original establishes generic counterexamples and explicit Euclidean F5 longer examples; no n=9 shortest A2 cutoff in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.02608v1",
+          "material_read": "Full 2026 arXiv HTML; introduction, multiplicity functions, Sections 3–4, Section 9 Example 9.1 including displayed 12-column orbit matrix and length-18/30 examples",
+          "method": "Read full-text original HTML and Example 9.1 primary calculations; original PDF relevant pages also rendered",
+          "title": "Weights on finite fields and failures of the MacWilliams identities",
+          "trigger": "Same object, exact Euclidean F5, dimension two and dual A2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wood 2026 original Euclidean weight Example 9.1",
+        "Independent normalized-column full-rank census and explicit code witnesses"
+      ],
+      "rationale": "MacWilliams duality failures for non-Hamming weights are natural in coding theory; the first dual weight-two coefficient is structurally tied to repeated/opposite generator columns and is an especially interpretable failure mechanism. The smallest effective length for the original explicit dimension-two F5 mechanism is mathematically meaningful, since it quantifies minimal size of a duality obstruction and is certified exhaustively rather than merely suggesting a smaller pair. A complete fixed finite cutoff can be intrinsically useful without a broader coding theorem.",
+      "residual_risks": [
+        "The accepted result is deliberately restricted to the first A2 mismatch; not a universal optimality result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Census is exhaustive only in effective rank-two quinary codes n<=8, using ±-equivalence and row-basis redundancy.",
+    "No minimality assertion for other dual discrepancies or other dimensions.",
+    "Public provenance in AUDIT.json and METADATA.json prevents present publication readiness."
+  ],
+  "schema_version": 1
+}

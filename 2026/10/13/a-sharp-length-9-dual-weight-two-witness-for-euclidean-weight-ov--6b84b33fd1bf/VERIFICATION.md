@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone verifier `artifacts/verify.py` uses only the Python standard library and exact arithmetic modulo \(5\).
+## correctness
 
-It first reconstructs the two displayed \(2\)-by-\(9\) matrices, checks row rank \(2\), normalizes all nonzero columns modulo \(\{\pm1\}\), and recovers the stated twelve-entry multiplicity vectors. It enumerates all \(25\) messages of each code and verifies the common primal Euclidean-weight enumerator exactly.
+PASS
 
-For an independent dual check, it propagates a dynamic-programming table indexed by the syndrome in \(\mathbb F_5^2\) and total Euclidean weight. Restricting to zero syndrome gives each complete dual enumerator; both totals equal \(5^7=78125\), while the Euclidean weight-\(2\) counts are respectively \(14\) and \(10\).
+The Euclidean weight on F5 assigns e(0)=0,e(±1)=1,e(±2)=4. The explicit 2-by-9 full-rank matrices C,D have identical 25-message primal Euclidean weight enumerators, yet dual A2=14 and 10. A dual weight-two word has exactly two nonzero ±1 entries; its two generator columns therefore coincide modulo sign, yielding A2=2 sum over the 12 normalized ±column classes of binom(eta_j,2). Independent C++ exhaustive reconstruction algorithmically generated the 12 nonzero F5^2/± orbits, computed every normalized multiplicity vector of effective length 2 through 8 with rank2, grouped by the complete sorted weight multiset for 24 nonzero messages, and found no conflicting dual A2. Full-rank state counts were exactly 60,340,1335,4332,12334,31776,75528. The displayed n=9 pair was independently recalculated. Since every no-zero-column rank2 generator is covered up to sign/permutation and any row basis, this finite enumeration is exhaustive for the stated sharpness domain, not an asymptotic extrapolation.
 
-For the lower bound, the verifier enumerates every nonnegative twelve-part multiplicity vector of total length \(n\) for each \(2\le n\le8\). It keeps precisely the vectors whose occupied column representatives span dimension \(2\), groups them by the exact sorted Euclidean weights of all \(24\) nonzero messages, and verifies that \(2\sum_j\binom{\eta_j}{2}\) is constant inside each group. The retained state counts are \(60,340,1335,4332,12334,31776,75528\), agreeing with the stored certificate.
+## originality
 
-The verifier then confirms that the two explicit length-\(9\) multiplicity vectors have the same primal signature and different dual Euclidean weight-\(2\) counts. A successful replay prints `VERIFY_OK`.
+PASS
 
-The computation proves only the stated effective dimension-\(2\), dual-weight-\(2\) cutoff. It does not enumerate higher-dimensional codes or prove that no shorter pair can first differ at a larger dual Euclidean weight.
+Wood 2026 Example 9.1 is the highly relevant same-field, same-weight, same-dimension, same-dual-A2 primary source; it constructs length-18 and length-30 pairs and does not prove minimality at length nine. The present displayed shorter code pair and exhaustive exact <=8 cutoff are not the same conclusion and are not implied by existence of longer pairs.
+
+## value
+
+PASS
+
+MacWilliams duality failures for non-Hamming weights are natural in coding theory; the first dual weight-two coefficient is structurally tied to repeated/opposite generator columns and is an especially interpretable failure mechanism. The smallest effective length for the original explicit dimension-two F5 mechanism is mathematically meaningful, since it quantifies minimal size of a duality obstruction and is certified exhaustively rather than merely suggesting a smaller pair. A complete fixed finite cutoff can be intrinsically useful without a broader coding theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

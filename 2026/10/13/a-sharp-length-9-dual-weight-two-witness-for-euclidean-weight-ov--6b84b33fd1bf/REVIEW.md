@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct enumeration of all \(25\) messages for each displayed rank-\(2\) generator gives exactly the same Euclidean-weight enumerator. A dual Euclidean weight-\(2\) word has exactly two \(\pm1\) entries, so its support is an equal-or-opposite pair of generator columns; hence \(A_2=2\sum_j\binom{\eta_j}{2}\), giving \(14\) and \(10\) for the two codes. Exact syndrome dynamic programming independently enumerates all \(5^7\) dual words of each code and confirms those coefficients. For each effective length \(2\) through \(8\), exhaustive enumeration of all twelve-orbit multiplicity vectors with rank \(2\) finds no equal-primal-enumerator group with two different dual weight-\(2\) coefficients.
+PASS
 
-## Originality
+The Euclidean weight on F5 assigns e(0)=0,e(±1)=1,e(±2)=4. The explicit 2-by-9 full-rank matrices C,D have identical 25-message primal Euclidean weight enumerators, yet dual A2=14 and 10. A dual weight-two word has exactly two nonzero ±1 entries; its two generator columns therefore coincide modulo sign, yielding A2=2 sum over the 12 normalized ±column classes of binom(eta_j,2). Independent C++ exhaustive reconstruction algorithmically generated the 12 nonzero F5^2/± orbits, computed every normalized multiplicity vector of effective length 2 through 8 with rank2, grouped by the complete sorted weight multiset for 24 nonzero messages, and found no conflicting dual A2. Full-rank state counts were exactly 60,340,1335,4332,12334,31776,75528. The displayed n=9 pair was independently recalculated. Since every no-zero-column rank2 generator is covered up to sign/permutation and any row basis, this finite enumeration is exhaustive for the stated sharpness domain, not an asymptotic extrapolation.
 
-PASS. Wood's primary source supplies a length-\(18\) Euclidean-weight witness over \(\mathbb F_5\), and a second one of length \(30\), but does not state a length-\(9\) witness or a shortest-witness result. Searches over exact and equivalent formulations, including the multiplicity-function model, equal Euclidean-weight enumerators, dual weight \(2\), and shorter lengths, found no prior statement covering the explicit pair or the sharp dimension-\(2\), dual-weight-\(2\) threshold. General Lee/Euclidean MacWilliams and extension results do not imply this finite threshold.
+## originality
 
-## Value
+PASS
 
-PASS. The source's Euclidean example makes dual Euclidean weight \(2\) the first explicit obstruction. Cutting its witness length from \(18\) to \(9\) and proving that no effective dimension-\(2\) witness for that same obstruction exists below \(9\) gives a natural sharp finite boundary, not merely another isolated counterexample. The result supplies a compact test case for studying how multiplicity geometry causes failure of Euclidean-weight duality.
+Wood 2026 Example 9.1 is the highly relevant same-field, same-weight, same-dimension, same-dual-A2 primary source; it constructs length-18 and length-30 pairs and does not prove minimality at length nine. The present displayed shorter code pair and exhaustive exact <=8 cutoff are not the same conclusion and are not implied by existence of longer pairs.
 
-## Closest literature and limitations
+## value
 
-The closest source is Wood, arXiv:2601.02608v1, especially the dimension-\(2\) multiplicity formalism and Example 9.1. The result here is narrower in mechanism but sharper in length. It does not establish an absolute minimum over all dimensions or all possible first dual-discrepancy weights, and an unindexed equivalent computation remains a residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+MacWilliams duality failures for non-Hamming weights are natural in coding theory; the first dual weight-two coefficient is structurally tied to repeated/opposite generator columns and is an especially interpretable failure mechanism. The smallest effective length for the original explicit dimension-two F5 mechanism is mathematically meaningful, since it quantifies minimal size of a duality obstruction and is certified exhaustively rather than merely suggesting a smaller pair. A complete fixed finite cutoff can be intrinsically useful without a broader coding theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
