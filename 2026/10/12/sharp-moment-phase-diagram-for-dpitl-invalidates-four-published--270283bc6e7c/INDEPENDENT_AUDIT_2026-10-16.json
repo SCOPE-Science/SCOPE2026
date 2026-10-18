@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:15:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every kappa,eta>0, S(n)=[(1+2n^eta)/(1+n^eta)^2]^kappa is a genuine decreasing survival with S(0)=1. As n tends to infinity S(n)~2^kappa n^(-kappa eta), and differentiating log S shows -S'(n)~(kappa eta/n)S(n). By a mean-value point in (n,n+1), p_n=S_n-S_(n+1)~2^kappa kappa eta n^(-kappa eta-1). Therefore E[X^r] is finite exactly when r<kappa eta (strict even at equality); for t>0 e^(tn)p_n fails to tend to 0, so ordinary MGF diverges, whereas t<=0 is finite. The six Table 1 products are .75,2.25,4.5,1.25,3.75,7.5: four rows display a finite value of a genuinely divergent mean, variance, skewness or kurtosis. Checked actual published Table1 values and source survival law. Fresh independent evaluations of S and its analytic derivative at n=10^6 for four invalid parameter pairs matched scaled constants to 0.7%; finite computations are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous PITL parent develops moments and an MGF series, but not this discrete four-row correction.",
+          "Published 2026 DPITL article contains these summary rows, not restrictions kappa eta>m."
+        ],
+        "reasoning": "Continuous-parent special-function expansions and generic survival-discretization formulas do not themselves explicitly establish the exact discrete threshold and locate false published numerical rows.",
+        "searches": [
+          "Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026",
+          "Abushal et al. DOI 10.32604/cmc.2021.014620 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2026049",
+        "https://doi.org/10.32604/cmc.2021.014620",
+        "Resultary semantic search: Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target formula already mathematically entails tail exponent kappa eta by asymptotic expansion, but the original paper does not enforce the needed convergence in its printed table."
+        ],
+        "reasoning": "The correction follows from the published formula plus a nontrivial domain check; novelty is the error diagnosis and complete sharp domain, not a newly defined distribution.",
+        "searches": [
+          "Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026",
+          "Hassan et al. 2026 Eq. survival and Table1",
+          "Abushal et al. 2021 continuous PITL §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Survival-discretization tail and hazard determine heavy-tail/regular-variation moment domain; article provides formally finite moment-generating series without admissibility domain."
+        ],
+        "reasoning": "Equivalent language is tail index, regular variation, Mellin-moment strip, and positive Laplace radius; none of these is stated as the sharp DPITL existence diagram in the primary text examined.",
+        "searches": [
+          "Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026",
+          "Hassan et al. 2026 DOI 10.3934/math.2026049 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original table explicitly lists six parameter pairs (1.5,.5),(1.5,1.5),(1.5,3),(2.5,.5),(2.5,1.5),(2.5,3) with finite columns even where higher moments diverge."
+        ],
+        "reasoning": "The exact database/table check directly identifies erroneous published values, not prior coverage. No independent corrected exact table found in targeted search.",
+        "searches": [
+          "Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026",
+          "Hassan et al. 2026 Table 1 (PDF page 7, zero-based index 6)"
+        ]
+      },
+      "rationale": "The limiting exponent is elementary regular-variation reasoning, but the same DPITL distribution's published Table 1 and claimed finite dispersion across the full parameter domain are concretely contradicted; no verified published correction or stronger DPITL theorem was found.",
+      "residual_risks": [
+        "A generic discrete regular-variation treatment could implicitly imply the moment threshold; novelty should be understood as target-specific correction, not a new general tail theorem.",
+        "The published table also contains numeric inconsistencies independent of moment-domain defects; this audit only claims divergence of the specified population statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGINAL_TABLE_CONTRADICTED",
+          "evidence": "Table 1 contains positive finite values in all six cases; at a=.75 mean and variance diverge; original discussion says full parameter space for finite dispersion.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026049",
+          "material_read": "Complete open-access PDF consulted; detailed §§2–3 definitions, moment expressions and Table 1, PDF pp. 3–7; verified figure/dispersal commentary",
+          "method": "Publisher PDF reading and page image inspection",
+          "title": "An innovative discrete distribution for modeling genotoxicity data",
+          "trigger": "Identical DPITL definition, published MGF and summary table"
+        },
+        {
+          "assessment": "CONTINUOUS_PARENT_NOT_SAME_DISCRETE_CORRECTION",
+          "evidence": "Provides PITL model and formal moment expressions, not identified corrections to 2026 DPITL table.",
+          "identifier_or_url": "https://doi.org/10.32604/cmc.2021.014620",
+          "material_read": "Open full publisher HTML §§2–3, moment and MGF formulas and survival setup",
+          "method": "Open-access primary full-text HTML reading",
+          "title": "Power Inverted Topp–Leone Distribution in Acceptance Sampling Plans",
+          "trigger": "Potential continuous-parent tail and MGF antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a material correction to a current statistical model with wrong population means, variances and higher moments in four of six highlighted parameter rows, affecting interpretation of model fit and dispersion. The whole sharp moment-existence diagram and MGF failure resolve a specific consequential published error, rather than an arbitrary p-series exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3934/math.2026049",
+    "https://doi.org/10.32604/cmc.2021.014620",
+    "Resultary query: Resultary semantic: DPITL Topp Leone discrete moments kappa eta; web: discrete power inverted Topp Leone moment divergence correction 2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A generic discrete regular-variation treatment could implicitly imply the moment threshold; novelty should be understood as target-specific correction, not a new general tail theorem.",
+    "The published table also contains numeric inconsistencies independent of moment-domain defects; this audit only claims divergence of the specified population statistics.",
+    "Public record metadata retains operational provenance; scientific completion does not imply public-file readiness.",
+    "Finite checker calculations are bounded consistency tests; the all-parameter assertions are supported by mathematical reasoning, not only empirical checks."
+  ],
+  "schema_version": 1
+}
