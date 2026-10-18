@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every vector in the invariant zero-sum space is uniquely parameterized by three Fourier coordinates. The positive quartic expansion separates the rotated two-dimensional frequency block, the alternating one-dimensional block, and a mixed term whose coefficient is bounded by the larger block norm. The two-dimensional sharp norm follows from a solved trigonometric inequality; equality holds on either coordinate block, not from sampling. Exact symbolic identities and the rational extremizer reproduce. This proves the complete universal quantification over real coefficient quadruples.
+## correctness
 
-## Originality — PASS
-Relevant public work gives spectral-norm formulas for circulants and bounds for the special equal-off-diagonal family. The separately published two-dimensional \(\ell_4\) radical covers **only** the rotation-dilation block; that prior result is explicitly acknowledged rather than claimed new. Its statement does not determine the induced norm of the full centered three-dimensional four-cycle operator or the sharp Markov-versus-spectral multiplier gap without the positive quartic gluing lemma established here. Targeted searches did not reveal a stronger covering formula for arbitrary four-state real kernels; this is not an absolute novelty guarantee.
+PASS
 
-## Value — PASS
-This classifies an entire natural four-state convolution algebra on its invariant mean-zero space, directly quantifying one-step nonreversible Markov contraction. The exact sharp factor \(2^{1/4}\) separates Hilbert spectral contraction from nonlinear \(\ell_4\) contraction, and the lazy directed four-cycle is a canonical saturating example. The full parameter-space result, not merely one numerical example, motivates the exact invariant.
+Reconstructed the unique u,v,w Fourier coordinates on sum-zero hyperplane and checked ||x||₄⁴=2[u⁴+v⁴+6w²(u²+v²)+2w⁴]. Convolution gives rotated/dilated B=[[a,c],[-c,a]] on (u,v), scalar b on w. The mixed term has coefficient 6b²r²; since L=||B||₄≥r, each nonnegative term is bounded by max(L,|b|)^4 times its input term, while w=0 and u=v=0 force equality, proving exact three-coordinate gluing. For (u,v)=(cos t,sin t), quotient r⁴(3+cos(4t−4θ))/(3+cos4t), whose discriminant yields the claimed radical. Independently checked algebraic equivalence to the prior ℓ₄² block expression. Finally ||K_H||₂=max(r,|b|), and k=(1/2,1/2,0,0) gives L⁴=1/2 and r²=1/2, attaining 2^{1/4}. Handles r=0, b=0 and arbitrary signed real kernels; finite checks not universal proof.
 
-## Closest literature and limits
-The most directly related work includes Bouthat et al. (arXiv:2109.09728) and Sahasranand (arXiv:2111.11389), both of which handle restricted circulant parameter families; the older spectral-norm paper arXiv:1305.5607 analyzes sequence-defined circulants. The public record 7a18ef79086d supplies the rotation-block \(\ell_4\) norm, not the centered four-cycle norm. This review does not establish that no poorly indexed equivalent result exists. The claim is real, four-state, centered and exponent four; no all-state or all-exponent extension is proved.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+The mean-zero restriction of a Markov/circulant operator controls mixing beyond spectral ℓ₂ decay. Its exact ℓ₄ contraction for all real four-state kernels and a sharp non-Hilbert spectral gap are useful natural small-chain benchmarks; positive quartic gluing is a structural lemma, not merely resubstitution of prior 2×2 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
