@@ -1,19 +1,21 @@
-# Review of the edge-weighted forbidden-transition theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Perron matrix admits the exhibited positive eigenvector and eigenvalue; differentiation gives the exactly monotone correlation. The derivative of the response ratio reduces globally to one scalar expression, whose derivative has a single sign crossing for \(k>3\) and no crossing for \(k\le3\). This supplies the missing global control: the nonzero solution is retained only after its exact stationary free-energy advantage becomes positive. The coexistence equation decreases then increases, so it has exactly one positive root. Uniform Taylor expansions near the cubic--quintic cancellation give the constants \(5/216\), \(5/288\), \(5/6\), \(5/4\), and \(\sqrt{5/12}\). Both limiting branches were checked algebraically. The bundled finite checker verified 89 symbolic, high-precision, and Markov-stationarity assertions. Numerical checks alone do not prove uniqueness, infinitude of branches, or asymptotic limits; those follow from the derivative and Taylor arguments in RESULT.md.
+PASS
 
-## Originality — PASS, with residual risk
+For W_w with W(-1,0)=W(0,±1)=w, all other allowed edges weight one and forbidden (0,0), the positive Perron root of B_{w,y} is λ_k(y)=cosh y+√(sinh²y+k), k=1+2w²; the exhibited eigenvector is (1,2w/λ_k,1) and z=P_k'(y)=sinh y/√(sinh²y+k). Positive primitive matrix implies a unique linear equilibrium for each real y; the Legendre conditional entropy excludes endpoints for finite β. Differentiating R_k(y)=y/z_k(y) gives sign(N_k) for N=sinh y(sinh²y+k)-ky cosh y and N'=sinh y(3sinh y cosh y-ky). The increasing ratio 3sinh y cosh y/y rises from 3 to infinity, proving monotone R for 1<k<=3 and exactly one minimum for k>3. Along self-consistent stationary points the free-energy difference is C_k(y)=log(λ_k(y)/λ_k(0))-yz_k(y)/2, with derivative sign R'; its unique positive zero y_t>y_s yields exactly three global equilibrium pairs at coexistence and the strict β_s<β_t<√k order. The local series R/√k=1+(3-k)y²/(6k)+(7k²+30k-45)y⁴/(360k²)+O(y⁶) and sixth-order scaled free energy give β_s/√k=1-5(k-3)²/216+o((k-3)²), β_t/√k=1-5(k-3)²/288+o((k-3)²), y_s²/(k-3)→5/6, y_t²/(k-3)→5/4 and jump z/√(k-3)→√(5/12). Continuous-side k↑3 scaling gives z/√ε→√((√(25+1080b)-5)/18). Independently evaluated the scalar stationarity/coexistence equations for k=3.1,4,10, confirming the predicted ordering but using the analytic sign proof for all parameters; numerical roots never prove a continuum theorem.
 
-Tang, Yang, and Li (arXiv:2609.25915v1, Sections 6.4--6.5, 7.6, 8) prove the unweighted \(k=3\) quartic-root transition and supply the general Legendre apparatus; they describe the joint cubic--quintic crossover as a further direction. The complete weighted family, unique first-order coexistence, and exact model-specific spinodal and jump constants are not consequences of the fixed-weight statement. Buzzi, Kloeckner, and Leplaideur (DOI:10.5802/ahl.192) already develop general metastable nonlinear pressure; Ostilli and Mukhamedov (arXiv:1205.6777) analyze a related Potts model, but use full adjacency and different order parameters. The residual risk is an older or unindexed equivalent spin-one hard-core mean-field computation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unweighted correspondence has an exceptional fourth-root transition. The theorem answers the natural stability question for the single edge weighting that preserves spin reversal and primitivity: it separates continuous and discontinuous behavior, exactly locates global coexistence, quantifies metastability, and derives a two-sided crossover at the coalescing transition. These are natural, sharp dynamical/thermodynamic invariants, not arbitrary numerical refinements. The theorem makes no claim about arbitrary graph perturbations or dynamical metastable escape.
+The source fixed the unweighted k=3 critical point; the weighted family k=1+2w², its first-order region, unique coexistence and exact crossover constants are not stated or implied without new global analysis.
 
-## Closest literature and limits
+## value
 
-The strongest sources are the original finite-state nonlinear-correspondence calculation (arXiv:2609.25915v1), the established nonlinear-pressure/metastability framework (DOI:10.5802/ahl.192), and transfer-matrix first-order transitions in a different Potts interaction (arXiv:1205.6777). Exact application-specific priority remains uncertain until an independent review. The finite checker is corroborative and not exhaustive.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. A complete exact phase diagram for a natural one-parameter edge deformation resolves continuous versus discontinuous onset, the metastability interval and sharp tricritical crossovers. These are structural global phase facts not routine parameter substitution or a small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:12:34.585009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_w with W(-1,0)=W(0,±1)=w, all other allowed edges weight one and forbidden (0,0), the positive Perron root of B_{w,y} is λ_k(y)=cosh y+√(sinh²y+k), k=1+2w²; the exhibited eigenvector is (1,2w/λ_k,1) and z=P_k'(y)=sinh y/√(sinh²y+k). Positive primitive matrix implies a unique linear equilibrium for each real y; the Legendre conditional entropy excludes endpoints for finite β. Differentiating R_k(y)=y/z_k(y) gives sign(N_k) for N=sinh y(sinh²y+k)-ky cosh y and N'=sinh y(3sinh y cosh y-ky). The increasing ratio 3sinh y cosh y/y rises from 3 to infinity, proving monotone R for 1<k<=3 and exactly one minimum for k>3. Along self-consistent stationary points the free-energy difference is C_k(y)=log(λ_k(y)/λ_k(0))-yz_k(y)/2, with derivative sign R'; its unique positive zero y_t>y_s yields exactly three global equilibrium pairs at coexistence and the strict β_s<β_t<√k order. The local series R/√k=1+(3-k)y²/(6k)+(7k²+30k-45)y⁴/(360k²)+O(y⁶) and sixth-order scaled free energy give β_s/√k=1-5(k-3)²/216+o((k-3)²), β_t/√k=1-5(k-3)²/288+o((k-3)²), y_s²/(k-3)→5/6, y_t²/(k-3)→5/4 and jump z/√(k-3)→√(5/12). Continuous-side k↑3 scaling gives z/√ε→√((√(25+1080b)-5)/18). Independently evaluated the scalar stationarity/coexistence equations for k=3.1,4,10, confirming the predicted ordering but using the analytic sign proof for all parameters; numerical roots never prove a continuum theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang--Yang--Li Section 6 gives a Legendre global-maximization mechanism and local Taylor criteria, not explicit uniqueness and spinodal/global-coexistence constants for all k.",
+          "Buzzi--Kloeckner--Leplaideur develop nonlinear formalism and other Curie--Weiss examples; Ostilli--Mukhamedov study a different Potts mean-field interaction."
+        ],
+        "reasoning": "General nonlinear equilibrium theorems are a tool for the proof, not stronger coverage of the model-specific global uniqueness and asymptotics, which require the new scalar sign analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.25915 (Tang--Yang--Li 2026, primary full PDF, §6-8)",
+          "https://doi.org/10.5802/ahl.192 (Buzzi--Kloeckner--Leplaideur 2023, general nonlinear thermodynamic framework)",
+          "https://arxiv.org/pdf/1205.6777 (Ostilli--Mukhamedov 2012, distinct three-state Potts interactions)",
+          "Resultary: nonlinear thermodynamic formalism forbidden 00 transition edge weighted Markov correlation tricritical first order k spinodal coexistence Tang Yang Li"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.25915 (Tang--Yang--Li 2026, primary full PDF, §6-8)",
+        "https://doi.org/10.5802/ahl.192 (Buzzi--Kloeckner--Leplaideur 2023, general nonlinear thermodynamic framework)",
+        "https://arxiv.org/pdf/1205.6777 (Ostilli--Mukhamedov 2012, distinct three-state Potts interactions)",
+        "Resultary: nonlinear thermodynamic formalism forbidden 00 transition edge weighted Markov correlation tricritical first order k spinodal coexistence Tang Yang Li",
+        "Resultary: weighted forbidden transition correspondence edge correlation tricritical k=3 first-order crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Theorem 6.3 reduces equilibria to h(z)+F(z) and Proposition 7.9 computes k=3. The weight perturbation changes R_k(y), whose derivative has a new nonmonotone region exactly when k>3.",
+          "The first-order branch, spinodal, unique coexistence, and explicit τ asymptotics require proving N_k sign, C_k sign, and expansions beyond the published k=3 case."
+        ],
+        "reasoning": "Neither the generic Legendre reduction nor the unweighted fixed-parameter formula determines the stated model-specific global phase portrait merely by substitution; no dominating explicit theorem identified.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.25915 (Tang--Yang--Li 2026, primary full PDF, §6-8)",
+          "https://doi.org/10.5802/ahl.192 (Buzzi--Kloeckner--Leplaideur 2023, general nonlinear thermodynamic framework)",
+          "Resultary: nonlinear thermodynamic formalism forbidden 00 transition edge weighted Markov correlation tricritical first order k spinodal coexistence Tang Yang Li"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang--Yang--Li Proposition 7.9 exactly studies the same graph with W=1, hence k=3, and proves only continuous exponent 1/4 at βc=√3.",
+          "The edge-weighted deformation is w>0, k=1+2w², modifying the Perron root and degree-three response coefficient; k>3 was not treated in the source."
+        ],
+        "reasoning": "The fixed k=3 theorem is recovered from the assigned model at w=1. For w≠1 the phase diagram includes first-order coexistence or quadratic transition, so it cannot be mere renaming of the fixed k=3 theorem.",
+        "searches": [
+          "Resultary: nonlinear thermodynamic formalism forbidden 00 transition edge weighted Markov correlation tricritical first order k spinodal coexistence Tang Yang Li",
+          "Resultary: weighted forbidden transition correspondence edge correlation tricritical k=3 first-order crossover",
+          "https://arxiv.org/pdf/2609.25915 (Tang--Yang--Li 2026, primary full PDF, §6-8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 7.9 displays λ(y)=cosh y+√(sinh²y+3), βc=√3, and exponent 1/4 only.",
+          "The inspected source contains no explicit k-dependent coexisting temperatures or constants 5/216 and 5/288."
+        ],
+        "reasoning": "The source already supplies a precise fixed-parameter table/critical law but not the proposed entire edge-weighted parameter family. An exact numerical match at the degeneration k=3 is conceded rather than counted as new.",
+        "searches": [
+          "Resultary: nonlinear thermodynamic formalism forbidden 00 transition edge weighted Markov correlation tricritical first order k spinodal coexistence Tang Yang Li",
+          "Resultary: weighted forbidden transition correspondence edge correlation tricritical k=3 first-order crossover",
+          "https://arxiv.org/pdf/2609.25915"
+        ]
+      },
+      "rationale": "The source fixed the unweighted k=3 critical point; the weighted family k=1+2w², its first-order region, unique coexistence and exact crossover constants are not stated or implied without new global analysis.",
+      "residual_risks": [
+        "Older spin-one lattice-gas/Blume-Capel-like models might encode a dual parameterization; no mathematically decisive equivalence found.",
+        "The high-precision tests check representative roots, while the uniform limiting proof must use analytic Taylor control; no numerical sampling supports uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source proves only k=3 at this adjacency matrix, with βc=√3 and 1/4 exponent; new weighted k≠3 phase portrait absent from the focal example.",
+          "evidence": [
+            "Proposition 7.9 pp.47-49 gives k=3 formula and critical law.",
+            "Section 8 discusses different higher-dimensional/global continuation questions, not this k-dependent explicit solution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25915",
+          "material_read": "Complete primary 52-page PDF, specifically §§6.3-6.5 pp.31-37, §7.6 Proposition 7.9 pp.47-50, §8 pp.50-51; PDF page screenshots inspected",
+          "method": "Read full accessible arXiv PDF text plus page images of central Proposition 7.9 and subsequent Section 8",
+          "title": "Tang, Yang and Li, Nonlinear thermodynamic formalism for correspondences",
+          "trigger": "Same forbidden (0,0) transition graph and same quadratic edge correlation"
+        },
+        {
+          "assessment": "Conceptual antecedent, no whole-document assertion of noncoverage; residual risk recorded",
+          "evidence": [
+            "Tang §1, §§6-7 cites generic formalism; assignment supplies model-specific scalar proof."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/ahl.192",
+          "material_read": "Abstract, published bibliographic summary, and exact references within full Tang source; independent whole-document reading not accomplished",
+          "method": "Bibliographic and cross-reference examination",
+          "title": "Buzzi, Kloeckner and Leplaideur, Nonlinear thermodynamical formalism",
+          "trigger": "Generic nonlinear/Curie-Weiss framework could dominate"
+        },
+        {
+          "assessment": "Potts order parameter/interactions differ; could contain an equivalent transformed special case not ruled out by snippets alone",
+          "evidence": [
+            "Source model distinguishes a forbidden transition and an edge-correlation quadratic observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.6777",
+          "material_read": "Title and abstract/bibliographic scope, not primary full text",
+          "method": "Targeted literature search and abstract comparison",
+          "title": "Ostilli and Mukhamedov, 1D Three-state mean-field Potts model with first- and second-order phase transitions",
+          "trigger": "Possible equivalent spin-one mean-field description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A complete exact phase diagram for a natural one-parameter edge deformation resolves continuous versus discontinuous onset, the metastability interval and sharp tricritical crossovers. These are structural global phase facts not routine parameter substitution or a small numerical refinement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite primitive 3-state correspondence, positive w and β>=0, quadratic st correlation only. No arbitrary interaction perturbations, finite-size fluctuations, or kinetic claims.",
+    "Older spin-one lattice-gas/Blume-Capel-like models might encode a dual parameterization; no mathematically decisive equivalence found.",
+    "The high-precision tests check representative roots, while the uniform limiting proof must use analytic Taylor control; no numerical sampling supports uniqueness."
+  ],
+  "schema_version": 1
+}
