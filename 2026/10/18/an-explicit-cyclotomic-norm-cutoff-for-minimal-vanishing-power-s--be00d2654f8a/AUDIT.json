@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed: the root has order n already modulo p, forcing Phi_n(q)=0 modulo p^k. A short sum produces an integer nonzero cyclotomic resultant by the Lam–Leung theorem, bounded above by (r-1)^phi(n) by all complex embeddings; the Sylvester identity forces divisibility by p^k. A geometric series gives exactly r terms. The logarithmic integer cutoff and n=2 boundary follow; 21 exact finite checks corroborate without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacob–Külshammer Propositions 14–15 provide exact values for n=5 and 7 (strictly stronger than the current bound on those slices).",
+        "Corollary 13 establishes finiteness for a related cutoff n/(n-phi(n)) but does not give this explicit quantitative all-order bound."
+      ],
+      "reasoning": "The new bound applies uniformly to all n with n|(p-1), including composite n with r>=5. Existing exact small-n tables dominate those particular cases; they do not dominate the all-order explicit threshold. General qualitative existence does not imply a particular numerical bound.",
+      "searches": [
+        "Jacob–Külshammer 2022 Proposition 10, Corollary 13, Propositions 14–15, Example 16",
+        "Breuer et al. 2021 Proposition 2.25 and Example 2.26",
+        "Congruences for sums of powers of an integer Jacob Külshammer Proposition 10 explicit stabilization depth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.09403v1 (Jacob–Külshammer 2022; Section 3, especially Proposition 10 and Corollary 13)",
+      "DOI:10.24330/ieja.969577 (Breuer et al. 2021; Proposition 2.25, Example 2.26)",
+      "arXiv:math/9511209v1 (Lam–Leung weight theorem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lam–Leung proves any characteristic-zero vanishing nonnegative sum has length at least r; this alone says nothing about vanishing modulo p^k.",
+        "The 2021/2022 resultant finiteness proofs rely on unspecified integer certificates; the explicit product bound is a new quantitative link asserted and proved here."
+      ],
+      "reasoning": "The new argument bounds each nonzero resultant by the product of phi(n) complex factors, each at most r-1, and combines that with exact p^k divisibility. A prior general theorem that includes this explicit modulus cutoff would cover the result even without matching notation; no such theorem was found among the checked texts. A quantitatively sharpened version of the older methods might still be an unindexed overlap.",
+      "searches": [
+        "Jacob–Külshammer 2022 full text: section 3, Proposition 10/Corollary 13",
+        "Lam–Leung 1995 main theorem",
+        "web: cyclotomic norm bound minimal vanishing sums prime powers",
+        "Lam Leung nonvanishing sum roots unity resultants effective p-adic vanishing length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacob–Külshammer 2022 Proposition 10 gives existence of some K for the minimum r, but explicitly asks for an upper bound at Section 3 following the proposition.",
+        "Breuer et al. 2021 Proposition 2.25 treats qualitative prime-order resultant finiteness."
+      ],
+      "reasoning": "Equivalent language is zero-sum length of the unique order-n cyclic subgroup of (Z/p^kZ)^× or the least count of repeated q-powers. Neither inspected paper states p^k>(r-1)^phi(n) as a sufficient bound; the current theorem quantifies the exact same invariant, so the comparison is implication-level, not title-level.",
+      "searches": [
+        "minimal number m(q,e) of powers of q whose sum divisible by e, congruences for sums of powers cyclic residue exact classifications prime powers",
+        "Jacob Külshammer Proposition 10 explicit K bound m(q,p^K) equals least prime divisor ord root unity norm cyclotomic",
+        "web: \"m(q,p^k)\" \"phi(n)\" bound",
+        "web: \"Proposition 10\" \"K\" \"Jacob\" \"Külshammer\" effective"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 examples include (n,p)=(11,23) with sequence (3,5,9,9,11) and (13,53) with (3,7,12,13).",
+        "The 2021 and 2022 papers contain exact special case tables."
+      ],
+      "reasoning": "Those tables give sharper finite-order values. The present theorem does not recompute those results or claim them as new; it supplies an all-n closed sufficient bound independent of the tables.",
+      "searches": [
+        "Jacob–Külshammer 2022 Example 16 tables for n=11,13,17,19",
+        "Breuer et al. 2021 Example 2.26 for n=5,7",
+        "m(q,e) m(q,p^k) least length positive powers q divisible by e and cyclotomic resultant uniform effective cutoff"
+      ]
+    },
+    "rationale": "An explicit uniform cutoff for the necessary stabilization exponent resolves the quantitative question expressly left open after Proposition 10 of Jacob–Külshammer 2022. Its statement is not among the exact comparison sources inspected. Inspected publications do not state the uniform explicit cutoff. Unindexed or implicit consequences of existing resultant methods remain a stated risk.",
+    "residual_risks": [
+      "A quantitative bound could be buried in unpublished notes or indexed under a different cyclotomic norm vocabulary.",
+      "The older qualitative resultant proof yields a finite computable constant, and an external reviewer may regard the simple universal estimate as an implicit corollary even though it is not stated there.",
+      "The upper bound is not tight and small orders have independently known exact formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "QUALITATIVE_COVERAGE_ONLY: existence and finite exceptions known, explicit all-n height bound not stated",
+        "evidence": [
+          "Proposition 10 shows existence of some K; text following Proposition 10 explicitly requests an upper bound for K.",
+          "Corollary 13 gives finite exceptions; Propositions 14–15 classify special orders n=5 and n=7."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.09403v1",
+        "material_read": "Full HTML mathematical text, Sections 1–3, especially Proposition 10, Corollary 13, Propositions 14–15, Examples 16–17 and references",
+        "method": "Primary-source textual inspection and implication comparison",
+        "title": "Congruences for sums of powers of an integer",
+        "trigger": "originating prime-power problem, exact same invariant and parameters"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: prime-order finiteness and exact small-prime tables do not state an all-n explicit bound",
+        "evidence": [
+          "Proposition 2.25 establishes finiteness for prime n via polynomial certificates.",
+          "Example 2.26 computes small n=5,7 special cases."
+        ],
+        "identifier_or_url": "https://www.ieja.net/files/papers/volume-30/2-V30-2021.pdf",
+        "material_read": "Section 2 and relevant pages 19, 27 and 31, Proposition 2.25, Example 2.26, supporting bounds and tables",
+        "method": "Primary PDF text and page-image inspection",
+        "title": "The Loewy Structure of Certain Fixpoint Algebras, Part II",
+        "trigger": "earlier same-invariant results, especially resultant finiteness"
+      },
+      {
+        "assessment": "SUPPORTING_THEOREM: supplies minimum vanishing weight r but no modular exponent cutoff",
+        "evidence": [
+          "Main Theorem states vanishing nonnegative integer weights are combinations of prime factors of n."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+        "material_read": "Abstract and introduction, Main Theorem on PDF page 2, statement and identification of characteristic-zero scope",
+        "method": "Primary PDF text and page-image inspection",
+        "title": "On vanishing sums for roots of unity",
+        "trigger": "critical weight theorem used to rule out zero resultant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be00d265-4f8a-4fd4-a294-576a77657a05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The authors of the originating 2022 study specifically request a quantitative bound for their stabilization height K. This theorem gives a uniform explicit formula for all n and primes p=1 mod n and an effective global exceptional-prime cutoff, turning the existential finiteness into a concrete computationally usable theorem. It is a structural lifting barrier, not a standalone routine table or arbitrary numerical improvement. It does not claim optimality.",
+    "status": "PASS"
+  }
+}
