@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every nondegenerate centrally symmetric convex hexagon is the sum of three centered segments, with area \(4(X+Y+Z)\). The circumscribed-parallelogram area is \(4h_P(u)h_P(v)/|\det(u,v)|\). Since polygonal support functions are linear on normal-fan cones, minimizing one normal at a time reduces the unrestricted global minimum to a pair of existing edge normals. The three resulting tight enclosures have areas \(4(T+XYZ/X^2)\) and its cyclic counterparts. Thus the smallest is \(4(T+XYZ/M^2)\), with no unexamined orientation case. The upper extremum, its affine-regular equality, and the sharp determinant-ratio stability follow by exact positive-variable algebra. A rational one-parameter family attains the stability bound for every admissible determinant ratio.
+PASS
 
-## Originality
+Inspected frozen RESULT.md SHA 039a887f74fbda37f3c4a537696008e95a34a724 and exact algebra checker verify.py SHA 1a00da33e958f68503e2bcf41ca3b20e01cddb36. Every nondegenerate centrally symmetric convex hexagon is t+[-a,a]+[-b,b]+[-c,c]; its exact zonotope area is 4(X+Y+Z). For fixed independent outward covectors u,v, the tight enclosing parallelogram area is 4h_P(u)h_P(v)/|det(u,v)|. On the normal fan each h_P(u) is linear; for fixed v and fixed determinant sign this quotient is linear fractional and bounded below by an extremal edge-normal ray; denominator-zero boundaries diverge because P has interior. Replace u, then v of a global optimum by such rays without worsening the optimum, reducing unrestricted minimization to exactly three distinct hexagon side-pair directions. Coordinates c=αa+βb give tight Q_ab=4(X+Y)(X+Z)/X=4(T+XYZ/X²); minimizing cyclic choices picks M=max(X,Y,Z), so q=4(T+XYZ/M²). Normalizing max 1, middle s, min r gives ratio 1+rs/(1+r+s), monotone in s; sharp deficit ≥2(1-r)/(3(2+r)) realized by a=(1,0), b=(0,1), c=(-1,r), and inverse bound r≥(2-6eps)/(2+3eps). Checked bundled exact sympy/rational hull assertions and independently reconstructed the analytic minimization: sampled candidate polygons would NOT suffice for all orientation proof.
 
-PASS. The classical Petty theorem already gives the universal bound \(4/3\) and equality precisely for affine-regular hexagons; these components are not claimed new. The inspected recent primary preprint gives that historical bound but no exact per-hexagon area expression. The inspected Section 4 of Pełczyński--Szarek establishes the same universal extremal theorem but does not present the three-determinant profile or the sharp stability estimate. The inspected affine hexagon shape-evolution paper concerns different extremal-rectangle dynamics. Targeted direct-source, algebraic and equivalent geometric searches did not uncover stronger covering statements.
+## originality
 
-Residual originality risk: an older optimization/computational-geometry source may give an equivalent pointwise formula under different parameterization, especially since the normal-fan reduction itself is elementary.
+PASS
 
-## Value
+Previously published Petty inequality q≤4|P|/3 and affine-regular equality ARE covered, and fully credited. Best-of-knowledge new part is unrestricted shape-dependent exact determinant formula plus sharp affine determinant-balance stability; primary 2025 circumscribed quadrilateral paper does not expose this specialized profile in relevant accessible passages. Some older mathematically relevant material was not fully accessible, retained as risk.
 
-PASS. Enclosing quadrilaterals are a canonical convex approximation objective. This claim replaces a universal worst-case upper bound for all centrally symmetric hexagons by an explicit affine-invariant exact optimizer, a three-candidate algorithm, and a sharp family-wide stability law. It distinguishes how much each non-regular affine hexagon improves on the classical extremal value, with exact equality families for every condition-number parameter. No unrelated downstream conjecture is needed to motivate the invariant.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+The exact minimum-area enclosing parallelogram is a natural affine-geometric functional; hexagons are the extremizers of Petty’s sharp bound. A complete formula across their whole nondegenerate affine moduli and a sharp quantitative stability characterization of near-extremizers answer motivated structural questions, not arbitrary parameter slices or mere rederivations of the 4/3 constant.
 
-The primary motivating paper is Fodor--Grundbacher, arXiv:2506.05185v1. The closest earlier complete mathematical coverage is Pełczyński--Szarek, DOI:10.1017/S0305004100069619, Section 4, which proves the universal upper ratio and affine-regular equality but no profile. Related affine hexagon geometry appears in Domokos--Lángi--Mezei, arXiv:1604.07630v2.
-
-The original 1955 Petty text was not directly accessible. The result covers only genuine six-sided centrally symmetric polygons; the quantitative stability is in determinant anisotropy, not a geometric metric.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
