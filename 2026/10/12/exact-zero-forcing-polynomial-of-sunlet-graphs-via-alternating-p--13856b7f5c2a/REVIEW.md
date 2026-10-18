@@ -1,15 +1,21 @@
-# Scientific review: sunlet zero-forcing enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is stated for all integer cycle lengths \(n\ge3\), with four initial statuses at each cycle position combined into three weighted letters. The key reduction is valid: a center whose leaf was initially white cannot force a cycle neighbor, because the leaf remains a second white neighbor until both cycle neighbors are blue. Hence initially blue leaves are the only possible initiators of center-to-center forces. Their eligible incidences form a maximum-degree-two graph; every component containing a white center can be deleted exactly when it has an initially active endpoint. This proves the all-set equivalence. The five-state weighted transfer handles path components and explicitly subtracts the two fictitious state decorations of each fully alternating cyclic word. The determinant, logarithmic derivative, and lowest-degree extraction give the displayed rational enumerator and parity-dependent minimum-set counts. The included standard-library checker exhaustively verifies 1,398,080 initial sets through \(n=10\) and checks the leading coefficient through \(n=40\). These checks corroborate but do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Boyer et al., arXiv `1801.08910v1`, define the polynomial and enumerate cycles, wheels, and additional families; the inspected relevant portions and document-wide sunlet/corona term searches do not establish the sunlet all-set criterion, rational coefficient formula, or minimum-set counts. The original zero-forcing article, DOI `10.1016/j.laa.2007.10.009`, supplies the forcing framework. Row's cutvertex and unicyclic work, DOI `10.1016/j.laa.2011.05.012`, addresses the minimum zero-forcing number, and later connected-forcing work reports the pre-existing sunlet minimum \(\lceil n/2\rceil\). No novelty is claimed for this minimum value. Database searches using exact sunlet, corona, enumeration, and alternating-path wording did not reveal an implication-equivalent formula. This is not a proof of global priority. The complete Row article and potentially differently indexed enumerations remain priority risks; neither provides affirmative contrary evidence from material that was accessible.
+PASS
 
-## Value — PASS
-The zero-forcing polynomial is a standard natural enumeration invariant. For sunlet graphs, the known minimum leaves the number of successful sets at all other cardinalities undetermined; the theorem supplies them simultaneously through a fixed rational generating function and a structural non-forcing obstruction. Moreover, the exact number of minimum sets has distinct even and odd formulas, revealing genuine information beyond the pre-existing minimum. This is neither a parameter renaming nor a single computed order: it is a complete closed form for an infinite connected unicyclic family.
+On sunlet C_n∘K_1 (n≥3), an initially white leaf prevents its initially blue center from forcing along the cycle until adjacent cycle centers are already blue; only initially blue leaves B can start center-to-center forces. Encode initially both-white centers E and build cyclic B–E alternating graph H_S. Every component containing E is removable exactly when a degree-one B endpoint exists; fully alternating even rings have none. Weighted three-letter closed-walk transfer on the source five-state matrix, correcting the two fictitious walks per alternating cyclic word, yields trace(T^n)−4[z(1+z)]^{n/2} on even n and the stated rational series with a=z(z+2), b=2z(z+1), c=z²(1+z)². Formal extraction gives minimum counts 4(2^{n/2−1}−1) for even n and 3n2^{(n−3)/2} for odd n (minimum size ceil(n/2)). Independent brute zero forcing over all 2^{2n} initial sets n=3..8 matched the H_S criterion, the polynomial and minimum counts, and an independent symbolic 5×5 trace determinant check passed. General all-n result rests on combinatorial induction/transfer, not finite run.
 
-## Limitations and closest comparisons
-The result is specific to ordinary zero forcing and one leaf attached at every vertex of a simple cycle. It is not a statement about general unicyclic graphs, connected forcing, or alternative color-change rules. Priority could be affected by material indexed only under rooted cycle coronas or older cutvertex reductions. Computer experiments cover only the finite orders documented in the proof package.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyer et al arXiv:1801.08910 full primary 23-page PDF defines zero-forcing polynomials and evaluates other families (including threshold-block graphs); its examined enumerations do not imply the exact sunlet/cycle-corona polynomial or B/E criterion. The known Z(S_n)=ceil(n/2) gives the minimum degree but not its multiplicity or full polynomial. Row 2012 studies cutvertex/unicyclic zero-forcing numbers, not known full coefficient enumerations; complete Row article unavailable and distinct naming is a residual risk. Targeted Resultary sunlet/corona/zero-forcing polynomial searches returned neighboring fan/friendship/chain results, not sunlets. O PASS best-of-knowledge.
+
+## value
+
+PASS
+
+The zero-forcing polynomial is a natural standard enumeration invariant. Solving its complete sequence for an infinite unicyclic graph family is significantly more than the previously known minimum; explicit even/odd counts of minimal forcing sets, and a static forbidden alternating-path description, provide exact structural information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
