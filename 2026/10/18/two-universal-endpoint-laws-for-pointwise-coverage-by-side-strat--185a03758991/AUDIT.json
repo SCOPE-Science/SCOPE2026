@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Proof Steps 1–5 reduce to a unit square, integrate four disjoint corner events, derive a closed wedge expression, prove uniqueness of the center by strictly positive derivatives, obtain uniform local quadratic depth loss, and establish the lower tail with an exact slice integral and corner-region bounds. A standard-library checker independently tests 3000 expressions, 330000 geometric containment configurations, affine invariance, and both endpoint ratios; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1911.05917: expected volume deficit for iid boundary samples, not stratified pointwise coverage.",
+        "A previously studied four-side quadrilateral area mean/variance/density and an all-N parallelogram expected-area formula do not determine pointwise conditional inclusion-depth histograms."
+      ],
+      "reasoning": "Expectation, random-area distribution, and spatial distribution of pointwise containment probabilities are distinct functionals. Integrating depth yields expected area, but this integration cannot invert to obtain the depth field or either endpoint coefficient.",
+      "searches": [
+        "random convex hull from polygon boundary exact expected number of vertices distribution missing edges corners",
+        "one random point on each side convex polygon expected area shape extremal coverage containment",
+        "non-identically distributed random points on square edges convex hull inclusion probability pointwise"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1804.11007 (primary nine-page full text)",
+      "arxiv:1911.05917 (primary relevant sections, partial full-text coverage)",
+      "AMS MSC2020: 52A22 random convex sets and integral geometry",
+      "Related prior triangular inclusion-depth and quadrilateral area results were compared by mathematical implication, not titles alone."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 three-edge area law treats an area random variable, whereas the new depth histogram is computed from independent four-edge sampling.",
+        "The shared two-edge corner formula supplies one ingredient; the four-corner partition, wedge monotonicity, and two different level-area asymptotic arguments are additional steps.",
+        "The previously known half-area expectation yields only the spatial first moment of depth."
+      ],
+      "reasoning": "Even if an earlier source implied the elementary corner formula, none of the closest identified claims, including area laws or the triangular depth expression, states a theorem whose direct specialization yields both four-side endpoint asymptotics. Publication precedence cannot be definitively certified from nonexhaustive searches.",
+      "searches": [
+        "one random point on each side convex polygon expected area shape extremal coverage containment",
+        "probability point covered one point from each side parallelogram inscribed stochastic depth",
+        "coverage probability random inscribed quadrilateral four sides center corner logarithmic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1804.11007: the area random variable of a side-stratified triangle, §§2–4.",
+        "arxiv:1911.05917: iid pooled-boundary polytope expectation/face-statistic model, Theorems 1.1–1.2.",
+        "An earlier triangle-depth formula uses a related two-edge corner integral but has a different host/sample scheme."
+      ],
+      "reasoning": "Neither the three-side area distribution nor an iid pooled-boundary expectation becomes the distribution over spatial points of a four-side conditional inclusion probability. The corner integral alone does not establish the logarithmic low-depth region or its sharp coefficient.",
+      "searches": [
+        "\"probability\" \"convex hull\" \"one point\" \"each side\" \"square\" fixed point",
+        "affine invariant pointwise containment depth profile for four independently side sampled quadrilateral vertices parallelogram area fraction",
+        "pointwise coverage function random polytope separate uniform boundary side samples inclusion kernel parallelogram depth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1804.11007 Table 1 tabulates moments of a three-point *area* random variable, not depth-level sets.",
+        "Searches of mathematical research records returned geometry/area and convex-hull benchmarks but no equivalent four-side depth-level data table."
+      ],
+      "reasoning": "No identified database or table fixes the full pointwise depth field together with both constants. Absence of a hit is treated only as bounded evidence, not a proof that no such table exists.",
+      "searches": [
+        "spatial distribution of point inclusion probability of random quadrilateral one vertex each side square; small depth probability 4 epsilon log",
+        "boundary layer for point coverage probability in randomly inscribed square convex hull four side points logarithmic decay",
+        "\"Quadrilateral Inscribed-Quadrilateral Picking\"",
+        "four uniform side points of square depth histogram 4 epsilon/log unique center pi/4"
+      ]
+    },
+    "rationale": "The closest inspected 2018 triangle paper determines an area law for three side samples, and the inspected 2019 polytope paper determines expectation/asymptotics for iid pooled-boundary samples. A related triangular pointwise-depth calculation uses the same elementary corner probability, and previous quadrilateral area laws constrain only the integrated depth; neither supplies the full parallelogram coverage field or its two sharp and different endpoint level-area rates. Repeated semantic and targeted literal searches disclosed no equivalent statement, while unindexed coverage remains a risk.",
+    "residual_risks": [
+      "No exhaustive bibliographic proof of novelty: an unindexed or differently titled exact four-side depth law might exist.",
+      "Several less relevant sections of the 43-page polytope paper were not inspected; its quoted main theorems use a distinct sampling distribution.",
+      "The two-edge corner probability is an established elementary ingredient; originality is asserted only for the four-side depth field and two sharp spatial endpoint laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Three-side triangle area moments and law; not a four-side parallelogram pointwise inclusion-depth field or depth-level tails.",
+        "evidence": [
+          "arxiv:1804.11007, p.2 Theorem 2 and eq.(3): inscribed triangle area; pp.5–8 eqs.(8)–(18): area CDF/PDF; p.8 future directions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.11007",
+        "material_read": "Nine-page primary preprint: abstract, introduction, area determinant, moment table, §§3–4 full distribution calculations, future directions, references.",
+        "method": "Read arXiv PDF extracted text across all sections and inspect its theorem page visually.",
+        "title": "Triangle Inscribed-Triangle Picking",
+        "trigger": "Exactly one arclength-uniform sample per polygon side, the nearest stratified sampling model."
+      },
+      {
+        "assessment": "Independent points on pooled boundary, asymptotic expected volume and face counts; sampling model and measured function differ.",
+        "evidence": [
+          "arxiv:1911.05917, pp.1–4 definitions and Theorem 1.2; §3.2 begins with expected volume difference rather than spatial depth."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.05917",
+        "material_read": "Abstract, §1 introduction and Theorems 1.1–1.2, §3.2 volume-deficit setup and selected proof paragraphs; other sections not comprehensively read.",
+        "method": "Inspect arXiv PDF text and representative pages visually.",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Closest broad analysis of polygon/polytope boundary-random convex hulls."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "185a0375-8991-4556-acf8-fdabd6653268",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The spatial depth distribution for a natural four-side random inscribed polygon is a distinct intrinsic geometric statistic: it detects robust coverage regions, not merely a scalar random hull area. The complete shape-independent field and sharp asymptotics reveal logarithmically thin weak-coverage edge layers versus a quadratic near-certain central region. Constants 4 and pi/4 describe geometrically motivated tails for every parallelogram; they are not implied by its mean half-area or earlier three-side area laws.",
+    "status": "PASS"
+  }
+}
