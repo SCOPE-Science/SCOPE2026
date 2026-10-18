@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python verify.py` with the dependencies from `requirements.txt`. It constructs the full \(n^2\)-dimensional Hamiltonian, groups equal energies, and uses detector-restricted singular vectors to build the absorbing projector. It then verifies every ordered localized pair and every exchange pair for each \(n=4,5,6,7,8,9\) at hopping parameters \((1,1)\), \((1,1.5)\), \((0.75,1.25)\), and \((2.3,2.3)\). It checks the rank and projector idempotence, plus random unequal positive loss rates for sizes at most six and actual matrix-exponential capture for size four. The expected success line is `VERIFY_OK spectral_ranks=24 sitewise=1084 exchange=928 lossy_spectrum=12 long_time=4`.
+## correctness
 
-All tests are finite. General coverage over arbitrary \(n\), all positive hopping strengths, and all strictly positive absorber strengths is provided by the analytic spectral decomposition and the strictly positive detector Gram matrix. Numerical eigenvalue thresholds are used only in the standalone test; no universal numerical certificates or independent reviews are claimed.
+PASS
+
+The four orthogonal H spectral blocks have energies (a+b)(n-1), a(n-1)-b, -a+b(n-1), -a-b; positivity of a,b rules out collisions except the two middle blocks at a=b. Projecting site-diagonal detectors to P⊗P gives n-by-n Gram G=((n-2)/n)I+J/n², eigenvalues (n-1)/n and (n-2)/n, hence rank n for n≥4. Middle blocks contribute 2(n-1) off resonance but only n-1 on resonance; E⊗E contributes one. The H-eigenvector in ker Γ argument identifies this visible spectral space with the entire eventual-loss subspace for every κ_j>0, without requiring equal rates. Independent direct projector construction in scope05_independent_checks.py checked n=4,5,6,7, every diagonal/off-diagonal localized pair and normalized symmetric/antisymmetric pairs, ranks 3n-1 and 2n. Derived v*G^{-1}v and exchange cross terms agree with all printed probabilities. Finite test corroboration is not the n-uniform proof.
+
+## originality
+
+PASS
+
+The closest original complete-graph two-particle study is a discrete-time unitary coined model with phase interaction, and general continuous-time trapping work introduces the spectral-projector method but no full diagonal-collision projector evaluated on the weighted K_n □ K_n product. None of the primary statements inspected implies the rank resonance or exchange-probability transition. Distinguishable walkers and κ_j>0 are essential hypotheses. This is a best-of-knowledge exact-specialization judgment, not a proof that all literature is exhausted.
+
+## value
+
+PASS
+
+An exact all-n detector-subspace dimension and rate-independent capture profile for an elementary but physically motivated reaction geometry reveals an abrupt equal-speed resonance and a symmetry-selective dark channel. This structural phenomenon is not merely rephrasing the general spectral-method lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
