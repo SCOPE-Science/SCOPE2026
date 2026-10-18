@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof's fiber argument, section equivalence, multinomial allocation, and idempotent cases were checked symbolically as written in `RESULT.md`. The finite cross-checker is `verify.py`, which uses only Python's standard library.
+# Independent mathematical audit
 
-Execute `python3 verify.py` from this directory. It enumerates every partial map on each listed graph and evaluates continuity by inspecting **all full vertex and edge preimages**, independent of the fiber-formula derivation. It computes empirical rank enumerators for all maps, nonregular maps (testing continuous sections), and idempotents (evaluating \(f^2=f\)), and matches them against separately implemented closed-form expressions. It also independently searches for full-semigroup witnesses \(fgf=f\) on graphs with at most four vertices.
+## correctness
 
-Verified totals, as (all, nonregular, idempotent), were: \(K_{1,1}\): (9,0,6); \(K_{1,2}\): (36,4,14); \(K_{1,3}\): (185,36,31); \(K_{1,4}\): (1278,288,68); \(K_{2,2}\): (169,16,36); \(K_{2,3}\): (874,174,86); \(K_{3,3}\): (4489,756,220). The verifier terminates with `VERIFY_OK`.
+PASS
 
-These checks are finite tests, not exhaustive over all graph sizes; correctness for arbitrary \(m,n\ge2\) depends on the five-step mathematical argument. The novel scope excludes the previously enumerated star cases. No independently audited certification is claimed.
+Reconstructed full inverse-of-vertex-and-edge-simplex definition. Each fiber is singleton or cross-shore edge. If image meets both target shores, each fiber singleton and the inverse section respects or swaps shores, hence regular. For independent image, a section exists iff every forced singleton representative can lie in one source shore; cross-edge fibers offer either. Assigning c paired image fibers and remaining singles gives binomial(k,c)(m)_c(n)_c(m+n-2c)_{k-c}, while a>=1 singleton X and b>=1 singleton Y gives multinomial(k;a,b,k-a-b)(m)_{k-b}(n)_{k-a}. Mixed-image injections and idempotents yield displayed H,Q,E. Independent brute-force full-map enumeration matches (all/nonregular/idempotents): (2,2)=(169,16,36), (2,3)=(874,174,86), (3,3)=(4489,756,220); finite checks support but do not substitute for symbolic fiber bijection.
+
+## originality
+
+PASS
+
+Margolis-Rhodes supply the continuity framework, strict balanced-biclique subsemigroup, and star specialization. Full monoid K_m,n all-rank regularity and idempotent counts are not implied by strict counts. The most directly relevant 2026 full source could not be retrieved: originality is best-of-knowledge with material risk, not an assurance of absence.
+
+## value
+
+PASS
+
+Sharp regularity obstruction and all-rank, all-size enumerators are natural complete algebraic invariants of a two-parameter monoid family. They refine generic structural decomposition and distinguish full monoid from strict subsemigroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

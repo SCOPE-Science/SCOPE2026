@@ -1,11 +1,21 @@
-# Scientific review of biclique continuous-map monoids
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives every admissible fiber configuration directly from full-simplex preimages, proves the exact equivalence between regularity and the existence of a continuous fiber transversal, and separates independent-image and mixed-image cases. The multinomial factors count disjoint labeled assignments with no hidden graph automorphism quotient. The proof handles rank zero, ranks two through the sharp cutoff, balanced and unbalanced parts, and all idempotents. A standalone exhaustive verifier agrees on seven small instances; smaller instances additionally use a full-monoid regularity witness search.
+## correctness
 
-**Originality — PASS, qualified by historical uncertainty.** Margolis–Rhodes (arXiv:2609.39370, 2026) gives a general fiber decomposition and path/cycle enumerations but not the displayed full biclique rank profiles. Their 2020 paper (arXiv:2005.02606, Example 2.11) enumerates the strict balanced-biclique subsemigroup, not all continuous partial maps or their nonregular part. A preexisting star-graph rank census covers one part of size one and is explicitly excluded from the new claim. Searches for equivalent biclique/partial-map/regularity formulations found no matching full two-parameter theorem. Since a source-independent equivalence could still be overlooked, absolute novelty is not certified.
+PASS
 
-**Value — PASS.** The two-part biclique family is a natural infinite test class combining matchings, independent sets, and, unlike stars, induced four-cycles. A necessary-and-sufficient regularity obstruction coupled to a complete rank-by-rank census goes beyond a constant-total count: it determines precisely which ranks fail regularity and the entire regular, nonregular, and idempotent population at every graph size. The answer can be used directly to sample and compare these semigroups across balanced and unbalanced part sizes. It does not claim a Krohn–Rhodes or Green-class theorem.
+Reconstructed full inverse-of-vertex-and-edge-simplex definition. Each fiber is singleton or cross-shore edge. If image meets both target shores, each fiber singleton and the inverse section respects or swaps shores, hence regular. For independent image, a section exists iff every forced singleton representative can lie in one source shore; cross-edge fibers offer either. Assigning c paired image fibers and remaining singles gives binomial(k,c)(m)_c(n)_c(m+n-2c)_{k-c}, while a>=1 singleton X and b>=1 singleton Y gives multinomial(k;a,b,k-a-b)(m)_{k-b}(n)_{k-a}. Mixed-image injections and idempotents yield displayed H,Q,E. Independent brute-force full-map enumeration matches (all/nonregular/idempotents): (2,2)=(169,16,36), (2,3)=(874,174,86), (3,3)=(4489,756,220); finite checks support but do not substitute for symbolic fiber bijection.
 
-The main residual risk is a forgotten or differently titled older biclique enumeration; the general decomposition lemma itself is acknowledged as prior input. The finite checks are evidence of implementation consistency only, not substitutes for proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Margolis-Rhodes supply the continuity framework, strict balanced-biclique subsemigroup, and star specialization. Full monoid K_m,n all-rank regularity and idempotent counts are not implied by strict counts. The most directly relevant 2026 full source could not be retrieved: originality is best-of-knowledge with material risk, not an assurance of absence.
+
+## value
+
+PASS
+
+Sharp regularity obstruction and all-rank, all-size enumerators are natural complete algebraic invariants of a two-parameter monoid family. They refine generic structural decomposition and distinguish full monoid from strict subsemigroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
