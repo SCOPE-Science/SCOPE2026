@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Place `verify_geometry.py`, `verify_independent.cpp` and `orbit_classes.csv` in one directory. Run `python3 verify_geometry.py` and `c++ -O2 -std=c++17 verify_independent.cpp -o verify_independent && ./verify_independent`.
+# Independent mathematical audit
 
-The first program uses point-subset/private-tangent enumeration over all 8,192 subsets. It asserts the complete seven-coefficient polynomial, unique single-flag extension for each of the 1,404 five-flag matchings, and every inclusion-maximal configuration. It derives the 5,616 projective linear collineations from actual generator permutations, adds incidence polarity, builds all twelve matching orbits and verifies the twelve-row CSV certificate with disjoint exhaustive coverage.
+## correctness
 
-The separate C++ program constructs projective points and 52 flags independently, forms their conflict graph, and performs include/exclude independent-set enumeration; it independently checks the polynomial, 10,700 total systems, 1,989 and 234 maximal counts, and all 1,404 unique five-flag extensions. These checks were executed successfully from the packaged source directory. Both verifiers use exact integer arithmetic throughout.
+PASS
 
-Finite exhaustive certificates apply only to this 26-vertex Levi graph. The general four-flag maximality structure and other historical propositions are acknowledged as prior literature, not computer-derived originality. The present self-review is not independent validation; independent mathematical audit has not been performed.
+Model PG(2,3) as thirteen normalized 1D subspaces and their thirteen dual lines. A chosen point set S supports ∏_{p∈S} t_S(p) private-line assignments, each exactly an induced matching; summing over all 2^13 point sets gives polynomial coefficients (1,52,702,3276,5031,1404,234), total 10700. Independently reconstructed all 52 flags and enumerated 10700 independent flag configurations; maximal are exactly 1989 size-four and 234 size-six, while all 1404 size-five have one extension. Independent generator closure of PGL(3,3) and duality gave 11232 incidence automorphisms and twelve flag-matching orbits, three maximal orbits of sizes 117,1872,234. Independently checked tangent profiles, unique completion and orbits, not merely repository VERIFY_OK. Finite exhaustive proofs apply ONLY to this 26-vertex graph.
+
+## originality
+
+PASS
+
+The 1991 article explicitly defines strong representative systems exactly as induced matchings of the incidence graph and derives general maximal-size/smallest-maximal structure. The new claim counts every order-three system, its maximal size spectrum, its unique five-to-six completion and 12 orbits. The relevant 2008 paper on partitions was fully inspected for nonprime-order hypotheses, while semioval results constrain only a subset of tangent patterns.
+
+## value
+
+PASS
+
+The Levi incidence graph of PG(2,3) is a canonical finite-geometric object; its complete induced-matching independence polynomial, saturation spectrum, unique five-to-six completion and all symmetry orbits are independently useful exact finite invariants. In particular, all 1404 five-flags extending in exactly one way and absence of maximal size-five systems are notable structural facts, beyond arbitrary isolated counts or known maximal-size bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
