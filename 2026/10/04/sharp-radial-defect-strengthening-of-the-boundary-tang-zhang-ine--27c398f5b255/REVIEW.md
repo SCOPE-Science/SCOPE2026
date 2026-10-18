@@ -1,39 +1,21 @@
-# Review of Sharp radial-defect strengthening of the boundary Tang--Zhang inequality
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a simple boundary zero \(a\), the two logarithmic-derivative factorizations give the exact identity
-\[
-\sum_j\frac{a}{a-\zeta_j}
-=
-2\sum_k\frac{a}{a-z_k}.
-\]
-Since \(|a|=1\), the elementary formula
-\[
-2\operatorname{Re}\frac{a}{a-z_k}
-=
-1+rac{1-|z_k|^2}{|a-z_k|^2}
-\]
-converts this to
-\[
-\operatorname{Re}\sum_j\frac{a}{a-\zeta_j}
-=
-n-1+\Delta_a(p).
-\]
-Cauchy--Schwarz yields the stated reciprocal-square lower bound. The equality conditions force all reciprocal critical coordinates to be one positive real number, hence all critical points coincide. Integrating \(p'\) gives the translated regular-polygon family, and exact root-modulus algebra forces and suffices for \(0<r\le1\).
+PASS
 
-## Originality
+At a simple distinguished zero a on the unit circle, p''(a)/p'(a)=2Σ_k1/(a-z_k)=Σ_j1/(a-zeta_j); the elementary boundary identity 2Re(1/(1-w))=1+(1-|w|²)/|1-w|² gives the exact real part n-1+Delta. Cauchy–Schwarz gives the bound, and equality forces all a/(a-zeta_j) equal positive real, hence all critical points coincide, yielding translated regular n-gons. Disk containment iff 0<r<=1. Checked random complex-root logarithmic derivative identities to ~8e-14; no numerical experiment proves universal assertion. Distinguish n=2 and simple boundary zero assumptions.
 
-PASS. The full recent primary source was inspected through its statement, reciprocal-coordinate setup, and boundary endpoint argument. It proves the universal lower bound \(n-1\) and at the boundary invokes a Meir--Sharma mean-real-part inequality before Cauchy--Schwarz, but it does not state the defect \(\Delta_a(p)\), the sharpened bound, or the translated regular-polygon equality family.
+## originality
 
-The relevant Meir--Sharma 1969 PDF material surrounding its boundary inequality was inspected. It supplies the classical real-part input but does not state the reciprocal-square defect theorem in the inspected material. Tao's 2026 exposition was also compared at the boundary communication identity; it uses only the coarse half-plane estimate and does not retain the radial excess.
+PASS
 
-Targeted searches covered the source identifier, boundary reciprocal-square moments, radial-defect language, translated regular polygons, and the Meir--Sharma boundary inequality. No implication-equivalent published statement was located. The principal residual risk is differently phrased coverage in older boundary Sendov literature.
+Meir–Sharma gives the coarse real-part inequality and the later Tang–Zhang abstract gives a lower moment n-1; the defect plus equality classification is not stated in material actually inspected, though full Zhang text was inaccessible. An algebraic consequence of coarse identities alone is mathematically distinguishable from explicit prior publication, not proof of novelty. Independent semantic searches returned the identical October 4 finding as first hit (self-match, not external prior evidence); no stronger implication identified among actually inspected competing sources. This is a qualified best-of-knowledge judgment.
 
-## Value
+## value
 
-PASS. The finding identifies the exact information discarded in the recent boundary proof and converts it into a sharp stability refinement. The defect is geometrically meaningful: each companion zero contributes according to its radial depth relative to the distinguished boundary zero. The resulting nearest-critical-point radius improves Sendov quantitatively whenever any companion zero is interior.
+PASS
 
-The equality analysis is also structural rather than cosmetic: the global source theorem has only the unit-circle binomial equality family, whereas the sharpened boundary inequality reveals a full one-parameter family of inward-translated regular polygons. This gives a precise extremal geometry for the new defect quantity.
+Keeping the exact positive radial defect of companion zeros upgrades the sharp critical-point reciprocal-square moment and classifies all equality translated regular polygons. The defect is intrinsic to the boundary zero geometry and the quantitative correction is potentially reusable in refined critical-point localization.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
