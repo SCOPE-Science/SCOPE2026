@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. On an SPD quadratic the source finite-difference Hessian-vector sample is exact. Substituting the latest Algorithm 1 orthogonalization coefficient gives
-\[
-v^\top H\widetilde s=(s^\top Hv)(1-r/q)
-\]
-with no approximation. The explicit two-dimensional trajectory satisfies the source first-step Armijo inequality exactly, reaches the stated second iterate, activates upper clipping, and yields nonzero Hessian cross term. Exact rational replay agrees with the proof. The asymptotic near-antiparallel statement follows from a closed-form Hessian cosine.
+## correctness
 
-## Originality
-PASS. The latest P2GM_CM full text contains the exact-Hessian conjugate-basis construction and, separately, the clipped practical coefficient, but does not state the defect law or classify when the two coincide. Targeted searches for the source name, clipped Rayleigh quotient, conjugate momentum, and orthogonalization found no publication or published-result record implying the claim. Closest optimization records concern different adaptive step rules, curvature certificates, or spectral filtering. Related projected-gradient momentum and classical conjugate-subspace work do not combine clipping with the source-specific projection.
+PASS
 
-## Value
-PASS. Exact conjugacy is not cosmetic in this source: it is the mechanism that diagonalizes the local quadratic over the two-dimensional subspace and motivates decoupled one-dimensional coefficients. The finding identifies a precise conflict between that structural mechanism and the practical curvature safeguard, shows that the defect can become almost maximally nonorthogonal on an accepted trajectory, and gives a minimal algebraic separation of the two curvature roles in the positive-curvature case.
+On an SPD quadratic H(v)=Hv. Substitution gives the defect identity exactly. For H=diag(1,1/2), x0=(1,1), gradient step v0=(-1,-1/2) satisfies Armijo sigma=1/2 because f(x1)-f(x0)=-11/16<-5/8. At x1=(0,1/2), v1=(0,-1/4), r=1/2, q=1/4, s^THv=1/16, the projection coefficient is 4 and the Hessian cross term is -1/16. For cap tau↓0 the exact H cosine approaches -1. Independent rational arithmetic and source verifier inspection confirm; repair is algebraic only, NOT a convergence guarantee.
 
-## Closest literature and limitations
-The closest source is the P2GM_CM paper itself. Its convergence safeguards may remain valid even when exact conjugacy fails, so no convergence theorem is challenged here. The result is restricted to SPD quadratics for exactness, and the proposed implementation separation has not been re-proved for the full nonlinear composite theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Source-specific exact projection defect and source-compliant accepted-step counterexample extend beyond source separate exact theoretical subspace and clipped practical algorithm; no directly covering defect law found in published corpus. Best-of-knowledge original, no claim of disproving convergence.
+
+## value
+
+PASS
+
+Conjugacy is used to diagonalize the 2D quadratic subspace in the motivating method. Implementation clipping can cause near maximal nonorthogonality on a real accepted trajectory, while separating clipped model weights from unclipped orthogonalization is a mathematically precise repair; the structural issue is not an unmotivated normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

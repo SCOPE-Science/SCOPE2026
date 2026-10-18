@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c/VERIFICATION.md"
+      ],
+      "rationale": "On an SPD quadratic H(v)=Hv. Substitution gives the defect identity exactly. For H=diag(1,1/2), x0=(1,1), gradient step v0=(-1,-1/2) satisfies Armijo sigma=1/2 because f(x1)-f(x0)=-11/16<-5/8. At x1=(0,1/2), v1=(0,-1/4), r=1/2, q=1/4, s^THv=1/16, the projection coefficient is 4 and the Hessian cross term is -1/16. For cap tau↓0 the exact H cosine approaches -1. Independent rational arithmetic and source verifier inspection confirm; repair is algebraic only, NOT a convergence guarantee.",
+      "residual_risks": [
+        "Independent exact checks are auxiliary; analytic argument carries quantified theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior projected-gradient and CG literature motivates H orthogonality, not the particular clipped P2GM_CM implementation or accepted-step defect."
+        ],
+        "reasoning": "The general H-orthogonal projection is prior mathematics; it does not imply that source Algorithm 1 preserves conjugacy after q clipping. New evidence is a source-specific difference and sharp example.",
+        "searches": [
+          "Chen Yang Projected Gradient Methods with Momentum 2026",
+          "conjugate-gradient Hessian conjugate direction projection",
+          "Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.16573",
+        "https://optimization-online.org/",
+        "https://doi.org/10.1007/s10957-026-03054-7",
+        "Resultary semantic query: Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For clipped q≠r and coupling sᵀHv≠0, defect=(sᵀHv)(1-r/q)≠0; source construction treats exact-Hessian case independently."
+        ],
+        "reasoning": "The algorithm’s displayed formulas imply the algebraic identity by new subtraction; publication does not itself state the equivalence, accepted trajectory, nearly antiparallel family, or constrained repair.",
+        "searches": [
+          "arXiv:2603.16573v4 theoretical two-dimensional subspace vs Algorithm 1",
+          "Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source formula divides projection by clipped q(v)||v||²; theoretical exact-Hessian projection divides by vᵀHv."
+        ],
+        "reasoning": "These are distinct maps outside clipping interval, and substituting them yields a new explicit defect identity, not an alternate title for an already stated theorem.",
+        "searches": [
+          "Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection",
+          "arXiv:2603.16573v4 Algorithm 1 positive-curvature projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned related optimization implementation/step bounds, not this named clipped coefficient or exact defect law."
+        ],
+        "reasoning": "No relevant numerical table/database characterizes this algorithmic defect; absence of a retrieved match alone does not establish priority.",
+        "searches": [
+          "Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection",
+          "Resultary:P2GM_CM clipping conjugacy defect"
+        ]
+      },
+      "rationale": "Source-specific exact projection defect and source-compliant accepted-step counterexample extend beyond source separate exact theoretical subspace and clipped practical algorithm; no directly covering defect law found in published corpus. Best-of-knowledge original, no claim of disproving convergence.",
+      "residual_risks": [
+        "A later version or independently posted critique may contain the defect observation; priority cannot be certified exhaustively.",
+        "Exact SPD/conjugacy scope does not determine nonlinear convergence or descent of the repaired practical algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES NOT STATE source-specific defect law in examined material",
+          "evidence": "Unclipped theoretical H orthogonalization and clipped practical denominator can be compared directly.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.16573",
+          "material_read": "Full-text HTML relevant definition, exact conjugate-basis construction and current Algorithm 1 positive-curvature q definition and coefficient; not all appendices reread",
+          "method": "Primary arXiv full text with equation-by-equation comparison",
+          "title": "Preconditioned Proximal Gradient Methods with Conjugate Momentum: A Subspace Perspective",
+          "trigger": "Exactly same algorithm and finite-difference clipping"
+        },
+        {
+          "assessment": "RELATED generic momentum; not direct source-clipping result",
+          "evidence": "Different target update and not identified with P2GM_CM q-clipped projection.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-026-03054-7",
+          "material_read": "Bibliographic/abstract and source-reviewed relationship; no assertion that entire paper was read",
+          "method": "primary publisher/indexed material",
+          "title": "Projected Gradient Methods with Momentum",
+          "trigger": "Immediately related projected-gradient subspace work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.16573",
+        "https://optimization-online.org/",
+        "https://doi.org/10.1007/s10957-026-03054-7",
+        "Resultary semantic query: Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection"
+      ],
+      "rationale": "Conjugacy is used to diagonalize the 2D quadratic subspace in the motivating method. Implementation clipping can cause near maximal nonorthogonality on a real accepted trajectory, while separating clipped model weights from unclipped orthogonalization is a mathematically precise repair; the structural issue is not an unmotivated normalization check.",
+      "residual_risks": [
+        "Mathematical value is scoped to the motivated gap and does not imply broader conjecture or paper-sized results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2603.16573",
+    "https://optimization-online.org/",
+    "https://doi.org/10.1007/s10957-026-03054-7",
+    "Resultary semantic query: Preconditioned proximal gradient conjugate momentum P2GM_CM clipping Rayleigh quotient breaks exact H-conjugacy positive curvature normalized projection",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A later version or independently posted critique may contain the defect observation; priority cannot be certified exhaustively.",
+    "Exact SPD/conjugacy scope does not determine nonlinear convergence or descent of the repaired practical algorithm."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DOES NOT STATE source-specific defect law in examined material",
+      "evidence": "Unclipped theoretical H orthogonalization and clipped practical denominator can be compared directly.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.16573",
+      "material_read": "Full-text HTML relevant definition, exact conjugate-basis construction and current Algorithm 1 positive-curvature q definition and coefficient; not all appendices reread",
+      "method": "Primary arXiv full text with equation-by-equation comparison",
+      "title": "Preconditioned Proximal Gradient Methods with Conjugate Momentum: A Subspace Perspective",
+      "trigger": "Exactly same algorithm and finite-difference clipping"
+    },
+    {
+      "assessment": "RELATED generic momentum; not direct source-clipping result",
+      "evidence": "Different target update and not identified with P2GM_CM q-clipped projection.",
+      "identifier_or_url": "https://doi.org/10.1007/s10957-026-03054-7",
+      "material_read": "Bibliographic/abstract and source-reviewed relationship; no assertion that entire paper was read",
+      "method": "primary publisher/indexed material",
+      "title": "Projected Gradient Methods with Momentum",
+      "trigger": "Immediately related projected-gradient subspace work"
+    }
+  ]
+}
