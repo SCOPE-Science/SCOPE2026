@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:57:00.659242Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca/RESULT.md (Git blob 56de6e287ab14ac0c7ead9d7d2e5590823f11f36)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca/VERIFICATION.md blob d16d1df6bc590eddb1e446c2aa4ff776d66c3f79",
+        "/mnt/data/audit_run_20261018T0643/checks.py"
+      ],
+      "rationale": "For each black edge uv outside white-edge graph F, its white neighbors in L(K_n) number d_F(u)+d_F(v). Thus a possible force removes a leaf edge and uses an isolated other endpoint; a cycle cannot lose its first edge; if no isolate and any white edge remains, no first force is legal. Conversely the initially isolated vertex provides a permanent forcing anchor for leaf deletion in a forest. Each white-forest with isolate uniquely determines a zero-forcing set. Labeled forest EGF from Cayley and exponential formula proves all coefficients; at n>=3 extrema follow from n-2 white edges and an isolate. Independently enumerated all subsets for n=3,4,5; exactly H3=(1,3), H4=(1,6,12), H5=(1,10,45,80), zero mismatches. This does not extrapolate finite tests to all n.",
+      "residual_risks": [
+        "No complete programmatic reconstruction of repository-root Git-tree ancestry; assigned record tree read against pinned commit, no unverified SHA guessed.",
+        "Finite enumeration reaches n=5 independently; arbitrary n is secured by the leaf-edge proof rather than these samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. introduce zero forcing polynomial, enumerate other families, and do not give the T_n forest/isolate equivalence in checked graph-family sections.",
+          "Existing scalar line-graph bounds yield Z(T_n) but do not determine polynomial coefficients."
+        ],
+        "reasoning": "No inspected stronger enumerative result implies these counts; generic forest EGF becomes applicable only after the specific forcing characterization.",
+        "searches": [
+          "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 (2018); text of paper sections and the graph-family lists examined",
+          "Eroh, Kang, Yi, Metric Dimension and Zero Forcing Number of Two Families of Line Graphs, arXiv:1207.6127, Proposition 3.5",
+          "Resultary: zero forcing polynomial triangular graph line graph complete graph all zero forcing sets forests isolated vertices"
+        ]
+      },
+      "checked_sources": [
+        "Eroh, Kang, Yi, Metric Dimension and Zero Forcing Number of Two Families of Line Graphs, arXiv:1207.6127, Proposition 3.5",
+        "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 (2018); text of paper sections and the graph-family lists examined",
+        "Resultary semantic search: zero forcing polynomial triangular graph line graph complete graph all zero forcing sets forests isolated vertices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eroh–Kang–Yi Proposition 3.5 implies known Z=N−n+2.",
+          "The new theorem implies the minimum coefficient n(n−1)^(n−3), all other coefficients and the nonforcing cardinality range."
+        ],
+        "reasoning": "Prior scalar bound is a corollary of new enumerator, not vice versa.",
+        "searches": [
+          "Eroh, Kang, Yi, Metric Dimension and Zero Forcing Number of Two Families of Line Graphs, arXiv:1207.6127, Proposition 3.5",
+          "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 (2018); text of paper sections and the graph-family lists examined",
+          "Resultary: zero forcing polynomial triangular graph line graph complete graph all zero forcing sets forests isolated vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S is forcing iff its complement in E(K_n) is an isolate-bearing forest, equivalent to complete zero-forcing polynomial coefficients.",
+          "Eroh–Kang–Yi gives scalar minimum, not the Boolean classification of S."
+        ],
+        "reasoning": "Compared the full if-and-only-if predicate, not merely graph name and Z.",
+        "searches": [
+          "zero forcing polynomial triangular graph line graph complete graph all zero forcing sets forests isolated vertices",
+          "zero forcing sets line graph complete graph spanning forests isolated vertices",
+          "Eroh, Kang, Yi, Metric Dimension and Zero Forcing Number of Two Families of Line Graphs, arXiv:1207.6127, Proposition 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct exhaustive n=3..5 matches Cayley recurrence, but no published matching triangular-graph distribution table found in inspected sources."
+        ],
+        "reasoning": "A general algorithm enumerating all S is not an exact database/table of these coefficients; no exact published table covering all n was located.",
+        "searches": [
+          "Resultary: zero forcing polynomial triangular graph line graph complete graph all zero forcing sets forests isolated vertices",
+          "Boyer arXiv:1801.08910 graph-family table and examples"
+        ]
+      },
+      "rationale": "Scalar Z(L(K_n)) and the general notion of a zero-forcing polynomial precede this work; neither of the materially inspected foundational sources supplies the all-subset forest/isolate characterization, exponential labeled-forest coefficient formula, or minimum-set multiplicity. The claim is assessed only for that full distribution, not the already known minimum Z.",
+      "residual_risks": [
+        "An unindexed paper phrasing an equivalent edge-removal game or all zero-forcing sets of Johnson graphs could cover this statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SCALAR_ONLY",
+          "evidence": "Proposition 3.5 quotes known Z(L(K_n))=binom(n,2)-n+2 but does not enumerate initial sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.6127",
+          "material_read": "Title/abstract and line-graph scalar proposition with its statement; not claiming every page of the paper read",
+          "method": "Primary arXiv PDF opened; relevant proposition inspected",
+          "title": "Metric Dimension and Zero Forcing Number of Two Families of Line Graphs",
+          "trigger": "Same graph L(K_n) and minimum forcing size"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_IDENTICAL_RESULT",
+          "evidence": "Defines polynomial; inspected examples concern other graph families, not explicit H_n for T_n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Mathematical introduction, polynomial definition, listed computed graph families, textual checks for triangular/Johnson/line graph",
+          "method": "Primary full HTML/text and paper family-section inspection",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Same invariant complete zero-forcing polynomial"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Fan graph K1 vee P_m not line graph of K_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+          "material_read": "Published title and summary only",
+          "method": "Resultary semantic retrieval",
+          "title": "Zero forcing polynomial of fan graphs",
+          "trigger": "Nearest semantically retrieved published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca/RESULT.md",
+        "Eroh, Kang, Yi, Metric Dimension and Zero Forcing Number of Two Families of Line Graphs, arXiv:1207.6127, Proposition 3.5",
+        "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 (2018); text of paper sections and the graph-family lists examined"
+      ],
+      "rationale": "The complete classification of every forcing initial set on the natural Johnson/triangular graph family is a structural result: it identifies the obstruction configurations (cycles and absence of isolated vertices), supplies every forcing-polynomial coefficient, counts optimum sets and determines the overlap of failed/forcing size ranges. These quantities are not determined by the earlier scalar Z value and are useful for graph zero forcing enumerations.",
+      "residual_risks": [
+        "The all-subset predicate may admit alternate known formulations not indexed under graph zero forcing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific O with precisely listed material read and residual risks; absence of search coverage is never itself proof of novelty.",
+    "No authority asserted to modify GitHub, publish, replace files or attest external Lean/expert verification.",
+    "Independent finite tests documented explicitly, not used to prove unrestricted statements without analytic proofs."
+  ],
+  "schema_version": 1
+}
