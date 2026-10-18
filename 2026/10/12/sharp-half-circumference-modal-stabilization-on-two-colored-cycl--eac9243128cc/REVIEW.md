@@ -1,11 +1,21 @@
-# Review of sharp modal stabilization on two-colored cycles
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The analysis supplies an all-depth string-factor lemma (including the double-reversal overlap case), a sharp global dihedral comparison at depth \(\lfloor n/2\rfloor-1\), a separate even/odd omitted-vertex analysis, and a three-marker construction matching the bound for every \(n\ge6\). The disconnected case is reduced to primitive periodic words and free dihedral orbit counting. A verifier independently compares modal refinement, centered words, automorphisms, exact Boolean closure, and multicomponent examples. The finite computations do not constitute the all-parameter proof; the written lemmas do.
+## correctness
 
-**Originality — PASS with residual historical risk.** Kiefer–McKay's inspected 2020 paper proves much larger general worst-case refinement lengths and discusses paths, but no exact result about arbitrarily precolored simple cycles and the modal orbit partition appears in the inspected text. Hadjicostas' 2019 paper and OEIS A032239 already fully cover the counting of primitive asymmetric bracelets; these counts are cited and excluded from novelty claims. General bisimulation semantics and the known existence of distinguishing two-colorings of cycles are likewise background, not new claims. The originality asserted is the simultaneous modal-factor identity, exact half-circumference stabilization, and modal-generator criterion, not the underlying bracelet enumeration. An undiscovered earlier circular-word/colored-cycle refinement theorem could still dominate this result.
+PASS
 
-**Mathematical value — PASS.** For finite cyclic transition systems, it replaces the generic linear refinement bound with a sharp, label-independent half-circumference stopping rule, proves that the modal quotient equals the graph-symmetry quotient despite this equivalence failing on general graphs, and gives a complete one-variable generation test and explicit discrete/free-algebra examples. These are structural rather than numerical sample-specific facts and link modal depth to finite-word reversal and dihedral symmetry.
+Reconstructed depth-0 labels and neighbor type set recurrence, where degree-two regularity makes the set equivalent to the unordered pair with multiplicities. Verified local centered substring up-to-reversal reconstruction independently on all binary words length <=13 and ternary words length <=9, plus the supplied full verifier for arbitrary cyclic words. In the half-cycle argument an aligned dihedral map leaves at most one omitted vertex when n even, forced by equal total counts; at odd n the omitted adjacent pair is resolved via reflection or a rotation-step parity argument. This proves the complete all-n bound beyond finite tests. Distinct asymmetric primitive bracelets exactly characterize intercomponent separation by doubly-infinite periodic words; free dihedral orbit count 2n gives product formula. For n<=5 every binary coloring has a nontrivial stabilizer.
 
-Primary material inspected: Kiefer–McKay, *The Iteration Number of Colour Refinement*, arXiv:2005.10182v1, introduction, preliminaries, definition and related-work sections with a full-document search for cycles; Hadjicostas, *On the number of aperiodic chiral bracelets of two colors*, title, definitions, Möbius decomposition and section 5; OEIS A032239. The latter two establish substantial prior coverage of the counting component. No independent mathematical or originality audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General one-dimensional color refinement and modal bisimulation are old, and aperiodic chiral binary bracelet numbers were published previously. The specific every-depth colored-cycle factor equivalence, sharp universal half-circumference stabilization, and generator test are a distinct integrated structural assertion in the inspected primary comparators. Older circular word reconstruction literature remains residual risk.
+
+## value
+
+PASS
+
+Exact low-depth identification of modal and automorphism orbit quotients is a natural structural result for cyclic Kripke frames; the sharp floor(n/2)-1 witness and one-variable generation criterion are independently useful, and the disconnected criterion classifies natural logical generators rather than recomputing bracelet numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

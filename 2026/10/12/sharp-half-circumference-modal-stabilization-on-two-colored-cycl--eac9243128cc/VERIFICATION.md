@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` is standalone and uses only Python's standard library. Execute `python verify.py` from this directory. Its successful terminal line begins `VERIFY_OK` and lists the separately counted checks.
+# Independent mathematical audit
 
-The implementation contains two independent depth-type constructions: ordinary one-relation modal signature refinement and reversal classes of explicit cyclic substrings. A separate dihedral-group enumeration supplies orbit partitions, while a small Boolean-algebra closure implementation checks the cardinalities of generated algebras without relying on either partition method. For disconnected cases a joint refinement is calculated from actual adjacency tables.
+## correctness
 
-The replayed checks covered 8,184 exhaustive binary cycle words of sizes 3 through 12, 43,688 comparisons of bounded-depth partitions, 5,400 generating cycle colorings, 56 direct Boolean closures, all 28,672 colorings of the two-component cases \(C_6\sqcup C_7\), \(C_7\sqcup C_7\) and \(C_6\sqcup C_6\), and 320 seeded random examples on four larger cycle lengths. The two-component counts are respectively 336, 392 and 0. The three-mark pattern is tested at all sizes 6 through 120. The Möbius count is compared with exhaustive labeled-coloring counts, not merely with a copied numerical table.
+PASS
 
-These finite tests check implementation consistency and small cases only. The all-length statements rely on the string reconstruction lemma, the parity-aware dihedral orbit proof, and the periodic-word argument documented in RESULT.md. No claim of independent expert verification or a formal proof assistant certificate is made.
+Reconstructed depth-0 labels and neighbor type set recurrence, where degree-two regularity makes the set equivalent to the unordered pair with multiplicities. Verified local centered substring up-to-reversal reconstruction independently on all binary words length <=13 and ternary words length <=9, plus the supplied full verifier for arbitrary cyclic words. In the half-cycle argument an aligned dihedral map leaves at most one omitted vertex when n even, forced by equal total counts; at odd n the omitted adjacent pair is resolved via reflection or a rotation-step parity argument. This proves the complete all-n bound beyond finite tests. Distinct asymmetric primitive bracelets exactly characterize intercomponent separation by doubly-infinite periodic words; free dihedral orbit count 2n gives product formula. For n<=5 every binary coloring has a nontrivial stabilizer.
+
+## originality
+
+PASS
+
+General one-dimensional color refinement and modal bisimulation are old, and aperiodic chiral binary bracelet numbers were published previously. The specific every-depth colored-cycle factor equivalence, sharp universal half-circumference stabilization, and generator test are a distinct integrated structural assertion in the inspected primary comparators. Older circular word reconstruction literature remains residual risk.
+
+## value
+
+PASS
+
+Exact low-depth identification of modal and automorphism orbit quotients is a natural structural result for cyclic Kripke frames; the sharp floor(n/2)-1 witness and one-variable generation criterion are independently useful, and the disconnected criterion classifies natural logical generators rather than recomputing bracelet numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
