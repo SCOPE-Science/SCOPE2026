@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:16:22.543650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If n=p^2, s(n)=p+1 cannot divide phi(n)=p(p-1). If n=pq with p<q primes, d=p+q+1=s(pq) and phi(pq)=(p-1)(d-p-2)=(p-1)d-(p-1)(p+2). Therefore phi(n)/s(n) is integral iff d|(p-1)(p+2); d>2p+1 enforces q>p and q=d-p-1 prime. This is a correct iff and covers every Omega(n)=2 case. Independently checked representative prime pairs and direct arithmetic for 133 and other database examples; no extrapolation from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banks–Luca prove the general composite-parameter divisibility for n=Pm, with m not necessarily prime.",
+          "Iannucci treats the quotient-one subcase s(n)=phi(n), a narrower condition."
+        ],
+        "reasoning": "Banks–Luca is broader and implies the key divisor restriction by substituting m=p; other named narrow work does not rescue originality.",
+        "searches": [
+          "Banks and Luca 2007 DOI:10.1017/S0013091505001161",
+          "Iannucci JIS 20 (2017) 17.6.2"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md Git blob 1d7398ff4b390017e4d4354099757584cbd7a99e",
+        "pinned verify.py Git blob 9f0e7408940e288a921355d53d339fd484404573",
+        "Banks–Luca DOI:10.1017/S0013091505001161 full text eq. (2.13)",
+        "OEIS A055940",
+        "Resultary semantic search: counterbalanced numbers proper divisor sum divides totient semiprimes p q divisor p+q+1 Banks Luca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2007 identity s(Pm)|(2sigma(m)-m)phi(m), m=p -> p+q+1|(p-1)(p+2).",
+          "phi(pq)=(p-1)[(p+q+1)-(p+2)] gives converse with no extra structural ingredient."
+        ],
+        "reasoning": "The earlier theorem together with immediate substitution and equivalence dominates the complete claimed semiprime classification, regardless of omitted exact wording or divisor notation.",
+        "searches": [
+          "Banks–Luca 2007 proof eq. (2.13)",
+          "Pinned algebra in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=pq, s(n)=p+q+1 and phi(n)=(p-1)(q-1).",
+          "Banks–Luca explicitly derive s(Pm)|(2sigma(m)-m)phi(m), with m=p giving the exact divisor d|(p+2)(p-1)."
+        ],
+        "reasoning": "The assigned iff is the pre-existing necessary constraint plus a one-line reversible arithmetic congruence; different parameter variable d does not create a new theorem.",
+        "searches": [
+          "Resultary semantic search: counterbalanced numbers proper divisor sum divides totient semiprimes p q divisor p+q+1 Banks Luca",
+          "Banks Luca 2007 eq. (2.13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A055940 explicitly lists examples 133,403,583,713,817 and references Banks–Luca.",
+          "These examples agree with the simple formula but no new table or distribution is delivered."
+        ],
+        "reasoning": "The sequence itself does not prove a full classification; the decisive prior-implication is the 2007 general divisibility theorem, while table examples are recomputation.",
+        "searches": [
+          "OEIS A055940 counterbalanced composite numbers",
+          "Banks Luca 2007 semiprime construction"
+        ]
+      },
+      "rationale": "FAILED: Banks and Luca (2007) already establish s(Pm)|(2 sigma(m)-m)phi(m) for counterbalanced Pm with P>prime factors of m (their equation 2.13). Specializing m=p and P=q gives p+q+1|(p+2)(p-1), the precise assigned divisor condition. The reverse implication is the immediate rewrite of phi(pq) modulo p+q+1; writing q=d-p-1 and d>2p+1 merely reparametrizes the criterion. The claim is thus the elementary special case and reverse algebraic restatement of an earlier theorem, not an independent original classification.",
+      "residual_risks": [
+        "This is an originality/value failure, NOT a correctness failure.",
+        "Earlier work has the key semiprime condition at least as an immediate specialization; no independent nontrivial result remains in the assigned final claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: published necessary divisor restriction directly specializes to the proposed characterization; converse is algebraic",
+          "evidence": [
+            "Banks–Luca, equation (2.13): s(Pm)|(2sigma(m)-m)phi(m); m=p produces d|(p+2)(p-1)"
+          ],
+          "identifier_or_url": "DOI:10.1017/S0013091505001161",
+          "material_read": "Full primary paper including proof and eq. (2.13) on general factorization n=Pm",
+          "method": "Read author-accessible full primary text; specialize equation symbolically to m=p",
+          "title": "When the Sum of Aliquots Divides the Totient",
+          "trigger": "exact same counterbalanced set; broad theorem could imply semiprime condition"
+        },
+        {
+          "assessment": "Exact listed examples previously documented, not a general theorem",
+          "evidence": [
+            "A055940 examples 133, 403, 583, 713, 817"
+          ],
+          "identifier_or_url": "https://oeis.org/A055940",
+          "material_read": "Database description, examples, published references",
+          "method": "Read public sequence page",
+          "title": "OEIS A055940: Counterbalanced numbers",
+          "trigger": "exact numerical table and same notion"
+        },
+        {
+          "assessment": "Narrow quotient-one subproblem, does not change decisive Banks–Luca coverage",
+          "evidence": [
+            "Equation s(n)=phi(n) is quotient-one instance"
+          ],
+          "identifier_or_url": "JIS 20 (2017) Article 17.6.2",
+          "material_read": "Title, bibliographic scope and statement as identified in assigned citations",
+          "method": "Bibliographic comparison; full text not read",
+          "title": "On the Equation sigma(n)=n+phi(n)",
+          "trigger": "related quotient-one subcase"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAILED: Although semiprime counterbalanced integers are a natural layer, this proposed exact divisor parametrization has no nontrivial new sieve, count, distribution, obstruction, or sharp case beyond the direct specialization of Banks–Luca equation (2.13) and elementary division. Correctness and naturality alone do not give independent scientific value; examples duplicate OEIS A055940.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md Git blob 1d7398ff4b390017e4d4354099757584cbd7a99e",
+    "pinned verify.py Git blob 9f0e7408940e288a921355d53d339fd484404573",
+    "Banks–Luca DOI:10.1017/S0013091505001161 full text eq. (2.13)",
+    "OEIS A055940",
+    "Resultary semantic search: counterbalanced numbers proper divisor sum divides totient semiprimes p q divisor p+q+1 Banks Luca"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Each finite computation is supporting evidence, not an infinite proof.",
+    "Originality is assessed by mathematical implication and available primary materials, not by unsuccessful search alone.",
+    "Full frozen Git tree enumeration and public-file confidentiality certification were unavailable, so the publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "This is an originality/value failure, NOT a correctness failure.",
+    "Earlier work has the key semiprime condition at least as an immediate specialization; no independent nontrivial result remains in the assigned final claim."
+  ],
+  "schema_version": 1
+}
