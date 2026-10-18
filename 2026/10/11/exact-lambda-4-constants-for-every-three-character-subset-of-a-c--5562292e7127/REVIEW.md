@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Orthogonality gives an exact coefficient-convolution formula for the fourth moment. The six unordered pair sums of a translated three-set admit only midpoint collisions or double-sum collisions. Their simultaneous occurrences produce exactly the order-three and order-four torsion degeneracies, while a cyclic group cannot contain two distinct nonzero order-two elements. The five sharp constants then follow from explicit quadratic maximizations, with equality conditions traced through every sharp inequality.
+## correctness
 
-## Originality
-PASS. The closest inspected literature treats exact three-frequency Sidon constants, maximum-modulus trinomials, or general even-\(L^p\) arithmetic criteria. The closest prior fourth-moment result covers exactly one repeated pair-sum in odd-order groups and therefore implies only the \(15/7\) progression row. It does not cover order-two, order-three, or order-four torsion, nor the complete cyclic classification. Targeted database searches did not locate a statement implying all five regimes.
+PASS
 
-## Value
-PASS. The theorem completely resolves the three-character \(\Lambda(4)\) constant on every finite cyclic group and shows that the answer is a five-level torsion-sensitive invariant of pair-sum geometry. The classification is structurally motivated and includes exact extremizers, rather than giving an isolated numerical computation.
+For all cyclic N>=3, character orthogonality gives fourth moment equal to the squared l2 norm of pair-sum convolution. After translating A={0,x,y}, the six unordered sums 0,2x,2y,x,y,x+y admit exactly midpoint and double-sum collisions; cyclic order-two uniqueness forces the five exhaustive types. Re-derived generic 2-(X²+Y²+Z²)<=5/3, ordinary midpoint 3/2+3Y-7Y²<=15/7 at X=Z=2/7,Y=3/7, isolated antipodal <=2 at third mass zero, order-four 2+2Y-3Y²<=7/3 at equal masses, and order-three point-mass quotient <=3. Equality phases follow triangle equality and all coefficient zeros/boundaries are covered. My independent fourth moment witnesses at N=3,4,6,7,11 yield 3,7/3,2,15/7,5/3; finite checks do not establish uniformity, which is analytic.
 
-## Closest literature and limitations
-The strongest residual risk is older thin-set or additive-energy literature in which the same three-element optimization may be implicit under different notation. The result is limited to three frequencies and the fourth moment; larger supports have more complicated collision hypergraphs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full torsion-sensitive, arbitrary-coefficient five-regime Lambda(4) classification including extremizers. Neuwirth 2001 three-frequency Sidon theorem concerns coefficient l1 versus sup norm, not finite cyclic fourth moments; its FULL arXiv text Sections 1–3, Definition 2.1 and Theorem 3.3 were read. An older repeated-pair-sum odd-order result already covers ordinary AP 15/7, expressly credited, but not torsion 2,3,4 and all five regimes. Resultary failed; possible unindexed Lambda4 work remains a priority risk.
+
+## value
+
+PASS
+
+Complete sharp three-frequency cyclic Fourier norm taxonomy and equality classification are natural reusable exact invariants; order-2/3/4 torsion effects distinguish it from merely recomputing generic additive energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

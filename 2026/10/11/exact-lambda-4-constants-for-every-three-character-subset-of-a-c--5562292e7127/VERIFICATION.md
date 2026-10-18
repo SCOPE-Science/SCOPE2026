@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses exact character orthogonality and analytic inequalities; it does not rely on numerical evidence for its universal quantifier.
+# Independent mathematical audit
 
-The accompanying `verify_three_character_lambda4.py` performs a bounded independent replay of the combinatorial reduction. For every three-element subset of \(\mathbb Z_N\) with \(3\le N\le80\), it computes all unordered pair-sum fibers, checks that the collision pattern belongs to the stated five-case taxonomy, and directly evaluates one equality witness for the corresponding sharp fourth-power constant.
+## correctness
 
-The replay output is:
+PASS
 
-`VERIFY_OK N=3..80 triples=1663740 counts={'order3': 351, 'order4': 840, 'antipodal': 41800, 'ap': 82607, 'generic': 1538142} targets={'order3': '3', 'order4': '7/3', 'antipodal': '2', 'ap': '15/7', 'generic': '5/3'}`
+For all cyclic N>=3, character orthogonality gives fourth moment equal to the squared l2 norm of pair-sum convolution. After translating A={0,x,y}, the six unordered sums 0,2x,2y,x,y,x+y admit exactly midpoint and double-sum collisions; cyclic order-two uniqueness forces the five exhaustive types. Re-derived generic 2-(X²+Y²+Z²)<=5/3, ordinary midpoint 3/2+3Y-7Y²<=15/7 at X=Z=2/7,Y=3/7, isolated antipodal <=2 at third mass zero, order-four 2+2Y-3Y²<=7/3 at equal masses, and order-three point-mass quotient <=3. Equality phases follow triangle equality and all coefficient zeros/boundaries are covered. My independent fourth moment witnesses at N=3,4,6,7,11 yield 3,7/3,2,15/7,5/3; finite checks do not establish uniformity, which is analytic.
 
-The finite enumeration does not prove the theorem beyond its tested range. The universal classification follows from the six possible unordered pair sums and the algebraic collision analysis in `RESULT.md`; the universal sharp bounds follow from the displayed exact quadratic optimizations.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full torsion-sensitive, arbitrary-coefficient five-regime Lambda(4) classification including extremizers. Neuwirth 2001 three-frequency Sidon theorem concerns coefficient l1 versus sup norm, not finite cyclic fourth moments; its FULL arXiv text Sections 1–3, Definition 2.1 and Theorem 3.3 were read. An older repeated-pair-sum odd-order result already covers ordinary AP 15/7, expressly credited, but not torsion 2,3,4 and all five regimes. Resultary failed; possible unindexed Lambda4 work remains a priority risk.
+
+## value
+
+PASS
+
+Complete sharp three-frequency cyclic Fourier norm taxonomy and equality classification are natural reusable exact invariants; order-2/3/4 torsion effects distinguish it from merely recomputing generic additive energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
