@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For common Y~Gamma(2,beta), CHME X=Y/(2Z) with Z~Beta(q,q) and SME X=Y/U with U~Beta(q,1). A small-Z beta density z^(q-1)/B(q,q) gives K_C=E[Y^q]/(q 2^q B(q,q))=(q+1)2^-q beta^q Gamma(2q)/Gamma(q); SME gives K_S=E[Y^q]=beta^q Gamma(q+2). Thus R=2^-q Gamma(2q)/(q Gamma(q)^2). For q<=1, q B(q,q)>=1, so R<1. For q>=1, dlog R/dq=log2-int_0^inf exp(-qt)/(1+exp(t/2))dt>log2-1/(2q)>0; R(2)=3/4 and R(3)=5/4 yield a unique crossing q*=2.578543315125812... . Positive density asymptotics integrate to survival, giving hazards q/x, moment cutoff r<q, and quantile ratio R^(1/q). At q=1 the two denominators are identically distributed uniforms, so X_C= X_S/2 in distribution. Independent high-precision gamma/beta arithmetic reproduced the root and q=1,2,3 ratios.",
+      "risk": "Conclusions concern asymptotic first-order tails at matched nominal beta and q. Density equivalents alone require justified integration; positivity and regular variation provide it.",
+      "sources": [
+        "Frozen RESULT.md, verify_tail.py actual blob",
+        "Olmos et al., DOI:10.3934/math.20261108 Secs.1-3",
+        "Iriarte et al., DOI:10.2991/jsta.2017.16.3.7",
+        "independent_checks.py CHME_SME_*"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olmos et al. derives CHME density and Pareto-type behavior, and discusses SME; this is broader model development, not this two-model tail constant ordering.",
+          "Classical beta regular variation gives generic existence of power tails but no CHME/SME crossover without the specified constants."
+        ],
+        "reasoning": "No inspected dominating published model theorem provides the exact R(q) and q* comparison.",
+        "searches": [
+          "CHME SME confluent hypergeometric slashed moment exponential Beta q q tail constant crossover",
+          "https://www.aimspress.com/aimspress-data/math/2026/9/PDF/math-11-09-1108.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/9/PDF/math-11-09-1108.pdf",
+        "https://www.atlantis-press.com/article/25883868.pdf",
+        "Resultary search CHME SME confluent hypergeometric slashed moment exponential Beta q q tail constant crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 source Eq.(1.3) reproduces SME density and explicitly motivates CHME as heavier-tailed, without first-order constant comparison.",
+          "Exact paired beta normalizations give R(1)=1/2, R(2)=3/4, R(3)=5/4, contradicting a uniform heavier claim."
+        ],
+        "reasoning": "Neither the CHME Pareto exponent nor the older SME density implies a uniform heavier CHME tail; deriving and analyzing the exact ratio resolves a distinct motivated comparison.",
+        "searches": [
+          "DOI:10.3934/math.20261108 Section 1 and tail subsection",
+          "DOI:10.2991/jsta.2017.16.3.7",
+          "CHME SME confluent hypergeometric slashed moment exponential Beta q q tail constant crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same denominator Beta(q,q) versus Beta(q,1) yields a same-index comparison only after fixing both beta and q.",
+          "At q=1, both denominators are uniform and the exact factor-two contraction follows."
+        ],
+        "reasoning": "Equivalent mixture and density parametrizations were normalized to the same baseline and scale; the matched-parameter reversal is not stated in either primary article.",
+        "searches": [
+          "CHME SME confluent hypergeometric slashed moment exponential Beta q q tail constant crossover",
+          "DOI:10.3934/math.20261108",
+          "DOI:10.2991/jsta.2017.16.3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The CHME source contains an exponent and model-fitting tables, not a tail-constant ratio or crossover table.",
+          "The SME paper provides its density without CHME (introduced nine years later)."
+        ],
+        "reasoning": "No exact database/table containing q*=2.578543... was found; a search miss is not a proof of global novelty.",
+        "searches": [
+          "CHME SME confluent hypergeometric slashed moment exponential Beta q q tail constant crossover",
+          "DOI:10.3934/math.20261108",
+          "DOI:10.2991/jsta.2017.16.3.7"
+        ]
+      },
+      "rationale": "The 2026 CHME source states heavier-tail motivation and derives a Pareto-type exponent for CHME, but the inspected full paper does not compute its matched-parameter survival leading constant relative to SME, prove a unique crossing, or identify the exact q=1 contraction. The 2017 SME full paper supplies the older marginal model/density. Generic regular-variation and beta-mixture results are inputs, not the same applied comparison. Best-of-knowledge acceptance; an unindexed equivalent comparison remains possible.",
+      "residual_risks": [
+        "Possible generic stochastic quotient asymptotics or unindexed notes applied to this exact pair.",
+        "Alternative parameter calibration by equal median or variance can alter the eventual tail order; not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides correct CHME Pareto exponent and SME density but not the matched survival constants or crossover",
+          "evidence": "p2 Eq.(1.3) SME density, p2 lines 83-86 explicit heavier-than-SME motivation; Eq. stochastic CHME Y/(2Z).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/9/PDF/math-11-09-1108.pdf",
+          "material_read": "Full 22-page public PDF: introduction Eq.(1.2)-(1.3) and heavier-tail wording, CHME density and asymptotic/moment/hazard sections, simulation representation and references",
+          "method": "Read full PDF text and representative figure/formula page images",
+          "title": "A flexible moment exponential distribution based on confluent hypergeometric functions: properties, inference, and applications",
+          "trigger": "Exact CHME density, stochastic representation and explicit SME heavier-tail motivation"
+        },
+        {
+          "assessment": "Introduces SME and its own survival behavior; predates CHME and does not compare the two",
+          "evidence": "DOI:10.2991/jsta.2017.16.3.7, model density and Beta(q,1) representation.",
+          "identifier_or_url": "https://www.atlantis-press.com/article/25883868.pdf",
+          "material_read": "Full lawful open-access 12-page 2017 PDF, definitions of Beta(q,1) slash, marginal SME density and conclusion",
+          "method": "Read PDF extracted mathematical material and source definitions",
+          "title": "Slashed Moment Exponential Distribution",
+          "trigger": "Potential earlier tail ratio or dominating model comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The CHME publication explicitly motivates its new symmetric-beta construction through heavier tails than SME. Its exact regular-variation constant, sharp unique reversal in the direction of extreme-tail probabilities, and exact q=1 stochastic contraction are therefore a scientifically motivated correction to an actual interpretation of the model. The strict crossover, not merely generic shared tail exponents, supplies an actionable mathematical comparison in heavy-tail model choice.",
+      "risk": "Only same nominal beta,q; no finite-threshold ordering, universal stochastic dominance, inference improvement or optimal fit is claimed.",
+      "sources": [
+        "2026 Olmos et al., DOI:10.3934/math.20261108, explicit motivation",
+        "2017 Iriarte et al., DOI:10.2991/jsta.2017.16.3.7",
+        "Frozen RESULT.md",
+        "independent_checks.py CHME_*"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal nominal beta>0 and q>0 only; only eventual survival-tail, hazard, moment and quantile statements.",
+    "q*=2.578543... computed numerically after an analytic uniqueness proof, not presumed from sampling.",
+    "No variance/median-matched ordering or finite-sample inference guarantee.",
+    "No external attestation or formal verification is inferred from a verifier printout.",
+    "Public metadata confidentiality blocks publication: scientifically completed review is not an importable change-set."
+  ],
+  "schema_version": 1
+}
