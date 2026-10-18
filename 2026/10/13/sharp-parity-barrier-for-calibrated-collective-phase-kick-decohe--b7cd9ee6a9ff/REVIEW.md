@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every integer \(n\ge2\), fixed \(\Gamma>0\), and any Borel kick measure, the characteristic-function formula reduces the optimization to a fixed-first-moment Chebyshev extremum on \([-1,1]\). For odd \(n\), an explicit piecewise concave majorant is proved concave from the displayed exact derivative, and Jensen's inequality is tight for concrete symmetric two-/three-atom laws. Even \(n\) has a two-atom exact-zero witness. Endpoint conventions, the threshold's second derivative, and the GHZ two-level QFI normalization are checked. The supplied verifier tests the calculations; it does not prove the universal theorem by enumeration.
+## correctness
 
-**Originality — PASS (residual risk).** The 2026 source states the Poisson characteristic-function decay formula, GHZ QFI, and a lattice-kick exception; those facts are credited and not submitted as new. The distinct finite-size inverse calibration question asks for the *minimum* \(n\)-body dephasing under a fixed first harmonic and fixed event rate. Its explicit parity-dependent sharp answer and threshold curvature are not stated in the materially inspected v1 main paper or the other inspected primary descriptions; targeted web and mathematical-record searches found no equivalent classification. The later expanded preprint and supplemental material were not fully accessible. They could conceivably include an equivalent special-case calculation, and semantic indexing cannot exclude undiscovered work.
+PASS
 
-**Value — PASS.** The sharp calibration envelope addresses an actual identifiability/control gap: identical measured one-qubit coherence times at the same kick rate can permit either perfect or forced-loss GHZ coherence depending on system parity and kick statistics. It identifies an exact critical local-noise strength and its onset law, quantifying what ideal engineered phase-kick distributions can and cannot protect. Atomic-noise engineering is idealized, but the distinction is structural rather than a routine parameter substitution.
+For all n>=2, fixed positive Poisson event rate Gamma and arbitrary Borel phase laws, normalized local rate g in [0,2] fixes EX=1-g for X=cos(theta). Maximizing E[T_n(X)] exactly gives the least GHZ decay 0 for even n, 0 for odd n and g<=1+cos(pi/n), and 1-T_n(1-g) otherwise. Even n supports +/-1; odd n has a concave upper envelope equal T_n on [-1,-cos(pi/n)] and 1 on the rest. Its second derivative is strictly negative in the left interior and its gluing derivative is zero; Jensen proves the unrestricted bound. The two explicitly symmetric atomic measures attain both branches and endpoints; Taylor gives coefficient n^2/(2sin^2(pi/n)). The GHZ qubit SLD calculation gives n^2*t^2*exp(-2Gamma_n*t). Independently evaluated Chebyshev second derivatives for n=3,5,7,11 as bounded corroboration, not an infinite proof.
 
-Closest literature: arXiv:2607.02962v1 (full original main text examined), its later expanded version (abstract only), general decoherence-free code theory, and classical trigonometric moment bounds. All claims concern the specified Poisson collective noise family and the specified GHZ probe; no universal sensor optimality, robustness, or human/independent validation is inferred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source physics manuscript gives the Poisson phase-kick generator, characteristic-function coherence factors, GHZ QFI, and some lattice exceptions. The new theorem optimizes the entire fixed-single-qubit-decay moment fiber for each n, with exact parity threshold and quadratic onset; these are not implied by a single deterministic lattice example or the ordinary dephasing rate formula alone. The exact one-moment concave-envelope technique is standard and not independently novel. An expanded version of the closest manuscript was not inspected completely; best-of-knowledge PASS subject to explicitly retained coverage risk.
+
+## value
+
+PASS
+
+The inverse calibration question is natural in collective dephasing: a measured single-qubit decay does not determine multi-qubit GHZ survival. The exact all-size achievable envelope, parity obstruction and onset coefficient are quantitative limits useful for interpreting such noise characterizations, without asserting experimental robustness or globally optimal metrology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
