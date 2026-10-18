@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exponential-divisor definition reduces exactly to \(\prod_{p\mid m}(p+1)\mid2^{\omega(m)}m^2\). The least-prime argument proves that every nontrivial qualifying squarefree base is divisible by \(6\), and gives the *sharp* least additional prime spectrum \(\{5,7,11,23\}\) for arbitrary support. In the four-prime case, the necessary bound \(r+1\mid48q^2\) proves that the finite exhaustive search of primes \(r<25392\) is complete. Nine explicit values pass the exact divisibility test. The supplied standalone verifier reproduces the finite certificate and also compares independently reconstructed e-divisor harmonic means on squarefree bases through \(12000\). No unbounded assertion is inferred from a numerical cutoff.
+## correctness
 
-**Originality — PASS, with residual risk.** Sándor's original complete monograph treatment (2005, pp. 141–145) supplies definitions and broad squarefree/e-perfect claims, not this squarefree-square low-support classification. Minculete's thesis (2012, §4.3) gives a type-2/type-1 example at \(900\) but no sharp least-third-prime theorem or complete four-support list. OEIS A348964/A348965 are instance tables. The published rational-semigroup prime-peeling criterion has a different predicate; the exponential-perfect results have a stronger but non-covering equality hypothesis. Relevant semantic-record, alias, equivalent-divisibility, and primary-literature searches found no covering theorem. The residual risk is a previously unindexed equivalent classification.
+PASS
 
-**Value — PASS.** The squarefree-square family is the first genuinely nonsquarefree exponent layer for exponential divisors. The theorem supplies both a globally sharp prime-support obstruction and a natural complete unbounded-in-size classification for support sizes through four, with nine nontrivial four-support bases. These facts are not routine checks of the already reported example at \(900\); the exact prime cutoff rules out every larger fourth prime and the least-prime result applies even with arbitrarily many additional prime factors. No paper-sized consequence or density theorem is asserted.
+For m squarefree, m² has exactly 2^r exponential divisors and reciprocal-sum denominator S_e(m²)=∏(p+1), so the type-2 test is exactly ∏(p+1)|2^r m². The parity/minimum-prime argument proves m>1 forces 6|m. With r≥3, the least q>3 has q+1=2^a3^b, a∈{1,2,3}, b∈{0,1}, hence q∈{5,7,11,23}. For m=6qr, (q+1)(r+1)|48q²r² forces r+1|48q² and r<48q². An independent exact prime sieve over every derived finite range reproduced all nine pairs [(5,7),(5,19),(5,199),(7,13),(7,41),(7,97),(7,293),(11,43),(11,241)], and checked the reduced divisibility; the 15 listed bases include 1,6 and the four 3-prime cases. This uses a proved finite cutoff and does not extrapolate unbounded-support completeness.
 
-**Limitations.** Supports of size at least five remain unclassified. The original dated monograph does not establish an independently verified exact online dissemination date. The result has not undergone independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is an exact support≤4 arithmetic classification plus a support-independent least-additional-prime obstruction; definitions and special cases of type-2 exponential harmonicity are classical. Sándor establishes squarefree n, not this squarefree-square m² classification; OEIS enumerates individual type-2 numbers but lacks the unrestricted least-prime obstruction and complete no-size-bound four-prime theorem. Resultary hits mostly bi-unitary or e-unitary variants, which do not imply the same denominator divisibility. Inaccessible thesis/older number-theory enumeration is a residual priority risk.
+
+## value
+
+PASS
+
+Harmonicity under exponential divisors is a natural divisibility property; a complete prime-support classification with a mathematically forced last-prime cutoff and sharp, attained unrestricted least-prime spectrum is a substantive exact arithmetic result, even without classifying ≥5 primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
