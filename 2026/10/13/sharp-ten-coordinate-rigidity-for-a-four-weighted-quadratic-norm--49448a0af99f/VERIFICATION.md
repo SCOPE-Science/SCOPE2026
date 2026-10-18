@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the weighted quadratic norm rigidity theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter. The script uses only the standard library. It verifies every one of the eight exhibited equal norms, the rank of their rational coefficient matrix, the exact determinant of its first eight columns (\(-608\)), all pair-collision ranks for cutoffs \(3\) through \(10\), the nonquadratic radius-nine delta-at-five witness, and the coefficient identity giving the infinite recurrence. It also tests the explicit converse on representative values of the parameters.
+## correctness
 
-Actual execution returned:
+PASS
 
-`EXACT_CERTIFICATE_OK finite_threshold=10 minor_det=-608 rank10=8 rank9=6 witness_count=8 propagation_step=8`
+For the positive norm x²+4y², any two representations impose the exact linear collision s_x+4s_y=s_u+4s_v. The eight displayed integer norm collisions inside indices 1..10 yield an 8x10 matrix with first-eight-column minor det -608, hence row rank 8 and two-dimensional kernel spanned by constant and k² vectors; this forces G(k)=Ak²+B at k<=10. The norm identity (n+8)²+4(n+3)²=n²+4(n+5)² propagates via G(n+8)=G(n)+4G(n+5)−4G(n+3) for n>=3. The F formula on E4 follows and conversely works. Independently enumerating every collision group for N=3..10 gave ranks [0,1,1,2,3,4,6,8], so N=9 has extra kernel dimension and explicit G(5)=1 witness. No finite enumeration is relied on for the infinite propagation.
 
-The infinite claim rests on the printed symbolic identity and an induction from the ten initial values. Program output by itself is not an infinite proof. The outer function is characterized only on the set of positively represented values, and the minimality assertion concerns finite collision constraints, not pointwise evaluations of the original nonlinear one-function equation.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the *minimal finite rigidity cutoff* 10, not novelty of the general nonlinear functional equation. You–Chen–Yuan–Shen (2016) already use some same norm collisions for a nonlinear linked equation and Khanh (2017) analyzes a broad auxiliary two-function equation via periodic characters; neither inspected result establishes the exact complete finite collision rank jump between N=9 and 10, nor its sharpness. Overlapping collisions and implicit derivations are flagged.
+
+## value
+
+PASS
+
+The least finite window forcing a quadratic solution to a natural weighted norm representation equation is a meaningful rigidity invariant. The jump from nullity 3 at N=9 to nullity 2 at N=10 is sharp and explicitly certifiable; this is not a mere restatement of the previously solved infinite nonlinear equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

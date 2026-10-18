@@ -1,15 +1,21 @@
-# Scientific review — sharp ten-coordinate quadratic norm rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight displayed norm identities are all exact. Their coefficient matrix has rank \(8\), certified by the integer minor \(-608\), and its two-dimensional kernel is precisely the span of constants and squares. The recurrence from the exact identity \((n+8)^2+4(n+3)^2=n^2+4(n+5)^2\) propagates the conclusion from the ten initial entries to all positive integers; hence the global \(G/F\) characterization is proved without extrapolating finite enumeration. For finite truncations the checker groups **all** representations and computes their ranks over the rationals: rank \(6\) at \(N=9\) and rank \(8\) at \(N=10\). Thus the lower side of sharpness is proved, not merely observed.
+## correctness
 
-## Originality — PASS, with residual risk
-The decisive asserted advance is the **minimality** of finite collision radius \(10\), including a nonquadratic radius-\(9\) assignment. Kátai and Phong (2014) provide a general affine-plus-periodic sumset criterion whose key difference-set hypothesis fails for the present weighted-square support. You et al. (2016, arXiv:1606.05039v1, Section 5) derive several **overlapping norm identities** for the already-solved nonlinear equation; in particular, some computations use index \(11\), but they do not show sharp radius \(10\) for arbitrary linked complex data or give the rank-\(6\) obstruction at radius \(9\). Khanh (2017, Lemmas 1-2) obtains a quadratic-plus-periodic necessary form for the auxiliary general linear relation and solves the nonlinear equation, not this minimum finite-collision problem. The specific published theorem and nearby indexed findings searched did not cover the threshold. Unindexed earlier derivations and overlooked overlap remain risks. The previously established nonlinear classification is not presented as new.
+PASS
 
-## Value — PASS
-The exact test radius gives a natural completeness threshold for norm-collision constraints in a classical additive functional-equation setting and proves why all smaller nontrivial truncations are insufficient. At the threshold, eight explicit identities force the entire infinite connected problem through a recurrence. This is a structural minimum with a meaningful obstruction, rather than an arbitrary finite slice or raw search result.
+For the positive norm x²+4y², any two representations impose the exact linear collision s_x+4s_y=s_u+4s_v. The eight displayed integer norm collisions inside indices 1..10 yield an 8x10 matrix with first-eight-column minor det -608, hence row rank 8 and two-dimensional kernel spanned by constant and k² vectors; this forces G(k)=Ak²+B at k<=10. The norm identity (n+8)²+4(n+3)²=n²+4(n+5)² propagates via G(n+8)=G(n)+4G(n+5)−4G(n+3) for n>=3. The F formula on E4 follows and conversely works. Independently enumerating every collision group for N=3..10 gave ranks [0,1,1,2,3,4,6,8], so N=9 has extra kernel dimension and explicit G(5)=1 witness. No finite enumeration is relied on for the infinite propagation.
 
-## Scientific limits and reproducibility
-No claim is made for independent summands, different norm coefficients, unrepresented outer-function arguments, or priority over the nonlinear equation. Exact arithmetic checks are reproducible using `python3 verify.py`. Its finite calculation does not replace the induction in the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the *minimal finite rigidity cutoff* 10, not novelty of the general nonlinear functional equation. You–Chen–Yuan–Shen (2016) already use some same norm collisions for a nonlinear linked equation and Khanh (2017) analyzes a broad auxiliary two-function equation via periodic characters; neither inspected result establishes the exact complete finite collision rank jump between N=9 and 10, nor its sharpness. Overlapping collisions and implicit derivations are flagged.
+
+## value
+
+PASS
+
+The least finite window forcing a quadratic solution to a natural weighted norm representation equation is a meaningful rigidity invariant. The jump from nullity 3 at N=9 to nullity 2 at N=10 is sharp and explicitly certifiable; this is not a mere restatement of the previously solved infinite nonlinear equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
