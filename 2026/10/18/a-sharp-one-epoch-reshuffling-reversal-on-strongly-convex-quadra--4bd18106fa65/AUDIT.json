@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Positive-definite Hessians and L=1 verified exactly for all 0<b,p<1. The four IID and two RR ordered paths reduce to 0, PQu and Q²u. Exact quadratic evaluation yields the displayed cubic; concavity of its derivative gives positivity and uniqueness of the phase boundary. A 3,795-case Fraction enumerator independently checks the equations; it is a finite cross-check, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das et al. prove accelerated convergence rates subject to stated epoch/conditioning regimes; Liu 2026 official abstract gives favorable RR convergence-rate guarantees but not a literal exact pointwise order at the reciprocal-Lipschitz step."
+      ],
+      "reasoning": "Rates and upper bounds do not directly imply RR is better on every instance after one epoch. The later article may contain additional pertinent material, listed in residual risks, but the accessible statement does not settle this parameter boundary.",
+      "searches": [
+        "two component quadratic objective one epoch random reshuffling worse than with replacement even both component Hessians positive definite",
+        "arxiv:2206.02953",
+        "PMLR 336:liu26d"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.02953 (full-text relevant sections)",
+      "arxiv:2305.19259 (full-text relevant sections)",
+      "PMLR 336:liu26d (official abstract, full manuscript unavailable)",
+      "Mathematical-record checks on RR/SGD finite-epoch counterexamples and equivalent phrasings",
+      "Accessible own current-week and preceding-week research claims (17 and 152 records, respectively)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General shuffled-GD results bound rates; here RR exceeds IID in actual expected objective for b>3/4 at p=1/2 at a stepsize 1/L, so a blanket pointwise statement cannot cover the proved calculation under identical hypotheses."
+      ],
+      "reasoning": "The new conclusion is an exact sign/phase classification and limiting factor-two ratio in a specified family. Asymptotic rate improvement statements do not logically imply this reversal classification and are not contradicted by it.",
+      "searches": [
+        "sharp finite epoch random reshuffling worse than iid sampling quadratic SGD at stepsize inverse smoothness 2x2 strong convexity objective",
+        "two component quadratic objective one epoch random reshuffling worse than with replacement even both component Hessians positive definite",
+        "arxiv:2206.02953",
+        "arxiv:2305.19259",
+        "PMLR 336:liu26d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent matrix-epoch statement is comparing two permutations with four IID sequences; no such two-by-two phase boundary occurs in the inspected published sampling-rate statements."
+      ],
+      "reasoning": "The event-average decomposition and exact sign-changing polynomial are stronger than a scalar convergence-rate bound; a named comparison between sampling schemes is not an equivalent statement without this exact instance-level inequality.",
+      "searches": [
+        "sharp finite epoch random reshuffling worse than iid sampling quadratic SGD at stepsize inverse smoothness 2x2 strong convexity objective",
+        "random shuffling per instance not always better SGD sharp threshold rank one rotation contractions",
+        "arxiv:2206.02953",
+        "arxiv:2305.19259"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results centered on other methods, including an unrelated loopless SVRG stability calculation and a separate two-coordinate Gauss–Seidel transient study; neither addresses RR versus IID gradient sampling."
+      ],
+      "reasoning": "No exact table of these first-epoch RR/IID objective differences or their cubic boundary was retrieved. The negative searches are evidence of the checked comparison, not proof of universal absence.",
+      "searches": [
+        "sharp finite epoch random reshuffling worse than iid sampling quadratic SGD at stepsize inverse smoothness 2x2 strong convexity objective",
+        "two component quadratic objective one epoch random reshuffling worse than with replacement even both component Hessians positive definite",
+        "random shuffling per instance not always better SGD sharp threshold rank one rotation contractions"
+      ]
+    },
+    "rationale": "Targeted mathematical-record queries on sampling-without-replacement reversal, positive definite quadratics, and exact one-epoch comparisons found no mathematical implication covering the derived two-parameter polynomial phase law. Das et al. 2022, Koloskova et al. 2024 and Liu 2026 address sampling methods with rate bounds rather than this pointwise exact family. The sharp reversal follows from a new four-path enumeration; uncertainty about the full inaccessible 2026 manuscript and unindexed exact examples remains.",
+    "residual_risks": [
+      "Unindexed published or unpublished finite-horizon comparisons may derive equivalent two-component examples.",
+      "The 2026 PMLR article full text was not accessible via the attempted open-access route; its abstract is insufficient for a whole-paper exclusion.",
+      "The result does not establish later-epoch, optimized-step or higher-dimensional general behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes asymptotic and nonasymptotic optimization rate bounds in finite-sum minimax schemes, not an exact per-initial-state objective comparison at two updates.",
+        "evidence": [
+          "arxiv:2206.02953, introduction pp.1–2 and rate-comparison discussion p.6, §1.1; printed 2022 article"
+        ],
+        "identifier_or_url": "arxiv:2206.02953; https://arxiv.org/pdf/2206.02953",
+        "material_read": "Original manuscript introduction, contributions and comparison sections pp. 1–6 and related-work portions; searched text for quadratic counterexamples and rate hypotheses.",
+        "method": "Open-access full-text PDF, text search and first-page visual inspection",
+        "title": "Sampling without Replacement Leads to Faster Rates in Finite-Sum Minimax Optimization",
+        "trigger": "Foundational 2022 uniform with/without replacement comparison and the sampling model"
+      },
+      {
+        "assessment": "The analyzed performance measure is iteration-complexity/convergence bounds for general data orders. No exact two-parameter first-epoch gap was found in inspected material.",
+        "evidence": [
+          "arxiv:2305.19259, introduction §1 and related work §2"
+        ],
+        "identifier_or_url": "arxiv:2305.19259; https://arxiv.org/pdf/2305.19259",
+        "material_read": "Original 24-page paper introduction and contributions, first two pages, plus related-work search for exact counterexamples.",
+        "method": "Open-access manuscript PDF, text search and first-page visual inspection",
+        "title": "On Convergence of Incremental Gradient for Non-Convex Smooth Functions",
+        "trigger": "Plausible stronger all-orders shuffled-gradient rate theorem"
+      },
+      {
+        "assessment": "The public abstract concerns finite-epoch convergence-rate guarantees under reasonable stepsizes and does not explicitly assert the exact pointwise objective ordering in the claim. A full-paper hypothesis comparison remains unresolved but is not a known covering implication.",
+        "evidence": [
+          "PMLR 336 (2026), pp.4859–4882, abstract and official publication page"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v336/liu26d.html",
+        "material_read": "Official article listing, abstract and full bibliographic metadata; linked original PDF could not be fetched.",
+        "method": "Official PMLR open-access abstract page; attempted publisher-linked PDF, unavailable",
+        "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+        "trigger": "Strongest plausible covering headline on RR dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bd18106-fa65-4d7c-90a2-f880166e9eb5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated boundary case for the widely used with/without-replacement comparison, under two genuine strongly convex interpolating components at step 1/L. The fully characterized two-parameter open reversal region, sharp b=3/4 transition at p=1/2 and nearly factor-two first-epoch expected objective separation distinguish instancewise loss from favorable asymptotic rate guarantees. No general superiority or full convergence theorem is claimed.",
+    "status": "PASS"
+  }
+}
