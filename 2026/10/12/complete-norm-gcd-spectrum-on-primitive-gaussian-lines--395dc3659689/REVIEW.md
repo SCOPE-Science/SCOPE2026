@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces common rational norm divisors to split odd primes. The Gaussian-coprime and primitive-step hypotheses exclude common factors \(2\) and exclude odd primes from \(\gcd(A,\Delta)\). Exact polynomial identities give the local valuation equality at every prime, hence the integer gcd formula. Linear invertibility modulo each prime power and CRT prove that every divisor occurs with the stated exact number of residues. The three-term gcd follows from a shift by \(2A\). The standalone checker confirms \(194060\) pairs and a complete prime-power fiber example; finite checks are auxiliary, not the proof.
+## correctness
 
-## Originality — PASS relative to checked literature
-Magness–Nugent–Robertson prove coprimality in \(\mathbb Z[i]\), a different assertion from coprimality of rational norms, and characterize divisors of individual terms. published-finding corpus searches for exact consecutive norm-gcd identities, resultant reductions, and fiber densities found no same or dominating statement. A published general-resultant record studies two-dimensional form-value densities rather than this one-dimensional exact gcd spectrum; its full text and any unindexed general theorem remain bibliographic risks.
+PASS
 
-## Value — PASS
-The norm map loses ring-coprimality, making the exact residual common divisors of adjacent norms a natural question from the Gaussian-line literature. The theorem fully classifies each possible gcd and its periodic multiplicity, and gives the sharp geometric contrast that three successive norms have gcd one. This is a structural classification, not a sampled invariant or a numerical gain.
+For Gaussian-coprime alpha0=a+bi, delta=c+di with gcd(c,d)=1, F(n)=N(alpha0+n delta), A=N(delta), B=2(ac+bd), Delta=ad-bc and Q=odd(A^2+4Delta^2). If 2 divided two adjacent norms, 1+i would divide alpha0 and delta, impossible. For odd p, p|A and p|Delta would force the isotropic nonzero step modulo p and scalar-dependent starting vector, hence a common Gaussian prime, so gcd(A,Q)=1 and each p|Q splits (p=1 mod4). With D(n)=A(2n+1)+B and 4AF(n)=D(n)^2-2AD(n)+A^2+4Delta^2, the exact p-adic adjacent norm gcd exponent is min(v_p(Q),v_p(D(n))). Thus gcd(Fn,F(n+1))=gcd(Q,D(n)) for all integer n, including zeros. Since n->D(n) is bijective modulo each odd p^e dividing Q, Chinese remaindering gives every divisor and exact fiber weights (p-1)p^(e-t-1) for t<e, 1 for t=e; adjacent D(n+1)-D(n)=2A proves the triple gcd is 1. Separate self-written exact Gaussian arithmetic tests on 20,860 adjacent/triple index pairs gave zero mismatches, but are not the universal proof.
 
-## Limitations
-No Gaussian prime-counting conclusion is claimed. The full general-resultant literature is not exhausted; novelty is conditional on checked accessible literature. Independent mathematical validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Magness–Nugent–Robertson source gives primitive Gaussian line definitions and Gaussian-integer divisibility of terms; norm divisibility by a rational prime is a different question because split conjugate factors can alternate. A general resultant only restricts possible primes, not the equality with D(n), complete divisor set, and per-residue exact frequency. Published related SCOPE finite-resultant correction is a different two-variable density theorem and does not imply this one-dimensional complete local spectrum.
+
+## value
+
+PASS
+
+Natural classification of a simple arithmetic observable (gcds of adjacent rational norms on primitive Gaussian lines), with exact periodic distribution and universal three-term coprimality. The distinction from coprimality of Gaussian integers is mathematically substantive (conjugate split primes), and the formula is directly reusable in divisibility questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
