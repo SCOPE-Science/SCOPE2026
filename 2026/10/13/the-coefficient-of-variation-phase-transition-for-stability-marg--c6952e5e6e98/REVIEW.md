@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-Under positive iid scalar curvatures with finite second moment and fixed \(0\le\beta<1\), the conditional quadratic drift identity is exact. The Lyapunov matrix is positive definite strictly below the claimed cutoff for \(\beta>0\), while \(\beta=0\) has a direct one-step test. The full second-moment matrix has \(\det(I-T)\le0\) at and beyond the cutoff; rank-one deterministic initial moment arrays span its state space, proving necessity for all initializations. Differentiation factors the margin derivative and proves all unique and nonattained cases. The extracted exact-symbolic and rational checker returned `VERIFY_OK` for 3,528 conditional computations. Risk: the theorem does not address non-iid, additive-noise or matrix-valued curvature dynamics.
+## correctness
 
-## Originality: PASS, narrowly scoped
-Kidambi et al. 2018, Appendix A Lemma 4, **already give the algebraic necessary threshold** \(2(1-\beta^2)/[c+(c-2)\beta]\) for their \(c\ge2\) stochastic-regression family; the formula and the high-variance necessity are not new. Their bounded problem class does not realize \(1<c<2\), and their lemma states a necessary, not sufficient, bound. The new comparison-relevant result is the **complete and exact low-variance optimally tuned stability-margin phase** (including the positive-curvature finite-sum rule), using an explicit sufficiency certificate, together with the global noise-dependent optimal-momentum classification. Yang et al. 2016 and Gadat et al. 2016 analyze general stochastic momentum with different gain and noise settings; Paquette and Paquette 2021 investigate a high-dimensional limiting model. Searches for the formula, random-coefficient autoregressive aliases and coefficient-of-variation threshold located no equivalent published classification; absence of a match is not evidence of uniqueness. Risk: older autoregressive mean-square stability literature might express the same optimized classification, and the close prior formula means novelty is narrow.
+PASS
 
-## Value: PASS
-The coefficient-of-variation threshold separates two genuinely different tuning regimes for a standard optimizer: low-curvature noise permits increased admissible stepsize through a unique momentum choice, while high curvature noise makes any positive momentum strictly worse in this precise stability-margin objective. The complete, natural all-noise classification includes boundary uniqueness and a two-component formula; it clarifies why the high-noise instability obstruction of Kidambi et al. does not imply the same prescription for low-noise interpolation. This is useful for principled parameter admissibility, not asserted as a speedup in iteration rate. The benefit is substantive despite the elementary closed form.
+From independent iid update derive covariance T=[[m²+η²σ²,−2βm,β²],[m,−β,0],[1,0,0]], m=1+β−ηµ. Independently symbolically checked det(I−T)=(1+β)η[2µ(1−β)−η((1−β)µ²/(1+β)+σ²)], positive-definite quadratic V and exact conditional drift minus same coefficient times x². Telescoping proves convergence for any deterministic initial pair strictly below bound. At the endpoint T has eigenvalue one; above det(I−T)<0 entails a real eigenvalue >1, and the three deterministic rank-one moment starts span all symmetric moment arrays, proving necessity. The β-derivative is exactly factored; v∈(0,1), v≥1 and v=0 limit cases handled. Independent SymPy det/drift/derivative checks all exact. Assumes scalar iid positive curvature with finite second moment; not general acceleration rates.
 
-## Closest sources and limitations
-The closest source is Kidambi et al. (arXiv:1803.05591), specifically Appendix A Lemma 4 and Remark 8; its high-noise necessary inequality overlaps exactly. Original stochastic momentum analyses are arXiv:1604.03257v1 and arXiv:1609.04228v1; high-dimensional stochastic quadratic dynamics are arXiv:2106.03696. An inaccessible or unindexed equivalent calculation from scalar stochastic recurrence theory remains an originality risk. Independent verification beyond the displayed checks is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original necessary-and-sufficient mean-square stability for iid positive scalar random curvature throughout the low-variance regime, and exact unique momentum maximizing stepsize width. Kidambi et al. already derive algebraically identical necessary high-variance bound (c≥2), which is credited rather than misrepresented as new.
+
+## value
+
+PASS
+
+The coefficient of variation v is a natural intrinsic noise measure, and the exact transition v=1 tells when momentum increases versus decreases the maximal mean-square stable constant stepsize for every iid positive scalar curvature law. The reachable low-variance optimum is an actionable sharp boundary beyond a previous necessary high-noise restriction; not claiming faster convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

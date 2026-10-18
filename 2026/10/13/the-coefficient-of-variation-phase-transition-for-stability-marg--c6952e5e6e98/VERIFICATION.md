@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof analytically handles every iid positive scalar curvature distribution of finite second moment, every \(0\le\beta<1\), every \(\eta>0\), and all deterministic initial pairs. All strict-boundary cases are included. The determinant identity is a finite algebraic identity, not a sampled probability estimate.
+# Independent mathematical audit
 
-The self-contained `check.py` requires Python 3 and SymPy. Execute `python3 check.py` after extracting it from the same package. The checker symbolically reconstructs \(\det(I-T)\), the Lyapunov matrix determinant and exact conditional drift, the derivative and optimizer identity, and enumerates direct conditional expectations using exact `fractions.Fraction` arithmetic. The execution on the packaged source returned `VERIFY_OK` and 3,528 rational comparisons. These tests supplement but do not replace the analytic infinite-time convergence argument.
+## correctness
 
-This verifies algebraic correctness, not that no earlier literature implies the low-variance optimum. Prior Appendix A Lemma 4 in arXiv:1803.05591 contains the matching necessary cutoff in its restricted high-variance model and is expressly acknowledged. No independent audit or external certification has been performed.
+PASS
+
+From independent iid update derive covariance T=[[m²+η²σ²,−2βm,β²],[m,−β,0],[1,0,0]], m=1+β−ηµ. Independently symbolically checked det(I−T)=(1+β)η[2µ(1−β)−η((1−β)µ²/(1+β)+σ²)], positive-definite quadratic V and exact conditional drift minus same coefficient times x². Telescoping proves convergence for any deterministic initial pair strictly below bound. At the endpoint T has eigenvalue one; above det(I−T)<0 entails a real eigenvalue >1, and the three deterministic rank-one moment starts span all symmetric moment arrays, proving necessity. The β-derivative is exactly factored; v∈(0,1), v≥1 and v=0 limit cases handled. Independent SymPy det/drift/derivative checks all exact. Assumes scalar iid positive curvature with finite second moment; not general acceleration rates.
+
+## originality
+
+PASS
+
+Best-of-knowledge original necessary-and-sufficient mean-square stability for iid positive scalar random curvature throughout the low-variance regime, and exact unique momentum maximizing stepsize width. Kidambi et al. already derive algebraically identical necessary high-variance bound (c≥2), which is credited rather than misrepresented as new.
+
+## value
+
+PASS
+
+The coefficient of variation v is a natural intrinsic noise measure, and the exact transition v=1 tells when momentum increases versus decreases the maximal mean-square stable constant stepsize for every iid positive scalar curvature law. The reachable low-variance optimum is an actionable sharp boundary beyond a previous necessary high-noise restriction; not claiming faster convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

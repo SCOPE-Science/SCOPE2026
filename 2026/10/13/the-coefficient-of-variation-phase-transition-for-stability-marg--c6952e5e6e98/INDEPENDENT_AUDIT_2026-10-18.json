@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:15:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From independent iid update derive covariance T=[[m²+η²σ²,−2βm,β²],[m,−β,0],[1,0,0]], m=1+β−ηµ. Independently symbolically checked det(I−T)=(1+β)η[2µ(1−β)−η((1−β)µ²/(1+β)+σ²)], positive-definite quadratic V and exact conditional drift minus same coefficient times x². Telescoping proves convergence for any deterministic initial pair strictly below bound. At the endpoint T has eigenvalue one; above det(I−T)<0 entails a real eigenvalue >1, and the three deterministic rank-one moment starts span all symmetric moment arrays, proving necessity. The β-derivative is exactly factored; v∈(0,1), v≥1 and v=0 limit cases handled. Independent SymPy det/drift/derivative checks all exact. Assumes scalar iid positive curvature with finite second moment; not general acceleration rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 prior is a specific stochastic-regression lower-bound construction; other works treat diminishing steps or high-dimensional diffusion, not exact fixed scalar iid two-step covariance stability for every deterministic start."
+        ],
+        "reasoning": "No inspected stronger necessary-and-sufficient all-v fixed-step stability theorem was found; standard random-matrix moment machinery could imply it only after deriving the explicit 3×3 spectral cutoff.",
+        "searches": [
+          "arXiv:1803.05591 Appendix A",
+          "arXiv:1604.03257 stochastic momentum general convergence",
+          "arXiv:2106.03696 stochastic momentum quadratic models"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 056122479ff34241acb45d33b221d1328e8ef8ed",
+        "Inspected check.py Git blob 2780724d22279cf83f89450f5365041f76b77c30",
+        "arXiv:1803.05591 Appendix A Lemma 4 / Remark 8",
+        "arXiv:1604.03257, arXiv:1609.04228 and arXiv:2106.03696 (context)",
+        "Resultary scalar stochastic heavy-ball query with retrieved related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same rational formula for a high-noise necessary boundary, but the prior paper does not prove universal low-noise sufficiency or unique margin-optimal β=(1−v)/(1+v).",
+          "Here positive-definite V gives exact drift and sum E x_k² finite for v<1, completing the missing direction."
+        ],
+        "reasoning": "Differentiating a previously known rational bound is elementary; the value arises from proving it is the *exact achievable* stability interval for every deterministic start and every admissible scalar law in the previously uncovered regime.",
+        "searches": [
+          "arXiv:1803.05591 Lemma 4 and Remark 8",
+          "arXiv:1604.03257",
+          "Resultary heavy ball random curvature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With c=EA²/(EA)²=1+v², Kidambi's threshold 2(1−β²)/(c+(c−2)β) is algebraically identical to τ_v(β).",
+          "Their construction and instability treatment impose c≥2, hence v≥1; the low-noise interval c∈(1,2) with exact sufficiency and optimizing β is outside those assumptions."
+        ],
+        "reasoning": "Known bound is equivalent algebraically on its high-noise parameter domain; domain matters. A statement of necessary instability at high variance does not entail stability below the cutoff at low variance.",
+        "searches": [
+          "Resultary scalar random curvature stochastic heavy ball stability variance optimal momentum",
+          "arXiv:1803.05591 Appendix A Lemma 4 Remark 8",
+          "arXiv:1609.04228"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary hits concern PAGE, Loopless SVRG, constant-template STORM, Aggregated Momentum or one-step OSGM, rather than this heavy-ball τ_v optimizer."
+        ],
+        "reasoning": "The classification is continuous in v and β, so a finite dataset cannot cover it; no matching exact β*(v) table was retrieved.",
+        "searches": [
+          "Resultary semantic same scalar random-curvature momentum coefficient of variation",
+          "arXiv:1803.05591 Lemma 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge original necessary-and-sufficient mean-square stability for iid positive scalar random curvature throughout the low-variance regime, and exact unique momentum maximizing stepsize width. Kidambi et al. already derive algebraically identical necessary high-variance bound (c≥2), which is credited rather than misrepresented as new.",
+      "residual_risks": [
+        "A classical random-coefficient AR(2) Lyapunov-stability theorem might already have a direct optimized CV-bound formulation.",
+        "The high-variance necessary inequality and differentiation are not independently claimed novel; exact universal low-variance sufficiency must survive as the genuine content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedence for high-noise necessary stepsize formula, not the complete low-noise phase transition.",
+          "evidence": [
+            "Lemma 4 bound 2(1−β²)/(c+(c−2)β); c≥2 in their example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.05591",
+          "material_read": "Appendix A Lemma 4, Remark 8 and proof of bound; checked restriction c≥2 and construction, with PDF page inspection.",
+          "method": "Full arXiv PDF accessible, inspected relevant statements and derivations.",
+          "title": "On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization",
+          "trigger": "Same constant-momentum scalar stochastic random-curvature instability factor"
+        },
+        {
+          "assessment": "Decreasing gain/stochastic approximation setting differs from fixed iid multiplicative-curvature exact margin.",
+          "evidence": [
+            "Primary work concerns decreasing gains and long-time stochastic heavy ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.04228",
+          "material_read": "Available abstract and relevant convergence-setting descriptions; no full-paper noncoverage asserted beyond read material.",
+          "method": "ArXiv bibliographic/abstract comparison.",
+          "title": "Stochastic Heavy Ball",
+          "trigger": "Earlier stochastic momentum analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient of variation v is a natural intrinsic noise measure, and the exact transition v=1 tells when momentum increases versus decreases the maximal mean-square stable constant stepsize for every iid positive scalar curvature law. The reachable low-variance optimum is an actionable sharp boundary beyond a previous necessary high-noise restriction; not claiming faster convergence rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md Git blob 056122479ff34241acb45d33b221d1328e8ef8ed",
+    "Inspected check.py Git blob 2780724d22279cf83f89450f5365041f76b77c30",
+    "arXiv:1803.05591 Appendix A Lemma 4 / Remark 8",
+    "arXiv:1604.03257, arXiv:1609.04228 and arXiv:2106.03696 (context)",
+    "Resultary scalar stochastic heavy-ball query with retrieved related records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scalar iid multiplicative curvature with common optimizer and finite second moment, 0≤β<1; maximizing stability width not asymptotic rate or multidimensional noncommuting-Hessian acceleration.",
+    "Kidambi 2018 already contains equivalent high-noise necessary formula; only complete exact low-noise sufficiency/optimization potentially novel."
+  ],
+  "schema_version": 1
+}
