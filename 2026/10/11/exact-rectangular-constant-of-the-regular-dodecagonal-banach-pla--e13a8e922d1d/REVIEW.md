@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining quotient is exactly the reciprocal norm of a convex combination of a unit Birkhoff--James orthogonal pair. For the regular dodecagon, support-functional orthogonality plus dihedral symmetry reduces every admissible chord to three triangles. On those triangles, explicit unit-dual facet combinations give the global lower bound \((7+5\sqrt3)/26\), and the chord from \((1,-(2-\sqrt3))\) to \((0,1)\) attains it. The packaged exact checker verifies all named facet incidences, dual-certificate values and the equality parameter \(\lambda=3-\sqrt3\).
+## correctness
 
-## Originality
-PASS. The 2021 open-access defining paper was inspected in full around the invariant, general bounds and its regular-hexagonal computation; no dodecagonal value appears. Candidate-specific searches covered the Joly name, regular-dodecagon/12-gon aliases, Birkhoff--James chord terminology and the exact radical. A 2024 generalized-rectangular-constant paper is a plausible stronger source, but only its abstract was publicly accessible in the checked route; that access limitation is retained as a residual risk rather than converted into a noncoverage claim. The available own ledgers contain the regular-octagon rectangular value and a generalized \(\ell_4^2\) value, not this claim.
+PASS
 
-## Value
-PASS. This computes a classical non-Hilbertian geometric invariant on a canonical regular polygon with genuinely richer normal-cone geometry than the hexagonal source example. The result is not just a table lookup: the reciprocal constant is identified as an exact orthogonal-chord depth and proved by a complete three-region facet decomposition. That structure is potentially reusable for other polygonal norms.
+The regular 12-gon support norm is max of twelve unit outward facet functionals. Birkhoff-James support-cone analysis (edge interiors and vertex normal cones, using full dihedral symmetry) reduces all normalized chords to T_E,T_1,T_2. Convex combinations h_E,h_2 of adjacent facet normals and n_2 certify every triangle has norm at least d=(7+5sqrt3)/26. On chord from v11=(1,-(2-sqrt3)) to (0,1), the exact point (1,1)/(4-sqrt3) has norm d and is attained at lambda=3-sqrt3. Therefore μ=1/d=5sqrt3-7. Verified exact sqrt3 algebra and all triangle vertices from actual verify.py; finite symbolic checks support but do not replace the support-cone completeness argument.
 
-## Closest literature and limitations
-Baronti, Casini and Papini, doi:10.1017/S0004972721000253, define the invariant in the form used here, were first published online on 26 April 2021, and list primary MSC 46B20. They compute the regular-hexagonal case but not the dodecagon. Xie, Fu and Li, doi:10.1007/s10476-024-00034-9, extend the rectangular-constant family; only abstract-level material was available in the checked route. The theorem here does not classify every regular polygon or every maximizing triple.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Baronti–Casini–Papini full primary text develops rectangular bounds and a regular hexagonal value, not the regular dodecagon. Paul–Ghosh–Sain general polyhedral reductions do not compute the 12-gon. Xie–Fu–Li authorized text pages1–2 introduces different generalized μ(X,a) and broad l_p estimates. Resultary found dodecagonal James, P-angle, Ω and Gao invariants but none is the Joly rectangular quotient; no broader indexed formula that supplies μ(X12) was found. Residual possibility of an unindexed older specific computation remains.
+
+## value
+
+PASS
+
+A regular dodecagon is a canonical next nontrivial polygonal Banach plane with both edge and vertex Birkhoff strata. The exact Joly rectangular constant is a natural finite-polytope invariant; its three-region dual-facet certificate supplies reusable structure, rather than merely substituting into a known all-polygons formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
