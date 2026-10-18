@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For any bipartite graph without isolated vertices, total domination separates into independent set-cover problems on the two shores: \(\gamma_t(H)=\tau_A(H)+\tau_B(H)\). In a crown and every spanning subgraph of it, each shore-cover number is at least two. Therefore increasing total domination above four forces one shore-cover number to be at least three. The proof then translates that failure of every two-vertex cover into a family of proper nonneighbor sets that covers every pair of \([n]\), and the inductive pair-cover lemma gives the sharp deletion lower bound \(2n-3\). The explicit constructions use exactly \(2n-3\) deletions, preserve nonisolation, and force a shore-cover number at least three. The checker independently exhausts all sub-target deletion sets for \(n=3,4,5\), verifies the pair-cover optimum for \(n=3,4,5,6\), and checks witnesses through \(n=30\).
+## correctness
 
-## Originality
-PASS with residual risk. The initiating 2025 \(k\)-total-bondage paper treats exact values on complete bipartite graphs, not the matching-deleted crown family. The 2013 survey records the classical complete-bipartite total-bondage value, providing a stronger nearby baseline but no implication for a crown because total bondage is not preserved by initial edge deletion. The 2016 crown paper computes ordinary bondage, a different domination parameter. Targeted semantic searches for crown, \(K_{n,n}\) minus a perfect matching, bipartite complement of a one-factor, and exact \(2n-3\) total-bondage formulations returned no covering statement. The current and preceding owned ledgers were also checked for equivalent claims and contained no total-bondage crown theorem.
+PASS
 
-## Value
-PASS. Crown graphs are the canonical one-factor deletion of complete bipartite graphs, while complete bipartite graphs are a standard exact-value family in total-bondage theory. The theorem gives a complete infinite-family answer and exposes a sharp perturbation: the known balanced complete-bipartite value \(n\) becomes \(2n-3\) after deleting one perfect matching. The weighted pair-cover lemma explains the change structurally rather than by isolated computation.
+The identity gamma_t(H)=tau_A(H)+tau_B(H) on a bipartite graph follows from independent open-neighborhood covering of shores. For a crown both tau=2. Raising gamma_t requires >=3 on one shore; missed-pair nonneighbor blocks cover all C(n,2) pairs, and the written induction for proper blocks of size>=2 proves weighted sum(|C|-1)>=2n-3. Explicit W1,W2,W_{n-1} witness deletes precisely 2n-3 edges without isolates. Independent exhaustive subthreshold deletion checks n=3..5 and n=3..8 witnesses match. Infinite proof relies on the structural lemma, not these samples.
 
-Closest literature and limitations are described in RESULT.md and AUDIT.json. The main residual originality risk is a poorly indexed older result under an alternate crown-graph name; the original 1991 paper was not treated as having been exhaustively inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected recent k-total-bondage primary paper treats complete bipartite graphs but not crown graphs; the older survey gives the same-invariant complete-bipartite baseline while 2016 crown literature treats ordinary bondage. Neither a different starting graph nor a different domination variant implies b_t(Cr_n). Resultary closest crown results concern other invariant families.
+
+## value
+
+PASS
+
+The infinite crown family is the canonical one-factor-deleted K_n,n. Its total bondage shifts from known K_n,n baseline n to 2n-3, and the weighted pair-cover lemma explains sharp resistance to additional edge deletion. This is a motivated structural threshold, not an isolated arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

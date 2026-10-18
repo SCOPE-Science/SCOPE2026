@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof establishes the claim for every integer \(n\ge3\). The computational check is deliberately finite and is not used to infer the infinite theorem.
+# Independent mathematical audit
 
-`verify_total_bondage_crown.py` performs three independent checks from the definitions:
+## correctness
 
-1. For \(n=3,4,5\), it exhausts every crown-edge deletion set of size strictly below \(2n-3\), discards deletions that create isolated vertices, computes both shore-cover numbers, and confirms that total domination never rises above four.
-2. For \(n=3,4,5,6\), it solves the finite weighted pair-cover problem exactly and obtains minima \(3,5,7,9\), matching \(2n-3\).
-3. For every \(3\le n\le30\), it constructs the proof witness, verifies exactly \(2n-3\) deletions, checks nonisolation, and computes a total domination number strictly above four.
+PASS
 
-Replay output:
+The identity gamma_t(H)=tau_A(H)+tau_B(H) on a bipartite graph follows from independent open-neighborhood covering of shores. For a crown both tau=2. Raising gamma_t requires >=3 on one shore; missed-pair nonneighbor blocks cover all C(n,2) pairs, and the written induction for proper blocks of size>=2 proves weighted sum(|C|-1)>=2n-3. Explicit W1,W2,W_{n-1} witness deletes precisely 2n-3 edges without isolates. Independent exhaustive subthreshold deletion checks n=3..5 and n=3..8 witnesses match. Infinite proof relies on the structural lemma, not these samples.
 
-`ALL CHECKS PASSED; exhaustive_orders=[3,4,5]; deletion_subsets_below_target=61276; lemma_orders=[3,4,5,6]; lemma_minima=[3, 5, 7, 9]; witness_range=3..30`
+## originality
 
-Unproved by computation: no finite replay is claimed to exhaust orders above five for the lower bound. Those orders are covered only by the written inductive lemma and the analytic reduction.
+PASS
+
+The inspected recent k-total-bondage primary paper treats complete bipartite graphs but not crown graphs; the older survey gives the same-invariant complete-bipartite baseline while 2016 crown literature treats ordinary bondage. Neither a different starting graph nor a different domination variant implies b_t(Cr_n). Resultary closest crown results concern other invariant families.
+
+## value
+
+PASS
+
+The infinite crown family is the canonical one-factor-deleted K_n,n. Its total bondage shifts from known K_n,n baseline n to 2n-3, and the weighted pair-cover lemma explains sharp resistance to additional edge deletion. This is a motivated structural threshold, not an isolated arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
