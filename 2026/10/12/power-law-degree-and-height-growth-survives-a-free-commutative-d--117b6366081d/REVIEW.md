@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct-product counting identity is exact under the source’s adjoined-identity convention. The pure commutative contribution is only \(O((\log x)^m)\), while normalized mixed terms have a summable geometric majorant, so dominated convergence yields the claimed constant. For the elliptic family, the source matrices give \(d(\alpha)=c^2\), \(d(\beta)=(kc)^2\), and \(d([q_j])=q_j^2\); the first two free-generator weights are multiplicatively independent when \(\gcd(c,k)=1\). Néron--Tate functoriality then converts degree growth into canonical-height growth exactly, and bounded Weil/canonical height difference preserves the leading term.
+## correctness
 
-## Originality
-PASS. The recent source explicitly says its connected-complement theorem does not apply to the family \(F(n)\times A(m)\) and records only numerical evidence for the desired degree and height asymptotics. Searches for direct-product, trace-monoid, weighted-growth, and free-commutative formulations found no published finding that states or implies this arithmetic-dynamical direct-product asymptotic with its leading constant. Bell--Hindes--Zhong cover the free factor, not the extra commuting direct factor. The residual risk is that the abstract convolution lemma may be folklore in regular-variation language, but no inspected source supplied the application or the explicit factor for the family at issue.
+PASS
 
-## Value
-PASS. The claim closes both degree and height halves of a concrete gap highlighted in Remark 1.9 of a recent number-theory paper and identifies exactly how each central multiplication map changes the main term. It also isolates a structural reason disconnected complement graphs need not destroy power-law growth: a free-commutative factor contributes a convergent zeta factor at the dominant exponent.
+Under the adjoined-identity convention, N_{F×A}(x)=N_A(x)+Σ_{r∈N^m}N_F(x/Q(r)); pure commutative elements contribute O((log x)^m). From N_F(y)=C_F y^ρ+o(y^ρ), an all-y bound N_F(y)<=Cy^ρ for y>=1 dominates the normalized summands by CQ(r)^(-ρ). The finite Euler product ∏(1−e_j^(-ρ))^-1 allows dominated convergence and exact leading constant. In Hindes’s stated elliptic family, d(f_i)=c^2(kc)^{2i} and d(g_j)=q_j^2; coprimality of c,k shows d(f_1),d(f_2) noncommensurate through 2r=4s and 4r=6s, permitting the prior free-factor asymptotic when n>=2. Symmetric ample D gives exact canonical-height multiplication and Weil height O(1) threshold adjustment for non-torsion P. Rechecked decomposition and a finite weighted model in /mnt/data/check_batch1333.py.
 
-Closest literature and limitations are stated in RESULT.md. The result is restricted to direct products with a power-law first factor and does not give a criterion for arbitrary disconnected complement graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The direct-product summation yields an explicit zeta multiplier and settles the natural disconnected-complement family singled out in Hindes Remark 1.9 as numerical evidence only according to source record. Bell–Hindes–Zhong supplies the free-factor count, not its independent commutative extension. Given inaccessible Hindes full text, this remains a cautious best-of-knowledge PASS rather than a whole-paper negative-coverage finding.
+
+## value
+
+PASS
+
+The result addresses a specific unproved numerical growth prediction attached to an explicit arithmetic-dynamical family and supplies both an exact zeta multiplier and canonical/Weil height transfer. The general convolution lemma is elementary, but the application identifies a meaningful hypothesis boundary of a recent partially commutative endomorphism theorem. No unsupported claim is made for arbitrary disconnected graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

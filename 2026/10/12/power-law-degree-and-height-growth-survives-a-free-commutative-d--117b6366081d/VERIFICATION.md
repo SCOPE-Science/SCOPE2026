@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked symbolically from its definitions and source hypotheses; no finite experiment is used as evidence for an infinite statement.
+# Independent mathematical audit
 
-For the abstract direct product, the exact decomposition into a pure commutative contribution and mixed terms was verified against the source’s adjoined-identity convention. The pure commutative count is \(O((\log x)^m)\). The mixed normalized summands are dominated by \(CQ(\mathbf r)^{-\rho}\), whose sum is exactly \(\prod_j(1-e_j^{-\rho})^{-1}\), so dominated convergence is applicable.
+## correctness
 
-For the elliptic family, the matrices in Proposition 6.11 and Lemma 6.12 give \(d(\alpha)=c^2\), \(d(\beta)=(kc)^2\), and \(d([q_j])=q_j^2\). Multiplicativity gives \(d(f_i)=c^2(kc)^{2i}\). Coprimality of \(c\) and \(k\) makes \(d(f_1)\) and \(d(f_2)\) multiplicatively independent, satisfying the free-factor noncyclic hypothesis for \(n\ge2\).
+PASS
 
-For heights, \(D\) is symmetric and ample, so Néron--Tate functoriality gives \(\widehat h_D(G(P))=d(G)\widehat h_D(P)\). Non-torsion points have positive canonical height. The relation \(h_D=\widehat h_D+O(1)\) then transfers the canonical-height asymptotic to any associated Weil height without changing its leading constant.
+Under the adjoined-identity convention, N_{F×A}(x)=N_A(x)+Σ_{r∈N^m}N_F(x/Q(r)); pure commutative elements contribute O((log x)^m). From N_F(y)=C_F y^ρ+o(y^ρ), an all-y bound N_F(y)<=Cy^ρ for y>=1 dominates the normalized summands by CQ(r)^(-ρ). The finite Euler product ∏(1−e_j^(-ρ))^-1 allows dominated convergence and exact leading constant. In Hindes’s stated elliptic family, d(f_i)=c^2(kc)^{2i} and d(g_j)=q_j^2; coprimality of c,k shows d(f_1),d(f_2) noncommensurate through 2r=4s and 4r=6s, permitting the prior free-factor asymptotic when n>=2. Symmetric ample D gives exact canonical-height multiplication and Weil height O(1) threshold adjustment for non-torsion P. Rechecked decomposition and a finite weighted model in /mnt/data/check_batch1333.py.
 
-Limits: no assertion is made for \(n=1\), torsion points, arbitrary disconnected complement graphs, or counts of distinct orbit points after map collisions. Independent audit has not been performed.
+## originality
+
+PASS
+
+The direct-product summation yields an explicit zeta multiplier and settles the natural disconnected-complement family singled out in Hindes Remark 1.9 as numerical evidence only according to source record. Bell–Hindes–Zhong supplies the free-factor count, not its independent commutative extension. Given inaccessible Hindes full text, this remains a cautious best-of-knowledge PASS rather than a whole-paper negative-coverage finding.
+
+## value
+
+PASS
+
+The result addresses a specific unproved numerical growth prediction attached to an explicit arithmetic-dynamical family and supplies both an exact zeta multiplier and canonical/Weil height transfer. The general convolution lemma is elementary, but the application identifies a meaningful hypothesis boundary of a recent partially commutative endomorphism theorem. No unsupported claim is made for arbitrary disconnected graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
