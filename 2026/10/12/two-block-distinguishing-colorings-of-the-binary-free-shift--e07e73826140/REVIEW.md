@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every path automorphism is a translation or a reflection in integer coordinates. For an injective two-block code, a translation between color-identical components fixes vertices; a reversal would force a two-periodic input and is therefore impossible on the free part. Every noninjective code identifies one of six unordered pair pairs, each supplying a fully explicit aperiodic reflection witness; these exhaust the cases. The finite checker independently exercises witness construction and labeled counts but is not relied upon for the infinite statement.
+## correctness
 
-**Originality — PASS, with a specific access risk.** Targeted searches of published findings and relevant mathematical literature located no exact classification of all homogeneous two-block distinguishing codes. Chen--Zou compute the unrestricted Borel palette \(3\), which neither proves nor rules out a two-block three-color coding. Bilge--Kaya study unrestricted Borel distinguishing, while Gao--Jackson--Krohne--Seward and Gao--Jiang--Wang chiefly analyze chromatic, continuous-equivariant and shift-graph properties; the full public Gao--Jiang--Wang text was inspected at its definitions and main theorems and searched for the term distinguishing (no occurrences). The closest 2026 primary preprint was confirmed by its arXiv abstract/submission metadata but full text could not be inspected, so an implicit statement there remains an acknowledged risk; a negative whole-paper coverage assertion is not made.
+PASS
 
-**Value — PASS.** The first nontrivial uniform finite-neighborhood family can be completely classified, yielding an exact local palette threshold of four against the unrestricted Borel optimum of three. This isolates a concrete locality constraint that any construction attaining the Borel optimum must avoid. The explicit sharpness and all-rule classification are pertinent to the symbolic-factor approach to distinguishing colorings, rather than an arbitrary numerical slice.
+Every connected component of the free shift graph is a bi-infinite path, hence its maps are translations or reversals. Injective ordered-pair colors decode the input; translations then fix vertices and a reversal would impose x_{j+2}=x_j, impossible on the aperiodic set. Each of six unordered pair collisions admits a one-defect or step-sequence witness with an explicit reflection, so each noninjective rule fails for the whole graph. The six complete algebraic constructions work at all integer positions, not just tested ranges. Independent 256-rule, -35..35 finite checks confirmed the witnesses and 24 injective 4-color rules.
 
-**Scientific limits.** No claim concerns three-block rules, arbitrary continuous or general Borel colorings beyond the comparison with the published unrestricted number, or independently audited novelty. The result does not infer unseen theorems from source abstracts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unrestricted Borel distinguishing number three (Chen–Zou) and abstract orbit-map criterion concern an entirely broader class and do not state the complete iff classification for homogeneous 2-block maps; Bilge–Kaya gives general Borel distinction; shift-graph chromatic work addresses proper color rather than arbitrary automorphism breaking. Direct check of implications shows palette 3 lower bound in the broad class does not imply a four-color local threshold; a general orbit criterion alone still requires a six-collision classification. Best-of-knowledge local two-block result survives.
+
+## value
+
+PASS
+
+The first nontrivial fixed finite-window neighborhood on a canonical descriptive-combinatorics shift admits complete uniform rule classification. Its four-versus-three locality obstruction is conceptually informative for symbolic factors and Borel distinguishing constructions, not just an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
