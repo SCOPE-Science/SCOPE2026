@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:56:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The barycentric variance identity gives r_q^2=s^2(q-1)/(2q) and forces a unique centroid when a ball contains q vertices. Pigeonhole forces a k-vertex ball in any two-ball cover, hence radius >=r_k. The hyperplane sum_A lambda_i=1/2 cuts the entire simplex into two convex cells whose vertices are selected original vertices and cross-edge midpoints. Those midpoints have squared distance s^2/4 to both complementary face centroids, no larger than r_k^2 and r_l^2, so convexity covers the entire body rather than only its vertices. In odd dimensions both balls must contain disjoint k-vertex groups at exact radius and their centers are unique; in even dimensions the radius slack r_k-r_(k-1)>0 gives a ball of second-center perturbations. Valid for all integer d>=3; no total optimizer classification for even d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Ben Avraham–Sharir analyze two-center finite point sets in R^3.",
+          "Böröczky–Fábián–Wintsche study full-body coverings of the different crosspolytope, for which vertex cover can differ from body cover."
+        ],
+        "reasoning": "The three-dimensional finite-set algorithms can compute particular finite inputs but do not imply the uniform closed form or all optimal-center rigidity. A crosspolytope theorem applies to a distinct combinatorial body, not simplices.",
+        "searches": [
+          "arXiv:1012.2694",
+          "DOI:10.1007/s10998-006-0024-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1012.2694",
+        "doi:10.1007/s10998-006-0024-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing point-set theorem has hypotheses finite P⊂R^3, while submitted d is arbitrary and the target is conv(P).",
+          "Crosspolytope conclusions cannot be specialized to the affinely independent d+1-vertex simplex."
+        ],
+        "reasoning": "Neither inspected source provides a premise whose direct specialization yields both the radius and parity optimizer geometry. However a historical specialized simplex cover may exist.",
+        "searches": [
+          "Agarwal Ben Avraham Sharir 2010 2-Center Problem in Three Dimensions",
+          "Böröczky Fábián Wintsche covering crosspolytope equal balls"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite Euclidean two-center algorithms solve optimization for input point sets; enclosing a vertex partition does not in general cover its convex hull.",
+          "The cut-cell proof is needed to pass from discrete vertex clustering to body covering."
+        ],
+        "reasoning": "An equivalent algorithmic input-output question is not a published closed formula or full-body center-classification theorem. The submitted statement includes infinitely many dimensions and all body points, not only a finite vertex set.",
+        "searches": [
+          "two congruent balls cover entire regular simplex full-dimensional Euclidean simplex optimal radius centroid partitions parity optimizer classification",
+          "arXiv:1012.2694"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Face circumradius r_q=s sqrt((q-1)/(2q)) is elementary and not claimed novel; a bare table of vertex radii misses all interior and equality cases."
+        ],
+        "reasoning": "The claim is not a previously tabulated numerical radius for a finite n; its continuous full-body covering and parity-dependent optimizer classification add necessary geometric proof.",
+        "searches": [
+          "regular simplex face circumradius formula",
+          "regular simplex two-center covering parity search"
+        ]
+      },
+      "rationale": "Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.",
+      "residual_risks": [
+        "Searches may miss an older full-dimensional regular-simplex two-ball covering theorem or optimizer classification under different terminology; originality is best of knowledge.",
+        "Even d only a forced centroid and an explicit continuum are claimed, not full classification of all pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact full-dimensional regular simplex body and parity optimizers",
+          "evidence": [
+            "Input is a finite point set in R^3 and output is algorithmic; no statement about every point of a regular simplex in arbitrary d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.2694",
+          "material_read": "Original arXiv PDF abstract, introduction, algorithmic problem statement and analysis of finite point-set two-center",
+          "method": "Primary full-text PDF selected sections",
+          "title": "The 2-Center Problem in Three Dimensions",
+          "trigger": "Closest exact two-ball optimization with simplex vertices as possible input"
+        },
+        {
+          "assessment": "NOT_COVERING regular simplex",
+          "evidence": [
+            "Polytope is the crosspolytope, not a regular simplex; example demonstrates why vertex-only is insufficient."
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~carlos/octcover.pdf",
+          "material_read": "Original article statement, geometry, and contrasting vertex-vs-body covering example",
+          "method": "Lawful author-hosted primary PDF, material theorem and example",
+          "title": "Covering the crosspolytope by equal balls",
+          "trigger": "Two congruent balls covering an entire regular convex polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-ball covering of an entire convex body cannot generally be inferred from its optimal vertex clustering. Establishing exact all-dimensional covering and full odd-dimensional optimizer count plus an even-dimensional rigidity-to-continuum transition resolves a natural convex covering/facility-location invariant beyond routine face circumradius substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Searches may miss an older full-dimensional regular-simplex two-ball covering theorem or optimizer classification under different terminology; originality is best of knowledge.",
+    "Even d only a forced centroid and an explicit continuum are claimed, not full classification of all pairs.",
+    "The source package has not been sanitized for publication; evidence of a correct original valuable finding does not imply external certification or authorization to publish.",
+    "Numerical and finite exact checks were not used as proofs of all dimensions/parameter values; the inspected analytic argument is decisive."
+  ],
+  "schema_version": 1
+}

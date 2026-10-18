@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python3 verify.py` in a standard Python 3 environment; no nonstandard packages or downloaded assets are required. The checker uses the exact identity \(\|\sum_i(\lambda_i-\mu_i)v_i\|^2=(s^2/2)\sum_i(\lambda_i-\mu_i)^2\) with \(s=1\). It verifies the two midpoint-to-centroid distances, all vertices of the barycentric halfspace sections, strictly positive room for center perturbation in even dimensions, and small odd-dimensional counting identities. The deterministic output starts with `VERIFY_OK`.
+# Independent mathematical audit
 
-Actual completed test output:
+## correctness
 
-`VERIFY_OK regular simplices: rational cut-vertex tests = 16571 barycentric samples = 4650 dimensions = 3..40`
+PASS
 
-The cut-vertex verifications and all optimality deductions for arbitrary \(d\) are proved in `RESULT.md`; finite code checks and interior sampling are not proofs of infinite statements. The program does not certify uniqueness beyond the proof and does not establish literature novelty. No independent audit has been performed.
+The barycentric variance identity gives r_q^2=s^2(q-1)/(2q) and forces a unique centroid when a ball contains q vertices. Pigeonhole forces a k-vertex ball in any two-ball cover, hence radius >=r_k. The hyperplane sum_A lambda_i=1/2 cuts the entire simplex into two convex cells whose vertices are selected original vertices and cross-edge midpoints. Those midpoints have squared distance s^2/4 to both complementary face centroids, no larger than r_k^2 and r_l^2, so convexity covers the entire body rather than only its vertices. In odd dimensions both balls must contain disjoint k-vertex groups at exact radius and their centers are unique; in even dimensions the radius slack r_k-r_(k-1)>0 gives a ball of second-center perturbations. Valid for all integer d>=3; no total optimizer classification for even d.
+
+## originality
+
+PASS
+
+Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.
+
+## value
+
+PASS
+
+A two-ball covering of an entire convex body cannot generally be inferred from its optimal vertex clustering. Establishing exact all-dimensional covering and full odd-dimensional optimizer count plus an even-dimensional rigidity-to-continuum transition resolves a natural convex covering/facility-location invariant beyond routine face circumradius substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
