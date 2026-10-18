@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining AdaMod update has been specialized without removing the moving-average rate state, clipping minimum, or source initialization. On the explicit parameter rectangle a rational derivative bound proves a \(24/25\) contraction of a forward-invariant square. The parameter changes sign at every step, and the deviation from its nonzero limiting alternating orbit is bounded for **every** positive integer. The small-positive-moment extension is proved using a local four-state contraction and summable bias-correction perturbations. Numeric iteration is supporting only, not a substitute for the infinite proof.
+PASS
 
-## Originality
+For source AdaMod with beta1=beta2=0, d=beta3 in [0.07,0.13], alpha*h/epsilon in [40/11,40/9], source m0=v0=s0=0 and x0=r=alpha/2-epsilon/h>0, direct substitution yields first step x1=(2d-1)r with |x1|<r. Normalized signed-state map H(u)=1/[1+kappa(u-1)], z'=d z+(1-d)H(u), u'=u(2min(H(u),z')-1), kappa∈[.45,.55], is an invariant strict contraction on [0.7,1.3]^2. Independently checked rational uniform derivative bounds F∈[18000/54289,22000/29929], |H'|≤22000/27889, row norms at most about 0.95503 and 0.81630, strictly below 24/25; min-switch continuous piecewise smooth. Thus every source trajectory obeys |x_t-(-1)^t r|≤(13/50)r (24/25)^(t-1) and approaches positive nonminimizer objective. For small strictly positive beta1,beta2 a four-state signed map has contracting autonomous fixed point and exponentially decaying bias-correction perturbations; finite-source entry and uniform contraction give persistence. Independently replayed actual printed bias-corrected recurrences 150 steps for (0,0),(.0002,.0001),(.001,.002) and confirmed initial objective decrease and limiting two-cycle; finite traces only corroborate the analytic proof.
 
-PASS. Adam limit cycles and their bias-corrected attraction are prior (Bock–Weiß, arXiv:2210.02070v1), as is the elementary one-step startup attenuation of AdaMod. The new theorem specifically establishes the complete actual **AdaMod** source trajectory with an evolving and sometimes active minimum cap, an explicit open parameter rectangle, a rational invariant square, and persistence with strictly positive moments. The defining AdaMod paper, arXiv:1910.12249v1, does not provide these conclusions. The accessible excerpt of a broader optimizer comparison describes qualitative late deterioration only; its complete text was not inspected, and unindexed overlap remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The exact two-cycle demonstrates that the smoothing safeguard can produce an initially safe descent while failing even asymptotic stationarity on a deterministic strongly convex quadratic. The geometric certificate and strictly positive-moment continuation separate this structural mechanism from both an initial-step toy calculation and an arbitrary simulation. The explicit smoothing interval does not cover the method's usual near-one memory parameter.
+The source AdaMod paper has a smoothed learning-rate-memory cap but no proved source-initialized nonzero two-cycle; Bock–Weiß Adam cycles do not include the AdaMod rate-memory and min-cap state. The exact invariant square and persistence with strictly positive moment coefficients are not implied by generic Adam cycles. Best-of-knowledge PASS with survey full-text access risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A genuine optimizer safeguard intended to prevent early extreme adaptive rates can still converge to an attractive nonoptimal alternating orbit on a strictly convex quadratic after first-step improvement. The uniform nontrivial parameter rectangle plus positive-moment continuation and source initialization is a motivated structural failure mode, beyond a one-step negative check. Scope excludes default beta3 near one, noise and arbitrary parameter choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:12:07.972210Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/source-initialized-adamod-converges-to-a-nonminimizing-two-cycle--e600db3c9d57/RESULT.md @5981d0d0c31db4f38ebf4abaddf325edfcf946ee",
+        "2026/10/12/source-initialized-adamod-converges-to-a-nonminimizing-two-cycle--e600db3c9d57/verify.py"
+      ],
+      "rationale": "For source AdaMod with beta1=beta2=0, d=beta3 in [0.07,0.13], alpha*h/epsilon in [40/11,40/9], source m0=v0=s0=0 and x0=r=alpha/2-epsilon/h>0, direct substitution yields first step x1=(2d-1)r with |x1|<r. Normalized signed-state map H(u)=1/[1+kappa(u-1)], z'=d z+(1-d)H(u), u'=u(2min(H(u),z')-1), kappa∈[.45,.55], is an invariant strict contraction on [0.7,1.3]^2. Independently checked rational uniform derivative bounds F∈[18000/54289,22000/29929], |H'|≤22000/27889, row norms at most about 0.95503 and 0.81630, strictly below 24/25; min-switch continuous piecewise smooth. Thus every source trajectory obeys |x_t-(-1)^t r|≤(13/50)r (24/25)^(t-1) and approaches positive nonminimizer objective. For small strictly positive beta1,beta2 a four-state signed map has contracting autonomous fixed point and exponentially decaying bias-correction perturbations; finite-source entry and uniform contraction give persistence. Independently replayed actual printed bias-corrected recurrences 150 steps for (0,0),(.0002,.0001),(.001,.002) and confirmed initial objective decrease and limiting two-cycle; finite traces only corroborate the analytic proof.",
+      "residual_risks": [
+        "The positive-moment robustness radius is existential, not quantitatively specified; reasoned via compact local contraction, not the 150-step numerical replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bock–Weiß demonstrate Adam limit cycles; AdaMod introduces additional dynamic rate averaging absent there.",
+          "AdaBound imposes prescribed time-dependent bounds unlike AdaMod recursively smoothed min-cap."
+        ],
+        "reasoning": "Earlier stronger statements for Adam are not statements for source AdaMod with its cap. No inspected general theorem implies the source-initialized uniform rectangle and positive-moment perturbative convergence.",
+        "searches": [
+          "arXiv:2210.02070 theorems on Adam limit cycles",
+          "arXiv:1910.12249 Algorithm 2",
+          "arXiv:1902.09843 AdaBound"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.12249",
+        "https://arxiv.org/abs/2210.02070",
+        "https://doi.org/10.1007/s00521-026-12014-1",
+        "Resultary semantic search: Resultary: AdaMod optimizer convergence nonminimizing 2 cycle quadratic initial descent positive beta1 beta2 moving average rates",
+        "Pinned assigned Git package, 2026/10/12/source-initialized-adamod-converges-to-a-nonminimizing-two-cycle--e600db3c9d57/RESULT.md @5981d0d0c31db4f38ebf4abaddf325edfcf946ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-step cap attenuation x1/r=2d-1 follows from source formula, but it only proves local descent.",
+          "Infinite-time convergence follows from a common two-branch contraction, a four-state fixed point and decaying bias-correction error."
+        ],
+        "reasoning": "Knowing generic Adam nonconvergence and AdaMod's first step cannot force the claimed infinite source-trajectory limit. The additional invariant contraction is essential.",
+        "searches": [
+          "arXiv:1910.12249 Algorithm 2",
+          "arXiv:2210.02070 Adam cycles",
+          "Resultary: AdaMod optimizer convergence nonminimizing 2 cycle quadratic initial descent positive beta1 beta2 moving average rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AdaMod adds s_t=beta3*s_(t-1)+(1-beta3)*eta_t and cap min(eta,s).",
+          "Bock–Weiß classify Adam 2-cycles without the smoothed AdaMod cap state."
+        ],
+        "reasoning": "The shared sign-alternating optimizer mechanism does not make the source recurrences equivalent. Adam cycles cannot directly establish this exact initialized AdaMod orbit or its basin.",
+        "searches": [
+          "Resultary: AdaMod optimizer convergence nonminimizing 2 cycle quadratic initial descent positive beta1 beta2 moving average rates",
+          "arXiv:1910.12249 Algorithm 2",
+          "arXiv:2210.02070 Adam optimizer limit cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact new source-trajectory region d∈[7/100,13/100], alpha h/epsilon∈[40/11,40/9], with rational 24/25 contraction bound.",
+          "Existing published Resultary records concern AdaShift, Lion, Adam/Yogi, other algorithms."
+        ],
+        "reasoning": "No exact AdaMod table or previously tabulated invariant basin for these parameters found; other optimizer limit-cycle tables are non-equivalent.",
+        "searches": [
+          "Resultary: AdaMod optimizer convergence nonminimizing 2 cycle quadratic initial descent positive beta1 beta2 moving average rates",
+          "AdaMod scalar quadratic 2 cycle instability source initialization table beta3"
+        ]
+      },
+      "rationale": "The source AdaMod paper has a smoothed learning-rate-memory cap but no proved source-initialized nonzero two-cycle; Bock–Weiß Adam cycles do not include the AdaMod rate-memory and min-cap state. The exact invariant square and persistence with strictly positive moment coefficients are not implied by generic Adam cycles. Best-of-knowledge PASS with survey full-text access risk.",
+      "residual_risks": [
+        "Existing optimizer survey full text inaccessible; qualitative AdaMod deterioration may conceal a more precise comparison.",
+        "The positive-moment robustness radius is existential, not quantitatively specified; reasoned via compact local contraction, not the 150-step numerical replay.",
+        "The phenomenon holds for small beta3, not common recommended near-one setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Smoothed learning-rate cap and printed bias corrections match assigned recurrence; no analytical nonzero source 2-cycle there",
+          "evidence": [
+            "Algorithm 2: m,v bias-corrected, eta=alpha/(sqrt(v_hat)+epsilon), s EMA, x update using min(eta,s)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.12249",
+          "material_read": "Primary full paper, Algorithm 2 and motivation/experimental convergence material, PDF page 2 algorithm image",
+          "method": "PDF text and screenshot",
+          "title": "An Adaptive and Momental Bound Method for Stochastic Learning",
+          "trigger": "Defines exact source algorithm and initialization"
+        },
+        {
+          "assessment": "Adam has attracting cycles, but does not model the AdaMod dynamically smoothed cap and its source state",
+          "evidence": [
+            "Adam source algorithm has no s_t cap; paper studies its bias-corrected dynamic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.02070",
+          "material_read": "Primary full PDF result statements and proof/recurrence sections, PDF screenshot",
+          "method": "PDF text and original theorem comparison",
+          "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+          "trigger": "Potentially dominating optimizer-cycle theorem"
+        },
+        {
+          "assessment": "Possible qualitative warning, NOT assessed as whole-document mathematical noncoverage",
+          "evidence": [
+            "Reported empirical deterioration after best iterate; no source-initialized scalar theorem verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00521-026-12014-1",
+          "material_read": "Accessible abstract/excerpt only; full text not obtained",
+          "method": "Public summary access only, not full paper",
+          "title": "First-order optimization algorithms: state of the art, classification, and performance: a practitioner's guide",
+          "trigger": "Reports AdaMod late performance decline, plausible overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/source-initialized-adamod-converges-to-a-nonminimizing-two-cycle--e600db3c9d57/RESULT.md",
+        "https://arxiv.org/abs/1910.12249",
+        "https://arxiv.org/abs/2210.02070",
+        "https://doi.org/10.1007/s00521-026-12014-1"
+      ],
+      "rationale": "A genuine optimizer safeguard intended to prevent early extreme adaptive rates can still converge to an attractive nonoptimal alternating orbit on a strictly convex quadratic after first-step improvement. The uniform nontrivial parameter rectangle plus positive-moment continuation and source initialization is a motivated structural failure mode, beyond a one-step negative check. Scope excludes default beta3 near one, noise and arbitrary parameter choices.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Existing optimizer survey full text inaccessible; qualitative AdaMod deterioration may conceal a more precise comparison.",
+    "The positive-moment robustness radius is existential, not quantitatively specified; reasoned via compact local contraction, not the 150-step numerical replay.",
+    "The phenomenon holds for small beta3, not common recommended near-one setting.",
+    "Source METADATA.json and AUDIT.json contain public-inappropriate operational scope_run_id; the scientific verdict is complete but publication is withheld.",
+    "No external certification or expert/Lean verification is asserted; VERIFY_OK is not O or V evidence."
+  ],
+  "schema_version": 1
+}
