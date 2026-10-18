@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed two strictly increasing piecewise-linear quantiles; their difference is 0, then increases with slope 8, then remains 8/5, proving X<=disp Y for every pair of quantile levels. Independently integrated quantile pieces to get tau_X=(25p²+143)/(2(25p²-25p+86)) and tau_Y=(25p²+183)/(2(25p²-25p+106)) on [3/5,4/5]. At u=24/25 and v=159/164, with u<v, differences are 174/115 and (1411-sqrt(62841))/770 respectively; 62841*23²-5657²=1241240>0 verifies reversed required strong expectile gap. Exact algebra checks the single witness; no finite enumeration used as a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later paper uses ex-dispersive for the weak median-straddling order and proves equivalence with dilation; it notes dilation does not control all-level spacing, but does not assert classical dispersive premise."
+        ],
+        "reasoning": "A counterexample under dilation alone does not refute an implication with the strictly stronger classical dispersive premise. No inspected broader theorem implies the present pair.",
+        "searches": [
+          "arXiv:2108.06138 (full OA material)",
+          "DOI:10.1017/jpr.2022.49 (Zeng–Zhuang–Hu abstract and accessible description)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.06138 original relevant full text",
+        "DOI:10.1007/s00362-022-01331-x published variant metadata",
+        "DOI:10.1017/jpr.2022.49 abstract and accessible indexed discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eberl–Klar: disp⇒weak e-disp, but strong e-disp⇒disp fails; the converse disp⇒strong e-disp is explicitly open.",
+          "Zeng–Zhuang–Hu: dilation not all-level control, without ensuring dispersive premise."
+        ],
+        "reasoning": "New example establishes Q_Y-Q_X nondecreasing, a property not guaranteed by earlier dilation witnesses, and demonstrates reversed same-side expectile spacings.",
+        "searches": [
+          "Eberl–Klar arXiv:2108.06138 Corollary 11, Example 12, open question",
+          "Zeng–Zhuang–Hu DOI:10.1017/jpr.2022.49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eberl–Klar distinguish weak median-straddling spacing from strong all-level expectile spacing and explicitly ask if classical dispersive order implies the latter."
+        ],
+        "reasoning": "Searched both the all-level expectile-spacing implication and the stronger quantile-difference formulation; the source gives only the weak direction and an example for the reverse implication.",
+        "searches": [
+          "Resultary: dispersive order does not imply strong expectile dispersive order Eberl Klar counterexample quantile",
+          "Resultary: dispersive order strongly stochastic order counterexample continuous distributions",
+          "Web: Eberl Klar strong expectile dispersive order open question dispersive implies strong 2025",
+          "arXiv:2108.06138 Definition 7(iii), Corollary 11, Example 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational levels 24/25 and 159/164, the quadratic 62841, and the quantile knot vector arise from original exact integration."
+        ],
+        "reasoning": "No checked record tables this specific structural witness; exact-expression searches are corroboration only.",
+        "searches": [
+          "Web: Eberl Klar strong expectile dispersive order open question dispersive implies strong 2025",
+          "Resultary: dispersive order does not imply strong expectile dispersive order Eberl Klar counterexample quantile"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): New example establishes Q_Y-Q_X nondecreasing, a property not guaranteed by earlier dilation witnesses, and demonstrates reversed same-side expectile spacings. A counterexample under dilation alone does not refute an implication with the strictly stronger classical dispersive premise. No inspected broader theorem implies the present pair. Residual literature/access risks are explicitly recorded.",
+      "residual_risks": [
+        "An equivalent independently discovered counterexample may use convex order or expectile-quantile dilation terminology.",
+        "Later Journal of Applied Probability paper was not fully inspected; its accessible statements use the weaker premise.",
+        "Piecewise-constant positive density is not asserted smooth."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_OPEN_QUESTION",
+          "evidence": "The source supplies disp⇒weak e-disp and asks whether strong e-disp follows; its Example 12 is the opposite logical direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06138",
+          "material_read": "Open-access original Definition 7, Corollary 11, nearby explicit question, Example 12 and supporting distribution-order comparison",
+          "method": "Read accessible full-text relevant sections and verify statement implications",
+          "title": "Stochastic orders and measures of skewness and dispersion based on expectiles",
+          "trigger": "Original definitions and named open question"
+        },
+        {
+          "assessment": "NOT_SHOWN_TO_COVER",
+          "evidence": "Weak ex-dispersive order equivalent to dilation; no classical dispersive counterexample asserted in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2022.49",
+          "material_read": "Publisher abstract and accessible indexed discussion, not a complete proof/full PDF",
+          "method": "Source statement and synopsis inspection",
+          "title": "Dispersive orderings induced by differences of inter risk measures",
+          "trigger": "Relevant later result sharing order terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A fully explicit atomless compactly supported witness resolves an explicit open implication in stochastic order theory with the very strong classical dispersive premise, distinguishing it from older dilation/weak expectile counterexamples. The upper-tail all-level failure has conceptual mathematical significance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2108.06138 original relevant full text",
+    "DOI:10.1007/s00362-022-01331-x published variant metadata",
+    "DOI:10.1017/jpr.2022.49 abstract and accessible indexed discussion",
+    "assigned source tree 06fd8de09779461f79a8f8a47e1270565e46a8ea"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No general criterion or C-infinity density counterexample claimed.",
+    "Strong e-disp here is all-pairs Definition 7(iii), not later median-straddling ex-disp."
+  ],
+  "residual_risks": [
+    "An equivalent independently discovered counterexample may use convex order or expectile-quantile dilation terminology.",
+    "Later Journal of Applied Probability paper was not fully inspected; its accessible statements use the weaker premise.",
+    "Piecewise-constant positive density is not asserted smooth."
+  ],
+  "schema_version": 1
+}
