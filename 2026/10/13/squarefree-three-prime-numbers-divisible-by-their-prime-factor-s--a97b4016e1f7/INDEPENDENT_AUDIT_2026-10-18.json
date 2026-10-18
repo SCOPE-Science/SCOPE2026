@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:12:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p<q<r distinct primes, S=p+q+r lies strictly in (r,qr), and if S divides the squarefree number pqr then it equals pq or pr, since the remaining divisors are outside that interval. S=pr gives q=(p-1)r-p, incompatible with q<r for p>=3; hence p=2 and r=q+2 (twin prime). S=pq gives r=pq-p-q>q, which forces p>=3. Both converse branches divide pqr, and the branches are disjoint. The bounding inequality holds even p=2,q=3. I independently factor-enumerated all squarefree three-prime n<=60000 and obtained exactly the two branch types; finite enumeration is corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2005 paper proves asymptotic bounds for all beta-divisible integers, not an explicit exhaustive 3-prime layer.",
+          "Resultary semantically ranked records on other 3-prime problems rather than this predicate."
+        ],
+        "reasoning": "Global counting theorems have broader ambient n but do not logically force this exact squarefree support classification.",
+        "searches": [
+          "De Koninck-Luca 2005, DOI 10.1112/S0025579300000346",
+          "Resultary: squarefree n product of three distinct primes divisible by sum of prime factors twin primes pq-p-q"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: squarefree n product of three distinct primes divisible by sum of prime factors twin primes pq-p-q",
+        "De Koninck Luca Integers Divisible by the Sum of their Prime Factors 2005",
+        "OEIS:A158804",
+        "beta(pqr)|pqr pq-p-q twin primes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof uses r<S<qr and the complete divisor set {1,p,q,r,pq,pr,qr,pqr} to leave S in {pq,pr}.",
+          "Branches are n=2q(q+2) with twin primes, or n=pq(pq-p-q) with the shifted value prime and larger than q."
+        ],
+        "reasoning": "The primary asymptotic bounds do not entail either algebraic exhaustion; the complete 3-prime theorem survives the exact prior-implication comparison.",
+        "searches": [
+          "De Koninck-Luca 2005, DOI 10.1112/S0025579300000346",
+          "OEIS:A158804"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A158804 lists composite numbers with beta(n)|n, including individual pqr examples.",
+          "The 2005 paper defines beta(n)=sum over distinct p|n and its counting function."
+        ],
+        "reasoning": "Same object and examples are prior; a list is not the iff and pqr divisor classification.",
+        "searches": [
+          "OEIS:A158804",
+          "De Koninck-Luca 2005, DOI 10.1112/S0025579300000346"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A158804 is an exact sequence of composite integers divisible by sum of their distinct prime factors; it contains many hits."
+        ],
+        "reasoning": "Tables of initial hits are not exact unbounded 2-branch characterization.",
+        "searches": [
+          "OEIS:A158804"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact classification of a canonical three-prime layer of the De Koninck-Luca beta(n)|n problem. Their full primary 2005 paper proves global counting bounds and uses large-prime estimates, not the complete p<q<r two-branch divisor interval. OEIS A158804 is an exact list without this exhaustive parameterization. Natural overlap includes old examples 30,70,105 and the beta function itself; novelty is the complete iff.",
+      "residual_risks": [
+        "A short divisor-interval classification may be reproduced in unindexed contest/problem notes or an appendix not found by statement search.",
+        "No assertion that either branch is infinite; no nonsquarefree or four-prime classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_THREE_PRIME_CLASSIFICATION",
+          "evidence": "Global upper/lower counting estimates and constructions; no iff pqr twin-prime/shifted-product split.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579300000346",
+          "material_read": "Complete lawful openly accessible nine-page 2005 paper, including theorem and large-prime counting proof",
+          "method": "Read full primary PDF",
+          "title": "Integers Divisible by the Sum of their Prime Factors",
+          "trigger": "Same beta(n)|n function and primary initiating paper"
+        },
+        {
+          "assessment": "EXACT_TABLE_NOT_STRUCTURAL_THEOREM",
+          "evidence": "Database includes examples from both branches but no proof of exhaustive 3-prime parametrization.",
+          "identifier_or_url": "https://oeis.org/A158804",
+          "material_read": "Definition, values and sequence comments",
+          "method": "Read public entry",
+          "title": "OEIS A158804",
+          "trigger": "Exact beta-divisibility list"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural and non-arbitrary first nontrivial three-distinct-prime support classification for a literature-studied divisibility property, separating twin prime and shifted-product prime families with an exact divisor identity. This can be used to test density and infinitude issues without pretending to solve them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only squarefree three distinct primes and only structural parametrization; twin-prime and shifted-prime infinitude remain open."
+  ]
+}
