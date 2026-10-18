@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stabilizer-support linear constraints show that two consecutive losses separate surviving clusters. If no four consecutive vertices survive and no cluster contains five retained vertices linked by gaps at most two, every surviving cluster has stabilizer rank at most one, hence a fully separable marginal. Conversely the four consecutive retained sites yield the explicit negative eigenvalue \(-1/8\) after a one-qubit partial transpose. The 16-pattern union bound is exact as an inequality and the Poisson factorial-moment argument correctly treats overlapping four-runs; it does not confuse enumeration with an infinite proof. A standard-library verifier exhaustively checked the required rank decompositions for all 64,512 masks on cycles of order 10 to 15. Risk: extension to non-cycle graph states or correlated losses is not justified.
+PASS
 
-## Originality — PASS
+Reconstructed exact F2 stabilizer constraint: lost vertex j imposes u_j=0 and u_{j−1}=u_{j+1}. Four retained consecutive sites support a=Z_i X_{i+1} Z_{i+2}, b=Z_{i+1} X_{i+2} Z_{i+3}; partial transpose of (I+a)(I+b)/16 has eigenvalue −1/8 on a=b=−1, so F⊆E. Two consecutive erasures separate surviving clusters; when neither F nor H occurs every cluster has ≤4 retained vertices with stabilizer dimension ≤1 and is fully separable in product Pauli eigenbasis, proving E⊆F∪H. At most n·2^4 five-site gap patterns, each prob r⁵. Overlapping four-run factorial moments vanish at nr⁴=O(1), giving Poisson(λ) four-run count and correct limit. For nr⁴→∞ disjoint 4-blocks give (1−r⁴)^floor(n/4)→0. Finite F2 source verifier inspected, not mistaken for asymptotic proof.
 
-The closest motivating preprint, Han–Zhang–Zhang arXiv:2606.08561v1, already proves the four-site NPT witness and the lack of worst-case \(m\)-resistance of larger cycles; these are *not* claimed as new. Its full accessible manuscript, including main cycle theorem and discussion, treats adversarial fixed-number loss rather than the probability of non-full-separability under independent Bernoulli losses. The new structural upper bound via five-site gap patterns and its Poisson survival profile address a different mathematical implication that is not contained in the explicit results inspected. Relevant graph-state particle-loss Bell-inequality and noisy-graph coherent-information studies address different observables and noise ensembles. There remains a priority risk of an equivalent, unindexed specialization of general stabilizer or word-pattern results, but no identified source has been found to cover both the quantum separability sandwich and the sharp survival window.
+## originality
 
-## Value — PASS
+PASS
 
-The exact critical law resolves a natural quantitative particle-loss question for an infinite family of resource states: rather than just stating a worst-case impossibility, it predicts a sharp probability crossover and gives a finite-size error bound tied to identifiable local quantum entanglement witnesses. The fourth-root exponent and Poisson curve can benchmark random-erasure experiments and mathematical models without needing entanglement-magnitude reconstruction. This is a structural phase-window calculation, not an arbitrary tabulated case or a mere renaming of the known witness.
+Han–Zhang–Zhang 2026 directly contains the exact 4-site NPT witness for cycles and worst-case resistance/nonresistance theorem; that witness is credited. Read the publicly available manuscript including its cycle proof, and its quantifiers are adversarial fixed-cardinality erasures, not Bernoulli random loss. The new five-gap separability upper event and fourth-root Poisson window do not follow from the prior theorem as stated. Other loss papers ask Bell robustness/coherent information with different observables. Best-of-knowledge with possible unindexed random-erasure results.
 
-## Sources and residual scientific limits
+## value
 
-Material read: Han–Zhang–Zhang, arXiv:2606.08561v1, publicly accessible full manuscript, especially stabilizer-marginal method and cycle proof; Silberstein–Arnon-Friedman (2023), particle-loss Bell-violation study; Sajjad et al. (arXiv:2404.09014), depolarizing-noise coherent-information analysis. The exact nature of the survival event, source date, non-full-separability condition, and finite-verifier scope have been cross-checked. The four-site NPT test is not new; only probabilistic retention of *some* entanglement is proved, not broader robustness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural scalable graph-state family and physically standard Bernoulli erasures, quantifies probability of residual entanglement with sharp n^(−1/4) critical exponent, full limiting curve and explicit finite-size error. Converts a local NPT certificate into a global probabilistic phase transition with matching separability control; not a mere restatement of the known witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

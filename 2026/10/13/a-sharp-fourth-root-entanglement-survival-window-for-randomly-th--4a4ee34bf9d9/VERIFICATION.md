@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Analytic chain
+## correctness
 
-For a graph-state generator \(K_i=Z_{i-1}X_iZ_{i+1}\), every surviving stabilizer is indexed by a retained-only binary vector satisfying \(u_{j-1}+u_{j+1}=0\) at all erased sites \(j\). Two consecutive erased sites separate the constraint system; at cluster endpoints its indexed bits must vanish. Every component of at most three retained sites, or four without four consecutive sites, has at most one independent remaining generator and thus yields a fully separable marginal. The complement of this separability event is included in the union of four-consecutive-survivor windows and five-survivor gap patterns; there are at most \(16n\) patterns of the latter. The known four-site NPT certificate supplies the lower inclusion.
+PASS
 
-Four-run factorial moments give a Poisson limit when \(nr^4\) converges and \(r\to0\); overlapping windows require extra retained sites and vanish at that scale. The disjoint-block bound proves the supercritical assertion. The claimed convergence is analytic, not an inference from finite tests.
+Reconstructed exact F2 stabilizer constraint: lost vertex j imposes u_j=0 and u_{j−1}=u_{j+1}. Four retained consecutive sites support a=Z_i X_{i+1} Z_{i+2}, b=Z_{i+1} X_{i+2} Z_{i+3}; partial transpose of (I+a)(I+b)/16 has eigenvalue −1/8 on a=b=−1, so F⊆E. Two consecutive erasures separate surviving clusters; when neither F nor H occurs every cluster has ≤4 retained vertices with stabilizer dimension ≤1 and is fully separable in product Pauli eigenbasis, proving E⊆F∪H. At most n·2^4 five-site gap patterns, each prob r⁵. Overlapping four-run factorial moments vanish at nr⁴=O(1), giving Poisson(λ) four-run count and correct limit. For nr⁴→∞ disjoint 4-blocks give (1−r⁴)^floor(n/4)→0. Finite F2 source verifier inspected, not mistaken for asymptotic proof.
 
-## Standalone computations
+## originality
 
-Run `python3 verify.py` from the extracted document directory. Python 3 standard library only. The direct binary-linear-algebra checker enumerates every retained subset for \(n=10,11,12,13,14,15\), giving 64,512 masks, and tests 22,297 masks within the separability side of the sandwich. It verifies cluster-wise stabilizer rank at most one and checks that the sum of component ranks equals the full surviving stabilizer rank (53,569 local component certificates). The program additionally checks the \(-1/8\) sign of the four-site partial-transpose eigenvalue. The resulting output is `VERIFY_OK`.
+PASS
 
-## Scope and remaining limits
+Han–Zhang–Zhang 2026 directly contains the exact 4-site NPT witness for cycles and worst-case resistance/nonresistance theorem; that witness is credited. Read the publicly available manuscript including its cycle proof, and its quantifiers are adversarial fixed-cardinality erasures, not Bernoulli random loss. The new five-gap separability upper event and fourth-root Poisson window do not follow from the prior theorem as stated. Other loss papers ask Bell robustness/coherent information with different observables. Best-of-knowledge with possible unindexed random-erasure results.
 
-These are finite linear-algebra computations; they do not establish the asymptotic theorem. The proof itself requires the graph-state formula, a finite-dimensional tensor-product separability argument, and the standard Poisson factorial-moment method. The statistics concern non-full-separability only, not distillable entanglement, violation of Bell inequalities, or quantum error-correction success. Independent audit has not been performed.
+## value
+
+PASS
+
+For a natural scalable graph-state family and physically standard Bernoulli erasures, quantifies probability of residual entanglement with sharp n^(−1/4) critical exponent, full limiting curve and explicit finite-size error. Converts a local NPT certificate into a global probabilistic phase transition with matching separability control; not a mere restatement of the known witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

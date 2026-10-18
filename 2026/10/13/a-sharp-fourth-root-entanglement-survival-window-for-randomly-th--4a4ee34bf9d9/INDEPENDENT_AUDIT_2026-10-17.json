@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact F2 stabilizer constraint: lost vertex j imposes u_j=0 and u_{j−1}=u_{j+1}. Four retained consecutive sites support a=Z_i X_{i+1} Z_{i+2}, b=Z_{i+1} X_{i+2} Z_{i+3}; partial transpose of (I+a)(I+b)/16 has eigenvalue −1/8 on a=b=−1, so F⊆E. Two consecutive erasures separate surviving clusters; when neither F nor H occurs every cluster has ≤4 retained vertices with stabilizer dimension ≤1 and is fully separable in product Pauli eigenbasis, proving E⊆F∪H. At most n·2^4 five-site gap patterns, each prob r⁵. Overlapping four-run factorial moments vanish at nr⁴=O(1), giving Poisson(λ) four-run count and correct limit. For nr⁴→∞ disjoint 4-blocks give (1−r⁴)^floor(n/4)→0. Finite F2 source verifier inspected, not mistaken for asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han et al's exact four-site NPT is covered; its general stabilizer method supplies a tool but not the deterministic five-gap sandwich. Bell violation/coherent information are different, potentially stronger observable/noise settings."
+        ],
+        "reasoning": "No identifiable higher-level theorem in inspected full focal manuscript yields both E⊆F∪H and 1−exp(−λ) random survival law.",
+        "searches": [
+          "Han Zhang Zhang full preprint cycle theorem and proof",
+          "Silberstein Arnon-Friedman PRR 2023 qubit-loss Bell robustness",
+          "Sajjad et al arXiv:2404.09014 coherent information"
+        ]
+      },
+      "checked_sources": [
+        "Han Zhang Zhang arXiv:2606.08561v1 full public CC BY preprint",
+        "arXiv:2404.09014",
+        "DOI:10.1103/PhysRevResearch.5.043099",
+        "RESULT.md 498c621dfe81296f6a522fad9c823c77b8ec8836"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known four-run NPT cert directly gives only lower bound P(E)≥P(F). Upper bound requires showing no other entanglement without a five-nearby-sites witness; original fixed-size theorem does not establish it."
+        ],
+        "reasoning": "Poisson limit from F alone gives one-sided asymptotic bound; matching upper with 16nr⁵ makes the new result. Credited the local NPT step, not the global sandwich.",
+        "searches": [
+          "Full focal paper theorem cycles n≥7 not m-resistant",
+          "Han full preprint local NPT certificate and separability mechanism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior nonresistance of C_n for n≥7 quantifies existence of bad erasure sets for each fixed loss count; does not determine probability under Bernoulli retention."
+        ],
+        "reasoning": "Distinguished E=any non-full-separability from worst-case m-resistance, Bell violation, genuine multipartite entanglement and error-correction recoverability.",
+        "searches": [
+          "Han Zhang Zhang arXiv:2606.08561 cycle resistance graph-state marginals",
+          "Resultary cycle graph state independent random qubit loss four consecutive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior classification tabulates small graph m-resistance; the submitted result gives n→∞ continuous probability law and explicit finite-n sandwich, not a finite graph table."
+        ],
+        "reasoning": "Small-state census is not a substitute for Poisson rare-four-run probability and surviving-cluster bounds.",
+        "searches": [
+          "Han 2026 small n=5,6,7 stabilizer-state classification",
+          "Resultary quantum cycle loss entanglement 4 retained"
+        ]
+      },
+      "rationale": "Han–Zhang–Zhang 2026 directly contains the exact 4-site NPT witness for cycles and worst-case resistance/nonresistance theorem; that witness is credited. Read the publicly available manuscript including its cycle proof, and its quantifiers are adversarial fixed-cardinality erasures, not Bernoulli random loss. The new five-gap separability upper event and fourth-root Poisson window do not follow from the prior theorem as stated. Other loss papers ask Bell robustness/coherent information with different observables. Best-of-knowledge with possible unindexed random-erasure results.",
+      "residual_risks": [
+        "Unindexed equivalent specialization from graph-state erasure codes or pattern-matching may exist; no absolute priority proof.",
+        "Entanglement concerns non-full-separability only; not Bell violation, resource recovery, genuine multipartite entanglement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS 4-site NPT witness and worst-case cycle non-resistance; random Bernoulli window not identified",
+          "evidence": "arXiv:2606.08561 v1: theorem for all n≥7 and all m failure of m-resistance, four-site partial transpose negative eigenvalue; no random independent retention threshold.",
+          "identifier_or_url": "https://www.researchgate.net/publication/406465730_A_five-qubit_1-resistant_graph_state_and_stabilizer_marginal_certificates",
+          "material_read": "Complete publicly displayed manuscript text (CC BY 4.0), introduction, methods, classification results, cycle theorem/proof and references",
+          "method": "Public full text in ResearchGate HTML with mathematical comparison; arXiv abstract cross-check",
+          "title": "A five-qubit 1-resistant graph state and stabilizer marginal certificates",
+          "trigger": "Same cycle graph, stabilizer marginals and particle loss"
+        },
+        {
+          "assessment": "DIFFERENT OBSERVABLE: Bell violation under loss",
+          "evidence": "Bell robustness does not equate to probability of non-full-separability under independent retention.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.5.043099",
+          "material_read": "Public article abstract/model context, no exhaustive full-text claim",
+          "method": "Public bibliographic and scientific observable comparison",
+          "title": "Robustness of Bell violation of graph states to qubit loss",
+          "trigger": "Could imply entanglement resilience"
+        },
+        {
+          "assessment": "Different pre-entangling noise/coherent information observable",
+          "evidence": "No implication to traced-out Bernoulli cycle margins established.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.09014",
+          "material_read": "Public article abstract and noise model context",
+          "method": "Public bibliographic analysis and mathematical model comparison",
+          "title": "Lower bounds on bipartite entanglement in noisy graph states",
+          "trigger": "Nearby graph-state noise asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural scalable graph-state family and physically standard Bernoulli erasures, quantifies probability of residual entanglement with sharp n^(−1/4) critical exponent, full limiting curve and explicit finite-size error. Converts a local NPT certificate into a global probabilistic phase transition with matching separability control; not a mere restatement of the known witness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Han Zhang Zhang arXiv:2606.08561v1 full public CC BY preprint",
+    "arXiv:2404.09014",
+    "DOI:10.1103/PhysRevResearch.5.043099",
+    "RESULT.md 498c621dfe81296f6a522fad9c823c77b8ec8836"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed equivalent specialization from graph-state erasure codes or pattern-matching may exist; no absolute priority proof.",
+    "Entanglement concerns non-full-separability only; not Bell violation, resource recovery, genuine multipartite entanglement."
+  ]
+}
