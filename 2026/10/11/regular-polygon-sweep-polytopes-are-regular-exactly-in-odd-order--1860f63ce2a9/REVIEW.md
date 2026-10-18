@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published sweep-polytope normalization is used exactly. The chord identity \(a_i-a_j=2i\,e^{\pi i(i+j)/n}\sin(\pi(i-j)/n)\) shows that all generators fall into \(n\) equally spaced direction classes indexed by \(i+j\pmod n\). For odd \(n\), these classes form one rotation orbit and the exact sine sum gives common side length \(\cot(\pi/(2n))\), so the output is regular. For even \(n\), the two residue parities give side lengths \(2\cot(\pi/n)\) and \(2\csc(\pi/n)\). Solving the two adjacent support equations proves cyclicity and the stated area formula. The unequal alternating edge lengths also force the exact even-order symmetry group.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the sweep-polytope definition, normal fan, permutahedral projection, and examples; it contains no regular-polygon specialization. Candidate-specific indexed and web searches covered sweep polytope, shellotope, chord zonotope, pairwise-difference zonotope, regular polygon, alternating edge lengths, area, and perimeter formulations. No covering statement was located. The older shellotope precursor was accessible only at abstract/metadata level and is carried as an explicit residual risk. A previously checked general zonotope-radius theorem concerns centered radii and tangent facets rather than the accepted side-orbit, regularity, symmetry-order, perimeter, and area theorem.
+PASS
 
-## Value
-PASS. The result completely describes the Euclidean shape of a canonical two-dimensional sweep-polytope family. It exposes a genuine parity-driven symmetry transition: odd regular polygons produce regular \(2n\)-gons and double their Euclidean symmetry order, while even regular polygons produce nonregular cyclic equiangular \(2n\)-gons with two exact alternating edge orbits. The closed perimeter and area formulas make the classification quantitatively complete.
+At the exact Padrol–Philippe normalization SP(A)=Σ_{i<j} [−(a_i−a_j)/2,(a_i−a_j)/2], the complex chord identity a_i−a_j=2i exp(πi(i+j)/n) sin(π(i−j)/n) partitions generators into n unoriented directions labelled i+j mod n, at angular gaps π/n. Each class contributes one opposite edge pair of length Σ|a_i−a_j|. For odd n=2m+1, multiplication by 2 acts transitively on the classes and Σ_{d=1}^m 2sin(πd/n)=cot(π/(2n)); the 2n-gon is equilateral and equiangular, hence regular. For even n=2m, the classes split into even and odd sums: total chord lengths 2cot(π/n) and 2csc(π/n). Alternating support numbers p,q obey q−p cos y=cos y and p−q cos y=1, solving p=(1+cos²y)/sin²y and q=2cos y/sin²y. Consecutive support-line intersections have the same radius, proving cyclicity; area=sum h_i L_i/2=n cos y(3+cos²y)/sin³y. Nonidentical alternating lengths imply exactly 2n metric symmetries for even n, versus 4n for regular odd case. Checked raw all-pair chord classes independently for n=3..44; tests supplement all-n trigonometric proof.
 
-## Closest literature and limitations
-Padrol--Philippe provide the construction and its combinatorial interpretations, while Gritzmann--Sturmfels provide the older shellotope context. The theorem is restricted to unit-circumradius regular planar inputs and does not classify arbitrary cyclic or affinely regular configurations. Older shellotope terminology remains the principal residual indexing risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full Padrol–Philippe source supplies sweep zonotope, normal fan and permutahedral shadows but does not provide metric regular-n-gon specialization in inspected sections. Older Gritzmann–Sturmfels shellotope source names the same construction, but full text was inaccessible; only abstract metadata was compared and its potential coverage remains an explicit risk. Semantically targeted searches for shellotope, pairwise-difference zonotope and even–odd edge orbit formulas gave no covering indexed theorem. The result requires nontrivial object-specific chord parity and exact edge/area computation beyond the general zonotope definition.
+
+## value
+
+PASS
+
+Complete natural canonical-family metric classification of the planar pairwise-difference sweep construction: parity determines exact regularity, two edge orbits versus one, cyclicity, closed perimeter/area, and whether the Euclidean symmetry group doubles. The arithmetic orbit splitting of chord classes under rotation is a structural phenomenon not implicit in abstract normal-fan equivalence. This supplies precise reference examples for sweep-polytopal geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

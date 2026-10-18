@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T03:48:02.602524Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Padrol–Philippe arXiv:2102.06134 Definition 2.1 exact source normalization",
+        "assigned chord-parity proof and two-support equations",
+        "independent generated all-pair chord lengths for n=3..44"
+      ],
+      "rationale": "At the exact Padrol–Philippe normalization SP(A)=Σ_{i<j} [−(a_i−a_j)/2,(a_i−a_j)/2], the complex chord identity a_i−a_j=2i exp(πi(i+j)/n) sin(π(i−j)/n) partitions generators into n unoriented directions labelled i+j mod n, at angular gaps π/n. Each class contributes one opposite edge pair of length Σ|a_i−a_j|. For odd n=2m+1, multiplication by 2 acts transitively on the classes and Σ_{d=1}^m 2sin(πd/n)=cot(π/(2n)); the 2n-gon is equilateral and equiangular, hence regular. For even n=2m, the classes split into even and odd sums: total chord lengths 2cot(π/n) and 2csc(π/n). Alternating support numbers p,q obey q−p cos y=cos y and p−q cos y=1, solving p=(1+cos²y)/sin²y and q=2cos y/sin²y. Consecutive support-line intersections have the same radius, proving cyclicity; area=sum h_i L_i/2=n cos y(3+cos²y)/sin³y. Nonidentical alternating lengths imply exactly 2n metric symmetries for even n, versus 4n for regular odd case. Checked raw all-pair chord classes independently for n=3..44; tests supplement all-n trigonometric proof.",
+      "residual_risks": [
+        "The class grouping uses unoriented chord normals; orientation half-plane signs handled separately.",
+        "Raw tests only through n=44; symbolic trigonometric sums establish all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol–Philippe treats all finite point configurations, giving sweep normal fan and allowable-sequence theory; it does not compute regular n-gon edge sizes or area.",
+          "General zonotope theory says each edge length sums parallel segment lengths, but fails to identify chord-class parity or symmetry-order jump without source-specific work.",
+          "Older Gritzmann–Sturmfels shellotope paper had insufficient accessible text to establish noncoverage."
+        ],
+        "reasoning": "General all-configuration formalism is broader in objects, but its metric conclusions are weaker than this regular-polygon calculation. No identified stronger published theorem gives the parity dichotomy as a direct corollary.",
+        "searches": [
+          "pairwise-difference sweep polytope chord zonotope regular polygon odd parity regular 2n gon even alternating sides",
+          "shellotope of regular polygon pairwise differences zonotope metric area parity regular two n polygon",
+          "arXiv:2102.06134 Definition 2.1, Propositions 2.2, 2.3",
+          "doi:10.1137/0406019 abstract metadata"
+        ]
+      },
+      "checked_sources": [
+        "Padrol–Philippe arXiv:2102.06134 full primary PDF, Def 2.1/Props 2.2–2.3",
+        "Gritzmann–Sturmfels DOI 10.1137/0406019 bibliographic/abstract only",
+        "Resultary searches pairwise-difference sweep polytope chord zonotope regular polygon odd parity regular 2n gon even alternating sides; shellotope of regular polygon pairwise differences zonotope metric area parity regular two n polygon",
+        "Independent n=3..44 chord-class enumeration and symbolic area derivation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Padrol–Philippe sweep normal fan identifies edge direction classes abstractly.",
+          "New classification derives explicit length sums based on gcd(2,n), then cyclicity and metric isometry order."
+        ],
+        "reasoning": "The general normal-fan theory implies equiangular 2n structure after substituting regular n-gon chords, but not equal edge orbit count, isometry enlargement, perimeter or area; the new conclusion is strictly more metric information for a special configuration.",
+        "searches": [
+          "pairwise-difference sweep polytope chord zonotope regular polygon odd parity regular 2n gon even alternating sides",
+          "shellotope of regular polygon pairwise differences zonotope metric area parity regular two n polygon",
+          "arXiv:2102.06134 Definition 2.1, Propositions 2.2, 2.3",
+          "doi:10.1137/0406019 abstract metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Padrol–Philippe arXiv:2102.06134 Def 2.1 identifies centered sweep polytope as pairwise-difference zonotope; Proposition 2.3 as permutahedral projection.",
+          "Older Gritzmann–Sturmfels terminology shellotope refers to essentially the same construction.",
+          "For regular input n-gon, generators index i+j modulo n, translating the metric claim into cyclic residue parity."
+        ],
+        "reasoning": "Permutahedral shadow, shellotope, and all-chords zonotope are valid aliases of the object but general combinatorial identity does not yield this precise Euclidean regularity criterion or alternating metric side spectrum.",
+        "searches": [
+          "pairwise-difference sweep polytope chord zonotope regular polygon odd parity regular 2n gon even alternating sides",
+          "shellotope of regular polygon pairwise differences zonotope metric area parity regular two n polygon",
+          "arXiv:2102.06134 Definition 2.1, Propositions 2.2, 2.3",
+          "doi:10.1137/0406019 abstract metadata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No different indexed regular sweep-polytope table gives both the even alternating side lengths and odd regular metrics.",
+          "Assigned formula: odd area (n/2)cot³(π/(2n)); even area n cos(π/n)(3+cos²(π/n))/sin³(π/n)."
+        ],
+        "reasoning": "Finite regular-polygon numerical tables, had they existed, would not imply this all-n trigonometric classification. The inspected primary source has generic sweep examples but no exact metric table for this family.",
+        "searches": [
+          "pairwise-difference sweep polytope chord zonotope regular polygon odd parity regular 2n gon even alternating sides",
+          "shellotope of regular polygon pairwise differences zonotope metric area parity regular two n polygon",
+          "arXiv:2102.06134 Definition 2.1, Propositions 2.2, 2.3",
+          "doi:10.1137/0406019 abstract metadata"
+        ]
+      },
+      "rationale": "Full Padrol–Philippe source supplies sweep zonotope, normal fan and permutahedral shadows but does not provide metric regular-n-gon specialization in inspected sections. Older Gritzmann–Sturmfels shellotope source names the same construction, but full text was inaccessible; only abstract metadata was compared and its potential coverage remains an explicit risk. Semantically targeted searches for shellotope, pairwise-difference zonotope and even–odd edge orbit formulas gave no covering indexed theorem. The result requires nontrivial object-specific chord parity and exact edge/area computation beyond the general zonotope definition.",
+      "residual_risks": [
+        "The older shellotope source has not been read in full; an equivalent regular-polygon metric theorem under that name may exist.",
+        "Claim restricted to unit regular planar polygons and specified centered sweep normalization; no classification in higher dimensions or generic polygon inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_CONSTRUCTION_NOT_EXACT_METRIC_RESULT",
+          "evidence": "Definition 2.1 gives Σ[−(a_i−a_j)/2,(a_i−a_j)/2]; geometric theory does not state parity metric for unit regular n-gons.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.06134",
+          "material_read": "Complete primary 48-page preprint, Euclidean configuration, Definition 2.1, Propositions 2.2–2.3, figures and indexed full-text search",
+          "method": "Read source PDF and checked pages/images for half-chord normalization and normal fans",
+          "title": "Padrol and Philippe, Sweeps, Polytopes, Oriented Matroids, and Allowable Graphs of Permutations",
+          "trigger": "Original exact sweep definition and potential regular polygon specialization"
+        },
+        {
+          "assessment": "UNRESOLVED_HISTORICAL_RISK",
+          "evidence": "No whole-document noncoverage assertion; a regular polygon shellotope special case could have appeared there.",
+          "identifier_or_url": "https://doi.org/10.1137/0406019",
+          "material_read": "Bibliographic record/abstract and citation by Padrol–Philippe only; complete paper not obtained",
+          "method": "Compared accessible metadata with target and traced terminology from primary source",
+          "title": "Gritzmann and Sturmfels, Minkowski Addition of Polytopes: Computational Complexity and Applications to Gröbner Bases",
+          "trigger": "Original shellotope term and possible classical exact regular-polygon calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Padrol–Philippe normal fan and permutahedral shadow theory",
+        "assigned exact chord-class parity theorem and area computations",
+        "independent sample enumeration through n=44"
+      ],
+      "rationale": "Complete natural canonical-family metric classification of the planar pairwise-difference sweep construction: parity determines exact regularity, two edge orbits versus one, cyclicity, closed perimeter/area, and whether the Euclidean symmetry group doubles. The arithmetic orbit splitting of chord classes under rotation is a structural phenomenon not implicit in abstract normal-fan equivalence. This supplies precise reference examples for sweep-polytopal geometry.",
+      "residual_risks": [
+        "Elementary general zonotope lemmas are ingredients, not a classification of canonical regular input."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The canonical centered sweep zonotope of the vertex set of a unit regular n-gon has 2n equally angular edges. It is regular with side length cot(π/(2n)) exactly for odd n; even n yields a cyclic nonregular equiangular 2n-gon with alternating lengths 2cot(π/n),2csc(π/n), exact perimeter and area, and half the full dihedral symmetry order of odd outputs.",
+  "limitations": [
+    "Specific canonical centered half-difference sweep zonotope and unit-circumradius regular input.",
+    "Metric area/perimeter formulas not asserted for generic configurations.",
+    "Possible historical shellotope-priority overlap unresolved because the older primary full text was inaccessible."
+  ],
+  "schema_version": 1
+}
