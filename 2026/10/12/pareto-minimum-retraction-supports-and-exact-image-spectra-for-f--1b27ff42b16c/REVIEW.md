@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof forces each connected rectangular component into one target component and each output coordinate to depend only on its matching source coordinate. The individual back conditions force coordinatewise surjectivity. Weighted inclusion–exclusion then counts exact image supports; idempotence fixes each represented entire component. The Pareto-minimum hitting criterion is necessary by coordinatewise size monotonicity and sufficient by a constructive fixed-on-image retraction. These arguments cover arbitrary finite dimension and all repeated vector types. The accompanying independent direct relational checks cover 19 two-modal and six three-modal configurations, while the ten-world example is checked by complete enumeration of the proven normal forms. The checker output was inspected and matches the stated coefficients. Finite tests alone are not treated as general proofs.
+PASS
 
-## Originality — PASS, with residual literature risk
+For r>=2 named coordinate equivalence relations on disjoint nonempty rectangles, a source rectangle is R_t-path connected, so the forth condition confines its image to one target rectangle. Preserving R_t for t!=u forces output coordinate u to depend only on input coordinate u. The back equality on each R_u class forces each coordinate map surjective; hence each source-to-target choice has weight q_ij=prod_u Sur(a_iu,a_ju). Weighted inclusion-exclusion over target supports J counts all maps with exact image J; idempotents must fix their image rectangles and therefore yield product_{i notin J}sum_{j in J}q_ij. An omitted minimal vector type can map only to the same type; selecting at least one representative of each minimal type suffices by a coordinatewise-surjective idempotent onto chosen dominated minima. This yields exact Pareto support criterion, identical supports for ordinary and idempotent maps and 2^(m-sum c_tau)prod_tau(2^c_tau-1) supports. Direct independent Stirling-weight inclusion/exclusion for shape [(1,2),(1,2),(2,1),(2,2)] gave E coefficients 64,128,64,64 at algebra image sizes 16,64,256,1024 and I coefficients 16,6,4,1, exactly six supports, 320 maps, 27 idempotents. Finite instance corroborates general proof.
 
-The 2023/2024 Bezhanishvili–Meadors treatment of \(\mathsf{S5}^2\) and multimodal duality was inspected in its available full HTML. It develops local finiteness and duality, not these exact endomorphism-image and idempotent-image polynomials or the Pareto-minimum support criterion. Targeted published-source searches and semantic mathematical-result searches did not identify a theorem with the same joint coverage. The familiar coordinate-surjection count, modal duality, and the one-dimensional monadic Boolean case are not claimed as new; the coupled all-dimensional multicomponent support classification and spectra are the proposed new information. Older general transformation-semigroup literature might implicitly include it, and the relevant Adams–Dziobiak 2007 article was available only by abstract in this review.
+## originality
 
-## Value — PASS
+PASS
 
-Finite rectangular models form a canonical explicit family within multimodal S5 product semantics and diagonal-free cylindric set algebras. Exact maps and retractions are intrinsic finite-algebra invariants: they describe possible compression sizes, splitting subalgebras, and the internal endomorphism distribution. With multiple modalities the scalar smallest-cluster condition becomes a genuine Pareto-front obligation: several incomparable minimal types must be retained simultaneously, while repeated minima provide independent nonempty choices. The result classifies all such supports and gives exact multiplicities for each algebraic image size, not just a small census or a renamed known numerical sequence.
+Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.
 
-## Limits
+## value
 
-The structural hypothesis requires complete thin rectangular components, not general commuting-equivalence frames. Different embedded algebraic retracts are not counted merely by counting frame supports. The ten-world checker does not enumerate all \(10^{10}\) raw functions. Absolute novelty and correctness await independent mathematical assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact endomorphism/idempotent image spectra and a Pareto-minimal combinatorial retraction-support criterion are natural structural invariants for finite named multimodal Cartesian products. The classification distinguishes incomparable size vectors, repeated component types and algebraic image ranks, providing an independently useful exact theory beyond generic finite duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

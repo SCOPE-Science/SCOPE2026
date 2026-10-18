@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python 3 standard library. No network access, external packages, or research infrastructure are required.
+## correctness
 
-Actual replay output:
+PASS
 
-```
-VERIFY_OK 19 direct_shape_cases 23249 direct_function_tables 3658 bounded_maps 23249 direct_algebra_candidate_checks 5 larger_symbolic_support_checks example_320_endomorphisms_27_idempotents
-ND_VERIFY_OK 6 three_modal_shapes 7022 direct_tables 28 bounded_maps
-LARGE_EXAMPLE_OK 320 distinct_structural_maps_rechecked
-```
+For r>=2 named coordinate equivalence relations on disjoint nonempty rectangles, a source rectangle is R_t-path connected, so the forth condition confines its image to one target rectangle. Preserving R_t for t!=u forces output coordinate u to depend only on input coordinate u. The back equality on each R_u class forces each coordinate map surjective; hence each source-to-target choice has weight q_ij=prod_u Sur(a_iu,a_ju). Weighted inclusion-exclusion over target supports J counts all maps with exact image J; idempotents must fix their image rectangles and therefore yield product_{i notin J}sum_{j in J}q_ij. An omitted minimal vector type can map only to the same type; selecting at least one representative of each minimal type suffices by a coordinatewise-surjective idempotent onto chosen dominated minima. This yields exact Pareto support criterion, identical supports for ordinary and idempotent maps and 2^(m-sum c_tau)prod_tau(2^c_tau-1) supports. Direct independent Stirling-weight inclusion/exclusion for shape [(1,2),(1,2),(2,1),(2,2)] gave E coefficients 64,128,64,64 at algebra image sizes 16,64,256,1024 and I coefficients 16,6,4,1, exactly six supports, 320 maps, 27 idempotents. Finite instance corroborates general proof.
 
-For the 19 two-modal test shapes, the checker enumerates all 23,249 raw function tables and directly tests the two named bounded-morphism conditions by comparing successor sets, yielding 3,658 bounded maps. For these small shapes, it independently checks algebraic preservation of the two modal diamonds under inverse images, for all subsets and every raw function table. It compares the unrestricted and idempotent image polynomials and the per-component support multiplicities with the closed formulas. For six three-modal shapes, it enumerates 7,022 raw functions and detects 28 bounded maps by successor-set equality.
+## originality
 
-The ten-world example is too large for brute enumeration over all raw functions. Instead, the checker enumerates all possible componentwise coordinate surjections from the proven structural normal form, producing 320 distinct functions. Every one is then independently rechecked against the original relational successor-set conditions and idempotence, giving the stated polynomials. The proof, not this normal-form enumeration by itself, establishes that no additional bounded morphisms exist.
+PASS
 
-Checks are deterministic and exact (integer arithmetic and finite sets). These computational confirmations do not constitute independent mathematical review, nor do they establish a general theorem without its argument.
+Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.
+
+## value
+
+PASS
+
+Exact endomorphism/idempotent image spectra and a Pareto-minimal combinatorial retraction-support criterion are natural structural invariants for finite named multimodal Cartesian products. The classification distinguishes incomparable size vectors, repeated component types and algebraic image ranks, providing an independently useful exact theory beyond generic finite duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
