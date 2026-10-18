@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T22:57:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and verify_isotonic.py finite path/star/diamond checks inspected",
+        "scalar p-mean implicit equation, finite-selection lemma, KKT cone geometry",
+        "Resultary published finite-chain and constant-line exact special cases"
+      ],
+      "rationale": "Every unweighted real finite-DAG isotonic metric fit exists uniquely for p>1. On each equality-connected block B the fit is the scalar p-mean, and the complete projection is a continuous finite selection among direct sums of these maps. Each block derivative has norm |B|^(1/p)||alpha||_q where alpha_i=|r_i|^(p-2)/sum|r_j|^(p-2); for 1<p<2 the probability-vector bound gives |B|^(1/p), for p>2 residual signed balance and concavity bound each alpha_i<=1/2 and give (|B|/2)^(1/p), for p=2 Hilbert nonexpansiveness, and size<=2 has exact 1. The finite-selection local-to-global lemma is valid along segments. For every weakly connected graph, strictly positive KKT edge multipliers put all zero fits in a stable full-pooling cell. As multipliers concentrate on one edge (p>2), weights approach (1/2,1/2,0,...); selecting noncut vertex j, concentrating on an edge of G-j and scaling incident-to-j multipliers ε² (p<2) makes weight at j dominate. This supplies genuine graph-specific local derivative lower bounds, not merely an unconstrained scalar analogy. Disconnected norm is max over blocks. No extrapolation from source numerical diagnostics is needed.",
+      "residual_risks": [
+        "The graph-generic multiplier avoidance argument requires choosing all nonleading coefficients outside finitely many cancellation hyperplanes, possible for positive generic choices; it was examined in the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fast DAG algorithms compute minimizers; qualitative uniform Lipschitz results assert some finite constants without optimal values."
+        ],
+        "reasoning": "The combination does not imply exact graph-independent values for each p and largest component N or their discontinuity at p=2.",
+        "searches": [
+          "arxiv:1507.00710 Kyng--Rao--Sachdeva full PDF",
+          "Finzel--Li 1998 DOI 10.1006/jmaa.1998.6120 public abstract",
+          "Berens--Finzel--Li--Xu 1997 DOI 10.1006/jmaa.1997.5521"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published finite-chain theorem full RESULT",
+        "Resultary published constant-line theorem full RESULT",
+        "arxiv:1507.00710 Kyng et al. full PDF",
+        "arxiv:1503.08458 Németh--Németh",
+        "Finzel--Li 1998 public abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chain result has same formula but proof of sharpness invokes strict complete pooling on a total order; for general branching DAG this requires new KKT cone-interior and multiplier limit argument."
+        ],
+        "reasoning": "It is not logically enough to state same constants: the existence of full-pooling active data realizing upper bounds for every connected order is an additional quantified result not implied by chain case.",
+        "searches": [
+          "Resultary finite-chain theorem full RESULT",
+          "Kyng--Rao--Sachdeva all-DAG algorithm PDF",
+          "Németh--Németh Euclidean isotonic projection theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar p-mean map constants and total-order chain formulas exactly match corresponding subcases."
+        ],
+        "reasoning": "Every total order is a DAG; reverse implication to arbitrary branching DAGs fails without graph-dependent strict KKT multiplier construction. Equal numerical constants alone do not establish old proof coverage.",
+        "searches": [
+          "Resultary published finite-chain sharp isotonic theorem (SCOPE-sharp-ell-p-stability-of-finite-chain-isotonic-metric-projection--f78c125227d5)",
+          "Resultary published constant-vector line sharp metric projection (SCOPE-exact-lipschitz-phase-diagram-of-metric-projection-onto-the-cons--c5b935fc4ff6)",
+          "arxiv:1503.08458 Németh--Németh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Yang--Barber measures stability of Euclidean least-squares solution in other norms, unlike the non-Hilbert lp-objective projection."
+        ],
+        "reasoning": "No exact published all-finite-partial-order Lipschitz table identified; previously published exact table is restricted to chains and fixed subspaces.",
+        "searches": [
+          "Resultary query: l_p isotonic regression sharp Lipschitz best approximation order cone graph n^(1/p)",
+          "arxiv:1706.01852 Yang--Barber",
+          "Resultary prior chain and p-mean exact formulas"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for extension from known chain-only and scalar-line exact moduli to every finite partial order, with a nontrivial graph-uniform sharpness proof. Prior published Resultary chain formula and constant-line scalar mean formula are explicitly credited and not treated as independent innovations. Algorithms for arbitrary DAG isotonic regression and qualitative Lipschitz regularity do not entail sharp constants or graph-adapted full-pooling witnesses. Material full 1998 Finzel--Li source remained inaccessible; its public abstract only proves qualitative existence, leaving a bounded named risk rather than automatic rejection.",
+      "residual_risks": [
+        "Finzel--Li 1998 complete text unavailable (repository download HTTP 403), possible hidden sharp subcase cannot be excluded.",
+        "Unindexed older order-cone sensitivity literature could overlap; no absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers computation and objectives, not exact data-to-fit Lipschitz modulus",
+          "evidence": [
+            "General DAG algorithm complexity statements differ from sharp 1/N/2-bound perturbation constants."
+          ],
+          "identifier_or_url": "arxiv:1507.00710",
+          "material_read": "Introduction, problem definition, theorem statements and algorithmic results in full arXiv PDF",
+          "method": "primary full PDF text and first-page theorem screenshot",
+          "title": "Fast, Provable Algorithms for Isotonic Regression in all lp-norms",
+          "trigger": "same general finite DAG and lp objectives"
+        },
+        {
+          "assessment": "not covering non-Hilbert lp objective sharp moduli",
+          "evidence": [
+            "Euclidean p=2 projection has norm 1, whereas present all-p formula is discontinuous at p=2."
+          ],
+          "identifier_or_url": "arxiv:1503.08458",
+          "material_read": "Theorem-level Euclidean isotonic projection/order-monotonicity discussion",
+          "method": "open-access arXiv primary paper",
+          "title": "Isotonic regression and isotonic projection",
+          "trigger": "possible order-cone operator coverage"
+        },
+        {
+          "assessment": "qualitative uniform Lipschitz result could in principle contain specific examples; named residual risk",
+          "evidence": [
+            "Abstract asserts existence/uniformity over exponent for arbitrary polyhedra, no numerical optimal constant."
+          ],
+          "identifier_or_url": "doi:10.1006/jmaa.1998.6120; https://digitalcommons.odu.edu/mathstat_fac_pubs/87/",
+          "material_read": "Full public abstract and bibliography, NOT full paper: repository download blocked 403",
+          "method": "bibliographic abstract; full text unavailable",
+          "title": "Uniform Lipschitz Continuity of Best l(p)-approximations by Polyhedral Sets",
+          "trigger": "broad polyhedral best approximation theorem"
+        },
+        {
+          "assessment": "covering for total orders, but not branching orders",
+          "evidence": [
+            "Source explicitly assumes chain increasing-sequence cone, uses path-specific KKT multipliers."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/11/SCOPE-sharp-ell-p-stability-of-finite-chain-isotonic-metric-projection--f78c125227d5/RESULT.md",
+          "material_read": "Complete finding, proof with block means, all-dimensional sharpness and limitations",
+          "method": "read full published RESULT.md",
+          "title": "Sharp lp stability of finite-chain isotonic metric projections",
+          "trigger": "exact same constants for chain subcase"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "published chain special case",
+        "Kyng et al. arbitrary-DAG isotonic algorithmic context",
+        "graph-adapted KKT all-pool construction"
+      ],
+      "rationale": "Exact perturbation moduli for arbitrary finite partial orders are intrinsically motivated robustness measures for isotonic best fits. The theorem makes a nontrivial structural statement: all connected branching/chain posets of a given size share the same sharp constant, despite graph-dependent active constraints, and exhibits witnesses via strictly positive edge multipliers. Known chain/constant-line special cases leave this quantified graph-uniform classification open. No general theorem beyond the exact natural finite-order invariant is demanded.",
+      "residual_risks": [
+        "Scope finite real unweighted p>1 order cones, no weighted/infinite-dimensional or finite-pair attainment claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The bounds are suprema, possibly approached only infinitesimally; no pair attainment asserted.",
+    "The main new content is universal branching-DAG sharpness, not already-known chain case."
+  ],
+  "schema_version": 1
+}

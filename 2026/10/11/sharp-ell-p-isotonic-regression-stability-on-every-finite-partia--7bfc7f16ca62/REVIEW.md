@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof derives the exact block-mean derivative by implicit differentiation and bounds it by a probability-vector argument. The active-equality partition shows that the isotonic fit is a continuous selection among finitely many block-mean maps; the finite-selection lemma is proved locally and then along line segments. The lower bound is not inferred from an unconstrained scalar special case: at graph-dependent strictly positive edge multipliers, full pooling persists locally, so its derivative is a genuine derivative of the isotonic projection. A non-cut-vertex construction yields a single dominant derivative weight for \(1<p<2\), while one dominant edge yields two half weights for \(p>2\). The proof handles disconnected components and the one- and two-vertex cases separately. Finite diagnostics were replayed on four graph families for three exponents; no numerical exhaustion is claimed.
+PASS
 
-## Originality
+Every unweighted real finite-DAG isotonic metric fit exists uniquely for p>1. On each equality-connected block B the fit is the scalar p-mean, and the complete projection is a continuous finite selection among direct sums of these maps. Each block derivative has norm |B|^(1/p)||alpha||_q where alpha_i=|r_i|^(p-2)/sum|r_j|^(p-2); for 1<p<2 the probability-vector bound gives |B|^(1/p), for p>2 residual signed balance and concavity bound each alpha_i<=1/2 and give (|B|/2)^(1/p), for p=2 Hilbert nonexpansiveness, and size<=2 has exact 1. The finite-selection local-to-global lemma is valid along segments. For every weakly connected graph, strictly positive KKT edge multipliers put all zero fits in a stable full-pooling cell. As multipliers concentrate on one edge (p>2), weights approach (1/2,1/2,0,...); selecting noncut vertex j, concentrating on an edge of G-j and scaling incident-to-j multipliers ε² (p<2) makes weight at j dominate. This supplies genuine graph-specific local derivative lower bounds, not merely an unconstrained scalar analogy. Disconnected norm is max over blocks. No extrapolation from source numerical diagnostics is needed.
 
-**PASS with documented residual risk.** Németh–Németh (arXiv:1503.08458) classify Euclidean isotonic projection monotonicity, not sharp \(\ell_p\) metric-projection stability. Kyng–Rao–Sachdeva (arXiv:1507.00710) supply all-\(p\) DAG algorithms, not the optimal perturbation modulus. Berens–Finzel–Li–Xu (1997) concern general linear best approximations; Finzel–Li (1998) give qualitative uniform Lipschitz existence on polyhedral sets. Yang–Barber (arXiv:1706.01852) hold the *objective* at \(\ell_2\), measuring that different projection in various norms. Explicit database searches for exact constants, equivalences, and stronger generality found no covering statement. The 1998 complete article could not be read and unpublished or unindexed equivalent formulations remain a risk; search absence alone is not novelty proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** Data sensitivity of the isotonic best-fit map is a natural numerical invariant relevant to perturbation robustness. The result determines its exact constant simultaneously for every finite partial order and every non-endpoint exponent, including branching orders outside the path setting, and proves the surprising invariance under arbitrary changes in the connected graph. The non-Hilbert discontinuity at \(p=2\) and graph-tailored lower witnesses add structural information absent from mere qualitative regularity.
+Best-of-knowledge PASS for extension from known chain-only and scalar-line exact moduli to every finite partial order, with a nontrivial graph-uniform sharpness proof. Prior published Resultary chain formula and constant-line scalar mean formula are explicitly credited and not treated as independent innovations. Algorithms for arbitrary DAG isotonic regression and qualitative Lipschitz regularity do not entail sharp constants or graph-adapted full-pooling witnesses. Material full 1998 Finzel--Li source remained inaccessible; its public abstract only proves qualitative existence, leaving a bounded named risk rather than automatic rejection.
 
-## Limitations
+## value
 
-The statement is confined to finite, unweighted, real \(\ell_p\) data with a fixed order cone. No claim is made about weighted or infinite-dimensional regression. The unavailable full 1998 source introduces a bibliographic comparison risk and is not represented as inspected in full.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact perturbation moduli for arbitrary finite partial orders are intrinsically motivated robustness measures for isotonic best fits. The theorem makes a nontrivial structural statement: all connected branching/chain posets of a given size share the same sharp constant, despite graph-dependent active constraints, and exhibits witnesses via strictly positive edge multipliers. Known chain/constant-line special cases leave this quantified graph-uniform classification open. No general theorem beyond the exact natural finite-order invariant is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
