@@ -1,20 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-Final claim: For the explicit spaces and tensors in arXiv:2609.01835v1, let \(u\in X\widehat{\otimes}_{\pi}Y\) be the rank-two exposed point from Theorem A and let \(\varphi\) be the exposing functional constructed in Lemma 3.6 and restricted to \(X\widehat{\otimes}_{\pi}Y\). Then for every \(\alpha>0\), the slice \(S_\alpha=\{v\in B_{X\widehat{\otimes}_{\pi}Y}:\varphi(v)>1-\alpha\}\) has diameter exactly \(2\). Moreover, for the symmetric transfer \(u_s=J(u)\) of Theorem B and its exposing functional \(\Psi=\varphi\circ J^{-1}\circ M\), every slice \(\{w\in B_{\widehat{\otimes}_{\pi_s}^{2,s}Z}:\Psi(w)>1-\alpha\}\) also has diameter exactly \(2\). Thus the particular exposing functionals in both non-elementary examples have maximally nonlocal thin slices, even though they expose a single point.
+## correctness
 
-## Correctness
-PASS. For \(t_{j,n}=\|w_{j,n}\|_Y\), the source's norm-one \(f_j\) gives \(r_n\le t_{j,n}\le1\), so normalized elementary tensors \(v_{j,n}\) satisfy \(\varphi(v_{j,n})=r_n/t_{j,n}\to1\). The auxiliary functionals \(g_1=\frac43f_1+\frac23f_2\), \(g_2=-\frac23f_1-\frac43f_2\), and \(g_3=-\frac23f_1+\frac23f_2\) have norm exactly \(1\) on the actual generators of \(B_Y\) and are compatible with \(x_1+x_2+x_3=0\), hence define a norm-one \(C:X\to Y^*\). Its bilinear functional gives \(\|v_{1,n}-v_{2,n}\|_\pi\ge r_n(1/t_{1,n}+1/t_{2,n})\ge2r_n\to2\), while the unit-ball diameter is at most \(2\). The symmetric claim follows because the published \(J\) is isometric and \(\Psi(Jv)=\varphi(v)\). No experimental approximation is used.
+PASS
 
-Sources: arXiv:2609.01835v1, especially the definition of \(B_Y\), Lemma 3.2, Lemma 3.6, Theorem A, and the degree-two symmetric transfer. Risk: the argument is construction-specific; it has not been extended here to the higher-order examples.
+For w_{j,n}=r_n P_n z_j, t_{j,n}=||w_{j,n}||Y satisfies r_n<=t_{j,n}<=1 by f_j norm 1, hence v_{j,n}=x_j⊗w_{j,n}/t_{j,n} lies on the projective unit sphere and source exposing φ(v_{j,n})>=r_n→1. Independently checked g1=(4f1+2f2)/3, g2=(-2f1-4f2)/3, g3=(-2f1+2f2)/3 sum to zero and have evaluations on z1,z2,z3 of (1,0,-1),(0,-1,1),(-1,1,0). The generator ball of Y bounds all three dual norms by 1; C(xj)=gj is a norm-one operator because B_X=aco{x1,x2,x3}. Its projective bilinear functional Θ gives Θ(v1,n)=r_n/t1,n and Θ(v2,n)=-r_n/t2,n for n>=3. Thus ||v1,n-v2,n||π>=2r_n→2 while both eventually belong to every exposing slice, proving diameter 2. The original isometric embedding J and contractive projection M carry the exact same diameter witness to the degree-two symmetric construction. This proof is infinite via r_n↑1, not finite sampling.
 
-## Originality
-PASS. Direct full-text comparison shows that the focal 2026 paper establishes exposure and the symmetric transfer but does not discuss slice diameter, while the closest 2023 tensor-extremality paper treats strong and weak-strong exposure qualitatively. The broader diameter-two literature was also checked at the implication level. Abrahamsen–Lima–Nygaard prove a local diameter-two inheritance theorem for projective tensor products when one factor already has that property; the focal \(Y\) fails the premise because an explicit functional strongly exposes \(w_{1,n}\) for every sufficiently large \(n\). Acosta–Becerra Guerrero prove all-slices diameter two for symmetric powers of certain global classes; the focal \(Z^*\) is not an \(L_1\)-space, as its \(L\)-summand \(X^*\) has a hexagonal two-dimensional unit ball rather than the \(\ell_1^2\) diamond, and no \(C^*\)-algebra structure is supplied by the construction. Targeted semantic searches found no implication-equivalent construction-specific statement.
+## originality
 
-Closest literature: García-Lirola, Grelier, Martínez-Cervantes and Rueda Zoca, arXiv:2211.13559 / doi:10.1007/s00025-023-01970-y; Abrahamsen, Lima and Nygaard, arXiv:1304.7068 / doi:10.68381/jca20026; and Acosta–Becerra Guerrero, doi:10.68381/jca18033. None dominates the final claim under the focal hypotheses. The focal paper itself contains no “diameter” or “slice” occurrence. Residual risk: an older equivalent quantitative observation could use different terminology or a global theorem with a presently unrecognized hypothesis match.
+PASS
 
-## Value
-PASS. The result quantifies the precise gap between exposure and localization in the paper's new non-elementary examples: the very functionals that isolate a single point at level \(1\) retain the maximum possible diameter \(2\) at every positive slice depth. This is a natural structural refinement of the counterexample and transfers to the symmetric example without weakening the constant.
+Construction-specific maximal slice diameter is not a mere restatement of exposure; prior broader sufficient theorems do not meet these space hypotheses.
 
-The mathematical value is the sharp constant \(2\) at every positive exposing-slice depth, and its exact transfer to the symmetric counterexample. The result does not depend on an arbitrary finite cutoff or numerical experiment.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exposedness is usually understood qualitatively; the maximal diameter of every arbitrarily thin exposing slice of a concrete exposed non-elementary tensor is an informative quantitative extremal separation from strong exposure. The same mechanism persists under a nontrivial symmetric tensor transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

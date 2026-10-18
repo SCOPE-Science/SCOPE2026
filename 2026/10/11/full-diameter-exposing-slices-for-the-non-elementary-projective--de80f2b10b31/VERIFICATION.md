@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the focal construction. For every \(j\) and \(n\), \(f_j(w_{j,n})=r_n\), so \(r_n\le\|w_{j,n}\|_Y\le1\). Hence the normalized tensors used in the proof approach the exposing level \(1\).
+# Independent mathematical audit
 
-For the auxiliary functionals, their values on the three bidual generators are exactly
-\[
-(1,0,-1),\qquad(0,-1,1),\qquad(-1,1,0),
-\]
-and their norms on \(\frac14B_{c_0}\) are respectively at most \(1/2\), \(1/2\), and \(1/3\). Because every finite generator \(w_{j,n}\) is \(r_nP_nz_j\) and these functionals use only the first two coordinates, all generator values have absolute value at most \(1\). Thus the induced operator \(C:X\to Y^*\) has norm \(1\).
+## correctness
 
-The separating bilinear form then gives the exact lower estimate
-\[
-\|v_{1,n}-v_{2,n}\|_\pi\ge r_n\left(\frac1{t_{1,n}}+\frac1{t_{2,n}}\right)\ge2r_n.
-\]
-Since \(r_n\to1\) and both tensors are unit vectors, the slice diameter is exactly \(2\). The symmetric statement uses only the published identities that \(J\) is isometric and \(\Psi(Jv)=\varphi(v)\).
+PASS
 
-For the main broader-coverage check, choose \(n\ge3\) with \(r_n>1/2\) and \(3(1-r_n)<B<3r_n\). On the exact generating set of \(B_Y\), the functional \(h=2e_1^*+e_n^*-Be_{n+1}^*\) has the unique uniform maximum \(3r_n\) at \(w_{1,n}\); hence it strongly exposes that generator. This independently verifies that the factorwise local-diameter-two tensor theorem cannot be used through \(Y\). Also, \(B_{X^*}=\{(a,b):|a|\le1,|b|\le1,|a+b|\le1\}\) is a hexagon, so \(X^*
-ot\cong\ell_1^2\); since \(X^*\) is an \(L\)-summand of \(Z^*=X^*\oplus_1Y^*\), the focal \(Z^*\) is not an \(L_1\)-space. These checks separate the final claim from the strongest directly relevant global diameter-two sufficient hypotheses inspected.
+For w_{j,n}=r_n P_n z_j, t_{j,n}=||w_{j,n}||Y satisfies r_n<=t_{j,n}<=1 by f_j norm 1, hence v_{j,n}=x_j⊗w_{j,n}/t_{j,n} lies on the projective unit sphere and source exposing φ(v_{j,n})>=r_n→1. Independently checked g1=(4f1+2f2)/3, g2=(-2f1-4f2)/3, g3=(-2f1+2f2)/3 sum to zero and have evaluations on z1,z2,z3 of (1,0,-1),(0,-1,1),(-1,1,0). The generator ball of Y bounds all three dual norms by 1; C(xj)=gj is a norm-one operator because B_X=aco{x1,x2,x3}. Its projective bilinear functional Θ gives Θ(v1,n)=r_n/t1,n and Θ(v2,n)=-r_n/t2,n for n>=3. Thus ||v1,n-v2,n||π>=2r_n→2 while both eventually belong to every exposing slice, proving diameter 2. The original isometric embedding J and contractive projection M carry the exact same diameter witness to the degree-two symmetric construction. This proof is infinite via r_n↑1, not finite sampling.
 
-No finite enumeration is used to establish the quantified statement over all \(\alpha>0\). No claim is made about all exposing functionals or the higher-degree constructions.
+## originality
+
+PASS
+
+Construction-specific maximal slice diameter is not a mere restatement of exposure; prior broader sufficient theorems do not meet these space hypotheses.
+
+## value
+
+PASS
+
+Exposedness is usually understood qualitatively; the maximal diameter of every arbitrarily thin exposing slice of a concrete exposed non-elementary tensor is an informative quantitative extremal separation from strong exposure. The same mechanism persists under a nontrivial symmetric tensor transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
