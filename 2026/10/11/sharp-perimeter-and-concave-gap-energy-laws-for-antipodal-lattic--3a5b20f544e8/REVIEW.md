@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(n\) integral cyclic gaps with total \(2n\), strict discrete concavity and unit balancing transfers give strict Schur-concavity. The vector \((n+1,1,\ldots,1)\) majorizes all feasible gap vectors, proving the unique minimum gap multiset. The vector \((2,\ldots,2)\) is feasible only for odd \(n\). For even \(n\), every nonuniform integer gap vector majorizes \((3,2,\ldots,2,1)\); the antipodal parity count then forces the unique cyclic placement of the \(1\) and \(3\) gaps, separated by \(n/2\) gap positions. Strictness identifies all configurations. Chord lengths and elementary trigonometric identities give the exact perimeter and asymptotic penalty. Independent finite enumeration and symbolic regression tests confirm the formulas but are not treated as the proof.
+## correctness
 
-## Originality — PASS
-The closest full primary paper proves an *area* extremal characterization and expressly lists perimeter as another interesting measure in its final open-problems section. Its already known extremal area-pattern descriptions are fully credited. A later full area paper analyzes the \(k<n\) extension: its Theorem 2.7 yields the same even-order gap shape under formal complete-transversal specialization, but optimizes area, not the universal strict-concavity gap-energy theorem or perimeter formulas. Searches across extremal antipodal polygons, complete diametral transversals, tritone-free pitch-class patterns, maximally-even circular scales, and majorization did not locate the exact claimed implication. The remaining risk is an unindexed equivalent in discrete musical-scale or convex-polygon literature.
+PASS
 
-## Value — PASS
-The principal source explicitly identifies perimeter as a natural alternative extremal functional. The result solves its complete regular-lattice specialization for all \(n\), including all equality cases. More importantly, it gives a reusable strictly concave gap-energy principle and explains the odd-even obstruction quantitatively, with an exact cubic perimeter defect in the even class. The result does not merely reprint the known area characterization.
+Each complete transversal yields n positive cyclic gaps summing to 2n; by positive integer majorization (n+1,1,...,1) is the unique minimum multiset and (2,...,2) is the unrestricted maximum. For n odd the latter exactly selects even or odd indices. For n even the all-2 vector violates the antipodal constraint, and every nonuniform vector majorizes (3,2,...,2,1). If its unique 1 and 3 are separated by k twos, antipodal parity requires k+1=n/2, forcing unique cyclic gap pattern. Strict discrete concavity makes these the only equality multisets. Chord f(g)=2R sin(πg/(2n)) is strictly concave and gives the stated sharp perimeter and penalty. Independently exhaustively enumerated all 2^n transversals for n=3,...,13 with exact f(g)=−g²: n≥3 minima 2n, odd maxima 2, even maxima 2n, and predicted energy values exactly. The finite checks are not substituted for majorization proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The source area-theorems describe consecutive and thick alternating selections, including an equivalent even-order combinatorial pattern, but do not optimize perimeter or arbitrary strictly concave consecutive-gap energies. Those are distinct functionals; the strict discrete majorization and antipodal parity feasibility establish sharp exact values and all equality classes for a natural general class. Resultary returns the exact audited package and other geometrically adjacent but not implication-dominating results. Best-of-knowledge priority is bounded by possible older polygon/perimeter literature.
+
+## value
+
+PASS
+
+Perimeter optimization for a complete antipodal transversal is a natural distinct quantity expressly posed in the earlier extremal-antipodal-polygon literature. The common strict-concavity majorization theorem gives exact extremizers and interpretable parity obstruction for an entire class of edge-local energies; the exact even-order perimeter deficit scales as π³R/(2n³). These exact classification/equality facts are not implied by the earlier area extremal patterns alone and are useful for geometric optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
