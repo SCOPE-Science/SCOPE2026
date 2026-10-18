@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The support-count argument forces a unique doubled nonzero difference class, which reduces the equal-modulus max-min problem to placing an eleven-gon relative to an antipodal phase. Its sharp half-mesh bound is attained exactly at eleventh-root relative phases. The zero-shift Fourier identity excludes additional bottlenecks. For the tapered window, reverse triangle at the two-term shifts and exact singleton magnitudes certify \(\gamma=12/83\). The lifting condition number follows from the classical Weyl spectral identity. An independent standard-library diagnostic verifies all \(330\) four-site supports and both \(121\)-entry witness ambiguity grids; the proof is analytic.
+
+**Originality: PASS, with residual historical-priority risk.** The closest 2015 Bojarovska–Flinth theory already establishes Gabor lifting frame bounds and classical difference-set phase retrieval, and those components are explicitly credited. The 2026 Bartusel results cover enough nonzero ambiguity entries for phase retrieval rather than optimal margins. The closest full public theorem documents checked are the rational-positive rank classification (which includes the very same support) and the four-point Fourier fourth-moment profile; neither proves the stated minimum-over-modulation phase-only optimum, every equality phase, or the strict twice-better tapered example. Intermittent index-service failures and unindexed finite-design catalogs remain possible priority risks.
+
+**Value: PASS.** Minimum-support phase-only designs on the eleven-cycle are a natural exact testbed where one redundant support difference enforces a rigid and sharp conditioning barrier. A positive reweighting on unchanged support more than doubles the stability margin, a substantive structural boundary relevant to sparse Gabor tomography. The result does not purport to optimize arbitrary four-tap weights.
+
+**Scientific limits.** Equal-modulus extremizers are classified only in cyclic dimension eleven; all weighted global optima are unknown here. Numerical evidence supplements proof. Independent validation is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
