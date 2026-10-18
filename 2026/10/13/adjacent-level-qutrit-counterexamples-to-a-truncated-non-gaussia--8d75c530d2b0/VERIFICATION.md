@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For pure dephasing, the source coefficient law reduces exactly to
-\[
-(\Phi_{1,t}(\rho))_{mn}=e^{-(m-n)^2t}\rho_{mn}.
-\]
-With \(q=e^{-t}\), the adjacent-level witness therefore has exact output eigenvalues \(0,(1-q)/2,(1+q)/2\).
+# Independent mathematical audit
 
-The proof compares each conjectured candidate to the threshold
-\[
-T(q)=\left(\frac{1+q}{2}\right)^2+\frac12\left(\frac{1-q}{2}\right)^2.
-\]
-Any three-level state whose largest eigenvalue is at least \((1+q)/2\) must have purity at least \(T(q)\). The two exact differences used in the proof factor as
-\[
-T(q)-P_B(q)=\frac{(1-q)(9q^7+9q^6+9q^5+9q^4+9q^3+9q^2+21q-11)}{128},
-\]
-\[
-T(q)-P_\kappa(q)=\frac{(1-q)(3q^7+3q^6+3q^5+3q^4+3q^3+3q^2-2)}{8}.
-\]
-Both are positive for \(3/4\le q<1\). The bundled checker verifies these polynomial identities and the endpoint rational inequalities with exact integer arithmetic.
+## correctness
 
-No numerical optimization, finite enumeration, or asymptotic extrapolation is needed for the accepted claim. The proof does not establish the actual global minimizer and makes no assertion outside the stated parameter interval.
+PASS
+
+At epsilon=1, the original channel multiplies Fock coherence (m,n) by q^{(m-n)^2}, q=e^{−t}. The proposed input has energy 3/2 and output eigenvalues 0,(1−q)/2,(1+q)/2. For K=2,N=3/2 the only binomial has M=2, mu=3/4; farthest-separated inputs have fixed probabilities 1/4 and 3/4, any phase. Independent exact symbolic polynomial calculations give P_B=(9q^8+60q^2+59)/128 and P_kappa=(3q^8+5)/8; set L=(1+q)/2, T=L^2+(1−L)^2/2=(3q^2+2q+3)/8. Both gaps factor as (1−q) times polynomials strictly positive for 3/4<=q<1, so purities <T and largest eigenvalues <L. The entropy of any qutrit density with λmax<L exceeds h2(L): for λmax>=1/2, splitting its remaining weight only increases entropy; for λmax<1/2 its entropy >1>h2(L). The witness entropy is exactly h2(L), hence strict inequality throughout. Independently checked symbolic factorization and four rational q values, including exact endpoint binomial purity 6137513/8388608, farthest purity 347363/524288 and T=99/128. The proof is analytic; no claim of global optimization.
+
+## originality
+
+PASS
+
+The original 2016 paper contains the conjecture and analyzes a different K,N example numerically; the witness lies outside both candidate families and contradicts that conjecture on a nonempty interval. Later bosonic dephasing papers address coherent information or quantum capacity, not this fixed-energy minimum output entropy. No published equivalent counterexample was found in web/Resultary searches. The 2016 primary text was actually read; still best-of-knowledge for all later literature.
+
+## value
+
+PASS
+
+A closed-form rigorous counterexample to a named published conjecture is a substantive mathematical correction to the proposed optimizer families, with an entire parameter interval and a simple qutrit witness. It pinpoints an overlooked adjacent-Fock-level mechanism rather than an arbitrary numerical exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

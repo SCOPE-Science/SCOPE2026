@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:44:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At epsilon=1, the original channel multiplies Fock coherence (m,n) by q^{(m-n)^2}, q=e^{−t}. The proposed input has energy 3/2 and output eigenvalues 0,(1−q)/2,(1+q)/2. For K=2,N=3/2 the only binomial has M=2, mu=3/4; farthest-separated inputs have fixed probabilities 1/4 and 3/4, any phase. Independent exact symbolic polynomial calculations give P_B=(9q^8+60q^2+59)/128 and P_kappa=(3q^8+5)/8; set L=(1+q)/2, T=L^2+(1−L)^2/2=(3q^2+2q+3)/8. Both gaps factor as (1−q) times polynomials strictly positive for 3/4<=q<1, so purities <T and largest eigenvalues <L. The entropy of any qutrit density with λmax<L exceeds h2(L): for λmax>=1/2, splitting its remaining weight only increases entropy; for λmax<1/2 its entropy >1>h2(L). The witness entropy is exactly h2(L), hence strict inequality throughout. Independently checked symbolic factorization and four rational q values, including exact endpoint binomial purity 6137513/8388608, farthest purity 347363/524288 and T=99/128. The proof is analytic; no claim of global optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later works study quantum capacity/coherent information rather than the 2016 minimum output entropy constrained candidate-class conjecture."
+        ],
+        "reasoning": "Capacity optimization results on Fock-diagonal states do not imply minimum pure-state output entropy optimizer under this energy constraint; no stronger prior refutation was found in examined sources.",
+        "searches": [
+          "PhysRevA.94.022341 full published paper, sections dephasing and Conjecture 1",
+          "arXiv:2007.03897 quantum capacity",
+          "arXiv:2111.04173 energy constrained capacity"
+        ]
+      },
+      "checked_sources": [
+        "Original 2016 Memarzadeh–Mancini full six-page paper and Conjecture 1",
+        "Resultary named channel/conjecture searches",
+        "Primary later quantum-capacity papers abstract/objective descriptions",
+        "Independent symbolic exact purities and factorization plus rational endpoint verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source proposes binomial or farthest-separated optimal inputs; the constructed adjacent input beats both candidate spectra on a provable interval."
+        ],
+        "reasoning": "The counterexample is a strict logical negation of the published candidate-family conjecture at a valid allowed K,N,epsilon,t choice. Previous objective-specific channel results do not rescue the conjecture or predict this entropy comparison.",
+        "searches": [
+          "PhysRevA.94.022341 Conjecture 1 and coefficient law epsilon=1",
+          "Quantum capacity of bosonic dephasing channel 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate-family Conjecture 1 is explicit in Phys. Rev. A 94, 022341 (2016); no matching fixed-energy qutrit refutation under adjacent-number input aliases was found."
+        ],
+        "reasoning": "Equivalent statements include a strict purity/majorization certificate or a direct entropy inequality; primary paper has the conjectured families, not the present qutrit violation.",
+        "searches": [
+          "Resultary: Memarzadeh Mancini minimum output entropy conjecture qutrit pure dephasing adjacent number states counterexample energy 3/2",
+          "Web: Memarzadeh Mancini qutrit minimum output entropy binomial conjecture disproved adjacent levels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published numerical evidence concerns a distinct four-dimensional sample; source has no exact qutrit N=3/2 interval counterexample table."
+        ],
+        "reasoning": "The decisive result is a symbolic inequality for all q∈[3/4,1), not a table lookup; finite entropy samples alone would not prove the interval.",
+        "searches": [
+          "Resultary: Minimum output entropy non-Gaussian channel Memarzadeh Mancini counterexample conjecture qutrit",
+          "Primary 2016 paper numerical search 10^5 states K=3 N=0.6"
+        ]
+      },
+      "rationale": "The original 2016 paper contains the conjecture and analyzes a different K,N example numerically; the witness lies outside both candidate families and contradicts that conjecture on a nonempty interval. Later bosonic dephasing papers address coherent information or quantum capacity, not this fixed-energy minimum output entropy. No published equivalent counterexample was found in web/Resultary searches. The 2016 primary text was actually read; still best-of-knowledge for all later literature.",
+      "residual_risks": [
+        "May be a later unindexed or differently worded counterexample to the same 2016 conjecture.",
+        "Does not find the true global minimum or cover t>log(4/3), different mean energy, different truncations or epsilon<1.",
+        "Purity is used only to bound largest eigenvalue and hence entropy; it does not by itself impose entropy ordering without the additional spectral argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS conjecture premise, does not cover the counterexample; it is what the present proof refutes",
+          "evidence": "At epsilon=1 coefficient is exp(-(m−n)^2 t); conjecture says truncated optimum among two candidate families; sample searches were for different N and truncation.",
+          "identifier_or_url": "DOI:10.1103/PhysRevA.94.022341; arXiv:1605.04525",
+          "material_read": "Full six-page lawful primary article rendered/inspected in this execution, especially channel coefficients, pure dephasing reduction, Section IV binomial and kappa candidates and Conjecture 1",
+          "method": "Primary published PDF/text and rendered-page inspection",
+          "title": "Minimum output entropy of a non-Gaussian quantum channel",
+          "trigger": "Original conjecture, channel normalization and numerical basis"
+        },
+        {
+          "assessment": "Not a covering result because quantum capacity differs from minimum output entropy",
+          "evidence": "Coherent-information/capacity optimizers are not constrained pure-input minimum output entropy theorems.",
+          "identifier_or_url": "arXiv:2007.03897; DOI:10.1103/PhysRevA.102.042413",
+          "material_read": "Primary bibliographic abstract and indexed objective description; not full paper",
+          "method": "Public scholarly abstract/primary record",
+          "title": "Quantum capacity of bosonic dephasing channel",
+          "trigger": "Later overlapping authors and pure-dephasing energy model"
+        },
+        {
+          "assessment": "No implication for the finite K=2 constrained entropy candidate-family conjecture identified",
+          "evidence": "Different optimization objective and output information measure.",
+          "identifier_or_url": "arXiv:2111.04173; DOI:10.3390/e25071001",
+          "material_read": "Abstract and public article description of LOCC capacity and finite cutoffs; not full proof read",
+          "method": "Public primary article/abstract",
+          "title": "Energy-Constrained LOCC-Assisted Quantum Capacity of the Bosonic Dephasing Channel",
+          "trigger": "Later finite-energy dephasing with possible dominating analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed-form rigorous counterexample to a named published conjecture is a substantive mathematical correction to the proposed optimizer families, with an entire parameter interval and a simple qutrit witness. It pinpoints an overlooked adjacent-Fock-level mechanism rather than an arbitrary numerical exception.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the K=2, mean-energy 3/2 truncation of Memarzadeh–Mancini pure-dephasing quantum channel, the adjacent-number superposition (|1>+|2>)/sqrt(2) has strictly lower output von Neumann entropy than every binomial or farthest-separated candidate for all 0<t<=log(4/3), disproving the published candidate-family conjecture.",
+  "limitations": [
+    "Counterexample to a candidate-family conjecture, not global optimizer classification.",
+    "Only K=2, N=3/2, epsilon=1, and 0<t<=log(4/3)."
+  ],
+  "schema_version": 1
+}
