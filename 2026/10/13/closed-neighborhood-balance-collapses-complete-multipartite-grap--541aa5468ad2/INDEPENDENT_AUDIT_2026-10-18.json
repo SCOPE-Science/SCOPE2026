@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:45:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 37ee6b28f3b6b9f92ef8da0a866a277318a6c383",
+        "Source definition in arXiv:2510.16666v1",
+        "Independent direct-definition enumeration scope09_independent_checks_20261018_1729.py"
+      ],
+      "rationale": "Reconstructed the exact closed-neighborhood equality condition for each vertex. Vertices sharing identical open neighborhoods are necessarily same-colored, so every multipartite part is monochromatic. If a part i has color c_i, its N[v]=V\\P_i ∪ {v}, forcing T_j=q_i for j≠c_i and T_{c_i}=q_i+n_i−1, q_i=(N−n_i+1)/k. Two different-colored parts when k≥3 compare any third color to get q_i=q_h and n_i=n_h, then compare each other’s color to force both sizes 1. For k=2 comparison gives n_i+n_h=2, again singleton. Any further part is singleton by comparison with one of those of different or same color. Then G=K_r and each N[v]=V; balance iff k|r and the multinomial number of surjective equal-size partitions follows. Independent direct-definition exhaustive check over 37 profiles and 320109 assignments corroborated the classification, not used as an all-n proof.",
+      "residual_risks": [
+        "Graphs must have nonempty parts, r≥2 and use exactly k≥2 colors.",
+        "The number counts labeled colors, not colorings up to color permutation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almeida et al. establishes same-open-neighborhood constraint and K_n criterion for all k; inspected portions and targeted search do not provide complete-multipartite family theorem.",
+          "Collins et al. establishes K_mn only if K_11 for 2 colors."
+        ],
+        "reasoning": "An all-k theorem on cliques and a 2-color theorem on bipartite graphs cover proper subfamilies only; combining them without the explicit cross-color total equations does not imply the arbitrary-r, arbitrary-k obstruction.",
+        "searches": [
+          "arXiv:2510.16666v1 Closed Neighborhood Balanced k-Coloring of Graphs",
+          "arXiv:2412.02800 closed neighborhood balanced coloring complete bipartite"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.16666v1",
+        "arXiv:2412.02800",
+        "DOI:10.1007/s00373-025-02950-5",
+        "Resultary semantic query: closed neighborhood balanced k-coloring complete multipartite graph all parts singleton"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-open-neighborhood lemma makes multipartite parts monochromatic, but does not itself constrain part sizes.",
+          "The complete-graph theorem determines the remaining cases once the part sizes are proved singleton."
+        ],
+        "reasoning": "The new deduction equates all color totals from neighborhoods of two differently colored parts, and separately handles k=2 and k≥3; it is not just a renaming of the prior biclique conclusion.",
+        "searches": [
+          "arXiv:2510.16666v1 same-open-neighborhood lemma complete graphs",
+          "arXiv:2412.02800 complete bipartite K11 only"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General k-CNBC defining paper arXiv:2510.16666v1 supplies the equal-open-neighborhood lemma and K_n divisibility.",
+          "Resultary match 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 studies majority C-coloring (distinct invariant)."
+        ],
+        "reasoning": "Compared the same closed neighborhood count requirement (not just graph family keywords). Part-monochromaticity is an ingredient, not the all-k arbitrary multipartite classification by itself.",
+        "searches": [
+          "closed neighborhood balanced k-coloring complete multipartite graph all parts singleton",
+          "CNBC k colors complete multipartite false twins",
+          "closed neighborhood-balanced graph k colors part monochromatic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic published corpus returned majority C, odd and other multipartite coloring classifications, but no matching CNBC table or theorem.",
+          "Independent color assignments enumerated from definition rather than copied from an existing database."
+        ],
+        "reasoning": "Result is an infinite family theorem rather than a finite table; the multinomial complete-graph case is known, while the exclusion of every nonsingleton multipartite part is the new structural fact.",
+        "searches": [
+          "closed neighborhood balanced k-coloring complete multipartite graph all parts singleton",
+          "complete multipartite closed neighborhood balanced k-coloring count multinomial"
+        ]
+      },
+      "rationale": "The general-k foundational source proves that identical open-neighborhood twins share a color and that k-CNBC colorability of cliques is equivalent to k dividing clique order. Its inspected text does not state this all-multipartite collapse. The two-color predecessor settles bicliques but not arbitrary r-part and k-family. Resultary matches for multipartite graphs were other coloring invariants (majority C, odd, b-coloring) with genuinely different neighborhood requirements. The structural cross-color equations provide a new complete family-level conclusion, subject to possible unindexed folklore.",
+      "residual_risks": [
+        "An unindexed or folklore consequence of the known twin lemma may already be recorded elsewhere.",
+        "Short proof may be known informally, although the general k,r statement was not found in inspected primary works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No stated arbitrary complete-multipartite classification found in material inspected.",
+          "evidence": "Same open neighbors must share color; K_n iff k|n.",
+          "identifier_or_url": "arXiv:2510.16666v1",
+          "material_read": "Lawful PDF sections containing definitions, necessary conditions, clique examples, and targeted text search for multipartite.",
+          "method": "Inspected text and a rendered PDF definition/lemma page; searched the PDF for family names.",
+          "title": "Closed Neighborhood Balanced k-Coloring of Graphs",
+          "trigger": "Direct source defining general k-CNBC, same-twin lemma and clique case"
+        },
+        {
+          "assessment": "Two-color K_mn obstruction only; not a full arbitrary-r and arbitrary-k statement in inspected material.",
+          "evidence": "Only K_11 works for complete bipartite graph in predecessor.",
+          "identifier_or_url": "arXiv:2412.02800; DOI:10.1007/s00373-025-02950-5",
+          "material_read": "Accessible article initial definitions and complete-bipartite observation; targeted source text search for complete multipartite.",
+          "method": "Read relevant public article text and compared graph family scope.",
+          "title": "Closed Neighborhood Balanced Coloring of Graphs",
+          "trigger": "Two-color predecessor with potential family result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2510.16666v1",
+        "arXiv:2412.02800; DOI:10.1007/s00373-025-02950-5"
+      ],
+      "rationale": "Determines the entire possible family for a recently generalized graph coloring invariant over canonical complete multipartite graphs, making the biclique negative phenomenon universal across all numbers of parts and colors and providing exact positive-case counts. It is a natural sharp structural classification, not a chosen one-off graph.",
+      "residual_risks": [
+        "Only finite connected complete multipartite graphs with surjective use of k≥2 colors.",
+        "Finite enumeration is a stress test, not the infinite proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A connected finite complete multipartite graph K_{n1,...,nr} (r≥2) admits a surjective closed-neighborhood-balanced k-coloring (k≥2) iff all parts have size 1 and k|r; there are r!/((r/k)!)^k labeled balanced colorings in that case.",
+  "limitations": [
+    "Only finite connected complete multipartite graphs with surjective use of k≥2 colors.",
+    "Finite enumeration is a stress test, not the infinite proof."
+  ],
+  "schema_version": 1
+}
