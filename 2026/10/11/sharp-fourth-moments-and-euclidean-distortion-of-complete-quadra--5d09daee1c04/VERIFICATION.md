@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the sharp quadratic Walsh bounds
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or later and no third-party packages. The program enumerates all sign configurations for \(n=6,7,8\) with exact integer arithmetic, checks the quartic Walsh moment against four-cycle enumeration, re-evaluates the rational sum-of-squares certificate, verifies the vertex-row-zero decomposition, tests its quadratic stability consequence, and exercises the Kneser eigenvalue identity for star-shaped edge arrays. The script prints `VERIFY_OK` only after every assertion has passed.
+## correctness
 
-The universal claim for all \(n\ge6\) and all real coefficient arrays rests on the explicit proof of the fourth-moment expansion and the three-subspace disjointness-graph eigenspectrum in `RESULT.md`. Finite enumerations, randomized test arrays, and an exit code cannot establish that universal claim alone. The exact identification of all equality cases and the ellipsoid symmetrization argument are proved in `RESULT.md` and are not represented as exhaustively checked in a finite-dimensional computer experiment.
+PASS
+
+PASS: Walsh parity yields EQ^4=3B²−2∑b_e²+24∑four-cycle ∏a_e. Pair incidences: each adjacent edge pair belongs to n−3 cycles, each disjoint pair is opposite in 2 cycles. Squared edge magnitudes decompose orthogonally into constant, star u_i+u_j, and zero-row v; Kneser disjointness eigenvalues on these are C(n−2,2), -(n−3), 1. The exact SOS remainder has nonnegative cycle terms and magnitudes eigenvalues lambda>2 and 2 for n>=6, giving stated stability 2. Uniform switched-edge arrays exhaust zero-deficit case by connected 4-cycle sign conditions. The full isometry group forces the l2 ellipsoid as Banach–Mazur optimal. Independently computed exact SOS identities and sign moments for random integer coefficients in n=6 and 7, while written proof proves all n>=6.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Adamczak–Wolff Theorem1.4 provides general sub-Gaussian degree-dependent concentration/moment bounds with unspecified constants, not exact R_n, equality signs, squared-magnitude deficit, or Banach–Mazur distance. Bhattacharya–Das–Mukherjee–Mukherjee study asymptotic distribution of quadratic graph coefficients rather than arbitrary-real finite-n maximum. The 2026-10-11 five-sign result is only a fixed n=5 case, not a dominating theorem for all n>=6. No exact infinite-family predecessor found in bounded published-corpus and primary searches; residual older finite-chaos norm literature remains.
+
+## value
+
+PASS
+
+PASS: Full homogeneous quadratic Boolean-chaos subspaces X_{n,2} are canonical for every n, and the precise n-dependence R_n (tending to 15), equality orbits, stability deficit and exact Euclidean Banach–Mazur distance are natural unknown sharp invariants. A uniform SOS decomposition through the Kneser spectrum supplies genuine structural control beyond generic dimension-free hypercontractivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

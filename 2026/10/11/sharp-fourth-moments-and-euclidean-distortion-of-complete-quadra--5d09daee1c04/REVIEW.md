@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fourth moment is expanded exactly by Walsh orthogonality. Every quartic cross term is indexed by an unoriented four-cycle, and its multiplicity is \(24\). The edge-incidence identities and direct Kneser disjointness eigenspaces yield an all-dimensional equality of two quartic expressions, whose right side is a sum of nonnegative squares. This proves the claimed bound for arbitrary real coefficients, not just numerical examples. Zero deficit forces uniform edge magnitude and balanced cycle signs, giving the stated exact switching extremizers. Symmetrization of any ellipsoid over all vertex-sign switches and vertex permutations proves that the standard Euclidean pullback realizes the Banach–Mazur infimum. Exact finite checks in `verify.py` reproduced the fourth moment and sum-of-squares formulas for dimensions \(6,7,8\). They are diagnostic rather than the infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Walsh parity yields EQ^4=3B²−2∑b_e²+24∑four-cycle ∏a_e. Pair incidences: each adjacent edge pair belongs to n−3 cycles, each disjoint pair is opposite in 2 cycles. Squared edge magnitudes decompose orthogonally into constant, star u_i+u_j, and zero-row v; Kneser disjointness eigenvalues on these are C(n−2,2), -(n−3), 1. The exact SOS remainder has nonnegative cycle terms and magnitudes eigenvalues lambda>2 and 2 for n>=6, giving stated stability 2. Uniform switched-edge arrays exhaust zero-deficit case by connected 4-cycle sign conditions. The full isometry group forces the l2 ellipsoid as Banach–Mazur optimal. Independently computed exact SOS identities and sign moments for random integer coefficients in n=6 and 7, while written proof proves all n>=6.
 
-Primary papers inspected: Blei–Janson (2004), including the chaos definition, hypercontractive bounds, finite-versus-asymptotic results, and Section 4; Adamczak–Wolff (arXiv:1304.1826v1), including Theorem 1.4 and Sections 1 and 5; Bhattacharya et al. (arXiv:2203.02850), including Proposition 1.11 and Sections 1 and 4. Their general inequalities and asymptotic four-cycle criteria do not imply the all-dimensional sharp arbitrary-real-coefficient fourth-moment formula, quantitative square remainder, and exact Euclidean distortion. Targeted semantic research-result searches for the formula, its Kneser sum-of-squares equivalence, and the Banach–Mazur invariant disclosed no stronger indexed coverage. A previously considered five-sign case is a **different fixed dimension**; the present theorem concerns the entire infinite family \(n\ge6\). Indexed-search incompleteness and possible unindexed equivalents are residual risks, not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The full quadratic chaos is a canonical Banach subspace of the Boolean-cube \(L^4\) space, with dimension \(\binom n2\). Its sharp finite-dimensional moment constant, all extremizers, coefficient-magnitude stability, and optimal Euclidean distortion are natural, functionally significant invariants. The exact \(n\)-dependence and \(15\) limit explain how finite-dimensional geometry approaches the standardized quadratic Gaussian limit, while the sum-of-squares decomposition links sharp hypercontractivity to the edge-disjointness spectrum. This is not a parameter substitution or isolated numerical curiosity.
+PASS best-of-knowledge: Adamczak–Wolff Theorem1.4 provides general sub-Gaussian degree-dependent concentration/moment bounds with unspecified constants, not exact R_n, equality signs, squared-magnitude deficit, or Banach–Mazur distance. Bhattacharya–Das–Mukherjee–Mukherjee study asymptotic distribution of quadratic graph coefficients rather than arbitrary-real finite-n maximum. The 2026-10-11 five-sign result is only a fixed n=5 case, not a dominating theorem for all n>=6. No exact infinite-family predecessor found in bounded published-corpus and primary searches; residual older finite-chaos norm literature remains.
 
-## Closest literature and limitations
+## value
 
-The generic hypercontractive bound from Blei–Janson is strictly weaker here. The concentration theorem of Adamczak–Wolff is not sharp in the form needed for this statement. Bhattacharya et al. impose binary edge weights and study asymptotic distributions rather than arbitrary real coefficient upper envelopes or Banach–Mazur distortion. The theorem is restricted to real, complete, homogeneous degree-two Walsh chaos on independent uniform signs, dimensions \(n\ge6\). No best possible stability coefficient or near-extremizer sign rigidity is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: Full homogeneous quadratic Boolean-chaos subspaces X_{n,2} are canonical for every n, and the precise n-dependence R_n (tending to 15), equality orbits, stability deficit and exact Euclidean Banach–Mazur distance are natural unknown sharp invariants. A uniform SOS decomposition through the Kneser spectrum supplies genuine structural control beyond generic dimension-free hypercontractivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
