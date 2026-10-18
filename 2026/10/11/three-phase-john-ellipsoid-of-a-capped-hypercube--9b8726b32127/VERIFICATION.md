@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` uses only the Python standard library. Execute `python3 verify.py` in this directory.
+# Independent mathematical audit
 
-The exact-rational checks cover 5,520 parameter instances with \(2\le n\le21\), checking positive eigenvalues, coordinate support inequalities, rank support inequalities, and equality patterns at all three parameter regimes. An independently parameterized grid tests the determinant against the proposed optimum for 248 additional parameter cases. Both checks passed.
+## correctness
 
-The verifier does not exhaust all real parameters, prove uniqueness under arbitrary nonsymmetric perturbations, or establish literature originality. All-dimensional correctness instead uses the permutation-invariance theorem for the unique John ellipsoid, exact support-function evaluation, and one-variable determinant optimization reproduced in RESULT.md. No independent audit is claimed.
+PASS
+
+Permutation uniqueness reduces shape to aP+bH, a,b>0 and center t*1. Exact halfspace support yields s^2=((n-1)a+b)/n, s<=t, s<=1-t, nt+sqrt(nb)<=tau. At fixed t the determinant maximizer is b=min(t^2,n(tau/n-t)^2); the logarithmic derivative on the rank-active branch has sign tau-(n+1)t and its global maximizer is t=min(tau/(n+1),1/2). These exact inequalities produce all three displayed parameter regions and matching boundaries. Independent substitution checked n=2 and representative n,tau including transitions; the argument, not samples, proves arbitrary n and real tau.
+
+## originality
+
+PASS
+
+Best-of-knowledge the complete three-phase off-center John ellipsoid and two transition locations are not entailed by the inspected uniform-matroid Ehrhart treatment, known halfcube special case or ellipsoids of symmetrized polymatroids. Previous work covers geometric objects/special cases but does not provide all tau, center, anisotropic and contact regimes.
+
+## value
+
+PASS
+
+Exact John ellipsoid and facet-contact regimes are natural affine-invariant-of-Euclidean-realization metric data for uniform-matroid independence polytopes and real capped hypercubes; the intermediate anisotropic phase has independent geometric significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
