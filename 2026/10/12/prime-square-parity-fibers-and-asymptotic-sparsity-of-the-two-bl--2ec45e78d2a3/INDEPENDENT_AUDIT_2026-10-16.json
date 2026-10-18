@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:47:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from Merca’s exact coefficient formula, for each odd prime p and e≥0 independently verified σ(p^e)−λ(p^e)≡4[ p≡3,5 mod8 ]ceil(e/2) mod8. Multiplicativity modulo8 yields a sum over distinguished primes; λ(q^e) is odd iff e even, forcing zero/one/≥two odd exponents into stated square/one-prime/zero parity cases. The derived dyadic recurrence toggles parity precisely on odd squares. Independent exact arithmetic checked all n≤50000 plus sample prime-power congruences, including n=1,2,4. The asymptotic removes square, higher p^{4j+1} j≥1 and p|r terms by O(sqrt X); main term ∑_{t≥0,r odd} π_-(X/(2^t r²)) with π_-(y)~y/(2logy). Absolute convergence of weights and O(X^{5/6}) large weights yield coefficient (1/2)·2·π²/8=π²/8; the finite ratio need not approximate its limit quickly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known all-n formula determines a(n) and hence implies parity logically by calculation; however it does not provide the explicit prime-factorization iff or counting asymptotic, which require further arithmetic analysis."
+        ],
+        "reasoning": "The broad numerical formula does not itself state/collapse the all-n prime-support characterization or PNT leading constant; distinction is structural interpretation of a known function.",
+        "searches": [
+          "two-block odd partition signed coefficients divisor character congruences stronger coverage",
+          "Merca 2026 Theorem1.1 all n formula"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT.md, verify_parity.py and recorded verification output identifier",
+        "Merca published 2026 full article The Ramanujan Journal 10.1007/s11139-026-01426-1",
+        "Merca dyadic full HTML arXiv:2610.05020v1 §§1–7",
+        "Independent exact divisor/parity count through n=50000 and odd prime powers; arithmetic proof and classical PNT in AP",
+        "Resultary semantic parity-partition search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtraction σ(p^e)−λ(p^e) modulo8 isolates p≡3,5 with parity of ceil(e/2); multiplication and dyadic recurrence produce exact parity support. Main family n=2^t p r² gives summable weighted prime count and π²/8."
+        ],
+        "reasoning": "Result is a rigorously derived arithmetic corollary, not mere mechanical substitution: explicit support characterization and its leading X/logX asymptotic are not stated in inputs.",
+        "searches": [
+          "Merca 2026 Theorem1.1 divisor sums and sequel Theorem1.1 dyadic recurrence",
+          "prime number theorem Dirichlet classes 3 and 5 modulo 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published exact arithmetic a(n) formula and dyadic n=2^t m relation are prior, but no prime-square parity iff statement or χ8 criterion in either inspected text."
+        ],
+        "reasoning": "The same a(n) object was compared directly; parity-support classification is a new specialization with nontrivial prime-power analysis, not an independent new generating function.",
+        "searches": [
+          "two-block odd partition function Merca parity mod 2 prime square fibers asymptotic support",
+          "Merca The two-block odd partition function arXiv 2609.33770v1",
+          "Merca dyadic structure 2610.05020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published paper classifies congruence mod3 and a few small values; prior code/formula can tabulate any finite range but is not the global parity-fiber table."
+        ],
+        "reasoning": "Finite values and known exact formula are not the claimed all-n factorization criterion and prime-scale support count.",
+        "searches": [
+          "two block odd partition parity zero density square primes p≡3,5 mod8",
+          "Resultary two-block odd partition function Merca parity mod 2 prime square fibers asymptotic support"
+        ]
+      },
+      "rationale": "Merca’s full published article gives exact divisor formula, nonnegativity and mod3 congruences; sequel full HTML provides dyadic recurrence and congruences modulo odd primes, but neither contains the complete mod2 prime-exponent support nor its X/logX asymptotic. The PNT in AP is classical and properly attributed; new claim is the number-theoretic extraction from existing exact coefficient formula.",
+      "residual_risks": [
+        "The original coefficient formula and dyadic recurrence are prior, so credit belongs only to explicit parity fibers and asymptotic.",
+        "Leading asymptotic is ineffective and converges slowly numerically; no independent check of a strengthened error term or effective bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_FORMULA_PRIOR_NOT_PARITY_FIBER",
+          "evidence": "Published formula supplies σ,λ divisor sums and mod3 congruence, but not complete mod2 prime-power structure nor prime-scale density.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-026-01426-1",
+          "material_read": "Full lawful published article HTML, Theorem 1.1, §§2–4, modulo-3 congruence, coefficient positivity; explicit arithmetic formula for a(n)",
+          "method": "primary full-text formula and theorem comparison",
+          "title": "The two-block odd partition function",
+          "trigger": "exact same signed partition function and divisor formula"
+        },
+        {
+          "assessment": "DYADIC_RECURRENCE_PRIOR_BUT_NOT_PARITY_FIBERS",
+          "evidence": "a(2^t m)=a(m)+(2^{t-1}−1)σ(m) is prior. No stated χ8/special-prime parity-support theorem nor PNT asymptotic therein.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05020v1",
+          "material_read": "Full 901-line primary HTML; Theorem1.1 dyadic recurrence, Section3 derivation, Sections4–7 congruences for odd moduli and theta weights",
+          "method": "primary complete HTML material and implication comparison",
+          "title": "Dyadic Structure of the Two-Block Odd Partition Function and Theta-Weighted Congruences for pod(n)",
+          "trigger": "same a(2^t m) specializations might imply parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete parity support classification of a natural two-block signed partition statistic and its sharp prime-scale zero-density asymptotic are potentially useful exact arithmetic invariants, beyond recapitulating known divisor sums or finite coefficient data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n=2^t m, m odd, parity a(n) is 1 on square m=s² iff χ8(s)=−1 for t<2 or +1 for t≥2, or on nonsquares exactly m=p^{4j+1} r² with p≡3,5 mod8 and p∤r; #odd a(n)≤X ∼π²X/(8 logX).",
+  "limitations": [
+    "The original coefficient formula and dyadic recurrence are prior, so credit belongs only to explicit parity fibers and asymptotic.",
+    "Leading asymptotic is ineffective and converges slowly numerically; no independent check of a strengthened error term or effective bound."
+  ],
+  "schema_version": 1
+}

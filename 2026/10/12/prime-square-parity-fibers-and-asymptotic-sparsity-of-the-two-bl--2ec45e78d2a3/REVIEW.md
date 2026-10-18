@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Starting from Merca's established arithmetic identity (arXiv:2609.33770v1, Theorem 1.1), the proof checks every odd prime and exponent modulo eight, multiplies the congruences using exact multiplicativity, separates the cases of zero, one, or at least two odd prime exponents, and derives the effect of powers of two directly from the divisor formula. The prime-scale asymptotic follows from the prime number theorem in the two reduced classes \(3,5\pmod8\), absolute convergence of the square-weight series, and explicit lower-order estimates for other exponents and excluded divisibilities. All positive indices, including \(1,2,4\), are covered. The verifier corroborates the formula over 300000 indices, but no infinite inference depends on that finite check.
+## correctness
 
-## Originality — PASS, with risk
-The first Merca paper proves the arithmetic formula and positivity and gives a mod-three congruence, not this exact parity classification or asymptotic. The later Merca paper proves the dyadic recurrence already used here but concentrates on congruences modulo odd primes, not the classification. Published results on other parity-valued overpartitions, on other two-block structures, and on finitely many exact small coefficient values do not imply the result. Direct searches for the prime-square description and \(\pi^2/8\) leading constant did not identify a covering statement. The risk of an equivalent unindexed proof or elementary unpublished observation remains real; the source identity and analytic number theory used here are pre-existing.
+PASS
 
-## Mathematical value — PASS
-The natural signed partition statistic has an irregular combinatorial definition. The theorem converts every coefficient parity into a full prime-power classification with a quadratic-character square branch and an exceptional prime-times-square branch. The exact asymptotic \(\pi^2X/(8\log X)\) identifies its prime-scale rarity. This is motivated by the partition function and its published arithmetic formula, not by a selectively chosen input range or arbitrary modulus.
+Starting from Merca’s exact coefficient formula, for each odd prime p and e≥0 independently verified σ(p^e)−λ(p^e)≡4[ p≡3,5 mod8 ]ceil(e/2) mod8. Multiplicativity modulo8 yields a sum over distinguished primes; λ(q^e) is odd iff e even, forcing zero/one/≥two odd exponents into stated square/one-prime/zero parity cases. The derived dyadic recurrence toggles parity precisely on odd squares. Independent exact arithmetic checked all n≤50000 plus sample prime-power congruences, including n=1,2,4. The asymptotic removes square, higher p^{4j+1} j≥1 and p|r terms by O(sqrt X); main term ∑_{t≥0,r odd} π_-(X/(2^t r²)) with π_-(y)~y/(2logy). Absolute convergence of weights and O(X^{5/6}) large weights yield coefficient (1/2)·2·π²/8=π²/8; the finite ratio need not approximate its limit quickly.
 
-## Scientific limits
-The leading asymptotic has no effective secondary term here. Finite checks are independent corroboration but do not constitute the proof. Overlap with otherwise unindexed work cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Merca’s full published article gives exact divisor formula, nonnegativity and mod3 congruences; sequel full HTML provides dyadic recurrence and congruences modulo odd primes, but neither contains the complete mod2 prime-exponent support nor its X/logX asymptotic. The PNT in AP is classical and properly attributed; new claim is the number-theoretic extraction from existing exact coefficient formula.
+
+## value
+
+PASS
+
+Complete parity support classification of a natural two-block signed partition statistic and its sharp prime-scale zero-density asymptotic are potentially useful exact arithmetic invariants, beyond recapitulating known divisor sums or finite coefficient data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
