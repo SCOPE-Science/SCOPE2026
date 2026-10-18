@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the published equality decomposition, the exact regular-simplex signed-sum formula, an exact multiplicity count, and a finite-measure Laplace-transform cancellation argument. The first positive defect and its multiplicity are checked algebraically, including repeated largest blocks and the orthonormal-only boundary case.
+PASS
 
-## Originality
+Assume exact Jiang–Lim–Parvatikar equality classification (orthogonal r-vector orthonormal remainder plus m=n-d centered regular simplices of positive even dimensions k_i). For each k-simplex block, pair inner products -1/k imply squared signed-sum norm ((k+1)^2-s^2)/k and maximal k+2; with |s|=2t+1 the defect is 4t(t+1)/k of multiplicity 2 binom(k+1,k/2-t). Orthogonal blocks yield exact convolution and 2^r multiplicity factor. Largest block K has uniquely least positive defect 8/K, first-positive-to-zero multiplicity q K/(K+4) where q largest blocks: this exactly recovers K,q. Positive finite Laplace transforms permit exact division/cancellation and induction over remaining blocks; total mass 2^n and largest squared norm 2n-d recover n,d and r. Independently checked direct exact sign enumerations for simplex sizes 2 through 14 and the first positive defect ratios. Edge m=0 has only constant spectrum and n=d, so is recovered directly. Finite check supports but does not prove infinite theorem; the analytic inverse argument does.
 
-PASS. The focal paper classifies equality configurations but does not state or prove that their scalar signed-sum spectra are complete invariants. The independent first-linearly-dependent paper gives only the one-simplex formula and maximizing-sign condition. Targeted searches found no equivalent multi-block convolution or reconstruction theorem. The closest located result on the same extremizer family is a planar local-stability calculation, which does not imply the present inverse statement.
+## originality
 
-## Value
+PASS
 
-PASS. Distinct sharp decompositions can have identical \((n,d)\) and identical longest-signed-sum value. The theorem shows that the full signed-sum spectrum exactly resolves this ambiguity and gives an explicit reconstruction mechanism, with the top two levels already exposing the largest block dimension and its multiplicity.
+Earlier Jiang–Lim–Parvatikar theorem is credited for equality structure and each block signed norm; Pinasco handles one simplex. Neither available statement supplies the convolution law as a complete invariant or inversion via least defect, zero/first multiplicity and iterative Laplace cancellation. Target addresses a genuine new structural inverse question on all sharp configurations, with exact complete classification. Best-of-knowledge PASS with consequential inaccessible original full text caveat.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest primary sources are arXiv:2609.31389v1 and arXiv:2609.21101v1. The first supplies the general equality classification and block norm formula; the second independently handles \(n=d+1\). Neither gives the multi-block inverse theorem.
+Inside a natural sharp equality class with several genuinely distinct orthogonal simplex partitions having the same signed-sum maximum, the full signed-sum spectrum is an exact complete observable and reconstructible invariant. Recovery from just the two top levels and successive cancellations is a nontrivial structural rigidity phenomenon and could be used by researchers to identify equality types from norm measurements; no downstream general theorem is needed to justify this precise mathematical value.
 
-The result is exact and restricted to the sharp equality class. It does not provide stability under noisy spectra and does not address the unresolved regime where the optimal large-signed-sum constant exceeds \(\sqrt{2n-d}\).
+The dated certificate retains the supplied scientific assessment, sources and limitations.
