@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "PASS: Exact second-order resolvent expansions give the matrix mean defect h^2 Q/2 and ordering increment h^2 J/2. Contractivity yields a deterministic uniform O(h) pathwise approximation, and an orthogonal martingale decomposition has an O(h^(5/2)) L2 approximation error by independent leading Rademacher increments. Lindeberg-Feller and a 2h-mesh Riemann sum prove the h^(3/2) CLT and exact 1/8 covariance coefficient; a separate iid expansion proves its h^(1/2) counterpart. The 2D sharpness uses invertibility of each nonzero planar skew commutator. Exact rational Taylor identities and all 2^n order sequences for n<=5 agree with moment recursions; numerical covariance limits approach the analytic integrals. Risk: only fixed finite dimension, PSD symmetry and exact solves are covered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1], Theorem 5.2, gives expected squared-error bounds without a paired-order central limit theorem.",
+        "[4], Section 2 and the expected-error results, bounds randomized LQ state/control approximation, but no implicit paired resolvent commutator asymptotics.",
+        "[2] averages permuted unitary product formulas; [3] has concentration inequalities for random unitary products."
+      ],
+      "reasoning": "A general RMS bound, strong approximation order, unitary mixing bound, or martingale concentration inequality does not supply the sharp centered h^(3/2) limit, its exact commutator covariance, and the equal-solve iid comparison. The objects differ materially in law and step operator.",
+      "searches": [
+        "Randomized operator splitting implicit Euler paired without replacement first order strong convergence commutator covariance Gaussian fluctuation",
+        "Antithetic operator splitting random order Lie Trotter sharp h^(3/2) covariance central limit",
+        "arxiv:2008.11751",
+        "arxiv:1805.08385"
+      ]
+    },
+    "checked_sources": [
+      "Eisenmann–Stillfjord, arXiv:2210.05375v1, scheme (2.2), Theorem 5.2 and Section 6",
+      "Veldman–Zuazua, arXiv:2109.13798v2, introduction and Section 2.1",
+      "Childs–Ostrander–Su, arXiv:1805.08385v2, permutation mixing and product formula sections",
+      "Chen–Huang–Kueng–Tropp, arXiv:2008.11751v4, concentration results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Independently chosen matrix subsets yield O(h^(1/2)) stochastic trajectories under broad assumptions; they do not imply the order h^(3/2) fluctuations of an exact per-pair balanced selection.",
+        "Permuted unitary exponential bounds do not supply resolvent-specific mean bias Q/4 or the covariance K=1/8 integral involving a matrix commutator."
+      ],
+      "reasoning": "Even assuming the strongest accessible order-one RMS bounds for [1] or [4], those bounds allow several centered stochastic scales and do not determine limiting normality or the leading coefficient. Restricting a product-formula result to two matrices does not identify the implicit resolvent map; its leading local deterministic defect is different. Therefore no checked statement dominates all of the final claim.",
+      "searches": [
+        "Antithetic paired randomized backward Euler operator splitting independent fair order noncommuting symmetric matrices first-order deterministic bias and h^(3/2) Gaussian commutator fluctuations",
+        "Randomized operator splitting implicit Euler paired without replacement first order strong convergence commutator covariance Gaussian fluctuation",
+        "arxiv:1805.08385",
+        "arxiv:2008.11751"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] defines iid-operator backward Euler at (2.2); [4] defines independent subset-selected continuous-time dynamics at (11)–(13); neither uses a random order of both resolvents inside each macro-block.",
+        "[2] handles randomly permuted exponential products of unitary matrices, not implicit contraction resolvents."
+      ],
+      "reasoning": "Pairwise balancing is not iid operator selection, and a random product of matrix exponentials is not a product of implicit resolvents. In our construction randomness first enters at order h^2 through the commutator; iid selection is already random at order h. Source expectation/error results cannot be converted to an exact Gaussian covariance with the given constant without an additional statement or proof.",
+      "searches": [
+        "Antithetic paired randomized backward Euler operator splitting independent fair order noncommuting symmetric matrices first-order deterministic bias and h^(3/2) Gaussian commutator fluctuations",
+        "random permutation Lie Trotter implicit Euler 2 operators commutator central limit distribution numerical integration",
+        "Eisenmann Stillfjord randomized splitting Gaussian fluctuations symmetric matrix commutator",
+        "arxiv:2210.05375",
+        "arxiv:2109.13798"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible principal source has schemes/equations and numerical convergence rates rather than a tabulation of paired-order covariance constants.",
+        "The two-dimensional exact matrix witness is computed from the integral theorem, not read from an existing table."
+      ],
+      "reasoning": "No checked table or database row reports this fixed model, paired-order limiting covariance, or sharp dimension-two noncommutativity criterion. The absence of a matched result is supporting evidence, not independent proof of originality.",
+      "searches": [
+        "randomized operator splitting sampling without replacement fluctuation covariance Lie bracket",
+        "random Lie Trotter splitting ordering antithetic central limit variance commutator resolvent randomized order dissipative",
+        "arxiv:2210.05375",
+        "arxiv:2109.13798"
+      ]
+    },
+    "rationale": "PASS (self-review): The first-public 2022-10-11 source [1] is most relevant and has verified primary MSC 65M12. [1] uses iid implicit suboperators and bounds expected error; [4] uses iid continuous-time matrix subsets and LQ optimization; [2] and [3] use random unitary exponential products and averaged/concentration bounds. Their premises/statements do not imply the specific h^(3/2) Gaussian commutator limit, h^3 covariance constant, and equal-cost h noise comparison for paired backward Euler. Exact searched formulations and inspected sources are recorded; missing or unindexed equivalent stochastic-product CLTs remain a residual bibliographic risk and absence of a match is not uniqueness proof.",
+    "residual_risks": [
+      "No exhaustive guarantee against uncatalogued or differently named Gaussian product-limit theorems.",
+      "A sufficiently broad prior random-matrix triangular-array CLT might provide a reusable proof technique, but no accessed statement gives the exact paired backward-Euler covariance and equal-cost comparison.",
+      "Uninspected appendices beyond the explicitly noted material may contain related lemmas, though the principal primary results were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The single-step draws are independent, not an ordered without-replacement pair, and the theorem bounds expected squared error without commutator central-limit covariance.",
+        "evidence": [
+          "eq. (2.2), Theorem 5.2, and Section 6 report O(h^(1/2)) bounds and potential order-one cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.05375v1",
+        "material_read": "Introduction; Section 2, especially scheme (2.2); Section 5, including Theorem 5.2 and its hypotheses; Section 6 convergence observations; reference list.",
+        "method": "Read accessible primary full-text HTML sections and compare update laws and quantified error statements.",
+        "title": "A randomized operator splitting scheme inspired by stochastic optimization methods",
+        "trigger": "Same operator-splitting setting, implicit randomized steps, primary MSC 65M12."
+      },
+      {
+        "assessment": "Independent subset choices and LQ convergence in expectation do not imply the fixed-pair ordering CLT and explicit commutator covariance.",
+        "evidence": [
+          "Definition (11) and evolution (13) generate different matrix products and their main claims cover control/expected-error convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.13798v2",
+        "material_read": "Introduction, definitions (5)–(13) of Section 2.1 and the stated expected convergence scope; accessible source statements.",
+        "method": "Read primary full-text HTML passages comparing subset-selected continuous-time dynamics against paired implicit resolvents.",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Close matrix random splitting and potential stronger result referred to in [1]."
+      },
+      {
+        "assessment": "Related randomized ordering mechanism; no identical resolvent process, mean-bias integral, or Gaussian covariance theorem.",
+        "evidence": [
+          "Product formulas approximate unitary exponentials and prove averaged-error bounds for random orderings."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.08385v2",
+        "material_read": "Full-text introduction and product-formula permutation/mixing statements, including mixing lemma and permutations of factors.",
+        "method": "Compare unitary exponential mixing setup to contractive implicit resolvent method and Gaussian fluctuation assertions.",
+        "title": "Faster quantum simulation by randomization",
+        "trigger": "Random permutation of two or more noncommuting factors could subsume leading order cancellation."
+      },
+      {
+        "assessment": "Concentration bound for unitary products is not a central limit result for balanced resolvent order and does not determine our covariance integral.",
+        "evidence": [
+          "Random Hamiltonian/unitary product formulas and martingale concentration for approximation error rather than fixed-pair commutator covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2008.11751v4",
+        "material_read": "Full-text introduction and main matrix/vector concentration results for qDRIFT random unitary products.",
+        "method": "Inspect primary theoretical statements and compare their normalized fluctuations against the explicit matrix Gaussian limit.",
+        "title": "Concentration for random product formulas",
+        "trigger": "Potential general matrix-martingale bound on random product fluctuations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "171902a7-7c86-4687-93f6-4b04f40da8fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: Balanced-per-pair work scheduling is a natural variance-control design for decomposed gradient flows. At an identical cost of 2N resolvent evaluations, the covariance scale improves from h to h^3, and an exact commutator limit says when any ordering variability survives. A positive-definite noncommuting 2-by-2 example establishes sharpness. This distinguishes a scientifically relevant stochastic-cancellation mechanism from ordinary first-order backward-Euler bias without claiming total-error superconvergence or nonlinear generality.",
+    "status": "PASS"
+  }
+}
