@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The printed endemic infected-coordinate fails the susceptible equilibrium equation by an exact symbolic residual. The corrected formulas are reconstructed from the seven ODE balances and reduce the endemic problem to one scalar equation in the awareness variable. At the disease-free threshold, the required implicit-function derivative is strictly nonzero, giving a locally unique forward branch. The bundled checker reproduces the corrected baseline equilibrium and the published-formula residual.
+## correctness
 
-## Originality
-PASS. The broad ideas of awareness feedback, endemic equilibria, and Hopf bifurcation are well established and are not claimed as new. Direct comparison with the 2026 source and a full-text 2023 related model shows that neither contains this source-specific residual identity, corrected infected coordinate, or scalar branch equation. Exact-title and semantic searches did not locate an existing correction.
+PASS
 
-## Value
-PASS. The printed endemic state is the object on which later stability calculations are based, so an algebraically invalid coordinate is consequential. The correction also upgrades the source's numerical forward-bifurcation observation near \(R_0=1\) to an analytic local branch theorem.
+The steady I equation gives E=B0(A)I/mu and exposed balance gives S=(1+cA)(mu+d)B0(A)/(mu lambda). Incidence in susceptible balance is then (mu+d)B0(A)I/mu without an additional (1+cA); substituting the source formula yields exactly (Pi-dS)cA/(1+cA). Q,H from linear chains and awareness feedback give I(A)=(theta A-omega)/(gamma L(A)), A>A0; every strictly positive equilibrium is equivalent to Psi=Pi-dS(A,lambda)-(mu+d)B0(A)I(A)/mu=0. At lambda_c, Psi_lambda=Pi/lambda_c>0 and Psi_A is a sum of strictly negative terms, so IFT gives local positive forward branch. Independent rational arithmetic at A=3/2 reproduced exact wrong-source residual 32/175 and positive slope sign. This proves neither global endemic uniqueness nor source Hopf statements.
 
-## Closest literature and limitations
-The closest same-theme full-text source is Al Basir, Rajak, Rahman, and Hattaf (2023), which has a different awareness epidemic architecture. A 2025 extended SIQR awareness model is also related but structurally different. The present result does not prove global uniqueness of the endemic branch and does not reassess the reported Hopf points.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algebraic contradiction and exact corrected coordinates concern a particular published SEIQHRA model; the source’s generic forward bifurcation narrative and standard IFT are not independently novel.
+
+## value
+
+PASS
+
+A wrong source endemic equilibrium changes baseline numerical state interpretation and invalidates any equilibrium-based downstream calculations using that printed tuple. The exact correction and scalar reduction provide a reproducible mathematical repair and rigorously bound the near-threshold branch; source-specific effect is more than a cosmetic sign change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
