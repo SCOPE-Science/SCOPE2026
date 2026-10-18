@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published characterization of the dual \(L_p\) John ellipsoid is linearized at \(RB_2^n\). The radial density contributes the logarithmic derivative \(R\phi'(R)/\phi(R)\), and the spherical fourth-moment identity diagonalizes the matrix response into scalar and traceless modes. The scalar mode vanishes for a traceless input deformation, while the traceless mode gives
-\[
-c_R=1+\frac{R\phi'(R)}{(n+p)\phi(R)}.
-\]
-The Jacobian is invertible for every \(p>0\), so the implicit-function argument is legitimate. The Gaussian specialization gives \(c_R=1-R^2/(n+p)\).
+PASS
 
-## Originality
+For n≥2, p>0 and a real symmetric traceless A, the ellipsoid radius obeys rho_K(u)=R(1+epsilon u^TAu)+O(epsilon²). With eta=R phi′(R)/phi(R), the conical measure has relative first variation (n+eta)q_A. In the exact Li–Liu–Huang characterization (1.10), the integrand variation is (2−p)q_B+(n+p+eta)q_A while the polar quadratic term varies as 2q_B. The normalized sphere moment n∫(x·u)²q_C(u)/|S|=(tr C+2q_C(x))/(n+2) yields trace(B)=0 and (n+p)B=(n+p+eta)A. The linearized ellipsoid equation has scalar eigenvalue p and traceless eigenvalue 2(n+p)/(n+2), both nonzero, so implicit differentiation is justified and global uniqueness identifies the branch. Gaussian phi′/phi=−R gives c_R=1−R²/(n+p). At the critical radius only the first derivative vanishes; no second-order theorem follows. This independently reconstructs all quantifiers, normalization and boundary restrictions; numerical stress tests are not the proof.
 
-PASS with residual bibliographic risk. The 2026 source defines the weighted dual \(L_p\) ellipsoid, proves uniqueness and its exact characterization, and explicitly treats Gaussian measure, but does not linearize the ellipsoid map or identify the transition \(R=\sqrt{n+p}\). The 2007 dual theory is unweighted, while the 2023 general-measure theory is nondual. Published-findings-corpus and public searches for the exact multiplier, critical radius, anisotropy reversal, and degree-two response located no covering statement.
+## originality
 
-## Value
+PASS
 
-PASS. The result identifies the first local geometric effect caused by the loss of affine covariance under a radial weight. For Gaussian measure it produces an exact critical radius where degree-two anisotropy is suppressed to first order and then changes sign. This gives a reusable diagnostic for the new weighted ellipsoid map and a concrete phenomenon not visible in the classical Lebesgue theory.
+Independent source comparison found the defining weighted dual Lp John variational equation and existence/uniqueness, but not its explicit degree-two radial-density linearization. In the Lebesgue homogeneous case eta=0, the coefficient is 1 and affine covariance is consistent; a Gaussian radial weight introduces the genuinely new zero/sign reversal at R=√(n+p). Resultary returned the exact record being audited as its top match, which is self-reference, not independent prior art. Related unweighted and nondual John sources lack this same Gaussian dual anisotropy calculation. The assessment is best-of-knowledge, not proof of worldwide novelty.
 
-## Closest literature and limitations
+## value
 
-The closest source is Li--Liu--Huang, arXiv:2608.21958v1, whose Theorem 1.3 and Gaussian Remark 3.7 provide the characterization being linearized. Yu--Leng--Wu provide the unweighted predecessor, and Ai--Huang provide the nondual general-measure analogue. The theorem is first-order only and does not resolve higher-order behavior at the critical Gaussian radius.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The derivative gives an exact n,p-dependent Gaussian radius where the weighted dual John ellipsoid map loses and then reverses anisotropic response. This is an interpretable stability/bifurcation threshold for a natural affine-geometric optimizer, rather than a mere numerical instance or a tautological normalization. The radial log-density formula also isolates which one-jet of the measure determines local anisotropy. The critical second-order dynamics remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
