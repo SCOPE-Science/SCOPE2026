@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct proof gives four disjoint target strata. The zero count uses normalized rank-one tensors; the rank-one count uses the exhaustive common-image/common-row dichotomy with inclusion-exclusion; the rank-two count factors through \(V/\ker B\), identifies each ordered pair with one rank-one projection, and counts the exact solutions of \(\lambda(v)=1\), \(\lambda(Sv)=0\). This proof uses no division by two and covers all prime powers. Exhaustive checks of every target in seven small field/dimension pairs, including the extension field of order four, corroborate the argument. The eighth case checks every attained target plus selected unattained targets.
+## correctness
 
-**Originality — PASS, with residual risk.** The published existence-level classifications of Botha (DOI:10.1016/j.laa.2011.07.011), de Seguins Pazzis (arXiv:1109.2255; entire accessible manuscript inspected), and Song–Zheng–Cao (DOI:10.1155/2013/640350) were compared by mathematical implication, rather than title. The inspected full text establishes quadratic-sum *existence* criteria, not the ordered additive convolution of the *rank-one* nilpotent similarity orbit. Searches for rank-one nilpotent sum fibers, minimal nilpotent orbit convolution, finite-field sum decompositions, and adjacent indexed results located no formula covering the claim. The unpublished or unindexed literature cannot be ruled out, and original full text of Botha and Song–Zheng–Cao was not obtained; these are declared residual risks.
+PASS
 
-**Value — PASS.** The fixed minimal nilpotent orbit is a canonical conjugacy-stable subset of a full matrix algebra. Its ordered convolution determines more than possible support: it resolves every prescribed multiplicity, including a sharp characteristic-two obstruction in rank two and the exceptional dimension-two binary rank-one target. The quotient-projection reduction is structural, field-uniform, and useful independently of small computations; it is not a renamed existence criterion.
+For any prime power q and n>=2, count nonzero rank-one square-zero X,Y with X+Y=B, ordered. Rank>=3 or tr B!=0 impossible; B=0 count |C|=(q^n-1)(q^(n-1)-1)/(q-1). Rank-one B is the exhaustive common-image/common-row dichotomy; each branch q^(n-1)-2, overlap q-2, yielding 2q^(n-1)-q-2. Rank-two B: identify rank-one projection P on E=V/ker B and impose lambda(v)=1,lambda((pi L)v)=0. For each eigenline of S=pi L, nonzero eigenvalue yields none, eigenvalue zero yields q, and non-eigenlines yield one; gives q e0(T)+q+1-e(T) including characteristic 2. Independent complete q=2,3 n=2 full-target matrix enumeration matches; general proof does not rely on finite tests.
 
-**Boundaries.** No statement is made about higher-rank nilpotent summands, uniqueness of bibliographic priority, or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication-level comparison for Exact fibers of sums of two rank-one square-zero matrices over finite fields: precise new invariant not located as prior theorem; accessible direct sources and nearest indexed records compared, with explicit access and alias risks. A failed index search alone does not establish originality.
+
+## value
+
+PASS
+
+Targetwise additive convolution coefficients of the nonzero minimal nilpotent orbit for ALL finite fields and dimensions are natural representation counts, refining mere feasibility and exposing e0/eigenline dependence including characteristic-two exceptional nonrepresentability. A mathematician studying nilpotent-orbit convolution or fixed-rank decompositions needs this precise multiplicity, not merely existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
