@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-arc proof is given in `RESULT.md`.
 
-Critical checks:
-- the source vertices are alternating matching vectors with the same number of \(+1\) and \(-1\) coordinates;
-- the canonical center has coordinate \(q/m\) on \(U\) and \(-p/m\) on \(D\);
-- exact expansion gives common squared radius \(pq/m\);
-- orthogonal projection of a common-sphere center onto the convex hull gives squared minimum radius \(R_0^2-d^2\);
-- the source H-description and all-prefix consequence give \(c_\alpha\in\mathrm{SP}(\alpha)\) exactly when \(0\le q u_j-p d_j\le m\) for every proper prefix;
-- after translation by \(\mathbf1_D\), every active vertex is a \(0/1\) vector of weight \(q\);
-- the uniform-density theorem identifies constant-coordinate membership with uniform density of the active shard matroid.
+# Independent mathematical audit
 
-`verify.py` exhaustively checks all ordinary arc words of lengths \(2\) through \(10\). It enumerates all alternating matchings, verifies the common-sphere identity with exact rational arithmetic, checks equivalence between the all-prefix strip and the source rise/fall facet conditions for the canonical center, verifies translated weight \(q\), and checks the monotone-word criterion. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+PASS: Complete frozen result defines p=|U|, q=|D|, m=p+q and arc alternating matching vertices with k +1 entries on U and k -1 on D, zero elsewhere. Direct expansion of squared distance from c_i=q/m on U, -p/m on D gives exactly pq/m regardless of k. The general projection lemma is valid for ANY finite equal-radius vertices: projection y of c onto P yields squared maximum distance R0²-|c-y|² by the normal cone inequality; exposed-face convex coefficients of y give matching lower bound for every other center and uniqueness. Every prefix of c is (q u_j-p d_j)/m. The complete source sign/rise/fall facet system then gives c in P iff each prefix belongs to [0,1]; boundary p,q>=1 and monotone word U^pD^q criterion pq<=p+q follow. Translating by 1_D yields active 0/1 base vertices of rank q and c+1_D=(q/m)1; apply published matroid uniform-density characterization after excluding ambient loops. Independently checked 255 U/D words of length 2–9 via exact Fraction cosphericity and LP hull-membership; the 57 balanced cases match the prefix condition. The finite check is corroboration, not the universal proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Padrol–Pilaud–Ritter created the shard polytope and determined its alternating-matching vertices and inequalities; Devriendt–Mulas proved general uniform-density equivalence. These ingredients were explicitly credited. The present exact Euclidean sphere, projection center/radius for all arcs and balanced-prefix optimality are a new specific metric invariant. Resultary exact same-object diameter work and general matroid radius results do not imply it. Access to Padrol–Pilaud–Ritter complete primary original was unsuccessful, retaining a real priority risk rather than inferring absence.
+
+## value
+
+PASS
+
+PASS: Minimum enclosing sphere is a canonical geometric invariant for a natural family of shard polytopes used in quotientopes and matroid bases. Their vertices share a sphere despite varying matching size, yet its minimality depends nontrivially on arc balance; the sharp prefix strip and uniform-density equivalence give a usable combinatorial classification. Unknown projection distance in unbalanced cases is expressly not claimed to be a closed formula and does not erase the new exact criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

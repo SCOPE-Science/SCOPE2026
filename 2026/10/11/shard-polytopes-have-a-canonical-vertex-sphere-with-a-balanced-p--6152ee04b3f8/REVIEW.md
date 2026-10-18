@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source gives the exact alternating-matching vertices and complete H-description. Direct rational expansion shows that every vertex has squared distance \(pq/m\) from the displayed center. The common-sphere projection lemma is proved in `RESULT.md`: orthogonal projection gives an upper bound, and a convex combination of vertices in the projection face gives the matching lower bound and uniqueness. Finally the source prefix inequalities reduce center membership exactly to \(0\le q u_j-p d_j\le m\).
+## correctness
 
-## Originality
-PASS. The primary shard-polytope full text was inspected at its V-description, H-description, prefix consequence, dimension/facet theorem, and matroid translation. It does not state a Euclidean enclosing-sphere theorem. The supporting uniform-density theorem explains constant-coordinate membership in a matroid base polytope but not the shard-specific center, radius, projection formula, or prefix strip. Candidate-specific database and literature searches found no covering result. A checked earlier same-object metric result concerns diameter, which does not imply a minimum enclosing ball.
+PASS
 
-## Value
-PASS. Shard polytopes are the elementary Minkowski building blocks in the quotientope construction. The theorem gives a family-wide Euclidean invariant and a sharp structural boundary: ordered prefix balance decides whether the obvious common vertex sphere is genuinely optimal. Its equivalent uniform-density interpretation also connects shard geometry to a recognized extremal property of the associated series-parallel matroid.
+PASS: Complete frozen result defines p=|U|, q=|D|, m=p+q and arc alternating matching vertices with k +1 entries on U and k -1 on D, zero elsewhere. Direct expansion of squared distance from c_i=q/m on U, -p/m on D gives exactly pq/m regardless of k. The general projection lemma is valid for ANY finite equal-radius vertices: projection y of c onto P yields squared maximum distance R0²-|c-y|² by the normal cone inequality; exposed-face convex coefficients of y give matching lower bound for every other center and uniqueness. Every prefix of c is (q u_j-p d_j)/m. The complete source sign/rise/fall facet system then gives c in P iff each prefix belongs to [0,1]; boundary p,q>=1 and monotone word U^pD^q criterion pq<=p+q follow. Translating by 1_D yields active 0/1 base vertices of rank q and c+1_D=(q/m)1; apply published matroid uniform-density characterization after excluding ambient loops. Independently checked 255 U/D words of length 2–9 via exact Fraction cosphericity and LP hull-membership; the 57 balanced cases match the prefix condition. The finite check is corroboration, not the universal proof.
 
-## Closest literature and limitations
-The closest sources give the alternating-matching vertices, facet inequalities, series-parallel matroid model, and the general constant-coordinate characterization of uniformly dense matroids. When the prefix criterion fails, the exact radius is still given by a projection-distance formula, but no closed run-length expression for that projection is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Padrol–Pilaud–Ritter created the shard polytope and determined its alternating-matching vertices and inequalities; Devriendt–Mulas proved general uniform-density equivalence. These ingredients were explicitly credited. The present exact Euclidean sphere, projection center/radius for all arcs and balanced-prefix optimality are a new specific metric invariant. Resultary exact same-object diameter work and general matroid radius results do not imply it. Access to Padrol–Pilaud–Ritter complete primary original was unsuccessful, retaining a real priority risk rather than inferring absence.
+
+## value
+
+PASS
+
+PASS: Minimum enclosing sphere is a canonical geometric invariant for a natural family of shard polytopes used in quotientopes and matroid bases. Their vertices share a sphere despite varying matching size, yet its minimality depends nontrivially on arc balance; the sharp prefix strip and uniform-density equivalence give a usable combinatorial classification. Unknown projection distance in unbalanced cases is expressly not claimed to be a closed formula and does not erase the new exact criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T11:12:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Complete frozen result defines p=|U|, q=|D|, m=p+q and arc alternating matching vertices with k +1 entries on U and k -1 on D, zero elsewhere. Direct expansion of squared distance from c_i=q/m on U, -p/m on D gives exactly pq/m regardless of k. The general projection lemma is valid for ANY finite equal-radius vertices: projection y of c onto P yields squared maximum distance R0²-|c-y|² by the normal cone inequality; exposed-face convex coefficients of y give matching lower bound for every other center and uniqueness. Every prefix of c is (q u_j-p d_j)/m. The complete source sign/rise/fall facet system then gives c in P iff each prefix belongs to [0,1]; boundary p,q>=1 and monotone word U^pD^q criterion pq<=p+q follow. Translating by 1_D yields active 0/1 base vertices of rank q and c+1_D=(q/m)1; apply published matroid uniform-density characterization after excluding ambient loops. Independently checked 255 U/D words of length 2–9 via exact Fraction cosphericity and LP hull-membership; the 57 balanced cases match the prefix condition. The finite check is corroboration, not the universal proof.",
+      "risks": [
+        "Outside the balanced regime the exact projection-distance formula is implicit, not a closed finite run formula.",
+        "The metric is the original Euclidean realization and loops outside active interval are discarded for uniform density.",
+        "Original shard paper full text inaccessible; residual possible unindexed same-sphere result."
+      ],
+      "sources": [
+        "Git shard RESULT.md blob cc2ce78b89099632d5d914208644351f5c7ec0e5",
+        "Git shard VERIFICATION.md blob a71ba3d448f8dd5d06110310276d6c2d97761879",
+        "Padrol, Pilaud, Ritter, Shard polytopes, arXiv:2007.01008 (IMRN 2023), DOI:10.1093/imrn/rnac042",
+        "Devriendt, Mulas, Uniform density in matroids, matrices and graphs, arXiv:2306.15267, uniform base polytope theorem",
+        "Ferroni et al., 2026 shard/matroid full text, Section 5.3, Proposition 5.10",
+        "Resultary: A run-length formula for the Euclidean diameter of every shard polytope, 2026/10/11/...--4ffb07614719",
+        "Resultary query: shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devriendt–Mulas uniform density theorem: constant rank/m coordinate vector in the base polytope iff uniformly dense.",
+          "Geometric common-sphere center/projection identity is additional to density feasibility."
+        ],
+        "reasoning": "The general matroid criterion covers the matroidal interpretation of the balanced-prefix condition, not the canonical center/radius, Euclidean projection formula, or exact arc-word prefix characterization. Matroid independence polytope radius results concern different polytopes.",
+        "searches": [
+          "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+          "uniformly dense matroid constant point in base polytope arXiv:2306.15267"
+        ]
+      },
+      "checked_sources": [
+        "Git shard RESULT.md blob cc2ce78b89099632d5d914208644351f5c7ec0e5",
+        "Git shard VERIFICATION.md blob a71ba3d448f8dd5d06110310276d6c2d97761879",
+        "Padrol, Pilaud, Ritter, Shard polytopes, arXiv:2007.01008 (IMRN 2023), DOI:10.1093/imrn/rnac042",
+        "Devriendt, Mulas, Uniform density in matroids, matrices and graphs, arXiv:2306.15267, uniform base polytope theorem",
+        "Ferroni et al., 2026 shard/matroid full text, Section 5.3, Proposition 5.10",
+        "Resultary: A run-length formula for the Euclidean diameter of every shard polytope, 2026/10/11/...--4ffb07614719",
+        "Resultary query: shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original shard-polytope vertices/facets and general uniform matroid-density criterion are proper ingredients but do not state (3)–(10).",
+          "A general projection identity for cospherical sets is elementary geometry, but its shard-specific c=(q/m on U, -p/m on D) and finite prefix feasibility are not automatic from that identity."
+        ],
+        "reasoning": "A general matroid-base statement implies only constant-vector membership equivalence after c+1_D = (q/m)1, not a shard-specific exact radius. A related semi-balanced root polytope uses another object and Hall criterion; not an implication unless one proves identity of objects, not established.",
+        "searches": [
+          "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+          "Devriendt Mulas uniform density matroids matrices graphs",
+          "Resultary shard diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Padrol–Pilaud–Ritter results identified as alternating matching vertices and facet inequalities; a separate complete relevant Section 5.3 exposition of their matroid relation inspected."
+        ],
+        "reasoning": "Same realization and ambient Euclidean metric used; identifying SP with a base polytope does not by itself specify its enclosing sphere, center or balance threshold.",
+        "searches": [
+          "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+          "Shard polytopes arXiv:2007.01008 alternating matching vertex H description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-object Resultary run-length diameter result determines diam²=2(f+g) but does not determine a minimum enclosing sphere in general.",
+          "No exact previously published shard circumradius database identified."
+        ],
+        "reasoning": "Diameter is not circumradius; even a common vertex sphere is not generally the minimum sphere unless its center lies in P. Arc order changes prefix feasibility at fixed (p,q), so neither vertex count nor diameter recovers the criterion.",
+        "searches": [
+          "Resultary a run-length formula for Euclidean diameter of every shard polytope",
+          "Resultary minimum enclosing sphere shard polytope shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Padrol–Pilaud–Ritter created the shard polytope and determined its alternating-matching vertices and inequalities; Devriendt–Mulas proved general uniform-density equivalence. These ingredients were explicitly credited. The present exact Euclidean sphere, projection center/radius for all arcs and balanced-prefix optimality are a new specific metric invariant. Resultary exact same-object diameter work and general matroid radius results do not imply it. Access to Padrol–Pilaud–Ritter complete primary original was unsuccessful, retaining a real priority risk rather than inferring absence.",
+      "residual_risks": [
+        "Full original Padrol–Pilaud–Ritter article inaccessible in attempted lawful routes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY_RELEVANT_FULL_TEXT_NOT_RETRIEVED",
+          "evidence": [
+            "Do not claim unread full body contains no circumradius formula; potential overlap retained."
+          ],
+          "identifier_or_url": "arXiv:2007.01008, DOI:10.1093/imrn/rnac042",
+          "material_read": "source bibliographic information and mathematical vertex/facet facts as directly quoted in audited Git; original body inaccessible on attempted OA/arXiv links",
+          "method": "arXiv HTML and OA mirror attempt; authorized Oxford worker returned unavailable",
+          "searches": [
+            "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+            "arXiv:2007.01008",
+            "arXiv:2306.15267"
+          ],
+          "title": "Shard polytopes",
+          "trigger": "original full alternating matching and facets, same exact object"
+        },
+        {
+          "assessment": "COVERS_DENSITY_EQUIVALENCE_BUT_NOT_SHARD_SPHERE",
+          "evidence": [
+            "Theorem 1.1 uniform density iff rank/m all-one vector belongs to base polytope; no claim about shard c/radius."
+          ],
+          "identifier_or_url": "arXiv:2306.15267",
+          "material_read": "published primary theorem on matroid base polytope and equal-coordinate membership, including rank/m normalization",
+          "method": "read accessible journal/preprint text of theorem and comparison",
+          "searches": [
+            "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+            "arXiv:2306.15267",
+            "arXiv:2007.01008"
+          ],
+          "title": "Uniform density in matroids, matrices and graphs",
+          "trigger": "same uniform-density constant vector criterion"
+        },
+        {
+          "assessment": "STRUCTURAL_INPUT_NOT_THE_CIRCUMRADIUS",
+          "evidence": [
+            "The inspected proposition confirms same shard base-polytope context; radius/balanced prefix result assessed separately."
+          ],
+          "identifier_or_url": "accessible 2026 full text §5.3 Proposition 5.10",
+          "material_read": "Section 5.3 on shard/snake/series-parallel base polytope constructions and alternating matching model",
+          "method": "read full accessible relevant section",
+          "searches": [
+            "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+            "Resultary:2026/10/11/SCOPE-a-run-length-formula-for-the-euclidean-diameter-of-every-shard-p--4ffb07614719",
+            "arXiv:2007.01008"
+          ],
+          "title": "Ferroni et al., 2026, shard and snake matroids discussion",
+          "trigger": "secondary/full-text verification of structural source input"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT_NO_COVERAGE",
+          "evidence": [
+            "It proves diam(SP)^2=2(f+g) and zero-vertex eccentricity^2=2f. Neither determines the minimum enclosing center or circumradius/balanced-prefix feasibility for all arcs; distinct metric question."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-run-length-formula-for-the-euclidean-diameter-of-every-shard-p--4ffb07614719/RESULT.md",
+          "material_read": "complete published RESULT.md, including its f+g run statistic, max-plus alternating matching proof and distance/eccentricity statements",
+          "method": "read whole GitHub published Resultary RESULT.md at main",
+          "searches": [
+            "shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center",
+            "arXiv:2007.01008",
+            "arXiv:2306.15267",
+            "Resultary:2026/10/11/SCOPE-a-run-length-formula-for-the-euclidean-diameter-of-every-shard-p--4ffb07614719"
+          ],
+          "title": "A run-length formula for the Euclidean diameter of every shard polytope",
+          "trigger": "same realization, potentially stronger metric invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Minimum enclosing sphere is a canonical geometric invariant for a natural family of shard polytopes used in quotientopes and matroid bases. Their vertices share a sphere despite varying matching size, yet its minimality depends nontrivially on arc balance; the sharp prefix strip and uniform-density equivalence give a usable combinatorial classification. Unknown projection distance in unbalanced cases is expressly not claimed to be a closed formula and does not erase the new exact criterion.",
+      "risks": [
+        "Outside the balanced regime the exact projection-distance formula is implicit, not a closed finite run formula.",
+        "The metric is the original Euclidean realization and loops outside active interval are discarded for uniform density.",
+        "Original shard paper full text inaccessible; residual possible unindexed same-sphere result."
+      ],
+      "sources": [
+        "Git shard RESULT.md blob cc2ce78b89099632d5d914208644351f5c7ec0e5",
+        "Git shard VERIFICATION.md blob a71ba3d448f8dd5d06110310276d6c2d97761879",
+        "Padrol, Pilaud, Ritter, Shard polytopes, arXiv:2007.01008 (IMRN 2023), DOI:10.1093/imrn/rnac042",
+        "Devriendt, Mulas, Uniform density in matroids, matrices and graphs, arXiv:2306.15267, uniform base polytope theorem",
+        "Ferroni et al., 2026 shard/matroid full text, Section 5.3, Proposition 5.10",
+        "Resultary: A run-length formula for the Euclidean diameter of every shard polytope, 2026/10/11/...--4ffb07614719",
+        "Resultary query: shard polytope Padrol Pilaud Ritter minimum enclosing ball circumradius balanced prefix matroid uniform density projection center"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Outside the balanced regime the exact projection-distance formula is implicit, not a closed finite run formula.",
+    "The metric is the original Euclidean realization and loops outside active interval are discarded for uniform density.",
+    "Original shard paper full text inaccessible; residual possible unindexed same-sphere result."
+  ]
+}
