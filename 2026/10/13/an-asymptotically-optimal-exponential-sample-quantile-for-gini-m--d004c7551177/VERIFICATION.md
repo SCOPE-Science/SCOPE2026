@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify_order_gini.py` beside this file. The code uses Python's standard library and reports its exact-rational and seeded numerical checks.
+## correctness
 
-The independent calculation forms the covariance matrix \(\operatorname{Cov}(X_{(i)},X_{(j)})=\lambda^{-2}\sum_{r=n-\min(i,j)+1}^{n}r^{-2}\). A second linear representation \(G_n=\frac{2}{n(n-1)}\sum_i(2i-n-1)X_{(i)}\) then gives the mixed covariances and Gini variance. These exact identities are tested for every rank through sample size 45 (1,034 rank cells) against the formula stated in the result. Independently generated samples are used for four simulation comparisons, alongside direct pairwise differences and gap reconstruction. Five numerical maximizer searches and bisection check the numerical constant.
+PASS
 
-The tests establish only their specified finite numerical/exact instances. Independence of exponential spacings, the finite-sample formulas for all \(n\), monotonicity of the limiting profile, and control of boundary rank sequences are justified analytically in `RESULT.md`. No independent audit has been performed.
+Independent Exp spacings Y_j=X_(j)−X_(j−1) have rate λ(n−j+1). Exact G_n=2/[n(n−1)] Σ_(j=2)^n (j−1)(n−j+1)Y_j and X_(k)=Σ_(j≤k)Y_j; covariance termwise gives 2B/[n(n−1)λ²], Var G_n=2(2n−1)/[3n(n−1)λ²], Var order stat=V/λ², rank-one covariance zero. Harmonic-sum asymptotics yield ρ. The sign of ρ′ equals sign(2p²−g(p)), g=−p−log(1−p), and g(p)/p² increases strictly from 1/2 to ∞, proving a unique interior optimum. Uniform interior asymptotics plus explicit endpoint bounds (small ranks O((k/n)^(3/2)); upper tail O(sqrt(h/n)(1+log(n/h))) for h=n−k+1) forbid boundary-maximizing subsequences and give convergence for ALL finite maximizers. Fresh independent rational finite covariance identities n2..29 and numerical root/ρ match; finite tests not used for asymptotic proof.
+
+## originality
+
+PASS
+
+Classical exponential spacings and L-statistic linear order-statistic identities supply necessary ingredients, but the inspected sources do not provide the precise mixed Gini mean-difference/order-statistic correlation curve, unique maximizer ≈93%, or all-ranks finite maximizer convergence. Gail–Gastwirth consider a normalized scale-free Gini statistic (not the unnormalized GMD). Hosking L-moments full article inaccessible through authorized access, retained as substantive residual priority risk rather than automatic O failure.
+
+## value
+
+PASS
+
+Selects a natural optimal single sample quantile for Pearson dependence with unnormalized sample Gini mean difference in a classical exponential model, with exact finite profile and rigorous large-n all-ranks optimum. Could guide choice of order statistic for scale dispersion summaries; does not claim causal prediction or normalized Gini coefficient optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
