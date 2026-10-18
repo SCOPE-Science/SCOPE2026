@@ -1,19 +1,21 @@
-# Same-model scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim includes all 18 specific semigroup operations, every trace length \(n\ge1\), and only the observer time-trace shift. Each case has a complete word-language characterization, a direct realization of its words by initial conditions, and a cardinality count; group cases use triangularity and absorbing cases use first-trigger normal forms. The exceptional rule-3 boundary and the one-step \(x\) transient of rule 10 were checked separately. Exact brute-force finite-word enumeration provides corroboration, not an infinite proof.
+PASS
 
-## Originality (PASS, residual priority risk)
+For the exact 18 labeled associative ternary multiplication tables, the finite rightward dependency cone makes all initial length-n words realizable. Group rules yield 3^n or 3*2^(n-1); trigger and stabilization languages give the nine listed formula types, including the exceptional n=1 rule 3 and rule 10 one-symbol transient; semilattice rule 13 gives binomial(n+2,2). Each description constructs and excludes all words for all n, not merely experimental n. Independent enumeration verified table associativity and all 144 rule-length cases for n=1..8, corroborating but not replacing the infinite normal-form proof.
 
-The closest inspected work, Fukś (arXiv:2601.00486v1; AUTOMATA 2025), provides exact cell iterates for these exact same 18 semigroups. It does not state or count the joint histories visible over all times, nor give this entropy taxonomy. The broader standard source Cervelle–Formenti–Guillon, *Ultimate Traces of Cellular Automata* (2010), defines traces and derives traceability/undecidability results but does not cover the specialized exact cardinality table. published-record searches for equivalences, alternative terminology and numerical formulas yielded no closer published claim. A similarly titled 2026 submitted follow-up manuscript was found in a bibliography but not accessible; priority may depend on its contents. Novelty is not inferred from search absence alone.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The result exhaustively classifies the finite observation histories and entropies in a natural complete family, exposing a boundary between exponentially many and only polynomially many possible histories. In particular a rule with an absorbing state retains \(\log2\) trace entropy because exceptional initial conditions can produce freely chosen binary histories for arbitrarily long windows. This gives a meaningful observable-complexity complement to single-time solvability and an exact answer for a natural trace invariant.
+Fukś 2025 AUTOMATA / arXiv:2601.00486 derives states at fixed time using associative semigroups on the same 18 tables; its accessible full text does not present all-n joint single-site trace-language counts. Cervelle–Formenti–Guillon (STACS 2010) develops general traceability, not this exhaustive 18-rule cardinality table. A potentially overlapping submitted Fukś 2026 follow-up was identified but inaccessible; it creates a genuine priority risk, not automatic failure absent decisive coverage.
 
-## Scope and limitations
+## value
 
-No claim about whole-automaton entropy, typical initial distributions, finite periodic lattice behavior or nonassociative ternary rules. Although primary published sources were read, unpublished/unindexed overlap is possible, particularly the bibliographically known but inaccessible submitted 2026 manuscript. Finite checker output is not proof of an infinite statement.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact trace complexity and entropy are natural observational invariants distinct from global cellular-automaton entropy. The 18 semigroups are a complete classified finite family, and five exponentially rich traces versus thirteen polynomial/bounded traces demonstrates a structural distinction; the positive entropy of an absorbing-symbol rule is a nontrivial boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
