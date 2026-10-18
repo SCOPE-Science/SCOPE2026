@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem has three independently checkable stages.
 
-First, the published Schur-cover commutator relation for finite abelian \(p\)-groups specializes to
-\[
-[\widetilde x,\widetilde y]
-=
-z^{x_1y_2-x_2y_1},
-\qquad
-o(z)=p^a,
-\]
-so adjacency is exactly determinant zero modulo \(p^a\).
+# Independent mathematical audit
 
-Second, Smith normal form over
-\[
-R=\mathbb Z/p^a\mathbb Z
-\]
-writes every subgroup as an invertible image of
-\[
-p^iRe_1\oplus p^jRe_2.
-\]
-The determinant of its two Smith generators is a unit times \(p^{i+j}\). Hence the subgroup is isotropic exactly when \(i+j\ge a\), and its order is then at most \(p^a\). Equality occurs exactly for order-\(p^a\) subgroups.
+## correctness
 
-Third, the \(\operatorname{GL}_2(R)\)-orbit of
-\[
-p^kRe_1\oplus p^{a-k}Re_2
-\]
-has size \(p^{a-2k-1}(p+1)\) for \(k<a/2\), because the stabilizer condition is divisibility of the lower-left matrix entry by \(p^{a-2k}\). When \(a\) is even, the middle subgroup \(p^{a/2}A\) is unique.
+PASS
 
-The packaged checker `artifacts/verify.py` constructs the determinant-adjacency graph, enumerates all maximal cliques by an exact bit-set Bron--Kerbosch search, and verifies the maximum size, subgroup property, total count, and invariant-factor distribution for
-\[
-(p,a)=(2,1),(2,2),(2,3),(3,1),(3,2).
-\]
-It returns `VERIFY_OK`.
+The published rank-two Schur-cover alternating commutator gives adjacency determinant 0 mod p^a. For an isotropic R-submodule L of R^2, Smith form p^iRe1 + p^jRe2 has i+j>=a and |L|=p^(2a-i-j)<=p^a. All order-p^a subgroups are isotropic and a maximum clique S equals its generated subgroup. GL2 stabilizer condition gives p^(a-2k-1)(p+1) groups of invariant-factor type k for k<a/2 and unique even-a middle case. Independent separate two-generator subgroup enumeration for (2,1),(2,2),(2,3),(3,1),(3,2) found respectively 3,7,15,4,13 max isotropic subgroups, matching theorem.
 
-The finite replay is not used as the proof of the universal theorem.
+## originality
+
+PASS
+
+The rank-two Schur-cover determinant criterion occurs in the 2025 primary paper, with a=1 and one a=2 witness also known; the sharp all-exponent maximum-clique structure and invariant-factor counts were not located in the inspected full-text statements. Best-of-knowledge originality subject to finite-chain-ring aliases.
+
+## value
+
+PASS
+
+Natural invariant of a newly studied graph class on a full infinite family of finite abelian groups; proves sharp maximum size, classifies every equality set and determines type multiplicities. Goes beyond published adjacency formula and a few examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
