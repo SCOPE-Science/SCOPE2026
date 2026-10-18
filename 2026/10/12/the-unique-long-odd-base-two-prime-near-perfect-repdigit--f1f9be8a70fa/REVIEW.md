@@ -1,15 +1,21 @@
-# Review of the odd-base repdigit classification
+# Independent mathematical audit
 
-## Correctness — PASS
-Ren--Chen's complete three-family-plus-exception theorem is checked in its original proof. For every admissible form, \(N<2^{3e+2}\) with \(e=\nu_2(N)\). The odd-base lifting-the-exponent identity gives \(e\le5+\log_2\ell\). Thus \(3^{\ell-1}<2^{17}\ell^3\) and \(\ell\le19\), followed by \(e\le9\). An exhaustive 31-candidate exact sieve with all required prime tests yields only \(40=(1111)_3\); exact divisor arithmetic verifies near-perfectness. The computation proves the finite step only because the symbolic bounds justify that this step is exhaustive.
+## correctness
 
-## Originality — PASS
-The closest original theorem is Hasanalizade's two-digit assertion and its base-3 empty list; both are contradicted by \(40\). Ren--Chen's broader parametrization describes all near-perfect integers with two distinct prime factors but neither bounds their repdigit lengths nor solves the odd-base intersection. An existing even-base classification is disjoint. Searches by the exact exception, odd-base aliases, and prime-support families found no equivalent complete correction; priority remains subject to independent literature review.
+PASS
 
-## Value — PASS
-The natural range of odd bases up to nine, in which the published claim was stated, is classified without an arbitrary numerical bound. The theorem repairs a meaningful published boundary, identifies the unique obstruction, and establishes an effective finite method based on arithmetic structure rather than mere trial examples.
+The Ren–Chen theorem gives only three specified two-distinct-prime families plus 40. For e=v2(N), all satisfy N<2^(3e+2); for odd g, LTE gives v2(U_l(g))=0 for odd l and v2(g+1)+v2(l)−1 for even l. Since a<g≤9, e≤5+log2(l), whence 3^(l−1)≤N<2^17·l³ and monotonicity bounds 3≤l≤19 and 1≤e≤9. This converts infinite families into 31 explicitly enumerated prime-admissible candidates. An independently written exact arithmetic sieve of all 31 candidates against g=3,5,7,9 and l=3..19 produced only 40 as 1111 base3; sigma(40)=90=80+10, with proper d=10 and omega=2.
 
-## Scope and risk
-The conclusion concerns only odd bases \(3,5,7,9\), lengths at least three, and exactly two distinct prime factors. It uses the cited 2013 complete classification and does not assert an extension to more factors or larger odd bases. A different unindexed correction could remain unknown.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ren–Chen 2013 classifies all 2-prime near-perfect numbers parametrically, but does not present the repdigit intersection. Hasanalizade 2022/2023 asserts a two-digit upper bound and base-three absence for 2-prime near-perfect repdigits, which 40=(1111)_3 directly contradicts. Published even-base classification (Resultary listed) has disjoint hypotheses. The new all-four-odd-base exhaustive bound and exception are not established by the original statements without further work.
+
+## value
+
+PASS
+
+An exact correction to a published false exclusion coupled with a proven universal finite reduction and complete natural four-base classification; not merely pointing out 40, because the sieve closes all other parameter cases in this range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
