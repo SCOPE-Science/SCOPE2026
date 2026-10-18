@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Exact Fourier coefficient identity partitions endpoints correctly. The 2x2 transfer matrix has only torus peripheral points (1,1) and (-1,-1), their dominant projections yield weight 3/8 each, positive covariance Hessian has determinant 1/16, and the Gaussian integral gives 3/(4πn). Finite literal census matches independent run-composition enumeration for n=2..17; mass checks through n=800; these checks are not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The close public binary multispectrum classification gives class counts and each class size, hence a finite sum for the second moment",
+        "Gabrys–Milenkovic arXiv:1804.04548v1 studies the same linear multiset model but chiefly unique-reconstruction codes at increasing read length"
+      ],
+      "reasoning": "Exact fiber-size formulas implicitly determine every finite collision moment via summing squared multiplicities; this stronger information is expressly recognized. The nontrivial sharp n→∞ constant and its two-peak Gaussian proof are not stated there and are the sole asserted new theorem.",
+      "searches": [
+        "published-finding corpus: binary k-mer 2 spectrum Eulerian path count reconstruction multiplicity distribution",
+        "published-finding corpus: maximum binary two-mer spectrum reconstruction multiplicity Euler trail class size asymptotic",
+        "GitHub public RESULT.md: Exact binary two-multispectrum code size and singleton classification"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.46298/dmtcs.2768",
+      "arXiv:1301.5104v1",
+      "arXiv:1804.04548v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jacquet et al count cyclic balanced Markov frequency matrices rather than squared masses of linear endpoint-flexible profiles",
+        "Karhumäki et al impose additional unigram counts",
+        "Gabrys and Milenkovic define the same linear observation but do not compute its collision asymptotic",
+        "Closest class-size paper explicitly gives a finite formula from which the present probability can be summed, but not its sharp asymptotic constant"
+      ],
+      "reasoning": "The result is a fresh analytic asymptotic of a natural statistic inferable by summation from existing class sizes, and is not offered as a new class-size distribution. Published premises logically allow calculation but require new two-dimensional spectral evaluation; residual risk remains if this evaluation was available elsewhere.",
+      "searches": [
+        "Jacquet–Knessl–Szpankowski Counting Markov Types DOI:10.46298/dmtcs.2768 full paper",
+        "Karhumäki–Saarela–Zamboni arXiv:1301.5104v1 full text",
+        "Gabrys–Milenkovic arXiv:1804.04548v1 full text",
+        "published-finding corpus binary two-multispectrum class-size paper full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karhumäki–Saarela–Zamboni arXiv:1301.5104v1 defines 2-Abelian classes using factors of length one AND two",
+        "Same multiset can merge 010 and 101 while 2-Abelian equivalence cannot"
+      ],
+      "reasoning": "The candidate is exactly the Rényi-2 collision of linear pair-count profiles, not the 2-Abelian collision of longer observations, nor collisions of the strings themselves. Targeted queries returned no explicit matching asymptotic.",
+      "searches": [
+        "published-finding corpus: probability two independent uniform binary strings have identical length-2 substring multisets 3/(4pi n)",
+        "published-finding corpus: second moment and collision entropy of binary first-order Markov type spectrum 2-gram collision",
+        "web: probability two independent strings same empirical transition matrix binary Markov type collision probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus published record: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 — finite class sizes and singleton classification, not probability constant",
+        "Other close record: 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e — compositions erase order of 01 and 10"
+      ],
+      "reasoning": "No exact table of collision probabilities or asymptotic c=3/(4π) found. A table produced from known class-size formulas would count as implicit finite coverage but not, by itself, an evaluated Gaussian leading term.",
+      "searches": [
+        "published-finding corpus: largest fiber of binary 2-substring multiset or binary dinucleotide spectrum worst case ambiguity 2^n/n constant two over pi",
+        "published-finding corpus: sharp 3 over 4 pi constant collision probability bigram spectrum binary words",
+        "published-finding corpus: expected binary two-substring multispectrum ambiguity over uniform random word asymptotic"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches, publication and full-text scientific comparisons support novelty of the precise 3/(4π) collision law. A published exact fiber-size formula does logically determine finite collision sums, explicitly acknowledged; the new nonroutine step is their asymptotic sharp Fourier evaluation. Residual priority risk from unstated or unindexed asymptotics remains.",
+    "residual_risks": [
+      "The full finite fiber size distribution is already published; another author may have silently evaluated the same asymptotic second moment.",
+      "Markov-type probability results under alternative terminology may be under-indexed.",
+      "No independently performed audit; this is self-review only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different cyclic profile-count theorem; not this free-endpoint linear second-moment asymptotic",
+        "evidence": [
+          "DOI:10.46298/dmtcs.2768, 2009-12-31 public publication date",
+          "Paper counts balanced matrices/Markov types rather than a random pair-collision probability"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768",
+        "material_read": "Main full-text introduction, definitions, theorem and binary worked example (approximately pages 1–4 of 13); keyword checks for collision/squared multiplicity in complete searchable PDF; not a page-by-page review of all appendices.",
+        "method": "Examined type definitions, cyclic/balanced restriction and theorem targets",
+        "title": "Counting Markov Types",
+        "trigger": "Closest general literature on Markov-type frequency matrices"
+      },
+      {
+        "assessment": "Strictly finer observations; does not imply candidate exact second moment",
+        "evidence": [
+          "arXiv:1301.5104v1, 2013-01-22; MSC 68R15",
+          "Definition counts all factors length <=2, unlike pair-only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+        "material_read": "arXiv abstract plus relevant full text on definitions and class complexity",
+        "method": "Compared length-one and length-two factor conditions with ordered bigram-only condition",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "2-Abelian alias and MSC primary ownership"
+      },
+      {
+        "assessment": "Same raw observable but different theorem; no stated c=3/(4π) collision law",
+        "evidence": [
+          "arXiv:1804.04548v1, 2018-04-12",
+          "Reconstruction-code viewpoint, not Rényi-2 law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+        "material_read": "Full-text introductory and formal-model sections and inspected main scope",
+        "method": "Compared fixed L=2 i.i.d. collision probability against the code-reconstruction objective",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Exact same linear multispectrum observation"
+      },
+      {
+        "assessment": "Finite fiber sizes dominate exact unsimplified moment formula; sharp asymptotic constant not stated; residual priority risk noted",
+        "evidence": [
+          "Its run-composition formulas enumerate every finite fiber, so collision is the sum of squared fibers",
+          "Theorem claims profile count and singleton classes rather than nP limit"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "material_read": "Complete RESULT.md including proof, exact fiber-size formulas and references",
+        "method": "Compared entire finite fiber distribution and exact statements to candidate collision asymptotic",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Direct same-object published finding with exact fiber formulas"
+      },
+      {
+        "assessment": "Distinct, coarser observational partition; no coverage of candidate",
+        "evidence": [
+          "Its r=2 model merges 01 and 10",
+          "Exact class-size and singleton results do not give the present ordered-spectrum collision constant"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "material_read": "Complete RESULT.md including run-formulas",
+        "method": "Contrasted unordered 01/10 compositions with fully ordered pair counts",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Related neighboring class-size theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0693121b-bcfe-4147-90d8-9d7ce5adff2f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Collision probability is the order-two Rényi mass and expected ambiguity of the shortest nontrivial adjacent-read fingerprint. Its sharp c/n law contrasts with Θ(n²) possible profiles and quantifies substantial nonuniformity not resolved by profile counts, giving an informative structural invariant with a nontrivial leading constant.",
+    "status": "PASS"
+  }
+}
