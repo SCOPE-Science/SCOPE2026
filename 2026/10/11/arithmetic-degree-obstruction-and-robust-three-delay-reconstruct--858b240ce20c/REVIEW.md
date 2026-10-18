@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-delay map's induced integral first-cohomology matrix has rows \(k,kA_m,kA_m^2\), even for nonlinear dynamics in the same toral homotopy class and nonlinear circle-valued observables. Cup products identify its degree as their determinant. A unimodular row reduction yields the exact factor \(r(m^2-4m+2)(-2p^2+4pq-q^2)\). Invariance of domain rules out any injective degree other than \(\pm1\). The only permitted integer parameter with unit factor is \(m=3\). Its explicit Fourier map is an integral torus automorphism; invertibility of derivatives is open in \(C^1\), and a degree-one local diffeomorphism of closed connected oriented manifolds is a global diffeomorphism. All character-fiber multiplicities follow from integer-lattice index. Symbolic tests check the coefficients, but the proof of all quantifiers is analytic/topological.
+## correctness
 
-## Originality — PASS, with literature risk
-The inspected October 2026 toral-endomorphism manuscript discusses exactness and finite-symbol generators, not nonlinear circle-valued delay degrees. The inspected time-delay identification article handles generic smooth observables and larger embedding dimensions, but gives no degree ideal or three-torus arithmetic threshold. The inspected companion-matrix systems article is real linear continuous-time realization theory, not mod-one nonlinear-homotopy delay classification. Dedicated database, alias, resultant, Chinese-remainder and source-linked searches found no implication-equivalent statement. The nearest unexamined risk is a general algebraic-topological observability theorem that could subsume this special degree calculation; standard determinant, degree and Smith methods themselves are not claimed original.
+PASS
 
-## Mathematical value — PASS
-This is a complete arithmetic classification of a natural dimension-matched delay-reconstruction problem for a concrete infinite family of exact but nonexpanding toral systems. It identifies the precise parameter for which three samples from one circle sensor suffice, proves impossibility for every nonlinear observable and every dynamics in the same homotopy class at all other parameters, and gives a robust positive example plus optimal finite alias groups and an exact two-sensor remedy. It isolates a topological sensor limitation that generic smooth embedding theorems do not quantify. The exact three-delay budget, rather than an arbitrary coordinate slice, determines the natural invariant.
+For every m≥2 and every continuous F homotopic to T_m, H¹(T³;Z) sends the observable class k=(p,q,r) under the delays to k,kA_m,kA_m²; the top-cup-product degree is their determinant. Independent SymPy expansion verified det=r(m²−4m+2)(−2p²+4pq−q²) symbolically and k=(0,1,r) realizes all multiples. Injective maps T³→T³ are homeomorphisms by invariance of domain and hence degree ±1; |m²−4m+2|=1 precisely m=3 for integer m≥2. At m=3 the k=(0,1,1) matrix is unimodular; compact C¹ stability of nonsingular derivative and covering degree +1 proves the nearby diffeomorphism. Independently checked kernel generator (4−m,−1,1)/f(m) yields Mv=(0,0,1), for m=2..19; Smith index gives exact character covering size. The two-sensor matrix [[0,1,0],[1,4,0],[0,0,1]] is unimodular. Algebra checks do not replace cohomology, invariance of domain, or C¹ covering argument.
 
-## Closest literature and limitations
-C. Leuridan, arXiv:2610.01642v1; J. Botvinick-Greenhouse et al., arXiv:2412.00589v2; T. H. Hughes, DOI:10.1137/140991911. All three full texts were examined in relevant sections. The theorem is not an all-delay obstruction; nonlinear observables can potentially use longer histories. Nonlinear degree-zero delay maps may have complicated fibers, so optimal finite fiber counts are asserted only for character maps. Standard integer-module classifications create a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+An integer degree invariant prohibits every nonlinear continuous circle sensor with precisely three delays for all but one exact hyperbolic nonexpanding toral homotopy class, while at m=3 an explicit one-sensor reconstruction is stable under C¹ perturbations. The classification also quantifies best character ambiguity and a sharp two-sensor alternative. That is a concrete motivated finite observation-budget boundary, not a bare matrix determinant exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

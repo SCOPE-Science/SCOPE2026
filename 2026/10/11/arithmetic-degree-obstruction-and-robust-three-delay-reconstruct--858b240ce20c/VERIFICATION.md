@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The provided `checks/check_delay_degree.py` executes in Python with SymPy. Execute `python checks/check_delay_degree.py` from the package root; it symbolically checks the exact determinant identity and Cayley–Hamilton recurrence, evaluates the integer Smith normal form of the optimal observation matrix for \(2\le m\le19\), and tests integer observation rows on a stated finite grid. It was executed successfully before this file was packaged.
+## correctness
 
-The finite tests do **not** establish the theorem over all parameters. Its exact universal statements follow from the cohomological degree formula, the integral row reduction, the invariance-of-domain argument, and the inverse-function-plus-covering argument in `RESULT.md`. In particular, the nonlinear homotopy-class impossibility and the persistence of a diffeomorphic delay map are proved analytically, not by simulation.
+PASS
 
-Scientific limits: three consecutive delays only; topological degree does not bound every fiber for a general nonlinear degree-zero map; small smooth perturbations only for the positive stability assertion; no independent external audit has been performed.
+For every m≥2 and every continuous F homotopic to T_m, H¹(T³;Z) sends the observable class k=(p,q,r) under the delays to k,kA_m,kA_m²; the top-cup-product degree is their determinant. Independent SymPy expansion verified det=r(m²−4m+2)(−2p²+4pq−q²) symbolically and k=(0,1,r) realizes all multiples. Injective maps T³→T³ are homeomorphisms by invariance of domain and hence degree ±1; |m²−4m+2|=1 precisely m=3 for integer m≥2. At m=3 the k=(0,1,1) matrix is unimodular; compact C¹ stability of nonsingular derivative and covering degree +1 proves the nearby diffeomorphism. Independently checked kernel generator (4−m,−1,1)/f(m) yields Mv=(0,0,1), for m=2..19; Smith index gives exact character covering size. The two-sensor matrix [[0,1,0],[1,4,0],[0,0,1]] is unimodular. Algebra checks do not replace cohomology, invariance of domain, or C¹ covering argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+An integer degree invariant prohibits every nonlinear continuous circle sensor with precisely three delays for all but one exact hyperbolic nonexpanding toral homotopy class, while at m=3 an explicit one-sensor reconstruction is stable under C¹ perturbations. The classification also quantifies best character ambiguity and a sharp two-sensor alternative. That is a concrete motivated finite observation-budget boundary, not a bare matrix determinant exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
