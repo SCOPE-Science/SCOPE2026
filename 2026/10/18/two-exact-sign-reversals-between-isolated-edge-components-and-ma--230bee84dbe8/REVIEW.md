@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The claim is stated for all integers \(n\ge3\) and \(0<p<1\), with the \(n=2\) boundary separate. For each potential edge, the isolated-component indicator forces both endpoint degrees to one, while the maximal-edge indicator requires the edge and forbids a common neighbor. The mixed moment splits rigorously into equal, incident-distinct, and disjoint pairs; the three conditional probabilities yield the exact covariance formula. The sign proof checks separately the exceptional \(n=3\) algebra and the strictly unimodal positive factor for every \(n\ge4\). An explicit point above level one proves existence of two distinct roots, and strict unimodality proves there are no others. Fixed-density scaling estimates rigorously bracket each root. Exhaustive finite graph enumeration through order six and exact rational checks are supplementary diagnostics, not infinite proofs. No hypothesis, boundary, normalization, or probability-space change is left implicit.
+
+## Originality — PASS, with identified priority uncertainty
+
+The 1990 paper *Small cliques in random graphs* by Barbour, Janson, Karoński, and Ruciński treats maximal-clique counts but the accessible publisher abstract is insufficient to exclude an implicit mixed covariance. The full text was unavailable; this is an explicit priority risk. Palmer's *Graphical Evolution* includes a classical second-moment problem for triangle-free edges, and a full 2013 public discussion verifies their marginal expectation. Neither the available exercise text nor the discussion states the mixed covariance with the number of isolated two-vertex components. The fully inspected later article by Bläsius, Katzmann, and Stegehuis has the maximal-clique marginal expectation and scale-free-network results, not this mixed component–clique dependence theorem. Searches of relevant published mathematical research records, including the source model, the two exact statistic names, their aliases, and the predicted transition scales, returned no directly covering claim. These comparisons concern implication rather than title similarity: marginal expectation and asymptotic count laws cannot determine the full joint covariance. Historical completeness is not asserted; full-text verification of the older primary literature remains a residual risk.
+
+## Mathematical value — PASS
+
+Isolated edges are minimal nontrivial connected components, whereas maximal edges capture edges lacking local triangular closure. Although every isolated edge is a maximal edge, their count covariance has three sign regions rather than one sign. The theorem determines the entire finite-sample sign diagram for every \(n\ge3\), proves the sharp minimum-order boundary, and separates the two transitions into the natural sparse scales \(n^{-1}\) and \(n^{-1/2}\). These are motivated geometric features of edge fragmentation and local closure, not an arbitrary parameter slice or a routine restatement of either marginal law. The exact covariance-density limit gives a further quantitative sparse-graph interpretation. The contribution requires counting joint indicator interactions and proving their global sign structure rather than simply recomputing a known table.
+
+## Limitations and literature
+
+The theorem is for the independent-edge model only. It makes no claim about other graph models or higher maximal clique sizes. The exact identities were analytically proved and checked by a standalone finite enumerator, but these checks are not independent scientific validation. Full text of the 1990 Barbour–Janson–Karoński–Ruciński article and Palmer's early book exercise was not obtained; an earlier implicit equivalent therefore remains possible. The scientific-review reasons are conditional on the currently accessible comparison evidence.
+
+Self-review: passed. Independent audit: not yet performed.

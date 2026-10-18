@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 the three exhaustive overlap types of candidate edges give E[I M] exactly; subtracting known marginals yields the normalized covariance. For n=3 the cubic factor 3p(1-p^2) has one peak above 1. For n>=4 its positive part has strictly decreasing logarithmic derivative, and its exact value at p=1/n exceeds 1; therefore two and only two sign roots occur. The limit of the first root follows from F(c/n)->2c; the second follows from F(t/sqrt(n))/sqrt(n)->t(2-t²)e^{-t²}, t<sqrt(2), together with the positive-domain endpoint. Boundary n=2 has I=M Bernoulli(p). Pure-standard-library verifier exhaustively enumerates n=3,4,5,6 and passes 454 rational/inequality assertions. The all-order proof does not rely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour–Janson–Karoński–Ruciński 1990 abstracts a maximal-clique distributional study, without accessible mixed moments.",
+        "published-finding corpus record 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 gives total-component/triangle-count covariance, not isolated-K2/maximal-edge covariance.",
+        "https://onlinelibrary.wiley.com/doi/10.1002/rsa.3240010403",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ],
+      "reasoning": "Total component count does not determine isolated component counts, while triangle count does not determine the number of triangle-free edges. Thus a known total-components/triangles covariance does not imply the targeted covariance. The strong 1990 paper remained incompletely inspected, so latent broader coverage is a recorded risk rather than deemed impossible.",
+      "searches": [
+        "Joint moments isolated edge components and triangle-free edges random graph sign changes two critical densities 1/(2n) and sqrt(2/n)",
+        "Random graph G(n,p) number of connected components and number of cut vertices covariance finite sample",
+        "Small cliques in random graphs Barbour Janson Karonski Rucinski 1990"
+      ]
+    },
+    "checked_sources": [
+      "https://onlinelibrary.wiley.com/doi/10.1002/rsa.3240010403",
+      "https://math.stackexchange.com/questions/477180/square-of-the-expectation-of-number-of-edges-not-in-a-triangle-in-random-graph",
+      "https://www.cambridge.org/core/journals/network-science/article/maximal-cliques-in-scalefree-random-graphs/06DC563B7E54FB2F3556DCC900175E11",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+      "https://rucinski.home.amu.edu.pl/papers.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full HTML Theorem 2.1 of the 2024 maximal-clique article yields E[M_n], but it contains no isolated component count in its stated theorem.",
+        "The 1990 abstract treats marginal asymptotic maximal clique laws.",
+        "published-finding corpus closest 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 instead studies Cov(total components, triangles).",
+        "https://www.cambridge.org/core/journals/network-science/article/maximal-cliques-in-scalefree-random-graphs/06DC563B7E54FB2F3556DCC900175E11",
+        "https://onlinelibrary.wiley.com/doi/10.1002/rsa.3240010403",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ],
+      "reasoning": "The claim needs E[I_n M_n] and exact sign classification. Neither E[M_n], E[I_n], nor asymptotic Poisson approximations determine the covariance; two indicators sharing edges must be classified into equal, incident, and disjoint cases. The complete 1990 text could nonetheless contain a general identity implying this calculation, a residual historical risk.",
+      "searches": [
+        "Exact covariance of number of isolated K2 components and number of maximal two-vertex cliques (edges not in any triangle) in G(n,p); positive negative positive twice",
+        "Joint moments isolated edge components and triangle-free edges random graph sign changes two critical densities 1/(2n) and sqrt(2/n)",
+        "Random graph G(n,p) maximal 2-clique count versus isolated edge component count covariance",
+        "Isolated K2 components and edges belonging to no triangles positive negative positive covariance phase transitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maximal 2-cliques are exactly existing triangle-free edges, unlike isolated K2 components; both formulations searched.",
+        "The 2013 dated public discussion derives only the single-edge marginal, not the covariance.",
+        "https://math.stackexchange.com/questions/477180/square-of-the-expectation-of-number-of-edges-not-in-a-triangle-in-random-graph"
+      ],
+      "reasoning": "Rewording maximal 2-cliques as triangle-free edges or isolated K2s as size-two components does not retrieve an equivalent joint theorem. A marginal expected value cannot imply covariance since distinct couplings have the same marginals.",
+      "searches": [
+        "Exact covariance of number of isolated K2 components and number of maximal two-vertex cliques (edges not in any triangle) in G(n,p); positive negative positive twice",
+        "Random graph G(n,p) maximal 2-clique count versus isolated edge component count covariance",
+        "\"isolated edges\" \"maximal edges\" random graphs joint distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returned no exact finite-size two-root formula in ranked mathematical research records.",
+        "The textbook exercise asks an unmixed second moment, not the joint term with isolated K2 components.",
+        "https://math.stackexchange.com/questions/477180/square-of-the-expectation-of-number-of-edges-not-in-a-triangle-in-random-graph"
+      ],
+      "reasoning": "Known marginal and unmixed second-moment tables are insufficient to determine E[I_n M_n]. The result is a symbolic exact formula, not a lookup of a previously enumerated fixed graph size. The absence of database hits alone is not treated as proof of novelty.",
+      "searches": [
+        "Isolated K2 components and edges belonging to no triangles positive negative positive covariance phase transitions",
+        "Random graph isolated vertices and maximal complete subgraphs maximal k clique count covariance sign threshold",
+        "\"isolated edges\" \"edges not in triangles\" covariance G(n,p)"
+      ]
+    },
+    "rationale": "Actual literature, full-text and ranked mathematical-result comparisons found the maximal-edge marginal and separate component/triangle covariance, but no direct same-statistic joint covariance or two-transition theorem. The 1990 full text was not accessible, explicitly leaving historical priority at risk; this is a best-knowledge comparison, not a uniqueness certificate.",
+    "residual_risks": [
+      "Full text of Barbour, Janson, Karoński, and Ruciński (1990), 403–434, was inaccessible; an unexamined joint-moment theorem may imply this result.",
+      "Palmer, Graphical Evolution (1985), p. 27 and subsequent exercises were not inspected in full, so older implicit coverage cannot be excluded.",
+      "The mathematically complete search is bounded; negative ranked-result searches are not a proof of historical uniqueness.",
+      "The earliest precisely dated relevant public source verified is 2013-08-27, although older relevant literature has only year/season precision in accessible metadata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible text states asymptotic distribution of maximal clique counts, not the isolated-component/maximal-edge covariance; the 32-page unseen article may contain broader joint moment implications and remains a material priority risk.",
+        "evidence": [
+          "Publisher states maximal d-cliques are those not contained in larger cliques and studies their limit distribution in G(n,p).",
+          "First published Winter 1990, 403–434."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.3240010403",
+        "material_read": "Publisher abstract, bibliography, original issue contents; full article body unavailable.",
+        "method": "Read online HTML abstract and publisher issue metadata; lawful open full-text searches unsuccessful, institutional route unavailable.",
+        "title": "Small cliques in random graphs",
+        "trigger": "Identical primary Erdős–Rényi model and maximal two-clique count; potentially strongest older covering paper."
+      },
+      {
+        "assessment": "The answer establishes the maximal-edge marginal p(1-p²)^{n-2} and refers to a second-moment exercise, not a joint moment with isolated K2 components. It cannot imply the covariance theorem from the displayed statements.",
+        "evidence": [
+          "Question dated 2013-08-27 and cites Palmer, Graphical Evolution, p. 27.",
+          "Answer derives p(1-p²)^{n-2} for edge present and in no triangle."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/477180/square-of-the-expectation-of-number-of-edges-not-in-a-triangle-in-random-graph",
+        "material_read": "Complete posted question, corrective answer, and visible date stamps.",
+        "method": "Read accessible full HTML question and answer, including probability correction.",
+        "title": "Square of the expectation of number of edges not in a triangle in random graph",
+        "trigger": "Same triangle-free-edge statistic and a dated public discussion referencing an older random-graph textbook."
+      },
+      {
+        "assessment": "Theorem 2.1 states E[N_k]=binom(n,k)p^{k(k-1)/2}(1-p^k)^{n-k}; the article does not state the targeted cross-covariance with isolated edge components or its two root scales.",
+        "evidence": [
+          "In Theorem 2.1(2), maximal k-clique expected count is stated; k=2 gives the candidate marginal.",
+          "No covariance or isolated-component theorem in the inspected full-text statements."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/maximal-cliques-in-scalefree-random-graphs/06DC563B7E54FB2F3556DCC900175E11",
+        "material_read": "Complete accessible article HTML, introduction and section 2 including Theorems 2.1, 2.3, 2.4 and proof steps, plus text search for covariance and isolated.",
+        "method": "Read full publisher HTML text and identify the known expected maximal k-clique count and the different scale-free model.",
+        "title": "Maximal cliques in scale-free random graphs",
+        "trigger": "Exact maximal-clique marginal identity and a plausible newer general treatment of maximal-edge counting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "230bee84-dbe8-495c-a2ff-0da4d34ba23b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both counts are natural basic random-graph structural statistics, one capturing isolated connected pieces and the other absence of triangle closure. The exact positive–negative–positive covariance for all n>=3, the sharp n=2 exception, and separated n^-1 versus n^-1/2 roots constitute a global structural dependence classification that cannot be read off from the known marginals and is motivated by sparse-component and triangle-emergence regimes. The exact sparse covariance density is quantitatively useful. No paper-sized extension is claimed.",
+    "status": "PASS"
+  }
+}
