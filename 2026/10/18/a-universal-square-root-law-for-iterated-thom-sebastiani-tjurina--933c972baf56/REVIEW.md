@@ -1,0 +1,11 @@
+# Review: universal Tjurina decay under iterated separated sums
+
+**Correctness — PASS.** The Milnor algebra of separated sums is a tensor product, and the defining class acts by a Kronecker sum. Realization of arbitrary nilpotent Jordan blocks as \(\mathfrak{sl}_2\) raising maps gives an exact coefficient identity. The finite-support centered weight distribution has known variance; the lattice span-one/span-two local central limit argument proves the sharp constant and relative \(O_h(r^{-1})\) error. Exact matrix-rank checks corroborate sampled Jordan configurations, without claiming universal computational certification.
+
+**Originality — PASS, with residual risk.** Zheng–Zuo (arXiv:2610.08290v1, Theorem B and Section 5) and Almirón (2023, Theorem 1) supply two-factor defect calculations, not this general arbitrary-iterate coefficient formula or sharp all-Jordan asymptotic. A previously obtained square-zero self-sum formula is explicitly subsumed and not relabeled as a separate contribution. Classical \(\mathfrak{sl}_2\) and Fourier tools themselves are well known. Tate–Zelditch (2004) and Postnova–Reshetikhin (2018) study much broader tensor-multiplicity asymptotics, so the leading-rate component may be implicitly covered, although the exact all-iterate Tjurina formula and the explicit Jordan variance are not stated there. Direct overlap comparisons against mathematical records found no equivalent full claim, but possible implicit coverage by a broader representation theorem is a genuine residual risk.
+
+**Mathematical value — PASS.** The theorem gives an exact finite coefficient procedure for every iteration and a sharp infinite-power law across all isolated complex hypersurface germs. It extends beyond plane curves and square-zero Milnor multiplication: the constant depends on a cubic moment of the full Jordan profile. It addresses the long-iterate behavior of a standard analytic singularity invariant, rather than a selected finite experiment.
+
+**Limits.** No independent audit has been conducted. The asymptotic is for each fixed germ, and it does not classify Hodge-filtered invariants. The available source searches cannot prove absolute uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
