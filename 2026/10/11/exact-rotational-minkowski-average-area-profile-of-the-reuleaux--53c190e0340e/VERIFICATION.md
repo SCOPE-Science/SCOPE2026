@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The elementary Fourier calculation requires the normal-radius coefficients
-\[
-\rho(\theta)=\frac12+\sum_{\substack{\ell\ge1\\\ell\ \mathrm{odd}}}
-\frac{2(-1)^{(\ell-1)/2}}{\pi\ell}\cos(3\ell\theta).
-\]
-The support coefficients are obtained by dividing the nonconstant coefficient at frequency \(3\ell\) by \(1-9\ell^2\). Rotational Minkowski averaging multiplies its amplitude by \(\cos(3\ell\delta/2)\). The area identity therefore reduces to the explicitly summable series
-\[
-\frac\pi4-\operatorname{area}(M_{x/3})
-=\frac1\pi\sum_{\substack{\ell\ge1\\\ell\ \mathrm{odd}}}
-\frac{1+\cos(\ell x)}{\ell^2(9\ell^2-1)}.
-\]
-Its second derivative is the negative of an odd-harmonic cosine series divided by \(\pi\). The closed elementary cosine-series identity in `RESULT.md` follows from direct Fourier coefficient integration, and the endpoint conditions determine both integration constants.
+# Independent mathematical audit
 
-The standalone checker `verify.py` checks this differential equation, both areas, strict-derivative factorization, and the complementary-angle identity symbolically; also checks cosine-series coefficients by exact integration and evaluates the series numerically.
+## correctness
 
-A separate circle-arc support-point construction computes Minkowski-average areas at five angles, agreeing with the closed formula to polygonal-sampling tolerance. This finite numerical test is not a proof of the identity over the continuum. No external independent audit is claimed.
+PASS
+
+The Reuleaux triangle curvature radius has a threefold periodic square wave, with nonzero odd 3ell Fourier modes. Inverting h+h″=rho gives support coefficients proportional [ell(1-9ell^2)]^-1, which are absolutely summable; rotating/averaging multiplies nth harmonic by cos(n delta/2). Parseval/Green area formula yields D(x)=1/pi sum_{ell odd}(1+cos(ell x))/(ell^2(9ell^2-1)), x=3delta. The exact cosine expansion sum_{odd} cos(ell x)/(9ell^2-1)=pi/36*(sqrt3*cos(x/3)-3*sin(x/3)) holds by direct cosine-coefficient integration; differentiating twice with D′(0)=0, D(pi)=0 yields claimed trigonometric area. Its derivative is (2sqrt3 cos(delta-pi/6)-3)w^2/4>0 for 0<delta<pi/3, and trigonometric reflection proves the sum conservation. The verifier additionally checks symbolic identities and finite independently sampled circle-arc support areas; not relied upon for continuum proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact full relative-angle area correlation, not for the standard support-function Fourier identities or two classical endpoints. Resnikoff develops general constant-width Fourier/area tools, while Bogosel studies opposite-body mixed area at delta=pi/3. Accessible public descriptions do not establish interior-angle formula, but full primary texts could not be read during this run; historical constant-width literature is real residual risk.
+
+## value
+
+PASS
+
+Minkowski averaging with a rotated copy is canonical and has the Reuleaux triangle and disk as known extreme fixed-width shapes. The theorem gives a complete intrinsic angle-parametrized continuous area path, strict growth speed, and a complementary-angle invariant, not just re-evaluation of classical endpoint areas; this is a meaningful exact geometric invariant of a canonical body.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

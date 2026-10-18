@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For the unit-width Reuleaux triangle, the curvature-radius function is an elementary three-period square wave on the normal circle. Its Fourier coefficients give the support function after division by the nonzero factors \(1-9\ell^2\). Rotating and averaging support functions and applying the planar Fourier area identity give an absolutely convergent series with denominators \(\ell^2(9\ell^2-1)\). Twice differentiating and summing its odd-harmonic cosine series yields the exact formula; endpoint conditions follow from the constant-width difference-body identity. The derivative is strictly positive in the open fundamental angle interval, and a direct trigonometric identity proves the complementary-area law. The bundled checker evaluates critical identities and samples the actual circle-arc support geometry independently.
+## correctness
 
-## Originality
-**PASS, with an explicit historical risk.** Resnikoff's inspected full text develops the general Fourier/curvature and area identities used as input, not the parameterized mixed area of the Reuleaux triangle with a rotated copy. Bogosel's inspected mixed-area section treats the body paired with its centrally reflected copy; its result is exactly the endpoint at the maximum relative orientation, not the interior-angle law. Targeted searches in geometry and mixed-volume terminology and the exact trigonometric fingerprint found no covering statement. A prior unindexed angular mixed-area calculation remains possible, so a human literature audit remains valuable.
+PASS
 
-## Value
-**PASS.** The Reuleaux triangle and disk uniquely anchor the classical fixed-width planar area range. Averaging a shape with a rotated copy is a natural Minkowski symmetrization, and the relative rotation is its intrinsic parameter. The theorem gives the complete sharp path between the extreme shapes, strict area growth with explicit speed, and a nontrivial complementary-angle invariant. These statements go beyond evaluating either familiar endpoint or merely applying a general inequality.
+The Reuleaux triangle curvature radius has a threefold periodic square wave, with nonzero odd 3ell Fourier modes. Inverting h+h″=rho gives support coefficients proportional [ell(1-9ell^2)]^-1, which are absolutely summable; rotating/averaging multiplies nth harmonic by cos(n delta/2). Parseval/Green area formula yields D(x)=1/pi sum_{ell odd}(1+cos(ell x))/(ell^2(9ell^2-1)), x=3delta. The exact cosine expansion sum_{odd} cos(ell x)/(9ell^2-1)=pi/36*(sqrt3*cos(x/3)-3*sin(x/3)) holds by direct cosine-coefficient integration; differentiating twice with D′(0)=0, D(pi)=0 yields claimed trigonometric area. Its derivative is (2sqrt3 cos(delta-pi/6)-3)w^2/4>0 for 0<delta<pi/3, and trigonometric reflection proves the sum conservation. The verifier additionally checks symbolic identities and finite independently sampled circle-arc support areas; not relied upon for continuum proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact full relative-angle area correlation, not for the standard support-function Fourier identities or two classical endpoints. Resnikoff develops general constant-width Fourier/area tools, while Bogosel studies opposite-body mixed area at delta=pi/3. Accessible public descriptions do not establish interior-angle formula, but full primary texts could not be read during this run; historical constant-width literature is real residual risk.
+
+## value
+
+PASS
+
+Minkowski averaging with a rotated copy is canonical and has the Reuleaux triangle and disk as known extreme fixed-width shapes. The theorem gives a complete intrinsic angle-parametrized continuous area path, strict growth speed, and a complementary-angle invariant, not just re-evaluation of classical endpoint areas; this is a meaningful exact geometric invariant of a canonical body.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
