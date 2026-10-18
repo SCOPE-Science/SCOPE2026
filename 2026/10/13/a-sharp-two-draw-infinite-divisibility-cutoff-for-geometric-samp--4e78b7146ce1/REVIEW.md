@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The zero-based geometric sample-maximum mass formula is exact. The two-observation probability-generating function expands into a convergent compound-Poisson series with positive jump coefficients and total intensity \(-2\log(1-q)\). For all larger sample sizes, the exact identity \((1+q)^6+1-2(1+q+q^2)^3=q^2(3+6q+3q^2-q^4)>0\), together with convexity, makes the second log coefficient strictly negative. The standard count-law infinite-divisibility criterion completes both directions. Exact-rational finite checks support, but do not substitute for, these analytic arguments.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The sample-maximum law is elementary and its exponentiated-geometric interpretation is not claimed new. The full 2012 paper introducing a discrete generalized-exponential law was inspected: that author-defined law has a different normalized mass formula and positive-integer support, so its published nondivisibility theorem from a missing zero atom does not apply. Geng–Xia (arXiv:2011.04852v1) provides the applicable compound-Poisson criterion but does not give the sharp sample-size classification. The 2017 weighted-geometric nondivisibility result arises from a zero-at-zero support obstruction absent here. Max-geometric infinite divisibility uses a different operator. Searches for additive infinite divisibility and the named distribution aliases yielded no statement entailing the classification. The complete 2015 exponentiated-geometric article could not be inspected; equivalent older additive-divisibility coverage remains a residual risk.
+PASS
 
-**Value — PASS.** The theorem exactly locates a stability boundary of the ordinary additive infinite-divisibility class under a natural order-statistic transformation. The exceptional two-observation case admits constructive Lévy intensities, and the universal obstruction for every larger sample size has a short analytic certificate. This is a family-wide exact classification rather than a single parameter counterexample.
+For nonnegative geometric samples, P(M_m=k)=(1-q^(k+1))^m-(1-q^k)^m and p0=(1-q)^m>0. For m=1, log PGF positive jump masses q^k/k. For m=2, exact PGF (1-q)^2(1+qz)/((1-qz)(1-q²z)) gives positive summable log coefficients [q^(2k)+(1+(-1)^(k+1))q^k]/k. For m>=3, log z² coefficient is v^m-(u^(2m)+1)/2; u=1+q, v=1+q+q², identity u^6+1-2v³=q²(3+6q+3q²-q⁴)>0, Jensen exponent m/3>=1, yield strict negativity for 0<q<1. Compound-Poisson ID criterion then proves exact iff. Independently checked polynomial and rational parameter grid; finite checks only corroborate unrestricted inequality.
 
-**Scientific limits.** The theorem requires zero-based iid geometric inputs and integer sample sizes; it does not cover shifted or heterogeneous inputs, nonintegral exponent parameters, or max-infinitely-divisible laws. Independent audit is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original ADDITIVE infinite-divisibility iff m<=2 cutoff for the discrete generalized exponential distribution DGEII at integer shape parameter m. Important alias correction: the maximum of m iid zero-based geometric inputs is exactly the long-established DGEII(α=m,p=q) / exponentiated-geometric family; its PMF, sample-maximum closure and general PGF are PRIOR mathematics in Nekoukhou–Kundu (2017) and earlier authors. The new comparison is exclusively the positivity of the logarithmic PGF coefficients for m=1,2 versus the all-q negative z² coefficient for m>=3. The highly relevant 2013 DGEII and 2015 EGD papers could not be retrieved in full through available OA/institutional routes; priority risk is material but, absent decisive known implication, does not automatically defeat the original cutoff.
+
+## value
+
+PASS
+
+Ordinary additive infinite divisibility is a fundamental classification question for a natural non-Poisson count family (already known as DGEII), and the transition exactly at integer shape two with explicit Levy intensities is a self-contained structural result. The probability law itself and its generic PGF are not new; the additive ID cutoff is the motivated contribution. Prior-paper access risks are recorded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
