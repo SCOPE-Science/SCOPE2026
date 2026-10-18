@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the nilpotency condition for a rank-one update to three linear moments via the adjugate identity. Projective vectors are then partitioned by their annihilator divisor in the cyclic companion module. Degree-three, degree-two, and degree-one annihilators contribute exactly the three terms in the formula. The degree-two consistency polynomial simplifies to \(s^3\), so only an \(X\)-factor survives; the degree-one recurrence forces \(c_0=c_1=0\). The included independent finite-field enumeration agrees with the formula for every coefficient pair over \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7\).
+## correctness
 
-## Originality
-PASS. The closest primary source, Breaz–Modoi, proves qualitative existence and explicitly observes nonuniqueness but does not count decomposition fibers. Basnet–Bhattacharyya and Schoonmaker study ring-level nil-clean indices rather than a coefficient-sensitive cubic companion fiber. Database searches using the equivalent notions “nil-clean index,” “rank-one idempotent plus nilpotent,” “companion matrix decomposition count,” and the polynomial-totient formulation found no stronger statement covering the formula. A residual risk remains because absence from searched sources is not a proof of novelty.
+PASS
 
-## Value
-PASS. Exact decomposition multiplicity is the quantitative invariant naturally suggested by the source's explicit nonuniqueness remark and by nil-clean-index theory. The formula identifies a structural mechanism—cyclic-vector Euler totients with lower-annihilator corrections—rather than merely enumerating a finite table. It works uniformly over every finite field and makes the characteristic-polynomial factorization directly visible in the decomposition count.
+For rank-one idempotent E=uv^T with v^Tu=1, quotient by scalar rescaling gives projective lines [u]. Rank-one determinant lemma and adj(XI−C_f)=X²I+X(C_f−I)+(C_f²−C_f+c1I) force v^Tu=1, v^TC_fu=1−c1, v^TC_f²u=1−2c1−c0. For a vector with minimal annihilator h|f of degree d, these equations have q^(3−d) solutions iff moments obey the h-recurrence. Companion module F_q[X]/(f) gives Φ_q(h)/(q−1) projective lines per h. d=3 contributes Φ_q(f)/(q−1); d=2 writing f=h(X)(X−s) leaves consistency s³=0, hence c0=0 and h=f/X with q solutions per line; d=1 imposes λ=1−c1, c0=−c1² and f(λ)=−c1³=0, forcing c1=c0=0, λ=1 and q² choices. Independent exhaustive rank-one idempotent/matrix-cube enumeration over F_2,F_3,F_5 for every c0,c1 matched the formula (R5_NILCLEAN_CUBIC_ALL_COEFFS_OK). Polynomial totients computed by direct gcd; uniform extension-field result rests on module proof.
 
-## Closest literature and limitations
-The 2015 Breaz–Modoi preprint is the direct archive anchor and gives the qualitative companion-matrix criterion and constructive existence theorem. The 2014 nil-clean-index paper supplies the natural counting invariant at ring level. A 2018 dissertation computes several global clean and nil-clean indices for matrix rings, which is relevant as a broader extremal comparison but does not imply this fixed companion-matrix fiber from the material located. The theorem counts only rank-one idempotents; total nil-clean multiplicity in characteristics that allow additional ranks is outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Breaz–Modoi establish qualitative nil-clean existence and construction of companion-matrix decompositions, and their Remark 6 expressly notes nonuniqueness. The exact Φ_q(f) + correction term fiber count is not in the materially read paper. Nil-clean index papers study ring/global extremal fiber sizes, not the trace-one cubic per-polynomial rank-one fiber. Searches of Resultary nearest finite-matrix factorization results give distinct products/decompositions. A similarly phrased future general polynomial fiber theorem remains possible.
+
+## value
+
+PASS
+
+Rank-one nil-clean decomposition multiplicity refines the basic existence/nonuniqueness theorem in the smallest nontrivial companion dimension. The answer varies with irreducible factorization and singular constant-term strata and gives a universal finite-field formula. That is a motivated, potentially reusable exact invariant for cyclic matrix modules, not a routine relabeling or one-number table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
