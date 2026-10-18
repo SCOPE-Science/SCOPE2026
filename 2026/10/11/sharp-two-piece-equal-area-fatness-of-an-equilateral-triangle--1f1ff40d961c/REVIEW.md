@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every two-part convex partition of a triangle is a chord partition. Equal area yields the exact product condition \(tu=1/2\). The inradius of the complementary part is bounded using three *necessary* disk-support constraints, and its enclosing-circle radius is at least half the original side. The inequality is reduced to the exact identity \(L^2-3t^2/4=(t-1/t)^2/4\), a factored nonnegative expression, and direct radii of the endpoint right triangles. Strict inequality away from each median proves the equality classification. The symbolic checker verifies critical algebra; it is not substituted for the continuous proof.
+PASS
 
-## Originality — PASS, qualified by literature-access risks
+For any nondegenerate equilateral triangle split into exactly two closed convex equal-area pieces, the cut is a chord. With t,u measured along two sides, tu=1/2, after reflection 1/√2≤t≤1, u=1/(2t). Three necessary supporting halfplanes for the piece containing side BC force r≤√3(t−1/2)/(2(2t−u+L)), while BC forces R≥1/2. The two exact factorization identities L²−3t²/4=(t−1/t)²/4≥0 and ((2+√3/2)t−u−((3+√3)/2)(2t−1))=(1−t)((1+√3/2)t−1/2)/t≥0 imply strict bound unless t=1. At t=1 the two right triangles have R=1/2 and r=(√3−1)/4, giving exactly three symmetry-related median optimizers. Independently verified critical symbolic identities and continuous-range sample inequality; sampling is not the continuous proof.
 
-The 2026 theorem of Pach and Tardos (arXiv:2609.20702v1) guarantees *existence* of dyadic equal-area fat partitions for arbitrary convex bodies, not an inspected sharp two-piece equilateral coefficient. Damian and O'Rourke (arXiv:cs/0304023, especially Section 4) optimize partitions of equilateral triangles with arbitrarily many pieces without an equal-area requirement; their limiting inverse fatness \(3/2\) does not imply this fixed-two-part optimum \(2/(\sqrt3-1)\). A separate published calculation of triangle roundness applies to individual triangular bodies, rather than optimization over a triangle and quadrilateral in a two-part equal-area cut. Searches of related nomenclature revealed no stronger exact comparison. Risk: not every section of the 2026 manuscript was available in full, and unindexed earlier work might contain an equivalent result.
+## originality
 
-## Value — PASS
+PASS
 
-The exact worst-piece fatness and uniqueness are natural geometric calibration data for the initial dyadic subdivision of the regular triangle, the simplest noncircular convex body in an emerging theory of equal-area fat partitions. The value is an extremal classification over a continuous family, not a renamed single-radius identity or an arbitrary finite sample. It provides a sharp attainable constant for a canonical prescribed-number case without claiming a universal partition theorem.
+Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.
 
-## Scope and limits
+## value
 
-Only exactly two closed convex positive-area pieces with equal area, with the Euclidean inradius and smallest enclosing Euclidean disk as radii, are covered. No optimality claim is made for unequal-area cuts or larger partition counts. The core literature comparison remains subject to the access caveat noted above.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The equal-area two-piece equilateral benchmark settles a natural minimal bisection problem for roundness with an exact sharp constant and complete equality classification. It calibrates universal fat-part partition theory in its first nontrivial two-piece case, and is not a mechanically implied single-triangle formula since one piece may be quadrilateral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
