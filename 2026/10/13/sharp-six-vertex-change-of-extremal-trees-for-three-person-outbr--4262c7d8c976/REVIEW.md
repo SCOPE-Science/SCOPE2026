@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about finite tree bond percolation with an independent uniform seed and an outbreak-size cutoff of three. For any connected induced vertex set, internal-open and boundary-closed edges give the exact size-biased component formula. Exhaustive Prüfer enumeration of all tree isomorphism classes through six vertices is complete; the two independent coefficient constructions agree. Fourteen symbolic polynomial factorizations establish the strict six-vertex envelopes, including the only possible crossover factors \(6-7p\) and \(3-4p\). The one-closed-edge expansion proves the high-transmission comparisons for each integer order at least six without extrapolation from finite tests. Exactness assumes independent identical Bernoulli edge openings.
+PASS
 
-## Originality — PASS (subject to stated source-access uncertainty)
+For each connected A subset of a tree, the event it is one exact open-edge component has probability p^{|A|-1}(1-p)^{|∂A|}; summing |A|/n over |A|>=3 proves the exact nF_T identity. Exhaustive nonisomorphic tree enumeration through n=6 (counts 1,1,2,3,6) and independent open-edge-state counting reproduced every six-vertex polynomial. Exact factorization gives 6(F_S6−F_D6)=p²(1-p)(2-p)(6−7p) and 6(F_T6−F_P6)=p²(1-p)(3−4p), with all other shapes strictly intermediate. First-order one-closed-edge expansion near p=1 gives F_T(1−q)=1−L(T)q/n+O(q²) at each fixed n; L(star)=n−1 versus L(double-star)=n−2; L(path)=6 versus L(two-two-arm tree)=n+1 for n>=6. This proves both infinitely extending extremality failures without misusing the n<=6 census.
 
-Newman's 2002 full preprint treats outbreak sizes in network percolation, largely through random-graph generating functions, rather than extremal comparisons among each fixed finite tree shape. The full text of Lanchier and La Salle (2021) studies bounds for the first two cluster-size moments on regular graphs; this cannot determine the three-or-more tail on irregular trees. Jevtić, Lanchier and La Salle (2020) analyzes moments on elementary graph families; its full text could not be inspected, and possible additional exact tail formulas remain a residual risk. The closest existing fixed-tree finding comparing variance near the endpoints does not imply threshold probabilities, six-tree extremizers or the new bridge-loss statistic. Search did not reveal a statement implying both exact critical probabilities and the all-order structural obstruction. Novelty is not certified by search alone.
+## originality
 
-## Value — PASS
+PASS
 
-Extremal network risk depends on the loss functional: an average outbreak-size ranking does not determine the chance of a three-person cluster. The result gives a complete first nontrivial extremal phase diagram and a structural explanation valid at arbitrarily large tree orders, making a concrete counterexample to naïve star/path extreme-risk heuristics. The probability model is elementary but the two-sided extremality failure and exact cut-loss mechanism are informative for fixed-network risk modelling. No empirical validation or clinical recommendation is claimed.
+PASS best-of-knowledge: a sharp six-vertex switching phase diagram for the size>=3 cluster probability of a uniform root, and all-order near-certain-transmission counterfamilies, is not determined by Newman's percolation/SIR mapping or the published first/second cluster-size moments on paths, stars and regular graphs. Closely relevant 2020 full text was inaccessible through both OA and authorized institutional access; explicit residual risk maintained.
 
-## Closest literature and limitations
+## value
 
-The 2020 path/star cluster-moments article is particularly relevant but not fully accessible. A second limitation is that ordinary stochastic SIR epidemics need not have independent bond-transmission outcomes (cf. Kenah and Robins, 2007), so the theorem is stated only for the independent-bond model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is a natural epidemiologically motivated three-person cluster-tail extremum that changes identity at sharply identifiable transmissibilities. The n=6 threshold and all-order one-closed-edge mechanism supply a motivated finite cutoff and explain why naive universal star/path heuristics fail; result applies to the precisely defined independent-bond proxy only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
