@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:10:56.158762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual frozen RESULT.md reduces the worst full-dimensional convex-body relative error to max_{|v|=1}|2 sum_i w_i |u_i·v| - 1| using Cauchy projection and an even zero-centroid surface-area measure approximated by antipodal atoms plus positive spherical mass (Minkowski existence); the upper bound is immediate from integration. For each i choose a unit v_i orthogonal to the other two vectors: q(v_i)<=w_i. Calibration forces some w_i<=1/3, yielding E>=1/3. An orthonormal equal-weight frame has q∈[1/3,1/sqrt(3)] and achieves E=1/3; equality forces all w_i=1/3 and every u_i orthogonal to its two companions. Under E<=1/3+epsilon<1, the lower q bound L=1/3-epsilon/2, together with w_i<=1/3+epsilon, implies |u_i·u_j|<=sqrt(1-(L/(1/3+epsilon))^2) =3 sqrt(epsilon(4+3epsilon))/(2(1+3epsilon)). Orthogonal weight perturbations attain the two-sided weight bounds, and the equal-weight tilt with u2=sin(theta)e1+cos(theta)e2 (0<=theta<=pi/6) has E=1-2 cos(theta)/3 and pairwise inner product sin(theta), proving the sqrt(epsilon) exponent. Independent normalization/linear-algebra checks confirm the formulas; the finite verifier is supplementary, not the proof of the convex-body supremum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fu–Wang–Yan 2023 Theorem 2.7 optimizes the maximum of an unweighted sum of absolute scalar products; here the lower-tail min of a calibrated potential controls the error.",
+          "Congpei An 2026 gives the exact convex-body defect reduction and finite Cauchy nonexactness, not an optimal three-rule classified family."
+        ],
+        "reasoning": "Neither an upper-only unweighted minimization nor a general sharp fixed-rule bound implies a unique solution to the weighted two-sided minimax and its near-optimal angular estimates.",
+        "searches": [
+          "Cauchy surface area projection three view minimax orthogonal weights rigidity",
+          "Fu Wang Yan On the Minimax Spherical Designs Proposition 2.2 Theorem 2.7",
+          "arXiv:2609.05869v1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.5566/ias.v28.p165-177",
+        "DOI:10.1002/rsa.21087",
+        "arXiv:2609.05869v1",
+        "Resultary ranked query: Cauchy surface area projection three view minimax orthogonal weights rigidity",
+        "Frozen SCOPE2026 RESULT.md and verify.py at assigned Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2009 known coordinate error 1/3; Fu–Wang–Yan solve an unweighted max q objective.",
+          "New perpendicular-to-two-directions argument bounds each calibrated weight from below, yielding uniqueness and a Gram stability estimate."
+        ],
+        "reasoning": "Known orthogonal error + upper-sum minimization do not force global minimax or exclude oblique weighted designs. A separate lower-tail inequality is indispensable; this precisely separates new and old implications.",
+        "searches": [
+          "Cauchy surface area projection three view minimax orthogonal weights rigidity",
+          "DOI:10.1002/rsa.21087",
+          "arXiv:2609.05869v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiderlen–Meschenmoser 2009 Lemma 1 and coordinate-grid example: known 2/3 <= estimator/surface area <= 2/sqrt3 for fixed orthogonal rule.",
+          "Three-vector zonotope support function q(v)=sum_i w_i |u_i·v| gives same calibrated two-sided Chebyshev problem."
+        ],
+        "reasoning": "Equivalent zonotope and Crofton formulations recover the previously known coordinate-rule numerical error but not global optimization over arbitrary triples and weights or quantitative near-equality rigidity.",
+        "searches": [
+          "Cauchy surface area projection three view minimax orthogonal weights rigidity",
+          "three view Cauchy Crofton minimax orthogonal stability",
+          "DOI:10.5566/ias.v28.p165-177"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The constant 1/3 for the standard orthogonal three-direction estimator is explicitly known in the 2009 article.",
+          "No retrieved table records the full optimizer and sharp-order stability over arbitrary calibrated triples."
+        ],
+        "reasoning": "Credit the exact prior known special-rule constant rather than presenting it as new. The classification and stability are continuum design theorems not tabulated data.",
+        "searches": [
+          "Cauchy surface area projection three view minimax orthogonal weights rigidity",
+          "Kiderlen Meschenmoser 2009 three dimensional six neighbor 1/3"
+        ]
+      },
+      "rationale": "Global calibrated three-axis optimization and quantitative uniqueness are not consequences of the previously known orthogonal coordinate-rule error 1/3. Fixed-rule Crofton error estimates, upper-tail unweighted spherical-design minimization, and spherical-quadrature defect reduction each solve distinct parts, not the full weighted two-sided stability problem.",
+      "residual_risks": [
+        "An unindexed equivalent weighted zonotope inradius or three-view Chebyshev stability theorem may exist; failed search is not a priority certificate.",
+        "The exact coefficient 3 in angular bound is not claimed optimal; only sqrt stability exponent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIXED_RULE_ONLY",
+          "evidence": [
+            "Known projection/surface-area ratio interval [2/3,2/sqrt3] for coordinate estimator; no asserted global calibrated 3-direction stability classification."
+          ],
+          "identifier_or_url": "DOI:10.5566/ias.v28.p165-177",
+          "material_read": "Lemma 1, Example 2 and three-dimensional coordinate-direction estimator and associated fixed-rule bounds",
+          "method": "published primary paper full-text examination",
+          "title": "Error Bounds for Surface Area Estimators Based on Crofton’s Formula",
+          "trigger": "Same surface-area estimator and known orthogonal 1/3 benchmark"
+        },
+        {
+          "assessment": "RELATED_NOT_IMPLYING",
+          "evidence": [
+            "Controls maximum unweighted potential, not its calibrated minimum or two-sided estimation error."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.21087",
+          "material_read": "Proposition 2.2 and Theorem 2.7, statements/assumptions and upper-potential maximization",
+          "method": "primary published article HTML examination",
+          "title": "On the Minimax Spherical Designs",
+          "trigger": "Possible orthogonal-optimality theorem for sums of absolute inner products"
+        },
+        {
+          "assessment": "PRIOR_LEMMA_NOT_FULL_CLAIM",
+          "evidence": [
+            "Cauchy defect identity is imported, while exact three-direction rules in source concern quadratic kernel."
+          ],
+          "identifier_or_url": "arXiv:2609.05869v1",
+          "material_read": "Theorem 3.2 defect principle and sections on quadratic-kernel exact rules and ordinary Cauchy approximation",
+          "method": "arXiv preprint scientific-text inspection",
+          "title": "Exact Finite Integral Geometry: Directional Kernels and Spherical Designs",
+          "trigger": "Direct source for convex-body defect identity and exact three-direction rules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A globally unique calibrated optimal surface-area measurement configuration, with explicit near-minimizer guarantees on weights and frame geometry, is a motivated geometric-design theorem. It is not merely the already-known fixed orthogonal-rule numerical error; frame stability is independently informative for noisy measurements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only three unoriented Euclidean R3 views with positive weights summing to one; exactness at a ball by calibration.",
+    "Extremal normal measures are thin-body limits; worst full-dimensional body need not attain supremum. No N>=4, uncalibrated-weight or best coefficient claim."
+  ],
+  "schema_version": 1
+}
