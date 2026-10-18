@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For a standard Gaussian in the intrinsic (n-1)-dimensional hyperplane, separating its independent chi radius and sphere direction gives exact mean width and a 1/(n-1) factor for quadratic moments. The bivariate absolute-normal identity gives cross-edge moments 4/pi when disjoint, 4/pi+delta when distinct incident, and 2 for coincident. The cross-edge incidence count is s=sum_v deg_T(v)deg_S(v), with coincident edges counted twice therein, yielding the coefficient lambda=2-4/pi-2delta. Writing a_v=deg_T(v)-1, b_v=deg_S(v)-1 gives s=3n-4+sum_v a_v b_v. Since delta,lambda>0, the exact global optimum requires and suffices for disjoint nonleaf supports and zero common edges. Explicit 4-vertex seed and two distinct fixed attachment vertices attain it at every n>=4. Chi gamma-ratio asymptotics give limiting covariance 3delta-2/pi<0; r_3^2=8/pi gives the exact four-vertex minimum. Independent exact enumeration all 1,695,497 ordered tree pairs up to order six, 160 direct support checks, and two seeded sphere simulations corroborate the proof without substituting for it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Padrol, V. Pilaud, G. Poullot, Deformed Graphical Zonotopes, arXiv:2111.12422, DOI:10.1007/s00454-023-00586-x",
+        "V. Grujic, Counting Faces of Graphical Zonotopes, arXiv:1604.06931",
+        "Sharp width-variance extremizers among tree graphical zonotopes, published-finding corpus public 2026 record 482983ab9269"
+      ],
+      "reasoning": "The graphical-zonotope deformation-cone and face-enumeration results concern geometric constructions, normal fans, or face combinatorics; they do not provide a universal two-polytope minimum covariance or the optimizing pair classification. One-tree width extremality gives no minimum over two different trees without new cross-edge bookkeeping and a coupled equality analysis.",
+      "searches": [
+        "published-finding corpus: Polarization of graphical zonotope width variance to mixed width covariance of pair of trees",
+        "published-finding corpus: Higher cumulants of Euclidean width of graphical zonotopes triangles wedges and degree sequences",
+        "Primary literature: deformed graphical zonotopes Euclidean widths Gaussian mixed covariance"
+      ]
+    },
+    "checked_sources": [
+      "A. Padrol, V. Pilaud, G. Poullot, Deformed Graphical Zonotopes, arXiv:2111.12422, DOI:10.1007/s00454-023-00586-x",
+      "V. Grujic, Counting Faces of Graphical Zonotopes, arXiv:1604.06931",
+      "Sharp width-variance extremizers among tree graphical zonotopes, published-finding corpus public 2026 record 482983ab9269"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharp width-variance extremizers among tree graphical zonotopes, published-finding corpus public 2026 record 482983ab9269",
+        "Its Eq. (7) proves the angular pair kernel for identical, incident and disjoint root segments. The new proof separately counts cross-edge incidence between distinct trees as a degree dot product and jointly minimizes that quantity and edge overlap."
+      ],
+      "reasoning": "The prior pair kernel can be used to DERIVE the present exact mixed covariance formula after polarization, so the kernel and the formal algebraic extension are not counted as novel. However, the published single-tree path/star variance theorem neither states nor entails as a direct special case the minimum over pairs of labelled trees, the exact edge-disjoint and disjoint-nonleaf equality classification, or the negative limiting constant. These require an independent optimization and construction. This is a remaining closeness risk, not suppressed.",
+      "searches": [
+        "2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+        "published-finding corpus: Polarization of graphical zonotope width variance to mixed width covariance of pair of trees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharp width-variance extremizers among tree graphical zonotopes, published-finding corpus public 2026 record 482983ab9269",
+        "The earlier record gives pairwise Gaussian absolute edge moments for one graph, but no two-tree coupling infimum or equality class."
+      ],
+      "reasoning": "Equivalent ways to express the claim include covariance of Gaussian graph total-variation functionals under common random normalization, covariance of support widths of root-generator zonotopes, and a mixed zonotope-width moment. Those aliases were queried. The nearest record supplies ingredients, not the stated extremal pair theorem.",
+      "searches": [
+        "published-finding corpus: Sharp minimum cross covariance of spherical directional widths of two spanning tree graphical zonotopes achieved by edge disjoint internally vertex disjoint branching sets",
+        "published-finding corpus: Negative correlation in Gaussian spherical L1 total variation of two spanning trees on common labeled vertices",
+        "published-finding corpus: Mixed second moment cross widths graph zonotopes edge overlap degree product",
+        "2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The previously published result has exact individual width moments and n-tree extrema, not a table of pair minima.",
+        "Direct exact enumeration here examines orders n=4,5,6, all 1,695,497 ordered labelled tree pairs; finite enumerations are not a substitute for the proof."
+      ],
+      "reasoning": "No exact table found that exhausts cross-width covariance minimizers for all labelled tree-pair orders. The present finite checks independently confirm the analytic equality conditions for small orders only.",
+      "searches": [
+        "published-finding corpus: Sharp minimum cross covariance of spherical directional widths of two spanning tree graphical zonotopes achieved by edge disjoint internally vertex disjoint branching sets",
+        "published-finding corpus: Mixed second moment cross widths graph zonotopes edge overlap degree product",
+        "2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+      ]
+    },
+    "rationale": "The exact individual graphical-zonotope width-pair angular kernel and one-tree variance extremizers occur in the closest published mathematical record and are explicitly acknowledged as prior. The new mathematical conclusion is a sharp joint minimization over TWO labelled spanning-tree embeddings, whose equality requires both edge disjointness and vertex-disjoint branching support; an explicit construction realizes both conditions in every order. In particular the minimum is strictly negative at order four and converges to a nonzero negative constant. Published accessible statements checked do not imply this equality classification as their stated conclusion. The risk that it follows by an unrecorded graph-variation reformulation remains.",
+    "residual_risks": [
+      "The mixed moment identity is a short polarization of a previously published edge-pair kernel and is not claimed novel. An unindexed source may also have solved the coupled minimization in graph total-variation terminology.",
+      "No independent review. The finite verifier only tests orders up to six and separate Monte Carlo samples.",
+      "The conclusion is about cross covariance under a single shared Euclidean direction, not joint asymptotic distributions or Pearson correlation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes background family and deformation results, not the mixed Euclidean width-covariance extremum.",
+        "evidence": [
+          "arXiv:2111.12422",
+          "First public arXiv date 2021-11-24",
+          "MSC2020 52B11 on publisher full-text page"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-023-00586-x",
+        "material_read": "Accessible full-text HTML: abstract, graphical-zonotope definitions, deformation framework, and normal-fan and graphical sections.",
+        "method": "Text reading and specific searches for covariance, variance, Gaussian, width, and random direction.",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Primary MSC2020 52B11 source and canonical graphical-zonotope setting."
+      },
+      {
+        "assessment": "Supports combinatorial motivation; gives no two-tree Gaussian width-covariance optimum.",
+        "evidence": [
+          "arXiv:1604.06931",
+          "Cubic face type of tree graphical zonotopes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.06931",
+        "material_read": "Accessible arXiv full HTML: definition of graphical zonotopes, face-polynomial discussion and tree/cube examples.",
+        "method": "Reading result and tree-specific sections.",
+        "title": "Counting Faces of Graphical Zonotopes",
+        "trigger": "Tree zonotopes are all combinatorial cubes despite distinct Euclidean width behavior."
+      },
+      {
+        "assessment": "Covers the local pair kernel and one-tree variance formula, which are credited; not the sharp coupled-tree covariance minimum, equality class, or negative asymptotic constant.",
+        "evidence": [
+          "2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+          "Published Eq. (7): distinct edge angular moment depends on incidence; published Eq. (2): maximum-minus-minimum of individual tree width variance."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269/RESULT.md",
+        "material_read": "Complete public RESULT.md, including Finding, Proof, Verification, Relationship to prior work, Limitations, References.",
+        "method": "Full scientific text and mathematical implication comparison of Eq. (1) and Eq. (7) with the claimed cross-pair minimization.",
+        "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+        "trigger": "Closest indexed published result: exactly the Gaussian absolute-root segment kernel and one-tree width variance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c96152aa-3139-4ddc-a34a-866a0fdb8736",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural coupled geometric extremum: two tree graphical zonotopes are each combinatorial cubes, of the same Euclidean intrinsic volume and individual mean width, but their shared-direction widths can be negatively dependent. The theorem gives the sharp order-by-order cross-covariance infimum, all optimizers on labelled trees, constructions for all n, and a nonzero negative infinite-order limit. Existing one-body path/star extremality does not decide how two independently chosen tree structures should be aligned and which structural features must be disjoint. The exact result isolates an interpretable geometric anticorrelation rather than arbitrary finite numerical slices.",
+    "status": "PASS"
+  }
+}
