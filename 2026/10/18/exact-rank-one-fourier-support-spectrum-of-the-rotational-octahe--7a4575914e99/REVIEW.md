@@ -1,0 +1,15 @@
+# Scientific review: octahedral rank-one Fourier support spectrum
+
+## Correctness
+**PASS.** The theorem is restricted to nonzero complex rank-one coefficients of a single three-dimensional irreducible block. Orthogonality gives Fourier rank one and weighted support three. The signed-permutation reduction has exactly six coordinate permutations and four relative sign assignments each. Every coordinate-support type is handled: sparse cases yield only zero counts from \(\{0,2,4,6,8,12,16\}\), with the directed-edge argument excluding ten zeros; full-coordinate cases have at most six zeros, and the alternating quartic identity excludes exactly five. Nine explicit cyclotomic/rational witnesses attain the complete remaining set. The exact checker verifies representation orthogonality and all witnesses; it does not substitute for the analytic exclusions.
+
+## Originality
+**PASS, with residual identification risk.** The primary texts of Alagic--Russell (arXiv:math/0608702, Sections 1, 3.2--3.3) and Jiang--Liu--Wu (arXiv:1408.1165, Sections 1--2, 6 and 8) were inspected for rank-weighted support inequalities, minimizing functions, and group-algebra specializations. Their general inequalities imply the minimum \(8\), and the equality theory concerns extremizers; neither inspected statement classifies all pure three-dimensional rank-one coefficient support sizes. Publicly indexed related results concern either full Fourier-block sampling on \(S_n\), representation-module decompositions with octahedral symmetry, or different finite groups, not the same bilinear zero-count incidence problem. Historical exact spectra on \(A_4\), \(Q_8\), and dihedral groups do not imply the coupling of the two \(A_4\) cosets here. Searches for aliases involving signed permutation rotations, octahedral coefficient zeros, rank-one standard Fourier blocks, and support cardinalities revealed no stronger covering result. An uncatalogued classical incidence classification or implicit equivalent theorem could remain.
+
+## Mathematical value
+**PASS.** This is an exact full cardinality spectrum for a natural irreducible nonabelian Fourier stratum. It sharpens the multiplicative uncertainty inequality in an inherently discontinuous way, exhibiting exceptional complex cyclotomic support \(21\) and excluding several larger sizes above the minimum. The structural obstructions—an alternating fourth-degree identity and a three-vertex directed ratio count—are reusable beyond the individual finite witnesses and make the result more than a small computational table.
+
+## Closest sources and limitations
+The closest inspected works are Alagic--Russell, *Uncertainty Principles for Compact Groups* (arXiv:math/0608702, 2006) and Jiang--Liu--Wu, *Noncommutative Uncertainty Principles* (arXiv:1408.1165, 2014). The result is not a full-support diagram for arbitrary functions on \(S_4\), and no extension to other groups or numerical robustness is claimed. Possible unidentified equivalent treatment of octahedral matrix coefficients is the principal literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
