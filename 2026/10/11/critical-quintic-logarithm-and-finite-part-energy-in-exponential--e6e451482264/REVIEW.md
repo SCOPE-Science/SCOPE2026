@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact positive-phase identity is \(\frac{d}{dv}Y(v)^2=2\alpha v^p-2\beta Y(v)\). A positivity argument gives eventual monotonicity and finite-time escape. Two controlled substitutions yield \(Y=cv^q+dv+ev^{2-q}+R\), where \(R\) is integrable for \(q>2\). The renormalized energy therefore converges, with a proved tail error; at the quintic value \(p=5\), the exact logarithmic coefficient is \(-3\beta^3/(16c)\). For two increasing initial phases at the same memory level, the squared-velocity difference solves an exact linear first-order equation whose coefficient is integrable, establishing a strictly positive finite-part difference. Algebraic coefficients were checked symbolically from the included executable file; this finite check does not replace the infinite-tail proof.
+PASS
 
-## Originality — PASS, with residual risk
+The original ODE gives v''+beta v'=alpha v^p. Every positive trajectory eventually has v'>0; the exact phase relation (Y²)'=2alpha v^p-2beta Y yields Y~c v^q (q=(p+1)/2>2), hence dv/dt~c v^q and finite-time blow-up. Substitution derives d=-beta/(q+1) and e=beta²q/[2c(q+1)²] in Y=c v^q+d v+e v^{2-q}+R. The proof bounds R by O(v^{3-2q}) for 2<q<3, O(v^-3 log v) for q=3, and O(v^-q) for q>3, each integrable at infinity. Renormalized squared energy has derivative -2beta R, proving finite K and stated tail rates. For q=3, coefficient -3beta³/(16c) of log v was independently verified by SymPy, as were d²+2ce=beta²/(q+1) and the first-order Y coefficient. Comparing two positive phase velocities gives (Y2²-Y1²)'=-2beta(Y2²-Y1²)/(Y1+Y2), so the finite K difference is strictly positive by exact integration.
 
-Ichida, arXiv:2609.15470v1, analyzes the exact same power-memory model but establishes only the leading temporal blow-up rates. Asai et al., arXiv:2211.06865v2, supply a general multiscale asymptotic framework, including resonances, but no explicit calculation of this phase-space finite part or critical coefficient in the inspected examples. Hoang, arXiv:2303.10153v2, supplies general leading-order estimates. The indexed reciprocal-memory F2 analysis has a distinct nonlinearity. The original statements do not imply the exact energy counterterms or positive finite-part comparison law without additional model-specific derivation. Literature under different terminology could contain an equivalent computation.
+## originality
 
-## Value — PASS
+PASS
 
-The undamped phase system possesses conserved mechanical energy; positive exponential-memory forgetting destroys this conservation and produces divergent energy drift. A natural three-term subtraction plus one final counterterm gives a finite orbit invariant and locates the sharp change between power drift, logarithmic drift, and convergence at \(p=5\). The explicit nonzero coefficient and controlled convergence give a structural classification; moreover, an exact positive integral formula shows the finite-part energy strictly orders positive initial phase velocities at fixed memory state, so the invariant has mathematical discriminative content.
+Ichida's primary study of this precise exponential-memory power F1 model proves finite blow-up and leading rates but not this explicitly renormalized energy and critical log coefficient. General multi-order blow-up methods of Asai et al. and Hoang give frameworks/leading errors, not the displayed model-specific K comparison. An indexed 2026 earlier memory-blowup invariant concerns a reciprocal-memory F2 nonlinearity, not the same phase equation.
 
-## Closest literature and limitations
+## value
 
-The closest same-object paper is Ichida, arXiv:2609.15470v1, Section 3 and Theorem 1. The closest broader methodology is Asai et al., arXiv:2211.06865v2, Sections 3–4. Hoang, arXiv:2303.10153v2, proves more general leading asymptotic and error statements. The result only concerns positive exponential-memory solutions for \(p>3\); it does not cover arbitrary kernels or give the value of the finite-part constant explicitly. Older specialized asymptotic expansions remain a genuine literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Dissipative memory destroys the undamped energy conservation; the exact finite-part correction recovers a trajectory invariant of the asymptotics. The p=5 logarithmic resonance separates two regimes and the positive K-order formula distinguishes trajectories at the same memory coordinate. These are motivated dynamic invariants rather than merely another leading blow-up exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original ODE gives v''+beta v'=alpha v^p. Every positive trajectory eventually has v'>0; the exact phase relation (Y²)'=2alpha v^p-2beta Y yields Y~c v^q (q=(p+1)/2>2), hence dv/dt~c v^q and finite-time blow-up. Substitution derives d=-beta/(q+1) and e=beta²q/[2c(q+1)²] in Y=c v^q+d v+e v^{2-q}+R. The proof bounds R by O(v^{3-2q}) for 2<q<3, O(v^-3 log v) for q=3, and O(v^-q) for q>3, each integrable at infinity. Renormalized squared energy has derivative -2beta R, proving finite K and stated tail rates. For q=3, coefficient -3beta³/(16c) of log v was independently verified by SymPy, as were d²+2ce=beta²/(q+1) and the first-order Y coefficient. Comparing two positive phase velocities gives (Y2²-Y1²)'=-2beta(Y2²-Y1²)/(Y1+Y2), so the finite K difference is strictly positive by exact integration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asai et al. develop broad resonance expansion machinery for autonomous ODEs.",
+          "Hoang gives abstract leading profiles with power/log error rates, not this F1 counterterm.",
+          "Ichida handles the same model but only leading temporal exponents."
+        ],
+        "reasoning": "A broad asymptotic algorithm might allow specialization, but no stronger inspected theorem immediately states the exact K and strict order comparison. Model-specific integrable defect analysis is essential.",
+        "searches": [
+          "exponential memory power nonlinear system u'=v^p v'=alpha u-beta v blow-up asymptotic quintic logarithmic correction finite part",
+          "Asai–Kodani–Matsue–Ochiai–Sasaki arXiv:2211.06865",
+          "Hoang arXiv:2303.10153 Section 7",
+          "Ichida arXiv:2609.15470 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "assigned source-tree 3f74fccf531255bb6568f6023f57d730949452d1, RESULT.md 7757168774432b4f1f91246987f77424d9592b09, verify_algebra.py fbe10e05f1dd0fb5da6536b5cb80e04343faea65",
+        "arXiv:2609.15470 F1, Theorem 1",
+        "arXiv:2303.10153 Section 7 Theorem 7.5",
+        "arXiv:2211.06865 broad multiscale framework"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ichida gives leading growth rates for F1 but no constant K or p=5 log subtraction.",
+          "Hoang yields general errors and not an equality with the model-specific beta³ coefficient.",
+          "F2 involves a different nonlinearity from v^p."
+        ],
+        "reasoning": "The proposed log energy and K-order formula cannot be read off as a direct corollary of these displayed results. Potential older specialized Emden–Fowler calculations remain a residual priority risk.",
+        "searches": [
+          "exponential memory power nonlinear system u'=v^p v'=alpha u-beta v blow-up asymptotic quintic logarithmic correction finite part",
+          "arXiv:2609.15470v1 Theorem 1 Section 3",
+          "arXiv:2303.10153v2 Theorem 7.5",
+          "Resultary F2 exact first integral record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eliminating the memory variable gives the damped Emden–Fowler form v''+beta v'=alpha v^p.",
+          "The phase-plane energy Y(v)^2 is equivalent to the original system on the final monotone branch."
+        ],
+        "reasoning": "Both formulations were checked as aliases; no primary theorem material read contains the exact same energy finite-part and explicit orbit-order invariant.",
+        "searches": [
+          "exponential memory power nonlinear system u'=v^p v'=alpha u-beta v blow-up asymptotic quintic logarithmic correction finite part",
+          "arXiv:2609.15470 F1 model and reduction",
+          "arXiv:2211.06865 resonant multi-order expansions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest prior indexed result concerns reciprocal-memory F2 rather than polynomial power F1.",
+          "Neither the F1 exact coefficient nor the energy finite part was located as a tabulated quantity in checked source descriptions."
+        ],
+        "reasoning": "This is a continuum asymptotic invariant, not a finite database entry. Published neighboring values are not an exact statement about the F1 orbit parameter.",
+        "searches": [
+          "exponential memory power nonlinear system u'=v^p v'=alpha u-beta v blow-up asymptotic quintic logarithmic correction finite part",
+          "Resultary exponential-memory F1 quintic logarithm query",
+          "2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300"
+        ]
+      },
+      "rationale": "Ichida's primary study of this precise exponential-memory power F1 model proves finite blow-up and leading rates but not this explicitly renormalized energy and critical log coefficient. General multi-order blow-up methods of Asai et al. and Hoang give frameworks/leading errors, not the displayed model-specific K comparison. An indexed 2026 earlier memory-blowup invariant concerns a reciprocal-memory F2 nonlinearity, not the same phase equation.",
+      "residual_risks": [
+        "General Asai et al. 2022 multiscale methodology could in principle be specialized to F1; no direct model-specific finite-part invariant was found in its inspected theorems or examples.",
+        "Older damped Emden–Fowler quintic asymptotics may independently compute the same coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives finite-time blow-up with leading rates; does not display the finite-part energy or critical log correction.",
+          "evidence": "Ichida (2026), Eq. (3.3), Theorem 1, Section 3.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.15470",
+          "material_read": "Available primary arXiv full HTML inspected in prior search within this execution, including the F1 equation (3.3), Theorem 1 and Section 3 leading asymptotics.",
+          "method": "Read accessible primary full text and compared exact theorem/equations",
+          "title": "Memory-induced blow-up solutions and their dynamical transitions in distributed delay differential equations",
+          "trigger": "Exact power-law exponential-memory F1 dynamics"
+        },
+        {
+          "assessment": "The theorem provides leading profiles and generic error rates, not the displayed F1 exact energy counterterms or positive K-order formula.",
+          "evidence": "Hoang, Intro (1.7)–(1.10) and Section 7, Theorem 7.5.",
+          "identifier_or_url": "https://arxiv.org/html/2303.10153v2",
+          "material_read": "Primary full HTML Introduction, precise statements of homogeneous leading blow-up and Section 7 theorem inventory, including Theorem 7.5.",
+          "method": "Read accessible primary full text and compared exact theorem/equations",
+          "title": "On the finite time blow-ups for solutions of nonlinear differential equations",
+          "trigger": "Potentially dominating general blow-up result"
+        },
+        {
+          "assessment": "The general multiscale theorem allows logarithmic resonances, but its section 4 examples concern one-dimensional systems, a two-phase flow, Andrews systems, Keyfitz–Kranzer and Jordan-block examples, not this F1 exponential-memory power law. No explicit finite-part K or its strict comparison appeared in the inspected statements. The general method could potentially be specialized.",
+          "evidence": "Asai et al. (2022), Sections 3.3–3.5, Theorem 3.11 and Section 4 example inventory.",
+          "identifier_or_url": "arXiv:2211.06865v2",
+          "material_read": "Complete lawful OA PDF of 78 pages accessed and parsed; Sections 3.3, 3.5 and Section 4 example inventory were materially read, keywords memory/damped/quintic were searched, and pages 25, 29 and 37 were visually inspected. Appendix theorem inventory checked.",
+          "method": "Lawful open-access 78-page PDF; parsed-text theorem/exemplar checks and visual page inspection",
+          "title": "Multi-order asymptotic expansion of blow-up solutions for autonomous ODEs. I — Method and Justification",
+          "trigger": "Plausibly broad resonance machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dissipative memory destroys the undamped energy conservation; the exact finite-part correction recovers a trajectory invariant of the asymptotics. The p=5 logarithmic resonance separates two regimes and the positive K-order formula distinguishes trajectories at the same memory coordinate. These are motivated dynamic invariants rather than merely another leading blow-up exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive quadrant only, p>3; no arbitrary kernels, p<=3, exact closed form of K, or blow-up time formula.",
+    "General Asai et al. 2022 multiscale methodology could in principle be specialized to F1; no direct model-specific finite-part invariant was found in its inspected theorems or examples.",
+    "Older damped Emden–Fowler quintic asymptotics may independently compute the same coefficient."
+  ],
+  "schema_version": 1
+}
