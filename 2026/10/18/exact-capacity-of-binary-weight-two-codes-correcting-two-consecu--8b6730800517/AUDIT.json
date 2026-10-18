@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge3\\), categorizing supports by gaps gives \\(a\\le1\\) and \\(a+t+2e\\le n-2\\) by all-zero and weight-one descendant packing. Gap-two starts form an independent set of two step-2 paths with exact alpha. These combine to the sharp \\(\\lfloor3(n-1)/4\\rfloor\\) upper bound. The explicit residue-4 construction has disjoint descendants in weight classes 0,1,2, and its size reaches the bound. \\(n=2\\) is a separate singleton. Reproducibility checker enumerates actual bursts and tests nonstandard support lemmas; the quantifier n>=3 is proved, not inferred computationally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schoeny et al. provide general upper bounds and constructions for unrestricted binary burst codes, which do not fix the weight-two optimum.",
+        "The 2022 Wang et al. paper proves redundancy and construction claims for nonbinary and permutation sources, not an exact sparse weight-two capacity.",
+        "Cullina et al. study ordinary deletion-induced weight subgraphs with no adjacency restriction on deleted positions."
+      ],
+      "reasoning": "A stronger all-length theorem for the *same fixed-weight exact burst model* would subsume the present claim; none was found among the primary statements inspected. General unrestricted-space code bounds or constructive codes do not determine the exact maximum after restriction to precisely two ones.",
+      "searches": [
+        "arxiv:1602.06820 Sections II and IV–VII",
+        "arxiv:2210.11818 Sections I–VI",
+        "arxiv:1211.4056 Sections I–V",
+        "Schoeny Wachter-Zeh Gabrys Yaakobi Codes Correcting a Burst of Deletions or Insertions constant weight two exact maximum"
+      ]
+    },
+    "checked_sources": [
+      "Wang–Sima–Farnoud, ISIT 2021, DOI 10.1109/ISIT45174.2021.9517917",
+      "Wang et al., arxiv:2210.11818",
+      "Schoeny et al., arxiv:1602.06820",
+      "Cullina et al., arxiv:1211.4056",
+      "Published results on fixed-weight single deletion and other burst channels, compared for model/implication rather than just title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For four-bit supports (0,1) and (2,3), burst-two balls intersect but one-deletion balls are disjoint; for (0,2) and (1,3), the one-deletion balls intersect but burst-two balls are disjoint.",
+        "Cullina et al. prove ordinary single-deletion coloring properties, which do not imply this two-burst independent-set optimum.",
+        "Schoeny et al. define unrestricted burst channel but supply bounds not resolving this sparse maximum."
+      ],
+      "reasoning": "The two confusability graphs are incomparable even at length four. Thus the exact known weight-two one-deletion capacity neither contains nor proves the current statement; arbitrary two-deletion codes impose other stricter constraints and their code sizes cannot be read as this exact maximum.",
+      "searches": [
+        "arxiv:1211.4056 Eq. deletion-set definition",
+        "arxiv:1602.06820 Definition II-A burst sets",
+        "fixed weight two adjacent two deletion burst confusability graph maximum independent set",
+        "binary burst deletion weight-two constant weight codes exact optimal 3/4 n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact channel deletes an adjacent pair, unlike deletion of two arbitrary locations (arxiv:1211.4056) and unlike one deletion.",
+        "Schoeny et al. arxiv:1602.06820 explicitly define exactly-b consecutive deletion, while their principal bounds and constructions are unrestricted by weight.",
+        "Wang et al. arxiv:2210.11818 discuss the same burst model but the reviewed constructions and comparisons are unrestricted in composition."
+      ],
+      "reasoning": "Aliases two-burst, adjacent two-symbol deletion, burst-2, and constant-weight-two burst codes were compared. The closest checked channel papers use the same burst definition without this fixed-weight exact optimum. The arbitrary-deletion and burst-deletion confusability relations are distinct; comparing titles alone would be insufficient.",
+      "searches": [
+        "\"constant-weight\" \"burst-deletion\" \"codes\" \"two\"",
+        "\"weight-two\" \"burst deletion\" exact code",
+        "constant weight code correcting two consecutive deletions weight 2 exact size construction",
+        "arxiv:1602.06820 (full HTML: burst terminology)",
+        "arxiv:2210.11818 (PDF: weight two/constant weight text find)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finite numerical/coding comparisons found relate to different channel definitions or unrestricted codewords.",
+        "The theorem covers every length and is supported by an explicit certificate-free argument, not merely an additional point in an existing table."
+      ],
+      "reasoning": "No entry with equivalent output alphabet, exact consecutive-deletion rule, and weight-two all-length maximum was identified. Searches cannot rule out alternative indexing or an unpublished table.",
+      "searches": [
+        "exact maximum weight two binary codes for two adjacent deletions M(n)=floor(3(n-1)/4), residue class 4 construction, singleton outputs",
+        "weight-two burst-2 deletion code floor three quarters block length maximum independent set confusability",
+        "arxiv:1211.4056 Appendix/section overview"
+      ]
+    },
+    "rationale": "Primary burst-deletion references cover general unrestricted or nonbinary codes, not the all-length maximum in the binary weight-two exact-two-adjacent-deletion subchannel. The constant-weight paper uses ordinary deletions without contiguity. Explicit length-four examples show the weight-two one-deletion graph is incomparable with the burst-two graph, preventing implication from the related weight-two result. Targeted published-record and synonym searches returned no equivalent theorem; residual indexing/full-text risks remain.",
+    "residual_risks": [
+      "2021 conference proceedings full PDF not accessed; 2022 open full-length expansion was inspected instead.",
+      "A different publication may formulate the same constrained code as a sparse support graph or special case under another channel name.",
+      "Full appendices of some related documents were not exhaustively read; no direct relevant statement was detected in their accessible theorem sections.",
+      "This self-review is not independent peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the public channel motivation and nonbinary unrestricted constructions, not an accessible all-length weight-two capacity statement",
+        "evidence": [
+          "2021 ISIT program D6-T4-S5.3, titled Non-binary Codes for Correcting a Burst of at Most 2 Deletions, date July 19; DOI 10.1109/ISIT45174.2021.9517917",
+          "Expanded open-access arxiv:2210.11818 explicitly notes partial presentation at ISIT 2021"
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT45174.2021.9517917",
+        "material_read": "Conference abstract and program listing (day 6, July 19, 2021); short 2021 conference PDF itself inaccessible",
+        "method": "Publisher/bibliographic abstract comparison and dated official conference program",
+        "title": "Non-binary Codes for Correcting a Burst of at Most 2 Deletions",
+        "trigger": "Primary middle-cohort source; exact two-adjacent-deletion channel in a 2021 public presentation"
+      },
+      {
+        "assessment": "The stated theorems concern unrestricted alphabet or permutation burst constructions and redundancy, rather than exact binary weight-two maximum",
+        "evidence": [
+          "arxiv:2210.11818v1, 2022-10-21, introduction items (1)–(3), Sections II–VI roadmap and definitions",
+          "Section II defines deletion of exactly t consecutive positions",
+          "Text searches found no phrase constant weight or weight two"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.11818",
+        "material_read": "PDF introduction, channel definitions, table of comparison results, Sections II–IV and later construction scope, keyword searches across complete searchable document; not all appendix proof details",
+        "method": "Full-text PDF page/section examination plus exact phrase searches weight two, constant weight, weight-2",
+        "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+        "trigger": "Accessible full-length expansion of the 2021 burst code source"
+      },
+      {
+        "assessment": "Exact-b consecutive-burst model matches, but general code cardinality bounds/constructions do not determine the weight-two all-length maximum",
+        "evidence": [
+          "Definition II-A of exact b consecutive deletions and resulting deletion ball",
+          "Section IV provides unrestricted upper bound; Section V code construction",
+          "No matching weight-two theorem in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.06820v2",
+        "material_read": "Open full-text HTML Introduction, Section II definitions and constructions, Section IV bound, Section V construction, scoped searches for fixed-weight and weight-two claims; not every appendix detail",
+        "method": "Primary HTML reading and theorem/definition comparison",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Canonical same-channel binary burst-deletion paper with nonasymptotic bounds"
+      },
+      {
+        "assessment": "Works with arbitrary-position deletions, explicitly distinguishes weight partitions, and does not prove burst-2 exact weight-two capacity",
+        "evidence": [
+          "Definitions 1–3: s deletions at unrestricted positions",
+          "Abstract singles out optimal colorings for single-deletion graphs",
+          "No burst-specific theorem found in searchable document"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "PDF abstract, Introduction, related work, ordinary deletion definition, sections IV/V statements and theorem context via full-text inspection; appendices not read throughout",
+        "method": "PDF examination of deletion-set definition, claims and structural summaries; full-text search for burst and weight two",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Most relevant constant-weight deletion-subgraph work with possible dominating results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b673080-0517-4a49-9254-2a1d570b5b67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact capacity for infinitely many blocklengths of a natural sparse constant-composition synchronization code, with an explicit optimum and a sharp two-layer descendant/step-two-path obstruction. Neither a tiny table increment nor automatic from known unrestricted or one-deletion capacities; general weights and efficient decoding remain open.",
+    "status": "PASS"
+  }
+}
