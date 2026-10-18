@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-\(r\) mutual-inverse criterion is reconstructed from two increasing transversals of the kernel interval partitions. For rank two it yields the exact inequalities \(e\le a<h\) and \(b\le d<c\), which the two off-diagonal pairing formulas satisfy symmetrically. For corank one it yields the exact criterion that each omitted image value lie in the other kernel's double block. Both piecewise maps square to the identity, and their stationary branches are precisely the idempotents. Disjoint combinatorial branch counts prove every orbit formula. Any fixed point satisfies \(f^3=f\); order preservation then forces \(f^2=f\), proving maximality. The complete stand-alone finite enumeration through \(n=12\) returned `VERIFY_OK`. Residual risk is transcription of formulas, mitigated by source-code replay; finite enumeration alone is not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to residual historical overlap risk.** The full 2026 Higgins article proves a permutation matching via balanced weightings, not an explicit idempotent-fixing involution on either specified Green stratum. The 2024 Higgins paper includes an involution-existence criterion for rectangular incidence classes, which already covers the rank-two existence question for even \(n\): we explicitly exclude that existence claim from novelty. The present improvement consists of all-\(n\) explicit formulas and exact optimal fixed-point/orbit distributions. The 2019 orientation-preserving monoid theorem concerns a larger monoid whose matching need not restrict to isotone maps; the 2015 inverse-subsemigroup property is different. Specific full-text sources and search comparisons appear in `AUDIT.json`. Residual risk: an equivalent involution on rank-two/corank-one maps could be described in older literature under a different name. No independent priority or novelty certification is claimed.
+PASS
 
-**Mathematical value — PASS.** Higgins's recent monoid matching theorem explicitly motivates investigating stronger involution matchings. The theorem supplies constructive, optimal finite-structure results in two natural nontrivial rank strata for all chain sizes and exact orbit enumeration, not merely a computation on a chosen small monoid. The parity obstruction in rank three of \(\mathcal O_5\) shows why idempotent-fixing involutions cannot simply be asserted at every rank. It does not resolve existence of a global involution matching.
+Rank-two order-preserving transformations are parametrized by (a;b,c), 1<=a<n, 1<=b<c<=n. A pair (a;b,c),(d;e,h) consists of mutual inverses precisely when e<=a<h and b<=d<c. The explicit map exchanging a<b with c<=a and fixing b<=a<c meets these inequalities and is involutive. At rank n-1 each transformation is uniquely determined by the adjacent doubled kernel block {d,d+1} and absent image value m. Mutual inverse conditions for [d;m] and [e;k] are k∈{d,d+1} and m∈{e,e+1}; the stated m<d, m=d or d+1, m>d+1 branches exchange and meet these criteria. Fixed maps are exactly the idempotents. Enumerating a(n-a) rank-two idempotents gives C(n+1,3), and opposite-branch triples give C(n,3) two-cycles; corank-one gives 2(n-1), C(n-1,2). Any fixed point of an inverse involution satisfies f³=f; isotone maps induce increasing involutive permutations on im(f), necessarily identity, so fixed maps must be idempotent. Independent enumeration for all 4<=n<=19 checked τ², the transversal conditions, and exact cycle counts, e.g. n=19 rank-two 1140 fixed among 3078; corank-one 36 fixed among 342.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The recent Higgins permutation matching result covers existence of an inverse-assigning permutation on the whole isotone monoid but does not provide the stronger explicit involutive, idempotent-fixing stratum formulas for every n. An earlier even-n sufficient criterion overlaps rank-two existence only; the constructive all-n fixed-point and transposition census survives.
+
+## value
+
+PASS
+
+Inverse matchings and involutive inverses are substantive structural questions in regular transformation semigroups, not mere labeling. The explicit two extreme Green-stratum involutions work for every n, attain the theoretically maximal number of fixed idempotents, and enumerate all two-cycles. The middle-stratum parity obstruction for O_5,D_3 motivates focusing on these exceptional extremes. Existing weaker permutation matchings do not give those properties or counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
