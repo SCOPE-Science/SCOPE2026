@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`; finite computation is corroborative only.
 
-Critical checks:
-- the generalized all-ones polytope is the nonnegative matrix region with \(0\le s_{im}\le\cdots\le s_{i1}\le i\);
-- coordinate, prefix, and inter-column prefix normals have Euclidean norms \(1\), \(\sqrt i\), and \(\sqrt{2i}\);
-- the first-row radius inequalities telescope to \(1\ge r(2+(m-1)\sqrt2)\);
-- the profile \(y_m=r\), \(y_j-y_{j+1}=r\sqrt2\), \(y_1=1-r\) repeated in every row satisfies every higher-prefix radius constraint;
-- equality in the first-row telescope forces the first row of every incenter;
-- for \(n\ge2\), a uniform positive perturbation of every later row leaves all non-first-row inequalities strict when the perturbation is chosen below the displayed bound, proving affine dimension \(m(n-1)\).
+# Independent mathematical audit
 
-`verify.py` checks all normalized inequalities for \(1\le n\le100\) and \(2\le m\le50\), including the strict-slack witness for the dimension statement. It does not assess originality.
+## correctness
+
+PASS
+
+From the exact generalized Pitman–Stanley defining inequalities, the Euclidean distance normalizations are 1 for coordinate walls, √i for single-column prefix walls and √(2i) for adjacent-column prefix differences. The i=1 inequalities telescope to 1≥r(2+(m−1)√2). Repeating y_j=r[1+(m−j)√2] in every row meets all inequalities since i≥√i, proving the sharp radius for all n≥1,m≥2. Equality fixes all first-row variables. For n≥2 the published ε witness makes every remaining independent inequality strict at an affine point with first row fixed; hence exactly m(n−1) free center dimensions. This symbolic proof is general; the 100×49-case script is corroborative only.
+
+## originality
+
+PASS
+
+PASS under bounded comparisons: actual generalized Pitman–Stanley primary full text defines the polytope and treats combinatorics but lacks this Euclidean metric theorem. Semantic searches under Chebyshev, flow and inradius alternatives revealed no dominating or exact external claim. The uniform row bottleneck and optimal center dimension are additional statements derived from normalized halfspace geometry.
+
+## value
+
+PASS
+
+The all-ones generalized Pitman–Stanley family is a natural distinguished multichain/flow-polytope realization. The metric theorem finds an n-independent exact inradius while the ambient dimension grows with n, and classifies which coordinates remain rigid versus the full m(n−1)-dimensional incenter set. It is a symbolic, family-wide and motivated geometric invariant, not an arbitrary numerical slice or finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
