@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical structural premise was checked in the full primary source: a hypothetical nontrivial two-cycle has squarefree members with disjoint prime supports. For squarefree members the logarithmic derivative is exactly the reciprocal-prime sum, so the two cycle equations give positive numbers \(A,B\) with \(AB=1\). Hence \(A+B\ge2\). A union of \(N\) distinct primes has reciprocal sum at most that of the first \(N\) primes, and exact rational arithmetic gives
-\[
-\sum_{i=1}^{58}\frac1{P_i}<2.
-\]
-Therefore \(N\ge59\). The attached checker regenerates the primes and certifies the rational inequality without floating-point dependence.
+## correctness
 
-## Originality
-PASS. The closest primary result is Kovič's Proposition 18, which proves the unconditional bound \(r+s\ge34\), the odd-support conditional bound \(r+s\ge57\), and a stronger bound only after excluding both \(2\) and \(3\). The present \(59\) bound is unconditional. Ufnarovski--Åhlander give the product-one reciprocal formulation but do not derive this support threshold. Targeted searches for \(59\), the combined reciprocal-sum argument, and equivalent period-\(2\) support statements found no stronger accessible coverage.
+PASS
 
-The main residual risk is an unindexed observation that combines the two already-published ingredients.
+For a hypothetical positive nonfixed two-cycle D(n)=m, D(m)=n, the original primary source proves n,m squarefree with disjoint prime supports. The log derivatives A=D(n)/n and B=D(m)/m are their distinct-prime reciprocal sums and AB=(m/n)(n/m)=1. Hence A+B>=2. Any total of at most 58 distinct primes has sum of reciprocals <=H_58=sum_{i<=58}1/p_i<2. Independent Fraction arithmetic regenerated p_58=271, p_59=277, H_58=1.998740043147044..., and the packaged giant rational numerator exactly. Therefore omega(n)+omega(m)>=59, and one has at least 30 primes. Boundary: this is a necessary bound only, not existence/impossibility of all cycles, and no finite search is used as an infinite proof.
 
-## Value
-PASS. Nontrivial arithmetic-derivative cycles are an explicit open problem, and support lower bounds are the principal quantitative restrictions developed in the closest archival paper. Raising the general bound from \(34\) to \(59\) nearly doubles the required total support and raises the forced support of one member from \(17\) to \(30\). The proof is short but structural: it exploits both directions of the cycle at once rather than a bounded search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the unconditional 59-support barrier improves the 34 unconditional bound of Kovic Proposition 18. Ufnarovski and Ahlander previously reduce 2-cycles to a reciprocal-sum product-one conjecture but do not state the H_58<2 argument or 59 threshold. This is not novelty of squarefree/disjoint support or conjectured nonexistence of cycles.
+
+## value
+
+PASS
+
+An unconditional 34-to-59 increase in a natural open arithmetic-dynamical cycle obstruction is mathematically motivated and quantitatively meaningful. The exact 58/59 reciprocal crossing is a non-arbitrary sharp threshold of this method, despite the elementary final AM-GM step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
