@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact backward equations with nonzero wall detachment uniquely determine two conditional MFPTs; symbolic substitution proves the formulas. The allocation derivative factors through positive C-prime and strictly monotone t/(1+eta*t*t), with eta in (0,1); feasible initial bias is inside endpoint range, forcing one and only one interior global minimum. Closed-form root and response follow algebraically. The packaged checker passed 994 symbolic/rational assertions, supplementary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angelani 2023 handles generic boundary parameters, from which the specialized MFPT follows.",
+        "Angelani 2024 varies the tumbling rate, not the allocation between two absorption rates."
+      ],
+      "reasoning": "Broader model coverage is acknowledged. Broader parameterization does not itself contain a previously established statement about a unique minimum under the constant-sum constraint; because it gives the full MFPT, the analysis remains potentially implicitly derivable and warrants priority checking.",
+      "searches": [
+        "optimal allocation of two partly absorbing sticky boundaries for persistent transport mean first passage time budget",
+        "Run-and-tumble sticky walls optimal reaction budget split left and right, mean absorption time unique optimizer",
+        "Angelani 2024 Optimal escapes in active matter"
+      ]
+    },
+    "checked_sources": [
+      "Bressloff arXiv:2302.01158v1 (full PDF)",
+      "Angelani 2023 DOI 10.1088/1751-8121/ad009e (full OA PDF)",
+      "Angelani 2024 DOI 10.1140/epje/s10189-023-00402-7 (OA article)",
+      "Published published-finding corpus semantic searches: nine named queries; nearest unrelated records recorded"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact mean function is an implication of earlier published theory for initial direction averaging, and our checker confirms this.",
+        "Neither scrutinized original article states that every allocation at 0 or B is strictly suboptimal even for deterministic initial velocity, nor the exact global minimizer and release-independent centered derivatives."
+      ],
+      "reasoning": "Prior general mean-time equation is a premise sufficient for deriving the theorem with an additional sign/monotonicity calculation; an optimization conclusion is not already furnished as a prior direct corollary or table. Explicitly disclose this important derivability and uncertainty.",
+      "searches": [
+        "run and tumble sticky boundary absorption optimize budget two boundaries rates optimal allocation mean time",
+        "persistent random walk two partial absorption traps optimize total reactivity fixed budget",
+        "Bressloff 2023 encounter based run and tumble absorption sticky boundaries optimal rates",
+        "doi:10.1088/1751-8121/ad009e Eq. (A1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Angelani 2023 Appendix A equation (A1) supplies an equivalent unbiased objective function but does not state its fixed-budget global minimizer or all-orientation extension.",
+        "Bressloff 2023 develops sticky-wall first passage and wall-specific absorption thresholds."
+      ],
+      "reasoning": "An exact objective can be derived from published theory, but minimization, unique interior classification, orientation bias law and universal response are additional conclusions not given as equivalent theorems in inspected sources.",
+      "searches": [
+        "fixed total surface reactivity budget optimal split left right sticky run and tumble absorbing walls unique minimizer positive both rates",
+        "Sticky run-and-tumble first passage under fixed sum of wall absorption rates: unique interior optimum, nearest-wall bias and universal midpoint sensitivity",
+        "arxiv:2302.01158v1",
+        "doi:10.1088/1751-8121/ad009e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus semantic searches returned no transport-specific exact budget optimum; nearest retrieved IDs concern unrelated operator tuning and Bernoulli entropy.",
+        "Published Angelani and Bressloff numerical figures address parameter effects, without a table of global fixed-sum minimizers."
+      ],
+      "reasoning": "The finding is a continuous-parameter theorem, not a reconstruction of a finite table or catalog. Semantic search is not uniqueness proof.",
+      "searches": [
+        "Angelani Bressloff 2023 sticky run tumble boundary absorption reactivity optimization",
+        "Mean exit time two sticky absorbing walls with equal detachment rate allocation monotone in starting position"
+      ]
+    },
+    "rationale": "Primary-source full-text comparison established that the underlying generic mean-time formula is known (Angelani 2023); new contribution is a full global optimum for a constrained pair of absorption rates, including every velocity bias, sharp side-reversal and wall-release-independent sensitivity. The optimization is a nontrivial analytically proved corollary of that mean-time representation and independent priority remains a risk.",
+    "residual_risks": [
+      "Generic Angelani 2023 MFPT algebraically entails the objective; an existing optimization discussion may have been missed in a further paper.",
+      "General extremal Markov-modulated transport or fixed-budget trapping theory might implicitly establish uniqueness.",
+      "Self-contained proof and priority assessment are same-model only, not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives stochastic model and mean times but no constrained fixed-total wall-rate optimization or directional-susceptibility theorem",
+        "evidence": "Bressloff 2023, arXiv:2302.01158v1, model and mean first passage sections.",
+        "identifier_or_url": "arxiv:2302.01158v1; https://arxiv.org/pdf/2302.01158",
+        "material_read": "Open preprint PDF including model specification, wall boundary equations, MFPT and independent-wall treatment",
+        "method": "Full document read with targeted search of optimization and wall-asymmetric formulas; PDF pages visually inspected",
+        "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+        "trigger": "Original two-sticky-wall model with independent absorption behavior"
+      },
+      {
+        "assessment": "Equation (A1) algebraically gives the orientation-averaged mean-time function; no global fixed-budget optimizer, all-directions interior-optimality classification, bias line, or local-response theorem identified. This is a major potentially implicit coverage risk.",
+        "evidence": "Angelani 2023, Appendix A Eq. (A1), checked directly against Q,C,S for m=0 by exact symbolic simplification.",
+        "identifier_or_url": "doi:10.1088/1751-8121/ad009e; https://iris.cnr.it/handle/20.500.14243/450937",
+        "material_read": "Full open-access paper, core derivations and Appendix A equation (A1), including generic asymmetric boundary conditions",
+        "method": "PDF full text comparison and symbolic substitution to independent mean formula, followed by targeted search for absorption rate allocation optimization",
+        "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+        "trigger": "Most plausible stronger published coverage: exact generic two-wall mean first passage time"
+      },
+      {
+        "assessment": "Optimizes tumbling frequency and compares wall types, not two-wall absorption reactivity under fixed sum",
+        "evidence": "Angelani 2024 section 2, optimization with respect to tumble rate.",
+        "identifier_or_url": "doi:10.1140/epje/s10189-023-00402-7; https://link.springer.com/article/10.1140/epje/s10189-023-00402-7",
+        "material_read": "Open-access web full text, especially one-dimensional optimal-escape section and boundary parameters",
+        "method": "Full available HTML sections and mathematical claims compared",
+        "title": "Optimal escapes in active matter",
+        "trigger": "Possible optimization overlap in active matter escape"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55ed7024-4aa4-40ee-ac74-d228e6d95727",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed total wall reactivity is a natural limited catalytic-resource design problem for confined active particles. Unique strictly interior optimal spending for every initial velocity, exact direction-position reversal criterion, and universal detachment-independent midpoint response solve the full natural continuous parameter optimization, not an arbitrary finite substitution; these facts can directly guide asymmetric sensor/reactive-wall placement.",
+    "status": "PASS"
+  }
+}
