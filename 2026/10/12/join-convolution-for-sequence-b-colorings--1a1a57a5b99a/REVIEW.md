@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Properness in a join forces disjoint color sets on the two factors, and every vertex automatically sees all colors used on the opposite factor. Therefore CDV status is preserved exactly under restriction to a factor. This gives a bijection for each split of the global color labels and proves both the realization theorem and the exact counting convolution.
+PASS
 
-For a complete multipartite graph, a part using two colors has no CDV at all because vertices in that part cannot see the other same-part color. Hence every b-coloring is exactly a one-color-per-part assignment, from which the dominance criterion and nested-set product count follow.
+The full corrected RESULT.md now asserts ONLY the arbitrary-factor join theorem and its iterated-join corollary. Proper coloring of a join partitions the color labels uniquely between factors; a vertex is CDV in the join if and only if it is CDV under its factor coloring because it automatically sees every opposite-side color. Restriction therefore gives an exact bijection for every nonempty proper label subset I and preserves every per-class CDV multiplicity, proving B_{G∨H}(S)=sum B_G(S_I)B_H(S_complement). Induction/partition by all factor palettes gives the iterated formula. Independent direct labeled proper-coloring enumerations for K1∨P3, K2∨P3 and K2∨K2 reproduced the product cardinalities and CDV profiles. The entire previously covered complete-multipartite claim is REMOVED from the final theorem and slogan, not passed by disclaimer.
 
-The direct verifier exhaustively confirms the join profile factorization on all ordered pairs of connected labeled graphs of order at most three per factor and confirms the multipartite realization/count formulas through total order six.
+## originality
 
-## Originality
+PASS
 
-PASS. The initiating sequence-b-coloring paper contains the definitions and general theory but no searchable join or complete-multipartite treatment. published-finding corpus and web searches for sequence b-coloring joins, CDV-count factorization, shuffle/convolution formulations, and complete-multipartite maximal sequences found no covering statement.
+A newly discovered published October 5 same-family result already gives the entire original complete-multipartite theorem, unique maximal realized sequence, and exact product count. Those covered portions were deleted from the revised claim. The surviving arbitrary connected-factor join/palette-split theorem and exact labeled counting convolution are not implied by that special-class result; no equivalent general join sequence-b-coloring theorem found in the initiating 2026 paper abstract/full-text descriptions or Resultary semantic search. Earlier ordinary b-coloring operation theorems do not track per-color CDV multiplicities.
 
-Classical b-coloring work on cographs and graph operations is relevant prior art, but it records only the requirement of at least one CDV in each class. That scalar information does not imply the multiplicity-sensitive sequence convolution or the exact labeled realization count.
+## value
 
-Residual risk remains because classical b-coloring has a large operations literature and the sequence variant is very recent.
+PASS
 
-## Value
+For a new multiplicity-sensitive b-coloring invariant, the arbitrary-factor join theorem gives an exact labeled-subset convolution that reduces every realizing coloring to independently chosen factor colorings. The reusable operation law and its ordered-palette multi-factor extension apply beyond the already-solved complete multipartite class and can support future recursive enumeration of graph joins; the prior-covered family census has been removed instead of being counted as additional value.
 
-PASS. The main claim is not merely the easy complete-multipartite endpoint. The join theorem provides an exact decomposition law for the new invariant and an exact subset convolution for labeled realizing colorings. The multipartite result is then a natural explicit application giving the unique maximal realized sequence and every finite/infinite realization criterion.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

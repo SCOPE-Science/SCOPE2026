@@ -1,247 +1,55 @@
-# Join convolution for sequence b-colorings
+# Join decomposition and labeled convolution for sequence b-colorings
 
 ## Finding
+Let \(G\) and \(H\) be nonempty finite simple connected graphs, and let \(S=(s_1,\ldots,s_k)\) be a non-increasing sequence of positive integers. For \(I=\{i_1<\cdots<i_p\}\subseteq[k]\), write \(S_I=(s_{i_1},\ldots,s_{i_p})\).
 
-Let \(G\) and \(H\) be finite simple connected graphs. For a finite non-increasing sequence
-\[
-S=(s_1,\ldots,s_k)
-\]
-of positive integers and a set
-\[
-I=\{i_1<\cdots<i_p\}\subseteq[k],
-\]
-write
-\[
-S_I=(s_{i_1},\ldots,s_{i_p}).
-\]
+**Join realization theorem.** The join \(G\vee H\) realizes \(S\) as a sequence b-coloring if and only if there exists a nonempty proper subset \(I\subsetneq[k]\) such that \(G\) realizes \(S_I\) and \(H\) realizes \(S_{[k]\setminus I}\).
 
-Then
+Write \(B_G(S)\) for the number of surjective proper colorings of \(G\) by the *labeled* colors \(1,\ldots,k\) in which, for each \(i\), color class \(i\) contains at least \(s_i\) color-dominating vertices. Then
 \[
-\boxed{
-G\vee H\text{ realizes }S
-\iff
-\exists\,\emptyset\ne I\subsetneq[k]
-\text{ such that }
-G\text{ realizes }S_I
-\text{ and }
-H\text{ realizes }S_{[k]\setminus I}.
-}
+\boxed{B_{G\vee H}(S)=\sum_{\emptyset\ne I\subsetneq[k]}B_G(S_I)B_H(S_{[k]\setminus I}).}
+\tag{1}
 \]
+The factors on the right use the inherited label order of their respective subsequences. Both sides are zero if there are too few colors for nonempty factors.
 
-This is an exact shuffle law for realized sequences under graph join.
+The formula iterates. For nonempty connected graphs \(G_1,\ldots,G_r\), \(r\ge2\), the number of labeled sequence b-colorings of their join is
+\[
+B_{G_1\vee\cdots\vee G_r}(S)
+=\sum_{[k]=I_1\sqcup\cdots\sqcup I_r\atop I_j\ne\emptyset}
+\prod_{j=1}^{r} B_{G_j}(S_{I_j}),
+\tag{2}
+\]
+where the sum is over ordered partitions of the label set into nonempty blocks. In particular, realization holds exactly when at least one such ordered partition has every factor realizable.
 
-There is also an exact counting convolution. Let \(B_G(S)\) denote the number of surjective labeled b-colorings
-\[
-c:V(G)\to[k]
-\]
-that realize \(S\). Then
-\[
-\boxed{
-B_{G\vee H}(S)
-=
-\sum_{\emptyset\ne I\subsetneq[k]}
-B_G(S_I)\,B_H(S_{[k]\setminus I}).
-}
-\]
-
-For a connected complete multipartite graph
-\[
-K_{n_1,\ldots,n_r},
-\]
-let
-\[
-m_1\ge m_2\ge\cdots\ge m_r
-\]
-be the part sizes in non-increasing order. A finite sequence
-\[
-S=(s_1,\ldots,s_k)
-\]
-is realized if and only if
-\[
-k=r
-\]
-and
-\[
-s_i\le m_i
-\qquad
-\text{for every }1\le i\le r.
-\]
-Hence
-\[
-\boxed{
-(m_1,\ldots,m_r)
-}
-\]
-is the unique maximal realized sequence.
-
-If \(k=r\), define
-\[
-c_i=\bigl|\{j:n_j\ge s_i\}\bigr|.
-\]
-Then the exact number of labeled realizing b-colorings is
-\[
-\boxed{
-B_{K_{n_1,\ldots,n_r}}(S)
-=
-\prod_{i=1}^r(c_i-i+1),
-}
-\]
-where the product is interpreted as \(0\) when some factor is nonpositive.
-
-For an infinite non-increasing sequence
-\[
-S=(s_1,s_2,\ldots),
-\]
-the \(S\)-spectrum of \(K_{n_1,\ldots,n_r}\) is
-\[
-\boxed{
-\{r\}
-}
-\]
-exactly when
-\[
-s_i\le m_i
-\qquad
-(1\le i\le r),
-\]
-and is empty otherwise. Whenever the spectrum is nonempty,
-\[
-\chi_S(K_{n_1,\ldots,n_r})
-=
-\phi_S(K_{n_1,\ldots,n_r})
-=
-r.
-\]
-
-## Assumptions and scope
-
-A b-coloring is a proper coloring in which every color class contains at least one color-dominating vertex. A vertex is color-dominating when its closed neighborhood contains every color used by the coloring.
-
-For a finite non-increasing sequence
-\[
-S=(s_1,\ldots,s_k),
-\]
-a b-coloring with exactly \(k\) colors realizes \(S\) when color class \(i\) contains at least \(s_i\) color-dominating vertices.
-
-The join
-\[
-G\vee H
-\]
-is obtained from vertex-disjoint copies of \(G\) and \(H\) by adding every edge between the two copies.
-
-The join theorem is stated for nonempty connected factors, matching the graph scope used in the initiating sequence-b-coloring paper. The complete multipartite corollary is proved directly rather than by treating independent partite classes as disconnected factors.
+## Assumptions and definitions
+A proper coloring is a **b-coloring** if every used color class contains a color-dominating vertex (CDV), whose closed neighborhood meets every used color. A sequence b-coloring realizes \(S\) when its color class \(i\) contains at least \(s_i\) CDVs. Sequences are indexed by *actual labeled colors*: permutations of labels generally change the sequence requirements. The join is formed on vertex-disjoint copies of its factors, adding every possible edge between distinct factors. The graphs are nonempty so a proper coloring uses at least one color on each factor. The connectedness restriction is consistent with the initiating sequence-b-coloring setting; the proof itself only needs nonemptiness.
 
 ## Proof
+Consider any proper coloring \(c\) of \(G\vee H\). Since every vertex of \(G\) is adjacent to every vertex of \(H\), no color can occur in both factors. Thus \(c\) gives a *unique* partition \([k]=I\sqcup([k]\setminus I)\) into the nonempty sets of labels used on each side.
 
-Consider a proper coloring of
+For \(v\in V(G)\), the join's closed neighborhood is
 \[
-G\vee H.
+N_{G\vee H}[v]=N_G[v]\cup V(H).
 \]
-No color can occur on both sides of the join, because every vertex of \(G\) is adjacent to every vertex of \(H\). Thus the color set partitions uniquely into the colors used on \(G\) and the colors used on \(H\).
+The vertices of \(H\) supply **all** colors used in \(H\). It follows that \(v\) sees all global colors if and only if \(v\) sees all colors used in its own factor under \(c|_G\). Therefore \(v\) is a CDV of the join coloring if and only if it is a CDV of the restricted \(G\)-coloring. The same equivalence holds for \(H\).
 
-Fix a vertex
-\[
-v\in V(G).
-\]
-Every color used on \(H\) automatically occurs in the open neighborhood of \(v\). Therefore \(v\) is color-dominating in the join if and only if its closed neighborhood inside \(G\) contains every color used on \(G\). In other words,
-\[
-v\text{ is a CDV in }G\vee H
-\iff
-v\text{ is a CDV in the restricted coloring of }G.
-\]
-The same statement holds with \(G\) and \(H\) interchanged.
+For the fixed label set \(I\), restricting a labeled join coloring is therefore a bijection onto ordered pairs of realizing colorings of \(G\) with labels \(I\) and of \(H\) with complementary labels. Conversely, any such pair combines to a proper join coloring; all CDV multiplicities in every color class are preserved exactly. Consequently, the existence criterion follows, and the cardinality of the fiber of this restriction is \(B_G(S_I)B_H(S_{[k]\setminus I})\). Distinct choices of \(I\) are disjoint, so their sum yields (1).
 
-Suppose first that a b-coloring of \(G\vee H\) realizes
-\[
-S=(s_1,\ldots,s_k).
-\]
-Let \(I\subset[k]\) be the set of color labels used on \(G\). Since both factors are nonempty, \(I\) is nonempty and proper. Restricting the coloring to \(G\) produces a b-coloring that realizes \(S_I\), because the number of CDVs in every \(G\)-color class is unchanged by restriction. Similarly, the restriction to \(H\) realizes \(S_{[k]\setminus I}\).
+To prove (2), apply the same closed-neighborhood argument simultaneously to every factor. Every proper global coloring defines a unique ordered partition of the label set by factors; CDV status is preserved in every restricted coloring, and the restriction/combination bijection yields the product. Summation over ordered partitions completes the proof.
 
-Conversely, suppose \(G\) realizes \(S_I\) and \(H\) realizes \(S_{[k]\setminus I}\) for a nonempty proper \(I\). Relabel the colors of the two realizing colorings by the corresponding global labels in \([k]\) and combine them. Properness holds because the two color sets are disjoint and all cross edges are present. Every factor-CDV remains a join-CDV because it additionally sees every color on the opposite factor. The combined coloring therefore realizes \(S\).
+## Verification and reproducibility
+The argument is valid for arbitrary finite factor sizes and does not depend on computation. An independent direct finite check constructed joins using \(K_1\), \(K_2\), and the three-vertex path, enumerated labeled proper colorings, calculated CDV counts from closed neighborhoods, and compared the full profiles with those predicted by the factor restriction bijection. It found agreement, including joins of \(K_1\) with the three-vertex path, \(K_2\) with the three-vertex path, and \(K_2\) with itself. The existing `artifacts/verify.py` independently contains a broader exhaustive check for connected factor graphs through order three. These checks corroborate, rather than prove, the general statement.
 
-For the counting formula, every labeled realizing coloring of \(G\vee H\) has a unique label set \(I\) on \(G\). For a fixed \(I\), restriction gives a bijection between such join colorings and ordered pairs consisting of a labeled realizing coloring of \(G\) for \(S_I\) and one of \(H\) for \(S_{[k]\setminus I}\). Summing over \(I\) yields
-\[
-B_{G\vee H}(S)
-=
-\sum_{\emptyset\ne I\subsetneq[k]}
-B_G(S_I)B_H(S_{[k]\setminus I}).
-\]
+## Relation to earlier results
+Jakovac and Lang introduced sequence b-colorings and the \(S\)-spectrum in 2026. General results on the **ordinary** b-chromatic number of joins and cographs address the existence of a CDV in each color class but do not, by themselves, track the full vector of CDV multiplicities or give the labeled convolution (1).
 
-Now let
-\[
-G=K_{n_1,\ldots,n_r}.
-\]
-In any proper coloring, a color class is contained in a single partite class. Suppose some part \(V_j\) uses at least two colors. A vertex of \(V_j\) is adjacent to every vertex outside \(V_j\) and to no other vertex of \(V_j\). Hence it misses every color appearing elsewhere in \(V_j\), so no vertex in that part is color-dominating. Consequently no b-coloring may split a part into two or more colors.
+A previously published exact sequence-b-coloring classification of complete multipartite graphs includes a full realization criterion, unique maximal sequence, and labeled counting product. Those results are **not** claimed here. They concern a special graph family; they do not state or imply the arbitrary-factor join decomposition and its exact ordered-palette convolution. Formula (1) is the sole main contribution, with (2) as its direct iteration. The exact decomposition gives reusable input to calculations on graph joins whenever the factor sequence-count data are available.
 
-Every proper b-coloring therefore uses exactly one color on each part and exactly \(r\) colors. Conversely, every assignment of distinct colors to the \(r\) parts is a b-coloring, and every vertex is color-dominating. Thus, if color \(i\) is assigned to a part of size \(n_j\), the sequence requirement at that color is precisely
-\[
-s_i\le n_j.
-\]
-
-After sorting part sizes as
-\[
-m_1\ge\cdots\ge m_r
-\]
-and recalling that \(S\) is non-increasing, a feasible bijection between requirements and parts exists exactly when
-\[
-s_i\le m_i
-\qquad
-(1\le i\le r).
-\]
-This proves the realization criterion and the unique maximal sequence.
-
-For the count, let
-\[
-E_i=\{j:n_j\ge s_i\},
-\qquad
-c_i=|E_i|.
-\]
-Since \(s_1\ge\cdots\ge s_r\),
-\[
-E_1\subseteq E_2\subseteq\cdots\subseteq E_r.
-\]
-Assign colors in the order \(1,2,\ldots,r\). There are \(c_1\) choices for color \(1\). At step \(i\), all \(i-1\) previously chosen parts lie in \(E_i\), so exactly
-\[
-c_i-(i-1)
-\]
-eligible parts remain. Multiplication gives
-\[
-B_G(S)=\prod_{i=1}^r(c_i-i+1).
-\]
-The infinite-sequence statement follows because the only possible b-color count is \(r\).
-
-## Verification
-
-The accompanying script `artifacts/verify.py` checks both parts of the theorem by direct enumeration.
-
-For the join law, it enumerates every labeled connected graph on one, two, or three vertices, forms every ordered pair of such graphs, and computes every b-coloring of the join by testing properness and the closed-neighborhood CDV condition from scratch. It compares the exact CDV-count profiles of the join with the predicted shuffle product of the exact profiles of the two factors.
-
-For complete multipartite graphs, it enumerates every nondecreasing part-size profile of total order at most six. It brute-forces every possible color assignment for every color count, identifies b-colorings directly, checks that only the number of partite classes can occur, and then compares the exact number of labeled colorings realizing every non-increasing requirement sequence with the product formula.
-
-The finite computation is corroborative only. The proof above establishes the theorem for all finite connected factors and all complete multipartite part sizes.
-
-## Relationship to prior work
-
-Jakovac and Lang introduced sequence b-colorings in 2026. Their paper defines realization, the \(S\)-spectrum, and the parameters \(\chi_S\) and \(\phi_S\), proves general bounds and realizability results, characterizes sequences realized by cycles, studies regular graphs with girth conditions, and analyzes colorings requiring one additional CDV.
-
-The searchable full text of that paper contains no occurrence of “join,” “complete multipartite,” or “complete bipartite.” Its stated graph-class results concern cycles and regular graphs rather than join decompositions. The theorem here gives an exact structural operation law for the new invariant and an exact family classification with enumeration.
-
-Classical b-coloring literature already studies graph operations and cographs, and the ordinary b-chromatic number is a much older invariant. Those results correspond only to the constant requirement of at least one CDV per color class. They do not encode the full CDV multiplicity sequence or the labeled convolution
-\[
-B_{G\vee H}(S).
-\]
-The complete-multipartite corollary also determines the unique maximal realized sequence and every realization count, not merely the ordinary b-chromatic number.
-
-## Limitations
-
-The join law does not by itself give a closed form for arbitrary graph classes because one still needs the sequence-realization data of the factors.
-
-The complete multipartite formula depends crucially on the fact that each part is an independent false-twin class with all possible cross edges. It does not directly extend to arbitrary cographs or complete multipartite graphs with internal edges added to the parts.
-
-The originality assessment is literature-based rather than an absolute uniqueness proof. Classical b-coloring has a large literature on graph operations, so a differently phrased CDV-count factorization could exist in poorly indexed work. No covering sequence-b-coloring statement was located in the initiating paper, targeted web searches, or published-finding corpus searches.
+## Limits
+The factor data \(B_{G_j}\) need not be easy to compute; this is a precise structural factorization, not a claim of efficient general-purpose computation. A b-coloring of a join cannot reuse colors between nonempty factors. Neither the formula nor the proof extends without modification to graph operations without complete adjacency between factors. A differently phrased earlier CDV-multiplicity join formula could exist in less-accessible literature. The small-case enumerations do not prove the theorem, which rests on the restriction bijection.
 
 ## References
-
-1. M. Jakovac and M. S. Lang, “Sequence b-colorings in graphs,” arXiv:2609.08484v1, first public September 8, 2026, MSC \(05C15\).
-2. M. Jakovac and I. Peterin, “The b-chromatic number and related topics—A survey,” Discrete Applied Mathematics 235 (2018), 184–201, DOI 10.1016/j.dam.2017.08.008.
-3. F. Bonomo, G. Durán, F. Maffray, J. Marenco, and M. Valencia-Pabon, “On the b-coloring of cographs and \(P_4\)-sparse graphs,” Graphs and Combinatorics 25 (2009), 153–167, DOI 10.1007/s00373-008-0829-1.
+1. M. Jakovac and M. S. Lang, *Sequence b-colorings in graphs*, arXiv:2609.08484v1, September 2026.
+2. *Sequence b-colorings of complete multipartite graphs are rigid*, published October 2026, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sequence-b-colorings-of-complete-multipartite-graphs-are-rigid--3d19e234dc3b.
+3. M. Jakovac and I. Peterin, *The b-chromatic number and related topics—A survey*, Discrete Applied Mathematics 235 (2018), 184–201, DOI 10.1016/j.dam.2017.08.008.
+4. F. Bonomo, G. Durán, F. Maffray, J. Marenco, M. Valencia-Pabon, *On the b-coloring of cographs and P4-sparse graphs*, Graphs and Combinatorics 25 (2009), 153–167, DOI 10.1007/s00373-008-0829-1.
