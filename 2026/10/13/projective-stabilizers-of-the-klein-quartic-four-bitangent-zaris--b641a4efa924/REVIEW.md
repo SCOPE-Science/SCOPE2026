@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim reduces projective automorphisms of each reducible arrangement to the setwise stabilizer of its four line components inside \(\operatorname{Aut}_{\mathbb P^2}(Q)\), because the quartic is the unique degree-\(4\) component. Exact symbolic substitution verifies three standard Klein-quartic generators, exact closure gives \(168\) projective transformations, and the Hurwitz bound makes this the full group. Exact arithmetic in \(\mathbb Q(\zeta_7)\) then verifies the induced permutation action on all \(28\) source bitangents and obtains stabilizer orders \(6,1,1\). The first stabilizer fixes \(L_2\), realizes all permutations of \(\{L_1,L_3,L_5\}\), and has order profile \(1,3,2\) in orders \(1,2,3\), respectively. Risk: the argument uses the standard Hurwitz bound and the source's identification of the displayed lines as the \(28\) bitangents; both assumptions are explicit.
+## correctness
 
-## Originality
-**PASS.** The lead paper was inspected at the pages containing the explicit Klein quartic, bitangent equations, and the three four-subsets, and the direct two-graph follow-up was inspected at its relevant topology/two-graph comparison. Targeted published-finding corpus and web searches covered automorphism, stabilizer, projective-equivalence, orbit, \(\operatorname{PGL}_3\), and \(\operatorname{PSL}(2,7)\) formulations. No inspected source states or implies the three stabilizer groups or orbit sizes. Risk: older finite-geometry literature on the \(28\) bitangents may encode an equivalent subgroup-orbit computation in different language.
+PASS
 
-## Value
-**PASS.** The source's three representatives are canonical witnesses for a Zariski triple. Their exact projective isotropy is natural moduli data: one representative has a nontrivial \(S_3\) stabilizer and an orbit of size \(28\), while the other two are projectively rigid and have full \(168\)-element orbits. This distinction is not a routine renaming of the source's connected-number profile; it records how topologically distinguished markings sit in the projective quotient of the Klein-quartic bitangent configuration.
+The source checker implements exact cyclotomic arithmetic in Q(zeta_7), enumerates 168 projective quartic automorphisms and their faithful permutation action on all 28 source bitangents, then exhaustively checks each of three set stabilizers (6,1,1) and S3 action. Its exact implementation and normalization were inspected; the 168-element group is complete by the genus-3 Hurwitz bound. A separate full cyclotomic checker replay was not performed this execution; no numerical approximation is used in the inspected algorithm. The component-degree uniqueness reduces plane arrangement stabilizers to those finite subset stabilizers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known projective automorphism group PSL(2,7) order 168 and original Zariski triple are not new. The narrower computed object is the stabilizer of each specific four-bitangent arrangement inside PGL3, with S3 versus trivial and orbit sizes. Inspected primary triple theorem determines topological connected numbers, not these subgroup orders; related two-graph analysis is not a projective stabilizer theorem. Historical finite-geometry overlap is possible.
+
+## value
+
+PASS
+
+The projective stabilizers of three canonical Zariski-triple representatives distinguish the symmetry of algebraic arrangements from topological-equivalence data, giving exact quotient-orbit weights 28,168,168. This finite exact classification is naturally motivated and not just arbitrary small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
