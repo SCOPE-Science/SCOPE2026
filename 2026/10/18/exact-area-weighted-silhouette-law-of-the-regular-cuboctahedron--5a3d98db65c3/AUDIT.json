@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact cuboctahedron facets and opposite-visibility edge counts give the almost-sure 6/8 chamber law. Girard computes chamber area. Cauchy gives the directionwise projected area and total mean; spherical boundary-flux integration over the exact triangle gives E[B 1_{N=8}]=3, with remainder sqrt(3). An exact rational lower bound for p proves negative covariance. The bundled 500 convex-hull reconstructions, 5184-node quadrature, and 240000 sampling checks were actually executed, but analytic steps—not finite tests—prove the claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Black–Criado Theorems 1.1–1.2 bound expected vertex counts for general fixed polytopes; they do not condition projected areas on face count.",
+        "Glisse–Lazard prove asymptotic expected-size bounds for surface-approximating polyhedra; they do not compute a mixed area/count moment for a cuboctahedron.",
+        "Biedl–Hasan–López-Ortiz characterize feasible viewpoint regions for prescribed silhouette elements rather than Haar-weighted projected-area statistics."
+      ],
+      "reasoning": "These works cover broad polyhedron classes and silhouette construction, but their stated results do not dominate or imply the exact weighted-area partition or covariance without a separate geometric area integration. The general Cauchy mean-brightness identity gives only the sum of both weighted contributions.",
+      "searches": [
+        "arxiv:2406.06936v1 Random Shadows of Fixed Polytopes bounds on expected vertices",
+        "Glisse Lazard An Upper Bound on the Average Size of Silhouettes random viewpoints",
+        "Biedl Hasan López-Ortiz Efficient View Point Selection for Silhouettes of Convex Polyhedra"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/10867651.2004.10487594",
+      "arxiv:cs/0702087",
+      "https://cs.uwaterloo.ca/~alopez-o/files/EVPSfSoCP_2011.pdf",
+      "https://cs.uwaterloo.ca/~alopez-o/files/Rcpacpfeafciop_2010.pdf",
+      "arxiv:2406.06936v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McGuire: E[N]=sum of exterior dihedral angles divided by pi; does imply p once N in {6,8}, but not E[B 1_{N=8}].",
+        "Cauchy projection formula: E[B]=(area of surface)/4=3+sqrt(3); it does not determine the split by N.",
+        "Exact spherical triangle flux calculation in the proof gives E[B 1_{N=8}]=3, which combines with Cauchy mean to yield the new mixed moment and covariance."
+      ],
+      "reasoning": "Taking both marginal expectations E N and E B does not determine a mixed expectation E[NB], as it depends on the correlation of area with silhouette type. None of the closest statements checked contains an area-conditioned silhouette law for this polyhedron. The unweighted probability is explicitly demoted to supporting context rather than presented as a novel standalone corollary.",
+      "searches": [
+        "doi:10.1080/10867651.2004.10487594",
+        "arxiv:cs/0702087",
+        "arxiv:2406.06936v1",
+        "cuboctahedron octagonal versus hexagonal silhouette area-weighted mean projected areas exact 3 sqrt3 negative covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McGuire (2004) explicitly derives expected silhouette edge count as the dihedral-angle sum divided by pi; its implication already covers the first-moment marginal of N, hence p given the dichotomy.",
+        "For cuboctahedral projection, the distinct statistic E[B 1_{N=8}] requires integration of brightness over a specified spherical chamber, which the unweighted edge formula omits."
+      ],
+      "reasoning": "Expected shadow-vertex count, silhouette-edge count and dihedral-angle sum are equivalent first-moment views of the complexity statistic; the unweighted p is therefore prior-implied and is not the originality claim. The new theorem gives area-weighted event contributions and their strict conditional ordering; these do not follow from E N and E B alone, since a joint mixed moment is additionally required.",
+      "searches": [
+        "cuboctahedron octagonal versus hexagonal silhouette area-weighted mean projected areas exact 3 sqrt3 negative covariance",
+        "Morgan McGuire dihedral angle expected silhouette edges cuboctahedron conditional area identity",
+        "doi:10.1080/10867651.2004.10487594"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant exact named-solid lookup searches found descriptions of the cuboctahedron and unrelated projection problems, but no inspected table of the two area-weighted moment values.",
+        "No table in the inspected Biedl, Glisse–Lazard, Black–Criado or McGuire passages tabulates cuboctahedral conditional projected areas."
+      ],
+      "reasoning": "No inspected exact geometry table supplies the identities 3 and square-root-of-3 as a partition of mean brightness, nor the resulting covariance. A negative search is not proof of absence; older specialty tables remain a residual priority risk.",
+      "searches": [
+        "\"cuboctahedron\" \"random projection\" \"hexagon\" \"octagon\"",
+        "\"cuboctahedron\" \"silhouette\" \"probability\"",
+        "cuboctahedron random planar projection silhouette polygon sides probability"
+      ]
+    },
+    "rationale": "The unweighted count and octagon marginal are already implied by McGuire 2004; these are acknowledged prior and not offered as independent originality. The principal new mathematical claim is the explicitly integrated area-weighted silhouette split, conditional area inversion, and negative mixed covariance for the cuboctahedron. Relevant primary results on silhouettes, reconstruction, and random-shadow vertex bounds were compared by implication and did not state or dominate this weighted moment. Historical priority outside the inspected sources remains uncertain.",
+    "residual_risks": [
+      "An older Archimedean-solid projection or stereology reference not recovered here may explicitly give the weighted identity or a stronger equivalent formulation.",
+      "The marginal probability p is prior-implied by the known mean-silhouette formula and is not an originality component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the unweighted mean number of silhouette edges and hence the octagon probability after the dichotomy is established; does not cover area-weighted conditional means",
+        "evidence": [
+          "Section 3: edge indicator probability equals exterior dihedral angle over pi; summing edges gives E N."
+        ],
+        "identifier_or_url": "doi:10.1080/10867651.2004.10487594",
+        "material_read": "Author-uploaded full text visible at https://www.researchgate.net/publication/228524924_Observations_on_Silhouette_Sizes, especially Abstract, Section 3 edge indicator expectation and Discussion",
+        "method": "Read accessible full-text displayed sections, including the dihedral-angle probability derivation",
+        "title": "Observations on Silhouette Sizes",
+        "trigger": "Direct known prior theorem for mean silhouette complexity"
+      },
+      {
+        "assessment": "Expected-complexity bounds for approximating surfaces, not exact joint area and count law for a fixed regular cuboctahedron",
+        "evidence": [
+          "Abstract and opening main-result statement give asymptotic O(sqrt(n)) average silhouette size."
+        ],
+        "identifier_or_url": "arxiv:cs/0702087",
+        "material_read": "Author OA PDF title, abstract, introduction, Section 2 definitions and selected later argument on silhouette events",
+        "method": "Inspected text-extracted author full PDF and first-page rendering",
+        "title": "An Upper Bound on the Average Size of Silhouettes",
+        "trigger": "Archive-era work on expected silhouette counts"
+      },
+      {
+        "assessment": "Characterizes when prescribed original edges are on a silhouette and viewpoint region enumeration, not Haar-integrated projected-area contributions for the cuboctahedron",
+        "evidence": [
+          "Section 2 defines a silhouette edge by exactly one visible incident facet; abstract concerns finding viewing regions."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/~alopez-o/files/EVPSfSoCP_2011.pdf",
+        "material_read": "Author OA PDF pages 1–12, especially introduction, Sections 1.2–2 and p11 edge condition; result statements and methods",
+        "method": "Read page extraction and verified p11 rendered page",
+        "title": "Efficient View Point Selection for Silhouettes of Convex Polyhedra",
+        "trigger": "Directly relevant silhouette edge-visibility criterion and viewpoint regions"
+      },
+      {
+        "assessment": "Inverse existence/reconstruction from specified directional counts, not distributional area-weighted moments of an already fixed cuboctahedron",
+        "evidence": [
+          "Abstract formulates inverse existence with prescribed visible edge/face counts and construction algorithms."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/~alopez-o/files/Rcpacpfeafciop_2010.pdf",
+        "material_read": "Author OA PDF abstract, introduction and Sections 1–1.1; full text searched for cuboctahedron",
+        "method": "Read page extraction and verified rendered title/abstract page; exact-term search",
+        "title": "Reconstructing convex polygons and convex polyhedra from edge and face counts in orthogonal projections",
+        "trigger": "Possible broad covering result using projection-side counts"
+      },
+      {
+        "assessment": "General bounds on expected random shadow vertex count; does not compute area-conditioned moment or exact cuboctahedral shape types",
+        "evidence": [
+          "Theorem 1.1 bounds the mean number of random-shadow vertices using geometric diameter and edge lengths; no joint area statistic."
+        ],
+        "identifier_or_url": "arxiv:2406.06936v1",
+        "material_read": "Openly available original v1 HTML abstract, Section 1 motivation and Theorems 1.1–1.2, with exact-name search elsewhere in HTML",
+        "method": "Read primary HTML and theorem statements",
+        "title": "Random Shadows of Fixed Polytopes",
+        "trigger": "Broad random-projection expectations might dominate specific case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a3d98db-65c3-4dc6-8115-8e4c665f98af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical Archimedean polyhedron has an exact, complete silhouette-type partition and two exact projected-area budgets 3 and sqrt(3). Conditioning by a geometric image-complexity observable reverses naive area–complexity ordering, a substantive naturally motivated correlation. This is neither a generic numerical exercise nor a restatement of marginal mean formulas: it evaluates a mixed statistic requiring geometric chamber integration.",
+    "status": "PASS"
+  }
+}
