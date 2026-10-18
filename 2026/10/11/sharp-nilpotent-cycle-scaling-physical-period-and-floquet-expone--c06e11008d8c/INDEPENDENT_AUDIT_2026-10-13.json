@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T18:12:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ε=-α>0, rescaling x=√ε X, y=εY, τ=√ε t and δ=ε^(3/2) yields exactly X’=Y, Y’=-X³+δ(Y³-X²Y). At δ=0, Hamiltonian H=Y²/2+X⁴/4 admits smooth ovals. Direct integration of dH/dτ=δ(Y⁴-X²Y²) around an oval gives first displacement F(R)=√2 R⁵(R² I3-2 I1), I1=B(3/4,3/2)/4, I3=B(1/4,5/2)/4, unique positive simple zero ρ²=2I1/I3, F’(ρ)=2√2 ρ⁶ I3. Analytic Poincaré implicit-function theorem yields local cycle and analytic τ-period; exact time reversal for δ↦-δ forces even R,T and odd log Floquet multiplier. Liouville divergence yields J*=2√2 ρ³ I3>0; undoing time scaling yields physical period T*ε^(-1/2)+O(ε^(5/2)), amplitude ρ√ε+O(ε^(7/2)), logμ=J* ε^(3/2)+O(ε^(9/2)). Independently computed ρ≈0.799828239975, T*≈9.272364163377, J*≈1.084199920792 and symbolically verified the simple-root derivative. Zhuang–Liu primary theorem supplies global uniqueness; finite RK4 script is not proof.",
+      "risks": [
+        "Local α→0- limit only; all global cycle uniqueness is imported from cited Zhuang–Liu.",
+        "Prior full historical literature incomplete; no external attestation."
+      ],
+      "sources": [
+        "pinned RESULT.md Git blob df59a26f6e67e3c5f993ffc637ee07e5e83f11c0",
+        "pinned source verifier Git blob a752e70af2901fa0fdb1773f5df1a0894ea174ff"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhuang–Liu proves one unstable cycle for α<0 in a range, not the limiting amplitude/time/multiplier coefficients.",
+          "General cyclicity and averaging tools exist and are credited, but do not directly assert all quantified invariants in inspected material."
+        ],
+        "reasoning": "An existence/uniqueness theorem is too weak to imply normalization-dependent physical period constant and Floquet expansion. Historical full-text risks retained, not misrepresented.",
+        "searches": [
+          "Zhuang Liu Theorem 3.2 arxiv:2201.08107",
+          "Aziz Llibre Pantazi 2014 centers quasi homogeneous cubic",
+          "Cima Gasull Mañosas 1995 cyclicity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2201.08107",
+        "https://doi.org/10.1016/j.aim.2013.12.006",
+        "https://doi.org/10.1006/jmaa.1995.1451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative existence/uniqueness/repulsion leaves scale of orbit, physical period and repelling multiplier strength indeterminate.",
+          "First-order energy displacement yields simple root; negative-parameter time reversal gives previously unstated enhanced orders."
+        ],
+        "reasoning": "The original theorem is stronger globally but incomparable quantitatively; the new local triple-invariant asymptotic is not simply its parameter substitution.",
+        "searches": [
+          "2201.08107 PDF Theorem 3.2 negative-alpha limit cycle",
+          "doi:10.1016/j.aim.2013.12.006 general averaging"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blown-up quartic oval and first averaged energy displacement are an equivalent nilpotent-cycle asymptotic framework.",
+          "Same original ODE studied exactly by Zhuang–Liu; existence/uniqueness already known."
+        ],
+        "reasoning": "The reduction is classic generalized polar/Melnikov theory, but the three explicit beta constants and parity-suppressed errors are additional invariant claims.",
+        "searches": [
+          "quasi homogeneous cubic planar system xdot y ydot -x^3 + alpha x^2 y + y^3 limit cycle alpha to zero amplitude period Floquet",
+          "\"quasi-homogeneous\" \"period\" \"Floquet\" \"Zhuang\" \"Liu\"",
+          "2201.08107 quasi homogeneous limit cycle alpha 0 Melnikov period multiplier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact ρ,T*,J* triple tabulation found among searched general and published-source material; finite numerical period tables would not establish analytic order corrections."
+        ],
+        "reasoning": "The constants are geometric beta integrals from a natural quartic oval; no known-table recomputation established, but searches are not exhaustive.",
+        "searches": [
+          "quasi homogeneous cubic planar system xdot y ydot -x^3 + alpha x^2 y + y^3 limit cycle alpha to zero amplitude period Floquet",
+          "cubic nilpotent cycle Beta integral amplitude period Floquet tabulation"
+        ]
+      },
+      "rationale": "Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.",
+      "residual_risks": [
+        "Historical 1995 cyclicity and generalized polar analysis might include the same asymptotic but complete text is inaccessible; no whole-document NOT_COVERING claim.",
+        "Current published final Zhuang–Liu journal variant may contain additional details absent from the inspected 2022 preprint.",
+        "Resultary semantic service errored; negative search is not novelty certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unique cycle existence/instability for negative parameter, not in inspected text exact physical-time period/amplitude/Floquet beta constants",
+          "evidence": [
+            "Zhuang–Liu (2022) Theorem 3.2; negative parameter unique unstable limit cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.08107",
+          "material_read": "Full arXiv PDF as accessed this run, abstract/introduction, theorem 3.2 and surrounding arguments, with theorem page image and whole-document period/Floquet term checks",
+          "method": "Read PDF text and inspected relevant theorem screenshot",
+          "title": "A proof of the uniqueness of the limit cycle of a quasi-homogeneous system",
+          "trigger": "Precisely the same cubic vector field, parameters and unique cycle"
+        },
+        {
+          "assessment": "GENERAL machinery, not confirmed any exact triple law; full-text comparison remains incomplete",
+          "evidence": [
+            "Aziz–Llibre–Pantazi (2014), Advances in Mathematics 254, 233–250."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aim.2013.12.006",
+          "material_read": "Publisher abstract and accessible advertised main theorem scope, not full paper",
+          "method": "Reviewed mathematical abstract and publication metadata",
+          "title": "Centers of quasi-homogeneous polynomial differential equations of degree three",
+          "trigger": "Broad cubic nilpotent center and Melnikov framework"
+        },
+        {
+          "assessment": "POSSIBLE COVERAGE; inaccessible source alone does not defeat best-of-knowledge originality",
+          "evidence": [
+            "Cima–Gasull–Mañosas, JMAA (1995); full text not obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jmaa.1995.1451",
+          "material_read": "Bibliographic metadata and abstract only; complete historical paper inaccessible",
+          "method": "Search and public bibliographic abstract; no whole-text noncoverage claim",
+          "title": "Cyclicity of a family of vector fields",
+          "trigger": "Historical nilpotent/cyclicity reference plausible stronger claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniquely known limit cycle collapses onto a nilpotent center. Exact amplitude, original-time traversal period and Floquet exponent capture three different intrinsic aspects of the collision and distinguish a shrinking geometric orbit from diverging physical traversal time and vanishing instability. Reversibility cancellations make the correction orders notably precise and motivated, beyond a generic qualitative Melnikov existence count.",
+      "risks": [
+        "No uniform large-parameter or explicit remainder constants; analytic IFT supplies asymptotic order, not exact nonperturbative trajectory."
+      ],
+      "sources": [
+        "https://arxiv.org/abs/2201.08107",
+        "https://doi.org/10.1016/j.aim.2013.12.006",
+        "https://doi.org/10.1006/jmaa.1995.1451"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Local α→0- limit only; all global cycle uniqueness is imported from cited Zhuang–Liu.",
+    "No uniform large-parameter or explicit remainder constants; analytic IFT supplies asymptotic order, not exact nonperturbative trajectory.",
+    "Prior full historical literature incomplete; no external attestation."
+  ]
+}

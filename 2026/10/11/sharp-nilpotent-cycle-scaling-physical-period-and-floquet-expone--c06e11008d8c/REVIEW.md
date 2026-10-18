@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local return map is analytic through the regular unperturbed quartic oval at positive turning radius. The energy variation has the explicitly computed Melnikov function \(F(R)=\sqrt2 R^5(R^2I_3-2I_1)\), whose positive root is simple (positive derivative \(2\sqrt2\rho^6I_3\)). The implicit-function theorem gives the analytic periodic branch; exact time reversal enforces even amplitude and period and odd logarithmic multiplier. Direct divergence integration fixes the Floquet coefficient and positive instability sign. Rescaling to original time yields all three specified exponents and remainder orders. The numerical checker confirms finite examples but is not treated as proof. The global uniqueness claim is assigned to Zhuang–Liu, not independently claimed.
+## correctness
 
-## Originality — PASS, with risks
-The source's existence/uniqueness theorem, which covers exactly the same ODE, does **not** imply explicit physical-time period, amplitude and multiplier asymptotics merely from uniqueness. The present quantitative constants require a separate energy-displacement computation; the parity-improved corrections require the exact negative-to-positive parameter time-reversal conjugacy. The inspected Aziz–Llibre–Pantazi center classification and generic Melnikov literature do not state this family-specific triple coefficient formula. published-finding corpus comparisons show related dynamics but different objects. Potential preexisting computations under generalized polar-coordinate or nilpotent-focus terminology and the inaccessible full 1995 Cima–Gasull–Mañosas historical paper leave a genuine priority risk; noncoverage is not claimed from snippets alone.
+PASS
 
-## Value — PASS
-This is a natural endpoint of a classically studied unique-cycle family. It quantifies a nilpotent collision in three intrinsic invariants: geometric amplitude, **physical** traversal time, and transverse stability, and explains why corrections are delayed by a reversible parity mechanism. It clarifies how a shrinking orbit can simultaneously have a divergent period and almost-neutral instability. It is neither a renaming of the source's uniqueness statement nor a numerically selected special parameter.
+With ε=-α>0, rescaling x=√ε X, y=εY, τ=√ε t and δ=ε^(3/2) yields exactly X’=Y, Y’=-X³+δ(Y³-X²Y). At δ=0, Hamiltonian H=Y²/2+X⁴/4 admits smooth ovals. Direct integration of dH/dτ=δ(Y⁴-X²Y²) around an oval gives first displacement F(R)=√2 R⁵(R² I3-2 I1), I1=B(3/4,3/2)/4, I3=B(1/4,5/2)/4, unique positive simple zero ρ²=2I1/I3, F’(ρ)=2√2 ρ⁶ I3. Analytic Poincaré implicit-function theorem yields local cycle and analytic τ-period; exact time reversal for δ↦-δ forces even R,T and odd log Floquet multiplier. Liouville divergence yields J*=2√2 ρ³ I3>0; undoing time scaling yields physical period T*ε^(-1/2)+O(ε^(5/2)), amplitude ρ√ε+O(ε^(7/2)), logμ=J* ε^(3/2)+O(ε^(9/2)). Independently computed ρ≈0.799828239975, T*≈9.272364163377, J*≈1.084199920792 and symbolically verified the simple-root derivative. Zhuang–Liu primary theorem supplies global uniqueness; finite RK4 script is not proof.
 
-## Boundary
-The asymptotics hold for sufficiently small negative parameters. Full historical publication priority is not certified. Numerical diagnostics are supplementary to the analytic proof. No independent mathematical audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.
+
+## value
+
+PASS
+
+A uniquely known limit cycle collapses onto a nilpotent center. Exact amplitude, original-time traversal period and Floquet exponent capture three different intrinsic aspects of the collision and distinguish a shrinking geometric orbit from diverging physical traversal time and vanishing instability. Reversibility cancellations make the correction orders notably precise and motivated, beyond a generic qualitative Melnikov existence count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
