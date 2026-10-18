@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For every k>=3 the required degree imbalance is exactly +/-1 on complementary first/last-pair types. An unrestricted path from each negative vertex cannot reach a positive vertex before its first equal pair is shifted into the prefix. The explicit first/last-equal-pair bijection realizes all these individually sharp lower bounds simultaneously while preserving the no-triple-run constraint. The balanced strongly connected multigraph has an Eulerian tour. The H_m run-composition count and induction give overhead 2(F_(k-1)-1). Direct standalone verifier checks k3..18, independent assignment k3..11, exhaustive shorter hosts k3..5; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0711.1695 describes selecting an Eulerian cycle in an already Eulerian forbidden-language graph.",
+        "arXiv:0808.1309 concerns exact-once universal cycles of several restricted classes.",
+        "DOI:10.1109/ISIT50566.2022.9834795 abstract explicitly maximizes distinct-window RLL sequence length."
+      ],
+      "reasoning": "A universal cycle would imply zero overhead. The compulsory graph here has 2F_{k-3} sources and sinks for k>=4 and hence positive overhead. A maximal nonrepeating constrained de Bruijn sequence is not a minimum repeat-allowing host covering every linearly admissible word. General algorithms for Eulerian graphs do not by themselves imply the Lucas closed form.",
+      "searches": [
+        "web: \"Universal Cycles of Restricted Words\" Leitner Godbole 2010 PDF",
+        "web: \"Minimum de Bruijn Sequence in a Language with Forbidden Substrings\" arxiv",
+        "web: \"run length limited de Bruijn sequences\" \"every\" words length n 2022"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5531759/",
+      "https://arxiv.org/abs/0711.1695",
+      "https://arxiv.org/abs/0808.1309",
+      "https://repository.sutd.edu.sg/esploro/outputs/conferenceProceeding/Run-Length-Limited-de-Bruijn-Sequences/9911088709846",
+      "https://pure.uai.cl/en/publications/minimum-eulerian-circuits-and-minimum-de-bruijn-sequences/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible neighboring result: forbidding only 111 has Tribonacci-required counts and a different overhead generating function, not a formula for forbidding both constant triples.",
+        "Accessible neighboring results: forbidding only 110 or 010 produces different languages, degree imbalances and formulas.",
+        "The full HTML of Compeau–Pevzner–Tesler PMC5531759 treats Eulerian reconstruction and k-mer multiplicities but no run-two covering optimum."
+      ],
+      "reasoning": "Forbidding 000 in addition to 111 removes vertices and compulsory arcs; optimal circulation costs and shortest paths need recomputation and are not restrictions of a one-forbidden optimum. The new bijection and exact global sum provide the missing nontrivial implication.",
+      "searches": [
+        "Mathematics-record semantic search: Fibonacci Tribonacci minimum cyclic superstring containing all binary words with forbidden triple 111, an optimal host avoiding 111",
+        "Mathematics-record semantic search: Shortest cyclic covering sequence for binary strings without triple identical letters, using degree imbalance shortest path matching in restricted de Bruijn graph",
+        "web: \"Minimum de Bruijn Sequence in a Language with Forbidden Substrings\" arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest mathematical-record hit concerns shortest absent scattered subsequences, not contiguous circular covering.",
+        "No exact two-forbidden-triple cyclic-cover formula found in the cited targeted searches."
+      ],
+      "reasoning": "Checked circular superstring, cyclic covering sequence, shortest run-length-limited de Bruijn host, Lucas length and forbidden-factor aliases. Numeric agreement with any bare Fibonacci/Lucas sequence is not a publication of the stated optimization.",
+      "searches": [
+        "Mathematics-record semantic search: Minimum length circular superstring of all binary words avoiding 000 and 111. Exact shortest length two times Lucas number minus two, repetition overhead two times Fibonacci number minus two, run-length limited 2 RLL cycle",
+        "Mathematics-record semantic search: Shortest cyclic covering sequence for binary strings without triple identical letters, using degree imbalance shortest path matching in restricted de Bruijn graph",
+        "web: \"minimum length\" \"run length limited\" \"de Bruijn\" sequence",
+        "web: \"minimum cyclic superstring\" \"run length\" restricted words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact cyclic-cover table or Lucas-closed-form database hit was identified; the 2022 RLL paper reports a different maximum-window count."
+      ],
+      "reasoning": "Searched exact numbers and natural sequence aliases; an uncatalogued table could still cover a short finite prefix but cannot be presumed to settle the infinite theorem.",
+      "searches": [
+        "web: \"Lucas\" \"superstring\" \"de Bruijn\" restricted",
+        "web: \"run-length limited\" \"shortest\" \"de Bruijn\" sequence",
+        "Mathematics-record semantic search: Minimum length circular superstring of all binary words avoiding 000 and 111. Exact shortest length two times Lucas number minus two, repetition overhead two times Fibonacci number minus two, run-length limited 2 RLL cycle"
+      ]
+    },
+    "rationale": "The target optimizes unrestricted shortest circular coverage of all linearly admissible binary words avoiding BOTH 000 and 111. Classical universal-cycle results require each required window exactly once and cannot cover the k>=4 unbalanced required-edge graph. Inspected primary graph exposition gives the framework but no Lucas-number optimum. Exact mathematical-record and published-literature queries found no equal/stronger statement; this is best-knowledge originality, not proof of uniqueness. Full text gaps leave residual risk.",
+    "residual_risks": [
+      "An inaccessible 2004/2007 Moreno–Matamala full text could contain a related specialization not visible in abstracts.",
+      "The 2008 Leitner–Godbole full text could not be inspected due to access limitations (institutional VPN disconnected).",
+      "Unindexed run-length-limited sequence literature, including post-2016 developments, might already contain the precise minimization formula.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework only; does not address forbidden-run-two shortest covering invariants",
+        "evidence": [
+          "PMC5531759 lines 119-145 show multiset/Eulerian construction and unconstrained shortest circular superstrings."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5531759/",
+        "material_read": "Full public HTML, including assembly, Box 1, graph construction, multiplicities and references",
+        "method": "Direct web text inspection, lines 79-165",
+        "title": "Why are de Bruijn graphs useful for genome assembly?",
+        "trigger": "General shortest cyclic superstrings, multiset Eulerian reconstruction"
+      },
+      {
+        "assessment": "Describes lexicographic/Eulerian minimum selection, not a stated global repeat-allowing circular cover length; cannot certify the whole paper not covering",
+        "evidence": [
+          "ArXiv publication 2007-11-12; abstract discusses greedy choice of unvisited arc and completion of Eulerian cycle."
+        ],
+        "identifier_or_url": "arXiv:0711.1695",
+        "material_read": "Accessible arXiv metadata and complete abstract, full text unavailable",
+        "method": "ArXiv/OA attempted; publisher/alternative lookup; abstract comparison",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Same forbidden-language objects and superficially plausible optimality title"
+      },
+      {
+        "assessment": "The stated families are functions, equitable words, permutations and passwords; exact-once framework differs, but inaccessible full text is recorded as residual risk",
+        "evidence": [
+          "ArXiv public 2008-08-08; abstract lists restricted classes and universal cycles."
+        ],
+        "identifier_or_url": "arXiv:0808.1309",
+        "material_read": "Accessible public abstract and bibliographic page; full-text unavailable",
+        "method": "ArXiv/OA attempted; Oxford institutional route returned VPN disconnected",
+        "title": "Universal Cycles of Restricted Classes of Words",
+        "trigger": "Restricted word universal cycles could dominate a covering claim"
+      },
+      {
+        "assessment": "Maximal distinct-window RLL sequence versus shortest all-required-window cover; not a direct implication, remaining full-text risk",
+        "evidence": [
+          "SUTD 2022 abstract explicitly states maximum length of RLL de Bruijn sequences and decoding of unique windows."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT50566.2022.9834795",
+        "material_read": "Institutional repository abstract and publication details, not full text",
+        "method": "SUTD repository public metadata and abstract",
+        "title": "Run Length Limited de Bruijn Sequences for Quantum Communications",
+        "trigger": "Most direct terminology overlap in later information theory"
+      },
+      {
+        "assessment": "No full material inspection; exact comparison to all internal lemmas unavailable",
+        "evidence": [
+          "Publication abstract describes Eulerian cycle existence for restricted classes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2010.07.016",
+        "material_read": "Public abstract and bibliography only",
+        "method": "Official institutional publication pages and Oxford institutional route",
+        "title": "Universal cycles of classes of restricted words",
+        "trigger": "Journal version of the 2008 arXiv work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0456cecb-5943-4b2f-8734-5ff9fee3b58a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum length of a periodic test sequence covering every linearly permitted run-two window is a natural invariant relevant to constrained coding and sequence test generation. The optimum is nontrivial since the compulsory digraph is unbalanced for k>=4 and host windows were allowed to violate the constraint. The first/last-equal-pair matching gives an explicit all-orders optimal construction and a forbidden-free host; Lucas growth and limiting relative overhead quantify unavoidable redundancy. This is not a mere renaming of a known table or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
