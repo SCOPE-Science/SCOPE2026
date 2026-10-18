@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:45:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly differentiated prod_{j=0}^8(x−j) and shifted z=x−4 to obtain g(z)=9z8−210z6+1365z4−2460z2+576=h(z²), h(T)=9T4−210T3+1365T2−2460T+576. Independently SymPy-factorized h mod17 (irreducible quartic) and mod11 (linear*irreducible cubic); together 4-cycle plus 3-cycle and transitivity force Gal(h)=S4. Product y_i=64 makes sqrt-root sign kernel even. Checked g mod7 squarefree type (1,1,2,4) with irreducible quadratic and quartic: square of Frobenius contributes a weight-two kernel sign vector; all S4 conjugates generate 2^3. Hence Gal(g)=W(D4) order192. Independently enumerated 24 permutations times 8 even sign masks and counted 75 with fixed signed root, yielding 25/64 via Frobenius–Chebotarev (ramified primes finite). Contribution to c is (25/64)/(8·9)=25/4608. Not an infinite conclusion drawn from modular sample frequencies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 computations state full hyperoctahedral group for tested even d except 8,24,48, deliberately setting those aside. 2026 exact liminf formula in terms of unknown c does not imply any particular delta(f8)."
+        ],
+        "reasoning": "A general Chebotarev recipe reduces density to fixed points but does not determine the required exceptional Galois group; local identification is not a corollary of an already computed generic group.",
+        "searches": [
+          "van Doorn 2024 Section 3.3 Lemma32",
+          "van Doorn 2026 Theorem1",
+          "Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.03073v1 full primary PDF",
+        "arXiv:2609.00104v1 full primary HTML",
+        "Resultary query Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators",
+        "Git RESULT.md and verified finite-field/group-count script, source tree SHA c572ab6e0887af22829cbe75e528a0b52434b02d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The non-derangement formula is conditional on identifying Gal(f8); neither paper provides that identification or a value. The mod7 kernel argument supplies the decisive new group-order proof."
+        ],
+        "reasoning": "The contribution is a specific resolved exceptional term in a natural constant, not a recomputation of the already known generic even-index groups.",
+        "searches": [
+          "van Doorn 2024 Chebotarev/non-derangement lemma",
+          "van Doorn 2026 constant c theorem",
+          "Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers use the same derivative-of-consecutive-product f_d and non-derangement Chebotarev density delta(f_d), but report no d=8 W(D4) or 25/64."
+        ],
+        "reasoning": "The centered even polynomial and signed permutation action are equivalent formulations of the original f8 Galois action, not a different polynomial object.",
+        "searches": [
+          "Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators",
+          "arXiv:2411.03073v1 Lemma32",
+          "arXiv:2609.00104v1 §§1-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary published exceptional index table marks d8 unresolved; independent exact modular factors (mod17 4, mod11 1+3, mod7 4+2+1+1), group count 75/192."
+        ],
+        "reasoning": "No matching local d8 group/density appeared in actually inspected sources or semantic database; a previously unpublished computation remains possible.",
+        "searches": [
+          "Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators",
+          "Resultary semantic search: Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators",
+          "arXiv:2411.03073v1 Lemma32",
+          "arXiv:2609.00104v1"
+        ]
+      },
+      "rationale": "The 2024/2025 primary paper explicitly leaves d=8,24,48 as exceptional even Galois cases in its finite survey and bounded remainder; the complete 2026 follow-up HTML defines c and establishes exact liminf without computing this local exceptional density. The present complete order-192 Galois identification resolves d8, with best-of-knowledge priority risk from unindexed computations.",
+      "residual_risks": [
+        "An unindexed Magma/Pari computation or alternative root-pair resolvent calculation may already have identified W(D4) at d8.",
+        "No claim for d=24,48, other higher exceptional even d or closed evaluation of infinite constant c."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Leaves the d8 exceptional group and density unstated; lists it among computed exceptional even cases",
+          "evidence": [
+            "Lemma 32 uses full hyperoctahedral groups for even d<=60 other than d=8,24,48."
+          ],
+          "identifier_or_url": "arXiv:2411.03073v1",
+          "material_read": "Full arXiv 57-page primary PDF: Section 3.3, Lemmas 31-40 and particularly Lemma32 discussion of d=8,24,48",
+          "method": "Full PDF text and visual page inspection",
+          "title": "On the non-monotonicity of the denominator of generalized harmonic sums",
+          "trigger": "Direct source of f_d and exceptional Galois table"
+        },
+        {
+          "assessment": "Exact liminf expressed as 1/(1+c); expressly not computing c precisely and does not state group of f8",
+          "evidence": [
+            "Introduction gives c=sum delta(f_d)/(d(d+1)) and says no precision effort, main theorem is limit infimum."
+          ],
+          "identifier_or_url": "arXiv:2609.00104v1; https://arxiv.org/html/2609.00104v1",
+          "material_read": "Complete open-access HTML text: abstract, Introduction, Theorem1, §§2-3 and references",
+          "method": "Full HTML inspection",
+          "title": "The shortest harmonic sums with decreasing denominator",
+          "trigger": "Later primary paper with same density constant c"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Explicitly resolves the first exceptional case of a published Galois-density computation which feeds a natural harmonic-denominator constant. Exact group W(D4) and density 25/64 are motivated arithmetic invariants, independently useful even without solving the remaining infinite series.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2411.03073v1 full primary PDF",
+    "arXiv:2609.00104v1 full primary HTML",
+    "Resultary query Galois group derivative of product x(x-1)...(x-d), d=8 W(D4) density 25/64 harmonic denominators",
+    "Git RESULT.md and verified finite-field/group-count script, source tree SHA c572ab6e0887af22829cbe75e528a0b52434b02d"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed Magma/Pari computation or alternative root-pair resolvent calculation may already have identified W(D4) at d8.",
+    "No claim for d=24,48, other higher exceptional even d or closed evaluation of infinite constant c."
+  ],
+  "schema_version": 1
+}
