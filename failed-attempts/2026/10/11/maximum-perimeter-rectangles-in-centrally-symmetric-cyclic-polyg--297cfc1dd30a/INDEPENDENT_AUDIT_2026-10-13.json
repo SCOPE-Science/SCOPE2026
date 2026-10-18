@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T06:10:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/maximum-perimeter-rectangles-in-centrally-symmetric-cyclic-polyg--297cfc1dd30a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/maximum-perimeter-rectangles-in-centrally-symmetric-cyclic-polyg--297cfc1dd30a/verify_rectangle.py",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564",
+        "https://arxiv.org/pdf/1405.1223"
+      ],
+      "rationale": "The stated maxima and equality classification follow analytically. A rectangle c+[-u,u]+[-v,v] in central-symmetric K can be centered by averaging with its reflected copy without changing side lengths. With p=u+v and q=u-v, p,q have equal norm and perimeter 2(|p+q|+|p-q|). This expression is separately convex on K×K, hence bounded above by vertex pairs; equal vertex radii R make each distinct diameter-pair vertex rectangle feasible, so the bound is attained. Strict convexity in each argument away from collinearity excludes nonvertex centered maximizers; a collinear pair only yields 4R and is suboptimal. For any off-center maximizer with vertex p of norm R, |c+p|²+|c-p|²≤2R² forces c=0. The angular identity gives 4√2 R cos(ε/2); nearest-perpendicular pairs are found by the monotone two-pointer scan on sorted diameter angles. For regular even n the defect is 0 or π/n, and the stated counts follow by cyclic partner enumeration. Inspected verify_rectangle.py tests n=4..602 and 104 additional samples; these finite checks are not the universal proof.",
+      "residual_risks": [
+        "Requires both central symmetry and equal-radius cyclic vertices; the proof is not claimed for arbitrary convex polygons or prescribed-aspect rectangles.",
+        "The O(m) comparison bound assumes pre-sorted cyclic vertices and exact real angular comparisons; ties and finite-bit complexity are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full stronger Resultary theorem proves that even maximizers among all parallelograms are vertex rectangles with identical value and pair classification.",
+          "Cabello et al. arXiv:1405.1223 Theorem 5 provides O(n³) generic convex polygon optimization, not this explicit formula."
+        ],
+        "reasoning": "Maximizing over all parallelograms strictly contains maximizing over rectangles. The stronger theorem yields every original part, not merely an algorithm with comparable complexity.",
+        "searches": [
+          "maximum perimeter rectangle centrally symmetric cyclic polygon diameters vertex maximum near perpendicular linear time",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564"
+        ]
+      },
+      "checked_sources": [
+        "maximum perimeter rectangle centrally symmetric cyclic polygon diameters vertex maximum near perpendicular linear time",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564",
+        "https://arxiv.org/pdf/1405.1223"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published stronger claim: Pmax over all contained parallelograms equals 4√2R cos(η/2), all maximizers are vertex rectangles, selected in O(n).",
+          "The audited conclusion concerns just those contained rectangles and their identical η=ε."
+        ],
+        "reasoning": "The stronger published exact maximum and equality theorem implies both the audited value and complete maximizer classification, including the regular even n specialization and angular scan. No residual narrower consequence remains new.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564",
+          "Cabello Cheong Knauer Schlipf Theorem 5 max perimeter rectangle convex polygon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stronger record identifies η=min over vertex diameter pairs of (π/2−acute separation), exactly ε of the audited record. Its perimeter is 4√2 R cos(η/2) and the same maximizers are centered vertex rectangles."
+        ],
+        "reasoning": "Parameter η and ε are the same geometric quantity, and equality formulations agree after interpreting rectangle diagonals as vertex diameter pairs.",
+        "searches": [
+          "maximum perimeter rectangle centrally symmetric cyclic polygon diameters vertex maximum near perpendicular linear time",
+          "Resultary vertex rigidity largest inscribed parallelograms cyclic polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the assigned self-entry plus a distinct published stronger entry 3f3a65417564, full text inspected. Both appear in the same public reconciliation commit fe78186f9ad88fff090634cd40956c39736279dd."
+        ],
+        "reasoning": "A distinct already-public complete result defeats independent originality; the self-entry alone would not be proof of prior coverage. Same-commit timing gives no invented priority ordering.",
+        "searches": [
+          "maximum perimeter rectangle centrally symmetric cyclic polygon diameters vertex maximum near perpendicular linear time",
+          "Resultary 2026/10/11 perimeter rectangle and parallelogram records"
+        ]
+      },
+      "rationale": "Definitive statement-level coverage: the published full RESULT.md \"Vertex rigidity and the exact maximum perimeter of parallelograms in centrally symmetric cyclic polygons\" treats the identical class, same perpendicularity-defect invariant, same value, all optimizer rectangles, and O(n) selection, and strengthens optimization to every inscribed parallelogram. Thus every asserted rectangle theorem and its regular n corollary is already implied; a different title and verifier do not establish original contribution. The two published records were deposited in the same October 11 Resultary commit, so no chronological precedence is inferred, only lack of a distinct uncovered finding.",
+      "residual_risks": [
+        "Published stronger record is co-deposited on October 11 rather than shown historically earlier; conclusion is scientific duplication, not adjudication of individual authorship or chronology.",
+        "Possible older geometry coverage does not affect the already decisive public stronger implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Exact identical angular formula, all centered vertex rectangle optimizers, linear selection; extends from rectangles to all parallelograms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564",
+          "material_read": "Entire public RESULT.md including Finding, six-step proof, selection algorithm and limitations",
+          "method": "Fetched immutable public Resultary Git blob and read complete text",
+          "title": "Vertex rigidity and the exact maximum perimeter of parallelograms in centrally symmetric cyclic polygons",
+          "trigger": "Closest stronger coverage under broader admissible quadrilateral class"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_SPECIFIC",
+          "evidence": "Theorem 5 gives cubic-time optimization in any convex polygon, not the equal-circumradius angular characterization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1223",
+          "material_read": "Primary open arXiv PDF, theorem-5 algorithm and setup/complexity",
+          "method": "Open full PDF, read the relevant theorem and surrounding proof, checked actual page",
+          "title": "Finding Largest Rectangles in Convex Polygons",
+          "trigger": "General maximum-perimeter rectangle algorithm with potentially dominating convex input class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/maximum-perimeter-rectangles-in-centrally-symmetric-cyclic-polyg--297cfc1dd30a/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-rigidity-and-the-exact-maximum-perimeter-of-parallelogram--3f3a65417564"
+      ],
+      "rationale": "The vertex-rigidity principle, exact sharp perimeter and all-maximizer description are meaningful structural geometry, and linear selection for a natural restricted polygon class is mathematically motivated. They are not a vacuous normalizing check or arbitrary finite table; intrinsic mathematical value survives, but publication as a separate original finding is defeated by covering work.",
+      "residual_risks": [
+        "This scientific value is not new value beyond the stronger published parallelogram theorem; originality decisively fails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Requires both central symmetry and equal-radius cyclic vertices; the proof is not claimed for arbitrary convex polygons or prescribed-aspect rectangles.",
+    "The O(m) comparison bound assumes pre-sorted cyclic vertices and exact real angular comparisons; ties and finite-bit complexity are outside scope.",
+    "Published stronger record is co-deposited on October 11 rather than shown historically earlier; conclusion is scientific duplication, not adjudication of individual authorship or chronology.",
+    "Possible older geometry coverage does not affect the already decisive public stronger implication.",
+    "This scientific value is not new value beyond the stronger published parallelogram theorem; originality decisively fails."
+  ],
+  "schema_version": 1
+}
