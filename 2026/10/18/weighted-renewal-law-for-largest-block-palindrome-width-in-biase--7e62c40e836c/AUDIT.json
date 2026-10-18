@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All quantified claims concern fixed finite positive nonuniform iid letter masses and all positive word lengths. The unique shortest border is unbordered and nonoverlapping, giving disjoint exact weighted kernels. Central-insertion bijections prove the odd/even weighted unbordered recurrence, including the squared-weight square correction. The two-sided iid coupling has defective success masses \\(b_\\ell\\) with \\(h<1\\) by a positive-probability mismatch event. An exponential moment of the total successful peeled length supplies explicit geometric limiting law, exponential total-variation and all fixed moment bounds; direct rational exhaustive tests were executed via verify.py for three binary distributions through length 12, ternary through length 8, and independent weighted recurrences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2302.13147, Theorem 2 gives all uniform word-count distributions, strictly covering the uniform specialization; Theorem 4 gives uniform limiting mean existence.",
+        "arxiv:1806.00198, Theorem 1 gives a deterministic algorithm, not a probabilistic limit theorem."
+      ],
+      "reasoning": "Concede all cases dominated by uniform exact counting and the existing greedy algorithm. Neither provides the full nonuniform weighted generating function, the squared-letter-weight correction, or exponentially fast geometric convergence for a biased iid source.",
+      "searches": [
+        "\"Smallest and Largest Block Palindrome Factorizations\" geometric distribution",
+        "random word longest block palindrome factorization number of nonempty blocks asymptotic distribution",
+        "\"block palindrome\" \"non-uniform\" probability random words"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1806.00198, Sections 2--4; full text",
+      "arxiv:2302.13147, Sections 1--5, Theorems 2,4; full text",
+      "arxiv:1509.05240, Sections 1--6, Theorem 7; full text",
+      "Semantic research-record searches for biased iid block-palindrome width, weighted unbordered words, and renewal stopping laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2302.13147, Section 2 counts uniformly sampled strings; Section 3 proves the mean limit under uniform sampling only.",
+        "arxiv:1509.05240, Sections 2--5 concern periods and longest borders of uniform words.",
+        "arxiv:1806.00198, Section 3 establishes a deterministic greedy longest-width block-palindrome characterization."
+      ],
+      "reasoning": "The antecedent greedy theorem implies correctness of using shortest-border peeling but does not constrain biased probabilities. Uniform fiber totals cannot recover the multivariate weight profiles needed for nonuniform sources. The prior longest-border observable concerns one maximum-length border, not the sequence of shortest-border removals.",
+      "searches": [
+        "\"block palindrome factorization\" \"expected\" random nonuniform",
+        "\"block palindrome\" \"Markov\" random word",
+        "\"greedy peeling shortest borders\" limit distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goto et al. 2018, Section 3, greedy shortest-border peeling establishes the deterministic statistic, not the biased width law.",
+        "Gabrić--Shallit 2023, Theorem 2, exact uniform length/width counts; weighting words by symbol frequency is not determined by these counts."
+      ],
+      "reasoning": "Compared block-palindromic factorization width, greedy border removal, defective symmetric-prefix matching and renewal stopping-time descriptions. None of the inspected sources identifies their nonuniform probability laws or exponential coupling statement.",
+      "searches": [
+        "\"largest BP-factorization\" width law random words",
+        "\"block palindrome\" \"limiting distribution\" width",
+        "block palindrome factorization limiting geometric law biased Bernoulli source unbordered blocks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2302.13147, Table 1 tabulates finite binary uniform counts and Table 2 uniform limiting means.",
+        "arxiv:1509.05240, Tables in Section 5 give uniform longest-border probabilities, a different observable."
+      ],
+      "reasoning": "Checked exact finite-length tables and sequences for the same observable and for border statistics. The uniform tables imply their uniform specializations; none supplies the asserted nonuniform parameter family or complete distribution.",
+      "searches": [
+        "unbordered words multivariate generating function weighted count recurrence letter weights",
+        "unbordered word biased probability border recurrence iid",
+        "shortest border greedy peeling binary random word width"
+      ]
+    },
+    "rationale": "The closest primary papers prove the greedy deterministic factorization and complete UNIFORM width counts and uniform mean convergence. All uniform consequences are conceded to their stronger theorem, while the asserted contribution is a distinct NONUNIFORM iid law with exact weighted bivariate generating function, multivariate squared-weight recurrence, exponential geometric limit and all moment rates. Period/longest-border random-word literature has a different statistic. Full-text and semantic searches produced no direct coverage. Unindexed weighted renewal results remain a real residual risk.",
+    "residual_risks": [
+      "A nonuniform analogue might appear implicitly in unindexed renewal-process or weighted-string literature.",
+      "The general weighted-unbordered recursion may have appeared independently even though it was not found in inspected papers.",
+      "No claim of universal publication priority or independent scientific certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_GREEDY_DEFINITION; does not give nonuniform iid width distribution or quantitative probability limit",
+        "evidence": "Section 3, p.3, identifies unique greedy shortest-border factorization; Theorem 1 is a linear-time deterministic algorithm.",
+        "identifier_or_url": "https://arxiv.org/pdf/1806.00198",
+        "material_read": "Full 7-page open-access paper, with close inspection of Section 3 and Theorem 1 and the algorithmic enumeration section",
+        "method": "Read primary open-access full text and inspected page images",
+        "title": "Block Palindromes: A New Generalization of Palindromes",
+        "trigger": "Original definition and algorithm for the exact same deterministic block-palindrome width statistic"
+      },
+      {
+        "assessment": "COVERS_UNIFORM_ONLY; uniform finite width counts and consequences are conceded as prior; biased weighted renewal and its total-variation bound are not present",
+        "evidence": "Theorem 2 counts all words over a k-letter alphabet by length and width; Theorem 4 proves existence of the uniformly sampled mean limit.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13147",
+        "material_read": "Full 11-page open-access arXiv version, including Section 2 Theorem 2 and Section 3 Theorem 4, table of counts, and Conjecture 5",
+        "method": "Read primary open-access PDF full text and inspected its page images",
+        "title": "Smallest and Largest Block Palindrome Factorizations",
+        "trigger": "Same maximal factorization width; exact potentially dominating distributions"
+      },
+      {
+        "assessment": "DIFFERENT_RANDOM_STATISTIC; uniformly sampled longest border/least period rather than nonuniform repeated shortest-border peeling",
+        "evidence": "Sections 2--5 define and count longest border lengths of a uniformly sampled word; Theorem 7 is a scalar unbordered-word recurrence.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol047-stacs2016/LIPIcs.STACS.2016.44/LIPIcs.STACS.2016.44.pdf",
+        "material_read": "Open-access 10-page paper, Sections 1--6 including unbordered-word recurrence Theorem 7 and longest-border tables",
+        "method": "Read primary proceedings PDF, inspected page image and relevant main text",
+        "title": "Periods and Borders of Random Words",
+        "trigger": "Plausible earlier random-border process or weighted unbordered recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e62c40e-836c-4ae9-8fb3-30c5b5f266a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Biased iid models are a natural nonuniform extension of the same word-factorization invariant: probability profiles depend on symbols, not just word length. The theorem gives an exact bivariate probability law, computable multivariate weighted unbordered recurrence with nontrivial squaring corrections, full geometric asymptotic distribution with an exponential total-variation bound, and all moment rates. It resolves this model for every finite positive nonuniform source rather than a narrow numeric slice, and clarifies the sharp distinction from the already known uniform counting theory.",
+    "status": "PASS"
+  }
+}
