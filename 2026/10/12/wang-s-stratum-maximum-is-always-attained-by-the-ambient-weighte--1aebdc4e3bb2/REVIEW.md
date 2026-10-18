@@ -1,32 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For an admissible index set \(I\), write
-\[
-P=\prod_i a_i,\qquad
-S_I=\sum_{i\in I}a_i,\qquad
-q_I=\prod_{i\notin I}a_i.
-\]
-Wang's stratum term is exactly
-\[
-\theta_I=\frac{S_I}{P}+\frac{|I|-3}{q_I}.
-\]
-The full index set gives
-\[
-\theta_A=\frac{\sum_i a_i}{P}+n-2.
-\]
-Every proper \(I\) has \(S_I<\sum_i a_i\), \(q_I\ge1\), and \(|I|\le n\), hence
-\[
-\theta_I<\theta_A.
-\]
-Therefore the maximum is uniquely ambient, and substitution into Wang's Proposition 3.17 gives the stated global algebraic-hyperbolicity criterion. The source's dimension-three case and Corollary 3.18 confirm that the full index set is included in its maximum.
+## correctness
 
-## Originality
-PASS. The initiating source states the off-boundary ambient threshold and a separate global maximum over all toric strata, but does not identify the maximum in general. Its Corollary 3.18 gives coarse uniform bounds and a special calculation for \(\mathbf P(1,\ldots,1,r)\). Exact-formula, ambient-maximizer, toric-boundary, and concrete-example searches found no statement equivalent to the general identity. The closest cited predecessor treats only \(\mathbf P(1,1,1,r)\).
+PASS
 
-## Value
-PASS. The result computes the controlling quantity in the source's principal global theorem in closed form, eliminates the need to optimize over all toric strata, and proves that the boundary introduces no extra numerical cost. It also turns the source's \(\mathbf P(1,1,2,3,5)\) off-boundary example into a global \(m\ge3\) statement. The gain is structural and uniform rather than a one-off arithmetic improvement.
+Starting from Wang Prop.3.17, put P=prod_i a_i, q_I=prod_{i not in I}a_i, S_I=sum_{i in I}a_i. Its term equals S_I/P+(|I|-3)/q_I. For full I=A of size n+1, theta_A=S/P+n-2. For proper admissible I (|I|>=4), all positive weights give S_I<S, |I|<=n, q_I>=1, so theta_I <= S_I/P+n-3 < theta_A. Thus the full stratum uniquely maximizes for n>=3, yielding global hyperbolicity at the same strict m>n-2+S/P threshold as the off-boundary Prop.3.11. For P(1,1,2,3,5), n=4, P=30, S=12, threshold 12/5, so integral m>=3. Uses Wang hypotheses and sufficiency only; not claiming necessity or nonisolated singularity extension.
 
-The theorem is a sufficient criterion only and is restricted to the isolated-singularity setup of the source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct comparison of Wang full primary arXiv HTML propositions 3.11, 3.17 and corollary 3.18 finds the ambient value already as an off-boundary bound, the global bound left as a maximum over strata, and only a special P(1,...,1,r) evaluation in the corollary. The strict all-weight equality is not stated in accessible source; although algebra elementary, the global-improvement implication requires showing ALL strata dominated. Best-of-knowledge not indexed elsewhere.
+
+## value
+
+PASS
+
+Evaluates the controlling maximum of a general geometric hyperbolicity theorem, proving that no toric stratum ever raises the sufficient degree threshold in the full isolated-singularity class. This upgrades an off-boundary result to a global result uniformly in all weights, including the previously off-boundary-only P(1,1,2,3,5) example; the substantive geometric consequence, not the one-line algebra alone, motivates the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

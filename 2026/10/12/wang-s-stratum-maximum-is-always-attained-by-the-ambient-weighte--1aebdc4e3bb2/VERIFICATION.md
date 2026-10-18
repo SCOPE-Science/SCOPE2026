@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,78 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The initiating arXiv source was inspected in full text.
+# Independent mathematical audit
 
-Its weighted-projective setup assumes a well-formed \(\mathbf P(a_0,\ldots,a_n)\) of dimension \(n\ge3\) with isolated singularities. It records
-\[
-k=\prod_{i=0}^{n}a_i
-\]
-and uses
-\[
-H=f^*\mathcal O_{\mathbf P}(k)
-\]
-on a toric resolution.
+## correctness
 
-Proposition 3.11 states that
-\[
-m>n-2+\frac{\sum_i a_i}{\prod_i a_i}
-\]
-implies algebraic hyperbolicity outside the toric boundary.
+PASS
 
-Proposition 3.17 defines
-\[
-\Theta=
-\max_{\substack{I\subseteq\{0,\ldots,n\}\\ |I|\ge4}}
-\frac{1}{\prod_{i\notin I}a_i}
-\left(
-\frac{\sum_{i\in I}a_i}{\prod_{i\in I}a_i}+|I|-3
-\right)
-\]
-and states that \(m>\Theta\) implies global algebraic hyperbolicity for a very general hypersurface.
+Starting from Wang Prop.3.17, put P=prod_i a_i, q_I=prod_{i not in I}a_i, S_I=sum_{i in I}a_i. Its term equals S_I/P+(|I|-3)/q_I. For full I=A of size n+1, theta_A=S/P+n-2. For proper admissible I (|I|>=4), all positive weights give S_I<S, |I|<=n, q_I>=1, so theta_I <= S_I/P+n-3 < theta_A. Thus the full stratum uniquely maximizes for n>=3, yielding global hyperbolicity at the same strict m>n-2+S/P threshold as the off-boundary Prop.3.11. For P(1,1,2,3,5), n=4, P=30, S=12, threshold 12/5, so integral m>=3. Uses Wang hypotheses and sufficiency only; not claiming necessity or nonisolated singularity extension.
 
-Let
-\[
-P=\prod_i a_i,\qquad
-S=\sum_i a_i.
-\]
-For each \(I\), with
-\[
-S_I=\sum_{i\in I}a_i,\qquad
-q_I=\prod_{i\notin I}a_i,
-\]
-the printed term simplifies to
-\[
-\theta_I=\frac{S_I}{P}+\frac{|I|-3}{q_I}.
-\]
-For the full set,
-\[
-\theta_A=\frac{S}{P}+n-2.
-\]
-For a proper set,
-\[
-S_I<S,\qquad
-\frac{|I|-3}{q_I}\le |I|-3\le n-3,
-\]
-so
-\[
-\theta_I<\theta_A.
-\]
-This proves the unique-maximizer and exact-\(\Theta\) statements with no case split beyond full versus proper subsets.
+## originality
 
-The convention that the full set is allowed was checked against the source itself: Proposition 3.17 applies in dimension \(3\), where a strict proper subset cannot have four elements, and Corollary 3.18 explicitly computes \(\Theta\) in the family \(\mathbf P(1,\ldots,1,r)\) at the ambient value.
+PASS
 
-For \(\mathbf P(1,1,2,3,5)\),
-\[
-n=4,\qquad
-S=12,\qquad
-P=30,
-\]
-so
-\[
-\Theta=2+\frac{12}{30}=\frac{12}{5},
-\]
-and integer \(m>\Theta\) is equivalent to \(m\ge3\).
+Direct comparison of Wang full primary arXiv HTML propositions 3.11, 3.17 and corollary 3.18 finds the ambient value already as an off-boundary bound, the global bound left as a maximum over strata, and only a special P(1,...,1,r) evaluation in the corollary. The strict all-weight equality is not stated in accessible source; although algebra elementary, the global-improvement implication requires showing ALL strata dominated. Best-of-knowledge not indexed elsewhere.
 
-No computation beyond exact integer and rational arithmetic is needed. No necessity or optimality statement is claimed.
+## value
+
+PASS
+
+Evaluates the controlling maximum of a general geometric hyperbolicity theorem, proving that no toric stratum ever raises the sufficient degree threshold in the full isolated-singularity class. This upgrades an off-boundary result to a global result uniformly in all weights, including the previously off-boundary-only P(1,1,2,3,5) example; the substantive geometric consequence, not the one-line algebra alone, motivates the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
