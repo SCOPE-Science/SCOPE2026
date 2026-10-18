@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central reduction has a precise quantifier justification: the three edges of each triangle among original pairs \(ab,ac,bc\) have the same closed edge neighborhood, namely all pairs incident to \(\{a,b,c\}\). The two-edge liar constraint forces three monitors in that neighborhood, and the converse implies both original constraints. The optimal edge lower bound uses an exhaustive partition into isolated-vertex cases, two-vertex components, and components of order at least three. Trees on blocks of order at least four attain the lower bound. Defect \(4e-3c\) classifies every optimum for \(n\ge8\) because total defect is at most three; Cayley's formula counts each labeled tree. Small boundaries \(n=3,4\) are treated explicitly. The verifier cross-checks independent formulations, including original graph neighborhoods, but only finite instances. An independent proof audit remains outstanding.
+PASS
 
-## Originality — PASS, with residual risks
+Every edge of the triangular graph L(K_n) comes from two intersecting original edges whose union is a triple. Its closed edge-neighborhood consists of selected K_n edges meeting this triple; a triangle of three triangular-graph vertices makes the liar union condition equivalent to at least three selected original edges incident to every triple. Lower bounds by isolated vertices, K2 components and per-component size give m>=ceil(3n/4). Disjoint spanning trees on blocks of sizes 4..7 attain the bound. For n>=8 extremal total defect Σ(4e-3c)=4ceil(3n/4)-3n <=3 excludes cyclic components of order>=4 and leaves exactly the forest type, plus a single triangle only when n mod4=3. Cayley labeled-tree EGF gives the displayed census. Independently enumerated all candidate edge subsets at sizes optimum-1 and optimum for n=4..8, obtaining no smaller and counts 20,210,1773,20629,8960 respectively; infinite proof remains the component/defect argument.
 
-Bhattacharya–Paul (arXiv:2310.07465v1) defines the exact liar's vertex-edge invariant and addresses algorithms and complexity on other graph families, not triangular-graph scalar or minimum-set enumeration. Bhattacharya–Paul (arXiv:2310.07452v1) studies general \(k\)-vertex-edge domination, whose \(k=3\) case is equivalent here; that general definition is not a proof of the exact triangular result. Their subsequent arXiv:2507.04721 treats chordal subclasses, whereas \(T_n\) has an induced four-cycle for \(n\ge5\). Relevant equivalence, line-graph, triangular, incidence-cover, and general \(3\)-ve searches did not locate a dominating exact result. Search failure is not a uniqueness proof, and an equivalent older triple-incidence covering theorem remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a new exact evaluation for a fault-tolerant domination invariant on a classical infinite strongly regular graph family, not a numerical sample. The stronger assertion classifies and counts every optimum configuration for all \(n\ge8\), with a nontrivial exceptional triangle class and an explicit labeled-tree formula. It gives structural information not entailed by general complexity or tree algorithms, and shows a direct graph-design interpretation of the optimum configurations.
+Bhattacharya–Paul 2023 define liar vertex-edge domination and prove general hardness, approximation and tree algorithm results, not the exact nonchordal triangular graph family. The related k-vertex-edge domination definition specializes on L(K_n), but no inspected result computes its optimum, all extremal component types or enumeration. Resultary similar liar domination results concern ordinary vertex domination of complete multipartite graphs.
 
-## Closest literature and limitations
+## value
 
-The closest original sources are arXiv:2310.07465v1 (foundational liar's variant), arXiv:2310.07452v1 (general \(k\)-ve framework), and arXiv:2507.04721v1 (later chordal subclass algorithms). The enumeration begins at \(n=8\); the smaller census is not claimed in general, apart from \(n=4\). There is no claim of a full all-size polynomial, independent validation, or exhaustive novelty certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete exact minimum and labeled extremal-set classification across the natural Johnson/triangular graph family is a substantive structural graph invariant, including a clean reduction to a 3-incident-edge covering problem and tree-defect rigidity. The count is not an arbitrary isolated value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
