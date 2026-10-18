@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and proof boundary
+# Independent mathematical audit
 
-Run the standalone standard-library program `python verify.py` to enumerate the nonzero maximal-ideal vectors and verify the complete degree multiset, as well as the count of self-orthogonal vectors. The final line of a successful execution is `VERIFY_OK`. The enumerated cases comprise \(13\) combinations of prime fields \(\mathbb F_2,\mathbb F_3,\mathbb F_5\), form dimensions \(2,3,4\), and diagonal or hyperbolic representatives; both similarity types for the even-dimensional cases are covered. All cases passed when executed from the packaged code.
+## correctness
 
-The script uses exact modular arithmetic without external dependencies. It enumerates finite examples only; it does not establish the infinitely many finite-field or dimension cases. The general classification follows from the proof in RESULT.md: maximal-ideal multiplication, symplectic/orthogonal similarity classification of nondegenerate symmetric forms over finite fields, and the explicit finite-field quadratic-form zero counts.
+PASS
 
-Independent audit: not performed.
+Every Hilbert (1,d,1) graded commutative local Gorenstein algebra is controlled by a nondegenerate symmetric multiplication form B. Its nonzero maximal-ideal vertices consist of q-1 socle elements of degree q^(d+1)-2 and q lifts of each nonzero v. Distinct nonzero v have q^d possible zero-product partners, with the self-loop removed iff B(v,v)=0, giving degrees q^d-2 (isotropic) and q^d-1 (anisotropic). The classical finite-field quadratic Gauss-sum/characteristic-two linear-square formulas for Z(B), plus finite-field similarity classification, distinguish both even-dimensional similarity classes and yield unique odd-dimensional class. Recovering q,d,Z(B) recovers ring isomorphism type, including finite field automorphism ambiguity. Independent complete degree enumeration corroborated cases q=2,3,5 and alternating/nonalternating split.
+
+## originality
+
+PASS
+
+The bilinear correspondence, Gauss-sum isotropic counts, and characteristic-two similarity classification are classical; the assessed extra result is reconstruction of the complete ring isomorphism type from the ordinary *degree multiset* in the finite graded Hilbert-(1,d,1) Gorenstein class. Searches of published Resultary zero-divisor reconstructions and inspected closely related primary material revealed compressed-graph Gorenstein detection and bilinear orthogonality, but no theorem whose hypotheses imply the degree-sequence reconstruction. This is a best-of-knowledge judgment with explicitly bounded access risk.
+
+## value
+
+PASS
+
+A full degree multiset is a coarse, natural graph invariant. Recovering the residue-field order, embedding dimension, and symmetric form similarity yields a nontrivial inverse rigidity theorem for a geometrically natural Gorenstein ring family, distinguishing even-characteristic alternating forms from nonalternating ones. This solves the graph-isomorphism-to-ring-isomorphism question throughout the stated family, beyond familiar form-counting inputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
