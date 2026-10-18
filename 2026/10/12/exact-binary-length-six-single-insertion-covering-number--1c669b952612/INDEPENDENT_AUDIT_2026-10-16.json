@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:42:50.367036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed 64 candidate-center to 128 target incidence matrix via all seven insertion positions and both symbols. The 20-center witness consists of multiples of three 0..63 except 21 and 42; direct target counts are 98 covered once, 28 twice, and 2 thrice. To certify the lower bound, independently implemented a complete depth-first covering recursion with 19-center budget: at each uncovered target it branches over all unchosen centers capable of covering that target, rejects only when top-b residual center gains cannot cover remaining targets, and memo-free recursion terminates infeasible after 81,352 calls. Inspected source C++17 verify.cpp algorithm, which performs the same logically exhaustive branching with additional safe pruning (reported 81,671 calls). Thus 19 impossible on complete finite input; no timeout or black-box optimizer inference. Larger than 20 irrelevant and any smaller cover extends to 19.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. establish sphere-covering lower and existential upper bounds generally, not the small exact number.",
+          "Pikhurko et al. bound asymptotic density; Xie et al. strengthen bounds especially for larger alphabets."
+        ],
+        "reasoning": "Their general estimates do not force optimality of the twenty listed six-bit centers, because the elementary volume lower bound at these parameters is 16.",
+        "searches": [
+          "arXiv:1911.09944 abstract and main bounds",
+          "arXiv:2409.06425 Theorem3",
+          "arXiv:2606.15379 abstract and introduction",
+          "Resultary semantic search Binary single insertion covering code six bits 20 covering all seven bit words shortest supersequence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.09944 introduction and abstract",
+        "arXiv:2409.06425 Example2 and Theorem3",
+        "arXiv:2606.15379 introduction",
+        "Resultary semantic search q4 10 nearest distinct coding results",
+        "Frozen 64x128 incidence verifier.cpp and witness.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited q=3 example changes alphabet and center length, not a covering equivalence to q=2 length6.",
+          "General density bounds constrain a growth regime but provide no exact 19-center impossibility."
+        ],
+        "reasoning": "The supplied exhaustive incidence/branching certificate is essential for equality twenty, and is not implied by the inspected estimates.",
+        "searches": [
+          "arXiv:2409.06425 Example2 and Theorem3",
+          "arXiv:1911.09944 abstract",
+          "arXiv:2606.15379 Sections I-II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The channel is equivalently a set of binary 6-subsequences hitting every binary 7-word.",
+          "Pikhurko et al. use S(q,n+1,n) and show an exact ternary three-center example S(3,4,3)=12, a different problem."
+        ],
+        "reasoning": "Different insertion-covering notations were reconciled with the identical exact domain; none of the inspected statements equates the present binary number to a known result.",
+        "searches": [
+          "Binary single insertion covering code six bits 20 covering all seven bit words shortest supersequence",
+          "\"I(2,6,1)\" \"20\"",
+          "\"S(2,7,6)\" covering",
+          "arXiv:2409.06425 Definition and Example2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grozea exact example cited in Pikhurko p.1 is S(3,4,3)=12, not binary S(2,7,6).",
+          "No Resultary nearest hit or inspected primary exact table recorded I(2,6,1)=20."
+        ],
+        "reasoning": "An unindexed small-insertion covering database might duplicate the number; search non-hit alone does not prove global novelty.",
+        "searches": [
+          "\"S(2,7,6)\"",
+          "\"I(2,6,1)\"",
+          "Binary single insertion covering code six bits 20 covering all seven bit words shortest supersequence",
+          "Grozea finite covering combinatorial data",
+          "Resultary semantic search Binary single insertion covering code six bits 20 covering all seven bit words shortest supersequence"
+        ]
+      },
+      "rationale": "The exact binary S(2,7,6) value was searched in both notations and against classical/recent insertion-covering code literature and exact small Grozea examples. Lenz et al. give asymptotic/general bounds, Pikhurko et al. give density estimates and a different exact q=3 center-length-3 example, and Xie et al. focus improved general bounds. No actual source implies 19 infeasible at the exact binary case; historical unindexed exact tables remain a risk.",
+      "residual_risks": [
+        "An older small covering-code table or private computational enumeration could report I(2,6,1)=20 under notation S(2,7,6).",
+        "Resultary and web negative searches establish only a best-of-knowledge claim, not universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general theory not the small I(2,6,1) equality in material read",
+          "evidence": [
+            "Abstract claims sphere-covering bounds and asymptotically order-tight existence, not fixed binary six-bit optimum."
+          ],
+          "identifier_or_url": "arXiv:1911.09944",
+          "material_read": "Abstract, introduction and insertion/deletion covering definition; rendered first PDF page",
+          "method": "Opened public arXiv primary PDF; inspected parsed text and page-image",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Primary insertion-covering definitions and stronger general estimates"
+        },
+        {
+          "assessment": "Contains the exact distinct S(3,4,3)=12 example and asymptotic density bounds, not S(2,7,6)",
+          "evidence": [
+            "Example 2 credits Grozea for S(3,4,3)=12; Theorem3 bounds limiting density."
+          ],
+          "identifier_or_url": "arXiv:2409.06425",
+          "material_read": "Abstract, Example2, Theorem3 and opening of Section II, inspected rendered pp.1-2",
+          "method": "Full primary arXiv PDF available; opened relevant text and page-image",
+          "title": "New bounds for the optimal density of covering single-insertion codes via the Turan density",
+          "trigger": "Potential exact small covering table"
+        },
+        {
+          "assessment": "Focuses new general lower bounds and constructions; no checked theorem specifying I(2,6,1)",
+          "evidence": [
+            "Abstract describes large-alphabet estimates, exact fixed R lower bounds and VT constructions rather than a short binary table."
+          ],
+          "identifier_or_url": "arXiv:2606.15379",
+          "material_read": "Abstract and beginning of introduction with formal insertion-ball definition",
+          "method": "Public arXiv full PDF opened; read primary abstract and start of introductory problem formulation",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Fresh 2026 primary potentially covers small exact codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum six-bit one-insertion covering number is a natural fixed-length synchronization-error invariant. A 20-element code is tight while elementary ball-volume bound only gives 16; exact sharp redundancy requires a genuine finite covering obstruction, furnishing a useful benchmark that could be independently reused in code constructions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact minimum number of binary six-bit centers whose one-insertion balls cover all 128 seven-bit words is 20, I(2,6,1)=S(2,7,6)=20.",
+  "limitations": [
+    "Exact only for binary six-bit centers, one insertion, 128 targets; no general sequence of optima.",
+    "Computationally exhaustive lower bound applies only to the explicitly finite domain; unindexed historical table risk."
+  ],
+  "schema_version": 1
+}

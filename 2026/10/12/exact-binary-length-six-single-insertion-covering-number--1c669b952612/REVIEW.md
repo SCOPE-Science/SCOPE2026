@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite universe and subsequence convention are fixed. The explicit code covers all 128 targets, independently counted by direct deletion. The lower bound follows from an exhaustive branching search over all 64 candidate centers; the branching lemma and both exact pruning inequalities are reconstructed in the proof, and the compiled standalone verifier returns the expected unsatisfiable 19-center result. Unlike a timeout or an optimization log, the computation terminates and its control flow proves completeness.
+## correctness
 
-**Originality — PASS, with residual risk.** The statement \(I(2,6,1)=20\), also \(S(2,7,6)=20\), was compared with general insertion-covering literature, exact different-parameter small-alphabet tables, relevant published records, and the synonymous sequence-covering formulation. Inspected primary results give asymptotic bounds or ternary-center examples, not this exact binary length-six result. A historical table not indexed by the searched sources might already contain the value.
+PASS
 
-**Value — PASS.** This is a natural, fully determined finite covering number at a nontrivial length: 64 possible centers cover 128 required targets, the elementary ball-size bound is only 16, and the exact optimum is 20. The witness is simple while proving optimality requires a nontrivial exhaustive covering argument. The result quantifies the exact redundancy penalty at a fixed synchronization-error length; it is neither a cosmetic reformulation nor a known table recomputation in the inspected sources.
+Independently reconstructed 64 candidate-center to 128 target incidence matrix via all seven insertion positions and both symbols. The 20-center witness consists of multiples of three 0..63 except 21 and 42; direct target counts are 98 covered once, 28 twice, and 2 thrice. To certify the lower bound, independently implemented a complete depth-first covering recursion with 19-center budget: at each uncovered target it branches over all unchosen centers capable of covering that target, rejects only when top-b residual center gains cannot cover remaining targets, and memo-free recursion terminates infeasible after 81,352 calls. Inspected source C++17 verify.cpp algorithm, which performs the same logically exhaustive branching with additional safe pruning (reported 81,671 calls). Thus 19 impossible on complete finite input; no timeout or black-box optimizer inference. Larger than 20 irrelevant and any smaller cover extends to 19.
 
-**Closest literature and limitations.** Xie--Sun--Ge (arXiv:2606.15379), Lenz--Rashtchian--Siegel--Yaakobi (arXiv:1911.09944), and Pikhurko--Verbitsky--Zhukovskii (arXiv:2409.06425) treat general insertion covering and density bounds; Grozea's reported exact table concerns three-symbol centers and alphabet sizes two to five. A prior unindexed exact value remains possible. No larger-length or uniform theorem is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact binary S(2,7,6) value was searched in both notations and against classical/recent insertion-covering code literature and exact small Grozea examples. Lenz et al. give asymptotic/general bounds, Pikhurko et al. give density estimates and a different exact q=3 center-length-3 example, and Xie et al. focus improved general bounds. No actual source implies 19 infeasible at the exact binary case; historical unindexed exact tables remain a risk.
+
+## value
+
+PASS
+
+The minimum six-bit one-insertion covering number is a natural fixed-length synchronization-error invariant. A 20-element code is tight while elementary ball-volume bound only gives 16; exact sharp redundancy requires a genuine finite covering obstruction, furnishing a useful benchmark that could be independently reused in code constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The 20-element witness in `witness.txt` was checked against all 128 length-seven binary targets by deleting each of the seven possible positions. There are 98 targets with one witness subsequence, 28 with two, and 2 with three; none has zero.
+# Independent mathematical audit
 
-Compile and run `verify.cpp` with GCC or Clang supporting `unsigned __int128`. The code explicitly generates all 64 binary centers and all 128 target words and proves that none can be covered by 19 centers. Exact branch count: 81,671; `k=19 feasible=0` and `VERIFY_OK`. A successful 20-center branch is also constructed and its full union rechecked. The recursion checks every possible next center covering its chosen uncovered target, while the pruning bounds are upper bounds on possible additional coverage. Therefore the test covers all possible 19-element sets. No continuous or probabilistic numerical approximation enters the certificate.
+## correctness
 
-The classification makes no assertion at other block lengths, alphabet sizes, or insertion radii. Literature incompleteness remains possible and independent validation was not performed.
+PASS
+
+Independently reconstructed 64 candidate-center to 128 target incidence matrix via all seven insertion positions and both symbols. The 20-center witness consists of multiples of three 0..63 except 21 and 42; direct target counts are 98 covered once, 28 twice, and 2 thrice. To certify the lower bound, independently implemented a complete depth-first covering recursion with 19-center budget: at each uncovered target it branches over all unchosen centers capable of covering that target, rejects only when top-b residual center gains cannot cover remaining targets, and memo-free recursion terminates infeasible after 81,352 calls. Inspected source C++17 verify.cpp algorithm, which performs the same logically exhaustive branching with additional safe pruning (reported 81,671 calls). Thus 19 impossible on complete finite input; no timeout or black-box optimizer inference. Larger than 20 irrelevant and any smaller cover extends to 19.
+
+## originality
+
+PASS
+
+The exact binary S(2,7,6) value was searched in both notations and against classical/recent insertion-covering code literature and exact small Grozea examples. Lenz et al. give asymptotic/general bounds, Pikhurko et al. give density estimates and a different exact q=3 center-length-3 example, and Xie et al. focus improved general bounds. No actual source implies 19 infeasible at the exact binary case; historical unindexed exact tables remain a risk.
+
+## value
+
+PASS
+
+The minimum six-bit one-insertion covering number is a natural fixed-length synchronization-error invariant. A 20-element code is tight while elementary ball-volume bound only gives 16; exact sharp redundancy requires a genuine finite covering obstruction, furnishing a useful benchmark that could be independently reused in code constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
