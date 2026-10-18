@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker `artifacts/verify.py` reconstructs the multiplication table
-\[
-e_1^2=(1-\varepsilon)e_1+\varepsilon e_2,\qquad
-e_1e_2=\frac12(e_1+e_2),\qquad
-e_2^2=e_2.
-\]
 
-It symbolically verifies, for
-\[
-u=e_1-e_2,\qquad
-v=e_1+(2\varepsilon-1)e_2,
-\]
-that
-\[
-u^2=-\varepsilon u,\qquad
-uv=0,\qquad
-v^2=\varepsilon(-u+2v).
-\]
+# Independent mathematical audit
 
-It verifies the baric rescaling to
-\[
-x^2=-x,\qquad xy=0,\qquad y^2=-x+2y,
-\]
-and checks the complete automorphism and natural-basis equations.
+## correctness
 
-As replay evidence it exhaustively enumerates the relevant maps and ordered bases over
-\[
-\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7,\quad\mathbf F_{11}.
-\]
-For every tested field, the zero parameter has no ordered natural basis, each nonzero parameter has exactly \(2(q-1)^2\) ordered natural bases, and the fixed algebra has exactly one automorphism.
+PASS
 
-The checker returns `VERIFY_OK`.
+In the original e1,e2 multiplication table, u=e1−e2 and v=e1+(2ε−1)e2 satisfy u²=−εu,uv=0,v²=ε(−u+2v); det[u v]=2ε≠0. Mapping u→εx, v→εy preserves multiplication and weights. At ε=0 the left-multiplication determinant is 2(a+b)^2; any nonzero zero-divisor has annihilator Kz, excluding independent orthogonal basis vectors. The B-automorphism coefficient equations force c=0,a=d=1,b=0 in every characteristic !=2. XY=0 for independent X,Y forces each vector onto a distinct coordinate axis. Separate finite field enumeration at q=3,5,7 confirmed Aut(B)=1; symbolic identities prove all allowed fields.
 
-Finite enumeration is replay evidence only. The arbitrary-field theorem follows from the symbolic identities and the multiplication-kernel proof in `RESULT.md`.
+## originality
+
+PASS
+
+The 2020 initiating article gives the family and evolution criterion and already displays an orthogonal basis. Its published Example 3 does not explicitly derive a baric-isomorphism of all nonzero parameter fibers to one fixed algebra with a complete automorphism/natural-basis count. Different two-dimensional normal-form classifications could yield equivalent coverage; searches produced no decisive covering claim.
+
+## value
+
+PASS
+
+A concrete hereditary deformation is claimed to vary continuously in ε, yet all nonzero fibers share one rigid baric-isomorphism type. This clarifies intrinsic algebraic moduli versus presentation parameters for the named genetic family; it also gives every natural basis and exact finite-field count. The full two-stratum classification, not a cosmetic relabeling alone, is the useful outcome.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
