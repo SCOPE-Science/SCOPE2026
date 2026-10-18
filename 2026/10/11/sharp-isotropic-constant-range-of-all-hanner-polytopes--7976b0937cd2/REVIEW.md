@@ -1,20 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The covariance definition of the isotropic constant makes Cartesian products multiplicative in the exact quantity
-\[
-L_K^{2\dim K}.
-\]
-For an \(\ell_1\)-sum, direct radial integration gives both its beta-function volume factor and the two covariance block factors, yielding the displayed rational coefficient \(C_{p,q}\). A discrete ratio reduction through
-\[
-h(x)=\left(1+\frac1x\right)\left(1+\frac2x\right)^x
-\]
-shows that \(C_{p,q}\) is largest at a one-dimensional split, and a one-variable logarithmic derivative proves that even this maximum is at most \(1\), strictly below \(1\) in dimension at least \(3\). Induction on the Hanner construction tree then gives both sharp endpoints and their equality cases. The bundled exact-rational checker independently verifies the recursion and extremal formulas over a substantial finite range.
+## correctness
 
-## Originality
-**PASS, with an explicit elementary-recursion residual risk.** The closest Hanner source was materially inspected for the recursive \(\ell_1/\ell_\infty\) definition and Mahler context. The defining isotropic-constant source and Kipp's later full paper were inspected for the exact covariance normalization, the cube conjectural upper endpoint, the cross-polytope value, and the strongest nearby extremal theorems. Kipp proves local-maximizer and restricted-zonotope statements, but explicitly notes that the local zonotope theorem itself yields no upper bound and then proves the upper conjecture only for a different zonotope subclass. Candidate-specific searches under Hanner, isotropic constant, cube, cross-polytope, product, direct sum, and exact endpoint formulations found no theorem implying the complete Hanner range or the recursive coefficient.
+PASS
 
-## Value
-**PASS.** Hanner polytopes are a canonical recursively generated class central to the symmetric Mahler problem. The centrally symmetric strong isotropic conjecture predicts the cube endpoint, so proving it sharply on the entire Hanner class is a natural benchmark. The theorem is stronger than a one-sided bound: it determines both extrema, gives equality rigidity, and isolates an exact multiplicative loss at every \(\ell_1\)-sum node.
+The affine-invariant definition S(K)=L_K^(2dim K)=det Cov(K)/vol(K)^2 gives exact S(P×Q)=S(P)S(Q). For P⊕1Q, beta-fiber integration yields vol=p!q!/d! vol(P)vol(Q) and covariance block scale ((p+1)(p+2))/((d+1)(d+2)) (and analogous q), giving stated exact C_pq. Its split-ratio equals h(p+1)/h(d-p), h(x)=(1+1/x)(1+2/x)^x; h(1)=h(2)=6 and h strictly increases on [2,∞), so C_pq maximized on boundary p=1. C_1,d-1=6 d^(d+1)/((d+1)(d+2)^d)<1 for d>=3, equality only d=2. Exact rational independent checks: C_1,2=243/250, C_2,2=576/625, C_1,5=6561/7168. Cross and cube covariance/volume recursions and Hanner product/l1 induction prove both extremal bounds and equality classes (2D parallelogram affine coincidence). The supplied exact-rational checker was inspected; its d≤40/d≤9 samples cannot replace the all-d proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kipp 2025 full paper derives structural necessary conditions for local maximizers and a few zonotope classes, not an all-Hanner exact isotropic interval or this l1 recursion and equality classification. Kim 2014 concerns minimal Mahler volume product near Hanner bodies rather than covariance determinants; Rademacher 2016 similarly treats necessary conditions for global maximizers. Resultary search returned the assessed record and other polytope invariants but no dominator. Novelty remains best-of-knowledge with risk of an unindexed elementary Hanner covariance formula.
+
+## value
+
+PASS
+
+Hanner polytopes are a canonical recursively closed family in symmetric convex geometry; exact isotropic extremals within that family settle a sharp natural slice of an important open shape-optimization problem. The l1 transformation law supplies structural mathematical understanding for any Hanner construction, and rigidity of endpoint classes is more than evaluating cube and cross-polytope constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

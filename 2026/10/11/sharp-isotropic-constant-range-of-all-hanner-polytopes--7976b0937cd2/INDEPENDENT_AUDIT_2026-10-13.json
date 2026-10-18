@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T15:12:51.770856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine-invariant definition S(K)=L_K^(2dim K)=det Cov(K)/vol(K)^2 gives exact S(P×Q)=S(P)S(Q). For P⊕1Q, beta-fiber integration yields vol=p!q!/d! vol(P)vol(Q) and covariance block scale ((p+1)(p+2))/((d+1)(d+2)) (and analogous q), giving stated exact C_pq. Its split-ratio equals h(p+1)/h(d-p), h(x)=(1+1/x)(1+2/x)^x; h(1)=h(2)=6 and h strictly increases on [2,∞), so C_pq maximized on boundary p=1. C_1,d-1=6 d^(d+1)/((d+1)(d+2)^d)<1 for d>=3, equality only d=2. Exact rational independent checks: C_1,2=243/250, C_2,2=576/625, C_1,5=6561/7168. Cross and cube covariance/volume recursions and Hanner product/l1 induction prove both extremal bounds and equality classes (2D parallelogram affine coincidence). The supplied exact-rational checker was inspected; its d≤40/d≤9 samples cannot replace the all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kipp Theorem 1.4 conditionally classifies maximizer with cubical zone; explicitly says it gives no upper bound",
+          "The centrally symmetric strong isotropic upper bound is conjectural for all convex bodies"
+        ],
+        "reasoning": "Known broader-sounding classification of conditional maximizers does not dominate an unconditional all-Hanner inequality with both endpoints.",
+        "searches": [
+          "isotropic constant Hanner polytopes cube cross polytope extremal range under l1 l infinity sums",
+          "Kipp 2025 Theorems 1.3 and 1.4",
+          "Rademacher arXiv:1404.5662v1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md 6d293bf221b57da11c436bac0dcc3d9ee5542c49; verify.py aefb9b7d29727ca380c1d25d86274f9f7588c56c; all tree blobs",
+        "Independent Fraction evaluation for several C_pq on 2026-10-13",
+        "Kipp arXiv:2407.01353v2",
+        "Rademacher arXiv:1404.5662 abstract",
+        "Resultary query isotropic constant Hanner polytopes cube cross polytope extremal range under l1 l infinity sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kipp local extremal theorem does not provide Hanner l1 covariance multiplier C_pq",
+          "The cube bound for all centrally symmetric convex bodies remains a conjecture, so cannot be invoked to cover Hanner bound"
+        ],
+        "reasoning": "No materially inspected prior statement yields the exact recursive all-Hanner extrema; the new beta-integration proof fills a motivated case.",
+        "searches": [
+          "isotropic constant Hanner polytopes cube cross polytope extremal range under l1 l infinity sums",
+          "Kipp arXiv:2407.01353v2 §§1,4–6",
+          "Kim arXiv:1212.2544v1 abstract and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kipp focuses on local extremal necessary conditions and limited zonotopes, not Hanner tree recursions",
+          "Kim studies Mahler volume products; isotropic covariance determinant not same object"
+        ],
+        "reasoning": "Geometric similarity to cube/cross-polytope work does not imply the sharp all-Hanner covariance bounds.",
+        "searches": [
+          "isotropic constant Hanner polytopes cube cross polytope extremal range under l1 l infinity sums",
+          "Kipp arXiv:2407.01353v2",
+          "Kim arXiv:1212.2544v1",
+          "Rademacher arXiv:1404.5662v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kipp records cross-polytope value and conjectured cube bound for broad classes, not values for all Hanner trees",
+          "Finite Hanner table through 9 in verify.py is a diagnostic enumeration, not a prior published all-d table"
+        ],
+        "reasoning": "Known endpoint values alone do not mechanically imply the sharp range for every Hanner tree; need exact sum coefficient inequality and induction.",
+        "searches": [
+          "isotropic constant Hanner polytopes cube cross polytope extremal range under l1 l infinity sums",
+          "Kipp 2025 cube and cross covariance formulas",
+          "Resultary published Hanner isotropic search"
+        ]
+      },
+      "rationale": "Kipp 2025 full paper derives structural necessary conditions for local maximizers and a few zonotope classes, not an all-Hanner exact isotropic interval or this l1 recursion and equality classification. Kim 2014 concerns minimal Mahler volume product near Hanner bodies rather than covariance determinants; Rademacher 2016 similarly treats necessary conditions for global maximizers. Resultary search returned the assessed record and other polytope invariants but no dominator. Novelty remains best-of-knowledge with risk of an unindexed elementary Hanner covariance formula.",
+      "residual_risks": [
+        "An equivalent elementary covariance recursion may be in older Banach-space notes not indexed or fully accessible.",
+        "Source proof strict coefficient bound relies on a continuous h(x) monotonicity inequality; independently checked representative rational coefficients, not an exhaustive computational certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not full Hanner range; its upper theorems are conditional",
+          "evidence": "§1 Theorem 1.4: local maximizer with cubical zone must be cube; text explicitly warns that theorem gives no zonotope upper bound",
+          "identifier_or_url": "https://arxiv.org/html/2407.01353v2",
+          "material_read": "Introduction Theorems 1.2–1.4, statements about conditional maximizers and zonotopes, body discussion of isotropic covariance",
+          "method": "full-text HTML sections read",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "closest primary isotropic extremizers / cube and cross"
+        },
+        {
+          "assessment": "does not imply all Hanner bounds",
+          "evidence": "Abstract describes necessary condition for simplicial polytopal maximizers, not Hanner class classification",
+          "identifier_or_url": "https://arxiv.org/abs/1404.5662",
+          "material_read": "Abstract, definition L_K^(2d)=det Cov/vol² and main conditional theorem",
+          "method": "abstract/bibliographic metadata, no claim of full body inspection",
+          "title": "A simplicial polytope that maximizes the isotropic constant must be a simplex",
+          "trigger": "earlier general isotropic maximality theorem"
+        },
+        {
+          "assessment": "different invariant; priority risk for unindexed recursion remains",
+          "evidence": "Mahler product of Hanner bodies rather than determinant of uniform covariance",
+          "identifier_or_url": "https://arxiv.org/abs/1212.2544",
+          "material_read": "Abstract and bibliographic construction references; full text inaccessible via HTML in this run",
+          "method": "abstract/metadata only",
+          "title": "Minimal volume product near Hanner polytopes",
+          "trigger": "original Hanner construction and Mahler geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Hanner polytopes are a canonical recursively closed family in symmetric convex geometry; exact isotropic extremals within that family settle a sharp natural slice of an important open shape-optimization problem. The l1 transformation law supplies structural mathematical understanding for any Hanner construction, and rigidity of endpoint classes is more than evaluating cube and cross-polytope constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent elementary covariance recursion may be in older Banach-space notes not indexed or fully accessible.",
+    "Source proof strict coefficient bound relies on a continuous h(x) monotonicity inequality; independently checked representative rational coefficients, not an exhaustive computational certificate."
+  ],
+  "schema_version": 1
+}

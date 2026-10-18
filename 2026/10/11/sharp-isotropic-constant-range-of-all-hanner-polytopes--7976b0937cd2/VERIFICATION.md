@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a centered \(m\)-dimensional body,
-\[
-L_K^{2m}
-=
-\frac{\det A(K)}{\operatorname{vol}(K)^2}.
-\]
-The proof uses the exact recursions
-\[
-S(P\times Q)=S(P)S(Q)
-\]
-and
-\[
-S(P\oplus_1Q)=C_{p,q}S(P)S(Q),
-\]
-where
-\[
-S(K)=L_K^{2\dim K}.
-\]
+# Independent mathematical audit
 
-The checker uses exact rational arithmetic for
-\[
-C_{p,q}
-=
-\binom{p+q}{p}^{2}
-\left(\frac{(p+1)(p+2)}{(p+q+1)(p+q+2)}\right)^p
-\left(\frac{(q+1)(q+2)}{(p+q+1)(p+q+2)}\right)^q.
-\]
-It verifies the strict-loss pattern through dimension \(40\), recursively enumerates all exact Hanner values through dimension \(9\), and checks the cube and cross-polytope endpoint formulas.
+## correctness
 
-These finite checks do not prove the quantified theorem. The all-dimensional proof is the beta-integral covariance computation plus the analytic inequality \(C_{p,q}\le1\).
+PASS
+
+The affine-invariant definition S(K)=L_K^(2dim K)=det Cov(K)/vol(K)^2 gives exact S(P×Q)=S(P)S(Q). For P⊕1Q, beta-fiber integration yields vol=p!q!/d! vol(P)vol(Q) and covariance block scale ((p+1)(p+2))/((d+1)(d+2)) (and analogous q), giving stated exact C_pq. Its split-ratio equals h(p+1)/h(d-p), h(x)=(1+1/x)(1+2/x)^x; h(1)=h(2)=6 and h strictly increases on [2,∞), so C_pq maximized on boundary p=1. C_1,d-1=6 d^(d+1)/((d+1)(d+2)^d)<1 for d>=3, equality only d=2. Exact rational independent checks: C_1,2=243/250, C_2,2=576/625, C_1,5=6561/7168. Cross and cube covariance/volume recursions and Hanner product/l1 induction prove both extremal bounds and equality classes (2D parallelogram affine coincidence). The supplied exact-rational checker was inspected; its d≤40/d≤9 samples cannot replace the all-d proof.
+
+## originality
+
+PASS
+
+Kipp 2025 full paper derives structural necessary conditions for local maximizers and a few zonotope classes, not an all-Hanner exact isotropic interval or this l1 recursion and equality classification. Kim 2014 concerns minimal Mahler volume product near Hanner bodies rather than covariance determinants; Rademacher 2016 similarly treats necessary conditions for global maximizers. Resultary search returned the assessed record and other polytope invariants but no dominator. Novelty remains best-of-knowledge with risk of an unindexed elementary Hanner covariance formula.
+
+## value
+
+PASS
+
+Hanner polytopes are a canonical recursively closed family in symmetric convex geometry; exact isotropic extremals within that family settle a sharp natural slice of an important open shape-optimization problem. The l1 transformation law supplies structural mathematical understanding for any Hanner construction, and rigidity of endpoint classes is more than evaluating cube and cross-polytope constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
