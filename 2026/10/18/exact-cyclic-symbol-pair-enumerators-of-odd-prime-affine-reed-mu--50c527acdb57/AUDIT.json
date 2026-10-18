@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof includes all cyclic carry types, especially the last-to-first step, reconstructs z(f) from suffix sums for every affine coefficient vector and intercept, counts every tuple exactly once, then proves disjoint support recursion and extreme multiplicities. Exact-codeword independent enumeration matches the resulting integer polynomial for p=3,m<=6; p=5,7,m<=3 and additional binary contrast. The general statement rests on induction and the symbolic count, not finite experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Pan general methods express symbol weights via incidences but do not evaluate this odd-prime radix-order distribution.",
+        "Miezaki–Munemasa compute binary Jacobi/harmonic enumerators, not odd-prime cyclic adjacency statistics."
+      ],
+      "reasoning": "Abstract incidence formulas and Hamming/Jacobi distributions do not, without additional carry-order analysis, give the exact variable exponents, support size or multiplicities; no stronger covering theorem was identified in materially inspected sources.",
+      "searches": [
+        "full b-symbol weight enumerators of first-order Reed Muller codes generalized q-ary lexicographic order",
+        "complete cyclic pair-weight distribution of p-ary generalized Reed-Muller codes nonbinary",
+        "arXiv:2103.16299 Section 4",
+        "arXiv:2303.16349"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.16299 (Liu–Pan, Section 4 full text)",
+      "arXiv:1911.02184 (Ma–Luo, Theorems 2–3 full text)",
+      "arXiv:2303.16349 (Miezaki–Munemasa, full text)",
+      "published-finding corpus: 2026/9/8/SCOPE080 (three binary cyclic b-symbol codes)",
+      "published-finding corpus: 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824 (Hamming-weight gap theorem)",
+      "published-finding corpus: 2026/9/18/SCOPE-qary-counterexamples-mirror-vanishing--7d5d46a2a226 (Hamming-weight counterexamples)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Luo simplex/variant-simplex claims are different parameterized code families and yield constant nonzero pair weight.",
+        "published-finding corpus q-ary mirror-band record concerns gaps in Hamming weight distributions, not ordered cyclic pair-window multiplicities."
+      ],
+      "reasoning": "Neither a constant-weight simplex result, a general generalized b-weight definition, nor Hamming-weight gap results imply the present pair-weight polynomial. The crucial ordered carry identity and its suffix-factor count supply extra nontrivial information.",
+      "searches": [
+        "minimum symbol pair distance (p-1)p^(m-1)+1 first order Reed Muller over prime field",
+        "arXiv:1911.02184 Theorems 2–3",
+        "arXiv:2103.16299 Sections 2 and 4",
+        "published-finding corpus: 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Luo Theorem 2: simplex code with one positive cyclic pair weight; Theorem 3: variant simplex code also has a single specified nonzero pair weight. Present affine code has 2^m distinct weights.",
+        "Liu–Pan Section 4 develops generalized b-symbol weights, not the same complete pair-weight enumerator."
+      ],
+      "reasoning": "A dimension-m multiplicative-ordered simplex code of length p^m-1 and a dimension-(m+1) lex-ordered affine code of length p^m cannot be equivalent as ordered codes; even removing one coordinate would change cyclic adjacency and the code. Their one-weight theorems do not imply the multifold product distribution.",
+      "searches": [
+        "symbol-pair weight distribution of q-ary first-order generalized Reed Muller codes in lexicographic coordinate order",
+        "Exact pair-weight enumerator of odd-prime first-order generalized Reed Muller affine evaluation code in lexicographic digit order",
+        "p-ary affine linear codeword cyclic consecutive zero pairs base-p carry suffix sums",
+        "arXiv:1911.02184 Theorem 2; arXiv:1911.02184 Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/9/8/SCOPE080 enumerates three small binary cyclic symbol-pair codes; different alphabet and objects.",
+        "No inspected table of p-ary lexicographic affine pair spectra or its 2^m-support law was located."
+      ],
+      "reasoning": "The relevant returned finite binary tables cannot contain the all-odd-primes, all-dimensions formula. Absence of indexed tables is not a proof of global novelty.",
+      "searches": [
+        "symbol-pair weight spectrum of q-ary simplex codes evaluation ordered affine linear functions",
+        "2^m distinct symbol-pair weights of lexicographically ordered generalized Reed Muller RM_p(1,m)",
+        "published-finding corpus: 2026/9/8/SCOPE080"
+      ]
+    },
+    "rationale": "Comparison at the mathematical statement level shows the closest simplex pair enumerators concern dimension-m length-(p^m-1) multiplicative order and one positive weight; the present dimension-(m+1) length-p^m lex-ordered affine code has 2^m weights. Liu–Pan Section 4 treats generalized b-weight matrices but gives no full specialized multiplicity formula. Binary Jacobi enumerators do not imply cyclic pair weights of odd-prime evaluation codes. published-finding corpus queries did not surface an equivalent; possible unindexed priority remains.",
+    "residual_risks": [
+      "Mathematical equivalence in a pre-existing unindexed non-English paper, thesis, or table is not ruled out.",
+      "Automated semantic searches are incomplete; only the named primary papers were materially inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: generalized weight matrices do not state the cyclic pair enumerator of lexicographically ordered odd-prime affine evaluation codes.",
+        "evidence": "Section 4 code examples focus on generalized b-symbol weight matrices; the present claim requires all multiplicities and a new p-adic carry calculation.",
+        "identifier_or_url": "arXiv:2103.16299",
+        "material_read": "Full open-access arXiv paper, with special attention to Section 4 and generalized-weight definitions.",
+        "method": "Primary full-text inspection and comparison of code parameters and mathematical conclusions.",
+        "title": "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes",
+        "trigger": "Closest general b-symbol framework and simplex examples."
+      },
+      {
+        "assessment": "NOT_COVERING: multiplicative-order simplex variants have a single nonzero pair weight and unequal parameters, not the proposed lex-ordered affine spectrum.",
+        "evidence": "Theorem 2 states the cyclic simplex constant pair weight; Theorem 3 treats a variation simplex code. Neither enumerates ordered length-p^m affine evaluations.",
+        "identifier_or_url": "arXiv:1911.02184",
+        "material_read": "Full open-access preprint, especially the simplex and variation-simplex results in Theorems 2–3.",
+        "method": "Primary full-text inspection of hypotheses, coordinate orderings, lengths, dimensions and pair-weight conclusions.",
+        "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+        "trigger": "Plausible direct covering result about simplex symbol-pair distributions."
+      },
+      {
+        "assessment": "NOT_COVERING: binary Jacobi and harmonic enumerators do not state odd-prime cyclic pair-weight multiplicities.",
+        "evidence": "The stated results concern binary first-order Reed–Muller codes and different weight enumerators.",
+        "identifier_or_url": "arXiv:2303.16349",
+        "material_read": "Full nine-page open-access preprint and its principal theorem.",
+        "method": "Primary full-text inspection and metric/alphabet comparison.",
+        "title": "Jacobi polynomials and harmonic weight enumerators of first-order Reed–Muller codes and extended Hamming codes",
+        "trigger": "Possible stronger weight enumerator results for first-order Reed–Muller codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50c527ac-db57-4007-915c-fa6a0fccc583",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The formula gives all pair-weight multiplicities for every odd prime and dimension of a canonical coding family in a specified meaningful coordinate order; the rigid 2^m spectrum, precise extremal coefficients, and fractal recursion convey information unavailable from known pair distance or Hamming enumerators. The infinite statement answers a motivated window-metric question, not a renamed textbook calculation or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
