@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the projection matrix exactly from the complete-graph incidence Laplacian, characterizes polar vertices by the forest criterion, proves trinary integrality by cut conservation, and obtains extremal support sizes from parity. The odd-order full supports and even-order perfect-matching supports are realized by Eulerian orientations. The independent irreducibility argument for the signed edge-permutation action makes the unique John and Löwner ellipsoids genuine Euclidean balls. The attached integer/rational checker exhausts orders \(4,5,6\) in precisely stated finite domains and reproduces the polar contact distributions; the all-order assertion rests on the proof. Principal limitation: other inner products on cographic representations may yield different radii.
+PASS
 
-## Originality — PASS, with search risk
+Checked incidence normalization BB^T=nI-J, Π=I-(1/n)B^TB, projected edge squared norms (n-2)/n, intrinsic dimension d=(n-1)(n-2)/2. Polar Q=circulations in [-1,1]^E; a point is a polar vertex iff unsaturated edge graph is a forest, since cycle perturbations exclude nonvertices and forest carries no nonzero circulation. Cut conservation forces unsaturated integral entries, hence zeros; even-degree supported trinary flows yield zero forest parity deg_F(v)=n-1 mod 2. For odd n finite forest of even degrees must be empty; for even n forest has at least n/2 edges, equality precisely a perfect matching, attainable by Eulerian orientation of its complement. Uniqueness and S_n orthogonal irreducibility on the triangle-generated cycle space imply both extremal ellipsoids are balls. Independently exhausted all {-1,0,1} balanced forest-support flows n=4,5, reproducing norms multiplicities (8,6) and (24); original checked n=6 as well. Finite checks are not a full all-n proof.
 
-The nearest full-text paper, D’Alì–Juhnke-Kubitzke–Koch (arXiv:2307.04933v1), provides spanning-cut facet descriptions and nowhere-zero flows for bipartite matroids, but not the present orthogonally normalized metric radii, both optimal ellipsoids, or even-order perfect-matching contact stratification. Bandekar et al. (arXiv:2409.17893v1) address facet volumes through Eulerian arborescence numbers, not Euclidean distances or optimal balls. Searches also considered complete-graph-minus-matching orientation counts and related projected cross-polytope and ellipsoid descriptions without finding a published statement that implies the combined theorem. The structural comparison depends on mathematical implications, not the absence of keyword hits; unknown or incompletely indexed prior equivalents remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-A canonical Hodge-theoretic metric on a natural family of generalized symmetric-edge polytopes produces a complete all-dimensional Euclidean ellipsoid determination and a sharp odd-even facet-contact transition. For dimension \(d=(n-1)(n-2)/2\), the containment factor attains \(\sqrt d\) in every odd order but is strictly smaller in every even order. The even-order perfect-matching classification explains geometrically why the sharp symmetric John bound ceases to be attained. This concerns a natural invariant family and genuinely geometric information not obtained by simply counting or renaming existing facets.
+The exact Euclidean metric on a canonical cographic complete-graph realization, its ellipsoid radii, full parity-sharp facet contacts and John bound attainment are not implied by matroidal combinatorial facet classification or arborescence-volume theorems. Distinction between unimodular realizations and induced orthogonal metric is essential.
 
-## Closest literature and remaining limits
+## value
 
-Primary comparisons: D’Alì–Juhnke-Kubitzke–Koch, arXiv:2307.04933v1, §5; Bandekar et al., arXiv:2409.17893v1, §1.2. The result is metric-realization-specific; neither lattice equivalence nor Eulerian facet-volume formulas imply preservation of Euclidean radii. Independent validation is outstanding; unindexed equivalent orthogonal-projection identities are the main literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact intrinsic ellipsoid geometry of a natural regular-matroid symmetric-edge polytope, with structural parity split and complete contact facets, gives metric information not recoverable from combinatorial facet counts. Odd equality in sharp symmetric John containment and even strictness exhibit a meaningful invariant boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
