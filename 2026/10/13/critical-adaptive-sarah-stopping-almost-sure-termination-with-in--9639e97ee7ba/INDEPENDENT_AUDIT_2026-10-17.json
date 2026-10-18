@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:05:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact scalar f1=x²/2,f2=3x²,F=7x²/4,η=1/2,γ=1/4, the recursive gradient v_t=(1−η a_I)v_(t−1) is multiplied independently by 1/2 or −2, so log2|v_t/v0| is a simple symmetric walk; first threshold hit T of −1 has Catalan law C_j/2^(2j+1), a.s. finite and infinite expectation. On the disjoint all-up-then-down strings E_h of probability 2^(−2h−1), the signed iterate sum equals (5/3)(−2)^h+1/3−(−1)^h/2, giving |x_{T+1}|≥2^h|x0|, so E[x²]=∞ and finite-cap E[x_{min(T,N)+1}²]≥x0²/2 floor((N−1)/2). Independent exact rational rare-path checks h=1..12 confirmed signs and amplitude inequality; the infinite conclusion uses symbolic formulas and disjoint events. Inspected Algorithm 2 order: output is w_t after t increment, agreeing with source indexing when uncapped.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SARAH+ explicitly upper bounds inner steps by m, and source sufficient η regime is below η=1/2 for L=6."
+        ],
+        "reasoning": "Capped algorithm theorem and safe-step analyses do not cover uncapped critical step, hence do not imply or refute the stated failure.",
+        "searches": [
+          "Nguyen et al 2017 Algorithm 2 and Theorem 4",
+          "Li–Ma–Giannakis arXiv:1906.02351"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 2017 Nguyen et al Algorithm 2 full publisher PDF",
+        "arXiv:1906.02351 metadata and source comparisons",
+        "Resultary SARAH infinite inner loop finding 2026/10/4 summary",
+        "Git assigned RESULT.md sha bc06479f463f8a43ce151caeb5331234db62195b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 checks ||v_(t−1)||² while t<m, updates to v_t,w_(t+1), then returns w_t, whereas removing t<m changes the stochastic stopping horizon."
+        ],
+        "reasoning": "Finite work follows trivially from a cap, but cannot imply the uncapped infinite-mean or risk lower bound. Classical first-hit distribution alone does not imply signed iterate growth.",
+        "searches": [
+          "PMLR Algorithm 2 screenshot p.7",
+          "arXiv:1906.02351"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Critical stochastic recursion yields a fair log-magnitude walk and exact Catalan first passage. Prior Resultary result is deterministic magnitude contraction and a bounded residual, not the same stopped law."
+        ],
+        "reasoning": "General first-passage Catalan facts are prior probability theory; the nontrivial coupling to signed SARAH iterate and its second moment is not equivalent to them alone.",
+        "searches": [
+          "Nguyen et al PMLR v70/nguyen17b Algorithm 2",
+          "Resultary published SARAH infinite-inner-loop residual-floor finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest found exact SARAH result has uniformly decaying gradient and nonzero limiting error, a different statistic from Catalan stopping."
+        ],
+        "reasoning": "No exact stopped-output table found in bounded search, not a proof of absent priority.",
+        "searches": [
+          "Resultary: critical SARAH adaptive stochastic stopping infinite moments",
+          "Published Resultary exact random residual floor for a single infinite SARAH inner loop"
+        ]
+      },
+      "rationale": "PASS for coupling a critical, oscillating recursive-gradient first-passage time to unbounded signed returned-iterate risk in an exact SARAH+ inner pass. The original published Algorithm 2 has a mandatory finite cap and so has no infinite expected work; those finite capped loops are explicitly excluded. A published related Resultary SARAH infinite-loop result finds a residual floor under a different stable-magnitude construction; it neither implies this Catalan stopping tail nor the infinite second moment.",
+      "residual_risks": [
+        "Step size η=1/2 exceeds published sufficient small-step regime; construction is an adversarial uncapped extension rather than a failure of the capped SARAH+ convergence theorem.",
+        "Unindexed theoretical examples may have treated the same critical two-quadratic stopping process."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING uncapped example",
+          "evidence": "Algorithm 2 includes t<m; update v_t,w_(t+1) then output w_t, explicitly says cap for robustness; sufficient η regime differs.",
+          "identifier_or_url": "https://proceedings.mlr.press/v70/nguyen17b/nguyen17b.pdf",
+          "material_read": "9-page publisher primary article, especially pp.1,6–7 Algorithm 2 and Sec.4 plus stepsize bounds",
+          "method": "Full PDF open, find Algorithm 2, page 7 visual inspection",
+          "title": "SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient",
+          "trigger": "Exact initiating SARAH+ algorithm and stopping order"
+        },
+        {
+          "assessment": "DIFFERENT_CLAIM, full text not inspected",
+          "evidence": "Shows geometric gradient vanishing and random nonzero floor, not critical signed random-walk stopping. Prior result still a residual comparison risk.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1",
+          "material_read": "Title and detailed published mathematical summary only",
+          "method": "Resultary semantic index search",
+          "title": "Exact random residual floor for a single infinite SARAH inner loop",
+          "trigger": "Closest semantically matched published internal scientific result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a precise and motivated failure mode for a natural uncapped adaptive stopping heuristic and quantifies linear growth of second-moment risk under increasing finite caps despite full-gradient descent stability. This is a mathematical boundary result, not a claim against the finite published algorithm or its safe η convergence guarantees.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "PMLR 2017 Nguyen et al Algorithm 2 full publisher PDF",
+    "arXiv:1906.02351 metadata and source comparisons",
+    "Resultary SARAH infinite inner loop finding 2026/10/4 summary",
+    "Git assigned RESULT.md sha bc06479f463f8a43ce151caeb5331234db62195b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One scalar two-component example; exact initial gradient and discrete iid samples.",
+    "Only uncapped first inner pass has infinite expected work; every finite published cap has finite expected work and moments.",
+    "The stated linear cap rate is a lower bound; no outer-loop convergence claim.",
+    "Step size η=1/2 exceeds published sufficient small-step regime; construction is an adversarial uncapped extension rather than a failure of the capped SARAH+ convergence theorem.",
+    "Unindexed theoretical examples may have treated the same critical two-quadratic stopping process.",
+    "Scientific acceptance is best-of-knowledge and does not imply external expert certification, exhaustive priority, or publication."
+  ],
+  "residual_risks": [
+    "Step size η=1/2 exceeds published sufficient small-step regime; construction is an adversarial uncapped extension rather than a failure of the capped SARAH+ convergence theorem.",
+    "Unindexed theoretical examples may have treated the same critical two-quadratic stopping process."
+  ],
+  "schema_version": 1
+}
