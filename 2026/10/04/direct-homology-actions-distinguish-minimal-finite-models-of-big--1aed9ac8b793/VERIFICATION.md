@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded `verify.py` is dependency-free and reconstructs the three six-point height-two models from their bipartite Hasse graphs. For each model it chooses a spanning tree and the three associated fundamental cycles, verifies that those cycles have zero boundary, and uses their non-tree edges as exact integral homology coordinates.
+# Independent mathematical audit
 
-The program then enumerates all \(6^6=46656\) set maps. A map survives exactly when it is order-preserving. For each surviving map the program computes the induced edge-chain map, checks that each cycle image reconstructs exactly from its three homology coordinates, forms the integral \(3\times3\) matrix, and records its rank and determinant. A separate inverse-monotonicity test detects finite-poset homeomorphisms.
+## correctness
 
-Run `python3 verify.py`. The expected output is:
+PASS
 
-`VERIFY_OK`
-`K2,4_self_maps=1782`
-`K2,4_distinct_H1_actions=421`
-`K2,4_distinct_rank_profile=1,84,288,48`
-`K2,4_H1_isomorphism_maps=48=homeomorphisms`
-`K4,2_opposite_same_counts=yes`
-`K3,3_minus_edge_self_maps=646`
-`K3,3_minus_edge_distinct_H1_actions=113`
-`K3,3_minus_edge_distinct_rank_profile=1,60,48,4`
-`K3,3_minus_edge_H1_isomorphism_maps=4=homeomorphisms`
-`direct_H1_action_count_depends_on_minimal_model=yes`
+Barmak–Minian’s six-point, eight-Hasse-edge minimum plus p+q=6,pq>=8 gives exactly K2,4, K4,2, K3,3 minus one edge. Each order complex is a connected graph with rank H1=8-6+1=3. An independent clean-room Python checker constructed from the source poset definitions (not just running the uploaded verifier) enumerated all 6^6=46656 set maps on each model, filtered monotone maps, mapped each fundamental-cycle chain on edges, extracted 3×3 integral H1 matrices, and checked inverse monotonicity and det ±1. Obtained 1782 selfmaps, 421 distinct matrices with ranks (1,84,288,48), 48 homology auto/homeomorphism maps for each opposite K2,4 model; K3,3-e yielded 646 maps, 113 matrices with ranks (1,60,48,4), 4 automorphism/homeomorphisms. All counts agree with inspected actual `verify.py` but come from independent enumeration, not logs.
 
-The finite census is exhaustive for the stated spaces. Literature comparison and originality assessment are not machine-certified.
+## originality
+
+PASS
+
+Barmak–Minian classifies exactly the three minimal graph models but not their full direct continuous self-map integral H1 action sets; Bradley’s general monotone-map homology result does not supply these complete action semigroups. The related published five-point wedge-of-two-circles action census concerns a genuinely different homotopy type, model size, and rank-two homology action; no stronger matching published census found.
+
+## value
+
+PASS
+
+This is a motivated natural classification of direct H1-action expressivity for *all* minimum-size finite models of the first three-loop bouquet where minimal models are not unique, giving a basis-independent model-dependence invariant and distinguishing 421 and 113 distinct integral actions. A complete finite census is valuable even without a general formula for larger bouquets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

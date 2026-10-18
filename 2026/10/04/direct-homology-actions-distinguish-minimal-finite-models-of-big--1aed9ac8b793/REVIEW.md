@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The primary-source theorem fixes the six-point/eight-edge minimal-model constraints for \(\bigvee^3 S^1\). Elementary bipartite counting then leaves exactly \(K_{2,4}\), its opposite, and \(K_{3,3}\setminus e\). For each model the order complex is a connected graph with first Betti number \(3\). The verifier checks all \(6^6\) set maps, filters continuity by the exact order relation, computes the induced integral chain map, reconstructs every image cycle in an explicit fundamental-cycle basis, and independently tests order isomorphisms. Replay returns `VERIFY_OK` with the stated \(1782/421\) and \(646/113\) totals and with homology-isomorphism maps equal to homeomorphisms.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, Barmak--Minian `arXiv:math/0611156`, classifies the minimal finite models but does not give their self-map monoids or induced-homology action sets. Bradley `arXiv:1312.1191` gives a broad result on homology under monotone maps but not these exact action semigroups. Exact-count, model-alias, and equivalent-formulation searches did not locate a statement implying the \(421\)-versus-\(113\) distinction. The closest earlier row in the accompanying ledger concerns a different five-point two-circle bouquet model and neither states nor implies this comparison among the three six-point models.
+PASS
 
-## Value
-**PASS.** Nonuniqueness of minimal finite models is classical, but the result shows that this nonuniqueness has a concrete functorial consequence: minimum-cardinality representatives of the same weak homotopy type can realize different finite sets of direct integral homology endomorphisms. The invariant is natural, complete for the stated finite objects, basis-independent at the level of cardinality and rank profile, and relevant to understanding what information direct maps of finite models preserve or suppress.
+Barmak–Minian’s six-point, eight-Hasse-edge minimum plus p+q=6,pq>=8 gives exactly K2,4, K4,2, K3,3 minus one edge. Each order complex is a connected graph with rank H1=8-6+1=3. An independent clean-room Python checker constructed from the source poset definitions (not just running the uploaded verifier) enumerated all 6^6=46656 set maps on each model, filtered monotone maps, mapped each fundamental-cycle chain on edges, extracted 3×3 integral H1 matrices, and checked inverse monotonicity and det ±1. Obtained 1782 selfmaps, 421 distinct matrices with ranks (1,84,288,48), 48 homology auto/homeomorphism maps for each opposite K2,4 model; K3,3-e yielded 646 maps, 113 matrices with ranks (1,60,48,4), 4 automorphism/homeomorphisms. All counts agree with inspected actual `verify.py` but come from independent enumeration, not logs.
 
-The main limitation is bibliographic rather than mathematical: targeted searches may miss an obscure prior exact enumeration. The computation itself is exhaustive and independently replayable from the embedded source.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barmak–Minian classifies exactly the three minimal graph models but not their full direct continuous self-map integral H1 action sets; Bradley’s general monotone-map homology result does not supply these complete action semigroups. The related published five-point wedge-of-two-circles action census concerns a genuinely different homotopy type, model size, and rank-two homology action; no stronger matching published census found.
+
+## value
+
+PASS
+
+This is a motivated natural classification of direct H1-action expressivity for *all* minimum-size finite models of the first three-loop bouquet where minimal models are not unique, giving a basis-independent model-dependence invariant and distinguishing 421 and 113 distinct integral actions. A complete finite census is valuable even without a general formula for larger bouquets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
