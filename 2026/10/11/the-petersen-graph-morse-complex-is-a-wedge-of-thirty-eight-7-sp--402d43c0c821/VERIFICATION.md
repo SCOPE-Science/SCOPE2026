@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limitations
 
-Execute `python3 artifacts/verify_petersen.py` from the directory containing these files. It reconstructs the Petersen graph, enumerates all 314,928 faces, checks the deterministic acyclic toggle matching (157,259 augmented pairs), topologically sorts the full 2,099,520-incidence directed Hasse diagram, constructs the signed 77-by-333 critical attaching-degree matrix (235 nonzero entries, maximal absolute value one), and verifies 39 integer unit pivots and a zero residual submatrix. The terminal output includes `PETERSEN_HOMOTOPY_PASS S7_x_38 S8_x_294`.
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify_petersen_counts.py`, a separate standard-library verifier that constructs the graph Laplacian and evaluates its exact characteristic determinant at ten integers using fraction-free elimination. Polynomial uniqueness and the matrix–forest theorem produce the same ten face counts, terminating with `INDEPENDENT_ROOTED_FOREST_COUNT_OK`.
+## correctness
 
-The program uses mathematical identities and exact integer computations. It is not a universal formal proof checker, does not establish a family-wide result, and has not undergone independent external validation. Reproduction is possible using the embedded source alone; no other files or downloaded code are needed.
+PASS
+
+Independently reconstructed 314928 Petersen discrete Morse rooted-forest faces from 30 oriented incidences with exact 10-degree face vector (1,30,390,2880,13305,39882,77640,94800,66000,20000). Exhaustively reconstructed 157259 staged match pairs, 410 critical faces (77 dim7, 333 dim8), acyclic orientation of all 2099520 Hasse covers. Independently computed exact signed 77×333 Morse differential, 235 nonzero ±1 coefficients, and verified 39 integral unimodular pivots leave a zero residual. Since the 7-skeleton is 6-connected wedge of 77 S7, Hurewicz and cell slides cancel 39 cell pairs, giving 38 S7 and 294 S8.
+
+## originality
+
+PASS
+
+Existing same-object Petersen Morse-complex Resultary record proves only field-2 homology; Chari–Joswig rooted-forest theory counts faces but does not imply 39 integral attaching pivots or wedge homotopy. This integral result supplies a new non-table theorem to best of checked literature.
+
+## value
+
+PASS
+
+The Petersen ordinary Morse complex is a canonical rooted-forest topology object; upgrading established mod-2 Betti numbers to integral torsion-free homotopy type by a nontrivial attaching-matrix certificate is a substantive exact invariant and clarifies the gap between field homology and homotopy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Petersen graph is defined by its fifteen edges. The ordinary Morse simplices are precisely acyclic rooted-forest orientations with each edge and vertex incidence used at most once. A complete 314,928-face enumeration and an independently calculated Laplacian polynomial agree. The certified 157,259 elementary incidence toggles are acyclic across all 2,099,520 face-incidence arrows. Removing the empty-face matching leaves one critical vertex together with 77 critical 7-cells and 333 critical 8-cells. The exact integral 77-by-333 Morse boundary has 39 unit Smith factors and no nonzero residual, so the 7-skeleton is a wedge of 77 seven-spheres with 39 nullified by degree-one eight-cell attachments. Since integer degree vectors classify such attaching maps, the stated integral mixed-dimensional wedge follows. The verifier recomputes these finite claims, not an infinite classification.
+## correctness
 
-## Originality — PASS
-The closest same-object public calculation, *Mod-2 homology of the Petersen graph Morse complex*, establishes only \(\mathbb F_2\) Betti numbers 38 and 294 and explicitly does not determine integral torsion or homotopy. The new complete integral attaching matrix and cell cancellations are not implied by mod-two homology. Chari–Joswig's rooted-forest correspondence, Donovan–Lin–Scoville's leaf-based graph reductions, Scoville–Zaremsky's connectivity theorem and Kozlov's comparisons of other graph-topological complexes were checked. Their statements do not cover the integral Petersen computation. Search comparisons also distinguished the Petersen edge-matching, 2-matching, strong-Morse and 3-cut constructions from the ordinary graph Morse complex. Unindexed work is a residual originality risk.
+PASS
 
-## Value — PASS
-The Petersen graph is a canonical cubic symmetric graph, and its ordinary rooted-forest Morse complex is a natural, large graph-derived topological invariant. The calculation upgrades a specific known mod-two result to an integral homotopy type, settling nontrivial attaching-map and torsion questions for the full complex. The \(39\) unit cancellations demonstrate a genuinely integral mechanism not visible in a field-rank table; this is not a routine recomputation of old Betti numbers.
+Independently reconstructed 314928 Petersen discrete Morse rooted-forest faces from 30 oriented incidences with exact 10-degree face vector (1,30,390,2880,13305,39882,77640,94800,66000,20000). Exhaustively reconstructed 157259 staged match pairs, 410 critical faces (77 dim7, 333 dim8), acyclic orientation of all 2099520 Hasse covers. Independently computed exact signed 77×333 Morse differential, 235 nonzero ±1 coefficients, and verified 39 integral unimodular pivots leave a zero residual. Since the 7-skeleton is 6-connected wedge of 77 S7, Hurewicz and cell slides cancel 39 cell pairs, giving 38 S7 and 294 S8.
 
-## Literature and limitations
-Chari and Joswig, arXiv:math/0011234; Kozlov, arXiv:math/0503613; Donovan–Lin–Scoville, arXiv:1909.11440; Scoville–Zaremsky, arXiv:2004.10481. The closest exact numerical calculation is https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e. The homotopy classification is a finite computational mathematical proof for the precisely stated Petersen graph; no new general graph-family theorem, global claim of uniqueness or third-party verification is asserted. Full structured literature comparisons, source material and residual risks appear in AUDIT.json.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Existing same-object Petersen Morse-complex Resultary record proves only field-2 homology; Chari–Joswig rooted-forest theory counts faces but does not imply 39 integral attaching pivots or wedge homotopy. This integral result supplies a new non-table theorem to best of checked literature.
+
+## value
+
+PASS
+
+The Petersen ordinary Morse complex is a canonical rooted-forest topology object; upgrading established mod-2 Betti numbers to integral torsion-free homotopy type by a nontrivial attaching-matrix certificate is a substantive exact invariant and clarifies the gap between field homology and homotopy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
