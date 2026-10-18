@@ -1,19 +1,21 @@
-# Scientific review of two sharp weight-three deletion-code sizes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A standalone elementary nonnegative weighted-output counting proof gives upper bounds 32 and 37. Each of the 32 and 37 stated witnesses has three ones at in-range positions, and all its distinct one-coordinate deletion outcomes are disjoint from those of every other witness. The verifier checks actual bit deletion against independently constructed support deletion for all 364/455 potential weight-three inputs, checks the exact dual totals 96 and 111, and checks coverage at least 3 for each possible input. This establishes both equality cases without treating solver status or a partial search as proof.
+PASS
 
-## Originality — PASS, subject to specified residual risk
+Binary code words have length n, weight exactly three, and pairwise disjoint sets of distinct length-(n-1) one-symbol deletion outputs. Verified n14 witness 32 supports and n15 witness 37 supports from actual Git witnesses.json by independently generating full binary strings and all single-coordinate deletion outputs; no pair intersects (174 distinct outputs at n14; 205 at n15). For every of C(14,3)=364 and C(15,3)=455 possible input words, independently tested a weighted shadow certificate u_m: each weight-two output gets weight 1 plus 1 for adjacent ones, with an additional unit on (13,14) if m=14; each contiguous weight-three output starting odd at 1,3,5,7,9,11 gets weight 1; all others 0. The sum across distinct outputs is >=3 for every candidate; total shadow weights 96 at m13 and 111 at m14. Disjoint deletion balls imply 3|C|<=96/111 and bounds 32/37. This is a finite *complete* proof for these lengths, not extrapolation to other n. The original verifier source and witnesses were inspected, not trusted solely via its VERIFY_OK string.
 
-Cullina–Kulkarni–Kiyavash's 2012 conference paper and expanded preprint give the general weight-partition coding approach, not these two exact maxima. Hagiwara–Nation's 2023 draft is the decisive closest source: Theorem 11 supplies the upper inequality, while Table 3 lists lower 31 / upper 32 at length 14 and lower 35 / upper 37 at length 15, with both optima marked unknown. The present 32- and 37-word examples close those specific gaps. Relevant semantic-record searches, targeted exact-parameter and equivalent single-insertion searches, and the compared literature did not show a result implying these equalities; they cannot rule out unindexed or more recent material. Small-length classifications do not imply these length-fourteen or length-fifteen values without an additional theorem.
+## originality
 
-## Value — PASS
+PASS
 
-These are not arbitrary nearby parameters: they are the first two unresolved weight-three rows after all cases through length 13 in the explicit historical research table. The witnesses strictly improve the previous best displayed lower bounds by one and two words, respectively, and meet the known bound, completing two exact finite instances in a classical synchronization-coding problem. A short nonnegative dual certificate makes the two closures independently reproducible and mathematically interpretable.
+The 2023 Hagiwara–Nation draft Theorem 11/Table 3 gives matching upper bounds but only 31 and 35 lower bounds at n14/15 and explicitly leaves these rows unresolved. This package supplies the missing size-32/37 lower witnesses plus an independent weighted packing proof. Semantic database hits for ternary deletion codes at much shorter lengths do not cover constant weight 3 binary cases. No later covering codebook was found, with residual unindexed-construction risk.
 
-## Scope and uncertainty
+## value
 
-This does not show uniqueness, classify all extremizers, or prove values for other lengths. Later unindexed constructions may exist. The result has not received independent expert or external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closes two explicitly unsolved natural entries in a published coding-theory bounds table, with reproducible concrete extremal codebooks and an independently checkable dual-weight certificate. Exact finite optimum is scientifically valuable even absent a general n formula or all-maximizers classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

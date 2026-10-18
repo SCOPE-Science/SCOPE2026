@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact witness and weighted-output verification
+# Independent mathematical audit
 
-The package contains `witnesses.json` and `verify.py`, both complete standalone UTF-8 files. Run `python3 verify.py` in their shared directory. Python's standard library is the only dependency. Each witness triple lists the *one-based* coordinates of three ones, not raw bit strings.
+## correctness
 
-For every witness, the checker constructs its binary word, deletes each coordinate in turn, and adds the resulting length-\(n-1\) tuple to a set. It requires pairwise disjoint sets across the whole 32-word or 37-word code. It also performs an independent deletion computation by shifting one-support indices relative to each deleted coordinate and compares both methods.
+PASS
 
-For both blocklengths it exhaustively traverses all \({n\choose3}\) possible transmitted weight-three words (364 at length 14; 455 at length 15). At each it checks the physical and index-based deletion sets coincide and that the explicit dual weight \(u_m\) has total coverage at least three. The checker sums every nonzero integer dual weight directly, obtaining 96 and 111, so the fractional objective bounds are exactly 32 and 37. The proof in `RESULT.md` explains the exhaustive coverage inequality by three cases, independently of this finite replay.
+Binary code words have length n, weight exactly three, and pairwise disjoint sets of distinct length-(n-1) one-symbol deletion outputs. Verified n14 witness 32 supports and n15 witness 37 supports from actual Git witnesses.json by independently generating full binary strings and all single-coordinate deletion outputs; no pair intersects (174 distinct outputs at n14; 205 at n15). For every of C(14,3)=364 and C(15,3)=455 possible input words, independently tested a weighted shadow certificate u_m: each weight-two output gets weight 1 plus 1 for adjacent ones, with an additional unit on (13,14) if m=14; each contiguous weight-three output starting odd at 1,3,5,7,9,11 gets weight 1; all others 0. The sum across distinct outputs is >=3 for every candidate; total shadow weights 96 at m13 and 111 at m14. Disjoint deletion balls imply 3|C|<=96/111 and bounds 32/37. This is a finite *complete* proof for these lengths, not extrapolation to other n. The original verifier source and witnesses were inspected, not trusted solely via its VERIFY_OK string.
 
-Expected concluding line: `VERIFY_OK max3(14)=32 max3(15)=37`.
+## originality
 
-No computation asserts uniqueness, exhaustive enumeration of *codebooks*, or anything about other lengths. This is reproducible finite mathematical checking, not an independent external audit.
+PASS
+
+The 2023 Hagiwara–Nation draft Theorem 11/Table 3 gives matching upper bounds but only 31 and 35 lower bounds at n14/15 and explicitly leaves these rows unresolved. This package supplies the missing size-32/37 lower witnesses plus an independent weighted packing proof. Semantic database hits for ternary deletion codes at much shorter lengths do not cover constant weight 3 binary cases. No later covering codebook was found, with residual unindexed-construction risk.
+
+## value
+
+PASS
+
+Closes two explicitly unsolved natural entries in a published coding-theory bounds table, with reproducible concrete extremal codebooks and an independently checkable dual-weight certificate. Exact finite optimum is scientifically valuable even absent a general n formula or all-maximizers classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

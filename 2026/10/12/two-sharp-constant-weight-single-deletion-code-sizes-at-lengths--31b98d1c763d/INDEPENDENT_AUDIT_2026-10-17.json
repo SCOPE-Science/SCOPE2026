@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:11:02.752294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary code words have length n, weight exactly three, and pairwise disjoint sets of distinct length-(n-1) one-symbol deletion outputs. Verified n14 witness 32 supports and n15 witness 37 supports from actual Git witnesses.json by independently generating full binary strings and all single-coordinate deletion outputs; no pair intersects (174 distinct outputs at n14; 205 at n15). For every of C(14,3)=364 and C(15,3)=455 possible input words, independently tested a weighted shadow certificate u_m: each weight-two output gets weight 1 plus 1 for adjacent ones, with an additional unit on (13,14) if m=14; each contiguous weight-three output starting odd at 1,3,5,7,9,11 gets weight 1; all others 0. The sum across distinct outputs is >=3 for every candidate; total shadow weights 96 at m13 and 111 at m14. Disjoint deletion balls imply 3|C|<=96/111 and bounds 32/37. This is a finite *complete* proof for these lengths, not extrapolation to other n. The original verifier source and witnesses were inspected, not trusted solely via its VERIFY_OK string.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hagiwara–Nation 2023 Theorem 11 general bound M3(n)<=(n^2-3)/6; Cullina–Kulkarni–Kiyavash 2012 coloring approaches"
+        ],
+        "reasoning": "General upper bound gives <=32 and <=37 but NOT equality. Previously known lower bounds 31 and 35 demonstrate its insufficiency to imply the new exact sizes.",
+        "searches": [
+          "constant weight 3 one deletion correcting codes length 14 length 15 exact maximum 32 37"
+        ]
+      },
+      "checked_sources": [
+        "Hagiwara and Nation 2023 primary PDF Theorem 11/Table 3",
+        "Cullina/Kulkarni/Kiyavash arXiv:1211.4056 contextual background",
+        "Resultary semantic search for binary weight-three one-deletion maxima n14 n15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Upper bounds of Hagiwara–Nation plus independently checkable witness codes of sizes 32,37"
+        ],
+        "reasoning": "Known upper bound alone cannot yield exact maxima; direct codeword deletion checking and complete coverage certificates establish existence and match upper bound. Prior construction papers did not exhibit these support lists in examined material.",
+        "searches": [
+          "constant weight 3 one deletion correcting codes length 14 length 15 exact maximum 32 37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M_3(n), k-of-n single-deletion correcting codes, constant-weight layer independence in deletion graph, disjoint deletion balls"
+        ],
+        "reasoning": "The matching vertex-packing formulation is equivalent, but prior 2023 table did not establish both exact optima. Source provides finite weighted-dual upper certificates plus constructive witnesses.",
+        "searches": [
+          "constant weight 3 one deletion correcting codes length 14 length 15 exact maximum 32 37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hagiwara–Nation Table 3 rows n14 and n15 with lower bounds 31,35 and upper 32,37; Resultary ternary length-five deletion code hit 2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-code-size--831d8cb03d53"
+        ],
+        "reasoning": "The exact historic table contains unresolved intervals; the new witnesses fill the missing endpoint. Ternary unrestricted word-code tables are different objects.",
+        "searches": [
+          "constant weight 3 one deletion correcting codes length 14 length 15 exact maximum 32 37"
+        ]
+      },
+      "rationale": "The 2023 Hagiwara–Nation draft Theorem 11/Table 3 gives matching upper bounds but only 31 and 35 lower bounds at n14/15 and explicitly leaves these rows unresolved. This package supplies the missing size-32/37 lower witnesses plus an independent weighted packing proof. Semantic database hits for ternary deletion codes at much shorter lengths do not cover constant weight 3 binary cases. No later covering codebook was found, with residual unindexed-construction risk.",
+      "residual_risks": [
+        "A later unindexed construction after the 2023 table might achieve the same sizes.",
+        "No classification of all optimal codebooks or generalization to other n is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound already known; displayed n14/n15 rows leave lower bounds 31 and 35, hence not covering 32/37 attainment.",
+          "evidence": [
+            "Primary full PDF web turn819675view3, table page turn814986view0 and turn814986view2",
+            "Theorem 11 and Table 3"
+          ],
+          "identifier_or_url": "M. Hagiwara and J. B. Nation (October 12, 2023); https://www.math.hawaii.edu/~jb/k_of_n_writeup_II.pdf",
+          "material_read": "Complete public PDF examined; relevant Theorem 11 and Table 3 pages 9–11, including rows n14 and n15 and their gap.",
+          "method": "Opened primary PDF and inspected relevant theorem/table pages and source comparisons.",
+          "title": "Bounds on the Size of k-of-n Single Deletion Error Correcting Codes",
+          "trigger": "Direct prior theorem and exact upper/lower table for same alphabet/weight/lengths"
+        },
+        {
+          "assessment": "No claim of missing specific n14/n15 codebook in material available; background not decisive.",
+          "evidence": [
+            "arXiv:1211.4056"
+          ],
+          "identifier_or_url": "arXiv:1211.4056; Cullina, Kulkarni, Kiyavash (2012)",
+          "material_read": "Title, abstract and contextual citation; original full paper not independently read.",
+          "method": "Bibliographic/preprint context search.",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Relevant constant-weight deletion-code construction background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes two explicitly unsolved natural entries in a published coding-theory bounds table, with reproducible concrete extremal codebooks and an independently checkable dual-weight certificate. Exact finite optimum is scientifically valuable even absent a general n formula or all-maximizers classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary weight-three single-deletion codes, n=14 and n=15",
+    "No claims for other blocklengths, uniqueness, or general coding rate"
+  ],
+  "schema_version": 1
+}
