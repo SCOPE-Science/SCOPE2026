@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each integer barrier, reflection of the prefix at the first hit gives P(S_j=0, M_j>=a)=P(S_j=2a). First-hitting and Green-function transforms then give the exact time-split and geometric-series generating function. The leading singular coefficient 7/12 together with monotonicity proves E[M_n L_n]/n ->7/12. Binomial return probabilities and second-moment convolution give E[L_n]/sqrt(n)->sqrt(2/pi), E[L_n^2]/n->1. Maximal invariance with uniform-integrability gives E[M_n]/sqrt(n)->sqrt(2/pi), Var(M_n)/n->1-2/pi. Therefore both asymptotic formulas follow. The exact standalone checker independently confirms coefficients n=0..16 for three moments; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lévy identity concerns joint distribution of local time with |B_t|, via a joint identity involving maximum and drawdown; it does not directly give same-path (maximum, local time).",
+        "The 1987 article computes diffusion maximum/argmax distributions and spatial local-time maxima rather than origin local time versus temporal path maximum."
+      ],
+      "reasoning": "General reflection, excursion and joint-transform literature is a serious possible broader-coverage risk, but in the inspected originals the precise two-statistic pair and finite-horizon transform were not given. No claim of uniqueness from database partition or a negative search is made.",
+      "searches": [
+        "Web: \"Brownian motion\" \"maximum\" \"local time\" \"joint\" density",
+        "Web: \"local time\" \"supremum\" \"covariance\" Brownian",
+        "Primary: Pitman (1998), Lévy identities for Brownian local times",
+        "Primary: Csáki, Földes and Salminen (1987) full paper"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.tugraz.at/~prodinger/inference.pdf",
+      "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+      "https://arxiv.org/pdf/1412.6184",
+      "https://www.numdam.org/article/AIHPB_1987__23_2_179_0.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Return-count generating functions by terminal displacement may furnish marginal local-time moments, but none conditions on maximum height or gives the cross product.",
+        "The published identity Cov(M_n,S_n)=n/2 is an endpoint statement under sign/reversal symmetry; local-time count is an even and path-dependent statistic.",
+        "The 2014 paper concerns killed/reflected local-time fields, not joint path maximum and origin-return count at a fixed finite horizon."
+      ],
+      "reasoning": "Known marginals and a different mixed moment cannot in general determine a cross-covariance. The new reflection/first-hit decomposition fills that joint-information gap. A classical general trivariate transform could imply the statement, which remains a residual originality risk.",
+      "searches": [
+        "Primary: Kirschenhofer and Prodinger 1996, equations (2.22)–(2.25), Section 3",
+        "Published maximum–endpoint result full RESULT.md",
+        "Primary: Denisov and Wachtel 2014, arXiv:1412.6184v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 1996 original separates conditional return-count marginal moments from counts of visits to the maximum; no mixed unconditioned maximum-height/zero-return product is stated.",
+        "published-finding corpus closest maximum–endpoint published result treats terminal displacement, not accumulated visits."
+      ],
+      "reasoning": "The height of the running maximum is not the number of times the walk is at its maximum; both are also distinct from maximum–endpoint covariance. Zero-return count is not an endpoint odd transform. The requested mixed moment does not follow by mere relabeling of these statements.",
+      "searches": [
+        "published-finding corpus: exact ordinary generating function mixed moment running maximum and number of zero returns simple symmetric random walk E[M_n L_n]",
+        "Web: \"maximum\" \"number of returns\" \"simple random walk\" joint",
+        "Primary: Kirschenhofer and Prodinger (1996), Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two sampled published-finding corpus results close to the subject are maximum–endpoint and random-walk-range statements, not the mixed origin-local-time transform.",
+        "The 1996 paper derives formulas for factorial moments of the return-count marginal, not a table of E[M_n L_n]."
+      ],
+      "reasoning": "No exact-match published table or coefficient formula was identified among checked results. This is evidence of no located overlap only, not proof that none exists.",
+      "searches": [
+        "published-finding corpus: random walk range and local time exact covariance simple symmetric walk generating function",
+        "published-finding corpus: random walk maximum height zero return count joint generating function 7/12 negative covariance",
+        "Web: \"7/12\" \"maximum\" \"local time\" Brownian",
+        "Web: \"number of returns to zero\" \"maximum\" \"random walk\" covariance"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus queries succeeded and a closely relevant publicly available 1996 primary full text was materially inspected. The 1996 article treats marginal zero-return and maximum-visit counts separately; it does not state the maximum-height/zero-return mixed generating function. Other primary sources concern transformed local times, maximum/argmax or local-time fields, and the closest published maximum covariance treats endpoint displacement. This supports best-knowledge originality without constituting a uniqueness certificate.",
+    "residual_risks": [
+      "An older ladder-height, excursion, Brownian maximum/local-time, or Spitzer-type general joint transform could imply the specific moment.",
+      "A 1996 relevant primary studies both return counts and maximum-visit counts, but these differ from the simultaneous maximum-height product.",
+      "Some cited older published sources have only year-resolved publication metadata; no first-public day is inferred from them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the simultaneous unconditioned maximum-height/zero-return mixed moment; considers separately return count and the number of visits to the attained maximum",
+        "evidence": [
+          "1996 article p.68–71: Section 2 univariate return-count moments at fixed endpoint and unconditional.",
+          "p.72–73 Section 3 analyzes multiplicity of times that a bridge attains its maximum, not maximum height times zero-return count."
+        ],
+        "identifier_or_url": "https://www.math.tugraz.at/~prodinger/inference.pdf",
+        "material_read": "Full eight-page article, including Sections 2 and 3, their formulas, introduction, figures and cited antecedents",
+        "method": "Read full OA primary PDF text and inspect displayed maximum-statistic discussion and figures",
+        "title": "Return statistics of simple random walks",
+        "trigger": "Very close primary title involving both origin-return count and random-walk maximum statistics"
+      },
+      {
+        "assessment": "No direct same-path fixed-horizon (running maximum, local time at origin) mixed moment or discrete generating function located",
+        "evidence": [
+          "Berkeley Technical Report 539, dated 1998-11-01; bridge-local-time transformations and laws, not the claimed product."
+        ],
+        "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+        "material_read": "Introductory local-time identities, Lévy process correspondence and Brownian-bridge local-time results in the public technical report",
+        "method": "Read OA primary technical-report material and its distributional identities",
+        "title": "The distribution of local times of a Brownian bridge",
+        "trigger": "Classical Lévy equivalence may imply some joint local-time/max identities"
+      },
+      {
+        "assessment": "Addresses local times for killed/reflected walks, not the unconditioned simultaneous maximum-height and origin-return mixed transform",
+        "evidence": [
+          "arXiv:1412.6184v1, submitted 2014-12-18; abstract and results concern local-time distribution and fields."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6184",
+        "material_read": "Introduction, main theorem statements and substantive calculations involving killed/reflected local-time moments from the publicly accessible ten-page preprint",
+        "method": "Read arXiv open-access primary text, focusing on theorem statements and relevant local-time moment arguments",
+        "title": "Universality of local times of killed and reflected random walks",
+        "trigger": "Primary 60G50 archive-era work involving local times and random-walk barriers"
+      },
+      {
+        "assessment": "Different joint statistics, no finite-step maximum-versus-origin-return mixed generating function",
+        "evidence": [
+          "Csáki, Földes, Salminen, Annales IHP B 23(2), 179–194 (1987)."
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/AIHPB_1987__23_2_179_0.pdf",
+        "material_read": "The primary article’s maximum/argmax theory and its application concerning spatial maximum of local times",
+        "method": "Read available primary full-text sections and distinguish temporal-path maximum from spatial local-time extrema",
+        "title": "On the joint distribution of the maximum and its location for a linear diffusion",
+        "trigger": "Same maximum language and diffusion local-time connection"
+      },
+      {
+        "assessment": "Does not imply the local-time mixed moment: endpoint transforms are not origin-return accumulation",
+        "evidence": [
+          "Its theorem gives Cov(M,S)=Var(S)/2 and more general odd-endpoint transforms, not Cov(M,L)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea/RESULT.md",
+        "material_read": "Full published RESULT.md: theorem, derivation, assumptions, comparison and limitations",
+        "method": "Read exact published statement and proof, compared random variables rather than matching word fragments",
+        "title": "Reversal and sign symmetry force a half-variance maximum–endpoint law",
+        "trigger": "Closest published result returned by multiple semantic searches concerning maximum covariances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83173eaf-c17d-40f6-b7dc-95d85a34f819",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a natural joint statistic in recurrent fluctuations: maximum positive height versus number of origin returns. Provides an exact all-horizon mixed-moment generating function and sharp negative covariance and correlation limits, not available from separately known marginals, a textbook reflection identity alone, or a prior endpoint covariance statement. The exact coefficient and limiting dependence can inform path-extreme and local-time joint analysis without promising further downstream theorems.",
+    "status": "PASS"
+  }
+}
