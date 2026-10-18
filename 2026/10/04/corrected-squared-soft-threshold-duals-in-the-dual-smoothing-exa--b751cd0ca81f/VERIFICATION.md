@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the primary verification. It derives the conjugate coordinatewise for all \(\lambda>0\), all finite dimensions, and all \(y\), then computes the exact difference between the correct and printed expressions.
+## correctness
 
-The bundled `verify.py` is a supplementary exact-arithmetic replay. It uses Python's rational `Fraction` arithmetic only. It checks representative values in every scalar branch, verifies the exact subgradient/stationarity condition of the maximizer, verifies
-\[
-\widetilde h_\lambda^*(y)-h_\lambda^*(y)=\frac{C(y)^2}{\lambda},
-\]
-checks the exact witness \((\lambda,y)=(1,2)\), where the two values are \(3/2\) and \(1/2\), and verifies the one-sided derivative drop at the threshold. Its recorded output is `VERIFY_OK`.
+PASS
 
-The finite replay is not used to infer the universal statement. The universal statement follows from the symbolic three-case maximization and separability proof.
+Scalar conjugation sup_x(yx−|x|−λ x²/2), λ>0, has optimizer soft_1(y)/λ and value soft_1(y)²/(2λ) by three exact subgradient branches |y|<1,>1, and endpoints; separability yields the m-dimensional formula and gradient. Let C(y)=clip(y,[−1,1]); the source v1 Section 3.3 prox identity has −||C||²/(2λ) whereas its expanded display writes +||C||²/(2λ). Their defect is ||C||²/λ; at λ=1,y=2 the printed 3/2 differs from 1/2. For 0<t<1 its slope approaches 2/λ at t=1−; for t>1 its derivative tends to 0 at 1+, violating convexity. Substituting the correct conjugate into the two coupled constraints yields exactly the two claimed scaled dual programs. All dimensions and all λ>0 proven, rational verifier supplemental.
 
-The accessible full source inspected was arXiv:2512.08167v1. The corresponding Springer chapter full text was not accessible, so verification does not assert that the final publisher version retains the same sign.
+## originality
+
+PASS
+
+The squared soft-threshold formula itself is standard. The finding is restricted to a particular erroneous expanded display and its consequent two corrected 2025 arXiv-v1 dual examples, including explicit defect and nonconvexity witness. Exact-source and text searches and the matching Resultary record gave no independent source-specific erratum; final Springer 2026 chapter was not read and could differ, but this claim is explicitly v1.
+
+## value
+
+PASS
+
+An erroneous Fenchel conjugate that is nonconvex despite strong-convexity assumptions invalidates numerical dual examples and gradient interpretation. Correcting both explicit decentralized models is a substantive reusable diagnostic, not claiming novelty of soft thresholding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

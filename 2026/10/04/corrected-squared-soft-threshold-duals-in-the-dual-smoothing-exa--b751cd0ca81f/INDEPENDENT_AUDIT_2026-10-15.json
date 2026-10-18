@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:57:47.505708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scalar conjugation sup_x(yx−|x|−λ x²/2), λ>0, has optimizer soft_1(y)/λ and value soft_1(y)²/(2λ) by three exact subgradient branches |y|<1,>1, and endpoints; separability yields the m-dimensional formula and gradient. Let C(y)=clip(y,[−1,1]); the source v1 Section 3.3 prox identity has −||C||²/(2λ) whereas its expanded display writes +||C||²/(2λ). Their defect is ||C||²/λ; at λ=1,y=2 the printed 3/2 differs from 1/2. For 0<t<1 its slope approaches 2/λ at t=1−; for t>1 its derivative tends to 0 at 1+, violating convexity. Substituting the correct conjugate into the two coupled constraints yields exactly the two claimed scaled dual programs. All dimensions and all λ>0 proven, rational verifier supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Fenchel–Moreau conjugation and proximal operators immediately yield ||soft_1(y)||²/(2λ) for ||x||_1+λ||x||²/2.",
+          "Rogozin et al 2025 arXiv:2512.08167v1 uses correct abstract conjugate framework."
+        ],
+        "reasoning": "General theory covers formula but does not document specific Section 3.3 sign defect and its two displayed consequences; the source-specific correction is the novelty scope.",
+        "searches": [
+          "Dual Smoothing for Decentralized Optimization Rogozin Nguyen Zenuzagh Gasnikov Fenchel conjugate soft threshold squared sign error",
+          "Fenchel conjugate l1 plus quadratic soft threshold sign error Rogozin dual smoothing Section 3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.08167v1 full text and rendered Section 3.3 PDF page",
+        "Rogozin et al 2026 Springer DOI:10.1007/978-3-032-15791-1_6 (metadata)",
+        "Parikh & Boyd 2014 DOI:10.1561/2400000003 (standard prox)",
+        "Resultary source and identity queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2512.08167v1 Section 3.3 correct prox-value identity and inconsistent expanded display.",
+          "Standard conjugacy implies that an expanded formula with downward derivative jump is not convex, and shows numerical incorrectness."
+        ],
+        "reasoning": "The source mathematical setup implies the corrected objective, not the printed expansion. The finding does not claim its abstract APAPC/complexity results fail.",
+        "searches": [
+          "Dual Smoothing for Decentralized Optimization Rogozin Nguyen Zenuzagh Gasnikov Fenchel conjugate soft threshold squared sign error",
+          "Fenchel conjugate l1 plus quadratic soft threshold sign error Rogozin dual smoothing Section 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parikh–Boyd Proximal Algorithms DOI:10.1561/2400000003 gives generic soft-threshold and conjugacy background.",
+          "Exact scalar conjugate is a standard Huber/Moreau-envelope complement, distinct from the source v1 expanded formula."
+        ],
+        "reasoning": "The mathematical identity alone is prior knowledge; comparison targets the exact wrong sign and downstream displayed optimization objectives.",
+        "searches": [
+          "Dual Smoothing for Decentralized Optimization Rogozin Nguyen Zenuzagh Gasnikov Fenchel conjugate soft threshold squared sign error",
+          "Fenchel conjugate l1 plus quadratic soft threshold sign error Rogozin dual smoothing Section 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary exact query finds the assigned same finding; no other source-specific item.",
+          "The arXiv v1 Section 3.3 displays opposite residual-square signs on a single page."
+        ],
+        "reasoning": "Not a database enumeration. One-page exact source and standard identity suffice to prove the written defect; absence of erratum is a residual risk.",
+        "searches": [
+          "Dual Smoothing for Decentralized Optimization Rogozin Nguyen Zenuzagh Gasnikov Fenchel conjugate soft threshold squared sign error",
+          "Fenchel conjugate l1 plus quadratic soft threshold sign error Rogozin dual smoothing Section 3.3"
+        ]
+      },
+      "rationale": "The squared soft-threshold formula itself is standard. The finding is restricted to a particular erroneous expanded display and its consequent two corrected 2025 arXiv-v1 dual examples, including explicit defect and nonconvexity witness. Exact-source and text searches and the matching Resultary record gave no independent source-specific erratum; final Springer 2026 chapter was not read and could differ, but this claim is explicitly v1.",
+      "residual_risks": [
+        "Publisher conference-chapter version was inaccessible and might contain an unreported correction.",
+        "The standard squared-threshold identity cannot be represented as a new formula independently of the source-specific correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "v1 sign of clipped residual-square is flipped and propagates into two dual examples.",
+          "evidence": "The printed expression differs by ||clip||²/λ; checked at λ=1,y=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.08167",
+          "material_read": "Open arXiv:2512.08167v1 complete manuscript, Section 3.3 pp. 8–9 prox-value and expanded examples, and rendered PDF page of discrepancy",
+          "method": "Full-text equation comparison and scalar Fenchel conjugacy derivation",
+          "title": "Dual Smoothing for Decentralized Optimization",
+          "trigger": "Exact source v1"
+        },
+        {
+          "assessment": "Underlying squared soft-threshold formula is already standard; new contribution is the paper-specific typo diagnosis.",
+          "evidence": "Scalar soft threshold and Moreau conjugacy.",
+          "identifier_or_url": "https://doi.org/10.1561/2400000003",
+          "material_read": "Accessible standard soft-threshold/background and bibliographic scope, not independent full monograph read in this run",
+          "method": "Compare generic prox identity",
+          "title": "Proximal Algorithms",
+          "trigger": "Standard broader formula"
+        },
+        {
+          "assessment": "MAY be corrected; no assertion made about chapter displaying the error.",
+          "evidence": "Claim is explicitly arXiv:2512.08167v1.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-15791-1_6",
+          "material_read": "Publisher metadata only; complete chapter not accessible during this run",
+          "method": "Bibliographic alias comparison",
+          "title": "Dual Smoothing for Decentralized Optimization (LNCS 16426 chapter)",
+          "trigger": "Plausible corrected final version"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An erroneous Fenchel conjugate that is nonconvex despite strong-convexity assumptions invalidates numerical dual examples and gradient interpretation. Correcting both explicit decentralized models is a substantive reusable diagnostic, not claiming novelty of soft thresholding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No conclusion about general APAPC theorem or numerical performance; specific to Section 3.3 v1 expansions.",
+    "Publisher conference-chapter version was inaccessible and might contain an unreported correction.",
+    "The standard squared-threshold identity cannot be represented as a new formula independently of the source-specific correction."
+  ],
+  "schema_version": 1
+}

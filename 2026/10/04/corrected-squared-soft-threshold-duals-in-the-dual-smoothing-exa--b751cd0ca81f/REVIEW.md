@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each coordinate, the scalar conjugate maximization has three exhaustive cases: \(|y|\le1\) gives optimizer \(x=0\); \(y>1\) gives \(x=(y-1)/\lambda\); and \(y<-1\) gives \(x=(y+1)/\lambda\). This reconstructs \(h_\lambda^*(y)=\|S(y)\|_2^2/(2\lambda)\) for all \(y\) and every \(\lambda>0\). Substituting the source's prox-value decomposition shows that its printed plus sign changes the value by exactly \(\|C(y)\|_2^2/\lambda\). The scalar one-sided slopes \(2/\lambda\) and \(0\) at the threshold prove that the printed expression is nonconvex. The corrected decentralized objectives follow directly from the source's own abstract dual formulas. Exact-rational replay in `verify.py` returned `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS, with a bounded access risk. The exact soft-threshold conjugate is standard and is not claimed as new. The claim is instead the identification of the sign reversal in arXiv:2512.08167v1, its exact defect identity, its convexity contradiction, and the resulting corrected Section 3.3 dual displays. Searches using the paper title, “basis pursuit”, “Fenchel conjugate”, “sign error”, “soft threshold”, and equivalent squared-soft-threshold language found no published erratum or prior statement of this source-specific correction. The accessible arXiv full text was inspected at the relevant equations; the Springer chapter metadata was inspected separately. The Springer full text was not accessible, so a later correction there remains possible.
+PASS
 
-## Value
-PASS. The error occurs in the explicit examples intended to instantiate the paper's dual-smoothing framework. Used literally, the printed formula is nonconvex, contradicting the structural property needed by the smooth convex dual method. The correction restores the expected \(1/\lambda\)-smooth convex conjugate and collapses both examples to simple squared-soft-threshold objectives. This is directly useful for implementation and for interpreting the examples, while leaving the abstract theory intact.
+Scalar conjugation sup_x(yx−|x|−λ x²/2), λ>0, has optimizer soft_1(y)/λ and value soft_1(y)²/(2λ) by three exact subgradient branches |y|<1,>1, and endpoints; separability yields the m-dimensional formula and gradient. Let C(y)=clip(y,[−1,1]); the source v1 Section 3.3 prox identity has −||C||²/(2λ) whereas its expanded display writes +||C||²/(2λ). Their defect is ||C||²/λ; at λ=1,y=2 the printed 3/2 differs from 1/2. For 0<t<1 its slope approaches 2/λ at t=1−; for t>1 its derivative tends to 0 at 1+, violating convexity. Substituting the correct conjugate into the two coupled constraints yields exactly the two claimed scaled dual programs. All dimensions and all λ>0 proven, rational verifier supplemental.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The squared soft-threshold formula itself is standard. The finding is restricted to a particular erroneous expanded display and its consequent two corrected 2025 arXiv-v1 dual examples, including explicit defect and nonconvexity witness. Exact-source and text searches and the matching Resultary record gave no independent source-specific erratum; final Springer 2026 chapter was not read and could differ, but this claim is explicitly v1.
+
+## value
+
+PASS
+
+An erroneous Fenchel conjugate that is nonconvex despite strong-convexity assumptions invalidates numerical dual examples and gradient interpretation. Correcting both explicit decentralized models is a substantive reusable diagnostic, not claiming novelty of soft thresholding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
