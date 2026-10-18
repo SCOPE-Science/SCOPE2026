@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` starts with the ordinary Heisenberg bracket
-\[
-[e,f]=c
-\]
-and the twist
-\[
-\alpha_\lambda=\operatorname{diag}(1,\lambda,\lambda).
-\]
 
-It verifies directly that \(\alpha_\lambda\) is a Lie endomorphism and constructs the Yau-twisted bracket
-\[
-[e,f]_\lambda=\lambda c.
-\]
+# Independent mathematical audit
 
-For a general \(3\times3\) matrix \(T\), it reconstructs both equations
-\[
-T\alpha_\lambda=\alpha_\lambda T
-\]
-and
-\[
-[T(x),T(y)]_\lambda=T([T(x),y]_\lambda)
-\]
-on all ordered basis pairs.
+## correctness
 
-It exhaustively tests every matrix for every parameter over
-\[
-\mathbf F_2
-\]
-and
-\[
-\mathbf F_3.
-\]
+PASS
 
-The fiber counts are
-\[
-32,\quad48
-\]
-over \(\mathbf F_2\), and
-\[
-243,\quad333,\quad27
-\]
-over \(\mathbf F_3\).
+For T a 3×3 matrix commuting with diag(1,λ,λ), solve [Tx,Ty]_λ=T([Tx,y]_λ) on all ordered basis pairs. λ=0 gives block a⊕M2 with q^5 points. For λ≠0,1 the remaining equations a(p−t)=p(t−a)=0, v²=0 give q(2q−1)+2q(q−1)=4q²−3q. For λ=1, u=v=0, bi=di=i(a−e)=0 and bd=a(e−i), which split into singular 2×2 A at i=0 and A=0 or iI at i≠0, yielding q^5+q^4+q^3−2q². Independently enumerated all 3×3 matrices and checked rank profiles over F2 and F3, including char2; all five (q,λ) cases match formulas. Rank and zeta identities follow from disjoint strata for all fields.
 
-The exact rank profiles are also matched in every fiber.
+## originality
 
-Finally, the checker verifies the closed rank formulas for
-\[
-q=2,3,5,7.
-\]
+PASS
 
-It returns `VERIFY_OK`.
+Same adjoint embedding-tensor axioms as Das–Makhlouf, but their inspected general paper does not provide this concrete Heisenberg/Yau-twist exceptional-fiber classification or finite-field rank distributions. The closest Heisenberg Hom-Lie article addresses current representations and extensions; 2025 averaging work classifies graded q-Witt instead.
 
-Finite enumeration is a replay check. The arbitrary-field theorem follows from the symbolic case analysis in `RESULT.md`.
+## value
+
+PASS
+
+The Heisenberg algebra is the canonical smallest nonabelian nilpotent Lie algebra. Exact solution of all adjoint embedding tensors across the natural Yau parameter, two exceptional q^5-scale jumps, rank strata and zeta functions gives a complete motivated classification and arithmetic invariant, not just a renamed general tensor definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
