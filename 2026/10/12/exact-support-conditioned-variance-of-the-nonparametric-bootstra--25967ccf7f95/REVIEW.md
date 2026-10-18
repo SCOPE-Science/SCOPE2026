@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Conditioning on the represented support gives a uniform occupied subset and a uniform surjection of the labeled bootstrap positions onto that subset. A one-pair merge gives the exact Stirling ratio controlling the second moments of the bootstrap weights. Centering the observed data then yields the conditional variance. A separate exact multinomial calculation gives the global covariance. Exhaustive rational enumeration of small bootstrap samples independently reproduces the formulas.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest completely inspected paper identifies random bootstrap support size as an information-content problem and develops fixed-support sequential resampling, but does not state the exact finite conditional variance or covariance here. Follow-up work treats asymptotic correctness of modified schemes. Published-formula searches across bootstrap, unique-observation, occupancy, and Stirling-number aliases did not locate a covering statement. An unindexed historical identity remains a residual risk.
+## correctness
 
-## Value
-PASS. Support size is the classical quantity behind the approximately 0.632 fraction of represented observations in the ordinary bootstrap. The result gives an exact finite calibration of how that support diversity controls uncertainty in the bootstrap mean, including a strictly negative support-size/squared-error covariance and transparent no-repeat and one-support endpoints.
+PASS
 
-## Closest literature and limitations
-The result concerns the conditional nonparametric bootstrap mean for uniform resampling of labeled observations. It does not cover studentized or nonlinear statistics, weighted bootstraps, or support counts that merge tied numerical values. The strongest comparison is the fixed-support sequential-bootstrap literature, which is asymptotic rather than an exact conditional analysis of the ordinary bootstrap.
+Given K=k the support is a uniform k-subset and the labeled draw map is uniformly surjective. Identifying two positions gives collision probability S(b-1,k)/S(b,k), so E[W_i^2]=(1+(b-1)a)/(Nb) and E[W_iW_j]=(b-1)(1-a)/(N(N-1)b). Centering data and using sum y_i=0 yields the conditional coefficient [N-b+N(b-1)a]/(Nb) of unbiased s_N^2. Direct multinomial absent-cell indicators yield Cov(K,centered-mean-square)=-(b-1)/(b(N-1))((N-1)/N)^b s_N^2. Independent enumeration of all N^b=256 sequences for N=b=4, with values 0,3,8,15, reproduces four support-variance coefficients and the covariance -1323/1024; b=1, k=1 and k=b boundaries considered. Finite enumeration supplements exact all-N,b proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Rao–Pathak–Koltchinskii sequential bootstrap and later fixed-support variants discuss support-size randomness but change stopping rules and study asymptotics, rather than calculate the classical fixed-b ordinary bootstrap conditional mean-square and its exact covariance. These known ideas motivate the distinct conditional finite-statistic identity. Search found no exact equivalent under occupancy/surjection aliases; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Number of represented original observations is a natural effective-sample-information measure in bootstrap resampling. Exact finite conditional variance and negative covariance quantify heteroscedasticity across support strata, including nonstandard b≠N, and can inform diagnostics beyond generic asymptotic correctness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

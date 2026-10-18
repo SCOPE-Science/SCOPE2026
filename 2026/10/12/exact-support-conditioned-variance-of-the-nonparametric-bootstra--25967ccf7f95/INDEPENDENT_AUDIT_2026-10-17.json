@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:53:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given K=k the support is a uniform k-subset and the labeled draw map is uniformly surjective. Identifying two positions gives collision probability S(b-1,k)/S(b,k), so E[W_i^2]=(1+(b-1)a)/(Nb) and E[W_iW_j]=(b-1)(1-a)/(N(N-1)b). Centering data and using sum y_i=0 yields the conditional coefficient [N-b+N(b-1)a]/(Nb) of unbiased s_N^2. Direct multinomial absent-cell indicators yield Cov(K,centered-mean-square)=-(b-1)/(b(N-1))((N-1)/N)^b s_N^2. Independent enumeration of all N^b=256 sequences for N=b=4, with values 0,3,8,15, reproduces four support-variance coefficients and the covariance -1323/1024; b=1, k=1 and k=b boundaries considered. Finite enumeration supplements exact all-N,b proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rao et al. Section 2 fixes distinct count by sequential stopping, making b random; Babu et al. examines asymptotic second-order effects."
+        ],
+        "reasoning": "General asymptotic fixed-support-bootstrap theories do not furnish the exact fixed-b conditioning law for arbitrary original data.",
+        "searches": [
+          "Bootstrap by sequential resampling Rao Pathak Koltchinskii 1997",
+          "Babu Pathak Rao second order Poisson bootstrap 1999",
+          "Pauly 2012 subsample bootstrap fixed distinct"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/S0378-3758(97)00041-4",
+        "doi:10.1214/aos/1017939146",
+        "doi:10.1080/02331888.2010.543469",
+        "Resultary semantic search bootstrap distinct support variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1997 Section 2 observes the ordinary bootstrap random number of distinct values and constructs a different variable-length resample; does not directly calculate fixed-b conditional second moment."
+        ],
+        "reasoning": "Conditional second moments require extra uniform-surjection enumeration and cross-statistic absent-cell moment, not deducible from only the prior asymptotic propositions.",
+        "searches": [
+          "Rao Pathak Koltchinskii 1997 sequential bootstrap Theorem 2",
+          "Pauly subsample bootstrap empirical process 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao Pathak Koltchinskii 1997 original article models the random distinct support; conditional full resample mean variance not located in inspected sections."
+        ],
+        "reasoning": "Uniform surjection produces an exact conditional moment, whereas mere occupancy marginals or sequential resampling are not equivalent.",
+        "searches": [
+          "bootstrap sample mean conditional number distinct observations variance Stirling",
+          "occupied boxes conditioned support uniform surjection mean square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact coefficient or covariance table was returned by targeted public/Resultary semantic search."
+        ],
+        "reasoning": "No known-table recomputation established; lack of hit does not prove novelty.",
+        "searches": [
+          "bootstrap support conditioned variance coefficient S(b-1,k)/S(b,k)",
+          "bootstrap covariance number unique observations squared mean fluctuation"
+        ]
+      },
+      "rationale": "Rao–Pathak–Koltchinskii sequential bootstrap and later fixed-support variants discuss support-size randomness but change stopping rules and study asymptotics, rather than calculate the classical fixed-b ordinary bootstrap conditional mean-square and its exact covariance. These known ideas motivate the distinct conditional finite-statistic identity. Search found no exact equivalent under occupancy/surjection aliases; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Older occupancy or bootstrap combinatorial moment literature may contain unindexed exact conditional variants.",
+        "Only fixed empirical datasets, labeled support and equal-probability sampling, not weighted or nonlinear bootstrap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different resampling law and asymptotic goal; no exact finite ordinary conditional variance in inspected material.",
+          "evidence": [
+            "Original Section 2 samples with replacement until predetermined number of distinct observations; resulting N random."
+          ],
+          "identifier_or_url": "doi:10.1016/S0378-3758(97)00041-4; https://www.researchgate.net/publication/222497533_Bootstrap_by_sequential_resampling",
+          "material_read": "Original full-text article accessible as searchable text; inspected original Section 2 stopping scheme and comparison of ordinary and fixed-support bootstrap, with fixed distinct count and random final resample size.",
+          "method": "Original scholarly full-text indexed HTML inspection",
+          "title": "Bootstrap by sequential resampling",
+          "trigger": "exact same support-count motivation"
+        },
+        {
+          "assessment": "Different second-order asymptotic approximation focus; exact finite identity not verified from full body.",
+          "evidence": [
+            "Repository abstract explicitly describes Poisson approximation to sequential bootstrap."
+          ],
+          "identifier_or_url": "doi:10.1214/aos/1017939146; https://repository.ias.ac.in/71900/",
+          "material_read": "Original abstract and academic repository description only; no whole-document noncoverage conclusion.",
+          "method": "Authorized public repository abstract and bibliographic comparison",
+          "title": "Second order correctness of the Poisson bootstrap",
+          "trigger": "closely related fixed-support bootstrap theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Number of represented original observations is a natural effective-sample-information measure in bootstrap resampling. Exact finite conditional variance and negative covariance quantify heteroscedasticity across support strata, including nonstandard b≠N, and can inform diagnostics beyond generic asymptotic correctness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1016/S0378-3758(97)00041-4",
+    "doi:10.1214/aos/1017939146",
+    "doi:10.1080/02331888.2010.543469",
+    "Resultary semantic search bootstrap distinct support variance"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older occupancy or bootstrap combinatorial moment literature may contain unindexed exact conditional variants.",
+    "Only fixed empirical datasets, labeled support and equal-probability sampling, not weighted or nonlinear bootstrap."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Different resampling law and asymptotic goal; no exact finite ordinary conditional variance in inspected material.",
+      "evidence": [
+        "Original Section 2 samples with replacement until predetermined number of distinct observations; resulting N random."
+      ],
+      "identifier_or_url": "doi:10.1016/S0378-3758(97)00041-4; https://www.researchgate.net/publication/222497533_Bootstrap_by_sequential_resampling",
+      "material_read": "Original full-text article accessible as searchable text; inspected original Section 2 stopping scheme and comparison of ordinary and fixed-support bootstrap, with fixed distinct count and random final resample size.",
+      "method": "Original scholarly full-text indexed HTML inspection",
+      "title": "Bootstrap by sequential resampling",
+      "trigger": "exact same support-count motivation"
+    },
+    {
+      "assessment": "Different second-order asymptotic approximation focus; exact finite identity not verified from full body.",
+      "evidence": [
+        "Repository abstract explicitly describes Poisson approximation to sequential bootstrap."
+      ],
+      "identifier_or_url": "doi:10.1214/aos/1017939146; https://repository.ias.ac.in/71900/",
+      "material_read": "Original abstract and academic repository description only; no whole-document noncoverage conclusion.",
+      "method": "Authorized public repository abstract and bibliographic comparison",
+      "title": "Second order correctness of the Poisson bootstrap",
+      "trigger": "closely related fixed-support bootstrap theory"
+    }
+  ]
+}
