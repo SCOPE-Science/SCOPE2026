@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The actual four classical RK4 stages on A=diag(ω1J,ω2J) have nonzero closed-form determinant for both active modes, so the QO invariant-gradient projection is precisely radial. The multiplier Q(x)=|R(ix)|²>0, the modal action map is explicit and globally defined, and Q2-Q1 has exactly one positive sign-change at h_*. An action-angle Jacobian gives the converse symplectic obstruction at h≠h_*, while h=h_* gives a block-diagonal orthogonal symplectic linear map. Independent symbolic identities from actual verify.py plus 150 direct comparisons were successfully replayed. Finite checks are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Najafian–Vermeire Theorem 3: sufficiently small-step solvability and order, not all-h modal law or exact symplecticity.",
+        "Jiang–Gong–Wang high-order orthogonal projection: general quadratic-energy conservation and base order, with no separate-action preservation guarantee."
+      ],
+      "reasoning": "A broad energy-preservation theorem implies constant total norm, which is compatible with both the present mode-selective transfer and its unique symmetric exception. A general order theorem is finite-time/local and does not imply an infinite-step spectral phase diagram. Neither is a stronger claim covering the computed threshold.",
+      "searches": [
+        "orthogonal projection Runge Kutta global energy versus modal invariants symplectic resonance",
+        "classical RK4 stability polynomial imaginary axis equal modulus two frequencies crossover",
+        "energy conserving explicit Runge Kutta projection modal energy transfer multiple oscillators exact",
+        "orthogonal projection Runge Kutta symplecticity harmonic oscillator modal energy conservation"
+      ]
+    },
+    "checked_sources": [
+      "Najafian and Vermeire, Quasi-Orthogonal Runge-Kutta Projection Methods, arXiv:2409.18328v1",
+      "Jiang, Gong, and Wang, Explicit high-order energy-preserving methods for general Hamiltonian partial differential equations, arXiv:2001.00774",
+      "Published mathematical records on RK methods, oscillator action dynamics, and projection resonance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A known quasi-orthogonal explicit-midpoint single-oscillator result is about a solvability cutoff, not RK4 symplecticity.",
+        "A known modified SSPRK(2,2) coefficient-correction result gives oscillator energy transfer and correction failure, but a different update map.",
+        "A classical Fehlberg pair error-estimator resonance is unrelated to the invariant-correcting RK4 update.",
+        "In the 2024 source Remark 4 states only the reduction of saturated-stage QO to standard orthogonal projection; the unique h_* and symplecticity iff classification require further analysis.",
+        "In the 2020 source the orthogonal projection construction gives total quadratic-energy conservation; no two-action or phase transition implication follows from that invariant alone."
+      ],
+      "reasoning": "Two own preceding results share vocabulary but differ in their update maps: anisotropic single-oscillator explicit midpoint may lose real solvability, SSPRK(2,2) modified coefficients may cascade/break, whereas the present RK4 stage-saturated radial method is globally real-solvable and has the exceptional linear symplectic step. Existing energy-conservation and local-accuracy conclusions neither force separate energy invariance at h_* nor yield an exact sign reversal of Q2-Q1. Novelty is the combined evaluated exact statement, not the routine definition of projection.",
+      "searches": [
+        "quasi orthogonal projection RK4 two harmonic oscillators artificial mode energy transfer unique symplectic timestep",
+        "radial normalization projection RK4 on two-frequency skew generator energy ratio frequency takeover",
+        "orthogonal projection Runge Kutta global energy versus modal invariants symplectic resonance",
+        "classical RK4 stability polynomial imaginary axis equal modulus two frequencies crossover",
+        "normalized RK4 energy projection two-frequency spurious spectral cascade reversal critical step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Najafian and Vermeire, Quasi-Orthogonal Runge-Kutta Projection Methods, arXiv:2409.18328v1, §2 Remark 4 and §3.2: full-stage-span projector is ordinary norm-gradient projection, known prior property.",
+        "Jiang, Gong, and Wang, Explicit high-order energy-preserving methods for general Hamiltonian partial differential equations, arXiv:2001.00774, Scheme 3.1: already performs quadratic-energy orthogonal normalization."
+      ],
+      "reasoning": "Equivalent descriptions include radial normalization, norm projection, and common-energy rescaling of RK4. Both source constructions are known and not claimed original. Their checked mathematical results do not give the additional Q1/Q2 modal ratio, unique equality h_*², internal RK4 stable crossover, or iff symplecticity statement. These explicit quantitative implications were compared, not simply titles.",
+      "searches": [
+        "quasi orthogonal projection RK4 two harmonic oscillators artificial mode energy transfer unique symplectic timestep",
+        "radial normalization projection RK4 on two-frequency skew generator energy ratio frequency takeover",
+        "orthogonal projection RK4 two oscillator mode energy ratio exact timestep resonance balanced amplification",
+        "normalized RK4 energy projection two-frequency spurious spectral cascade reversal critical step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record searches returned related oscillator, Runge–Kutta, and projection statements but no record giving the two-frequency RK4 norm-projected action law or threshold.",
+        "The primary numerical illustrations treat a single nonlinear 2D oscillator, Burgers energy and rigid body; there is no two-distinct-oscillator frequency stability table."
+      ],
+      "reasoning": "No matching exact table or mathematical-database formula was found. Nonreturn cannot establish global novelty; comparison with the materially inspected primary formulas provides separate basis for assessment.",
+      "searches": [
+        "quasi orthogonal projection RK4 two harmonic oscillators artificial mode energy transfer unique symplectic timestep",
+        "classical RK4 stability polynomial imaginary axis equal modulus two frequencies crossover",
+        "quasi-orthogonal Runge Kutta projection two different harmonic oscillator frequencies modal energy transfer RK4",
+        "orthogonal projection RK4 two oscillator mode energy ratio exact timestep resonance balanced amplification"
+      ]
+    },
+    "rationale": "Original stage projection, its saturated-span equivalence, and earlier radial energy projection are attributed to the 2024 and 2020 sources. Full primary comparisons and statement-level published-record searches did not locate a claim covering the exact two-frequency symplectic iff resonance, unique sharp modal selection reversal, and crossover within the RK4 stable window. Risk of an equivalent older derivation remains documented.",
+    "residual_risks": [
+      "An exact equivalent phase transition may be known in earlier projection/postprocessing or symplectic approximation studies not retrieved; zero search results are not proof of originality.",
+      "The numerical method is already present in Najafian–Vermeire and Jiang–Gong–Wang; only its specified two-mode sharp analysis is claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm and saturated-stage equivalence covered; requested frequency-crossover and symplecticity iff absent from inspected mathematical results.",
+        "evidence": [
+          "arXiv:2409.18328v1, §2 (2.2)–(2.5), Remark 4, Theorem 3; §3.2 single nonlinear oscillator."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.18328v1",
+        "material_read": "Full accessible arXiv HTML, §§1–4, especially §2 formulas (2.2)–(2.5), Theorem 3, Remark 4, and §3.2 oscillator numerical experiment.",
+        "method": "Read original HTML mathematical definitions, theorem/remarks, and experimental object; reconstructed RK4 stage formulas independently.",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Exact introducing source for the QO stage-gradient algorithm and possible implication to oscillator behavior."
+      },
+      {
+        "assessment": "Radial quadratic-energy projection explicitly prior. Original theorem does not provide frequency-selective ratio, exact crossover step, or unique symplecticity of projected RK4.",
+        "evidence": [
+          "arXiv:2001.00774, explicit orthogonal quadratic-energy projection Scheme 3.1, preservation and accuracy results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.00774",
+        "material_read": "Accessible extended article content, orthogonal projection Scheme 3.1, order and conservation claims, applications and reported examples.",
+        "method": "Compared the energy-projection map and mathematical consequences of original theorems against the new exact mode-action and symplecticity claims.",
+        "title": "Explicit high-order energy-preserving methods for general Hamiltonian partial differential equations",
+        "trigger": "An earlier exact radial projection of quadratic energy could subsume this work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3016d962-c708-4043-af89-94cb5e9044ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stated method is intended to preserve physically relevant invariants; this complete two-mode analysis proves that preserving total energy and remaining within base-RK4 linear stability can still cause exponentially large redistribution of physically conserved modal actions. The unique timestep at which this fixed-step nonlinear projection instead becomes exactly symplectic supplies a motivated sharp structural benchmark, not an arbitrary scalar parameter evaluation. Applications beyond the two-mode exact-arithmetic model are not asserted.",
+    "status": "PASS"
+  }
+}
