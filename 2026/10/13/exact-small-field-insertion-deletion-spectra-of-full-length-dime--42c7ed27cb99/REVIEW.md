@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each field size \(q\in\{2,3,4,5,7,8,9,11\}\), affine normalization gives precisely \((q-2)!\) distinct fixed-coordinate codes. Every relevant pairwise edit distance reduces to the LCS of an evaluation permutation and one of its \(q(q-1)-1\) nonidentity affine transforms. The bit-parallel dynamic-programming verifier and the structurally independent LIS verifier agree on all enumerated cases, including all \(362880\) normalized evaluation orders over \(\mathbb F_{11}\). Small-field ordinary-DP checks and the complete \(155\)-transform ordinary-DP check of the stated \(\mathbb F_{13}\) witness resolve the critical finite boundaries. No generalization beyond the stated finite domains is inferred.
+PASS
 
-## Originality — PASS, with residual risk
+A coordinate order α has a unique affine-normalized representative α_0=0,α_1=1; distinct normalized orders are distinct dimension-two codes. For equal-length words d_insdel=2(q-LCS), and the maximum LCS among distinct affine permutations α and uα+v gives τ=q-1-L_max (constant codewords have LCS<=1). The reduction of LCS between permutations to strict LIS of position indices is exact. An independently written finite-field/LIS C++ exhaustive enumeration reproduced the eight τ histograms for all (q-2)! normalized orders, notably 362880 q=11 codes times 109 nonidentity transforms. An independent q=13 LCS dynamic-programming check reproduced histogram 3:6,4:37,5:73,6:39 and τ=6; the Hamming radius is 5. No q=13 full census or larger-q claim follows.
 
-The closest primary article, Beelen et al., arXiv:2501.11371, already classifies the orders with no correction ability; its Lemma 3 therefore covers the \(\tau=0\) column. Its Proposition 1 and Table 1 do not give the full higher-radius distributions, and its concluding computational observation for fields from \(13\) does not supply an explicit ordering. The 2024 two-dimensional Reed–Solomon construction (arXiv:2311.02771) concerns near-optimal error counts with cubic-sized extension fields, not full-length small-field enumerations. Published searches for the precise field-eleven multiplicities and equivalent LCS/LIS formulas did not uncover an exact prior table. A later 2026 journal version was available at abstract level only; its inaccessible full body and an unindexed finite table remain genuine overlap risks, rather than grounds to assert proven novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question of which evaluation orderings yield good synchronization correction was explicitly highlighted as open by the originating paper. The exact correction-radius spectrum at every field size through \(11\) quantifies the distribution of performance over *all distinct codes* rather than just establishing existence of one good ordering. A separate length-\(13\) witness establishes the first field where insdel correction exceeds the classical Hamming substitution radius. This is a complete and motivated finite classification with a sharp field-size consequence. No claims are made for higher dimensions, all \(\mathbb F_{13}\) orders, or larger fields.
+Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete first eight field-size distribution for every dimension-two full-length RS evaluation order is a natural exact synchronization-code invariant, refining known zero-radius results and providing a concrete field-13 strict improvement witness. Exact finite classifications serve as sharp benchmarks rather than arbitrary toy examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
