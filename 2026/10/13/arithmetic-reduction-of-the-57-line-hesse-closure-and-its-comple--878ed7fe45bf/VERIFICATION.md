@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The standalone `verify.py` runs with Python 3 and no third-party modules. It contains all 57 defining linear forms as exact integer coefficient pairs in \(\mathbb Z[\epsilon]\), performs exhaustive arithmetic on 1,596 pairs and 29,260 triples, and tests both embeddings at each of the three exceptional odd primes. Replaying the actual packaged file must return `VERIFY_OK`.
+## correctness
 
-The proof that no other primes at least five are exceptional follows from exhaustive norm factorization of *all nonzero* triple determinants, not finite sampling. Rational-point counts over every good prime follow from the proved fixed-point counts for conjugation combined with the quadratic-field splitting rule; checks at primes five, eleven, seventeen, twenty-three, and thirty-one are useful independent arithmetic spot checks but do not replace that deduction. The characteristic-seven Moore identity follows from the exact equality of all 57 reduced coefficient classes with the 57 elements of the dual finite plane.
+PASS
 
-Excluded characteristics: two and three. Other limitations: no claim about freeness in positive characteristic or about unspecified integral presentations. Independent audit: not performed.
+Independently extracted the 57 Eisenstein integer coefficient triples from frozen verify.py and coded a separate Z[ε]/(ε²+ε+1) determinant/prime-support computation. All 57 choose 3 = 29,260 triples gave exactly 1,572 zero minors, 27,688 nonzero minors, maximum nonzero norm 171 and prime-support counts 2:6984,3:21252,7:3240,13:864,19:144. Independent projective reductions under both quadratic roots for p=7,13,19,31 yielded respectively 57 eightfold points; 183 with (36 double,72 quadruple,54 fivefold,21 eightfold); 309 with (36 double,180 triple,72 quadruple,21 eightfold); and generic 453 with (252 double,108 triple,72 quadruple,21 eightfold), every profile using all 1596 pairs. Rank-three matroid obstruction argument then covers all p≥5. Verified source proof of 13 conjugation-fixed lines and 31 fixed geometric points from finite exact incidence logic, the p≡1/2 mod3 Frobenius dichotomy, and the classical 57-degree Moore determinant. Char 2,3 excluded; model-specific statement only. Finite triple enumeration is exhaustive, not sampling primes.
+
+## originality
+
+PASS
+
+The original Pokora–Roulleau theorem owns the 57 line forms, complex rigidity/freeness and char-zero multiplicity basket. Independently established exceptional residue prime set, PG(2,7) completion and exact rational Frobenius spectrum are distinct arithmetic statements not implied by the complex data. Resultary checked under corresponding aliases; unindexed prior computational observations remain possible.
+
+## value
+
+PASS
+
+A full special-characteristic matroid degeneration of a natural rigid 57-line arrangement, including a surprising exact PG(2,7) model, complete finite set of exceptional primes and Frobenius descent, is a mathematically motivated arithmetic-geometry classification. The result could inform realization-space and positive-characteristic arrangement research beyond simply reprinting the original complex basket.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

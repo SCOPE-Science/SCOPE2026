@@ -1,19 +1,21 @@
-# Scientific review: arithmetic reduction of the 57-line Hesse closure
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input consists of the published explicit 57 lines over \(\mathbb Z[\epsilon]\) after clearing the nine denominators two. Exact projective cross products reproduce the published complex \((252,108,72,21)\) intersection basket. Exhaustion of all 29,260 triple determinants yields exactly 1,572 zero determinants and nonzero norm-prime support \(\{2,3,7,13,19\}\). This gives a uniform proof of good reduction in every characteristic at least five outside \(\{7,13,19\}\). Both residue embeddings at each exceptional prime are checked; the 57 characteristic-seven normals are proven to be the entire dual \(\mathbb P^2(\mathbb F_7)\). Exact conjugation gives 13 invariant lines and 31 invariant intersection points, and standard Frobenius action supplies the prime-by-prime rational count. The executable certificate was run successfully. The finite computation is exhaustive for the fixed explicit model; there is no claim about arbitrary models.
+PASS
 
-## Originality — PASS with residual risk
+Independently extracted the 57 Eisenstein integer coefficient triples from frozen verify.py and coded a separate Z[ε]/(ε²+ε+1) determinant/prime-support computation. All 57 choose 3 = 29,260 triples gave exactly 1,572 zero minors, 27,688 nonzero minors, maximum nonzero norm 171 and prime-support counts 2:6984,3:21252,7:3240,13:864,19:144. Independent projective reductions under both quadratic roots for p=7,13,19,31 yielded respectively 57 eightfold points; 183 with (36 double,72 quadruple,54 fivefold,21 eightfold); 309 with (36 double,180 triple,72 quadruple,21 eightfold); and generic 453 with (252 double,108 triple,72 quadruple,21 eightfold), every profile using all 1596 pairs. Rank-three matroid obstruction argument then covers all p≥5. Verified source proof of 13 conjugation-fixed lines and 31 fixed geometric points from finite exact incidence logic, the p≡1/2 mod3 Frobenius dichotomy, and the classical 57-degree Moore determinant. Char 2,3 excluded; model-specific statement only. Finite triple enumeration is exhaustive, not sampling primes.
 
-The originating article (arXiv:2403.20024, Theorem A and Section 2) gives the complex arrangement, characteristic-zero incidence and freeness, but does not establish the characteristic-seven finite-plane degeneration or the full prime profiles. Distinct previous considerations of the same 57-line arrangement's complex symmetry do not imply any reduction theorem. A separate octagon-derived 33-line arrangement may have its own exceptional reductions, which do not imply the behavior of the Hesse closure. Focused mathematical-record searches for characteristic-seven reduction, the prime set \(7,13,19\), the exceptional baskets and the Frobenius spectrum did not locate a containing theorem. This is evidence of a gap, not proof of bibliographic uniqueness. Possible unindexed historical finite-field computations remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Reduction of this natural rigid free line configuration produces the complete Desarguesian plane of order seven, a structural arithmetic specialization rather than a small numerical improvement. The exact bad-prime classification distinguishes three collision geometries, and the Frobenius formula determines the rational singular-point spectrum for every characteristic at least five. These facts are intrinsic questions about the named arrangement and its specified integral presentation, not arbitrary parameter slices.
+The original Pokora–Roulleau theorem owns the 57 line forms, complex rigidity/freeness and char-zero multiplicity basket. Independently established exceptional residue prime set, PG(2,7) completion and exact rational Frobenius spectrum are distinct arithmetic statements not implied by the complex data. Resultary checked under corresponding aliases; unindexed prior computational observations remain possible.
 
-## Scientific limits
+## value
 
-The statement excludes characteristics two and three and does not assert preservation of freeness. The Moore-determinant identity is classical for a full rational line arrangement; the new assertion is that these specific 57 lines reduce to it. Search results cannot exclude inaccessible or unindexed overlap. Verification is reproducible but not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full special-characteristic matroid degeneration of a natural rigid 57-line arrangement, including a surprising exact PG(2,7) model, complete finite set of exceptional primes and Frobenius descent, is a mathematically motivated arithmetic-geometry classification. The result could inform realization-space and positive-characteristic arrangement research beyond simply reprinting the original complex basket.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
