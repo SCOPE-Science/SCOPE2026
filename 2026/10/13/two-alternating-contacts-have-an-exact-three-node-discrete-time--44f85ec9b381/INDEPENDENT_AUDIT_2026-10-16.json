@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:15:11.734873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<μ<1 write a=1−μ. Linearized one-edge SIS matrices M12=aI+λA12 and M23=aI+λA23 yield P=M23 M12 on three nodes; independently expanded determinant det(P−I)=[(a−1)^2(a+1)−aλ²][(a−1)(a+1)^2−aλ²]. The second factor is strictly negative for a∈(0,1), λ≥0; the nonnegative irreducible P increases in λ and crosses Perron radius 1 exactly once at λ_temp²=μ²(2−μ)/(1−μ). The averaged adjacency matrix (A12+A23)/2 has radius 1/√2, giving λ_agg=μ√2 and λ_temp/λ_agg=sqrt((2−μ)/(2(1−μ)))>1. Two vertices cannot host distinct single-edge snapshots; every two distinct edges on three vertices share an endpoint and define this unique pattern. The threshold is formal when >1 (transmission probability cannot exceed one), and no exact finite-population stochastic extinction claim is made. Independent algebra checks determinant and ratio.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Valdano–Ferreri–Poletto–Colizza 2015 arbitrary temporal criterion",
+          "Speidel–Klemm–Eguíluz–Masuda 2016 qualitative inequality for random snapshots with replacement in discrete time"
+        ],
+        "reasoning": "General product criterion provides machinery, not the exact evaluated closed form; random-with-replacement protocol can sample the same edge twice and is not the deterministic alternating sequence. The broad qualitative inequality does not entail strictness and exact factor for the fixed case.",
+        "searches": [
+          "alternating two contacts discrete-time SIS epidemic threshold three-node path infection propagator aggregate closed form",
+          "arXiv:1406.4815",
+          "arXiv:1602.00859"
+        ]
+      },
+      "checked_sources": [
+        "2026 frozen RESULT.md tree a5867bcf9ec103271a74e21c02efafbefaeb7411",
+        "arXiv:1406.4815",
+        "arXiv:1602.00859",
+        "doi:10.1103/PhysRevX.5.021005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Valdano supplies rho(product)=1, which when specialized permits derivation",
+          "Speidel appendix considers independent snapshot draws and different qualitative inequality",
+          "Claim additionally proves n=3 minimality, unique pattern and exact ratio"
+        ],
+        "reasoning": "The displayed square-root result is not simply an assertion of the general threshold criterion or random protocol inequality. Its numerical evaluation and graph-minimality rely on specialization and determinant calculation; prior qualitative statements alone do not give the strict factor.",
+        "searches": [
+          "alternating two contacts discrete-time SIS epidemic threshold three-node path infection propagator aggregate closed form",
+          "arXiv:1406.4815",
+          "arXiv:1602.00859"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General infection propagator is spectral radius of period product of aI+λA(t)",
+          "The analyzed two-edge temporal path gives an explicit square-root threshold and ratio absent from inspected source statements"
+        ],
+        "reasoning": "Tested aliases alternating edge, two-snapshot single-link, temporal P3, infection-propagator two-factor threshold, static-aggregate penalty. Relevant works furnish formula for an unevaluated product but not the minimal exact evaluation.",
+        "searches": [
+          "alternating two contacts discrete-time SIS epidemic threshold three-node path infection propagator aggregate closed form",
+          "\"Temporal interactions facilitate endemicity\" single-link snapshots discrete-time aggregate appendix",
+          "arXiv:1406.4815",
+          "arXiv:1602.00859"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source table in inspected single-link discussions states the deterministic 3-node period-two threshold μsqrt((2−μ)/(1−μ))",
+          "Resultary highest ranked hits concern different SIS and disease contact models"
+        ],
+        "reasoning": "No exact table covers this explicit two-step path in material read; low mathematical complexity leaves real unindexed classroom-example priority risk.",
+        "searches": [
+          "alternating two contacts discrete-time SIS epidemic threshold three-node path infection propagator aggregate closed form",
+          "arXiv:1602.00859"
+        ]
+      },
+      "rationale": "Valdano et al. (2015) already give the arbitrary temporal infection-propagator matrix product criterion, and Speidel et al. (2016) discuss aggregate bias and a discrete-time inequality for random-with-replacement snapshots, not this fixed alternating period. Generic criterion is prior but does not state the exact minimal n=3 deterministic two-step factorized threshold or its quantitative ratio. No indexed exact worked example was located in Resultary and query-level literature searches; a lecture-note prior evaluation remains a possibility. Best-of-knowledge PASS.",
+      "residual_risks": [
+        "Unindexed textbook or tutorial may already work out the same 3-by-3 determinant; no blanket absence-of-prior-work is claimed.",
+        "When formal λ_temp>1 the physical SIS probability threshold does not occur, so the ratio compares formal linear stability parameters only.",
+        "The deterministic individual-based mean-field threshold is not an exact finite three-person extinction transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General machinery covers method but does not report the exact deterministic two-contact P3 benchmark",
+          "evidence": "Factor aI+λA_t and rho of product controls mean-field threshold",
+          "identifier_or_url": "arXiv:1406.4815; doi:10.1103/PhysRevX.5.021005",
+          "material_read": "Open arXiv full text around discrete-time SIS linearization, product factor, threshold spectral-radius condition, and static average comparison",
+          "method": "Read article equations and compare general versus specialized statement",
+          "title": "Analytical computation of the epidemic threshold on temporal networks",
+          "trigger": "Original model and general infection-propagator threshold"
+        },
+        {
+          "assessment": "Qualitative comparison for different temporal sampling protocol; does not state fixed alternating 3-node exact ratio",
+          "evidence": "Random replacement snapshots and discrete-time inequality do not determine deterministic alternating two-edge product",
+          "identifier_or_url": "arXiv:1602.00859; doi:10.1088/1367-2630/18/7/073013",
+          "material_read": "Open full text and relevant appendices on single-link snapshots, random-replacement protocol and aggregate threshold",
+          "method": "Source/full-text assumption matching",
+          "title": "Temporal interactions facilitate endemicity in the susceptible-infected-susceptible epidemic model",
+          "trigger": "Closest discrete-versus-continuous comparison and single-link examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precisely minimal temporal topology is a natural baseline for separating discretization/temporal ordering from network-size complexity. A closed-form exact ratio makes a reproducible analytic calibration of static aggregation and shows when the formal threshold leaves the physical probability interval. Although its calculation is short once the model is specified, an explicit sharp minimal-case diagnostic with natural physical interpretation and not known from the source is independently useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026 frozen RESULT.md tree a5867bcf9ec103271a74e21c02efafbefaeb7411",
+    "arXiv:1406.4815",
+    "arXiv:1602.00859",
+    "doi:10.1103/PhysRevX.5.021005"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed textbook or tutorial may already work out the same 3-by-3 determinant; no blanket absence-of-prior-work is claimed.",
+    "When formal λ_temp>1 the physical SIS probability threshold does not occur, so the ratio compares formal linear stability parameters only.",
+    "The deterministic individual-based mean-field threshold is not an exact finite three-person extinction transition."
+  ],
+  "schema_version": 1
+}

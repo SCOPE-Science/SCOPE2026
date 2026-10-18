@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The period-two propagator is obtained directly from the discrete-time SIS linearization. Its determinant at eigenvalue one factors into two explicit terms; one is strictly negative throughout the parameter domain and the other has the unique positive zero \(\lambda^2=\mu^2(2-\mu)/(1-\mu)\). Perron monotonicity identifies this zero as the unique spectral-radius crossing. The aggregate threshold follows from the spectral radius of the half-weighted three-vertex path. Minimality follows because two vertices support only one simple edge, whereas any two distinct edges on three vertices form the same path up to relabeling. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the formal critical value can lie above the probability range \([0,1]\) at high recovery probability; the claim states this explicitly rather than treating such a value as physically reachable.
+PASS
 
-## Originality
-**PASS.** Valdano et al. supply the general infection-propagator threshold criterion, and Speidel et al. prove a broader aggregate lower bound for a different stochastic snapshot protocol—random sampling with replacement—and discuss single-link snapshots. Those results own the framework and the qualitative possibility that discrete-time temporality raises a threshold. The inspected sources and targeted searches did not state the deterministic two-snapshot three-node closed form, its minimality, or the exact temporal-to-aggregate ratio.
+For 0<μ<1 write a=1−μ. Linearized one-edge SIS matrices M12=aI+λA12 and M23=aI+λA23 yield P=M23 M12 on three nodes; independently expanded determinant det(P−I)=[(a−1)^2(a+1)−aλ²][(a−1)(a+1)^2−aλ²]. The second factor is strictly negative for a∈(0,1), λ≥0; the nonnegative irreducible P increases in λ and crosses Perron radius 1 exactly once at λ_temp²=μ²(2−μ)/(1−μ). The averaged adjacency matrix (A12+A23)/2 has radius 1/√2, giving λ_agg=μ√2 and λ_temp/λ_agg=sqrt((2−μ)/(2(1−μ)))>1. Two vertices cannot host distinct single-edge snapshots; every two distinct edges on three vertices share an endpoint and define this unique pattern. The threshold is formal when >1 (transmission probability cannot exceed one), and no exact finite-population stochastic extinction claim is made. Independent algebra checks determinant and ratio.
 
-Risk: the calculation is elementary once the three-node sequence is isolated, so an unindexed lecture note or worked example could contain the same matrix identity.
+## originality
 
-## Value
-**PASS.** The aggregate approximation is a standard simplification of temporal contact data. This result gives the smallest nontrivial deterministic example in which the approximation has a strict, analytically quantifiable bias, and the exact ratio separates finite-step discreteness from graph-size complexity. It also provides a clean benchmark for testing temporal-SIS implementations and for explaining why the discrete-time direction differs from familiar continuous-time results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Valdano et al. (2015) already give the arbitrary temporal infection-propagator matrix product criterion, and Speidel et al. (2016) discuss aggregate bias and a discrete-time inequality for random-with-replacement snapshots, not this fixed alternating period. Generic criterion is prior but does not state the exact minimal n=3 deterministic two-step factorized threshold or its quantitative ratio. No indexed exact worked example was located in Resultary and query-level literature searches; a lecture-note prior evaluation remains a possibility. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The precisely minimal temporal topology is a natural baseline for separating discretization/temporal ordering from network-size complexity. A closed-form exact ratio makes a reproducible analytic calibration of static aggregation and shows when the formal threshold leaves the physical probability interval. Although its calculation is short once the model is specified, an explicit sharp minimal-case diagnostic with natural physical interpretation and not known from the source is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
