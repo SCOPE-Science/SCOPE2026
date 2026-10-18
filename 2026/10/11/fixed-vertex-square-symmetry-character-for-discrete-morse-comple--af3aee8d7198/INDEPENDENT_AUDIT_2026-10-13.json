@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:59:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 62e6ee5fada0b4d446a7172db3d5737cd585231e",
+        "Frozen verify_cone_tree.py blob 4dc437104a3de7b1e0ed8d8804b9332008895e9e (6043-byte source inspected)",
+        "Jojić, Shellability of complexes of directed trees, arXiv:1109.4475v2, §2 complete-source shelling",
+        "Independent sample enumerator /mnt/data/scope_independent_cone_check.py for 7 symmetry cases on small trees"
+      ],
+      "rationale": "For the one-dimensional cone graph h+T, Morse matchings are acyclic functional digraphs with ≤n arrows; Kozlov complete-source shellability supplies pure wedge-homology concentration in dimension n−1, not the character. Under g, each selected orbit of arcs contributes −1 to the augmented alternating Lefschetz sum (the permutation-sign factor cancels with face parity). Equivariant selections correspond to rooted partial forests on vertex-orbit quotient, and row expansion of det(I−L_g) gives their signed sum; directed cycles cancel as vanishing determinants. If g fixes f>0 tree vertices, fixed subtree is connected; determinant of hub+fixed block is (−1)^f f² via adj(L_F)=11ᵀ for a tree; moving quotient components have unique parent arrows and their Dirichlet determinant is (−1)^b for b moving orbits. If f=0, automorphism inverts a central edge, hub has no fixed neighbor and the remaining moving quotient Laplacian has row sum zero, giving trace zero. Multiply (−1)^n from homology concentration to get sgn_V(g) f(g)², including identity trace n². Rational character equals epsilon⊗U⊗U; integral equivariant basis not claimed. The reviewed exact Prüfer/automorphism/forest checker was inspected and independent small n=2,3,4 symmetry traces also computed; finite checks are corroboration, infinite proof is orbit determinant plus tree geometry.",
+      "residual_risks": [
+        "The explicit orbit-quotient Laplacian argument relies on the special tree-orbit parent uniqueness, not valid for general base graphs or filled cones.",
+        "Exact 24-type/967-automorphism checker result described by source but cannot turn finite enumeration into proof for all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jojić §2 shellability applies to any directed graph with complete source; the cone is a special graph and therefore homology concentration is covered."
+        ],
+        "reasoning": "General shellability is stronger on complexes but not on representation characters; an equivariant version of Kozlov/Jojić generating facets could imply the formula, so the uninspected Kozlov source remains material residual risk.",
+        "searches": [
+          "Kozlov 1999 complete-source generating facets equivariant group action",
+          "Jojić arXiv:1109.4475 §2 and §4 directed trees",
+          "Engström arXiv:math/0508148 directed forests"
+        ]
+      },
+      "checked_sources": [
+        "Jojić, arXiv:1109.4475v2 complete HTML §1-4 (source and generating facets)",
+        "Donovan and Scoville, arXiv:2207.13780, complete HTML sections on matching/Morse complexes of tree/star families",
+        "Engström arXiv:math/0508148, title and scholarly abstract for essentially tree directed graphs (full original not read)",
+        "Kozlov 1999, Complexes of directed trees, JCTA 88:112–122, mentioned in Jojić, not independently full-read",
+        "Earlier triangular-book page-character specialization documented in research package, source not independently reconstructed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior star-tree page symmetry gives epsilon(g)f(g)² for T=K1,k; Jojić provides ordinary sphere count."
+        ],
+        "reasoning": "Star-tree corollary is fully covered and not novel; homology concentration only determines χ(identity). Nonstar fixed-point traces χ(g), especially central edge inversions, are additional data not fixed by those theorems.",
+        "searches": [
+          "Jojić h-vector generating facet shellability versus equivariant character",
+          "Previously indexed triangular book character for star-tree T=K1,k"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jojić Definition 1 identifies directed forest complex with graph discrete Morse complex after reversing orientation; its Theorem and shelling give top homology concentration."
+        ],
+        "reasoning": "The categorical isomorphism Δ(bidirected cone)≅Morse one-dimensional graph is already known. A character formula depends on action/orientations of g on faces, not merely the homotopy type, so that equivalence alone does not entail epsilon(g) f(g)².",
+        "searches": [
+          "Jojić arXiv:1109.4475 complexes of directed trees complete-source generating facets",
+          "Donovan–Scoville arXiv:2207.13780 discrete Morse complex tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact checker covers all 24 unlabeled trees on n≤7 and 967 automorphisms; identity trace n² follows analytic theorem, not table interpolation."
+        ],
+        "reasoning": "The final theorem quantifies over every finite tree and automorphism; no finite homology table can certify it. Small examples test orbit-sign conventions but do not imply the all-n formula.",
+        "searches": [
+          "Cone-tree Morse complex automorphism character small n enumeration",
+          "Published finite Morse complex homology computations in arXiv:2207.13780"
+        ]
+      },
+      "rationale": "Jojić arXiv:1109.4475 §2 gives complete-source shellability and generating facets for directed-tree complexes, thus *covers* wedge-concentration premise but contains no calculation of the action of arbitrary tree automorphisms on top homology; extracting representation characters from shelling requires further equivariance, not automatic. Donovan–Scoville arXiv:2207.13780 studies Morse complexes of tree/star families with nonequivariant topology; Engström gives related directed-forest shellability. An earlier documented triangular-book result computes the page-permutation character for the special star base T=K_{1,k}; that special case is excluded as original. The assessed uniform formula for all finite tree automorphisms, including nonstar trees and central-edge inversions, is a substantive new statement relative to inspected primary material.",
+      "residual_risks": [
+        "The 1999 Kozlov original full text was not independently inspected; broad generating-facet actions could implicitly determine the same rational character.",
+        "Earlier triangular-book character gives exact star-tree specialization and receives priority.",
+        "Resultary service failed internally, repository code search 0 matches not a novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers shellability and wedge premise, but does not state the tree-automorphism sign/fixed-point-square character",
+          "evidence": "Jojić §2 explicitly credits Kozlov and identifies Morse matching with directed forests; Corollary on generating facets has no g trace.",
+          "identifier_or_url": "https://arxiv.org/html/1109.4475v2",
+          "material_read": "Complete HTML sections 1–4, especially Definition 1, §2 complete-source shelling, generating-facet descriptions, tree section and references",
+          "method": "Read entire primary HTML material at theorem/section level; compared g-trace formulas",
+          "title": "Shellability of complexes of directed trees",
+          "trigger": "Strong complete-source shellability and generating-facets theory"
+        },
+        {
+          "assessment": "Gives topological complexes and families, not a uniform Γ-module formula for cones over all trees",
+          "evidence": "Donovan–Scoville results on star/tree families concern homotopy rather than sgn⋅fixed² character.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.13780",
+          "material_read": "Complete accessible arXiv HTML structural/theorem and relevant family sections",
+          "method": "Read primary full-text HTML and compared equivariant content",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+          "trigger": "Related Morse complexes of trees and stars"
+        },
+        {
+          "assessment": "Material residual priority risk; cannot assert the complete original omits formula",
+          "evidence": "Jojić expressly credits Kozlov Theorem 3.1 and generating facets",
+          "identifier_or_url": "Kozlov, J. Combin. Theory Ser. A 88 (1999), 112–122",
+          "material_read": "Bibliographic reference and specific theorem as quoted in Jojić; original primary article NOT read",
+          "method": "Secondary identification only, no full-text claim",
+          "title": "Complexes of directed trees",
+          "trigger": "Original broad theorem might contain equivariant consequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md at 62e6ee5fada0b4d446a7172db3d5737cd585231e",
+        "Jojić, arXiv:1109.4475v2 complete HTML §1-4 (source and generating facets)",
+        "Donovan and Scoville, arXiv:2207.13780, complete HTML sections on matching/Morse complexes of tree/star families",
+        "Engström arXiv:math/0508148, title and scholarly abstract for essentially tree directed graphs (full original not read)",
+        "Kozlov 1999, Complexes of directed trees, JCTA 88:112–122, mentioned in Jojić, not independently full-read",
+        "Earlier triangular-book page-character specialization documented in research package, source not independently reconstructed"
+      ],
+      "rationale": "Character of an entire finite group action on top rational homology is strictly richer than Betti number n² and determines multiplicity of every irreducible representation by character inner products. The explicit ε⊗(U⊗U) decomposition for all tree automorphism groups supplies a reusable equivariant Morse-complex invariant, detects edge-inverting/no-fixed-vertex symmetries, and is not an arbitrary small-graph computation. Finite checks are supporting, while the structural orbit-determinant proof supplies the all-tree classification.",
+      "residual_risks": [
+        "Noncanonical rational module statement only, not integral equivariant Morse basis.",
+        "Special star subfamily already covered; value rests on general tree symmetries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The explicit orbit-quotient Laplacian argument relies on the special tree-orbit parent uniqueness, not valid for general base graphs or filled cones.",
+    "Exact 24-type/967-automorphism checker result described by source but cannot turn finite enumeration into proof for all n.",
+    "The 1999 Kozlov original full text was not independently inspected; broad generating-facet actions could implicitly determine the same rational character.",
+    "Earlier triangular-book character gives exact star-tree specialization and receives priority.",
+    "Resultary service failed internally, repository code search 0 matches not a novelty proof.",
+    "Noncanonical rational module statement only, not integral equivariant Morse basis.",
+    "Special star subfamily already covered; value rests on general tree symmetries."
+  ],
+  "schema_version": 1
+}
