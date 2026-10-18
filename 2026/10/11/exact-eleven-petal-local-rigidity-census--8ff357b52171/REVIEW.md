@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a finite exhaustive statement. Cyclic position classes are represented uniquely by placing \(0\) first, giving exactly \(10!\) cases. The implementation tests the published necessary-and-sufficient criterion for \(\mathsf T^-\), and for \(\mathsf X\) it exhausts all basepoints, endpoint pairs, and nesting intervals in the source definition. The dihedral pass uses the published formulas for \(\mathsf R\) and \(\mathsf S\). The orbit-size totals sum exactly to the independently counted stronger word total. The bundled verifier also reproduces the source's explicit crossing-exchange example and confirms local rigidity of its three named nine-petal hard representatives. No knot-type conclusion is inferred from the finite move census.
+## correctness
 
-## Originality
-PASS. The primary preprint reports a complete census only for \(N\le9\), explicitly mentions only random move-preservation tests at \(N=11\), and asks for larger-\(N\) frequency information. Full-text inspection found no eleven-petal local-rigidity count or dihedral orbit decomposition. The foundational petal-move paper defines the moves and proves completeness but contains no such enumeration. Targeted exact-count, alias, Petaluma-model, and local-minimum searches found no covering statement. Earlier calculations on the same primary source concern two named nine-petal move distances and one named nine-petal capped component; they do not imply a global eleven-petal census.
+PASS
 
-## Value
-PASS. Eleven petals are the first natural odd size immediately beyond the source's exhaustive \(N\le9\) table, and the source explicitly asks how common hard diagrams are at larger size. Before knot certification, absence of the simplifying local moves is the natural finite filter. The exact census reduces the \(3{,}628{,}800\)-word universe to \(270{,}630\) dihedrally locally rigid words in \(12{,}786\) symmetry orbits, providing a concrete and reproducible search space for a future eleven-petal hardness census. The result is not a recomputation of a published table and is not presented as a hard-unknot classification.
+The finite domain is exactly cyclic position classes of permutations of 0,…,10, represented uniquely by p[0]=0, hence 10!=3628800. Inspected frozen Git RESULT.md blob 2a525b1fa65927b30c480720fe734535ac6ccf8a, source tree af69e9a980e335c89bc08194ee3b5ef19ed265d9, and bundled C++17 verifier blob 52ff8421d232497feb849f2f44848071721b3c0b. The T− predicate checks cyclic neighbors with height difference one. Crossing exchange enumerates all eleven basepoints, admissible m,w, the two required pairs and interval-nesting for every remaining pair. R adds 1 mod 11; S reverses and complements heights, both renormalizing p[0]=0. Separately written and compiled C++17 enumerator (not execution of packaged opaque code) exhausted all 3628800 words and independently obtained no_T=393410, no_X=1971006, both absent=325398, dihedrally stable=270630, orbit counts 12786 and histogram 1:8,11:954,22:11824. The identity 8+954·11+11824·22=270630 holds exactly. These computations exhaust this fixed finite domain but do NOT certify knot types, infinite N or asymptotic density.
 
-## Closest literature and limitations
-The closest sources are Vernitski's 2026 hard-petal preprint and the 2019 Reidemeister-type theorem of Colton--Glover--Hughes--Sandberg. The result remains purely combinatorial: knot types, hardness, and asymptotic densities are outside its scope. A prior unindexed independent enumeration is the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original finite eleven-petal global local-move census with new dihedral-stability refinement relative to published move definitions and reported nine-petal calculations; full access to the most directly relevant 2026 preprint failed, so the exact priority comparison is materially limited. Resultary service failed and supplies no negative originality evidence.
+
+## value
+
+PASS
+
+Eleven petals is the first natural odd size beyond the source’s reported nine-petal enumeration; an exact complete finite baseline for when the two canonical simplifying moves are unavailable, refined by natural dihedral symmetry, is a mathematically motivated structural classification. It does not pretend to count hard unknots; 3.6-million-case exact finite obstruction data can guide further petal-move topology without claiming a knot classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
