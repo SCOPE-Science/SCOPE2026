@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-The accompanying `artifacts/verify.py` is standard-library Python using integer arithmetic only. It checks complete defining gcds for \(2\le k\le160\); computes all prime-adic minima across every \(2\le q\le n\) for \(3\le n\le1200\); and checks the explicitly constructed valuation-attaining coefficient for each qualifying prime-power component for \(3\le n\le12000\). The complete finite replay output is embedded as `artifacts/replay.txt`. These checks verify arithmetic and implementation, while the infinite claim is established by the symbolic interpolation, Kummer and digit-sum proof.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Newton interpolation at q=1..k+1 for F(q)=binom(qk,k) of degree k with F(0)=0 and F(1)=1 gives D(k)|(k+1), eliminating other primes. The source local criterion treats a≤t as exponent 0; for a>t, Kummer carries at j≤a give a−s when s=ν_p(q−1)≤a, and disjoint high boundaries a+t+1≤j≤a+s supply s−t when s>t, forcing every binomial valuation≥a−t. For b=1 the witness q=p produces exactly a carries. For b>1, u=b−p^t lies in (0,p^a) with p∤u, q=1+p^a u is in range; the base-p digit-sum identities for b−1, uk and their sum give exactly a−t carries. These arguments address all k, each p and all q, not just finite samples.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for full quantitative p-adic gcd factorization beyond the published Boolean gcd-one criterion. The highly relevant original paper’s full text was inaccessible in this run; a concealed stronger proposition is a specific residual priority risk, not proof of coverage.
+
+## value
+
+PASS
+
+The exact integer gcd and an explicit valuation-attaining factor are a natural complete refinement of a recent conjecture-resolution: quantitative prime-power content can matter even when D(k)≠1, and this theorem supplies it uniformly rather than merely classifying unit cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

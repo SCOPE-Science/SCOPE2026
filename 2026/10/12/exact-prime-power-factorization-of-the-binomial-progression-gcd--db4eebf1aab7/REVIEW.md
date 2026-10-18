@@ -1,19 +1,21 @@
-# Scientific review: exact prime-power binomial progression gcd
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new result follows from four validated steps: the interpolation identity \(D(k)\mid k+1\), the published local prime-divisibility result for vanishing exponents, a uniform Kummer carry lower bound when \(a>t\), and explicit choice of a binomial coefficient attaining the lower bound. The high carry boundaries \(a+t+1\le j\le a+s\) are distinct from the low carry boundaries, and the witness digit-sum identities also hold in the boundary cases \(p=2\), \(b=1\), and \(t=0\). Exact finite integer arithmetic verifies the defining gcd for every \(2\le k\le160\), all component minima for \(3\le n\le1200\), and every witness through \(n=12000\). The proof, not the finite run, establishes the infinite result.
+PASS
 
-## Originality — PASS
+Newton interpolation at q=1..k+1 for F(q)=binom(qk,k) of degree k with F(0)=0 and F(1)=1 gives D(k)|(k+1), eliminating other primes. The source local criterion treats a≤t as exponent 0; for a>t, Kummer carries at j≤a give a−s when s=ν_p(q−1)≤a, and disjoint high boundaries a+t+1≤j≤a+s supply s−t when s>t, forcing every binomial valuation≥a−t. For b=1 the witness q=p produces exactly a carries. For b>1, u=b−p^t lies in (0,p^a) with p∤u, q=1+p^a u is in range; the base-p digit-sum identities for b−1, uk and their sum give exactly a−t carries. These arguments address all k, each p and all q, not just finite samples.
 
-The closest primary source is Guo et al., arXiv:2606.22997v1. Its Theorem 1 determines exactly when \(D(k)=1\), while Lemma 9 determines which primes divide \(D(k)\); these do not determine the exponent of a dividing prime. Exact-source, parameter, equivalent-form, stronger-coverage, OEIS, published-finding corpus, and comparisons with related mathematical claims found no full valuation formula. The previous same-source counting result determines an asymptotic frequency of nontrivial gcds, not their pointwise prime-adic orders. Unindexed equivalent literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The complete factorization is a natural missing quantitative invariant of the precise gcd studied in the source. It distinguishes higher prime powers hidden by a unit/nonunit test and gives witnesses realizing every exponent. The structural high/low carry argument explains the result uniformly for all integers, so the work is neither an unmotivated slice nor a routine table recomputation.
+PASS best-of-knowledge for full quantitative p-adic gcd factorization beyond the published Boolean gcd-one criterion. The highly relevant original paper’s full text was inaccessible in this run; a concealed stronger proposition is a specific residual priority risk, not proof of coverage.
 
-## Closest literature and limitations
+## value
 
-The primary same-object paper is arXiv:2606.22997v1; the corresponding OEIS entry records only zero-versus-nonzero indices. The result applies to the full progression \(2\le q\le k+1\), and no claim is made for other ranges or independently established precedence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact integer gcd and an explicit valuation-attaining factor are a natural complete refinement of a recent conjecture-resolution: quantitative prime-power content can matter even when D(k)≠1, and this theorem supplies it uniformly rather than merely classifying unit cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

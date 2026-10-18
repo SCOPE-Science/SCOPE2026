@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:57:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+        "Git blob RESULT.md 3c78c2dc539205a565c1e8314137345615e4dabe",
+        "https://arxiv.org/abs/2606.22997"
+      ],
+      "rationale": "Newton interpolation at q=1..k+1 for F(q)=binom(qk,k) of degree k with F(0)=0 and F(1)=1 gives D(k)|(k+1), eliminating other primes. The source local criterion treats a≤t as exponent 0; for a>t, Kummer carries at j≤a give a−s when s=ν_p(q−1)≤a, and disjoint high boundaries a+t+1≤j≤a+s supply s−t when s>t, forcing every binomial valuation≥a−t. For b=1 the witness q=p produces exactly a carries. For b>1, u=b−p^t lies in (0,p^a) with p∤u, q=1+p^a u is in range; the base-p digit-sum identities for b−1, uk and their sum give exactly a−t carries. These arguments address all k, each p and all q, not just finite samples.",
+      "residual_risks": [
+        "Specific full progression 2≤q≤k+1; shortened ranges and other lower indices are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo et al. abstract proves D(k)=1 iff n/P>P; paper Lemma 9 referred to as p-divisibility test by assigned record, full lemma inaccessible."
+        ],
+        "reasoning": "The visible stronger result is a unit criterion, insufficient to determine positive exponents. No broader all-prime-power formula located; possible one in inaccessible full text remains a material risk.",
+        "searches": [
+          "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao",
+          "https://arxiv.org/abs/2606.22997"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+        "https://arxiv.org/abs/2606.22997",
+        "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unit criterion and local p∣D(k) iff b≤p^a distinguish exponent zero from positive; new proof uses high digit boundaries and constructive q."
+        ],
+        "reasoning": "The local yes/no criterion gives no exponent a−floor(log_p b), and a new p-adic lower bound plus valuation-attaining witness are needed. The new theorem implies the unit criterion but the inverse implication is false at the level of mathematical information.",
+        "searches": [
+          "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao",
+          "https://arxiv.org/abs/2606.22997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo et al. arXiv:2606.22997 abstract specifies identical gcd D(k)=gcd_{q=2}^{k+1} binom(qk,k); Kummer carry count and Legendre digit-sum formula."
+        ],
+        "reasoning": "The exact local valuation is a strengthened pointwise invariant; it is not equivalent to the published binary unit criterion without additional valuation-sensitive information.",
+        "searches": [
+          "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao",
+          "https://arxiv.org/abs/2606.22997"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A080170 indexes D(k)=1; Resultary targeted exact-valuation search returned different binomial valuations and unrelated gcd invariants."
+        ],
+        "reasoning": "Knowing exactly which gcds equal 1 does not specify a nontrivial gcd value, e.g. D(15)=16 from direct calculation; no exact D(k) table was found in inspected sources.",
+        "searches": [
+          "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao",
+          "https://oeis.org/A080170"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for full quantitative p-adic gcd factorization beyond the published Boolean gcd-one criterion. The highly relevant original paper’s full text was inaccessible in this run; a concealed stronger proposition is a specific residual priority risk, not proof of coverage.",
+      "residual_risks": [
+        "Full text of directly relevant arXiv:2606.22997 was not obtained; an authorized PDF retrieval encountered a safety block, with no retry or bypass. The abstract does not establish whether unpublished auxiliary lemmas imply the full formula.",
+        "The locally cited Lemma 9 was not independently read in full; local positivity criterion also follows from the exact proof if fully reconstructed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible primary abstract states binary D=1 classification, not exact valuation table. Full text uninspected, so hidden explicit exponent formula cannot be excluded; record as bibliographic risk rather than invented noncoverage.",
+          "evidence": "The author abstract quantifies over same D(k) but asserts only D(k)=1 iff n/P>P; original Lemma 9 is cited for a local prime-divisibility condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22997",
+          "material_read": "Full arXiv abstract and author publication-page abstract (https://mechmath.github.io/publication/oeis080170/); arXiv HTML/PDF text unavailable; an authorized PDF retrieval attempt was blocked, no further bypass",
+          "method": "Compared explicit abstract assertion D(k)=1 iff n/P>P and stated nonzero test against exact p-adic exponents; inspected theorem usage from assigned proof but did not independently read original Lemma 9 full text",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients (Guo–Qiu–Cao–Feng–Gao)",
+          "trigger": "Exactly the same D(k) gcd and n=k+1, published local and global unit criterion"
+        },
+        {
+          "assessment": "Exact p-adic factorization across all k is stronger information than the sequence of unit indices alone.",
+          "evidence": "The assigned record gives D(k) for all k; OEIS records its unit-index property rather than full D(k) terms.",
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "OEIS sequence identity as given in the published primary arXiv abstract; classical Kummer theorem statement and digit-sum formulation checked in mathematical reference",
+          "method": "Compared boolean zero/nonzero sequence coverage to exact gcd valuation output",
+          "title": "OEIS A080170 and Kummer carry theorem",
+          "trigger": "Database of indices at which the progression gcd equals one and classical carry counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+        "https://arxiv.org/abs/2606.22997"
+      ],
+      "rationale": "The exact integer gcd and an explicit valuation-attaining factor are a natural complete refinement of a recent conjecture-resolution: quantitative prime-power content can matter even when D(k)≠1, and this theorem supplies it uniformly rather than merely classifying unit cases.",
+      "residual_risks": [
+        "Full text of directly relevant arXiv:2606.22997 was not obtained; an authorized PDF retrieval encountered a safety block, with no retry or bypass. The abstract does not establish whether unpublished auxiliary lemmas imply the full formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+    "https://arxiv.org/abs/2606.22997",
+    "Resultary: gcd binomial coefficients binom(q k,k) q=2 to k+1 exact valuations prime powers Guo Qiu Cao Feng Gao"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Specific full progression 2≤q≤k+1; shortened ranges and other lower indices are not covered.",
+    "The original prior paper’s full text was not readable during this run; only its primary abstract and author abstract were inspected.",
+    "Direct finite gcd calculations verify cases but cannot prove every k."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Accessible primary abstract states binary D=1 classification, not exact valuation table. Full text uninspected, so hidden explicit exponent formula cannot be excluded; record as bibliographic risk rather than invented noncoverage.",
+      "evidence": "The author abstract quantifies over same D(k) but asserts only D(k)=1 iff n/P>P; original Lemma 9 is cited for a local prime-divisibility condition.",
+      "identifier_or_url": "https://arxiv.org/abs/2606.22997",
+      "material_read": "Full arXiv abstract and author publication-page abstract (https://mechmath.github.io/publication/oeis080170/); arXiv HTML/PDF text unavailable; an authorized PDF retrieval attempt was blocked, no further bypass",
+      "method": "Compared explicit abstract assertion D(k)=1 iff n/P>P and stated nonzero test against exact p-adic exponents; inspected theorem usage from assigned proof but did not independently read original Lemma 9 full text",
+      "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients (Guo–Qiu–Cao–Feng–Gao)",
+      "trigger": "Exactly the same D(k) gcd and n=k+1, published local and global unit criterion"
+    },
+    {
+      "assessment": "Exact p-adic factorization across all k is stronger information than the sequence of unit indices alone.",
+      "evidence": "The assigned record gives D(k) for all k; OEIS records its unit-index property rather than full D(k) terms.",
+      "identifier_or_url": "https://oeis.org/A080170",
+      "material_read": "OEIS sequence identity as given in the published primary arXiv abstract; classical Kummer theorem statement and digit-sum formulation checked in mathematical reference",
+      "method": "Compared boolean zero/nonzero sequence coverage to exact gcd valuation output",
+      "title": "OEIS A080170 and Kummer carry theorem",
+      "trigger": "Database of indices at which the progression gcd equals one and classical carry counting"
+    }
+  ]
+}
