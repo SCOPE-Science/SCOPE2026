@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each n>=3, a mixed independent colour class is necessarily exactly {a_i,b_i}. Two pure opposite-side blocks of sizes >=2 produce a two-coloured 4-vertex path except when both coincide as one two-index block. The resulting exhaustive partition dichotomy gives an explicit summation; the Stirling subset decomposition and binomial convolution yield every coefficient. The minimal class count and its multiplicity follow by exact size analysis. An adjacency-based direct brute-force checker independently tests 1,189,120 proper partitions for 2<=n<=7 and the coefficients agree throughout, but finite checks are not the proof for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shalu M. A.--Antony (arXiv:2309.04291v1) give the universal lower bound ceil((d+4)/2) for d-regular graphs and analyze uniqueness complexity.",
+        "Bu et al. (arXiv:2105.06641v1) give sparse-graph maximum-average-degree existence bounds; the present crowns have average degree n-1."
+      ],
+      "reasoning": "Degree bounds and computational/decision results do not imply individual coefficients of a whole palette-coloring polynomial. Even when a scalar bound is tight, it does not count optimal partitions or nonoptimal colorings.",
+      "searches": [
+        "\"Star Colouring of Bounded Degree Graphs and Regular Graphs\" arxiv 2309.04291",
+        "arxiv:2309.04291v1 Theorem 1 and introduction",
+        "arxiv:2105.06641v1 Theorem 2 and introduction",
+        "counting all star colourings of crown graphs K_{n,n} minus perfect matching",
+        "counting all star colourings of crown graphs K_{n,n} minus perfect matching"
+      ]
+    },
+    "checked_sources": [
+      "Mary, Bibi, Julietterayan (2017), Global Journal of Pure and Applied Mathematics 13(9), Theorem 4.11 and crown example, https://www.ripublication.com/gjpam17/gjpamv13n9_15.pdf",
+      "Shalu M. A. and Antony, arXiv:2309.04291v1, https://arxiv.org/pdf/2309.04291",
+      "Bu et al., arXiv:2105.06641v1, https://arxiv.org/abs/2105.06641",
+      "Relevant published mathematical summaries of neighborhood-parity odd and proper conflict-free colorings of crown graphs, whose definitions are not star coloring.",
+      "The 2022 Discrete Mathematics article predates its dated 2023-09-08 arXiv release; the recorded primary source date identifies the v1 preprint itself, not a putative original journal online day.",
+      "The 2022 Discrete Mathematics article predates its dated 2023-09-08 arXiv release; the recorded primary source date identifies the v1 preprint itself, not a putative original journal online day."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.11 of Mary--Bibi--Julietterayan (2017) asserts chi_s(H_n)=n, witnessed by the n mixed matching pairs.",
+        "The new coefficient c_(n,n)=1+binom(n,2) has additional optimum partitions and all other c_(n,n+j) are given explicitly.",
+        "The 2023 general theory treats a regular graph of degree n-1 but only bounds a minimum or considers generic uniqueness questions."
+      ],
+      "reasoning": "The prior assertion chi_s=n means only that some n-class partition exists and that no smaller count works. It neither specifies 1+binom(n,2) optimum partitions nor determines the Stirling counts at each larger palette size. The class-wise structural argument is additionally required. Related strong-odd and proper conflict-free colourings use genuinely different admissibility rules and do not logically dominate this enumeration.",
+      "searches": [
+        "A Study on Star Chromatic Number of Some Special Classes of Graphs Theorem 4.11 crown",
+        "\"star coloring crown graph exact enumeration optimal\"",
+        "arxiv:2309.04291v1 Introduction, lower-bound theorem and uniqueness framework",
+        "star chromatic polynomial of crown graph restricted color classes matching pairs",
+        "star chromatic polynomial of crown graph restricted color classes matching pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A star colouring is precisely a proper colouring with no bichromatic four-vertex path; it is equivalently a partition into independent sets where each two-class union induces a star forest (Bu et al., arXiv:2105.06641v1, Introduction)."
+      ],
+      "reasoning": "These formulations were used interchangeably in searching and in the proof. They describe the same new polynomial, rather than establishing a separate novelty claim.",
+      "searches": [
+        "\"star coloring\" \"Stirling\" \"crown\"",
+        "\"colorings with no bicolored P4\" \"crown\"",
+        "arxiv:2105.06641v1 Introduction (star forest equivalence)",
+        "crown graph star chromatic polynomial Stirling number complete all star colorings optimal partition enumeration",
+        "crown graph star chromatic polynomial Stirling number complete all star colorings optimal partition enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2017 paper provides the scalar crown star chromatic number and example, not a table of all color-partition coefficients.",
+        "Searches of scholarly-indexed and general sources did not surface an exact partition table for the stated crown family."
+      ],
+      "reasoning": "No found indexed database or table gives the present Stirling coefficients. Unsuccessful searches alone cannot establish originality; the decisive comparison is between the stated exact formulas and the results actually present in the closest full text.",
+      "searches": [
+        "\"star chromatic polynomial\" \"crown graph\"",
+        "\"number of star colorings\" \"crown\" graph",
+        "\"star coloring\" \"chromatic polynomial\" \"crown graphs\"",
+        "\"star chromatic polynomial\" \"complete bipartite\"",
+        "star coloring crown graph complete bipartite minus perfect matching chromatic number enumeration",
+        "star coloring crown graph complete bipartite minus perfect matching chromatic number enumeration"
+      ]
+    },
+    "rationale": "The exact crown-graph scalar optimum n is prior art (Mary--Bibi--Julietterayan, 2017). In the inspected closest original paper, its Theorem 4.11 gives the scalar and one coloring but not a class-count sequence, a Stirling formula, or the n!*(1+C(n,2)) named optimum multiplicity. The 2023 regular-graph work gives degree-dependent bounds and uniqueness complexity, not these explicit counts. No mathematically stronger covering statement was identified in the accessible full-text material or comparable publicly indexed results. This is an evidence-based self-review, not proof of priority.",
+    "residual_risks": [
+      "An unindexed paper, thesis, sequence database or alternate-name paper may independently derive the same Stirling coefficients or the optimal-partition count.",
+      "No independent bibliographic priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SCALAR PRIOR ART: establishes chi_s=n and the matched-pair construction; inspected crown theorem has no complete class enumerator or exhaustive optimum-count classification.",
+        "evidence": [
+          "Theorem 4.11, journal page 4584, states chi_s(S_n^0)=n and colors matched vertices alike."
+        ],
+        "identifier_or_url": "https://www.ripublication.com/gjpam17/gjpamv13n9_15.pdf",
+        "material_read": "PDF title/abstract and definitions; crown graph definition and Theorem 4.11 with proof and Example 4.12, page 4584 (PDF page 16).",
+        "method": "Public PDF text and rendered relevant theorem page.",
+        "title": "A Study on Star Chromatic Number of Some Special Classes of Graphs",
+        "trigger": "Exact same crown graph and star-colouring parameter."
+      },
+      {
+        "assessment": "General bounds and complexity; no indexed direct crown enumerator encountered. Its minimum-colour statements do not give all partition counts.",
+        "evidence": [
+          "Theorem 1: chi_s(G)>=ceil((d+4)/2) for d-regular d>=2; introduction treats generic uniqueness complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04291",
+        "material_read": "Full-text PDF accessible; title, abstract, introduction, definitions, regular-graph lower-bound theorem, scope overview, and search for crown graphs.",
+        "method": "Public PDF full-text reading and within-document search; PDF pages 1-4 rendered or parsed as needed.",
+        "title": "Star Colouring of Bounded Degree Graphs and Regular Graphs",
+        "trigger": "2023 treatment of star colourings on regular graphs and uniqueness questions."
+      },
+      {
+        "assessment": "Defines the same coloring notion and proves sparse maximum-average-degree bounds; neither exact crown class counts nor relevant all-color spectrum.",
+        "evidence": [
+          "Introduction identifies star colorings with two-color induced star forests; Theorem 2 gives bounds when Mad is below 26/11, 18/7, or 8/3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.06641",
+        "material_read": "Accessible arXiv full-text HTML, introduction and Theorem 2 defining star colorings and their sparsity-bound scope; in-document crown/bipartite searches.",
+        "method": "Public arXiv HTML full-text reading and search.",
+        "title": "Star coloring of sparse graphs",
+        "trigger": "Standard equivalent formulation and possible broader coloring theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a717f82-738c-4d13-9d86-206c39f1f2a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is a full palette-dependent polynomial, not a single chromatic number. It describes the entire distribution of all feasible star-colour partitions of a natural dense regular bipartite family and finds a complete two-type classification and exact 1+binom(n,2) multiplicity of optimal classes, a nontrivial refinement of a previously known scalar result. All coefficients have a closed Stirling/binomial formula, enabling exact probabilistic counting and comparisons at every palette size.",
+    "status": "PASS"
+  }
+}
