@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification and proof limits
+# Independent mathematical audit
 
-The included `verify_gap_curve.py` checker was executed using Python's standard library only. Its output was:
+## correctness
 
-```
-CASE 2 1 matrices 3 curves 2 hist_curves 2
-CASE 3 2 matrices 49 curves 6 hist_curves 7
-CASE 4 2 matrices 225 curves 14 hist_curves 15
-CASE 4 3 matrices 3375 curves 30 hist_curves 34
-CASE 5 2 matrices 961 curves 25 hist_curves 30
-CASE 5 3 matrices 29791 curves 65 hist_curves 84
-CASE 6 2 matrices 3969 curves 53 hist_curves 0
-VERIFY_OK matrices 38373 distinct_curves 195 cases 7 infeasible_concave=1 partition_bridge=1
-```
+PASS
 
-For every listed size, all nonempty binary species rows were enumerated without quotienting by cyclic shifts or species permutations. The checker compared direct window enumeration with independent zero-run enumeration, inverted exact rational richness curves, and checked bin feasibility. For the enumerated sizes with \(n\le5\), all gap histograms with compulsory size bounded by total capacity were also traversed. It separately tested an infeasible concave profile with forced item sizes \(3,3,4\) and a feasible six-item equal partition.
+For each nonempty species incidence subset of Z/n, the number of translated k-windows missing it equals the sum over maximal cyclic zero runs of (g-k+1)_+. Consequently n(s−R_k)=∑_g(g−k+1)_+ and n(R_{k+1}−R_k)=#runs length≥k. Differencing recovers H_j=n(2R_{j+1}−R_j−R_{j+2}) and H_{n−1}=n(R_n−R_{n−1}); these determine pooled zero-run lengths uniquely. In one row r runs require r separators, hence item sizes g+1 must fit a capacity-n species bin. Conversely any packing yields explicit cyclic 0^g 1 blocks padded by 1s, with no accidental merged zero runs, and R_n=s plus all differences reconstruct the entire given curve. Unary n,s and explicit rationals admit n×s incidence certificate. The polynomial strong reduction 3-PARTITION (n=B,s=m, item sizes a_i, g_i=a_i−1 and R_k=m−B^-1∑(a_i−k)_+) uses polynomially bounded B, total capacity mB, forcing exactly three items per bin. All properties, including concavity and the n5/s2 obstruction, check out.
 
-The general if-and-only-if theorem follows from exact combinatorial counting and explicit constructive packing, not the finite tests. Strong NP-completeness follows from an explicit polynomial reduction from strongly NP-complete 3-PARTITION. The checker is not a proof of complexity hardness, does not exhaust arbitrary \(n,s\), and does not establish empirical identifiability under noise. Independent audit remains unperformed.
+## originality
+
+PASS
+
+PASS. Spatial SAR literature models random placement, abundance and spatial aggregation and sometimes wrapped sampling windows, but does not invert the complete collection of circular-translation means to exact zero-run multiplicities and then characterize all realizable multispecies curves by a bin-packing feasibility theorem. Circular word reconstruction based on complete substring counts assumes a much richer observation model; generic 3-PARTITION hardness is a premise, not the ecological inverse reduction. No dominating exact source located after Resultary and primary-paper review.
+
+## value
+
+PASS
+
+PASS: given a complete mean richness curve, determining which incidence communities could have produced it is a natural inverse problem in spatial ecology; the unique pooled absence-run invariant, exact feasibility obstruction, and strong NP-completeness form a complete structural and computational classification. The result also supplies a genuinely nonrealizable concave curve, distinguishing diagnostic shape tests from realizability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nonempty species incidence subset of Z/n, the number of translated k-windows missing it equals the sum over maximal cyclic zero runs of (g-k+1)_+. Consequently n(s−R_k)=∑_g(g−k+1)_+ and n(R_{k+1}−R_k)=#runs length≥k. Differencing recovers H_j=n(2R_{j+1}−R_j−R_{j+2}) and H_{n−1}=n(R_n−R_{n−1}); these determine pooled zero-run lengths uniquely. In one row r runs require r separators, hence item sizes g+1 must fit a capacity-n species bin. Conversely any packing yields explicit cyclic 0^g 1 blocks padded by 1s, with no accidental merged zero runs, and R_n=s plus all differences reconstruct the entire given curve. Unary n,s and explicit rationals admit n×s incidence certificate. The polynomial strong reduction 3-PARTITION (n=B,s=m, item sizes a_i, g_i=a_i−1 and R_k=m−B^-1∑(a_i−k)_+) uses polynomially bounded B, total capacity mB, forcing exactly three items per bin. All properties, including concavity and the n5/s2 obstruction, check out.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tjørve et al. use spatial occupancy and wrapped samples for forward simulated/random placement SARs; their convexity is often log-log, not exact cyclic discrete inversion.",
+          "Colwell et al. average over unordered quadrat selections; Ota–Manada reconstruct a single word given ALL substring frequencies."
+        ],
+        "reasoning": "Neither broader ecological forward model nor richer one-word full-frequency observation supplies the asserted exact feasibility theorem for pooled multi-species zero windows.",
+        "searches": [
+          "Tjørve Kunin Polce Tjørve 2008 species area spatial distribution wrapped around sampling windows",
+          "Colwell Mao Chang 2004 incidence based accumulation random order",
+          "Ota Manada 2024 reconstruction circular binary substring frequencies"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1111/j.1365-2745.2008.01433.x",
+        "doi:10.1890/03-0557",
+        "doi:10.1587/transfun.2023TAP0015",
+        "Garey Johnson 3-PARTITION SP15",
+        "Resultary query: cyclic translated contiguous window species richness curve inverse absence run histogram bin packing 3-partition strong NP-completeness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tjørve uses random-placement comparisons and grid window aggregation but no unique pooled zero-run inverse or bin packing equivalence.",
+          "Generic strong NP-completeness of 3-PARTITION becomes relevance only through the new explicit richness-curve map R_k=m−B^-1∑(a_i−k)_+."
+        ],
+        "reasoning": "The prior premises do not logically entail the ecological characterization until the explicit separation of cyclic gaps and bins is proved.",
+        "searches": [
+          "doi:10.1111/j.1365-2745.2008.01433.x methods species occupancy aggregation",
+          "doi:10.1587/transfun.2023TAP0015 abstract circular word reconstruction",
+          "3-PARTITION Garey Johnson strongly NP-complete"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A missing-species window is an all-zero cyclic substring; its k-count equals ∑(g−k+1)_+.",
+          "Existing run counting does not assign pooled lengths to s distinct length-n cycles and characterize exact multirow feasibility."
+        ],
+        "reasoning": "The substring-avoidance statistic is equivalent but the inverse realization theorem adds a joint packing constraint absent from generic counts.",
+        "searches": [
+          "cyclic translated contiguous window species richness curve inverse absence run histogram bin packing 3-partition strong NP-completeness",
+          "circular binary string zero run lengths reconstruct all-absent window statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact tabulation of all realizable cyclic curves with the condition item sizes g+1 fit in s bins; closest Resultary items concern runs distribution or occupancy covariances."
+        ],
+        "reasoning": "The theorem describes infinite input families and a complexity classification, not a known-table recomputation.",
+        "searches": [
+          "Resultary cyclic translated contiguous window species richness curve inverse absence run histogram bin packing 3-partition strong NP-completeness",
+          "circular binary run histogram species area realizability exact table"
+        ]
+      },
+      "rationale": "PASS. Spatial SAR literature models random placement, abundance and spatial aggregation and sometimes wrapped sampling windows, but does not invert the complete collection of circular-translation means to exact zero-run multiplicities and then characterize all realizable multispecies curves by a bin-packing feasibility theorem. Circular word reconstruction based on complete substring counts assumes a much richer observation model; generic 3-PARTITION hardness is a premise, not the ecological inverse reduction. No dominating exact source located after Resultary and primary-paper review.",
+      "residual_risks": [
+        "The exact result assumes nonempty rows, equal translation weights and circular one-dimensional cells; no unweighted two-dimensional or observational-noise extension.",
+        "A specialized unindexed circular-run ecological inverse paper could cover the same packing map; none was identified from targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: forward abundance/aggregation SAR models and random placement, not exact cyclic inverse realizability or hardness.",
+          "evidence": [
+            "Paper emphasizes abundance/aggregation and wrapped-around gridded samples and log-log SAR shape."
+          ],
+          "identifier_or_url": "doi:10.1111/j.1365-2745.2008.01433.x;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.1365-2745.2008.01433.x",
+          "material_read": "Read full publisher HTML Introduction, species occupancy/data, methods and modeled wrapped-around windows, results and discussion; distinguished forward sampling models from exact inverse.",
+          "method": "Check whether all-scale zero-window means or packing hardness are stated.",
+          "title": "Species–area relationship: separating the effects of species abundance and spatial distribution",
+          "trigger": "High-overlap primary modeling spatial incidence and wrapped sampling"
+        },
+        {
+          "assessment": "NOT COVERING exact gap packing; source averages samples without fixed cyclic adjacency.",
+          "evidence": [
+            "Sampling by random quadrat sets differs from n cyclic translated contiguous windows."
+          ],
+          "identifier_or_url": "doi:10.1890/03-0557;https://www.robertkcolwell.org/publications/7532.pdf",
+          "material_read": "Original author-hosted PDF identified bibliographically. Compared random-order sample model through accessible publication summary and cited descriptions; the complete primary PDF was not opened or read during this run.",
+          "method": "Compare independent/unordered quadrat protocol with adjacent translates on Z/n.",
+          "title": "Interpolating, extrapolating, and comparing incidence-based species accumulation curves",
+          "trigger": "Related incidence-curve inversion and stronger possible observational model"
+        },
+        {
+          "assessment": "NOT COVERING the multirow gap-bin packing inverse stated here.",
+          "evidence": [
+            "Different observation model and goal: reconstruct a unique given circular word from complete substring-frequency data."
+          ],
+          "identifier_or_url": "doi:10.1587/transfun.2023TAP0015",
+          "material_read": "Full abstract and claimed input/uniqueness conditions; full article not required for deciding differing richer-data formulation and not asserted read.",
+          "method": "Compare exact data: all substring frequencies per single word versus only pooled zero-window counts for s words.",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "Circular word inverse with similar terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: given a complete mean richness curve, determining which incidence communities could have produced it is a natural inverse problem in spatial ecology; the unique pooled absence-run invariant, exact feasibility obstruction, and strong NP-completeness form a complete structural and computational classification. The result also supplies a genuinely nonrealizable concave curve, distinguishing diagnostic shape tests from realizability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact result assumes nonempty rows, equal translation weights and circular one-dimensional cells; no unweighted two-dimensional or observational-noise extension.",
+    "A specialized unindexed circular-run ecological inverse paper could cover the same packing map; none was identified from targeted searches."
+  ]
+}
