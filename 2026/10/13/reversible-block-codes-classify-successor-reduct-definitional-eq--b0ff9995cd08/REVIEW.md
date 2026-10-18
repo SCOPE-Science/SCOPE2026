@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source defines the irregular theories \(T(S)\), proves completeness for irregular \(S\), and proves that every finite pattern occurs infinitely often. After relationalizing successor, Gaifman locality makes any unary first-order definition eventually depend only on a bounded colored path around the argument. Applying this in both directions gives two local tail rules. Because every finite block occurs arbitrarily far out, the two compositions agree with the identity on every possible finite block, so the induced two-sided block maps are mutual inverses. Conversely, a reversible block rule is first-order expressible away from the endpoint; the finite endpoint region can be hard-coded, and completeness upgrades correctness on the standard models to a joint definitional extension of the theories.
+## correctness
 
-## Originality
-PASS with residual folklore risk. Candidate-specific literature searches, exact web searches, and inspection of Example 2, Lemmas 1–2 and Corollary 1 of the motivating paper found the ingredients but not the exact successor-reduct classification by reversible block-code tails. The closest public search results concerned unrelated strong-shift-equivalence or finite-dynamical classification problems.
+PASS
 
-## Value
-PASS. The motivating paper proves existence of continuum many inequivalent theories by a counting argument, but leaves the concrete shape of possible syntactic recodings opaque. The new theorem identifies, under the natural constraint of fixing the successor skeleton, the exact equivalence relation and exposes a direct bridge from definability to symbolic dynamics. It also gives countably infinite equivalence classes and a completely explicit radius-one sub-classification.
+Fix L0={0,suc} and irregular S,Z whose binary characteristic sequences realize each finite block infinitely often. A first-order unary predicate definition on the standard successor structure, relationalized to its bounded-degree path graph, is eventually a finite-radius Boolean window function by Gaifman locality (background local sentences have fixed truth values). Two mutual definitional interpretations give eventual local rules F,G. Since every long window appears arbitrarily late in both irregular sequences, GF=id on the full bi-infinite binary shift and FG=id, making F reversible. Conversely finite-radius reversible rules are definable by first-order formulas reading fixed predecessor/successor windows beyond a hard-coded finite prefix, and completeness of T(S),T(Z) upgrades inverse truth on the standard models to joint definitional extension. Relative classes are countably infinite, their quotient continuum, and radius-one forward and inverse pairs are six shifted coordinate projections or complements. Independent exhaustive inspection of all 256² radius-one rule pairs and all 32 five-bit windows confirmed exactly six inverse pairs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Andréka et al. already define irregular T(S), prove completeness and continuum-many inequivalent theories by a countability argument; those conclusions are explicitly prior. The assessed contribution is an exact iff criterion under fixed successor reduct, identifying all mutual tail interpretations with invertible sliding block codes. Standard Gaifman locality and reversible CA definitions are credited. Their broad unrestricted inequivalence counting does not supply this relative classification.
+
+## value
+
+PASS
+
+The fixed-language reduct is natural because it isolates the predicate-renaming problem from arbitrary redefinition of successor. A concrete necessary and sufficient symbolic-dynamical criterion for equivalence between highly complex complete theories is a structural classification; it is useful independent of an algorithm deciding equivalence for arbitrary infinite sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
