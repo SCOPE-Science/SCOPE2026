@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-This result has an analytic proof and an independently replayable, self-contained exact-arithmetic checker (`verify.py`). The checker uses Python's `fractions.Fraction` only, evaluates the complete eight-dimensional vector field and Jacobian at the stated equilibrium states, generates characteristic polynomials via Faddeev–LeVerrier elimination, and constructs exact Routh first-column signs. The expected report is
+# Independent mathematical audit
 
-```
-theta 0 A 0 Routh +++++++++ RHP 0
-theta 0 A 13/375 Routh ++++++++- RHP 1
-theta 0 A 1/10 Routh +++++++++ RHP 0
-theta 1 A 0 Routh +++++++++ RHP 0
-theta_c 0.065556345820
-VERIFY_OK
-```
+## correctness
 
-The local-instability counts are exact consequences of rational sign decisions; no finite search is used to prove the universal equilibrium count. The proof itself derives the positive-root classification for every \(\theta\ge0\), and the verifier tests rational sample identities. The check neither establishes nonlinear global convergence nor confirms absence of all possible unindexed prior literature; those limits are outside the claim. No independent audit is claimed.
+PASS
+
+Rebuilt the eight-compartment vector field from Ihsanjaya–Susyanto (2023), equation (2.1), at the exact stated rational parameter family. The disease-free point has R0=1067/1080<1, independent of theta. The A=0 stationary branch forces the unique DFE. For A=a>0, solving seven stationary coordinates gives S=Lambda/(2+a), Vs=Lambda/((2+a)(1+a)), E=4a, I=5a/4, H=5a/12, R=11a/[3(1+theta+5a)], VR=theta*R/(1+a). The last equation reduces bijectively to 3750a^2+(750theta-505)a+13(1+theta)=0; denominators are positive. Its discriminant is 25(22500theta^2-38100theta+2401), giving two positive roots precisely for 0<=theta<theta_c, a double positive root at theta_c=(127-4sqrt(858))/150 and none beyond. Independent SymPy reconstruction of the full 8x8 Jacobian and rational polynomial coefficients verifies the exact DFE factorization; exact rational Routh signs give unstable dimensions 0,1,0 at theta=0 for DFE, small, large equilibria respectively; direct numeric root approximation corroborates. No global basin/normal-form claim is proved.
+
+## originality
+
+PASS
+
+PASS best of knowledge: an exact source-specific equilibrium fold and locally bistable subthreshold example are not implied by the prior general reinfection/backward-bifurcation phenomenon. The originating article asserts only the DFE as equilibrium (Theorem 2) and a later same-equation fractional-model full text studies fractional solution theory and numerical trajectories, not this positive-root threshold, stable endemic equilibrium, or full 8D local spectra. Literature aliases and Resultary comparisons found related models but not a theorem that implies the exact one-parameter finding.
+
+## value
+
+PASS
+
+The actual 2023 source makes an incorrect uniqueness assertion, and a distinct intervention—recovered vaccination rather than susceptible vaccination—has a sharp actionable mathematical threshold invisible to R0. Exact two-endemic-equilibrium fold and simultaneous open local basins demonstrate a substantive boundary between invasion and established-endemic control. This is a motivated counterexample and complete exact intervention-family classification; parameter values are illustrative, not epidemiological estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

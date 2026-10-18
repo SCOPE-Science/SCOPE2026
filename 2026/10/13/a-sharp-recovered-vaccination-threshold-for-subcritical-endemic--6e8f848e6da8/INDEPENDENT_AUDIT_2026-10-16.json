@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:12:39.380045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the eight-compartment vector field from Ihsanjaya–Susyanto (2023), equation (2.1), at the exact stated rational parameter family. The disease-free point has R0=1067/1080<1, independent of theta. The A=0 stationary branch forces the unique DFE. For A=a>0, solving seven stationary coordinates gives S=Lambda/(2+a), Vs=Lambda/((2+a)(1+a)), E=4a, I=5a/4, H=5a/12, R=11a/[3(1+theta+5a)], VR=theta*R/(1+a). The last equation reduces bijectively to 3750a^2+(750theta-505)a+13(1+theta)=0; denominators are positive. Its discriminant is 25(22500theta^2-38100theta+2401), giving two positive roots precisely for 0<=theta<theta_c, a double positive root at theta_c=(127-4sqrt(858))/150 and none beyond. Independent SymPy reconstruction of the full 8x8 Jacobian and rational polynomial coefficients verifies the exact DFE factorization; exact rational Routh signs give unstable dimensions 0,1,0 at theta=0 for DFE, small, large equilibria respectively; direct numeric root approximation corroborates. No global basin/normal-form claim is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song 2021 (10.3934/mbe.2021400) covers broad reinfection-number/backward-bifurcation mechanisms in other models; same-source paper Theorem 2 explicitly rules out endemic equilibria."
+        ],
+        "reasoning": "Generic backward bifurcation does not imply the two rational roots, exact theta_c, and full spectrum in this eight-equation system; prior generic phenomenon is credited.",
+        "searches": [
+          "reinfection backward bifurcation recovered vaccination eight class model",
+          "eight compartment recovered vaccination reinfection endemic bistability saddle node sharp threshold Ihsanjaya Susyanto 2023"
+        ]
+      },
+      "checked_sources": [
+        "Ihsanjaya–Susyanto AIMS Mathematics 8 (2023) doi:10.3934/math.2023741",
+        "Alzaid–Alkahtani AIMS Mathematics 9 (2024) doi:10.3934/math.2024181",
+        "Song Mathematical Biosciences and Engineering 18 (2021) doi:10.3934/mbe.2021400",
+        "Resultary semantic matches for reinfection/vaccination (same object not located)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 Theorem 2: only disease-free equilibrium; 2024 §3 solves existence/uniqueness of time-dependent fractional solutions, distinct from multiplicity of steady states."
+        ],
+        "reasoning": "The new positive equilibria contradict rather than follow from the 2023 printed uniqueness theorem; fractional initial-value existence/uniqueness is not an equilibrium multiplicity theorem.",
+        "searches": [
+          "DOI 10.3934/math.2023741 Theorem 2 equilibrium",
+          "DOI 10.3934/math.2024181 Caputo solution existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ihsanjaya–Susyanto 2023 Eq.(2.1) has identical eight ODEs; Alzaid–Alkahtani 2024 Eq.(1.2) reproduces these as Caputo derivatives."
+        ],
+        "reasoning": "Explicit stationary-polynomial and 8D Jacobian comparison, not titles: neither inspected paper identifies the exact positive-root fold in theta or two local sinks. Reparameterizing infection prevalence does not transform the discussed R0(v) monotonicity into theta-varying endemic fold.",
+        "searches": [
+          "eight compartment recovered vaccination reinfection endemic bistability saddle node sharp threshold Ihsanjaya Susyanto 2023",
+          "\"Ihsanjaya\" \"Susyanto\" \"Alzaid\" equilibrium backward bifurcation recovered vaccination theta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2023 source has numerical figures/parameter tables, but no tabulation of quadratic equilibrium roots, 8x8 spectrum or theta_c. Resultary related vaccination studies concern distinct ODEs or susceptible-rate monotonicity."
+        ],
+        "reasoning": "Neither an exact equilibrium table nor an equivalent published source-specific classification was found; unsuccessful searches are not proof of novelty.",
+        "searches": [
+          "eight compartment recovered vaccination reinfection endemic bistability saddle node sharp threshold Ihsanjaya Susyanto 2023",
+          "Ihsanjaya Susyanto 2023 1067/1080 theta equilibrium saddle-node"
+        ]
+      },
+      "rationale": "PASS best of knowledge: an exact source-specific equilibrium fold and locally bistable subthreshold example are not implied by the prior general reinfection/backward-bifurcation phenomenon. The originating article asserts only the DFE as equilibrium (Theorem 2) and a later same-equation fractional-model full text studies fractional solution theory and numerical trajectories, not this positive-root threshold, stable endemic equilibrium, or full 8D local spectra. Literature aliases and Resultary comparisons found related models but not a theorem that implies the exact one-parameter finding.",
+      "residual_risks": [
+        "Unindexed follow-up of the 2023 model or an alternative fractional-equilibrium specialization could duplicate the fold.",
+        "The exact rational family is not empirically calibrated, and neither global eradication nor a nonlinear fold normal form is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly motivating source, its unique-equilibrium theorem is contradicted by certified positive steady states",
+          "evidence": "Eq.(2.1), pp.14511–14512; Theorem 2 p.14513",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/6/PDF/math-08-06-741.pdf",
+          "material_read": "Full 14-page primary PDF, equation (2.1), equilibrium Theorem 2 and proof, next-generation discussion and simulation sections",
+          "method": "web full PDF textual reading and rendered page checks",
+          "title": "A mathematical model for policy of vaccinating recovered people in controlling the spread of COVID-19 outbreak",
+          "trigger": "identical eight compartment equations and uniqueness assertion"
+        },
+        {
+          "assessment": "Studies Caputo fractional IVPs and numerical fitting, not claimed theta equilibrium fold or full Jacobian spectra",
+          "evidence": "Eq.(1.2) p.3688, §3 p.3689 onward",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2024/2/PDF/math-09-02-181.pdf",
+          "material_read": "22-page primary PDF, model (1.2), §3 existence/uniqueness framework and description of fractional numerical outcomes",
+          "method": "web full PDF text and section comparison",
+          "title": "Real-world validation of fractional-order model for COVID-19 vaccination impact",
+          "trigger": "very close source reproducing identical eight ODEs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The actual 2023 source makes an incorrect uniqueness assertion, and a distinct intervention—recovered vaccination rather than susceptible vaccination—has a sharp actionable mathematical threshold invisible to R0. Exact two-endemic-equilibrium fold and simultaneous open local basins demonstrate a substantive boundary between invasion and established-endemic control. This is a motivated counterexample and complete exact intervention-family classification; parameter values are illustrative, not epidemiological estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ihsanjaya–Susyanto AIMS Mathematics 8 (2023) doi:10.3934/math.2023741",
+    "Alzaid–Alkahtani AIMS Mathematics 9 (2024) doi:10.3934/math.2024181",
+    "Song Mathematical Biosciences and Engineering 18 (2021) doi:10.3934/mbe.2021400",
+    "Resultary semantic matches for reinfection/vaccination (same object not located)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed follow-up of the 2023 model or an alternative fractional-equilibrium specialization could duplicate the fold.",
+    "The exact rational family is not empirically calibrated, and neither global eradication nor a nonlinear fold normal form is proved."
+  ],
+  "schema_version": 1
+}
