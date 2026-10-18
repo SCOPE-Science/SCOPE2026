@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The arbitrary-dimensional proof starts from the exact irredundant Hansen facet theorem for perfect graphs and the exact signed stable-set vertex description. A clique \(C\) gives facet normal \((2\mathbf 1_C,-1)\) of norm \(\sqrt{4|C|+1}\). Central symmetry and the opposite facet pair force every inscribed ball to have radius at most the reciprocal of this norm, while the origin-centered ball at the maximum-clique value satisfies every facet. Vertex norms are exactly \(\sqrt{|S|+1}\), and a maximum stable set supplies an antipodal diameter witness for the circumradius. The uniqueness proof for the circumcenter is exact. No finite enumeration substitutes for these arguments.
+## correctness
 
-## Originality
-PASS. The closest middle-period source is Aprile–Cevallos–Faenza, *On 2-level polytopes arising in combinatorial settings* (arXiv:1702.03187; DOI 10.1137/17M1116684), whose Hansen section was inspected in full. The strongest same-object source inspected was Freij–Henze–Schmitt–Ziegler, *Face Numbers of Centrally Symmetric Polytopes Produced from Split Graphs* (DOI 10.37236/3315), where Lemma 5 gives the exact vertices and facets. Neither full text contains “inradius,” “circumradius,” “Euclidean,” or “radius” for this metric problem. Direct and alias searches did not locate either formula or the contact classification. The original 1977 Hansen article could not be fully read because the encountered publisher PDF endpoint required authentication, so it remains an explicit residual risk.
+PASS
 
-## Value
-PASS. The canonical Euclidean Hansen polytope encodes \(\omega(G)\) and \(\alpha(G)\) in its two most basic radius invariants:
-\[
-\omega(G)=\frac{r^{-2}-1}{4},
-\qquad
-\alpha(G)=R^2-1.
-\]
-Maximum cliques are exactly the centered inball-contact facets, and maximum stable sets are exactly the outer-sphere vertices. This supplies a metric interpretation of two core graph invariants across the complete perfect-graph Hansen family.
+PASS: From the actual canonical Hansen vertex set ±(χ_S,1) and the Freij–Henze–Schmitt–Ziegler perfect-graph facet system |2x(C)−t|≤1 (including C empty), each signed facet normal (2·1_C,−1) has norm sqrt(4|C|+1). A radius-r ball at center c must satisfy |⟨a_C,c⟩|+r||a_C||≤1; maximum clique forces r≤1/sqrt(4ω+1), and the origin-centered ball of this radius satisfies all facets. Its tangent facets are precisely both signed facets indexed by maximum cliques. Every extreme point ±(χ_S,1) has Euclidean norm sqrt(|S|+1); a maximum stable S gives an antipodal diameter, forcing enclosing radius sqrt(α+1), achieved at 0. Average squared distances to the antipodal pair show a same-radius enclosing ball has center 0 uniquely. This is dimension-free conditional on the fully cited exact facet theorem, not extrapolation from small graphs. The origin is an incenter; uniqueness of incenter is not claimed.
 
-## Closest literature and limitations
-The structural literature gives the twisted-prism construction, signed stable-set vertices, clique-indexed facets, polarity properties, and face counts. The new step is the Euclidean optimization and exact contact classification. The inradius formula is not claimed for nonperfect graphs, where additional stable-set facets may intervene, and the metric formulas are tied to the canonical realization rather than arbitrary affine images.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge, with explicit residual priority risk. The prior exact Hansen facet description is a substantive premise: this assessment does NOT call that facet classification new. Neither the inspected Hansen structural paper nor the available Hansen geometric literature establishes the combined Euclidean inradius and circumradius, extremal-clique/independent-set contact classification, or these graph-invariant recovery formulas. The arithmetical Euclidean optimization is elementary but the exact metric interpretation for all perfect graphs is not an identical prior result identified in the read material. Resultary did not complete, and the original 1977 article remains partly inaccessible; neither observation proves originality.
+
+## value
+
+PASS
+
+PASS: Both canonical Euclidean radii of a natural centrally symmetric graph-polytope family recover ω(G), α(G) exactly, and the complete inball-contact and circumsphere-contact strata identify extremal cliques and stable sets. Those invariant-recovery and equality descriptions are natural reusable geometric facts across all perfect graphs, even though the computation uses elementary facet-distance and antipodal arguments. No affine-invariant or general nonperfect formula is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
