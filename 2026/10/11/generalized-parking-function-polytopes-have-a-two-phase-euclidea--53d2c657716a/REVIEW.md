@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published minimal H-description is exact. Symmetry averaging reduces any feasible inball to a diagonal center. For a subset-size-
-\(k\) facet, equating lower-coordinate and normalized upper-facet clearances gives the exact value \(r_k\). After writing \(k=y^2\), the derivative numerator is strictly decreasing, so the entire size profile has at most one interior critical point, necessarily a maximum; therefore only \(k=1\) and \(k=n\) can control the inradius. The shifted active facets force the center uniquely and give the claimed contact sets.
+## correctness
 
-## Originality
-PASS. The primary source was inspected at its vertex/facet theory and the later arbitrary-parameter paper was inspected as a plausible stronger covering source. Neither contains an inradius, Chebyshev-center, or inscribed-ball theorem. Candidate-specific published-result and literature searches covered parking-function, partial-permutahedron, insphere, largest-inscribed-ball, and Chebyshev-center formulations without locating a theorem implying the two-phase formula. No same-object radius claim was present in the checked prior work records.
+PASS
 
-## Value
-PASS. The result treats every member of the source's two-parameter all-dimensional family. It identifies a sharp Euclidean phase transition at \(a-1=b(\sqrt n+1)\), reduces exponentially many upper facets to two controlling orbits, and classifies the exact tangent facets and unique center. The classical parking-function polytope obtains a closed inradius formula as a central special case.
+The source minimal H-description has x_i≥1 and upper Σ_{i∈I}x_i≤k[a+b(n−(k+1)/2)] for |I|=k; only k=n−1 is redundant if a=1. Averaging any radius-r center under S_n gives a diagonal radius-r center t1, valid because every offset support inequality is convex. At such center lower clearance t−1 increases and each upper clearance (U_k−kt)/√k decreases. Their intersection yields r_k=[√k/(√k+1)](A+b[n−(k+1)/2]), A=a−1. Let y=√k and C=A+b(n−1/2); derivative of r(y)=y(C−by²/2)/(y+1) has sign C−(b/2)y²(2y+3), strictly decreasing on y>0. Thus r(y) first increases then decreases and minimum on [1,√n] occurs at y=1 or √n: min{(A+b(n−1))/2, [√n/(√n+1)](A+b(n−1)/2)}. Their comparison is A=b(√n+1), giving exactly the two claimed facet contact phases; intermediate k strictly above. In the coordinate phase active x_i≥1+r and x_i≤a+b(n−1)−r force the unique midpoint; in total-sum phase n lower bound inequalities plus full-sum bound force x_i=1+r coordinatewise. Equal endpoints give both families; rational √n for integer A,b forces n a square. n=2,a=1 redundant k=1 causes no problem since total-sum phase strictly controls. Finite LP checks only supplement this symbolic all-parameter proof.
 
-## Closest literature and limitations
-The closest literature supplies the complete facet descriptions, smoothness, face structure, generalized-permutahedron and polymatroid interpretations, and volume formulas. These do not state a Euclidean inball optimization. The theorem is realization-sensitive and does not cover arbitrary parking-function parameter vectors or extremal ellipsoids. A broader symmetric-polymatroid Chebyshev theorem remains the principal residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hanada et al. determine this family’s vertices, all upper cardinality-facets and volume; their primary PDF Proposition 3.6 supplies the facet input but contains no inradius or Chebyshev-center result. Bayer et al. extend to arbitrary parking-function parameter vectors and identify polymatroids/generalized permutahedra (Theorems 2.3,4.3), but their full text focuses on combinatorial/circuit diameters, not Euclidean inballs. The new statement is metric and realization-sensitive; an integral-equivalence theorem does not preserve Euclidean radius. Nearby Resultary findings compute CIRCUMSPHERES or Löwner ellipsoids of parking polytopes, distinct outer optimization rather than the claimed insphere. The one-peak clearance collapse and sharp tangency phase have not been found in these source results.
+
+## value
+
+PASS
+
+This computes a natural intrinsic metric invariant, the Euclidean inball, of a well-studied classical and generalized parking-function polytope, with a sharp analytic phase transition and a discrete change in touching facet orbits. The fact that exponentially many subset facets reduce to only endpoint orbit competitors in all dimensions is an explanatory geometric structure, not an arbitrary small-instance evaluation. Its realization sensitivity and exact contact classification would be reusable when comparing metric realizations or designing polyhedral sphere bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

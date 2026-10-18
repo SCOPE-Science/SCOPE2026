@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:52:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob f3ca47c28f10c58f38a5f2f49c92d0a1911e96ae",
+        "Inspected verify.py blob 48e5a940ab541c532e43b4dadaca25215febb92d",
+        "Hanada–Lentfer–Vindas-Meléndez, Generalized parking function polytopes, arXiv:2212.06885v2, Proposition 3.6, https://arxiv.org/pdf/2212.06885",
+        "Bayer et al., Combinatorics of generalized parking-function polytopes, arXiv:2403.07387, Theorem 2.3, Theorem 4.3, https://arxiv.org/pdf/2403.07387"
+      ],
+      "rationale": "The source minimal H-description has x_i≥1 and upper Σ_{i∈I}x_i≤k[a+b(n−(k+1)/2)] for |I|=k; only k=n−1 is redundant if a=1. Averaging any radius-r center under S_n gives a diagonal radius-r center t1, valid because every offset support inequality is convex. At such center lower clearance t−1 increases and each upper clearance (U_k−kt)/√k decreases. Their intersection yields r_k=[√k/(√k+1)](A+b[n−(k+1)/2]), A=a−1. Let y=√k and C=A+b(n−1/2); derivative of r(y)=y(C−by²/2)/(y+1) has sign C−(b/2)y²(2y+3), strictly decreasing on y>0. Thus r(y) first increases then decreases and minimum on [1,√n] occurs at y=1 or √n: min{(A+b(n−1))/2, [√n/(√n+1)](A+b(n−1)/2)}. Their comparison is A=b(√n+1), giving exactly the two claimed facet contact phases; intermediate k strictly above. In the coordinate phase active x_i≥1+r and x_i≤a+b(n−1)−r force the unique midpoint; in total-sum phase n lower bound inequalities plus full-sum bound force x_i=1+r coordinatewise. Equal endpoints give both families; rational √n for integer A,b forces n a square. n=2,a=1 redundant k=1 causes no problem since total-sum phase strictly controls. Finite LP checks only supplement this symbolic all-parameter proof.",
+      "residual_risks": [
+        "All distances are for the standard coordinate Euclidean realization, not under arbitrary integral equivalences.",
+        "The k=n−1 redundancy when a=1 does not change endpoint control; the proof deliberately handles it.",
+        "The theorem is full dimensional only for n≥2 and positive a,b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. cover every parameter vector in facets and graph/circuit diameters, but do not give the Euclidean Chebyshev center.",
+          "Partial permutohedra are integrally equivalent in some regimes, not generally orthogonally isometric."
+        ],
+        "reasoning": "The family inclusion is stronger on combinatorial objects but not on the optimized Euclidean invariant; in particular no broader theorem from these sources implies exact r and contact facets as stated.",
+        "searches": [
+          "Resultary semantic query: generalized parking function polytope Euclidean inradius Chebyshev center symmetric permutahedron",
+          "Bayer et al. arXiv:2403.07387 all-parameter facet and polymatroid theorems",
+          "Hanada et al. arXiv:2212.06885"
+        ]
+      },
+      "checked_sources": [
+        "Hanada–Lentfer–Vindas-Meléndez, Generalized parking function polytopes, arXiv:2212.06885v2, Proposition 3.6, https://arxiv.org/pdf/2212.06885",
+        "Bayer et al., Combinatorics of generalized parking-function polytopes, arXiv:2403.07387, Theorem 2.3, Theorem 4.3, https://arxiv.org/pdf/2403.07387",
+        "Elementary Chebyshev-radius linear programming and S_n-symmetry averaging"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published facet data plus permutation averaging and derivative of r(y) give the formula, transition and exact tangency sets; source authors do not state these metric implications."
+        ],
+        "reasoning": "It is a new explicit deduction from known complete facet descriptions; generic optimization algorithms might compute individual cases, but they do not furnish this uniform two-phase symbolic theorem.",
+        "searches": [
+          "Resultary semantic query: generalized parking function polytope Euclidean inradius Chebyshev center symmetric permutahedron",
+          "Hanada–Lentfer–Vindas-Meléndez Prop3.6",
+          "Bayer et al. Theorem4.3 and optimization discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translated inball problem to max_{t,r} r subject to t−1≥r and U_k−kt≥r√k, equivalent to diagonal Chebyshev center of the cardinality-rank polytope.",
+          "No inradius/inscribed-ball/Chebyshev-center result found in texts searched by these aliases."
+        ],
+        "reasoning": "This exact metric formulation is more specific than a general facet or polymatroid combinatorial description; no equivalently quantified result was found.",
+        "searches": [
+          "Resultary semantic query: generalized parking function polytope Euclidean inradius Chebyshev center symmetric permutahedron",
+          "Hanada et al. arXiv:2212.06885 Prop3.6",
+          "Bayer et al. arXiv:2403.07387 Thms2.3,4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby exact circumspheres record analyzes smallest enclosing ball rather than largest inscribed ball.",
+          "No indexed table of exact Euclidean inradii for all n,a,b was found."
+        ],
+        "reasoning": "The invariant is continuous/geometric and depends on a,b; a finite enumerated table cannot cover all integer triples. The outer-ball results are mathematically different optimizations.",
+        "searches": [
+          "Resultary semantic query: generalized parking function polytope Euclidean inradius Chebyshev center symmetric permutahedron",
+          "Resultary query self-hit and exact circumspheres of same two-parameter family",
+          "Hanada et al. arXiv:2212.06885 primary inequalities"
+        ]
+      },
+      "rationale": "Hanada et al. determine this family’s vertices, all upper cardinality-facets and volume; their primary PDF Proposition 3.6 supplies the facet input but contains no inradius or Chebyshev-center result. Bayer et al. extend to arbitrary parking-function parameter vectors and identify polymatroids/generalized permutahedra (Theorems 2.3,4.3), but their full text focuses on combinatorial/circuit diameters, not Euclidean inballs. The new statement is metric and realization-sensitive; an integral-equivalence theorem does not preserve Euclidean radius. Nearby Resultary findings compute CIRCUMSPHERES or Löwner ellipsoids of parking polytopes, distinct outer optimization rather than the claimed insphere. The one-peak clearance collapse and sharp tangency phase have not been found in these source results.",
+      "residual_risks": [
+        "A general symmetry-based Chebyshev-radius theorem for cardinality-polymatroids might specialize to this formula under other terminology.",
+        "The elementary endpoint derivative makes the consequence plausibly rediscoverable; no external formal priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FACET_SOURCE_NOT_INBALL_THEOREM",
+          "evidence": [
+            "Provides cardinality upper-support offsets and redundancy at a=1,k=n−1; no Euclidean radius theorem seen."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.06885",
+          "material_read": "Full PDF introduction, §2 classical facets, §3 Proposition 3.6 and family discussion; searched text for inradius and inscribed ball.",
+          "method": "Read extracted PDF and reviewed facet-description page image",
+          "title": "Generalized parking function polytopes",
+          "trigger": "Primary exact two-parameter family H-representation and possible metric result"
+        },
+        {
+          "assessment": "BROADER_FACETS_NOT_METRIC_COVERAGE",
+          "evidence": [
+            "Theorem4.3 special polymatroids and combinatorial/circuit diameter, not Euclidean Chebyshev radius."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07387",
+          "material_read": "Full-text paper abstract, §2 facet description, §4 polymatroid perspective and diameter theorems; searched text for inradius, radius, inscribed and Chebyshev.",
+          "method": "Read accessible arXiv full HTML/PDF of relevant theorem sections",
+          "title": "Combinatorics of generalized parking-function polytopes",
+          "trigger": "Potentially dominating all-parameter polytope theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hanada–Lentfer–Vindas-Meléndez, Generalized parking function polytopes, arXiv:2212.06885v2, Proposition 3.6, https://arxiv.org/pdf/2212.06885",
+        "Bayer et al., Combinatorics of generalized parking-function polytopes, arXiv:2403.07387, Theorem 2.3, Theorem 4.3, https://arxiv.org/pdf/2403.07387",
+        "Frozen RESULT.md endpoint-unimodality proof"
+      ],
+      "rationale": "This computes a natural intrinsic metric invariant, the Euclidean inball, of a well-studied classical and generalized parking-function polytope, with a sharp analytic phase transition and a discrete change in touching facet orbits. The fact that exponentially many subset facets reduce to only endpoint orbit competitors in all dimensions is an explanatory geometric structure, not an arbitrary small-instance evaluation. Its realization sensitivity and exact contact classification would be reusable when comparing metric realizations or designing polyhedral sphere bounds.",
+      "residual_risks": [
+        "Special two-parameter family; it does not calculate inradii for general parking vectors or nonorthogonal affine realizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard Euclidean realization only; no claim about integral affine equivalence preserving radius.",
+    "Finite LP checker is not infinite proof; analytic derivative establishes all n.",
+    "Possible broader Chebyshev theorem for cardinality-polymatroids remains a priority risk."
+  ],
+  "schema_version": 1
+}
