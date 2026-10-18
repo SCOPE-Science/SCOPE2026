@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:57:54.779707Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/12/exact-tetrahedral-maximizers-of-geometric-discord-for-four-state--3224a6fbb21b/RESULT.md and checker/verify.py read, actual source-tree Git SHA 1b9f504dec7054999834fb4a67e824d8e9bae5a9",
+        "Verifier blob fa0ec1399a1803d39e1cb9ed0fc37efe1640f4ed inspected; independent exact Walsh-Gram checks."
+      ],
+      "rationale": "Using traceless diagonal 4x4 operator completeness in the qubit-register Hilbert–Schmidt discord formula, the classical-register centering terms cancel and G=(1/4)sum_a r_a r_a^T. For four unit Bloch vectors tr(G)=1, so lambda_max(G)>=1/3 and D_G<=(1/8)(1-1/3)=1/12. Equality RR^T=4I/3 implies I-(3/4)R^TR=ss^T/4 with s_a in ±1, so all maximizers are signed regular tetrahedra; this handles the continuous Bloch optimization. The two QRAC Walsh vectors have norm squared (16-(w·s)^2)/3<=16/3; measurement optimization gives P_av<=1/2+1/(2sqrt(3)), attained at unflipped tetrahedron; this is below optimal 1/2+1/(2sqrt(2)). Independently replayed exact rational Gram and sixteen sign choices; sign enumeration only after proof reduces all continuous maximizers.",
+      "residual_risks": [
+        "Finite enumeration of sign cases validates only post-classification discrete possibilities, not independent optimization over all Bloch vectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General QRAC Bloch geometry bounds concern coding success, while Yao deals separately with geometric discord."
+        ],
+        "reasoning": "Neither inspected source gives a stronger combined condition controlling QRAC success over the Hilbert–Schmidt discord maximizer locus.",
+        "searches": [
+          "Mančinska and Storgaard arXiv:2106.00155 full QRAC geometry manuscript",
+          "Yao et al arXiv:1207.1275 Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: four pure qubit 2-to-1 QRAC geometric discord tight frame tetrahedron maximizers Hilbert Schmidt geometric discord",
+        "Resultary: Maximal Hilbert Schmidt geometric discord qubit QRAC tetrahedral pure four state ensembles",
+        "Yao et al arXiv:1207.1275 Appendix A and main QRAC-discord numerical discussion",
+        "Mančinska Storgaard arXiv:2106.00155 QRAC optimality geometry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General tr(G)=1 bound yields <=1/12 but not existence/classification; general QRAC optimum 1/2+1/(2sqrt2) alone does not imply strict 1/2+1/(2sqrt3) on discord maximizers."
+        ],
+        "reasoning": "Joint claim requires identifying the tight-frame equality locus and bounding two Walsh quadratic forms on it.",
+        "searches": [
+          "Yao arXiv:1207.1275 general eigenvalue inequality",
+          "Mančinska Storgaard arXiv:2106.00155 QRAC success conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yao give D_G<=1/12 and numerical approach, but no signed tetrahedral equality orbit classification or exact P_av ceiling on that orbit."
+        ],
+        "reasoning": "The eigenvalue upper bound is shared and credited. Submitted theorem adds attainability/rigidity and simultaneous QRAC optimization not stated in the inspected primary source.",
+        "searches": [
+          "Yao et al arXiv:1207.1275 Appendix A full PDF",
+          "Resultary search: geometric discord four-state qubit QRAC tetrahedron tight frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Simulation values approaching 1/12 are not an exact maximizer classification; a tight-frame textbook example is not the QRAC discord-optimum table."
+        ],
+        "reasoning": "No same-object exhaustive exact database or table was found; the submitted all-continuum classification cannot follow from a finite numerical search.",
+        "searches": [
+          "Yao et al Appendix A reported discord simulations",
+          "Resultary search exact tetrahedral maximizers QRAC discord"
+        ]
+      },
+      "rationale": "Yao et al 2012 prove a general 1/12 eigenvalue bound and numerically approximate its sharpness; Appendix A does not provide exact four-state equality classification or the optimal QRAC ceiling restricted to that equality class. Mančinska–Storgaard analyze QRAC Bloch success geometry, without the quantum discord maximization. General unit-norm tight-frame classification alone does not itself identify which QRAC geometric-discord states maximize and their exact incompatible success ceiling without combining the discord identity and Walsh formula. Semantic Resultary searches found related discord/QRAC but no dominating same-claim theorem.",
+      "residual_risks": [
+        "Earlier unit-norm tight-frame/discord literature may state a signed-tetrahedron equivalence under another normalization; available searches are not exhaustive.",
+        "Hilbert–Schmidt geometric discord is not asserted to be a monotone or universal resource measure.",
+        "Finite enumeration of sign cases validates only post-classification discrete possibilities, not independent optimization over all Bloch vectors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bound is PRIOR, but simultaneous signed-tetrahedral extremizer classification and analytic QRAC performance maximum not supplied.",
+          "evidence": "Yao Appendix A bound 1/12 and simulation; submitted proof upgrades to equality family and strict exact QRAC ceiling.",
+          "identifier_or_url": "arXiv:1207.1275; https://arxiv.org/pdf/1207.1275",
+          "material_read": "Full eleven-page arXiv PDF, especially Appendix A page 7 deriving discord eigenvalue bound and numerical noncoincidence discussion.",
+          "method": "Opened full lawful arXiv PDF and inspected rendered Appendix page and main sections",
+          "title": "Quantum discord in quantum random access codes and its connection with dimension witness",
+          "trigger": "Exact source QRAC discord objects and prior bound"
+        },
+        {
+          "assessment": "Does not classify Hilbert–Schmidt geometric discord maximizers or derive exact ceiling on that locus.",
+          "evidence": "Its QRAC geometry is relevant but not a dominating discord–QRAC joint theorem.",
+          "identifier_or_url": "arXiv:2106.00155; https://arxiv.org/pdf/2106.00155",
+          "material_read": "Full fourteen-page arXiv PDF and statements on QRAC Bloch-space success optimality and constructions.",
+          "method": "Opened and reviewed full lawful arXiv PDF and compared claims",
+          "title": "The geometry of Bloch space in the context of quantum random access codes",
+          "trigger": "Strong candidate general QRAC success geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: four pure qubit 2-to-1 QRAC geometric discord tight frame tetrahedron maximizers Hilbert Schmidt geometric discord",
+        "Resultary: Maximal Hilbert Schmidt geometric discord qubit QRAC tetrahedral pure four state ensembles",
+        "Yao et al arXiv:1207.1275 Appendix A and main QRAC-discord numerical discussion"
+      ],
+      "rationale": "Closes an explicit analytic gap left as numeric simulation in a standard two-to-one QRAC–discord toy model: determines entire continuous maximizer locus and a strict operational tradeoff with best coding success, rather than merely a bound or one tetrahedral example. The natural four pure encodings and geometric discord were independently motivated by prior analysis.",
+      "residual_risks": [
+        "Earlier unit-norm tight-frame/discord literature may state a signed-tetrahedron equivalence under another normalization; available searches are not exhaustive.",
+        "Hilbert–Schmidt geometric discord is not asserted to be a monotone or universal resource measure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier unit-norm tight-frame/discord literature may state a signed-tetrahedron equivalence under another normalization; available searches are not exhaustive.",
+    "Hilbert–Schmidt geometric discord is not asserted to be a monotone or universal resource measure.",
+    "Finite enumeration of sign cases validates only post-classification discrete possibilities, not independent optimization over all Bloch vectors."
+  ],
+  "schema_version": 1
+}
