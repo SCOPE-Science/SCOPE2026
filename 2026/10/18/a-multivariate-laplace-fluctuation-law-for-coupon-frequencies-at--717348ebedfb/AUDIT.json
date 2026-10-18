@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional multinomial representation follows from independent Poisson streams and the unique last first arrival. Fixed-R conditional Lindeberg CLT yields Gaussian fluctuations with diagonal variance n exp(-tau)/r!. Beta(1,n) minimum yields Exp(1) mixing. Independent global inter-arrival clock ensures mean square |tau-W/n|^2=H_n/n, and the centering derivative bound vanishes after normalization; finite arithmetic checks in verify_coupon.py confirm special cases but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahmoud–Smythe (2012), p. 434, explicitly state superlinear growth is not considered and discuss different variance orders.",
+        "Saunders (2020 preprint) main joint theorem covers the same stopping model but only first-order frequencies.",
+        "Ilienko studies extended collector joint first-order and delayed limits, not the stated random-centered Gaussian residual.",
+        "Foata–Han–Lass 2001 covers the finite joint distribution of all specified multiplicity classes, a stronger exact specification but without second-order asymptotic analysis."
+      ],
+      "reasoning": "Earlier broad occupancy CLTs are for fixed sublinear/linear sampling stages and cannot be specialized to stopping at n log n; Saunders and Ilienko share the completion object but their displayed limiting laws are coarser than the claimed second-order asymptotics. Foata–Han–Lass is stronger at the level of exact finite laws, but turning its formula into the claimed Gaussian-mixture limit requires nontrivial new uniform asymptotic analysis; the limit is not an immediate special-case substitution.",
+      "searches": [
+        "arXiv:2005.08915v6 Sections 1–2",
+        "doi:10.1239/aap/1339878719 Theorems 1–2 and superlinear-phase remark",
+        "Web: coupon collector at cover time number exactly k copies central limit Gaussian after random centering multivariate Laplace",
+        "arXiv:2002.00650v1 Theorem 1",
+        "Foata–Han–Lass (2001), joint generating function Proposition 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0304229v1 §4",
+      "doi:10.1239/aap/1339878719 Theorems 1–2",
+      "arXiv:2005.08915v6 Theorems 1.1–1.2",
+      "arXiv:2002.00650 and journal Theorem 1",
+      "published-finding corpus semantic search results for random stopping Gaussian and Laplace coupon fluctuations",
+      "Own week-2, week-1, and September-week-4 archived claim/ID ledgers",
+      "Foata–Han–Lass (2001), author-hosted full PDF §1 and Proposition 4.1 (exact joint generating function)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saunders identifies the common exponential first-order factor and random Gumbel completion time but not the residual law after observed-time centering.",
+        "Mahmoud–Smythe admits the superlinear regime is excluded.",
+        "Archived finite generating identity is for one coordinate and does not furnish the multivariate second-order characteristic function.",
+        "Exact finite joint laws are known; their stated formulas do not contain the asserted random-centered limit, which requires new asymptotic steps."
+      ],
+      "reasoning": "The new statement implies known first-order limits by a separate scaling argument, but the converse fails: first-order convergence cannot determine fluctuations at a strictly smaller scale or prove off-diagonal asymptotic independence. The complete conditional multinomial reduction and de-Poissonization prove these additional conclusions. Finite generating functions formally determine every probability for every n but do not themselves establish the scaled weak convergence without deriving uniform n-asymptotics.",
+      "searches": [
+        "published-finding corpus: coupon collector completion occupancy frequencies second-order conditional Gaussian central limit theorem all multiplicities r mixed normal given Gumbel stopping time",
+        "published-finding corpus: joint second order limit at random cover time poisson urn frequency occupancy multivariate normal variance mixture",
+        "Own archive claim 17d16015-e72e-4d3d-86f7-57bb4003f221",
+        "arXiv:2005.08915v6 Theorem 1.1",
+        "doi:10.1239/aap/1339878719 linear phase Theorem 2",
+        "Foata–Han–Lass (2001) Proposition 4.1 exact finite joint distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Saunders (arXiv:2005.08915) Theorem 1.1 reports (normalized completion time, factorially scaled count) converging to (Gumbel, exponential transform), at first order.",
+        "Ilienko (arXiv:2002.00650) Theorem 1 gives common exponential limits for scaled occupancy counts at the collection time.",
+        "Foata–Han–Lass Proposition 4.1 gives the exact multivariate generating function, not its second-order weak limit after observed-time centering."
+      ],
+      "reasoning": "The first-order common exponential limit specifies frequency counts divided by powers of log n and erases the order-(log n)^(r/2) residual. Neither the joint first-order law nor a first-order common factor entails a conditionally Gaussian fluctuation field. No matching second-order formulation found in these actual searches.",
+      "searches": [
+        "published-finding corpus: coupon collector random stopping time singleton fluctuations conditional normal centering by stopping Gumbel mixed Gaussian",
+        "published-finding corpus: coupon collector number coupons seen once at completion joint CLT with cover time",
+        "Web: coupon collector singleton doubleton asymptotic normal conditional Gumbel random environment center Gaussian fluctuations",
+        "arXiv:2005.08915v6, Theorem 1.1",
+        "arXiv:2002.00650v1, Theorem 1",
+        "Foata–Han–Lass (2001), author-hosted PDF Proposition 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Myers–Wilf Section 4 gives a full finite singleton distribution and harmonic-number mean, not a listed asymptotic Gaussian-mixture covariance matrix.",
+        "Own prior archived claim 17d16015-e72e-4d3d-86f7-57bb4003f221 contains a one-coordinate finite generating identity and covariance for r>=2, but no multivariate second-order limit.",
+        "published-finding corpus nearest records on uniform occupancy richness/frequency covariance concern fixed-size samples, rather than completion-time fluctuating Gaussian coordinates.",
+        "The exact joint frequency generating function at stopping time appears in Foata–Han–Lass (2001), Proposition 4.1, and must be acknowledged; it does not list any asymptotic second-order Laplace distribution."
+      ],
+      "reasoning": "A finite exact generating function could in principle be asymptotically analyzed but does not itself assert or imply without new analysis the displayed R-dimensional second-order joint limit. Searches produced no exact result table containing the asymptotic Gaussian mixture. In particular, a full finite-n generating function is a prior exact specification of the same random vector, but the random-time-centered multivariate CLT and its non-Gaussian mixture require asymptotic analysis not provided there.",
+      "searches": [
+        "published-finding corpus: coupon collector number coupons seen once at completion joint CLT with cover time",
+        "published-finding corpus: Poissonized occupancy counts at last first arrival max exponential conditional multinomial covariance asymptotically independent Gaussian second order",
+        "Own archive ledgers 2026-09_week4 and 2026-10_week1; own current-week ledger 2026-10_week2",
+        "arXiv:math/0304229v1 Section 4 exact singleton formulas",
+        "Foata–Han–Lass (2001), Proposition 4.1 exact finite joint probability generating function"
+      ]
+    },
+    "rationale": "published-finding corpus and public primary literature were searched with claim aliases and implication comparisons. The closest published results at precisely the same coupon-completion object are first-order (Saunders and Ilienko), whereas the proposed non-Gaussian R-dimensional second-order residual is a strictly finer statement. Mahmoud–Smythe explicitly excludes the superlinear completion regime. Accessible original ledgers were checked for recoverable claims and IDs; own exact one-coordinate finite generating identity does not contain this joint second-order law. Residual risk of an unlocated equivalent prior statement is acknowledged. The exact finite multivariate generating function of Foata–Han–Lass (2001) is also identified and explicitly compared: it provides the complete finite joint law, but no stated second-order asymptotic fluctuation theorem.",
+    "residual_risks": [
+      "An older result may encode the same Gaussian residual asymptotics implicitly in a generating function or as a special occupancy limit.",
+      "Literature searches and semantic databases are not exhaustive uniqueness proofs.",
+      "Foata–Han–Lass (2001) supplies an exact finite joint generating function. It defines the entire law and may permit an alternative asymptotic derivation; no explicit second-order limit was located in the inspected material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact finite singleton law and mean only; does not state a fixed-R random-centered Gaussian mixture",
+        "evidence": [
+          "Section 4, equations (44) and (47), singleton law, p. 18–20",
+          "arXiv first-public stamp math/0304229v1 16 Apr 2003"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+        "material_read": "Section 4 pp. 18–20 and introductory result summary",
+        "method": "Read PDF text and inspected Section 4 page images",
+        "title": "Some New Aspects of the Coupon-Collector's Problem",
+        "trigger": "Classical terminal singleton distribution in the exact same model"
+      },
+      {
+        "assessment": "Deterministic sublinear/linear sampling only; excludes superlinear phase at completion",
+        "evidence": [
+          "p. 434 end of theorem section, explicit superlinear exclusion",
+          "Abstract classifies sublinear and linear multivariate CLTs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1339878719",
+        "material_read": "Abstract, model setup, Theorems 1–2 and explicit superlinear-scope paragraph",
+        "method": "Read open primary PDF text and theorem page images",
+        "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+        "trigger": "Potential broader multivariate occupancy CLT"
+      },
+      {
+        "assessment": "Theorem 1.1 supplies joint first-order exponential limit; does not address second-order random centering and Gaussian-mixture scaling",
+        "evidence": [
+          "Theorem 1.1 p. 2 shows (normalized completion time, k!S_k/(log n)^k)→(X,e^-X) for m=1",
+          "Theorem 1.2 concerns rare high-multiplicity counts near e log n"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.08915",
+        "material_read": "Abstract, Theorems 1.1 and 1.2, introduction, methods/proof around p. 6",
+        "method": "Read full-text primary arXiv PDF and inspected theorem and proof page images",
+        "title": "The number of k-tons in the coupon collector problem",
+        "trigger": "Plausible directly dominating paper on joint frequency counts and completion time"
+      },
+      {
+        "assessment": "Theorem 1 first-order common exponential convergence and separate delayed geometric laws; no second-order Gaussian residual at observed completion time",
+        "evidence": [
+          "Theorem 1 equation (8) joint first-order exponential limit",
+          "Theorem 2 equation (12) delayed-time geometric limits"
+        ],
+        "identifier_or_url": "https://vmsta.org/journal/VMSTA/article/358/read",
+        "material_read": "Introduction, main Theorem 1 and Theorems 2–3, concluding remarks",
+        "method": "Read accessible primary journal HTML and arXiv PDF",
+        "title": "Limit theorems in the extended coupon collector's problem",
+        "trigger": "Potential first-order common-exp and higher-order joint asymptotic coverage"
+      },
+      {
+        "assessment": "Exact complete finite-n multivariate generating function of (completion time, frequencies) is known; no random-centered second-order Gaussian/Laplace limit is stated. Deriving the limit requires a nontrivial asymptotic calculation. This is a substantial prior coverage risk, not merely single-coordinate predecessors.",
+        "evidence": [
+          "Foata–Han–Lass (2001), Proposition 4.1 p. 8, joint generating function of (T,X_T^(1),...,X_T^(r))",
+          "Introduction pp. 2–3 identifies first moments and exact generating function as the paper aims"
+        ],
+        "identifier_or_url": "https://irma.math.unistra.fr/~guoniu/papers/p32frere.pdf",
+        "material_read": "Abstract; introductory definitions and conclusions; Section 4 Proposition 4.1 pp. 7–8 containing exact multivariate generating function and its first moments",
+        "method": "Opened lawful author-hosted primary 20-page PDF; located and read Proposition 4.1 text and scope",
+        "title": "Les nombres hyperharmoniques et la fratrie du collectionneur de vignettes",
+        "trigger": "Earlier exact joint generating function for stopping time and terminal frequency-count vector; potentially stronger finite-dimensional coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "717348eb-edfb-4a37-abde-b5935470946e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The completed collection has known first-order perfect dependence through one exponential variable, concealing smaller independent-in-environment fluctuations. The theorem resolves the entire joint finite-dimensional second-order profile, conditional diagonal Gaussian law and unconditional multivariate Laplace dependence for every fixed R, a canonical probabilistic stopping-time asymptotic not obtainable from first-order limits alone.",
+    "status": "PASS"
+  }
+}
