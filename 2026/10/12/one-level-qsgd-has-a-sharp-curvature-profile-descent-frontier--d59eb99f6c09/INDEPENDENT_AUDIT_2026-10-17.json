@@ -1,0 +1,68 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:21:03.583220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py at a7f06178efe0f614c062d1d573fb692b831692a4",
+        "Dan Alistarh et al., QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding, NeurIPS 2017, arXiv:1610.02132 (full paper and quantizer definition read)",
+        "Z. Li et al., Acceleration for Compressed Gradient Descent in Distributed and Federated Optimization, arXiv:2002.11364",
+        "H. Li et al., Det-CGD: Compressed Gradient Descent with Matrix Stepsizes for Non-Convex Optimization, arXiv:2305.12568",
+        "Resultary semantic search: QSGD one level quantization diagonal quadratic exact stepsize curvature profile"
+      ],
+      "rationale": "For one-level QSGD, Q_i(g)=||g|| sign(g_i) B_i where B_i is Bernoulli(|g_i|/||g||). Thus E Q_i=g_i and E Q_i²=||g||||g_i||, including zero-coordinate cases. Expanding f(x−ηQ) exactly gives f−η||g||²+(η²/2)||g||∑ a_i|g_i|. Cauchy–Schwarz bounds ∑a_i|g_i| by ||a||₂||g||₂ and attains equality with |g_i| proportional a_i, i.e. all |x_i| equal. This proves iff 0<η<2/||a||₂ for strict universal one-step expected descent on a positive diagonal quadratic. For A=LI, h=ηL, maximal conditional ratio is 1−2h+√d h², minimized at h=1/√d; h=1 expands for d≥5. The source Bernoulli definition was checked in the full QSGD primary PDF, and the packaged bounded enumeration source inspected.",
+      "residual_risks": [
+        "Optimization literature may contain an equivalently sharp special-case QSGD curvature-weighted rate under alternate compressor-moment terminology.",
+        "One-step expectation does not imply almost-sure monotonicity or more advanced adaptive convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py at a7f06178efe0f614c062d1d573fb692b831692a4",
+        "Dan Alistarh et al., QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding, NeurIPS 2017, arXiv:1610.02132 (full paper and quantizer definition read)",
+        "Z. Li et al., Acceleration for Compressed Gradient Descent in Distributed and Federated Optimization, arXiv:2002.11364",
+        "H. Li et al., Det-CGD: Compressed Gradient Descent with Matrix Stepsizes for Non-Convex Optimization, arXiv:2305.12568",
+        "Resultary semantic search: QSGD one level quantization diagonal quadratic exact stepsize curvature profile"
+      ],
+      "rationale": "QSGD (Alistarh et al.) already provides unbiasedness and variance bounds and implies the general √d scaling, and generic compressed-gradient papers provide related conservative rates. The exact state-dependent diagonal curvature-profile threshold, equality direction, and one-step identity are the assessed additional statements. Fixed random-sketch matrix bounds do not immediately specialize to state-dependent Bernoulli probabilities.",
+      "residual_risks": [
+        "Optimization literature may contain an equivalently sharp special-case QSGD curvature-weighted rate under alternate compressor-moment terminology.",
+        "One-step expectation does not imply almost-sure monotonicity or more advanced adaptive convergence."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py at a7f06178efe0f614c062d1d573fb692b831692a4",
+        "Dan Alistarh et al., QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding, NeurIPS 2017, arXiv:1610.02132 (full paper and quantizer definition read)",
+        "Z. Li et al., Acceleration for Compressed Gradient Descent in Distributed and Federated Optimization, arXiv:2002.11364",
+        "H. Li et al., Det-CGD: Compressed Gradient Descent with Matrix Stepsizes for Non-Convex Optimization, arXiv:2305.12568",
+        "Resultary semantic search: QSGD one level quantization diagonal quadratic exact stepsize curvature profile"
+      ],
+      "rationale": "The exact per-coordinate curvature profile ||a||₂ rather than L√d distinguishes quantizer-induced stability from generic scalar variance bounds and identifies a sharp step threshold and worst-case dense direction. This directly informs a natural severe-quantization regime even though it is a restricted diagonal quadratic calculation.",
+      "residual_risks": [
+        "Optimization literature may contain an equivalently sharp special-case QSGD curvature-weighted rate under alternate compressor-moment terminology.",
+        "One-step expectation does not imply almost-sure monotonicity or more advanced adaptive convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify.py at a7f06178efe0f614c062d1d573fb692b831692a4",
+    "Dan Alistarh et al., QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding, NeurIPS 2017, arXiv:1610.02132 (full paper and quantizer definition read)",
+    "Z. Li et al., Acceleration for Compressed Gradient Descent in Distributed and Federated Optimization, arXiv:2002.11364",
+    "H. Li et al., Det-CGD: Compressed Gradient Descent with Matrix Stepsizes for Non-Convex Optimization, arXiv:2305.12568",
+    "Resultary semantic search: QSGD one level quantization diagonal quadratic exact stepsize curvature profile"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is best-of-knowledge and does not imply priority certification.",
+    "No complete public-file sanitization was supplied; publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "Optimization literature may contain an equivalently sharp special-case QSGD curvature-weighted rate under alternate compressor-moment terminology.",
+    "One-step expectation does not imply almost-sure monotonicity or more advanced adaptive convergence."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source \(s=1\) quantizer reduces coordinatewise to Bernoulli stochastic rounding with exact second moment \(\|g\|_2|g_i|\). Substitution into the diagonal quadratic gives the conditional expected-objective identity without approximation. Cauchy--Schwarz is sharp and gives both the exact universal frontier and its attaining state. The isotropic minimax factor follows from the sharp \(\ell_1/\ell_2\) inequality.
+PASS
 
-Scientific risk: the result is an expected-objective statement, not an almost-sure descent theorem.
+For one-level QSGD, Q_i(g)=||g|| sign(g_i) B_i where B_i is Bernoulli(|g_i|/||g||). Thus E Q_i=g_i and E Q_i²=||g||||g_i||, including zero-coordinate cases. Expanding f(x−ηQ) exactly gives f−η||g||²+(η²/2)||g||∑ a_i|g_i|. Cauchy–Schwarz bounds ∑a_i|g_i| by ||a||₂||g||₂ and attains equality with |g_i| proportional a_i, i.e. all |x_i| equal. This proves iff 0<η<2/||a||₂ for strict universal one-step expected descent on a positive diagonal quadratic. For A=LI, h=ηL, maximal conditional ratio is 1−2h+√d h², minimized at h=1/√d; h=1 expands for d≥5. The source Bernoulli definition was checked in the full QSGD primary PDF, and the packaged bounded enumeration source inspected.
 
-## Originality
+## originality
 
-PASS. The defining source gives unbiasedness and a dimension-only variance bound. General scalar compressed-gradient theory can recover the isotropic square-root-dimension scale, so that component is explicitly treated as prior-compatible. The surviving claim is the exact anisotropic curvature-profile threshold, its equality direction, and the exact objective identity. Matrix-smooth fixed-sketch theory uses a different compressor model and does not directly imply the state-dependent QSGD result.
+PASS
 
-Residual risk: an unindexed specialization of QSGD may contain the same diagonal calculation.
+QSGD (Alistarh et al.) already provides unbiasedness and variance bounds and implies the general √d scaling, and generic compressed-gradient papers provide related conservative rates. The exact state-dependent diagonal curvature-profile threshold, equality direction, and one-step identity are the assessed additional statements. Fixed random-sketch matrix bounds do not immediately specialize to state-dependent Bernoulli probabilities.
 
-## Value
+## value
 
-PASS. The curvature-profile frontier distinguishes the actual stability tax of aggressive QSGD from a generic worst-curvature dimension bound and can be substantially less conservative on anisotropic problems. It also identifies a concrete dense direction on which an otherwise exact gradient-descent step becomes unstable in expectation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact per-coordinate curvature profile ||a||₂ rather than L√d distinguishes quantizer-induced stability from generic scalar variance bounds and identifies a sharp step threshold and worst-case dense direction. This directly informs a natural severe-quantization regime even though it is a restricted diagonal quadratic calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
