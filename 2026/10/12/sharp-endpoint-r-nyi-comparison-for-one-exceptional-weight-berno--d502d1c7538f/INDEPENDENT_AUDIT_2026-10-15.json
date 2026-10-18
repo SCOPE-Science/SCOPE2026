@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S=sum_{i=1}^n B_i+a B_{n+1}, a real, n>=1, we checked the partition: a=0 (n+1 points, modal mass c_n); a noninteger or |a|>n (2(n+1) disjoint points, modal mass c_n/2); integer |a|=k in [1,n] gives contiguous support n+k+1 and masses [binom(n,j)+binom(n,j-k)]/2^(n+1). The binomial estimates (n+1)c_n²<=3/4 and (n+floor(n/2)+1)c_n²<=1 follow via exact consecutive ratios; strictness for n=2,k=1 is direct. For k>floor(n/2) and n>=20, the proved Gaussian ratio bound p_n(j)<=c_n exp(-d(j)^2/n) implies M<3c_n/4, so K M²<27/32. Independently recomputed all 190 integer pairs with 1<=n<=19, inspecting exactly 3990 atom positions, exact worst ratio 3/4 at (n,k)=(1,1); this finite bridge exhausts the only unproved region, not the infinite n argument. Central binomial asymptotics with a=0 give H0/Hinf->2. Symmetry a versus -a and all real collision cases checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li Theorem1.4 has C_α=2 for α∈[1/2,2) but excludes α=0; Theorem1.5 at α=0 uses a logarithmic C(w), not coefficient 2.",
+          "Jain–Sah–Sawhney yield size/anti-concentration bounds weaker than quadratic K<=1/M²."
+        ],
+        "reasoning": "Neither broader-range theorem includes the endpoint constant needed for this structured subfamily; continuity α->0 cannot automatically retain a finite uniform 2 constant.",
+        "searches": [
+          "one exceptional weight Bernoulli sums Renyi endpoint entropy H0 < 2 Hinf sharp n identical weights one outlier real",
+          "https://arxiv.org/html/2609.01529v2",
+          "https://arxiv.org/abs/2101.07726"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.01529v2",
+        "https://arxiv.org/abs/2101.07726",
+        "Resultary scientific record search: one exceptional weight Bernoulli sums Renyi endpoint entropy H0 < 2 Hinf sharp n identical weights one outlier real",
+        "Resultary scientific record search: Li 2026 one exceptional Bernoulli weight H0 ≤ 2 H infinity subset sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li Conjecture1.1 is unproved at order0; Theorem1.5 can have C(w)>2.",
+          "The identical-weight case a=1 and zero weight a=0 are special and known, whereas all integer k and noninteger a require case distinctions and Gaussian estimates."
+        ],
+        "reasoning": "Old theorems imply some easy weight choices but do not imply the uniform fixed coefficient for all a; exact collision and finite bridge make the new implication.",
+        "searches": [
+          "https://arxiv.org/html/2609.01529v2",
+          "https://arxiv.org/abs/2101.07726",
+          "one exceptional weight Bernoulli sums Renyi endpoint entropy H0 < 2 Hinf sharp n identical weights one outlier real"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li Conjecture1.1 exactly H0(S_w)<=2Hinf(S_w); identify present weights as w=(1,...,1,a).",
+          "H0=log K, Hinf=-log M makes proposed condition exactly K*M²<1."
+        ],
+        "reasoning": "Same entropy orders and same fair coin convention, normalized by common repeated weight. The conjecture is an unproved general statement; this work proves its strict one-outlier slice.",
+        "searches": [
+          "one exceptional weight Bernoulli sums Renyi endpoint entropy H0 < 2 Hinf sharp n identical weights one outlier real",
+          "Li 2026 one exceptional Bernoulli weight H0 ≤ 2 H infinity subset sums",
+          "https://arxiv.org/html/2609.01529v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li discusses sharpness via repeated blocks (Remark1.2) but does not give a six-case finite database of n and a; the claim varies over all real a and unbounded n."
+        ],
+        "reasoning": "A small exact 190-case enumeration closes a proof gap at n<20, rather than recomputing a previously tabulated invariant.",
+        "searches": [
+          "one exceptional weight Bernoulli sums Renyi endpoint entropy H0 < 2 Hinf sharp n identical weights one outlier real",
+          "Li 2026 one exceptional Bernoulli weight H0 ≤ 2 H infinity subset sums",
+          "one outlier binary subset sum concentration exact K M² table"
+        ]
+      },
+      "rationale": "Li (2026) states the endpoint coefficient 2 for all weighted fair Bernoulli sums as Conjecture1.1, proves coefficient 2 at Rényi order α>=1/2 in Theorem1.4 and a weight-dependent LOGARITHMIC endpoint constant in Theorem1.5; neither implies the claimed sharp fixed endpoint coefficient for this infinite one-exceptional-weight family. Jain–Sah–Sawhney obtain weaker general anti-concentration bounds. The result is genuinely a structured family, not a claim to solve the general conjecture.",
+      "residual_risks": [
+        "Jain–Sah–Sawhney original full text was not successfully fetched here; quantitative comparison uses direct full Li primary attribution.",
+        "An unindexed special-case entropy proof is possible; literature search cannot prove absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The sharp H0 coefficient2 is conjectural in general; existing endpoint theorem is weaker, positive-order theorem distinct",
+          "evidence": [
+            "Conjecture1.1 line53-55; Theorem1.4 lines75-85 assumes alpha>0; Theorem1.5 lines87-95 uses C(w) not universal 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.01529v2",
+          "material_read": "Full primary open arXiv HTML v2: abstract; §1.1 Conjecture1.1/Remark1.2; §1.2 Theorems1.4 and1.5; §§1.3,3 comparison and proofs; references",
+          "method": "primary full-text arxiv HTML and mathematical theorem-line inspection",
+          "title": "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums",
+          "trigger": "Identical endpoint inequality and plausible dominating generalized theorem"
+        },
+        {
+          "assessment": "Reported general estimate H0<=C sqrt(n Hinf), no endpoint factor2 certified here",
+          "evidence": [
+            "Li Remark1.2 and §1.3 state the older bound and the equivalent general conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.07726",
+          "material_read": "Primary bibliographic identification and comparison through Li §1.1/1.3; direct HTML access attempt failed; not full primary read",
+          "method": "source metadata plus quotation/attribution from full Li paper",
+          "title": "Anticoncentration versus the Number of Subset Sums",
+          "trigger": "Older general supporting theorem cited by Li and source package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Verifies a natural, infinite, continuously parametrized subfamily of a specific current extremal Rényi-entropy conjecture, across all n>=1 and exceptional real weights, with the conjectured strict endpoint factor and asymptotic exponent optimality. Support collisions at integral exceptional weights make the result substantive rather than a generic concentration estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No result for more than one exceptional coefficient, biased Bernoulli variables, or quantitative universal gap away from equality.",
+    "Finite proof bridge verified from independently recreated counting, with analytic Gaussian tail treated as general proof; full tree guard outstanding."
+  ],
+  "schema_version": 1
+}
