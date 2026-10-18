@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For Q5 each fort has size at least 5, and every size-5 fort is exactly N(v), independently certified by exhaustive verification of every 1..5-subset (242824 cases). The construction has 4 disjoint 5-neighborhoods and an explicit disjoint size-8 fort. Any 6-fort packing must comprise 4 size-5 neighborhoods and 2 size-6 forts because 6*5=30 and 32 available vertices, while at most 4 neighborhoods can be pairwise disjoint. A counting lemma restricts each size-6 fort to parity profile (0,6),(1,5),(5,1),(6,0). Mixed cases contain a fifth disjoint neighborhood, impossible; each all-parity residual 6-set fails the fort condition at a vertex distance 2 from both same-parity neighborhood centers. Code checks all size-6 subsets and the construction and provides a re-runnable predicate. Scope only Q5; no inference from finite experimentation to higher d.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.10826v1 Corollary 3.12: 2^d/2^(floor(log2(d-1))+1)<=ft(Qd)<=2^d/d; at d=5 this is 4<=ft<=6",
+        "arXiv:2507.10826v1 Theorem 3.13: ft(Q_{2^k})=2^(2^k-k), not Q5",
+        "arXiv:2310.17904v3 Proposition 3.15 computes Z*(Q5)=32/5, a fractional rather than integer optimum"
+      ],
+      "reasoning": "No stronger published bound or all-d classification encountered implies the exact integer value 5. Theorem 3.8 classifies size-5 forts, yet packing the remaining larger forts is a separate problem, and its conclusion alone permits either 5 or 6.",
+      "searches": [
+        "Primary arXiv:2507.10826v1 Theorem 3.8, Corollaries 3.10-3.12, Theorem 3.13",
+        "Primary arXiv:2310.17904v3 Section 3 Proposition 3.15 and Section 6 summary",
+        "Forts hypercube Theorem 3.8 minimum forts open neighborhoods 2025 2023 Q5 4 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.17904v3 sections 3 and 6 (earliest v1 2023-10-27)",
+      "arXiv:2507.10826v1 sections 2 and 3 (2025-07-14)",
+      "published-record semantic index queries on exact fort numbers, disjoint-fort packings, hypercube and open-packing aliases",
+      "Own prior-week/current-week ledgers scanned for fort-number claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2025: exactly 4<=ft(Q5)<=6, whereas present theorem distinguishes remaining possibilities",
+        "Prior 2025: size-5 fort=N(v); present proof additionally handles size-6 forts and a size-8 witness",
+        "Prior 2023: ft(G)<=Z*(G), but integer 4,5,6 all satisfy ft(Q5)<=32/5"
+      ],
+      "reasoning": "The newly constructed fifth fort rules out ft=4; a parity-restricted remainder obstruction rules out ft=6. Neither step is contained in or follows directly from the prior numerical interval or minimum-fort classification. The comparison is by logical implications, not by titles.",
+      "searches": [
+        "arXiv:2507.10826v1 Corollary 3.12 vs claim ft(Q5)=5",
+        "arXiv:2507.10826v1 Theorem 3.8 vs claim ft(Q5)=5 and rho^o(Q5)=4",
+        "arXiv:2310.17904v3 Proposition 3.15 vs integer ft(Q5)",
+        "Five-dimensional cube fort packing 5 disjoint forts min-size neighborhoods residual vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.10826v1 section 2.2 defines fort number as a matching in the fort hypergraph; section 3 states ft >= rho^o",
+        "arXiv:2310.17904v3 Proposition 3.15 computes the fractional zero-forcing relaxation, not the exact maximum packing of forts",
+        "A indexed study on optimizing a five-dimensional lattice packing-covering ray is a different problem from disjoint graph forts."
+      ],
+      "reasoning": "Exact disjoint-fort packing, matching number of the fort hypergraph, and the integer fort parameter denote the same object here. Open-neighborhood packing is a lower-bound subproblem, not equivalent to fort packing; the proved strict inequality is precisely this distinction. No retrieved item gives an equivalent exact Q5 assertion.",
+      "searches": [
+        "Exact fort packing number ft(Q_5) of five-dimensional hypercube is five with open packing four, five disjoint forts",
+        "Hypercube Q5 fort packing disjoint forts four neighborhoods 8-vertex fort no six",
+        "Primary arXiv:2507.10826v1: fort number, open packing, disjoint minimum forts, Q5",
+        "Web: \"five-dimensional hypercube\" \"disjoint forts\" \"open packing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2310.17904v3 reports fractional zero-forcing of hypercubes but no exact five-cube fort number",
+        "arXiv:2507.10826v1 gives a bounding interval for d=5 and no exact-case table entry",
+        "A indexed study on dominant edge metric dimension and minimum bases of hypercubes concerns resolving graph edges, not matching disjoint forts."
+      ],
+      "reasoning": "There is no known exact entry for the integer fort packing of Q5 among inspected full-text tables or published-record summaries. A missing hit alone is not proof of originality, so this is paired with an implication comparison of the closest full papers.",
+      "searches": [
+        "arXiv:2310.17904v3 Section 6.1 parameter-value summary: hypercube",
+        "arXiv:2507.10826v1 Corollary 3.12 and Conclusion: Q5",
+        "Exact fort number of five-dimensional hypercube Q5 equals five, impossibility of six disjoint forts, zero forcing forts",
+        "fort hypergraph hypercube exact fort number Q_8 Q_4 disjoint forts"
+      ]
+    },
+    "rationale": "The 2023 foundational paper arXiv:2310.17904v3 Proposition 3.15 establishes fractional zero forcing 2^d/d but leaves the integer fort number of the 5-cube unresolved. Full 2025 text arXiv:2507.10826v1 Theorem 3.8 classifies minimum forts and Corollary 3.12 gives only 4<=ft(Q5)<=6, with exact values in Theorem 3.13 for dimensions 2^k, excluding d=5. New exact value 5 and strict separation from open packing 4 are not consequences of these bounds and have not been identified in searched indexed records. Unindexed equivalent prior work remains a bounded residual risk.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent Q5 result cannot be excluded by an indexed search.",
+      "A change in terminology such as hypergraph matching or stalled-set packing could hide an equivalent result; direct full-text checks mitigate but do not eliminate this risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proposition 3.15 evaluates Z*(Qd) and identifies minimum cardinality d, but does not determine ft(Q5). First public v1 date verified 2023-10-27.",
+        "identifier_or_url": "https://arxiv.org/html/2310.17904v3",
+        "material_read": "Abstract, sections 1-3 including Proposition 3.15; conclusions and hypercube parameter summary",
+        "method": "Inspected full-text HTML manuscript, located fort and hypercube statements and searched occurrence of exact Q5",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Original definition and fractional extremum for hypercubes; potential stronger table"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 3.8 gives minimum fort classification; Corollary 3.12 bounds ft(Q5) in {4,5,6}, Theorem 3.13 only exact when d is a power of two.",
+        "identifier_or_url": "https://arxiv.org/html/2507.10826v1",
+        "material_read": "Definitions section 2.2, section 3 entirety with Theorem 3.8, Corollaries 3.10-3.14, and conclusions",
+        "method": "Read publicly available complete HTML rendition and relevant PDF page, checked statements rather than titles",
+        "title": "On the forts and related parameters of the hypercube graph",
+        "trigger": "Direct primary article on exact min forts and fort-number bounds, strongest plausible overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61054e3a-0ae8-4a9b-941b-50048720cf0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Dimension five is the first case beyond the power-of-two family at which published fort-number bounds leave an integer gap. Resolving it determines a natural graph invariant, supplies a motivated exact finite cutoff, and demonstrates the genuinely larger packing capacity of non-minimum forts: ft(Q5)=5 but rho^o(Q5)=4. The obstruction argument classifies why the tempting six-fort tiling cannot occur; value is not claimed from code or exactness alone. No downstream general theorem is asserted.",
+    "status": "PASS"
+  }
+}
