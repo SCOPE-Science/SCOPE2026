@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R_{m,n}=L(K_{m,n}), a selected line-graph induced forest is exactly a union of vertex-disjoint alternating paths and isolated original vertices. Paths with endpoints on opposite sides contribute (uv)^r z^(2r-1); paths with endpoints in one side contribute (u+v)(uv)^r z^(2r)/2; exponential formula with isolated vertices gives exp(u+v+wuv(z+(u+v)z^2/2)/(1-uvz^2)). The maximum edge count is min(a+b-1,2a) by forest and small-side degree bounds; alternating spanning paths attain it. Equality forces either an alternating Hamilton path for a=b or every small-side vertex of degree 2 if a<b; exact composition/binomial extraction gives the claimed N_{a,b,k}. Independent exhaustive subsets for m,n=(2,3),(2,4),(3,3),(3,4) confirm the enumerator and extremal histogram (R_{2,4}: 24 connected, 6 two-component). Infinite theorem is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Novotná et al. Section 5 Lemma 3 uses equivalence for hardness on arbitrary line graphs.",
+          "Fu–Huang studies how many path forests decompose the full edge set; it is not a count of individual forests."
+        ],
+        "reasoning": "General structural transfer and biclique decompositions do not imply the component-refined explicit count without enumerating alternating path components.",
+        "searches": [
+          "rectangular rook graph K_m cartesian K_n induced forest polynomial size component generating function minimum feedback vertex set",
+          "Novotna et al Algorithmica 2021 Lemma 3",
+          "Fu Huang 1994 linear 2-arboricity complete bipartite"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00453-020-00745-z",
+        "DOI:10.37236/3826",
+        "Fu–Huang 1994 Ars Combinatoria 38",
+        "Resultary query rectangular rook graph K_m cartesian K_n induced forest polynomial size component generating function minimum feedback vertex set"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded-treewidth induced forest lower bounds do not specialize to exact component multiplicities.",
+          "General equivalence is necessary for proof, but leaves binomial/factorial path-counting work."
+        ],
+        "reasoning": "No inspected prior theorem entails the evaluated labeled EGF and full maximum-component spectrum as a stated or immediate algebraic special case.",
+        "searches": [
+          "rectangular rook graph K_m cartesian K_n induced forest polynomial size component generating function minimum feedback vertex set",
+          "Chappell Pelsmajer 2013 maximum induced forests",
+          "Novotna et al 2020 induced line-graph forests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Novotná et al. Lemma 3 is precisely the prior line-graph/path-forest equivalence, not an enumerator.",
+          "Resultary rook graph hits concern homology/forts and not this polynomial."
+        ],
+        "reasoning": "A change of object via L(Km,n) is standard; an exact all-path-subsets enumeration is a further quantitative result.",
+        "searches": [
+          "rectangular rook graph K_m cartesian K_n induced forest polynomial size component generating function minimum feedback vertex set",
+          "\"complete bipartite\" linear forest generating function",
+          "\"rook graph\" induced forest polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same two-variable m,n,z,w all-forest coefficient table found in searches.",
+          "The verified small R_{2,4} maximum census (24+6) follows from the general formula rather than defining it."
+        ],
+        "reasoning": "Exact full EGF is independently derived and not a mere transcription of small values.",
+        "searches": [
+          "rectangular rook graph K_m cartesian K_n induced forest polynomial size component generating function minimum feedback vertex set",
+          "\"forest polynomial\" \"rook graph\"",
+          "complete bipartite linear path forests coefficient tables"
+        ]
+      },
+      "rationale": "The existing line-graph induced-forest/path-forest equivalence is explicitly acknowledged prior art; the evaluation of the all-size component-marked EGF and exact extremizer component multiplicities does not follow from cited optimization bounds or biclique path-arboricity decompositions.",
+      "residual_risks": [
+        "Earlier enumeration under alternating path forest or partial permutation matrix terminology might exist.",
+        "Finite independent enumeration checked four rectangular boards, not all sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers transfer, not closed rook EGF or component census",
+          "evidence": "Lemma 3 proof explicitly characterizes induced line-graph forests as vertex-disjoint paths for a reduction.",
+          "identifier_or_url": "DOI:10.1007/s00453-020-00745-z",
+          "material_read": "Open full article HTML section 5 Lemma 3 and its proof relating induced forests in line graphs to vertex-disjoint paths",
+          "method": "Primary theorem and proof reading",
+          "title": "Subexponential-Time Algorithms for Finding Large Induced Sparse Subgraphs",
+          "trigger": "Most direct general structural transfer"
+        },
+        {
+          "assessment": "Counts partitions into bounded path forests, not all individual alternating path forests in a biclique",
+          "evidence": "Article 1994, Ars Combinatoria 38, studies edge-decomposition covering number.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-038-ars-articles/the-linear-2-arboricity-of-complete-bipartite-graphs/",
+          "material_read": "Publisher bibliographic abstract and record description; no new full-PDF inspection in this execution",
+          "method": "Decomposition-versus-enumeration claim comparison",
+          "title": "The Linear 2-arboricity of Complete Bipartite Graphs",
+          "trigger": "Similar biclique path-forest terminology"
+        },
+        {
+          "assessment": "General treewidth-size lower bounds do not give rook component polynomial",
+          "evidence": "The main theorem treats bounded-degree induced forests in bounded-treewidth graphs.",
+          "identifier_or_url": "DOI:10.37236/3826",
+          "material_read": "Publisher description/abstract and identifiable scope",
+          "method": "Primary scope comparison",
+          "title": "Maximum Induced Forests in Graphs of Bounded Treewidth",
+          "trigger": "Broader induced-forest bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the complete size/component generating polynomial of induced forests of a natural classical rook graph family, and the component-resolved entire class of maximum forests/minimum feedback vertex sets. The threshold b>=a+2 for disconnected optimum forests is a sharp structural transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The known line-graph/path-forest equivalence is prior art",
+    "Finite stress test supplements, not replaces, analytic generating-function proof."
+  ]
+}

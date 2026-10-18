@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts with an exact bijection of the *actual counted vertex subsets* with linear edge-forests of \(K_{m,n}\). It proves both directions, preserving the number of selected rook vertices and the number of connected components. The two alternating-path endpoint types and the reversal factor \(1/2\) are reconstructed, so the labeled normalization of the exponential generating function is explicit. Extremal bounds use both vertex count and the smaller-side degree sum; matching alternating paths attain each bound. Equality structures and positive-composition extraction give exactly the claimed maximum-forest component distribution. The standalone finite verifier checked all edge subsets for nine small rectangular boards and found no discrepancy. The proof, rather than finite experiments, handles all integers \(m,n\ge2\).
+## correctness
 
-## Originality — PASS (self-review)
-The direct source comparisons separate the claimed enumerative statement from earlier, different outputs. Fu–Huang (1994) asks for bounded-path-length edge decompositions of \(K_{n,n}\), not counting individual linear forests. Chappell–Pelsmajer (2013) gives general induced-forest bounds and does not evaluate rectangular rook-graph forest coefficients. Novotná et al. (2020) proves the line-graph-to-path-forest correspondence as a lemma; this common structural ingredient is acknowledged and is not the novel claim. Existing findings about rook-graph general position count underlying **star** forests, while a separate biclique study counts induced forests in the **biclique itself**, not in its line graph. These statements do not imply the displayed bivariate exponential generating function and extremal component multiplicities without a further, nontrivial labeled-path enumeration. Searches for aliases, direct formulas, tables, and stronger general coverage did not identify a complete covering result; that absence is not proof of worldwide novelty. A potentially overlooked older path-forest enumeration remains a specific residual risk.
+PASS
 
-## Value — PASS
-The exact polynomial counts *every* induced forest of a natural, symmetric two-parameter graph family by both size and components, hence exactly counts feedback vertex sets by size and residual components. Its extremal specialization classifies every minimum feedback vertex set and gives a sharp aspect-ratio transition: all maximizers are connected at side difference at most one, while multiple component classes occur beginning at difference two. These are natural and reusable enumerative invariants, not an arbitrary single small-graph statistic. The result materially refines known optimization and general equivalence statements, although its proof uses standard exponential-formula techniques.
+For R_{m,n}=L(K_{m,n}), a selected line-graph induced forest is exactly a union of vertex-disjoint alternating paths and isolated original vertices. Paths with endpoints on opposite sides contribute (uv)^r z^(2r-1); paths with endpoints in one side contribute (u+v)(uv)^r z^(2r)/2; exponential formula with isolated vertices gives exp(u+v+wuv(z+(u+v)z^2/2)/(1-uvz^2)). The maximum edge count is min(a+b-1,2a) by forest and small-side degree bounds; alternating spanning paths attain it. Equality forces either an alternating Hamilton path for a=b or every small-side vertex of degree 2 if a<b; exact composition/binomial extraction gives the claimed N_{a,b,k}. Independent exhaustive subsets for m,n=(2,3),(2,4),(3,3),(3,4) confirm the enumerator and extremal histogram (R_{2,4}: 24 connected, 6 two-component). Infinite theorem is symbolic.
 
-## Limits and source coverage
-Primary material examined: Fu–Huang's 1994 OA PDF (statement of Theorem 2.12 and decomposition constructions); Chappell–Pelsmajer's 2013 OA PDF (abstract, overview, Theorem 1, literature section and searches within text); Novotná et al.'s 2020 open full article (Section 5, Lemma 3 and its proof). Publisher searches also covered linear-arboricity papers and exact forest-count keywords. Inaccessibility and imperfect indexing of older combinatorial counts still pose an originality risk. Only the new statement was assessed; no outside mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing line-graph induced-forest/path-forest equivalence is explicitly acknowledged prior art; the evaluation of the all-size component-marked EGF and exact extremizer component multiplicities does not follow from cited optimization bounds or biclique path-arboricity decompositions.
+
+## value
+
+PASS
+
+This determines the complete size/component generating polynomial of induced forests of a natural classical rook graph family, and the component-resolved entire class of maximum forests/minimum feedback vertex sets. The threshold b>=a+2 for disconnected optimum forests is a sharp structural transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
