@@ -1,15 +1,21 @@
-# Scientific review: exact two locating-dominating cycle partitions
+# Independent mathematical audit
 
-## Correctness — PASS
-For every simple cycle of order at least five, domination of both classes is equivalent to forbidding monochromatic triples, and location of each class is equivalent to forbidding a two-run / singleton / two-run five-letter factor of the opposite color. The proof exhausts all possible neighborhood-signature collisions, using the fact that distinct vertices of a cycle of length at least five have at most one common neighbor. The four-state transfer tracks cyclic run lengths and the number of rooted-run descriptions exactly; its logarithmic determinant yields the specified rational generating function. The four-cycle correction is proved separately; the three-cycle is impossible. A standalone checker exhaustively checks 131,056 labeled colorings at orders 4–16, matches the local characterization at 5–16, and compares an independent transfer enumeration to the rational series through order 40. No finite experiment is used to infer a universal statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The question of vertex bipartitions into two locating-dominating sets is an explicitly motivated topic in Foucaud–Maniya–Paul–Pradhan (2025), whose full accessible HTML article, including principal results and conclusion, was inspected. It establishes existence for several graph classes, not the exact number of labeled cycle partitions. The stronger two-class enumeration does not follow from Chakraborty–Foucaud–Henning–Laihonen's general partition into one dominating and one locating-dominating class. The older location-domatic invariant asks for the maximum possible number of classes; a maximum-number theorem cannot by itself determine the count of ordered valid two-class partitions. Targeted source- and claim-level searches under both locating-dominating and location-domatic terminology, exact run patterns, and the rational denominator, together with the published literature, identified no statement implying the complete all-orders formula. The full text of Zelinka's 1998 article could not be retrieved despite bounded open-access attempts; no claim is made to have ruled out an equivalent enumeration hidden in it. Other unindexed equivalent results remain possible.
+PASS
 
-## Value — PASS
-The natural two-locating-set partition question is central to recent locating-domination work. This theorem classifies **every** feasible ordered partition of all cycles by a finite local obstruction, gives the complete all-order generating function rather than a small-order table, resolves the odd-cycle family alongside the even family, and quantifies the exponential abundance of feasible partitions. The classification identifies the precise source of location failures beyond ordinary simultaneous domination and is potentially reusable in enumerating graph partitions under local identification constraints. The exact enumeration is not implied by previously known mere existence or minimum-size statements.
+For n>=5, domination of both colors forbids 000 and 111. Distinct cycle vertices have at most one common neighbor; equal signatures outside either locating class must be singletons and occur precisely at cyclic 00100 or 11011. Thus allowed words have alternating runs of lengths 1 or 2 without run-length triple 212. Four-state weighted run automaton T and rooted-run count yield -x d/dx log det(I-T^2), with determinant 1-x^2-x^4-2x^5-x^6-x^8; correct n=4 correction and n=3 exclusion give the stated rational series. Its unique positive simple smallest-modulus pole (coprime exponents 2,5) gives asymptotic coefficient rho^-n, rho≈0.66099253189. Independently exhaustively checked binary colorings for labeled cycle orders 4..13, including n4 exception, and independently reconstructed rational denominator/coefficients via symbolic determinant; n>=14 analytical proof rather than extrapolation.
 
-## Scope and reproducibility
-The statement concerns labeled simple cycles only, ordered two-class partitions, and separate small-order exceptions. The executable checker reproduces the recorded output, but a complete external peer audit remains outstanding. The 1998 full-text accessibility limitation is material to the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Foucaud–Maniya–Paul–Pradhan 2025 focuses on existence of two locating-dominating classes, not enumerating all ordered labeled partitions of each cycle; Chakraborty et al 2026 deals with one dominating plus one locating-dominating class, a weaker requirement. Historical Zelinka location-domatic maximum does not determine this exact count. No equivalent cyclic forbidden-word enumeration or rational GF appeared in actual Resultary and primary-source searches; older paper full-text ambiguity remains risk.
+
+## value
+
+PASS
+
+A natural exact count refines location-domatic existence for every simple cycle, with a local pattern characterization, rational generating function, recurrence and sharp exponential growth. This motivated complete finite-class classification is not just a small arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
