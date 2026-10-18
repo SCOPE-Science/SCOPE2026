@@ -1,19 +1,21 @@
-# Scientific review: cyclic quartic Mordell–Weil rank tower
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is over \(\mathbb C(w,t)\) and its successive quadratic extensions \(\mathbb C(v^2,t)\), \(\mathbb C(v,t)\), with \(w=v^4\). The coefficients are fixed by \(\sigma(v)=iv\). Burek, arXiv:2610.01276v1, Proposition 5.6 supplies the exactly twelve-dimensional Mordell–Weil space and the twelve explicit sections; Appendix A.3 supplies the invertible specialized height pairing at \(v=5\). Invertibility of the specialization on their rational span is the crucial reason that a specialized action matrix certifies the *generic* action.
+PASS
 
-All twelve section equations were independently verified symbolically. The mixed-height pairings between \(v=5\) and \(v=5i\) were evaluated with exact polynomial gcds and the two split type-IV fiber corrections, including the sign reversal at \(t=0\). The resulting matrix is integral, has order four, preserves the height form and has traces \((12,4,4,4)\); an independent computation at \(v=-5\) agrees with its square. A second nonsingular specialization \(v=7\) yields the same matrix. Finite specializations do not establish generic rank by themselves: the proof specifically uses Burek's global rank theorem and injectivity of the full twelve-dimensional specialized span. Rational Galois invariants give ranks \(6,8,12\).
+The curve coefficients lie in C(v⁴,t), with s=v² and Gal(C(v,t)/C(w,t))=C4. Burek Theorem 1.1/Proposition 5.6 establishes generic rank 12; Appendix A.10–A.12 establishes 12 independent specialized sections (height Gram determinant 4096/9). An independently written exact SymPy reconstruction from the source formulas evaluated all 12 section Weierstrass identities at v=5, reconstructed 12x12 H, computed 144 transformed pairwise local/gcd heights for v=5i and the order-two counterpart at v=-5, found T=H^{-1}G with T^4=I, T^TH T=H and traces (12,4,4,4), and verified the independent order-two matrix T². Separate exact arithmetic on the full printed 12x12 integral T confirmed characteristic polynomial (λ−1)^6(λ+1)^2(λ²+1)^2 and invariant dimensions 6 and 8. Injectivity of the twelve-dimensional specialization and ordinary Galois descent, not mere sampling, provide the global rank conclusion. Does not establish integral MW saturation or arithmetic ranks.
 
-## Originality — PASS, subject to bibliographic risk
+## originality
 
-The closest text is Burek's complete 2026 preprint, especially the introduction, Proposition 5.6 and Appendix A. It establishes rank twelve on the full level-four function field and supplies the section and height data; it does not determine the ranks over the two intermediate coefficient fields or the order-four character. Kumar–Kuwata, arXiv:1409.2931v3, Sections 2 and 5, give modular symmetries, a generic geometric Mordell–Weil basis and fields of definition; their statements do not directly give the exact invariant dimensions of the present fixed-\(u\) order-four subgroup. Shioda's general rank formulas for the geometric \(F^{(4)}\) lattice likewise concern the full geometric lattice, not its invariants under this modular-field descent.
+PASS
 
-Focused published research-record queries for the exact field tower, modular/Galois aliases, and invariant MW ranks yielded no same-statement item. The closest ranked results involved different elliptic-surface families or other K3 automorphism problems. A representation-theoretic computation may be implicit in older modular Mordell–Weil group-action literature; the residual risk is a genuinely equivalent earlier invariant-character calculation, not simply matching words.
+The exact fixed-field rank profile and rational cyclic-character refine the known rank-twelve family. Neither Burek's rank-12 theorem/height table nor Kumar–Kuwata's explicit geometric lattice/field-of-definition statements alone supply the specific C4 fixed-subspace multiplicities without the mixed-height computation.
 
-## Value — PASS
+## value
 
-The precise lower-field ranks answer a natural arithmetic-geometric question raised by the fact that Burek's elliptic equation depends only on the fourth power of its level-four parameter. The result distinguishes sections available over the coarse modular parameter, its quadratic cover and the full level-four cover and computes the entire rational character, not just a single increase or a change of coordinates. The result does not assert that any quotient admits a smooth Calabi–Yau compactification, nor does it compute primitive integral generators.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nontrivial explicit arithmetic-geometric descent of a natural new rank-twelve elliptic surface family: gives three exact ranks and its rational cyclic action. These are missing precise invariants for the natural quartic coefficient quotient, not an arbitrary computational slice. No claim of integral MW generators or saturation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
