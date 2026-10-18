@@ -68,7 +68,7 @@ A separately published computation of the truncated-cube graph's scale-three Vie
 
 ## Limitations
 
-The claim is for the ordinary, unweighted independence complex of this 24-vertex truncated-cube graph only. The certificate does not establish a formula for all Archimedean solids, all cubic planar graphs, or higher-dimensional truncated cubes. Literature searches are not guarantees of priority; an equivalent unindexed calculation remains possible. The result has undergone same-model mathematical review; no independent scientific audit has been performed.
+The claim is for the ordinary, unweighted independence complex of this 24-vertex truncated-cube graph only. The certificate does not establish a formula for all Archimedean solids, all cubic planar graphs, or higher-dimensional truncated cubes. Literature searches are not guarantees of priority; an equivalent unindexed calculation remains possible. The result has undergone self-review; no independent scientific audit has been performed.
 
 ## References
 
