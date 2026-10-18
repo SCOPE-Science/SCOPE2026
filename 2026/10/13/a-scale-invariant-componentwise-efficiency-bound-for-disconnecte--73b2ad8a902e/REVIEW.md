@@ -1,15 +1,17 @@
-# Self-review
+# Mathematical review of the corrected claim
 
 ## Correctness
-PASS. The proof uses the exact detailed-balance identity and the source's decompositions of social cost and rescaled potential. No cross-component pair terms remain under Assumption 2, so both optimization and social cost decompose. On each nontrivial component, player-specific coefficient ratios are \(q_i\) and pairwise ratios are \(q_iq_j/(q_i+q_j)\); nonnegativity gives the two-sided coefficient comparison. Summation yields the global bound. The optimization over component scales has matching lower and upper constructions, so the normalization optimum is exact.
+
+The componentwise social-efficiency inequality and its scale invariance follow from exact detailed balance, nonnegative individual and pair contributions, and separation of policy minimization across disconnected components. The optimum \(B_{\rm comp}\) is the optimum of the *interaction-restricted* coefficient comparison, whose denominator takes its minimum over existing positive interaction edges. The previous identification of that optimization with the source's all-pair Corollary-4.8 expression was incorrect and has been withdrawn. Two disconnected edges with balanced weights \((1,10)\) show that the all-pair optimum is \(20\), whereas the componentwise optimal restricted certificate is \(11\). The corrected proof states both facts and treats isolated components separately.
 
 ## Originality
-PASS. The full source text was inspected at Assumption 2, Theorems 4.4–4.5, Proposition 4.7 and Corollary 4.8. The source allows disconnected groups and states a global rescaling-vector efficiency bound, but does not state the componentwise gauge invariance or optimize that bound over independent component scales. published-finding corpus searches for the title, detailed balance, disconnected components, component rescaling, social efficiency, and equivalent formulations returned no covering result. The related 2025 general \(\alpha\)-potential framework does not supply this source-specific componentwise efficiency normalization.
 
-## Value
-PASS. The distinction is structurally relevant because the selected exact-potential policies do not change under component scaling while the source's displayed global certificate can become arbitrarily large. The componentwise result turns that non-intrinsic certificate into a finite scale-invariant one and identifies its exact optimal normalization. This is directly useful for disconnected vehicle groups, a case the source explicitly admits.
+The motivating model gives detailed balance and a global coefficient comparison, but the checked source sections do not formulate the invariant componentwise coefficient certificate or its optimal normalization over independent component scales. Standard decomposition principles are acknowledged; the new result is narrowly the exact source-specific interaction-restricted bound, not a claim of optimizing the literal all-pair formula. A source expressing the same sharpened coefficient comparison remains a bibliographic risk.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.38731v1 itself: its Corollary 4.8 is the coefficient bound being normalized, while Assumption 2 supplies the disconnected-component setting. Guo, Li and Zhang (2025) provide the broader \(\alpha\)-potential framework but not this componentwise social-efficiency conclusion. Residual risk is that a general potential-game text may contain an abstract product-game decomposition; no inspected source was found that states the exact detailed-balance normalization result here. The claim does not assert sharp actual price of stability and is limited to the exact, nonnegative-cost setting.
+## Mathematical value
 
-Self-review: passed. Independent audit: not yet performed.
+Disconnected components are explicitly permitted by the model. The bound eliminates a purely representational blow-up of the global certificate without altering the selected strategies and identifies exactly the best certificate obtainable by component rescaling in the interaction-restricted comparison. It is a motivated correction of a meaningful efficiency certificate, not a sharp price-of-stability theorem.
+
+## Sources and scope
+
+Hu, Wang, Zhang, and Di, *Decentralized Decision-Making among Heterogeneous Autonomous Vehicles: An α-Potential Game Framework*, arXiv:2609.38731v1, Assumption 2, Theorem 4.5, Proposition 4.7, and Corollary 4.8. Related broader framework: Guo, Li, and Zhang, *An α-Potential Game Framework for N-Player Dynamic Games*, SIAM Journal on Control and Optimization 63 (2025), DOI:10.1137/24M1707316. The corrected statement assumes exact detailed balance, independent component policies, nonnegative cost terms, and a positive social optimum. No result for approximate potentials or actual price-of-stability sharpness is asserted.
