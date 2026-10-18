@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof splits on whether the universal center is selected and proves the exact blade-occupancy criterion in both directions. The three disjoint classes of feasible sets give the polynomial directly. Least-degree and top-degree terms give the minimum, its multiplicity, and parameter reconstruction. The standalone verifier re-evaluates secure domination from its definition on \(18{,}720\) subsets from eight parameter pairs through order \(13\), with exact agreement on the structural rule and all \(81\) coefficient checks.
+## correctness
 
-## Originality
-PASS. The closest checked same-family sources concern ordinary domination polynomials of friendship/generalized friendship graphs; the closest broader same-invariant source gives a minimum secure-dominating-set algorithm for block graphs. Neither accessible statement implies an all-set classification or secure-domination polynomial for \(K_1\vee rK_m\). Targeted semantic searches under windmill/friendship/block-graph and secure-domination aliases returned no equivalent statement. The unavailable full text of the block-graph algorithm paper is retained as a residual risk rather than treated as negative evidence.
+PASS
 
-## Value
-PASS. The result gives a complete structural description on a canonical block-graph family, not just a scalar minimum. The factorized polynomial counts every secure dominating set by size, yields the exact minimum-set multiplicity, and determines \((r,m)\) within the generalized-windmill family. The one-empty-blade threshold is the substantive defender-swap phenomenon that makes the secure invariant differ from ordinary domination.
+A secure-dominating set without the universal center must meet every clique blade, and same-blade replacement secures every outside blade vertex; moving one selected vertex to the center defends the center. With the center selected, at most one empty blade is sufficient; two empty blades defeat the only available defender of a vertex in one empty blade. These exhaustive cases yield D_s=A_m^r+x(A_m^r+r A_m^{r-1}), A_m=(1+x)^m-1, valid r,m>=2. Least exponent r, coefficient m^{r-1}(m+r), and top degree rm+1 recover minimum counts/parameters. Independently re-implemented graph adjacency and direct defender-swap checks for (r,m)=(2,2),(2,3),(3,2),(3,3), yielding minimum counts 8,15,20,54 and exact full coefficients; proof, not bounded experiments, handles all r,m.
 
-## Closest literature and limitations
-Friendship and generalized-friendship domination-polynomial papers cover ordinary domination. Secure-domination polynomial work on cycles confirms the natural enumerative framework but treats another family. A block-graph paper is algorithmically broader for the minimum parameter, but only abstract-level material was accessible here. An earlier 2003 secure-domination paper is bibliographically known without an inspected exact day; the recorded exact-day anchor is the 11 September 2003 date printed on the inspected primary manuscript.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.
+
+## value
+
+PASS
+
+The exact defender-swap threshold is a substantive structural characteristic of a natural clique-blade block-graph family. The closed cardinality polynomial enumerates all feasible sets rather than only solving the known minimum optimization problem; parameter reconstruction and minimum-set multiplicities are useful invariant data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

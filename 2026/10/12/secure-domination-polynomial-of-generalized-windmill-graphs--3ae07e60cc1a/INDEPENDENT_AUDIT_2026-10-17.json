@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:54:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A secure-dominating set without the universal center must meet every clique blade, and same-blade replacement secures every outside blade vertex; moving one selected vertex to the center defends the center. With the center selected, at most one empty blade is sufficient; two empty blades defeat the only available defender of a vertex in one empty blade. These exhaustive cases yield D_s=A_m^r+x(A_m^r+r A_m^{r-1}), A_m=(1+x)^m-1, valid r,m>=2. Least exponent r, coefficient m^{r-1}(m+r), and top degree rm+1 recover minimum counts/parameters. Independently re-implemented graph adjacency and direct defender-swap checks for (r,m)=(2,2),(2,3),(3,2),(3,3), yielding minimum counts 8,15,20,54 and exact full coefficients; proof, not bounded experiments, handles all r,m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pradhan/Jha 2018 gives a linear-time minimum secure dominating set algorithm for block graphs (abstract); generalized windmills are block graphs.",
+          "The full secure-domination polynomial for complete multipartite graphs concerns a different graph family, not the windmill family."
+        ],
+        "reasoning": "An algorithm for gamma_s over a superset does not imply all cardinality coefficients or classification; windmills are generally not complete multipartite for r,m≥2.",
+        "searches": [
+          "Resultary: secure domination polynomial complete generalized windmill K1 join r cliques Km secure dominating set enumerator",
+          "doi:10.1007/s10878-017-0197-y",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s10878-017-0197-y",
+        "doi:10.17654/0974165822006",
+        "arXiv:1401.2092",
+        "arXiv:1501.05856",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The algorithmic minimum secure domination theorem covers the scalar gamma_s but neither the exact set criterion nor coefficients by cardinality.",
+          "The windmill dissociation polynomial enumerates sets of max induced degree ≤1, a different object."
+        ],
+        "reasoning": "Neither inspected prior mathematical statement implies D_s(W_{r,m}) without new casework on the secure replacement definition.",
+        "searches": [
+          "Resultary: secure domination polynomial complete generalized windmill K1 join r cliques Km secure dominating set enumerator",
+          "doi:10.1007/s10878-017-0197-y",
+          "Generalized-windmill dissociation polynomial Resultary 2026/10/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Connected generalized windmills are clique sums at a universal cut vertex, not complete multipartite graphs: the Resultary complete-multipartite secure-polynomial theorem cannot be substituted.",
+          "Secure domination of a generalized windmill translates to the stated exact defender-swap occupancy criterion."
+        ],
+        "reasoning": "A same-family synonym search found dissociation polynomials (different invariant) and ordinary domination polynomials (different swap constraint), not equivalent secure polynomial.",
+        "searches": [
+          "Resultary: secure domination polynomial complete generalized windmill K1 join r cliques Km secure dominating set enumerator",
+          "web: secure dominating sets of friendship graph windmill graph K1 join disjoint cliques",
+          "web: secure domination polynomial generalized friendship graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Friendship and generalized friendship literature gives ordinary domination enumerators.",
+          "Secure domination polynomial research tabulates cycles, not this generalized windmill family in checked material."
+        ],
+        "reasoning": "Checked enumerators do not supply the defender swap polynomial or minimum multiplicity of this family.",
+        "searches": [
+          "Resultary: secure domination polynomial complete generalized windmill K1 join r cliques Km secure dominating set enumerator",
+          "arXiv:1401.2092",
+          "arXiv:1501.05856",
+          "web: Secure Dominating Sets and Secure Domination Polynomials of Cycles"
+        ]
+      },
+      "rationale": "No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.",
+      "residual_risks": [
+        "Block-graph minimum-algorithm paper full text not inspected; an unindexed specialized windmill enumeration may exist. Abstract alone is not a whole-document NOT_COVERING result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader minimum algorithm, not evidence of or against an uninspected all-size polynomial",
+          "evidence": [
+            "Linear-time algorithm for the minimum in block graphs; full text is a residual risk"
+          ],
+          "identifier_or_url": "doi:10.1007/s10878-017-0197-y",
+          "material_read": "Publisher/bibliographic abstract and accessible bibliographic description only; complete source not accessed",
+          "method": "metadata/abstract and open access route search",
+          "title": "On computing a minimum secure dominating set in block graphs",
+          "trigger": "Same secure domination invariant, broader graph class"
+        },
+        {
+          "assessment": "Different graph family in checked indexed description; whole publication not assessed",
+          "evidence": [
+            "Cycle secure domination polynomials, not clique-blade windmill classification"
+          ],
+          "identifier_or_url": "doi:10.17654/0974165822006",
+          "material_read": "Search-result indexed bibliographic material on the cycle secure-domination polynomial; no original full-text source is claimed inspected",
+          "method": "bibliographic/index search (not full-text inspection)",
+          "title": "Secure Dominating Sets and Secure Domination Polynomials of Cycles",
+          "trigger": "Same invariant and cardinality-generating function"
+        },
+        {
+          "assessment": "Different invariant: dissociation sets do not require domination or defender swap",
+          "evidence": [
+            "Dissociation polynomial (1+mx+C(m,2)x²)^r+x+rmx²"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "material_read": "Full published Resultary semantic summary and mathematical polynomial statement",
+          "method": "published mathematical-record abstract",
+          "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills",
+          "trigger": "Exact same graph family; possible invariant confusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact defender-swap threshold is a substantive structural characteristic of a natural clique-blade block-graph family. The closed cardinality polynomial enumerates all feasible sets rather than only solving the known minimum optimization problem; parameter reconstruction and minimum-set multiplicities are useful invariant data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Block-graph minimum-algorithm paper full text not inspected; an unindexed specialized windmill enumeration may exist. Abstract alone is not a whole-document NOT_COVERING result."
+  ],
+  "schema_version": 1
+}

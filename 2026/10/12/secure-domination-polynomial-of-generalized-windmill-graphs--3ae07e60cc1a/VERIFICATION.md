@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone script `verify_secure_windmill.py` constructs each tested graph, checks domination and secure swaps directly from the graph adjacency relation, and independently checks the blade-occupancy characterization. It then expands the claimed polynomial by integer arithmetic and compares every coefficient with brute-force counts.
+# Independent mathematical audit
 
-The tested domain is every pair \(2\le r,m\le4\) with \(1+rm\le13\). This gives eight parameter pairs, \(18{,}720\) examined subsets, \(15{,}399\) secure dominating sets, \(18{,}720\) structural equivalence checks, and \(81\) coefficient checks.
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK parameter_pairs=8 subset_checks=18720 secure_sets=15399 structural_checks=18720 coefficient_checks=81 max_order=13`
+A secure-dominating set without the universal center must meet every clique blade, and same-blade replacement secures every outside blade vertex; moving one selected vertex to the center defends the center. With the center selected, at most one empty blade is sufficient; two empty blades defeat the only available defender of a vertex in one empty blade. These exhaustive cases yield D_s=A_m^r+x(A_m^r+r A_m^{r-1}), A_m=(1+x)^m-1, valid r,m>=2. Least exponent r, coefficient m^{r-1}(m+r), and top degree rm+1 recover minimum counts/parameters. Independently re-implemented graph adjacency and direct defender-swap checks for (r,m)=(2,2),(2,3),(3,2),(3,3), yielding minimum counts 8,15,20,54 and exact full coefficients; proof, not bounded experiments, handles all r,m.
 
-The exhaustive computation is finite and therefore is not an infinite proof. The proof in `RESULT.md` establishes the theorem for all integers \(r,m\ge2\). No claim is made for nonuniform blade sizes.
+## originality
+
+PASS
+
+No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.
+
+## value
+
+PASS
+
+The exact defender-swap threshold is a substantive structural characteristic of a natural clique-blade block-graph family. The closed cardinality polynomial enumerates all feasible sets rather than only solving the known minimum optimization problem; parameter reconstruction and minimum-set multiplicities are useful invariant data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
