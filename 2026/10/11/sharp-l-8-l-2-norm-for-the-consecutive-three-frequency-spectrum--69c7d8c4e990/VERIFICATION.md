@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled `verify.py` reconstructs the coefficient expansion of \(F^4\) from multinomial arithmetic, checks the exact \((A,B,R)\) identity, checks the derivative factorization for \(\Psi\), and checks the resultant polynomial for \(K_8^8\). It then isolates the unique positive root of \(35\tau^3-21\tau-2\) by bisection and reports the corresponding numerical constants.
+## correctness
 
-The global proof does not depend on numerical search: boundary faces are bounded analytically by the two-character value \(35/8\), strict monotonicity in \(R\) forces equal endpoint magnitudes, and the sign pattern of the factored derivative proves uniqueness of the interior maximizer. Deterministic complex-coefficient samples in the checker are only a stress test for transcription or normalization errors.
+PASS
 
-Scientific limit: the verification establishes exactly the theorem for the continuous circle spectrum \(\{0,1,2\}\) at exponent \(8\); it does not certify a general formula for other supports or exponents.
+Parseval for (a+bz+cz²)^4 gives nine Fourier coefficients. I independently expanded the exact eighth-moment polynomial in A=|a|²+|c|², B=|b|², R=|ac| under aligned phases and verified all thirteen monomials in the displayed identity. Each R coefficient is nonnegative and the nonzero-variable derivative strictly positive, so for fixed A,B equality forces endpoint magnitudes equal, R=A/2. A two-term boundary has at most (8 choose 4)/16=35/8, below the interior candidate. The one-variable ratio Ψ(t)=(70t⁴+560t³+420t²+56t+1)/(1+2t)^4 has Ψ′=−24(35t³−21t−2)/(1+2t)^5, with a unique positive root and global maximum, giving K8^8=13.787723967226... and all phases satisfying arg a+arg c−2arg b=0. Independent symbolic resultant equals 891 times the claimed cubic in K8^8; exact factor and root cases checked analytically.
+
+## originality
+
+PASS
+
+Best-of-knowledge original: first complete unrestricted three-coefficient Λ(8) constant and equality classification for {0,1,2} in the reviewed records. Earlier Neuwirth Sidon theorem optimizes ℓ¹→L∞ and fixed amplitudes; the 2026 phase-only theorem keeps coefficients unimodular, whereas the maximizing t≈0.8184 is nonuniform. Earlier Λ(p) structure does not compute this finite exact norm. No earlier broader moment theorem implying this p=8 value was found in the actual Resultary and primary comparisons.
+
+## value
+
+PASS
+
+The consecutive three-character space is the canonical degree-two analytic polynomial; its first nontrivial eighth-moment sharp constant and unique coefficient/phase orbit give a natural exact Nikolskii/Λ(8) invariant. Deriving a rigid nontrivial amplitude ratio is more than a routine Parseval identity or table recomputation; the precise equality class is independently useful in finite-dimensional Fourier optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

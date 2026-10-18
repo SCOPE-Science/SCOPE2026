@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Parseval reduces the theorem to an exact finite polynomial identity. Phase alignment is necessary and sufficient on the interior; monotonicity in \(R=|a||c|\) forces equal endpoint magnitudes; all boundary faces lie below the interior candidate; and the remaining one-variable derivative has one positive critical point, which is the global maximum. The bundled checker replays the critical algebra exactly. Numerical stress tests are supplementary only.
+## correctness
 
-## Originality — PASS
-The closest inspected primary sources provide the general \(\Lambda(p)\) framework and the exact three-frequency Sidon endpoint, not the arbitrary-amplitude \(L^8/L^2\) constant. The closest published database result for even three-frequency moments fixes all coefficient magnitudes, so it cannot imply the optimizing magnitude ratio or the sharp norm here. Searches covered exact values, defining polynomials, norm aliases, spectrum aliases, and broader formulations. A residual risk of an older equivalent formula under different terminology remains.
+PASS
 
-## Value — PASS
-The support \(\{0,1,2\}\) is the canonical first additively resonant three-frequency spectrum. Its exact \(\Lambda(8)\) constant is a natural invariant, and the complete extremizer classification shows a genuine amplitude-balancing effect of the resonance. The theorem is therefore more than a numerical evaluation or a fixed-phase computation.
+Parseval for (a+bz+cz²)^4 gives nine Fourier coefficients. I independently expanded the exact eighth-moment polynomial in A=|a|²+|c|², B=|b|², R=|ac| under aligned phases and verified all thirteen monomials in the displayed identity. Each R coefficient is nonnegative and the nonzero-variable derivative strictly positive, so for fixed A,B equality forces endpoint magnitudes equal, R=A/2. A two-term boundary has at most (8 choose 4)/16=35/8, below the interior candidate. The one-variable ratio Ψ(t)=(70t⁴+560t³+420t²+56t+1)/(1+2t)^4 has Ψ′=−24(35t³−21t−2)/(1+2t)^5, with a unique positive root and global maximum, giving K8^8=13.787723967226... and all phases satisfying arg a+arg c−2arg b=0. Independent symbolic resultant equals 891 times the claimed cubic in K8^8; exact factor and root cases checked analytically.
 
-## Closest literature and limitations
-Michels establishes the relevant \(\Lambda(p)\) setting, while Neuwirth solves the Sidon endpoint for three frequencies. Neither inspected statement supplies this \(p=8\) constant. The theorem does not generalize automatically to arbitrary three-point spectra or all even exponents.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: first complete unrestricted three-coefficient Λ(8) constant and equality classification for {0,1,2} in the reviewed records. Earlier Neuwirth Sidon theorem optimizes ℓ¹→L∞ and fixed amplitudes; the 2026 phase-only theorem keeps coefficients unimodular, whereas the maximizing t≈0.8184 is nonuniform. Earlier Λ(p) structure does not compute this finite exact norm. No earlier broader moment theorem implying this p=8 value was found in the actual Resultary and primary comparisons.
+
+## value
+
+PASS
+
+The consecutive three-character space is the canonical degree-two analytic polynomial; its first nontrivial eighth-moment sharp constant and unique coefficient/phase orbit give a natural exact Nikolskii/Λ(8) invariant. Deriving a rigid nontrivial amplitude ratio is more than a routine Parseval identity or table recomputation; the precise equality class is independently useful in finite-dimensional Fourier optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
