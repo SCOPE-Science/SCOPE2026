@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-dimensional support decomposition is exact: the antipodal rim pair occupies eigenvalue \(0\) antisymmetrically, eigenvalue \(-2\) symmetrically, and both eigenvalues of the explicit \(2\times2\) hub block symmetrically. Equality in the transition-amplitude norm forces the three specified phases. Trace and determinant identities yield a contradiction modulo four for every possible finite-time perfect transfer, independent of \(q\). For transcendental \(q\), algebraic independence of the two frequencies together with Kronecker density ensures simultaneous phase approximation. For rational \(q\), the trace phase enforces the odd-denominator obstruction; nonsquare discriminant supplies an irrational one-dimensional rotation sufficient for approximation. The periodic rational-eigenvalue case cannot support approximate but not exact transfer. `verify.py` independently replays finite matrix and phase cases. The proof does not claim to classify irrational algebraic inputs.
+## correctness
 
-## Originality — PASS, with residual risk
-*Irrational quantum walks* (arXiv:2208.08971) gives general exact spectral methods for integral Hamiltonians; fixed rational hub potentials can be reduced to this setting by clearing denominators, but that general decision procedure does not state the complete closed arithmetic family criterion. *Perfect state transfer on graphs with a potential* (arXiv:1611.02093) permits potentials at arbitrary vertices, and therefore does not cover the impossibility under one constrained hub control. *Pretty good fractional revival via magnetic fields* (arXiv:2311.18143) treats more general fractional revival after perturbing different vertex subsets; no exact hub-only wheel classification was found in the inspected results. The unperturbed negative five-vertex wheel case is known and expressly not claimed as novel. A differently indexed special case of a general perturbation theorem remains possible. Published-record and semantic claim checks showed no statement dominating the complete specified criterion.
+PASS
 
-## Value — PASS
-The wheel is the smallest wheel with a pair of antipodal nonadjacent twins. Restricting control to one physically distinguished hub vertex produces a clear gap between exact and approximate controllability, even though unrestricted potentials can enable exact transfer. The arithmetic odd-denominator and discriminant conditions are an exact sharp classification for every rational hub strength, not isolated parameter examples; they expose a concrete barrier and construction for a natural minimalist quantum-transport model.
+For W5=K1 join C4, invariant spectral sectors have active eigenvalues -2,0,lambda± with lambda±=(q+2±sqrt((q-2)^2+16))/2 and the 2-by-2 symmetric block [[2,2],[2,q]]. Antipodal transfer requires phases at -2 and both lambda± equal -1 while zero mode equals +1. PST would have t=s pi/2 with s odd and u±=s lambda±/2 odd, giving (u+-s)(u--s)=-s^2; LHS is divisible by 4, RHS odd, impossible. For transcendental q, 1,lambda+/4,lambda-/4 are Q-independent; odd Kronecker orbit is dense and supplies PGST. For rational q, PGST requires odd denominator of reduced (q+2)/4 and irrational sqrt((q-2)^2+16), and a one-frequency odd rotation proves both sufficient. Checked characteristic block and q=-2/q=0 examples exactly; irrational algebraic q not classified.
 
-## Boundaries
-All edges are unit-weight and only the hub has an onsite term. Irrational algebraic inputs are not classified, and no numerical scan certifies universality. Residual coverage risk is weakly indexed wheel-specific quantum transport under alternate terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-real hub-only PST obstruction and explicit rational/transcendental PGST boundary do not follow directly from Kempton–Lippner–Yau’s unrestricted vertex-potential existence theorem (its hypotheses and allowed controls differ). Coutinho et al provide general Kronecker/splitting-field tools for integral Hamiltonians, which may decide individual rational q after denominator clearing but do not state this uniform one-control family criterion or transcendental clause. No same W5 hub-only statement found in checked targeted results.
+
+## value
+
+PASS
+
+Classifies attainable near-perfect coherent transfer under a physically constrained, single-site tuning and proves sharp impossibility of exact transfer even with real tuning. The rational parity/discriminant dichotomy and transcendental existence are mathematically meaningful arithmetic spectral boundaries, unlike merely testing one parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
