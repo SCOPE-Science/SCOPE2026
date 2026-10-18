@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary one-coordinate antiderivative tests give the three exact conditional expectations. Each conditional residual is a coordinate speed, so orthogonality yields the three variance and covariance formulas. Vanishing of any speed defect forces the corresponding coordinate to be constant along bounded complete support trajectories; the remaining equations then force support onto the real equilibrium set. The packaged checker verifies the residual and regression algebra and the classical equilibrium equations exactly.
+## correctness
 
-Risk: compact support is used to justify all polynomial tests and the bounded-complete-trajectory equality classification.
+PASS
 
-## Originality
-PASS. A complete same-object bifurcation article and the foundational paper were compared at statement and implication level. The strongest same-family stationary-measure prior result is for the complex Chen extension; on the real subspace it already covers integrated balances such as
-\[
-\mathbb E[xy]=\mathbb E[x^2]
-\]
-and an amplitude-weighted height law. Those consequences are treated as prior. They do not imply the stronger coordinate-fiber laws
-\[
-\mathbb E[y\mid x]=x,
-\qquad
-\mathbb E[x(z+a-c)\mid y]=cy,
-\qquad
-\mathbb E[xy\mid z]=bz.
-\]
+For a,b,c>0 and any compactly supported invariant probability μ of real Chen flow, test invariant generator L against antiderivatives of arbitrary continuous φ(x),ψ(y),θ(z): E[dot x|x]=E[dot y|y]=E[dot z|z]=0. Substituting dot x=a(y−x), dot y=cy−x(z+a−c), dot z=xy−bz yields all three asserted conditional regressions. Each centered speed residual is orthogonal to its predictor coordinate, so three exact Pythagorean variance defects and covariances follow with factors a,c,b exactly. If each speed defect separately vanishes, its coordinate is constant along trajectories in invariant support; the remaining linear stable equations force bounded complete trajectories to equilibria. For z-speed use u=x² satisfying dot u=2a(K−u) with K=xy=bz constant, and no non-equilibrium bounded complete solution. With x-speed or y-speed zero, similarly y=x or x=y via stable filter. If 2c≤a only origin is equilibrium; otherwise ±sqrt(b(2c−a)) at z=2c−a. Any non-equilibrium stationary state has positive variances/defects and three strictly interior (0,1) positive correlations. No physical measure existence claimed.
 
-Risk: the generator proof is short, so a differently phrased unindexed equivalent remains possible.
+## originality
 
-## Value
-PASS. The three equations of the canonical Chen flow become exact stationary regressions, giving a complete speed/coherence network that applies separately to coexisting periodic, chaotic, equilibrium, or mixed invariant states. The common equilibrium equality classification makes the defects diagnostic rather than merely algebraic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2026/10/4 Resultary Chen primary exactly establishes the first and third conditional laws and a stronger height excursion; these are explicitly discounted as prior. New independent claim concerns the y-fiber conditional law, the simultaneous three speed/covariance deficit identities, and strictness/equality classification for each coordinate speed. A general invariance/generator framework makes derivations short but does not itself appear as a published complete three-channel Chen statement in inspected prior sources. Best-of-knowledge with material incremental-risk disclosure.
+
+## value
+
+PASS
+
+The exact three-channel stationary-regression and speed/coherence budget forms a natural complete dynamical diagnostics package for the standard Chen flow. The y-channel x(z+a−c) is nonlinear, and the fact that each of THREE independently vanishing defects forces equilibrium support is a concrete rigidity classification for invariant measures rather than a formula for one arbitrary slice. The previous two-channel balances are not counted as new. Mathematical usefulness is as a concise structural lemma/diagnostic, not as a new strange-attractor existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
