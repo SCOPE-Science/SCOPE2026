@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The universal associator reduces, using the eleven Hom-trialgebra identities, to
-\[
--\lambda(\mu+\nu)A+\mu(\lambda+\nu)C+\nu(\lambda-\mu)E.
-\]
-The source's own classified algebra \(TH_2^7\) is independently checked against all defining identities and realizes the three scalar coefficients on explicit basis triples, proving necessity. In particular, the all-plus product has associator \(-2e_1\) at \((e_1,e_2,e_2)\). The packaged checker replays both the universal reduction and the witness calculations.
+PASS
 
-## Originality
+In characteristic zero the 11 Hom-trialgebra identities reduce the universal Hom-associator to -a(b+c) A+b(a+c) C+c(a-b) E, establishing sufficiency of all three polynomial conditions. Necessity follows from the valid 2-dimensional TH_2^7 algebra: the ordered triples (e2,e2,e1), (e1,e2,e2), (e1,e2,e1) yield a(b+c), -b(a+c), c(a-b) separately. The joint zero locus is precisely the three coordinate axes and the signed line (1,1,-1). The all-plus associator on (e1,e2,e2) is -2e1, so the source's Proposition 2.6 is false in characteristic zero. Independent exact symbolic reconstruction verified witness identities, 8 basis triples, all three isolators, and the signed product; the full universal normal-form step was inspected in the frozen verifier and source identities, not inferred from numerical tests.
 
-PASS. The primary source states an all-plus proposition and a signed corollary but does not notice the failure of the first or classify all scalar combinations. Focused semantic and literature searches found no erratum, no TH_2^7 counterexample, and no four-line coefficient classification. Classical trialgebra associativization uses a quotient identifying operations and does not cover this statement. An unindexed correction remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The finding repairs a structural construction near the foundation of the source theory and gives the exact replacement theorem. It shows that the signed sum is not merely one working example but the unique genuinely mixed universal direction in characteristic zero, which is directly reusable in structural and classification work.
+The primary 2023 paper states the false all-plus formula and the valid signed formula separately; its listed identities and its TH_2^7 example do not themselves state the complete universal coefficient locus or point out the contradiction. Actual semantic and exact-expression searches did not produce an earlier classification; this is best-of-knowledge, not a guarantee of novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Classifying which linear combinations of split algebra operations preserve the defining Hom-associative identity is a natural structural question. The exact four-line cone corrects a foundational false structural proposition and identifies the unique mixed universal direction; a reusable theorem, not merely a type or sign typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

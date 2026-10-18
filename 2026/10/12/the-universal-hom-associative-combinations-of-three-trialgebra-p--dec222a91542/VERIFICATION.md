@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` performs exact symbolic verification.
 
-It encodes the source's \(TH_2^7\) table and checks all eleven Hom-associative trialgebra identities on every basis triple.
+# Independent mathematical audit
 
-It then computes the general linear-combination associator and verifies
-\[
-\mathcal A_*(e_2,e_2,e_1)=\lambda(\mu+\nu)e_1,
-\]
-\[
-\mathcal A_*(e_1,e_2,e_2)=-\mu(\lambda+\nu)e_1,
-\]
-and
-\[
-\mathcal A_*(e_1,e_2,e_1)=\nu(\lambda-\mu)e_1.
-\]
+## correctness
 
-The all-plus specialization is checked to fail with value
-\[
--2e_1,
-\]
-while the signed specialization \((1,1,-1)\) is checked on every basis triple.
+PASS
 
-Finally, the checker independently expands the formal universal associator modulo the eleven defining relations and confirms that its only normal-form coefficients are
-\[
--\lambda(\mu+\nu),\qquad
-\mu(\lambda+\nu),\qquad
-\nu(\lambda-\mu).
-\]
+In characteristic zero the 11 Hom-trialgebra identities reduce the universal Hom-associator to -a(b+c) A+b(a+c) C+c(a-b) E, establishing sufficiency of all three polynomial conditions. Necessity follows from the valid 2-dimensional TH_2^7 algebra: the ordered triples (e2,e2,e1), (e1,e2,e2), (e1,e2,e1) yield a(b+c), -b(a+c), c(a-b) separately. The joint zero locus is precisely the three coordinate axes and the signed line (1,1,-1). The all-plus associator on (e1,e2,e2) is -2e1, so the source's Proposition 2.6 is false in characteristic zero. Independent exact symbolic reconstruction verified witness identities, 8 basis triples, all three isolators, and the signed product; the full universal normal-form step was inspected in the frozen verifier and source identities, not inferred from numerical tests.
 
-It returns `VERIFY_OK`.
+## originality
+
+PASS
+
+The primary 2023 paper states the false all-plus formula and the valid signed formula separately; its listed identities and its TH_2^7 example do not themselves state the complete universal coefficient locus or point out the contradiction. Actual semantic and exact-expression searches did not produce an earlier classification; this is best-of-knowledge, not a guarantee of novelty.
+
+## value
+
+PASS
+
+Classifying which linear combinations of split algebra operations preserve the defining Hom-associative identity is a natural structural question. The exact four-line cone corrects a foundational false structural proposition and identifies the unique mixed universal direction; a reusable theorem, not merely a type or sign typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
