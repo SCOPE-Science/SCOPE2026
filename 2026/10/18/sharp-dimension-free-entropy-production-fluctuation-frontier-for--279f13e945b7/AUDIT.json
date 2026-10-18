@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Full Gaussian whitening and Wick moment decomposition, one-mode variance monotonicity at fixed entropy, strict subadditivity/superadditivity of the concave/convex endpoint profiles, and continuous one-mode interpolation prove every quantifier and equality case analytically. 1,585 direct numerical/sampling checks passed, supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1], Eq. (40), states relative entropy variance in the endpoint model; Supplement IV addresses variance convergence under uniform integrability.",
+        "[2], Theorems 1–5 concern KL reversal and a relaxed triangle inequality, not the variance of the log likelihood.",
+        "Indexed scientific-result hits primarily concerned Gaussian e-value moment integrability, quantum information variance in pure loss, and Gaussian anisotropy of sectional functionals."
+      ],
+      "reasoning": "Neither available primary comparison supplies a stronger claim implying both sharp variance endpoints and all intermediate values at a fixed forward KL. Generic Gaussian KL calculations are insufficient to yield the allocation proof without new optimization. Full universe of related work is not claimed exhausted.",
+      "searches": [
+        "Gaussian relative entropy variance score matching thermodynamics tradeoff fixed mean dissipation",
+        "variance of log likelihood ratio Gaussian distributions fixed Kullback Leibler information spectrum bounds",
+        "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions full text",
+        "arXiv:2606.17252v1, https://arxiv.org/html/2606.17252v1, main Sections 3.3 and 4.1 and Supplement III-IV"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.17252v1, https://arxiv.org/html/2606.17252v1, main Sections 3.3 and 4.1 and Supplement III-IV",
+      "Zhang et al. NeurIPS 2023 b5b4d92374323c53c24bbbc8ee0e715c, main Section 4 and Supplemental B-D",
+      "https://statproofbook.github.io/P/mvn-kl.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] gives the physical mapping and examples at similar means; it does not compare over all Gaussian pairs with prescribed K.",
+        "[2] proves a bound for D(Q||P) at fixed D(P||Q), which cannot be substituted for V=Var_P log(p/q).",
+        "The known Gaussian KL formula gives K but not the optimized variance without Step 2 and Step 3 in the proof."
+      ],
+      "reasoning": "The new frontier is not a corollary simply by matching the Lambert branches; the variance functional contains a squared precision mismatch and a quadratic mean term, unlike reverse KL. The derivative and strict concavity/convexity allocation establish the missing implications explicitly.",
+      "searches": [
+        "arXiv:2606.17252v1, https://arxiv.org/html/2606.17252v1, main Sections 3.3 and 4.1 and Supplement III-IV",
+        "Zhang et al. NeurIPS 2023 b5b4d92374323c53c24bbbc8ee0e715c, main Section 4 and Supplemental B-D",
+        "https://statproofbook.github.io/P/mvn-kl.html",
+        "relative entropy variance multivariate normal sharp upper bound at fixed KL divergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-K optimization is equivalently an exact frontier for the second derivative of the relative Rényi cumulant generating function at order one.",
+        "Zhang et al. optimize the reversed KL rather than that second derivative.",
+        "Exact Gaussian moment formulas show that the forward KL and information variance are independent objective functionals."
+      ],
+      "reasoning": "Renaming relative entropy variance as information variance or log-likelihood fluctuation does not change the theorem. A rank-one spectrum appears also in source [2], but its optimized reversed expectation and all-variance attainability are distinct from the present variance-functional claim.",
+      "searches": [
+        "sharp upper lower relative entropy variance at fixed Kullback Leibler divergence for isotropic Gaussian distributions shifted means unequal variance Lambert W",
+        "fixed Gaussian KL divergence envelope var log likelihood ratio covariance scaled isotropic Gaussian maximum minimum",
+        "Gaussian relative entropy variance exact extrema fixed relative entropy Lambert W",
+        "Zhang et al. NeurIPS 2023 b5b4d92374323c53c24bbbc8ee0e715c, main Section 4 and Supplemental B-D"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected indexed hits contain no table of both fixed-K relative entropy variance endpoints in unrestricted finite Gaussian dimensions.",
+        "The explicit benchmark values follow directly from solving u-1-log(u)=2K and are not claimed novel on their own."
+      ],
+      "reasoning": "No exact precomputed table or identical formula appeared in the inspected relevant indexed records. Index-search absence alone is not treated as novelty proof.",
+      "searches": [
+        "sharp upper lower relative entropy variance at fixed Kullback Leibler divergence for isotropic Gaussian distributions shifted means unequal variance Lambert W",
+        "Gaussian relative entropy variance score matching thermodynamics tradeoff fixed mean dissipation",
+        "fixed Gaussian KL divergence envelope var log likelihood ratio covariance scaled isotropic Gaussian maximum minimum"
+      ]
+    },
+    "rationale": "The primary new statement optimizes Gaussian endpoint relative entropy variance at fixed forward KL and characterizes its full range and equality cases. Source [1] supplies the physical endpoint identity and qualitative variance motivation but not this frontier. Source [2] supplies a parallel dimension-independent reverse-KL extremization with similar Lambert roots, not the log-likelihood-variance objective. Full relevant primary sections, supplemental proofs, targeted literature and indexed scientific-result comparisons were compared by their mathematical implications, and no direct stronger result was identified. Remaining risk of an implicit general divergence-moment theorem is recorded.",
+    "residual_risks": [
+      "A general information-spectrum or Gaussian quadratic-form extremal theorem not located may implicitly subsume the dimension-free range.",
+      "The Lambert roots and one-mode allocation have strong analogy with the known reverse-KL Gaussian theorem; the mathematical objective difference is substantive but reduces standalone novelty certainty.",
+      "The physical interpretation cannot be extended from exact-score, infinite-time endpoints to generic learned-score trajectories."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact-score, infinite-time likelihood-ratio identity and motivates unequal variances at equal mean; does not establish unrestricted Gaussian sharp fixed-K frontier.",
+        "evidence": [
+          "Eq. (39) identifies terminal log likelihood with TAEP in the prescribed limit.",
+          "Eq. (40) identifies its variance; Supplement IV proves only a vanishing-mean/variance limit with uniform-integrability hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.17252v1",
+        "material_read": "Full HTML main Section 3.3, Section 4.1, Supplement III and IV, including Eq. (39), Eq. (40) and supplementary variance-convergence proof.",
+        "method": "Primary open-access HTML full-text reading and cross-checking mathematical statements.",
+        "title": "Stochastic Thermodynamics of Score Matching in Diffusion Models",
+        "trigger": "Identical physical endpoint entropy-production variance object."
+      },
+      {
+        "assessment": "Sharp reverse-KL inequality and rank-one covariance equality are established prior theory; the present variance objective and complete interval are not stated there.",
+        "evidence": [
+          "Theorem 1 explicitly maximizes KL(N2||N1) subject to KL(N1||N2), not information variance.",
+          "Supplemental B describes the two Lambert roots used in the prior reverse-KL proof."
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/b5b4d92374323c53c24bbbc8ee0e715c-Paper-Conference.pdf",
+        "material_read": "Primary main paper problem statements, Theorem 1 and its proof overview; supplemental Lemma B.1 and Section D proof of Theorem 1.",
+        "method": "Read primary PDF parsed text, inspect physical page 4, compare key conditions and objective function, review separate supplemental PDF.",
+        "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+        "trigger": "Identical Lambert roots, Gaussian spectral extremizers, fixed-forward-KL formulation."
+      },
+      {
+        "assessment": "Establishes the classical starting point, not the sharp information-variance optimization.",
+        "evidence": [
+          "The Gaussian KL is expressed by covariance trace, determinant and mean shift."
+        ],
+        "identifier_or_url": "https://statproofbook.github.io/P/mvn-kl.html",
+        "material_read": "Displayed theorem and derivation of the multivariate Gaussian KL expression.",
+        "method": "Read open mathematical exposition.",
+        "title": "Kullback-Leibler divergence for the multivariate normal distribution",
+        "trigger": "Known KL formula needed in proof; novelty boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "279f13e9-45b7-434f-a1b8-90180eebf2a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating nonequilibrium interpretation makes the exact feasible fluctuation range at a prescribed average entropy production a natural, non-arbitrary physical and statistical question. The finding supplies both extrema, structural rigidity and all attainable intermediate variances in every Gaussian dimension, sharply bounding the diagnostic informativeness of a mean mismatch and characterizing its worst and best heterogeneity.",
+    "status": "PASS"
+  }
+}
