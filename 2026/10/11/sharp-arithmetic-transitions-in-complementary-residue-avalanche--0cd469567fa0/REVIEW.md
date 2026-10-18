@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The original binary firing update is reconstructed directly on a directed cycle, and the iteration is exactly a cyclic translation. Coprimality makes multiplication by the inverse of \(k\) a bijection, converting the two complete firing-orbit families to length-\(L_a\) and length-\(n-L_a\) cyclic intervals. The inequalities placing the parameters in the open and boundary regimes are equivalent to the stated integer arithmetic transition. The homotopy claims follow from the independently inspected Definition 3.2 and Theorem 3.6 of Adamaszek et al. Exact independent finite checking confirms the labeled firing facets and the predicted mod-two homology in the stated instances; this is supporting evidence, not a universal proof. The theorem explicitly leaves \(T_a<0\) unclassified.
+## correctness
 
-**Originality — PASS, with a residual risk.** Riihimäki--Smith's original full text asserts disconnected components for residue-class support and conjectures a different sphere degree for complementary support; neither statement implies the result. The older general circular-arc theorem supplies the nerve homotopy facts, but does not connect these residue-class firing dynamics to those nerves or identify the conjecture's failure. Specific comparisons covered the natural equivalent formulations as translated supports and arc nerves, broader nerve classifications, source-specific conjecture aliases, and possible computational tables. The published record searches did not reveal a prior statement of the corrected avalanche phase transition. A mathematically equivalent, unindexed application remains possible; database nonappearance alone is not treated as proof of originality.
+PASS
 
-**Value — PASS.** The result corrects an explicit lemma and a tested conjecture in a new graph-topology theory for infinitely many finite cycles, and exhibits a sharp transition at which changing the residue representative alone shifts both homology dimension and sphere multiplicity. The boundary example \((n,k)=(8,3)\) is not merely an isolated negative test: it is accounted for by exact inequalities valid for all admissible parameters. The result gives actionable constraints for any correct classification of avalanche homology by initial configurations.
+Direct chip-firing at one grain per occupied vertex transports each binary grain to its successor, so the entire list of firing supports is S+t modulo n (no transient). Because gcd(n,k)=1, multiplication by k^(-1) modulo n is a permutation taking R_a={a,a+k,...,a+(L_a−1)k} to exactly L_a successive residues. Its translated faces give the complete circular-interval nerve N(n,L_a−1), and complementary supports likewise N(n,n−L_a−1). Verify Adamaszek et al Theorem 3.6: when (k−2)/(k−1)<r/n<(k−1)/k one gets S^(2k−3), with equality at lower endpoint producing wedge of n-r-1=L_a copies of S^(2k−4). Algebra r/n>(k−2)/(k−1) iff q+s>(1+δ_a)(k−1), precisely T_a>0; equality similarly. Independently enumerated all eight support translates and their modular images for n=8,k=3,a=0,1,2: interval facet equality holds, T=(0,0,2). Full 2014 theorem, not finite homology, proves all parameters and integral homotopy types. The R_a result needs k<n/2 style bound L_a−1<n/2, true for q≥2 and n=kq+s.
 
-**Closest literature and limits.** arXiv:2606.26786v1 supplies the dynamical model and the incompatible unrestricted statements. arXiv:1410.4336v1 supplies the previously known cyclic-nerve theorem, so no novelty is claimed for that theorem; noncoprime periods, low-parameter regimes and integral equivariance lie outside the asserted homotopy classification. The possibility of an unindexed equivalent application remains.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original 2026 Riihimäki–Smith explicitly states disconnected k-point residue support in Lemma 3.17 and a complementary S^(k−2) guess in Conjecture 3.18. Both are contradicted on coprime wrap-around parameters, including n=5,k=2; so those statements cannot cover the correction. The older general circular-arc nerve Theorem 3.6 ALREADY covers the homotopy classification after a simplicial isomorphism; this is credited fully and limits novelty to the specific avalanche-to-nerve identification and sharp arithmetic transition. 2026 Theorem 3.21 concerns consecutive firing support and has a different conversion premise; checked full relevant original passages. Semantic published database ranked only this same current result and unrelated directed complexes. Unindexed applications remain possible.
+
+## value
+
+PASS
+
+Fixes concrete erroneous unrestricted statements in a new sandpile-topology model on an infinite coprime parameter family and identifies the exact mechanism (finite interval residue classes wrap on the cyclic vertex group). The n=8,k=3 representative-dependent topological split is a meaningful sharp boundary of a classification, not a small isolated counterexample or a restatement of the nerve theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
