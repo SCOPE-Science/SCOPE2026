@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact two-channel normal spectrum follows from the standard normalized equatorial spherical-harmonic coefficient and orthogonality of irreducible \(SO(3)\) matrix coefficients. Parity eliminates one channel in each degree. The normalized associated Legendre value at zero gives the central-binomial product. The two sequences of shifted spectral multipliers are strictly decreasing because their consecutive-ratio denominators exceed numerators by \(\(4j^2-1\)\); Stirling asymptotics fix the infimum. The degree-three endpoint is greater than the degree-two endpoint. Real spherical-harmonic perturbations of a sphere establish sharpness within smooth strictly convex bodies. The packaged rational-arithmetic checker passed 2006 checks; the infinite claim is justified analytically, not by testing a finite range.
+
+## Originality — PASS, with stated residual risks
+The closest work is Myroshnychenko–Ryabogin–Saroglou (arXiv:2609.27192, Theorem 1.4), which proves the qualitative joint-kernel statement for precisely the second and third equatorial modes. Its Lemmas 4.11–4.12 establish nonvanishing, but no quantitative norm equivalence, sharp constants or optimal regularity loss. McEwen–Price (arXiv:1510.01595), Rubin (arXiv:2211.10348), and Hielscher–Quellmalz (2015, §3) provide related Legendre multipliers or singular spectra for other Funk/Radon-type operators. The Legendre identities, group orthogonality and nonvanishing themselves are **not** claimed as new. The identified new statement is the joint-mode optimal two-sided stability inequality, its equality behavior and geometric sharpness. Related records and research-index searches did not identify this particular result; such searches cannot certify universal priority. A broader unlocated harmonic-analysis theorem might imply it, and the full historical literature may contain equivalent formulations.
+
+## Mathematical value — PASS
+The 2026 rigidity theorem concerns exact symmetry of every planar projection. Imperfect projection data instead demand quantitative stability. Here a natural two-channel measurement has explicit optimal error constants and recovers the geometric support function modulo radius and translation in a sharp Sobolev topology. The necessary half-derivative loss and its high-frequency counterexamples delimit what can be stably inferred. This is a nontrivial quantitative endpoint result for the precise two frequencies used in the motivating geometric theorem, rather than a renaming or a finite numerical observation.
+
+## Limitations and evidence
+The result does not bound Hausdorff distance from a ball without further regularity, does not treat finite plane sampling or higher dimensions, and has not received independent scientific validation. Direct source comparisons and machine-checkable arithmetic are included in the package. The originality conclusion is based on the cited primary literature and reachable indexed records, with the limitations above.
+
+Self-review: passed. Independent audit: not yet performed.
