@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof lifts coordinatewise Bowen constraints to the real unipotent orbit at \(\varepsilon<1/4\) without a modular-wrap ambiguity, identifies an exact triangular polynomial coefficient map with Jacobian \((n-1)^{d(d-1)/2}/\prod j!\), and sandwiches sampled sup-norm bodies using Markov's derivative inequality. Lower coordinates are shown uniformly redundant at large \(n\). The quadratic curvature interval integrates exactly to \(272/9\) and hence yields \(544/9\). The packaged checker replays exact orbit identities and independent finite quadrature diagnostics; these finite checks are not used to infer the infinite assertion.
+## correctness
 
-## Originality — PASS, with documented risk
-The directly relevant 2020 paper of Cantat and Paris-Romaskevich, arXiv:2002.03615, Lemma 4.4, already proves the polynomial entropy of this **same** Jordan torus map is \(d(d-1)/2\). That exponent is excluded as new. Their proof constructs spanning/separated grids and does not give the exact local Haar-volume limit or the curvature-sensitive \(544/9\) coefficient. Corrêa (DOI 10.1007/s00013-026-02286-3) motivates polynomial entropy on tori but proves rotation-set lower bounds, not the exact volume law. Searches for polynomial coefficient-body volumes and equivalent descriptions yielded no decisive covering formula. Residual risk: an unindexed classical exact bounded-polynomial coefficient-volume identity, or an exact local Bowen-volume result under different terminology, may exist. Semantic search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-Polynomial entropy records only the exponent of distinguishable orbit growth. The new precise Haar-volume constant measures the normalized probability of shadowing for a parabolic system and distinguishes the genuinely quadratic interior-extremum orbit geometry from the affine, endpoint-controlled case. The coefficient-body method supplies a dimension-uniform statement and a nontrivial exact three-dimensional value for quantitative orbit-shadowing estimates; no downstream theorem is asserted.
+PASS: At epsilon<1/4 each coordinate's modular phase cannot change its chosen integer between consecutive iterates because increment <epsilon and distinct epsilon-neighborhoods have gap >epsilon. Polynomial highest-coordinate binomial orbit has triangular Jacobian N^{d(d−1)/2}/∏j!. Degree-(d−1) Markov derivative inequality yields grid-to-continuum body inclusions and O_d(1/N) volume error; inverse coefficient triangularity makes lower-coordinate constraints redundant for large N. Quadratic parametrization p(t)=u(1−t)+vt+wt(1−t) has curvature interval length (sqrt(1-u)+sqrt(1-v))²+(sqrt(1+u)+sqrt(1+v))², integrating to 272/9. Difference between n and N=n−1 accounted. Finite verify.py inspects rational orbit and quadrature checks, not infinite proof.
 
-## Scope and limitations
-The leading constant depends on the chosen max-coordinate metric and Haar probability, and cannot be treated as a topological invariant. Closed forms are obtained for the quadratic case, not every polynomial degree. The journal source has a date of 2026-09-12; priority beyond inspected material is not certified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for exact Haar-volume/body law and d3 constant. Cantat–Paris-Romaskevich already have the same map's polynomial entropy exponent, which is not claimed new. Full primary published Resultary skew Dehn-twist work yields the d2 parallelogram constant 4ε²/|k|, not d3 polynomial curvature volume 272/9. No located broader d≥3 shadowing-volume formula; the general bounded-polynomial coefficient volume may occur under a different classical name.
+
+## value
+
+PASS
+
+PASS: The leading Haar probability of finite-orbit shadowing is a natural quantitative refinement beyond polynomial entropy; d3 curvature-sensitive 544/9 and general V_d distinguish polynomial higher-step shearing from the already understood affine shear. The geometric coefficient-body normalizer is explicit and potentially useful in metric measure shadowing. Metric specificity honestly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
