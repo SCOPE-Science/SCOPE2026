@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:06:14.909282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 573dc3f510a41d6d5ccbe13dccec8e7b666251fb",
+        "frozen verify.py blob 3423e2ea65160602996794ae1fa9fa6648875bbe",
+        "Mészáros–Simpson–Wellner, Flow polytopes of partitions, arXiv:1707.03100",
+        "independently derived 4-vertex 5-edge DAG forced-zero-coordinate counterexample with exact Laplacian fractions"
+      ],
+      "rationale": "The proof asserts aff(F_G(a))=x0+ker B for an arbitrary feasible netflow; this can fail when some coordinate is identically zero on the nonnegative-flow fiber. Explicit counterexample: V={0,1,2,3}, E ordered (0→1),(0→2),(1→2),(0→3),(2→3), netflow a=(1,0,−1,0). The directed graph is acyclic, its underlying undirected graph is connected, a is integral and sums to zero, and F_G(a)={x(t)=(t,1−t,t,0,0):0≤t≤1}, a positive-dimensional segment of intrinsic length sqrt3. Its actual inradius equals sqrt3/2≈0.8660254038. All and only x01,x02,x12 are nontrivial coordinate facets. The full-graph Laplacian gives 1−R for these edges (3/8,1/2,3/8), respectively (and 3/8 on both forced-zero edges). Nontrivial lower ideals S={0} and S={0,1} have a(S)=1 and C(S)=sqrt(3/8)+sqrt(1/2); S={0,1,2} has C=0. Thus the claimed formula returns 1/[sqrt(3/8)+sqrt(1/2)]=4/(sqrt6+2sqrt2)≈0.7578747639, not sqrt3/2. Indeed the actual affine tangent is span(1,−1,1,0,0), strictly smaller than ker B, so full-graph cycle projections give incorrect facet-distance factors. Numerical evaluations only illustrate an exact inequality of radicals; rational Laplacian leverage and segment parameterization were calculated independently. Existing three bundled tests happen to have full-dimensional affine incidence fibers, so VERIFY_OK does not validate this missing hypothesis. Original universal claim is false and must be rejected, not passed with a disclaimer or a purely prospective fix.",
+      "residual_risks": [
+        "Full-graph projection formula itself is correct on ker B; counterexample identifies its misuse, not a failure of electrical network theory.",
+        "A restricted theorem might hold after support reduction or a suitable relative-interior full support hypothesis, but no complete repaired package is supplied."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The transportation special case has a full-support affine fiber and cannot imply the displayed universal formula for arbitrary boundary netflows.",
+          "General Farkas cut criteria for nonnegative DAG flow feasibility govern existence of flows but not Euclidean distance to facets when forced-zero constraints exist."
+        ],
+        "reasoning": "General flow-polytope feasibility theorems are broader combinatorially but do not dominate a valid all-netflow Euclidean radius theorem; this proposed strengthening is actually false.",
+        "searches": [
+          "\"transportation polytope\" \"inradius\" Euclidean",
+          "Euclidean inradius directed acyclic graph flow polytope effective resistance cut lower ideals facet support"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 573dc3f510a41d6d5ccbe13dccec8e7b666251fb",
+        "frozen verify.py blob 3423e2ea65160602996794ae1fa9fa6648875bbe",
+        "Mészáros–Simpson–Wellner, Flow polytopes of partitions, arXiv:1707.03100",
+        "independently derived 4-vertex 5-edge DAG forced-zero-coordinate counterexample with exact Laplacian fractions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary flow-polytope source permits incidence fibers with boundary support.",
+          "The source theorem here silently assumes the full kernel as tangent space; the counterexample violates exactly that and all explicit stated assumptions otherwise."
+        ],
+        "reasoning": "Correct effective-resistance projection onto ker B is insufficient to imply the claimed radius when aff(F) differs from x0+ker B. Thus no prior implication establishes a valid theorem of the claimed generality.",
+        "searches": [
+          "arXiv:1707.03100 flow polytopes of partitions face dimension",
+          "Euclidean inradius directed acyclic graph flow polytope effective resistance cut lower ideals facet support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mészáros–Simpson–Wellner use exactly the incidence-fiber polytope model but do not state a Euclidean inradius theorem.",
+          "The expression uses full graph effective resistance and Farkas lower-ideal cuts, a synthesis not found as a theorem in inspected text."
+        ],
+        "reasoning": "Equivalent linear optimization and projected normal formulations do not rescue the claim: in restricted-support fibers the relevant projection is onto the actual affine tangent rather than ker B.",
+        "searches": [
+          "Euclidean inradius directed acyclic graph flow polytope effective resistance cut lower ideals facet support",
+          "\"flow polytope\" effective resistance inradius Chebyshev center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact inradius database/table in the inspected arXiv flow-polytope paper gives this 4-vertex counterexample.",
+          "The exact counterexample uses elementary rational Laplacian entries and a three-edge line-segment fiber, rather than an external table entry."
+        ],
+        "reasoning": "The false prediction 4/(sqrt6+2sqrt2) for a segment whose radius is sqrt3/2 cannot be supported by a hidden table without contradicting Euclidean geometry.",
+        "searches": [
+          "Euclidean inradius directed acyclic graph flow polytope effective resistance cut lower ideals facet support",
+          "\"effective resistance\" \"flow polytope\" inradius"
+        ]
+      },
+      "rationale": "As a candidate mathematical formulation, the exact full-graph-resistance lower-ideal ratio is not stated by the consulted incidence-polytope primary literature; this originality judgment is independent of and does not diminish its decisive falsity. No valid new mathematical result is accepted from this record.",
+      "residual_risks": [
+        "Novelty of an incorrect formula is not endorsement and cannot make this record publishable.",
+        "Resultary semantic query failed temporarily; no no-match novelty inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as an inradius result; directly relevant as warning that affine-hull and face dimensions depend on the netflow/support.",
+          "evidence": [
+            "Flow polytopes are nonnegative incidence fibers Bx=a.",
+            "Their general setup permits points on proper faces of the nonnegative flow cone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1707.03100",
+          "material_read": "Full open paper: definition F_G(a), dimensions, incidence coordinates and polyhedral face discussion.",
+          "method": "Read the main incidence-model definitions and reported combinatorial theorems in the PDF.",
+          "title": "Flow Polytopes of Partitions",
+          "trigger": "Primary incidence-system and netflow framework for nonnegative flow polytopes."
+        },
+        {
+          "assessment": "The projection formula is correct for ker B, but the applied premise aff(F_G(a))=x0+ker B is false on boundary-netflow faces.",
+          "evidence": [
+            "Effective resistance R_e is computed from BB^T of the entire graph; it need not describe intrinsic normals after some coordinates are forced zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.0929",
+          "material_read": "Abstract and available overview of Laplacian resistance/edge leverages; no assertion of complete reading of whole source.",
+          "method": "Compared the standard full-graph projection identity with the affine tangent space of a restricted feasible flow face.",
+          "title": "Graph sparsification by effective resistances",
+          "trigger": "Underlying full-graph resistance identity for cycle-space projections."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob 573dc3f510a41d6d5ccbe13dccec8e7b666251fb",
+        "frozen verify.py blob 3423e2ea65160602996794ae1fa9fa6648875bbe",
+        "Mészáros–Simpson–Wellner, Flow polytopes of partitions, arXiv:1707.03100",
+        "independently derived 4-vertex 5-edge DAG forced-zero-coordinate counterexample with exact Laplacian fractions"
+      ],
+      "rationale": "Finding an effective-resistance-based metric inradius and full center characterization for all DAG netflow polytopes is a motivated mathematical problem; exact cut constraints and intrinsic affine metrics matter for optimization and graph geometry. The attempted theorem fails, but its precisely exposed forced-support boundary provides a substantive instructive obstruction to the proposed formula. This value axis concerns the mathematical question and obstruction, not any approval of the false universal claim.",
+      "residual_risks": [
+        "Original universal finding cannot be represented as accepted science; the counterexample is assessment evidence, not an independently repaired published theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Every nonempty positive-dimensional acyclic graph flow polytope has intrinsic Euclidean inradius min_{lower ideals S,C(S)>0}a(S)/C(S) with facet edge weights c_e=sqrt(1−R_e) computed using the entire underlying graph Laplacian, and all centers x_e≥r c_e on those facets.",
+  "limitations": [
+    "Universal claim false even for a 4-vertex 5-edge DAG and integral netflow with one-dimensional feasible polytope.",
+    "Counterexample does not establish a corrected formula for arbitrary restricted support; no repair bytes are supplied.",
+    "Temporarily unavailable Resultary search was not treated as a novelty-negative result.",
+    "All source Git tree SHAs verified against Git REST trees with truncated=false; all seven package blobs inspected by content or metadata; independent mathematical checks do not supply formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
