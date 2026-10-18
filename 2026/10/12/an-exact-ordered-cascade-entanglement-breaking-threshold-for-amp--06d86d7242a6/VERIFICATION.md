@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the ordered-damping threshold
+# Independent mathematical audit
 
-Run `python verify.py` in a Python 3 environment with SymPy and NumPy installed. This script constructs four Kraus operators from scratch for two unequal amplitude-damping channels separated by a real rotation, computes the normalized Choi partial transpose, proves the symbolic determinant identity after imposing rotation normalization, and checks the trace-preservation identity. A separate floating-point Kronecker calculation checks eight sampled positive, negative and boundary cases, including reversed damping order. The expected success line is `VERIFY_OK symbolic_Choi_determinant=passed Kraus_trace=passed numerical_cases=8 order_boundary=passed`.
+## correctness
 
-These checks reproduce the critical algebraic identity from the definitions. The all-unitary reduction uses diagonal-phase covariance. The analytic fact that two-qubit partial transposes have at most one strictly negative eigenvalue is proved in `RESULT.md` using product vectors in two-dimensional complex subspaces; numerical sampling cannot substitute for that proof. Equality follows by continuity, not a tolerance test. The result is not verified for other local dimensions, nonunitary controls, generalized thermal damping or more than two damping stages.
+PASS
+
+Diagonal phase covariance of zero-temperature amplitude damping reduces arbitrary U to a real rotation with s²=t=|<1|U|0>|². Four composed Kraus matrices give the normalized 4x4 Choi partial-transpose determinant 16 det J^Gamma=a²[(1-a)²(1-b)²t⁴-b²]. For two qubits the partial transpose of a positive Choi state has at most one strictly negative eigenvalue, by product-vector intersection of every 2D complex subspace. Thus determinant sign determines PPT away from zero; boundary PPT follows by lowering b to a strictly PPT region and continuity. Peres–Horodecki gives entanglement breaking iff PPT. Hence threshold (1-a)(1-b)t²>=b. Optimizing t<=1 gives b<=(1-a)/(2-a), equal a=b gives q<=(3-√5)/2. An independent 250-case random unitary-parameter numeric Choi eigenvalue/determinant comparison corroborated all threshold regions; source verify.py was inspected but not blindly executed. The determinant identity, not finite samples, is the proof.
+
+## originality
+
+PASS
+
+Generalized amplitude-damping Choi PPT/EB condition and absence of EB under directly cascaded positive-survival pure amplitude-damping steps are in Lami–Giovannetti; the population-interchanging endpoint can be recovered from that criterion and is not claimed wholly new. Cuevas et al already study interposed rotations and selected EB/repair phenomena. The accepted remainder classifies EVERY interposed U at unequal ordered a,b, including exact sharp threshold and order asymmetry; no such universal two-unequal-stage statement was located in inspected relevant original passages.
+
+## value
+
+PASS
+
+Complete necessary-and-sufficient control classification for two ordered physical noise stages is a natural question: which, if any, coherent interstage rotations force entanglement breaking? The threshold and order asymmetry give a usable exact channel-theoretic boundary beyond a selected numerical example or mere EB existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

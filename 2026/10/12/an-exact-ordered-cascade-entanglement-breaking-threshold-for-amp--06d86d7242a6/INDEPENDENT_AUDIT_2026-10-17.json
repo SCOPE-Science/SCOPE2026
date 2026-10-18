@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:43:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal phase covariance of zero-temperature amplitude damping reduces arbitrary U to a real rotation with s²=t=|<1|U|0>|². Four composed Kraus matrices give the normalized 4x4 Choi partial-transpose determinant 16 det J^Gamma=a²[(1-a)²(1-b)²t⁴-b²]. For two qubits the partial transpose of a positive Choi state has at most one strictly negative eigenvalue, by product-vector intersection of every 2D complex subspace. Thus determinant sign determines PPT away from zero; boundary PPT follows by lowering b to a strictly PPT region and continuity. Peres–Horodecki gives entanglement breaking iff PPT. Hence threshold (1-a)(1-b)t²>=b. Optimizing t<=1 gives b<=(1-a)/(2-a), equal a=b gives q<=(3-√5)/2. An independent 250-case random unitary-parameter numeric Choi eigenvalue/determinant comparison corroborated all threshold regions; source verify.py was inspected but not blindly executed. The determinant identity, not finite samples, is the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lami–Giovannetti inspect generalized amplitude-damping EB criterion and filtered/channel indices; direct A_a∘A_b=A_ab is never EB for a,b>0.",
+          "Cuevas et al demonstrate intermediate amplitude-damping/rotation effects for selected choices, not a stated all-unitary unequal-stage ordered threshold in accessed description."
+        ],
+        "reasoning": "Prior general PPT criterion is a test not by itself the explicit four-real-parameter optimized sharp phase diagram; the symbolic Choi reduction and order analysis are the additional specialized theorem.",
+        "searches": [
+          "arXiv:1411.2517 Lami Giovannetti Entanglement Breaking Indices Example1 SecIII",
+          "arXiv:1707.00161 Cuevas et al intermediate unitary amplitude damping",
+          "Horodecki 1996 2x2 PPT separability theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.2517 full text SecIII Example1",
+        "arXiv:1707.00161 abstract and failed full-text access",
+        "Peres–Horodecki 1996 PPT criterion",
+        "Resultary exact entanglement breaking amplitude damping ordered query",
+        "Independent numerical normalized Choi PT checks at 250 parameter points"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generalized damping PPT condition plus basis swap yields the t=1 endpoint but does not supply analytic arbitrary t threshold for asymmetric stages without new Choi derivation.",
+          "Previous specific demonstrations are weaker than exact necessary/sufficient all-U boundary."
+        ],
+        "reasoning": "Claims an exact special serial-channel control classification, not a general new EB criterion or discovery that unitary interposition can change EB status.",
+        "searches": [
+          "arXiv:1411.2517 SectionIII Example1 GAD condition",
+          "arXiv:1707.00161 SecII-IV amplitude damping intermediate rotations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bit-flip endpoint U swapping populations is equivalent by output basis swap to a generalized amplitude-damping channel and is covered by known EB criteria.",
+          "Diagonal rephasing covariance makes arbitrary U depend on t=|<1|U|0>|², not four Euler parameters."
+        ],
+        "reasoning": "Compared full unitary family to existing generalized amplitude-damping and bit-flip equivalent parametrizations; credited overlapping endpoint.",
+        "searches": [
+          "amplitude damping entanglement breaking two channels intermediate arbitrary unitary ordered cascade Choi PPT",
+          "generalized amplitude damping thermal qubit Choi PPT entanglement breaking interleaved bit flip"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns different entanglement annihilation, revival and teleportation topics, not a same-channel sharp ordered threshold.",
+          "The specified a=1/2,b=1/9 example is EB iff t>=1/2; reversed a=1/9,b=1/2 has no EB unitary."
+        ],
+        "reasoning": "An isolated numerical test could not establish all-unitary inequality; search absence is not certification of first publication.",
+        "searches": [
+          "Resultary exact query: amplitude damping entanglement breaking two channels intermediate arbitrary unitary ordered cascade Choi PPT",
+          "two qubit amplitude damping unitary between channels entanglement breaking (1-a)(1-b)t²>=b"
+        ]
+      },
+      "rationale": "Generalized amplitude-damping Choi PPT/EB condition and absence of EB under directly cascaded positive-survival pure amplitude-damping steps are in Lami–Giovannetti; the population-interchanging endpoint can be recovered from that criterion and is not claimed wholly new. Cuevas et al already study interposed rotations and selected EB/repair phenomena. The accepted remainder classifies EVERY interposed U at unequal ordered a,b, including exact sharp threshold and order asymmetry; no such universal two-unequal-stage statement was located in inspected relevant original passages.",
+      "residual_risks": [
+        "Cuevas et al full article was not retrieved in this execution; a hidden symbolic special-case result or a known GAD equivalence for arbitrary interstage U may cover part of the boundary.",
+        "The result is for zero-temperature qubit amplitude-damping two-stage unitary control only, not generalized damping, qudit or longer cascades."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers GAD condition and known bit-flip endpoint; no located arbitrary unequal interposition t-law",
+          "evidence": [
+            "Pure direct product A_a∘A_b=A_ab remains non-EB for positive a,b."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.2517",
+          "material_read": "Full primary paper accessible; materially inspected SecIII Example1 and its exact generalized amplitude-damping EB discussion (printed p4), plus index definitions.",
+          "method": "Primary PDF mathematical text and page screenshot",
+          "title": "Entanglement-Breaking Indices",
+          "trigger": "Highest-priority generalized amplitude damping and filtered-channel characterization"
+        },
+        {
+          "assessment": "Establishes prior phenomenon/selected parameters; whole-document noncoverage NOT asserted",
+          "evidence": [
+            "Experimental theoretical unitary interposition and entanglement breaking/rescue are prior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.00161",
+          "material_read": "Public abstract and metadata read; attempted arXiv PDF and author OA accepted PDF but full text not successfully retrieved in this run.",
+          "method": "Abstract-level inspection plus failed full-PDF retrieval explicitly noted",
+          "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+          "trigger": "Exactly intermediate unitary and amplitude damping control context"
+        },
+        {
+          "assessment": "Standard Peres–Horodecki theorem, entirely prior",
+          "evidence": [
+            "PPT is necessary and sufficient for two qubits."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0375-9601(96)00706-2",
+          "material_read": "Established theorem statement checked as foundational literature; full historic article not needed to reconstruct package Choi calculation.",
+          "method": "Theorem-level mathematical comparison",
+          "title": "Separability of mixed states: necessary and sufficient conditions",
+          "trigger": "2x2 Choi PPT iff separable ingredient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete necessary-and-sufficient control classification for two ordered physical noise stages is a natural question: which, if any, coherent interstage rotations force entanglement breaking? The threshold and order asymmetry give a usable exact channel-theoretic boundary beyond a selected numerical example or mere EB existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 0<a,b<1 and every interposed qubit unitary U in Phi=A_a∘Ad_U∘A_b, entanglement breaking is equivalent to (1-a)(1-b)|<1|U|0>|^4>=b; an EB unitary exists exactly if b<=(1-a)/(2-a), with sharp order-asymmetric and equal-parameter thresholds.",
+  "limitations": [
+    "0<a,b<1; a=0 or b=0 EB trivially; a=1 or b=1 remaining positive-survival AD not EB.",
+    "No nonunitary interposed filters or multistage control.",
+    "Cuevas et al full article was not retrieved in this execution; a hidden symbolic special-case result or a known GAD equivalence for arbitrary interstage U may cover part of the boundary.",
+    "The result is for zero-temperature qubit amplitude-damping two-stage unitary control only, not generalized damping, qudit or longer cascades."
+  ],
+  "schema_version": 1
+}
