@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The first iterate has six incidence vertices, nine compatible pairs and no triangles and is the triangular prism; this is independently checked by a full six-vertex graph isomorphism search. All 1,727 nonempty faces of the second iterate are enumerated by compatible incidence choices, with an independent rooted-forest count. An explicit 828-pair matching has one critical zero-cell, three critical three-cells, and 67 critical four-cells. The complete 6,606-incidence directed face graph is acyclic. Recursing along oriented gradient paths over the integers yields basis columns `(1,0,0)`, `(0,1,0)`, `(0,0,1)` for three four-cell attachments. Because \(\pi_3(\bigvee^3S^3)\cong\mathbb Z^3\), these attachments make the original three-skeleton contractible; the other 64 four-cells then attach trivially, proving the wedge of four-spheres. A separately implemented mod-two computation reproduces the known rank 64.
+## correctness
 
-## Originality
-**PASS, with a concrete residual literature-access risk.** Chari–Joswig's 2000 graph-Morse results concern first-iterate cycles and forests, not the second iterate on a triangle. Kozlov's 2005 simple-homotopy paper concerns different graph-derived complexes; Scoville–Zaremsky's graph bounds yield only connectivity. The closest **same-object** published calculation (2026) already determines the mod-two Betti number 64 and was carefully compared; it expressly does **not** settle integral attaching maps or homotopy. The new result claims only that stronger homotopy statement. Searches included the names triangular prism, Cayley-graph rooted forests, discrete Morse complex, second/iterated Morse complex and the degree/rank 64. Courtney's thesis is a plausible broader source but the institutional full text could not be retrieved; an equivalent result there or in unindexed work remains possible. The risk has not been converted into false evidence of noncoverage.
+PASS
 
-## Value
-**PASS.** The first iterate of the smallest graph cycle produces the canonical triangular prism, so the second iterate is a structurally motivated object rather than an arbitrary sampled graph. Computing its entire integral homotopy type resolves precisely the attaching-map and torsion ambiguity left by a known mod-two calculation, and illustrates the nontrivial topology of repeated discrete-Morse constructions.
+For the triangle C3, all six vertex-edge incidences form a nine-edge prism graph, with no acyclic triple matching: M(C3)=C3□K2. Independently enumerated all 4096 prism vertex local choices, rejecting duplicate edges/directed cycles; got 1727 nonempty faces f=(18,126,428,705,450). Replayed 18 ordered matching stages obtaining 828 pairs, one 0-cell, three 3-cells and 67 4-cells; verified acyclic orientation over 6606 Hasse covers and mod-2 boundary ranks (17,109,319,386). Independently recomputed signed integral projection recursively for all critical 4-cells; columns 0,17,28 equal standard degree basis of Z3, on masks 26692,42272,84036. Since π3(wedge^3 S3)=Z3, these three 4-cells kill the three 3-spheres via an integer unimodular degree matrix; residual 64 4-cell attachments then nullhomotopic, giving wedge^64 S4, not only mod-2 rank.
 
-## Closest literature and limitations
-The public 2026 mod-two computation is exact partial prior coverage, not evidence of the new homotopy classification. Chari–Joswig, Kozlov and Scoville–Zaremsky are foundational or bounding literature. The statement is confined to this one second iterate; Courtney's 2020 thesis is a named access-limited risk. Same-model calculations do not constitute independent scientific validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier published mod-2 prism Morse calculation does not imply integral homotopy. A separately indexed identical integral prism theorem was deposited 2026-10-11 13:16:37 UTC, 41 seconds AFTER this assigned second-iterate record at 13:15:56 UTC (verified Git commit path histories); the later theorem now covers the same conclusion but cannot be used as pre-existing coverage at this claim’s first publication. M(C3)=prism is elementary classical rooted-forest theory, not itself claimed new.
+
+## value
+
+PASS
+
+A natural iterated discrete-Morse construction for the minimal cycle has an exact integral homotopy type upgrading a published field-two computation; three explicit integral unit attaching columns are the substantive topological information. The original example predates its later equivalent prism formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

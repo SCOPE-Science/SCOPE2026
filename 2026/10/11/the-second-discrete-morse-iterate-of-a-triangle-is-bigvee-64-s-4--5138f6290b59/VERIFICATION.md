@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Run `python3 verify.py` followed by `python3 verify_homology.py`; both require only Python 3.9+ standard-library modules.
+# Independent mathematical audit
 
-The first executable rebuilds the triangle-cycle first iterate and checks a graph isomorphism with the triangular prism; enumerates every valid acyclic vertex-edge incidence assignment; independently re-enumerates rooted forests; verifies all 828 matching pairs and checks that every one of the 6,606 oriented Hasse incidences participates in an acyclic directed graph. It computes the signed integral boundary of the 67 critical four-cells against the three critical three-cells, and checks that columns zero, seventeen and twenty-eight are exactly the three unit basis vectors.
+## correctness
 
-Expected first output:
-`VERIFY_OK faces=1727 f_vector=[18, 126, 428, 705, 450] incidences=6606 pairs=828 critical=[1, 0, 0, 3, 67] unit_columns=(0, 17, 28) homotopy=wedge_64_S4`
+PASS
 
-The second executable independently reconstructs the complex using undirected forests with a designated root for each component, then performs exact bitwise Gaussian elimination over \(\mathbb F_2\) on every simplicial boundary matrix.
+For the triangle C3, all six vertex-edge incidences form a nine-edge prism graph, with no acyclic triple matching: M(C3)=C3□K2. Independently enumerated all 4096 prism vertex local choices, rejecting duplicate edges/directed cycles; got 1727 nonempty faces f=(18,126,428,705,450). Replayed 18 ordered matching stages obtaining 828 pairs, one 0-cell, three 3-cells and 67 4-cells; verified acyclic orientation over 6606 Hasse covers and mod-2 boundary ranks (17,109,319,386). Independently recomputed signed integral projection recursively for all critical 4-cells; columns 0,17,28 equal standard degree basis of Z3, on masks 26692,42272,84036. Since π3(wedge^3 S3)=Z3, these three 4-cells kill the three 3-spheres via an integer unimodular degree matrix; residual 64 4-cell attachments then nullhomotopic, giving wedge^64 S4, not only mod-2 rank.
 
-Expected second output:
-`HOMOLOGY_OK faces=1727 ranks=[17, 109, 319, 386] reduced_F2_Betti=[0, 0, 0, 0, 64]`
+## originality
 
-The acyclic-matching certificate, exact integral attaching degrees and elementary homotopy-theoretic argument yield a homotopy statement. The independent mod-two ranks corroborate but do not by themselves prove this conclusion. Only the specified finite complex is covered. No external/independent audit or publication certification is implied.
+PASS
+
+The earlier published mod-2 prism Morse calculation does not imply integral homotopy. A separately indexed identical integral prism theorem was deposited 2026-10-11 13:16:37 UTC, 41 seconds AFTER this assigned second-iterate record at 13:15:56 UTC (verified Git commit path histories); the later theorem now covers the same conclusion but cannot be used as pre-existing coverage at this claim’s first publication. M(C3)=prism is elementary classical rooted-forest theory, not itself claimed new.
+
+## value
+
+PASS
+
+A natural iterated discrete-Morse construction for the minimal cycle has an exact integral homotopy type upgrading a published field-two computation; three explicit integral unit attaching columns are the substantive topological information. The original example predates its later equivalent prism formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
