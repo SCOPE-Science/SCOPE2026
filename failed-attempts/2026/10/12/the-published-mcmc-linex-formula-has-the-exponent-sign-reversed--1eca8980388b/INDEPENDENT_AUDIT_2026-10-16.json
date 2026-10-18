@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:57:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf",
+        "Pinned 2026/10/12/the-published-mcmc-linex-formula-has-the-exponent-sign-reversed--1eca8980388b/RESULT.md blob 0221cdfa8fd9324cc57f639dedbe8f649f153392",
+        "Pinned package verifier blob f93eb9e8c7b22285e9fa6b2cddafe66118631944 (read, not blindly trusted)"
+      ],
+      "rationale": "PASS: Source Eq. (4.5) gives Bayes-LINEX estimator -h^(-1)log E[e^(-hg)|data]; replacing its posterior expectation by empirical mean cannot change exponent sign. Eq. (4.11) prints e^(+hg). For h>0 and all posterior draws g_i>0, that average exceeds 1, hence printed estimator is negative. If simulated truth alpha=1.3, every squared error then exceeds 1.69, contradicting source Table 1 reported 0.0032 MSE. The conclusion is limited to printed equations and positive h/draws; unknown implementation cannot be inferred. Exact inequalities, not standalone verifier output, prove the claim.",
+      "residual_risks": [
+        "The rejection is about mathematical originality/value, not a correctness defect of the sign observation.",
+        "Authors’ source code unavailable; low reported MSE provides only evidence against literal use of Eq. (4.11), not proof which alternate code was used.",
+        "A source corrigendum could exist but was not located in targeted queries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayes LINEX loss minimization and empirical integration are textbook statistical facts and Eq. (4.5) already instantiates them.",
+          "On progressive first-failure reliability analysis: Classical and Bayesian approaches (10.3934/math.2026554)"
+        ],
+        "reasoning": "General theorem dominates the proposed replacement; a single sign typographical mismatch introduces no mathematically stronger content.",
+        "searches": [
+          "Gompertz Lindley progressive first failure Bayesian MCMC LINEX posterior Monte Carlo wrong exponential sign equation",
+          "standard LINEX Bayes estimator exponential loss Monte Carlo posterior E exp(-a theta)",
+          "10.3934/math.2026554",
+          "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf",
+        "Resultary semantic search: Gompertz Lindley progressive first failure Bayesian MCMC LINEX posterior Monte Carlo wrong exponential sign equation",
+        "Pinned SCOPE2026 475e612389968173d8ff1f5d87788e7b3684fd2d record RESULT.md 0221cdfa8fd9324cc57f639dedbe8f649f153392"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (4.5) explicitly supplies -h^{-1} log E(e^{-hg}); Eq. (4.11) changes only the sign inside the expectation.",
+          "On progressive first-failure reliability analysis: Classical and Bayesian approaches (10.3934/math.2026554)"
+        ],
+        "reasoning": "Replacing E by posterior sample average is immediate and completely covered by the prior theoretical equation; source contains the corrected underlying estimator.",
+        "searches": [
+          "Gompertz Lindley progressive first failure Bayesian MCMC LINEX posterior Monte Carlo wrong exponential sign equation",
+          "Almongy et al 2026 Eqs 4.5 4.11 and LINEX posterior expectation",
+          "10.3934/math.2026554",
+          "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sample-average analogue of the already published theoretical Eq. (4.5) is exactly the purported correction to Eq. (4.11).",
+          "On progressive first-failure reliability analysis: Classical and Bayesian approaches (10.3934/math.2026554)"
+        ],
+        "reasoning": "Mathematically equivalent corrected formula is already contained as Eq. (4.5) and routine Monte Carlo substitution.",
+        "searches": [
+          "Gompertz Lindley progressive first failure Bayesian MCMC LINEX posterior Monte Carlo wrong exponential sign equation",
+          "LINEX posterior Bayes action e^-h g vs MCMC exp+h g published equation 4.11",
+          "10.3934/math.2026554",
+          "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate corrigendum found, but the paper’s own Table 1 with small MSE is inconsistent with literal Eq.(4.11) and is consistent with authors using the standard Eq.(4.5) form.",
+          "On progressive first-failure reliability analysis: Classical and Bayesian approaches (10.3934/math.2026554)"
+        ],
+        "reasoning": "This is evidence of a print-level defect, not novel parameter estimation or unresolved exact invariant.",
+        "searches": [
+          "Gompertz Lindley progressive first failure Bayesian MCMC LINEX posterior Monte Carlo wrong exponential sign equation",
+          "10.3934/math.2026554 LINEX sign erratum Table 1 MSE 0.0032",
+          "10.3934/math.2026554",
+          "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf"
+        ]
+      },
+      "rationale": "FAIL: The primary article Eq. (4.5) already prints the exact negative-exponential Bayes-LINEX estimator. The purported corrected Eq. (4.11) is merely the mechanical empirical-mean approximation to that already published formula, without a new estimator or mathematical fact; the plus-sign mismatch is visible by direct comparison in the SAME source. Source implication therefore covers the corrected claim even without a separate corrigendum.",
+      "residual_risks": [
+        "The rejection is about mathematical originality/value, not a correctness defect of the sign observation.",
+        "Authors’ source code unavailable; low reported MSE provides only evidence against literal use of Eq. (4.11), not proof which alternate code was used.",
+        "A source corrigendum could exist but was not located in targeted queries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq. (4.5) explicitly prints the correct negative exponent, so Eq. (4.11) is a readily detectable transcription mismatch rather than a new mathematical estimator; the reported small MSE could not arise from a literal positive-exponent computation.",
+          "evidence": [
+            "DOI 10.3934/math.2026554, PDF printed pp. 13456-13457, Eqs. (4.5) and (4.11); Table 1 simulation report."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf",
+          "material_read": "Open primary 36-page PDF pp. 7-9, theoretical Bayes-LINEX estimator Eq. (4.5), Algorithm 1, posterior-draw average Eq. (4.11), simulation settings and reported MSE table as quoted by source record.",
+          "method": "Read typeset PDF page images (pp. 7,8) to disambiguate exponent minus/plus signs and textual results, compared standard sample-average definition.",
+          "title": "On progressive first-failure reliability analysis: Classical and Bayesian approaches",
+          "trigger": "Source defines correct theoretical LINEX action in Eq. (4.5) but its Monte Carlo formula Eq. (4.11) has a contradictory exponent."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/5/PDF/math-11-05-554.pdf",
+        "Pinned RESULT.md blob 0221cdfa8fd9324cc57f639dedbe8f649f153392"
+      ],
+      "rationale": "FAIL: The record only fixes a single transcription sign between the paper’s already correct general LINEX Bayes action (Eq. 4.5) and its Monte Carlo restatement. The reported small MSE actually demonstrates the paper’s calculations were not based on the literal wrong sign; no separate algorithm, model-specific estimate, error analysis, or unknown parameter boundary is supplied. It is a useful editorial erratum, not a substantively new mathematical result under the uniformly applied value criterion.",
+      "residual_risks": [
+        "The rejection is about mathematical originality/value, not a correctness defect of the sign observation.",
+        "Authors’ source code unavailable; low reported MSE provides only evidence against literal use of Eq. (4.11), not proof which alternate code was used.",
+        "A source corrigendum could exist but was not located in targeted queries."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is about mathematical originality/value, not a correctness defect of the sign observation.",
+    "Authors’ source code unavailable; low reported MSE provides only evidence against literal use of Eq. (4.11), not proof which alternate code was used.",
+    "A source corrigendum could exist but was not located in targeted queries."
+  ],
+  "schema_version": 1
+}
