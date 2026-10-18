@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "On the mean-zero subspace, adding a nonnegative rank-one Laplacian shifts the second eigenvalue at most to the original third eigenvalue \\(2-2\\cos(2\\pi/n)\\). If the new-edge vector has nonzero projection onto the original third mode, a two-mode test vector in its nullspace has Rayleigh quotient strictly below this ceiling; cosine equality forces \\(i+j=n-1\\). For centered chords reflection decomposes the operator. The antisymmetric shifted block has one negative eigenvalue and is invertible. Its explicit piecewise sine/cosine resolvent yields \\(b^{\\mathsf T}A^{-1}b=-\\sin((2i+1)2\\pi/n)/\\sin(2\\pi/n)\\). The block-matrix Schur-complement inertia criterion gives positive semidefiniteness iff \\(w\\sin((2i+1)2\\pi/n)\\ge\\sin(2\\pi/n)\\) with positive sine. Maximizing over centered odd indices and checking equality yields the stated sharp minimum and optimizer count. All boundary quantifiers include n=4. The verifier ran 6,611 finite eigenvalue, threshold and resolvent checks; it is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd 2006, PDF §§I–V, https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf: general SDP/Fiedler heuristic, rank-one secular comparison; no fixed-path saturation equality.",
+        "Shiu–Guo–Li 2011, PDF abstract, §1, Theorem 2.17, https://journals.uwyo.edu/index.php/ela/article/download/957/957/957: minimum caterpillar-unicyclic connectivity, not weighted one-shortcut maximum.",
+        "Fallat–Kirkland–Pati 2003 publisher abstract, https://www.tandfonline.com/doi/abs/10.1080/0308108031000069182: maximum among unicyclic graphs of fixed girth, without prescribed unit-weight path-plus-one-positive-chord conductance threshold; full text unavailable."
+      ],
+      "reasoning": "Compared the implication of stronger unrestricted graph augmentation and fixed-girth unicyclic maximization. An unrestricted unicyclic extremal graph cannot directly establish the threshold for a fixed base path and tunable single edge because its feasible set and conductance parameter differ. The 2006 general optimization framework includes this as a particular problem but supplies approximations and generic inequalities, not an exact solution. Original 2003 full text was not readable and its lemmas could conceivably cover an unweighted special case.",
+      "searches": [
+        "\"path spectral graph algebraic connectivity adding chord pair vertices optimal edge one graph\"",
+        "\"maximizing algebraic connectivity over unicyclic graphs Fallat Kirkland Pati 2003 equality and optimizers\"",
+        "\"Ghosh Boyd Growing Well Connected Graphs 2006 add single edge path exact maximum lambda2\"",
+        "\"maximizing algebraic connectivity over unicyclic graphs Fallat Kirkland Pati 2003 equality and optimizers\""
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf: full primary PDF",
+      "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957: full primary PDF",
+      "https://www.tandfonline.com/doi/abs/10.1080/0308108031000069182: primary publisher abstract; full text inaccessible",
+      "Literature and indexed scientific-record searches for weighted paths, algebraic connectivity, rank-one perturbations, chord placement, and stronger unicyclic coverage; no covering statement identified in accessible sources."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd 2006, PDF §§I–V, https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf: general SDP/Fiedler heuristic, rank-one secular comparison; no fixed-path saturation equality.",
+        "Shiu–Guo–Li 2011, PDF abstract, §1, Theorem 2.17, https://journals.uwyo.edu/index.php/ela/article/download/957/957/957: minimum caterpillar-unicyclic connectivity, not weighted one-shortcut maximum.",
+        "Fallat–Kirkland–Pati 2003 publisher abstract, https://www.tandfonline.com/doi/abs/10.1080/0308108031000069182: maximum among unicyclic graphs of fixed girth, without prescribed unit-weight path-plus-one-positive-chord conductance threshold; full text unavailable.",
+        "Source Ghosh–Boyd Eq. (10) gives a path-independent local upper bound via the initial Fiedler vector; the present theorem identifies all links whose final Fiedler value reaches the path’s third eigenvalue, including the exact w-dependent transition."
+      ],
+      "reasoning": "Ghosh–Boyd provides the rank-one mechanism but not its complete equality family, and the fixed-girth extrema of Fallat–Kirkland–Pati concern a different admissible graph class, potentially more general on graph structure but not an all-positive-w statement on a prescribed path. Shiu–Guo–Li explicitly minimizes rather than maximizes a different subclass. The closest historical coherence-shortcut result optimizes trace(L+), which neither implies nor is implied by a spectral-gap optimum. No covered corollary was accepted as original.",
+      "searches": [
+        "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf (especially §III.B secular equation and link-addition bounds)",
+        "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957 (especially introduction and Theorem 2.17)",
+        "https://www.tandfonline.com/doi/abs/10.1080/0308108031000069182",
+        "\"single edge budget augmentation path chain spectral gap rank one interlacing Fiedler degeneracy\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd 2006, PDF §§I–V, https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf: general SDP/Fiedler heuristic, rank-one secular comparison; no fixed-path saturation equality.",
+        "Rank-one secular and Fiedler-vector discussion in Ghosh–Boyd 2006, §III.B, equations (8)–(12), treats generic single-edge updates and spectral bounds; no classification of equality across every path size, endpoint and link weight was stated."
+      ],
+      "reasoning": "Translated between algebraic connectivity, second Laplacian eigenvalue, Fiedler value, one-edge spectral-gap augmentation, and saturating the interlacing/third-eigenvalue ceiling. The generic secular equation is not itself the explicit endpoint-and-conductance equality law; the latter follows here from a parity-specific inverse calculation. Non-detection does not prove novelty.",
+      "searches": [
+        "\"exact optimal edge augmentation maximizing algebraic connectivity path graphs by adding a single chord placement\"",
+        "\"Sharp shortcut conductance threshold allowing a weighted path Laplacian P_n plus one chord to attain third eigenvalue 2-2cos(2pi/n)\"",
+        "\"Rank one spectral gap saturation path Fiedler Schur complement sinusoidal resolvent weighted chord thresholds\"",
+        "\"weighted path adding shortcut spectral gap Laplacian saturation third eigenvalue center symmetric chord\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A separately considered weighted-path one-shortcut effective-resistance optimization concerns the trace of a Laplacian pseudoinverse, not its second eigenvalue, so it does not imply the stated gap saturation.",
+        "Other relevant network-design work reweights all cycle edges under a global budget or varies alternating prices on a fixed cycle; neither gives the single new link conductance threshold on a fixed unit path.",
+        "Adjacent graph-spectral papers concerning odd-cycle fourth-power energies optimize different, non-Laplacian functionals. No covering table of single-link path spectral-cap thresholds was identified."
+      ],
+      "reasoning": "The actual indexed and private-record searches found nearby but mathematically noncovering objectives and feasible sets. An exact table of optimal single weighted path-shortcut placements for every n and w was not found in accessible material; this is a limited search conclusion, not a uniqueness guarantee.",
+      "searches": [
+        "\"Optimal link placement on an n-vertex path for maximal algebraic connectivity all maximizing chords at symmetric indices 0 through floor(n/4)-1\"",
+        "\"one extra edge added to path P_n max algebraic connectivity equal cycle C_n many optimal symmetric centered chords floor n over 4\""
+      ]
+    },
+    "rationale": "The candidate is the all-order all-positive-conductance necessary-and-sufficient attainment of the rank-one spectral ceiling after adding one nonexisting link to an otherwise unit-weight path, not the known interlacing inequality or general link-augmentation problem. Inspected primary papers provide no exact weighted saturation characterization. The closest 2003 fixed-girth unicyclic optimization full text remains inaccessible, creating a residual possibility of undocumented implication; reviewed accessible statements do not imply the result.",
+    "residual_risks": [
+      "The potentially close 2003 unicyclic maximization original full text could not be accessed; stronger hidden lemmas might imply an unweighted subcase.",
+      "Equivalent or stronger exact path-shortcut statements may exist in less-indexed spectral graph or network control literature; searches do not constitute proof of uniqueness.",
+      "The attached numerical checks have floating-point tolerances and finite domain; correctness of the universal statement relies on the complete mathematical proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic augmented-graph spectral-gap methods and heuristic; no path-specific w-dependent spectral-ceiling equality characterization found",
+        "evidence": "Paper pp. 6605–6611, esp. p. 6608 Eq. (10)–(12), https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+        "material_read": "7-page lawful full-text PDF: statement, §§I–V including §III.B Eq. (8)–(12), examples and extensions; pages 1, 3–6 inspected in parsed and rendered forms",
+        "method": "Full-text primary PDF reading, section and equation comparison",
+        "title": "Growing Well-connected Graphs",
+        "trigger": "Direct generic link-addition algebraic-connectivity framework, Fiedler heuristic and exact single-edge secular bounds"
+      },
+      {
+        "assessment": "Classifies minimum algebraic connectivity in a caterpillar-unicyclic class; does not treat rank-one upper bound saturation with a tunable link",
+        "evidence": "Abstract, §1, Theorem 2.17, https://journals.uwyo.edu/index.php/ela/article/download/957/957/957",
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/957/957/957",
+        "material_read": "11-page full primary PDF, abstract, introduction, definitions, main Theorem 2.17 and proof regions, references",
+        "method": "Lawful open journal full-text reading",
+        "title": "The Minimum Algebraic Connectivity of Caterpillar Unicyclic Graphs",
+        "trigger": "Overlapping unicyclic graphs, cited 2003 maximum results, Laplacian interlacing"
+      },
+      {
+        "assessment": "Original known scope: maximum algebraic connectivity with fixed girth among unrestricted unicyclic graphs. Does not state the exact present varying-link-weight classification in the material read; full implication comparison remains open.",
+        "evidence": "2003 print article DOI 10.1080/0308108031000069182, abstract URL; secondary 2011 paper introduction pp. 839–840.",
+        "identifier_or_url": "https://www.tandfonline.com/doi/abs/10.1080/0308108031000069182",
+        "material_read": "Publisher abstract and the 2011 journal paper’s detailed account; original complete text was not accessible from the attempted lawful sources.",
+        "method": "Publisher abstract and secondary scientific full-text comparison; original full text not obtained.",
+        "title": "Maximizing Algebraic Connectivity Over Unicyclic Graphs",
+        "trigger": "Highly related maximization in potentially overlapping class of unicyclic graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "189d7048-25c3-479e-9e31-72e541db774a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mathematically natural control resource problem asks how weak a single extra conductance can be while still achieving the highest spectral gap allowed by any rank-one Laplacian perturbation. The proof obtains a nontrivial complete family of feasible saturating links, a sharp exact minimum-cost threshold, an exact count of all unit-cost optimal links, and the asymptotic \\(2\\pi/n\\) threshold. These are motivated structural answers beyond a textbook interlacing inequality or arbitrary finite example; the unsolved below-threshold regime is correctly excluded.",
+    "status": "PASS"
+  }
+}
