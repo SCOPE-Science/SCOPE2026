@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The single boundary kernel has unnormalized disk integral exactly 4. The pointwise triangle deficit for positive charges is nonnegative. Scaling \\(z=\\cos\\delta+(\\sin\\delta)w\\) maps poles to \\(\\pm i\\) and factors the total deficit into \\(|\\sin\\delta|\\) times the same fixed integrand on a domain tending almost everywhere to the left half-plane. Near either pole the deficit is bounded by twice the other kernel, hence locally bounded; at infinity rationalization plus the \\(O(|w|^{-1})\\) relative phase gives \\(O(|w|^{-3})\\), integrable in two dimensions. Dominated convergence proves the two-sided cusp; a positive-area set with non-aligned nonzero summands proves positivity. Confocal elliptic coordinates correctly have Jacobian \\((\\cosh u-\\cos v)(\\cosh u+\\cos v)\\), yielding the positive integrand. Equal weights give the central-binomial identity by Tonelli and two explicit beta integrals, with summands \\(O(m^{-5/2})\\). Independent evaluation: 200,000-term series \\(2.87108003758\\), independent confocal midpoint integral \\(2.87105782\\) (quadrature approximation only).",
+      "risk": "Weights must remain fixed and positive; full \\(L^1\\) limit rests on global dominator, not quadrature. No exact finite-angle or multiple-collision law is proved.",
+      "sources": [
+        "Assigned RESULT.md at Git blob 1af0697be279a95aee50b30e439b7b22e020bf9b",
+        "assigned check_collision.py",
+        "Doubtsov--Tselishchev--Vasilyev arXiv:2603.05233v2",
+        "Doubtsov--Vasilyev--Voinov arXiv:2609.35123v1",
+        "Bezrukov arXiv:2609.03134v1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of the weighted Coulomb paper controls infimum up to dimensional constants, not a given two-pole first-order loss.",
+          "The generalized Chui theorem identifies globally optimal equispaced poles, but a minimizer does not determine the derivative near coincident poles.",
+          "Proposition 1.4 of the weighted Chui paper treats the \\(1/(z-a)-1/(z-b)\\) signed difference rather than the triangle deficit of positive sums."
+        ],
+        "reasoning": "General global lower bounds and equispaced optimization are not dominating parameters for the local collision derivative; none of the full primary results contains this coefficient.",
+        "searches": [
+          "Doubtsov--Vasilyev--Voinov arXiv:2609.35123v1 Theorem 1.1 and Sections 2--3",
+          "Doubtsov--Tselishchev--Vasilyev arXiv:2603.05233v2 Theorems 1.1--1.3, Proposition 1.4",
+          "Bezrukov arXiv:2609.03134v1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.35123v1",
+        "arXiv:2603.05233v2",
+        "arXiv:2609.03134v1",
+        "Assigned RESULT.md and scientific check_collision.py",
+        "Resultary semantic query attempted but temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angle monotonicity away from collision does not determine linear versus quadratic or logarithmic coalescence or its exact coefficient.",
+          "The signed-difference nearby-pole estimate does not control the positive-charge triangle deficit asymptotically with an exact constant."
+        ],
+        "reasoning": "The normal-variation limit and its half-plane integral are additional to the published global or qualitative results.",
+        "searches": [
+          "Nazarov two-charge monotonicity discussion, MathOverflow 451203 (source reference; full answer not reread this round)",
+          "arXiv:2603.05233v2 Proposition 1.4",
+          "arXiv:2609.03134v1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjugation converts the analytic Cauchy field to real planar Coulomb magnitude; angle and chord separation differ by a factor two at first order.",
+          "The inspected primary titles address the same charge geometry but global configurations, not the coefficient for poles converging together."
+        ],
+        "reasoning": "Equivalent positive two-kernel first variations, signed-angle cusps and chordal-distance slopes were compared; no inspected primary theorem gives the local half-plane constant.",
+        "searches": [
+          "Fresh semantic query: two charge Coulomb boundary collision positive weights asymptotic L1 norm cusp linear coefficient Chui conjecture (Resultary temporary error)",
+          "arXiv:2603.05233v2, arXiv:2609.35123v1, arXiv:2609.03134v1",
+          "Targeted web search: two charges Coulomb field collision cusp L1 unit disk coefficient half plane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked primary sources give orders, inequalities and extremizers but no coefficient table or central-binomial series for two colliding positive charges."
+        ],
+        "reasoning": "This is an analytic limit, not a known finite table. A numerical match would be supporting evidence only, not a proof of priority.",
+        "searches": [
+          "arXiv:2603.05233v2 full-text Section 1 and Proposition 1.4",
+          "arXiv:2609.03134v1 full-text first theorem",
+          "Targeted search for a two-pole Coulomb coefficient near 2.87108004"
+        ]
+      },
+      "rationale": "Full primary papers on the same positive weighted Coulomb/Cauchy fields provide configuration-uniform lower bounds and global minimization, not the precise derivative at colliding positive boundary charges. The nearby-pole estimate in the weighted Chui paper bounds a *signed difference* of kernels by an upper order \\(\\delta+\\delta\\log(1/\\delta)\\), a different observable. Bezrukov gives a global equispaced minimum for equal-pole families and generalized functionals but no first-order coalescence coefficient. The local universal half-plane blow-up and the central-binomial series are additional exact data. Residual unindexed two-charge analyses and incomplete published-archive search are acknowledged.",
+      "residual_risks": [
+        "Unindexed older two-charge or simplest-fraction literature may contain an equivalent linear cusp or central-binomial constant.",
+        "Fresh Resultary service reported temporary unavailability, so the exact scientific-index comparison was not completed; no no-hit inference is claimed.",
+        "Nazarov MathOverflow 2023 and a 2020 Bergman-space paper were not read in full this turn and are not marked whole-document NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_CONFIGURATION_BOUNDS_NOT_COALESCENCE",
+          "evidence": "Theorem 1.1 bounds over configurations up to constants depending on dimension and gives no fixed-two-charge expansion.",
+          "identifier_or_url": "arXiv:2609.35123v1 / https://arxiv.org/pdf/2609.35123",
+          "material_read": "Entire twelve-page PDF was accessible; read abstract, Theorem 1.1, lower/upper construction summary and relevant Sections 2 and 3; visually inspected theorem page 2.",
+          "method": "Lawful open arXiv PDF text and screenshot.",
+          "title": "Sharp weighted L1 bounds for Coulomb fields on the sphere",
+          "trigger": "Closest same-object, positive-weight, unnormalized spatial integral."
+        },
+        {
+          "assessment": "SIGNED_DIFFERENCE_SPECIAL_ESTIMATE_ONLY",
+          "evidence": "The lower bound concerns positive charges but Proposition 1.4 is an upper bound for the signed difference of two Cauchy kernels, not the exact positive-sum collision coefficient.",
+          "identifier_or_url": "arXiv:2603.05233v2 / https://arxiv.org/pdf/2603.05233",
+          "material_read": "Opened complete twelve-page primary PDF; read full introduction, Theorems 1.1--1.3, Proposition 1.4 and proof context, with visual inspection of page 3.",
+          "method": "Lawful open arXiv PDF, text and screenshot.",
+          "title": "Weighted Chui's conjecture",
+          "trigger": "Same two-dimensional positive Coulomb/Cauchy field and a nearby-pole estimate."
+        },
+        {
+          "assessment": "GLOBAL_MINIMIZER_NO_COLLISION_COEFFICIENT",
+          "evidence": "Theorem 1 states equispaced global minimization for generalized weighted integral objectives, without a coalescence derivative or positive-charge weighted half-plane integral.",
+          "identifier_or_url": "arXiv:2609.03134v1 / https://arxiv.org/pdf/2609.03134",
+          "material_read": "Accessible eight-page full PDF; examined its general convex-functional Theorem 1 and proof formulation, with theorem page visually inspected; searched document for collision and derivative statements.",
+          "method": "Lawful open arXiv PDF, text and screenshot.",
+          "title": "Proof of the generalized Chui conjecture",
+          "trigger": "Global minimization for the same Cauchy-kernel sums might imply a stronger local statement."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp positive-charge boundary collision law fills a naturally motivated local degeneration gap left by global Coulomb configuration optimization. The exact weight-dependent half-plane coefficient and equal-charge convergent series give independently reusable mathematical data, not an arbitrary finite table.",
+      "risk": "The general unequal-weight coefficient remains an integral; no multi-charge analogue or finite-separation value is given.",
+      "sources": [
+        "arXiv:2603.05233v2",
+        "arXiv:2609.35123v1",
+        "arXiv:2609.03134v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed positive \\(\\alpha,\\beta\\), two charges at \\(e^{\\pm i\\delta}\\) in the unit circle have \\(L^1\\) Coulomb energy \\(I_{\\alpha,\\beta}(\\delta)=4(\\alpha+\\beta)-\\mathcal C(\\alpha,\\beta)|\\sin\\delta|+o(|\\sin\\delta|)\\), with a strictly positive integrable half-plane deficit and, for \\(\\alpha=\\beta=1\\), \\(\\mathcal C=\\pi^2\\sum_{m\\ge1}b_m^2b_{m-1}/(2m-1)\\), \\(b_m=\\binom{2m}{m}/4^m\\).",
+  "limitations": [
+    "Two fixed strictly positive real charges on the unit circle approaching collision only.",
+    "Unnormalized Lebesgue area; normalized area divides coefficients by pi.",
+    "Local asymptotic and exact equal-weight series; no finite-angle equality or multi-pole extension."
+  ],
+  "schema_version": 1
+}
