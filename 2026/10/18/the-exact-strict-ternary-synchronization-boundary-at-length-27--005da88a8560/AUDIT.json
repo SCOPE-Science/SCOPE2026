@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive restricted-growth recursion with a proved one-step completeness invariant enumerates every strict ternary 7/8 word at all lengths through 28. Exact integer LCS tests use 16*LCS<7*(combined length). Independent square-free-first enumeration checks 5162 and 6740 candidate words at lengths 27/28 using different LCS DP, matching exactly two/zero with initial symbol zero. All 3276 triples of the canonical extremizer were compared as exact fractions and give maximum gap 3/23 with precisely two witnesses. Prefix inheritance proves all lengths above 28 impossible. No finite sampling is extrapolated to an infinite statement without this lemma.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu et al. 2026 Theorem 1.2 establishes all-length ternary existence at epsilon=2001/2002 and stronger existence for epsilon>215/216; Section 7 explicitly calls optimal ternary gap open. https://arxiv.org/html/2609.04122v2",
+        "Cheng et al. 2018 Sections 1.3 and 6 address all-length alphabet constructions and binary obstruction, not finite optimization at strict epsilon=7/8. https://arxiv.org/html/1803.03530v1"
+      ],
+      "reasoning": "An all-length existence theorem at gap 1/216 is strictly weaker in gap than 1/8 and cannot imply existence or nonexistence at 1/8 for lengths 27 and 28. Alphabet bounds do not determine exact finite extremizers. Neither inspected general theorem dominates the new sharp finite statement.",
+      "searches": [
+        "Synchronization Strings over the Optimal Alphabet ternary optimal synchronization parameter",
+        "2026 ternary synchronization strings square-free word cyclic synchronization subsequence longest common subsequence",
+        "Synchronization Strings: Efficient and Fast Deterministic Constructions over Small Alphabets"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.04122v2",
+      "https://arxiv.org/html/1803.03530v1",
+      "https://msp.org/involve/2016/9-4/involve-v9-n4-p07-s.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Camungol--Rampersad measures two adjacent factors of equal length by their LCS similarity and gives infinite-word feasibility bounds. https://msp.org/involve/2016/9-4/involve-v9-n4-p07-s.pdf",
+        "2026 Xu et al. use arbitrary adjacent lengths but prove existence at much smaller gap, with no n=27 finite optimality theorem. https://arxiv.org/html/2609.04122v2"
+      ],
+      "reasoning": "Neither equal-length factors alone nor a weaker all-length gap implies a sharp all-adjacent finite barrier, uniqueness orbit, or the stronger exact n=27 max gap. The 2016 lower feasibility bound for infinite words does not certify the first finite failure length.",
+      "searches": [
+        "ternary synchronization strings exact maximum length at epsilon 7/8 gap 1/8 twenty seven",
+        "finite ternary epsilon synchronization string 7/8 no length 28 and length 27",
+        "Avoiding approximate repetitions with respect to longest common subsequence distance ternary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu et al. 2026 Definition 1.1 defines the strict adjacent-factor insertion/deletion property; ED=combined length minus twice LCS. https://arxiv.org/html/2609.04122v2",
+        "Cheng et al. 2018 introduce a non-strict variant with ED at least a specified fraction, hence boundary equality cannot be silently identified. https://arxiv.org/html/1803.03530v1"
+      ],
+      "reasoning": "The claimed predicate is exactly the strict epsilon=7/8 finite synchronization condition, or equivalently every adjacent pair has LCS below 7/16 of its total length. The 2018 non-strict convention changes equality cases, and a statement for equal-length halves alone would not cover unequal halves. Searches returned no equivalent n=27 classification.",
+      "searches": [
+        "ternary synchronization strings longest length epsilon 7/8 27",
+        "ternary adjacent interval insertion deletion distance normalized one eighth maximum 27 unique extremizers",
+        "finite-length optimal epsilon synchronization strings ternary LCS adjacent intervals max gap minimum normalized edit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Camungol--Rampersad 2016 Section 4 Table 1 reports approximate similarity bounds for infinite words (e.g. ternary lower bound 0.888), not a complete exact finite strict-synchronization table. https://msp.org/involve/2016/9-4/involve-v9-n4-p07-s.pdf",
+        "Xu et al. 2026 Appendix E tabulates a particular 54-uniform construction codebook to prove a very small all-length gap, not exhaustive unrestricted ternary words of length 27. https://arxiv.org/html/2609.04122v2"
+      ],
+      "reasoning": "The inspected tables concern a distinct equal-length similarity criterion and a restricted constructive codebook, respectively; neither contains the unrestricted 27/28 exact census or maximum normalized gap. Any inaccessible/unindexed exact table remains a risk.",
+      "searches": [
+        "ternary synchronization strings exact small blocklength strict edit distance 1/8",
+        "ternary synchronization string longest length epsilon 7/8 27",
+        "Camungol Rampersad avoiding approximate repetitions LCS similarity table"
+      ]
+    },
+    "rationale": "The exact strict 1/8 ternary length barrier at 27, the six-word orbit, and the maximum gap 3/23 are not implied by the inspected existence/asymptotic constructions or equal-length LCS approximate-square results. Comparisons include alternative formulations, stronger coverage, available tabulations and direct implication tests. This is novelty within inspected evidence, not a claim of literature-wide uniqueness.",
+    "residual_risks": [
+      "An earlier finite exact enumeration may be unindexed or phrased as a bounded LCS approximate-repetition statistic.",
+      "Only the relevant sections and tables of some older literature were inspected; global originality remains subject to later independent bibliographic review.",
+      "Strict and non-strict definitions have different boundary cases; this claim explicitly uses the strict convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING finite all-word strict 1/8 length threshold; construction-specific finite shell tables have smaller gap.",
+        "evidence": [
+          "Definition 1.1 strict ED threshold; Section 7 explicitly states optimal ternary synchronization gap is open; Appendix E verifies finite 54-uniform-codebook parameter bounds, not exhaustive words of length 27."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.04122v2",
+        "material_read": "Abstract, introduction and Definitions 1.1, Section 1.3 and Section 7, and substantive Appendices D and E portions defining finite verifications.",
+        "method": "ArXiv HTML primary full text inspected by section and in-page exact searches.",
+        "title": "Synchronization Strings over the Optimal Alphabet",
+        "trigger": "Direct match to ternary synchronization definition, new existence theorem and open parameter gap"
+      },
+      {
+        "assessment": "NOT_COVERING the exact ternary strict-1/8 finite threshold within inspected material.",
+        "evidence": [
+          "Section 1.3 describes four-letter existence, binary obstruction, and general alphabet bounds; Section 1.1 uses ED at least a threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.03530v1",
+        "material_read": "Abstract, introduction Sections 1.1--1.3, section list including small-alphabet constructions; relevant theorem statements.",
+        "method": "Primary ArXiv HTML read by sections, with adjacent comparison to the stated strict definition.",
+        "title": "Synchronization Strings: Efficient and Fast Deterministic Constructions over Small Alphabets",
+        "trigger": "General predecessor on synchronization string alphabet bounds and weak/strict definition comparison"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant sections; a complete uninspected alternative table remains a residual risk.",
+        "evidence": [
+          "Section 4 presents infinite-word similarity bounds for equal-length adjacent factors, not the all-adjacent strict n=27 classification."
+        ],
+        "identifier_or_url": "https://msp.org/involve/2016/9-4/involve-v9-n4-p07-s.pdf",
+        "material_read": "PDF first/title page, introductory equal-length definition and Section 4 computational methodology and Table 1, including page 664. Other pages not represented as fully inspected.",
+        "method": "Original OA PDF page images and text from selected relevant pages.",
+        "title": "Avoiding approximate repetitions with respect to the longest common subsequence distance",
+        "trigger": "Earlier equal-length LCS analog and possibility of numerical finite data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "005da88a-8560-4410-bdbc-f310c0e107f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 ternary existence breakthrough explicitly leaves quantitative gap optimization open. A complete exact threshold at the strong gap 1/8, the last feasible length 27, the exact maximal 27-letter gap 3/23, and a unique symmetry orbit give a motivated nontrivial finite feasibility cutoff and benchmark, rather than a random table entry. This supplies finite-scale obstruction information independently meaningful even without proving an all-length optimum.",
+    "status": "PASS"
+  }
+}
