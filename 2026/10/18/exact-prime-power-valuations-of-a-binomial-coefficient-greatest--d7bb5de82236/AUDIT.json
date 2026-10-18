@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Complete proof: Newton finite-difference interpolation excludes unsupported primes. In the b≥a branch, the explicitly inspected published Lemma 9 gives valuation zero. For b<a, Kummer residue comparisons supply a−min(a,t) low carries plus max(0,t−b) disjoint high carries for every multiplier. The special q=1+p^a(m−p^b), or q=2 when m=1, produces exactly a−b carries and is in range. No finite experiment replaces the proof. The standalone verifier recomputes exhaustive small cases and the construction on a wider range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo et al., arXiv:2606.22997v1, Theorem 1 and Lemma 9 (full HTML, §§1–2.6)",
+        "Wu, arXiv:2606.20940 (abstract, object comparison)",
+        "Published mathematical-results-index record Exact small-prime valuations in the proposed deficiency-one construction, identifier suffix b1c9c7629241"
+      ],
+      "reasoning": "Published lemma 9 covers p-support for precisely this family, not powers. Wu varies both binomial entries, so it does not imply the fixed-lower-entry formula. The nearest database hits concern different congruences and indices.",
+      "searches": [
+        "sharp p-adic exponent of common divisor of all binomial q(n-1) choose n-1 indexed q from 2 to n",
+        "for prime power n=p^a and 2≤q≤n, exactly v_p binomial(q(n-1),n-1)=a, first q=n+1 binomial not divisible by p sharp cutoff",
+        "prime-power row multiplicative binomial coefficient gcd_{2≤q≤p^a} choose q(p^a-1),p^a-1 equals p^a all terms have exact valuation",
+        "universal constant prime-power valuations Kummer borrowing binomial q(p^r-1) p^r-1",
+        "\"gcd\" \"C(2k,k)\" \"C(3k,k)\" formula"
+      ]
+    },
+    "checked_sources": [
+      "Guo et al. arXiv:2606.22997v1 full HTML",
+      "OEIS A080170 complete entry",
+      "Wu arXiv:2606.20940 abstract",
+      "Published-result index, six precise exponent/gcd searches",
+      "Accessible current-week ledger finding-claim comparison, including b3575d1b-98d4-4cbd-a66d-9d22f5a7cb4e",
+      "Web exact-formula/alias searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al., arXiv:2606.22997v1, Theorem 1 and Lemma 9 (full HTML, §§1–2.6)",
+        "Accessible current-week ledger finding b3575d1b-98d4-4cbd-a66d-9d22f5a7cb4e",
+        "Wu, arXiv:2606.20940 (abstract, object comparison)"
+      ],
+      "reasoning": "Guo et al. establish \\(p\\mid D(n-1)\\) iff \\(m\\le p^a\\); this determines only whether \\(\nu_p\\ge1\\), not the exact value \\(\\max(0,a-b)\\). The accessible ledger item b3575... studies \\(\\gcd_{1\\le d<q}\binom{mq}{md}\\), not \\(\\gcd_{2\\le q\\le n}\binom{q(n-1)}{n-1}\\). Those results cannot determine the present gcd.",
+      "searches": [
+        "exact p-adic valuation gcd binomial coefficients binom(q k,k) for q=2,...,k+1 explicit prime power component k+1 logarithm floor",
+        "OEIS A080170 full exact gcd values beyond criterion D(k) prime powers p-adic valuation generalized gcd qk choose k",
+        "sharp p-adic exponent of common divisor of all binomial q(n-1) choose n-1 indexed q from 2 to n",
+        "\"gcd\" \"binom{qk}{k}\" \"power\" \"exact\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo et al., arXiv:2606.22997v1, Theorem 1 and Lemma 9 (full HTML, §§1–2.6)",
+        "OEIS A080170 (entry, comments and reference links)",
+        "Published mathematical-results-index record Prime-power towers for the prime-base binomial congruence, identifier suffix a71ec1d0fa28"
+      ],
+      "reasoning": "Searched gcd-exponent identities, A080170 valuation laws and equivalent p-primary formulations. The primary result is an if-and-only-if of zero valuation and does not determine positive exponents. No exact local exponent law surfaced.",
+      "searches": [
+        "exact p-adic valuation gcd binomial coefficients binom(q k,k) for q=2,...,k+1 explicit prime power component k+1 logarithm floor",
+        "OEIS A080170 full exact gcd values beyond criterion D(k) prime powers p-adic valuation generalized gcd qk choose k",
+        "sharp p-adic exponent of common divisor of all binomial q(n-1) choose n-1 indexed q from 2 to n",
+        "\"A080170\" \"gcd\" \"p-adic\" binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 (entry, comments and reference links)",
+        "Guo et al., arXiv:2606.22997v1, Theorem 1 and Lemma 9 (full HTML, §§1–2.6)"
+      ],
+      "reasoning": "OEIS A080170 enumerates indices where the gcd is one, not its complete values. Prime-power expressions such as gcd value 9 at n=18 are not recoverable from a zero-indicator table.",
+      "searches": [
+        "OEIS A080170 full exact gcd values beyond criterion D(k) prime powers p-adic valuation generalized gcd qk choose k",
+        "\"A080170\" \"gcd\" \"p-adic\" binomial"
+      ]
+    },
+    "rationale": "The nearest full primary source proves only zero/nonzero p-adic valuations, whereas the current theorem specifies every exact exponent and provides explicit witnesses. The carry-layer lower bound and matching multiplier prove a strictly stronger property not logically implied by the cited zero test. The OEIS is a zero-set table. Indexed literature results cover different binomial families or other congruences; current-week local ledger has a distinct gcd object. Earlier unindexed exact evaluations remain a residual risk.",
+    "residual_risks": [
+      "Older unindexed formula or implicit use of Kummer may cover part or all of the exact valuations.",
+      "Wu full paper unavailable in the attempted route; object differs by indexed variables.",
+      "Prior weeks not fully accessible, so only recoverable current-week history was compared.",
+      "Independent human mathematical and bibliographic audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes prime-support/zero criterion; no exact positive p-power multiplicities; the zero branch is used explicitly as an input",
+        "evidence": [
+          "Theorem 1 states D=1 criterion",
+          "Lemma 9 p divides iff m≤p^a",
+          "Lemma 4 p-support via interpolation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+        "material_read": "Abstract, Introduction, Theorem 1, Lemma 4, §2.3 digit boxes, §2.4 zero-run, §2.5 Lemma 9, §2.6 and concluding formalized theorem statement",
+        "method": "Full accessible primary HTML read with search and section examination",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Exactly the same gcd object and its 2026 solution"
+      },
+      {
+        "assessment": "Lists only zero-gcd indices; no full value formula",
+        "evidence": [
+          "Description: Numbers k for which gcd=1",
+          "Comments link to Guo et al. zero criterion"
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Description, entries, comments, links, references and computation snippets",
+        "method": "Viewed entire accessible entry",
+        "title": "A080170",
+        "trigger": "Original exact-object database"
+      },
+      {
+        "assessment": "Different family \\(\binom{mn}{mk}\\) with variable lower entry. Full-text overlap could not be conclusively excluded, although the abstract describes distinct parameters.",
+        "evidence": [
+          "arXiv abstract covers \\(\\gcd_{1≤k<n}\binom{mn}{mk}\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+        "material_read": "Full accessible abstract; primary full text retrieval failed",
+        "method": "Read arXiv abstract/search metadata, compared index patterns",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Plausible title and overlapping generic gcd/binomial terms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7bb5de8-2236-4a7a-8694-284b9e29e4d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "D(k) is the natural finite-binomial gcd underlying a 2004 OEIS conjecture resolved in 2026 only as a unit criterion. Determining its full value at every k is a complete natural arithmetic classification, not an arbitrary subcase. The exact p-power heights and minimizing multipliers sharpen the previous local divisibility test and yield D(n−1)=n precisely at prime powers. The same formula answers which exact prime powers survive for every input.",
+    "status": "PASS"
+  }
+}
