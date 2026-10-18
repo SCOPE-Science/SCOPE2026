@@ -1,15 +1,21 @@
-# Scientific review: the Lucas-cobalancing square-window GCD
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive window length, the proof identifies the exact moving-window sum and computes the GCD of all adjacent differences by Pell strong divisibility. The resulting two-integer GCD has all odd-prime valuations determined by reduction modulo powers of each prime. The prime-three exception is proved from the index parity, and a separate duplication/congruence argument settles all powers of two, including arbitrarily large even window lengths. The proof therefore covers every index without relying on finite enumeration. Exact-arithmetic finite checking independently corroborated the formulas through window length 320.
+## correctness
 
-## Originality — PASS relative to checked sources
-The closest source, Mbirika--Schrader--Spilker, arXiv:2301.05758, Section 6.1, Question 30, explicitly lists the Lucas-cobalancing square-window problem as open and reports only computational evidence for a factor-three anomaly. Its Partial Result 29 gives the Pell and associated Pell square-window formulas, which do not supply the odd-index associated-Pell subsequence's GCD. Mbirika--Spilker, arXiv:2204.12626, proves results for recurrence coefficient one, not for Lucas-cobalancing. Prior work identifying squared Lucas-balancing windows does not itself imply the asserted formula for squared Lucas-cobalancing windows without a proved cross-sequence relation. Searches of semantic research records and published literature did not identify an equivalent or dominating theorem. Unindexed equivalents remain possible.
+PASS
 
-## Value — PASS
-This determines a natural, previously posed exact invariant for the entire Lucas-cobalancing family and proves the observed isolated prime-three defect. The determination applies to infinitely many window lengths and turns the published numerical observation into a theorem, with a direct valuation mechanism. It does not solve the separate problem of simplifying the index GCD \(\gcd(B_k,k)\) or the other sequence families of Question 30.
+The proof is an infinite arithmetic reduction, not enumeration: Pell-associated-Pell identities give 2 S_n=B_k Q_{4n+2k}-k and S_{n+1}-S_n=4 B_k P_{4n+2k+2}. Strong divisibility of Pell P yields gcd_n P_{4n+2k+2}=2 for even k and 12 for odd k. Consequently H(k)=gcd((B_k Q_{2k}-k)/2,8B_k) or gcd((B_k Q_{2k}-k)/2,48B_k). For odd primes other than 3, valuations agree with gcd(B_k,k); for odd multiples of 3, B_k is a 3-unit and Q_{2k} divisible by 3 so exactly one extra 3 occurs. The two-adic duplication and unit mod4 arguments give v2(H)=v2(gcd(B_k,k)) for all k. Independent integer generation of 35 windows for k=1..24 reproduced the proposed gcd, but finite windows are corroboration only. No extra assumptions on k or n.
 
-## Limits and evidence
-Evidence consists of the unrestricted proof in `RESULT.md` and reproducible integer checks in `verify.py` with the recorded results in `verification_output.txt`. Checked primary papers are identified in the references of `RESULT.md`. Novelty remains conditional on available indexed literature; independent mathematical review has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original published 2023 Article 23.6.4 explicitly lists the squared Lucas-cobalancing window problem as Question 30 with numerical 3x anomaly at odd multiples of 3; its Partial Result 29 treats squared Pell/associated Pell, and Question 31 leaves gcd(B_k,k) structural study separately open. These facts are not a theorem of the submitted expression and require the nontrivial odd-index associated-Pell reduction and exceptional valuations. Resultary searches returned other Lucas/Pell arithmetic without this statement. No covering theorem found among material read; unindexed related solutions are possible.
+
+## value
+
+PASS
+
+An explicit named open problem for a standard recurrence family receives a uniform, all-k exact gcd and proof of the exceptional factor. The invariant and exceptional congruence class were independently motivated by the source; it is not a small-index recomputation. The remaining gcd(B_k,k) factor is correctly outside claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
