@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Skew-symmetry and the transposed Leibniz identity force the unique generating derivation \(D(y)=[1,y]\). In odd characteristic, the relation \(D(t^4)=0\) forces \(D(t)\in tA\). The full ring automorphism group and its explicitly computed conjugation action yield exhaustive invariants, normal forms, orbit sizes and stabilizers. The included checker verifies every conjugation for finite prime fields of orders \(3,5,7\) and bracket identities as stated; the proof handles all odd prime powers. Risk: finite samples alone do not establish the infinite-field assertion, hence the algebraic orbit calculation is essential.
+
+**Originality — PASS within investigated coverage.** The derivation construction and unital derivation correspondence are established prior work. The 2023 three-dimensional and 2026 four-dimensional **complex** classifications do not entail the precise finite-field square/nonsquare separation, \(2q+2\) orbit count, individual orbit sizes and stabilizers. Searches for finite-field four-jet classifications did not identify a covering primary theorem; this absence is not treated as uniqueness proof. Risk: equivalent results may occur under the older terminology of jet vector fields or formal derivation normal forms.
+
+**Value — PASS.** The algebra is the natural length-four local jet algebra; the fixed-product moduli problem is intrinsic to classifying compatible brackets rather than an arbitrary computational slice. Explicit \(q\)-uniform orbit masses and automorphism groups supply finite-field information absent from the complex classification, with an interpretable arithmetic square-class split. The appearance of two nonzero cubic-leading forms records a concrete arithmetic distinction missed by algebraically closed-field normal forms. Risk: no downstream representation-theoretic application is claimed.
+
+**Closest literature and limits.** Bai–Bai–Guo–Wu (2020) supplies the derivation construction; Beites–Fernández Ouaridi–Kaygorodov (2023) treats dimension three over \(\mathbb C\); Zhang–Hao–Sun–Chen (2026) treats dimension four over \(\mathbb C\). General formal-vector-field normal forms remain the principal residual priority question. No characteristic-two or general-multiplication classification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
