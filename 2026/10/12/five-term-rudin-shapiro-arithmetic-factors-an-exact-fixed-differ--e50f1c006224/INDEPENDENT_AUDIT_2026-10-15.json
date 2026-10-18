@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:17:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 6473298a35bea785011ca0a418547bb896ea159f; verify.py blob ee1db76e23a3e6e740cce978886650c6b176bdf8; certificate.json blob 5ccf2718787659cd35111fa994f3778ad5be1ae2",
+        "Fresh independent finite state derivation: NFA864, DFA1302, class counts2+13+1287, every transition and terminal mask"
+      ],
+      "rationale": "For each bit of positive d and n, carries c_j for n+jd (j=1..4), previous bits of the five samples and four relative Rudin–Shapiro parity differences form a finite exact binary-addition transducer. The next relative bit is updated by xor of adjacent-one products; n bits may be chosen nondeterministically. After d bits finish, all remaining input-difference bits are zero: the least fixed point over zero-digit transitions correctly characterizes every possible terminated relative signature, including arbitrary finite higher starting digits. Independently implemented transducer from these digit equations, enumerated precisely 864 NFA states, computed terminal masks by monotone closure, then exhaustive subset construction to exactly 1302 reachable deterministic states. Verified all 2604 transitions, class counts 2/13/1287 by truncated popcount of d, and terminal masks 0x0001 / 0xff96 / 0xffff for zero/one/two-plus set bits. This is a finite inductive proof for ALL finite positive binary differences. Four missing relative signatures for popcount1 double to eight excluded length-five words; adding separated high binary block 11 complements every absolute bit without affecting offsets or relative mask. Thus exactly 24 patterns for powers of two and all 32 for other d. The direct d=1..128 sample in source is not used to establish universal quantifiers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existential difference theorem may imply every word for SOME difference only.",
+          "Monochromatic longest-run theorem restricts only some constant patterns and does not decide the six nonconstant dyadic exclusions."
+        ],
+        "reasoning": "Neither theorem logically implies for each d all 32 words occur unless d is dyadic, nor gives the specific 8 missing ordered patterns; general uniformity is averaged and not pointwise in d.",
+        "searches": [
+          "arXiv:2309.03180 eq.4 definition ∃ common difference",
+          "arXiv:2204.05287 fixed step monochromatic arithmetic progression results",
+          "arXiv:2002.09509 uniformity results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.05287 Sobolewski 2022",
+        "arXiv:2309.03180 Konieczny–Müllner 2023",
+        "DOI:10.2478/puma-2022-0012 Jugé–Marcovici 2022",
+        "arXiv:2002.09509 Byszewski–Konieczny–Müllner 2020",
+        "Resultary semantic search for Rudin Shapiro five-term prescribed differences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Difference-existential complexity cannot imply positive support at each d, and the current theorem itself shows a failure for dyadic d.",
+          "Frequency/correlation information does not force all four nonconstant signature masks to appear."
+        ],
+        "reasoning": "The exact fixed-difference universal quantifier is stronger in a different direction; it survives implication comparisons with broader existential support, constant-run and average-frequency results.",
+        "searches": [
+          "Konieczny–Müllner arXiv:2309.03180 definition and Theorem A",
+          "Sobolewski arXiv:2204.05287 theorem on monochromatic AP",
+          "Jugé–Marcovici DOI:10.2478/puma-2022-0012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary works describe same binary sequence and progressions but not the 24/32 fixed-difference support mask in inspected claims."
+        ],
+        "reasoning": "Fixed d universal quantification is essential; neither arithmetical subword complexity nor monochromatic longest progression reformulates the full five-pattern support theorem.",
+        "searches": [
+          "Resultary semantic search (2026-10-15 UTC): Rudin Shapiro five term arithmetic subsequence fixed difference power two patterns automata",
+          "Rudin–Shapiro prescribed-step relative XOR signature 0xff96 / 0xffff",
+          "Sobolewski 2022 same sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact five-word factor table indexed simultaneously by every positive fixed d was located."
+        ],
+        "reasoning": "A finite table of small d would not establish this universal fact; the new all-state closure covers all bit-string differences.",
+        "searches": [
+          "fixed-step Rudin-Shapiro 5 patterns lookup search",
+          "Resultary query for arithmetic factor masks",
+          "Sobolewski numerically tabulated monochromatic lengths"
+        ]
+      },
+      "rationale": "Konieczny–Müllner arXiv:2309.03180 defines arithmetical word complexity using existential quantification over a choice of common difference, so maximal length-five global support does not imply support for EVERY fixed d. Sobolewski arXiv:2204.05287 studies maximal monochromatic progressions, not all nonconstant words. Jugé–Marcovici correlation paper establishes frequency/correlation properties at offsets, not the exact zero/nonzero status of the 32 ordered words at every specified arithmetic difference. Resultary queries under fixed-step 5-term Rudin–Shapiro and dyadic missing pattern support revealed no equivalent publication. Strongest risk is unindexed implicit calculation, not prior title similarity.",
+      "residual_risks": [
+        "An unindexed specialized automata calculation may already establish these exact masks or the dyadic exceptions.",
+        "Longer length-six factors and limiting frequencies not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME OBJECT, STRICTLY PARTIAL STATISTIC",
+          "evidence": "Only constant symbol runs, not the eight missing words including six nonconstant strings.",
+          "identifier_or_url": "arXiv:2204.05287",
+          "material_read": "Introduction and specialized Rudin–Shapiro monochromatic-progressions theorem statements and computations.",
+          "method": "Lawful arXiv full-text retrieval and focused theorem comparison",
+          "title": "On Monochromatic Arithmetic Progressions in Binary Words Associated with Pattern Sequences",
+          "trigger": "Closest same-sequence prescribed-difference primary work"
+        },
+        {
+          "assessment": "EXISTENTIAL DIFFERENCE, NOT UNIVERSAL FIXED DIFFERENCE",
+          "evidence": "Theorem cannot distinguish powers of two from non-powers of two at a prescribed fixed step.",
+          "identifier_or_url": "arXiv:2309.03180",
+          "material_read": "Definition of arithmetical factors, equation (4) and main theorem; common difference existentially quantified.",
+          "method": "Open full-text formula and quantifier inspection",
+          "title": "Arithmetical Subword Complexity of Automatic Sequences",
+          "trigger": "Potential stronger general automatic-word theorem"
+        },
+        {
+          "assessment": "FREQUENCY/CORRELATION NOT COMPLETE PATTERN SUPPORT",
+          "evidence": "Does not list exact 24/32 support classification for all fixed d.",
+          "identifier_or_url": "DOI:10.2478/puma-2022-0012",
+          "material_read": "Seven-page primary manuscript, especially definition and correlation results for offset tuples.",
+          "method": "Open primary text and relevant theorem comparison",
+          "title": "Finding automatic sequences with few correlations",
+          "trigger": "Correlation results for same block-additive family"
+        },
+        {
+          "assessment": "AVERAGED GENERAL RESULTS",
+          "evidence": "Does not bound support separately for every fixed arithmetic step.",
+          "identifier_or_url": "arXiv:2002.09509",
+          "material_read": "Introduction, main Gowers uniformity and progression theorem statements.",
+          "method": "Open primary theorem reading",
+          "title": "Gowers Norms for Automatic Sequences",
+          "trigger": "Possible implication from higher-order progression pseudorandomness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full all-difference claim is proved by exhaustive finite-state transition closure; fixed-difference direct enumeration is only a regression check."
+      ],
+      "rationale": "This is a complete sharp exact support classification for a canonical automatic sequence at every fixed arithmetic step, with a genuine and surprising dyadic versus nondyadic dichotomy and eight exceptional words. It answers a natural order-five pattern-realizability question, stronger than the existential quantifier in arithmetic subword complexity, and includes an auditable finite-state certificate for all differences. No general theorem about longer patterns, pattern frequencies or all automatic sequences is required for its independent value.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Claim is support only for exactly five terms; no positive frequency lower bounds or longer-pattern classification.",
+    "All-difference inference uses full 1302-state invariant, not only finite d≤128 regression."
+  ]
+}

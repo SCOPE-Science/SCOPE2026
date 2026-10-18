@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-difference five-term support question is reduced to finite binary-addition arithmetic. The four carries and five previous digits completely determine the next relative parity bits for occurrences of binary `11`. The exact nondeterministic digit machine has 864 reachable states; terminal signatures are obtained by a least fixed point over zero-difference tails. Determinization yields 1302 reachable states. All their output masks and both transitions are checked under the invariant depending only on the number of one-digits of the difference, truncated at two. The masks are `0x0001`, `0xff96`, and `0xffff`. This establishes the all-difference relative-pattern dichotomy, not just its behavior on a finite sample. A separated high binary `11` toggles all five values and realizes both initial bits for each signature. The reconstructed direct-prefix test agrees for differences through 128, but is expressly not the proof of the infinite theorem.
+## correctness
 
-## Originality — PASS
-The closest full-text source, Sobolewski's arXiv:2204.05287, studies maximal monochromatic arithmetic progressions of specified differences in the Rudin–Shapiro word. Its results do not classify the 32 individual ordered patterns at five sampling positions. Jugé–Marcovici (DOI:10.2478/puma-2022-0012) classify correlation properties of block-additive automatic words, in terms of limiting frequencies for patterns at general offset tuples; their inspected results do not give this exact five-term support dichotomy. Konieczny–Müllner (arXiv:2309.03180) establish arithmetical subword-complexity properties with the common difference existentially quantified and do not settle the spectrum for each prescribed difference. General Gowers-uniformity estimates similarly do not remove fixed-difference obstructions.
+PASS
 
-Targeted searches included exact five-term Rudin–Shapiro patterns, power-of-two differences, arithmetic-progression supports, correlated patterns, and the eight excluded binary words. No equivalent or stronger statement was found. The main residual risk is an unindexed old finite-state calculation or an implicit all-difference corollary buried in the broader correlation literature.
+For each bit of positive d and n, carries c_j for n+jd (j=1..4), previous bits of the five samples and four relative Rudin–Shapiro parity differences form a finite exact binary-addition transducer. The next relative bit is updated by xor of adjacent-one products; n bits may be chosen nondeterministically. After d bits finish, all remaining input-difference bits are zero: the least fixed point over zero-digit transitions correctly characterizes every possible terminated relative signature, including arbitrary finite higher starting digits. Independently implemented transducer from these digit equations, enumerated precisely 864 NFA states, computed terminal masks by monotone closure, then exhaustive subset construction to exactly 1302 reachable deterministic states. Verified all 2604 transitions, class counts 2/13/1287 by truncated popcount of d, and terminal masks 0x0001 / 0xff96 / 0xffff for zero/one/two-plus set bits. This is a finite inductive proof for ALL finite positive binary differences. Four missing relative signatures for popcount1 double to eight excluded length-five words; adding separated high binary block 11 complements every absolute bit without affecting offsets or relative mask. Thus exactly 24 patterns for powers of two and all 32 for other d. The direct d=1..128 sample in source is not used to establish universal quantifiers.
 
-## Value — PASS
-The result is a complete classification of a natural fixed-difference statistic at the first five-term scale where Rudin–Shapiro's correlations can obstruct universal pattern occurrence. The sharp dichotomy between one and at least two set bits of the difference directly reveals an arithmetic cause of the eight missing words. It refines existing monochromatic and global-correlation questions with a precise all-pattern answer, and supplies a reproducible finite-state invariant usable for further fixed-step statistics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Konieczny–Müllner arXiv:2309.03180 defines arithmetical word complexity using existential quantification over a choice of common difference, so maximal length-five global support does not imply support for EVERY fixed d. Sobolewski arXiv:2204.05287 studies maximal monochromatic progressions, not all nonconstant words. Jugé–Marcovici correlation paper establishes frequency/correlation properties at offsets, not the exact zero/nonzero status of the 32 ordered words at every specified arithmetic difference. Resultary queries under fixed-step 5-term Rudin–Shapiro and dyadic missing pattern support revealed no equivalent publication. Strongest risk is unindexed implicit calculation, not prior title similarity.
+
+## value
+
+PASS
+
+This is a complete sharp exact support classification for a canonical automatic sequence at every fixed arithmetic step, with a genuine and surprising dyadic versus nondyadic dichotomy and eight exceptional words. It answers a natural order-five pattern-realizability question, stronger than the existential quantifier in arithmetic subword complexity, and includes an auditable finite-state certificate for all differences. No general theorem about longer patterns, pattern frequencies or all automatic sequences is required for its independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
