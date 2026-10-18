@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and has four independently checkable steps.
+# Independent mathematical audit
 
-1. Flat configurations on the tetrahedral sphere are exactly the edge differences of vertex potentials \(e_{ij}=q_j-q_i\) after fixing \(q_0=0\).
-2. For one elementary type-I or type-II cocycle factor, the vertex-\(0\) star ratio restricts at \(q_1=0\) to a nonzero signed scalar multiple of \(C(q_2,q_3-q_2)\). This is insensitive to the three face-orientation signs because the first two carry terms vanish on the slice.
-3. The anchor source proves that the carry function has exact reduced polynomial degree \(p\), and that invertible affine changes preserve exact diagonal hierarchy level. Therefore the restricted ratio has exact level \(p\).
-4. The anchor's stabilizer-state classification and finite-difference formula imply that an \(X\mathcal C_d^{(k)}\) presentation of the same affine-support state would force every support-displacement amplitude ratio to lie at level at most \(k\). Hence \(k<p\) is impossible, while the anchor construction gives \(k=p\).
+## correctness
 
-The included `artifacts/verify.py` was executed successfully and returned `VERIFY_OK`. It checks all eight sign patterns for \(p=3,5,7,11\), confirms the slice identity, interpolates the reduced carry polynomial, and verifies degree \(p\) in those representative cases.
+PASS
 
-The finite script is not an exhaustive proof over primes, cocycle gauges, triangulations, or mixed cocycle products. The theorem's all-prime content rests on the exact symbolic carry-degree and affine-invariance results cited from the anchor source.
+For canonical flat edge configurations e_ij=q_j−q_i with q0=0, source package spells out vertex-0 star ratio as signed sum C(q1,q2−q1)+C(q1,q3−q1)+C(q2,q3−q2). Setting q1=0 leaves nonzero signed C(q2,q3−q2); variable change (q2,q3)→(q2,q3−q2) invertible. Uniform all-prime degree p can be checked directly: on integer reps 0..p−1, Lucas gives C(x,y)=binom{x+y}{p} mod p and Vandermonde gives sum k=1..p−1 binom{x}{k}binom{y}{p−k}, polynomial exact total degree p; independently interpolate p=3,5,7,11. Published stabilizer uniform-affine-support classification (imported by named theorem) makes all support-displacement ratios level<=k, yielding lower k>=p; published Lemma V.3 upper p. Critical full-text Eq67/star sign matching and hierarchy theorem were not directly readable: this is explicitly a conditional-source-verification risk, not a stronger claim about arbitrary gauges or phases.
+
+## originality
+
+PASS
+
+Best-of-knowledge new state-specific lower bound for canonical tetrahedral type-I/II cocycles rather than a solution of published phase-level conjecture. Existing Fechisin et al. abstract establishes formalism and conjectures broad phase requirement; does not itself prove tetrahedral state necessity. Full text inaccessible, so possible hidden corollary is a major residual risk, not automatic originality FAIL.
+
+## value
+
+PASS
+
+Minimality of level p for an explicit canonical TQD state distinguishes existence of high-level star operators from necessity for all stabilizer presentations. Nontrivial phase-degree invariant survives flatness; motivates canonical-state boundary without claiming the full phase-level conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
