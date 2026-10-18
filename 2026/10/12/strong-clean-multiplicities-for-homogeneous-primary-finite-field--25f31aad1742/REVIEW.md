@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the full decomposition criterion on each primary summand and derives the local idempotent orbit count from \(GL_k(R)\) with the exact reduction kernel. Representative field and local-ring enumerations independently agree with the formula. The infinite theorem relies on the proof, not on finite experiments.
+## correctness
 
-## Originality
-PASS. The strongest inspected general source, Borooah--Diesl--Dorsey, gives qualitative invariant-summand and polynomial-factorization criteria but no exact fixed-matrix multiplicity. Fan--Yang is an earlier ring-level existence source. The closest uniqueness source treats triangular matrix rings. Database searches for homogeneous primary modules, repeated Jordan blocks, chain-ring idempotents, the exponent \(2m-1\), and uniqueness returned different decomposition counts or existence results. The \(m=1\) semisimple specialization does not imply the nilpotent-thickness factor.
+PASS
 
-## Value
-PASS. Homogeneous primary modules are a canonical nonsemisimple stratum in rational canonical form. The formula shows exactly how primary thickness affects the decomposition space and upgrades a qualitative existence theory to a quantitative invariant. The unrestricted uniqueness corollary gives a sharp elementwise criterion.
+Commuting E and U=A-E equivalent to E in centralizer of A. Primary decomposition is canonical; for f=t nilpotent A forces ker E=0, and f=t-1 nilpotent A-I forces im E=0. Neutral factors make both A and A-I units on every direct summand so every centralizing idempotent is valid. For homogeneous blocks centralizer M_k(R), a finite chain ring with residue field F_Q, rank-r idempotents form GL_k(R)/(GL_r(R)xGL_(k-r)(R)); |GL_j(R)|=Q^((m-1)j^2)|GL_j(F_Q)|. This gives exponent (2m-1)r(k-r) exactly. Two valid choices on any neutral primary prove uniqueness criterion; condition A-A^2 nilpotent equivalent to only 0,1 primary factors. Independent direct local ring idempotent enumeration yields 26 in M2(F2[u]/u²) and 110 in M2(F3[u]/u²), matching H. Finite tests supplement, not replace proof.
 
-## Closest literature and limitations
-The closest broad source is G. Borooah, A. J. Diesl and T. J. Dorsey, *Strongly clean matrix rings over commutative local rings*, DOI 10.1016/j.jpaa.2007.05.020. The explicit count is limited to homogeneous primary modules; mixed elementary-divisor exponents require a finer endomorphism-ring idempotent census. A residual risk remains that an equivalent local idempotent enumeration exists under older module-theoretic terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior sources characterize existence of strongly clean decompositions and ring-wide properties; centralizer/module and idempotent counting tools are classical and explicitly not individually claimed as original. No inspected primary result tabulates the number of decompositions for each fixed homogeneous-primary finite-field matrix, nor the exact nilpotent-thickness multiplier as a strongly clean multiplicity. Risk of an equivalent old idempotent count under modular-lattice wording remains.
+
+## value
+
+PASS
+
+A fixed matrix’s number of strongly clean decompositions is a natural exact invariant, and homogeneous primary blocks are canonical nonsemisimple rational-canonical strata. The formula quantifies effect of nilpotent thickness on a qualitative existence theory, with a sharp unrestricted elementwise uniqueness characterization. The necessary orbit-stabilizer algebra is elementary but the end-to-end exact formula covers arbitrary degrees, ranks and lengths and is practically usable without ad hoc enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
