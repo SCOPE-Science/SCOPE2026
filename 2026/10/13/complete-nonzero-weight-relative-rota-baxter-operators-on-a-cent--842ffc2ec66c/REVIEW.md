@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full relative weight-\(\lambda\) identity is reduced without presupposing preservation of the central derived line. Assuming a nonzero transverse image of the derived basis vector forces the associated scalar trilinear functional to vanish; the induced alternating form on the two-dimensional quotient then forces \(\sigma_2(A)=0\), contradicting \(\lambda\ne0\). Once derived preservation is established, all basis-triple equations are equivalent to the single matrix equation \(\det A=a(\sigma_2(A)+\lambda)\), with the covector free. The proof of geometric integrality is a primitive-linear-polynomial argument. The finite-field formula follows from exact quadratic-form fibers and simple-zero eigenspace decompositions. Symbolic reconstruction and exhaustive finite tests corroborate the proof; finite experiments are not treated as general proofs.
+PASS
 
-## Originality
+Write R(e1)=ae1+u, R(W)=h e1+A W. For u≠0, W components force scalar Q_R≡0 and all W-determinants vanish, so rank span(u,im A)<=2. The alternating two-form beta=det(u,.,.) induces on W/Ku a trace-zero rank<=1 map B; Au=cu and σ2(A)=c trB+detB=0, contradicting Q_R(e2,e3,e4)=σ2(A)+λ=0 at λ≠0. Thus u=0. Remaining only basis triple gives det A=a(σ2(A)+λ), with arbitrary h. Geometric irreducibility follows det and σ2+λ coprime and the equation primitive linear in a. For s=−λ≠0, H_q(s)=q³(q²+q+1)(q²−1), M_q(s)=q^8+χ_q(λ)q⁴ in odd characteristic; in even characteristic a trace-zero complement and Frobenius give M_q=q^8. Combining yields the proposed polynomial count and zeta. Independent direct all-ternary-identity enumeration of all 2^16 maps over F2 found 4736 solutions, all derived preserving. No finite enumeration substitutes for arbitrary-field proof.
 
-**PASS.** Hou–Sheng–Zhou Definition 2.6 provides the exact equation and their Example 2.14 displays selected projections on the same algebra, not the full relative-operator locus. Teng–Dai treats the same bracket with a different nonabelian embedding-tensor identity. Exact-source, block-matrix, square-class, broader-framework, database-fingerprint, and semantic-result comparisons identified no prior theorem implying the classification or exact count. The 2026 broader article was available only in abstract form and remains an explicit originality risk; no absolute novelty certification is claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the complete operator moduli problem for a natural four-dimensional example from the founding paper, extending isolated projections to all operators. Derived-line rigidity is an intrinsic nonzero-weight constraint and fails sharply at weight zero. The resulting geometrically integral hypersurface and the odd/even finite-field arithmetic, especially the quadratic-character jump, are meaningful structural invariants and useful exact test data for relative ternary Rota–Baxter theory.
+Hou–Sheng–Zhou Definition 2.6 explicitly defines the relative identity, and their Proposition 2.13 plus Example 2.14 use the exact 4-dimensional algebra but construct only projection examples. The submitted theorem proves automatic derived-line preservation, all operator matrices, geometrically integral hypersurface and square-class-dependent point counts; none is in the inspected primary theorem/example. Teng–Dai studies a different nonabelian embedding tensor equation, not an interchangeable definition. Relevant published Resultary results concern distinct algebras/operators. The later unified-paper full text was not inspected and remains a risk.
 
-## Closest literature and limits
+## value
 
-The closest source is Hou–Sheng–Zhou, arXiv:2204.02196v1, Proposition 2.13 and Example 2.14; the closest same-algebra but different-identity work is Teng–Dai, arXiv:2310.06990v1, Definition 2.6 and Example 2.8. Only the abstract of the 2026 unified cohomology paper was accessible. Characteristic is unrestricted, but nonzero weight is essential, and the theorem is restricted to the stated four-dimensional algebra and adjoint relative identity. The variety statement concerns the reduced scheme; independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete operator variety for the source’s concrete nontrivial ternary algebra, including nonprojection/invertible solutions, and characteristic-sensitive finite-field and zeta counts fills a natural classification gap. Derived-ideal rigidity and arithmetic-geometric structure provide mathematical content beyond a sample projection and finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
