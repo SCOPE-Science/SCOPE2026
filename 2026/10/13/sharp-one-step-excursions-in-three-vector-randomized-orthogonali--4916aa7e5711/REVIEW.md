@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real three-by-three positive-definite Gram matrix, the theorem follows from an independently reconstructed exact pair-block update, positive-definite correlation normalization, and the determinant restriction \(bc<(1+a)/2\). The rational witness family gives exact amplification \(4/3-h\), and the pair-product contradiction limits upward pivots to one of three. The proof treats the zero-potential boundary separately, proves the denominator positive before optimizing it, and makes no finite-experiment-to-universal inference. The packaged checker performs 7,053 exact rational pivot transformations and validates both extremal witnesses.
+## correctness
 
-## Originality — PASS, with residual risk
-Detherage--Shah (arXiv:2505.02023v4, Section 4.1) proved the update identity for general pivot sets; their Section 4.2 proves expected contraction and Remark 5 acknowledges possible individual increases. Neither that exact-arithmetic section nor the finite-arithmetic section establishes the sharp three-dimensional pathwise factor, the at-most-one upward-pair restriction, or the complete one-step upward-tail frontier. The earlier Detherage--Shah (arXiv:2411.16101v3, Section 2.1) analyzes a distinct monotonically improving determinant potential. Steinerberger (arXiv:2411.06614v1, Section 1.3) analyzes directional norm improvement for a related random projection. The exact new classification is not implied merely by these known mean or determinant inequalities. Semantically similar published mathematical findings and terminology variants were compared without identifying stronger coverage. Unindexed equivalent calculations remain possible; no absolute novelty certification is claimed.
+PASS
 
-## Value — PASS
-The starting literature provides an expectation-based descent guarantee while specifically noting that a step may worsen the chosen inverse-trace potential. The result identifies exactly how large a bad one-step excursion can be in the first dimension permitting it and exactly how often it can occur under uniform sampling. This natural small-dimensional sharp stability law distinguishes mean convergence from realized pathwise behavior and supplies a concrete test family. No general-dimension or multi-step claim is needed for that direct question.
+For any invertible congruence supported on a chosen pair that diagonalizes its principal 2x2 block, trace invariance proves DeltaGamma=2 B_ij (B^-1)_ij. Diagonal normalization to a 3x3 correlation matrix and cofactor calculation give Gamma=2(a²+b²+c²-3abc)/Delta and ratio increment a(bc-a)/H. All three upward increments cannot be positive simultaneously because 0<correlations<1 after sign reductions, so at most one pivot rises. For an upward pair put z=bc,d=(b-c)^2: Delta=(1-a)(1+a-2z)-d>0 gives a<z<(1+a)/2; the rational gain is maximized as z approaches the strict boundary and is strictly less than a/(a+2)<1/3. The exact positive-definite family a=1-4h+3h²,b=c=1-h (0<h<1/3) yields ratio 4/3-h and upward probability exactly 1/3. Thus full tail one-third for each t in [1,4/3), zero at >=4/3; zero-Gamma and 2D boundaries are covered. This is an algebraic proof, not an inference from finitely many pivots.
 
-## Limitations
-Exact arithmetic only; strictly positive-definite real dimension three, legal full pair-block diagonalization, uniformly sampled unordered pairs. Extreme amplification occurs close to singularity and is not a floating-point guarantee. Independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Detherage–Shah arXiv:2505.02023v4 already proves the general pair update and mean contraction E[Gamma prime]=(2/3)Gamma at dimension three, and remarks that individual steps may increase Gamma. Their inspected text does not optimize the 3x3 correlation cone, count upward pairs, or give the sharp 4/3 and 1/3 distributional constants. Its precursor uses a different monotone logarithmic-volume potential, and Steinerberger a different directional norm process. The new low-dimensional, pathwise, sharp frontier is not implied by mean contraction alone.
+
+## value
+
+PASS
+
+The initiating random-pivot method guarantees contraction in expectation despite possible per-step worsening. For algorithmic stability and risk, maximum one-step excursion and probability of worsening are independent natural quantities. Their exact sharp boundaries in the smallest nontrivial dimension, including an explicit near-singular extremal family, are motivated finite-dimensional structure, not a routine copy of the expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
