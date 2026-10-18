@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using a standard Python 3 interpreter. The checker prints `VERIFY_OK` only after all asserts pass; it requires no third-party libraries.
+## correctness
 
-The code enumerates each of the 32768 binary edge patterns and verifies that their vertex parity syndromes lie in the 512 even vertex subsets. It computes each syndrome’s minimum error weight and tie count. Independently, breadth-first search of the syndrome graph verifies each shortest distance and its number of shortest ordered paths, using the identity \(P(t)=d(t)!m(t)\). The 120 natural graph automorphisms are applied to all syndrome masks to generate 18 disjoint orbits; their table is compared entry-by-entry. The zero-syndrome weight histogram and the all-ones syndrome’s six leaders are checked separately.
+PASS
 
-The computation is exhaustive only for the defined ten-vertex graph; it does not prove anything for other graphs and does not constitute independent validation by another party. Arithmetic is exact integer and bitwise arithmetic.
+PASS: The incidence boundary has rank 9 for a connected 10-vertex graph, so 512 realizable even syndromes and a 64-word code. Independently enumerated all 2^15=32768 edge subsets from graph adjacency, updated every minimum boundary weight and tie count, and exactly recovered all nine (distance,tie) frequencies. Independently checked deep syndrome 1023 and its six size-five leaders. The proof identifies equal-weight minima with T-joins and the six perfect matchings; full finite enumeration is exhaustive, not an extrapolation.
+
+## originality
+
+PASS
+
+PASS, qualified: The 1993 T-join/covering-radius correspondence and ordinary Petersen code weight enumerator are prior knowledge. Primary 2026 code construction identifies the code but accessible material does not yield the joint distance/tie table. Semantic database and explicit search of aliases did not identify an equivalent census. The full 1993 article and full 2026 primary text were inaccessible, so an unindexed table is a real priority risk; failed search alone is not proof of novelty.
+
+## value
+
+PASS
+
+PASS: The Petersen cycle code is canonical and its complete nearest-neighbor multiplicity data are natural for nearest-codeword ambiguity, soft/unique decoding and deep cosets. A nontrivial full spectrum and its symmetry classes are more mathematically informative than the known bare covering radius or ordinary weight enumerator; the finite nature is part of the legitimate exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

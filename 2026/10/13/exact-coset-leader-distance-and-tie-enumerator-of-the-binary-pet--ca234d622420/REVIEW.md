@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses a fixed binary vertex–edge incidence boundary map on the Petersen graph and counts **all** 512 realizable syndromes, not a sample. A complete 32768-pattern enumeration is checked against an independent breadth-first shortest-path calculation and an explicit 18-orbit certificate under the entire natural 120-element automorphism group. The group action preserves graph edges and therefore leader weights and tie counts; the orbit sum supplies the displayed enumerator. The proof explicitly accounts for all six five-edge deep-syndrome leaders as perfect matchings and for the factor 64 converting coset counts to ambient words. The supplied standard-library verifier reproduces every finite assertion.
+## correctness
 
-## Originality — PASS, residual risk disclosed
-The original July 2026 graph-code article was inspected at its full-text Petersen construction (Section 6.2, pages 16–17), and its searchable text contains neither covering-radius nor syndrome enumeration. The Error Correction Zoo identifies the older code; Brouwer gives the *ordinary* codeword weight distribution, which does not imply the number of nearest codewords in each coset. Solé–Zaslavsky's 1993 paper provides the general link to minimum T-joins and covering-radius bounds, so neither the link nor the radius alone is claimed new. A full-text reading of that 1993 paper was not obtainable and might disclose earlier special-case tables. Searches of published results and equivalent-formulation terms did not yield the joint bivariate 512-coset table. The finding is limited to that checked table and 18-orbit certificate.
+PASS
 
-## Value — PASS
-The distance spectrum alone does not measure nearest-codeword ambiguity. The complete joint minimum-distance/tie profile supplies that missing exact decoding statistic for a highly symmetric, finite graph code used as a natural benchmark in the recent graph-code construction; nontrivial multiplicities vary among syndromes of equal weight. It also enumerates all deep-hole leaders and gives an orbit compression of 512 cases to 18 geometric types. This is an exact natural invariant, not an arbitrary sublength sample. The result makes no claim of a general theorem for other graphs.
+PASS: The incidence boundary has rank 9 for a connected 10-vertex graph, so 512 realizable even syndromes and a 64-word code. Independently enumerated all 2^15=32768 edge subsets from graph adjacency, updated every minimum boundary weight and tie count, and exactly recovered all nine (distance,tie) frequencies. Independently checked deep syndrome 1023 and its six size-five leaders. The proof identifies equal-weight minima with T-joins and the six perfect matchings; full finite enumeration is exhaustive, not an extrapolation.
 
-## Sources and limits
-The recent primary source is del Valle–Praeger (arXiv:2607.28016, Section 6.2). Prior sources include Solé–Zaslavsky (Discrete Applied Mathematics 45 (1993), 63–70), the Error Correction Zoo's Petersen entry, and Brouwer's Petersen graph note. Main residual risk: the older cycle-code covering paper was accessible only through its abstract and index rather than its full text; an unindexed equivalent finite-table source may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: The 1993 T-join/covering-radius correspondence and ordinary Petersen code weight enumerator are prior knowledge. Primary 2026 code construction identifies the code but accessible material does not yield the joint distance/tie table. Semantic database and explicit search of aliases did not identify an equivalent census. The full 1993 article and full 2026 primary text were inaccessible, so an unindexed table is a real priority risk; failed search alone is not proof of novelty.
+
+## value
+
+PASS
+
+PASS: The Petersen cycle code is canonical and its complete nearest-neighbor multiplicity data are natural for nearest-codeword ambiguity, soft/unique decoding and deep cosets. A nontrivial full spectrum and its symmetry classes are more mathematically informative than the known bare covering radius or ordinary weight enumerator; the finite nature is part of the legitimate exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
