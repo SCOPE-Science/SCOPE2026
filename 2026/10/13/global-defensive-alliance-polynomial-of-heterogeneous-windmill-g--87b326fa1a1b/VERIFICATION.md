@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute the included `verify.py` using Python 3 with no nonstandard dependencies. Its checker constructs the adjacency graph independently, iterates all vertex masks for every sorted blade-size vector of total peripheral size from 4 through 12, tests the standard domination and alliance predicates, and compares with the case split and polynomial coefficients. It separately confirms the minimum and extremizer count. Expected output:
+## correctness
 
-`VERIFY_OK size_vectors=65 membership_checks=251104 valid_sets=78096 coefficient_checks=782 max_vertices=13`
+PASS
 
-The exhaustive finite runs cannot establish the general theorem. The arbitrary-size proof is the closed-neighborhood count, center threshold, and local binomial convolution in `RESULT.md`. Only the stated domain is covered. No independent audit or formal proof certificate has been performed.
+PASS: For c in S, selected peripheral vertex has in-closed count s_i+1 versus m_i-s_i outside, hence s_i>=floor(m_i/2) when occupied; center inequality is t+1>=T-t, equivalently t>=floor(T/2). For c absent, every blade must be represented for global domination and each occupied vertex demands 2s_i>=m_i+1. The two disjoint classes produce x*[x^>=L]prod_i(1+sum_{j>=floor(mi/2)}binom(mi,j)x^j)+prod_i sum_{j>=floor(mi/2)+1}binom(mi,j)x^j. Minimum L+1 and the r=2 both-odd center-free equality boundary follow from sum floor(mi/2)+r versus L+1. A separately written adjacency-based exhaustive enumeration tested all 2400 candidate masks over six unequal/equal blade profiles, comparing every size coefficient, not only the minimum.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the all-cardinality GLOBAL DEFENSIVE ALLIANCE polynomial on heterogeneous clique bouquets. Existing polynomial on connected defensive alliance subgraphs and elementary scalar alliances do not directly count global dominating defensive sets, especially disconnected center-free cases.
+
+## value
+
+PASS
+
+PASS: Exact whole-cardinality polynomial for an infinite natural family with heterogeneous clique sizes and a universal articulation point is a useful enumerative structural invariant; the center-free exceptional minima and coupled center threshold are not simply a scalar textbook corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
