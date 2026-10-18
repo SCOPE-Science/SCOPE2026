@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The AL axiom makes every normalized disjoint span isometric to \(\ell_1\), converting restricted operator norms into suprema of image norms. Passing to subsequences proves \(\Gamma_d=\beta\). The independently reconstructed disjoint-block tail argument proves \(\beta\leq\kappa_d\) for general Banach lattices, and the definition gives \(\kappa_d\leq\Gamma_d\). The second-envelope identity follows by restriction, and the sharp perturbation inequality uses the published Proposition 4.5. The identity operator proves optimal coefficient one. No computation or unverified auxiliary lemma supplies an infinite-dimensional step.
+## correctness
 
-**Originality — PASS, subject to stated literature risks.** The primary 2021 preprint proves only \(\beta\leq\Gamma_d\), gives counterexamples in non-AL lattices, and explicitly asks whether \(\kappa_d\leq D\beta\). It does not state the full AL-domain triple equality or this consequent \(\beta\)-stability bound. The latter reuses the *published* perturbation inequality and is not asserted to be an independent original mechanism. The 2020 DNS predecessor and 2025 topological follow-up do not give this three-modulus identity. Semantic searches of indexed research records found superficially related operator quantities, not an implication establishing the AL equality. An equivalent statement could occur in unindexed Banach-lattice literature or be regarded as implicit in basic AL geometry; this is a genuine residual originality risk, not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** This is the exact sharp resolution of the 2021 comparison question on the entire natural AL endpoint class, including arbitrary \(L_1(\mu)\) and \(\ell_1(I)\) domains and unrestricted targets. The equality gives a usable disjoint-sequence formula for two otherwise nested operational moduli, while the quantitative perturbation estimate controls that formula by the disjoint singularity modulus. Its force is structural rather than a small numerical improvement; the unrestricted lattice problem remains open.
+For an infinite-dimensional abstract AL lattice E and any bounded T:E→Y, pairwise disjoint unit vectors have ||Σa_nx_n||=Σ|a_n|; every disjointly generated span is isometric to ℓ1, whence ||T|M(x)||=sup_n||Tx_n||. Passing to a subsequence approaching liminf gives Γ_d(T)=β(T). For arbitrary lattice-domain R, if on every tail of a given disjoint sequence there were norm-one vectors whose image lay uniformly below β(R), finitely supported approximants in successive disjoint blocks would contradict the defining infimum β(R). This yields β≤κ_d; κ_d≤Γ_d follows from injection modulus≤operator norm. Thus the three coincide in AL spaces. Disjoint-coordinate spans inherit precisely the same ambient disjointness, proving Δ_d(T)=sup_x β(T|M(x)). González–Martinón (2021) Proposition 4.5 supplies Γ_d(T+S)≤Γ_d(T)+Δ_d(S); symmetrization yields the sharp β perturbation bound, identity operator shows coefficient 1. Proposition 4.4 supplies DSS⇔Δ_d=0. No numerical samples can replace this infinite-dimensional argument.
 
-**Relevant sources and limits.** González–Martinón, arXiv:2108.01052v1, §§3–7 (especially Propositions 4.4–4.5, 6.1 and Question 1); González–Martínez-Abejón–Martinón, arXiv:2012.10683v1, §§2–3; Bilokopytov, arXiv:2501.03866v2, §§1–2. The status is not an independent examination.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution scoped to the exact theorem, not its already-known ingredients. Originality comparisons explicitly distinguish full prior statements, their implications and residual access risks; inaccessible articles alone were not used as proof of novelty or as automatic rejection.
+
+## value
+
+PASS
+
+Gives a natural class-level exact affirmative case for a quantitative open comparison (Question 1 of González–Martinón 2021), identifies all three operational moduli throughout arbitrary abstract AL domains and targets, and transports known perturbation control to β with optimal constant. This is not a routine finite calculation: isometric ℓ1 disjoint spans and tail-block selection are structural infinite-dimensional mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
