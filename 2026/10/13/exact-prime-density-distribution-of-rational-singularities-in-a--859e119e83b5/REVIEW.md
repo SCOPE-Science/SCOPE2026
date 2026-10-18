@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed cubics satisfy the two critical homogeneous polynomial identities directly, and the characteristic-\(p\) gradient calculation reduces singular rational points to their simultaneous zeros. All coordinate-boundary cases are excluded, and affine normalization gives precisely the septic root correspondence for every prime \(p\ge5\). Modulo \(2\), all irreducible factors of degree at most three are excluded by exact nonzero remainders; modulo \(467\), the stated squarefree factorization proves the presence of a transposition. A prime-degree transitive group is primitive, so the Galois group is \(S_7\). The fixed-point Chebotarev formula and the derangement table follow exactly. The attached standard-library program reproduces the modular calculations and finite-field spot checks. Its finite experiments are not used as a proof of the prime density.
+PASS
 
-## Originality — PASS
+Direct expansion of the defining F_p gives F_p=A X^p+B Y^p+C Z^p with homogeneous cubics A=X²Y-Z³-X²Z, B=Y²Z-X³, C=XZ²+X³-Y³ and identity X A+Y B+Z C=0. At F_p-rational points, differentiating in char p gives gradient F_p=-(A,B,C); no point with any coordinate zero can solve all cubics. Y=1, X=u, B=0 implies Z=u³ and C=0 implies u^7+u^3-1=0, with A then automatic. The degree-7 h=T^7+T^3-1 has no irreducible F2 factor of degree ≤3 and hence is irreducible over Q. The explicit squarefree mod-467 factorization (five linear, one irreducible quadratic) puts a transposition in its transitive prime-degree Galois group; primitivity and normal-closure transpositions force S7. Outside finitely many ramified primes, Frobenius fixed points are the rational roots. Chebotarev and derangements yield counts (1854,1855,924,315,70,21,0,1)/5040, in particular 103/280 for zero. Finite small-field checks are corroboration only; no false geometric smoothness claim is made.
 
-The cited Asgarli–Ghioca primary construction and root criteria are fully credited. The distinct new conclusion is the precise fixed-parameter arithmetic distribution across prime characteristics, requiring the exact septic Galois-group calculation and Chebotarev; the original variable-parameter existence statement does not entail this distribution. Searches of indexed mathematical findings using the exact polynomial, source authors and aliases, and prime-density terminology found no equivalent statement. Closest published-finding corpus index entries concern unrelated seventh-degree polynomial censuses and another geometric \(S_{10}\) arithmetic Galois calculation. The separately inspected tangent-filling paper concerns a different geometric family. Unindexed prior field-distribution work is a residual bibliographic risk, not a proof of novelty by itself.
+## originality
 
-## Value — PASS
+PASS
 
-The original work studies low-degree plane-filling curves and questions of smoothness over finite fields. Fixing one member's defining formula while varying the prime and determining how often its entire rational locus is nonsingular is an exact natural arithmetic classification, not an arbitrary small computation. The complete distribution distinguishes every possible rational singular-point count and gives an explicit positive density of the root-free case. Its limited scope is stated: rational smoothness is not geometric smoothness.
+The decisive source comparison is explicit: Asgarli–Ghioca 2023 Theorem 1.8 ALREADY proves the rational smoothness iff no F_q-root of x^(r²+r+1)+k x^(r+1)-1 for the exact C_(k,r) family, including r=2,k=1. That root criterion, curve and singular-point reduction are not original. Their paper varies k over a given field to prove existence/lower bounds and does not enumerate the prime-density distribution for the ONE fixed integer k=1 while p varies. The submitted new component is the exact S7 Galois certificate for T^7+T^3-1 together with the COMPLETE all-j fixed-point Chebotarev distribution interpreted as singular-point counts. Generic Chebotarev is prior; its evaluated field-and-geometric classification is the assessed original fact. Possible prior polynomial-specific S7 tables or an unindexed prime-density note remain risks.
 
-## Limitations and closest literature
+## value
 
-Asgarli–Ghioca, arXiv:2307.03072, gives the family and rational smoothness criteria but does not state this fixed-parameter density table. Asgarli–Ghioca, arXiv:2302.13420, is a separate tangent-filling construction. The indexed finite-field degree-seven polynomial census `2026/9/10/SCOPE049` is not a number-field Chebotarev statement and does not cover these curves. An unindexed equivalent arithmetic computation is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Asgarli–Ghioca study the natural C_(k,r) plane-filling family and the locus of rational smoothness, so fixing k=1,r=2 and varying the prime is a motivated arithmetic specialization. The exact distribution gives eight possible counts (including impossible count 6) and a positive natural density 103/280 of rationally nonsingular members. Computing the specific septic Galois group is a finite but essential structural step enabling an infinite Chebotarev classification, not merely a list of tested primes. No claim is made about geometric smoothness or a new general theorem on all curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

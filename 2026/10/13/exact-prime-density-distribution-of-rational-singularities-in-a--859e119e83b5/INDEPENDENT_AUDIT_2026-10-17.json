@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 3b08d0b56b4c29e358faee264b94bbe1b91e7c62",
+        "Pinned verify.py 508b0e5cf27faef4bac5bcf0f7cc6b7293cc386c",
+        "Independent sympy factorization mod 2 and mod 467; exact 7! derangements",
+        "Asgarli–Ghioca 2023 Theorem 1.8 root criterion",
+        "Chebotarev density theorem and prime-degree primitive group fact"
+      ],
+      "rationale": "Direct expansion of the defining F_p gives F_p=A X^p+B Y^p+C Z^p with homogeneous cubics A=X²Y-Z³-X²Z, B=Y²Z-X³, C=XZ²+X³-Y³ and identity X A+Y B+Z C=0. At F_p-rational points, differentiating in char p gives gradient F_p=-(A,B,C); no point with any coordinate zero can solve all cubics. Y=1, X=u, B=0 implies Z=u³ and C=0 implies u^7+u^3-1=0, with A then automatic. The degree-7 h=T^7+T^3-1 has no irreducible F2 factor of degree ≤3 and hence is irreducible over Q. The explicit squarefree mod-467 factorization (five linear, one irreducible quadratic) puts a transposition in its transitive prime-degree Galois group; primitivity and normal-closure transpositions force S7. Outside finitely many ramified primes, Frobenius fixed points are the rational roots. Chebotarev and derangements yield counts (1854,1855,924,315,70,21,0,1)/5040, in particular 103/280 for zero. Finite small-field checks are corroboration only; no false geometric smoothness claim is made.",
+      "residual_risks": [
+        "The rational-singular count does not characterize geometric smoothness over algebraic closure.",
+        "The Chebotarev densities ignore a finite set of ramified primes, while root/singularity bijection still holds for p>=5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebotarev would imply proportions of cycle types ONCE the Galois group is known; Asgarli–Ghioca gives the polynomial root criterion."
+        ],
+        "reasoning": "The combination is a method, not a previously evaluated dominating theorem for this fixed h; credit is restricted to the concrete all-primes S7 application.",
+        "searches": [
+          "arXiv:2307.03072 Sections 1,2,4",
+          "classical Chebotarev fixed point theorem"
+        ]
+      },
+      "checked_sources": [
+        "Asgarli & Ghioca, Plane-filling curves of small degree over finite fields, arXiv:2307.03072, public full text Theorem 1.8 + proof Section 4",
+        "Resultary exact polynomial/C_(k,2) search and seventh-degree polynomial index SCOPE049 (different problem)",
+        "LMFDB S7 number-field records, not established identical to h",
+        "Chebotarev classical fixed-point density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Theorem 1.8 proves the underlying singular iff h_p root statement; Theorem 1.4 lower-bounds good k IN a fixed field, a different varying-parameter quantifier."
+        ],
+        "reasoning": "Neither source theorem evaluates primes p for one fixed k; the h mod2/mod467 Galois analysis is necessary to derive complete distribution. The inherited implication is credited fully.",
+        "searches": [
+          "Asgarli–Ghioca 2023 Theorem 1.8 and proof p6",
+          "their Theorem 1.4 varying k over fixed q",
+          "Chebotarev classical theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.8 makes N_p equal the count of roots of h modulo p for fixed (k,r)=(1,2), but has no fixed-polynomial prime-density distribution."
+        ],
+        "reasoning": "The inherited point/root equivalence is prior and explicitly subtracted from the originality claim. The additional evaluated Frobenius fixed-point frequencies require the h splitting group, not furnished in the inspected source.",
+        "searches": [
+          "Resultary semantic search: plane filling curve C_{k,2} k=1 rational singular points T^7+T^3-1 S7 fixed prime density",
+          "Asgarli–Ghioca 2023 Theorem 1.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The viewed LMFDB S7 entries have different defining polynomials and no established isomorphism with h; unrelated Resultary degree-seven finite-field censuses do not provide the h fixed-point table."
+        ],
+        "reasoning": "No exact database entry/table was evidenced as containing the fixed-field prime-density distribution; absence of a hit is a residual search limitation, not a novelty proof.",
+        "searches": [
+          "Resultary C_(k,2) and septic semantic search",
+          "LMFDB search degree-7 S7 entries",
+          "exact web query x^7+x^3-1 prime roots density"
+        ]
+      },
+      "rationale": "The decisive source comparison is explicit: Asgarli–Ghioca 2023 Theorem 1.8 ALREADY proves the rational smoothness iff no F_q-root of x^(r²+r+1)+k x^(r+1)-1 for the exact C_(k,r) family, including r=2,k=1. That root criterion, curve and singular-point reduction are not original. Their paper varies k over a given field to prove existence/lower bounds and does not enumerate the prime-density distribution for the ONE fixed integer k=1 while p varies. The submitted new component is the exact S7 Galois certificate for T^7+T^3-1 together with the COMPLETE all-j fixed-point Chebotarev distribution interpreted as singular-point counts. Generic Chebotarev is prior; its evaluated field-and-geometric classification is the assessed original fact. Possible prior polynomial-specific S7 tables or an unindexed prime-density note remain risks.",
+      "residual_risks": [
+        "The source already contains the entire curve/rational-singularity root criterion; novelty cannot be credited to this inherited equivalence.",
+        "An unindexed Galois calculation for T^7+T^3-1 or arithmetic density corollary could cover the true remaining component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_ROOT_CRITERION_ONLY",
+          "evidence": "Theorem 1.8 states singular F_q points iff x^(r²+r+1)+k x^(r+1)-1 has roots; for r=2,k=1 this is exactly h, but paper does not compute its S7 group or prime-density table.",
+          "identifier_or_url": "https://www.researchgate.net/publication/372162596_Plane-filling_curves_of_small_degree_over_finite_fields",
+          "material_read": "Entire accessible eight-page public full text, particularly Theorems 1.2, 1.4 and 1.8, Section 2 fixed-field varying-k estimates, and Section 4 proof equations (7)–(10)",
+          "method": "web original full-text preprint mirrored on ResearchGate, cross-checked arXiv:2307.03072",
+          "title": "Plane-filling curves of small degree over finite fields",
+          "trigger": "Exact matching family and same polynomial root criterion"
+        },
+        {
+          "assessment": "DIFFERENT_CURVE_WITH_ACCESS_LIMIT",
+          "evidence": "The motivating property is tangent-filling, not the explicit C_(1,2) rational singularity distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "Title and abstract/citation only in this run, not full manuscript",
+          "method": "arXiv abstract",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Same authors, possible dominating family"
+        },
+        {
+          "assessment": "NO_DEMONSTRATED_EQUIVALENCE",
+          "evidence": "Visible normalized polynomial x^7-x^6+2x^4+2x+1 differs; no integral isomorphism or h table established.",
+          "identifier_or_url": "https://www.lmfdb.org/NumberField/7.1.364871.1",
+          "material_read": "Selected number-field property/defining-polynomial pages",
+          "method": "public database entries",
+          "title": "LMFDB degree-seven S7 number field records",
+          "trigger": "Exact polynomial-field database coverage check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asgarli–Ghioca 2023 original rational smoothness criterion, Theorem 1.8",
+        "Explicit full S7 Frobenius-cycle distribution of singular rational points",
+        "Exact 467 transposition certificate and 7! class counts"
+      ],
+      "rationale": "Asgarli–Ghioca study the natural C_(k,r) plane-filling family and the locus of rational smoothness, so fixing k=1,r=2 and varying the prime is a motivated arithmetic specialization. The exact distribution gives eight possible counts (including impossible count 6) and a positive natural density 103/280 of rationally nonsingular members. Computing the specific septic Galois group is a finite but essential structural step enabling an infinite Chebotarev classification, not merely a list of tested primes. No claim is made about geometric smoothness or a new general theorem on all curves.",
+      "residual_risks": [
+        "The density is obtained by a standard theorem after one particular S7 computation; its mathematical value is the natural explicit curve-family distribution, not an advance to Chebotarev."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "p prime >=5, fixed parameter k=1 and degree p+3 curve; density concerns F_p-rational singular points only, not geometric singularities or smoothness."
+  ]
+}
