@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness: PASS.** Every canonical even-length palindrome has a unique independent half-digit parametrization. The binomial congruence modulo \(q^2\) gives the exact quotient weights, roots-of-unity orthogonality gives the two cases, and the endpoint and total weight sums have been checked. The proof includes \(m=1\), the vanishing-leading-weight case, and all residue classes. The independent exact-integer checker passed for six odd primes through half-length \(25\), with additional full-integer enumeration for small parameters. These finite runs support but are not the proof.
+
+**Originality: PASS, residual risk disclosed.** Banks–Hart–Sakata (2004), Lemma 3.1 gives an underlying character-product identity, but Corollary 4.5 applies only when the modulus is coprime to the radix squared minus one and therefore excludes this forced-prime-square case. The available prior first-layer palindrome classification determines residues modulo divisors of \(b+1\), not the quotient modulo \(q\) or the full modulo-\(q^2\) spectrum. The mathematical-results search returned no equivalent exact statement. Hansen (1971) and Schmidt (1988) have plausible titles but inaccessible complete texts; their potential indirect overlap is a genuine limitation, not certified absence of coverage.
+
+**Value: PASS.** The first nontrivial prime-adic lift of the universal divisor of even palindromes is a natural divisibility invariant. The result determines all counts, identifies an exact two-level phenomenon and all exceptional residue classes, and gives a quantified rate of convergence while proving finite-length uniformity never occurs. It is more specific than general asymptotic equidistribution and cannot be obtained from the first-layer divisibility fact alone.
+
+Self-review: passed. Independent audit: not yet performed.
