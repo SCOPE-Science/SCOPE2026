@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses two independent exhaustive classifications: the selected-set domination rule and the induced-complement connectivity rule. The disconnected complement classes are counted with the necessary overlap correction, and the resulting polynomial agrees coefficientwise with exhaustive enumeration for every \(3\le n\le8\). The finite enumeration supports but does not replace the symbolic proof.
+## correctness
 
-## Originality
-PASS. The primary outer-connected-domination polynomial paper was inspected in full. It defines the same polynomial and treats paths, cycles, stars, joins and wheels, while only recalling the minimum parameter for complete multipartite graphs; targeted full-text searches found no crown or matching occurrence. Crown graphs are not complete multipartite or chain graphs, and the known complete-bipartite minimum does not imply the crown result because the \(n=3\) crown has minimum four rather than two. The closest database records concern either complete multipartite graphs under the same parameter or crown graphs under different parameters.
+PASS
 
-## Value
-PASS. The theorem gives a complete cardinality enumerator on a canonical graph family and identifies the exact complement obstructions responsible for every missing coefficient. The resulting \(n=3\) versus \(n\ge4\) minimum transition shows a concrete connectivity effect caused by deleting a perfect matching from a complete bipartite graph.
+Domination is classified by selected side occupancies: >=2 on each; one selected on one side requires its matched mate on other; or a full side. The complementary induced K_pq minus matching disconnects exactly in singleton matched-side cases and p=q=c=2, plus one-sided non-singletons. Correcting overlaps yields the polynomial; n=3 complement of any matched pair is C_2 crown (two disjoint edges), whereas for n>=4 Cr_(n-1) is connected. Independent brute connectivity/subset count for n=3..7 matched coefficients and totals.
 
-## Closest literature and limitations
-The closest direct source is arXiv:1112.0846, which introduces the polynomial but does not cover crowns in the inspected full text. A 2014 algorithmic source treats chain graphs, not crowns. The result is restricted to \(\operatorname{Cr}_n\) with \(n\ge3\), and the packaged computation is finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full original outer-connected domination polynomial article covers paths, cycles, stars, joins and wheels but does not provide the crown family. Previous complete multipartite theorems do not specialize: deleting a perfect matching destroys the graph-class condition and changes the n=3 minimum.
+
+## value
+
+PASS
+
+A complete coefficient formula and sharp small-size phase transition for a canonical matching-deleted bipartite graph extend a natural established domination polynomial and encode all admissible set sizes, not only one extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

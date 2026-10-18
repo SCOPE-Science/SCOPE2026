@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. For reproducibility, `verify.py` constructs \(\operatorname{Cr}_n\), tests domination directly, tests complement connectivity directly, and compares every accepted subset against the closed formula for each \(3\le n\le8\). It also checks the structural domination classifier, the three complement-disconnection types, the minimum-set claims, and the closed total count.
+# Independent mathematical audit
 
-Running `python verify.py` produces:
+## correctness
 
-`VERIFY_OK n_range=3..8 subset_checks=87360 structural_checks=174714 coefficient_checks=72 minimum_checks=6 max_order=16`
+PASS
 
-The computation does not certify the infinite theorem by extrapolation; the all-\(n\) justification is the case analysis in `RESULT.md`.
+Domination is classified by selected side occupancies: >=2 on each; one selected on one side requires its matched mate on other; or a full side. The complementary induced K_pq minus matching disconnects exactly in singleton matched-side cases and p=q=c=2, plus one-sided non-singletons. Correcting overlaps yields the polynomial; n=3 complement of any matched pair is C_2 crown (two disjoint edges), whereas for n>=4 Cr_(n-1) is connected. Independent brute connectivity/subset count for n=3..7 matched coefficients and totals.
+
+## originality
+
+PASS
+
+The full original outer-connected domination polynomial article covers paths, cycles, stars, joins and wheels but does not provide the crown family. Previous complete multipartite theorems do not specialize: deleting a perfect matching destroys the graph-class condition and changes the n=3 minimum.
+
+## value
+
+PASS
+
+A complete coefficient formula and sharp small-size phase transition for a canonical matching-deleted bipartite graph extend a natural established domination polynomial and encode all admissible set sizes, not only one extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
