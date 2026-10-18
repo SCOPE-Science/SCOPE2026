@@ -1,0 +1,110 @@
+# Complete affine divisor class groups across a toric Fano alpha spectrum
+
+## Finding
+
+Fix an integer \(n\ge 2\) and coprime integers \(A,B>0\) with \(B\le A\le nB\). Let
+\[
+N=\{(d_0,\ldots,d_n)\in\mathbb Z^{n+1}:\textstyle\sum_i d_i=0\},\qquad
+Q=\{d\in N_{\mathbb R}:-A\le d_i\le B\},
+\]
+and let \(X\) be the complete complex toric variety with the face fan of \(Q\). This is the box-section Fano family used for the rational alpha spectrum in [Wu]. Write \(L=A+B\).
+
+Every torus fixed point corresponds to a nondegenerate coordinate facet \(F_c=Q\cap\{d_0=c\}\), where \(c=-A\) or \(c=B\), and to one of its \(n+1\) coordinate permutations. For \(c=-A\), such a facet exists exactly when \(A<nB\); for \(c=B\), it always exists. Its full-dimensional cone is \(\sigma_c=\mathbb R_{\ge0}F_c\), and \(U_c=\operatorname{Spec}\mathbb C[\sigma_c^\vee\cap M]\), with \(M=\operatorname{Hom}(N,\mathbb Z)\), is its torus-invariant affine fixed-point chart.
+
+For each existing facet, calculate the **unique** integers \(k,h\) by
+\[
+S=nA-c=kL+h,\qquad 0\le h<L.
+\]
+Thus \(0<S<nL\). Define \(r\) and \(D\) by
+\[
+(r,D)=
+\begin{cases}
+\left(\binom nk,L\right),&h=0,\\[2pt]
+\left(n\binom{n-1}{k},h\right),&h>0,\ k=0,\\[2pt]
+\left(n\binom{n-1}{k},L-h\right),&h>0,\ k=n-1,\\[2pt]
+\left(n\binom{n-1}{k},\gcd(L,h)\right),&h>0,\ 1\le k\le n-2.
+\end{cases}
+\]
+**Theorem.** The complete integral Weil divisor class group of each such affine chart is
+\[
+\boxed{\operatorname{Cl}(U_c)\cong
+\mathbb Z^{\,r-n}\oplus(\mathbb Z/D\mathbb Z)^{\,n-2}
+\oplus\mathbb Z/(D|c|)\mathbb Z.}
+\]
+Terms of order one are zero. The two coordinate facet types give all torus-fixed affine charts, and the formula includes both the integer-slice and noninteger-slice cases, all dimensions \(n\ge2\), and the endpoint \((A,B)=(n,1)\).
+
+At the Liu--Zhu specialization \((A,B)=(2n-1,2)\), this reduces to the previously established results: the lower-coordinate charts have \(\mathbb Z/(2n-1)\), and the upper-coordinate charts have \(\mathbb Z/8\) when \(n=2\) or \(\mathbb Z^{n(n-2)}\oplus\mathbb Z/2\) when \(n\ge3\). No novelty is asserted for that specialization.
+
+## Assumptions and scope
+
+All varieties are normal complex toric varieties defined by the *face fan* of the stated origin-containing lattice polytope, not by its normal fan. The lattice is exactly the integer trace-zero lattice \(N\), rather than a rescaled or saturated replacement. The class groups concern the **entire affine toric charts** \(U_c\). They describe the divisorial defect at each closed torus orbit; no assertion about an arbitrary non-fixed point or the global class group of \(X\) is included. The coordinate facet \(d_0=-A\) degenerates when \(A=nB\), and is deliberately omitted there. Because \(A,B\) are coprime, the only endpoint ratio \(A=nB\) is \((n,1)\).
+
+The number \(r\) counts the distinct primitive rays of the corresponding maximal cone. Its free class-group rank is \(r-n\), so the formula makes both non-\(\mathbb Q\)-factoriality and finite local torsion explicit. For example, \(n=3,(A,B)=(3,2)\) yields \(\operatorname{Cl}(U_{-3})\cong\mathbb Z/3\oplus\mathbb Z/9\) and \(\operatorname{Cl}(U_{2})\cong\mathbb Z^3\oplus\mathbb Z/2\).
+
+## Proof
+
+**1. Every maximal cone comes from a coordinate facet.** The defining inequalities of \(Q\) are the \(2(n+1)\) coordinate inequalities. Since \(Q\) contains the origin in its interior, every nondegenerate facet is supported by at least one of these inequalities. For \(c=-A\), the remaining \(n\) coordinates sum to \(A\). They can vary in relative dimension \(n-1\) precisely when \(A<nB\). For \(c=B\), they sum to \(-B\), a strict interior value between \(-nA\) and \(nB\) for all allowed parameters. No other facet types arise. Permuting coordinates gives all facets of each kind, and maximal cones of the face fan correspond exactly to facets.
+
+**2. The vertex census.** On \(F_c\), write \(z_j=d_j+A\) for \(1\le j\le n\). Then
+\[
+0\le z_j\le L,\qquad\sum_{j=1}^n z_j=S=nA-c.
+\]
+A vertex of this hyperplane section of an \(n\)-cube has at least \(n-1\) boundary coordinates. If \(h=0\), its coordinates are exactly \(k\) copies of \(L\) and \(n-k\) copies of zero, giving \(r=\binom nk\). If \(0<h<L\), its coordinates are exactly \(k\) copies of \(L\), one copy of \(h\), and \(n-k-1\) copies of zero, giving \(r=n\binom{n-1}{k}\). All are distinct. Each resulting \((d_0,\ldots,d_n)\) contains both an entry \(-A\) and an entry \(B\): because \(0<S<nL\), neither all-lower nor all-upper is possible, and the free-coordinate cases at the edges have the opposite bound at \(d_0=c\). Coprimality \(\gcd(A,B)=1\) therefore makes each ray vector primitive in \(N\).
+
+**3. The vertex-difference lattice.** Identify \(N\) with \(\mathbb Z^n\) using \((d_1,\ldots,d_n)\), and write
+\[
+R=\{(w_1,\ldots,w_n)\in\mathbb Z^n:\textstyle\sum_jw_j=0\}
+ =\sum_{j=1}^{n-1}\mathbb Z(e_j-e_n).
+\]
+Let \(\Lambda\subset\mathbb Z^n\) be generated by the \(r\) facet vertices and choose one vertex \(v\). Every generator has coordinate sum \(-c\ne0\). Thus the subgroup of \(\Lambda\) lying in \(R\) consists exactly of integer combinations of differences of vertices. We claim that this difference lattice is \(DR\).
+
+When \(h=0\), transposing an upper coordinate \(L\) with a lower coordinate zero changes the vertex by \(L(e_i-e_j)\); the full symmetric permutation orbit generates \(LR\). When \(0<h<L\) and \(k=0\), the vertices have one coordinate \(h\) and all others zero, and their differences generate \(hR\). When \(k=n-1\), they have one coordinate \(h\) and all others \(L\), and their differences generate \((L-h)R\). In the remaining cases both zero and \(L\) occur alongside \(h\); moving the free coordinate against a zero gives \(h(e_i-e_j)\), while moving it against an \(L\) gives \((L-h)(e_i-e_j)\). Symmetric permutations generate \(\gcd(h,L-h)R=\gcd(h,L)R\). Conversely, each coordinate difference between vertices is divisible by the stated \(D\). This proves
+\[
+\Lambda=\mathbb Z v+DR.
+\]
+
+**4. The integral Smith form.** With the unimodular basis \(e_1-e_n,\ldots,e_{n-1}-e_n,e_n\) of \(\mathbb Z^n\), write the coordinates of \(v\) as \((a_1,\ldots,a_{n-1},s)\), where \(s=\sum_jv_j=-c\). A presentation matrix for \(\Lambda\) is
+\[
+H=\begin{pmatrix}
+D&&0&a_1\\
+&\ddots&&\vdots\\
+0&&D&a_{n-1}\\
+0&\cdots&0&s
+\end{pmatrix}.
+\]
+Primitivity of \(v\) means \(\gcd(a_1,\ldots,a_{n-1},s)=1\). For each \(1\le j<n\), the gcd of the \(j\)-rowed minors of \(H\) is \(D^{j-1}\): every such minor is divisible by this power, while the minors \(D^j\), \(D^{j-1}a_i\), and \(D^{j-1}s\) occur and have remaining gcd one. The determinant has absolute value \(D^{n-1}|c|\). Therefore the Smith invariant factors of \(H\) are precisely
+\[
+1,\underbrace{D,\ldots,D}_{n-2\text{ copies}},D|c|.
+\]
+Hence \(N/\Lambda\cong(\mathbb Z/D)^{n-2}\oplus\mathbb Z/(D|c|)\).
+
+**5. The affine divisor class group.** By the standard toric divisor sequence [CLS, Theorem 4.1.3], the rays \(v_1,\ldots,v_r\) of a full-dimensional cone give
+\[
+M\longrightarrow\mathbb Z^r\longrightarrow\operatorname{Cl}(U_c)\longrightarrow0,
+\qquad m\longmapsto (\langle m,v_i\rangle)_i.
+\]
+The map has rank \(n\), and its nonzero Smith invariant factors equal those of the transpose ray matrix, hence equal those computed in Step 4 for the column lattice \(\Lambda\). It follows that the free part is \(\mathbb Z^{r-n}\) and the torsion part is as displayed. This proves the theorem.
+
+## Verification
+
+The included `verify_wu_local_groups.py` enumerates all primitive rays in each coordinate facet independently of the closed formula, constructs the \(n\)-row integer ray matrix, and computes its Smith normal form over \(\mathbb Z\). The program checks \(105\) coprime triples over dimensions \(2\) through \(6\), with \(A\le12\), \(B\le5\), and both facet types when present. It verifies the rank, the invariant factors, the primitive-ray condition, and the Liu--Zhu specialization. The observed output was:
+
+`VERIFY_OK checked_parameter_triples=105 n_range=2..6 Liu_Zhu_specialization=matched`
+
+Reproduce by running `python verify_wu_local_groups.py` with Python 3 and SymPy. The all-parameter theorem is established by the combinatorial and Smith-form proof, not by bounded computational testing.
+
+## Relationship to prior work
+
+[Wu] supplies the full rational alpha-spectrum toric family and its underlying box-section polytope. A published summary of that paper discusses the global class group among its auxiliary properties, not an explicit formula for **both affine fixed-point chart class groups** with free ranks and complete Smith torsion across every parameter. Its full original text could not be inspected in this investigation; this is a genuine priority limitation.
+
+A prior result, [R-LZ], already computes the local chart class groups for \((A,B)=(2n-1,2)\); the specialization is presented only as a consistency comparison and is explicitly excluded from novelty. Previous complete automorphism-group computations for the family do not determine these local divisorial groups. The general toric class-group exact sequence [CLS] furnishes a method but does not state the piecewise closed invariant-factor and vertex-count formulas for these hyperplane-sliced cubes.
+
+## Limitations
+
+Only the affine invariant maximal-cone charts are classified; this does not compute the global class group, the singular strata away from fixed points, canonical indices, Cox rings, or divisor class groups at all local rings of \(X\). The exact result is restricted to coprime \(A,B\) in the stated range and the stated lattice. The original Wu manuscript was only inspectable through its abstract and bibliographic record, supplemented by a secondary research summary. A hidden full-text theorem or unindexed predecessor could dominate this calculation; no claim of absolute priority or independent audit is made.
+
+## References
+
+- [Wu] Xian Wu, *The alpha spectrum of K-polystable toric \(\mathbb Q\)-Fano varieties*, arXiv:2608.14115v1, initially made public 2026-08-14. https://arxiv.org/abs/2608.14115.
+- [R-LZ] *Local divisor class groups at the torus fixed points of the Liu--Zhu small-alpha examples*, published-finding corpus record `2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b`.
+- [CLS] D. Cox, J. Little and H. Schenck, *Toric Varieties*, American Mathematical Society, 2011, Theorem 4.1.3 (the toric divisor sequence). See also https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html.
