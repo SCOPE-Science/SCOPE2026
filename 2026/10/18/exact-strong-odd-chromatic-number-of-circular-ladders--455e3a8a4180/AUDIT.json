@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For odd rung count, an odd-independent colour class occupying two adjacent columns forces a cyclic parity propagation contradiction, hence has size at most (n-1)/2; partition of 2n vertices yields the sharp 5/6 lower bound. An even prism is cubic bipartite and admits a strong odd 2-colouring. For odd n≥5, explicit periodic columns U and final blocks V5 or V7 satisfy the square-colouring condition in all 13 possible three-column windows. Repetition changes no window types, giving all orders; the standalone verifier independently enumerates small cases and tests the local table. Boundaries n3,5 included. This is a proof for all orders, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro et al., arXiv:2410.02336, Theorem 4.2: \\(\\chi_{\\mathrm{so}}(G\\square H)\\le\\chi_{\\mathrm{so}}(G)\\chi_{\\mathrm{so}}(H)\\).",
+        "Caro et al., arXiv:2509.20763, Proposition 1: \\(\\alpha_{\\mathrm{od}}(G)\\chi_{\\mathrm{so}}(G)\\ge|V(G)|\\).",
+        "Pradhan et al., arXiv:2610.01441, publicly accessible abstract announces complexity and algorithms for block graphs, not prism exact values."
+      ],
+      "reasoning": "The generic 2024 product inequality does not establish the needed sharp odd-order upper bound of five, and the 2025 general inequality has no explicit input for prism five-color existence. The complexity and bounded-width algorithms could in principle compute each instance but their listed statements are not an all-order exact formula.",
+      "searches": [
+        "\"On strong odd colorings of graphs\" graph products Section 4 Cartesian product",
+        "\"strong odd coloring\" \"C_n\" \"K_2\" Cartesian product",
+        "\"odd independence number of graphs, II\" circular ladder prism strong odd",
+        "\"On the Classical and Parameterized Complexity of Strong Odd Coloring\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.02336 Section 4 and Remark 4.5",
+      "arXiv:2509.20763 Proposition 1",
+      "arXiv:2510.01897 Introduction and grid sections overview",
+      "arXiv:2610.01441 abstract and original timestamp",
+      "Published mathematical-record searches (exact prism strong odd, odd independence, square colouring aliases)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2024 product upper bound is \\(2\\chi_{\\mathrm{so}}(C_n)\\), not the asserted 5/6/2 classification.",
+        "2025 general \\(\\alpha_{\\mathrm{od}}\\chi_{\\mathrm{so}}\\ge|V|\\) is compatible but not equivalent to an explicit colouring.",
+        "The presented local triple table and independent cyclic concatenation prove the five-colour upper bound rather than invoking generic product constructions."
+      ],
+      "reasoning": "The new all-order classification requires BOTH a sharp colour-class bound for odd cyclic closure and a five-color cyclic block construction. Those facts are not logically implied by inspected generic bounds alone; none of the surveyed relevant public records explicitly states both. Prepublication equivalence outside inspected material cannot be excluded.",
+      "searches": [
+        "Exact strong odd chromatic number of circular ladder graphs prism graph P_n = C_n Cartesian K_2: 2 even n, 5 odd n>=5, 6 n=3",
+        "strong odd colorings of circular ladders exact odd n prism from product K2",
+        "The odd independence number of graphs I Proposition 1 bounds strong odd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The prism graph is \\(C_n\\square K_2\\), also called the circular ladder or generalized Petersen graph \\(G(n,1)\\).",
+        "Theorem 4.2 in Caro et al., arXiv:2410.02336, gives only product submultiplicativity, while its Section 4 example concerns \\(C_5\\square C_5\\).",
+        "No statement about \\(C_n\\square K_2\\) was identified in the inspected 2025 odd independence grid-paper excerpts."
+      ],
+      "reasoning": "The target is a minimum-color vertex invariant, not two-dynamic vertex coloring, rich-neighbor edge coloring, or the odd-independent-set counting polynomial. The odd-independent size bound supplies only the lower half, and a separate uniform 5-color construction closes it.",
+      "searches": [
+        "strong odd chromatic number prism circular ladder Möbius ladder cycle Cartesian product K2 exact congruence 2026",
+        "\"strong odd\" \"prism graph\" chromatic",
+        "\"strong odd\" \"circular ladder\" graph coloring",
+        "\"strong odd\" \"C_n\" \"K_2\" \"Cartesian\" chromatic",
+        "Odd-independent-set polynomial circular ladders P_n C_n square K2 size (n-1)/2 odd n, n even"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2025 odd-independence-grid manuscript, arXiv:2510.01897, reports finite-grid and toroidal-grid sample tables, not the all-parameter \\(C_n\\square K_2\\) exact strong odd chromatic formula.",
+        "A standalone exhaustive exact-state check for all small \\(3\\le n\\le12\\) and palette sizes 2 through 5 agrees with the proof."
+      ],
+      "reasoning": "Neither a matching published exact table nor a direct existing closed formula was found in consulted literature and mathematical records. An earlier square-coloring of the entire prism family is a concrete residual risk because it would imply the five-color upper bound (but would not by itself prove the strong odd lower bound).",
+      "searches": [
+        "Exact chromatic number of square of prism graphs circular ladders is five on odd rung count n>=5",
+        "square of prism graph C_n Cartesian K_2 chromatic number 5 odd 4 even",
+        "square coloring circular ladder graph chromatic number explicit",
+        "strong odd chromatic number triangular prism equals 6 pentagonal prism equals 5, six-color threshold"
+      ]
+    },
+    "rationale": "The 2024 product bound establishes only submultiplicativity; the 2025 odd independence works establish general inequalities and other grid classes; the October 2026 complexity paper abstract addresses complexity and block graph algorithms, not this family. The exact three-case infinite prism classification, including five-colour cyclic construction and triangular exception, was not identified under graph-square and generalized-Petersen aliases. Accessible own scientific claims concern odd-independent polynomials and other prism invariants, not this strong odd chromatic number. Priority risks are explicitly limited below; lack of search hits is not treated as proof of absence.",
+    "residual_risks": [
+      "The focal October 2026 complexity preprint PDF/HTML was inaccessible; a text-internal prism result cannot be ruled out.",
+      "A prior exact square-chromatic number of generalized Petersen/circular ladder graphs may supply the five-colour upper bound; the presented lower-bound combination still requires assessment for full logical prior coverage.",
+      "Search coverage is finite and does not establish global uniqueness or bibliographic priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact prism classification; supplies only broad Cartesian product upper bound",
+        "evidence": [
+          "Section 4, Theorem 4.2 general product submultiplicativity",
+          "Remark 4.5 exhibits a different product \\(C_5\\square C_5\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+        "material_read": "Abstract, Section 1 definition, Section 4 (Theorem 4.2 and proof context, Example/Remark 4.5); inspected PDF page images 18 and 21",
+        "method": "Open-access arXiv PDF text and rendered page images",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Foundational paper specifically has Section 4 on graph products, potentially dominating a prism classification"
+      },
+      {
+        "assessment": "NOT_COVERING the exact prism classification; establishes only general lower inequalities",
+        "evidence": [
+          "Proposition 1 relates \\(\\alpha_{\\mathrm{od}}\\) to \\(\\chi_{\\mathrm{so}}\\)",
+          "Introduction lists special families distinct from prisms"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+        "material_read": "Abstract, introduction, statement and proof context of Proposition 1, rendered PDF page 4",
+        "method": "Open-access arXiv PDF text and screenshot",
+        "title": "The odd independence number of graphs, I: Foundations and classical classes",
+        "trigger": "General odd independence lower bound can imply the target with suitable numerical input"
+      },
+      {
+        "assessment": "NOT_COVERING in materially inspected relevant portions; the available scope lists square grids and chessboard graphs, not an all-order prism classification",
+        "evidence": [
+          "Introduction lists \\(P_k\\square P_k\\), \\(P_k\\square C_k\\), \\(C_k\\square C_k\\), no \\(C_n\\square K_2\\) result",
+          "Appendix provides finite square-grid samples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.01897",
+        "material_read": "Abstract, introduction/overview of sections and Appendix grid table location; rendered PDF second page and searches for prism and \\(K_2\\)",
+        "method": "Open-access arXiv PDF text, on-page search and screenshot",
+        "title": "The odd independence number of graphs, II: Finite and infinite grids and chessboard graphs",
+        "trigger": "Grid-like graph setting and strong odd chromatic formula might include circular ladders"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK; abstract does not identify prism formula",
+        "evidence": [
+          "Abstract reports NP-hardness, block graph algorithm and treewidth/FVS/clique-width parameterized work",
+          "Original arXiv submission recorded on October 1, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01441",
+        "material_read": "Full publicly accessible abstract and original 2026-10-01 submission metadata; full PDF/HTML inaccessible",
+        "method": "arXiv abstract and bibliographic/index metadata; open attempts for HTML/PDF",
+        "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+        "trigger": "Recent anchor source, closest strong odd colouring research with current algorithmic work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "455e3a8a-4180-40d7-ab98-3fe2c7f81b10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural invariant is determined on every circular ladder, capturing a parity transition between trivial 2-colour bipartite behavior and sharp 5-colour nonbipartite behavior plus the triangular exception. The explicit period-four colouring construction is constructive, uniform, and useful as a benchmark for strong odd colouring and comparison with square colouring on bounded-width cubic graphs; generic prior bounds did not determine the values.",
+    "status": "PASS"
+  }
+}
