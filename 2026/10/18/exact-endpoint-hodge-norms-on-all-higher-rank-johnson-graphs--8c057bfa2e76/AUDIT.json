@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(n\\ge6\\) and \\(3\\le k\\le\\lfloor n/2\\rfloor\\), edge-stabilizer symmetry and sign antisymmetry yield \\(k\\) potential levels with rates \\(u_i=(k-1-i)^2\\) and \\(d_i=i(n-2k+i)\\). The Poisson system \\(nI-T\\) is an irreducible diagonally dominant M-matrix, while its consecutive-difference system has a positive inverse with row margin \\(2(n-1)\\); hence \\(0<p_0<\\cdots<p_{k-1}\\). Detailed balance and test functions \\(1\\) and \\(i\\) give \\(S_0=1/n\\) and \\(S_1=((k-1)+(k-1)^2/n)/(2(n-1))\\). The full edge set is partitioned into sign-changing, zero-potential and adjacent-level edges; absolute summation simplifies to \\(( (k+1)n^2-(k^2+3)n+2 )/(n(n-1))\\). Edge transitivity makes every column equal. The projector trace gives \\(R=2(1-1/\\binom nk)/(k(n-k))\\), so the cycle norm is \\(1+\\|Q\\|_{1\\to1}-2R\\). Exact rational full-Laplacian checks passed for \\((n,k)=(4,2),(5,2),(6,3),(7,3),(8,3),(8,4),(9,4)\\); additional exact orbit-chain checks passed for \\((n,k)=(10,5),(18,9),(40,20),(100,3),(100,50)\\). The finite checks are corroboration, not a substitute for the all-integer proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dilworth–Kutzarova–Ostrovskii 2023, arXiv:2305.12582, Theorem 45 evaluates the Hamming-cube canonical cut projector; sections 2.4–2.7 address tori and Hamming graphs.",
+        "Schild–Rao–Srivastava 2017, arXiv:1708.01632, Theorems 1.4–1.5 bound average electric-flow length and transfer-current matrix norm by logarithmic quantities.",
+        "Gurel-Gurevich–Nachmias–Sachdeva 2026, arXiv:2605.24130, Theorems 1.1–1.3 give general logarithmic bounds."
+      ],
+      "reasoning": "These results apply to broad graph categories or to a different named graph family. An upper bound for all graphs does not imply the exact Johnson current sum, its balanced-rank maximizer, or the strict sign ordering; the Hamming-cube expression is not a Johnson-slice specialization.",
+      "searches": [
+        "Cycle spaces invariant projections applications transportation cost 2023 Johnson Hamming",
+        "Localization of Electrical Flows Schild Rao Srivastava transfer impedance l1 2017",
+        "A Tight Bound on Localization of Electrical Flows arXiv 2605.24130 2 log n",
+        "all ranks Johnson J(n,k) projection onto graph gradient cut subspace l1 norm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.12582 (primary full-text relevant sections)",
+      "arXiv:1708.01632 (primary full-text relevant sections)",
+      "arXiv:2605.24130 (primary full-text relevant sections)",
+      "Public result f9735429621e (structured record only)",
+      "Public result d102febb3be1 (structured record only)",
+      "Previously established rank-two triangular Johnson endpoint norm (special case, excluded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The pre-existing J(n,2) endpoint norm is \\((n-2)(3n-1)/(n(n-1))\\), obtained by setting \\(k=2\\) in the new formula; its range does not contain \\(k\\ge3\\).",
+        "The full 2023 paper focuses on tori, Hamming graphs, and invariant projection methodology; its Theorem 45 is for Boolean cubes.",
+        "The new proof covers every \\(3\\le k\\le\\lfloor n/2\\rfloor\\), including ranks growing with n, and obtains a strict potential-level ordering and balanced-slice \\(n/4\\) growth."
+      ],
+      "reasoning": "Neither a numerical rank-two specialization nor a general upper bound yields a higher-rank exact expression. Johnson vertex-spherical primitive projections are not the same edge operator. The proof requires a genuinely k-state antisymmetric Laplacian reduction and two moment identities; no found stronger statement determines these.",
+      "searches": [
+        "Johnson J(n,3) 4 - (8n -2)/(n(n-1)) Hodge cut projector",
+        "Johnson graphs J(n,k) exact canonical cut space projection norm (k+1)n^2-(k^2+3)n+2 over n(n-1) ℓ1",
+        "Johnson graph all rank k cut/cycle orthogonal projection induced norm transfer current electrical l1",
+        "Cycle spaces invariant projections applications transportation cost 2023 Johnson Hamming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The network transfer-current matrix is exactly the canonical edge cut projector Q=D^T L^+ D on unweighted graphs (Schild–Rao–Srivastava 2017, section 1).",
+        "The 2017 source describes the norm as maximal absolute edge-current length and its electrical-routing interpretation, but proves general upper bounds rather than exact Johnson graph values.",
+        "No Johnson-rank electrical-current formula appears in the inspected transfer-current primary texts."
+      ],
+      "reasoning": "Comparison used both cycle/cut projection and transfer-current/electrical-flow vocabularies. These are equivalent formulations of this particular invariant, so the search checked claims, not title spelling. The general bounds do not determine the exact rational expression, and the strict orbit-potential ordering needed for it is absent there.",
+      "searches": [
+        "Johnson graph all rank k cut/cycle orthogonal projection induced norm transfer current electrical l1",
+        "Johnson graph transfer impedance ℓ1 exact (k+1) growth",
+        "Johnson graph J(n,k) electrical flows transfer current kernel endpoint projection norm",
+        "Localization of Electrical Flows Schild Rao Srivastava transfer impedance l1 2017"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked public record ending f9735429621e, Exact endpoint norm of the second Johnson spherical projector, concerns a primitive idempotent acting on functions on k-subsets; it is not an edge cut projector.",
+        "The public record ending d102febb3be1, Exact two-coordinate-face concentration spectrum on Johnson slices, evaluates a vertex-face concentration operator, not edge electrical currents.",
+        "The previously established triangular Johnson endpoint norm equals the proposed formula when \\(k=2\\). No higher rank cut norm appears in these inspected titles, summaries, and primary texts."
+      ],
+      "reasoning": "Matching the Johnson object alone is insufficient: the prior records concern different domains and projectors. The rank-two table is genuinely covered and is explicitly removed from the novelty domain, while no rank-at-least-three statement or exact matching table was found. The two public record full texts were not accessible through the available webpage retrieval; only their structured summaries support the operator comparison.",
+      "searches": [
+        "Johnson graphs J(n,k) exact canonical cut space projection norm (k+1)n^2-(k^2+3)n+2 over n(n-1) ℓ1",
+        "Johnson graph all rank k cut/cycle orthogonal projection induced norm transfer current electrical l1",
+        "exact endpoint norm of the second Johnson spherical projector",
+        "Johnson scheme effective electrical current positivity monotonicity potentials adjacent k subsets",
+        "Johnson graph J(n,k) electrical flows transfer current kernel endpoint projection norm"
+      ]
+    },
+    "rationale": "The 2023 primary paper defines cut and cycle projections and computes Hamming-cube norms but not Johnson-graph edge-current endpoint norms. The general electrical-flow localization papers give bounds, not the exact family law. The previously established triangular Johnson graph is exactly the \\(k=2\\) special case, which is excluded. Published-record searches returned two Johnson vertex-projection records; their statements concern different operators and do not imply absolute sums of edge-gradient currents. The present \\(k\\ge3\\) formulas require independent potential-sign and moment analysis. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "A differently indexed electrical-network or association-scheme source may already contain the same rational law or enough stronger exact formulas to imply it.",
+      "The complete linked articles for two closely named public Johnson-scheme records could not be inspected, although their accessible summaries describe vertex-space rather than edge-space operators.",
+      "The literature search is finite and cannot certify mathematical novelty or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant framework; no all-rank Johnson endpoint formula and no Johnson mention found. The exact Hamming-cube computation is not a stronger Johnson result.",
+        "evidence": [
+          "arXiv:2305.12582, PDF pp.1–9 and 20–32; section 2.7, Theorem 45",
+          "Public first posting 2023-05-21; primary MSC 46B04"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "Accessible full PDF: introduction and foundational definitions; sections 1.4–1.6, 2.1, 2.6 and 2.7, including Hamming Theorem 45 and references; PDF page images 1 and 9 checked.",
+        "method": "Read full-document index and relevant sections in the 35-page primary PDF, with in-document search for Johnson and examination of theorem statements",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Primary 46B04 source defining canonical graph cut/cycle projections and exact graph-family norm calculations"
+      },
+      {
+        "assessment": "Bounds and routing application are broad, without an exact Johnson rank-by-rank flow formula.",
+        "evidence": [
+          "arXiv:1708.01632, PDF pp.1–5, Theorems 1.4–1.5",
+          "First posting 2017-08-04"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.01632",
+        "material_read": "Primary 13-page PDF: abstract, introduction, §§1.1–1.4, Theorems 1.4–1.5, routing connection, and proof summary",
+        "method": "Opened primary PDF, examined relevant full-text sections and searched for Johnson",
+        "title": "Localization of Electrical Flows",
+        "trigger": "Electrical-flow and transfer-current equivalent formulations"
+      },
+      {
+        "assessment": "A general log bound and spectral estimate, not a sharp Johnson graph calculation.",
+        "evidence": [
+          "arXiv:2605.24130, Theorems 1.1–1.4; first posting 2026-05-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.24130",
+        "material_read": "Primary 8-page PDF, introduction, Theorems 1.1–1.4 and accompanying definitions",
+        "method": "Opened primary PDF and examined its new global quantitative conclusions",
+        "title": "A Tight Bound on Localization of Electrical Flows",
+        "trigger": "Later sharper general bound potentially dominating older transfer-current estimates"
+      },
+      {
+        "assessment": "Degree-two vertex-spherical idempotent differs from the edge cut projection. Full-text comparison is a residual risk.",
+        "evidence": [
+          "Public search record f9735429621e: a degree-two Johnson primitive idempotent on vertex functions"
+        ],
+        "identifier_or_url": "public record suffix f9735429621e",
+        "material_read": "Structured published search-record title and summary only; linked full text could not be retrieved",
+        "method": "Compared stated operator, domain, and conclusion from the search record and attempted to open linked publication page",
+        "title": "Exact endpoint norm of the second Johnson spherical projector",
+        "trigger": "Closest Johnson-named endpoint projector returned by published research search"
+      },
+      {
+        "assessment": "Different operator invariant; no matching edge Hodge statement in accessible summary. Full text uninspected.",
+        "evidence": [
+          "Public search record d102febb3be1: two-coordinate face concentration spectrum on Johnson vertices"
+        ],
+        "identifier_or_url": "public record suffix d102febb3be1",
+        "material_read": "Structured published search-record title and summary only; linked full text could not be retrieved",
+        "method": "Compared stated concentration/restriction operator with edge-gradient projector",
+        "title": "Exact two-coordinate-face concentration spectrum on Johnson slices",
+        "trigger": "Related Johnson-scheme projection/spectral result from published research search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c057bfa-2e76-40e7-ad61-25ff0aa9eccf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Johnson scheme is a canonical two-parameter family in discrete geometry. An exact closed-form norm for its edge cut/cycle Hodge projections gives a natural Banach-space complementability invariant and worst-case electrical-current length, rather than an arbitrary small-graph value. Nontrivial higher-rank potential ordering and moment cancellation yield a complete family law, a sharp balanced-rank maximizer, and a transition from bounded fixed-rank norms to \\(n/4\\) linear growth when \\(k=\\lfloor n/2\\rfloor\\). The known \\(k=2\\) instance is excluded from the new claim. No unstated downstream theorem is assumed.",
+    "status": "PASS"
+  }
+}
