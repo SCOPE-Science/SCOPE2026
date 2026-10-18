@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:50:02.642149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any binary matrix A and any permutation P, multiplying H=A⊗P by I_n⊗P^T permutes columns to A⊗I_m. A perfect-shuffle permutation of both row and column indices maps this to I_m⊗A. This is m disjoint blocks; the kernel is C^⊕m, weight enumerator W_C^m, distance d(C), dimension m dim C and simple Tanner cycle multiplicities scaled m. Explicit independent 3×3 Kronecker/3-cycle test checked the identity, and actual certificate-based source script was inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 applies for every permitted m and P, and already states the resulting dimensions/distances.",
+          "Conventional direct-sum Tanner graph properties yield the remaining weight enumerator and cycle counts."
+        ],
+        "reasoning": "The original source covers the full specific parameter range and fixes H precisely. These consequences require no new classification or nonstandard lemma beyond index shuffling.",
+        "searches": [
+          "LDPC codes from Deza digraphs A tensor P permutation Tanner disconnected direct sum weight enumerator",
+          "Mostarac Šimac Theorem 3.1 uniform lift Remark 3.4"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3336/gm.61.1.08 full paper, source Theorem 3.1 and Remark 3.4",
+        "DOI:10.1134/S0032946025030019 bibliographic precursor",
+        "Resultary semantic query: LDPC codes from Deza digraphs A tensor P permutation Tanner disconnected direct sum weight enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H(I_n⊗P^T)=A⊗I_m; perfect shuffle S(A⊗I_m)S^{-1}=I_m⊗A, exact for arbitrary A,m,P.",
+          "All weight enumerator/distance/dimension/cycle claims follow from textbook direct sums."
+        ],
+        "reasoning": "Decisive prior implication: once H=A⊗P is published, all the submitted conclusions require only a single coordinate permutation and standard direct-sum facts; lack of the wording “disconnected” in the source does not confer an independent original theorem.",
+        "searches": [
+          "Mostarac Simac Theorem 3.1 H=A⊗P permutation matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mostarac–Šimac Theorem 3.1 supplies H=A⊗P; (A⊗P)(I⊗P^T)=A⊗I; simultaneous shuffle gives I⊗A."
+        ],
+        "reasoning": "The entire submitted classification is the elementary Kronecker/permutation normal form for the already-published check matrix. A conventional direct-sum interpretation is an equivalent formulation of the input itself.",
+        "searches": [
+          "LDPC codes from Deza digraphs A tensor P permutation Tanner disconnected direct sum weight enumerator",
+          "Kronecker product permutation matrix perfect shuffle identity A tensor P direct sum",
+          "voltage graph lift all edges same permutation graph disconnected"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted exact base W=1+3z^8 and lift W=(1+3z^8)^3 follow immediately from C^⊕3 and the four base words.",
+          "Independent small binary Kronecker product identity checked on a distinct 3×3 A and a 3-cycle P."
+        ],
+        "reasoning": "The numerical example tests a standard block-diagonalization, not an unknown exact natural invariant requiring substantial enumeration.",
+        "searches": [
+          "Mostarac Simac Cayley Z12 1 2 6 LDPC 12 2 8 weight enumerator"
+        ]
+      },
+      "rationale": "The exact source already specifies H=A⊗P, and standard Kronecker shuffle algebra immediately implies every proposed statement. This is a direct textbook structural restatement, not a novel consequence requiring another hypothesis or unprovided input. No wording-matching novelty shortcut is allowed.",
+      "residual_risks": [
+        "The source does not explicitly call its uniform Tanner graph disconnected, so the observation may still be pedagogically useful.",
+        "Exact cycle counts depend on simple Tanner cycles, and count m× follows from disjoint union; no substantive residual correctness gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The primary theorem explicitly defines H=A⊗P with one common P; it proves n,m scaling/distance. Standard Kronecker identities and a perfect shuffle immediately force m disconnected copies. Remark 3.4 permits differing P across positions.",
+          "evidence": "DOI:10.3336/gm.61.1.08, Theorem 3.1/Remark 3.4",
+          "identifier_or_url": "https://web.math.pmf.unizg.hr/glasnik/forthcoming/pGM7574.pdf",
+          "material_read": "Complete 19-page publisher-hosted 2026 manuscript; Theorem 3.1 and proof in §3, Remark 3.4, and Cayley example [12,2,8] checked.",
+          "method": "primary PDF read and Theorem 3.1 page visually inspected",
+          "title": "LDPC codes from Deza digraphs",
+          "trigger": "exact same A⊗P construction, n/m parameters and source Theorem 3.1"
+        },
+        {
+          "assessment": "Precursors of graph-based codes, no independently supported document-level claim about uniform tensor lift.",
+          "evidence": "DOI:10.1134/S0032946025030019",
+          "identifier_or_url": "https://doi.org/10.1134/S0032946025030019",
+          "material_read": "Title/abstract and bibliographic metadata only, not full primary text.",
+          "method": "bibliographic query",
+          "title": "LDPC Codes from Deza Graphs",
+          "trigger": "precursor of Deza-digraph code construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Clarifying disconnectedness has explanatory and implementation value, but as mathematical research the claimed family classification is a one-line permutation of the prior definition; all its invariant formulas are automatic direct-sum consequences and add no nontrivial theorem, cutoff or unknown invariant. The value bar rejects unmotivated textbook deductions despite correctness and code.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3336/gm.61.1.08 full paper, source Theorem 3.1 and Remark 3.4",
+    "DOI:10.1134/S0032946025030019 bibliographic precursor",
+    "Resultary semantic query: LDPC codes from Deza digraphs A tensor P permutation Tanner disconnected direct sum weight enumerator"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "The source does not explicitly call its uniform Tanner graph disconnected, so the observation may still be pedagogically useful.",
+    "Exact cycle counts depend on simple Tanner cycles, and count m× follows from disjoint union; no substantive residual correctness gap."
+  ],
+  "schema_version": 1
+}
