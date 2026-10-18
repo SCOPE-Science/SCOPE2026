@@ -1,49 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. With
-\[
-A=T_FT_G^*,
-\]
-the real scalar condition is
-\[
-\langle (K-A)f,f\rangle=0.
-\]
-Real polarization kills exactly the symmetric part of \(K-A\), giving
-\[
-K=\frac{A+A^*}{2}.
-\]
-The \(\mathbb R^2\) example has
-\[
-A=
-\begin{pmatrix}
-1&-1\\
-1&1
-\end{pmatrix}
-=
-I+
-\begin{pmatrix}
-0&-1\\
-1&0
-\end{pmatrix},
-\]
-so the scalar condition is exact while reconstruction fails. Both sequences are Riesz bases.
+## correctness
 
-The general construction
-\[
-g_j=(I-J)e_j
-\]
-realizes every bounded skew-adjoint defect \(J\), and \(I-J\) is boundedly invertible.
+PASS
 
-## Originality
-PASS. Exact-source, DOI, remark-number, real-Hilbert, quadratic-form, polarization, skew-adjoint, and dual-frame formulations were searched and compared. The complete source article was inspected. No checked indexed correction gives this source-specific symmetric-part replacement or the Riesz-basis realization family.
+The bounded quadratic identity holding on a dense subset extends to all vectors. Real polarization applied to the self-adjoint part of \(D=K-T_FT_G^*\) proves \(D+D^*=0\) and no stronger identity. A fresh symbolic reconstruction checks \(F=(e_1,e_2)\), \(G=((1,-1),(1,1))\), \(K=I\), \(T_FT_G^*=\begin{pmatrix}1&-1\\1&1\end{pmatrix}=I+J\) with \(J^*=-J\ne0\); its quadratic form is \(x^2+y^2\) for every vector, while reconstruction fails. Both displayed sequences are Riesz bases. For any bounded real skew-adjoint \(J\), setting \(g_j=(I-J)e_j\) gives \(T_FT_G^*=I+J\); the estimate \(\|(I-J)x\|^2=\|x\|^2+\|Jx\|^2\) and the same adjoint estimate show bounded invertibility, hence Riesz bases.
 
-Classical real polarization is prior operator theory and is not claimed as new.
+## originality
 
-## Value
-PASS. The published statement is a characterization of \(K\)-dual frame pairs, so a false positive changes reconstruction rather than merely a numerical constant. The defect persists for Riesz bases and can be any bounded skew-adjoint operator. The repaired characterization is exact and immediately usable.
+PASS
 
-## Limitations
-The correction applies only to the real-Hilbert branch of Remark 1.2. The complex-Hilbert branch remains valid. A nonindexed correction may exist.
+Real polarization itself is classical and not new; the source-specific failed implication and its full skew-adjoint Riesz-basis realization are the claim. The complete 26-page Li--Li article was read through authorized full-text access; Remark 1.2 explicitly states the false real equivalence. No accessible later source was found correcting precisely this real-branch statement, though an unindexed erratum is possible.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finding identifies a precise gap in a published frame-pair characterization and shows it persists even for Riesz bases rather than relying on redundant frames. The general skew-adjoint realization describes the entire family of false positives and supplies a corrected test, which is substantively useful when applying that theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
