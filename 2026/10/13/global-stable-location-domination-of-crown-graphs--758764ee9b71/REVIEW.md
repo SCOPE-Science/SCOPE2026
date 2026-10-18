@@ -1,12 +1,21 @@
-# Review of Global stable location-domination of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the literal stability definition, including the removed selected vertex as a newly outside vertex after each sensor deletion. If two vertices are omitted from one side, any shared omitted matching index either makes two original outside traces equal or makes them equal after deleting the other vertex’s matched sensor; hence the omitted-index sets must be disjoint. Robust domination then forces the selected opposite side to contain at least three vertices whenever there is an omitted vertex, while an entirely selected side needs at least two vertices on the opposite side. The exceptional common-singleton omission is checked separately. Conversely, the crown and complement trace formulas show that these conditions survive every sensor deletion. Exhaustive direct verification agrees with the complete classification for every subset through order sixteen and with the minimum theorem at order eighteen.
+## correctness
 
-## Originality
-PASS. The 2023 introducing paper gives the same invariant, but its inspected results concern general existence and graph operations rather than crown graphs; targeted full-text searches found no crown or complete-multipartite specialization. The 2021 stable locating-domination predecessor lacks the complement requirement and likewise has no crown or bipartite specialization in the inspected text. Earlier bipartite/complement work is for ordinary locating-domination, not one-deletion stability. Closest stored crown results concern solid/self locating-domination, distance-based locating-domination, or unrelated domination variants; their statements do not imply the simultaneous deletion-stability conditions in both a graph and its complement.
+PASS
 
-## Value
-PASS. Crown graphs are a canonical matching-deleted biclique family, and the invariant was introduced specifically to model location systems that must remain functional after one monitoring device fails, simultaneously in a graph and its complement. The result gives more than a scalar optimum: it classifies every feasible sensor set, gives the complete size enumerator, exposes the small-order phase transition, and identifies all minimum fault-tolerant configurations for every order.
+PASS: Work with omitted matching-index sets U={i:a_i outside S}, V={i:b_i outside S}. If |U|>=2, shared omission with V destroys distinct traces after deletion of one selected matched sensor; likewise for |V|>=2, so either U=V={i} or U cap V=empty. In disjoint case, a missing a_i has selected B trace q-1; it must survive any single selected deletion, forcing q>=3 when U,V nonempty; if U empty all selected A remain and q>=2 suffices, and symmetrically. These necessary conditions imply complement and crown nonempty, different traces after each possible removal. They yield the exact binomial-sum all-set polynomial and min values 4(n3),6(n4,n5),n(n>=6), with specified counts. A new literal implementation exhaustively checked all subsets of Cr_n and its graph complement for n=3..7, including all selected single-vertex deletions (21824 candidate subsets). Infinite proof relies on trace classification, not finite checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: 2023 introducing paper defines simultaneous stable location-domination in graph and complement, but the full omitted-index classification and generating polynomial for matching-deleted complete bipartite graphs are not supplied by the general results inspected.
+
+## value
+
+PASS
+
+PASS: Full classification and exact cardinality spectrum of a natural family under a genuine fault-tolerant, complement-simultaneous locating invariant provides reusable structural information and sharp n>=6 transversal description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

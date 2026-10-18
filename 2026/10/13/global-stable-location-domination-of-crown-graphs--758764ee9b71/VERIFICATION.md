@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs each crown graph and its complement from adjacency sets and tests the definition directly. For a candidate set it checks locating-domination, then removes every selected vertex in turn and checks locating-domination again, in both graphs.
+# Independent mathematical audit
 
-For every \(3\le n\le8\), every subset is checked against the claimed omitted-index classification. The boundary \(\operatorname{Cr}_2=C_4\) is checked separately. For \(n=9\), every subset through the claimed minimum size is scanned and the full minimum count is compared.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-n=3: gamma_glsL=4, minimum_sets=3, all_sets=10
-n=4: gamma_glsL=6, minimum_sets=28, all_sets=37
-n=5: gamma_glsL=6, minimum_sets=30, all_sets=166
-n=6: gamma_glsL=6, minimum_sets=20, all_sets=619
-n=7: gamma_glsL=7, minimum_sets=70, all_sets=2038
-n=8: gamma_glsL=8, minimum_sets=182, all_sets=6367
-n=2: gamma_glsL=4, minimum_sets=1 (boundary check)
-n=9: gamma_glsL=9, minimum_sets=420
-subsets_checked = 242758
-all_set_classification_equivalence_checks = 87360
-all classifications and minimum counts matched
-```
+PASS: Work with omitted matching-index sets U={i:a_i outside S}, V={i:b_i outside S}. If |U|>=2, shared omission with V destroys distinct traces after deletion of one selected matched sensor; likewise for |V|>=2, so either U=V={i} or U cap V=empty. In disjoint case, a missing a_i has selected B trace q-1; it must survive any single selected deletion, forcing q>=3 when U,V nonempty; if U empty all selected A remain and q>=2 suffices, and symmetrically. These necessary conditions imply complement and crown nonempty, different traces after each possible removal. They yield the exact binomial-sum all-set polynomial and min values 4(n3),6(n4,n5),n(n>=6), with specified counts. A new literal implementation exhaustively checked all subsets of Cr_n and its graph complement for n=3..7, including all selected single-vertex deletions (21824 candidate subsets). Infinite proof relies on trace classification, not finite checks.
 
-The finite computation is an exhaustive regression check over the stated finite ranges. It does not replace the symbolic proof for arbitrary \(n\).
+## originality
+
+PASS
+
+PASS best-of-knowledge: 2023 introducing paper defines simultaneous stable location-domination in graph and complement, but the full omitted-index classification and generating polynomial for matching-deleted complete bipartite graphs are not supplied by the general results inspected.
+
+## value
+
+PASS
+
+PASS: Full classification and exact cardinality spectrum of a natural family under a genuine fault-tolerant, complement-simultaneous locating invariant provides reusable structural information and sharp n>=6 transversal description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
