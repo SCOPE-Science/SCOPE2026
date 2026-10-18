@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:11:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 2713277b4672fb54a700d35a8bab580bf298f8b1",
+        "pinned verify.py fd7f51533d44087850d3e272dff482fc3ef96d94",
+        "Theorem 1.8 original arXiv:2610.02111v1",
+        "independent integer coefficient calculations through degree32"
+      ],
+      "rationale": "For g=x²−1 over F2, Frobenius gives g^N(x)≡x^(2^N) for even N, x^(2^N)+1 for odd N. Thus F=(g^N)^2+c≡x^(2^(N+1)) for even N and x^(2^(N+1))+1 for odd N. Even N constant F(0)=c≡2 mod4; odd N shifted constant F(1)=c≡2 mod4. Hence the unshifted/shifted monic polynomial is 2-Eisenstein for every N>=0. With f=x²+c and g=x²−1, published Theorem 1.8 has rad(2)|2 and g^i(0)=0,-1 alternately; its squarefree list for N>=1 is exactly {c,c+1}. Its second prime test 4∤((-c)²+c)=c(c+1) automatically holds. Independent full exact integer polynomial expansion for c=2,6,10,14,22 and N=0..4 checked all parity coefficients and constant valuations. Tests support but do not prove the infinite statement; the symbolic induction and cited conditional theorem do.",
+      "residual_risks": [
+        "Dependence of monogeneity equivalence on published Theorem 1.8; irreducibility itself proved directly"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 Theorem 4.2 asserts equivalence of all iterates monogenic, second iterate monogenic, and two simple arithmetic conditions for f=1−x^d, any d≥2 and any integer a.",
+          "For d=2, a=c+1 the arithmetic conditions specialize precisely to the claimed c,c+1 squarefree for c≡2 mod4."
+        ],
+        "reasoning": "Unlike the initiating 2026 conditional-composition theorem, this 2025 theorem is stronger and unconditional on the irreducibility of monogenic instances; it directly dominates the core claimed parameter classification.",
+        "searches": [
+          "arXiv:2412.10358v3 Theorem 4.1 arbitrary unicritical ux^d+b and Theorem 4.2 f=1-x^d",
+          "arXiv:2610.02111v1 Theorem 1.8 composition criterion"
+        ]
+      },
+      "checked_sources": [
+        "König–Smith–Wolske arXiv:2412.10358v3 Theorem 4.2 covers core invariant",
+        "König–Smith–Wolske, Critical Point Criteria and Dynamically Monogenic Polynomials, arXiv:2412.10358v3, Theorems 4.1–4.2 full original HTML (2025)",
+        "Jakhar–Kalwaniya–Laishram–Yadav, On The Index of Polynomial Compositions over Valued Fields, arXiv:2610.02111v1, Theorem 1.8 and Sections 4-6, full HTML",
+        "Jakhar–Kalwaniya–Yadav, A Study of monogenity of Binomial Composition, arXiv:2402.10131, bibliographic abstract and available statement",
+        "König–Smith–Wolske, Critical Point Criteria and Dynamically Monogenic Polynomials, arXiv:2412.10358, abstract/scope",
+        "Resultary: monogenic composition x^2+c with iterations of x^2-1 2 Eisenstein tower squarefree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "f^m(x)=−g^m(x), so monogenicity and irreducibility of F_(c,N) agree with those of f^(N+1)(x)−a where a=c+1.",
+          "Theorem 4.2(iii): a and 1−a squarefree and (1−a)^(p−1)≠1 modulo p² for p|d; with d=2 a=c+1 this is exactly c,c+1 squarefree and −c≠1 modulo4.",
+          "Conjugacy shows the published theorem covers the same infinite tower up to sign. Its proof via general critical-point criterion includes earlier-level local index obstructions."
+        ],
+        "reasoning": "A single literal substitution into the 2025 theorem proves the main iff, not merely a corollary sharing names. The additional alternating Eisenstein irreducibility check for bad squarefreeness parameters is true but elementary and does not establish a distinct valuable final classification.",
+        "searches": [
+          "arXiv:2412.10358v3 Theorem 4.2 conditions i and ii, p=2",
+          "arXiv:2412.10358v3 Theorem 4.1 and proof of Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact algebra: f(x)=1−x²=−g(−x), f^m(x)=−g^m(−x)=−g^m(x) for m≥1, so F_(c,N)=−(f^(N+1)(x)−(c+1)).",
+          "arXiv:2412.10358v3 Theorem 4.2, with d=2 and a=c+1, imposes c+1 and −c squarefree and (−c)^1 ≠1 (mod4)."
+        ],
+        "reasoning": "The apparently mixed two-polynomial tower is exactly a sign-equivalent ordinary unicritical iterate; for c≡2 mod4 the final congruence condition in the 2025 iff theorem is automatic. This is not a loose analogy: the polynomial families and integer parameters coincide after conjugation.",
+        "searches": [
+          "König Smith Wolske Critical Point Criteria Dynamically Monogenic Polynomials 1-x² Theorem 4.2",
+          "arXiv:2412.10358v3 section 4.1 f=1-x^d a arbitrary dynamic monogeneity",
+          "F_(c,N)=(g^N)^2+c conjugation g=x²−1 f=1−x²"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise object-parameter classification appears as a symbolic theorem (Theorem 4.2) in a 2025 arXiv primary full text, rather than a finite table."
+        ],
+        "reasoning": "The exact prior-source implication obviates table novelty: a previously published all-parameter iff theorem covers every claimed monogeneity instance via polynomial conjugacy.",
+        "searches": [
+          "arXiv:2412.10358v3 Theorem 4.2 exact parametric criteria for f=1−x²",
+          "König Smith Wolske 2025 dynamically monogenic polynomial classification"
+        ]
+      },
+      "rationale": "DECISIVE STRONGER PRIOR COVERAGE: this is a single-polynomial iterate in disguise. With f(x)=1−x² and g(x)=x²−1, for every m>=1 one has f^m(x)=−g^m(x). Therefore F_(c,N)(x)=−(f^(N+1)(x)−(c+1)). König–Smith–Wolske arXiv:2412.10358v3, Theorem 4.2, already characterizes all dynamically monogenic iterates of f=1−x^d. Substituting d=2 and a=c+1 gives c,c+1 squarefree and (−c) not congruent to 1 mod4; the latter is automatic for c≡2 mod4. Thus the principal infinite monogeneity classification is an immediate special case of the published 2025 theorem, which also supplies dynamical irreducibility when those conditions hold. The extra irreducibility for nonsquarefree parameters comes from an elementary parity Eisenstein check but does not rescue the overall final classification from substantive prior coverage.",
+      "residual_risks": [
+        "The elementary alternating 2-Eisenstein observation for nonsquarefree c is not literally asserted by Theorem 4.2; it is correct but cannot rescue originality of the full already-covered monogeneity classification.",
+        "This rejection is a scientific prior-implication judgment, not a literature access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS CORE CLAIM: 2025 theorem gives equivalent full dynamical monogeneity iff for 1−x², hence for F_(c,N).",
+          "evidence": "Theorem 4.2 equivalence and displayed congruence conditions: a,1−a squarefree and (1−a)^(p−1) not 1 mod p²; set d=2 a=c+1.",
+          "identifier_or_url": "https://arxiv.org/html/2412.10358v3",
+          "material_read": "Original full relevant Sections 1, 3 and 4.1, Theorems 4.1 and 4.2 with statements and proofs; Section 4.3 examples also checked",
+          "method": "Lawful full-text arXiv HTML inspection, direct exact variable substitution and polynomial conjugation",
+          "title": "Critical Point Criteria and Dynamically Monogenic Polynomials",
+          "trigger": "Crucial stronger prior covering g=x²−1 via affine conjugacy; this source was identified and full relevant text inspected before audit completion"
+        },
+        {
+          "assessment": "Explicit irreducibility hypothesis remains; special c/shift tower is not treated in inspected argument.",
+          "evidence": "Theorem 1.8 assumes rad(m)|n and irreducible f∘g^N; criteria are (f∘g^i)(0) squarefree for 0<=i<=N and p²∤((-a)^p+a) for primes dividing n.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02111v1",
+          "material_read": "Full relevant arXiv HTML including Theorems 1.5–1.9, full Theorem 1.8, its induction proof and Section 6 example",
+          "method": "Direct original theorem and proof reading",
+          "title": "On The Index of Polynomial Compositions over Valued Fields",
+          "trigger": "Initiating primary monogeneity criterion for compositions"
+        },
+        {
+          "assessment": "May cover a first-level binomial composition but not shown to cover repeated inner quadratic iterates.",
+          "evidence": "Title and abstract concern composition of binomials.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.10131",
+          "material_read": "Original abstract and available bibliographic formulation; full text endpoint unavailable in this review",
+          "method": "Primary abstract/title comparison; did not claim complete document read",
+          "title": "A Study of monogenity of Binomial Composition",
+          "trigger": "Earlier single-composition theorem possibly covering N=1"
+        },
+        {
+          "assessment": "Closely related premise but no decisive same distinct-polynomial tower implication from available text.",
+          "evidence": "Stated focus on dynamically monogenic iterates and backward orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.10358",
+          "material_read": "Original abstract and publication scope; full preprint unavailable in this review",
+          "method": "Primary abstract-level comparison only",
+          "title": "Critical Point Criteria and Dynamically Monogenic Polynomials",
+          "trigger": "Broader critical-orbit stability theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "König–Smith–Wolske arXiv:2412.10358v3 Theorem 4.2 covers core invariant",
+        "König–Smith–Wolske, Critical Point Criteria and Dynamically Monogenic Polynomials, arXiv:2412.10358v3, Theorems 4.1–4.2 full original HTML (2025)",
+        "Jakhar–Kalwaniya–Laishram–Yadav, On The Index of Polynomial Compositions over Valued Fields, arXiv:2610.02111v1, Theorem 1.8 and Sections 4-6, full HTML",
+        "Jakhar–Kalwaniya–Yadav, A Study of monogenity of Binomial Composition, arXiv:2402.10131, bibliographic abstract and available statement",
+        "König–Smith–Wolske, Critical Point Criteria and Dynamically Monogenic Polynomials, arXiv:2412.10358, abstract/scope",
+        "Resultary: monogenic composition x^2+c with iterations of x^2-1 2 Eisenstein tower squarefree"
+      ],
+      "rationale": "The mathematically substantive infinite monogeneity iff is a direct specialization of the stronger 2025 dynamically monogenic theorem after an elementary conjugacy. What remains beyond that published implication is a standard parity/translation 2-Eisenstein calculation for a particular residue class; it is not an independently motivated structural classification or nonroutine research advance. A true proof and reproducible examples do not establish independent value for a covered core result.",
+      "residual_risks": [
+        "The irreducibility observation for nonsquarefree c may still be useful as a teaching example, but does not make the final main classification a new valuable research statement."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Monogeneity iff only for N>=1; N=0 shown irreducible, no monogeneity classification asserted",
+    "Characteristic-zero Q, integer c>0 congruent 2 mod4; does not generalize to arbitrary residues.",
+    "Core monogeneity iff is covered by arXiv:2412.10358v3 Theorem 4.2 under f=1−x² conjugacy. Reject originality and value while retaining correctness."
+  ]
+}
