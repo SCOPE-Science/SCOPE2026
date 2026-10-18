@@ -1,0 +1,9 @@
+# Assessment of the exact third-cumulant finding
+
+**Correctness.** The pair-kernel representation is an identity for circular intervals of length at most one-half. The centered kernel is conditionally mean zero. A three-edge connected diagram survives only when it is a triangle, while three repeated edges contribute the other term; other diagrams have a singly occurring vertex. For windows at most one-third the triangle integral is an ordinary nonwrapping convolution; its independently evaluated quadrant components are \(11/30\) and \(11/60\). The exact polynomial, positivity, variance and all three skewness asymptotics follow. Symbolic, rational and numerical checks were executed successfully. No distributional central limit theorem is inferred.
+
+**Originality.** The Oct 2026 number-variance paper is directly relevant and was inspected throughout the introduction, results and microscopic proof. Its existing first-two-moment formulae are not claimed. Earlier rescaled interpoint-distance Poisson limits were checked, including Jammalamadaka–Penrose's Theorem 3.1: these do not furnish the exact finite-size third cumulant and its triangle coefficient. Published record searches did not locate the precise closed form. General diagram expansions or unlocated older calculations remain residual priority risks.
+
+**Value.** The third standardized moment is the first quantity that detects the skew/asymmetry absent from the existing variance. Its exact finite-sample sign and the change of dominant combinatorial diagrams at the natural \(s\asymp1/n\) spacing scale quantify when Gaussian-looking variance alone is misleading. This is a sharp natural invariant, not an arbitrary numerical slice. The theorem applies to all sample sizes and a full geometrically meaningful interval-width domain.
+
+Self-review: passed. Independent audit: not yet performed.
