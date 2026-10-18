@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof explicitly distinguishes strict new records after time one from the eventual *set* of record values. The latter has independent exponential-race indicators with probabilities \(p_i/(p_i+\cdots+p_d)\). Coupling at the first top-category appearance gives the claimed total-variation inequality. Negative quadratic and cubic discriminants are verified by independent exact word enumeration and an exact dynamic recursion; simple-root stability proves eventual Poisson–binomial representability whenever the limiting Bernoulli parameters differ. A finite checker supplements but does not replace those proofs.
+
+**Originality — PASS on the inspected evidence, not a priority certificate.** Lafuente et al. establish eventual record-value indicator independence, Li studies recent-window records, and Tang–Tang provide real-rootedness characterization. The distinguishing contribution here is fixed-horizon failure under iid discrete sampling, explicit open-set rational witnesses, and eventual recovery within the same laws. A separate 2018 record-breaking study concerns iid record events and is not evidence that discrete ties preserve finite-horizon Poisson–binomial structure. The closest published results and accessible mathematical database claims did not directly state or imply the finite-horizon obstruction. The full original PDF of some comparator material was inaccessible; unindexed equivalent examples remain a risk.
+
+**Value — PASS.** The exact contrast between finite-horizon non-factorability and infinite-horizon Bernoulli factorability answers a natural finite-observation question in discrete record theory. The first possible sample length for failure is realized (three draws); another obstruction already occurs with four alphabet values at four draws. Negative discriminants establish robust open sets, not an arbitrary near-zero numerical effect, and the coupling and real-root continuity mechanism explains why failure can disappear at sufficiently long horizons.
+
+**Limitations.** This does not determine minimal alphabet sizes or provide an explicit uniform recovery cutoff. The eventual Bernoulli law is established prior theory, not independently novel. External checks do not rule out every differently named publication.
+
+Self-review: passed. Independent audit: not yet performed.
