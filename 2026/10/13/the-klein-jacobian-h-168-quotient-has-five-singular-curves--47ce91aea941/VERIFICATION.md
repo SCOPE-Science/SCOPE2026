@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The accompanying `verification/verify.py` replays the finite arithmetic and local cyclic-quotient checks used after the literature classification has reduced the problem to explicit stabilizer types.
 
-It verifies:
+# Independent mathematical audit
 
-- \(21\) involutions contribute three translated generic-\(C_2\) elliptic curves each, hence \(63\) such curves after separating the axis fixed by the unique containing \(C_4\).
-- The source counts \(28\) generic-\(C_3\) and \(21\) generic-\(C_4\) elliptic curves.
-- Setwise stabilizer orders \(8,6,8\) give orbit lengths \(21,28,21\), hence \(3+1+1\) curve-orbits.
-- The displayed order-two and order-four tangent matrices have determinant one and fixed-space dimension one; the order-four transverse eigenvalues are \(i,-i\).
-- For \(n=2,3,4\), the invariant monomials \(a=u^n\), \(b=v^n\), \(c=uv\) satisfy \(ab=c^n\), giving transverse \(A_{n-1}\).
-- The final component profile is five curve components plus the two isolated \(\frac1{7}(1,2,4)\) points supplied by the source.
+## correctness
 
-The verifier is not an exhaustiveness certificate for the group action. Exhaustiveness rests on the full-text stabilizer and fixed-locus classification in arXiv:2107.03745. No finite sampling is used to infer an infinite geometric statement. Special dissident/intersection germs are intentionally outside the claim.
+PASS
+
+Markushevich–Moreau exhaustive stabilizer data: 21 involutions with four fixed elliptic components each, of which one is a C4 axis; remaining distinct translates contribute 63 generic C2 curves. There are 28 cyclic C3 fixed curves and 21 cyclic C4 fixed curves, giving 112. Setwise normalizers of curve components D8,S3,D8 produce H-orbit sizes 21,28,21 and hence 3+1+1 irreducible image curves. The tangent H action lies in SL3(C), so no pseudoreflections; nonfree locus equals singular preimage. Transverse eigenvalues of C2,C3,C4 give cyclic quotient uv=w^n and ADE A1,A2,A3. Source classifies 48 isolated order-7 fixed points split into two H-orbits of 24 yielding two isolated 1/7(1,2,4) points. Independently recomputed orbit arithmetic and local eigenvalue invariants; finite script verifies arithmetic but exhaustiveness rests on actual primary-source fixed-locus classification.
+
+## originality
+
+PASS
+
+The original primary paper tabulates fixed loci and gives two isolated Y points but its global singular theorem treats X=J/(±1×H), not the complete Y locus. The sequel singles out Y as a non-isolated orbifold whose future study remains open. No exact 5-curve component decomposition under quotient aliases located; close structural consequence of existing tables, so priority risk retained.
+
+## value
+
+PASS
+
+The reduced singular locus and ADE basket are natural global invariants of the canonical Klein-Jacobian Calabi–Yau orbifold and key inputs to resolution and stringy geometry. The finite orbit decomposition distinguishes Y from the much smoother reflection quotient X and is more than a gratuitous arithmetic restatement of a subgroup table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

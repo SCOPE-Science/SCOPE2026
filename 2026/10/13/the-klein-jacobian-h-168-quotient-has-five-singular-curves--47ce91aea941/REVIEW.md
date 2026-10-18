@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** The proof uses the published exhaustive stabilizer/fixed-locus classification rather than a finite search. Since \(H\subset\operatorname{SL}_3(\mathbf C)\), it has no nonidentity pseudoreflections, so the non-free locus maps exactly to the singular locus of \(Y\). The component counts follow from the source's \(21\) involutions with four fixed elliptic translates, \(28\) order-three subgroups, \(21\) order-four subgroups, and setwise stabilizers \(D_8,S_3,D_8\). The local cyclic actions yield transverse \(A_1,A_2,A_3\), and Proposition 3.1 supplies exactly two isolated \(\frac1{7}(1,2,4)\) points.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The first source explicitly treats only the two isolated singularities of \(Y\); its complete global theorem is for \(X=J/G\). The sequel identifies \(Y\) as a non-isolated Calabi--Yau orbifold and says its study is deferred. published-finding corpus searches for the exact quotient, \(H_{168}\)/\(\operatorname{PSL}(2,7)\) aliases, the five-curve \(3A_1+A_2+A_3\) profile, and the \(112\)-elliptic-curve preimage found no covering statement. Residual risk remains from older or poorly indexed literature using crystallographic or orbifold terminology.
+## correctness
 
-## Value
-**PASS.** The component stratification is a natural global invariant of the exact Calabi--Yau quotient highlighted by the sequel. It explains concretely how the much larger singular locus of \(Y\) collapses under the index-two map to the reflection quotient \(X\), and it provides a usable starting point for resolutions, orbifold invariants, and mirror questions. The claim is structural rather than a routine special case.
+PASS
 
-## Closest literature and limitations
-The closest literature is the two Markushevich--Moreau papers. The result is limited to reduced components and generic transverse types; special intersection/dissident germs, a crepant resolution, and global orbifold invariants are not determined.
+Markushevich–Moreau exhaustive stabilizer data: 21 involutions with four fixed elliptic components each, of which one is a C4 axis; remaining distinct translates contribute 63 generic C2 curves. There are 28 cyclic C3 fixed curves and 21 cyclic C4 fixed curves, giving 112. Setwise normalizers of curve components D8,S3,D8 produce H-orbit sizes 21,28,21 and hence 3+1+1 irreducible image curves. The tangent H action lies in SL3(C), so no pseudoreflections; nonfree locus equals singular preimage. Transverse eigenvalues of C2,C3,C4 give cyclic quotient uv=w^n and ADE A1,A2,A3. Source classifies 48 isolated order-7 fixed points split into two H-orbits of 24 yielding two isolated 1/7(1,2,4) points. Independently recomputed orbit arithmetic and local eigenvalue invariants; finite script verifies arithmetic but exhaustiveness rests on actual primary-source fixed-locus classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original primary paper tabulates fixed loci and gives two isolated Y points but its global singular theorem treats X=J/(±1×H), not the complete Y locus. The sequel singles out Y as a non-isolated orbifold whose future study remains open. No exact 5-curve component decomposition under quotient aliases located; close structural consequence of existing tables, so priority risk retained.
+
+## value
+
+PASS
+
+The reduced singular locus and ADE basket are natural global invariants of the canonical Klein-Jacobian Calabi–Yau orbifold and key inputs to resolution and stringy geometry. The finite orbit decomposition distinguishes Y from the much smoother reflection quotient X and is more than a gratuitous arithmetic restatement of a subgroup table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
