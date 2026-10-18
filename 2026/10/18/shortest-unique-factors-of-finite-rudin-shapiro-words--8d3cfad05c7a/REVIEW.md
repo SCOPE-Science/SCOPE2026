@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The binary parity recurrence is elementary and valid for all nonnegative indices. Four explicit eight-letter blocks and an exhaustive 128-window phase test give a universal modulo-eight synchronization lemma; the 16 parity-alternating block triples and 104 length-14 factors give a complete finite low-length recurrence boundary, with all 104 factors occurring at least six times in the 1024-letter prefix. A complete base scan identifies eight singleton factors at length 18 in the 512-letter prefix. For lengths at least 15, the recurrence preserves occurrence multiplicity by decoding either complete or partial pairs after synchronized phase recognition. Induction then determines all orders. The finite checker is evidence only for the base and short finite lemmas, not a surrogate for the induction.
+
+**Originality — PASS within examined evidence.** The latest generic shortest-unique-substring algorithmic paper concerns computational complexity; known occurrence-preserving morphisms and exact MUS structure concern Fibonacci and Thue–Morse words, not this parity-indexed Rudin–Shapiro instance. Related finite Rudin–Shapiro factor-attractor computations have different invariants and do not imply the asserted closed formula. Actual exact and alias searches and closest source comparisons are recorded in the structured originality review. The possibility of a differently formulated or unindexed exact precedent remains.
+
+**Value — PASS.** This is a complete infinite-family solution to the global shortest-unique-factor problem for a canonical nontrivial automatic sequence. It gives the exact uniqueness threshold, the exact number of optimal factors and all of their locations, with a reproducible finite base and a reusable phase-recognition mechanism. It supplies exact scale-dependent benchmarks for substring algorithms beyond finite tabulation. The claim is not a cosmetic change of alphabet or a small isolated computation.
+
+**Limitations.** The result applies to the specified Rudin–Shapiro convention and dyadic orders at least nine. Literature retrieval remains incomplete, and no independent audit has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
