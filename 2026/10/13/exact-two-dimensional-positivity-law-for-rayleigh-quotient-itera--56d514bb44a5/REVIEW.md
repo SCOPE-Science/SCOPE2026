@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The eigenbasis calculation gives the exact update \(t_+=-t^3\); intersecting its preimage with the explicit positive cone proves the safe-start interval, and endpoint limits prove universal invariance iff \(\theta=\pi/4\), equivalent to equal diagonals. The rational witness is replayed exactly.
+## correctness
 
-## Originality
-PASS with residual terminology risk. Focused published-finding corpus and web searches found standard RQI dynamics, spectral localization, and positivity-preserving Noda literature, but no implication-equivalent exact \(2\times2\) Stieltjes cone interval or equal-diagonal iff theorem. Parlett's full text supplies the RQI algorithm and cubic background; Jia–Lin–Liu's full text supplies the general positivity concern and the contrasting structure-preserving method.
+PASS
 
-## Value
-PASS. Positivity is intrinsic to the Perron/smallest-\(M\)-matrix eigenvector problem. The result gives a complete low-dimensional structure-preservation boundary and shows that convergence to the correct positive eigenvector does not itself protect intermediate signs.
+For normalized eigenbasis x∼v1+t v2, exact Rayleigh quotient μ=(λ1+λ2t²)/(1+t²) and inverse iteration give t+ = −t³. Starting cone is −tanθ<t<cotθ, mapped-positive condition is −cuberoot(cotθ)<t<cuberoot(tanθ), giving the intersection. Universal positive-ray invariance implies tanθ=cotθ=1, equivalent to a=d. Independent rational elimination for A=[[1,−1],[−1,2]], x=(1,4) gives μ=25/17 and y=(−1309/361,255/361), and satisfies basin condition. This covers eigenvector termination, sign orientation, and equal-diagonal cubic convergence.
 
-## Closest literature and limitations
-The closest literature is Parlett (1974) for RQI dynamics and Jia–Lin–Liu (2013/2015) for positivity-preserving \(M\)-matrix eigensolvers. The result is restricted to exact arithmetic and irreducible symmetric \(2\times2\) Stieltjes matrices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Parlett classical RQI gives t→−t³ and Jia–Lin–Liu motivate positive eigensolver variants. Neither inspected work states the sharp safe-start intersection or iff equal-diagonal invariant positive cone for all 2×2 SPD Stieltjes matrices, including basin counterexample. Independent Resultary searches found related CG/MINRES/SOR positivity results on different methods, not an implication for ordinary RQI.
+
+## value
+
+PASS
+
+The complete 2×2 exact cone-safety region and equal-diagonal iff criterion give a sharp natural boundary for positivity loss in a classical eigenvalue algorithm, directly motivating positive-preserving alternatives. More substantive than just a negative numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

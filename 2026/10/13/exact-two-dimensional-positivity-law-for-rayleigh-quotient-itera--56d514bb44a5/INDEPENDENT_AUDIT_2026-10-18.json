@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:57:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md actual Git blob 8251415df37bc9ba415931d61dba615f024ac375",
+        "Source tree 53a3d73de9a94942eff7cec37130d8ff05bc33a5",
+        "doi:10.1090/S0025-5718-1974-0405823-3",
+        "arXiv:1309.3926; https://arxiv.org/abs/1309.3926"
+      ],
+      "rationale": "For normalized eigenbasis x∼v1+t v2, exact Rayleigh quotient μ=(λ1+λ2t²)/(1+t²) and inverse iteration give t+ = −t³. Starting cone is −tanθ<t<cotθ, mapped-positive condition is −cuberoot(cotθ)<t<cuberoot(tanθ), giving the intersection. Universal positive-ray invariance implies tanθ=cotθ=1, equivalent to a=d. Independent rational elimination for A=[[1,−1],[−1,2]], x=(1,4) gives μ=25/17 and y=(−1309/361,255/361), and satisfies basin condition. This covers eigenvector termination, sign orientation, and equal-diagonal cubic convergence.",
+      "residual_risks": [
+        "Only 2×2 irreducible SPD Stieltjes exact arithmetic; eigenvector sign is a ray convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noda preserves positivity by different iteration; generic RQI cubic convergence is not global positive-cone invariance."
+        ],
+        "reasoning": "No stronger inspected RQI cone criterion dominates the asserted iff.",
+        "searches": [
+          "Rayleigh quotient iteration Perron positivity Noda arXiv:1309.3926",
+          "Parlett 1974 Rayleigh quotient iteration cubic convergence"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1090/S0025-5718-1974-0405823-3",
+        "arXiv:1309.3926; https://arxiv.org/abs/1309.3926",
+        "Resultary semantic math search: 2x2 symmetric Stieltjes matrix Rayleigh quotient iteration positive cone invariant equal diagonal sign change cubic projective coordinate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "t->−t³ known; Stieltjes cone −tanθ<t<cotθ gives new sharp inequalities and a=d iff."
+        ],
+        "reasoning": "Known dynamics plus a natural cone boundary require a short calculation, explicitly credited as such.",
+        "searches": [
+          "RQI projective t_next=-t^3",
+          "M-matrix eigenvector positivity Rayleigh quotient iteration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parlett gives standard RQI; related Resultary positivity frontiers concern CG/MINRES/SOR/Broyden, not this RQI statement."
+        ],
+        "reasoning": "Method substitution does not preserve theorem without a fresh derivation.",
+        "searches": [
+          "2x2 symmetric Stieltjes matrix Rayleigh quotient iteration positive cone invariant equal diagonal sign change cubic projective coordinate",
+          "Rayleigh quotient iteration 2x2 Stieltjes positivity cone cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact open interval classification is uniform over continuous matrix/angle family, not table lookup."
+        ],
+        "reasoning": "Finite witness arithmetic is reproducible but not the claimed theorem by itself.",
+        "searches": [
+          "2x2 Rayleigh Stieltjes positivity exact angle interval",
+          "RQI positive eigenvectors safe initial region numerical table"
+        ]
+      },
+      "rationale": "Parlett classical RQI gives t→−t³ and Jia–Lin–Liu motivate positive eigensolver variants. Neither inspected work states the sharp safe-start intersection or iff equal-diagonal invariant positive cone for all 2×2 SPD Stieltjes matrices, including basin counterexample. Independent Resultary searches found related CG/MINRES/SOR positivity results on different methods, not an implication for ordinary RQI.",
+      "residual_risks": [
+        "Resultary semantic search does not establish exhaustive world literature; no certification of novelty.",
+        "Parlett full text not independently line-read in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PROJECTIVE_DYNAMICS",
+          "evidence": "classic RQI dynamics are known but do not by themselves state the 2x2 Stieltjes cone invariance iff equal diagonals",
+          "identifier_or_url": "doi:10.1090/S0025-5718-1974-0405823-3",
+          "material_read": "bibliographic abstract and referenced cubic convergence, not full all-page text",
+          "method": "journal citation and source scientific comparison",
+          "title": "The Rayleigh Quotient Iteration and Some Generalizations for Nonnormal Matrices",
+          "trigger": "source of standard two-eigenvalue RQI cubic map"
+        },
+        {
+          "assessment": "RELATED_MOTIVATION_NOT_THE_RQI_CONE_CLASSIFICATION",
+          "evidence": "Noda positive iteration motivated to avoid sign loss; no sharp cone region for ordinary 2x2 Rayleigh quotient iteration in inspected material",
+          "identifier_or_url": "arXiv:1309.3926; https://arxiv.org/abs/1309.3926",
+          "material_read": "full arXiv abstract and stated theorem purpose, not full PDF",
+          "method": "arXiv abstract",
+          "title": "A positivity preserving inexact Noda iteration for computing the smallest eigenpair of a large irreducible M-matrix",
+          "trigger": "same positive eigenvector problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "doi:10.1090/S0025-5718-1974-0405823-3",
+        "arXiv:1309.3926; https://arxiv.org/abs/1309.3926"
+      ],
+      "rationale": "The complete 2×2 exact cone-safety region and equal-diagonal iff criterion give a sharp natural boundary for positivity loss in a classical eigenvalue algorithm, directly motivating positive-preserving alternatives. More substantive than just a negative numerical witness.",
+      "residual_risks": [
+        "Only exact 2×2 Stieltjes case, no numerical stability guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 2×2 irreducible SPD Stieltjes exact arithmetic; eigenvector sign is a ray convention.",
+    "Resultary semantic search does not establish exhaustive world literature; no certification of novelty.",
+    "Parlett full text not independently line-read in this execution."
+  ],
+  "schema_version": 1
+}
