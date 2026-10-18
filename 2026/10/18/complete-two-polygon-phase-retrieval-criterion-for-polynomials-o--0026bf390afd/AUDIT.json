@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all d>=1 the 2d-point DFT on each circle kills the intensity-difference coefficients at all orders |k|<d. The only aliased mode has coefficient R^d(a_d conjugate(a_0)-b_d conjugate(b_0)); the two real projections are invertible if and only if sin(d(psi-phi)) is nonzero. Continuous modulus equality on distinct radii makes the rational quotient invariant under a positive dilation, hence constant by its Laurent expansion. Explicit z versus radius and 1 plus/minus i exp(-id phi) z^d witnesses prove both failures. Direct verification of the subsystems and finite checker (5784 checks for degrees 1 through 8) corroborates but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pohl, Li, and Boche 2017 finite theorem takes 2d+1 samples on one concentric circle and 2d-1 on another; it is not arbitrary placement of a balanced regular 2d+2d sampling pair.",
+        "Bodmann and Hammen 2013 Theorem 2.3 uses two intersecting circles, an irrational intersection angle, and shared measurements.",
+        "The 2026 arXiv:2609.28341 theorem concerns uniformly discrete measurements of infinite-dimensional Gaussian-polynomial STFT ranges, not this finite-dimensional polynomial evaluation family."
+      ],
+      "reasoning": "Equality of sample totals or the abstract existence of a 4d-sample phase-retrieval set does not imply injectivity for this specific grid. The finite-dimensional geometric hypotheses of both earlier constructions exclude the present balanced concentric allocation. The newer infinite-dimensional result likewise supplies no parameterwise two-polygon equivalence.",
+      "searches": [
+        "Polynomial phase retrieval using 4d evaluations on two concentric equispaced 2d-vertex polygons phase staggering and distinct radii",
+        "polynomial phase retrieval two concentric circles regular grids arbitrary degree four times degree sampling",
+        "arXiv:1302.5487 Section 2.3",
+        "DOI:10.1109/SAMPTA.2017.8024411 slide 18",
+        "arXiv:2609.28341 abstract and Section 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28341",
+      "arXiv:1302.5487",
+      "DOI:10.1109/SAMPTA.2017.8024411",
+      "arXiv:2403.16255"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 4d theorem: 2d+1/2d-1 unbalanced concentric sampling; known sample count is not asserted new.",
+        "2024 Theorem 2.16: continuous modulus information on two concentric circles implies global phase; this is the continuous rigidity step used, not a discrete interpolation result.",
+        "Earlier d=2 and d=3 claims cannot imply the d>=4 cases; the present proof establishes all d simultaneously."
+      ],
+      "reasoning": "The new claim is only the exact if-and-only-if classification of equal allocations on two angularly regular 2d-gons for all d, together with the normalized angular demixing singular values. It openly incorporates classical two-circle uniqueness and standard roots-of-unity identities, and no new lower bound among all possible frames is inferred.",
+      "searches": [
+        "DOI:10.1109/SAMPTA.2017.8024411 slide 18",
+        "arXiv:2403.16255 Theorem 2.16",
+        "Balanced two-circle polynomial phase retrieval 2d equally spaced points each circle, all degrees necessary and sufficient angular offset sin(d theta), concentric radial grids",
+        "Polynomial phase retrieval using 4d evaluations on two concentric equispaced 2d-vertex polygons phase staggering and distinct radii"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.16 of arXiv:2403.16255 determines polynomials up to phase from moduli on two full circles; it does not prescribe a finite two-polygon sampling system.",
+        "Theorem 2.11 treats a different finite threshold for Blaschke products on a single interior circle; it is not an equivalent regular two-polygon condition."
+      ],
+      "reasoning": "An equivalent statement would permit recovery from exactly 2d regularly phased samples per ring, for every degree, with a necessary-and-sufficient sine condition. The inspected continuous-circle theorem omits the finite Fourier-bin alias resolution, and the single-circle Blaschke theorem has a different object and hypotheses.",
+      "searches": [
+        "Balanced two-circle polynomial phase retrieval 2d equally spaced points each circle, all degrees necessary and sufficient angular offset sin(d theta), concentric radial grids",
+        "intensity samples polynomial on two circles equally spaced 2n phase retrieval complete criterion sin n angular offset",
+        "\"phase retrieval\" \"concentric circles\" \"equispaced\" polynomial",
+        "arXiv:2403.16255 Theorems 2.11 and 2.16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index search hits on finite-grid phase maxima, asymmetric bispectral identifiability, and cyclic frequency deletion concern different mathematical objects and do not assert the two-circle polynomial criterion.",
+        "Degree-two and degree-three two-polygon results supply special cases, not the quantifier over every positive degree."
+      ],
+      "reasoning": "The exact searched terms and nearest indexed records were checked at the level of mathematical object, quantifier and implication; neither unrelated cyclic Fourier results nor fixed-degree instances provide the all-positive-degree claim.",
+      "searches": [
+        "phase retrieval polynomial 4d measurements two Fourier grids radial samples analytic uniqueness two radii",
+        "General polynomial phase retrieval full family regular polygon samples of two different radii, Fourier harmonic aliasing",
+        "arXiv:1302.5487 finite evaluation theorem"
+      ]
+    },
+    "rationale": "Distinct from the published finite-dimensional phase-retrieval constructions: Pohl–Li–Boche uses 2d+1 and 2d-1 samples, Bodmann–Hammen uses intersecting circles, and Chalendar–Partington proves continuous-circle uniqueness rather than this discrete balanced-polygon alias condition. Earlier quadratic and cubic cases are subsumed, but not conversely. Current source and semantic-index searches did not find a covering all-degree theorem. Historical priority remains a bounded, non-independent assessment.",
+    "residual_risks": [
+      "Historical priority is not independently certified: an unindexed equivalent statement or a stronger uninspected theorem could cover this precise allocation.",
+      "The classification combines elementary finite Fourier interpolation with previously established continuous two-circle rigidity; its originality is the all-degree balanced grid criterion and necessity witnesses, not either classical ingredient in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides 2d+1 outer and 2d-1 inner placements; does not characterize two regular 2d-gon grids",
+        "evidence": "Author presentation: https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Pohl-Phase_Retrieval_in_Spaces_of_Analytic_Functions_on_the_Unit_Disk.pdf, page 19/22.",
+        "identifier_or_url": "DOI:10.1109/SAMPTA.2017.8024411",
+        "material_read": "Author presentation, 22 pages, especially finite-dimensional theorem on page 19 (page index 18) and preceding inner/outer sampling lemmas",
+        "method": "Full author PDF opened, text of finite theorem read, theorem-page image inspected",
+        "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+        "trigger": "Most directly comparable 4d point-evaluation construction on concentric circles"
+      },
+      {
+        "assessment": "The circles intersect; the construction relies on irrational-angle reflection, unlike nested concentric polygons",
+        "evidence": "https://arxiv.org/html/1302.5487v1, Section 2.3.",
+        "identifier_or_url": "arXiv:1302.5487",
+        "material_read": "ArXiv full HTML available; Sections 1 and 2, especially Theorems 2.2 and 2.3 and their adjoining interpolation argument",
+        "method": "Read available author arXiv HTML for definitions, construction, proof mechanism",
+        "title": "Stable phase retrieval with low-redundancy frames",
+        "trigger": "Low-redundancy polynomial phase retrieval with geometrically constrained circle samples"
+      },
+      {
+        "assessment": "Covers continuous two-circle uniqueness and a Blaschke threshold, but not finite regular two-polygon measurements",
+        "evidence": "https://arxiv.org/pdf/2403.16255, Theorems 2.11 and 2.16.",
+        "identifier_or_url": "arXiv:2403.16255",
+        "material_read": "Relevant portions of the 14-page arXiv PDF, especially the finite Blaschke theorem around pages 7–8 and the nested two-circle theorem on page 11",
+        "method": "Opened primary PDF, inspected theorem page images and relevant statements/proofs",
+        "title": "Phase retrieval on circles and lines",
+        "trigger": "Potential stronger two-circle modulus uniqueness theorem"
+      },
+      {
+        "assessment": "Covers infinite-dimensional STFT sampling for Gaussian-polynomial windows, not degree-d polynomial evaluation on two finite circles",
+        "evidence": "https://arxiv.org/abs/2609.28341, first public timestamp September 23, 2026.",
+        "identifier_or_url": "arXiv:2609.28341",
+        "material_read": "ArXiv HTML full text available; abstract and introduction (including statement and scope of the main result)",
+        "method": "Read publicly accessible arXiv full-text HTML rather than relying on a metadata snippet",
+        "title": "Phase retrieval from a uniformly discrete point set",
+        "trigger": "Recent Fourier-analytic discrete phase retrieval motivating structured sampling"
+      },
+      {
+        "assessment": "Describes intersecting-circle construction and general trigonometric interpolation, not the balanced concentric grid necessary-and-sufficient condition",
+        "evidence": "Dissertation introduction near page 13 and sampling discussion near page 39.",
+        "identifier_or_url": "https://www.uh.edu/nsm/_docs/math/phd_thesis/2015_2016/nhammenthesisfinal.pdf",
+        "material_read": "Dissertation introduction near page 13 and interpolation material near page 39; not the full 105-page document",
+        "method": "Opened 105-page PDF, read relevant sections using targeted in-document searches",
+        "title": "Stable phase retrieval from low-redundancy magnitude measurements, doctoral dissertation",
+        "trigger": "Potential all-degree polygon formulation missed by original intersecting-circle article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0026bf39-0afd-442c-8e19-e180e8221742",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete necessary-and-sufficient criterion for every balanced two-regular-polygon arrangement is a motivated classification of structured Fourier-phase measurements. It includes all complex polynomials of arbitrarily high degree, two explicit sharp obstruction mechanisms, direct Fourier coefficient demixing and the optimal angular phase offset for that normalized linear subsystem. These conclusions are not merely a fixed-degree numeric variant; no global minimal measurement count or nonlinear noise stability is asserted.",
+    "status": "PASS"
+  }
+}
