@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification and reproducibility
+# Independent mathematical audit
 
-The universal proof is the positive John contact certificate in `RESULT.md`: for \(k\ge1\), all \(k^2+2k\) normalized facet contacts lie on the unit sphere, the positive weights sum to the identity of size \(2k\), and their first moment vanishes. The key exact identities are \(2a+t=1\) and \(t^2=a^2(2-1/k)\).
+## correctness
 
-Run `python3 verify_john_order.py` with the separately installed `numpy` and `sympy` Python libraries. The code independently constructs the inverse matrix from the claimed parameters, verifies polynomial divisibility by \((2k+1)t^2+(4k-2)t-(2k-1)\), and checks every facet normal and both John matrix identities for all \(1\le k\le60\). Its expected concluding line reports **77,470** tested facet instances. Float tolerances and the finite range are explicitly visible in the script.
+PASS
 
-This script is not an exhaustive enumeration over all dimensions and its numerical tolerance is not an exact certificate for those dimensions. The formal polynomial checks are symbolic, while the geometry for arbitrary \(k\) follows from the written algebraic proof.
+For every k>=1, a=1/(2+sqrt(2-1/k)), t=1-2a satisfies t²=a²(2-1/k). Proposed positive definite A has spectra u=at/(1+t) of multiplicity 2(k-1), w=a/2 and z=at/2. Orthogonal block diagonalization and algebra of the defining quadratic give coordinate facet variances a² and comparison facet variance t². Normalized support contacts are therefore exact. Positive John weights 1-t=2a (coordinate facets) and 2t/k (k² cross facets) satisfy zero first moment and second moment A^-1, certifying global unique John ellipsoid; volume follows from eigenvalue product. k=1 triangle checked as boundary; symbolic polynomial remainder and separate scalar consistency corroborate all-k proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty after object/parameter/implication comparisons with primary literature and published Resultary findings; specific plausible residual coverage risks stated; inaccessible literature alone does not force scientific rejection.
+
+## value
+
+PASS
+
+The standard-Euclidean John ellipsoid and all-facet contact geometry of order polytopes of two balanced antichains form a natural exact infinite-family invariant. The explicit three-eigenspace shape, radical center, weighted John decomposition and volume can support future geometric comparisons across ranked posets; not simply a face-count or affine-volume relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
