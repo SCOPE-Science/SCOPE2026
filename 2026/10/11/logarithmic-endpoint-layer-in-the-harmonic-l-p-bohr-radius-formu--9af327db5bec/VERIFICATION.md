@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,142 +19,24 @@
 }
 ---
 
-The source quantity is
-\[
-r_p=\frac1{1+2C_q},
-\]
-where
-\[
-C_q
-=
-\left(
-\frac1{2\pi}
-\int_0^{2\pi}
-|\cos t|^q\,dt
-\right)^{1/q}.
-\]
+# Independent mathematical audit
 
-The beta integral gives
-\[
-C_q^q
-=
-\frac{
-\Gamma((q+1)/2)
-}{
-\sqrt\pi\,\Gamma((q+2)/2)
-}.
-\]
+## correctness
 
-Because
-\[
-|\cos t|
-\]
-is nonconstant on the normalized circle, its
-\[
-L^q
-\]
-norm is strictly increasing with
-\[
-q.
-\]
-Since
-\[
-q=p/(p-1)
-\]
-decreases with
-\[
-p,
-\]
-the radius is strictly increasing.
+PASS
 
-At
-\[
-q=2,
-\]
-\[
-C_2=1/\sqrt2,
-\]
-so
-\[
-r_2=\sqrt2-1.
-\]
+In the exact RESULT.md proof the probability-normalized cosine q moment equals Gamma((q+1)/2)/(sqrt(pi) Gamma((q+2)/2)); the qth root is the strict increasing Lq norm of a nonconstant random variable and q=p/(p-1) decreases, so r_p strictly increases. Gamma-ratio asymptotic Cq=1-[log q+log(pi/2)]/(2q)+O((log q)^2/q^2) yields coefficient 1/9 after expanding 1/(1+2Cq). At q=1, differentiating log Cq gives log(pi)-1 and therefore coefficient -4*pi*(log pi-1)/(pi+4)^2. Endpoint q=1,2,infty cosine moments produce stated values; no source sharpness re-proof claimed. Independent direct gamma evaluations at p=1.0001 and p=1000 agreed with asymptotic scale and constants but are not proofs.
 
-For
-\[
-q\to\infty,
-\]
-the gamma ratio gives
-\[
-C_q
-=
-1
--
-\frac{
-\log q+\log(\pi/2)
-}{
-2q
-}
-+
-O\!\left(
-\frac{(\log q)^2}{q^2}
-\right).
-\]
-Substitution yields
-\[
-r_p
-=
-\frac13
-+
-\frac{
-\log q+\log(\pi/2)
-}{
-9q
-}
-+
-O\!\left(
-\frac{(\log q)^2}{q^2}
-\right),
-\]
-and therefore the stated
-\[
-p\downarrow1
-\]
-law.
+## originality
 
-For
-\[
-q=1+\delta,
-\]
-the derivative of
-\[
-\log C_q
-\]
-at
-\[
-q=1
-\]
-is
-\[
-\log\pi-1.
-\]
-Using
-\[
-\delta=1/(p-1)
-\]
-gives
-\[
-r_p
-=
-\frac{\pi}{\pi+4}
--
-\frac{
-4\pi(\log\pi-1)
-}{
-(\pi+4)^2
-}
-\frac1{p-1}
-+
-O((p-1)^{-2}).
-\]
+PASS
 
-Independent numerical evaluations of the exact gamma formula agree with the asymptotic constants, but no numerical computation is used as proof.
+Best-of-knowledge: Ahamed–Hossain (arXiv:2604.14217v1) Theorem 2.2 already gives the identical exact r_p expression and Cq; the audited theorem does NOT claim this formula as original. In the inspected primary HTML, it does not state the logarithmic p-to-1 expansion, analytic strict p ordering or inverse-linear p-to-infinity constant. Neighbor coefficient results use the same Cq but do not state this two-end asymptotic. The derivation is an elementary implication of the known exact expression, so originality is bounded to its explicit endpoint-analysis statement and remains a significant corollary risk.
+
+## value
+
+PASS
+
+The inherited radius formula leaves nontrivial sensitivity to boundary Lp exponent encoded in a cosine moment. Quantifying strict order across the complete p-range and the singular (p-1)log(1/(p-1)) layer versus regular inverse-p end distinguishes weak-integrability and highly-integrable regimes. Though based on standard special-function identities rather than a new sharp coefficient theorem, the explicit boundary asymptotic is mathematically motivated by that parameter transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
