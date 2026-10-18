@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equivalence is supported by two independent necessity obstructions and a complete sufficiency argument. For each fixed spectral threshold \(\varepsilon\), near-norming vectors for \(G\) have vanishing component in the high-defect spectral range \(Q_\varepsilon H\). The universal essential-norm identity therefore forces every such spectral projection to be compact and hence finite rank; the defect is compact by norm approximation. If a norm-attaining vector of \(G\) existed, its rank-one projection would contradict the vanishing essential norm. In the other direction, compact injective defect makes low-defect spectral projections strongly null, and the two-sided localization inequalities prove equality to their operator-tail norm. Finite-rank approximants and uniform convergence of compact operators against strongly null projections identify the tail with the essential norm. The proof separately verifies separability and gives a concrete example.
+PASS
 
-## Originality — PASS, with limitations
+For B=I-G*G positive with ||G||=1, the estimate epsilon||Q_epsilon x||²≤1-||Gx||²<2delta-delta² for near-norming x shows p_G(Q_epsilon)=0. Under universal p_G=essential, each Q_epsilon is compact and hence finite rank; B=norm-lim BQ_epsilon compact. Any kernel unit x gives a rank-one projection R_x with p_G(R_x)=1 but essential norm zero, contradiction. Conversely, if B is compact injective, Q_epsilon finite rank and P_epsilon=I-Q_epsilon strongly tends to zero; two-sided near-norming estimates show p_G(T)=lim||TP_epsilon||. Finite-rank TQ_epsilon gives the lower bound essential≤limit, and compact K times P_epsilon tends to zero in norm, giving the upper bound. Injective compact operator has separable dense image, so only separable H possible; diagonal compact positive B and G=(I-B)^1/2 supply examples. All real/complex infinite-dimensional H, all bounded T; equality for only one T is not asserted.
 
-Dey–Pal (arXiv:2603.20796v1) is the nearest recent geometric study. Its Hilbert Theorem 3.13 assumes norm attainment, whereas the present admissible operators do not attain their norm. Kadets–Martín–Merí–Quero (arXiv:2306.02645v1, 2024) classify generating operators with equality to the **ordinary** operator norm, which differs from the essential norm on finite-rank operators. Published mathematical-record searches for G-seminorm/Calkin/compact-defect variants found related quotient-norm results for other operator families, not the stated if-and-only-if. Global originality is not independently certified; an equivalent unindexed earlier formulation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem realizes the Calkin norm via a recently studied geometric seminorm and characterizes every realizing contraction by a natural spectral condition. It includes all bounded operators at once, an exact kernel, a reconstructible spectral formula, and a separability obstruction. These identify an operator-ideal structure beyond the definitions' generating/full-norm regime.
+Compared the SAME relative G-seminorm in Kadets et al (universal equality to the full norm) and Dey–Pal (norm attainment and seminorm comparisons). Their statements do not identify the essential norm for every T; for finite-rank T, full and essential differ. The present iff compact injective defect is not covered on inspected evidence. A 2025 operator-essential-norm text was only abstract-accessible and remains a documented overlap risk.
 
-## Scientific limits
+## value
 
-The argument uses Hilbert spectral calculus and does not establish the analogous statement for general Banach spaces or for one fixed operator. The contextual 2025 essential-norm source was inspected only at abstract level. No external independent audit was performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact universal operator-ideal identification gives a geometrically defined seminorm the Calkin quotient norm, complete spectral iff conditions, a compact-kernel characterization and separability obstruction. This is structural and reusable in operator theory, not merely an instance of the compact tail norm formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

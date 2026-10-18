@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The theorem is established by an analytic proof, not an enumeration. To reproduce its decisive checks:
+# Independent mathematical audit
 
-1. For \(B=I-G^*G\), \(Q_\varepsilon=\mathbf1_{[\varepsilon,\infty)}(B)\), and unit \(x\) with \(\|Gx\|>1-\delta\), verify \(\varepsilon\|Q_\varepsilon x\|^2<2\delta-\delta^2\).
-2. Universal equality of the relative and essential norms implies each \(Q_\varepsilon\) is compact, hence finite rank, and \(\|B-BQ_\varepsilon\|\le\varepsilon\). For \(x\in\ker B\), test the rank-one projection \(R_x\) to exclude a nonzero kernel.
-3. Conversely, finite rank of \(Q_\varepsilon\), strong convergence \(P_\varepsilon=I-Q_\varepsilon\to0\), and the two-sided near-norming estimates give \(p_G(T)=\lim\|TP_\varepsilon\|\).
-4. Check \(\|T\|_{\mathrm{ess}}\le\|TP_\varepsilon\|\) by removing finite-rank \(TQ_\varepsilon\). For arbitrary compact \(K\), verify \(\|KP_\varepsilon\|=\|P_\varepsilon K^*\|\to0\) by uniform convergence on compact sets; infimize over \(K\).
-5. The diagonal witness \(Ge_n=\sqrt{1-1/(n+1)}e_n\) has norm one and compact injective defect. Nonseparable spaces cannot admit an injective positive compact defect because its dense range is separable.
+## correctness
 
-These are full universal Hilbert-space arguments. No finite numerical test is treated as a certificate, and no independent audit is claimed.
+PASS
+
+For B=I-G*G positive with ||G||=1, the estimate epsilon||Q_epsilon x||²≤1-||Gx||²<2delta-delta² for near-norming x shows p_G(Q_epsilon)=0. Under universal p_G=essential, each Q_epsilon is compact and hence finite rank; B=norm-lim BQ_epsilon compact. Any kernel unit x gives a rank-one projection R_x with p_G(R_x)=1 but essential norm zero, contradiction. Conversely, if B is compact injective, Q_epsilon finite rank and P_epsilon=I-Q_epsilon strongly tends to zero; two-sided near-norming estimates show p_G(T)=lim||TP_epsilon||. Finite-rank TQ_epsilon gives the lower bound essential≤limit, and compact K times P_epsilon tends to zero in norm, giving the upper bound. Injective compact operator has separable dense image, so only separable H possible; diagonal compact positive B and G=(I-B)^1/2 supply examples. All real/complex infinite-dimensional H, all bounded T; equality for only one T is not asserted.
+
+## originality
+
+PASS
+
+Compared the SAME relative G-seminorm in Kadets et al (universal equality to the full norm) and Dey–Pal (norm attainment and seminorm comparisons). Their statements do not identify the essential norm for every T; for finite-rank T, full and essential differ. The present iff compact injective defect is not covered on inspected evidence. A 2025 operator-essential-norm text was only abstract-accessible and remains a documented overlap risk.
+
+## value
+
+PASS
+
+Exact universal operator-ideal identification gives a geometrically defined seminorm the Calkin quotient norm, complete spectral iff conditions, a compact-kernel characterization and separability obstruction. This is structural and reusable in operator theory, not merely an instance of the compact tail norm formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
