@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the six-component problem to a complete list of new full-support sign patterns and proves each directional derivative is nonnegative using the published unique-zero lemma for \(G\) and the exact Appendix inequalities \(P_{2,2}\ge0\), \(P_{3,3}\ge0\), and \(P_{4,4}\ge0\). The source reduction then converts monotonicity of \(U\) to likelihood-ratio order. The embedded verifier is only a supplementary stress test.
+## correctness
 
-## Originality
-PASS. The closest source proves the l-order conjecture only through five components and explicitly leaves the general case open. Statement-level searches in the published-finding index and the literature did not locate a six-component theorem. Earlier d-larger and majorization results impose different hazard-vector orders and do not state this l-order implication. Residual risk remains for an unindexed equivalent result.
+PASS
 
-## Value
-PASS. Six components are the first unresolved dimension in the source conjecture. Closing that dimension is mathematically motivated, and the proof isolates a reusable mechanism: the three new full-support directions are controlled by Appendix inequalities already proved at parameters \((2,2)\), \((3,3)\), and \((4,4)\).
+Reconstructed dimension-six reduction: source handles nonnegative basic l-directions and all negative directions of support ≤5; only full-support v_p=(1^p,−1^(6−p)), p=3,4,5 new. For x1≤…≤x6, b=x/(e^x−1), d=x+b, U=Σbd/Σb. Directional derivative has positive weight combination R(j), minimum at j=1 by b′ and d monotonicities. Put G_x1(y)=b(y)d′(y)+b′(y)(d(y)−d(x1)). If G(x_(p+1))>0, the first p terms dominate last 6−p since p≥6−p and G initially decreasing before its zero. Otherwise last block nonpositive and min first p reduces to b(x1)d′(x1)+(p−1)G_x1(y)=P_(p−1,p−1)(x1,y)≥0 for p−1=2,3,4. Reviewed package exact formulas and finite stress program; independent high-range random checks of P_{k,k} show positivity for k≤4 and negative for k≥5, agreeing with reported threshold. Infinite proof rests on published auxiliary Lemmas A.1–A.2; the exact 19-page author-hosted primary PDF was located and materially read, including its Section 2 directional derivative reduction (pp. 3–6), Appendix Lemma A.1 (p. 7–8), Lemma A.2 (p. 9–11), the (4,4) proof and B lemmas. Explicit inequality P_{4,4}(x,y)≥0 for all positive x,y is VERIFIED in the source, not inferred from snippets. Supplementary finite tests do not replace that analytic lemma.
 
-## Closest literature and limitations
-The closest source is Wang–Cheng, DOI 10.1080/03610926.2020.1866205. The result does not cover \(n\ge7\), and it relies on the correctness of the source's published auxiliary lemmas, whose proofs were inspected. Numerical checks do not substitute for those analytic lemmas.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 initiating paper explicitly states the l-order conjecture and proves n≤5; no indexed source found extending it to n=6. The source lemmas apparently already contain parameter cases (2,2)–(4,4), but exploiting these to handle all new six-component full-support sign patterns is a new finite cutoff argument, not an already stated theorem.
+
+## value
+
+PASS
+
+Converts a conjectured all-n reliability ordering into a proved new dimension-six case using three genuinely new sign directions; n=6 is a motivated next cutoff, and the proof clarifies why existing sharp auxiliary inequalities stop at this boundary. Meaningful even without settling n≥7.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
