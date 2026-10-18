@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The chain-polytope facets are \(x_p\ge0\) and the maximal-chain inequalities. A radius-\(\rho\) ball therefore has \(x_p\ge\rho\) for every coordinate. On a longest chain of \(h\) elements, the normalized chain-facet clearance yields \((h+\sqrt h)\rho\le1\). The uniform point \(r\mathbf1\), with \(r=(h+\sqrt h)^{-1}\), attains this bound and satisfies every shorter chain because \(k+\sqrt k\) increases with \(k\). The same facet clearances give the full incenter set. Longest-chain saturation forces uniqueness exactly when longest chains cover every element; otherwise a small increase in one uncovered coordinate produces another incenter.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the standard chain-polytope definition, marked-poset generalization, and transfer maps. It contains no inradius, circumradius, sphere, or Chebyshev-center theorem. Candidate-specific database and literature searches covered height-only inradius formulas, largest inscribed balls, Chebyshev centers, and longest-chain formulations without locating a covering result. Existing order-polytope metric statements do not imply this claim because the order-to-chain transfer map is not a Euclidean isometry.
+PASS
 
-## Value
-PASS. Chain polytopes are canonical objects, and the inradius is a standard realization-sensitive invariant. The result is complete for every finite poset, not a low-dimensional slice: the radius depends only on height, while uniqueness of the center detects the finer condition that longest chains cover the poset. This gives a simple metric invariant and a nontrivial structural boundary complementary to the established Ehrhart and face theory.
+The chain polytope is the intersection of nonnegative coordinate halfspaces with maximal-chain halfspaces. Their Euclidean normals have norms 1 and sqrt(k). A radius rho ball must have x_p>=rho; applying a longest chain gives (h+sqrt(h))*rho<=1. The uniform x=r*1 achieves rho=r because k+sqrt(k) increases with k<=h. The entire center set follows from the same normalized halfspace distances. Every element on an h-chain is pinned to r for any optimum; conversely an element outside all longest chains can be perturbed positively by less than the minimum of finitely many positive shorter-chain slacks, proving nonuniqueness. Independent h=1..5 radius values 1/2, 1/(2+sqrt2),..., checked; verifier source inspected but its finite labeled-poset enumeration cannot replace this arbitrary-poset proof. Nonempty hypothesis covers antichains h=1.
 
-## Closest literature and limitations
-The closest source supplies the maximal-chain inequalities and places chain polytopes in a broad marked-poset family. Its results concern transfer maps, lattice points, degenerations, faces, and vertices. The theorem does not address circumradii, ellipsoids, or arbitrary marked/intermediate chain-order polytopes, and a broader packing-polytope Chebyshev theorem under different terminology remains a residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+The exact inradius collapses all branching/width to height, while the full incenter polytope and uniqueness criterion detect whether maximal-length chains cover the ground poset. This is a complete metric/order-theoretic classification for a standard object; although the normalization step is elementary, the simultaneous all-poset sharp-radius and center-locus statement answers natural questions not a random finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-poset proof is given in `RESULT.md`.
 
-Critical checks:
-- the source chain polytope has coordinate nonnegativity facets and maximal-chain inequalities;
-- a maximal chain with \(k\) elements has facet normal of Euclidean norm \(\sqrt k\);
-- every radius-\(\rho\) inscribed ball has all coordinates at least \(\rho\);
-- a longest chain forces \((h+\sqrt h)\rho\le1\);
-- the point \(r\mathbf1\), \(r=(h+\sqrt h)^{-1}\), has clearance at least \(r\) from every maximal-chain facet;
-- all optimal centers are exactly the points satisfying the displayed shrunk facet system;
-- a longest-chain facet forces every coordinate on that chain to equal \(r\);
-- if an element lies on no longest chain, every chain containing it has positive residual slack, so a small one-coordinate perturbation preserves optimality.
+# Independent mathematical audit
 
-`verify.py` enumerates all naturally labeled posets on at most five elements, deduplicated after transitive closure. It computes all maximal chains, verifies the exact candidate clearances symbolically, checks the longest-chain coverage criterion, and constructs a positive perturbation in every nonunique case. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+The chain polytope is the intersection of nonnegative coordinate halfspaces with maximal-chain halfspaces. Their Euclidean normals have norms 1 and sqrt(k). A radius rho ball must have x_p>=rho; applying a longest chain gives (h+sqrt(h))*rho<=1. The uniform x=r*1 achieves rho=r because k+sqrt(k) increases with k<=h. The entire center set follows from the same normalized halfspace distances. Every element on an h-chain is pinned to r for any optimum; conversely an element outside all longest chains can be perturbed positively by less than the minimum of finitely many positive shorter-chain slacks, proving nonuniqueness. Independent h=1..5 radius values 1/2, 1/(2+sqrt2),..., checked; verifier source inspected but its finite labeled-poset enumeration cannot replace this arbitrary-poset proof. Nonempty hypothesis covers antichains h=1.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+The exact inradius collapses all branching/width to height, while the full incenter polytope and uniqueness criterion detect whether maximal-length chains cover the ground poset. This is a complete metric/order-theoretic classification for a standard object; although the normalization step is elementary, the simultaneous all-poset sharp-radius and center-locus statement answers natural questions not a random finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

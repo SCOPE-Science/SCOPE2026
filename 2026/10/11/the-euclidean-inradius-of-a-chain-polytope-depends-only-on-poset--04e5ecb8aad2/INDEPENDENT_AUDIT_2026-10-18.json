@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:51:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The chain polytope is the intersection of nonnegative coordinate halfspaces with maximal-chain halfspaces. Their Euclidean normals have norms 1 and sqrt(k). A radius rho ball must have x_p>=rho; applying a longest chain gives (h+sqrt(h))*rho<=1. The uniform x=r*1 achieves rho=r because k+sqrt(k) increases with k<=h. The entire center set follows from the same normalized halfspace distances. Every element on an h-chain is pinned to r for any optimum; conversely an element outside all longest chains can be perturbed positively by less than the minimum of finitely many positive shorter-chain slacks, proving nonuniqueness. Independent h=1..5 radius values 1/2, 1/(2+sqrt2),..., checked; verifier source inspected but its finite labeled-poset enumeration cannot replace this arbitrary-poset proof. Nonempty hypothesis covers antichains h=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Enriched chain inradius 1/sqrt(h), unlike 1/(h+sqrt(h)); order-polytope inradius 1/(2+(h-1)sqrt2), unlike the present claim for generic h. Both operate on nonidentical convex bodies."
+        ],
+        "reasoning": "Neither cited radius theorem logically implies the ordinary chain-polytope all-center inequalities via their nonorthogonal transfer maps.",
+        "searches": [
+          "Resultary: Euclidean inradius chain polytope poset height Chebyshev center uniqueness longest chains",
+          "Resultary: chain polytope Chebyshev centers poset height longest chains",
+          "Resultary: Height and width are exact Euclidean radii of enriched chain polytopes db93f92ff100",
+          "Resultary: Height determines Euclidean inradius and centers of every order polytope 3b4d0614da81"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 44562545684c1d6599c53fbb02455ef50c498cba",
+        "Frozen verify.py 3b56c0eaec025d3f7489ddc0e9277e8233e78f4d",
+        "arXiv:1712.01037",
+        "Resultary enriched-chain/order-polytope radius comparators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fang et al give the facets and marked-polytope transfer, but no calculated Euclidean inball or iff center uniqueness result. Saturation of h-chain facets proves the all-poset criterion."
+        ],
+        "reasoning": "The source H-description is a prerequisite; normalizing and analyzing all center constraints is additional mathematical deduction. The same-record Resultary result is self-evidence, not a stronger prior theorem.",
+        "searches": [
+          "Resultary: Euclidean inradius chain polytope poset height Chebyshev center uniqueness longest chains",
+          "Resultary: chain polytope Chebyshev centers poset height longest chains",
+          "Fang Fourier Litza Pegel arXiv:1712.01037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order polytopes and enriched chain polytopes are distinct Euclidean embeddings; transfer maps preserve combinatorial/lattice structure but are not generally isometries."
+        ],
+        "reasoning": "Height-only formulas under other poset-polytope conventions must not be identified with this exact standard chain-polytope radius. No equivalence under an isometry was established for arbitrary posets.",
+        "searches": [
+          "Resultary: Euclidean inradius chain polytope poset height Chebyshev center uniqueness longest chains",
+          "Resultary: chain polytope Chebyshev centers poset height longest chains",
+          "arXiv:1712.01037 chain-polytope facets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An arbitrary finite poset is not a finite precomputed database: all heights, chain overlap patterns and center-set polyhedra are quantified. No exact all-poset incenter table was returned."
+        ],
+        "reasoning": "The complete arbitrary-poset center locus and iff uniqueness criterion are not a recomputation of a known finite constant table.",
+        "searches": [
+          "Resultary: Euclidean inradius chain polytope poset height Chebyshev center uniqueness longest chains",
+          "Resultary: chain polytope Chebyshev centers poset height longest chains"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.",
+      "residual_risks": [
+        "A general theorem for Chebyshev centers of nonnegative packing polytopes with 0/1 incidence constraints might specialize to this formula.",
+        "Enumeration of posets through five elements is not exhaustive for the theorem; algebraic proof is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_RELEVANT_NOT_COVERING",
+          "evidence": [
+            "Chain inequalities for maximal chains are explicit. Metric inradius 1/(h+sqrt(h)), full Chebyshev-center set and uniqueness criterion are not stated in inspected primary source."
+          ],
+          "identifier_or_url": "arXiv:1712.01037",
+          "material_read": "Full arXiv PDF: definitions, marked chain/order families, facet inequalities, transfer maps and statements on lattice/face properties",
+          "method": "Read full-text PDF and inspected rendered pages",
+          "title": "A Continuous Family of Marked Poset Polytopes",
+          "trigger": "Primary standard/maximal-chain inequality source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact inradius collapses all branching/width to height, while the full incenter polytope and uniqueness criterion detect whether maximal-length chains cover the ground poset. This is a complete metric/order-theoretic classification for a standard object; although the normalization step is elementary, the simultaneous all-poset sharp-radius and center-locus statement answers natural questions not a random finite example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Metric-dependent statement for ordinary, standard-coordinate chain polytopes of nonempty finite posets.",
+    "No claim about all marked chain/order interpolants, John ellipsoids or circumradii."
+  ],
+  "schema_version": 1
+}
