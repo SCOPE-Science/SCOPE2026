@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The claim concerns the finite graph \(\operatorname{GP}(10,2)\), with a precise edge list and the simplicial predicate that each induced vertex degree is at most one. Exact exhaustive enumeration gives 63,142 nonempty faces. A 31,565-pair face-poset matching is globally acyclic by a topological sort of all 410,500 covers. Its Morse model has one cell in degree zero, one in degree five, six in degree six, and four in degree seven. The signed integral differentials given in `RESULT.md` satisfy \(\partial_6\partial_7=0\), with \(\partial_6\) surjective and a unimodular four-row minor of \(\partial_7\). Therefore the only reduced integral homology is \(\mathbb Z\) in degree six. The dimension-gap plus Hurewicz and homological Whitehead arguments justify \(S^6\), not just matching Betti numbers. A separate mod-two boundary computation reproduces all homology ranks. A separate full-automorphism Lefschetz computation establishes the antipodal sign action.
+
+## Originality — PASS (subject to bibliographic residual risk)
+The relevant primary full texts were checked by their statements and graph-family hypotheses: Deshpande–Singh, arXiv:2001.05448 (higher independence of complete multipartite, whiskered, path, cycle, rooted-tree graph families); Abdelmalek et al., arXiv:2106.10863 (chordal graphs, tree and caterpillar); Sawant, arXiv:2605.25150 (tree result, three-path-free equivalence). None contains the dodecahedral case as a stated theorem, and their hypotheses do not imply it. Searches under dodecahedral, \(\operatorname{GP}(10,2)\), three-path-free and dissociation terminology found no exact statement. Closest indexed dodecahedral results involve ordinary independence, matching, Rips, Čech or neighborhood complexes; their face predicates differ. A bibliographic search is not a proof of uniqueness; unindexed and unpublished overlap remains a risk.
+
+## Mathematical value — PASS
+The dodecahedral graph is a canonical Platonic graph and the two-independence complex is a natural nonchordal higher-independence test case. Its 510 facets span four dimensions, up to dimension eleven, yet its integral homotopy collapses to a single six-sphere; this concentration is not implied by current tree, chordal, cycle or multipartite formulas. The full nontrivial symmetry character rules out invariant integral classes despite the rank-one homology and adds structural information beyond an exact Betti table. This is a motivated, complete calculation for a canonical object rather than an arbitrary parameter slice.
+
+## Scientific limits
+The result is finite and instance-specific. It asserts a homotopy equivalence, not a homeomorphism, manifold structure, or equivariant homotopy equivalence. All finite computational steps have included code and outputs; no independently performed audit is represented. Residual bibliographic uncertainty concerns inaccessible/unindexed overlapping literature, not a known stronger implication.
+
+Self-review: passed. Independent audit: not yet performed.
