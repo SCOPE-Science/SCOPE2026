@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For odd m, a(m)=(sigma(m)-lambda(m))/4. If lambda=0, LTE forces a(m) odd precisely for one odd-exponent p=3(mod8) with exponent 1(mod4); if lambda is nonzero, local sigma-lambda modulo 8 separates a single p=5(mod8) with exponent 1(mod4), and the Jacobi (2/t) branch for m=t^2. The published dyadic formula flips parity exactly for squares and k>=2. Factorization m=p^(4h+1)u^2, prime number theorem for classes 3 and 5 modulo 8 and sum of reciprocal odd squares pi^2/8 give F(X)~pi^2 X/(16 log X), then summing k gives pi^2 X/(8 log X). The h>=1, p|u and square remainders are O(sqrt X); the sum tails are o(X/log X). Direct signed counts checked for 109 n, full exact formula and parity for first 200000 n via extracted package code. These checks supplement rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original coefficient formula is stronger in computing a(n) exactly but does not analyze the prime asymptotic or explicitly the parity support.",
+        "The dyadic source gives full values at 2-powers times odd numbers, and congruences for selected odd moduli."
+      ],
+      "reasoning": "The sources give exact coefficient identities from which the claim can be derived; these are genuinely stronger for value evaluation but do not contain the asymptotic counting statement. Such derivability is credited and originality is limited to the explicit global valuation classification and new prime-counting deduction. No independent priority is claimed for the core coefficient formula.",
+      "searches": [
+        "Complete parity classification of Mircea Merca two-block odd partition function a(n), including square arguments and prime times squares and natural counting asymptotic pi^2/8 x/log x",
+        "signed two-block odd partitions coefficients parity for every n dyadic tower 2^k m, squarefree kernel one prime 3 or 5 modulo 8, Legendre symbol 2",
+        "arXiv:2609.33770v1 full manuscript",
+        "arXiv:2610.05020v1 full manuscript"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.33770",
+      "https://arxiv.org/abs/2610.05020",
+      "https://doi.org/10.1007/s11139-026-01426-1",
+      "https://oeis.org/A192717",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE001",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-adic-parity-cancellation-diagonal-rational-partitions--85a2ba39aaf3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-parity-resolved-divisor-power-sums-for-q-2--4f1aac33584e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Merca exact formula gives pointwise coefficient values, but an arithmetic prime-value classification needs nontrivial 2-adic local residue analysis.",
+        "Merca dyadic formula determines how the square branch flips but does not itself characterize the odd arguments.",
+        "The leading constant uses PNT in two residue classes and the odd-square reciprocal sum pi^2/8."
+      ],
+      "reasoning": "The conjunction of explicit prime-power parity and global prime-scale counting is not a stated corollary in inspected texts. It is logically implied by exact coefficient formulas together with additional standard arithmetic theorems; its value is as a motivated resolved parity-support and counting problem, not as a new source for the exact coefficient values. published-finding corpus closest hits refer to different arithmetic or partition objects.",
+      "searches": [
+        "divisor sigma lambda chi_4 partition odd terms density prime squares Jacobi 2 mod8 2026",
+        "2026 recent number theory prime power congruences divisor sums valuations new arithmetic functions 2026",
+        "arXiv:2609.33770v1 Theorem 1.1",
+        "arXiv:2610.05020v1 Theorem 1.1",
+        "OEIS A192717"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Merca arithmetic identity a(n)=(sigma(n)-lambda(n))/4-sigma(n/2)/2+sigma(n/4).",
+        "The second Merca manuscript gives a(2^k m)=a(m)+(2^(k-1)-1)sigma(m).",
+        "The local prime-power LTE calculation yields exactly the nonsquare prime-times-square and square branches."
+      ],
+      "reasoning": "The same parity result can be expressed as valuation-two of sigma(m)-lambda(m), as a Jacobi-symbol condition for odd squares, or as a prime-times-square condition with a prescribed exponent class. Checked all these equivalent formulations; source identities are premises, but neither inspected manuscript states this global classification or asymptotic.",
+      "searches": [
+        "two-block odd partition function a(n) parity of coefficients odd 4n+3, classification prime times square, p congruent 3 mod 8",
+        "Mircea Merca signed partitions two distinct part sizes odd multiplicity parity 2-adic divisor sum, sigma(n) 4",
+        "\"two-block odd partition\" parity odd coefficients 3 mod 4 prime square",
+        "\"Mircea Merca\" \"two-block odd partition\" parity odd count prime",
+        "arXiv:2609.33770v1 Theorem 1.1",
+        "arXiv:2610.05020v1 Theorem 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A192717 enumerates numbers p^(4h+1)u^2 for p=3 mod8, u odd and p not dividing u, matching a proper subfamily of the nonsquare odd-support set.",
+        "OEIS A192628 concerns a different sigma-based reciprocal binary series."
+      ],
+      "reasoning": "A192717 is not new and is an exact overlap with the p=3(mod8) subfamily. The displayed theorem also covers p=5(mod8), every odd square, dyadic flips and an asymptotic for signed partition coefficients, none supplied in the examined A192717 record. An OEIS query alone cannot rule out all later tables.",
+      "searches": [
+        "OEIS A192717",
+        "OEIS A192628",
+        "site:oeis.org \"signed number of partitions\" \"exactly two distinct part sizes\""
+      ]
+    },
+    "rationale": "Merca gives the exact arithmetic coefficient formula and a dyadic identity, not a complete two-adic coefficient classification or prime-scale asymptotic. The prime-congruent-to-three branch of the arithmetic parameter set is already OEIS A192717; it is excluded from independent priority claims. The complete two-branch formula and asymptotic were compared with full primary texts, the named OEIS record, accessible prior claim titles and targeted published-finding corpus queries without a covering statement found. An unindexed implication remains possible; published coefficient identities necessarily make these new arithmetic deductions accessible but do not state them.",
+    "residual_risks": [
+      "An earlier unindexed or implicit deduction from Merca’s exact arithmetic formula could already include the full parity classification or density law.",
+      "The p=3(mod8) subsequence itself is recorded in OEIS A192717 and not original.",
+      "Some earlier-week historical claim ledgers were unavailable; accessible histories and published semantic search records do not prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact coefficient formula covers pointwise values, but complete parity-support classification and prime-scale asymptotic not stated in inspected content.",
+        "evidence": [
+          "arXiv:2609.33770v1, Theorem 1.1",
+          "https://doi.org/10.1007/s11139-026-01426-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33770",
+        "material_read": "Theorem 1.1 coefficient formula, definition, arithmetic derivation and concluding section and references",
+        "method": "arXiv full HTML and lawful journal open-access text, line/section inspection",
+        "title": "The two-block odd partition function",
+        "trigger": "Exact same signed counting object and first-public eligible source"
+      },
+      {
+        "assessment": "Provides dyadic expression used here; does not state full mod-2 classification and prime-scale counting.",
+        "evidence": [
+          "arXiv:2610.05020v1, Theorem 1.1 and Corollary 3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.05020",
+        "material_read": "Introduction and sections 1–4 including dyadic formula and selected prime-modulus congruences",
+        "method": "arXiv full HTML section inspection",
+        "title": "Dyadic Structure of the Two-Block Odd Partition Function and Theta-Weighted Congruences for pod(n)",
+        "trigger": "Identical arithmetic function, possible stronger congruence coverage"
+      },
+      {
+        "assessment": "Matches a proper p=3(mod8) subfamily; explicitly credited and not claimed novel.",
+        "evidence": [
+          "OEIS A192717 definition and its antecedent references"
+        ],
+        "identifier_or_url": "https://oeis.org/A192717",
+        "material_read": "Definition and links/references defining that sequence",
+        "method": "OEIS page inspection",
+        "title": "OEIS A192717",
+        "trigger": "Potential exact sequence coverage for p^(4h+1) times odd square"
+      },
+      {
+        "assessment": "This and other close hits concern distinct overpartition, dyadic rational partition, or divisor-power-sum objects.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE001",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-adic-parity-cancellation-diagonal-rational-partitions--85a2ba39aaf3",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-parity-resolved-divisor-power-sums-for-q-2--4f1aac33584e"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE001",
+        "material_read": "Indexed titles and short summaries for closest hits in semantic searches; not full-text inspection",
+        "method": "published-finding corpus semantic search results",
+        "title": "published-finding corpus closest related mathematics records",
+        "trigger": "Deduplication query on signed partition parity and prime-exponent patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0b4e2be-725f-4664-be7f-b4dd39a6f176",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Signed two-block partitions form a naturally studied 2026 arithmetic coefficient sequence. Their complete parity support across odd prime exponents and all dyadic levels and the asymptotic frequency pi^2 X/(8 log X) settle the natural question of how frequently signed coefficients are odd. This supplies an exact global structural classification and a genuine prime-scale invariant; it is not a small arbitrary cutoff, isolated test or renamed OEIS A192717 sequence. No priority is claimed for the source coefficient formula or preexisting proper subfamily.",
+    "status": "PASS"
+  }
+}
