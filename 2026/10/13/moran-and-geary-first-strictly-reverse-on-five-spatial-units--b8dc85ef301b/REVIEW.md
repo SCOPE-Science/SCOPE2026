@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The weighted squared-difference identity gives
-\[
-C=\frac{n-1}{S_0}\frac{\sum_i d_i z_i^2}{\sum_i z_i^2}-\frac{n-1}{n}I.
-\]
-On an \(r\)-regular graph this reduces exactly to \(C=(n-1)(1-I)/n\). For binary fields, independent exact formulas in \((k,q,s,m)\) agree with direct evaluation from the definitions. Complete permutation-canonicalized graph enumeration gives no reversal on any connected graph of order at most four, and exactly eleven reversal-admitting classes among the twenty-one connected graphs of order five. The explicit \(P_5\) witness and the all-path family are checked exactly.
+## correctness
 
-Risk: the sharp finite cutoff changes if the weight convention or field class changes.
+PASS
 
-## Originality
-**PASS.** The foundational literature owns the two autocorrelation statistics, and de Jong–Sprenger–van Veen explicitly study how their extreme values depend on a given network. That prior structural dependence is not claimed as new. The accepted claim is the exact regular-graph affine relation as an ordering obstruction together with the sharp binary reversal order, complete five-vertex graph-class census, and persistent path family. Targeted searches by aliases, exact values, graph language, and regularity language did not locate equivalent coverage.
+With symmetric unstandardized W, exact summation of squared differences gives C=(n-1)/S0*(sum_i d_i z_i^2)/(sum_i z_i^2) -(n-1)/n I. For r-regular graphs the first quotient equals r and S0=nr, so C=(n-1)(1-I)/n for arbitrary nonconstant real data. For binary fields with k ones, q crossing edges, s total degree of ones and m=|E|, direct counting yields C=n(n-1)q/[2mk(n-k)] and I=[2k^2m+n(n-2k)s-n^2q]/[2km(n-k)]. Independent exact-fraction computation enumerated and canonically quotiented all connected graphs of n=2..5 with class counts 1,2,6,21 and checked every binary field; reversal-admitting graph classes 0,0,0,11. For P5 endpoint singleton A, (I,C)=(-1/16,5/8) and internal adjacent pair B=(1/24,5/6); a larger I but also larger C is strict ranking conflict. Substitution k,q,s into P_n verifies I(A)=-1/(n-1)^2, C(A)=n/[2(n-1)], I(B)=(n^2-4n-4)/[2(n-1)(n-2)], C(B)=n/[2(n-2)], with positivity for every n>=5 by elementary polynomial inequality; finite enumeration alone is not the unrestricted proof.
 
-Risk: the algebraic relation is natural from the graph Laplacian identity, so an unindexed lecture note or specialist exercise could contain the regular-graph observation or the small witness. No located source stated the combined sharp boundary and census.
+## originality
 
-## Value
-**PASS.** Moran's \(I\) and Geary's \(C\) are canonical global spatial-autocorrelation statistics, and prior work emphasizes that network structure affects their behavior. The theorem pinpoints the mechanism: degree homogeneity forces complete ordering equivalence, whereas irregularity creates a degree-weighted variance term that can reverse rankings. The five-vertex minimum and exact first census provide compact benchmarks for interpretation and software validation rather than an arbitrary finite slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Moran and Geary definitions and classical spectral/network comparisons are not new. Distinct result is a sharp *binary* order-five first ranking reversal, the 11-of-21 connected unlabeled census, and explicit all-length P_n family, together with exact regular-weight obstruction. Searches of published Resultary and cited primary works did not show this precise all-graph minimum and census; originality is best-of-knowledge with explicit priority risk.
+
+## value
+
+PASS
+
+A sharp finite obstruction and exhaustive minimal classification for two natural widely-used spatial statistics; gives practitioners a rigorous counterexample to naively exchanging rankings and a reusable degree-heterogeneity mechanism. The n>=5 path family establishes a structural, not isolated, discrepancy. Finite cutoff and classification have motivated intrinsic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

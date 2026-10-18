@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,61 +18,25 @@
   "schema_version": 1
 }
 ---
-For symmetric adjacency weights, the exact identity used in the proof is
-\[
-C
-=
-\frac{n-1}{S_0}
-\frac{\sum_i d_i z_i^2}{\sum_i z_i^2}
--
-\frac{n-1}{n}I.
-\]
-On an \(r\)-regular graph this becomes
-\[
-C=\frac{n-1}{n}(1-I).
-\]
 
-For a binary field, the verifier independently uses the exact count formulas
-\[
-C=\frac{n(n-1)q}{2mk(n-k)}
-\]
-and
-\[
-I=\frac{2k^2m+n(n-2k)s-n^2q}{2km(n-k)}.
-\]
+# Independent mathematical audit
 
-The embedded `verify_moran_geary_minimal_reversal.py` generates every connected simple graph through five vertices and canonicalizes each graph under all vertex permutations. It checks every nonconstant binary field using exact `Fraction` arithmetic.
+## correctness
 
-It recovers connected-unlabeled graph counts
-\[
-1,
-2,
-6,
-21
-\]
-for orders \(2,3,4,5\), and reversal-admitting class counts
-\[
-0,
-0,
-0,
-11.
-\]
+PASS
 
-The exact \(P_5\) witness values are
-\[
-\left(-\frac1{16},\frac58\right)
-\]
-and
-\[
-\left(\frac1{24},\frac56\right).
-\]
+With symmetric unstandardized W, exact summation of squared differences gives C=(n-1)/S0*(sum_i d_i z_i^2)/(sum_i z_i^2) -(n-1)/n I. For r-regular graphs the first quotient equals r and S0=nr, so C=(n-1)(1-I)/n for arbitrary nonconstant real data. For binary fields with k ones, q crossing edges, s total degree of ones and m=|E|, direct counting yields C=n(n-1)q/[2mk(n-k)] and I=[2k^2m+n(n-2k)s-n^2q]/[2km(n-k)]. Independent exact-fraction computation enumerated and canonically quotiented all connected graphs of n=2..5 with class counts 1,2,6,21 and checked every binary field; reversal-admitting graph classes 0,0,0,11. For P5 endpoint singleton A, (I,C)=(-1/16,5/8) and internal adjacent pair B=(1/24,5/6); a larger I but also larger C is strict ranking conflict. Substitution k,q,s into P_n verifies I(A)=-1/(n-1)^2, C(A)=n/[2(n-1)], I(B)=(n^2-4n-4)/[2(n-1)(n-2)], C(B)=n/[2(n-2)], with positivity for every n>=5 by elementary polynomial inequality; finite enumeration alone is not the unrestricted proof.
 
-The script also checks the general degree-weighted identity on every enumerated graph, the regular-graph specialization on every enumerated regular graph, and the path-family formulas through \(n=500\) as a finite consistency test.
+## originality
 
-Run:
+PASS
 
-`python3 verify_moran_geary_minimal_reversal.py`
+Moran and Geary definitions and classical spectral/network comparisons are not new. Distinct result is a sharp *binary* order-five first ranking reversal, the 11-of-21 connected unlabeled census, and explicit all-length P_n family, together with exact regular-weight obstruction. Searches of published Resultary and cited primary works did not show this precise all-graph minimum and census; originality is best-of-knowledge with explicit priority risk.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
+
+A sharp finite obstruction and exhaustive minimal classification for two natural widely-used spatial statistics; gives practitioners a rigorous counterexample to naively exchanging rankings and a reusable degree-heterogeneity mechanism. The n>=5 path family establishes a structural, not isolated, discrepancy. Finite cutoff and classification have motivated intrinsic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
