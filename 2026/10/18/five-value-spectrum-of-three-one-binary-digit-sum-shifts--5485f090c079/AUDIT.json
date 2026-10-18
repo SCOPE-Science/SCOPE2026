@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each ordinary binary addition, the number of outgoing carries equals \\(s_2(n)+s_2(t)-s_2(n+t)\\), by summing the column equations. With precisely three shift one-bits, admissibility is equivalent to at most three carries. A carry surviving three zero columns after the immediately preceding one-bit forces at least four counted carries, so all zero gaps saturate at three, including the tail. Removing trailing zero shift bits is justified by \\(c_{2t}=c_t\\). The remaining sixteen canonical cases have lengths \\(6+G+H\\). An exact integer recurrence, including all initial/boundary states, yields the fully listed \\(4\\times4\\) count table; independently enumerating every residue class gives the same integers. All possible gap parameters reduce to the table, proving the infinite quantified result. The packaged checker was executed successfully on its actual file and returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng, arXiv:2606.23398, states \\(c_t\\ge\\frac12+2^{-2s_2(t)-1}\\), which for weight three is 65/128, weaker than the newly proved sharp 19/32 and contains no five-value table.",
+        "Cheng, arXiv:2608.25899, abstract addresses infimum over weight k as k approaches infinity, and a stability theorem for asymptotic extremizers, not a finite \\(k=3\\) exact census.",
+        "Spiegelhofer-Wallner, arXiv:2005.07167, treats sufficiently many maximal one-blocks rather than the exact values for the initial three-one classes."
+      ],
+      "reasoning": "The published broader positivity theorem covers \\(c_t>1/2\\), which is therefore expressly not presented as a new resolution. Neither the lower bound nor the large-k asymptotic mathematically implies the exact small-weight spectrum or its equality classes. The later full text was inaccessible, so any hidden \\(k=3\\) appendix remains a named risk.",
+      "searches": [
+        "Cusick conjecture three ones 2^a+2^b+1 exact densities 19/32, 5/8, 21/32",
+        "Kaimin Cheng proof Cusick conjecture explicit 2^-2s2(t)-1 2026 arxiv",
+        "Sharp extremal asymptotics for Cusick fixed Hamming weight 2026",
+        "arXiv:2606.23398",
+        "arXiv:2608.25899"
+      ]
+    },
+    "checked_sources": [
+      "Drmota, Kauers, Spiegelhofer, arXiv:1509.08623 (2015), abstract, Theorems 1.1 and 1.2, Lemma 2.1, Table 1.",
+      "Spiegelhofer, Wallner, arXiv:2005.07167 (2020/2022), main theorem, fixed-block statements and carry formulation.",
+      "Cheng, arXiv:2606.23398 (2026), abstract of universal bound.",
+      "Cheng, arXiv:2608.25899 (2026), abstract and detailed third-party synopsis of asymptotic fixed-weight theorem; original PDF unavailable."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Drmota-Kauers-Spiegelhofer 2015 Lemma 2.1 computes delta(k,t) recursively for individual t; its Theorem 1.2 studies the alternating 101... family, without the present complete weight-three gap table.",
+        "Spiegelhofer-Wallner 2022 main theorem applies to sufficiently many one-blocks and is not a 16-case exact result.",
+        "The 2026 universal inequality yields \\(c_t\\ge65/128\\) for \\(s_2(t)=3\\), but the proved exact minimum is \\(19/32=76/128\\).",
+        "The 2026 large-k asymptotic cannot determine exact finite \\(k=3\\) fractions."
+      ],
+      "reasoning": "Definitions and implication comparisons distinguish the present exact shape-sensitive 16-case classification from pre-existing per-shift computation, special-family estimates, universal positivity, and asymptotic extremal behavior.",
+      "searches": [
+        "On a conjecture of Cusick concerning the sum of digits of n and n+t Lemma 2.1 Theorem 1.2",
+        "The binary digits of n+t Spiegelhofer Wallner maximal blocks theorem",
+        "Cusick first-exit universal inequality fixed Hamming weight",
+        "Sharp extremal asymptotics for Cusick sum-of-digits bias at fixed Hamming weight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The carry identity is equivalent to the count of n with \\(\\nu_2\\binom{n+t}{t}\\le3\\), by Kummer/Legendre; the current proof derives it directly from columns.",
+        "Drmota et al., arXiv:1509.08623, Lemma 2.1 gives a recurrence for general difference distributions but not an exact capped-gap table for all three-one shifts."
+      ],
+      "reasoning": "The carry and binomial-valuation formulations describe the same event rather than distinct discoveries. Queries incorporating c_t, three one-bits, the exact minimum, and carry gap truncation gave no stated 16-case classification; general recurrences do not directly assert this uniform theorem.",
+      "searches": [
+        "Cusick binary digit sum c_t exact three nonzero bits sharp minimum 19/32 attained t=11 and 13; all Hamming weight 3 shifts finite spectrum",
+        "binary digit sums addition shift three one-bits exact 4 by 4 zero-gap classification and five density values",
+        "Kummer carries at most three for three-one shift gap truncation at length three",
+        "arXiv:1509.08623"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 source Table 1 lists small individual values, including \\(c_7=43/64\\) and \\(c_{11}=c_{13}=19/32\\), and its text reports calculations for \\(t<2^{30}\\).",
+        "The table does not list all unbounded pairs of internal zero gap lengths nor a proof that each gap saturates at length three."
+      ],
+      "reasoning": "Finite value tables and extensive bounded enumeration cannot establish the universal parameter classification. Searches for the full five-value set and three-one exact minimum did not find an equivalent indexed exact theorem. This is not a claim that all possible tables have been exhaustively searched.",
+      "searches": [
+        "Cusick \"three ones\" density explicit",
+        "Cusick \"weight three\" exact",
+        "Cusick \"19/32\" \"three\"",
+        "binary sum of digits fixed Hamming weight three minimum c_t 19/32",
+        "arXiv:1509.08623 Table 1"
+      ]
+    },
+    "rationale": "This is a complete exact value-spectrum and sharp-extremizer statement for all Hamming-weight-three shifts, not merely positivity of the Cusick density. The 2015 distributional and 2022 many-block papers and the 2026 universal positivity bound do not imply the five fractions or the 16-case gap law. The 2026 fixed-weight asymptotic theorem concerns k growing without an accessible exact \\(k=3\\) classification. Direct source/alias searches and comparisons with recoverable existing claims revealed no same or stronger statement; literature access remains incomplete.",
+    "residual_risks": [
+      "No independent external audit of the new theorem has occurred.",
+      "The full 2026 fixed-weight extremal preprint was inaccessible; its abstract and accessible synopsis do not show a finite weight-three result, but an appendix may contain one.",
+      "An unindexed earlier exact table or implicit stronger theorem may exist beyond the searched primary texts and research results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same density and single-shift recurrence, but no claimed uniform all-three-one spectrum in the examined material.",
+        "evidence": [
+          "arXiv:1509.08623: Theorem 1.1 almost-all result, Theorem 1.2 alternating sequence, Lemma 2.1 recurrence, Table 1 c_7/c_11/c_13."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08623",
+        "material_read": "Abstract, introduction, Theorems 1.1 and 1.2, Section 2 Lemma 2.1 and proof, displayed initial-values table, the stated calculation range; PDF section index and related search hits.",
+        "method": "Read the arXiv full-text PDF and accessible article HTML at relevant theorem/recurrence/table locations.",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n+t",
+        "trigger": "Original work on the identical density and its recurrence; plausible source of the classification."
+      },
+      {
+        "assessment": "Many-block theorem and distributional estimates, not the exact three-one density spectrum in inspected statements.",
+        "evidence": [
+          "arXiv:2005.07167, page 1 abstract, introduction pages 1-2, carry identity equation 1.2 and discussion of few initial blocks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.07167",
+        "material_read": "Abstract, introduction, main result, equivalent carry formulation and portions of the later few-block discussion.",
+        "method": "Read original arXiv PDF (including first-page image and relevant text sections).",
+        "title": "The binary digits of n+t",
+        "trigger": "Later highly relevant primary paper on digit-sum shifts and fixed numbers of maximal one-blocks."
+      },
+      {
+        "assessment": "Already covers positivity, not the exact five values or equality cases.",
+        "evidence": [
+          "arXiv:2606.23398 states \\(c_t\\ge\\frac12+2^{-2s_2(t)-1}\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+        "material_read": "Public abstract and dated scholarly listing; full text not inspected.",
+        "method": "Read primary arXiv abstract and compare exact numerical implication at weight three.",
+        "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+        "trigger": "Broad possible coverage: purported proof of universal positivity for all shifts."
+      },
+      {
+        "assessment": "Accessible theorem statement is asymptotic as k tends to infinity; this cannot imply the finite \\(k=3\\) exact value set. Full text remains a residual novelty risk.",
+        "evidence": [
+          "arXiv:2608.25899 states \\(\\inf_{s_2(t)=k}(c_t-1/2)\\sim(\\log_2 k/k)^{3/2}/(2\\sqrt\\pi)\\) as \\(k\\to\\infty\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+        "material_read": "Primary abstract and detailed publicly accessible synopsis of the claimed large-weight asymptotic; original PDF could not be obtained from primary or open mirrors.",
+        "method": "Checked primary arXiv metadata/abstract, alternate abstract page and detailed secondary synopsis; attempted primary PDF and legal open mirrors without success.",
+        "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+        "trigger": "Same invariant and fixed-Hamming-weight extremization are strong potential overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5485f090-c079-4235-a46f-00d43e24ecfd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed binary Hamming weight is a canonical structural restriction for Cusick densities and the theme of contemporary sharp-extremal research. Three one-bits is the first pattern class in which two independent internal gaps interact; the proof gives a complete sharp density invariant over an infinite doubly parametrized family. It identifies precisely five attainable rational levels and all global minimizers/maximizers, and explains an exact gap-length-three stabilization. These strengthen, rather than rename, known individual calculations and universal positivity. The exact small-weight phase diagram can serve as a benchmark for general fixed-weight extremal or carry-distribution questions; no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
