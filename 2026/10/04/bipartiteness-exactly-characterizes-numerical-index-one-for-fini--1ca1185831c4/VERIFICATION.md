@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked from the definitions and from the finite-dimensional extreme-point criterion.
+# Independent mathematical audit
 
-1. **Primal extreme points.** In a finite graph metric, an elementary molecule is extreme exactly when its two endpoints have no third vertex in their metric segment. This is equivalent to adjacency: an edge has distance \(1\), while a nonedge has an interior vertex on a shortest path. Hence the primal extreme points are precisely the oriented edge molecules.
+## correctness
 
-2. **Dual polytope.** The dual unit ball consists of basepoint-zero potentials satisfying \(|f(u)-f(v)|\le1\) on graph edges. All other shortest-path inequalities follow by summing along paths.
+PASS
 
-3. **Dual vertices.** If the tight-edge graph \(H_f\) is connected, every midpoint decomposition of \(f\) must preserve the endpoint value \(\pm1\) on every tight edge, so the two summands differ by a constant and coincide at the basepoint. If \(H_f\) is disconnected, a non-base component can be shifted by \(\pm\varepsilon\); finiteness makes the minimum slack over crossing nontight edges positive. Thus \(f\) is extreme iff \(H_f\) is connected.
+The exact claim is for real Lipschitz-free spaces F(V,d_G) of every finite connected simple unit-edge shortest-path graph with |V|>=2; it is the threshold n(X)=1 iff G is bipartite, not an exact value for nonbipartite graphs. The dual Lip_0 unit ball is the edge-difference polytope |f(u)-f(v)|<=1. Its vertices are exactly the potentials whose graph of saturated/tight edges spans connectedly: averaging at a tight edge forces equal endpoints, and on a disconnected tight component not containing the root a sufficiently small signed constant shift preserves every crossing nontight edge due to finite positive slack. In the primal ball the extreme unit molecules are exactly graph-edge molecules, because only a unit graph edge has trivial metric segment, whereas nonedges have an interior shortest-path point. For a bipartite G, every tight-edge path joining adjacent endpoints has odd length, hence signed unit steps sum to odd integer; the original edge constraint reduces it to +/-1. McGregor's finite-dimensional modulus-one extreme-pairing criterion yields n=1. Conversely tree-depth parity defines an extreme dual vertex (all tree edges tight) with zero slope on some same-parity edge for every nonbipartite G; McGregor excludes n=1. The graph checker was inspected and its integer-potential enumeration is corroborative only; the symbolic argument covers arbitrary finite orders.
 
-4. **Bipartite direction.** For an original edge \(uv\), any path from \(u\) to \(v\) in the connected spanning subgraph \(H_f\) has odd length. Summing \(\pm1\) along that path gives an odd integer equal to \(f(u)-f(v)\), and the edge inequality bounds its modulus by \(1\). Therefore every primal-dual extreme pairing has modulus one.
+## originality
 
-5. **Nonbipartite direction.** A spanning-tree parity potential takes values in \(\{0,1\}\), is 1-Lipschitz, and has every tree edge tight, so it is dual-extreme. A nonbipartite graph has an edge joining equal tree parity classes, producing a primal extreme edge molecule paired to zero.
+PASS
 
-6. **Numerical-index conversion.** McGregor's finite-dimensional theorem states that \(n(X)=1\) iff \(|x^*(x)|=1\) for every \(x\in\operatorname{ext}B_X\) and every \(x^*\in\operatorname{ext}B_{X^*}\). The two graph directions above meet the hypotheses and obstruction exactly.
+Best-of-knowledge PASS for an all-finite-unweighted-graphs bipartiteness threshold. The already published same-work Resultary entry is not independent prior art; related later quantitative graph results concern distinct statements.
 
-The standalone script `verify_small_graphs.py` uses only the Python standard library. It enumerates every connected labeled simple graph on \(2\) through \(5\) vertices, enumerates integer-valued 1-Lipschitz potentials in a diameter-controlled range, recognizes dual extreme points by tight-edge connectedness, and checks the theorem's extreme-pairing condition. Its replay output is:
+## value
 
-`VERIFY_OK connected_labeled_graphs=771 extreme_dual_vertices=16716 n=2..5`
+PASS
 
-This computation is a finite stress test, not an exhaustive proof for arbitrary finite order. The symbolic proof establishes the theorem. No complex-scalar or weighted-graph claim is made.
+A finite-graph structural invariant theorem rather than a textbook plug-in: bipartiteness exactly decides the maximal numerical-index threshold for every order. The tight-edge connectivity lemma ties combinatorial paths to extreme dual polytope geometry and produces a reusable certificate; the parity counterpotential supplies a sharp obstruction on odd cycles. It extends the known three-vertex dichotomy to arbitrary finite graph metrics without claiming exact nonbipartite indices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
