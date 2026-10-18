@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The four rows of \\(U\\) have leverage \\(1/2\\) and split into two orthogonal rank-one projectors; coupled independent fair Bernoulli samples give independent \\(\\operatorname{Bin}(2\\nu,1/2)\\) counts. Exact covariance/variance ratios for every entry equal \\((h+\\ell)/2\\). The two corrected and raw eigenvalues, exact failure probabilities, strict boundary at \\(\\kappa=3\\), fusion threshold \\(\\theta>(\\kappa-3)/2\\), and the two Frobenius risks follow from this decomposition. The Gaussian limit and fixed-contrast large-deviation exponent follow from standard binomial limit theorems; no finite enumeration is used to certify an infinite identity. The companion rational verifier independently assembled all outcomes in five configurations and completed 18,761 checks. Remaining scope is explicitly restricted to the model.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Polydorides et al., Randomised sketching of parametric linear systems (2025), DOI:10.1109/SSP64130.2025.11073388, Section III.A eqs (13)–(18), pp.3–4 explicitly suggests damping and reports qualitative loss of conditioning.",
+        "arXiv:2606.08817 public abstract announces probability bounds and regularized estimator; secondary account describes forward/inverse fusion but not the exact four-row law.",
+        "Choi et al. arXiv:1606.03814 addresses generic positive-definite restoration by shrinkage."
+      ],
+      "reasoning": "Generic matrix concentration and positivity-preserving shrinkage can provide sufficient error/ridge estimates or generic repairs, but do not imply this exact binomial tail, its contrast-\\(3\\) frontier, or the \\(\\kappa\\)-versus-\\(\\sqrt{\\nu}\\) limit in this model. The unseen body of the 2026 source is a named overlap risk and cannot be classified as not covering.",
+      "searches": [
+        "positive definiteness failure optimal matrix control variates forward sketch inverse sketch Stein loss and regularized fusion",
+        "parameter oblivious FEM Galerkin low variance sketch fusion control variates Polydorides Wu Noori 2606.08817",
+        "Control-variate forward sketch can lose SPD despite inverse sketch SPD; Stein-loss fusion ridge threshold and finite-population contrast",
+        "\"control variates\" \"finite element\" \"Stein loss\" \"inverse sketch\""
+      ]
+    },
+    "checked_sources": [
+      "https://www.pure.ed.ac.uk/ws/files/516680657/IEEE_ssp_5_pager-19.pdf",
+      "https://arxiv.org/abs/2606.08817",
+      "https://www.themoonlight.io/en/review/low-variance-randomised-numerical-linear-algebra-for-finite-element-simulation",
+      "https://arxiv.org/abs/1606.03814",
+      "Published mathematical records retrieved under the recorded semantic search queries; no relevant exact four-row law surfaced."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Polydorides et al., Randomised sketching of parametric linear systems (2025), DOI:10.1109/SSP64130.2025.11073388, Section III.A eqs (13)–(18), pp.3–4 warns about non-positive-definite corrected matrices and recommends rescaling the correction.",
+        "The 2026 source summary describes a fused inverse \\((2+\\theta)(2Y_B+\\theta\\bar Y)^{-1}\\), not a proved explicit exact-failure classification.",
+        "Choi et al., arXiv:1606.03814, studies generic covariance shrinkage to positive-definiteness."
+      ],
+      "reasoning": "The 2025 warning implies that some correction may fail, so qualitative failure is expressly excluded from novelty. It does not determine the exact event probabilities, high-contrast Gaussian limit, or the parameter of inverse-fusion uniform positivity. The 2016 shrinkage construction supplies a remedy for other estimators, not this distribution. An inaccessible 2026 full text could in principle cover these quantitative claims; no available evidence establishes such an implication.",
+      "searches": [
+        "Bernoulli row leverage score matrix control variate entrywise optimal coefficient makes symmetric positive definite Galerkin estimator indefinite sharp threshold",
+        "positive definiteness failure optimal matrix control variates forward sketch inverse sketch Stein loss and regularized fusion",
+        "parameter oblivious FEM Galerkin low variance sketch fusion control variates Polydorides Wu Noori 2606.08817",
+        "Control-variate forward sketch can lose SPD despite inverse sketch SPD; Stein-loss fusion ridge threshold and finite-population contrast",
+        "sketched Galerkin matrix control variates entrywise optimal weights not positive semidefinite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Polydorides et al., Randomised sketching of parametric linear systems (2025), DOI:10.1109/SSP64130.2025.11073388, Section III.A eqs (13)–(18), pp.3–4 states optimal entrywise covariance weights and a qualitative threat to the positive cone.",
+        "A nearby published-record hit, An indefinite controller can hide a non-Bessel sequence from the controlled Gram matrix (2026), concerns controlled frames and unrelated Gram cancellation."
+      ],
+      "reasoning": "The natural aliases are positivity of control-variate Galerkin matrices, variance-optimal matrix-control correction, and invertibility of variance-reduced Bernoulli sketches. The 2025 source covers the general warning but supplies neither the specified four-row count distribution nor the contrast/root-threshold equivalence. The frames result uses different operators, assumptions and conclusions.",
+      "searches": [
+        "Bernoulli row leverage score matrix control variate entrywise optimal coefficient makes symmetric positive definite Galerkin estimator indefinite sharp threshold",
+        "Exact binomial positive definiteness failure in variance optimal control variate for parameter oblivious leverage Bernoulli Galerkin sketch",
+        "\"control variates\" \"positive definite\" \"sketch\" matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search returned no tabulation of the four-row optimal-control Bernoulli Galerkin failure distribution.",
+        "The concrete data \\(U,P,T\\), thresholds and all-\\(\\nu\\) probabilities are calculated in the proof and finite-state executable checks."
+      ],
+      "reasoning": "This is an all-sketch-count analytic law, not a table lookup. Neither the 2025 primary text nor the accessible published-record claims contain the exact \\(\\operatorname{Bin}(2\\nu,1/2)\\) positivity classification for this model.",
+      "searches": [
+        "finite sample Bernoulli sketch correction eigenvalue instability contrast regularization parameter threshold binomial phase transition",
+        "Exact binomial positive definiteness failure in variance optimal control variate for parameter oblivious leverage Bernoulli Galerkin sketch",
+        "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation forward inverse regularized estimator formula Bernoulli"
+      ]
+    },
+    "rationale": "The qualitative warning that entrywise control-variate correction may destroy invertibility, and the optimal weight formula, are expressly anticipated in the fully inspected 2025 primary source; these are NOT claimed original. The final claimed contribution is a sharp, explicit binomial failure law for the symmetric four-row leverage-balanced model, a contrast-versus-sketch-count Gaussian transition, and a sharp ridge/fusion threshold including a variance-calibrated failure frontier. Searched accessible literature and published mathematical records do not reveal a statement implying that quantitative package. The 2026 primary full text could not be read; possible undiscovered overlap remains a material residual risk, not a purported proof of uniqueness.",
+    "residual_risks": [
+      "Complete 2026 arXiv primary text and appendices were not inspectable; its exact formulas may overlap despite the accessible abstract and secondary account not showing the present threshold.",
+      "Unindexed literature on structured matrix control variates or specialized Bernoulli designs might have equivalent binomial failure laws.",
+      "Oracle covariance weights are not the sample-estimated or correlation-thresholded weights in all implementations; the theorem must not be promoted as a failure guarantee for those different estimators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitatively anticipates instability and general control-weight rule, but no exact four-row binomial phase law or variance-ratio fusion crossover was found.",
+        "evidence": [
+          "Eqs. (13)-(18) specify coupled sketch means and optimal elementwise coefficients.",
+          "Section III.A states correction can make a matrix singular or ill-conditioned and suggests damping; this warning is excluded from claimed novelty."
+        ],
+        "identifier_or_url": "https://www.pure.ed.ac.uk/ws/files/516680657/IEEE_ssp_5_pager-19.pdf",
+        "material_read": "Full accessible accepted manuscript, with detailed review of Section II sketch design, Section III.A equations (13)–(18), explicit positivity discussion, Algorithm 1, and numerical-results setup.",
+        "method": "Read text of the primary PDF and inspect page 4 image showing the weight formula and SPD caveat.",
+        "title": "Randomised sketching of parametric linear systems",
+        "trigger": "Same-author primary predecessor with exact Bernoulli and control-variate definitions"
+      },
+      {
+        "assessment": "Same-object plausible source. No quantitative match shown in accessible material. Cannot assess whether uninspected body covers the theorem.",
+        "evidence": [
+          "Abstract dated 2026-06-07 announces unbiased low-variance Galerkin sketches and regularized inverse fusion.",
+          "Secondary method account describes entrywise controlled forward sketch and 2Y_B+theta raw-sketch fusion.",
+          "Uninspected full text is an explicit originality risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.08817",
+        "material_read": "Public abstract; independent technical method summary at https://www.themoonlight.io/en/review/low-variance-randomised-numerical-linear-algebra-for-finite-element-simulation. Full primary paper and appendices not accessible.",
+        "method": "Attempted arXiv PDF, arXiv HTML, open-access copies and authorized institutional full-text retrieval; inspected accessible public material only.",
+        "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+        "trigger": "Direct 2026 motivation and finite-element forward/inverse sketch fusion"
+      },
+      {
+        "assessment": "General PSD repair addresses different covariance estimators; not known to imply the exact Bernoulli probabilities or root-sample transition.",
+        "evidence": [
+          "The article studies retaining support and asymptotics of corrected covariance matrix estimators, not leverage-score Bernoulli Galerkin sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.03814",
+        "material_read": "Public abstract and scope of proposed linear-shrinkage positive-definiteness repair; complete paper not inspected.",
+        "method": "Read indexed original-source abstract and compare its estimator assumptions and conclusions.",
+        "title": "Fixed support positive-definite modification of covariance matrix estimators via linear shrinkage",
+        "trigger": "Possible broad positivity repair or reduction from prior matrix-estimation literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b528167-f2dd-4e46-a8ea-552502f034c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact quantitative loss of positive definiteness is significant because Galerkin reduced operators require stable inversion and a forward/inverse fusion uses a positive-definite cone. The result shows strict Frobenius variance improvement coexisting with an exact 1/3 conditional one-sketch failure, an all-count coefficient-contrast threshold, and a nonuniform \\(\\kappa\\asymp\\sqrt{\\nu}\\) sample-complexity transition. The variance-ratio ridge obstruction supplies a motivated sharp design diagnostic, rather than an arbitrary matrix example; generic qualitative instability was already known and is not presented as new.",
+    "status": "PASS"
+  }
+}
