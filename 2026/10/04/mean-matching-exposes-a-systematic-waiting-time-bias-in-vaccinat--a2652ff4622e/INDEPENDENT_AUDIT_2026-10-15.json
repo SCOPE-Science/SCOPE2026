@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:54:06.383571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For waiting T independent of Exp(h), probability immune before infection is Laplace transform E(exp(-hT)). Strict Jensen gives bound e^(-hT*) with equality iff deterministic T. Mean matching theta_V=1/T* yields P_exp=1/(1+x)>P_fix=e^(-x) for x=hT*>0. Constant inflow gives fluxes p0P and p0(1-P) and stock p0(1-P)/h, with reverse ordering of breakthrough/waiting stock. Derivative d[e^x/(1+x)]/dx=x e^x/(1+x)^2>0. Independently checked six x values, but strict Jensen/competing risk proves arbitrary distributions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SVIR and age-structured vaccination dynamics have broader state-space scope.",
+          "The source's two mechanisms are exact background premises; constant hazard and frozen influx are intentionally narrower than its full nonlinear dynamics."
+        ],
+        "reasoning": "The published global-threshold dynamics do not dominate this exact fixed-mean waiting distribution ordering under identical independent hazard.",
+        "searches": [
+          "DOI:10.3934/nhm.2022012",
+          "DOI:10.1016/j.jtbi.2007.10.014",
+          "DOI:10.1093/imamat/hxx020"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/nhm.2022012",
+        "DOI:10.1016/j.jtbi.2007.10.014",
+        "DOI:10.1093/imamat/hxx020",
+        "Resultary vaccine delay query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source explicitly observes direct comparison is arbitrary because θ_V lacks a counterpart in delay model; setting θ_V=1/T* is an additional calibration.",
+          "Competing exponential clock then gives E(e^{-hT}); Jensen proves fixed waiting minimizes success and gives strict exp-vs-fixed gap."
+        ],
+        "reasoning": "No prior theorem read supplies this calibrated conclusion as applied to the two specified published models; textbook Jensen ingredient alone is not claimed new.",
+        "searches": [
+          "DOI:10.3934/nhm.2022012 2022 source paper",
+          "DOI:10.1016/j.jtbi.2007.10.014",
+          "DOI:10.1093/imamat/hxx020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same Resultary claim is top hit; other indexed vaccination findings treat distinct mechanisms and reproduction thresholds.",
+          "Original 2022 source puts a fixed-age transport waiting compartment beside an exponential ODE compartment without deriving mean-matched stochastic dominance."
+        ],
+        "reasoning": "Analogous terms are fixed-vs-exponential stage lengths, competing infection clocks, Laplace transforms, and vaccination-age-dependent transport.",
+        "searches": [
+          "Resultary: vaccination delay fixed deterministic versus exponential mean matched competing infection hazard immunization probability Jensen",
+          "web: vaccination delay fixed deterministic versus exponential mean matched competing infection hazard immunization probability Jensen",
+          "DOI:10.3934/nhm.2022012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Model equations print exponential departure rate θ_V and fixed transport cutoff T*, but no exact table of equal-mean successful immunization and backlog stocks."
+        ],
+        "reasoning": "Analytic Laplace-transform comparison, not an existing numerical table; negative search is not novelty proof.",
+        "searches": [
+          "Resultary vaccination delay fixed deterministic versus exponential mean matched competing infection hazard immunization probability Jensen",
+          "DOI:10.3934/nhm.2022012 models (2),(3)"
+        ]
+      },
+      "rationale": "The 2022 ODE/transport vaccination-model comparison explicitly says its fixed delay and exponential exit parameters lack a direct correspondence. Its full accessible source does not state the mean-matched constant-hazard Laplace-transform inequality or steady-flow discrepancy; specialized contribution is model calibration, not Jensen convexity as new mathematics.",
+      "residual_risks": [
+        "Calibration insight may have been applied in an unindexed competing-risk epidemiology paper.",
+        "2008/2017 antecedent primary texts not fully inspected; no whole-document noncoverage inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies mechanisms and explicitly warns direct parameter comparison, not the new constant-hazard calibration",
+          "evidence": "The ODE vaccinated compartment exits at θ_V while the transport compartment immunizes after T*; paper explicitly states absence of direct counterpart between these parameters.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/nhm/2022/3/PDF/1556-1801_2022_3_385.pdf",
+          "material_read": "Full 16-page PDF available; materially inspected equations for model (2), transport model (3), comparison prose and stated calibration difficulty; relevant pages visually checked",
+          "method": "Lawful public publisher PDF rendered/page inspection",
+          "title": "Vaccination strategies through intra-compartmental dynamics",
+          "trigger": "Exact pair of ODE/transport immunization mechanisms"
+        },
+        {
+          "assessment": "Modeling antecedent; full-text priority risk remains",
+          "evidence": "Abstract concerns vaccination strategies, infection before immunity and epidemics, not a stated equal-mean extreme waiting-time law.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2007.10.014",
+          "material_read": "Indexed abstract and bibliographic record only",
+          "method": "Published abstract reading",
+          "title": "SVIR epidemic models with vaccination strategies",
+          "trigger": "ODE antecedent with infected-before-immunity mechanism"
+        },
+        {
+          "assessment": "Related but detailed full text not inspected",
+          "evidence": "Focuses on threshold and dynamics of vaccination-age SVIR model; no specific equal-mean Laplace-transform formula in material read.",
+          "identifier_or_url": "https://doi.org/10.1093/imamat/hxx020",
+          "material_read": "Indexed abstract/bibliographic scope only",
+          "method": "Published record reading",
+          "title": "SVIR epidemic model with age structure in susceptibility, vaccination effects and relapse",
+          "trigger": "Broader age-structured vaccination treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a specific calibration ambiguity explicitly identified by the source epidemic models: matching the mean waiting times leaves a systematic one-sided immunization and backlog error, with exact dependence on dimensionless x=hT*. Valuable benchmark for interpreting exponential ODE versus fixed-delay transport assumptions, without claiming fully coupled outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hazard and vaccine age susceptibility frozen, constant inflow only for steady-state stocks; no claim for full nonlinear epidemic trajectories.",
+    "Full antecedent 2008/2017 articles not read; bibliographic risk retained."
+  ],
+  "schema_version": 1
+}

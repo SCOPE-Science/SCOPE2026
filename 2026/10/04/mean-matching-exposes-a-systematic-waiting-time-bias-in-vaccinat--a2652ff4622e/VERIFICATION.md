@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The general proof is analytic. For an immunization waiting time \(T\) independent of an exponential infection clock of rate \(h>0\), conditioning on \(T\) gives the exact success probability \(\mathbb E[e^{-hT}]\). Strict convexity of \(e^{-ht}\) then proves the deterministic fixed-time extremum at fixed mean.
 
-The standalone `verify.py` replays only consequences that are suitable for finite computation: the fixed and exponential formulas on a deterministic grid, conservation of exit fluxes, ordering of waiting stocks, positivity of the derivative of the relative throughput factor, and several two-point mean-preserving waiting laws. These computations are consistency checks, not a substitute for the Jensen proof over all distributions.
+# Independent mathematical audit
 
-The comparison assumes a common constant breakthrough hazard and constant vaccination-age susceptibility. The steady stock/flux formulas additionally assume constant vaccination inflow. No claim is made about global ordering of the fully coupled epidemic systems.
+## correctness
+
+PASS
+
+For waiting T independent of Exp(h), probability immune before infection is Laplace transform E(exp(-hT)). Strict Jensen gives bound e^(-hT*) with equality iff deterministic T. Mean matching theta_V=1/T* yields P_exp=1/(1+x)>P_fix=e^(-x) for x=hT*>0. Constant inflow gives fluxes p0P and p0(1-P) and stock p0(1-P)/h, with reverse ordering of breakthrough/waiting stock. Derivative d[e^x/(1+x)]/dx=x e^x/(1+x)^2>0. Independently checked six x values, but strict Jensen/competing risk proves arbitrary distributions.
+
+## originality
+
+PASS
+
+The 2022 ODE/transport vaccination-model comparison explicitly says its fixed delay and exponential exit parameters lack a direct correspondence. Its full accessible source does not state the mean-matched constant-hazard Laplace-transform inequality or steady-flow discrepancy; specialized contribution is model calibration, not Jensen convexity as new mathematics.
+
+## value
+
+PASS
+
+Resolves a specific calibration ambiguity explicitly identified by the source epidemic models: matching the mean waiting times leaves a systematic one-sided immunization and backlog error, with exact dependence on dimensionless x=hT*. Valuable benchmark for interpreting exponential ODE versus fixed-delay transport assumptions, without claiming fully coupled outcomes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
