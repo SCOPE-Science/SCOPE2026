@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The complete if-and-only-if classification follows by equating the two logistic stage derivatives when deletion makes the collocation polynomial affine. The exact rational witness and [0,1]-root uniqueness are checked algebraically by a resultant and a stage bound. A positive-coefficient logit-time expansion proves the true endpoint is strictly below the collocation endpoint, with sharp error supremum \(3/4\). The packaged verifier passed 129 supplementary checks; the proof covers infinitely many parameters.
+
+**Originality — PASS, with residual risk.** Saupe et al. (original arXiv by Baumann et al.) (arXiv:2403.13454, Section 2.2) supply the node-deletion construction but do not state this complete logistic right-Radau blind locus. The publicly indexed Fehlberg and Simpson counterexamples involve distinct numerical estimators, not the same stage equations. Aves–Griffiths–Higham (1997) concerns broader step-error spuriosity. Targeted literature and published mathematical-record searches found no covering assertion. The inaccessible older full text and unindexed analogues leave priority uncertainty; these negative searches alone are not novelty proof.
+
+**Value — PASS.** A fully solved positive logistic test case shows an exactly zero embedded error signal alongside a strictly positive, sometimes order-one endpoint error. The rational witness has a unique stage solution in the physical unit interval. The sharp \(3/4\) supremum tests whether step-size decisions can safely rely on a single deleted-node residual. This is meaningful for adaptive SDC reliability, not a guarantee that a prescribed iterative solver selects the problematic branch.
+
+**Closest prior work and limits.** The motivating adaptive SDC paper defines the indicator; earlier literature studies spurious numerical steady states and estimator zeros for other integrators. The current result assumes precisely converged two-stage right-Radau collocation, the scalar logistic equation, positive initial conditions less than \(1/2\), and exact arithmetic. It establishes no practical solver's branch selection or global adaptive trajectory. Independent publication priority is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
