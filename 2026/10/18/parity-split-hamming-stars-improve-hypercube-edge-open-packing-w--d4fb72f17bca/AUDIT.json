@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Explicit Hamming-code proof verifies all fiber supports and adjacency exclusions for every integer k>=2,d>=2^k-1. Exhaustive bitset clique search on all 80 Q5 edges, anchored by automorphism edge transitivity, proves maximum12 and twelve anchored maximizers; incidence counting and explicit distinct constructions give eighty in total. The entire standard-library source is included and replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar et al., arXiv:2406.04020v2, Table 1: at d=5 the lower bound is ten, at d=9 the deduced bound is 153.",
+        "Brešar et al., Theorem 5.10 determines the power-of-two dimension values, which are distinct from d=5,9.",
+        "Das and Santra, arXiv:2610.02275v1, Theorems and Conclusion: polynomial algorithms for other graph classes."
+      ],
+      "reasoning": "A stronger general edge-open-packing inequality or an exact formula covering odd dimensions would imply the claims, but the closest source only covers power-of-two cubes exactly. Its generic alpha bound (256 at dimension nine) does not upper- or lower-resolve the new numbers. The algorithmic results do not provide these explicit all-d constructive values.",
+      "searches": [
+        "arXiv:2406.04020v2 Section 5.1 Proposition 5.9 Corollary 5.8 Theorem 5.10",
+        "arXiv:2610.02275v1 full text AT-free chordal convex bipartite",
+        "hypercube Q5 edge-open-packing number 12 80 maximum packings"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.04020v2, full relevant hypercube section and printed numerical table",
+      "arXiv:2610.02275v1, full accessible HTML text",
+      "arXiv:2606.28599, published abstract and references, full text not inspected",
+      "arXiv:2608.05310, published abstract and references, full text not inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2024/2025 source gives general inequality EOP ≥ d rho_3 and dimension-power-of-two equality.",
+        "Its displayed lower bounds ten and 153 are strictly smaller than the constructed twelve and 224.",
+        "October 2026 paper gives structural equivalence and polynomial-time algorithms for specified classes, no Hamming parity lift or exact five-cube clique census."
+      ],
+      "reasoning": "The new theorem does use the standard Hamming code and standard induced-star characterization, but combines parity halves across Cartesian fibers to forbid transversal edges while retaining h spokes per center. This is a different claim from the published 3-packing construction, and closes d=5 by an independent complete compatible-edge search.",
+      "searches": [
+        "arXiv:2406.04020v2, Proposition 5.9, Corollary 5.8, Theorem 5.10",
+        "arXiv:2610.02275v1, abstract and all sections",
+        "induced star forest of hypercube Q_5 maximum edges 12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02275v1, Preliminaries Observation 1: EOP corresponds to induced unions of stars.",
+        "arXiv:2406.04020v2, Section 5.1: EOP contrasted with induced matching and vertex packings."
+      ],
+      "reasoning": "The induced-star-forest and clique-in-edge-compatibility-graph descriptions are mathematically equivalent to EOP in the cube. Neither source reports the parity-fiber Hamming family, twelve-edge five-cube optimum or eighty extremizers; merely renaming the object is not counted as a new result.",
+      "searches": [
+        "edge open packing number of hypercubes Q5 Q9 exact 12 224 Hamming code parity split 3-packing",
+        "induced star forest hypercube Q_d Hamming code parity lift 7 224 exact enumeration",
+        "arXiv:2610.02275v1, Sections 1–6, induced star forest formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual printed Table 1 on page 22 of arXiv:2406.04020v2 marks the d=5 EOP entry with ≥10, not equality.",
+        "Page 23 of that paper explicitly derives d=9 lower bound 9 times 17 = 153."
+      ],
+      "reasoning": "The closest numerical table does not list twelve as a five-cube exact optimum or a count of eighty. The claims require a separate exhaustive search, provided with the result.",
+      "searches": [
+        "arXiv:2406.04020v2 Table 1 EOP Q5 Q9",
+        "edge-open packing maximum five-dimensional cube Q_5 80 extremizers perfect codes",
+        "edge open packing Q5 hypercube 5-cube exact 12 twelve edges"
+      ]
+    },
+    "rationale": "Full-text comparison with 2024 hypercube bounds and 2026 EOP algorithmic results reveals no mathematical statement implying the parity-lift bound or the Q5 exact value/80 maximizers. The closest published dimension-five bound is ten and the nine-dimensional bound 153. Targeted mathematical-record searches by exact value and star-forest aliases yielded no covering claim; priority risk remains.",
+    "residual_risks": [
+      "A pre-existing unpublished or unindexed hypercube edge-open-packing classification could have been missed.",
+      "Two related 2026 algorithm papers had only abstracts and cross-reference summaries inspected, not full texts.",
+      "A different error-correcting-code or induced-star-forest terminology may conceal related known constructions; no priority guarantee is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the twelve-edge exact Q5 result, the eighty extremizers, or the 224-edge Q9 parity lift.",
+        "evidence": [
+          "Table 1 at printed page 22 states lower bound Q5 ≥10.",
+          "Printed page 23 derives Q9 ≥153.",
+          "Theorem 5.10 covers dimensions that are powers of two."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+        "material_read": "Complete Section 5.1, including pages 21–23 of PDF, Table 1, Corollary 5.8, Proposition 5.9, Theorem 5.10 and nine-dimensional paragraph; scanned rendered relevant pages.",
+        "method": "Open-access full PDF text and visual page check",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Closest primary work on EOP numbers of hypercubes; numerical Table 1 and dimension-exact theorem"
+      },
+      {
+        "assessment": "Develops algorithms for graph classes other than hypercubes; no covering quantitative or optimizer statement identified.",
+        "evidence": [
+          "Abstract reports algorithms for AT-free, chordal and convex bipartite graphs.",
+          "Conclusion lists algorithmic questions rather than a hypercube value.",
+          "The HTML text contains no occurrence of hypercube."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.02275",
+        "material_read": "Complete accessible HTML mathematical text, Sections 1–6 including preliminaries, theorems and conclusion; searched for hypercube occurrence.",
+        "method": "Open-access arXiv HTML full text and abstract metadata, 2026-10-01 v1",
+        "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+        "trigger": "Emerging 2026 paper defining current EOP research directions and inducing-stars equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4fb72f1-7bca-4cea-96be-9485700a55ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolving a published natural Q5 value gap from >=10 to exact12, enumerating all eighty maximizing star forests, and raising the published Q9 lower bound from153 to224 are substantive advances, not routine renamed consequences; the infinite parity-lift Hamming-code argument can be reused for other hypercube dimensions.",
+    "status": "PASS"
+  }
+}
