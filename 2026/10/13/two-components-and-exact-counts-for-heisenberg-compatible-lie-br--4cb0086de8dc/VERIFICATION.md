@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone checker `artifacts/verify.py` uses independent symbolic coordinates for the first fixed Heisenberg bracket and the second arbitrary alternating operation. It reconstructs the full mixed-Jacobi and ordinary Jacobi equations before performing any elimination. It also checks the reduced formula after imposing the compatibility constraint.
 
-For each of \(\mathbf F_3\), \(\mathbf F_5\), and \(\mathbf F_7\), it exhaustively enumerates all seven nonlinear coordinates after eliminating the fixed mixed constraint and factors in the freely varying eighth coordinate. In addition, it directly enumerates all \(3^9=19683\) original bracket tables over \(\mathbf F_3\), independently checking every unreduced coordinate equation before elimination.
+# Independent mathematical audit
 
-Recorded counts:
-\[
-\begin{array}{c|r|r|r}
-q & \#\text{compatible brackets} & \#\text{nonzero-vector stratum} & \#\text{component intersection}\\\hline
-3&945&216&99\\
-5&18625&3000&725\\
-7&134113&16464&2695
-\end{array}
-\]
-The program exits successfully with the marker `VERIFY_OK`.
+## correctness
 
-These enumerations are finite replay checks. The characteristic-uniform result follows from the symbolic reduction and the exact vector-bundle/rank-one incidence argument, not from extrapolation of the three examples.
+PASS
+
+Write all nine alternating structure constants for the second bracket, fixing [x,y]=z. Mixed Jacobi is exactly g=e; Jacobi for second operation becomes eu+dv=hu+ev=bu+av=0 after u=f−a,v=b−i; coefficient c is free. This is the complete necessary-and-sufficient incidence Mw=0 with M rows (e,d),(h,e),(b,a) and w=(u,v). The w=0 branch A6 is closed, while w≠0 is a rank-three vector bundle over A²\{0}, irreducible dimension 5. Its closure intersects the zero branch at rank(M)≤1 (dimension 4). They are distinct geometric components, and cut-and-paste gives [X]=L6+L5−L3, hence q6+q5−q3 rational points and zeta (1−q³T)/((1−q⁵T)(1−q⁶T)). Independent symbolic Jacobi and finite q=3,5,7 exhaustions yielded 945,18625,134113 and exact strata counts 216,3000,16464 and intersections 99,725,2695. Result is for reduced variety, char ≠2; checks are finite support not proof.
+
+## originality
+
+PASS
+
+Ladra–Leite da Cunha–Lopes classify NILPOTENT compatible pairs up to isomorphism and give an example with first Heisenberg bracket and second sl2, outside their nilpotent classification. This claim counts entire fixed first-bracket parameter fibre with nonnilpotent points and its geometry/point counts. General Maurer–Cartan and semisimple-first work does not subsume that. Older Lie-pencil tables could remain.
+
+## value
+
+PASS
+
+The complete fibre of all compatible second Lie brackets over the three-dimensional Heisenberg bracket is an intrinsic deformation parameter space. Reducibility into dimension-6 and dimension-5 components with determinantal intersection, plus universal q-count and motivic class, is a natural nontrivial classification distinct from one chosen example or orbit count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
