@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Enumerating input digit pairs {0,1}^2 proves all four carry transitions with only 0/1 carries. Every n<4^k has no possible nonzero input above digit k, so the terminal zero-carry component equals the exact ordered-pair multiplicity. Two support states give a 2x2 transition matrix, characteristic polynomial t²−4t+2 and exact H_k formula. A double-coordinate Fibonacci induction bounds all 2^k digit outcomes, with explicit output words hitting F_{k+1}; monotone 4-adic bracketing proves both Theta exponents. The actual verify.py was executed successfully on 21,845 brute pairs and reachable states to depth21; infinite validity comes from proof, not test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Bruijn defines signed direct decompositions \\(\\mathbb Z=M\\mathcal M-2N\\mathcal M\\) and studies coefficient-goodness, not positive \\(\\mathcal M+3\\mathcal M\\) support or maximal fibers.",
+        "Moser's all-coefficient theorem constructs coefficient-dependent basis sets \\(A_k\\), not the fixed \\(\\mathcal M\\) used here.",
+        "Eigen–Ito–Prasad abstract addresses bad pairs in signed decompositions and lacks a comparable positive coefficient-three count."
+      ],
+      "reasoning": "The obvious stronger-looking uniqueness/decomposition theorems change the set, sign, or coefficient and do not imply either target count or the Fibonacci extremum without additional digit-carry analysis.",
+      "searches": [
+        "De Bruijn 1964 complete publisher paper doi:10.1090/S0025-5718-1964-0167447-9",
+        "Moser 1962 complete paper doi:10.1080/0025570X.1962.11975291",
+        "Published research search: representations by quaternary digit sets {0,1} + 3{0,1}, carry automata spectral growth 2+sqrt2",
+        "Eigen Ito Prasad 2004 abstract doi:10.1016/j.jnt.2004.04.001"
+      ]
+    },
+    "checked_sources": [
+      "Moser 1962 original scanned paper, complete: https://oeis.org/A000695/a000695.pdf",
+      "De Bruijn 1964 publisher text, complete: https://pure.tue.nl/ws/files/2084140/597531.pdf",
+      "OEIS A000695, complete: https://oeis.org/A000695",
+      "OEIS A007052, complete: https://oeis.org/A007052",
+      "OEIS A126684, complete: https://oeis.org/A126684",
+      "Eigen–Ito–Prasad 2004 abstract, complete text unavailable, doi:10.1016/j.jnt.2004.04.001",
+      "Published mathematical-record search results for stated claim aliases and numerical forms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest identified result concerns exact binary-weight product classification, which treats binary Hamming-weight products, not additive Moser sums.",
+        "Moser 1962 explicitly represents \\(n=a+2b\\) uniquely; this fails to settle coefficient 3 for the same set.",
+        "The carry recurrence and Fibonacci sharp witnesses are specific to \\(\\epsilon+3\\delta+c\\) at base 4 and are not deductions from the numeric identity with A007052 alone."
+      ],
+      "reasoning": "Explicit statement and implication comparison finds no encompassing claim among searched public records; matching a numerical recurrence is not itself mathematical novelty, so originality is attached to the arithmetic interpretation and extremal multiplicity theorem, subject to residual unindexed-literature risk.",
+      "searches": [
+        "Published research search: sums of distinct powers of four plus three times sums of distinct powers of four, counting under 4^k sequence 1 3 10 34",
+        "Published research search: Moser de Bruijn numbers representations n=a+3b binary-quaternary complementing sequence automaton Hausdorff dimension",
+        "Web: \"S+3S\" \"Moser\"",
+        "Moser 1962 pp. 37–38 and De Bruijn 1964 pp. 537–546"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moser's 1962 pp. 37–38 use \\(\\mathcal M+2\\mathcal M=\\mathbb N_0\\) uniquely; his tailored sets for other multipliers need not equal \\(\\mathcal M\\).",
+        "A007052 is an exact numerical equivalent of the proposed support count sequence but is catalogued as order-consecutive partitions and its page makes no Moser+3Moser interpretation or Fibonacci representation-multiplicity claim."
+      ],
+      "reasoning": "The exact coefficient-3 support sequence is a known integer sequence, so numerical novelty is excluded. The arithmetic realization as one fixed classical digit-set sumset and the simultaneous exact maximal multiplicity remain unmatched in inspected equivalence sources.",
+      "searches": [
+        "Published research search: Moser de Bruijn sequence coefficient 3 sumset counting function a+3b support number of representations Fibonacci maxima",
+        "Web: \"Moser-de Bruijn\" \"3\" \"sums\" representation",
+        "OEIS A000695 full text",
+        "OEIS A007052 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007052 lists all first computed values and the recurrence \\(h_{k+2}=4h_{k+1}-2h_k\\); this precludes novelty for the number list and recurrence alone.",
+        "OEIS A126684 lists a different construction, \\(\\mathcal M\\cup2\\mathcal M\\), whose self-sumset covers every nonnegative integer."
+      ],
+      "reasoning": "Numerical matches have been recognized and appropriately credited; neither inspected exact table/database identifies both target arithmetic invariants. The separate maximal multiplicity result is not a known-table recomputation.",
+      "searches": [
+        "OEIS A007052 sequence 1,3,10,34,116,396,1352",
+        "OEIS A000695 Moser de Bruijn sequence",
+        "OEIS A126684 union of Moser and twice Moser",
+        "Web: \"1, 3, 10, 34, 116, 396, 1352\" sequence"
+      ]
+    },
+    "rationale": "The exact numeric H_k sequence is OEIS A007052 and is explicitly credited as known. Inspected full original Moser 1962 and De Bruijn 1964 papers and relevant OEIS records do not yield the same fixed coefficient-three positive sumset interpretation jointly with the sharp Fibonacci representation extremum. Literature and mathematical-record searches did not reveal stronger matching statements; full Eigen–Ito–Prasad 2004 text inaccessible and unindexed prior results remain possible.",
+    "residual_risks": [
+      "Exact numerical H_k sequence is previously known (OEIS A007052); originality rests solely on its arithmetic meaning and independent sharp Fibonacci multiplicity theorem.",
+      "Earlier obscure or unindexed digit-carry literature may contain an equivalent coefficient-three result.",
+      "Full-text implications of Eigen–Ito–Prasad (2004) were not inspectable; abstract concerns signed rather than positive decompositions.",
+      "The 1962 print antecedent does not have a day-specific verified first-publication date; 2001-02-07 is the earliest verified day-stamped online public comment among the selected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unique coefficient-two representation and coefficient-dependent complementary bases; no coefficient-three fixed-set support census or Fibonacci multiplicities",
+        "evidence": [
+          "pp.37–38 identity \\(f(x)f(x^2)=1/(1-x)\\)",
+          "p.38 states for each multiplier greater than one there is a unique specially chosen set"
+        ],
+        "identifier_or_url": "https://oeis.org/A000695/a000695.pdf",
+        "material_read": "Full annotated two-page scan, pp.37–38",
+        "method": "Visually inspected full original scanned pages",
+        "title": "An Application of Generating Series",
+        "trigger": "Exact original origin and possible fixed-coefficient generalization"
+      },
+      {
+        "assessment": "Studies signed \\(M\\mathcal M-2N\\mathcal M\\) direct decompositions, goodness criteria, and tables; no positive \\(\\mathcal M+3\\mathcal M\\) count/extremal theorem",
+        "evidence": [
+          "Definition and good-pair formulation in introductory pages",
+          "Tables 1–3 and Theorems 1–3 on signed direct-decomposition good pairs"
+        ],
+        "identifier_or_url": "https://pure.tue.nl/ws/files/2084140/597531.pdf",
+        "material_read": "Entire research article pp.537–546 (all scanned pages), institutional cover excluded",
+        "method": "Visual full-text inspection of pages 1–10 of the 11-page institutional PDF",
+        "title": "Some Direct Decompositions of the Set of Integers",
+        "trigger": "Plausible more general signed decomposition theorem involving same digit set"
+      },
+      {
+        "assessment": "Documents set and coefficient-two unique complementarity; no coefficient-three theorem",
+        "evidence": [
+          "Set definition in main entry",
+          "Dated Marc LeBrun comment 2001-02-07 describes unique coefficient-two representation"
+        ],
+        "identifier_or_url": "https://oeis.org/A000695",
+        "material_read": "Full online entry (comments, references, formulas, cross references)",
+        "method": "Read line-numbered entry",
+        "title": "OEIS A000695: Moser–de Bruijn sequence",
+        "trigger": "Exact underlying set, aliases, bibliographic ancestry"
+      },
+      {
+        "assessment": "Identical numerical sequence and recurrence already published; does not describe arithmetic sumset or maximal multiplicity",
+        "evidence": [
+          "Terms start 1,3,10,34,116,396,1352",
+          "Explicit recurrence and closed form already in entry"
+        ],
+        "identifier_or_url": "https://oeis.org/A007052",
+        "material_read": "Full entry including descriptions, formulas, references, cross references",
+        "method": "Read entire line-numbered entry",
+        "title": "OEIS A007052: Number of order-consecutive partitions",
+        "trigger": "Exact collision of numerical support count sequence"
+      },
+      {
+        "assessment": "Basis from union and unweighted self-sums, different support from fixed \\(\\mathcal M+3\\mathcal M\\)",
+        "evidence": [
+          "Defines \\(\\mathcal M\\cup2\\mathcal M\\)",
+          "Says its self-sumset equals the nonnegative integers"
+        ],
+        "identifier_or_url": "https://oeis.org/A126684",
+        "material_read": "Full online entry",
+        "method": "Read entire line-numbered entry",
+        "title": "OEIS A126684: Union of A000695 and twice A000695",
+        "trigger": "Nearby sumset covering theorem and stronger basis equivalences"
+      },
+      {
+        "assessment": "Abstract studies signed-good-pair classifications; complete-text noncoverage cannot be certified",
+        "evidence": [
+          "Abstract defines signed good pairs and universally bad integers",
+          "Potential stronger uninspected implications noted as residual risk"
+        ],
+        "identifier_or_url": "doi:10.1016/j.jnt.2004.04.001",
+        "material_read": "Abstract only; full paper not accessible",
+        "method": "Inspected publication abstract and bibliographic metadata, not whole text",
+        "title": "Universally Bad Integers and the 2-adics",
+        "trigger": "Later potentially broader paper on de Bruijn signed good pairs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03c3bdcd-f47a-4acf-907f-9cb2a7cdf2d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This treats the nearest nontrivial fixed-set coefficient perturbation of Moser's unique n=a+2b representation and completely determines both exact support counts and sharp extremal representation multiplicities for every power-of-four range. Distinct support and maximal-fiber exponents explain a natural simultaneous sparsity/overlap phenomenon. Not based on novel recurrence numbers alone; the structural carry model and Fibonacci maxima are motivated, precise and useful as additive benchmarks.",
+    "status": "PASS"
+  }
+}
