@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source reduces every good symmetric Newton polytope to the convex hull of at most \(m+1\) Schur permutation-orbit layers determined by the two endpoint partitions. Minimum-enclosing-center uniqueness and \(S_m\)-symmetry force the center to be diagonal. Consecutive layer squared radii differ by \(2(\beta_i-\alpha_i)(h_i-c)\); because the midpoint thresholds \(h_i\) are ordered, the largest layer radius is exactly the sum of coordinatewise farther-endpoint squares. This scalar objective is strongly convex, and its piecewise quadratic derivative gives the stated exact scan. Strict convexity of the enclosing ball gives the contact-orbit classification.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the family definition, Theorem 7, the orbit-hull lemma, the endpoint-layer reduction, and the inflated Grothendieck example. The closest earlier Schur/Grothendieck Newton-polytope paper was also inspected. Neither contains a Euclidean inradius, circumradius, Chebyshev-center, or minimum-enclosing-sphere theorem. Candidate-specific published-result and literature searches covered the general good-polynomial name, the inflated Grothendieck specialization, permutation-orbit layers, minimum enclosing balls, and circumradii. No covering statement was located.
+PASS
 
-## Value
-PASS. The theorem solves a natural Euclidean invariant throughout a broad recently introduced Newton-polytope family. Potentially large exponent supports collapse to a one-variable strongly convex problem depending only on the endpoint partitions, with an exact \(O(m)\) scan and a contact-layer classification. The source's inflated Grothendieck example exhibits a nontrivial multilayer balance rather than a routine single-orbit circumradius.
+Using the actual Nguyen–Nguyen–Dang–Do primary Eq.(10) Newton(F)=conv union_{i=0}^m S_m lambda^(i), Euclidean center uniqueness and full permutation symmetry force center c1. Layer squared-distance increments equal 2(beta_i-alpha_i)(h_i-c), h_i=(alpha_i+beta_i)/2 nonincreasing, so the maximum layer is coordinatewise farther endpoints and Φ(c)=Σ_j max[(alpha_j-c)^2,(beta_j-c)^2]. Φ is m-strongly convex, and on h_{i+1}≤c≤h_i its minimizer is the mixed-layer mean c_i; checking interval and boundary subderivative yields the complete unique O(m) scan. Strict convexity of ball excludes other boundary contact points. Independent exact Fraction checks on 300 deterministically generated valid weakly decreasing endpoint pairs and all m≤6 plus the (3,1,0),(3,3,3) example corroborate symbolic proof.
 
-## Closest literature and limitations
-The closest sources establish saturation, integer decomposition, reflexivity, and the endpoint-orbit decomposition. A fixed Schur permutahedron or Schur-Horn orbit hull has only one total-degree layer and does not imply the multilayer balancing formula. The result does not determine the inradius or extremal ellipsoids, and a broader layered-orbitope theorem remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+An object-specific natural Euclidean radius and contact-orbit classification derived beyond the primary source’s SNP/IDP/Schur layer hull and earlier Ehrhart/reflexivity descriptions. Generic minimax/center uniqueness ingredients are not claimed original; the exact endpoint scan for this natural polynomial class is the substantive contribution.
+
+## value
+
+PASS
+
+Newton polytopes of good symmetric polynomials are a natural broad algebraic-combinatorial family, and Euclidean minimum enclosing sphere is a canonical geometric invariant independent of integer-decomposition/Ehrhart data. O(m) exact scalar evaluation plus all active contact orbits is reusable despite elementary convex-analytic ingredients; the inhomogeneous mixed-degree layers make this a meaningful classification rather than an arbitrary numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

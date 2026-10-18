@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:53:04.752797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4ce915ffb24b73a50cd0be1c9f4698247b91a08a",
+        "Nguyen 2023 p6 Eq.(10) and p7 Example 4.8",
+        "Independent 300 exact scan tests _scope06_quick_checks.py"
+      ],
+      "rationale": "Using the actual Nguyen–Nguyen–Dang–Do primary Eq.(10) Newton(F)=conv union_{i=0}^m S_m lambda^(i), Euclidean center uniqueness and full permutation symmetry force center c1. Layer squared-distance increments equal 2(beta_i-alpha_i)(h_i-c), h_i=(alpha_i+beta_i)/2 nonincreasing, so the maximum layer is coordinatewise farther endpoints and Φ(c)=Σ_j max[(alpha_j-c)^2,(beta_j-c)^2]. Φ is m-strongly convex, and on h_{i+1}≤c≤h_i its minimizer is the mixed-layer mean c_i; checking interval and boundary subderivative yields the complete unique O(m) scan. Strict convexity of ball excludes other boundary contact points. Independent exact Fraction checks on 300 deterministically generated valid weakly decreasing endpoint pairs and all m≤6 plus the (3,1,0),(3,3,3) example corroborate symbolic proof.",
+      "residual_risks": [
+        "The source’s endpoint chain property is required, not valid for arbitrary symmetric polynomial.",
+        "Symmetry center argument uses Euclidean metric in exponent coordinates; tests bounded only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen covers a general good-polynomial family and proves its Newton-polytope combinatorial layer reduction.",
+          "Bayer et al (2021) studies Schur/Grothendieck IDP, reflexivity, Gorenstein and Ehrhart tables; it is narrower object family and does not derive the stated metric Chebyshev formula."
+        ],
+        "reasoning": "A generic theorem on enclosing permutation-invariant sets explains diagonal symmetry but not explicitly the m+1 layer-to-coordinate farthest-endpoint identity for ordered two-endpoint chains. The precise O(m) scan is specific geometric work on a natural algebraic family.",
+        "searches": [
+          "good symmetric Newton polytope endpoint Schur permutation orbits minimum enclosing ball radius scalar minimax",
+          "Nguyen et al 2023 Theorem 4.2 + proof Eq10",
+          "Bayer et al 2021 IDP and reflexivity"
+        ]
+      },
+      "checked_sources": [
+        "Newton polytope of good symmetric polynomials https://arxiv.org/pdf/2205.03903",
+        "Lattice polytopes from Schur and symmetric Grothendieck polynomials https://arxiv.org/html/2005.09628v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Eq.(10) plus standard symmetry makes a diagonal minimax, but does not state or imply the fully evaluated m-independent scan absent new inequalities on ordered midpoints.",
+          "New consecutive-layer difference 2(beta_i-alpha_i)(h_i-c) has at most one sign change, yielding Φ strongly convex and scan candidates c_i or h_i."
+        ],
+        "reasoning": "It is a short but genuine derived exact geometric invariant of the natural good-polynomial class, rather than an arbitrary slice. Its structural mechanism is elementary convexity but object-conditional identification and exact formula are not literal restatements of SNP/IDP results.",
+        "searches": [
+          "good symmetric Newton polytope endpoint Schur permutation orbits minimum enclosing ball radius scalar minimax",
+          "arxiv:2205.03903 p.6 Eq.(10)",
+          "arxiv:2005.09628 Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen et al 2023 Eq.(10) exactly writes Newton(F)=conv_{i=0}^m Newton(s_lambda^(i)) with λ^(i) the endpoint mixed partitions.",
+          "New theorem is a permutation-orbitope Euclidean Chebyshev center and radius, not SNP/IDP/reflexivity."
+        ],
+        "reasoning": "Equivalent form is the minimax over diagonal c of max_i ||lambda^(i)-c1||²; via weakly decreasing coordinate midpoints the max over chain equals Σ_j max{(alpha_j-c)^2,(beta_j-c)^2}. No source inspected solves this minimax.",
+        "searches": [
+          "good symmetric Newton polytope endpoint Schur permutation orbits minimum enclosing ball radius scalar minimax",
+          "arxiv:2205.03903 Theorem 4.2 Eq.10",
+          "arxiv:2005.09628 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nguyen Example 4.8 gives vertex layers (3,1,0),(3,3,0),(3,3,3), not minimum radius √6 at center 2.",
+          "Bayer et al appendix tabulates Ehrhart h* for reflexive polytopes, not Chebyshev radii."
+        ],
+        "reasoning": "The exact example uses known input layer data but adds an invariant (radius and exact contact orbit) not tabulated or directly claimed in prior work. Trivial one-orbit Schur case is a covered specialization; full inhomogeneous layer balancing differs.",
+        "searches": [
+          "good symmetric Newton polytope endpoint Schur permutation orbits minimum enclosing ball radius scalar minimax",
+          "Nguyen et al 2023 Example 4.8",
+          "Bayer et al 2021 h-star tables"
+        ]
+      },
+      "rationale": "An object-specific natural Euclidean radius and contact-orbit classification derived beyond the primary source’s SNP/IDP/Schur layer hull and earlier Ehrhart/reflexivity descriptions. Generic minimax/center uniqueness ingredients are not claimed original; the exact endpoint scan for this natural polynomial class is the substantive contribution.",
+      "residual_risks": [
+        "A general optimization proposition on nested permutation orbitopes might imply the same minimax under alternate terms; Resultary unavailable.",
+        "For α=β (single Schur orbit), diagonal circumradius is routine; the all-layer balancing is what survives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ORBIT_LAYER_HYPOTHESIS_COVERED_ONLY",
+          "evidence": "Eq.(10) states conv union Schur Newton polytopes for λ^(i)=(β_1,...,β_i,α_{i+1},...,α_m). Example 4.8 gives exact input vertex orbits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03903",
+          "material_read": "Original full ten-page article: §4 good-polynomial definitions, theorem 4.2 and proof eqs(7),(10) on p6, Example 4.8 p7, applications and references. Both page image and text read. No Euclidean min-sphere theorem found in examined source.",
+          "method": "ArXiv lawful primary PDF, text and p6 image inspection, search enclosing/ball/radius.",
+          "title": "Newton polytope of good symmetric polynomials",
+          "trigger": "Exact class definition, critical source orbit convex-hull reduction, and example."
+        },
+        {
+          "assessment": "PRIOR_LATTICE_ARITHMETIC_NOT_GEOMETRIC_CHEBYSHEV_STATEMENT",
+          "evidence": "Sections 3–5 address integer decomposition, reflexivity and h* tables; no located Euclidean enclosing-radius theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2005.09628v3",
+          "material_read": "Original public full HTML, introduction and Sections 2–5, IDP/reflexivity/Gorenstein/h* results, with searched Euclidean/sphere/enclosing terminology.",
+          "method": "ArXiv full-text HTML original version 3, structured table of contents, relevant theorem statements and targeted text search.",
+          "title": "Lattice polytopes from Schur and symmetric Grothendieck polynomials",
+          "trigger": "Earlier exactly related Schur and Grothendieck Newton polytopes and potential metric invariants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nguyen et al 2023 §§4–5, natural family and endpoint layers",
+        "Independent exact 300-case geometry/scan checks"
+      ],
+      "rationale": "Newton polytopes of good symmetric polynomials are a natural broad algebraic-combinatorial family, and Euclidean minimum enclosing sphere is a canonical geometric invariant independent of integer-decomposition/Ehrhart data. O(m) exact scalar evaluation plus all active contact orbits is reusable despite elementary convex-analytic ingredients; the inhomogeneous mixed-degree layers make this a meaningful classification rather than an arbitrary numerical table.",
+      "residual_risks": [
+        "No claim about inradius, John ellipsoid, general polynomial families, or full face lattice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every good symmetric polynomial with endpoint partitions alpha<=beta, Newton(F) has unique Euclidean minimum enclosing ball center c*1 and radius sqrt(Σ_j max{(alpha_j-c*)²,(beta_j-c*)²}), with c* from an O(m) endpoint-threshold/mean scan; contacts are active permutation orbits.",
+  "limitations": [
+    "Tied to exact source good-polynomial chain and standard Euclidean exponent norm.",
+    "Source example contact at two orbit layers but no universal claim exactly two contacts.",
+    "Resultary service temporarily_unavailable; unknown general permutahedral MEB formulations remain residual risk."
+  ],
+  "schema_version": 1
+}
