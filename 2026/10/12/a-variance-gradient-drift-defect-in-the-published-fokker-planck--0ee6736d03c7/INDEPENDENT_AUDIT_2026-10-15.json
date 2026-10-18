@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-026-02462-7",
+        "https://arxiv.org/abs/2601.20181",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/a-variance-gradient-drift-defect-in-the-published-fokker-planck--0ee6736d03c7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/a-variance-gradient-drift-defect-in-the-published-fokker-planck--0ee6736d03c7/verification/verify.py"
+      ],
+      "rationale": "Direct differentiation of the forward operator ∂tf+Σ∂j(Fj f)=1/2Σ∂j²(Dj f) gives divergence drift F−(1/2)∂jDj; the published Equation (8) instead has F−∂jDj, yielding exactly L8−L6=−(1/2)Σ∂j((∂jDj)f). For the published Section-5 independent-noise variance D_S=D_I=(1/50)(1−α)²S²I² this changes Ito drifts by −(1/50)(1−α)²SI² and −(1/50)(1−α)²S²I. Independently expanded a polynomial f and rational diffusion with SymPy; residual identity vanished identically. Eq. (9) separately halves the first-order transport term; with D=1, F=(2,0), f=1+S−2t, the weak residual is −∫φ (nonzero), despite f solving Eqs. 6 and 8. Equivalence fails locally for smooth tests, independently of boundaries or solver choice.",
+      "residual_risks": [
+        "No claim about which PDE unpublished numerical software discretized; the source existence argument may be repairable by a separate proof.",
+        "The field coefficients are assumed smooth at interior states and control spatially independent, as stated in the final result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Annunziato–Borzì gives general forward-control formulation; its product identity implies the needed 1/2 factor but does not identify Parkinson–Roy particular inconsistent equations."
+        ],
+        "reasoning": "The general theorem supplies method, not the source-specific diagnosis or its actual epidemiological drift shift.",
+        "searches": [
+          "Fokker Planck epidemic control Parkinson Roy equation 8 variance gradient drift half diffusion weak equation error",
+          "Annunziato Borzi 2018 Fokker Planck Ito flux equivalence",
+          "Bonicatto Ciampa Crippa 2025 weak Fokker Planck"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-026-02462-7",
+        "https://arxiv.org/abs/2601.20181",
+        "https://doi.org/10.4171/EMSS/27",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-independent-transmission-noises-are-not-transmission-rate-noise--41bbc0978013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic forward equation predicts drift correction b=F−1/2∂D. In the paper, actually inserting printed b=F−∂D produces modified stochastic drift; printed weak b·∂f factor cannot be derived by integration by parts."
+        ],
+        "reasoning": "This is a new correction to a printed claim, although its derivation uses standard calculus; the standard equations do not announce that correction or its specified disease-model consequence.",
+        "searches": [
+          "Fokker Planck epidemic control Parkinson Roy equation 8 variance gradient drift half diffusion weak equation error",
+          "https://doi.org/10.1007/s00285-026-02462-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parkinson–Roy journal/preprint printed Eqs. (6),(8),(9) place full ∂D rather than half ∂D and extra 1/2 before b∂f in weak equation."
+        ],
+        "reasoning": "The published correct Eq.6 and incorrect transformations coexist; identifying discrepancy is not their claimed equivalence. No printed corrigendum found in reviewed version.",
+        "searches": [
+          "Fokker Planck epidemic control Parkinson Roy equation 8 variance gradient drift half diffusion weak equation error",
+          "\"Fokker Planck framework for control of epidemics\" \"Equation 8\" \"Equation 9\" Parkinson Roy",
+          "arXiv:2601.20181"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 independent-transmission-noises finding analyzes rank of transmission-noise covariance, not strong/weak differential-operator mismatch."
+        ],
+        "reasoning": "An exact same-model result addresses different Brownian-driver assumptions, so it neither duplicates nor entails the presented two coefficient defects.",
+        "searches": [
+          "Fokker Planck epidemic control Parkinson Roy equation 8 variance gradient drift half diffusion weak equation error",
+          "Resultary: Parkinson Roy transmission noises and epidemic-control drift"
+        ]
+      },
+      "rationale": "Exact corrections to the printed Parkinson–Roy strong/weak operator chain diagnose a specific two-stage coefficient error, not a claim to rediscover the general Ito/forward equation. Closely related published research on the same paper treats correlated versus independent Brownian noise and optimization, not its Eq. (8)/(9) equivalence. Best-of-knowledge priority restricted to these displayed equations.",
+      "residual_risks": [
+        "Possible later unpublished erratum not found.",
+        "Background general PDE identities are classical and are not claimed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The literal coefficients have both claimed errors; no conclusion about hidden numerical code",
+          "evidence": "Eq.6 Ito forward form; Eq.8 b=F−∂D; Eq.9 half b·∂f; Section 5 D=(1/50)(1−α)²S²I².",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02462-7",
+          "material_read": "Accessible journal full-text formulation around Eqs. 6–9, Section 5 diffusion choices and related equation descriptions",
+          "method": "Primary full HTML equation comparison plus independently expanded differential residual",
+          "title": "A Fokker–Planck framework for control of epidemics",
+          "trigger": "The identical primary model with disputed Eqs. 6,8,9"
+        },
+        {
+          "assessment": "Provides standard calculus, not the assessed source-specific discrepancy",
+          "evidence": "The divergence flux conversion uses one half of the spatial diffusion-variance derivative.",
+          "identifier_or_url": "https://doi.org/10.4171/EMSS/27",
+          "material_read": "General forward/divergence equation context available from primary article descriptions",
+          "method": "Background comparison; not an exhaustive primary-text inspection",
+          "title": "A Fokker–Planck control framework for stochastic systems",
+          "trigger": "Potential dominating general framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-026-02462-7",
+        "https://arxiv.org/abs/2601.20181"
+      ],
+      "rationale": "The discrepancy changes the forward generator and susceptibility/infection mean drifts under the very state-dependent diffusion used in the printed simulations; its second independent weak-form defect affects the published existence argument. This is a concrete, motivated source correction with nontrivial modeling implications, not an isolated typo.",
+      "residual_risks": [
+        "Does not certify actual numerical outputs to be wrong."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No claim about which PDE unpublished numerical software discretized; the source existence argument may be repairable by a separate proof.",
+    "The field coefficients are assumed smooth at interior states and control spatially independent, as stated in the final result.",
+    "Possible later unpublished erratum not found.",
+    "Background general PDE identities are classical and are not claimed as original.",
+    "Does not certify actual numerical outputs to be wrong."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Running `python verification/verify.py` in a directory containing the bundled files prints `VERIFY_OK`. The checker needs `sympy` and reconstructs the strong residuals of both printed equations using exactly rational \(1/50\) instead of decimal floating-point algebra. It verifies
-\[
-L_8f-L_6f=-\frac12\sum_j\partial_j\big((\partial_jD_j)f\big)
-\]
-for the source-specific controlled drift and \(D_j=\tfrac1{50}(1-\alpha)^2 S^2I^2\), including a general smooth polynomial test density.
+# Independent mathematical audit
 
-It separately verifies the exact generator shift on each coordinate and checks the constant-diffusion witness \(f=1+S-2t\), \(F=(2,0)\), \(D_j=1\). For the positive test function \(\varphi=S(1-S)I(1-I)\) on the unit square (a convenient \(H_0^1\) polynomial replay), the published weak residual integrates to \(-1/36\); compactly supported interior smooth approximations retain nonzero residual, as explained in the proof. No finite experiment is used as a substitute for the general differential identities.
+## correctness
 
-The review is same-model only and does not assess independent validation or hidden numerical implementation.
+PASS
+
+Direct differentiation of the forward operator ∂tf+Σ∂j(Fj f)=1/2Σ∂j²(Dj f) gives divergence drift F−(1/2)∂jDj; the published Equation (8) instead has F−∂jDj, yielding exactly L8−L6=−(1/2)Σ∂j((∂jDj)f). For the published Section-5 independent-noise variance D_S=D_I=(1/50)(1−α)²S²I² this changes Ito drifts by −(1/50)(1−α)²SI² and −(1/50)(1−α)²S²I. Independently expanded a polynomial f and rational diffusion with SymPy; residual identity vanished identically. Eq. (9) separately halves the first-order transport term; with D=1, F=(2,0), f=1+S−2t, the weak residual is −∫φ (nonzero), despite f solving Eqs. 6 and 8. Equivalence fails locally for smooth tests, independently of boundaries or solver choice.
+
+## originality
+
+PASS
+
+Exact corrections to the printed Parkinson–Roy strong/weak operator chain diagnose a specific two-stage coefficient error, not a claim to rediscover the general Ito/forward equation. Closely related published research on the same paper treats correlated versus independent Brownian noise and optimization, not its Eq. (8)/(9) equivalence. Best-of-knowledge priority restricted to these displayed equations.
+
+## value
+
+PASS
+
+The discrepancy changes the forward generator and susceptibility/infection mean drifts under the very state-dependent diffusion used in the printed simulations; its second independent weak-form defect affects the published existence argument. This is a concrete, motivated source correction with nontrivial modeling implications, not an isolated typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

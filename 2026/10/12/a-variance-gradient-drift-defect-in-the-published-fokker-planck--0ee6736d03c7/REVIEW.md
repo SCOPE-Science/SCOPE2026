@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact product differentiation of the Itô forward Equation (6) gives \(b_j=F_j-\tfrac12\partial_jD_j\) and \(c=\sum_j\partial_jb_j\). The printed Equation (8) uses the full variance gradient instead, creating a generator shift of \(-\tfrac12\partial_jD_j\). For the source's actual incidence-noise variance this produces the stated negative susceptible/infected drift terms. The weak Equation (9) has an independent erroneous factor \(1/2\) on the transport contribution; an explicit constant-diffusion local solution fails it while satisfying Equations (6) and (8). These identities are symbolically replayed in the included verifier.
+## correctness
 
-## Originality
-PASS, limited to the exact source-specific operator diagnosis. The underlying Fokker–Planck product rule is standard and is documented in Annunziato–Borzì and Bonicatto–Ciampa–Crippa. The primary journal and arXiv texts do not identify the generator change caused by their printed Equations (8)–(9). Published-finding searches and related source-specific prior claims cover different covariance and optimization issues, not these exact discrepancies.
+PASS
 
-## Value
-PASS. The objective of the paper is control of a stochastic epidemic's entire law. In the actual simulated diffusion, the alternative printed PDE has a different infinitesimal epidemic mean drift, while the proposed weak definition misses half of the first-order term even for constant diffusion. Since the existence proof invokes that weak definition, identifying and exactly correcting the equivalence is substantively relevant to the probability law underpinning the control problem.
+Direct differentiation of the forward operator ∂tf+Σ∂j(Fj f)=1/2Σ∂j²(Dj f) gives divergence drift F−(1/2)∂jDj; the published Equation (8) instead has F−∂jDj, yielding exactly L8−L6=−(1/2)Σ∂j((∂jDj)f). For the published Section-5 independent-noise variance D_S=D_I=(1/50)(1−α)²S²I² this changes Ito drifts by −(1/50)(1−α)²SI² and −(1/50)(1−α)²S²I. Independently expanded a polynomial f and rational diffusion with SymPy; residual identity vanished identically. Eq. (9) separately halves the first-order transport term; with D=1, F=(2,0), f=1+S−2t, the weak residual is −∫φ (nonzero), despite f solving Eqs. 6 and 8. Equivalence fails locally for smooth tests, independently of boundaries or solver choice.
 
-## Closest literature and limitations
-The full source (Parkinson–Roy, DOI: 10.1007/s00285-026-02462-7, arXiv:2601.20181) and its Appendix were inspected. Annunziato–Borzì (2018) and Bonicatto–Ciampa–Crippa (2025) establish general Fokker–Planck context. No conclusion is drawn about which equation was discretized in unpublished implementation or the validity of numerical figures if a correct solver was used; a valid independent existence proof for Equation (6) is not ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact corrections to the printed Parkinson–Roy strong/weak operator chain diagnose a specific two-stage coefficient error, not a claim to rediscover the general Ito/forward equation. Closely related published research on the same paper treats correlated versus independent Brownian noise and optimization, not its Eq. (8)/(9) equivalence. Best-of-knowledge priority restricted to these displayed equations.
+
+## value
+
+PASS
+
+The discrepancy changes the forward generator and susceptibility/infection mean drifts under the very state-dependent diffusion used in the printed simulations; its second independent weak-form defect affects the published existence argument. This is a concrete, motivated source correction with nontrivial modeling implications, not an isolated typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
