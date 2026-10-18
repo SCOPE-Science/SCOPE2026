@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Primary Gao–Lou, Journal of Mathematical Biology 91 (2025) 33, Example 5.3 and reduced endemic equations, DOI:10.1007/s00285-025-02254-5",
+        "Frozen RESULT.md blob 4931d3e4bdf230032c3b74d3a95499325a8bbfb5 and verify.py 7fc83addedff11d3e557d493329b61f0e1623316",
+        "Independent Ross–Macdonald implicit symbolic checker ROSS_MACDONALD_IMPLICIT_SECOND_DERIVATIVES_OK"
+      ],
+      "rationale": "The exact two-patch normalized Gao–Lou endemic equations were reconstructed with L12=q(1/2+d),L21=q(1/2-d), q>0, |d|<1/2, V>1. Balanced infection masses are s=(V-1)/[2(V+1)] and the Jacobian eigenvalues are strictly negative, giving a unique analytic branch via the implicit-function theorem. Patch exchange gives I1=s+A d+B d²+O(d³), I2=s-A d+B d²+O(d³). Solving coefficients symbolically and expanding the actual global host and vector prevalence produces P_host″″(0)=-16 V² N/[(V+1)² D²], P_vector″″(0)=16 V q/D²>0, D=V²+2Vq-1, N=(V-1)^3+2(1+q)(V-1)^2-4q. The cubic Gq(y)=y³+2(1+q)y²-4q increases strictly for y>0, from -4q to infinity, so exactly one positive transition root exists. An independent symbolic implicit-derivative computation rederived the curvatures rather than merely executing the supplied verifier. At the threshold the host second derivative is zero; the claimed strict min/max applies only off the threshold.",
+      "residual_risks": [
+        "Only local directional asymmetry at fixed connectivity q, not a global classification of the entire movement parameter plane.",
+        "At the critical root no claim of strict extremum without a fourth-order analysis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Lou Sections 3–4 classify varying overall dispersal and host prevalence, not redistribution of fixed-q directionality around d=0.",
+          "Gao–van den Driessche–Cosner 2019 is a malaria reproduction-number persistence result."
+        ],
+        "reasoning": "Neither a dispersal-rate monotonicity theorem nor an R0 comparison determines the signed second derivative of both host and vector prevalence with respect to directional asymmetry at fixed q.",
+        "searches": [
+          "two patch Ross Macdonald fixed total host movement directional mixing asymmetry endemic prevalence curvature symmetric movement phase transition V 1.903 Gao Lou",
+          "Gao Lou 2025 two patch host disease prevalence complete classifications varying dispersal rates",
+          "Gao Li 2025 nonhomogeneous mixing reduces prevalence SIS"
+        ]
+      },
+      "checked_sources": [
+        "Gao and Lou DOI:10.1007/s00285-025-02254-5 full open-access primary text",
+        "Gao, van den Driessche and Cosner 2019 DOI:10.1007/s00285-019-01428-2 background",
+        "Gao and Li 2025 DOI:10.1016/j.mbs.2025.109521 different SIS regime",
+        "Resultary search two patch Ross Macdonald fixed total host movement directional mixing asymmetry endemic prevalence curvature symmetric movement phase transition V 1.903 Gao Lou"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Originating stationary equations supply necessary premises, but the fixed-q second-order expansion and strict vector curvature are not a stated result.",
+          "SIS movement theorem is for a different compartmental architecture and varying susceptible/infected mixing assumptions."
+        ],
+        "reasoning": "Analytically extracting the exact local transition and its unique root adds a quantitative result not implied by original numerical examples or different dispersal comparisons.",
+        "searches": [
+          "two patch Ross Macdonald fixed total host movement directional mixing asymmetry endemic prevalence curvature symmetric movement phase transition V 1.903 Gao Lou",
+          "doi:10.1007/s00285-025-02254-5 Example 5.3 nonlinear stationary equations",
+          "doi:10.1016/j.mbs.2025.109521 SIS movement host infected"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Directional asymmetry at fixed q is equivalent to varying (L12-L21)/(2q) about zero, while q itself is held constant.",
+          "Gao–Lou Example 5.3 compares patch connectivity, with V=1.2 and V=2 shown graphically."
+        ],
+        "reasoning": "The source numerical distinction is precisely for the same model specialization, but has no universal analytical curvature coefficient or unique phase boundary.",
+        "searches": [
+          "two patch Ross Macdonald fixed total host movement directional mixing asymmetry endemic prevalence curvature symmetric movement phase transition V 1.903 Gao Lou",
+          "Gao Lou Example 5.3 fixed connectivity directional asymmetry balanced L12 L21 curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Example 5.3 contains plots/numerical parameter comparisons, including the opposite host responses at V=1.2 and 2."
+        ],
+        "reasoning": "A pair of numerical examples cannot imply exact unique transition y³+2(1+q)y²-4q=0 for all q>0. No finite database table classifies this continuous phase surface.",
+        "searches": [
+          "two patch Ross Macdonald fixed total host movement directional mixing asymmetry endemic prevalence curvature symmetric movement phase transition V 1.903 Gao Lou",
+          "Gao Lou Example 5.3 host vector prevalence V=1.2 V=2 figure"
+        ]
+      },
+      "rationale": "Gao and Lou’s full open-access 2025 paper establishes two-patch prevalence classifications for varying dispersal rate and presents the specific asymmetric mixing comparison at V=1.2 and V=2 numerically. Its full same-object Example 5.3 does not provide the exact fixed-q balanced-direction second-derivative boundary. Persistence/R0 comparisons and SIS host-movement results do not imply sign of Ross–Macdonald endemic prevalence curvature.",
+      "residual_risks": [
+        "Closely related Ross–Macdonald asymmetry derivative formulas may exist in unindexed supplemental material.",
+        "The critical curve itself does not fix quartic order or a full global phase diagram."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_EQUATIONS_PRIOR_PHASE_CURVATURE_NOT_STATED",
+          "evidence": [
+            "Existing classifications concern dispersal-rate effects; directional asymmetry and opposite host response are illustrated numerically rather than a fixed-q derivative formula."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12413432/",
+          "material_read": "Full primary open-access 2025 article, Sections 3–5, two-patch classifications, Example 5.3 reduced equilibrium equations and V=1.2,V=2 numerical comparisons",
+          "method": "Read complete text via Springer/PMC primary HTML, inspected exact model equations and figure narrative",
+          "title": "Effect of host movement on the prevalence of vector-borne diseases",
+          "trigger": "Exact original two-patch homogeneous Ross–Macdonald specialization, Example 5.3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original Gao–Lou Example 5.3 prevalence contrast",
+        "Independent exact implicit-derivative and root-monotonicity argument"
+      ],
+      "rationale": "Separating the effect of directional connectivity imbalance from the amount of total host movement is a natural epidemiological mixing question. The closed-form host/vector second derivatives and the unique abundance–connectivity transition explain an original paper’s puzzling opposite numerical prevalence responses and distinguish host from vector outcomes. This is an exact local bifurcation-type classification with interpretable dependence on two ecological parameters, not a decorative derivative.",
+      "residual_risks": [
+        "Local sign away from d=0 is not established; no extension to heterogeneity or interventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All parameters are normalized as in the original Example 5.3, with V>1, q>0, |d| small and q fixed.",
+    "At the critical V=1+y_c(q) the host second derivative vanishes and quartic term is not determined.",
+    "Publication withheld for public metadata confidentiality."
+  ],
+  "schema_version": 1
+}

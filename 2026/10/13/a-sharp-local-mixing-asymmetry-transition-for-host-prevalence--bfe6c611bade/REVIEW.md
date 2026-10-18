@@ -1,15 +1,21 @@
-# Review of “A sharp local mixing-asymmetry transition for host prevalence”
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim starts from the exact normalized equilibrium equations and vector-prevalence definition printed in Gao and Lou's Example 5.3. At balanced movement, the endemic point is positive for \(V>1\), and the equilibrium Jacobian has two strictly negative eigenvalues, so the local branch is analytic. Direct second-order substitution gives the coefficients \(A\) and \(B\), hence the host curvature. Substitution into the exact vector-prevalence expression gives the positive vector curvature. The transition polynomial is strictly increasing for positive \(y\), proving existence and uniqueness of the host-curvature threshold. The bundled checker reproduces these algebraic identities and representative numerical finite differences.
+## correctness
 
-## Originality
-PASS. The motivating article numerically displays the opposite host-prevalence responses at \(V_0=1.2\) and \(V_0=2\) and describes the effect as general/probabilistic rather than giving a sharp boundary. Its analytical results focus on dispersal-rate variation, limiting dispersal, and reproduction-number comparisons; the inspected Example 5.3 and discussion do not state a second derivative with respect to connectivity asymmetry or the cubic threshold above. The 2019 Ross–Macdonald fragmentation result covers disease persistence through \(\mathcal R_0\), not equilibrium prevalence curvature. The 2025 SIS nonhomogeneous-mixing theorem concerns a different susceptible/infected movement architecture and gives a one-sided global prevalence result rather than this host/vector split.
+PASS
 
-## Value
-PASS. The source explicitly identifies nonhomogeneous mixing as a difficult connectivity question and supports its host/vector conclusions in this homogeneous case by contour plots. The new formulas replace the local qualitative observation by an exact phase boundary while simultaneously proving a universal local direction for vector prevalence. The boundary directly explains why the source's small- and large-vector-abundance examples can have opposite host responses under the same type of asymmetry, and it isolates the role of abundance from total movement intensity.
+The exact two-patch normalized Gao–Lou endemic equations were reconstructed with L12=q(1/2+d),L21=q(1/2-d), q>0, |d|<1/2, V>1. Balanced infection masses are s=(V-1)/[2(V+1)] and the Jacobian eigenvalues are strictly negative, giving a unique analytic branch via the implicit-function theorem. Patch exchange gives I1=s+A d+B d²+O(d³), I2=s-A d+B d²+O(d³). Solving coefficients symbolically and expanding the actual global host and vector prevalence produces P_host″″(0)=-16 V² N/[(V+1)² D²], P_vector″″(0)=16 V q/D²>0, D=V²+2Vq-1, N=(V-1)^3+2(1+q)(V-1)^2-4q. The cubic Gq(y)=y³+2(1+q)y²-4q increases strictly for y>0, from -4q to infinity, so exactly one positive transition root exists. An independent symbolic implicit-derivative computation rederived the curvatures rather than merely executing the supplied verifier. At the threshold the host second derivative is zero; the claimed strict min/max applies only off the threshold.
 
-## Closest literature and limitations
-The closest source is Gao and Lou (2025), because the theorem is a local analytic resolution of its Example 5.3. Gao, van den Driessche, and Cosner (2019) supplies the corresponding reproduction-number inequality, while Gao and Li (2025) supplies a related but structurally different SIS prevalence theorem. The present result is only local at balanced connectivity, keeps \(L_{12}+L_{21}\) fixed, and does not resolve the degenerate critical curve beyond second order.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gao and Lou’s full open-access 2025 paper establishes two-patch prevalence classifications for varying dispersal rate and presents the specific asymmetric mixing comparison at V=1.2 and V=2 numerically. Its full same-object Example 5.3 does not provide the exact fixed-q balanced-direction second-derivative boundary. Persistence/R0 comparisons and SIS host-movement results do not imply sign of Ross–Macdonald endemic prevalence curvature.
+
+## value
+
+PASS
+
+Separating the effect of directional connectivity imbalance from the amount of total host movement is a natural epidemiological mixing question. The closed-form host/vector second derivatives and the unique abundance–connectivity transition explain an original paper’s puzzling opposite numerical prevalence responses and distinguish host from vector outcomes. This is an exact local bifurcation-type classification with interpretable dependence on two ecological parameters, not a decorative derivative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
