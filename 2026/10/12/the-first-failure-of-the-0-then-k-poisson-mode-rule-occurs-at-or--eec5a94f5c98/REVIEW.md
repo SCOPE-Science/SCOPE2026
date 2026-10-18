@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized generating function gives the exact recurrence. Strict positive-coefficient monotonicity makes the first crossing a unique positive root. Fourteen rational root brackets and all competitor inequalities through index \(40k\) are checked by the standalone program using exact fractions. For all remaining indices, the Poisson jump-count representation gives the universal bound \(2\cdot4^{41}/41!<1\). Together these prove the full continuum-in-intensity and infinite-support claim, with no unproved numerical extrapolation.
+## correctness
 
-**Originality — PASS, with priority risk.** Kwon and Philippou (2023, DOI:10.3390/e25040699), in their concluding research questions, ask whether the first transition always moves from mode zero to index \(k\). Their actual mode classifications stop at orders three and four. Georghiou, Philippou, and Saghafi (arXiv:1204.3186) obtain general bounds and integer-parameter mode formulas through order five; Philippou (arXiv:1312.7139) treats a small-intensity regime and order two. The least counterexample order fifteen and its first competing index twenty-five are not consequences of those statements or of large-order asymptotics alone. Unindexed earlier enumerations under stuttering-Poisson terminology remain a possible priority risk.
+PASS
 
-**Value — PASS.** This identifies the *smallest finite order* where a specifically posed modal conjecture fails, rather than choosing an arbitrary high order. The complete classification of all lower orders and a tight rational interval for the exceptional transition isolate a qualitative finite threshold with direct relevance to understanding order-dependent mode changes. The result does not settle later modal transitions or higher orders.
+Normalized probability coefficients a_{k,n}=[z^n] exp(lambda sum_{j=1}^k z^j) obey n a_{k,n}=lambda sum_{j<=min(k,n)} j a_{k,n-j}, and are strictly increasing for n>0. Independently executed exact Fraction recurrence at B=q/10^6 and L=B-10^-6 for all 14 k values, n<=40k; every target crosses one and all alternate coefficients are strictly below one at B, kB<4. For n>40k every summand needs >=41 jumps, giving a_n(B)<=sum_{m>=41}(kB)^m/m!<2*4^41/41!<1. Thus all infinitely many indices and all real lambda before first crossing are controlled, with no possible third tie. The smallest alternate gap at k=15 is at n=26, about 0.000528; no significance is attributed to decimals as proofs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Crucial close prior art: S. R. Mane arXiv:2309.05190 §4, Fig. 2 explicitly numerically observed first k15 switch 0-to-25 around lambda 0.25023 and k<=14 switch 0-to-k; arXiv:2309.09278 repeats the same numerical result. Hence the numerical discovery and index are NOT new. Both works state numerical findings/partly conjectural classifications, defer proof, and leave triple modes uninvestigated. The narrower original advance is a new exact rational finite-prefix certificate PLUS rigorous all-index tail bound proving first-transition uniqueness and excluding triple ties across k=2..15. Existing low-order theorems do not imply that fully rigorous certified conclusion.
+
+## value
+
+PASS
+
+An exact global proof of a previously reported but numerically unsupported first exception is a motivated open certification problem for a natural probability-law modal transition. It settles the order-15 first transition, its precise unique equality case and true infinite-support cutoff, without pretending that previously published numerical values were newly discovered. Meaningful finite-order result; not a mere table recomputation because rigorous exclusion of every index and tie is missing from the strongest prior numerical studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

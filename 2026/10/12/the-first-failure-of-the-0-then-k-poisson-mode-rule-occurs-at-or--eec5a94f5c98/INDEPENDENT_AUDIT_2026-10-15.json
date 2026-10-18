@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized probability coefficients a_{k,n}=[z^n] exp(lambda sum_{j=1}^k z^j) obey n a_{k,n}=lambda sum_{j<=min(k,n)} j a_{k,n-j}, and are strictly increasing for n>0. Independently executed exact Fraction recurrence at B=q/10^6 and L=B-10^-6 for all 14 k values, n<=40k; every target crosses one and all alternate coefficients are strictly below one at B, kB<4. For n>40k every summand needs >=41 jumps, giving a_n(B)<=sum_{m>=41}(kB)^m/m!<2*4^41/41!<1. Thus all infinitely many indices and all real lambda before first crossing are controlled, with no possible third tie. The smallest alternate gap at k=15 is at n=26, about 0.000528; no significance is attributed to decimals as proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mane proves first m>=k and lambda in [1/kappa,r_k], and numerically reports k15 index 25; these bounds admit many other indices and possible third ties."
+        ],
+        "reasoning": "No checked paper supplies a theorem rigorously identifying the first global equality index for every 2<=k<=15, or a tail bound at all 14 critical windows.",
+        "searches": [
+          "arXiv:2309.09278 propositions 4.1–4.2, tables",
+          "arXiv:1204.3186 mode bounds",
+          "arXiv:1312.7139 small-lambda zero mode"
+        ]
+      },
+      "checked_sources": [
+        "Asymptotic results for the Poisson distribution of order k; arXiv:2309.05190v2",
+        "First double mode of the Poisson distribution of order k; arXiv:2309.09278v2",
+        "The Modes of the Poisson Distribution of Order 3 and 4; DOI:10.3390/e25040699",
+        "A note on the modes of the Poisson distribution of order k; arXiv:1312.7139",
+        "Resultary semantic search on exact objects, aliases and dominating coverage; five searches in this audit."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published 2023 statement that k15 first mode is 25 was based on numerical calculations, and it does not exclude a third tie at a true algebraic root.",
+          "Present proof uses strict rational comparisons of every n<=40k and a Poisson jump-count tail, not merely the older modal-location bounds."
+        ],
+        "reasoning": "An unproved numerical assertion cannot logically certify the exact continuum theorem with unique two-way tie. The final revised file makes this non-discovery/first-proof distinction explicit.",
+        "searches": [
+          "arXiv:2309.05190 2023 §4 and conclusion",
+          "arXiv:2309.09278 2023 §5/conclusion",
+          "DOI:10.3390/e25040699"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mane identifies the same index and first failure as numerical findings, with proof expressly deferred."
+        ],
+        "reasoning": "Equivalent *numerical observation* is prior; the certified-for-all-indices theorem, precise brackets and exclusion of third modes are not formally implied by a numerical plot or finite sample.",
+        "searches": [
+          "arXiv:2309.05190 §4 and Fig. 2",
+          "arXiv:2309.09278 §4–6",
+          "Resultary: Poisson distribution order k initial modal transition k 15 jumps to 25 exact root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing tables contain exactly m15=25, so the numerical index is NOT an original table entry.",
+          "Mane explicitly labels the broader mode tabulation partly numerical/conjectural."
+        ],
+        "reasoning": "Strong numerical table overlap documented; originality is confined to the exact symbolic/rational certification of its already-anticipated values, not to discovering new counts.",
+        "searches": [
+          "arXiv:2309.09278 Tables 1 and 2",
+          "arXiv:2309.05190 Figure 2 and numerical discussion"
+        ]
+      },
+      "rationale": "Crucial close prior art: S. R. Mane arXiv:2309.05190 §4, Fig. 2 explicitly numerically observed first k15 switch 0-to-25 around lambda 0.25023 and k<=14 switch 0-to-k; arXiv:2309.09278 repeats the same numerical result. Hence the numerical discovery and index are NOT new. Both works state numerical findings/partly conjectural classifications, defer proof, and leave triple modes uninvestigated. The narrower original advance is a new exact rational finite-prefix certificate PLUS rigorous all-index tail bound proving first-transition uniqueness and excluding triple ties across k=2..15. Existing low-order theorems do not imply that fully rigorous certified conclusion.",
+      "residual_risks": [
+        "The specific k15=25 transition and its approximate root were explicitly reported by Mane in 2023; novelty MUST NOT be described as first observation or discovery.",
+        "Other unindexed rigorous certificates for this known numerical observation could defeat the narrower exact-proof priority.",
+        "Only first transitions 2<=k<=15 established; not all k or the complete modal phase diagram."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREVIOUS_NUMERICAL_OBSERVATION_NOT_RIGOROUS_COVERAGE",
+          "evidence": "Explicitly reports k<=14 index k and k=15 index 25 at about 0.25023, but numerical only, with no exhaustive rational tail proof.",
+          "identifier_or_url": "arXiv:2309.05190v2",
+          "material_read": "Complete 22-page PDF; particularly §4 p. 11 and Fig. 2 p. 20; abstract expressly says numerical/conjectural and proofs left for future",
+          "method": "primary full PDF reading and page figure inspection",
+          "title": "Asymptotic results for the Poisson distribution of order k",
+          "trigger": "Exact same order-15 first transition, same positive mode 25, strongest possible priority challenge"
+        },
+        {
+          "assessment": "PREVIOUS_NUMERICAL_OBSERVATION_NOT_RIGOROUS_COVERAGE",
+          "evidence": "Numerical tables state m_k=k up to14 and 2k-5 for 15..28; rigorous bounds not exact first transition for these cases, triple modes explicitly left unstudied.",
+          "identifier_or_url": "arXiv:2309.09278v2",
+          "material_read": "Complete 21-page paper with §4/§5, Table 1–2 and conclusion, checked PDF pp. 8–10 and 18–19",
+          "method": "primary PDF text, rendered page images and table cross-check",
+          "title": "First double mode of the Poisson distribution of order k",
+          "trigger": "Same concept and same order cutoff, including mode set and excluded-value table"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Restricted rigorous theorems to k=3,4, with numerical k=2..4 regimes; no k15 proof.",
+          "identifier_or_url": "DOI:10.3390/e25040699",
+          "material_read": "9-page openly archived full PDF: intro, theorem summaries and k=3,4 regime conclusions",
+          "method": "primary PDF text/full inspection",
+          "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+          "trigger": "Early exact cases and normalization, plausible broader theorem"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Proves small-lambda bound for all k and order-two exact transition, not k15 global cutoff.",
+          "identifier_or_url": "arXiv:1312.7139",
+          "material_read": "ArXiv abstract and quoted published theorem in later primary sources; direct PDF unavailable",
+          "method": "published abstract and primary-paper citations",
+          "title": "A note on the modes of the Poisson distribution of order k",
+          "trigger": "General small-lambda unique-zero bound and exact order two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact global proof of a previously reported but numerically unsupported first exception is a motivated open certification problem for a natural probability-law modal transition. It settles the order-15 first transition, its precise unique equality case and true infinite-support cutoff, without pretending that previously published numerical values were newly discovered. Meaningful finite-order result; not a mere table recomputation because rigorous exclusion of every index and tie is missing from the strongest prior numerical studies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For first global-mode transitions of order-k Poisson with iid Poisson jumps, 2<=k<=14 have exactly the tied modes {0,k}, while k=15 has exactly {0,25}; an explicit rational recurrence certificate and an infinite-tail estimate prove uniqueness and strict millionth root intervals. The k=15 numerical phenomenon was observed by Mane in 2023, not discovered here.",
+  "limitations": [
+    "The specific k15=25 transition and its approximate root were explicitly reported by Mane in 2023; novelty MUST NOT be described as first observation or discovery.",
+    "Other unindexed rigorous certificates for this known numerical observation could defeat the narrower exact-proof priority.",
+    "Only first transitions 2<=k<=15 established; not all k or the complete modal phase diagram.",
+    "Repository interface exposed frozen individual blobs but not recursive tree enumeration; assigned tree SHA is an exact importer guard, not an independently rehashed tree."
+  ],
+  "schema_version": 1
+}
