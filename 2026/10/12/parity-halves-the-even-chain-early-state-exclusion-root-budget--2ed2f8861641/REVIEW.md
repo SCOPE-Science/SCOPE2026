@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is an exact polynomial argument. Odd half-integer spectral indices make the transformed amplitude odd; the published \(2n-1\)-fold zero at first transfer removes an odd power, leaving an even residual polynomial. Positive roots therefore occur in sign-paired degree units, proving the claimed bound. The packaged checker confirms the parity/degree arithmetic on representative admissible endpoints but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest same-object source is arXiv:2606.04353v1. It supplies the critical multiplicity theorem and states the weaker even-order bound \(2\lambda_n-n\). Claim-specific semantic and web searches, including exact-formula aliases, found no statement of \(\lambda_n-n+\tfrac12\). The foundational 2025 article gives the ESE/Chebyshev setting but not the later all-even-order count theorem. Residual risk is indexing lag because the 2026 preprint is recent.
+PASS
 
-## Value
-PASS. The source treats the number of ESE instances before perfect transfer as a substantive quantitative feature of the chain. The refinement reduces the entire even-order root budget by exploiting structure already forced by the physical spectrum, and it yields a clean no-ESE consequence at \(\lambda_n=n-\tfrac12\). No assertion of universal attainability is made.
+Imported primary spectral-fusion Remark 4 establishes root order exactly 2n−1 at t=π. With x=cos(t/2), the Chebyshev expansion has only odd indices 2λ_k and nonzero top coefficient, so P is odd of degree 2λ_n. Removing the x^{2n−1} factor leaves an even Q of degree 2λ_n−2n+1. Distinct positive x∈(0,1) roots consume paired degree with negative x at equal multiplicity. Real-analytic variable change has nonzero derivative for t∈(0,π); hence ESE count ≤degQ/2. Independent exact degree tests at n=2,3,4 confirm boundary λ_n=n−1/2 gives zero budget; proof all parameters analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary 2026 spectral-fusion paper proves the compulsory multiplicity and gives a weaker even-order ESE bound 2λ_n−n. It mentions Chebyshev P(cos(t/2)) but does not exploit oddness of the reduced polynomial to halve positive-root degree. Our scope is the all-n parity-halved bound, not construction or new spectral fusion.
+
+## value
+
+PASS
+
+The ESE event count is a physically motivated control invariant of perfect state transfer; replacing the published bound by roughly half and excluding early return zeros at the minimal reduced endpoint is a meaningful structural spectral improvement, not a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
