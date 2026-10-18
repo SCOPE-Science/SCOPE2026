@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The cited 2005 prime ideal is independently matched to the definition of the principal component. On a nonzero rank-one base point the first jets form the smooth tangent bundle. On a rank-two first-derivative chart, a regular invertible row-column transformation sends the derivative to a block identity; the 3-minor ideal becomes the lower Schur-complement entries, the polarized 2-minor equations force the constant matrix to a trace-zero \(2	imes2\) block, and its only remaining determinant gives \(a^2+bc=0\). The rank-two fiber is dense in the determinantal zero-base fiber, so closure gives every lower-rank singular point; the nonzero-base points are smooth. The singular set has codimension two, and Jonov's Cohen--Macaulay theorem supplies \(S_2\), so Serre's criterion gives normality. Twenty independent exact modular differential-rank checks agree with the proof but are not used to assert infinite correctness.
+
+## Originality — PASS, with stated residual risk
+Košir--Sethuraman (2002 and 2005) give components and a prime ideal; Jonov (2010) proves Cohen--Macaulayness; Ghorpade--Jonov--Sethuraman (2012) compute Hilbert series and Gorenstein status. The directly inspected source statements do not give the complete singular support and explicit generic transverse \(A_1\) equation. Equivalent-form, broader-coverage, exact-table, and implication checks are documented in `AUDIT.json`; searches against an external mathematical findings index located no same-object result, which is not treated as proof of novelty. The unresolved Smith--Weyman preprint on resolutions of tangent schemes is an explicit residual risk.
+
+## Mathematical value — PASS
+The principal jet component is an established natural object, whose whole first-jet scheme is reducible. Its exact codimension-two singular support and uniform ordinary-double-point slices distinguish the intrinsic geometry of the principal component from the reducibility-induced singular behavior of the full scheme. Normality has a concrete divisor-theoretic consequence and follows from a nontrivial new regularity check, not from Cohen--Macaulayness alone. This is an infinite, motivated geometric classification rather than a narrow numerical slice. The deeper zero-base rank-one stratum and positive characteristics are intentionally not classified.
+
+Self-review: passed. Independent audit: not yet performed.
