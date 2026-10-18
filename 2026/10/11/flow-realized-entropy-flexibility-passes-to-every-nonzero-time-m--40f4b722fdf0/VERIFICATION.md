@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed symbolically from the final statement.
+# Independent mathematical audit
 
-For a fixed nonzero sampling time \(t\) and target \(d<h_{\mathrm{top}}(\phi_t)\), set \(c=d/|t|\). Standard flow entropy scaling puts both the restricted topological entropy and the flow-invariant realizing measure at entropy \(d\) for \(\phi_t\). The realizing measure is therefore maximal on its compact sampled subsystem.
+## correctness
 
-The proof does not assume that this measure is \(\phi_t\)-ergodic. In its \(\phi_t\)-ergodic decomposition every component has entropy at most \(d\), while the entropy average is exactly \(d\); hence almost every component has entropy \(d\). For one such component \(\nu_d\), the compact support \(K_d\) satisfies
-\[
-d=h_{\nu_d}(\phi_t)\le h_{\mathrm{top}}(\phi_t|_{K_d})\le d,
-\]
-which forces equality.
+PASS
 
-The motivating arXiv source was inspected at the entropy-flexibility definition, the strict flow-realizer theorem/discussion, and the time-one definition of flow entropy. published-finding corpus comparisons and the current/prior own ledgers were checked for equivalent real-time sampling claims. The closest prior result handles positive integer iterates only. No numerical computation, finite enumeration, or external certification is used.
+Let c=d/|t|, which is admissible even for negative t and zero d. Standard topological and measure entropy scaling on the FLOW-INVARIANT witness gives both entropies d for phi_t. In the phi_t-ergodic decomposition of mu_c, component entropies lie in [0,d] and average d by entropy affinity, so almost every component has entropy d. The invariant compact support of any such component has h_top=d by variational principle and inclusion. All equalities use compactness; no claim about preservation of sampled ergodicity or infinite target entropy.
 
-Limit: the transfer hypothesis is whole-flow invariance of the entropy realizers. The argument does not derive that hypothesis from time-one entropy flexibility alone and does not preserve strict ergodicity or uniqueness for resonant sampled maps.
+## originality
+
+PASS
+
+The nonzero-real-time conclusion is not the integer-iterate published result: an irrational time sample cannot in general be reduced to a power of phi_1. Arbieto–Oprocha–Rego supply strictly ergodic flow-invariant realizers for their flow classes but formulate entropy flexibility using the time-one map. Their hypotheses plus the new ergodic-component passage recover the full real-time assertion. The 2026 resonance-MME record studies multiplicity, not all target entropy levels. None of the inspected statements explicitly gives the full transfer under merely invariant (not strictly ergodic) flow realizers.
+
+## value
+
+PASS
+
+The real-time sampling issue is structurally meaningful: resonant samples can destroy ergodicity of the original realizing flow measure. Extracting a maximal-entropy component and its support resolves that issue for every nonzero time without nonresonance assumptions, upgrading a time-one entropy spectrum to all real sampling times under precise stronger witness hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

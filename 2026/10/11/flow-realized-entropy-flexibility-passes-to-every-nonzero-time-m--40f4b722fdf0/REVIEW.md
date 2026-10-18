@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a compact flow-invariant witness \(\Gamma_c\) and a flow-invariant measure \(\mu_c\), standard flow entropy scaling gives both restricted topological entropy and metric entropy of \(\phi_t\) equal to \(|t|c\). The only nontrivial sampling issue is that \(\mu_c\) may cease to be ergodic for \(\phi_t\). Its \(\phi_t\)-ergodic decomposition has average entropy \(d\), while every component has entropy at most the restricted topological entropy \(d\); hence almost every component has entropy exactly \(d\). The support of one such component then has topological entropy both at least and at most \(d\). The proof covers all \(t\ne0\) and explicitly limits itself to finite target levels.
+## correctness
 
-## Originality
-**PASS.** Searches for arbitrary time-map entropy flexibility, strict entropy realizers, sampling of flows, and resonance returned no statement equivalent to the claim. The closest published-finding corpus record proves only invariance under positive integer iterates of one homeomorphism; another studies resonance of maximal-entropy measures for certain three-dimensional flow time maps. The full text of arXiv:2507.11048v1 was inspected at its definition of entropy flexibility, Theorem A, the strict-realization discussion, and the definition of flow entropy. It proves flow entropy flexibility but does not state the all-nonzero-time-map transfer. The new implication therefore is not a restatement of the motivating theorem or of the integer-iterate result.
+PASS
 
-## Value
-**PASS.** Real-time sampling has an actual obstruction absent from the integer-iterate slogan: a measure ergodic for a flow can fail to be ergodic for a resonant time map. The result shows that flow-invariant entropy realizers eliminate that obstruction without any nonresonance assumption. Applied to the 2025 entropy-flexibility constructions, it upgrades a time-one formulation to every nonzero sampling time and identifies precisely what survives when strict ergodicity does not.
+Let c=d/|t|, which is admissible even for negative t and zero d. Standard topological and measure entropy scaling on the FLOW-INVARIANT witness gives both entropies d for phi_t. In the phi_t-ergodic decomposition of mu_c, component entropies lie in [0,d] and average d by entropy affinity, so almost every component has entropy d. The invariant compact support of any such component has h_top=d by variational principle and inclusion. All equalities use compactness; no claim about preservation of sampled ergodicity or infinite target entropy.
 
-## Closest literature and limitations
-The closest published overlap is the published-finding corpus finding *Entropy flexibility is invariant under positive iterates*, which treats \(f\) versus \(f^q\) for integers \(q\ge1\). It does not imply arbitrary real time-map sampling. The published-finding corpus finding *Arithmetic resonance dichotomy for maximal-entropy measures of three-dimensional flow time maps* is relevant to the ergodicity hazard but concerns MME multiplicity rather than the full intermediate entropy spectrum. The motivating Arbieto--Oprocha--Rego paper supplies flow-invariant strict realizers but does not state the sampling corollary.
+## originality
 
-Residual risk: an equivalent observation may exist in unindexed literature under suspension-flow or entropy-spectrum terminology. The claim is deliberately limited to flow-invariant realizers and does not claim preservation of strict ergodicity, uniqueness, or any conclusion from time-one flexibility alone.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The nonzero-real-time conclusion is not the integer-iterate published result: an irrational time sample cannot in general be reduced to a power of phi_1. Arbieto–Oprocha–Rego supply strictly ergodic flow-invariant realizers for their flow classes but formulate entropy flexibility using the time-one map. Their hypotheses plus the new ergodic-component passage recover the full real-time assertion. The 2026 resonance-MME record studies multiplicity, not all target entropy levels. None of the inspected statements explicitly gives the full transfer under merely invariant (not strictly ergodic) flow realizers.
+
+## value
+
+PASS
+
+The real-time sampling issue is structurally meaningful: resonant samples can destroy ergodicity of the original realizing flow measure. Extracting a maximal-entropy component and its support resolves that issue for every nonzero time without nonresonance assumptions, upgrading a time-one entropy spectrum to all real sampling times under precise stronger witness hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
