@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:48:46.715770Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the printed Fu-Xu-Xiao vector field J0=[[0,alpha,0,0],[-10,0,1,0],[0,0,0,1],[0,1,0,0]], independent symbolic expansion gives det(lambda I-J0)=lambda(lambda^3+10 alpha lambda-1). For alpha>0 this cubic has one positive real root and a conjugate pair with real part -r/2; zero is simple. The exact normalized left/right eigenvectors ell=(1,0,0,-alpha), v=(1,0,10,0) give ell^T v=1, ell^T J0=0, J0v=0. Direct Hessian evaluation B(v,v)=(20p,-20,2,0) and projection yield center coefficient (1/2)ell^TB(v,v)=10p. At p=1/5 this is 2, giving xi(t)~-1/(2t) on the negative attracting local center branch. The result is local, not a statement about a distant attractor.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General center-manifold theorems give a projection method, not a precomputed spectrum or the coefficient 10p for these parameters.",
+          "The source contains the opposite claimed local spectrum."
+        ],
+        "reasoning": "No inspected stronger source has hypotheses and conclusions that yield these source-specific exact identities without recomputation.",
+        "searches": [
+          "memristor hyperchaotic oscillator Fu Xu Xiao equilibrium Jacobian zero eigenvalue quadratic center manifold",
+          "Fu Xu Xiao memristor center manifold hyperchaotic oscillator correction"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math11010011",
+        "https://www.mdpi.com/2227-7390/11/1/11/notes",
+        "Resultary search: memristor hyperchaotic oscillator Fu Xu Xiao equilibrium Jacobian zero eigenvalue quadratic center manifold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed Jacobian implies zero determinant, contradicting its reported spectral classification.",
+          "Independent sympy check gave lambda*(lambda^3+10*alpha*lambda-1) and 10p."
+        ],
+        "reasoning": "The claim is a new exact correction derived from the primary equations; the source reported conclusion does not already establish it, and unrelated dynamics papers do not imply it.",
+        "searches": [
+          "memristor hyperchaotic oscillator Fu Xu Xiao equilibrium Jacobian zero eigenvalue quadratic center manifold",
+          "MDPI primary System (7) Jacobian (8) Eq.(10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article prints the same vector field but reports two nonzero conjugate pairs at S0.",
+          "Closest Resultary equilibrium-center records concern distinct systems, so are not equivalent statements."
+        ],
+        "reasoning": "Equivalent claims require the structural lambda factor AND projected coefficient 10p for this exact vector field; generic zero-mode statements in other flows are inapplicable.",
+        "searches": [
+          "memristor hyperchaotic oscillator Fu Xu Xiao equilibrium Jacobian zero eigenvalue quadratic center manifold",
+          "DOI:10.3390/math11010011 equilibrium characteristic polynomial zero eigenvalue center manifold",
+          "MDPI Mathematics 2023 Eq.(7)-(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published equilibrium-spectrum entry Eq.(10) has four nonzero values and is inconsistent with the printed Jacobian.",
+          "Resultary top hit with exact polynomial is the assigned record itself, not independent earlier coverage."
+        ],
+        "reasoning": "A known numerical spectrum with the wrong value is not an existing exact table covering the present correction.",
+        "searches": [
+          "memristor hyperchaotic oscillator Fu Xu Xiao equilibrium Jacobian zero eigenvalue quadratic center manifold",
+          "DOI 10.3390/math11010011 erratum zero eigenvalue"
+        ]
+      },
+      "rationale": "Source-specific checks of the exact vector field, eigenvalues, correction/erratum notices and center-manifold aliases, plus five independently queried Resultary mathematical records, found no earlier statement of this specific zero factor plus its nonlinear center drift. The primary article claims a contradictory nonzero four-eigenvalue spectrum at the origin.",
+      "residual_risks": [
+        "A later unindexed correction may exist; no exhaustive priority attestation.",
+        "Center coordinate is normalized by ell^T v=1; coefficient depends on coordinate normalization.",
+        "No global hyperchaos or controller claim was assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTRADICTED_BY_PRINTED_EQUATIONS",
+          "evidence": "The Jacobian has a structural zero eigenvalue while Eq.(10) reports two nonzero complex pairs.",
+          "identifier_or_url": "DOI:10.3390/math11010011",
+          "material_read": "Accessible full publisher HTML: printed System (7), Jacobian (8), equilibrium S0 and Eq.(10) eigenvalues; proof/model discussion and local/global claims.",
+          "method": "Direct full-text equation-and-claim comparison; independent symbolic reconstruction",
+          "title": "LQR Chaos Synchronization for a Novel Memristor-Based Hyperchaotic Oscillator",
+          "trigger": "Exact originating differential system and disputed origin spectrum"
+        },
+        {
+          "assessment": "NO_NAMED_ERRATUM_LOCATED",
+          "evidence": "The inspected public history did not independently document this corrected spectral classification.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/11/1/11/notes",
+          "material_read": "Publisher dated version-of-record entry (2022-12-20) and available version history.",
+          "method": "Publisher history inspection",
+          "title": "Article Versions Notes for Mathematics 2023, 11(1), 11",
+          "trigger": "Date and correction status"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correcting a published local spectral classification changes the equilibrium from purportedly hyperbolic to a one-center saddle, and the explicit nonzero quadratic coefficient identifies one-sided slow dynamics; this is motivated local structure, not a mere formatting/normalization check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local theorem near origin for printed autonomous flow; does not exclude distant chaos",
+    "alpha>0; quadratic drift nonzero for p!=0; center asymptotic quoted only for p=1/5, xi<0"
+  ],
+  "schema_version": 1
+}

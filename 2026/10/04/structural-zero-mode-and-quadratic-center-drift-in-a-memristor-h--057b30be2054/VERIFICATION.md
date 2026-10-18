@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses only the Python standard library and exact rational arithmetic. It reconstructs the characteristic polynomials of the two printed equilibria from \(\lambda I-J\), checks the right and left zero eigenvectors at the origin, and evaluates the Hessian contraction giving the center coefficient.
+# Independent mathematical audit
 
-Expected terminal output:
+## correctness
 
-`VERIFY_OK`
+PASS
 
-For the accepted claim, the exact checks are \(\chi_0(\lambda)=\lambda^4+(10/7)\lambda^2-\lambda\), \(J_0v=0\), \(\ell^TJ_0=0\), \(\ell^Tv=1\), and \(\tfrac12\ell^TB(v,v)=2\). The sign classification of the nonzero spectrum is analytic: \(g'(\lambda)=3\lambda^2+10\alpha>0\) for \(\alpha>0\), with \(g(0)<0<g(1)\).
+For the printed Fu-Xu-Xiao vector field J0=[[0,alpha,0,0],[-10,0,1,0],[0,0,0,1],[0,1,0,0]], independent symbolic expansion gives det(lambda I-J0)=lambda(lambda^3+10 alpha lambda-1). For alpha>0 this cubic has one positive real root and a conjugate pair with real part -r/2; zero is simple. The exact normalized left/right eigenvectors ell=(1,0,0,-alpha), v=(1,0,10,0) give ell^T v=1, ell^T J0=0, J0v=0. Direct Hessian evaluation B(v,v)=(20p,-20,2,0) and projection yield center coefficient (1/2)ell^TB(v,v)=10p. At p=1/5 this is 2, giving xi(t)~-1/(2t) on the negative attracting local center branch. The result is local, not a statement about a distant attractor.
 
-The verification is local to the printed autonomous vector field. It does not numerically reproduce the article's global attractor, controller, or circuit simulation.
+## originality
+
+PASS
+
+Source-specific checks of the exact vector field, eigenvalues, correction/erratum notices and center-manifold aliases, plus five independently queried Resultary mathematical records, found no earlier statement of this specific zero factor plus its nonlinear center drift. The primary article claims a contradictory nonzero four-eigenvalue spectrum at the origin.
+
+## value
+
+PASS
+
+Correcting a published local spectral classification changes the equilibrium from purportedly hyperbolic to a one-center saddle, and the explicit nonzero quadratic coefficient identifies one-sided slow dynamics; this is motivated local structure, not a mere formatting/normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

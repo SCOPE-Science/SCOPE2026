@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim follows from the Jacobian printed by the primary article. Exact determinant expansion yields the simple zero factor, strict monotonicity of the cubic factor fixes the remaining spectral split for \(\alpha>0\), and exact left/right eigenvector projection gives the quadratic center coefficient \(10p\). The bundled verifier replays the rational algebra at the article's nominal parameters.
+## correctness
 
-## Originality
-PASS. The primary source reports four nonzero eigenvalues at the origin, so it does not cover the structural zero mode. Source-specific searches over the title, DOI, equation fragments, equilibrium/eigenvalue aliases, correction terms, and center-manifold terminology found no published statement implying the exact factorization and coefficient. The closest located results analyze zero modes or center reductions in different systems and do not subsume this one.
+PASS
 
-## Value
-PASS. Replacing a hyperbolic local picture by a simple zero eigenvalue with nonzero quadratic center drift changes the equilibrium's local dynamical type. The coefficient \(2\) at the nominal parameters also gives the concrete one-sided algebraic law \(\xi(t)\sim-1/(2t)\), which is useful for interpreting near-origin transients and any local bifurcation analysis.
+For the printed Fu-Xu-Xiao vector field J0=[[0,alpha,0,0],[-10,0,1,0],[0,0,0,1],[0,1,0,0]], independent symbolic expansion gives det(lambda I-J0)=lambda(lambda^3+10 alpha lambda-1). For alpha>0 this cubic has one positive real root and a conjugate pair with real part -r/2; zero is simple. The exact normalized left/right eigenvectors ell=(1,0,0,-alpha), v=(1,0,10,0) give ell^T v=1, ell^T J0=0, J0v=0. Direct Hessian evaluation B(v,v)=(20p,-20,2,0) and projection yield center coefficient (1/2)ell^TB(v,v)=10p. At p=1/5 this is 2, giving xi(t)~-1/(2t) on the negative attracting local center branch. The result is local, not a statement about a distant attractor.
 
-## Closest literature and limitations
-The closest literature uses center-manifold or zero-mode arguments in other differential systems; it supplies techniques but no implication for this printed vector field. The present result is local and does not reject remote hyperchaos, circuit simulations, or synchronization performance.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Source-specific checks of the exact vector field, eigenvalues, correction/erratum notices and center-manifold aliases, plus five independently queried Resultary mathematical records, found no earlier statement of this specific zero factor plus its nonlinear center drift. The primary article claims a contradictory nonzero four-eigenvalue spectrum at the origin.
+
+## value
+
+PASS
+
+Correcting a published local spectral classification changes the equilibrium from purportedly hyperbolic to a one-center saddle, and the explicit nonzero quadratic coefficient identifies one-sided slow dynamics; this is motivated local structure, not a mere formatting/normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
