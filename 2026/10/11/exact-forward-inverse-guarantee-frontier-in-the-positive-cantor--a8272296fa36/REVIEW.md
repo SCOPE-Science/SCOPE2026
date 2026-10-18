@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source formulas for \(C_+\) and \(C_-\) were reconstructed from the quantitative positive Cantor–Bernstein proof. Monotonicity saturates the \(b\)- and \(c\)-constraints, the remaining maximum has one explicit crossing, and both branches are minimized analytically. The boundary \(R=3\), the asymptotic limit, and the product minimizer were replayed independently.
+## correctness
 
-## Originality
-PASS. Searches covered prescribed-forward-budget, Pareto-frontier, positive Cantor–Bernstein, Miljutin, formula-level, and equivalent decomposition terminology. The closest same-source public result concerns exact inverse norms of the elementary maps and does not imply the theorem-level frontier. The Kania–Lewicki comparator has different hypotheses and a symmetric one-parameter estimate. No inspected source states or implies the two-branch \(F(R)\) formula.
+PASS
 
-## Value
-PASS. The result converts a single balanced distortion constant into the full one-sided guarantee profile of the construction. The phase transition at \(R=3\), unique optimizing parameter choices for every budget, and inverse-guarantee floor are natural quantitative information for asymmetric applications of the positive decomposition theorem.
+For all R>2, C_+≤R forces b≤R−1 and c(1+a)≤R−1. C_- strictly decreases in b,c for fixed other variables, so both saturate at any minimizer. With d=R−2>0, the remaining objective is [2(1+a)+max(2d+1,(1+a)/(a−1))]/d. The crossing a*=1+1/d and derivative 2−2/(a−1)^2 give unique optimum a=2 for d≤1 and a=a* for d≥1, yielding F(R)=9/d or 2+5/d+2/d². At d=1 both meet at a=2,b=2,c=2/3; F→2 as R→∞. Differentiating R F(R) gives d³−6d−4=(d+2)(d−1−sqrt(3))(d−1+sqrt(3)), with unique d≥1 minimum d=1+sqrt(3), product 9+6sqrt(3). Independently substituted six budgets in the original C± expressions. These are sharp bounds for this published proof, NOT sharp operator norms or universal isomorphism tradeoffs.
 
-## Closest literature and limitations
-The focal paper supplies the exact bound pair being optimized. Kania–Lewicki supply the same final product constant in a different setting. The claim is limited to the published guarantee functions; it does not assert global optimality among all positive isomorphisms or equality with actual operator norms.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements/implications from genuinely inspected primary material and the audited claim. Resultary returned temporarily_unavailable/search_completed:false; this failed search supplies NO negative novelty evidence. The product extremum is a consequence of the claimed F(R) by minimizing R F(R), not vice versa: knowing only a single product minimum cannot recover a continuum of exact conditional minima, parameter triples or the transition at R=3.
+
+## value
+
+PASS
+
+The complete optimal inverse guarantee for every forward budget is a natural quantitative invariant of the positive Cantor–Bernstein construction: the exact transition R=3, unique parameter optimizer, best asymptotic inverse-guarantee floor 2 and best balanced distortion are mathematically meaningful information absent from the single published product optimum. It is useful for asymmetric quantitative applications without purporting to optimize actual isomorphism norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
