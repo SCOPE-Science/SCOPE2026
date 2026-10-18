@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source formulas for \(\lambda_j(t)\) and the scattering eigenvalues \(\mu_j(k,t)\) reduce by a half-angle identity to a one-variable singular scaling in \(kt\). The \(j=0\) channel is nonsingular for every fixed finite \(\alpha\); the \(j\ge1\) channels converge to the stated unit-modulus rational factors. Pairing \(j\) with \(n-j\) gives the real diagonal amplitude, and its derivative is strictly positive term by term. Endpoint signs therefore prove existence and uniqueness of the zero-reflection scale. The accompanying checker corroborates the limiting algebra and special cases but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:1804.01414v1, supplies formulas (15) and (21)--(23) and states only the fixed-\(t\) high-energy parity limit. It does not state the simultaneous \(kt\to\xi\) profile, noncommuting limits, or unique reflectionless crossover. The reflectionless-matrix literature doi:10.7494/OpMath.2014.34.3.483 treats a different general classification problem, and arXiv:2403.09457v1 studies periodic-chain band spectra for the same interpolation rather than this star-vertex scattering regime. Statement-level searches over aliases and equivalent energy/scaling variables found no covering result.
+PASS
 
-## Value
-PASS. The interpolation was introduced precisely to connect the standard \(\delta\) coupling with a preferred-orientation coupling whose high-energy transport has a parity anomaly. The result identifies the singular transition scale \(t\asymp E^{-1/2}\), resolves the limit-order mismatch, and shows that every degree admits one universal asymptotically perfect-transmission point. That provides a concrete transport structure missing from the fixed-parameter asymptotics.
+The source eigenvalues lambda0=e^{-i(1-t)gamma}, lambdaj=-e^{i beta_j t} and on-shell mu=(k-1+(k+1)lambda)/(k+1+(k-1)lambda) imply exactly mu(k,e^{i phi})=(k+i tan(phi/2))/(k-i tan(phi/2)). For j>=1, cot(beta_j t/2)~2/(beta_j t), so mu_j tends to (beta_j xi-2i)/(beta_j xi+2i); beta_j=0 stays -1. Fixed finite alpha keeps j=0 away from singular -1 and mu0->1. Paired j,n-j modes are conjugate, so reflection is real; every nonconstant paired term (beta² xi²-4)/(beta² xi²+4) increases strictly, endpoints are negative to positive, and unique reflectionless xi_n follows. Independent direct double-scaling checks for n=3,4,7,10 and multiple xi confirm analytic limits; independent source verifier n=3..12 checks paired identities and xi3,xi4.
 
-## Closest literature and limitations
-The 2018 interpolation paper is the decisive nearest source; the 2014 reflectionless-scattering paper and the 2024 interpolation chain paper are the nearest broader comparisons inspected. The finding is local to one star vertex and asymptotic in the joint limit. It does not claim exact finite-energy reflectionlessness for arbitrary \(\alpha\), equal transmission among outgoing channels, or a periodic-network transport theorem. A residual risk remains that an equivalent calculation is indexed under a different self-adjoint-boundary parametrization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A distinct joint singular t*k scaling and unique transparent reflection point were not found in checked published quantum-graph source/results. The original authors’ fixed-t high-energy parity dichotomy, static equi-transmitting theory, and square-lattice band results do not alone specify this exact one-vertex crossover. Source full text remains unavailable, a material residual risk explicitly retained.
+
+## value
+
+PASS
+
+The singular t->0 and k->infty limits do not commute; locating the all-n exact crossover and unique reflectionless transparent point reveals a physically meaningful sharp boundary in this natural scattering family. The result quantifies local vertex transport, not a routine fixed-parameter expansion, and requires a monotonicity proof across Fourier modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
