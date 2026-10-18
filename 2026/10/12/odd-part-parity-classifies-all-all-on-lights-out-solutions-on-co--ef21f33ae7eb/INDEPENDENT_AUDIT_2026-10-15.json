@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:19:57.651708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary closed-neighborhood Lights Out, subtracting vertex equations within one independent part forces a common press bit y_i. With epsilon_i=n_i mod2 and t=sum_j epsilon_j y_j, each part equation is (1+epsilon_i)y_i+t=1 over F2. If no odd parts all y_i=1 is the unique clearing vector; otherwise every odd part forces t=1 and every even part y_i=0, leaving parity-odd selections of odd parts. This yields the full press-set polynomial [prod_{odd}(1+z^{n_i})-prod_{odd}(1-z^{n_i})]/2, 2^{o-1} solutions, and minimal support min odd part size. The homogeneous equation similarly has dimension max(o-1,0), so A+I invertible iff o<=1. Independent explicit toggling-mask exhaustive checks over multiple multipartite profiles (including 5 odd singleton parts) match the formula and count. The proof applies arbitrary r,n_i, not merely bounded enumerations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballard–Budge–Stephenson 2019 Section 3 computes complete bipartite nullity over cyclic rings and certain graph joins, which does not supply r>=3 all-on press-weight coefficients.",
+          "Codsi–Cristancho–Divoux–Sivashankar 2026 characterizes extremal uniqueness; the full all-solutions enumerator is finer."
+        ],
+        "reasoning": "Known general linear algebra permits computing all solutions with further work, but does not explicitly imply this specialized product polynomial without a distinct partwise reduction.",
+        "searches": [
+          "Ballard Budge Stephenson complete bipartite Lights Out nullity",
+          "Extremal Graphs for the Lights Out Problem 2026",
+          "Lights Out complete multipartite graph all-on solutions press sets parity odd part size polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.07241",
+        "https://doi.org/10.2140/involve.2019.12.181",
+        "https://doi.org/10.1007/s00591-021-00297-5",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/odd-part-parity-classifies-all-all-on-lights-out-solutions-on-co--ef21f33ae7eb/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new nullity max(o-1,0) specializes and refines earlier bipartite rank facts; the known uniqueness criterion for general graphs does not determine all clearing-vector weights."
+        ],
+        "reasoning": "Older stronger-in-graph-scope extremality theorems do not dominate this distinct finer enumerative invariant.",
+        "searches": [
+          "arxiv:2602.07241 graph extremal all-on matrix invertible",
+          "Ballard 2019 complete bipartite kernel",
+          "Lights Out complete multipartite graph all-on solutions press sets parity odd part size polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary Lights Out over F2 solves (A+I)x=1; each part is a twin-class with identical off-diagonal neighborhoods, enabling part-uniform reduction.",
+          "Codsi et al. 2026 defines extremality via even degrees and matching parity, a different global characterization."
+        ],
+        "reasoning": "Equivalent formulations of linear equations and parity domination are acknowledged; equivalence of definitions alone does not give the exact multivariate-weight parity product.",
+        "searches": [
+          "Lights Out complete multipartite graph all-on solutions press sets parity odd part size polynomial",
+          "lights out complete multipartite odd neighborhood domination inverting sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent press-mask brute tests match 2^{o-1} and coefficients in small profiles including (1,1,1,1,1) with 16 solutions and (2,2,2) unique all-press.",
+          "Published bipartite ring-nullity tables contain rank information, not all solution-size coefficients for arbitrary r."
+        ],
+        "reasoning": "No table covering this exact multipartite polynomial found; even/odd projection is standard but its application requires the graph-specific reduction.",
+        "searches": [
+          "Lights Out multipartite all-on weight enumerator parity odd parts complete multipartite",
+          "Lights Out complete multipartite graph all-on solutions press sets parity odd part size polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for general multipartite all-on clearing-set WEIGHT ENUMERATOR and full solution characterization, not general affine F2 formulation already known. Earlier Ballard–Budge–Stephenson covers complete BIPARTITE nullity over cyclic rings and Codsi et al. 2026 covers extremal graphs more generally; neither inspected source supplies the stated full multinomial-part odd-selection enumerator.",
+      "residual_risks": [
+        "The small formula is an application of standard F2 linear algebra, and earlier equivalent polynomial expressions under parity domination or inverting sets could be missed.",
+        "The exact polynomial applies only to all-on initial configuration; nullity/invertibility are the portions valid for arbitrary initial state."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides global extremality description but does not present all-on multipartite solution-size polynomial.",
+          "evidence": "Even-degree and total-matching parity theorem; no full multipartite weight enumerator given.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.07241",
+          "material_read": "Primary full arXiv PDF including main extremality theorem, matching parity condition and full-text multipartite-term search",
+          "method": "full PDF text and page screenshot",
+          "title": "Extremal Graphs for the Lights Out Problem",
+          "trigger": "same binary Lights Out game and unique solution"
+        },
+        {
+          "assessment": "Its complete-bipartite cyclic-ring nullity is a prior case, not full all-on distribution for all multipartite graphs.",
+          "evidence": "Section 3 computes nullity for K_{m,n} over Z_k; no parity-selected odd-part polynomial for arbitrary r.",
+          "identifier_or_url": "https://doi.org/10.2140/involve.2019.12.181",
+          "material_read": "Full 24-page original PDF including Section 3 complete bipartite kernel/nullity and graph constructions",
+          "method": "primary full PDF plus relevant page screenshot",
+          "title": "Lights Out for graphs related to one another by constructions",
+          "trigger": "same game on complete bipartite graph, plausible dominating theorem"
+        },
+        {
+          "assessment": "Known affine solution-space framework not claimed novel; no inspected exact multipartite weight enumerator.",
+          "evidence": "General kernel/Fredholm framework and hardness of minimum presses.",
+          "identifier_or_url": "https://doi.org/10.1007/s00591-021-00297-5",
+          "material_read": "General theorem-level material available through bibliographic analysis and source comparison; full original not asserted read",
+          "method": "bibliographic and abstract-level inspection",
+          "title": "Lights Out on graphs",
+          "trigger": "general linear-algebraic framework for minimum press vectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete multipartite graph is a natural dense graph family and all-on press-subset size distribution is a meaningful finer Lights Out invariant. Formula simultaneously classifies every optimizer, all clearing sets and binary nullity, extending bipartite scalar statements; a mathematician studying minimum-press instances can use its exact coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2602.07241",
+    "https://doi.org/10.2140/involve.2019.12.181",
+    "https://doi.org/10.1007/s00591-021-00297-5",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/odd-part-parity-classifies-all-all-on-lights-out-solutions-on-co--ef21f33ae7eb/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The small formula is an application of standard F2 linear algebra, and earlier equivalent polynomial expressions under parity domination or inverting sets could be missed.",
+    "The exact polynomial applies only to all-on initial configuration; nullity/invertibility are the portions valid for arbitrary initial state."
+  ],
+  "schema_version": 1
+}
