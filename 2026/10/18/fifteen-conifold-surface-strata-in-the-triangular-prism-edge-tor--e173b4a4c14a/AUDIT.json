@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact exhaustive fan calculation in verify_prism.py reconstructs all twelve facets and 135 faces, verifies the full edge-difference lattice, finds fifteen maximal nonsmooth two-faces, classifies them as twelve primitive triangles and three primitive parallelograms, and certifies the fifteen rank-three cones have primitive (1,1,-1,-1) relation with all three-ray minors saturated. The standard toric orbit-cone dictionary and Ohsugi-Hibi odd-cycle criterion then imply the theorem over arbitrary algebraically closed fields. The program is finite exhaustive, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tran--Ziegler arXiv:1307.6708 develops global edge-polytope face estimates, not singular fans of every prism face.",
+        "The Ohsugi--Hibi global graph classification does not specialize to the fifteen transverse node models without an additional exact cone calculation."
+      ],
+      "reasoning": "General fan-based algorithms logically permit this computation, but no inspected blanket theorem explicitly supplies these exact invariants as a corollary without the new face and lattice analysis. This is an application of known methods, not a new general theorem.",
+      "searches": [
+        "edge polytopes graph projective toric varieties singularities prism",
+        "toric varieties edge polytopes normal fans singular locus general formula",
+        "Extremal edge polytopes arXiv:1307.6708 full paper"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0804.4287",
+      "doi:10.1006/jabr.1998.7476",
+      "arXiv:1307.6708",
+      "arXiv:1108.2850"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1998 odd-cycle theorem implies normality, which is part of the preliminary assumptions, not the specific singular stratification.",
+        "The 2008 paper provides global simplicity/smoothness criteria, not the 15 orbit-closure components.",
+        "The 2013 edge-polytope face-number formulas do not determine saturated indices and four-ray transverse affine equations for individual prism faces."
+      ],
+      "reasoning": "No reviewed source directly states a stronger theorem implying the full count, isomorphism types, degree, and all fifteen conifold types. Standard toric correspondence is invoked for deduction from the independently enumerated fan.",
+      "searches": [
+        "Ohsugi Hibi Normal polytopes arising from finite graphs 1998 odd cycle condition",
+        "Ohsugi Hibi Simple polytopes arising from finite graphs arXiv 0804.4287",
+        "Tran Ziegler Extremal edge polytopes arXiv 1307.6708"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ohsugi--Hibi arXiv:0804.4287 treats when graph edge polytopes are simple or globally smooth, not orbit-by-orbit decomposition of this singular prism.",
+        "The exact fifteen face labels and normal-cone matrix data are present in RESULT.md and verify_prism.py."
+      ],
+      "reasoning": "The exact prism classification is not simply an alternative wording of a graph-global smoothness criterion: the latter can decide nonsmoothness but does not provide the number, isomorphism types, degrees, or generic completed singularities of maximal strata.",
+      "searches": [
+        "triangular prism edge polytope singular toric varieties",
+        "prism graph edge polytope singular locus",
+        "projective edge ring triangular prism toric singular strata",
+        "Ohsugi Hibi simple polytopes arising from finite graphs full text arXiv:0804.4287"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact singular-stratum table was found in the inspected primary works; arXiv:0804.4287 and arXiv:1307.6708 discuss different global combinatorics.",
+        "Complete face and normal-cone tables for this graph are reproduced by the standalone checker."
+      ],
+      "reasoning": "The comparisons cover closely related edge-polytope classifications but not every possible computational dataset; an undiscovered table could potentially cover the fixed example.",
+      "searches": [
+        "triangular prism graph edge polytope singular 12 planes 3 quadrics",
+        "triangular prism edge toric fivefold degree singular support",
+        "normal fan triangular prism edge polytope 15 nonsimplicial cones"
+      ]
+    },
+    "rationale": "Inspected relevant primary full text and targeted source/alias/stronger-coverage searches. The exact fifteen singular surfaces, mixed toric types, total degree and uniform transverse conifold models are not stated or implied as a worked-out consequence without this fan computation in the inspected works. Residual risk of an unlocated equivalent tabulation remains.",
+    "residual_risks": [
+      "A prism normal-fan or computational database tabulation not located by the targeted searches could contain equivalent data.",
+      "The work is a fixed-object specialization of established toric-fan algorithms, not a new general class theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes normality from the odd-cycle property; not a decomposition of prism singular strata.",
+        "evidence": [
+          "Normality criterion for graph edge semigroup (Ohsugi--Hibi, 1998)."
+        ],
+        "identifier_or_url": "doi:10.1006/jabr.1998.7476",
+        "material_read": "full-text mathematical statements and the odd-cycle normality theorem, especially theorem and surrounding discussion",
+        "method": "read accessible mathematical full text",
+        "title": "Normal polytopes arising from finite graphs",
+        "trigger": "normality and odd-cycle graph criterion"
+      },
+      {
+        "assessment": "Addresses when edge polytope is globally simple/smooth, not enumeration of singular prism orbit closures.",
+        "evidence": [
+          "Theorem 1.8 globally classifies simple edge polytopes."
+        ],
+        "identifier_or_url": "arXiv:0804.4287",
+        "material_read": "full-text theorem statements, introduction, main classification, and graph criteria",
+        "method": "read public preprint text",
+        "title": "Simple polytopes arising from finite graphs",
+        "trigger": "most plausible globally smooth graph edge toric comparison"
+      },
+      {
+        "assessment": "Face number bounds and formulas are not the specific local toric singularity classification.",
+        "evidence": [
+          "Edge-count formula in terms of disjoint graph edges and four-cycles; no conifold-strata result identified."
+        ],
+        "identifier_or_url": "arXiv:1307.6708",
+        "material_read": "paper introduction and edge-face enumeration results, including facet and edge statements",
+        "method": "read public PDF with page inspection",
+        "title": "Extremal edge polytopes",
+        "trigger": "potential general prism face combinatorics / stronger geometric result"
+      },
+      {
+        "assessment": "Studies when adjacent binomials generate graph toric ideals rather than the singular support of the prism projective edge variety.",
+        "evidence": [
+          "Theorems on adjacent 2-minor ideals, not the prism normal fan."
+        ],
+        "identifier_or_url": "arXiv:1108.2850",
+        "material_read": "accessible six-page public paper, including main ideals classification",
+        "method": "read public PDF",
+        "title": "Toric ideals of finite graphs and adjacent 2-minors",
+        "trigger": "possible equivalent determinantal presentation of the edge ring"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e173b4a4-c14a-4777-97a7-4f6c93c999e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The triangular prism is the smallest canonical graph containing two vertex-disjoint odd triangles joined by edges, hence a motivated normal-graph-edge variety where the global smoothness problem is nontrivial. Complete maximal singular-orbit geometry, degree of their reduced union, distinction of plane/Segre components and uniform conifold transverse models give structural information beyond routine nonsmoothness or face counts, even though the problem is finite.",
+    "status": "PASS"
+  }
+}
