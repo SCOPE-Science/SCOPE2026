@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The five possible projection types exhaust every nonzero proper Lie subalgebra. For each, the graph-of-functional versus full-preimage alternatives yield exact fiber weights. Generating the Lie algebra is equivalent to spanning its symplectic quotient. Lagrangian counts, complementary-plane counts using symmetric forms or a determinant equation, and the hyperplane-radical count prove all five degree formulas. Independent exhaustive subspace enumeration over \(\mathbb F_2\) and \(\mathbb F_3\) reproduces both the vertex multiplicities and every degree. The computations do not substitute for the general finite-field proof.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-The 2026 introductory paper studies Lie dimensions at most three; its sequel states that it adds four-dimensional examples. The current five-dimensional Heisenberg degree census is neither a restatement nor a special case of those advertised results. Similar searches for a graph on the five-dimensional Heisenberg algebra did not locate the proposed distribution. Existing results for Heisenberg subalgebra *commutativity degrees* count a different invariant and do not imply degrees in a *generation graph*. The later follow-up's full text was unavailable, so full historical exclusion remains unresolved; its advertised dimension bound is relevant evidence, not a definitive whole-document comparison.
+PASS
 
-## Value — PASS
-The first nontrivial symplectic Heisenberg quotient of dimension four has both isotropic and nondegenerate projected planes, a structural distinction absent in dimension-three Heisenberg cases. The exact distribution shows quantitatively how this geometry separates vertex degrees, and offers a complete finite-field invariant for a natural dimension-five Lie algebra, not merely a single small computation.
+For H_5(F_q), quotient by central z is four-dimensional nondegenerate symplectic V. Each isotropic subspace S has a single full inverse-image subalgebra plus q^dim S bracket-closed graph lifts; a nonisotropic S has only the full inverse-image. For S=0 only the central line is a nonzero proper vertex; omit full S=V. Two subalgebras generate H5 iff projected subspaces span V. Symplectic plane incidence, Lagrangian graph count q³, complementary nondegenerate plane determinant count q(q²−1), and hyperplane radical count yield precisely five degree/multiplicity formulas in frozen RESULT.md. Fresh independent RREF enumeration of all 4-space projected subspaces and weighted spanning adjacencies for q=2 and q=3 matches all five strata and 156/691 total vertices. Finite examples corroborate but do not prove arbitrary prime powers, supplied structural counting does.
 
-## Scope and limitations
-The formulas address only the comaximal generation graph of \(H_5(\mathbb F_q)\) for prime-power \(q\). The August 2026 sequel was accessible at abstract level, not by full text. An earlier equivalent theorem cannot be ruled out by negative searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Towers–Zuleta–Gutierrez 2605 introduces comaximal graphs and gives dimension<=3 structural graph classification, while 2608 broadens to certain dimension-four families only. Neither advertised theorem encompasses nonabelian H5 with four-dimensional symplectic quotient and two inequivalent plane strata. Resultary hit on H5 subalgebra commutativity counts pairs that permute, not spanning-generation neighbors. Full 2608 article inaccessible: explicit residual risk, not a claim to have read or ruled out every proposition.
+
+## value
+
+PASS
+
+PASS: Determining the full degree distribution of the natural generation graph of the first Heisenberg algebra with isotropic versus nondegenerate planes produces a complete nontrivial finite-field family invariant, with structural symplectic-geometry explanation, rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
