@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Suryanto and Darti, AIMS Mathematics 6 (2021), equation (3.5), disease-free Jacobian and stability analysis, DOI:10.3934/math.2021010",
+        "Frozen RESULT.md blob a60a74f20f823870a5574f350d69da669aa7d7fa and verify.py 3c4ecf18b496c622eff20c70b72c7259900c68f7",
+        "Independent exact symbolic checker NSFD_DFE_EXACT_FLOOR_AND_WITNESS_OK"
+      ],
+      "rationale": "For the original saturated-incidence vaccination SIR update, linearization at S0=Lambda/(mu+nu), I=0 gives I′=-c(1-R0)I, c=mu+gamma+delta, 0<R0<1; the exact continuous multiplier is q(h)=exp[-c(1-R0)h]. The source nonlocal infection step linearizes to lambda(phi)=(1+c R0 phi)/(1+c phi)=R0+(1-R0)/(1+c phi), strictly between R0 and 1 for every finite positive phi. Solving q=R0 gives h*=-log(R0)/(c(1-R0)); for every h>=h* q<=R0<lambda, a sharp obstruction within this architecture: for 0<h<h*, q lies strictly between R0 and 1 and the finite positive choice phi=(1-q)/[c(q-R0)] matches the continuous multiplier, establishing sharpness of the architectural threshold. The actual exponential denominator phi=(exp(mu*h)-1)/mu tends to infinity, so lambda->R0 and -log lambda/h->0, whereas exact physical-time decay rate remains c(1-R0). Verified independent exact symbolic algebra and the positive-parameter witness c=3,R0=1/2,h=log(2),phi=1,lambda=5/8,q=1/(2 sqrt(2)). This does not contradict stability or positivity. The source update and denominator were checked against the originating primary text, not inferred from verifier logs.",
+      "residual_risks": [
+        "Only disease-free infected linear rate, not nonlinear transient errors or finite-denominator matching beyond the original nonlocal scheme.",
+        "Strict q<lambda at h=h* depends on phi being finite and positive, as explicitly assumed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khalsaraei et al., Mathematics 9 (2021) 3082, characterizes elementary/qualitative stability of NSFD models.",
+          "General all-step stability does not imply quantitative infection-decay fidelity."
+        ],
+        "reasoning": "Neither the originating nor broader NSFD qualitative results yields the explicit quantitative hard floor or crossover for this update.",
+        "searches": [
+          "Nonstandard finite difference NSFD SIR saturated incidence vaccination infected disease-free eigenvalue multiplier step size large h physical time decay floor Suryanto Darti",
+          "nonstandard finite differences elementary stability rate accuracy large time steps"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2021010 full primary text",
+        "DOI:10.3390/math9233082 (elementary-stability context, abstract/material)",
+        "Resultary five-topic independent semantic query: Nonstandard finite difference NSFD SIR saturated incidence vaccination infected disease-free eigenvalue multiplier step size large h physical time decay floor Suryanto Darti",
+        "Independent source-specific arithmetic calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original printed update algebra implies lambda(phi), but does not itself explicitly articulate the cross-scale impossibility for h>=-log(R0)/[c(1-R0)] or the vanishing physical-time NSFD decay rate.",
+          "Comparison uses the exact same source SIR parameters and mode."
+        ],
+        "reasoning": "Although the result is a short algebraic deduction of a published scheme, that scheme’s qualitative stability result does not state/imply the scientific conclusion about decay-rate fidelity without the additional sharp matching comparison.",
+        "searches": [
+          "Nonstandard finite difference NSFD SIR saturated incidence vaccination infected disease-free eigenvalue multiplier step size large h physical time decay floor Suryanto Darti",
+          "Suryanto Darti equation (3.5) Jacobian disease free eigenvalue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source multiplier is a fractional-linear function of the denominator, with limit R0; equivalent alias is a time-step-dependent amplification-factor lower bound.",
+          "Suryanto-Darti equation (3.5) gives the map, while its stability theorem treats |lambda|<1, not the exact semigroup multiplier."
+        ],
+        "reasoning": "Comparing eigenvalues and their physical-time logarithms is stricter than the earlier qualitative stability-type condition; the h* comparison is not an alternative spelling of the stability theorem.",
+        "searches": [
+          "Nonstandard finite difference NSFD SIR saturated incidence vaccination infected disease-free eigenvalue multiplier step size large h physical time decay floor Suryanto Darti",
+          "\"Suryanto Darti\" \"decay rate\" discrete epidemic denominator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper presents example trajectories and local stability rather than a classification table of exact decay-rate crossover for all 0<R0<1."
+        ],
+        "reasoning": "No fixed finite graph/sequence/database lookup is relevant to the all-parameter multiplier theorem; source numerical plots cannot cover its quantifiers.",
+        "searches": [
+          "Nonstandard finite difference NSFD SIR saturated incidence vaccination infected disease-free eigenvalue multiplier step size large h physical time decay floor Suryanto Darti",
+          "AIMS SIR saturated vaccination denominator physical time decay table"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific quantitative decay-fidelity obstruction. Original Suryanto-Darti paper proves qualitative all-step dynamical consistency, not agreement of physical decay exponents. Published NSFD elementary-stability results address equilibrium type rather than exact multipliers. The rational hard floor and h* implication were not identified in relevant original material or independent searches; no priority guarantee.",
+      "residual_risks": [
+        "The conclusion is an unusually simple but physically motivated amplification-factor comparison, and historical elementary-stability literature could use a different terminology for it.",
+        "The all-positive-denominator architecture is restricted, not a universal impossibility for all integrators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MAP_QUALITATIVE_STABILITY_NOT_QUANTITATIVE_FLOOR",
+          "evidence": [
+            "Its nonlocal update and denominator are the exact ones linearized; the paper targets positivity, boundedness and preservation of equilibrium stability for all h."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2021010",
+          "material_read": "Full primary open-access 15-page paper: source SIR ODE, nonlocal discrete equations (3.5), denominator choice, disease-free stability and numerical examples",
+          "method": "Open-access primary PDF full text with rendered page inspection and AIMS journal HTML",
+          "title": "On the nonstandard numerical discretization of SIR epidemic model with a saturated incidence rate and vaccination",
+          "trigger": "Same source algorithm and exact physical infected-mode multiplier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original Suryanto-Darti stability claims, DOI:10.3934/math.2021010",
+        "Independent exact multiplier and asymptotic rate reconstruction"
+      ],
+      "rationale": "The hard lower bound on the discrete infection multiplier identifies when a scheme advertised as dynamically consistent for every step cannot reproduce its ODE’s physical extinction speed. The exact step threshold and asymptotic decay-rate collapse are operationally meaningful quantitative diagnostics, distinguishing stability-type preservation from rate fidelity on a natural infected mode. A short rational calculation is justified by this targeted numerical-analysis motivation rather than by novelty or reproducibility alone.",
+      "residual_risks": [
+        "Not a generic NSFD no-go theorem; no nonlinear convergence-speed estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The floor is specific to the source nonlocal infection architecture and finite positive denominator values.",
+    "The limit h->infinity is an asymptotic of a single numerical update, not a physical disease intervention forecast.",
+    "Public metadata and audit retain operational provenance; publication withheld."
+  ],
+  "schema_version": 1
+}
