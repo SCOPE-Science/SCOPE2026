@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each linearly admissible length-k factor, the required edge degrees give unit deficit sources D and sinks S. Every D-to-S path costs at least the position of the first 10 in the source (or n-1 if absent). The explicit injective route 0^a1^b s -> s1^b0^a realizes exactly those lower bounds and is a bijection by reversal cardinality. Strong connectedness plus Eulerian balance constructs an optimum, while the exceptional path requires an added edge containing 010. Four-state transfer-matrix enumeration proves the rational generating function. The standalone verifier constructed exact covering cycles for k=3..13 and independently optimized source-to-sink assignments for k=3..10; no infinite inference relies on those finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0711.1695v1 §2 Theorem 1 establishes restricted exact-once cycles; §3 addresses lexicographically minimal traversal.",
+        "Burstein–Kitaev article abstract describes universal cycles for sets of word patterns but provides no 010 shortest-cover formula.",
+        "Chen–Kitaev–Sun public abstract studies probability and enumeration of u-cycles, rather than the length optimization here."
+      ],
+      "reasoning": "These sources motivate de Bruijn methodology. Their stated objects or theorems do not imply this exact unrestricted shortest cyclic cover; the Chen–Kitaev–Sun complete text was not recovered, which remains a limited inspection risk.",
+      "searches": [
+        "Minimum de Bruijn Sequence in a Language with Forbidden Substrings arxiv:0711.1695",
+        "On Unavoidable Sets of Word Patterns Burstein Kitaev DOI:10.1137/S0895480104445678",
+        "Lower Bounds and Exact Enumeration in Particular Cases for Probability of Existence of Universal Cycle DOI:10.3390/math8050778"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0711.1695v1, nine-page primary text",
+      "DOI:10.1137/S0895480104445678, abstract only",
+      "DOI:10.3390/math8050778, abstract only",
+      "Accessible same-topic prior claim titles: shortest covers avoiding 111 and 110",
+      "Exact coefficients and related numerical web searches",
+      "Semantic mathematical record queries listed under four comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible historical claim: shortest cyclic covers avoiding 111 yield a Fibonacci–Tribonacci overhead law, with a permitted optimum host.",
+        "Accessible historical claim: shortest cyclic covers avoiding 110 yield a Fibonacci-number formula.",
+        "The three binary forbidden-triple symmetry orbits under reversal and complement are {000,111}, {001,011,100,110}, {010,101}."
+      ],
+      "reasoning": "The first two formulas address distinct orbits and cannot be transported to 010 by alphabet complement or reversal. The latter is palindromic and has a different rational series and the contrasting theorem that any optimum necessarily includes a forbidden factor. The related former results are prior science, not rechecked here.",
+      "searches": [
+        "Fibonacci Tribonacci law shortest cyclic covers binary no-triple-one language",
+        "Sharp Fibonacci formula shortest cyclic covers avoiding a directed binary triple",
+        "Shortest cyclic covering binary pattern avoidance 010 110 111"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno and Matamala, arXiv:0711.1695v1, pp. 1-9, §2.1 explicitly defines admissible words by periodic repetition; §3 minimizes lexicographic order.",
+        "Direct symmetry comparison: 010 maps only to 010 and 101 under reversal and bit complement."
+      ],
+      "reasoning": "An exact-once restricted de Bruijn cycle concerns a different set of required windows: linear 010-avoiders such as 001 may be cyclically inadmissible. No source inspected states this min-cost path augmentation or rational generating function.",
+      "searches": [
+        "cyclic cover shortest superstring all binary words avoiding 010 forbidden palindrome optimal repetition de Bruijn",
+        "generalized de Bruijn sequence with forbidden factors 010 length k minimum Eulerian augmentation",
+        "shortest cyclic superstring containing every binary length k word avoiding the substring 010; exact generating function repetition overhead, optimal cycle must contain 010",
+        "Minimum de Bruijn Sequence in a Language with Forbidden Substrings arxiv:0711.1695"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact coefficient and cover-length sequence searches produced no relevant indexed equality; returned results concerned unrelated objects.",
+        "The program computes these coefficients independently from the rational generating function and the graph construction."
+      ],
+      "reasoning": "An unsuccessful exact-sequence search is weak negative evidence, not mathematical proof of novelty; no identified database table determines this series.",
+      "searches": [
+        "\"1, 2, 4, 9, 19, 37, 69, 126, 227\" de Bruijn",
+        "\"8, 14, 25, 46, 84, 151, 269\" forbidden word",
+        "\"010\" \"cyclic\" \"superstring\" avoid"
+      ]
+    },
+    "rationale": "The closest inspected primary full text, Moreno–Matamala arXiv:0711.1695, uses periodic admissibility and lexicographic minimality, not all linearly admissible length-k windows and unrestricted shortest covering cycles. The prior complete cover laws for forbidden 111 and 110 do not cover the palindrome orbit 010 under reversal/complement, and do not imply its rational overhead law or forced forbidden-window theorem. Targeted published-result and numerical searches found no equivalent. Novelty remains conditional on indexed and inspected literature; an unindexed equivalent is possible.",
+    "residual_risks": [
+      "Equivalent mincost coverage might be hidden in other combinatorics-on-words or genome-assembly literature not indexed by the searches.",
+      "Full texts for the Burstein–Kitaev and Chen–Kitaev–Sun items were not inspected.",
+      "Independent expert/literature audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the paper optimizes lexicographic Eulerian ordering for periodically admissible required words, whereas the present objective minimizes repetitions for all linearly admissible windows.",
+        "evidence": [
+          "2007-11-12 arXiv version, §2.1 lines defining W_F(n) through periodic repetition.",
+          "Theorem 3 and Theorem 10 characterize the lexicographic minimum walk, not length of a repetition-allowing cover."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Nine-page accessible primary PDF: abstract, definitions §2.1, Theorem 1, §3 proofs/statements, §4 remarks and bibliography; read extracted page text with page-image inspection of pages 1 and 3.",
+        "method": "ArXiv public PDF text and page image inspection.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Direct source on forbidden-factor de Bruijn construction, potentially implying a shortest cover."
+      },
+      {
+        "assessment": "Abstract does not establish the present optimizer; cannot exclude specialized material without full text.",
+        "evidence": [
+          "Publisher abstract describes unavoidable pattern sets, overlap graphs and existence of universal cycles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895480104445678",
+        "material_read": "Title, abstract, MSC list; complete full text not obtained.",
+        "method": "Publisher abstract search result.",
+        "title": "On Unavoidable Sets of Word Patterns",
+        "trigger": "A related overlap-graph and universal-cycle work."
+      },
+      {
+        "assessment": "Its abstract describes probability of existence and exact enumeration, not this 010 shortest-cover optimization. Residual inspection risk is explicit.",
+        "evidence": [
+          "2020 title and abstract explicitly describe universal cycles, not the min-length objective."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math8050778",
+        "material_read": "2020 publication metadata and abstract; full text unavailable through the attempted web page and PDF path.",
+        "method": "Publisher abstract/index and unsuccessful public PDF retrieval.",
+        "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+        "trigger": "Potential general coverage via universal-cycle enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "163eec17-2e5c-45f6-993f-e40ceddc1243",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This completes the third symmetry orbit of binary forbidden-triple languages for the natural shortest cyclic covering problem: the palindrome orbit {010,101}. The exact all-length rational overhead law and computable optimum construction determine a nontrivial coverage invariant, and the forced use of the forbidden factor contrasts structurally with the previously studied no-triple-one case. The natural invariant has direct meaning as the minimal periodic window-test length. The result is not an arbitrary finite slice or a routine numerical extension.",
+    "status": "PASS"
+  }
+}
