@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian conditional unbiasedness, residual-spectrum rank-one decomposition, exact spherical fourth-moment calculation, a Gaussian small-coordinate change of variables with a chi-integrable dominator, and an O(epsilon^2) absolute covariance bound establish all quantifiers and constants. Explicit n=2 boundary is identically exact for normalized projection. The package checker recomputes conditional quadratures, tails and direct algorithm samples, but analytic steps prove the continuum limits. The formulas were checked against the actual packaged source paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2301.07825 Theorem 1 and Propositions 2--3: general error bounds and exchangeable covariance, not this sharp m=4 spiked singular law.",
+        "arxiv:2512.02316 Section 1.1: explicitly different algorithms (random rotations, full Krylov subspaces).",
+        "arxiv:2411.15454 Equation (1): ordinary Gaussian quadratic-form estimator, not XTrace."
+      ],
+      "reasoning": "A general conditional Gaussian quadratic-form variance identity applies to each basic estimator but does not evaluate the near-singular random projector distribution or covariance coupling; a general projected residual inequality does not prove the stated leading constant or normalized-to-ordinary ratio. No located broader theorem covers both versions and their rare-event coefficient.",
+      "searches": [
+        "stochastic trace estimation independent versus shared sketches family matrices covariance",
+        "Hutchinson estimator sharp variance antithetic orthogonal Gaussian two probes",
+        "XTrace normalized test vectors residual dimension variance nearly rank one",
+        "2023 randomized low rank approximation leverage score sketch rare event exact tail"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.07825",
+      "arxiv:2512.02316",
+      "arxiv:2411.15454",
+      "arxiv:2010.09649 (abstract only)",
+      "DOI:10.1137/23M1548323"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2301.07825 Theorem 1 refined XTrace spectral bound has r<=m/2-4, hence yields no nonzero-rank refinement for m=4.",
+        "arxiv:2512.02316 results apply to alternative rotation-averaged and Krylov-enlarged estimators.",
+        "arxiv:2411.15454 studies a different statistic.",
+        "Related Nyström residual singular-moment laws govern residual operator errors, not the two residual-corrected leave-one-out trace variances or normalization."
+      ],
+      "reasoning": "Checked direct logical implication rather than matching titles: conditional moments and spectral residual laws can serve as ingredients, but none of the identified cited statements determines the epsilon-linear variance for two coupled XTrace estimators, the (n-2)/(n+1) normalization factor, and the rare-sketch probability. Related singular residual results are not treated as fresh merely because the words differ; the unproved cross-covariance step and the normalized spherical moment distinguish the actual conclusion.",
+      "searches": [
+        "arxiv:2301.07825 Section 5.5 variance bound XTrace m/2-4",
+        "arxiv:2512.02316 Section 3 XTrace covariance rotation",
+        "arxiv:2411.15454 Gaussian trace estimator equation 1",
+        "2023 Gaussian Nyström residual half moment small eigenvalue"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Epperly--Tropp--Webber arxiv:2301.07825 Sections 2.3 and 5.1 and Hallman arxiv:2512.02316 Algorithm 1.1 give exact algorithm equivalence.",
+        "The exact expressions for residual conditional variances are compared against the source formulas; the source does not express the fixed-dimension singular limit."
+      ],
+      "reasoning": "Compared the original (unnormalized) and source-prescribed normalized residual estimators, Gaussian angular/radial forms, leave-one-out/U-statistic symmetrization and projected-residual formulas. Neither source variance bound nor its error-proxy covariance identity supplies the epsilon singular coefficient, which requires integration over vanishing-probability nearly orthogonal probe directions.",
+      "searches": [
+        "XTrace Epperly Tropp Webber 2023 normalized Gaussian trace estimation",
+        "normalized leave one out variance XTrace finite rank one isotropic tail",
+        "XTrace variance rank one perturbation spectrum epsilon Gaussian ill conditioned exact leading constant",
+        "XTrace normalized probe versus unnormalized sharp variance ratio spiked diagonal matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary XTrace figures and normalized test-vector experiment in arxiv:2301.07825 Section 4.2 compare empirical accuracy on broad spectral classes; no exact n-dependent table there.",
+        "Hallman arxiv:2512.02316 Section 5 reports normalized XTraceFull experiments, not these coefficients."
+      ],
+      "reasoning": "Neither identified source reports exact gamma-function leading variance constants or the dimension-indexed ratio, and the result is an asymptotic probability theorem rather than a database lookup. This is a bounded inspection, not a universal claim about inaccessible databases.",
+      "searches": [
+        "XTrace normalized probe versus unnormalized sharp variance ratio spiked diagonal matrix",
+        "XTrace variance rank one perturbation spectrum epsilon Gaussian ill conditioned exact leading constant",
+        "Gaussian trace estimation normalized and unnormalized residual small eigenvalue"
+      ]
+    },
+    "rationale": "Full named-algorithm primary text and later full-text XTrace variants were read for same objects and implication scope. They establish estimator definitions, qualitative normalization, general bounds or alternative estimators, not the sharp two-probe low-rank singular variance and dimension ratio. A later Gaussian trace extremality paper concerns an unprojected estimator. Targeted published-record and conventional searches found no stronger covering result. Related own mathematical claims concern Nyström error or other Gaussian sketches and do not imply both XTrace variances. This is a qualified best-knowledge originality assessment, not a claim that a search partition proves uniqueness.",
+    "residual_risks": [
+      "An older equivalent Gaussian-projection singular-variance calculation could exist under alternate terminology.",
+      "The matched m=4 asymptotic is for one-spike isotropic tails; other spectral families may exhibit different rates.",
+      "The related generic covariance identity and classical chi integrals are prior tools, not new independent components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines algorithm and qualitative normalization; no sharp epsilon-linear coefficient and no flat-tail n-dependent ratio in inspected results. The refined global rank-specific bound does not cover m=4.",
+        "evidence": [
+          "arxiv:2301.07825, equations (4)--(6), Section 2.3, Proposition 2, Proposition 3, Section 5.5."
+        ],
+        "identifier_or_url": "arxiv:2301.07825; https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Full-text HTML navigated; materially read sections 1.2.1, 2.3, 3.1, 5.1, 5.5 and 5.6, including claims and equations.",
+        "method": "Read full-text HTML and compare estimator definitions, variances, covariance bounds and normalized probe formula.",
+        "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+        "trigger": "Same named algorithm and both compared Gaussian probe-normalization variants."
+      },
+      {
+        "assessment": "Studies rotational symmetrization and Krylov-enriched XTraceFull, not four-matvec original versus normalized XTrace near-rank-one variance limits.",
+        "evidence": [
+          "arxiv:2512.02316, Section 1.1 contributions, Algorithms 1.1--1.2, Sections 3--5."
+        ],
+        "identifier_or_url": "arxiv:2512.02316; https://www.researchgate.net/publication/398269562_Two_Variations_on_the_XTrace_Algorithm",
+        "material_read": "Public full-text reproduction including introduction, algorithms 1.1--1.2, sections 3--5 and experimental spectrum descriptions.",
+        "method": "Read available lawful HTML full-text reproduction and compare exact objects and conclusions.",
+        "title": "Two Variations on the XTrace Algorithm",
+        "trigger": "Closest later full-length work on XTrace and normalized probes."
+      },
+      {
+        "assessment": "Addresses Gaussian quadratic-form trace averages and tail extremality, not XTrace projection/normalization.",
+        "evidence": [
+          "arxiv:2411.15454, equation (1), Sections 1.1--1.4."
+        ],
+        "identifier_or_url": "arxiv:2411.15454; https://ar5iv.labs.arxiv.org/html/2411.15454",
+        "material_read": "Open HTML Sections 1--2, estimator definition and extremal matrix families.",
+        "method": "Compared its unprojected quadratic-form statistic with data-dependent leave-one-out residual forms.",
+        "title": "Extremal bounds for Gaussian trace estimation",
+        "trigger": "Plausible broader Gaussian trace estimator spectrum extremality."
+      },
+      {
+        "assessment": "Background only; not treated as whole-document noncoverage evidence.",
+        "evidence": [
+          "arxiv:2010.09649, abstract."
+        ],
+        "identifier_or_url": "arxiv:2010.09649",
+        "material_read": "Public abstract and bibliographic context; full text not used for an exclusion.",
+        "method": "Compared stated estimator family and purpose, without asserting any absent full-text theorem.",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Foundational randomized low-rank trace variance reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f2d794d-a00f-4f29-80b1-27c5d2cb586f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two versions of the same established estimator differ by a precise dimension-dependent variance factor in a naturally nearly low-rank spectral regime. The exact epsilon-linear rate contradicts a tempting typical-residual epsilon-squared heuristic, quantifies rare-sketch risk, gives a dimension-two exact boundary, and provides a checkable tuning/interpretation reference for spectral trace estimation. It does not assert a new algorithm, implementation speedup, or arbitrary-spectrum superiority.",
+    "status": "PASS"
+  }
+}
