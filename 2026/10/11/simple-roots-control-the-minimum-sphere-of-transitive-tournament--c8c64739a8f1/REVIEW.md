@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proposed center is exactly a positive convex combination of the simple roots with weights \(i(n-i)/S_n\). Its norm and every vertex distance can be evaluated in closed form, and the distance depends only on the tournament gap \(d=j-i\). The outer shell is exactly \(d=1\). A weighted squared-distance identity over the positive contact weights proves that every other center forces at least one contact vertex farther away, giving global minimality and uniqueness rather than only a common-sphere calculation.
+## correctness
 
-## Originality
-PASS. The primary directed-edge full text was inspected at its definition, vertex lemma, dimension theorem, and face theory, with direct searches for circumradius, radius, Euclidean, and minimum-enclosing terminology. A same-object type-\(A\) positive-root paper was inspected at its root-polytope and triangulation program. Neither contains the claimed Euclidean sphere theorem. Candidate-specific published-result and literature searches covered directed-edge, transitive-tournament, positive-root, circumcenter, Chebyshev-center, and smallest-enclosing-sphere formulations. The closest previously checked directed-edge and semi-balanced root-polytope sphere theorems require a unit rank or layer function, which the transitive tournament cannot possess.
+PASS
 
-## Value
-PASS. The transitive tournament is a canonical graph, and its directed edge polytope is a canonical positive type-\(A\) root configuration. The theorem determines the full radial shell spectrum, the exact unique minimum-enclosing center and radius, and the complete contact set in every dimension. The sparse contact mechanism is structurally informative: the simple-root Hamilton path alone supports the sphere even though the polytope contains every transitive shortcut root.
+For all n≥3 and the standard Euclidean edge-root realization, S=n(n²−1)/6 and c_k=(n+1−2k)/S. Positive weights λ_i=i(n−i)/S sum to 1 and express c as the barycenter of simple roots e_i−e_{i+1}. Then ||c||²=2/S and every vertex e_i−e_j, gap d=j−i, has exact squared distance 2−(4d−2)/S, so only gap-one vertices touch at R²=2−2/S. For arbitrary y, Σ λ_i||α_i−y||²=R²+||y−c||² gives a global strict lower bound outside c and uniqueness. I independently checked rational identities for n=3..100 from the source definitions, corroborating the universal identity proved algebraically.
 
-## Closest literature and limitations
-The closest papers provide face structure, root-cone triangulations, and Kostant-chamber combinatorics. The result is specific to the standard transitive-tournament incidence realization and does not determine minimum spheres for arbitrary tournaments or acyclic quivers. A broader ordered-root metric theorem remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The principal Numata–Takahashi–Tamaki result establishes the directed edge-polytope vertex configuration and facet theory, not the unique Euclidean minimum enclosing sphere. The positive-root chamber paper studies the same roots but combinatorial arrangements. Related semi-balanced sphere formulas require a unit rank increment on all arrows and cannot cover shortcut arcs in a transitive tournament (1→2→3 together with 1→3).
+
+## value
+
+PASS
+
+A natural full type-A positive-root polytope has a surprisingly sparse exact Euclidean contact set, strictly stratified by interval length. The all-n contact classification and minimality witness are geometrically informative, not a routine numerical radius evaluation of a tiny special instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
