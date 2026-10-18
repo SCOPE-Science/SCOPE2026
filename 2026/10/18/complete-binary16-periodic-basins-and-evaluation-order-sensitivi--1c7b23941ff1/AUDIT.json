@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Integer-scaled exact dyadic encoding enumerates all 32,769 binary16 numerical states, integer-distance ties-even rounding gives all 65,538 successors, and complete indegree-peeling plus direct entry-depth checks exhausts cycles, full basins and exact weighted means. An independently implemented standard-library binary16 conversion oracle agrees on every input and both protocols. Real continuous-map zero mean follows separately from the ergodic logistic conjugacy, not the finite census.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 paper studies finite-precision logistic behavior with fixed-point representations and different arithmetic schemes.",
+        "The 2023 low-precision periodic-orbit study covers chaotic maps under reduced precision but does not state this complete binary16 2-x² graph and both specified protocols."
+      ],
+      "reasoning": "Broader discussions of quantization and eventually periodic finite arithmetic do not numerically imply the exact cycle lengths, full basins, rational biases or protocol discrepancy for this specific alphabet.",
+      "searches": [
+        "exact finite state attractor cycles IEEE half precision Chebyshev polynomial x↦2−x² with fused and separated rounding",
+        "digital Chebyshev chaotic map finite IEEE754 half floating point cycle 94 6 5 mean bias",
+        "doi:10.1155/2017/8692046",
+        "doi:10.1038/s41598-023-37004-4"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1049/ell2.12529",
+      "https://doi.org/10.1155/2017/8692046",
+      "https://doi.org/10.1038/s41598-023-37004-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu et al. establish the quadratic map and analogue chaos regime without the binary16 census.",
+        "Sayed et al. examine numerical-logistic precision under other arithmetic assumptions.",
+        "Klöwer et al. describe low-precision chaotic orbit effects rather than these exact transition-table values."
+      ],
+      "reasoning": "These source statements do not entail the present exhaustive half-precision table. Finite-state eventual periodicity alone cannot establish exact six versus five cycles, the 94 versus 44 distinction, and the basin-weighted rational means.",
+      "searches": [
+        "doi:10.1049/ell2.12529",
+        "doi:10.1155/2017/8692046",
+        "doi:10.1038/s41598-023-37004-4",
+        "IEEE 754 binary16 round to nearest Chebyshev map 2 minus x squared attractor cycles basins exact graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The real affine coordinate change u=(x+2)/4 transforms f(x)=2-x² into u↦4u(1-u), but binary16 rounding does not commute with the change of variables.",
+        "A previous discrete logistic half-precision census treats only 15,361 values in [0,1] and has different operation ordering and cycle spectrum."
+      ],
+      "reasoning": "Real conjugacy is not a discrete functional-graph conjugacy because h need not preserve the half-precision alphabet, and rounding does not intertwine the maps. The source and accessible predecessor do not imply the new full-interval exact Chebyshev census.",
+      "searches": [
+        "floating point real affine conjugacy Chebyshev logistic no finite arithmetic conjugacy cycle spectrum",
+        "Chebyshev map 2 - x^2 IEEE 754 half precision cycles finite precision orbit lengths",
+        "doi:10.1049/ell2.12529"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible mathematical record searches did not identify a table with the exact cycle identifiers, basin sizes and means for the stipulated 32,769-state space.",
+        "The nearest accessible binary16 predecessor table is for the logistic polynomial on [0,1], not for the quadratic f on [-2,2]."
+      ],
+      "reasoning": "The source and retrieved mathematical-record matches do not supply the complete numerical finite-state table. Search incompleteness remains a possible priority risk.",
+      "searches": [
+        "round evaluation order of logistic-like quadratic map 2-x^2 32769 94 44 period",
+        "Float16 logistic map complete finite state basin graph 15361",
+        "quadratic Chebyshev map binary16 finite precision attractor periodic 94 44"
+      ]
+    },
+    "rationale": "The inspected complete originating Wu–Fu–He–Wang article supplies the quadratic family and analogue implementation but not an exact half-precision census; related finite-precision logistic and low-precision chaos papers do not imply the two different quadratic rounding graphs, exact basins and rational means. Own accessible finite-format logistic record concerns a different discretization; no covering published search hit was found, with explicit unindexed-priority risk.",
+    "residual_risks": [
+      "Equivalent numerical table in unindexed publications or software repositories cannot be ruled out.",
+      "The retrieved finite-precision literature includes related logistic discretizations, but none of those inspected protocols is logically equivalent to the finite-round Chebyshev iteration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes map and chaotic regime; not covering the new two-protocol finite-state classification",
+        "evidence": [
+          "Equation (2): x_(n+1)=b-a*x_n²; text reports a=1,b=2 and circuit; no half-precision full-graph or rational basin results."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/ell2.12529",
+        "material_read": "Complete accessible primary article, including system model, numerical figures, analogue-circuit implementation and conclusion",
+        "method": "Compare model equations and claims in each substantive section with complete binary16 graph, operation-order dependence and invariant means",
+        "title": "Analogue circuit implementation of a new logistic-like map",
+        "trigger": "Identical motivating dynamical map and a=1,b=2 parameters"
+      },
+      {
+        "assessment": "Different fixed-point/computational scheme; no exhaustive binary16 quadratic Chebyshev census",
+        "evidence": [
+          "Related general finite-precision logistic phenomenon; no table with 32,769-state cycles and exact rational long-run means."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2017/8692046",
+        "material_read": "Accessible full manuscript on finite-precision logistic arithmetic, computation, accuracy and cycles",
+        "method": "Compare arithmetic representation and number ranges with exact IEEE binary16 square-first versus final-round graph",
+        "title": "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications",
+        "trigger": "Potentially dominating finite-precision map analysis"
+      },
+      {
+        "assessment": "Conceptually close but does not entail exact binary16 f(x)=2-x² F/G transition or basin census",
+        "evidence": [
+          "Studies low-precision orbit periodicity and stochastic rounding, not the two exhaustive quadratic half-precision protocols specified here."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+        "material_read": "Accessible full paper, including studied logistic and generalized Bernoulli examples and low-precision simulations",
+        "method": "Compare maps, rounding modes, periodic-orbit statements and scope of finite-state enumeration",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Direct low-precision periodic-orbit study with same conceptual numerical phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c7b2394-1ff1-48a2-8826-7a51cdcb32a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural 16-bit numerical implementation of an explicitly published chaotic quadratic map has a complete computable periodic-orbit basin invariant. The nontrivial census demonstrates that rounding location radically changes the global attractor lengths (94 versus 44) and basin-weighted means despite identical continuum dynamics, resolving a physically motivated precision/reproducibility concern rather than a contrived finite-state exercise.",
+    "status": "PASS"
+  }
+}
