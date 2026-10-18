@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Running `python3 verify.py` with a Python 3 interpreter requires no external packages. The completed check reports `VERIFY_OK` and prints both generalized-weight arrays and both minimizer-count arrays.
+## correctness
 
-It enumerates all distinct subspaces of the seven-dimensional message space using their unique reduced-row-echelon bases. For each normal type, it computes *two* full distributions at every dimension: the support cardinality of the span of generator-message rows, and the number of generator columns lying in each orthogonal complement. The two full distributions agree, not only their minima. The total numbers of subspaces in dimensions zero through seven are `1, 127, 2667, 11811, 11811, 2667, 127, 1`.
+PASS
 
-The code uses the exact binary field, all 63 nonzero evaluation points, and all 32 affine-hyperplane duplicates. The two chosen normals are `1` and `9` in the bit-label convention specified in the proof. The class reduction for arbitrary nonzero normal and arbitrary two complementary three-subspaces is a mathematical basis-change argument, not an extrapolation from random tests.
+The generator columns are (f(x),x) for x≠0 together with 32 duplicates from a·x=1. The dimension-seven message map is injective: restriction to mixed E1/E2 positions forces v=0, then f forces u=0. For every r, orthogonal annihilator W of dimension 7−r retains exactly the zero generator columns, so d_r=95−max_W multiplicity(W); each RREF subspace is unique. A fresh independent Python RREF census of all 29,211 nonzero subspaces for each of inside a=1 and outside a=9 reproduced all fourteen claimed d_r and multiplicities, including inside M2=7, M3=126. The orbit action of GL(3,2)×GL(3,2) and factor exchange is transitive on both normal types; this covers every stated code.
 
-Limits: This is an exhaustive finite proof for the stated 95-coordinate cases. It does not decide general larger-dimensional formulas, nor does it amount to an independent audit.
+## originality
+
+PASS
+
+The published October 4 Resultary full census already covers every OUTSIDE-normal number (and more), so those values receive no originality credit. However it excludes inside normals, and the new exact (18,54,74,84,90,93,95) and (1,7,126,168,280,32,1) inside hierarchy/multiplicities plus qualitative contrast are not implied by the inspected published statements. The claim as a joint two-normal-type classification contains a genuine uncovered mathematical component.
+
+## value
+
+PASS
+
+The paper’s first natural finite [95,7] benchmark is a code-theoretically motivated complete normal-type comparison. Higher-support minimizer multiplicities are not recoverable from ordinary codeword weight enumerators; the inside values fill a real missing stratum, and contrast with the independently published outside census is informative for subcode-support geometry. No generalization beyond this finite class is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

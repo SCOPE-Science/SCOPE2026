@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof fixes the finite field, both three-spaces, coordinate repetitions, and normalization of subcode counts. Orthogonal complements turn a dimension-\(r\) support minimization into a dimension-\((7-r)\) weighted-column maximization. Each subspace has one reduced-row-echelon basis; the exhaustive enumerator covers all Gaussian-binomial totals \((1,127,2667,11811,11811,2667,127,1)\), and an independent direct-support calculation matches the complete histograms. The displayed seven pairs of generalized weights and counts are therefore exact for the stated finite family. Both first weights also agree with the cited construction's published word enumerators.
+PASS
 
-## Originality — PASS, residual risk disclosed
+The generator columns are (f(x),x) for x≠0 together with 32 duplicates from a·x=1. The dimension-seven message map is injective: restriction to mixed E1/E2 positions forces v=0, then f forces u=0. For every r, orthogonal annihilator W of dimension 7−r retains exactly the zero generator columns, so d_r=95−max_W multiplicity(W); each RREF subspace is unique. A fresh independent Python RREF census of all 29,211 nonzero subspaces for each of inside a=1 and outside a=9 reproduced all fourteen claimed d_r and multiplicities, including inside M2=7, M3=126. The orbit action of GL(3,2)×GL(3,2) and factor exchange is transitive on both normal types; this covers every stated code.
 
-The directly relevant September 2026 source provides the generator construction, minimum distances, and complete **ordinary** weight enumerators, but the inspected publisher sections do not state minimum supports of higher-dimensional subcodes or their multiplicities. The earlier partial-spread paper covers the unextended parent and ordinary word weights. General code-matroid formulas define or constrain higher weights but do not evaluate these two length-\(95\) instances. Searches of relevant published research records and exact-parameter phrases returned no matching hierarchy. Direct full-article retrieval was rate-limited, so an unnoticed equivalent calculation in uninspected text or older unindexed work remains a genuine risk; the search results alone are not treated as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural first finite affine-half benchmark, explicitly singled out in the recent construction and relevant to multiword erasure recovery and information leakage, for which minimum distance and word-weight enumerators are insufficient. The result completes *both* normal-orbit types and counts the actual minimizers. The comparison shows a nonobvious phenomenon: distinct first and second generalized weights but coincident weights from dimension \(3\) onward, while extremizer counts still differ at four of the higher ranks. No general family-wide formula is claimed.
+The published October 4 Resultary full census already covers every OUTSIDE-normal number (and more), so those values receive no originality credit. However it excludes inside normals, and the new exact (18,54,74,84,90,93,95) and (1,7,126,168,280,32,1) inside hierarchy/multiplicities plus qualitative contrast are not implied by the inspected published statements. The claim as a joint two-normal-type classification contains a genuine uncovered mathematical component.
 
-## Closest literature and limits
+## value
 
-Chung–Jin–Kim, DOI 10.3390/math14173152 (2026), Example 1 and Sections 3–5: source construction and word enumerators. Ding–Heng–Zhou, DOI 10.1109/TIT.2018.2819196 (2018): underlying unextended partial-spread code. García-Marco et al., DOI 10.3390/math10122079 (2022): general method for higher weights, not the benchmark's evaluated answers. The numerical theorem covers only dimension \(6\) with two complementary spread members. Independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The paper’s first natural finite [95,7] benchmark is a code-theoretically motivated complete normal-type comparison. Higher-support minimizer multiplicities are not recoverable from ordinary codeword weight enumerators; the inside values fill a real missing stratum, and contrast with the independently published outside census is informative for subcode-support geometry. No generalization beyond this finite class is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
