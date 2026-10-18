@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The finite Markov generator has an explicitly derived closed system of three stationary occupation moments. Exact elimination yields the current formula. Both denominator-positivity decompositions cover all positive rates and boundary-density endpoints; an independent symbolic identity yields the all-drive reversal law with a strictly positive factor. `verify.py` separately constructs and solves the four-state generator in exact rational arithmetic for 1,600 combinations and checks both formulas. These checks supplement the universal proof.
+## correctness
 
-## Originality: PASS with explicitly limited source access
-The closest motivating 2026 boundary-gradient paper addresses general site disorder using approximate Galerkin and nonlinear closures and identifies reflection symmetry as an obstruction; the narrowly evaluated two-site theorem gives an exact rational stationary current and an if-and-only-if global sign theorem, which are not entailed by an approximate generic existence result or a necessary symmetry condition. The earlier 2025/2026 Sakai–Akimoto bulk-field paper concerns a distinct bias-reversal operation. published-finding corpus and public-source searches did not return an equivalent exact two-site sign theorem, but failed search is not proof of priority. Direct primary full-text access was unavailable, so an unindexed or implicit specialization remains the principal risk.
+PASS
 
-## Value: PASS
-The two-site chain is the minimal nontrivial channel where exclusion, two heterogeneous waiting times, and independently driven reservoirs interact. The exact sign theorem resolves a natural small-system boundary of a recent approximation-led rectification analysis for every reservoir gradient: breaking reflection symmetry is sufficient here, and the direction of the asymmetry is parameter-rigid. Unlike a numerical example, the result classifies the entire positive rate parameter space and distinguishes exact effects from approximation artifacts. It does not claim a longer-chain theorem.
+The four-state generator yields stationary first and second occupation-moment balances. Eliminating them gives J=abκ(u−v)(L+R)/D for positive rates and endpoint u,v in [0,1]. Both parameter-order-specific decompositions of D into positive terms were symbolically verified. The exact identity S D(v,u)−S(v,u) D(u,v)=κ(a−b)(u−v) P with strictly positive P proves the current reversal law and its sign independently of bias magnitude. Fresh independent exact four-state stationary solutions agree for 72 rational parameter tuples and independent symbolic factorization gives identically zero residual. Chain is unambiguously specified, though this is not literally the two-boundary case of the motivating paper's boundary-undisordered model.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sakai–Akimoto (2026) treats boundary-driven site-disordered SEP with identical nonrandom departure times at its two reservoir boundaries and disorder only in the interior; its model PDF page 2 explicitly sets τ1=τL=τs, so at exactly L=2 its framework does not include the asymmetric (a,b) boundary disorder considered here. Its Galerkin/mean-field treatment and necessary reflection criterion do not imply the present precisely specified boundary-rate variant's exact sign. The separate 2025/2026 source reverses a bulk applied field, a different operation. A hidden general finite-chain Markov formula might still imply this, and the model distinction limits direct relevance, so O is best-of-knowledge with explicit qualification.
+
+## value
+
+PASS
+
+An exact nonperturbative current/reversal sign for the smallest interacting site-heterogeneous open exclusion channel isolates a meaningful boundary of rectification theory: for every positive rate triple and every unequal density pair, heterogeneity a−b is necessary and sufficient and alone fixes the sign. Unlike perturbative approximations or one sample, the factorization classifies a continuous parameter domain. The motivation is a minimal *variant* of site-disordered exclusion, not a direct restriction of the motivating paper's boundary convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
