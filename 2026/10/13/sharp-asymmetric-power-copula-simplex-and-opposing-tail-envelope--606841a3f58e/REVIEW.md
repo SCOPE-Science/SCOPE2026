@@ -1,19 +1,21 @@
-# Scientific assessment — Sharp asymmetric power-copula simplex and opposing-tail envelope
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mixed density is reconstructed from the stated log-power expression. The nonnegative lower bound shows sufficiency throughout \(0<s\le1\), \(a,b\ge0\), \(s(a+b)\le1\), while the sign \(c(1,1)=1-s(a+b)\) proves necessity. All endpoint margins and continuity have been checked. Opposite-tail limits, the exact curved attainable region, and the cubic upper-right boundary law follow from direct limits and Taylor expansion. The accompanying code independently checks representative cases at high precision, but finite testing is not the infinite proof.
+PASS
 
-## Originality — PASS
+For C=u^(1+a(v^-s-1))*v^(1+b(u^-s-1)) on 0<u,v<1, the logarithmic mixed derivative yields c=C/(uv)(PQ-s(a v^-s+b u^-s)). The product PQ is bounded below by [1+a(v^-s-1)][1+b(u^-s-1)] and hence c>=0 on s(a+b)<=1; strict interior positivity includes endpoints by positive log terms or independence. Near (1,1) c tends to 1-s(a+b); a negative limit invalidates the copula. Boundaries have uniform margins and continuous zero axes. Opposite conditional tails are 1-e^-b and 1-e^-a for s=1, zero for s<1; inversion gives (1-x)(1-y)>=e^-1. Diagonal depends only on r=a+b and upper-right joint exceedance is (1-sr)t²+O(t³), or (1-s/2)t³+O(t⁴) at sr=1. Finite density/limit tests independently checked and do not replace proof.
 
-Papadopoulos's full preprint and journal publication cover the symmetric Stingray and give its two equal opposite-tail coefficients; the one-sided candidate is left open. Chesneau's full 2023 PVP2 paper covers an equal-weight symmetric line and a tied-coefficient asymmetric transformation; its 2023 IP copula covers a single-direction face. Neither implies the general common-exponent, independently weighted \((a,b)\) simplex, its sharp two-tail envelope, or the diagonal-identical/directional-tail-different phenomenon. Searches for cross-power synonyms and existing published records returned no stronger overlapping item. The priority conclusion is conditional on the material actually accessible, not a claim of exhaustive world-wide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Directional upper-left and lower-right extremes represent different conditional risks; the strict feasible tradeoff gives a calibration and feasibility criterion that ordinary symmetric diagnostics cannot provide. Even the entire diagonal \(C(t,t)\) remains blind to rearrangements of \(a,b\), whereas the two opposing-tail coefficients identify those weights at \(s=1\). The result therefore supplies a motivated exact boundary for an explicitly proposed asymmetric construction, not a cosmetic additional parameter.
+Chesneau 2023 VP2 establishes the symmetric slice a=b up to 1/2 and another Khoudraji asymmetric deformation with powers tied to transformed arguments. The Stingray preprint gives a symmetric reciprocal construction and proposes a one-sided candidate. The audited theorem treats independently weighted common-power exponents with sharp simplex and exact two-tail region; those results are not established by the inspected earlier statements. Full text of the most plausible 2024 paper could not be obtained, so this is qualified best-of-knowledge originality.
 
-## Closest literature and limits
+## value
 
-The closest primary sources are the symmetric Stingray (Papadopoulos, posted 19 December 2025), the 2023 symmetric/partly asymmetric VP2 and PVP2 constructions (Chesneau), and the 2023 one-directional IP copula (Chesneau). The 2024 Bull CompAMa paper was accessible only by publisher abstract and remains a priority risk. No claim is made for signed weights, different exponents in the two directions, empirical estimation properties, or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp full-support admissibility for the natural independently weighted reciprocal-power copula, an attainable two-dimensional opposite-tail tradeoff, and the fact that the diagonal hides allocation of the two weights solve meaningful dependence-model parameter and identifiability questions. This is not a gratuitous slice or a numerical experiment; theorem handles the entire stipulated parameter region, with a boundary order change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
