@@ -1,12 +1,21 @@
-# Review of zero-crossing and squared-sum covariance
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge2\), every \(-1<\rho<1\), and every stationary centered Gaussian AR(1) sample of positive variance, Gaussian exponential tilting yields the exact local crossing/quadratic covariance in equation (1) of RESULT.md. Applying it to the global sum gives the independently checked finite-sum expression (2). Evaluating geometric series yields the closed rational-power formula. Taylor/binomial expansions at negative unit root, with explicit even/odd parity, yield the claimed \(n^{-2}\) and \(n^{-1/2}\) boundary limits. Fixed choices \(c=6,20\) and \(c=1\) give the three strict signs for large even \(n\) without assumptions on unproved root uniqueness. The package's `verify.py` produced `PASS 413 exact and boundary checks`, including exact rational finite sums and endpoint Taylor coefficients; finite experiments are not the source of universal proof. Limits are for fixed positive \(c\); no assertion is made at exactly critical values.
+## correctness
 
-## Originality — PASS, with explicit historical risks
-The closest original literature includes Kratz, *Level crossings and other level functionals of stationary Gaussian processes* (2006, arXiv:math/0612577), whose crossing-moment and Wiener-chaos survey sections were inspected in PDF; and Sinn–Keller, *Covariances of zero crossings in Gaussian processes* (2010/2011, DOI:10.1137/S0040585X97984991), for which publication metadata and abstract, not full text, were available. Those works cover Gaussian crossing statistics, but their identified statements concern crossing moments or crossing–crossing covariance, not the present mixed covariance with a squared global sum or the parity-dependent two-layer phenomenon. Gaussian quadratic identities and geometric sums themselves are standard and are not claimed as novel. The closely related earlier diagonal-energy covariance does not imply the off-diagonal \(S_n^2\) result. Residual risk: uninspected material may contain a general chaos identity from which the finite formula is derivable, and historical priority cannot be certified from searches.
+PASS
 
-## Value — PASS
-The discrete crossing count quantifies oscillation and the squared total sum quantifies a global low-frequency statistic of the same Gaussian path. Their mixed covariance is an interpretable dependence observable, distinct from classical marginal crossing formulas and distinct from covariance with diagonal quadratic energy. The coexistence of negative and positive regimes, two separated parameter scales, and a parity dichotomy describes a real structural boundary near the alternating unit-root limit, rather than an arbitrary parameter slice. The result makes no broader uniqueness or inference claims.
+For U=X_i/sigma,V=X_(i+1)/sigma and L=S_n/sigma, the Gaussian exponential-tilt identity gives Cov(1_{UV<0},L^2)=[rho(a^2+b^2)-2ab]/(pi sqrt(1-rho^2)), with a,b the covariance row sums. Summing yields F_n=Sum_{i=1}^{n-1}[rho(b_i^2+b_(i+1)^2)-2b_i b_(i+1)] and the exact closed polynomial-rational expression using t=rho^n. Independent rational arithmetic matched the two expressions for n=2..15 and five rho values. Uniform regimes are stated for FIXED c>0: rho=-1+c/sqrt(n) gives 1/2-c^2; even n at -1+c/n^2 gives n^3 F -> c^2(c-12)/6; odd n gives n F ->2c. The even c=5,c=20 small layer and c=1 square-root layer prove negative-positive-negative and at least two distinct roots for large even n. No exact number of zeros or critical c behavior claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary Kratz survey covers general Gaussian level-crossing moment theory and chaos expansions, while Sinn–Keller focuses on covariances among zero-crossing indicators or counts at lags. Neither accessible statement directly provides this mixed Cov(sign-crossing count, square of the GLOBAL sum) or the separate n^{-1/2} and n^{-2} negative-unit-root boundary layers with parity and two sign reversals. Full Sinn–Keller text was inaccessible, so this is best-of-knowledge with genuine priority risk, not a whole-text NOT_COVERING conclusion.
+
+## value
+
+PASS
+
+The covariance between sign changes and a global quadratic statistic is a natural dependence diagnostic for finite Gaussian time series near a negative unit root. Its endpoint behavior is qualitatively nonuniform: odd/even parity and two n-dependent scales give nonmonotonic sign changes and at least two roots in the even case. These exact structural boundary facts go beyond a routine closed covariance formula or arbitrary finite parameter scan and could inform asymptotic statistical analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
