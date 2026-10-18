@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For \\(L_i=\\left(\\begin{smallmatrix}0&b\\\\s_i&a_i\\end{smallmatrix}\\right)\\), all rates are positive and \\(0<a_i,s_i<1\\). Direct multiplication yields \\(T_{123}-T_{132}=b\\det\\left(\\begin{smallmatrix}1&a_1&s_1\\\\1&a_2&s_2\\\\1&a_3&s_3\\end{smallmatrix}\\right)\\). Both three-factor products have determinant \\(-b^3s_1s_2s_3\\) and strictly positive entries, so their Perron roots are strictly ordered by their traces. For each cyclic order, the threshold polynomial \\(1-a_1a_2a_3-bC_{\\pi}-b^3\\prod_i s_i\\) has exactly one positive zero, with distinct zeros iff the demographic points are noncollinear. The exact rational example gives traces \\(73/96\\) and \\(35/32\\), common determinant \\(-1/9\\), and unit-characteristic values \\(37/288\\) and \\(-59/288\\). The two-factor order invariance is a characteristic-polynomial identity. Attached independent SymPy algebra and Fraction arithmetic checkers were executed successfully; the latter checked 1,728 additional rational cases, not as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cushing and Ackleh, DOI 10.1080/17513758.2010.544410, online 2011, abstract and indexed article sections: gives reproduction-number theory and explicit period-two Leslie models, not an inspected all-order period-three classification.",
+        "Caswell and Shyu (2012), DOI 10.1016/j.tpb.2012.03.008; accessible full adapted exposition: Caswell (2019), DOI 10.1007/978-3-030-10534-1_8, Sections 8.1–8.6."
+      ],
+      "reasoning": "A generic procedure for calculating periodic product growth is not a theorem determining which of the two three-phase orders grows faster from only the orientation of seasonal juvenile/adult survival rates, nor does it characterize the viability reversal for all noncollinear triples. The general literature is mathematically enabling, but no checked explicit stronger theorem subsumed the claim.",
+      "searches": [
+        "periodic two stage Leslie matrix order seasons matrices 3 period stage structured population growth sequencing",
+        "Caswell Shyu 2012 sensitivity periodic matrix population models PDF",
+        "\"seasonal order\" \"matrix population\" growth rate",
+        "\"periodic\" \"Leslie\" \"ordering\" matrices growth"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1093/biomet/33.3.183",
+      "doi:10.1080/17513758.2010.544410",
+      "doi:10.1016/j.tpb.2012.03.008",
+      "doi:10.1007/978-3-030-10534-1_8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously compared two-patch seasonal mixing family uses matrices of the form \\(D_iP\\) for a common symmetric patch-mixing matrix \\(P\\); its three-phase spectral invariance is model-specific and does not cover \\(L_i=\\left(\\begin{smallmatrix}0&b\\\\s_i&a_i\\end{smallmatrix}\\right)\\), whose relative off-diagonal survival rates vary.",
+        "Cushing–Ackleh, DOI 10.1080/17513758.2010.544410, period-two Leslie model section; general reproduction-number and viability equivalence under periodic products.",
+        "Caswell (2019), DOI 10.1007/978-3-030-10534-1_8, equation (8.2), an ordered periodic product without a phase-permutation sign criterion."
+      ],
+      "reasoning": "The candidate asserts more than sensitivity or Perron viability: it proves an exact iff criterion for the ranking of all six fixed-season permutations, minimality at three seasons, and the existence for every noncollinear triple of an open common-fecundity interval producing opposite growth judgments. None follows as a stated special case of the inspected model-specific prior results without an additional demographic trace and threshold calculation.",
+      "searches": [
+        "sharp three-season reversal period-3 two-stage Leslie Lefkovitch projection fixed adult fecundity varying juvenile and adult survival signed oriented triangle trace determinant persistence growth order",
+        "seasonal demographic sequence three 2x2 Lefkovitch growth threshold crossing reversal two orders extinction and invasion",
+        "A net reproductive number for periodic matrix models Section 4.2 periodic Leslie models"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leslie (1945), DOI 10.1093/biomet/33.3.183, pp. 183, 185, 208–209: changing projection products are discussed, not the inspected exact triangular sign formula.",
+        "Caswell (2019), DOI 10.1007/978-3-030-10534-1_8, Sections 8.1–8.2 and 8.6: general ordered product and sensitivity framework."
+      ],
+      "reasoning": "The universal matrix identity tr(ABC)-tr(ACB)=tr(A[B,C]) does not by itself state the sign classification by demographic oriented area or the positive critical-fecundity interval. The exact claim specializes this identity to the specific stage projection family, including positivity and the growth threshold; no explicit equivalent was found in the checked material.",
+      "searches": [
+        "three period two age Leslie Lefkovitch matrices season order asymptotic growth factor matrix products traces noncommuting commutator fertility survival triangle oriented area",
+        "for positive two-by-two periodic population matrices trace product ABC versus ACB signed area three environmental phases unperturbed fertility",
+        "\"Leslie matrices\" \"permutation\" \"growth\" periodic",
+        "\"periodic matrix population\" \"rearrange\" phases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed 2011 Cushing–Ackleh article gives general reproduction-number expressions and a period-two Leslie discussion, not a tabulation of three-phase orientation transitions.",
+        "The 2019 Caswell chapter examines matrix derivatives and season-specific sensitivity but does not list a complete two-class three-phase geometric table."
+      ],
+      "reasoning": "The result quantifies a continuous parameter domain, not a finite tabulation. Searches for an exact three-season comparison, determinant-area identity, or published classification did not yield a covering database or table. Absence from search is not treated as proof of uniqueness.",
+      "searches": [
+        "\"Leslie\" \"reverse ordering\" \"three\" growth",
+        "\"population projection\" \"signed area\" survival fertility",
+        "\"three-season\" \"survival\" \"reproduction\" \"spectral radius\"",
+        "seasonal demographic sequence three 2x2 Lefkovitch growth threshold crossing reversal two orders extinction and invasion"
+      ]
+    },
+    "rationale": "The checked primary literature provides the Leslie/stage-model framework, general ordered-periodic matrix growth and reproduction-number theory, and sensitivity calculations, but does not supply the specific sharp three-phase orientation classification or the iff interval of fecundities with opposite growth verdicts. The exact statement was compared with a close two-patch symmetrizable seasonal-mixing model and with distinct nonlinear scalar seasonal maps; neither entails the presented orientation law for the displayed stage matrices. Results using different commutator or age-structured terminology remain a residual risk.",
+    "residual_risks": [
+      "An older unindexed matrix-ordering theorem may encode the same specific triangular area criterion and fecundity interval without demographic terminology.",
+      "The complete publisher PDF of Cushing and Ackleh (2011 online) was not accessible; comparison used indexed sections and the accessible 2019 periodic-model chapter.",
+      "The result has a concise derivation from generic 2-by-2 trace, determinant and Perron identities; some components might be viewed as known algebra rather than an independent theorem, although the full demographic viability classification was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational framework, not a covering period-three ordering law in inspected passages",
+        "evidence": [
+          "p. 209 describes M_t ... M_2 M_1 and notes direct matrix-product computation for changing vital rates.",
+          "Biometrika 33(3), November 1945, pp. 183–212, DOI 10.1093/biomet/33.3.183."
+        ],
+        "identifier_or_url": "https://jxshix.people.wm.edu/2009-harbin-course/classic/leslie.pdf",
+        "material_read": "Scanned page images covering the first page, p. 185, pp. 208–209; focus p. 209 statement concerning products of time-changing matrices",
+        "method": "Original PDF page-image inspection and publisher bibliographic verification",
+        "title": "On the Use of Matrices in Certain Population Mathematics",
+        "trigger": "Original age and stage matrix model and possibility of varying vital-rate matrices"
+      },
+      {
+        "assessment": "Article treats periodic reproduction-number thresholds and explicit period-two Leslie formulas; no inspected statement implies the exact period-three oriented-area ordering. Inaccessibility of complete text is an explicit residual risk.",
+        "evidence": [
+          "Full article search record says formulas for scalar models of arbitrary period and periodic Leslie models of period 2.",
+          "Published online 18 February 2011; journal 2012, 6(2), 166–188."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2010.544410",
+        "material_read": "Accessible publisher-indexed full-article excerpts from introduction, theoretical definitions and §4.2; publisher HTML/PDF direct open returned access error, so complete text was not examined",
+        "method": "Targeted open-access and indexed textual searches, DOI bibliographic checks, full-text open attempt",
+        "title": "A net reproductive number for periodic matrix models",
+        "trigger": "Highly relevant periodic reproduction threshold and periodic Leslie family"
+      },
+      {
+        "assessment": "General derivative and composition framework; no exact triple-permutation oriented-area or distinct critical-fecundity theorem located",
+        "evidence": [
+          "Eq. (8.2) defines ordered periodic products; Eqs. (8.9)–(8.11) analyze parameter sensitivities.",
+          "Discussion §8.6 recaps sensitivities; search for permutation-oriented law did not locate it."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-030-10534-1_8",
+        "material_read": "Open HTML chapter, Sections 8.1–8.2 and 8.5–8.6, with illustrative stage-model sections indexed in the chapter",
+        "method": "Full online chapter opened, sections and order/permutation text searched",
+        "title": "Periodic Models",
+        "trigger": "Full accessible treatment of periodic stage-model product and sensitivity, adapted from Caswell–Shyu 2012"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ac607d4-f252-49da-a2c7-b73c1bb3464e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact answer is motivated by seasonal survival scheduling in a standard two-stage population model and a shared fecundity management parameter. It classifies all six season orders, identifies the sharp minimum of three seasons, and gives an if-and-only-if geometric condition for the existence of a nonempty fecundity interval where the same environments yield opposite invasion outcomes. This is an interpretable structural classification, not a cherry-picked numerical detail; the claim does not extrapolate to stochastic or nonlinear real populations.",
+    "status": "PASS"
+  }
+}
