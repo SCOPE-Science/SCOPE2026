@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The proof has four checkable components:
+# Independent mathematical audit
 
-1. Verify the topological annulus construction: select a convergent sequence, nested relatively compact neighborhoods, disjoint \(C_c\) bump functions \(\psi_n\), and a compact-support cutoff \(h\) which is one on all \(\operatorname{supp}\psi_n\). The map \(E(a)=a_\infty h+\sum_n(a_n-a_\infty)\psi_n\) is uniformly convergent because \(a_n\to a_\infty\); its range is in \(C_0(K)\). Evaluation \(R\) satisfies \(RE=I_c\). Norm-one estimates use only convexity of scalar intervals.
-2. Use the isometric identification \(\Phi:\ell_1\to c^*\), identify the columns of \(S=\Phi^{-1}T^*\Phi\), and compute \(\|Se_{n+1}\|_1=1-2^{-(n+2)}\). The supplied `verify_columns.py` checks the rational identity for the first 60 indices, computing the infinite geometric tail exactly rather than truncating it.
-3. If \(S^*\) had a norm-one maximizing vector \(\zeta\), the bound \(\|S^*\zeta\|\le (|\zeta(u)|+1)/2\) would force all its coordinates to be identically \(+1\) or \(-1\), and therefore \(\zeta(b_n)=0\) for all \(n\). This yields \(\|S^*\zeta\|=1/2\), a contradiction. This is an infinite-dimensional analytic argument, not a finite-test inference.
-4. For \(A=ETR\), norm-one preservation follows from \(RE=I_c\). If \(A^{**}\) attained one, its witness would transfer under \(R^{**}\) to an unattainable norm-one witness for \(T^{**}\).
+## correctness
 
-The full September 1, 2026 arXiv source was inspected for the real \(c_0(\Gamma)\) positive case and the \(c\) negative case. The full public mathematical proof of the nearest third-adjoint result was also inspected; its weaker parity-three assertion does not cover this second-adjoint classification.
+PASS
 
-Finite exact arithmetic is supplemental. There is no claim of computer-assisted verification of the theorem for all spaces. The case of spaces without convergent sequences is unproved here.
+For discrete K, C0(K) is isometric to c0(K); Dantas–Jung–Martín Remark 3.5 proves universal second-adjoint norm attainment, with finite-dimensional K elementary. If t_n are distinct converging to p, regular locally compact nested annuli and compactly supported pairwise-disjoint bumps psi_n, plus a cutoff h identically one near p, construct E:c→C0(K), Ea=a_infty h+sum(a_n-a_infty)psi_n and Rf=(f(t_n)). The supports and continuous convergence give ||E||=||R||=1 and RE=I. On c the explicit Dantas-type operator with u=sum 2^-j e_j and b_n=(e_{n+1}-e_{n+2})/2 has adjoint columns Se_1=u/2 and Se_{n+1}=u/2+b_n/2. Exact l1 norms are 1-2^-(n+2), approaching 1, while the bidual is nonattaining: any ζ attaining upper bound must satisfy |ζ(u)|=1, forcing all coordinates the same sign and ζ(b_n)=0, reducing all S* columns below norm one. Transfer A=ETR and RE=I force norm attainment of T** if A** attained, contradiction. First-countability of nondiscrete K produces such sequence. Independent exact rational column checks succeeded n=1..60; the infinite proof uses exact column formula and convexity.
+
+## originality
+
+PASS
+
+The c0 positive theorem and c negative example are acknowledged prior work. The new statement is their precise topological dichotomy for every nonempty first-countable locally compact C0(K), with explicit norm-one convergent-sequence retract and preservation of the second-adjoint obstruction.
+
+## value
+
+PASS
+
+The broad C0(K) function-space class has a natural topological variable; a clean discreteness iff universal operator property is a meaningful characterization. The norm-one transfer identifies the exact topological obstruction and also supplies the more general non-first-countable sufficient obstruction whenever a convergent sequence exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
