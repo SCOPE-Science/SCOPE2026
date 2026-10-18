@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The preimage count for nonzero wedges and two-variable alternating character orthogonality provide the exact rank-two and rank-four Fourier averages for all prime powers, including characteristic two. The Johnson \(J(m,2)\) incidence decomposition and constant/uniform two-dimensional block account for every eigenvalue and multiplicity; coordinate-axis Fourier inversion proves strict positivity. An explicit determinant factorization reduces the lower-eigenvalue crossover to a sign-polynomial with strict, field-dependent thresholds. The packaged checker directly verifies eight complete character Gram matrices and performs 3,642 independent exact-integer sign tests. Finite tests are corroboration rather than a universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The classical alternating-form association scheme supplies general rank-sensitive harmonic information, and the Plücker/Grassmann coding literature supplies decomposability facts. The full-text sections inspected in Ghorpade–Patil–Pillai discuss decomposable subspaces and coding weight distributions, not the coordinate-character Gram eigenvalues or sharp dimension crossover. The symmetric Veronese rank-one cone, rectangular rank-one matrices and Grassmann-incidence projector are different sampling spaces and do not imply the displayed Plücker spectrum through the published claims compared. Searches for Plücker-cone coordinate Fourier Gram spectra, equivalent rank-two alternating-frame statements, and dimension crossover found no exact predecessor; absence from search results is not a proof of priority. Full text of the Delsarte–Goethals 1975 paper was unavailable, so an older equivalent restriction is a real residual risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural stability invariant for the first coordinate-character band on the rank-two alternating cone, not an arbitrary finite numerical slice. It gives exact, sharp conditioning and all equality subspaces uniformly across characteristics. The nonconstant arithmetic crossover \(M_q\) distinguishes even characteristic and small fields and is not simply a label substitution in earlier symmetric-cone results. No downstream recovery theorem is asserted or required for this finite harmonic-analysis classification.
+Every nonzero decomposable bivector has |SL_2(F_q)| ordered independent preimages; dependent pairs contribute (q+1)q^m-q and alternating-form orthogonality supplies exact rank-two and rank-four Fourier averages A/W,B/W. Splitting q-1 colors leaves color contrasts C and Johnson-graph J(m,2) vertex-incidence R and edge-balanced D modes plus the constant/uniform 2x2 block L±. The coordinate axes in the cone ensure character linear independence, including characteristic 2. The sign factor S(q,m) yields strict least-mode crossover M_q=10 for q=2, 4q+3 for q=3,4 and 4q+4 for q>=5; upper mode L+ persists. Independent exact-integer sign checks for q=2,3,4,5,7,8,9,11 reproduced those thresholds, without purporting to prove infinite q,m.
 
-**Scientific limitations.** The result does not characterize all Fourier frequencies or arbitrary frames on Plücker varieties, and no independently audited novelty claim is made. See the theorem and direct computational checks for exact scope.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the specific Plücker-cone coordinate Fourier Gram spectrum and exact field-dependent lower spectral mode crossover, not for classical alternating-rank forms or the Johnson graph decomposition by themselves. Ghorpade–Patil–Pillai treat decomposable subspaces and Grassmann code weights; Delsarte–Goethals 1975 describes a broad alternating-forms association scheme but its full text could not be inspected here. Resultary finds similar Veronese and GL matrix-support spectra on distinct sample sets; neither implies this Plücker cone cutoff merely by graph-spectrum analogy. Residual priority risk for an uninspected specialization remains explicit.
+
+## value
+
+PASS
+
+PASS: the finite-field Plücker cone is a natural determinantal/Grassmannian sampling model. The complete restricted Fourier Gram spectrum, exact equality spaces, and nontrivial arithmetic crossover are concrete stability invariants relevant to restricted harmonic analysis and coding/Grassmann sampling; not a tiny arbitrary slice or known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
