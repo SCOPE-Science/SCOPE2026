@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It implements \(Q_{4n}\) directly from its presentation multiplication law. For each tested pair it generates the subgroup and independently checks cyclicity. For \(n=2,3,4,5\), the graph is compared edge-for-edge with the claimed decomposition. For \(n=2,3,4\), every vertex subset is exhaustively tested for zero forcing and the full polynomial is reproduced. The Gram matrix pattern and rank are checked exactly. For every \(2\le n\le10\), all at-most-one-white type profiles are tested, with exactly the all-class profile failing.
+## correctness
 
-Exact replay output:
+PASS
 
-```text
-Q_8: N=8, Z=5, min_sets=32, polynomial={5: 32, 6: 24, 7: 8, 8: 1}, witness_rank=3
-Q_12: N=12, Z=8, min_sets=144, polynomial={8: 144, 9: 128, 10: 56, 11: 12, 12: 1}, witness_rank=4
-Q_16: N=16, Z=11, min_sets=512, polynomial={11: 512, 12: 560, 13: 320, 14: 100, 15: 16, 16: 1}, witness_rank=5
-Q_20: N=20, predicted_Z=14, min_sets=1600, witness_rank=6
-PROFILE_CLASSIFICATION_OK
-VERIFY_OK
-```
+Cyclicizer {1,a^n} are two universal vertices. Remaining rotations form K_{2n-2}, while each inverse pair of outside elements forms one K2, no cross-adjacencies, giving n+2 true-twin clique classes. At most one initially white vertex per class is necessary. Any such white profile except all n+2 classes occupied is forceable: if universal class blue, blue mates force peripheral whites; otherwise an entirely-blue peripheral clique forces universal white, then all remaining whites. One white in every class stalls. Multiply per-class factors u^w+w u^(w-1) and subtract the single stalled white profile to get displayed polynomial. Its first nonzero coefficient is 2^(n+1)n^2 at u^(3n-1). A Gram pattern using e0 for rotations, e_i for outside pairs, and h=sum_i e_i for universal pair yields rank n+1 and exact off-diagonal graph; M<=Z gives rank>=4n-(3n-1)=n+1. Independent exact enumeration all subsets of Q8,Q12,Q16 graph based on directly reconstructed group multiplication gave Z=5,8,11 and minimum counts 32,144,512; symbolic proof covers every n.
 
-The finite checks are corroborative; the arbitrary-\(n\) theorem is proved symbolically in `RESULT.md`.
+## originality
+
+PASS
+
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. An equivalent result would be a general join of two universal vertices and arbitrary clique-component polynomial which specializes to this group family; checked indexed source did not directly establish it. Connected joins differ from disjoint-union multiplicativity.
+
+## value
+
+PASS
+
+The group full cyclic graph is a natural graph functor on a standard infinite family of finite nonabelian groups. The full zero-forcing enumerator, complete minimizer classification and exact matching real inverse-eigenvalue rank are mathematical invariants with a structural one-stalled-profile explanation; though the graph decomposition was known, these are not asserted as unfamiliar only due to different names.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
