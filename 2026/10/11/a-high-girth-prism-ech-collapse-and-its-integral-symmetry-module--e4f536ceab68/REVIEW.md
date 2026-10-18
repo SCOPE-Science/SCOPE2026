@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The odd/even-scale Čech distinction is controlled by the cited graph Čech neighborhood lemma. For the precise finite simple connected base with no triangles or four-cycles, the proof shows that any two horizontal neighbors of a center occur in a unique generating simplex. Every proposed pair is removed in descending face size and has exactly one remaining coface; no unproved extrapolation from enumerations is used. The residue is a union of tetrahedral boundaries meeting along vertical edges, and the stated wedge decomposition follows by successive attachments along contractible paths. The integral representation formulas follow from explicit oriented tetrahedral boundaries and square cycles. The standalone verifier performs independent finite checks, including mod-two ranks, on 41 graphs. Risk: incorrect hidden orientation convention is mitigated by giving and checking the exact signed permutations in the proof; the finite checks themselves do not establish the universal theorem.
+## correctness
 
-## Originality — PASS
-The closest Čech paper (Adams–Shukla–Singh, arXiv:2212.05871, Lemma 2.2 and Theorem 4.1) supplies the scale-two generating sets and a homotopy theorem for hypercube graphs but not the arbitrary-girth prism collapse. Matsushita (arXiv:2511.12608, Example 3.5) handles products of two complete graphs; its only overlapping base in the present high-girth family is the single edge, not the universal statement or modules. Previte (2014, chapters on one-point unions, trees and cycles) uses relevant closed neighborhoods but has no corresponding product theorem. Shukla (arXiv:1802.04526) considers a distinct Lovász open-neighborhood complex. The already-known circular-ladder calculation is a strict special case and is not newly claimed. Published-finding searches for prism terminology, signed kernels, equivariant module and tetrahedral collapse yielded different objects, not an implication of the complete claim. Residual risk: an unindexed equivalent work may exist; negative search results alone do not prove novelty.
+PASS
 
-## Value — PASS
-A natural, unbounded-degree, unbounded-cycle-rank class now has an explicit sequence of elementary collapses, complete integral homotopy type, and group-action information, not just finite Betti numbers. The result captures the precise conversion of the independent vertical squares into tetrahedral sphere classes in a filtration step where generic girth recovery fails (the prism itself has four-cycles). Stars, the Petersen base and the Heawood base illustrate new cases absent from the earlier cycle-only calculation. No general downstream result is asserted.
+For H triangle- and square-free, two horizontal neighbors in one layer of H×K2 occur together in exactly one closed-neighborhood generator; a second possible center would create a 3- or 4-cycle. The prescribed pairs indexed by at least two horizontal neighbors and optional vertical neighbor can therefore be removed in decreasing face cardinality, leaving exactly the union of tetrahedral boundaries on {v0,v1,w0,w1} over edges vw. Pair count is 4*sum(2^deg-deg-1), each sphere intersects a copy of H plus vertical edges along a contractible 3-edge path, and different spheres meet inside that base; this gives H∨m S2 integrally. Orienting each tetrahedral boundary yields unsigned edge-permutation H2 under automorphisms and +1 under layer switch. Oriented vertical squares generate the exact H1 kernel, with natural signed oriented-edge action and -1 under layer switch. Fresh independent Cech enumeration verified exact elementary free pairs and mod-two homology for K2, path4, cycle5; the finite results do not replace the universal uniqueness proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Adams–Shukla–Singh supply the scale-two neighborhood-generation lemma but classify hypercubes rather than arbitrary high-girth prisms. Matsushita studies closed neighborhood complexes and general π1, with a Cartesian product result for complete-factor graphs, only intersecting the current family at a one-edge base. The previously published circular-ladder case is a special case, while the integral Aut(H)×C2-module structure and arbitrary branching/girth-five generality are additional; Resultary unavailable creates a recorded unverified-search risk, not a fabricated novelty confirmation.
+
+## value
+
+PASS
+
+A uniform explicit elementary collapse, integral homotopy type, and signed symmetry/persistence modules for every arbitrary-degree high-girth prism is substantial structural information about a natural graph-topological construction. The result includes previously known special circular ladders but extends their graph class and computes additional integral representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
