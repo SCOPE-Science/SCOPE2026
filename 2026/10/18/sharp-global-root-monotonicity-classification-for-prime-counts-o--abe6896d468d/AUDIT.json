@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Proof handles all n>=2 and k>=1 via pi(x)>x/log x for x>=17, at most ceil(n/2) primes per length-n interval, and two explicitly justified logarithmic ratio bounds. For n!=3 all nk>=17 follow, for n=3 all nk>=128 follow. The exact checker exhaustively verifies all remaining 71 cases and three exceptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prior bounded-index theorem: n>=5, 1<=k<=n, without an asserted extension beyond n.",
+        "Sun--Zhao 2020 arXiv:2004.01080, Theorems 1.1--1.2 and full proof sections: infinitude of P2-values and conditional prime values, not monotonicity."
+      ],
+      "reasoning": "The unbounded k>n domain and n=3 ray are absent from the earlier bounded theorem, so it cannot dominate the new claim. Sun--Zhao concerns value-set distribution, not power comparison.",
+      "searches": [
+        "Sun Conjecture 2.7(i) all k>n, strict monotonicity of π(kn)^(1/k), n=3 and all n>=5",
+        "for every n >= 5 and every k >= 1 the sequence pi(n k)^(1/k) strictly decreasing unbounded k",
+        "monotonic prime counting function arithmetic progression root pi(k n)^(1/k) all k Sun 2.7",
+        "web: prime counting pi(kn) power 1/k sequence decreasing k conjecture Sun n 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.6641 full text, p.4 Conjecture 2.7(i)",
+      "arXiv:2004.01080 full six-page text",
+      "Rosser--Schoenfeld estimate as documented in Ramaré explicit bounds",
+      "Semantic research-record searches using exact root and integer-power equivalents and exceptional pairs",
+      "Existing bounded-index proof of n>=5,1<=k<=n"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun Conjecture 2.7(i) only k<=n; previous bounded-range result likewise only k<=n.",
+        "Rosser--Schoenfeld 1962 gives a single lower bound pi(x)>x/log x; it does not itself formulate global root monotonicity."
+      ],
+      "reasoning": "A bounded-index inequality does not imply the inequality for all k>n nor classify n=2,3,4. The new proof needs an additional uniform odd-candidate and logarithmic-ratio argument and a complete boundary certificate; no cited theorem has stronger parameter coverage.",
+      "searches": [
+        "Sun Conjecture 2.7(i) all k>n, strict monotonicity of π(kn)^(1/k), n=3 and all n>=5",
+        "integer-power prime counting inequality π(nk)^(k+1)>π(n(k+1))^k for unbounded k",
+        "web: \"pi(kn)\" \"k+1\" \"decreasing\" pi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun 2014 arXiv:1402.6641, p.4 Conjecture 2.7(i): n>4 and k=1,...,n",
+        "Exact alternative inequality \\(A^{k+1}>B^k\\), derived by raising both positive sides to \\(k(k+1)\\)."
+      ],
+      "reasoning": "The root and integer-power statements are equivalent for n>=2; none of the inspected sources or indexed research-record hits states an inequality on every k>=1 with three exceptional pairs.",
+      "searches": [
+        "sharp classification all integer n>=2 k>=1 prime counting root monotonicity π(nk)^(1/k) exceptional pairs (2,1) (2,2) equality (4,1)",
+        "integer-power prime counting inequality π(nk)^(k+1)>π(n(k+1))^k for unbounded k",
+        "web: \"pi(kn)^{1/k}\" decreasing",
+        "web: \"π(kn)^{1/k}\" \"n\" \"k\" monotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full 71-pair exact integer comparison by CHECKER.py; this is a new computation, not a known database table.",
+        "The semantic records search returned near-topic prime-counting summaries but no matching full two-parameter sequence classification."
+      ],
+      "reasoning": "Finite OEIS or indexed research-record lists of values for pi(kn) cannot imply an unbounded strict inequality; no exact prior classification table identified.",
+      "searches": [
+        "sharp classification all integer n>=2 k>=1 prime counting root monotonicity π(nk)^(1/k) exceptional pairs (2,1) (2,2) equality (4,1)",
+        "Sun Conjecture 2.7(i) all k>n, strict monotonicity of π(kn)^(1/k), n=3 and all n>=5",
+        "integer-power prime counting inequality π(nk)^(k+1)>π(n(k+1))^k for unbounded k",
+        "web: Zhi Wei Sun Conjecture 2.7 \"k > n\" π(kn)"
+      ]
+    },
+    "rationale": "The previously established bound-range theorem and Sun 2014 both stop at k<=n; the unbounded-index statement and exact boundary classification are not logically implied. Direct mathematical-results, title, parameter, exceptional-case, and full-text searches found no dominating result. Full paper material was inspected for the highest-priority sources, with residual risk of an unindexed equivalent.",
+    "residual_risks": [
+      "A stronger unindexed statement may imply the classification despite limited search visibility.",
+      "The previous finite-window result is near in subject and formula, although its logical coverage stops at k<=n."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly limits k to 1..n and n>4; no global k conclusion",
+        "evidence": [
+          "Page 4, Conjecture 2.7(i): for integers \\(n>4\\) and \\(1\\le k\\le n\\), the root inequality is proposed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.6641",
+        "material_read": "Full text searchable PDF, sections 1--4; key p.4 Conjecture 2.7 and Remark 2.7 inspected in source page image",
+        "method": "Primary arXiv PDF text and page image",
+        "title": "Problems on combinatorial properties of primes",
+        "trigger": "Exact original root monotonicity Conjecture 2.7(i)"
+      },
+      {
+        "assessment": "Theorems concern infinitely many almost-prime values and conditional prime values; do not establish root monotonicity",
+        "evidence": [
+          "Theorem 1.1 on sets A_n meeting thick sets; Theorem 1.2 on primes in A_4 under Bateman--Horn."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.01080",
+        "material_read": "All six pages, introduction, theorem statements and proof sections",
+        "method": "Primary arXiv PDF text and p.1 page image",
+        "title": "On the set {pi(kn): k=1,2,3,...}",
+        "trigger": "Same exact prime-counting progression for all k"
+      },
+      {
+        "assessment": "Confirms standard input; not a claim of novel monotonicity",
+        "evidence": [
+          "Theorem (1962): for \\(x\\ge17\\), \\(\\pi(x)>x/\\log x\\)."
+        ],
+        "identifier_or_url": "https://ramare-olivier.github.io/TME-EMT/Latex/booklet.pdf",
+        "material_read": "Section 1.2 theorem statement on pi(x)>x/log x for x>=17",
+        "method": "Lawful public PDF extracted text",
+        "title": "Explicit bounds on primes, Chapter 1",
+        "trigger": "Verification of quoted Rosser--Schoenfeld lower bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abe6896d-468d-4982-85bb-7925ac9000e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-parameter classification of an existing prime-counting root sequence over unbounded k, not a finite cutoff: full strictly decreasing n=3 ray, all n>=5 rays for every k, complete n=2 and n=4 exceptional behavior. This resolves a naturally motivated whole infinite sequence rather than an arbitrary variant.",
+    "status": "PASS"
+  }
+}
