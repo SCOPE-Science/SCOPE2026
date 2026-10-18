@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Independently reconstructed each digit-length contribution and the error identity. For every b>=2, k>=4 bounds follow directly from two fixed initial digits; a geometric bound handles all k>=8. The 3-digit deficit differs from H_b by less than 2 on b^3 scaling, using an exact telescope and a bounded elementary denominator correction. Their signed interval sum has absolute size at most 4. The separate exact Fraction checker confirms b=2..6, k=1..7 without treating finite tests as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1803.00161",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf"
+      ],
+      "reasoning": "The full 2019 published paper treats the same object and all bases, but with weaker remainder bounds; the 1981 result treats all fixed bases for convergence only. Later digit-counting and base-comparison sources concern different observables and do not imply the sharp coefficient.",
+      "searches": [
+        "web: \"sum of reciprocals\" \"palindromes\" \"b^3\" \"log b\" asymptotic constant",
+        "web: \"Phunphayap\" \"Pongsriiam\" reciprocal sum palindromes 2025 2026 refinement",
+        "web: palindromes reciprocal Phunphayap Pongsriiam refinement 2020 2025 asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf",
+      "https://oeis.org/A244162",
+      "https://arxiv.org/abs/1803.00161",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf"
+      ],
+      "reasoning": "A bound O(log b/b^3) plus a positive limsup does not imply convergence of b^3(s_b-g(b))/log b, much less limit 1. The earlier fixed-base convergence also has no quantified variable-base error. The current exact decomposition supplies missing sign/magnitude control.",
+      "searches": [
+        "semantic-publication search: reciprocal sum base b palindromes sharp asymptotic third order limit coefficient b cubed error logarithm Shallit Klauser Phunphayap Pongsriiam",
+        "web: \"sum of reciprocals\" \"palindromes\" \"b^3\" \"log b\" asymptotic constant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1803.00161",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.html"
+      ],
+      "reasoning": "Compared s_b-g(b), harmonic-series notation x_b,y_b of the source, and its Theorem 5 harmonic-expanded formula. Those results give O-star bounds and Omega-plus, not a limit of the normalized residual, nor an O(1) centered residual.",
+      "searches": [
+        "semantic-publication search: reciprocal sum base b palindromes sharp asymptotic third order limit coefficient b cubed error logarithm Shallit Klauser Phunphayap Pongsriiam",
+        "semantic-publication search: palindrome reciprocal sums s_b expansion ((b+2)/(b+1)) H_{b-1} +(1/b+2/b^2)(H_{b^2-1}-H_{b-1}) leading remainder logarithm coefficient",
+        "semantic-publication search: base-b palindromic numbers reciprocal sums asymptotic error constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A244162"
+      ],
+      "reasoning": "OEIS A244162 records a base-two numeric reciprocal constant; its terms do not encode the b->infinity coefficient for all integer bases. Its initial entry has an exact June 21, 2014 date.",
+      "searches": [
+        "OEIS A244162 reciprocal sum binary palindromes author date",
+        "semantic-publication search: base-b palindromic numbers reciprocal sums asymptotic error constant"
+      ]
+    },
+    "rationale": "The 1981 primary solution concerns fixed-base convergence; 2019 JIS Theorem 4 provides only an O(log b/b^3) estimate plus a positive limsup, and Theorem 5 merely reformulates the main term. The new result proves a normalized limit equal to one and a uniformly bounded arithmetic-centered remainder; these do not follow from the cited bounds alone. Actual semantic and bibliographic searches found no directly covering result; residual unindexed equivalence risk is disclosed.",
+    "residual_risks": [
+      "The preprint full text was not independently exhaustively read; its later open-access journal incarnation was inspected fully.",
+      "Unindexed sources or equivalent alternative normalizations could duplicate the sharpened limit; search failure alone does not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as written: quantitative bound and positive limsup but no exact constant limit or bounded recentered residual",
+        "evidence": [
+          "Theorem 4: O-star(5 log b/b^3) and Omega-plus(log b/b^3); Theorem 5: expanded main term, O-star(6 log b/b^3)",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf",
+        "material_read": "Open-access 13-page full text accessed; read abstract, introduction, complete principal asymptotic theorem statements and their proofs (pages 3, 6–8), selected adjoining material and references",
+        "method": "Read parsed PDF text and inspect equation-bearing PDF page images; compare normalization, quantifiers, statements and proofs",
+        "title": "Reciprocal Sum of Palindromes",
+        "trigger": "Identical object and main term"
+      },
+      {
+        "assessment": "NOT_COVERING: proves convergence at each fixed base, not a variable-base sharp asymptotic",
+        "evidence": [
+          "Problem B-441, proposed Shallit, solution by Klauser; p. 469",
+          "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf"
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf",
+        "material_read": "Printed page 469 of 1981 scanned issue, original proof; four-page elementary problems PDF inspected",
+        "method": "Read printed problem and solution from PDF image and transcribed text",
+        "title": "Sum of Base-b Palindrome Reciprocals (Problem B-441 solution)",
+        "trigger": "Origin of identical reciprocal sum"
+      },
+      {
+        "assessment": "Preprint abstract does not state the sharp coefficient; version-level residual risk disclosed; the final published paper was read at theorem/proof level",
+        "evidence": [
+          "arXiv:1803.00161 March 1, 2018",
+          "https://arxiv.org/abs/1803.00161"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.00161",
+        "material_read": "Abstract and bibliographic metadata; published journal version inspected in full",
+        "method": "Read arXiv abstract and match authors/title to OA journal paper",
+        "title": "Reciprocal Sum of Palindromes (2018 preprint entry)",
+        "trigger": "Earlier version of close 2019 published paper"
+      },
+      {
+        "assessment": "NOT_COVERING: a fixed base-two reciprocal constant, not all-base asymptotic",
+        "evidence": [
+          "Original author line dated Jun 21 2014",
+          "https://oeis.org/A244162"
+        ],
+        "identifier_or_url": "https://oeis.org/A244162",
+        "material_read": "Full short record, author/date, related links and sequence statement",
+        "method": "Read rendered entry including author line",
+        "title": "OEIS A244162",
+        "trigger": "Archive date and database exact-record comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fdc00231-8199-4b61-96bc-a38d6dfe505f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A previously identified sharp logarithmic error scale had no known leading coefficient or proven normalized convergence. Determining exactly 1 and a uniform bounded recentered remainder is a natural analytic invariant of the historical reciprocal-palindrome question, with substantive asymptotic information unavailable from the original Omega-plus / O-star estimates.",
+    "status": "PASS"
+  }
+}
