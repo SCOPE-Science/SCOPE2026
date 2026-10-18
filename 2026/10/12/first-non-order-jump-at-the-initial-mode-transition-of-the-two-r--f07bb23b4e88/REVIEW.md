@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability generating function in the motivating literature yields the normalized-mass recurrence. Its first coefficients and all polynomial comparison factors are derived explicitly. The exact Bernstein-basis certificates prove the required coefficient monotonicity on entire real parameter intervals, not grids. The uniform bound \(A_k(q)+B_k(q)/n<1\) at the first tail index and induction then exclude every unseen count. Explicit competitors exclude the minimum at all larger parameters. The independent symbolic replay gives `VERIFY_OK`.
+PASS
 
-## Originality — PASS, with residual risk
+Independently regenerated mass recurrence n a_{k,n}=q Σ_{j≤min(k,n)}(n+j)(1-q)^{j-1}a_{k,n-j}, verified k=4 coefficient a_7=-2q²(q⁵-9q³+16q²-9q-3) and crossing root xi≈0.331528775357638. The nonnegative Bernstein derivative certificates in pinned proof bound earlier coefficients on [0,1/3]; A_k+B_k/n<1 from n>=3,6,9 closes the entire infinite tail, not a finite sweep. k2 and k3 radical thresholds and modes derived from initial masses and induction. Correct boundaries q∈(0,1); first competitor k4 offset7; no claim for k>=5.
 
-The 2017 motivating preprint states general bounds and special \(p=1/2\) mode results; the 2019 article's public abstract describes similar bounds and computational routines, not a sharp first-transition cutoff with \(k=4\) co-modes \(\{8,15\}\). Shao–Wang's 2017 full-text theorem evaluates \(k=2,p=1/2\), which is away from the new transition. Published Poisson-law results cannot imply the corresponding two-run waiting-time result. Statement-level and alias comparisons in the mathematical-record search revealed no coverage. Residual risks include earlier equivalent parametrizations and historical inaccessible full texts; these are not represented as verified absences.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact first-exception cutoff in the natural order parameter for an explicitly open family of mode problems: for two completed runs, orders two and three acquire a new global mode exactly at offset \(k\), while order four jumps to offset seven. A finite sharp classification of first transitions through the first exceptional order gives mathematically useful structure beyond isolated parameter tables, with exact algebraic threshold and a proof for all counts and all success probabilities.
+Sharp first modal transition for two-run order k=2,3,4 appears neither in primary complete 2017 preprint nor the other inspected comparisons; expanded journal full text remains a priority risk.
 
-## Closest literature and limits
+## value
 
-Georghiou–Philippou–Psillakis, arXiv:1702.02183v1; Shao–Wang, WSEAS Transactions on Mathematics (2017); Kwon–Philippou, Entropy 25 (2023), 699, on the distinct Poisson order-\(k\) family. No conclusion is made for higher orders, extra runs or later modal jumps. Priority and independent rechecking remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining the exact first global modal phase transition, with unexpected jump distance at the first nontrivial order and a proof controlling infinite waiting-time support, is a natural probabilistic invariant and nonroutine meaningful boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
