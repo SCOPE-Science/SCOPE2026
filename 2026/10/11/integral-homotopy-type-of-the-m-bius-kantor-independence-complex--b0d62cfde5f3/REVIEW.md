@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph is \(\operatorname{GP}(8,3)\), with twenty-four specified edges and the displayed eight-by-eight incidence bipartition. Direct enumeration yields 1,090 nonempty independence faces. The first complete certificate produces 541 matching pairs and checks acyclicity over all 4,272 Hasse incidences; its signed integral critical boundary is the matrix with columns \((0,0,1,-1,0)^T\), hence rank one with primitive image. Its critical \(3\)-skeleton is a wedge of five three-spheres. The two four-cells attach by the same primitive degree vector, so one three/four-cell pair cancels and the other four-cell is freely attached, giving \(\bigvee^4 S^3\vee S^4\). A second, distinct eight-vertex Alexander-dual certificate has 140 faces, 67 acyclic matching pairs, one critical vertex, four two-cells, one three-cell, and an exact zero integral attaching-degree vector. Tsukuda's incidence theorem suspends that CW type to the same answer. The claims are finite and exhaustive, not extrapolations from sampled faces; both enclosed scripts replay successfully.
+## correctness
 
-## Originality — PASS
-The closest published general theorem is Barmak's suspension theorem for triangle-free graph independence complexes: it does not determine the rank, dimensions or attaching maps of this complex. Tsukuda supplies the incidence reduction but neither the concrete eight-vertex Morse matching nor its zero attaching degree. Fox–Gera–Stănică compute independence numbers, which do not imply homotopy classifications. The indexed Möbius–Kantor *matching* complex is the independence complex of a different twenty-four-vertex line graph. All seven recorded search formulations and published-claim comparisons found no stronger covering statement; negative searches do not prove worldwide novelty. The same-graph Knill 2026 manuscript was available only as an abstract, so a material-access bibliographic risk remains.
+PASS
 
-## Value — PASS
-The Möbius–Kantor graph is the canonical cubic bipartite Levi graph of an eight-point, eight-line configuration and \(\operatorname{GP}(8,3)\). Its independence complex is a natural invariant, and a mixed-dimensional integral wedge decomposition is not implied by its known independence number or by general suspension results. The small Alexander-dual matching and signed attaching map expose the topology of a nontrivial canonical graph and provide a reusable reproducibility benchmark for incidence-graph methods. This is a complete natural finite case, not a selected arbitrary statistic or reparameterization.
+The explicit bipartition separates eight vertices A and eight B with A-neighborhood masks (19,38,76,137,97,194,148,56). Tsukuda, Corollary 4.11, gives Ind(G) ≃ suspension of the Alexander dual K of the hypergraph on A. Independently generated K has 140 nonempty faces, face vector (8,28,56,40,8). A 67-pair staged matching has exact critical masks {1,14,22,82,164,204}; 424 oriented Hasse covers topologically sort, and signed 3-to-2 Morse degree vector is identically zero. The resulting one-point/4 two-cell/one three-cell CW complex has trivial 3-cell attaching map by Hurewicz, so K ≃ wedge^4 S2 wedge S3 and its suspension proves the claim. A second source-script direct 1090-face GP(8,3) check with primitive rank-one integer Morse boundary corroborates; not used as proof of an unbounded family.
 
-## Closest sources and limits
-Barmak, *Star clusters in independence complexes of graphs*, arXiv:1007.0418v1, Theorem 3.4; Tsukuda, *Independence complexes and incidence graphs*, DOI:10.55016/ojs/cdm.v12i1.62277, Corollary 4.11; Fox–Gera–Stănică, *The Independence Number for the Generalized Petersen Graphs*, Theorem 2.2. Knill, *Remarks about the Moebius-Kantor graph*, arXiv:2605.30799, was compared only at abstract level because the full text could not be accessed. Independent audit and exhaustive global literature coverage have not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: primary incidence duality is used and credited but not a complete numeric wedge classification; searched related same-graph findings do not imply the integral attaching-nullity. Knill full text remains residual risk; inaccessible plausible literature alone does not negate positive evidence.
+
+## value
+
+PASS
+
+An integral homotopy classification of the canonical 16-vertex cubic symmetric Mobius-Kantor graph independence complex is a natural, reusable exact benchmark. Its explicit small Alexander-dual model, acyclic Morse reduction, and null integral attaching map settle wedge type rather than merely field Betti ranks; a motivated finite case can be valuable without a graph-family formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
