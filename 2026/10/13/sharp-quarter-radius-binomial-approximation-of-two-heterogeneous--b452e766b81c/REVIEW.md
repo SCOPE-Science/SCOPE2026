@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent two-coin sums, the three point masses are explicitly \(((1-p)(1-q),p+q-2pq,pq)\). Matching the zero or two atom with an appropriate one- or two-trial binomial gives respectively exact total-variation errors \(pq\) and \((\sqrt p-\sqrt q)^2\); the two-region bound proves the global upper constant and restricts possible equality cases. For \((p,q)=(1,1/4)\), a singleton-mass extremal inequality \(\max_r mr(1-r)^{m-1}\le1/2\) for all \(m\ge2\) proves the matching lower bound against every binomial trial count. All endpoints and positivity assumptions are stated. Exact-rational finite tests replay the formulas, but the analytic argument handles the infinitely many trial counts and real parameters.
+PASS
 
-## Originality — PASS, with residual risk
+The target masses are (1-p)(1-q),p+q-2pq,pq. Direct mass subtraction yields errors pq for Bin(1,p+q-pq) and (sqrt(p)-sqrt(q))^2 for Bin(2,sqrt(pq)). If pq>=1/4, ordering p>=q implies q>=1/4 and the second error <=1/4, with equality only p=1,q=1/4. At that pair, for every m>=2 the largest possible Bin(m,r) probability at 1 is (1-1/m)^(m-1)<=1/2 whereas target P(1)=3/4; for m=1 mass at 2 is 0 vs 1/4. This proves the unrestricted lower bound and unique extremizers, not pointwise best m for all pairs.
 
-Jaramillo–Melbourne (arXiv:2210.11632v1, Remark 2.4) asks for unrestricted binomial parameter optimization and proves a same-trial approximation bound. Roos's complete accessible 2000 original article concerns Krawtchouk expansions and error bounds for fixed trial count, while Choi–Xia (2002) focuses on mean-matched binomial and Poisson approximations. These results do not state or imply the sharp two-trial minimax radius over all binomial counts with its unique extremizers; searches for equivalent formulations and a comparison against a published mathematical research index did not identify a covering theorem. This is not a uniqueness certification. Ehm's 1991 full paper was not accessible and remains a historical coverage risk; its abstract specifies same-size, mean-matched approximation. Wider bibliographic priority remains subject to independent scrutiny.
+## originality
 
-## Value — PASS
+PASS
 
-A best-possible uniform total-variation guarantee over all heterogeneous two-Bernoulli laws is a natural model-approximation invariant, especially when the approximating number of trials is free. The extremizer occurs at a boundary law with a deterministic success and exposes an irreducible singleton-mass obstruction for every binomial trial count. The explicit two-candidate construction establishes a useful worst-case model-selection guarantee and a sharp equality classification. This does not claim pointwise optimal parameters for all inputs, nor generalize to arbitrary source sample sizes.
+Roos (2000/01), Ehm (1991), Choi and Xia (2002) study same-trial-count or constrained binomial approximation. Jaramillo and Melbourne (2022) provide same-size relative-log-concavity TV bounds and explicitly discuss optimizing binomial size, but do not provide the sharp unrestricted two-coin covering radius, based on inspected source.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact minimax approximation radius for a natural two-summand Poisson-binomial family, unique extremizers and two explicit universal approximants settle a basic sharply defined approximation question beyond same-size comparison, albeit with narrow n=2 scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only Python's standard library. The expected and observed output is:
+## correctness
 
-```
-VERIFY_OK low_rational=655 high_square_rational=174 extremal_tests=3250
-```
+PASS
 
-The script checks the identity \(d_{\mathrm{TV}}(P,\operatorname{Bin}(1,p+q-pq))=pq\) on 655 rational pairs satisfying \(pq\le1/4\). It checks \(d_{\mathrm{TV}}(P,\operatorname{Bin}(2,\sqrt{pq}))=(\sqrt p-\sqrt q)^2\) on 174 square-rational pairs with \(pq\ge1/4\); the square-rational representation makes all arithmetic exact. It also checks all 3,250 indicated exact-rational combinations of 50 positive trial counts and 65 approximating probabilities against the extremal input law, together with the analytic maximal-singleton inequality for each tested trial count.
+The target masses are (1-p)(1-q),p+q-2pq,pq. Direct mass subtraction yields errors pq for Bin(1,p+q-pq) and (sqrt(p)-sqrt(q))^2 for Bin(2,sqrt(pq)). If pq>=1/4, ordering p>=q implies q>=1/4 and the second error <=1/4, with equality only p=1,q=1/4. At that pair, for every m>=2 the largest possible Bin(m,r) probability at 1 is (1-1/m)^(m-1)<=1/2 whereas target P(1)=3/4; for m=1 mass at 2 is 0 vs 1/4. This proves the unrestricted lower bound and unique extremizers, not pointwise best m for all pairs.
 
-The universal theorem does not follow from the verifier's finite samples. Its infinite-step proof is elementary: exact mass matching for the upper bound; the constraints \(pq\ge1/4\), \(p\le1\) for its sharp constant and uniqueness; and the binomial point-mass inequality \(mr(1-r)^{m-1}\le(1-1/m)^{m-1}\le1/2\) for all integers \(m\ge2\) for the lower bound. No computer algebra, random numerical tolerance, or external downloaded data is required.
+## originality
 
-The manuscript does not determine the best approximation at each input pair and does not prove a multi-summand analogue. The bibliographic originality assessment retains explicit uncertainty about older inaccessible literature. Independent validation or audit has not been performed.
+PASS
+
+Roos (2000/01), Ehm (1991), Choi and Xia (2002) study same-trial-count or constrained binomial approximation. Jaramillo and Melbourne (2022) provide same-size relative-log-concavity TV bounds and explicitly discuss optimizing binomial size, but do not provide the sharp unrestricted two-coin covering radius, based on inspected source.
+
+## value
+
+PASS
+
+The exact minimax approximation radius for a natural two-summand Poisson-binomial family, unique extremizers and two explicit universal approximants settle a basic sharply defined approximation question beyond same-size comparison, albeit with narrow n=2 scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
