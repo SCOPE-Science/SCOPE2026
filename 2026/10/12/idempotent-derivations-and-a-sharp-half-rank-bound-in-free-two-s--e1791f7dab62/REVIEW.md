@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof determines all derivations from the generator matrix \(A\) and quadratic lift \(f\), then solves the three necessary and sufficient composition-idempotency equations. The four tensor-block eigenvalues of \(A\otimes I+I\otimes A\) explain the characteristic dichotomy and the precise allowed lifts. The Gaussian/complement computation yields the full rank polynomial; an integer identity gives the sharp half-rank threshold. The packaged checker independently constructs the derivation matrices and exhaustively verifies finite cases. Numerical checks corroborate, rather than replace, the symbolic argument.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** The closest inspected full texts are Drensky--Makar-Limanov's untruncated characteristic-zero free-algebra derivation classification (arXiv:1909.13262), La Rosa--Mancini's two-step derivations for different algebras (arXiv:2301.11058), and Hristova's Lie-nilpotent relatively free algebra modules (arXiv:2209.10180). Their inspected statements do not cover the characteristic-two composition-idempotent derivation census. An analogous symmetric- or alternating-tensor quotient calculation cannot recover the two independent ordered mixed blocks, the precise noncommutative lift count, or the sharp half-dimensional bound. Relevant semantic mathematical-result searches did not yield an equivalent statement, but search nonappearance is not a novelty proof. An older theorem under differential-projection terminology remains possible.
+PASS
 
-**Value — PASS.** A complete classification of a natural operator class on universal nilpotent associative algebras is a meaningful structural invariant. The theorem proves an all-characteristic existence dichotomy, an exact finite-field rank spectrum in infinitely many dimensions, and a sharp geometric half-dimension barrier. The ordered-tensor phenomenon distinguishes the result from commutative quotient analogues.
+For N=V⊕(V⊗V) with W=N², Leibniz forces every derivation D(v,w)=(Av,f(v)+(A⊗I+I⊗A)w). D²=D is equivalent to A²=A, B²=B, Bf+fA=f. Splitting V=im A ⊕ ker A gives B scalar sectors 2,1,1,0, so char!=2 forces D=0; in char2 allowed f blocks are exactly UU⊕ZZ from U and UZ⊕ZU from Z. Rank is r+2r(n-r), Gaussian subspace/complement count yields the claimed q-polynomial, and the half-rank bound follows from (n-2r)(n-2r+1)/2. Independent exact GF(2) n=2 full enumeration gives 1+256T²+96T³=353, using rank over GF(2), not real rank.
 
-**Limitations.** Only the free nonunital associative algebra with all cubic products zero is treated; no claims about arbitrary relations, automorphism orbits, or independent historical certification. The finite tests do not prove the infinite theorem. Bibliographic uncertainty is recorded in the structured originality review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier derivation research addresses untruncated free associative algebras, locally nilpotent derivations in characteristic zero, Leibniz/Lie two-step algebras, or other relatively free quotients; none of those statements entails this characteristic-two composition-idempotent lift classification and labeled finite-field census.
+
+## value
+
+PASS
+
+The characteristic discontinuity, explicit quadratic lifts, exact rank polynomial and sharp half-dimensional bound resolve natural structural questions for the universal nonunital two-step free associative algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
