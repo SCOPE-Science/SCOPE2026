@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem uses a valid exact conditional structure: after Poissonization, the unique last-arriving coupon has count one, and other coupon counts conditional on the continuous maximum are independent \(\operatorname{Poisson}(t)\) variables conditioned to be nonzero. This gives exact conditional means, variances and nested-indicator covariances. Uniform-on-compact first-arrival extreme asymptotics and bounded triangular-array Lindeberg prove the mixed-Gaussian and studentized independent-normal limits. An optional-isometry argument gives \(K_n/n-M_n=O_{L^2}(\sqrt{\log n/n})\), which is sufficiently small to replace the auxiliary centering with the observable stopping index. All quantifiers require fixed \(J\) as the number of types tends to infinity. Replaying the packaged exact checker passes 221 finite checks; those are not offered as proof of the limit theorem.
+PASS
 
-## Originality: PASS, residual priority risk
+Under the independent rate-one Poisson embedding, completion time M_n=max first arrival E_i has n exp(−M_n) -> Exp(1). Conditional on M_n=t and unique last index, its count is exactly 1; all other n−1 counts are independent Poisson(t) conditional on at least one. Thus each nested deficit indicator has p=q_j(t)=Σ_(r=1)^(j−1)t^r/r!/(e^t−1), and exact mean 1+(n−1)q_j, variance (n−1)q_j(1−q_j), covariance (n−1)q_i(1−q_j) for i<j. Since at t=log(n/w), (n−1)q_j~w(log n)^(j−1)/(j−1)! and off-diagonal covariances vanish under coordinatewise square-root scaling, the bounded triangular-array Lindeberg theorem yields independent conditional normals; compact-uniform w and Exp mixing yield the stable joint limit and independent W. The stopped martingale E[(K_n−nM_n)^2]=n E M_n=nH_n and q_j derivative O((log n)^(j−1)/n) imply observable S_n=K_n/n replaces M_n with centered errors o_P(1) even on unstudentized scales. Independent finite truncated-Poisson enumeration verified all stated nested-indicator covariance formulas for t=2,6,12,18 and index pairs (2,3),(2,5),(3,6). All-n CLT is analytical, not finite evidence.
 
-Long's arXiv:2606.29635v1 (complete primary text inspected, especially Theorem 5, Corollary 10 and Section 6) proves first-order common-exponential convergence and almost-perfect *unconditional* correlation, not Gaussian fluctuations after data-based stopping-time centering. Ilienko's 2026 full open article studies first-order/infinite-dimensional coupon deficit laws and Poissonian point processes, not the present jointly independent centered normal law. Long arXiv:2606.31391v1 and Doumas–Spektor arXiv:2606.21591v1 address finite-parameter extremality of transforms/expectations, not this fluctuation regime. Published mathematical-record, alias and implication searches identified no covering claim. An older occupancy/conditioning CLT may nevertheless state an equivalent conclusion; a negative search is not a uniqueness certificate.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The known first-order residual vector has asymptotically perfect correlations, giving no mechanism to separate effects of the random stopping time from individual album noise. The theorem identifies the complete fixed-index **second-order** normal law under a centering that is actually computable from the original discrete experiment. It quantifies the hierarchy of conditional cross-album covariance and shows how the common exponential randomness survives only as a random variance in nonstudentized coordinates. This goes beyond a moment identity or a single finite-size normal approximation, while remaining a restricted uniform-coupon result.
+The two closest full papers Long 2026 and Ilienko 2026 both give first-order common-Exp limits for scaled sibling deficits, whereas the audited theorem subtracts the random observed completion-time conditional mean and establishes the next-order independent Gaussian vector and exact conditional correlation decay. Long proves conditional Bernoulli noise negligible ONLY at the larger first-order a_n,j scale. Ilienko also establishes independent centered completion TIMES, a different observable. No direct implication was found; priority remains best of knowledge with occupancy-CLT literature risk.
 
-## Limitations and relationship to literature
+## value
 
-Independent scientific audit has not been performed. The proof does not treat nonuniform coupon types or indices growing with the number of types, and gives no quantitative Berry–Esseen bound. Ilienko and Long cover the leading-order law; the new statement concerns a smaller, centered scale and does not claim a new proof of their leading result. Residual priority risk remains for obscure older formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first-order sibling deficits share one exponential amplitude and so are perfectly correlated asymptotically. The sharp question what remains after centering by the actually observable completion index is statistically and mathematically natural; the answer exposes independent second-order Gaussian noise, a mixed-normal version and exact finite-size conditional decorrelation powers. This adds a useful fluctuation layer to the established first-order coupon collector theorem rather than recalculating first moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

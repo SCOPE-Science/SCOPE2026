@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:03:33.303374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129/verify.py",
+        "independent_math_checks.py",
+        "C. D. Long arXiv:2606.29635 Theorem 5",
+        "A. Ilienko DOI:10.15559/26-VMSTA306 Theorem 1"
+      ],
+      "rationale": "Under the independent rate-one Poisson embedding, completion time M_n=max first arrival E_i has n exp(−M_n) -> Exp(1). Conditional on M_n=t and unique last index, its count is exactly 1; all other n−1 counts are independent Poisson(t) conditional on at least one. Thus each nested deficit indicator has p=q_j(t)=Σ_(r=1)^(j−1)t^r/r!/(e^t−1), and exact mean 1+(n−1)q_j, variance (n−1)q_j(1−q_j), covariance (n−1)q_i(1−q_j) for i<j. Since at t=log(n/w), (n−1)q_j~w(log n)^(j−1)/(j−1)! and off-diagonal covariances vanish under coordinatewise square-root scaling, the bounded triangular-array Lindeberg theorem yields independent conditional normals; compact-uniform w and Exp mixing yield the stable joint limit and independent W. The stopped martingale E[(K_n−nM_n)^2]=n E M_n=nH_n and q_j derivative O((log n)^(j−1)/n) imply observable S_n=K_n/n replaces M_n with centered errors o_P(1) even on unstudentized scales. Independent finite truncated-Poisson enumeration verified all stated nested-indicator covariance formulas for t=2,6,12,18 and index pairs (2,3),(2,5),(3,6). All-n CLT is analytical, not finite evidence.",
+      "residual_risks": [
+        "Number J of siblings is fixed; no growing-index or unequal-probability CLT is claimed.",
+        "The compact-uniform conditional CLT and random-clock replacement are asymptotic analytical steps, not asserted as certified by numeric tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long Theorem 5 provides first-order mixed moments, not second-order conditional standard normals; Ilienko infinite-dimensional limit is a common exponential vector and different independent completion-time statistics."
+        ],
+        "reasoning": "A broader first-order weak limit cannot imply the distribution of the centered sqrt(a_n,j) residuals, nor the vanishing conditional cross-album correlation at precise logarithmic powers. No checked stronger theorem directly specializes to this centered claim.",
+        "searches": [
+          "Resultary semantic query: coupon collector siblings deficits conditional central limit theorem joint Gaussian centered completion time standard normal independent",
+          "Long arXiv:2606.29635 Theorem 5 proof pages 19–20",
+          "Ilienko 2026 Theorems 1–3 full online article",
+          "general occupancy multivariate conditional CLT"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: coupon collector siblings deficits conditional central limit theorem joint Gaussian centered completion time standard normal independent",
+        "Long arXiv:2606.29635v1 full 24-page primary",
+        "Ilienko DOI:10.15559/26-VMSTA306 full OA online",
+        "other occupancy conditional CLT queries for siblings/completion time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long (U/a)->(W,...,W) plus mixed moments, covariance asymptotic a_i a_j; present result (U−conditional_mean)/sqrt(v)->independent Gaussians even independent of W."
+        ],
+        "reasoning": "Our statement refines the first-order common exponential into a nontrivial second-order conditional central limit. The earlier first-order theorem permits many incompatible sqrt(a)-scale laws and therefore does not imply the claimed Gaussian residuals.",
+        "searches": [
+          "Long arXiv:2606.29635 §6 Theorem 5 and Lemma 6",
+          "Ilienko DOI:10.15559/26-VMSTA306 Theorems 1–3",
+          "Resultary semantic query: coupon collector siblings deficits conditional central limit theorem joint Gaussian centered completion time standard normal independent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Long establishes (U_n,j/a_n,j) => common W, and unconditional asymptotic correlations ->1; his proof removes Bernoulli noise only after dividing by a_n,j, not sqrt(a_n,j).",
+          "Ilienko first-order all-index vector convergence in R^∞ and centered completion-time vector have different normalizations and random variables from this observable-centered CLT."
+        ],
+        "reasoning": "Poisson-binomial conditional fluctuation CLTs and occupancy fluctuation results are conceptual aliases, but the checked primary papers lack this specific joint residual/studentized theorem at random K_n/n and independent W. A generic CLT applied with new conditional structure is a standard method, not an equivalent already-published conclusion.",
+        "searches": [
+          "Resultary semantic query: coupon collector siblings deficits conditional central limit theorem joint Gaussian centered completion time standard normal independent",
+          "Long arXiv:2606.29635 §6 Theorem 5 and Corollary 10",
+          "Ilienko DOI:10.15559/26-VMSTA306 §2 Theorems 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Long publishes exact first moments and alternating subset sums, and Ilienko cites generating functions for U_r; those quantities do not tabulate conditional covariance at max Poisson time and its observable-centered limit."
+        ],
+        "reasoning": "The sharp conditional correlation formula can be derived from nested indicators; it is not independently tabulated as the joint studentized-Gaussian theorem in either examined source.",
+        "searches": [
+          "Resultary semantic query: coupon collector siblings deficits conditional central limit theorem joint Gaussian centered completion time standard normal independent",
+          "Long 2026 exact subset expectation formula",
+          "Ilienko 2026 probability generating function/first-order results"
+        ]
+      },
+      "rationale": "The two closest full papers Long 2026 and Ilienko 2026 both give first-order common-Exp limits for scaled sibling deficits, whereas the audited theorem subtracts the random observed completion-time conditional mean and establishes the next-order independent Gaussian vector and exact conditional correlation decay. Long proves conditional Bernoulli noise negligible ONLY at the larger first-order a_n,j scale. Ilienko also establishes independent centered completion TIMES, a different observable. No direct implication was found; priority remains best of knowledge with occupancy-CLT literature risk.",
+      "residual_risks": [
+        "Older occupancy or conditional stable-CLT results outside the indexed sibling-coupon papers could imply the same second-order limit.",
+        "The finite checker verifies algebraic ingredients, not the limit in infinite n; first-order overlap is significant and explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIRST_ORDER_NOT_OBSERVED_SECOND_ORDER",
+          "evidence": "Theorem 5 and Corollary 10 provide common Exp and asymptotically perfect UNconditional correlations. Conditional Bernoulli noise is bounded o(a_n,j) rather than shown to tend to an independent Gaussian on sqrt(a_n,j).",
+          "identifier_or_url": "arXiv:2606.29635v1; https://arxiv.org/abs/2606.29635",
+          "material_read": "Original 24-page paper obtained via authorized full-text service; materially read Introduction, Summary, §6 Theorem 4, Lemma 6, Theorem 5 pp.15–20 and Conclusion p.21",
+          "method": "Primary PDF full text after arXiv/OA attempts failed; original pages 1–4 and 15–21 inspected",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Same variables U_n,j, same fixed-index common-exp limit and Poissonized representation"
+        },
+        {
+          "assessment": "PRIOR_INFINITE_DIMENSION_FIRST_ORDER_NOT_THIS_RESIDUAL",
+          "evidence": "Theorem 1 is R∞ normalized common Exp; Theorem 2 delayed deficit geometric law; Theorem 3 asymptotic independence of centered completion TIMES, not random-clock-conditioned Gaussian sibling deficits.",
+          "identifier_or_url": "DOI:10.15559/26-VMSTA306; https://vmsta.org/journal/VMSTA/article/358/text",
+          "material_read": "Full lawful OA HTML: abstract, Introduction and the full published main-result descriptions of Theorems 1–3 and point-process setup",
+          "method": "Original journal full-text HTML inspected",
+          "title": "Limit theorems in the extended coupon collector’s problem",
+          "trigger": "Same sibling coupon process and possible infinite-dimensional dominating limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129/RESULT.md",
+        "Long arXiv:2606.29635v1",
+        "Ilienko DOI:10.15559/26-VMSTA306"
+      ],
+      "rationale": "The first-order sibling deficits share one exponential amplitude and so are perfectly correlated asymptotically. The sharp question what remains after centering by the actually observable completion index is statistically and mathematically natural; the answer exposes independent second-order Gaussian noise, a mixed-normal version and exact finite-size conditional decorrelation powers. This adds a useful fluctuation layer to the established first-order coupon collector theorem rather than recalculating first moments.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed J and equal-probability coupon draws only.",
+    "Conditional covariance formulas exactly condition on auxiliary Poisson M_n; the final Gaussian statistics use observed K_n/n."
+  ],
+  "schema_version": 1
+}
