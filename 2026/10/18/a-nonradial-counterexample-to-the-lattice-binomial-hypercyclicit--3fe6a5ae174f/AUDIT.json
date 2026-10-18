@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every coordinate edge, h changes by at most 3/2, proving B bounded. At any fixed vertex the central binomial summand has h=0 for all sufficiently large n and its weighted value is asymptotic to 2^(-i-j) sqrt(2n/pi). The finite-difference functional has exact polynomial (1-z)^3(1+z)^n; Parseval and Euler beta integration give the exact coefficient square sum 120*C(2n,n)/((n+1)(n+2)(n+3)). Cauchy-Schwarz yields central l1 decay 2^n O(n^-5/4); Hoeffding gives angular-tail l1 ≤16*2^n*exp(-2n/25), overcoming the at-most exp((n+3)/200) weight penalty. The resulting dual norm is O(n^-1/4)+O(n exp(-3n/40)) and tends to zero for every listed Banach space. This nonzero functional excludes a dense orbit. Embedded integer tests check identities n=0..200 but do not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Wang–Zhou, arXiv:2609.34308, abstract restricts infinite-quadrant characterization to radial weighted l2.",
+        "Baranov–Lishanskii–Papathanasiou, Theorem 2.3 bounds critical exponential regimes, and Theorem 2.4 covers weights depending on a single coordinate."
+      ],
+      "reasoning": "The weight depends on both coordinates with ratio exp(-s/200) between same-level boundary and center, so it is not radial and not a one-coordinate case. Its limsup root is 2 and no uniform positive multiple of 2^s bounds it below, so the older theorems cannot imply nonhypercyclicity. A full general nonradial criterion would dominate the example, but none is identified; uninspected material remains a risk.",
+      "searches": [
+        "2026 F-transitivity backward shifts lattice graphs non-radial weights radial Pascal singular values obstruction alternating binomial derivatives",
+        "2026 F-transitivity backward shifts lattice graphs nonradial infinite quadrant characterization",
+        "Hypercyclic shifts on lattice graphs Theorem 2.3 Proposition 5.1"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s13398-026-01868-8",
+      "https://arxiv.org/abs/2312.13934",
+      "https://arxiv.org/abs/2609.34308",
+      "Published operator-power-profile finding (one-dimensional weighted shift, different question)",
+      "Published multishift self-commutator finding (hyponormality, different question)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source explicitly poses the implication established false here; https://link.springer.com/article/10.1007/s13398-026-01868-8#Sec5",
+        "The 2026 abstract calls its radial Hilbert-space result a partial answer; https://arxiv.org/abs/2609.34308"
+      ],
+      "reasoning": "Prior necessary-divergence is a one-row property. The new example satisfies every such row yet violates hypercyclicity via a particular four-row functional; no implication from the published sufficient mixing regimes or radial-only classification gives this nonradial obstruction.",
+      "searches": [
+        "Nonradial infinite quadrant backward lattice shift counterexample Proposition 5.1 Baranov Lishanskii Papathanasiou binomial divergence nevertheless nonhypercyclic finite-difference functional",
+        "2026 F-transitivity backward shifts lattice graphs non-radial weights radial Pascal singular values obstruction alternating binomial derivatives",
+        "Hypercyclic shifts on lattice graphs Proposition 5.1 binomial necessary condition sufficiency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baranov–Lishanskii–Papathanasiou, Proposition 5.1, exact necessary q-norm row condition, followed by explicit sufficiency open question; https://link.springer.com/article/10.1007/s13398-026-01868-8#Sec5",
+        "No equivalent cancellation-based counterexample among the ranked public research records checked."
+      ],
+      "reasoning": "An equivalent counterexample must satisfy all coordinatewise binomial-divergence tests yet possess a nonhypercyclic orbit obstruction. Weighted-shift norm growth or critical 2^s behavior alone is not equivalent. No checked record has this implication.",
+      "searches": [
+        "Nonradial infinite quadrant backward lattice shift counterexample Proposition 5.1 Baranov Lishanskii Papathanasiou binomial divergence nevertheless nonhypercyclic finite-difference functional",
+        "Hypercyclic lattice graph shift 2^(i+j)/(i+j+1) angularly attenuated weights, non-sufficiency of single vertex binomial criterion",
+        "hypercyclic backward shift lattice graphs binomial necessary condition sufficient example nonradial weight cancellation polynomial",
+        "hypercyclic shifts on lattice graphs not sufficient binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published operator record concerns norm and essential-norm power profiles of a single unilateral weighted shift, not hypercyclicity of a two-dimensional lattice shift."
+      ],
+      "reasoning": "This is an infinite-dimensional counterexample, not a finite table or lookup invariant. No database or enumerative source supplies its dual finite-difference cancellation estimate.",
+      "searches": [
+        "Nonradial infinite quadrant backward lattice shift counterexample Proposition 5.1 Baranov Lishanskii Papathanasiou binomial divergence nevertheless nonhypercyclic finite-difference functional",
+        "Hypercyclic lattice graph shift 2^(i+j)/(i+j+1) angularly attenuated weights, non-sufficiency of single vertex binomial criterion",
+        "2026 F-transitivity backward shifts lattice graphs non-radial weights radial Pascal singular values obstruction alternating binomial derivatives"
+      ]
+    },
+    "rationale": "The 2023 primary source states the necessary individual binomial criterion and explicitly leaves its sufficiency on the full quadrant open. Its stated upper/lower exponential conditions neither imply nor forbid the constructed nonradial critical weight. The 2026 source public description treats the infinite quadrant under radial weighted Hilbert-space hypotheses; the example is exponentially nonradial, and its scalar cancellation does not follow by reducing to a radial weight. Related published record searches returned no equivalent theorem; highly relevant accessible original full text was read, with remaining full-text uncertainty of the 2026 preprint expressly retained.",
+    "residual_risks": [
+      "Full arXiv:2609.34308 manuscript was unavailable; an unadvertised nonradial illustrative counterexample inside it cannot be decisively excluded.",
+      "Unindexed/unpublished equivalent arguments cannot be excluded through published literature searches.",
+      "No claim of external, expert, or independent mathematical validation is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 5.1 gives exactly the necessary condition refuted as sufficient; Theorem 2.3 and one-coordinate results do not cover the critical angularly varying weight.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s13398-026-01868-8",
+          "Proposition 5.1 and immediately following sentence expressly ask whether the condition is sufficient."
+        ],
+        "identifier_or_url": "arxiv:2312.13934; doi:10.1007/s13398-026-01868-8",
+        "material_read": "Journal full HTML, including Theorems 2.3–2.4, original Proposition 5.1 proof, Section 6 and relevant examples.",
+        "method": "Read full publisher OA HTML and compared statement implications and excluded endpoint regimes.",
+        "title": "Hypercyclic shifts on lattice graphs",
+        "trigger": "Exact open sufficiency question for Proposition 5.1 and adjacent theorems on full quadrant."
+      },
+      {
+        "assessment": "Public abstract restricts its infinite-quadrant characterization to radial weighted l2, so does not assert an implication covering the displayed nonradial example. Remaining contents not excluded.",
+        "evidence": [
+          "https://arxiv.org/abs/2609.34308",
+          "Original abstract: infinite-quadrant characterization with radial weights on weighted l2-spaces."
+        ],
+        "identifier_or_url": "arxiv:2609.34308",
+        "material_read": "Public arXiv bibliographic record and complete abstract; manuscript full text not retrieved.",
+        "method": "Read the public original abstract and bibliographic record; full manuscript unavailable from the checked lawful public-access routes.",
+        "title": "F-Transitivity of Backward Shifts on Lattice Graphs",
+        "trigger": "Most recent directly related paper studying the infinite quadrant at critical exponential weights."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fe6a5ae-174f-4f14-855f-3c355ab26e45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a concrete negative answer to an explicitly published sufficiency problem for the infinite quadrant. It isolates a structural missing condition—collective cancellation among binomial rows—that survives even when every individual necessary norm grows without bound, with smooth bounded nearest-neighbor weight ratios. It is a genuine nonradial extension beyond the 2026 radial Hilbert-space setting and helps delimit plausible future joint Pascal-transfer criteria.",
+    "status": "PASS"
+  }
+}
