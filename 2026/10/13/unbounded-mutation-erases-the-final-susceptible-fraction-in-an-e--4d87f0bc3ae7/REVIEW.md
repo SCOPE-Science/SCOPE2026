@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses a mass-conserving no-flux mutation operator. Its compartment identity forces prevalence to decay via convolution of the integrable infection flux. For the positive-diffusion half-line model, assuming positive terminal susceptibles gives a uniformly supercritical Dirichlet interval at a sufficiently high infectivity. Heat-kernel positivity seeds this interval, its growing sine subsolution contradicts the mass bound, and therefore the terminal susceptible fraction is zero. For a finite trait cap, the integrated contact-force inequality yields a strictly positive unique final-size lower root. The bound is sharp as an infimum by concentrating nonmutating infected initial data near the cap. Finite-time semigroup continuity and the zero-diffusion compact support yield noncommuting limits. A supporting arithmetic checker confirms a sample positive eigenvalue margin and a root bracket. The proof, not finite arithmetic testing, establishes the all-parameter assertions.
+PASS
 
-## Originality — PASS
+Mass balance S+I+R=1 and I’=−S’−mu I makes I(t)→0 by convolution of integrable incidence −S’ with e^(−mu t). Suppose S∞=a>0 at diffusion D>0. Positive Neumann heat diffusion supplies strictly positive infected mass on every distant finite interval at t0>0. Pick a Dirichlet test slab [L*,L*+H] with growth exponent eta=k a L*−mu−D pi²/(2H²)>0, compare against c exp(eta(t−t0)) sin(pi(λ−L*)/H), forcing I(t)→∞ contrary to population ≤1. On bounded traits, integrate log(S0/S∞)≤(kL/mu)(S0+I0−S∞), whose strictly convex root geometry gives S∞≥u_L>0, sharp as diffusion→0 with initial infected density concentrating at L. At D=0 compact support bounds traits, S∞>0; finite-horizon semigroup continuity yields noncommuting limits. Independent sample with k=2,mu=1,D=1,a=0.1,L*=40,H=1 gave eta≈2.065>0, illustrative only.
 
-The closest direct source is Lamata-Otín et al. (2026), arXiv:2603.18801v1/v2, which gives the trait-evolution PDE but focuses on early-time epidemic acceleration, control peaks, numerical attack rates, and finite prevalence cutoffs. It does not formulate the exact half-line versus finite-cap terminal-size dichotomy. Alfaro–Carles (2014), arXiv:1405.2768, give explicit solutions and acceleration of mass-normalized linear-fitness replicator–mutator equations, without susceptible depletion and recovered mass. Almeida et al. (2020/2021), arXiv:2010.15410, analyze heterogeneous SEIR final size with diffusion but within a differently formulated trait model; full text was not available and this is an unresolved comparison risk. The local source and literature search did not reveal a dominating or equivalent full theorem; search failure is not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact late-time dynamics of an unbounded rate-trait approximation can be qualitatively different from bounded-probability implementations, and the difference survives arbitrarily small mutation. The positive-diffusion exhaustion theorem, finite-cap sharp susceptible floor, and singular zero-mutation limit supply a motivated structural boundary for interpreting long-horizon epidemic models. The proof explicitly excludes physical overinterpretation and claims no finite-time outbreak size forecast.
+The initiating evolutionary-infectivity SIR source treats infection peaks, early-time trajectories and numerical final attack fractions; Alfaro–Carles treats linear-fitness replicator-mutator acceleration without a recovering epidemic mass. Almeida et al and Bernardi et al are related heterogeneous epidemic results but no exact half-line reflecting, unbounded-rate final-size and D→0 singularity implication was identified in the material available. A strongly related final-size primary full text remained incompletely inspected and is explicitly a priority risk.
 
-## Limitations and literature
+## value
 
-The unbounded variable is mathematical transmission-rate fitness, not an infection probability. The asymptotic time can be very large, and stochastic extinction and finite cutoffs are outside scope. The heterogeneous SEIR comparison (Almeida et al.) is based on its abstract/publisher preview rather than complete primary text, and potential stronger coverage remains a residual risk. The supplementary code is a local finite consistency check, not an infinite-time certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mathematical difference between bounded and unbounded trait domains is qualitative: an arbitrarily weak positive diffusion drives complete long-time susceptible exhaustion on the unbounded rate half-line, whereas finite domains retain a sharp positive susceptible floor; the singular order of limits identifies which modelling idealization causes it. Natural continuum-model boundary rather than a claim about physical infection probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
