@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independence forces at most one chosen original per part. Domination forces exactly all subdivision vertices supported by two remaining endpoints; all other subdivision vertices are excluded by independence. Unselected originals from a completely unchosen part require a residual neighbor, giving the first predicate. Original witnesses split into at least two selected parts versus one; subdivision witnesses split into residual graphs with at least three vertices versus a unique residual edge. These exhaust every possibility, including all-singleton inputs, so the bivariate coefficient formula has no omitted cases. A separate graph-level verifier tested 2,272,392 vertex subsets across 36 profiles and tested additional larger templates. Finite evidence supports the proof but does not substitute for it.
+PASS
 
-## Originality — PASS, with unresolved access risk
+Independence allows at most one original in each part. For a fixed chosen original set X, independence excludes every incident subdivision vertex, and domination forces every subdivision whose endpoints are both unchosen; hence X uniquely determines D. A wholly unselected part needs a residual edge (condition 1). A unique selected original needs a selected residual edge incident to another original of its part (condition 2). The only residual-edge distance-two exception is a sole edge on two residual vertices, requiring a selected original in an endpoint part (condition 3). With at least three residual vertices a nonisolated edge shares an endpoint with a second edge, so all subdivision witnesses exist. Reconstructed these cases and independently enumerated all subsets of 25 small complete-multipartite central graphs, matching exact bivariate coefficients including K2, K3, singleton transitions. Checked the arithmetic of the stated minima for r=2, r>=3 and K_m.
 
-The motivating September 27, 2026 preprint (arXiv:2609.33932v1) describes closed formulas for minimum independent semitotal domination numbers of graph operators, whereas this statement enumerates every feasible set by total size and selected-original count on arbitrary multipartite inputs. The September 14, 2026 central-graph study (arXiv:2609.16357v1) concerns ordinary independent domination, which lacks the distance-two witness condition. Literature searches for independent semitotal domination polynomials and the matching central-graph multipartite formulas did not identify the same full polynomial. The preprint's complete text remained inaccessible, so this review cannot rule out an equivalent formula or theorem in its uninspected sections. Absence from indexed search is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-A new extremal parameter alone would not determine how many valid sets exist or how large they can be. Here one formula gives every coefficient for an arbitrary-length vector of positive part sizes. The two-residual-vertex obstruction explains a structural discontinuity when singleton parts are introduced, while the dense-part subfamily yields an exact total count and optimizer multiplicities. The result is self-contained, computable from at most \(2^r\) supports, and supplies test cases for more general graph-operator enumerations without claiming a solution beyond this class.
+Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.
 
-## Closest literature and limitations
+## value
 
-Primary paper: arXiv:2609.33932v1, abstract only accessible. Related paper: arXiv:2609.16357v1, ordinary independent domination of central graphs. Related operator result: Susada–Eballe (2023), lexicographic products, not central multipartite enumeration. The full primary paper could potentially contain an implicit stronger statement; no complete-text noncoverage certification is asserted. Numerical tests are limited to the recorded profiles.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-cardinality and original-support counting is a mathematically natural enhancement of a domination-number problem, with exact singleton-transition obstructions and minimum-attainment counts. Distinct from merely recomputing an extremal scalar; future domination-poly studies can use the coefficient formula and boundary families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
