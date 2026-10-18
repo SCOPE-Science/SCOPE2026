@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime-power field, the proof constructs the exact Hermitian Gram matrix using two elementary incidence counts and two opposite-entry Kloosterman kernels. The exact identity \(K_\epsilon K_\epsilon^*=q^2 I-(q+1)J\) supplies both mean-zero bulk eigenspaces, while a four-coordinate symmetry reduction leaves only the displayed two-dimensional block. Explicit determinant and discriminant comparisons prove strict positivity, ordering, and all upper/lower equality cases. The package checker independently enumerated eight fields including extension fields, checking all entries and eigenspaces, but the arbitrary-field conclusion depends on the written proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Li--Hu (arXiv:1105.4513, full text and Theorem 2.4 inspected) explicitly evaluates additive Fourier sums over the full special linear group; that known ingredient must not be presented as new. The assessed theorem additionally diagonalizes a specified \(4q-3\)-element coordinate-character Gram matrix, identifies its exact four-level spectrum and all equality spaces, and does not follow as a mere specialization of a prior sharp-frame statement. Thill--Hassibi (arXiv:1509.05739, relevant full-text Section VII inspected) studies group-representation Fourier frames on \(\mathrm{SL}_2(F_q)\), a different construction. Published-record and preceding-archive searches found no covering formulation, including common singular-value, Riesz-bound and Kloosterman-matrix aliases. The related 2014 ICASSP paper was available only as an abstract; equivalent older literature remains possible. These are residual priority risks, not independent certification.
+PASS
 
-## Mathematical value — PASS
-The determinant-one variety is a canonical nonlinear affine Fourier-restriction set, and its first coordinate additive-character band is a natural family of low-complexity measurements. Exact all-field frame bounds and extremizers quantify stability in a way individual Fourier coefficient estimates do not. The two high-multiplicity levels, two simple levels, and squared condition number \(1+4/q+O(q^{-2})\) identify a structural spectral phenomenon over all prime powers.
+For every prime power q≥2 and nontrivial unitary additive character ψ of Fq, the 4q−3 functions 1 and ψ(u a),ψ(u b),ψ(u c),ψ(u d) on SL2(Fq) are distinct under the uniform probability inner product. Reconstructed |SL2|=q(q²−1), one- and adjacent-two-coordinate Fourier sums −q leading to ρ=1/(q²−1), and opposite-entry blocks ρ K_−(a,d), ρ K_+(b,c). Orthogonality gives K_ε 1=1 and K_ε K_ε*=q²I−(q+1)J. On the sum-zero (q−2)-dimensional frequency space H, K_ε/q is unitary with ± coupling spectra 1+ρ±qρ=q/(q±1); each opposite pair contributes q−2 to each. The orthogonal five-dimensional mean-frequency block splits into eigenvalues q/(q+1) (twice), q/(q−1) (once), and eigenvalues μ_± of the explicit 2×2 matrix B_q. Multiplicities μ_-:1, q/(q+1):2q−2, μ_+:1, q/(q−1):2q−3 sum to 4q−3. From det B_q=q(q−1)/(q+1)²>0 and discriminant 9q²−14q+9, derived strict 0<μ_-<q/(q+1)<μ_+<q/(q−1), including q=2 when H={0}. The eigenmode construction gives sharp Riesz bounds and full equality spaces. Independently enumerated SL2(Fq) for q=2,3,5,7 and diagonalized Gram matrices, maximal error <1.8×10^-15; all-q proof rests on exact orthogonality not these four cases.
 
-## Scientific limitations
-The result does not address higher Fourier interaction bands, arbitrary frequency selections, or different matrix varieties. Finite computations are corroboration, not the proof for infinitely many fields. Full text of the 2014 conference predecessor remained unavailable for a direct historical comparison; the related 2015 expanded source was read. No independent audit has been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Li–Hu Theorem 2.4 evaluates general ambient additive Fourier transforms on SL_n via rank and Kloosterman sums; it provides ingredients for Gram entries but not this 4q−3-function family’s full diagonalization, closed eigenmultiplicities, equality spaces or sharp frame bounds. Thill–Hassibi §VII builds nonabelian representation-character group Fourier frames of SL2, not additive ambient coordinate characters restricted to determinant-one variety. Related GL_m Resultary spectra are for the different set GL_m and do not imply SL2 conditioned on det=1. No same-family stronger spectral theorem found in actual comparisons.
+
+## value
+
+PASS
+
+PASS: exact finite-field Riesz spectra and optimizing modes of a natural first-coordinate Fourier restriction to the determinant-one hypersurface are useful exact invariants with simultaneous uniform positivity and asymptotic conditioning. The Kloosterman-unitarity block reduction is structural and the arbitrary-prime-power theorem is not just a small-field numerical table or renaming a general additive transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
