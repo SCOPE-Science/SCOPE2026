@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The four zero-run parameters are unique and nonnegative. The proof explicitly enumerates all palindrome types by how many ones they contain, handles coincident and unequal interior gaps, and checks all three boundary cases in the unequal-gap identity (with reversal covering the remaining orientation). Formal geometric-series sums then prove the entire bivariate defect enumerator. Standalone centre-expansion enumeration corroborates all three-one words through length \(34\), and exact coefficient summations through length \(500\). Finite checks do not establish the unrestricted theorem by themselves.
+
+**Originality — PASS, subject to bibliographic risk.** Compared to the foundational rich-word criteria of Glen et al. (arXiv:0801.1656), Guo–Shallit–Shur's unrestricted growth bounds and run-length sufficient class (arXiv:1503.09112, Section 4), Rukavicka's general subexponential bound (arXiv:1701.07778), the Pelantová–Starosta qualitative binary zero-defect criterion (arXiv:1708.06911, Corollary 13), and Fici's known shortest non-rich example (arXiv:2412.21145, Section 2), no inspected statement provides the exact defect for every three-one word or the all-defect rational bivariate spectrum. Database and equivalent-form searches located no covering formula; this is not proof of uniqueness. A general qualitative richness criterion can imply zero-versus-nonzero by additional specialization but does not determine defect magnitude, exact stratum counts, or asymptotic density. Priority remains uncertain without an independent search.
+
+**Value — PASS.** The first non-rich binary words have three ones, making this the least sparse nontrivial Hamming layer. A complete exact palindromic-defect classification resolves both the membership and magnitude questions for an infinite, naturally selected family, gives an explicit bivariate rational series, and determines a nontrivial limiting rich fraction of \(5/6\). This is not merely one more finite count or an isolated small-word counterexample.
+
+**Limits.** Linear binary factors; exactly three ones. General palindromic defect in arbitrary weight, unrestricted rich-word enumeration, and absolute bibliographic priority are not resolved.
+
+Self-review: passed. Independent audit: not yet performed.
