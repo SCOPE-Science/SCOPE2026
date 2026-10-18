@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The field and \(6\times12\) parity-check matrix are specified explicitly. The support-to-ambiguity equivalence is linear-algebraic: a set of \(t\) erased columns leaves \(5^{t-\operatorname{rank}(H_E)}\) completions. The five-circuit proof reduces each possible dependence to a nonzero pair-difference lying on a triple-difference line; all six ordered incidence tallies are independently recomputed. The six-set count is an exhaustive enumeration of 924 exact modular ranks, independently cross-checked against 15,625 codewords and the included complete circuit manifest. No random sampling or infinite extrapolation is used. The strongest claim is restricted to this single finite code.
+PASS
 
-## Originality — PASS
+The parity-check matrix has local row supports in three four-column blocks and bottom triples V_1,V_2,V_3 from Fu–Shan. Every erasure pattern has completion kernel dimension |E|−rank(H_E). With d=5 all four-subsets are independent. The exact GF(5) five-column dependence census gives 16 circuits, and the exhaustive six-subset rank census gives 181 deficient rank-five sets (and none of rank≤4), of which 112 extend a five-circuit; the residual 69 are minimal six-circuits. Thus each failed pattern has precisely 5 completions. Independent check: Independently reconstructed the six-by-twelve matrix from the explicit V_i over F_5, exhaustively row-reduced all 792 five-subsets and 924 six-subsets: histograms for nullity at k=5 were 776 rank-full and 16 nullity-one, and k=6 were 743 rank-full and 181 nullity-one. Independently extracted 16 five-circuits/69 six-circuits; maximum intersection of distinct five-circuits was three. This is truly exhaustive for the claimed finite code, not a sample.
 
-Fu–Shan, arXiv:2605.31214v1, Theorems 1–2 and construction on pages 7–11, establish minimum distance five and the three-group code, but not its numbers of failing size-five/size-six erasure sets, corresponding circuit counts or completion multiplicities. published-finding corpus topical matches on codimension-two locality, three-block residual extremal dimensions, and binary cyclic symbol-pair codes concern different objects and do not imply this fixed matroid's 16/181 figures. Exact-code and synonymous erasure/weight-support searches did not locate the same data. Search incompleteness and the unread full text of one tangential older LRC source leave a residual risk of an unindexed earlier equivalent enumeration.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum distance alone says every four-erasure pattern is recoverable but does not quantify uncertainty immediately beyond that guarantee. The exact five- and six-erasure failure frequencies give operationally meaningful small-failure probabilities for a canonical maximal three-repair-group example, and the 112+69 circuit decomposition identifies which six-erasure failures are inherited from minimum supports rather than genuinely new. This is a natural boundary invariant of the source's finite geometric construction, not a free-floating small integer count or a claim to improve the distance bound.
+Fu–Shan Theorem 2 supplies the same geometric construction and [12,6,5]_5 parameters; its full arXiv mathematical proof addresses locality and optimal dimension/distance, not the exact 16/181 erasure spectrum or 69 independent size-six circuits. General parity-check bounds do not determine the count or dependence partition. No exact competing table for this labeled code was found in the searched primary/Resultary materials.
 
-## Literature and limits
+## value
 
-Closest primary source: Yi Fu and Xiuling Shan, arXiv:2605.31214v1 (2026), particularly Theorem 2; the construction and distance are credited to them. Related parity-check approaches: Hao et al., arXiv:1601.05595; Fang et al., *Perfect LRCs and k-optimal LRCs* (2023). The finite result makes no general-family, asymptotic, or independent-validation claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-size unique-erasure-recovery failure probabilities are natural operational invariants of a specific optimal local-repair code; the full 5/6-circuit census is a finite but complete and reproducible classification at the first nontrivial erasure boundary. The fact is useful for comparing the code beyond its known minimum distance, without claiming a new general LRC theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
