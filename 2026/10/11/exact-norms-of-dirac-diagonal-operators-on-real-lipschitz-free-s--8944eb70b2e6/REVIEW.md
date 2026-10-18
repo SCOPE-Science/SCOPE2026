@@ -1,15 +1,21 @@
-# Scientific review: exact Dirac-diagonal norms
+# Independent mathematical audit
 
-## Correctness — PASS
-Arens--Eells molecular norming reduces the operator norm to exact three-point Lipschitz extremal evaluations. McShane extension eliminates possible restrictions from outside each triangle. The full six-vertex calculation, bounded-extension argument and both projection/sign corollaries are reconstructed in `RESULT.md`. Degenerate triangle boundaries are included. The packaged exact-rational local checker passed 7000 comparisons, and the independent full-polytope linear-programming checker passed 720 finite metrics. These are supplemental to, not substitutes for, the general proof.
+## correctness
 
-## Originality — PASS, with risks
-Godard's metric-tree/L1 description contains the rooted-star specialization; Hájek--Pernecká prove bases for selected Lipschitz-free spaces; Novotný constructs retractional bases on grids; Allen et al. treat weighted Lipschitz function spaces on trees. None of these inspected results directly states or implies the all-metric exact three-point formula for *arbitrary Dirac coefficient symbols*. A related published exact essential-norm result concerns a different function space. Relevant alternate formulations and exact-table literature were searched. The possibility of an equivalent historical Lipschitz-algebra multiplier formula is a genuine residual bibliographic risk. The Hájek--Pernecká paper was only partially accessible, though substantial publisher text was inspected.
+PASS
 
-## Value — PASS
-The natural and motivated object is the full algebra of diagonal operators relative to canonical point evaluations. The exact norm and boundedness criterion work for arbitrary metric spaces, and the sharp projective/sign formulas supply a complete geometric classification of canonical coordinate unconditionality in every finite metric space. They distinguish equilateral and rooted-star geometries and detect genuinely unbounded selectors in nondiscrete spaces. The result is not offered as a new proof that free spaces over stars are \(\ell_1\).
+For arbitrary pointed genuine metric M over real scalars, the molecular unit ball of F(M) reduces ||D_lambda|| to sup images of (δx−δy)/d(x,y). For any triple o,x,y the admissible 1-Lipschitz values (u,v) form the exact polygon |u|≤a, |v|≤b, |u−v|≤c by McShane extension; its six vertices are ±(a,b), ±(a,a−c), ±(b−c,b). Maximizing λ_x u−λ_y v gives H_xy exactly. Spokes yield |λ_x|. A finite molecular supremum is necessary/sufficient for continuous bounded extension on completed F(M), including infinite nondiscrete M and degenerate triangle inequalities. For coordinate cuts λ∈{0,1}, mixed pairs give a/c; all-active give 1; for signs λ∈{−1,1}, opposite pairs yield (a+b)/c. This gives exact finite basis constants and rooted-star contractivity. Verified the independent mathematical polygon and selector inequalities, inspected deterministic exact-rational local verifier, but general validity comes from duality/extension rather than its 7000 cases.
 
-## Limitations and independent review
-Only real scalars and point-evaluation diagonals are treated. Infinite spaces need not possess Dirac Schauder bases. The outcome has been reconstructed and checked within one review; no independent mathematical validation or exhaustive historical novelty verification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Known Lipschitz-free duality and pointed-tree L1 classifications cover underlying ingredients, but none of the checked sources states an exact arbitrary-metric real diagonal multiplier norm with explicit three-point H_xy and sharp selector/unconditionality characterizations. A possible historical formula for Lipschitz-algebra pointwise multipliers may imply equivalent results and remains a substantive bibliographic risk, but this risk alone does not negate a best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Natural classification of every real Dirac diagonal operator on a free space, including exact boundedness on arbitrary infinite metrics, and complete finite-metric coordinate suppression/sign constants. Distinguishes rooted-star (all 1) from equilateral (suppression 1, signs 2) and shows selectors can be unbounded in nondiscrete geometries. The invariant is canonical and structurally motivated, not a new statement of McShane or a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
