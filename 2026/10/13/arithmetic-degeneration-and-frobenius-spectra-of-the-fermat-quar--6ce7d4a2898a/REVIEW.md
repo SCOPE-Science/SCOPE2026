@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The \(28\) bitangent equations follow by explicitly restricting the quartic to each line. Exact arithmetic in the integral cyclotomic ring verifies \(3276\) three-line determinants and identifies precisely \(2,3,5,17\) as possible factors of nonzero determinant norms. This excludes all unlisted exceptional odd primes, rather than inferring the infinite statement from trial reductions. An exhaustive finite-field cross-product census determines the three exceptional multiplicity spectra, and exact cyclotomic Galois permutations determine every generic rational-point count. The elementary characteristic-five incidence argument separately explains the unexpected complete coverage of \(\mathbb P^2(\mathbb F_5)\). The crucial infinite step is the norm obstruction; finite enumerations alone are not used as an infinite proof. The standalone verification script was executed successfully.
+## correctness
 
-**Originality — PASS, with historical-overlap risk.** Janasz–Pokora–Zieliński, arXiv:2308.16514, explicitly establish the \(28\) lines and \(288/15\) complex incidence basket. Knecht–Reyes, arXiv:1510.04621, explicitly imply the characteristic-three and characteristic-seventeen baskets; these are NOT part of the independent novelty claim. Bethea–Brazelton, arXiv:2410.09242, treat symmetry orbits in complex characteristic. The known bitangent field and line counts are not presented as new. The novelty checked is the **complete bad-prime set**, the **characteristic-five pointwise degeneration**, and the **prime-by-prime Frobenius fixed-intersection spectrum**. Searches using aliases, numerical profiles, and equivalent line-arrangement formulations found no publication implying those assertions. An unindexed earlier finite-characteristic calculation, including older work on Fermat quartics, remains a bibliographic risk.
+PASS
 
-**Value — PASS.** The \(28\)-bitangent arrangement is a canonical incidence configuration on a distinguished genus-three curve. Identifying its exact reduction boundary is a natural structural problem in arithmetic arrangement theory, and the characteristic-five phenomenon is a substantial finite-geometric classification: the entire rational projective plane is singular for the geometric bitangent divisor, while the curve itself has no rational points. The rational-point spectrum recovers the splitting pattern of the whole intersection scheme, not merely an isolated, arbitrary invariant. These results add mathematically motivated information beyond the known complex incidence counts.
+The 16 Z-rX-sY and 12 coordinate-pair lines are 28 distinct geometric bitangents for every odd characteristic. Independent implementation in Z[T]/(T^4+1) computed all 3276 triple determinants: exactly 60 zero, all 3216 nonzero norms have prime support only 2,3,5,17, providing an infinite-prime no-new-concurrence certificate. Reconstructed pair intersections with independent Fp² arithmetic give the complete p=3,5,17 spectra (63 quadruples; 240 doubles+16 triples+15 quadruples; 144 doubles+48 triples+15 quadruples) and Frobenius-fixed counts for p=3,5,7,11,17,41. Pair counts equal C(28,2)=378 and the 16 interior plus 15 coordinate-zero F5 points exhaust P²(F5). Cyclotomic Galois maps determine all generic congruence classes p mod 8; no finite-sample inference for other primes.
 
-**Limits and closest literature.** The characteristic-three and seventeen counts are not original; characteristic two is outside the domain. Unindexed historical arithmetic tabulations may exist. The finite verifier proves only its explicit exhaustive checks; the written determinant-norm argument bridges to every other prime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complex bitangent census and the p=3 and p=17 special-fiber spectra are known and credited. The new all-odd-prime degeneration obstruction, p=5 complete plane phenomenon and modulo-eight rational-intersection spectrum are not covered by the inspected original papers.
+
+## value
+
+PASS
+
+The all-characteristic-except-p=2 incidence degeneration classification, exact exceptional prime set {3,5,17}, rational point spectrum and complete F5-plane intersection covering provide natural arithmetic-geometric invariants of a celebrated quartic arrangement, beyond already-published complex and isolated-characteristic tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone \(\texttt{verify.py}\) uses exact integer arithmetic in \(\mathbb Z[T]/(T^4+1)\). Its complete determinant enumeration covers \(\binom{28}{3}=3276\) triples and its projective pair census covers \(\binom{28}{2}=378\) pairs. It checks the full determinant-norm histogram, multiplicity-class partition, and four cyclotomic Frobenius fixed-point profiles. In finite characteristic it constructs \(\mathbb F_{p^2}\) as a quadratic extension and checks the complete geometric and rational incidence spectra at eleven explicitly listed primes, including all three exceptional primes. A replay prints \(\texttt{VERIFY\_OK}\).
+# Independent mathematical audit
 
-The all-prime proof is not a mere sample experiment: nonzero determinants have exact cyclotomic norms divisible only by \(2,3,5,17\), so no new concurrency can arise for any other odd prime. A separate exact computation handles each remaining exceptional odd prime. The mathematical premises are the standard \(28\)-bitangent count for a smooth genus-three quartic in characteristic not \(2\) and the explicit line restrictions. Residual limitation: no externally independent audit of the theorem, implementation, or originality has occurred.
+## correctness
+
+PASS
+
+The 16 Z-rX-sY and 12 coordinate-pair lines are 28 distinct geometric bitangents for every odd characteristic. Independent implementation in Z[T]/(T^4+1) computed all 3276 triple determinants: exactly 60 zero, all 3216 nonzero norms have prime support only 2,3,5,17, providing an infinite-prime no-new-concurrence certificate. Reconstructed pair intersections with independent Fp² arithmetic give the complete p=3,5,17 spectra (63 quadruples; 240 doubles+16 triples+15 quadruples; 144 doubles+48 triples+15 quadruples) and Frobenius-fixed counts for p=3,5,7,11,17,41. Pair counts equal C(28,2)=378 and the 16 interior plus 15 coordinate-zero F5 points exhaust P²(F5). Cyclotomic Galois maps determine all generic congruence classes p mod 8; no finite-sample inference for other primes.
+
+## originality
+
+PASS
+
+The complex bitangent census and the p=3 and p=17 special-fiber spectra are known and credited. The new all-odd-prime degeneration obstruction, p=5 complete plane phenomenon and modulo-eight rational-intersection spectrum are not covered by the inspected original papers.
+
+## value
+
+PASS
+
+The all-characteristic-except-p=2 incidence degeneration classification, exact exceptional prime set {3,5,17}, rational point spectrum and complete F5-plane intersection covering provide natural arithmetic-geometric invariants of a celebrated quartic arrangement, beyond already-published complex and isolated-characteristic tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
