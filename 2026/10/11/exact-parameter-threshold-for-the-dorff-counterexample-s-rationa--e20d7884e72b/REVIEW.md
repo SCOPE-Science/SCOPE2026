@@ -1,19 +1,21 @@
-# Review of Exact parameter threshold for the Dorff counterexample’s rational witness
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The variable-\(b\) boundary derivative reduces to a convex quadratic in \(x=\cos t\). Its two endpoint values prove strict positivity of the angular derivative for the full geometric range \(0\le b<1/43\), with exact degeneration at \(b=1/43\).
+PASS
 
-The variable Fourier coefficients follow from the same two-pole partial fraction decomposition used by the source. Their normalized analytic and co-analytic tails remain geometric, so the self-convolution derivatives sum exactly. At \(x_0=-99/100\), the Jacobian factors into the explicit polynomials \(K,H,E_1,E_2\). Exact rational Bernstein coefficients certify \(K<0\), \(H'>0\), and \(E_1<0<E_2\) throughout the whole interval. Since \(H\) changes sign once, the Jacobian trichotomy is rigorous. The exact checker was replayed from the packaged path and passed.
+The interval 0≤b<1/43 follows from endpoint signs of a convex x-quadratic numerator N_b(x) of the boundary angular derivative, with degree-one orientation and positive affine-normalization determinant E1<0<E2. Frozen verify_dorff_parameter.py (byte exact, Git blob 523bb5...) reconstructs variable Fourier coefficients c1,c2,c−1, normalization, the entire rational J_Fb(−99/100), and verifies the displayed factorization J=−14641 K H /[positive factors × E1³E2³]. Exact Bernstein coefficient tests over [0,1/43] prove K<0, H’>0, E1<0<E2 and exact root bracket 0.02218460173517970 < beta* < 0.02218460173517971. The verifier was executed and passed. At beta* Jacobian vanishes and after it sign reversal relative to J(0)=1 forces an interior singular point. This remains a conditional reconstruction from the source harmonic-map normalization, which could not be independently read in full this run.
 
-## Originality
+## originality
 
-PASS. The primary source fixes \(b=1/44\) and proves negativity at one rational point. Its only parameter-stability statement is qualitative openness of the boundary angular derivative. A published refinement of the same example fixes \(b=1/44\) and instead classifies the real-axis fold point. Neither supplies the parameter threshold \(\beta_*\) or the robust interval \([\beta_*,1/43)\).
+PASS
 
-Targeted searches for the exact preprint together with varying-\(b\), robustness, witness, Jacobian, and Blaschke-parameter formulations did not locate an implication-equivalent theorem. The closest broader literature concerns half-plane and strip convolution families with finite Blaschke-product dilatations, not this bounded ellipse self-convolution.
+Best-of-knowledge originality for the unique varying-b rational-witness threshold: published fixed-parameter results establish one negative witness or a spatial fold, not the parameter ray’s one algebraic threshold. Core exact Bernstein parameter classification is not implied by them. Inaccessible primary source is explicitly named; abstract-level access cannot certify full-text noncoverage, so this PASS is qualified with material residual priority risk.
 
-## Value
+## value
 
-PASS. The source's counterexample depends on an apparently special rational Blaschke parameter. Determining whether that point is isolated or lies in a genuine counterexample phase is a natural structural question about the mechanism. The result identifies a full continuum family and an exact algebraic boundary for the very witness used in the proof, while also locating the sharp geometric endpoint \(1/43\) of the boundary-homeomorphism ray. This is substantially more informative than a generic continuity observation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The original ellipse self-convolution counterexample is a natural test of a long-standing harmonic-map univalence question. The exact parameter boundary for its fixed rational witness along the entire maximal boundary-orientation ray quantifies robustness, distinguishes positive-, zero- and negative-Jacobian regimes, and supplies a continuum of non-univalent examples. Degree-18 algebraic uniqueness and Bernstein certificates make this a nontrivial motivated phase transition, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
