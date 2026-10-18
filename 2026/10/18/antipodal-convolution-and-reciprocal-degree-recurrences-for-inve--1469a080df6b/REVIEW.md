@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The proof identifies the inverse exponent matrix from \((I+S)H=I+J\), computes cancellation by a common monomial, proves the cyclic unimodality of the uniform-arc convolution via arc-overlap monotonicity, and derives a genuinely constant-coefficient recurrence using paired Fourier eigenmodes. It separately verifies nonvanishing of every eigenmode coefficient, which is needed for the minimality claim and the spectral asymptotic. The packaged exact-integer verifier reproduces 1,584 recurrence cases and 81 independent matrix-degree cases. Computational samples are not used as infinite proofs.
+
+**Originality — PASS with residual risk.** Russo–Simis (2001) and Costa–Simis (2011) establish inverse monomials and their *first* degree, not every inverse iterate. Hasselblatt–Propp's general matrix-degree framework gives an algorithm and spectral asymptotics but not this antipodal evaluation, inverse all-iteration sequence, or the reciprocal minimal-parity recurrence. Sun's 2004 binomial residue-sum work is substantially overlapping for the forward map but uses two-term binomial powers rather than the inverse's longer uniform-arc convolution; the forward direction has not been claimed. Published-record searches for the inverse map, odd cycles, cyclic convolution, reciprocal recurrences, and dynamical degree revealed no dominating exact statement. Inaccessible or unindexed specialized articles remain a potential originality risk.
+
+**Value — PASS.** These are intrinsic invariants of a natural, classical infinite family of birational transformations. The all-iteration degree formula proves a nontrivial extremal fact for cyclic convolutions and explicitly exhibits reciprocal spectral asymmetry between a quadratic Cremona map and its generally higher-degree inverse; the nonzero-mode argument gives a sharp recurrence order for both parity sequences. The result applies for every odd projective dimension and is not a small numerical increment or an arbitrary restriction.
+
+Closest sources: Russo–Simis (2001), Costa–Simis (2011), Hasselblatt–Propp (2006/2008), Sun (2004), Favre–Wulcan (2010/2012). Limits: independent review absent, no generalization to other graphs or higher dynamical degrees, and possible unindexed overlap.
+
+Self-review: passed. Independent audit: not yet performed.
