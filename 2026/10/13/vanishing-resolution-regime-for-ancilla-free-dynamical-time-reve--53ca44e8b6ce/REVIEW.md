@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is obtained by keeping the source's accuracy parameter variable in its explicit Appendix C.4 bounds. The sole new asymptotic condition \(\epsilon_n^2b_n\to\infty\) forces the \(\tau=+1\) false-rejection bound to zero and also forces every accuracy-dependent soundness correction to zero. Since \(b_n\sim n\log2/(4\log n)\), this is exactly \(\epsilon_n^2n/\log n\to\infty\). The source's remaining good-event term is already \(o(1)\) uniformly in the unknown unitary and the TRS sign. Amplification then gives the stated confidence dependence.
+## correctness
 
-Risk: the result inherits the source's access model and its asymptotic estimates. It does not establish a converse for shrinking gaps.
+PASS
 
-## Originality
-PASS. The primary source states the no-auxiliary theorem only for fixed accuracy. Its quantitative proof was inspected through the complete adaptive-interference argument, including the parameter choice, good-event estimate, completeness bounds, soundness bound, base query count, and confidence amplification. Targeted searches for the exact source, shrinking accuracy, equivalent normalized Frobenius formulations, and the crossover scales did not locate a published statement of the sequence-level result. Earlier T-symmetry testing papers inspect a different antiunitary operator-invariance property, a distinction explicitly documented by the primary source.
+The primary arXiv:2610.01555v1 Appendix C.4 gives explicit good-event ζ_d=o(1) independent of epsilon and base error bounds involving r~d/(ε_n² b), b=floor(log d/(4 loglog d)). With d=2^n, b∼n log 2/(4 log n), so ε_n² n/log n→∞ iff ε_n²b→∞. Exact τ=−1 null has zero false rejection; τ=+1 null error O((ε_n² b)^(−1))→0. Alternative false acceptance at most e^(−4)+ζ_d+32/((d+1)ε_n²)+128d/((d−2) ε_n²b)→e^(−4). For sufficiently large n base error <1/3; O(log1/δ) majority repetitions yield O(d log n/(ε_n² n) log1/δ) queries and o(d) for fixed δ. The primary identity 1−fτ=||ΞτUΞτ^{-1}−U†||_F²/(2d) converts ε to squared distance; δ distance threshold ω((log n/n)^(1/4)). All implications use explicit uniform published inequalities, not plugging n-dependent ε into an unquantified big-O.
 
-Risk: a contemporaneous note or a differently indexed generic uniformization argument could contain the same consequence. The claim is therefore limited to the concrete statement supported by the inspected literature.
+## originality
 
-## Value
-PASS. The result changes the operational regime rather than only a constant: it shows that an ancilla-free dynamical-TRS test can retain sub-\(2^n\) query complexity while its promised symmetry-breaking signal vanishes with system size. The normalized Frobenius formulation identifies a natural sufficient resolution scale \((\log n/n)^{1/4}\) for this protocol. This is useful when accuracy is not fixed as dimension grows and does not overstate the scale as optimal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS for a nontrivial, motivated vanishing-resolution consequence of primary published finite-error inequalities; original stated theorem fixes ε and does not state an n-dependent promise. Does not claim a new protocol, a necessary threshold, or stronger information-theoretic lower bound.
+
+## value
+
+PASS
+
+The natural experimental resolution shrinks with system size; quantifying exactly when a prescribed no-auxiliary protocol remains sub-2^n-query yields a motivated accuracy–complexity boundary. It is an achievability extension, not a paper-sized innovation or a claim of optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

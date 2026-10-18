@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is checked directly against the explicit probability inequalities of arXiv:2610.01555v1, Appendix C.4.
+# Independent mathematical audit
 
-For \(d_n=2^n\) and
-\[
-b_n=\left\lfloor\frac{\log d_n}{4\log\log d_n}\right\rfloor,
-\]
-we have
-\[
-b_n\sim\frac{n\log2}{4\log n}.
-\]
-Hence
-\[
-\epsilon_n^2n/\log n\to\infty
-\quad\Longleftrightarrow\quad
-\epsilon_n^2b_n\to\infty.
-\]
+## correctness
 
-The published \(\tau=+1\) false-rejection bound is \(O((\epsilon_n^2b_n)^{-1})\), so it vanishes. The published alternative-hypothesis error bound is
-\[
-e^{-4}+\zeta_{d_n}
-+\frac{32}{(d_n+1)\epsilon_n^2}
-+\frac{128d_n}{(d_n-2)\epsilon_n^2b_n}.
-\]
-Here \(\zeta_{d_n}\to0\). The final term vanishes from \(\epsilon_n^2b_n\to\infty\). Also
-\[
-d_n\epsilon_n^2
-=
-(d_n/b_n)(\epsilon_n^2b_n)\to\infty,
-\]
-so the third term vanishes. Thus the base error is eventually at most \(1/3\).
+PASS
 
-The source's amplification uses independent repetitions and majority vote, giving \(O(\log(1/\delta))\) repetitions. Substitution into its base query count yields
-\[
-O\!\left(
-\frac{2^n\log n}{\epsilon_n^2n}
-\log\frac1\delta
-\right).
-\]
-At fixed confidence, division by \(2^n\) leaves \(\log n/(\epsilon_n^2n)\to0\), proving the sub-\(2^n\) statement.
+The primary arXiv:2610.01555v1 Appendix C.4 gives explicit good-event ζ_d=o(1) independent of epsilon and base error bounds involving r~d/(ε_n² b), b=floor(log d/(4 loglog d)). With d=2^n, b∼n log 2/(4 log n), so ε_n² n/log n→∞ iff ε_n²b→∞. Exact τ=−1 null has zero false rejection; τ=+1 null error O((ε_n² b)^(−1))→0. Alternative false acceptance at most e^(−4)+ζ_d+32/((d+1)ε_n²)+128d/((d−2) ε_n²b)→e^(−4). For sufficiently large n base error <1/3; O(log1/δ) majority repetitions yield O(d log n/(ε_n² n) log1/δ) queries and o(d) for fixed δ. The primary identity 1−fτ=||ΞτUΞτ^{-1}−U†||_F²/(2d) converts ε to squared distance; δ distance threshold ω((log n/n)^(1/4)). All implications use explicit uniform published inequalities, not plugging n-dependent ε into an unquantified big-O.
 
-Finally, the source identity \(1-f_\tau=\Delta_\tau^2\) converts \(\epsilon_n=\Delta_n^2\) and gives the sufficient normalized Frobenius regime
-\[
-\Delta_n=\omega((\log n/n)^{1/4}).
-\]
+## originality
 
-No finite computation, enumeration, or external certificate is used to prove the asymptotic claim. No optimality below this scale is asserted.
+PASS
+
+Best-of-knowledge PASS for a nontrivial, motivated vanishing-resolution consequence of primary published finite-error inequalities; original stated theorem fixes ε and does not state an n-dependent promise. Does not claim a new protocol, a necessary threshold, or stronger information-theoretic lower bound.
+
+## value
+
+PASS
+
+The natural experimental resolution shrinks with system size; quantifying exactly when a prescribed no-auxiliary protocol remains sub-2^n-query yields a motivated accuracy–complexity boundary. It is an achievability extension, not a paper-sized innovation or a claim of optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
