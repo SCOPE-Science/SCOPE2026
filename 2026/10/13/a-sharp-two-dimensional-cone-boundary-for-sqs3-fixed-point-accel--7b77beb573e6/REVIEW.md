@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed-step criterion follows from an exact entrywise square of \(I-sA\). The adaptive statement follows from a two-mode asymptotic expansion around the positive Perron eigenvector, with the non-Perron mode surviving at first order while the Perron mode is suppressed. The exact witness and radical signs are replayed by `verify.py`.
+## correctness
 
-## Originality
-PASS. The primary SqS3 paper already documents that unsafeguarded runs can violate parameter constraints; that general observation is not the claim here. The inspected literature did not state the exact \(s\le2/\operatorname{tr}(I-J)\) cone boundary or prove generic completed-cycle sign loss near the Perron ray for positive symmetric affine contractions. The closest semantic-database record concerns scalar Aitken--Steffensen robustness, not matrix cone invariance. Residual risk remains from older vector-extrapolation terminology.
+PASS
 
-## Value
-PASS. The result converts a qualitative safeguard concern into a sharp structural criterion on the smallest coupled positive model. It explains why positivity of the base fixed-point map does not transfer automatically to squared acceleration and pinpoints a mechanism that feasibility-aware implementations can test or guard against.
+For 2x2 A=I-J=[[a,-c],[-c,d]] symmetric positive definite with c>0, (I-sA)^2 has diagonal terms positive and offdiagonal sc(2-s(a+d)); hence it maps R_+² into itself iff 0<=s<=2/(a+d). With SqS3 s=||Ax||/||A²x||, positive x arbitrarily close to the Perron eigenvector may generate a signed subdominant mode when J has nonzero second eigenvalue. Exact witness J=[[1/2,1/4],[1/4,1/2]], x=(11/10,9/10), s=4sqrt(19729)/181, final J(I-sA)^2x has second coordinate (3769-27sqrt(19729))/3620<0. Independently rederived radical by exact algebra; never inferred all A from finite witnesses.
 
-## Closest literature and limitations
-Varadhan--Roland (2008) supplies SqS3 and globalization; Roland--Varadhan--Frangakis (2007) supplies the preceding squared-polynomial framework. The finding is limited to exact arithmetic, two-dimensional symmetric strictly positive affine contractions, and unsafeguarded SqS3; it does not classify nonsymmetric or higher-dimensional maps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact orthant feasibility frontier and positive-input counterexample for raw unsafeguarded SqS3. Varadhan–Roland provide the step formula and generic safeguard/globalization; their full accessible pages discuss parameter failures but do not derive the 2D fixed-s matrix entry condition s<=2/tr A or the radical positive-input witness. The result is not claimed for safeguarded methods.
+
+## value
+
+PASS
+
+Sharp feasibility barrier for a commonly used fixed-point accelerator, with a robust tiny two-dimensional counterexample under a strictly positive contractive base map. It motivates step safeguarding and distinguishes feasible base iteration from feasible extrapolation. Does not criticize or override safeguarded gSqS3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
