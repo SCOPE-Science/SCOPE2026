@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustive. Both descriptions of a two-deletion descendant set are evaluated for every length-seven word and required to agree. The compatibility graph has \(128\) vertices and \(2,955\) edges. A complete clique enumeration finds exactly \(476\) size-\(5\) cliques and a separate exhaustive search finds no size-\(6\) clique. The stored census is compared exactly against the regenerated list, after which all symmetry and coverage claims are recomputed.
+## correctness
 
-## Originality
-PASS. The scalar optimum \(5\) is prior. OEIS A057591 and Sloane’s `2dc.128` benchmark give that value and one witness, but the inspected sources do not give the \(476\)-code equality census, the \(123\)-orbit decomposition, the endpoint-membership counts, or the coverage distribution. The same benchmark page explicitly records an all-maxima count at length nine, which makes the omitted length-seven equality layer a distinct natural datum. Exact-parameter, alias, database, and implication searches did not locate a covering statement. Residual risk remains for an obscure unindexed historical computation.
+PASS
 
-## Value
-PASS. The result classifies every optimizer in a standard historical benchmark rather than merely advancing a scalar parameter or applying a routine normalization. It identifies the complete natural-symmetry structure and a meaningful fixed-rate secondary invariant: the number of distinct channel outputs covered by an optimal code. In particular, only six of the \(476\) cardinality-optimal codes reach coverage \(30\).
+Descendant sets D₂(x) of all 128 binary length-seven words are completely determined by 21 deleted coordinate pairs; deleting two equals retaining five. Independently rebuilt the pairwise-disjoint-descendant compatibility graph with 2955 edges and independently exhaustively enumerated exactly 476 increasing-order five-cliques while proving no six-clique exists (an exact backtracking search across every possible branch). For all 476 maxima independently recomputed group action of reversal and bit complement, obtaining 115 four-element and 8 two-element orbits (123 total), 94 avoiding both constant words, no universal word, and the stated 13-bin 17–30 output-coverage histogram with exactly six top-coverage codes in orbits of sizes two and four. Finite proof is exhaustive for specified n=7, deletion count=2, and explicit group only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact n=7 optimum 5 is explicitly prior in OEIS A057591 and Sloane’s 2dc.128 challenge page; neither source determines number of maxima, orbit structure, or secondary channel-output coverage. Indeed that same challenge page separately reports a 120-maxima census for length 9 (2dc.512), underscoring this as a distinct equality-layer question. Kulkarni–Kiyavash supply the full deletion-set matching / graph independent-set equivalence and upper bounds, not the 476-case classification. Resultary nearby findings concern single deletion at length6 or other channels, not this exact equality layer.
+
+## value
+
+PASS
+
+A complete equality-case census for a classical coding benchmark whose exact scalar optimum was known but full optimizer family absent is a natural finite classification. New structural data (no universally required codeword, six max-coverage optima, reversal/complement orbit types) can guide comparisons at fixed optimal code size. Coverage counts output-support size, not error probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
