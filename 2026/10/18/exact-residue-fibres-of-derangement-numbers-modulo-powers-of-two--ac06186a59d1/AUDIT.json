@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The exact finite-residue fibre formula follows from a uniform integral Taylor congruence for signed derangements, explicit derivative valuations v2(F'(odd))=0 and v2(F'(even))=1, and the three normalized isometries. Every isometry induces bijections on Z/2^j; counting lifts yields one odd-index preimage for each even target and four even-index preimages for each 1 mod 8 target. Periodicity supplies densities. Standalone checker verified k=3..12, 64 derivative residues and 1160 local-distance pairs; infinite proof is analytic, not computational extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barsky 1981 Proposition 5 proves locally analytic interpolation of the signed sequence.",
+        "O'Desky--Richman 2020 Theorems 4.3 and 4.5 provide the interpolating falling-factorial series and the nonexpansive metric bound, not exact on-branch valuations or fibres.",
+        "Ulas 2023 Theorem 2.3 determines normalized terms modulo 8; for fixed low valuation and unbounded k it leaves target digits unspecified."
+      ],
+      "reasoning": "Continuity, a global 1-Lipschitz inequality, known period, and finitely many normalized binary digits do not logically give an exact all-target multiplicity law. The new proof establishes parity-dependent equality of valuations.",
+      "searches": [
+        "2-adic interpolation signed derangement function sum falling factorials derivative isometry p-adic residue distribution",
+        "arxiv:1508.01987 subfactorial residue distributions",
+        "SLC:B05b:Barsky:1981 Proposition 5",
+        "arxiv:2012.04615 Theorems 4.3,4.5",
+        "FibonacciQuarterly:61-3:Ulas:2023 Theorem 2.3"
+      ]
+    },
+    "checked_sources": [
+      "Barsky (1981), p.16 Proposition 5, https://www.mat.univie.ac.at/~slc/opapers/s05barsky.pdf",
+      "Miska (2015), arxiv:1508.01987, original full text Sections 4.1.1--4.1.3",
+      "O'Desky and Richman (2020), arxiv:2012.04615, Section 4.2",
+      "Ulas (2023), Fibonacci Quarterly 61(3), Lemmas 2.1--2.2 and Theorem 2.3",
+      "OEIS A000166 derangement sequence entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Miska 2015 Section 4.1.1 gives exact period of classical derangements modulo even d; Theorem 5 addresses lifting of zero congruences.",
+        "Ulas 2023 Lemma 2.2 shows v2(D_n)=v2(n-1); it determines the valuation stratum, not the target odd unit to arbitrary precision.",
+        "The present proof gives three surjective normalized isometries; these yield the exact count of each residue, rather than only values at zero or normalized residues modulo eight."
+      ],
+      "reasoning": "Each prior statement was compared for mathematical implication. They cover the uniform-period claim and the k=3 instance, and constrain valuations, but do not supply the derivative-valuation congruence or all k>=4 per-target counts. Residual possibility of another stronger source remains.",
+      "searches": [
+        "derangement subfactorial numbers modulo powers of 2 exact residue multiplicities period 2^k distribution even residues and residues 1 mod 8",
+        "2-adic interpolation signed derangement function sum falling factorials derivative isometry p-adic residue distribution",
+        "\"derangements\" \"residues\" \"modulo 16\" distribution",
+        "\"derangement numbers\" \"modulo 8\" \"1\" congruence",
+        "arxiv:1508.01987 Theorem 5 and Section 4.1.3",
+        "FibonacciQuarterly:61-3:Ulas:2023 Lemmas 2.1,2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miska proves exact period 2^k; this does not determine residue frequencies.",
+        "Ulas Lemma 2.1 gives exactly the k=3 reduction; the current contribution is all k >= 4 plus branchwise fibre structure.",
+        "The image statement, p-adic pushforward distribution and finite-residue fibre multiplicities are equivalent formulations of one theorem."
+      ],
+      "reasoning": "Searches tested subfactorial/rencontres and 2-adic image aliases, not just matching titles. An already published k=3 special case is identified; no inspected source gives all k.",
+      "searches": [
+        "derangement subfactorial numbers modulo powers of 2 exact residue multiplicities period 2^k distribution even residues and residues 1 mod 8",
+        "subfactorial rencontres numbers complete image and fibers modulo 2-adic powers, 1 mod 8 residue and even residues",
+        "Miska derangement numbers exact residue multiplicity prime power modulo 2^k",
+        "arxiv:1508.01987 Section 4.1.1",
+        "FibonacciQuarterly:61-3:Ulas:2023 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000166 comments list the recurrence, basic period divisibility, and even-index value 1 modulo 8; no complete prime-power residue-frequency table was found on the inspected entry.",
+        "No full all-k distribution table surfaced from the queried mathematical-result record index."
+      ],
+      "reasoning": "A known table of initial derangement values or the k=3 data cannot establish the infinite dyadic fibre census. Lack of a hit is not mathematical proof of absence.",
+      "searches": [
+        "derangement numbers congruences modulo powers of two image residues density",
+        "\"subfactorial\" \"distribution\" \"modulo\" \"2^k\"",
+        "OEIS A000166 modulo 8 modulo 16 residues",
+        "OEIS:A000166"
+      ]
+    },
+    "rationale": "Direct full-text implication comparisons isolate the all-exponents image and per-target fibre law. Previously published period, interpolation, modulo-eight and normalized valuation results are credited and do not evaluate all fibres for arbitrary k. No direct equivalent was located; search incompleteness is recorded.",
+    "residual_risks": [
+      "Unindexed earlier work or an unstated corollary of a more general theory could dominate the explicit fibre formula; independent originality verification was not performed.",
+      "Earlier results already cover k=3 and the exact period for arbitrary powers, and the new claim must not be construed as priority for those cases.",
+      "Specific older full-text material outside the most relevant inspected original sections was not assessed, and no exhaustive library completeness claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_INTERPOLATION_NOT_FIBRE_CENSUS",
+        "evidence": "Proposition 5 explicitly asserts p-adic continuity and local analyticity of signed derangement sequence; no all-target dyadic frequency evaluation in the inspected relevant portion.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/opapers/s05barsky.pdf",
+        "material_read": "Abstract, introduction and p.16 Proposition 5 with derivation and surrounding examples",
+        "method": "Read original lawful openly accessible full-text PDF, including relevant proposition",
+        "title": "Analyse p-adique et suites classiques de nombres",
+        "trigger": "Foundational p-adic continuation for signed derangements; plausible stronger source"
+      },
+      {
+        "assessment": "COVERS_PERIOD_AND_ZERO_LIFTING_NOT_ALL_FIBRES",
+        "evidence": "Section 4.1.1 proves basic period d for even d; Theorem 5 lifts roots of zero congruences, Section 4.1.3 focuses valuations and prime divisors.",
+        "identifier_or_url": "https://arxiv.org/abs/1508.01987",
+        "material_read": "Abstract, introduction and original full-text Sections 4.1.1, 4.1.2 and 4.1.3, including exact period, lifting, and valuations",
+        "method": "Read arXiv full-text rendering with equations and original theorem statements",
+        "title": "Arithmetic properties of the sequence of derangements and its generalizations",
+        "trigger": "Same exact sequence and modular periodicity, earliest dated core source"
+      },
+      {
+        "assessment": "COVERS_SERIES_AND_METRIC_BOUND_NOT_EXACT_FIBRES",
+        "evidence": "Theorem 4.5 supplies same falling-factorial series, Theorem 4.3 general locally analytic metric property; no equality of three branch metrics or residue multiplicities stated.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.04615",
+        "material_read": "Introduction, Section 2, and complete relevant Section 4.2 with Lemma 4.2 and Theorems 4.3, 4.5",
+        "method": "Read arXiv full text; checked for density, distribution, residue/derivative classification",
+        "title": "Derangements and the p-adic incomplete gamma function",
+        "trigger": "Potentially dominating general p-adic interpolation and metric-map result"
+      },
+      {
+        "assessment": "COVERS_K3_AND_VALUATIONS_NOT_GENERAL_FIBRES",
+        "evidence": "Lemma 2.1 gives D_even=1 mod8 and D_odd modulo8, entirely covering k=3; Theorem 2.3 describes normalized quotient modulo8 but not arbitrary modulus fibres.",
+        "identifier_or_url": "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+        "material_read": "Original PDF introduction, Section 2 pp.232--234 (Lemmas 2.1--2.2 and Theorems 2.3--2.4), and the Section 4 passage containing open questions",
+        "method": "Read openly accessible original PDF text and visually inspected the complete page containing the congruence and normalized-valuation assertions",
+        "title": "Representing generalized derangements as sums of three squares",
+        "trigger": "Direct prime-two congruence and normalized valuation coverage for classic derangements"
+      },
+      {
+        "assessment": "KNOWN_SEQUENCE_AND_LOW_CONGRUENCES_NO_FULL_FIBRE_TABLE",
+        "evidence": "Lists recurrence, period divisor and even-index congruence 1 mod8; no per-target count for all powers of two identified.",
+        "identifier_or_url": "https://oeis.org/A000166",
+        "material_read": "Sequence definition, comments on periodicity and congruences, references and links",
+        "method": "Read primary sequence page and searched for mod16 and residue-frequency references",
+        "title": "OEIS A000166 — Subfactorial or rencontres numbers",
+        "trigger": "Exact natural integer sequence database with attached congruences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac06186a-59d1-4f3a-8f7e-436a8a4cb0de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete image and exactly evaluated probability mass of every residue modulo every dyadic prime power is a natural exact invariant of the classical derangement sequence. Three isometric branches account structurally for a stable five-eighths image fraction and 4-to-1 fibre size difference. This all-exponent classification is not a narrow ad hoc finite slice nor merely a restatement of the previously known modulo-eight congruences.",
+    "status": "PASS"
+  }
+}
