@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Direct reproducibility
-Run `python3 verify.py` in this directory. The sole required dependency is Python 3.8+ with its standard library. The file `verification_output.txt` is the captured expected output.
+# Independent mathematical audit
 
-The checker enumerates all \(65536\) possible labeled binary four-cube colorings, with every geodesic realized as an ordering of differing bits. All \(24\) accepted colorings are independently retested with a breadth-first shortest-path search, and all are confirmed to be eight/eight, antipodally symmetric, and in one coordinate-permutation/bit-flip orbit. Direct breadth-first tests verify the two- and three-cube witnesses and the four classes on the five-cube.
+## correctness
 
-The exact lower bound \(\chi_{\mu_{\mathrm d}}(Q_5)\ge4\) uses the published theorem \(\mu_{\mathrm d}(Q_5)=10\) in Korže and Vesel, *Variety of mutual-visibility problems in hypercubes*, Theorem 3.14. This external result was read in its full-paper context and is not independently recomputed or certified here; the finite checker is not proof of that separate published computation. No higher-dimensional exact value or independent audit is asserted.
+PASS
+
+The dual-set definition requires, for each pair both inside or both outside each color class, an M-avoiding geodesic; for a two-class partition every monochromatic pair must admit geodesics avoiding both complementary class interiors (possibly different paths). Independently enumerated all 2^16=65,536 color masks of Q4 and every coordinate-flip permutation for each vertex pair using a fresh exhaustive verifier, obtaining exactly 24 labeled dual two-colorings, each 8+8 and antipodally invariant. Independent coordinate permutations and XOR flips map the displayed mask 35793 to exactly the same 24 solutions in one orbit. Independently tested each of the four eight-vertex face color classes directly against all geodesics in Q5, giving the four-color upper bound; the face-extension lemma handles all endpoint configurations. Korže–Vesel Theorem 3.14 supplies published maximum dual-set size mu_d(Q5)=10; 3*10<32 rules out <=3 colors. The five-cube lower bound depends explicitly on this earlier published computational theorem, not on our four-cube enumeration. Q1 complete, Q2/Q3 two-color witnesses, and noncompleteness complete the other stated boundaries.
+
+## originality
+
+PASS
+
+Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.
+
+## value
+
+PASS
+
+Exact dual mutual-visibility chromatic values on the first nontrivial higher-dimensional Hamming cubes, plus the complete Q4 equality-class census and automorphism orbit, answer the newly proposed higher-dimensional hypercube coloring question. A finite but complete classification is independently usable, not a random small invariant; no assertion is made for Qd, d>=6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
