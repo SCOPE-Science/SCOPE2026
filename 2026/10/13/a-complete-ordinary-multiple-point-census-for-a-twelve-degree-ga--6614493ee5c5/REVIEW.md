@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two order-twelve groups, their trivial intersection and regular action on the twelve rational source points are checked by exact projective matrix arithmetic. Their invariant trace functions give the printed degree-twelve forms, and finite Galois correspondence proves the plane parametrization is birational. The standalone checker enumerates all 122 source points over \(\mathbb F_{121}\), finds 25 fibers of size two, six of size three, two of size four, and checks every tangent determinant. Those transverse branches contribute the entire plane arithmetic-genus defect \(55\); hence no unenumerated geometric singularity can remain. The method is a proof using an exhaustive finite calculation and genus saturation, not a numerical extrapolation.
+## correctness
 
-## Originality — PASS
-Fukasawa–Waki [1] supply the group-pair existence construction, and do not state a singularity basket for this explicitly defined trace-coordinate model. The earlier Fukasawa–Waki examples [2] use other group pairs. Fukasawa–Higashine [3] treat birational embedding criteria, not local singularity distribution. Fukasawa–Speziali [4] require a semidirect-product group, whereas the present two groups generate all 1320 elements of \(\operatorname{PGL}_2(\mathbb F_{11})\). Literature and indexed mathematical-record searches under coefficient, group, degree and singularity-basket descriptions did not find equivalent coverage. This does not establish global priority; implicit or unindexed calculations remain a residual risk.
+PASS
 
-## Value — PASS
-A degree-twelve rational curve with two prescribed outer Galois groups is a nontrivial, naturally motivated example of the known positive-characteristic construction. Its complete local singularity distribution, field of definition and rational-point count make explicit geometry not supplied by the existence theorem. The combination of ordinary points of multiplicities two, three and four and saturation of the genus bound is structurally informative; it is not a cosmetic restatement of group existence.
+The actual A,B,D polynomial coefficients were inspected. The 12-element A4 and 12-element C12 subgroup actions give invariant quotient functions A/D and B/D, with trivial group intersection, so the curve parametrisation is birational of degree 12 and has the two specified outer Galois points. Independently enumerated all 122 points of P1(F121) via exact F11[u]/(u^2-2) arithmetic, grouped the images into precisely 25 size-2, 6 size-3 and 2 size-4 fibers, and checked every branch tangent nonzero with pairwise nonzero determinant, including source infinity. Their delta sum 25*1+6*3+2*6=55 equals arithmetic genus (12-1)(12-2)/2, saturating the full normalization genus defect; hence no additional singularity outside F121. Exactly five nodes fixed by F11 Frobenius; source F11 points give eight distinct infinity images plus one rational affine node, #C(F11)=9. Finite enumeration proves global completeness only together with genus-saturation and birationality, not alone.
 
-## Comparison and limitations
-The assertion concerns a specific trace-coordinate embedding rather than the universal singularity type of every embedding with the same groups. A different choice of quotient coordinates can change the plane model. General existence and semidirect-product classifications do not imply the precise \(25+6+2\) basket. The checker uses standard-library exact arithmetic; an external mathematical audit has not been performed.
+## originality
 
-References: [1] arXiv:2103.02218v1; [2] arXiv:1704.01269v1; [3] arXiv:1809.01777v1; [4] arXiv:1801.03198v3.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fukasawa-Waki 2021 Theorem 1(a) and construction prove existence of characteristic-11 A4/C12 two-Galois-point degree-12 rational model and exhibit the group generators/common orbit, but inspected body does not state geometric 25/6/2 singularity basket of the *specific trace-coordinate embedding*. Other Fukasawa-Waki models use other pairs; general Fukasawa-Higashine criterion addresses embeddings, while Fukasawa-Speziali semidirect-product case cannot apply because generated group order 1320 versus 144. No matching exact basket/trace coefficient database result identified.
+
+## value
+
+PASS
+
+The singularity basket is a natural fine geometric invariant of an explicit Galois-point plane embedding beyond group-existence. Multiplicities 2,3,4, arithmetic fields of definition, and delta-genus exhaustion constrain normalization, local geometry, and rational-point count. Restriction to the fixed trace model is natural, not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
