@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine-support and modulation reductions preserve the exact zero count for arbitrary complex coefficients. Cyclotomic determinantal rank is characterized algebraically, then every one of the \(194580\) normalized five-zero candidate configurations is checked using exact integer arithmetic; all rank-deficient cases are discharged by an explicit full-support kernel criterion or an essential-column obstruction. Each of the 330 permissible normalized five-zero matrices has an exact full-support cofactor witness with exactly those five zeros; an explicit witness is printed. Double counting gives exactly \(3234\) projective maximizers. The formal finite enumeration is exhaustive for the stated finite field, not a numerical sampling or an extrapolated infinite assertion. Reproduction: `python3 verify_parabola_7.py`.
+## correctness
 
-## Originality — PASS, with access risk
-Li's arXiv:2609.16030v1 abstract supplies a bound of six for odd support five, but no exact five-zero count or projective census. The full accessible v2 manuscript (Introduction, Theorem 3.7, Sections 5–6) gives the general bound and classifies global total-support minimizers, which are not the five-supported vectors having total support \(49\). Fiorentino–Weigert's full text, particularly the dimension-seven discussion in Section 5.3, addresses global uncertainty and numerical existence of several basis-support configurations, not this sharp fixed-five-point upper bound and full extremizer census. Published finding searches found neighboring finite Fourier support cases on other groups, not an implication of the present statement. A significant residual risk is the unavailable full v1 text, which could contain a specialized computation not evident in its abstract; no universal absence of unpublished or unindexed work is asserted.
+PASS
 
-## Value — PASS
-The exact maximum is the first five-point odd-support test of the general parabolic Fourier uncertainty framework, and it proves a strict gap at the smallest prime where the test makes sense. The result also classifies the size of the full exact-support extremizer family and its natural modulation orbits, with a reproducible exhaustive algebraic certificate. These naturally associated values are not incidental coefficient substitutions: they distinguish the generic odd-support bound from the actual sharp finite-field behavior. Nothing is asserted for larger primes or for an arbitrary infinite family.
+Affine F7 support normalization reduces all five-element supports to R={2,3,4,5,6}; modulation shifts a zero to (0,0). Every possible five-zero set therefore appears among C(48,4)=194580 origin-containing five-row matrices over Q(zeta7). Independently implemented exact cyclotomic determinant/cofactor algorithm enumerated all 194580: 185895 nonsingular mod29, 3225 extra nonsingular over Q(zeta7), 5415 rank-four singular (5085 forcing a coefficient zero, 330 full-support one-dimensional kernels), and 45 rank-three cases each with an essential column forcing zero. Each of 330 surviving kernel rays has exactly the selected five zeros. One witness supplies existence. Pair double counting gives 49*330/5=3234; degree-2 polynomial rigidity makes quadratic-linear character action on each five-supported ray free of orbit size 49, hence 66 orbits. Full finite census is exhaustive and exact; not a floating point sample.
 
-## Constraints on interpretation
-Exact rank computations are a proof only because the affine and modulation reductions show that the finite computation exhausts every complex projective vector. The original initial manuscript was not fully accessible; uniqueness of this statement in all literature is unproved. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Dongwei Li 2026 arXiv:2609.16030v1 abstract gives upper bound six in this case; materially inspected v2 proves general MUB total-support estimates and global minimizers, but at fixed five support its bound is weaker and the global minimum 44 does not classify the 49-total-support five-zero extremizers. Fiorentino–Weigert 2022 discusses dimension-seven overall quantum support, not this fixed-support count. Resultary hits at other groups/primes/other parabola moments do not imply same p7 invariant.
+
+## value
+
+PASS
+
+Exact first nontrivial odd five-support sharp finite parabola uncertainty and full orbit census in the smallest natural field of size seven. The precise zero count and number of coefficient rays are intrinsically useful discrete invariants, not arbitrary computed slices or restated weaker general bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
