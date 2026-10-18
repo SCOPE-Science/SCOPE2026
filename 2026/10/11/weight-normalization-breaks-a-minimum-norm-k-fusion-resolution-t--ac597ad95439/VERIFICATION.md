@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,87 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For one index with
-\[
-W_1=H=\mathbb C,\qquad
-\omega_1=2,\qquad
-K=I,
-\]
-the fusion synthesis operator is
-\[
-T_Wx=2x.
-\]
-Thus the reduced solution of
-\[
-T_WX=I
-\]
-is
-\[
-X_w=\frac12I.
-\]
+# Independent mathematical audit
 
-Take
-\[
-\theta_1=\frac14I.
-\]
-The source's resolution identity is satisfied exactly:
-\[
-\omega_1^2\theta_1
-=
-4\cdot\frac14I
-=
-I.
-\]
-Its square-summability condition is also satisfied:
-\[
-\omega_1^2\|\theta_1f\|^2
-=
-4\cdot\frac1{16}\|f\|^2
-=
-\frac14\|f\|^2.
-\]
+## correctness
 
-The published minimum-norm inequality would require
-\[
-\|X_wf\|^2
-=
-\frac14\|f\|^2
-\le
-\frac1{16}\|f\|^2
-=
-\|\theta_1f\|^2,
-\]
-which is false for every nonzero \(f\).
+PASS
 
-For the repair, define
-\[
-\widehat\theta f=\{\omega_i\theta_i f\}_i.
-\]
-Then
-\[
-T_W\widehat\theta f=Kf.
-\]
-The Douglas reduced solution lies in
-\[
-N(T_W)^\perp,
-\]
-so it is the minimum-norm solution pointwise:
-\[
-\|X_wf\|^2
-\le
-\sum_i\omega_i^2\|\theta_i f\|^2.
-\]
-Because
-\[
-T_W^*f=\{\omega_i\pi_{W_i}f\}_i
-\]
-also lies in \(N(T_W)^\perp\), Pythagoras yields
-\[
-\sum_i\|(X_wf)_i-\omega_i\pi_{W_i}f\|^2
-\le
-\sum_i\omega_i^2\|\theta_i f-\pi_{W_i}f\|^2.
-\]
+Exact scalar source reconstruction: H=C, K=I, W=H, ω=2 gives synthesis T_W=2I and minimum-norm X_w=I/2; θ=I/4 satisfies K=ω² θ and weighted square summability, but source Thm4.3 demands 1/4<=1/16 for nonzero f. Source Corollary4.4 inserts factor ω into (π_R(K)T_W)^dagger, giving I vs actual I/2. Repair norm follows T_W{ω_i θ_i f}=Kf and orthogonality of reduced solution to ker T_W. All exact, no numerical assumptions.
 
-The complete public preprint statement and proof of Theorem 4.3 and Corollary 4.4 were inspected. The earliest verified public version is arXiv:1705.00209v1 dated 29 April 2017.
+## originality
+
+PASS
+
+Exact weight-two counterexample falsifies a particular published K-fusion Theorem 4.3 and the derivative pseudoinverse Corollary 4.4. A separate later relay-fusion counterexample has a similar mechanism but concerns another source theorem and cannot substitute for this exact refutation. No covering prior source-specific correction located; generic Douglas orthogonal least-norm theorem only supplies the repair, not the error claim.
+
+## value
+
+PASS
+
+An exact source-specific refutation of a published minimum-coefficient theorem and its Moore–Penrose corollary, with a fully justified corrected weight geometry, prevents incorrect Hilbert fusion reconstructions. The scalar dimension is minimal to isolate a substantive theorem defect, not a pointless tiny exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
