@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The analysis begins from the six ODEs and the standard-incidence term in Al-Hdaibat et al., Eq. (2.2). At equilibrium, summing the equations fixes \(N^*=\Pi/\mu\); the serial-transition equations fix all infected-stage ratios; and the exposed balance fixes \(S^*/N^*=1/\mathcal R_0\). These identities prove the exact four-stage occupancy law. The full derivative criterion follows by logarithmic differentiation; the rational witness, sign changes, and unique positive peak root follow by exact polynomial algebra. The bundled checker replays symbolic coefficient and original ODE residual checks with rational arithmetic. Risks: the proof is about equilibria and a model-specific aggregate, not observed incidence or transient causality.
+## correctness
 
-**Originality (PASS).** The motivating article proves the sensitivity of \(\mathcal R_0\) to treatment and lists all endemic compartments but does not derive the combined occupancy derivative criterion, nonmonotone caseload, or sharp one-peak example. Huo–Feng's earlier vaccination/incomplete-treatment model lacks the isolated failure compartment and analyzes threshold/stability rather than the same aggregate comparison. Published work on dispersal asymmetry compares a different prevalence metric under migration. The closest prior same-source research result concerns a spectral boundary layer near the endemic transcritical threshold, which does not imply the present equilibrium occupancy ordering. The database and literature search reveal no same-statement or stronger covering result; this is not a proof of worldwide novelty. Residual risks include unindexed model-specific treatments or common general epidemiological counterexamples.
+PASS
 
-**Value (PASS).** The source's treatment policy discussion explicitly relies on decreasing \(\mathcal R_0\), whereas the persistent exposed, treated, and isolated-failure caseload is a separate natural measure of clinical system occupancy. The exact opposite monotonicities occur for two strictly positive treatment rates, and the complete unique-peak interval clarifies why the threshold control criterion cannot substitute for capacity planning. The conclusion is deliberately confined to an occupancy indicator; it does not assert increasing community infectiousness or a calibrated adverse clinical effect.
+Equilibrium mass is Pi/mu; E=(a+k)/Phi I, T=k/b I, F=Psi*k/(bc) I, R=(v0+v1 k)I. The source endemic equation gives S/N=1/R0, R0=C(b+epsilon k)/(b(a+k)), and B=(1-1/R0)(u0+u1 k)/(u0+v0+(u1+v1)k). Its logarithmic derivative at k=0 yields the exact strict inequality in the RESULT, while R0 is decreasing for b>epsilon*a. With positive rational parameters Pi=mu=1/10,Phi=1,alpha1=2,alpha2=alpha3=1/10,Psi=3/10,epsilon=1/10,beta=231/50,delta=0, independently verified R0=42(k+5)/(5(10k+21)), B=(105-8k)(60k+31)/(462(k+5)(10k+21)). Endemic iff 0<=k<105/8, B derivative sign is minus the quadratic 18920 k^2+33180k-80871, with precisely one positive root. The strictly positive rates k=1/10 and 1 exhibit opposite R0/B directions. Independent exact symbolic algebra verifies the witness; the general criterion is established analytically, not from sampled rates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Al-Hdaibat et al. Theorems 5 and 9 give R0 and the individual endemic compartments, and Sec.4 gives the sign of treatment sensitivity of R0. Their complete 37-page primary text discusses those transmission thresholds and convergence, but not the occupancy comparison, B derivative criterion, or nonmonotone four-stage burden under increasing treatment. Published follow-up SEITFR spectral relaxation analysis studies the Jacobian, not treatment-dependent burden.
+
+## value
+
+PASS
+
+The exact counterexample separates a transmission potential threshold from the total fraction residing in four medically tracked compartments, a motivated interpretation problem for intervention effects. The one-peak witness and exact local criterion clarify when a policy that improves R0 can initially worsen snapshot caseload. It makes no epidemiological prediction from uncalibrated parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
