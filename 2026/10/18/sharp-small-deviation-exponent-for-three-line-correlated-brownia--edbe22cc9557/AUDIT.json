@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The theorem is quantified for every fixed nondegenerate two-dimensional increment covariance. Exact endpoint comparisons show F<=epsilon forces both Brownian differences below 3epsilon with bounded endpoints. The reverse strict event sup X_j<epsilon/2 and each terminal X_j in (0,epsilon/4) has F<epsilon. Whitening gives a wedge with angle arccos(-rho). An explicit uniformly convergent Dirichlet Bessel expansion yields an O(epsilon^(2+2beta)) upper estimate on bounded wedge endpoints and a strictly positive lower coefficient on the interior rectangle. Combining gives the sharp power; exact covariance algebra, 700 finite path checks and 15 high-precision kernel checks corroborate the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.12950v1 Theorem 5.3 shows O(epsilon^(2+2 pi/theta)) only for rho<-1/2; Lemma 5.1 proves a general wedge-event upper bound.",
+        "Bañuelos–Smits (1997), Brownian Motion in Cones, supplies the Dirichlet cone-kernel framework, but the wedge event is not the ordered last-passage event.",
+        "Chupeau–Bénichou–Majumdar (2015) concerns Brownian wedge survival probabilities and first-passage times rather than the ordered last-passage functional."
+      ],
+      "reasoning": "A general wedge heat-kernel estimate is stronger for wedge endpoint events, but neither the upper confinement alone nor the classic kernel implies a lower bound for the nonlinear ordered functional without the explicit sufficient positive-terminal confinement. The source original provides the necessary inclusion only. The presented theorem combines both with a sharp lower estimate.",
+      "searches": [
+        "Brownian last-passage small ball lower bound exact polynomial exponent arbitrary covariance",
+        "Brownian last passage 3 correlated random walks cone killed heat kernel matching two sided small deviation",
+        "Houdre Kidonakis 2026 Theorem 5.3 Brownian RSK cone lower bound",
+        "arxiv 2610.12950 Brownian longest increasing subsequence lower tail exact logarithmic exponent"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.12950v1",
+      "arxiv:1110.4570v4",
+      "doi:10.1007/s004400050111 (abstract and formulas through primary citation)",
+      "doi:10.1103/PhysRevE.91.032106 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.3, arXiv:2610.12950v1, gives only P(F<=eps)=O(eps^kappa) for -1<rho<-1/2, and explicitly relies on Lemma 5.1 for the upper bound; this does not imply a positive lower bound.",
+        "The same paper, Remark 5.5, already relates the rho=-1/2 upper exponent to traceless GUE dimension 8; the present claim does not relabel this known special case.",
+        "Equation (5) in RESULT.md is the classical wedge Dirichlet kernel; equation (2) is the new positive terminal subset ensuring the sharp lower exponent for F."
+      ],
+      "reasoning": "A bound above by the cone survival event cannot provide a reverse bound. The sufficient confinement event of positive terminal area supplies the logically missing implication and, via the Bessel leading term, gives the matching lower power for every fixed positive-definite covariance. The prior nonrepresentation theorem does not need this stronger conclusion.",
+      "searches": [
+        "arxiv:2610.12950v1 Theorem 5.3 Example 5.4 Lemma 5.1 full text",
+        "arxiv:1110.4570v4 Markov random words Brownian limit full text",
+        "Brownian Motion in Cones Banuelos Smits 1997 heat kernel equation 2.2 2.4",
+        "three-letter Markov random word longest weakly increasing subsequence lower tail near zero Brownian functional wedge persistence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.12950v1, Section 5, identifies the last-passage functional F as the three-letter Markov-word weak limit and establishes its one-sided cone upper estimate.",
+        "arXiv:1110.4570v4, Brownian Markov-word RSK limit definitions; no two-sided anisotropic lower-tail exponent identified in its relevant sections."
+      ],
+      "reasoning": "The same three-line Brownian functional is represented both as ordered-supremum last passage and as a Markov-word RSK weak limit; this equivalence does not supply a lower bound. The strict positive-area terminal event and wedge kernel are needed to derive it. The isotropic cyclic case can already be realized via traceless GUE, so novelty is not claimed for that single exponent.",
+      "searches": [
+        "three state correlated Brownian last passage small deviation two sided sharp epsilon exponent 2+2pi/arccos negative correlation",
+        "traceless Brownian three lines directed last-passage extreme left tail Markov chain sharp epsilon power wedge",
+        "three-letter Markov random word longest weakly increasing subsequence lower tail near zero Brownian functional wedge persistence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.12950v1, Example 5.4, gives rho=-13/14 and the covariance C; its Theorem 5.3 only computes a one-sided upper-tail power.",
+        "The indexed records 'Sharp extreme lower tails of the two- and three-dimensional torus matching limits' and 'Four-step Sparre–Andersen persistence detects a pure fourth-order interaction' concern Euclidean matching and finite-step exchangeable signs, respectively. Neither implies the Brownian last-passage claim."
+      ],
+      "reasoning": "The displayed numerical exponent is evaluation of an arccos formula, not the mathematical contribution. No located exact table or indexed result gives two-sided Markov Brownian last-passage small tails. Search failure alone is not treated as a novelty certificate.",
+      "searches": [
+        "Markovian random words Houdre Kidonakis 2026 Theorem 5.3 matching lower bound three state Brownian small ball exponent",
+        "three state Brownian longest increasing subsequence rho -13/14 18.5237748 small deviation sharp",
+        "rho -13/14 arccos 13/14 Markov word left tail exact power",
+        "arxiv 2610.12950 Brownian longest increasing subsequence lower tail exact logarithmic exponent"
+      ]
+    },
+    "rationale": "The primary 2026 source provides the sharp candidate exponent as a necessary cone-confinement upper bound for rho<-1/2, but neither a positive lower bound nor a theorem over all nondegenerate correlations. The present proof supplies a positive-area interior terminal confinement whose wedge survival has the same exponent. Equivalence checks, stronger-coverage comparisons and targeted research-index searches found no result implying this complete two-sided statement; risks from unindexed reformulations and incompletely accessible historic cone papers remain.",
+    "residual_risks": [
+      "An unindexed or differently phrased small-deviation theorem may combine classical wedge heat kernels with the same sufficient confinement condition.",
+      "The historical cone paper and the 2015 wedge-survival paper were not independently inspected in full text; their general cone events alone do not directly give the last-passage event comparison.",
+      "The isotropic rho=-1/2 exponent is compatible with prior traceless GUE results and is not independently novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the same wedge upper exponent and example, not a matching lower bound, not a full-correlation sharp two-sided theorem.",
+        "evidence": [
+          "Theorem 5.3: O(epsilon^(2+2pi/arccos(-rho))) for rho<-1/2.",
+          "Example 5.4: C=(1/9)[[14,-13],[-13,14]].",
+          "Remark 5.5: upper exponent 8 at cyclic isotropy."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.12950v1",
+        "material_read": "Relevant primary full-text Section 5: Lemma 5.1, Theorems 5.2 and 5.3, Example 5.4, Remark 5.5, and adjacent derivations; abstract and Section 6 overview.",
+        "method": "Direct reading of openly available article HTML and claim-by-claim comparison.",
+        "title": "Markovian Random Words, a Gaussian Random Matrix Model and Beyond",
+        "trigger": "Exact three-coordinate Brownian functional and correlation exponent in Theorem 5.3"
+      },
+      {
+        "assessment": "Establishes limiting Brownian objects, not the sharp small-deviation theorem for correlated three-line F.",
+        "evidence": [
+          "Brownian RSK/Markov-word weak limits and covariance background, without the two-sided exponent claimed here."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1110.4570v4",
+        "material_read": "Relevant full-text sections introducing Brownian functionals and Markov-chain covariance/limit theorems; searched for small deviations and cones.",
+        "method": "Direct accessible article HTML reading and targeted full-text term checks.",
+        "title": "On the Limiting Shape of Young Diagrams Associated With Markov Random Words",
+        "trigger": "Foundational Markov random-word Brownian last-passage representation and possible broader tail coverage"
+      },
+      {
+        "assessment": "Classical cone kernel supplies the necessary analytic input, but does not directly state the ordered three-line Brownian last-passage event comparison.",
+        "evidence": [
+          "Houdré–Kidonakis Lemma 5.1 explicitly cites this source for the cone heat-kernel upper estimate."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s004400050111",
+        "material_read": "Bibliographic and abstract information plus its cone-kernel expansion equations (2.2) and (2.4) as reproduced and used in the accessible primary 2026 source; full historical paper not independently inspected.",
+        "method": "Citation tracing and mathematical reconstruction of the explicit Bessel series.",
+        "title": "Brownian Motion in Cones",
+        "trigger": "Underlying killed cone heat kernel could dominate the proposed theorem"
+      },
+      {
+        "assessment": "Discusses wedge survival and first passage, not the nonlinear ordered-supremum Brownian functional.",
+        "evidence": [
+          "Published 2015, treats arbitrary wedge angles and survival rather than the three-line last-passage small tail."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.032106",
+        "material_read": "Publisher abstract and bibliographic record; no full text inspected.",
+        "method": "Public article landing-page inspection and scope comparison.",
+        "title": "Survival probability of a Brownian motion in a planar wedge of arbitrary angle",
+        "trigger": "Plausible broader arbitrary-angle Brownian wedge survival theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "edbe22cc-9557-48ef-b1a3-d68dea899272",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural three-state Markov-word Brownian RSK limit had only a one-sided high-order lower-tail bound for anisotropic correlations. The theorem determines its sharp logarithmic rare-event exponent across all nondegenerate covariances, giving an exact quantitative invariant at the cyclic boundary rho=-1/2 and a concrete noncyclic value 18.5237748...; this is a motivated sharp distributional law, not a technical restatement of the old upper bound.",
+    "status": "PASS"
+  }
+}
