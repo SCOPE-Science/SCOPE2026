@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:16:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For alpha,theta,lambda>0 published S=(2^alpha-(2-v)^alpha)/(2^alpha-1), v=(lambda/(lambda+x))^theta. Taylor expansion at v=0 gives S=C_alpha v[1-(alpha-1)v/4+O(v^2)], C_alpha=alpha*2^(alpha-1)/(2^alpha-1)>0. Hence density ~C_alpha theta lambda^theta x^(-theta-1) and h~theta/x. Tail integration E X^q=q int x^(q-1)S dx gives finite moments iff 0<q<theta (near zero density finite). For truncated q=theta leading theta*C_alpha*lambda^theta logR, q>theta leading theta*C_alpha*lambda^theta R^(q-theta)/(q-theta), including subtraction of R^q S(R) in the integration-by-parts identity. Positive-t e^(tX) dominates the power density, hence MGF diverges on every right neighborhood of zero; negative-t Laplace transform finite. Analytic continuation of beta expressions is not a probabilistic moment. Independently checked leading and second expansion and inspected source script, not finite sampling as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Lomax has moment cutoff theta and no positive-exponential moments.",
+          "The alpha transform behaves to first order as a strictly positive multiple of the Lomax survival."
+        ],
+        "reasoning": "General power-tail theorems imply the cutoff once this survival equivalence is proven. The result does not allege those general theorems are new; the explicit source correction and coefficients are the only claimed contribution.",
+        "searches": [
+          "Resultary: APIILx alpha power type II Lomax distribution tail moments MGF existence",
+          "K. S. Lomax JASA 49 (1954)",
+          "Kalt et al AIMS Mathematics 2026 Section 3"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob 97e7696220a0d912e4acb14f098d15e69503f412",
+        "GitHub verify_tail.py blob e37e9fa3be0ee6a28285a7798290e8fbb9701818",
+        "DOI:10.3934/math.2026334 Sections 2-3 full PDF",
+        "DOI:10.18280/mmep.120330",
+        "Resultary search: Resultary: APIILx alpha power type II Lomax distribution tail moments MGF existence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper defines the MGF by E exp(tX) then introduces positive damping parameter via r=-t, hence the computed finite integral concerns t<0 only.",
+          "Near zero v gives nonzero positive tail slope C_alpha, forcing the same theta threshold as Lomax."
+        ],
+        "reasoning": "The old algebraic beta manipulations cannot be interpreted as finite moments outside q<theta, and their integral on t<0 cannot establish positive-t MGF existence. Those are real corrections, not mere different notation.",
+        "searches": [
+          "Kalt et al DOI:10.3934/math.2026334 Sections 2-3",
+          "Mohsin-Kalt DOI:10.18280/mmep.120330"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General regular variation of Lomax survives a smooth generator with derivative >0 at tail origin; the exact model has C_alpha explicit and survival expansion."
+        ],
+        "reasoning": "Matching the generic distribution family or Lomax tail index does not alone give the source-specific moment/MGF correction and full critical constants; the general tail law is acknowledged as elementary prior theory.",
+        "searches": [
+          "Resultary: APIILx alpha power type II Lomax distribution tail moments MGF existence",
+          "Kalt et al DOI:10.3934/math.2026334",
+          "Mohsin-Kalt DOI:10.18280/mmep.120330"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Printed raw-moment formulas use incomplete beta arguments; there is no stated r<theta domain.",
+          "Published descriptive moment/variance formulas are formally presented without the necessary cutoff."
+        ],
+        "reasoning": "This is not an exact database enumeration; the concrete published moment formula and MGF discussion were examined and compared to their integral convergence domain.",
+        "searches": [
+          "Resultary: APIILx alpha power type II Lomax distribution tail moments MGF existence",
+          "Kalt et al DOI:10.3934/math.2026334 pdf moment table"
+        ]
+      },
+      "rationale": "The source 2026 AIMS Mathematics article Kalt et al includes beta-formula moments and an MGF section, but does not impose the parameter-dependent convergence cutoff; its derivation uses r=-t and evaluates a Laplace-side integral, not an ordinary positive-t MGF. The classical Lomax power-tail and general alpha-power transforms are older. Originality is confined to correcting exactly the APIILx source interpretation with explicit constants, moment cutoff, critical/truncated rates, and MGF-domain correction; these precise combined source corrections were not located in Resultary or examined original paper.",
+      "residual_risks": [
+        "Standard regular-variation theory mechanically yields the moment domain once a one-term asymptotic is observed; originality confined to correcting Kalt et al model-specific published claims and identifying its exact critical constants.",
+        "An erratum or unindexed follow-up may have corrected the missing hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source formula/transform convergence lacks needed 0<r<theta and sign-domain qualifications",
+          "evidence": [
+            "DOI:10.3934/math.2026334",
+            "moment first incomplete-beta parameter 1-(r-i)/theta",
+            "MGF section r=-t"
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-334.pdf",
+          "material_read": "Primary complete PDF downloaded/read at relevant definitions, equations and Sections 2 and 3; specifically raw moments, beta parameters and MGF substitution on PDF pages 4-6",
+          "method": "Primary full PDF material inspected, page screenshots of sections in question",
+          "title": "A new alpha power type-II Lomax distribution with applications to radiation and materials sciences",
+          "trigger": "Exact APIILx source defining survival, raw moments, variance and MGF"
+        },
+        {
+          "assessment": "No demonstrated full exact APIILx Lomax-moment cutoff theorem; risk retained",
+          "evidence": [
+            "generator family and named example distributions"
+          ],
+          "identifier_or_url": "https://doi.org/10.18280/mmep.120330",
+          "material_read": "Bibliography and light-tailed exponential/Weibull baseline model description; full article not claimed read",
+          "method": "Bibliographic and accessible summary comparison",
+          "title": "Alpha Power Type II-G Family: Adding a Power Parameter of Distributions",
+          "trigger": "Earlier parent generator and potential general tail coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The new distribution is used for applications and moment-based statistical descriptions; knowing which mean, variance, higher moments and purported MGF genuinely exist is necessary for valid inference and interpretation. This source-specific correction has a substantive consequence (entire parameter regions have infinite mean/variance) beyond an incidental Taylor expansion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob 97e7696220a0d912e4acb14f098d15e69503f412",
+    "GitHub verify_tail.py blob e37e9fa3be0ee6a28285a7798290e8fbb9701818",
+    "DOI:10.3934/math.2026334 Sections 2-3 full PDF",
+    "DOI:10.18280/mmep.120330",
+    "Resultary search: Resultary: APIILx alpha power type II Lomax distribution tail moments MGF existence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, no exhaustive priority certification; source-access and exact scientific scope limitations are included in the separate axis rationales.",
+    "Scientific approval is not publication approval: pre-existing public operational identifiers require fully verified sanitization; status not_ready."
+  ],
+  "residual_risks": [
+    "Standard regular-variation theory mechanically yields the moment domain once a one-term asymptotic is observed; originality confined to correcting Kalt et al model-specific published claims and identifying its exact critical constants.",
+    "An erratum or unindexed follow-up may have corrected the missing hypotheses."
+  ],
+  "schema_version": 1
+}
