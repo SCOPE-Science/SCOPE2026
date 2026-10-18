@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/exact-minimum-unavoidable-set-and-avoidance-window-census-in-the--96243f6839cd/RESULT.md",
+        "2026/10/13/exact-minimum-unavoidable-set-and-avoidance-window-census-in-the--96243f6839cd/verify_python.py"
+      ],
+      "rationale": "For k=2,...,8, every periodic admissible rotation necklace is a vertex-disjoint cycle of the order-k golden-mean overlap graph, so every minimum-cardinality unavoidable set is a one-vertex transversal of the c_k necklaces. A deleted subset is unavoidable iff the finite residual directed graph is acyclic; exhaustive product of candidate choices is therefore a rigorous finite classification, with Kahn topological sorting and longest-path DP. Independent enumeration from scratch reproduced candidate counts 2,3,8,25,216,2401,262144; accepted counts 2,1,4,1,40,2,240; and the full path spectra. At k=8 exactly 16 minimizers have residual longest path 15, giving first guaranteed hit length 8+15=23 and avoidance witnesses of length 22. The computation is finite and does not claim an infinite length formula.",
+      "residual_risks": [
+        "The complete finite enumeration is scoped exactly to the stated graph/order range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known size c_k and general universal hitting-set remaining-path framework."
+        ],
+        "reasoning": "The first implies minimum cardinality but not its realization count; the second works in a different full shift. Neither deduces the seven census entries.",
+        "searches": [
+          "DOI:10.1142/S0218196704001700 Theorem 3",
+          "DOI:10.1089/cmb.2020.0432"
+        ]
+      },
+      "checked_sources": [
+        "Champarnaud, Hansel and Perrin, Unavoidable Sets of Constant Length (2004), DOI:10.1142/S0218196704001700, Theorem 3 and X_2 table",
+        "Moreno, Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type, WORDS 2003",
+        "Zheng, Kingsford and Marçais, Lower Density Selection Schemes via Small Universal Hitting Sets with Short Remaining Path Length (2021), DOI:10.1089/cmb.2020.0432"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gives existence/minimal size; accepted counts and windows depend on extra cycle interactions beyond disjoint necklace cycles."
+        ],
+        "reasoning": "Knowing c_k leaves many candidate transversals cyclic in residual graph; only full finite enumeration classifies valid ones and window lengths.",
+        "searches": [
+          "DOI:10.1142/S0218196704001700",
+          "DOI:10.1089/cmb.2020.0432"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unavoidable factors = feedback vertex deletion in constrained de Bruijn overlap graph; a minimum set meets one vertex per periodic necklace."
+        ],
+        "reasoning": "Recasting as minimum feedback vertex sets preserves the problem and reveals the exact exhaustive finite strategy, but the inspected primary theorem gives only optimum size.",
+        "searches": [
+          "Resultary semantic query: golden mean shift unavoidable sets minimum decycling sets exact enumeration order 8 longest surviving path 240 16",
+          "DOI:10.1142/S0218196704001700"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier X_2 table lists periodic orbit counts 2,2,3,3,5,5,8, not the accepted transversals 2,1,4,1,40,2,240 or k=8 histogram."
+        ],
+        "reasoning": "The same numerical size column is explicitly credited and not mistaken for a novel census; no covering optimizer table found in searched material.",
+        "searches": [
+          "DOI:10.1142/S0218196704001700 X_2 table",
+          "Resultary semantic query: golden mean shift unavoidable sets minimum decycling sets exact enumeration order 8 longest surviving path 240 16"
+        ]
+      },
+      "rationale": "Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.",
+      "residual_risks": [
+        "Unindexed exact small-order decycling catalogues in the constrained-word/sketching literature might overlap the k<=8 numerical spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE; NOT the optimizer/window census.",
+          "evidence": "Theorem 3 gives minimum necklace cardinality and tabulates c_k; not numbers of all minimizing transversals or longest residual paths.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218196704001700",
+          "material_read": "Full accessible author manuscript examined, notably Theorem 1, Theorem 3 and special subshift X_2 periodic-orbit count table.",
+          "method": "Primary author manuscript text read on ResearchGate.",
+          "title": "Champarnaud, Hansel and Perrin, Unavoidable Sets of Constant Length",
+          "trigger": "Directly proves lower bound c_k for golden-mean constrained shift."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT in inspected material.",
+          "evidence": "Counts Eulerian traversals/necklace-related sequences, not the feedback-vertex-transversal multiplicity and residual longest-path histogram.",
+          "identifier_or_url": "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-WORDS03-Lyndon_words_and_de_Bruijn_sequences_in_a_subshift_of_finite_type.pdf",
+          "material_read": "Abstract and relevant description of restricted de Bruijn sequences and necklace structure.",
+          "method": "Lawful author-preprint comparison, without asserting complete full-document noncoverage.",
+          "title": "Moreno, Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type",
+          "trigger": "Same constrained golden-mean overlap graph."
+        },
+        {
+          "assessment": "RELATED_OBJECT; not directly dominating this exact golden-mean census.",
+          "evidence": "The source motivates shortening remaining paths, but the unconstrained full shift does not imply 240 restricted optimizer counts at k=8.",
+          "identifier_or_url": "https://doi.org/10.1089/cmb.2020.0432",
+          "material_read": "Abstract and source results on unrestricted full-alphabet de Bruijn graph.",
+          "method": "Primary-article targeted result comparison.",
+          "title": "Zheng, Kingsford and Marçais, Lower Density Selection Schemes via Small Universal Hitting Sets with Short Remaining Path Length",
+          "trigger": "Short remaining path length is directly the avoidance-window objective."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Champarnaud, Hansel and Perrin, Unavoidable Sets of Constant Length (2004), DOI:10.1142/S0218196704001700, Theorem 3 and X_2 table",
+        "Moreno, Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type, WORDS 2003",
+        "Zheng, Kingsford and Marçais, Lower Density Selection Schemes via Small Universal Hitting Sets with Short Remaining Path Length (2021), DOI:10.1089/cmb.2020.0432"
+      ],
+      "rationale": "Universal hitting sets in constrained de Bruijn graphs are a natural combinatorial problem for sequence sketching and forbidden-pattern symbolic dynamics. The complete optimizer catalogue and avoidance-window spectrum for every k<=8 adds exact tradeoff information missing from the known minimum-size count; the k=8 window minimizers are mathematically distinguished by a sharp finite cutoff.",
+      "residual_risks": [
+        "Unindexed exact small-order decycling catalogues in the constrained-word/sketching literature might overlap the k<=8 numerical spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exhaustive k=2..8 only; does not establish minimum-hit windows or optimizer numbers for k>=9."
+  ]
+}
