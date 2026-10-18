@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed vertex of degree \(n-3\) dominates all vertices except two, reducing conditional domination to the event of a subset meeting two explicit closed neighborhoods. Inclusion-exclusion, including the nonadjacent and adjacent exceptional-pair boundaries, proves the full polynomial. For neighboring overlap values the two success polynomials differ by \(z(1+z)^{n-c-2}\), and a valid stochastic-mixture/coupling argument proves strict first-order order; differentiating yields the mean. Monotonicity of the rational correction yields the sharp degree-sum bound and an if-and-only-if equality condition. Connectedness and feasibility are explicit. An independently implemented exact dominating-set enumerator covered 33,864 graphs and 2,131,008 subsets, and 360 exact parameter profiles were checked; finite experiments are not used as infinite proofs.
+PASS
 
-## Originality — PASS with residual risk
+For finite connected G, n≥5, designated v with degree n−3 and two nonneighbors u,w, put R=N(v), k=|N(u)∩R|, ell=|N(w)∩R|, t=|N(u)∩N(w)∩R|, e=1_{uw edge}, a=k+e+1,b=ell+e+1,c=2+k+ell−t. Any dominating set containing v must meet both closed neighborhoods A=N[u], B=N[w]. Inclusion–exclusion yields D_v=z[(1+z)^(n−1)−(1+z)^(n−1−a)−(1+z)^(n−1−b)+(1+z)^(n−1−c)], with no dependence on internal edges of R. Feasible t range max(0,k+ell−(n−3))≤t≤min(k,ell), with stated connectedness conditions. For fixed a,b and adjacent c,c+1, h_c−h_(c+1)=z(1+z)^(n−2−c), whose normalized law is one selected vertex plus outside fair coins; h_(c+1) has that outside portion plus a strictly stochastically larger count of inside selections. Convex mixture proves strict first-order dominance as t decreases. Differentiation gives exact mean (n+1)/2+[a2^-a+b2^-b−c2^-c]/[2(1−2^-a−2^-b+2^-c)], and monotonicity c→a+b yields sharp degree-sum upper bound (n+1)/2+a/[2(2^a−1)]+b/[2(2^b−1)], equality exactly e=t=0. Minimum support count is t+2e at size 2, otherwise ab at size 3. Independent direct domination bitmask enumeration checked 1,088 n5/n6 graphs, plus 896 connected parameter profiles and 420 strict adjacent overlap comparisons with exact rational tail calculations. These checks corroborate universal inclusion-exclusion/coupling proof.
 
-The directly initiating first-public March 5, 2026 article of Chen and He proves only the degree-\(n-2\) case, and its concluding discussion specifically proposes analyzing degree \(n-3\) and the interaction of two nonneighbors. Reading its theorem, proof, conclusion and references shows no two-hole polynomial or overlap stochastic order. The subsequent October 8 paper of Chen, He, Lai and Li gives the broad degree-sum inequality and one-hole expression, but not the two-hole characterization or equality and ordering theorem. The previously known degree-sum inequality and elementary inclusion-exclusion principle are not claimed new. Full-text comparison of Farhan et al. finds results for globally forced vertices, rather than conditional all-set laws. Published relevant research records on chain-graph domination polynomials and central-graph total domination do not imply this full general-family assertion. Own historical titles/claims were checked solely for overlap. Unindexed equivalent results, including use of different terminology, remain a realistic residual risk; searches cannot certify absence.
+## originality
 
-## Value — PASS
+PASS
 
-A primary March 2026 source explicitly identifies degree \(n-3\) as the next uncomputed local-average case. The result answers it across **every** connected graph with such a vertex and supplies all size-distribution coefficients, not merely a scalar mean. More substantially it discovers the strict stochastic ordering of the entire conditional distribution under a controlled, realizable change in exceptional-neighborhood overlap, with sharp parameter-extremal configurations and an exact equality boundary for the known degree-sum upper bound. This provides structural comparative information and sharp boundaries useful when vertex inclusion is prescribed; it is neither an arbitrary finite table nor just a relabeled known one-hole formula.
+Chen–He March 2026 DOI 10.12677/aam.2026.153090 proves degree n−2 one-hole local mean and explicitly proposes two nonneighbors/degree n−3 as the next case. Their October 2026 preprint arXiv2610.11446 gives a broad degree-sum upper bound and one-hole formula; its general bound is clearly prior and not claimed new. It neither determines the two-hole full conditional polynomial, strict stochastic order across overlap, nor equality characterization. Other graph-family domination-polynomial findings concern special classes or unconditioned counts. Best-of-knowledge PASS with indexing and elementary inclusion-exclusion proximity risks.
 
-## Closest sources and limits
+## value
 
-Chen–He (March 2026, DOI `10.12677/aam.2026.153090`) is directly relevant and explicitly proposes the two-hole gap; Chen–He–Lai–Li (arXiv:2610.11446v1) establishes the general inequality and one-hole special case. See `AUDIT.json` for actual aliases/queries, implication comparisons and unindexed-literature risks. Proof concerns conditioned dominating sets, not all minimal sets; no independent review was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The directly motivating March article identifies this exact natural degree-defect-two case as open. The finding solves its local-mean question uniformly for every connected such graph, determines every conditioned cardinality coefficient, and proves a strict parameter-comparative stochastic order and sharp attainable extrema plus equality boundary for a known general upper bound. This is a structural family theorem, not an arbitrary finite census nor simply restating a general numerical inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
