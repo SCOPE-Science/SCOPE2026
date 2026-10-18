@@ -1,11 +1,21 @@
-# Review of exact ten-rank Schemmel-totient census
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete preimage characterization follows from the prime-power formula and unique factorization; every possible prime divisor satisfies \(p-2\mid m\), and every permitted exponent is explicitly enumerated. Unique images provide the disjoint stopping-time recursion. The packaged verifier checks all exact integer states through rank ten, every forward edge, all cardinalities and unique maxima, with deterministic primality testing and an independent low-integer forward recurrence check. It outputs \(275129\) states and maximum \(86472015\) at rank ten. No conclusion beyond rank ten is inferred.
+## correctness
 
-**Originality — PASS, residual risk.** Defant's 2015 paper (Conjecture 20, Section 4) states the universal lower bound and displays a fixed-input numerical plot, not complete inverse stopping-time strata, exact counts or their unique extrema through rank ten. OEIS A241664 tabulates a short initial segment of function values rather than complete rank fibers. Harrington--Jones (2010) analyzes the analogous iteration with domain restrictions; its full PDF was not accessible, so unindexed identical partial results remain a risk. Targeted comparisons with available published literature identified no covering rank-ten census. Failure to find another publication is not a mathematical proof of novelty.
+PASS
 
-**Value — PASS.** This is a motivated finite-rank resolution of an explicitly published conjecture: the depth parameter, not an arbitrary integer magnitude, defines the exhaustive domain. The certificate determines all ten complete fibers (\(364992\) integers) and sharp unique maxima, proving the conjectured inequality for every number with stopping time at most ten, including inputs far beyond the original source's plotted range. It is a genuine exact stopping-time cutoff, although it does not solve the unrestricted conjecture or imply a next-rank estimate.
+The final theorem is exactly a finite-depth classification for odd n>1 under L_2(n)=product p^(a-1)(p-2). Unique factorization proves the complete inverse-prime-power algorithm: for L_2(n)=m every p-2 divides m and each exponent has p^(a-1)(p-2)|m. Every odd n>1 strictly decreases, yielding the exact disjoint recurrence B_(r+1)=L_2^(-1)(B_r), B_1={3}. Independently reimplemented inverse divisor/exponent enumeration with sympy factorization and exact primality, without using the package results as a lookup, and obtained rank sizes 1,3,13,54,226,986,4071,16693,67816,275129, total 364992, and respective maxima 3,15,105,735,5145,36015,252105,1764735,12353145,86472015. Each asserted maximum in ranks 2..10 equals 15*7^(r-2) and occurs once. The proof-plus-complete finite enumeration (not mere sampling) proves exactly these ten strata; it does NOT settle Defant Conjecture 20 beyond rank 10.
 
-**Scientific limitations.** The ten-rank maximum table is finite and computationally certified, not a symbolic proof for arbitrary depth. Harrington--Jones full text was inaccessible. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Defant 2015 defines the iteration and states the global lower-bound inequality as Conjecture 20; a conjecture does not imply the finite census. Its finite plot of bounded inputs is logically weaker than complete rank fibers (which contain n up to 86,472,015). OEIS A241664 lists initial stopping values, not exhaustive inverse fibers and unique maxima for ranks 1..10. Resultary semantic search did not identify an exact rank-ten census. A plausible 2010 Harrington–Jones restricted-domain iteration is a named residual literature risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+The ten finite stopping-rank fibers are mathematically natural strata of a published iteration problem; exact sizes and unique maxima without an input cutoff provide a reproducible finite-depth theorem and nontrivial first-ten verification of Defant’s named inequality. This does not purport to settle the infinite conjecture, and the arbitrary choice of depth 10 does not replace the intrinsic motivation from those first nontrivial rank fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

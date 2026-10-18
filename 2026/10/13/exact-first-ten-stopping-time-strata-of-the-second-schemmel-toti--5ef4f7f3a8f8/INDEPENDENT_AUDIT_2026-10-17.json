@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md proof, exact definition and inverse-prime-power lemma, and verify.py source inspected; pinned Git tree and blobs verified.",
+        "Independent inverse enumeration in scope05_run127/independent_checks.py using sympy factorint, exact divisor choices and recursive inverse sets reproduced all ten rank sizes, maxima and uniqueness.",
+        "Defant 2015, Conjecture 20, sets the global benchmark; present bound is only stopping ranks <=10."
+      ],
+      "rationale": "The final theorem is exactly a finite-depth classification for odd n>1 under L_2(n)=product p^(a-1)(p-2). Unique factorization proves the complete inverse-prime-power algorithm: for L_2(n)=m every p-2 divides m and each exponent has p^(a-1)(p-2)|m. Every odd n>1 strictly decreases, yielding the exact disjoint recurrence B_(r+1)=L_2^(-1)(B_r), B_1={3}. Independently reimplemented inverse divisor/exponent enumeration with sympy factorization and exact primality, without using the package results as a lookup, and obtained rank sizes 1,3,13,54,226,986,4071,16693,67816,275129, total 364992, and respective maxima 3,15,105,735,5145,36015,252105,1764735,12353145,86472015. Each asserted maximum in ranks 2..10 equals 15*7^(r-2) and occurs once. The proof-plus-complete finite enumeration (not mere sampling) proves exactly these ten strata; it does NOT settle Defant Conjecture 20 beyond rank 10.",
+      "residual_risks": [
+        "Total exhaustive finite result relies on exact implementation of the proved recurrence; an implementation defect not detected by independent reconstruction is residual.",
+        "No claim for stopping rank >=11 or any complete proof of the global conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant 2015 Conjecture 20 is unproved; a graph of the first 300000 input values is not an unbounded-domain rank-ten classification.",
+          "Harrington–Jones (2010) addresses a related restricted domain; complete article not inspected."
+        ],
+        "reasoning": "The universal conjecture would dominate the claimed maxima but is a conjecture, not prior coverage. Restricted-domain iteration cannot be assumed equivalent without full source and domain comparison; named priority risk retained.",
+        "searches": [
+          "Resultary search: second Schemmel totient R2 stopping times inverse tree exact rank class maximum 15 7^r Defant conjecture",
+          "Defant On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions Conjecture 20",
+          "Harrington Jones iteration function related Euler phi restricted domain"
+        ]
+      },
+      "checked_sources": [
+        "Defant, Journal of Integer Sequences 18 (2015), Conjecture 20",
+        "OEIS A241664",
+        "Harrington and Jones, Integers 10 (2010), doi:10.1515/INTEG.2010.042",
+        "Resultary semantic search of published SCOPE records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defant Conjecture 20 as printed on PDF p10 implies a desired inequality if PROVED; it is explicitly a conjecture.",
+          "The submitted table proves only the first ten rank cases with unique maximizers."
+        ],
+        "reasoning": "The local rank-ten theorem is a genuine partial verification, neither a corollary of proven global bounds nor proof of unbounded stopping-time behavior.",
+        "searches": [
+          "Defant 2015 Conjecture 20 15*7^r maximum rank",
+          "Resultary second Schemmel totient R2 rank inverse enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant 2015 §4 defines R_2 and Conjecture 20; OEIS A241664 defines the same iteration but gives a term sequence."
+        ],
+        "reasoning": "Rephrasing as bounded-depth inverse trees or exact R_2 fibers gives the same question; no inspected result enumerates these full fibers to depth 10.",
+        "searches": [
+          "Resultary search: second Schemmel totient R2 stopping times inverse tree exact rank class maximum 15 7^r Defant conjecture",
+          "Schemmel L_2 second totient inverse iterates rank strata fixed depth arithmetic function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A241664 displays individual R_2 values and a 10000-term linked sequence table; not the 10 infinite-input rank-fiber cardinalities.",
+          "Independently reconstructed all 364992 inputs of ranks at most ten."
+        ],
+        "reasoning": "An indexed sample of function values is not an exhaustive classification of each preimage stratum with no input bound.",
+        "searches": [
+          "OEIS A241664 rank sequence",
+          "OEIS A058026 L2 second Schemmel totient",
+          "Defant 2015 R2 stopping times table"
+        ]
+      },
+      "rationale": "Defant 2015 defines the iteration and states the global lower-bound inequality as Conjecture 20; a conjecture does not imply the finite census. Its finite plot of bounded inputs is logically weaker than complete rank fibers (which contain n up to 86,472,015). OEIS A241664 lists initial stopping values, not exhaustive inverse fibers and unique maxima for ranks 1..10. Resultary semantic search did not identify an exact rank-ten census. A plausible 2010 Harrington–Jones restricted-domain iteration is a named residual literature risk, not an automatic originality failure.",
+      "residual_risks": [
+        "Unindexed or inaccessible earlier exact inverse-level census, especially Harrington–Jones (2010), could affect priority.",
+        "Search failures alone are not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PROBLEM_NOT_COVERING_FIBER_CENSUS",
+          "evidence": "Section 4 Conjecture 20 and finite first-input plot; no first-ten complete stopping-rank counts.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Defant/defant5.pdf",
+          "material_read": "Full 13-page PDF inspected for iteration definition, numerical analysis §4 and Conjecture 20; p10 rendered.",
+          "method": "Lawful journal PDF text and page screenshot.",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Exact same iteration and conjecture."
+        },
+        {
+          "assessment": "INDEX_NOT_EXHAUSTIVE_FIBER_CENSUS",
+          "evidence": "Sequence reports individual stopping times and conjecture but not the complete preimage stratum enumeration.",
+          "identifier_or_url": "https://oeis.org/A241664",
+          "material_read": "Entire accessible sequence page, terms, comments, table link and references.",
+          "method": "OEIS entry full HTML.",
+          "title": "OEIS A241664",
+          "trigger": "Potential exact precomputed stopping-rank table."
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED",
+          "evidence": "The related restricted-domain function may hide overlap; no whole-document noncoverage conclusion is drawn.",
+          "identifier_or_url": "doi:10.1515/INTEG.2010.042",
+          "material_read": "Citation/title and domain characterization in the pinned package; full paper not obtained or claimed read.",
+          "method": "Bibliographic comparison only.",
+          "title": "On the Iteration of a Function Related to Euler’s φ-Function",
+          "trigger": "Plausible older related iteration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL18/Defant/defant5.pdf",
+        "https://oeis.org/A241664",
+        "https://doi.org/10.1515/INTEG.2010.042"
+      ],
+      "rationale": "The ten finite stopping-rank fibers are mathematically natural strata of a published iteration problem; exact sizes and unique maxima without an input cutoff provide a reproducible finite-depth theorem and nontrivial first-ten verification of Defant’s named inequality. This does not purport to settle the infinite conjecture, and the arbitrary choice of depth 10 does not replace the intrinsic motivation from those first nontrivial rank fibers.",
+      "residual_risks": [
+        "Only ten finite ranks; the bound beyond rank ten remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Ranks 1 through 10 only, odd n>1; maximum witness formula and uniqueness established only for r<=10.",
+    "Exact finite enumeration is logically complete for these ranks but says nothing about higher ranks."
+  ]
+}
