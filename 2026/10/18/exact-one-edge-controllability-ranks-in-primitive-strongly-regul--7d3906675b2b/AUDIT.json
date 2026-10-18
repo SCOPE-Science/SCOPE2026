@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each primitive SRG, two positive nontrivial edge-vector projector norms generate exactly two new simple positive eigenvalues under every nonzero perturbation of a positive edge conductance. The explicit projectors give nonzero components at precisely the asserted vertices; a nonempty same-signature vertex set proves all inherited modes visible to every actuator. Thus Krylov dimension is 3 or 5 as claimed; exact combinatorial counting gives 2(k−λ). The proof covers all admissible graphs, edges, actuators and positive conductances. Reproduced 14846 rational checks corroborate 8 finite graph examples; they are not extrapolated to universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1203.0129, introduction and Sections II-V: exact node controllability of grid graphs",
+        "doi:10.1109/TAC.2014.2381435: leader-follower binary-control classification on graphs, SRG baseline",
+        "arxiv:1710.02181, Sections 3-7: edge-perturbed strongly regular adjacency spectral/state-transfer results"
+      ],
+      "reasoning": "Grid graph families are not primitive SRGs in general. General leader-follower tests do not evaluate this single-edge perturbation. Strongly regular perturbation state-transfer eigenvalue formulas cover the spectral eigenvalue part but not the claimed arbitrary-actuator control-rank table.",
+      "searches": [
+        "strongly regular graphs Laplacian single edge weight perturbation single node controllability reachable subspace five eigenvalues adjacency distinguish endpoints common neighbor",
+        "single edge conductance defect strongly regular graph PBH node controllability rank spectral projector 3 or 5",
+        "\"strongly regular\" \"weighted\" \"edge\" \"controllability\" \"vertices\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1203.0129 (Notarstefano and Parlangeli, 2012; full HTML article, sections I-V)",
+      "doi:10.1109/TAC.2014.2381435 (Aguilar and Gharesifard, 2015; accessible full-text copy, SRG section)",
+      "doi:10.1016/j.disc.2011.06.032 (Godsil, 2012; Sec. 11 rank/eigenvalue-support discussion)",
+      "arxiv:1710.02181 (Godsil, Guo, Kempton and Lippner, 2017; full HTML paper, sections 2-5, Corollary 12 and conclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1710.02181, Theorem 9 and Corollary 12: edge/loop perturbation characteristic polynomial, explicitly two new roots when coefficients cancel",
+        "doi:10.1016/j.disc.2011.06.032, Sec. 11: general walk-matrix rank criterion",
+        "doi:10.1109/TAC.2014.2381435, definition of SRG and three original Laplacian eigenvalues"
+      ],
+      "reasoning": "The new roots and original three-level spectrum are previously known, and are not counted as novel. To obtain the precise 3-versus-5 rank and 2(k−λ) positions, one must compute arbitrary-vertex values of both new eigenvectors and prove that all three inherited eigenvalues remain visible after the perturbation. Those specific conclusions and parameter-invariant actuator census are absent from inspected primary article statements and derivations.",
+      "searches": [
+        "strongly regular controllability single vertex edge perturbed Laplacian",
+        "strongly regular graphs Laplacian single edge weight perturbation single node controllability reachable subspace five eigenvalues adjacency distinguish endpoints common neighbor",
+        "For a primitive strongly regular graph, perturb the weight of exactly one edge in its Laplacian. Single vertex controllable subspace has exactly rank 3 or rank 5, with rank 5 iff the vertex is one of the edge endpoints or adjacent to exactly one endpoint. Count equals 2(k-lambda) for all nonunit positive weights."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1710.02181, Corollary 12: spectral polynomial after edge/loop perturbation, including Laplacian case with opposing edge/loop coefficients",
+        "doi:10.1016/j.disc.2011.06.032, Section 11: walk-matrix rank equals vertex eigenvalue support"
+      ],
+      "reasoning": "Combined, these supply a route to analyzing reachable rank but no every-vertex visibility classification. The new proof evaluates arbitrary-vertex components, proves inherited visibility, and counts eligible vertices. Not merely a restatement of the secular characteristic polynomial.",
+      "searches": [
+        "strongly regular controllability single vertex edge perturbed Laplacian",
+        "two endpoint edge conductance perturbation strongly regular walk matrix 3 5",
+        "For a primitive strongly regular graph, perturb the weight of exactly one edge in its Laplacian. Single vertex controllable subspace has exactly rank 3 or rank 5, with rank 5 iff the vertex is one of the edge endpoints or adjacent to exactly one endpoint. Count equals 2(k-lambda) for all nonunit positive weights.",
+        "\"strongly regular\" \"walk matrix\" \"edge\" controllability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact search of accessible research abstracts yielded related but noncovering Laplacian spectral examples, e.g. a published rank-two matroid parallel class exchange-graph spectrum",
+        "No published database entry giving 3/5 ranks for all single-edge perturbed primitive SRGs was located"
+      ],
+      "reasoning": "The result holds for all primitive strongly regular graphs and all positive nonunit edge weights, not a parameter table for one graph. Searching titles/abstracts is not a uniqueness guarantee; unindexed sources remain a risk.",
+      "searches": [
+        "strongly regular graph Laplacian controllable subspace 2(k-lambda) vertices",
+        "For a primitive strongly regular graph, perturb the weight of exactly one edge in its Laplacian. Single vertex controllable subspace has exactly rank 3 or rank 5, with rank 5 iff the vertex is one of the edge endpoints or adjacent to exactly one endpoint. Count equals 2(k-lambda) for all nonunit positive weights.",
+        "strongly regular controllability single vertex edge perturbed Laplacian"
+      ]
+    },
+    "rationale": "The inspected 2017 edge perturbation work provides the spectral eigenvalue equation, but not the every-vertex single-actuator rank partition; the latter requires independent calculations of eigenvector visibility at all vertices and a nonvanishing argument for both inherited eigenspaces. The 2012 and 2015 control papers provide general PBH/walk-matrix methodology or uncontrollable baseline SRG statements, not the result. The new complete rank table and graph-parameter-only census are not immediate stated consequences of those sources, and the inspected primary literature and accessible published research abstracts revealed no matching theorem. Risk remains of an unpublished/implicit equivalent derivation in the 2017 paper or related sources.",
+    "residual_risks": [
+      "The near-identical spectral setup of arxiv:1710.02181 could permit a more immediate implicit derivation than the differences in stated theorems suggest. The new every-vertex controllability conclusion remains the asserted contribution.",
+      "Unindexed or inaccessible specialist work on strongly regular walk matrices may contain equivalent vertex-rank formulas.",
+      "The self-review is not an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: domain is Cartesian grid Laplacians; no single-edge perturbed primitive SRG family",
+        "evidence": [
+          "arxiv:1203.0129, introduction and Sections II-V"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.0129",
+        "material_read": "abstract; introduction; preliminary control-system definitions; named paper section summaries and grid methods",
+        "method": "accessible arXiv full HTML text",
+        "title": "Controllability and observability of grid graphs via reduction and symmetries",
+        "trigger": "Earliest archival public control-theory source (2012-03-01), PBH and graph-based controllability comparison"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: prior three-eigenvalue baseline and leader model; no edge-defect 3/5 rank census",
+        "evidence": [
+          "2015 IEEE TAC article, §II and strongly regular graph discussion"
+        ],
+        "identifier_or_url": "doi:10.1109/TAC.2014.2381435",
+        "material_read": "full accessible article text, definitions, SRG spectral discussion, leader-controllability results",
+        "method": "accessible university-hosted/Paperzz full-text HTML representation",
+        "title": "Graph Controllability Classes for the Laplacian Leader-Follower Dynamics",
+        "trigger": "Explicit prior SRG baseline and general leader-control results"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: general eigenvalue support and controllability criterion; no single-edge SRG rank computation",
+        "evidence": [
+          "Discrete Mathematics 312 (2012), Section 11, Corollary 11.3"
+        ],
+        "identifier_or_url": "doi:10.1016/j.disc.2011.06.032",
+        "material_read": "full-text indexed mathematical statements in Section 11, including Corollary 11.3 and surrounding discussion",
+        "method": "publisher-indexed HTML extract",
+        "title": "State transfer on graphs",
+        "trigger": "Exact graph walk-matrix controllability rank versus eigenvalue support"
+      },
+      {
+        "assessment": "SUBSTANTIAL_OVERLAP: same edge/loop spectral perturbation contains Laplacian case, eigenvalue quadratic and endpoint support; inspected article does not evaluate all other vertices for single-input Krylov ranks nor produce count 2(k−λ). Potential implicit implication remains residual risk.",
+        "evidence": [
+          "arxiv:1710.02181, Theorem 9 and Corollary 12, §4",
+          "arxiv:1710.02181, §5 and §8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.02181",
+        "material_read": "full arXiv article HTML, sections 1-5; Theorem 9, Corollary 12, endpoint spectral analysis, Sections 6-8 topics and conclusion",
+        "method": "accessible full arXiv HTML read and in-document text search",
+        "title": "State transfer in strongly regular graphs with an edge perturbation",
+        "trigger": "Closest same-object same-parameter edge perturbation, potentially dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d390667-5b2b-4f86-9486-ae4794f4fefd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact single-actuator reachable dimension is a physically motivated network-design invariant. The theorem gives a complete, parameter-only classification of where and by how much a local edge-conductance defect improves control, with no hidden exceptional weights and identical counts for nonisomorphic SRGs with matching parameters. It distinguishes full control only for the five-cycle from intrinsic five-mode caps for all larger primitive SRGs.",
+    "status": "PASS"
+  }
+}
