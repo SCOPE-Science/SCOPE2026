@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a numerical semigroup \(H\), the strict upper cone in
-\[
-P_H(x,y)\iff x\le y\text{ and }y-x\in H
-\]
-is
-\[
-\operatorname{Up}_{<_{P_H}}(x)=x+H_+.
-\]
+# Independent mathematical audit
 
-If \(y<x\), let \(m\) be the least positive element of \(H\). Then \(y+m\) lies in the upper cone of \(y\), while its displacement from \(x\) is strictly below \(m\) and is therefore not in \(H_+\). Hence Jagiella's reverse upper-cone inclusion cannot hold.
+## correctness
 
-If \(d=y-x\ge0\), then
-\[
-\operatorname{Up}(y)\subseteq\operatorname{Up}(x)
-\quad\Longleftrightarrow\quad
- d+H_+\subseteq H_+.
-\]
-For \(d\in H\), this is additive closure. For a gap \(d\notin H\), it is exactly the pseudo-Frobenius condition. Thus
-\[
-(P_H)^+=P_{H\cup\operatorname{PF}(H)}.
-\]
+PASS
 
-The checked numerical-semigroup source states that adjoining pseudo-Frobenius numbers preserves numerical-semigroup structure. Induction therefore identifies every subsequent preorder stage with the corresponding repeated pseudo-Frobenius saturation.
+Strict upper cones are exactly x+H_+. If y<x, y+m (m=min H_+) is in the upper cone of y but not of x, so inclusion fails. For d=y−x≥0, translated upper-cone inclusion iff d+H_+⊆H_+, equivalent to d∈H or d pseudo-Frobenius. Adding all PF numbers preserves additive closure: for d1,d2 in PF and s in H_+, d2+s lies in H_+, so d1+(d2+s) lies in H; therefore d1+d2 is either already in H or itself is PF. This handles PF+PF products and makes induction valid. Frobenius number is PF, thus each stage removes >=1 gap; exact gap-count telescoping gives genus=sum of types. Independently enumerated H=<4,7> gaps [1,2,3,5,6,9,10,13,17], PF=[17]; this is a check, not a proof.
 
-At any nonterminal stage, the Frobenius number is pseudo-Frobenius, so at least one gap disappears. The iteration therefore reaches \(\mathbb N\) in at most the initial genus. Since exactly \(t(H_i)\) gaps disappear in round \(i\), telescoping gives
-\[
-g(H)=\sum_{i<\ell(H)}t(H_i).
-\]
+## originality
 
-## Limits
+PASS
 
-No finite experiment is used to infer an infinite statement.
+Known mathematical constituents are Jagiella reverse upper-cone preorder extension and numerical-semigroup PF-adjunction; their matching via exactly the same P_H translation class does not appear in inspected open MED-closure article or Resultary hits. The cross-subject identification is new best-of-knowledge. Jagiella full primary text could not be read; a hidden equivalent in it would defeat priority, explicitly residual risk.
 
-The stagewise identity is verified only for exact translation-invariant representatives \(P_H\), not arbitrary finite perturbations.
+## value
 
-The pseudo-Frobenius saturation here is not identified with MED closure or with the separate Apery-saturation process from the supporting semigroup paper.
+PASS
+
+Supplies a concrete natural model-theoretic closure normal form and a finite computable semigroup invariant for stabilization of definable order representatives. Though algebraically elementary, it is a motivated exact identification of two nontrivially different closure definitions with stage-by-stage genus/type accounting, not a random parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
