@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Kummer/Legendre translates the gcd valuation into the minimum carry count over positive five-divisible lower indices. The proof characterizes valuation zero by proper zero-sum submultisets, exhausts the fourteen minimal residue types, gives explicit one-carry witnesses for ordinary types and upper/lower two- or three-carry witnesses for the exceptional types. Each witness is valid for every permitted binary position with its specified residues. Independent finite dynamic-program and direct-enumeration tests pass; they support but do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risks.** Fairfax-Ball (arXiv:2609.37754v1; full accessible HTML, all mathematical sections reviewed) concerns primes whose residues modulo the progression modulus are plus or minus one and explicitly tabulates only moduli three, four and six; prime two at modulus five has order four. McTague's corrected same-residue theorem cannot give this order-four case. Wu's related restricted gcd work has a potentially relevant broader scope but the entire primary text could not be read via the available HTML route; the available abstract and the motivating paper's comparison indicate different congruence restrictions, so no implication covering this result was established. Closest related published records concern a different modulus or other binomial valuations. Unindexed or inaccessible equivalences remain possible, but no decisive covering result was found.
+PASS
 
-**Value — PASS.** This settles the first naturally excluded order-four prime/modulus pair for the ongoing restricted-binomial-gcd classification, uniformly over every admissible row. It gives both a complete computable digit criterion and a sharp global exponent bound, with an explicit infinite extremal family; it is not a numerical lookup or an arbitrary small slice.
+For N>5 and 5|N, Kummer/Legendre makes v2 of the restricted binomial gcd equal the least binary carry count among 5|k, 0<k<N. Valuation zero is equivalent to a proper nonempty zero-sum submultiset of the occupied binary digit residues 1,2,4,3 modulo5. Minimal zero-sum multisets of nonzero C5 residues have at most five terms; independent enumeration gives exactly fourteen shapes: 2 length2,4 length3,4 length4,4 length5. Splitting one positive-position power into its two halves gives a one-carry witness for ordinary minimal shapes; parity restrictions obstruct it for odd minimal {1,2,2} (valuation2) and for odd two-term {1,4} (valuation3). Positive even two-term minimal cases have v2=2. The explicit two/three carry constructions in the source prove all remaining upper bounds. Thus maximum v2=3 precisely N=2^(4h+2)+1, h>=1. Independently checked the 14 shape classifications and directly minimized s2(k)+s2(N-k)-s2(N) for every multiple of five from N=10 to 3000 (599 N); no mismatch, max3 at N=65,1025. Infinite proof rests on carry-splitting, not finite brute force.
 
-**Limits and risks.** The theorem determines only the two-adic part. Published-source comparisons do not establish universal priority; an alternative result may be overlooked. Verification covers finitely many rows; the mathematical proof is the basis of correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fairfax-Ball arXiv:2609.37754v1 studies the same restricted gcd, proving special p congruent to -1 mod m and recording prior p=+1 results. For modulus m=5, p=2 has order four and is neither +1 nor -1; the exact v2 branch classification therefore lies outside those theorems. McTague 2017 concerns same-residue congruence classes, and Wu 2026 studies related gcds but only title/abstract-level full coverage could be verified here. No indexed Resultary matching 14-shape binary mod5 case was found; this is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+A fixed-modulus gcd with one prime whose multiplicative order is four is the naturally omitted next nontrivial case of the initiating restricted-binomial theorem. Resolving all residue-pattern branches and the maximal-power family gives an exact infinite arithmetic classification with explicit witnesses; not a routine substitution into the known ±1 congruence formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
