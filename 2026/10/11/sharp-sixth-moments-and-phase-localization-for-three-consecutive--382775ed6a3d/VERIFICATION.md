@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python artifacts/verify.py` using Python 3 with SymPy. The checker rebuilds cyclic sixth moments as squares of cubic convolution coefficients, groups seven coefficients by residue class, and confirms the exact symbolic one-variable polynomials and five derivative factorizations. It isolates a unique positive root of the exceptional quintic, checks two simplified radical constants, and compares direct discrete Fourier moments with their cyclic-convolution representation.
+## correctness
 
-The replay output from the packaged checker was:
+PASS
 
-`VERIFY_OK exact_residue_polynomials=13 exact_derivatives=5 root_isolation=PASS random_complex_cases=3080 subgroup_cases=7 reflection_cases=750 all_checks=PASS`
+In cyclic quotient order r, ∫|a+bχ+cχ²|^6 is Σ residue classes modulo r of squared coefficients of (a+bz+cz²)^3. The reflected three-coefficient RMS symmetrization increases each nonnegative cyclic autocorrelation via Cauchy, forcing |a|=|c| at the strict positive optimum. Exact residue polynomial E_r(t), derivative sign polynomial and positive-root uniqueness distinguish r3,4,5,6 and r≥7; for r≤6 phase alignment across degree-0/degree-r collisions forces ω^r=1, while r≥7 has no phase wrapping. Decompose G into h cosets of K=H⊥: ℓ³ concentration forces one coset and multiplier h². Independent exact cyclic-moment calculations for r3..11 and source symbolic verifier corroborate; the full proof treats all finite abelian groups.
 
-The numerical cases check cyclic orders \(3\) through \(16\) and subgroup lifts on groups of size \(4r\). Numeric tolerances are used only for sample comparisons, not for the proof or the exact symbolic checks. The unrestricted quantifiers, exact maximizers and equality classification require the proof in `RESULT.md`; the checker is not an independent proof of those assertions.
+## originality
+
+PASS
+
+Published full Resultary works “Sharp sixth moments and the order-seven transition for three-character progressions” and “Exact L²-to-L⁶ Nikolskii constant for analytic quadratics” ALREADY establish the exact r≥7 constant 35(√105−3)/48 and its affine-phase optimizer. This branch is acknowledged prior, NOT original. The first work explicitly proves only that r3..6 exceed the stabilized constant, without calculating their exact values. Neither supplies the r3..6 algebraic profile and restricted phase roots or the new h² lifting and single physical-coset localization. Junge et al 2013 group-von-Neumann hypercontractivity involves semigroup times; Nursultanov et al 2015 give general support bounds without finite torsion sharp constants. An older exact finite-grid Nikolskii table remains a risk.
+
+## value
+
+PASS
+
+The order-3-through-6 exceptional constants, discrete-to-continuous phase rigidity transition and coset concentration describe a natural complete classification of three consecutive quotient-frequency cosets; a stable branch already known is properly excluded from the newly valuable part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
