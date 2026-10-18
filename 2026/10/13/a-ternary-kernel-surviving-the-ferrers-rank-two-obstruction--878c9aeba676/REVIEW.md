@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the finite assertion to two exhaustive linear-algebra enumerations. The embedded checker reconstructs the multiplication spread and its orthogonal basis, verifies the full \(3^{12}\)-element rank distribution of \(U\), enumerates all \(3^{10}\) elements of \(K\), and checks every rank-two right kernel. The claim is deliberately limited to the necessary plane-balance condition; no lift-map existence is inferred.
+## correctness
 
-## Originality
-PASS. The closest source is Prajapati's 2026 binary counterexample, whose Lemma 4 proves the \(q=2\) count \(105=35\cdot3\). Full-text inspection found no ternary kernel. Gruica–Ravagnani's broader general-field framework supplies counting tools but not this explicit \(q=3\) survivor. Focused research-database and own-ledger searches found no implication-equivalent claim. Residual risk remains that an unindexed ternary MRD-subspace computation contains an equivalent representative.
+PASS
 
-## Value
-PASS. The result targets the first structural obstruction in a new kernel-lift approach to the historically open Ferrers-diagram problem. Showing that a concrete ternary field-spread kernel meets all \(130\) plane constraints exactly is a meaningful boundary result: it identifies where the binary obstruction ceases to settle the next field and supplies a finite object for the remaining lift question.
+Reconstructed the multiplication matrices over F3[x]/(x^4+x^3+x^2+1), irreducibility, dim(S)=4, dim(U)=12 and Frobenius orthogonality. Every nonzero rank-one uv^T cannot be orthogonal to all multiplication maps because as a ranges over F81, M_a v spans F3^4; so U has no rank-one matrix. An independently structured rank computation evaluated all 130 projective 2-planes N: the restrictions Mv=0 on K always have rank 8 from dim(K)=10. Each 2-dimensional annihilator therefore contains exactly 3^2-1=8 nonzero matrices of rank exactly 2; distinct rank-2 matrices have unique right kernels, so 1040 in total. This verifies the exact necessary plane balance, not the unresolved lift equation. The source program also states a full U rank distribution, but these independent checks need only the rank-one exclusion.
 
-## Closest literature and limitations
-The closest literature is the binary kernel-lift analysis in arXiv:2608.08478v1 and the general-q Ferrers counting framework of Gruica–Ravagnani. The present result does not prove or disprove existence of a ternary \([E,12,3]\) code, does not classify all ternary MRD kernels, and does not address larger fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. Neither the binary failure theorem nor general bounds imply existence or impossibility of the displayed q=3 K. The claim explicitly stops at a necessary-condition survivor.
+
+## value
+
+PASS
+
+The rank-two/plane-balance constraint is the first substantive kernel-lift obstruction at the smallest field beyond the recent binary counterexample. A concrete q=3 survivor of all 130 simultaneous geometric constraints is a motivated boundary object for assessing whether the binary impossibility mechanism extends; the necessary-condition survivor is informative despite not constructing a Ferrers code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
