@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source constructs a discrete law with \\(p(r)=F(r)-F(r-1)\\), but its inclusive-truncation formula uses \\(F(b)-F(a)\\), which excludes the included lower endpoint. Telescoping proves that the displayed mass must sum to \\(\\prod_i[1+p(a_i)/(F(b_i)-F(a_i))]>1\\). Brownian full support makes the inequality strict; scaling and the reflection principle give the short-time exponential lower bound. Replaying the source's own series on its own bounds yields total mass \\(86.7321789531\\), a single printed mass \\(65.7651669085\\), and the corrected conditional probability \\(0.7582556751\\).
+## correctness
 
-## Originality
-PASS. The general discrete conditioning identity is established mathematics, and the 2025 continuous predecessor uses the correct continuous formula. The new contribution is the identification and quantification of the 2026 discrete inclusive-support contradiction, including its extreme error on the source's own applied bounds and high-frequency exponential divergence. Targeted searches did not locate the source-specific correction. The 2018 interior-deletion predecessor was accessible through its abstract only, limiting the breadth of this comparison.
+PASS
 
-## Value
-PASS. The affected formula is the core distribution used to describe bounded market risks, not a removable constant or a small rounding difference. It assigns more than one to an individual cell, fails normalization by nearly two orders of magnitude at the actual illustrative bounds, and worsens without bound when observations become shorter. The repair provides a coherent conditional probability law and matching CDF for the announced inclusive event.
+For p_T(r)=F_T(r)−F_T(r−1), the exact mass on the stated inclusive integer support a≤r≤b is F_T(b)−F_T(a−1), whereas the denominator printed in the 2026 source Eq.(3.2) is F_T(b)−F_T(a). Therefore the printed product sum is ∏_i [1+p_T(a_i)/(F_T(b_i)−F_T(a_i))]>1, with strictly positive Brownian-range cell probabilities. The correct conditional product and corresponding CDF subtract F_T(a_i−1). Independent high-precision evaluation of the source series at T=1 and its actual market support [2,8]×[1,7] gives total published mass 86.7321789530702265665 and lower-left alleged atom 65.7651669084577193031, both impossible for a PMF. Brownian scaling and a reflection-principle upper bound on P(R_T≥1) also prove the [0,1] printed zero-cell mass tends to infinity at least as (1/4)exp(1/(8T))−1. The proof of nonnormalization is telescoping; numerical series corroborate the source-specific magnitude.
 
-Residual limitations: behavior of unavailable plotting or simulation code is unknown; external independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The abstract discrete inclusive truncation rule is standard and is not novel. The result is a precise falsification of Alharbi–El-Hadidy 2026 Eq.(3.2) on the authors’ expressly inclusive support, with extreme incorrect probabilities at their own stated bounds and a genuine short-time instability. Direct comparison to their entire relevant primary section and continuous 2025 predecessor found no published correction; behavior of the authors’ software remains unknown. Distinguishes a source-specific motivated correction from textbook normalization by its severe mathematical implication.
+
+## value
+
+PASS
+
+The mistake strikes the central probability normalization of an applied discrete statistical distribution: a published illustrative single cell exceeds 65 and its full support mass exceeds 86, not a negligible rounding error. Its short-observation limit diverges exponentially rather than tending toward a legal conditional mass. A precise correction can prevent invalid statistical use; mathematically this is a motivated model-specific boundary defect despite relying on elementary telescoping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

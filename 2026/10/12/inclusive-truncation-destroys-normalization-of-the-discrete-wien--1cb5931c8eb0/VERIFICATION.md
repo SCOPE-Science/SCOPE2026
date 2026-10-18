@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone script `verify_wiener_truncation.py` uses high-precision `mpmath` to evaluate the source's continuous Brownian-range CDF series, whose integer differences define the discrete PMF.
 
-It replays the finite integer support on the source's stated market intervals
-\[
-[2,8]\times[1,7],\qquad T=1,
-\]
-and returns published total mass
-\[
-86.7321789530702265665\ldots,
-\]
-published mass at the lower-left atom
-\[
-65.7651669084577193031\ldots,
-\]
-and corrected conditional mass at that atom
-\[
-0.7582556751403938133\ldots.
-\]
+# Independent mathematical audit
 
-At \(T=0.1\) on the marginal interval \([0,1]\), it reproduces the published zero-cell value \(158.70343733965314\ldots\), compared with correct conditional value \(0.99373839400918\ldots\).
+## correctness
 
-The checker compares 80-term and 100-term values and explicitly bounds the positive omitted series tail. These numerical checks supplement but do not replace the exact telescoping proof and the analytic Brownian scaling/reflection argument. No claim about other computational implementations is made.
+PASS
+
+For p_T(r)=F_T(r)−F_T(r−1), the exact mass on the stated inclusive integer support a≤r≤b is F_T(b)−F_T(a−1), whereas the denominator printed in the 2026 source Eq.(3.2) is F_T(b)−F_T(a). Therefore the printed product sum is ∏_i [1+p_T(a_i)/(F_T(b_i)−F_T(a_i))]>1, with strictly positive Brownian-range cell probabilities. The correct conditional product and corresponding CDF subtract F_T(a_i−1). Independent high-precision evaluation of the source series at T=1 and its actual market support [2,8]×[1,7] gives total published mass 86.7321789530702265665 and lower-left alleged atom 65.7651669084577193031, both impossible for a PMF. Brownian scaling and a reflection-principle upper bound on P(R_T≥1) also prove the [0,1] printed zero-cell mass tends to infinity at least as (1/4)exp(1/(8T))−1. The proof of nonnormalization is telescoping; numerical series corroborate the source-specific magnitude.
+
+## originality
+
+PASS
+
+The abstract discrete inclusive truncation rule is standard and is not novel. The result is a precise falsification of Alharbi–El-Hadidy 2026 Eq.(3.2) on the authors’ expressly inclusive support, with extreme incorrect probabilities at their own stated bounds and a genuine short-time instability. Direct comparison to their entire relevant primary section and continuous 2025 predecessor found no published correction; behavior of the authors’ software remains unknown. Distinguishes a source-specific motivated correction from textbook normalization by its severe mathematical implication.
+
+## value
+
+PASS
+
+The mistake strikes the central probability normalization of an applied discrete statistical distribution: a published illustrative single cell exceeds 65 and its full support mass exceeds 86, not a negligible rounding error. Its short-observation limit diverges exponentially rather than tending toward a legal conditional mass. A precise correction can prevent invalid statistical use; mathematically this is a motivated model-specific boundary defect despite relying on elementary telescoping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
