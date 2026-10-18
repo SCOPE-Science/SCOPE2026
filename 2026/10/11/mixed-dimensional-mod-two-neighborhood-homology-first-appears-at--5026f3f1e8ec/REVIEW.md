@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target complexes are defined directly from the triangular graphs, so there is no imported combinatorial table. For each \(3\le n\le7\), every subset of every open neighborhood is enumerated and deduplicated, all simplicial boundary maps are built over \(\mathbf F_2\), and their ranks are obtained by exact binary elimination. The resulting chain dimensions and ranks reproduce the stated Betti vectors and pass an independent Euler-characteristic check. The final first-occurrence statement follows because every earlier member \(T_3,T_4,T_5,T_6\) is explicitly included.
+## correctness
 
-## Originality
-PASS relative to the recorded searches and inspections. Semantic-index queries used triangular-graph, line-graph, numerical-rank, mixed-dimensional, and Lovász-neighborhood formulations. The closest indexed records concern neighborhood complexes of other graphs or homology of other graph complexes. Matsushita's full text supplies the general neighborhood-complex framework but has no triangular/line-graph discussion, and the 2026 Fröberg article's accessible text likewise has no occurrence of “triangular” or “line graph.” The residual risk is an older or unindexed calculation under association-scheme, clique-graph, or Hom-complex language.
+PASS
 
-## Value
-PASS. The triangular graphs are a canonical infinite family of strongly regular line graphs. The exact cutoff \(n=7\) marks the first failure of the single-degree reduced-homology pattern visible for \(T_3\) through \(T_6\), and the ranks \(246\) and \(7\) give a concrete benchmark for any proposed general description of their neighborhood complexes. This is a natural family threshold rather than an arbitrary induced subcomplex or parameter slice.
+The triangular graph T_n=L(K_n) has C(n,2) edge-vertices and an open neighborhood of each edge comprising exactly 2(n−2) other incident edges. The package verify.py enumerates every nonempty subface of all these neighborhoods for n=3..7 and reduces every F₂ simplicial boundary column, not a random sample or approximate rank. I separately regenerated neighborhoods directly from the defining adjacency and used independent GF(2) pivot elimination. Reduced Betti profiles: n=3 H̃1=1; n=4 H̃1=1; n=5 H̃3=11; n=6 H̃3=91; n=7 H̃3=246 and H̃4=7, no other nonzero degrees. For n=7 full face vector (21,210,1190,3780,5187,4410,2520,945,210,21) and boundary ranks (20,190,1000,2534,2646,1764,756,189,21) give the claimed Betti numbers exactly. All five n cases are exhausted; since domain is the discrete interval 3≤n≤7, the 'first' statement is complete there. No integral torsion, homotopy or n≥8 result is inferred.
 
-## Closest literature and limitations
-The closest inspected primary source is Matsushita's *Fundamental groups of neighborhood complexes* (arXiv:1210.2803v1), which defines and studies the same graph-topological functor but not the triangular family. Fröberg's 2026 open-access article surveys several explicit neighborhood-complex graph families but does not treat triangular graphs in the searchable text. The accepted result is restricted to mod-two homology through \(n=7\); it does not claim a homotopy decomposition or any theorem for larger \(n\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact finite triangular-graph open-neighborhood mod-two profiles and first mixed-degree occurrence at T7. Inspected general Matsushita π1 correspondence and Fröberg's full primary neighborhood families; neither reported a result subsuming the exact L(K3)..L(K7) calculation. Same Resultary entry is self evidence only. Other graph classes and higher-depth homology do not imply these Betti values.
+
+## value
+
+PASS
+
+T_n=L(K_n) is a canonical strongly regular/line-graph family, and the first loss of single-degree neighborhood homology is a meaningful exact cutoff, with a mixed-dimensional F₂ signature H̃3=246, H̃4=7. Exhaustive exact ranks across every preceding n, rather than an arbitrary single tiny invariant, make the threshold a reusable benchmark for graph-complex topology. It does not pretend to solve the all-n census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
