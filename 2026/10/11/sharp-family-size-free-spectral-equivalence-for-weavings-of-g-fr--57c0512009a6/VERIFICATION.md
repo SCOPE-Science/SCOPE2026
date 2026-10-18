@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-subsets perturbation hypothesis is applied to the **actual block** \(J=\sigma_k\) of an arbitrary partition, never merely to the entire index set. For any anchor \(j\), denote the original and chosen coefficient vectors on that block by \(x\) and \(y\). Direct Hilbert-space norm inequalities yield
-\[
-\|x-y\|\le\sqrt K\min\{\|x\|,\|y\|\},
-\]
-so
-\[
-\|x\|\le(1+\sqrt K)\|y\|,\qquad
-\|y\|\le(1+\sqrt K)\|x\|.
-\]
-Squaring, summing over all blocks and passing to quadratic forms verifies
-\[
-(1+\sqrt K)^{-2} S_j\preceq S_\sigma\preceq(1+\sqrt K)^2 S_j.
-\]
+# Independent mathematical audit
 
-For exact sharpness take one coefficient index, scalar Hilbert spaces, and columns with amplitudes
-\[
-1+\sqrt K,1,1,\ldots,1.
-\]
-The unequal-pair difference squared equals \(K\), and the smaller squared amplitude is \(1\). A weaving choosing the first column has energy \((1+\sqrt K)^2\), whereas a weaving choosing any other column has energy \(1\). These are the exact upper and lower comparison endpoints for suitable anchors, and also exactly attain the asserted uniform frame bounds. At \(K=0\), all columns coincide and the sharp factor is \(1\).
+## correctness
 
-The arXiv primary theorem, its proof and the corresponding source module result were read directly in full relevant sections and inspected on rendered PDF pages. No finite computation, rounding, numerical proof or unproved nonstandard lemma is used. The statement does not extend to an infinite number of source columns or drop the all-subsets hypothesis.
+PASS
+
+PASS. Fix finite m≥2, countable/finite I, Hilbert frames and common codomains K_i. The actual all-subsets hypothesis applied separately to each weaving block σ_k yields ||X_{j,k}−X_{k,k}||≤√K min(||X_{j,k}||,||X_{k,k}||), hence symmetric norm ratio ≤1+√K by the triangle inequality. Square and sum disjoint blocks (Bessel sums converge), yielding c_K^{-1}⟨S_jf,f⟩≤⟨S_σf,f⟩≤c_K⟨S_jf,f⟩ with c_K=(1+√K)^2. Quadratic forms give Loewner order; each source lower bound/upper bound gives max_j A_j/c_K, c_K min_j B_j and κ(S_σ)≤c_K²κ(S_j). Scalar one-index amplitudes 1+√K versus 1 satisfy min-energy perturbation exactly and attain both extremal order directions, K=0 included. This is an analytic proof; no computational verifier is needed. Rechecked against source Theorem 3.5 and subsequent module Theorem 2.7 actual statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for sharp Loewner-order all-anchor comparison under strong all-subsets difference condition. Original Li–Leng–Huang–Li Theorem 3.5 gives weaker numerical bounds dependent on m, not the operator-order factor. Closest module analogue repeats numerical bounds; scalar Hilbert structure is needed for this proof. The quick triangle derivation may be implicit in prior work and remains risk.
+
+## value
+
+PASS
+
+PASS. A sharp m-independent spectral preconditioner/comparison for every weaving versus each original source is materially stronger than existence of common frame bounds and useful when combining many sensor/analysis blocks. The constant is universally optimal by a one-point witness, and the source hypotheses are genuinely strong; this is a precise quantitative improvement, not a cosmetic variable substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
