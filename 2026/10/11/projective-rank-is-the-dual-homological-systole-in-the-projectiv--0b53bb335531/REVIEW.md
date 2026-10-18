@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge-deletion minimum is converted exactly to a minimum-support representative of the nonzero ambient degree-one cohomology class. Vertex coboundaries are precisely signed-graph switchings. Cellular Poincare duality sends support edges bijectively to dual support edges and sends the nonzero cohomology class to the nonzero homology class, proving the dual-systole identity. The spherical-double-cover distance formula follows from the lift criterion for the nonzero projective-plane homology class. No computational extrapolation is used.
+## correctness
 
-## Originality
-PASS. The triggering paper defines projective rank and proves the Jones-piece breadth formula, but targeted inspection found no identification with signed-graph frustration, representativity/dual edge-width, or antipodal distance in the lifted dual. published-finding corpus searches for those formulations returned no equivalent finding. Broader searches found classical frustration-index and projective-plane representativity literature but no statement applying those notions to the Boyle--Spyropoulos invariant. Residual risk remains that the cohomology/duality equivalence is folklore in topological signed-graph theory.
+PASS
 
-## Value
-PASS. The result replaces an edge-subset minimization by two established structures: a frustration index and, in the cellular projective-plane case, a shortest nontrivial dual cycle. The double-cover formula makes the invariant accessible to ordinary shortest-path algorithms and gives a geometric interpretation of the exact breadth deficit in the new alternating-link theorem. This is a structural connection rather than a recomputation of a table entry or a parameter substitution.
+For finite connected cellular G⊂RP^2, let u represent the nonzero ambient H^1(F2) class. G−A is local iff the restriction of u is δf for a vertex 0-cochain on surviving edges, so the minimum deletion count equals min_f |supp(u+δf)|, exactly the switching-invariant frustration index of the associated signed graph. Under cellular Poincaré duality, support maps bijectively to dual edges, cocycle condition to cycle condition and nontrivial cohomology to the unique nonzero H_1 class; hence α(G)=ew_1(G*). A homologically nontrivial closed dual walk lifts from a vertex to its deck partner in the S² double cover and conversely; minimum length equals the antipodal shortest path, since any nonzero mod-2 closed walk admits at least one nontrivial circuit. The link breadth formulas follow by direct substitution into Boyle–Spyropoulos, conditional on the cited alternating-link theorem. Loops, parallel edges and 1-edge projective circuits do not invalidate the mod-2 cochain reasoning. This is an exact all-cellular proof, not finite sampling.
 
-## Closest literature and limitations
-Boyle--Spyropoulos, arXiv:2609.40122v1, is the closest source: it introduces the projective rank and proves the alternating-link breadth formula. Sole--Zaslavsky give the classical cocycle-code/switching framework for signed graphs, while projective-plane embedding literature studies representativity. The claim is restricted to cellular embeddings, and it does not resolve the source paper's conjectures for non-alternating links.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The invariant is newly introduced in Boyle–Spyropoulos, while frustration/minimum cosystole and cover-distance are classical separate concepts. Independently established cohomological identity brings an actionable equivalence and link interpretation; no independently retrieved source covering the exact newly named rank was found. The defining primary article could not be read fully, a prominent residual risk rather than proof of novelty.
+
+## value
+
+PASS
+
+Identifies a recently defined link-diagram edge-deletion parameter with two natural classical invariants and provides a concrete shortest-antipodal-path algorithm in the lifted dual. Geometric interpretation and algorithmic computation of the Jones breadth deficit are substantive, though each cochain ingredient is standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
