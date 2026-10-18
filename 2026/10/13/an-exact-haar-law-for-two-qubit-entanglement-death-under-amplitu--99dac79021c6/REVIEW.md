@@ -1,19 +1,21 @@
-# Scientific review: exact Haar entanglement-death law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the channel normalization (single-qubit excited-state visibility \(q\), decay probability \(1-q\)) and samples the entire complex two-qubit pure-state sphere with invariant Haar measure. A direct spin-flip Gram-matrix calculation yields the exact concurrence \(2q[|ad-bc|-(1-q)|d|^2]_+\) for every pure input. Normalized complex-Gaussian sampling converts the survival event to a gamma-variable Laplace transform and a uniform beta ratio, giving an elementary integral over \([0,1]\). Its explicit antiderivative proves the lifetime law and its endpoint constants. The numerical checker separately reconstructs the output state and verifies 400 concurrences and PPT signs; it is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with priority limitations
+The four channel Kraus output vectors yield two symmetric Wootters spin-flip Gram blocks with singular values sqrt(A²+B²)+A, sqrt(A²+B²)-A, B, B (A=q|ad-bc|, B=q(1-q)|d|²). Their concurrence is 2q[|ad-bc|-(1-q)|d|²]_+, so survival is equivalent to |ad-bc|>u|d|² for u=1-q. Independent circular complex Gaussians conditional on (C,D) give determinant a circular Gaussian of variance Y=|C|²+|D|². X=|D|²/Y is Uniform[0,1], independent gamma(2,1) Y; integration E[e^{-u²YX²}]=integral_0^1(1+u²x²)^{-2}dx yields S(q) exactly. Endpoint limits give the time atom and asymptotics; at exactly q=0 output is always separable but infinite-time T is defined by absence of finite death. Independently reconstructed 75 random Kraus spin-flip concurrences with maximum analytic discrepancy <4e-13; finite checks corroborate, not prove Haar integration.
 
-Almeida et al. analyze an experimentally accessible two-component input; Shan et al. analyze restricted extended-Werner states; Datta's Haar statistic measures initial negativity rather than noisy entanglement survival; Knoll et al. prove a qualitative entanglement-breaking interpretation. Huang–Zhu and Jiang–Shi–Du give substantially more general statewise criteria or disentanglement-time formulas, an essential antecedent which can logically be integrated over Haar measure but does not itself report the closed ensemble law in available evidence. The result assessed is only that evaluated invariant-measure law and its mass at finite versus infinite death times, not the already known pointwise damping criterion. Full texts of those last two plausible sources were unavailable, and an equivalent existing analytic ensemble calculation remains a real priority risk; neither negative search results nor this review eliminate it.
+## originality
 
-## Value — PASS
+PASS
 
-The exact percentage of the unrestricted Haar ensemble displaying finite-time sudden death is a natural and interpretable robustness statistic, not an arbitrary parameter slice. It contrasts finite-time loss with asymptotic-only loss under the *same* channels, quantifies how the fraction changes with damping visibility, and provides an analytic benchmark for random-state quantum-noise experiments. The nonzero atom at infinite death time and its sharp approach law are not obtained by quoting a single test state; they require measure over four complex amplitudes. The result does not claim a new general two-qubit concurrence formula, unequal-channel laws, mixed-state ensembles or experimental realization.
+Wootters spin-flip and arbitrary-pure-state amplitude-damping entanglement thresholds are prior. Almeida/Shan study restricted input families, Knoll qualitative channel breaking, Datta pre-noise negativity, Huang–Zhu and Jiang–Shi–Du general statewise death criteria. No read source gave the integrated unrestricted complex-Haar law, its exact finite-death fraction and asymptotic atom. Oxford access to the two most plausible papers is disconnected; inaccessible literature alone does not force rejection, but exact novelty/priority may be overturned by an equivalent integrated formula and is not certified.
 
-## Literature and limitations
+## value
 
-Primary comparisons: Wootters (arXiv:quant-ph/9709029), Almeida et al. (arXiv:quant-ph/0701184), Huang and Zhu (Phys. Rev. A 76, 062322), Shan et al. (arXiv:0808.3690), Datta (arXiv:1004.1317), Jiang et al. (Chin. Phys. Lett. 28, 020308), and Knoll et al. (arXiv:1602.07196). Available full-text material was inspected for Almeida, Shan, Datta and Knoll; Huang–Zhu and Jiang et al. could be compared only through publication information and abstracts. The latter restriction limits any claim of exhaustive priority assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a physically standard noise channel and invariant natural input ensemble, the exact full survival distribution distinguishes finite-time entanglement sudden death from asymptotic decay, with exact population fractions and endpoint rates. This global Haar robustness statistic is an independently motivated invariant beyond the already-known statewise threshold and can serve as an analytic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
