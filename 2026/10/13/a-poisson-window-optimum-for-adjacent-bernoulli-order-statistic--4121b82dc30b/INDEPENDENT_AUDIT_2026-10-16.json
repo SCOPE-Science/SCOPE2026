@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:49:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nested-event representation X_(1)=1_{K=0}, X_(2)=1_{K<=1}, K~Bin(n,q), yields R_n=a(1-b)/[b(1-a)] exactly, with a=(1-q)^n and b=a+nq(1-q)^(n-1). Both fixed-n boundary values vanish. Under nq->c>0 the limiting squared correlation is F(c)=(exp(c)-1-c)/[(1+c)(exp(c)-1)]. The uniform escape bounds R<=1/(1+nq) for nq->infinity and R<=c/(2-c) for c=nq->0 exclude maximizing sequences at either boundary. Differentiation gives F' sign equal to 1+c+c^2-exp(c), whose unique positive zero is established from the change of sign of its second derivative; compactness and comparison at q=c*/n force every optimizer to that limit. Independent differentiation and finite maximization n=2,3,5,10,100,1000 corroborate localization, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 article gives finite discrete-parent framework and tables for sample sizes 2 through 9; 2022 Papadatos considers two-draw extremizers."
+        ],
+        "reasoning": "Finite-n numerical optimization and two-sample comparison do not logically imply compactness of n-dependent optimizing q or the explicit limiting constant.",
+        "searches": [
+          "doi:10.1007/s00180-021-01103-5",
+          "arXiv:2205.14360v1",
+          "optimized Pearson correlation of first two adjacent Bernoulli order statistics large n Poisson limit unique maximizing Bernoulli probability e^c=1+c+c^2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md f09f7d1ac6dde05451fef492aa3a8b1e3ad1a5e9",
+        "Frozen artifacts/verify_adjacent.py 7c10026d697469024a0470016d951f720c6f54c0",
+        "2021 discrete-parent DOI 10.1007/s00180-021-01103-5",
+        "arXiv:2205.14360v1",
+        "Resultary published correlation records noted in comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The asserted claim is an n->infinity variational limit with every-maximizer localization; previously described results have fixed finite n or sample size 2."
+        ],
+        "reasoning": "A general fixed-n problem statement is not a solution to its sharp large-n regime. An unseen appendix might change the priority picture and is left as a risk.",
+        "searches": [
+          "doi:10.1007/s00180-021-01103-5",
+          "arXiv:2205.14360",
+          "optimized Pearson correlation of first two adjacent Bernoulli order statistics large n Poisson limit unique maximizing Bernoulli probability e^c=1+c+c^2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernoulli adjacent extreme ranks are nested events K=0 and K<=1, converging to Poisson 0/1-threshold events.",
+          "Resultary 2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4 treats two observations from three-atom parents, not this asymptotic."
+        ],
+        "reasoning": "A covering alternative could be phrased as optimized correlation of nested Poisson count indicators rather than order statistics; the nearest retrieved indexed findings have different parent support/sample size.",
+        "searches": [
+          "optimized Pearson correlation of first two adjacent Bernoulli order statistics large n Poisson limit unique maximizing Bernoulli probability e^c=1+c+c^2",
+          "\"Poisson\" \"0 or 1\" \"correlation\" optimized",
+          "arXiv:2205.14360"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite sample numerical binary-parent values in 2021 Table 3 differ from a proof of the n-infinite optimized limit; the three-point Resultary record studies uniform-profile extremality at n=2."
+        ],
+        "reasoning": "No finite exact table or two-draw classification gives the infinite optimizing scaling without explicit tail controls.",
+        "searches": [
+          "doi:10.1007/s00180-021-01103-5 Table 3",
+          "Resultary 2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb"
+        ]
+      },
+      "rationale": "The fully inspected package explicitly isolates the new n->infinity optimization. The 2021 discrete-parent article introduces the general finite-n setup and reports finite n<=9 numerical values; the 2022 two-draw paper and published Resultary three-point records do not imply the optimized two-atom growing-n Poisson threshold, on available statements. Best-of-knowledge only; full text of the 2021 article was not independently recoverable in this run.",
+      "residual_risks": [
+        "Full text of plausible 2021 primary paper was not independently recovered; snippets and summaries do not justify asserting whole-paper noncoverage.",
+        "Equivalent prior results could be indexed under nested Bernoulli/Poisson threshold-event correlations rather than order statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR COVERAGE: general finite optimization and reported n<=9 binary data; not evidence for or against all appendices.",
+          "evidence": [
+            "The accessible summary identifies finite sample size n=2,...,9 and a general gradient-based numerical method."
+          ],
+          "identifier_or_url": "doi:10.1007/s00180-021-01103-5",
+          "material_read": "Springer bibliographic record, abstract, published numerical-table description accessible through repository references; complete 2021 article PDF not independently parsed in this run.",
+          "method": "Publisher metadata/abstract, theorem comparison against archived finite-table description",
+          "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+          "trigger": "Same optimized Pearson correlation with discrete parents"
+        },
+        {
+          "assessment": "Two-draw focus; no established implication to all-n Bernoulli optimum.",
+          "evidence": [
+            "Theorem 1.2 scope cited for exactly two observations."
+          ],
+          "identifier_or_url": "arXiv:2205.14360v1",
+          "material_read": "Abstract, cited theorem-level description and metadata; entire 13-page text not independently read this run.",
+          "method": "Source identification and mathematical domain check",
+          "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+          "trigger": "Adjacent-rank order-statistic bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp asymptotic extremal statistic and universal rare-event scale for adjacent binary order statistics, including an explicit transcendental constant, resolve a natural large-sample optimization not delivered by a finite-sample table. The distinction between Pearson and nonlinear maximal correlation is substantive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid Bernoulli samples, maximizing ordinary Pearson correlation of the first two increasing order statistics over p in (0,1) yields n(1-p_n)->c*, where c*>0 uniquely solves exp(c*)=1+c*+c*^2, and C_n->sqrt(c*)/(1+c*)=0.479412669832... for every choice of finite maximizers.",
+  "limitations": [
+    "iid Bernoulli parent only, n>=2, first two increasing ranks, ordinary Pearson correlation; no finite-n uniqueness or second-order expansion.",
+    "2021 primary full text not independently read in this run."
+  ],
+  "schema_version": 1
+}

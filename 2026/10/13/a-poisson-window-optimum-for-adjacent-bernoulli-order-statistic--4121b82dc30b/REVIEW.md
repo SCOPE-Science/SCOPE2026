@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nested indicator identities give the exact finite-sample Pearson correlation, and positivity of both indicator variances holds for every parameter in the stated open domain. Global optimization is justified: the bounds \(R_n\le 1/(1+nq)\) and \(R_n\le nq/(2-nq)\) for small \(nq\) exclude escaping optimizing sequences. The Poisson-window limit and the unique positive root of \(e^c=1+c+c^2\) then force the unique limiting scale and the sharp constant. The verifier independently compares 28 rational finite instances and confirms four numerical asymptotic instances, not as replacements for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2021 paper of López-Blázquez and Salamanca-Miño treats the exact family and reports finite numerical maximal squared correlations (including its binary-support Table 3), so neither their computational framework nor finite results are claimed as new. Material inspected from the complete 27-page full text, including the introduction, definitions, tables, discussion and conclusions, did not exhibit the large-sample optimum, the Poisson scaling theorem, or the unique transcendental calibration. The 2022 Papadatos paper and the closest published finite three-atom/two-draw result concern different parameter regimes. Searches across alternate formulations did not locate the limit, but coverage under nested event/Poisson threshold formulations remains possible.
+PASS
 
-**Value — PASS.** The result closes a natural family-wide asymptotic optimization left beyond finite numerical tables. It identifies a nonzero sharp dependence constant, even though fixed Bernoulli parameters have vanishing correlation, and exactly specifies the rare-event probability at which maximal dependence is retained. This is a structural optimized limit, not a recomputed table entry.
+The nested-event representation X_(1)=1_{K=0}, X_(2)=1_{K<=1}, K~Bin(n,q), yields R_n=a(1-b)/[b(1-a)] exactly, with a=(1-q)^n and b=a+nq(1-q)^(n-1). Both fixed-n boundary values vanish. Under nq->c>0 the limiting squared correlation is F(c)=(exp(c)-1-c)/[(1+c)(exp(c)-1)]. The uniform escape bounds R<=1/(1+nq) for nq->infinity and R<=c/(2-c) for c=nq->0 exclude maximizing sequences at either boundary. Differentiation gives F' sign equal to 1+c+c^2-exp(c), whose unique positive zero is established from the change of sign of its second derivative; compactness and comparison at q=c*/n force every optimizer to that limit. Independent differentiation and finite maximization n=2,3,5,10,100,1000 corroborate localization, not an infinite proof.
 
-**Limits.** No finite-sample parameter uniqueness, convergence rate, higher-order expansion, arbitrary parent family result, or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fully inspected package explicitly isolates the new n->infinity optimization. The 2021 discrete-parent article introduces the general finite-n setup and reports finite n<=9 numerical values; the 2022 two-draw paper and published Resultary three-point records do not imply the optimized two-atom growing-n Poisson threshold, on available statements. Best-of-knowledge only; full text of the 2021 article was not independently recoverable in this run.
+
+## value
+
+PASS
+
+A sharp asymptotic extremal statistic and universal rare-event scale for adjacent binary order statistics, including an explicit transcendental constant, resolve a natural large-sample optimization not delivered by a finite-sample table. The distinction between Pearson and nonlinear maximal correlation is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
