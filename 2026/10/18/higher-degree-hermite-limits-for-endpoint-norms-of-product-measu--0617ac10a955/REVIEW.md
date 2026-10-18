@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The tensor orthonormal expansion yields the exact kernel, and its square-free highest-support sector dominates the integrated absolute kernel at order \(d^{k/2}\): all lower-support terms have uniform \(L^2\) norm at most order \(d^{(k-1)/2}\). A bounded triangular-array central limit theorem together with Newton identities sends the normalized elementary symmetric polynomial to \(H_k(Z)/k!\). Its explicit uniform second-moment bound justifies convergence of absolute expectations. Compactness of standardized coordinate energy establishes both the global sharp upper bound and an if-and-only-if near-extremizer criterion, including zero-energy sequences. Equality of endpoint operator norms comes from the symmetric kernel. This proof covers every fixed \(k\ge3\) and every stated compactly supported law. The finite checker provides supplementary evidence only.
+
+## Originality — PASS within checked sources
+The related high-dimensional quadratic product-law projector estimate concerns degree two and symmetry, neither of which yields higher-degree Hermite limits or the arbitrary-law statement. Cohen–Davenport–Leviatan's sampling-stability criteria, Zhou–Narayan–Xu's multivariate approximation constructions, and the polynomial-mesh Lebesgue-constant work do not establish fixed-degree \(k\ge3\) sharp endpoint asymptotics as spatial dimension diverges. Classical Krawtchouk-to-Hermite limits cover a component in a special discrete setting but are not a covering theorem for product-law projection norms and all extremizing evaluations. Searches for polynomial-chaos projection constants, Krawtchouk limits, degree-three Walsh norms and product-measure Lebesgue constants did not identify a logically dominating result. Historical equivalence under another formulation remains a residual risk; full text was unavailable for some potentially related sources.
+
+## Mathematical value — PASS
+Worst-case amplification of polynomial-chaos truncation is a natural uniform-stability invariant, not determined by sampling guarantees or dimension-free \(L^2\) contractivity. A full family of sharp coefficients for every fixed higher degree exhibits non-Gaussian oscillation patterns through higher Hermite modes while remaining universal across compact product laws. The complete characterization of the maximizing geometry adds usable information for support-oriented truncation and worst-case stability analysis, including asymmetric or atomic inputs. The result does not purport to give a finite-dimensional optimum or growing-degree law.
+
+## Scientific limits and comparators
+Finite tests do not certify infinite statements. A 2015 Krawtchouk–Hermite asymptotic is a serious special-case comparator, and complete texts for one 2014 hyperinterpolation study and some historical literature were not available. The analysis assesses the present higher-degree, arbitrary-marginal statement, not the already established quadratic case. Independent priority and mathematical auditing remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
