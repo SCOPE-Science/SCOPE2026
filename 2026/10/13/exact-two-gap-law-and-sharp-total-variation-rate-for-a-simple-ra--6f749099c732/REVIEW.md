@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four states exhaust the first two shifted order statistics because nearest-neighbor paths visit consecutive integer levels. The unique minimum-visit decomposition gives an exact Catalan/meander generating-function identity for the first two multiplicities, while a separate endpoint argument counts the simultaneous unique-minimum/unique-adjacent-level event. The parity comparison proves that all but one probability deviations have the same sign, making the exact total-variation identity follow from normalization. The self-contained analytic proof covers all integers \(n\ge2\). Exact path enumeration up to \(n=14\) and parity identities through \(k=30\) independently check finite cases but do not replace this infinite proof.
+PASS
 
-## Originality — PASS, with explicit residual risk
+For nearest-neighbor symmetric walk with observations S0…Sn sorted with ties, minimum multiplicity R_n yields states (0,0),(0,1),(1,1) except the unique-next-level endpoint event (1,2). Decomposing at min visits yields formal generating functions A(z)^2 E(z)^(r−1), A=(1+(1+z)/sqrt(1−z²))/2, E=(1−sqrt(1−z²))/2; R=2 has mass 1/4. Unique minimum and adjacent level at an endpoint has c_n=binom(n−2,floor((n−2)/2))/2^(n−1), so the four exact joint masses follow. Their TV distance to (1/4,1/4,1/2,0) is exactly c_n. Independently enumerated all 8188 paths over 2≤n≤12 with exact rational matches. Proof is the generating-function argument for all n≥2, not enumeration.
 
-Pitman–Tang (arXiv:2007.13991, inspected Theorem 1.1, Proposition 1.6, Section 4) already prove joint limiting total-variation convergence and identify the limiting occupation process, but do not give the four probabilities at each finite horizon or the sharp lattice two-gap distance. Their continuous-increment quantitative bound is not applicable. Kirschenhofer–Prodinger (1996, complete paper inspected, especially Sections 2–3) already enumerate return/maximum-visit counts in related models; the present argument credits those classical ingredients and does not claim novelty for them alone. The old Aneja–Sen (1972) rank-statistics paper is a **specific unresolved comparison** because its full text was unavailable; its abstract does not establish coverage or noncoverage. Equivalent treatments elsewhere cannot be categorically excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The first two shifted order statistics are the smallest genuinely joint case of the minimum-centered order-statistics process. An exact four-state law and \(n^{-1/2}\) leading constant turn a qualitative lattice convergence theorem into a sharp finite-sample approximation with an explicit, interpretable extremal-support obstruction. There is no claim about arbitrary increment laws, the whole point process, or a paper-sized generalization.
+Pitman–Tang proves joint limiting lower order statistics and TV convergence, and Kirschenhofer–Prodinger develops Catalan minimum/return path counts; neither inspected material gives the exact finite n four-atom two-gap law or exact c_n TV rate. The older Aneja–Sen (1972) paper has an extremely plausible rank-order-statistics title but full text unavailable after lawful attempts; no whole-document noncoverage assertion, explicit residual risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact finite-horizon two-dimensional lower-order-statistic law and sharp total-variation profile refine a published limit theorem and yield a reusable finite-sample quantitative benchmark; endpoint parity matters. Exact self-contained law is mathematically natural, not just a finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
