@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-Run `python3 checker.py` from this directory with Python 3 standard library. It enumerates full rectangular matrix spaces over the finite fields of sizes 2, 3, and 4 in ten small configurations and recomputes all idempotent and commuting-pair joint-rank counts. The expected terminal marker is `VERIFY_OK`.
+## correctness
 
-Critical proof checks are the block equations for sandwich idempotents, sufficiency of the three displayed commutation equations (including the bottom-right corner), simultaneous decomposition of commuting projections in all characteristics, the ordinary rank factorization, and the orbit-stabilizer count. The program probes these through direct brute-force field matrices; it is not an exhaustive proof for unbounded parameters.
+PASS
 
-The proof's reduction to standard sandwich rank relies on invertible row and column changes, preserving the ambient rectangular rank. The stated asymptotic fixes both field order and sandwich rank while the dimension excess tends to infinity. Literature originality has a documented residual risk; no independent audit was performed.
+Put the rank-r sandwich matrix into block form diag(I_r,0) by invertible changes of bases preserving ordinary rank. An idempotent X block [P B; C D] obeys P^2=P, PB=B, CP=C, D=CB, factors [I;C] P [I B], and has ordinary rank rank(P). For two such idempotents, direct block products give PQ=QP, PE=QB, CQ=FP, with lower-right CE=FB following from those plus idempotence (no missing constraint). Commuting P and Q diagonalize simultaneously into dimensions a,b,c,d of 00,10,01,11 sectors even over char2; there are GL_r/(GL_a GL_b GL_c GL_d) decompositions. Each off-core column and row has b+c+d independently free coordinates, giving q^((m+n-2r)(b+c+d)) lifts. Thus the full U^(b+d)V^(c+d) polynomial is exact; r=0 gives 1, positive m,n and all finite fields are included. Independently evaluated Gaussian multinomial sum: for (m,n,r,q)=(3,3,2,2) individual idempotents=41 and commuting ordered pairs=409; for (3,3,3,2) they are 58 and 1012. Fixing q,r and increasing tau makes rank-r core leading terms yield probability ~K_r(q)q^(-tau r), with coefficient sum over a=0. Finite checks do not replace unrestricted decomposition proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
+
+## value
+
+PASS
+
+The matrix sandwich product is a natural semigroup model in which ordinary linear rank and product idempotence differ. The joint rank polynomial of commuting pairs detects simultaneous eigenspace overlap not recoverable from Dolinka-East univariate idempotent counts; its exact off-core lift exponent and asymptotic probability are mathematically meaningful for size comparisons and commutation phenomena. Unlike generic simultaneous diagonalization, the sandwich lifts and rectangular singular cases are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:00:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/joint-matrix-rank-spectrum-of-commuting-idempotents-in-rectangul--85aa4c5711c9/RESULT.md",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "rationale": "Put the rank-r sandwich matrix into block form diag(I_r,0) by invertible changes of bases preserving ordinary rank. An idempotent X block [P B; C D] obeys P^2=P, PB=B, CP=C, D=CB, factors [I;C] P [I B], and has ordinary rank rank(P). For two such idempotents, direct block products give PQ=QP, PE=QB, CQ=FP, with lower-right CE=FB following from those plus idempotence (no missing constraint). Commuting P and Q diagonalize simultaneously into dimensions a,b,c,d of 00,10,01,11 sectors even over char2; there are GL_r/(GL_a GL_b GL_c GL_d) decompositions. Each off-core column and row has b+c+d independently free coordinates, giving q^((m+n-2r)(b+c+d)) lifts. Thus the full U^(b+d)V^(c+d) polynomial is exact; r=0 gives 1, positive m,n and all finite fields are included. Independently evaluated Gaussian multinomial sum: for (m,n,r,q)=(3,3,2,2) individual idempotents=41 and commuting ordered pairs=409; for (3,3,3,2) they are 58 and 1012. Fixing q,r and increasing tau makes rank-r core leading terms yield probability ~K_r(q)q^(-tau r), with coefficient sum over a=0. Finite checks do not replace unrestricted decomposition proof.",
+      "residual_risks": [
+        "No independent formal proof-assistant certification. The finite checks are corroborative and cannot establish unbounded parameter ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolinka et al 2018 categorical foundations cover regularity/Green relations/idempotent generation; Zhdanovskiy addresses homotopes/representations; no joint ordinary-rank commuting-idempotent enumerator identified in inspected sections."
+        ],
+        "reasoning": "Broader categorical contexts provide definitions but not a known implication computing these finite-field fibers; the distinction is pairs of commuting sandwich idempotents rather than any pair in an ordinary matrix algebra.",
+        "searches": [
+          "Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field",
+          "arXiv:1710.01890 categorical sandwich semigroup framework",
+          "arXiv:2005.00309 homotopes"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md full; blob 31b88de37fa0a6acab9b874e225dcbd75625250c",
+        "Dolinka-East arXiv:1503.03139 Prop7.2",
+        "Dolinka et al arXiv:1710.01890 inspected preprint",
+        "Resultary Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single idempotent enumeration is the U=0 or V=0 marginal. Direct commutation imposes additional shared W_11 restrictions."
+        ],
+        "reasoning": "No inspected stronger theorem implies the joint coefficients without the simultaneous four-eigenspace calculation. Any simple specialization to r=0 is acknowledged as trivial boundary, not the contribution.",
+        "searches": [
+          "Dolinka East arXiv:1503.03139 Lemma6.9 Prop7.2",
+          "Dolinka et al arXiv:1710.01890",
+          "Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known count E(T)=sum [r choose t]_q q^(t(r-t)+tau*t) T^t is a univariate marginal of current joint formula."
+        ],
+        "reasoning": "Under Munn semigroups and sandwich matrix aliases, earlier standard idempotent rank result is a marginal not equivalent to coupled bivariate distribution. Canonical simultaneous projection sectors are classical, but the q^tau lift coupling needs a second joint calculation.",
+        "searches": [
+          "Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field",
+          "Munn ring sandwich matrices commuting projections",
+          "Dolinka East arXiv:1503.03139 Proposition 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known individual counts 41 and 58 reappear, but pair totals 409 and 1012 and all bivariate coefficients were not found as prior table entries."
+        ],
+        "reasoning": "An indexed univariate rank census does not determine a paired joint rank census. Searches cannot exclude obscure Munn ring enumeration tables.",
+        "searches": [
+          "Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field",
+          "finite fields commuting idempotent pair rectangular sandwich rank table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.",
+      "residual_risks": [
+        "Possible prior equivalent commuting-idempotent bivariate distribution in literature on Munn rings or variant matrix semigroups not found.",
+        "Finite direct checks are bounded, proof assumes ordinary linear rank and labelled ordered pairs, not semigroup generating rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR univariate; examined portions not joint pair polynomial",
+          "evidence": [
+            "Proposition 7.2 gives one-idempotent rank enumeration; same m,n,r and q, but no U,V coupling in inspected theorem."
+          ],
+          "identifier_or_url": "arXiv:1503.03139",
+          "material_read": "Inspected lawful full author-available manuscript text, notably Lemma 6.9 and Proposition 7.2 and related Section 6-7 statements",
+          "method": "web full text targeted theorem/section inspection",
+          "title": "Semigroups of rectangular matrices under a sandwich operation (Dolinka, East)",
+          "trigger": "Same rectangular matrix sandwich semigroup, exact univariate idempotent ranks"
+        },
+        {
+          "assessment": "related broader setting, joint pair enumeration not found in material read",
+          "evidence": [
+            "Categorical regularity/Green relation and idempotent generation, not explicit finite-field joint ordinary-rank polynomial."
+          ],
+          "identifier_or_url": "arXiv:1710.01890",
+          "material_read": "Opened full preprint PDF; examined introductory scope and idempotent/generation sections, searched commutation terminology; not exhaustive line-by-line reading",
+          "method": "web PDF relevant sections screenshot",
+          "title": "Sandwich semigroups in locally small categories I: Foundations (Dolinka et al.)",
+          "trigger": "Strong possible broader sandwich framework"
+        },
+        {
+          "assessment": "different structures: Lie algebra commuting arbitrary matrices, not sandwich-idempotent pairs",
+          "evidence": [
+            "Feit-Fine type generating functions count commuting matrices in Lie algebras, no sandwich-idempotent assumption."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00026-018-0390-4",
+          "material_read": "Read abstract and mathematical scope, not full text",
+          "method": "web abstract",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields (Fulman, Guralnick)",
+          "trigger": "Possible general commuting pair count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md full; blob 31b88de37fa0a6acab9b874e225dcbd75625250c",
+        "Dolinka-East arXiv:1503.03139 Prop7.2",
+        "Dolinka et al arXiv:1710.01890 inspected preprint",
+        "Resultary Resultary semantic: rectangular sandwich semigroup commuting idempotents pair ordinary matrix ranks finite field",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "rationale": "The matrix sandwich product is a natural semigroup model in which ordinary linear rank and product idempotence differ. The joint rank polynomial of commuting pairs detects simultaneous eigenspace overlap not recoverable from Dolinka-East univariate idempotent counts; its exact off-core lift exponent and asymptotic probability are mathematically meaningful for size comparisons and commutation phenomena. Unlike generic simultaneous diagonalization, the sandwich lifts and rectangular singular cases are essential.",
+      "residual_risks": [
+        "Possible prior equivalent commuting-idempotent bivariate distribution in literature on Munn rings or variant matrix semigroups not found.",
+        "Finite direct checks are bounded, proof assumes ordinary linear rank and labelled ordered pairs, not semigroup generating rank."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge originality is not absolute proof of priority; unresolved specific literature risks are in originality.residual_risks.",
+    "Pinned record tree was retrieved with exact SHA and nontruncated content; complete repository-root Git ancestry was not recomputed.",
+    "Complete public-facing sanitized operational metadata replacement is not staged. No GitHub writes or formal certification."
+  ],
+  "schema_version": 1
+}

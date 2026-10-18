@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies all finite fields, positive rectangle dimensions, and sandwich ranks including zero. Its proof reconstructs the basis-normalized four blocks; the idempotent relations force the bottom-right block, and the commutation relations have no omitted lower-right condition. A simultaneous decomposition into four *canonical* orthogonal projection sectors gives the stabilizer denominator, while the top-right and bottom-left lift parameters contribute exactly the exponent \((m+n-2r)(b+c+d)\). Ordinary rank is retained because each idempotent factors through its upper-left projection, and its projection is a submatrix. The boundary \(r=0\) and characteristic two are explicit. An independently written exhaustive small-field checker compares actual matrix multiplication and actual rank pairs for ten finite cases including \(\mathbb F_4\); general correctness rests on the algebraic proof, not the experiments.
+PASS
 
-## Originality — PASS, with bibliographic risk
+Put the rank-r sandwich matrix into block form diag(I_r,0) by invertible changes of bases preserving ordinary rank. An idempotent X block [P B; C D] obeys P^2=P, PB=B, CP=C, D=CB, factors [I;C] P [I B], and has ordinary rank rank(P). For two such idempotents, direct block products give PQ=QP, PE=QB, CQ=FP, with lower-right CE=FB following from those plus idempotence (no missing constraint). Commuting P and Q diagonalize simultaneously into dimensions a,b,c,d of 00,10,01,11 sectors even over char2; there are GL_r/(GL_a GL_b GL_c GL_d) decompositions. Each off-core column and row has b+c+d independently free coordinates, giving q^((m+n-2r)(b+c+d)) lifts. Thus the full U^(b+d)V^(c+d) polynomial is exact; r=0 gives 1, positive m,n and all finite fields are included. Independently evaluated Gaussian multinomial sum: for (m,n,r,q)=(3,3,2,2) individual idempotents=41 and commuting ordered pairs=409; for (3,3,3,2) they are 58 and 1012. Fixing q,r and increasing tau makes rank-r core leading terms yield probability ~K_r(q)q^(-tau r), with coefficient sum over a=0. Finite checks do not replace unrestricted decomposition proof.
 
-Dolinka and East, arXiv:1503.03139v1, Proposition 7.2 already enumerate individual sandwich-idempotents by rank; that formula is credited and not claimed as a contribution. Their Lemma 6.9 and Sections 6–7 were read, and do not state a commuting **ordered-pair** joint-rank enumerator. Their matrix-factorization and Green-relation results do not by themselves imply the enumerated commutation fibers without the simultaneous projection decomposition and coupled lift equations. The categorical framework in arXiv:1710.01890v1 (first public 2017-10-05) has been compared through available description/abstract, not full text; the original arXiv:2005.00309v1 was inspected in its algebra-homotope sections. Result searches for joint spectra, sandwich commuting idempotents and Munn-ring variants did not identify covering claims. Risk: an uninspected equivalent formulation or general projection theorem in semigroup literature may exist. No absolute novelty certificate is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural two-element refinement of a known one-element census: it completely measures **when idempotents commute**, stratified simultaneously by the ordinary ranks of both operands, across all finite fields and rectangle sizes. Such data governs the labeled commuting-idempotent graph and asymptotic commutation probability, and is not recoverable from the one-point rank distribution. The proof supplies a structural description and uniform closed formula, not an arbitrary isolated numerical example.
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
 
-## Bibliographic boundary and limitations
+## value
 
-The complete 2017 categorical-paper text was not inspected, and an older equivalent result under variant-semigroup or Munn-ring terminology remains possible. Only self-review and finite-case computational corroboration have been performed, without external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The matrix sandwich product is a natural semigroup model in which ordinary linear rank and product idempotence differ. The joint rank polynomial of commuting pairs detects simultaneous eigenspace overlap not recoverable from Dolinka-East univariate idempotent counts; its exact off-core lift exponent and asymptotic probability are mathematically meaningful for size comparisons and commutation phenomena. Unlike generic simultaneous diagonalization, the sandwich lifts and rectangular singular cases are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
