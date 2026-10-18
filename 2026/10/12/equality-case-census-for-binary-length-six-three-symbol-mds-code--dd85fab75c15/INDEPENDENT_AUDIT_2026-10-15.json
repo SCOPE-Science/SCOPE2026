@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:59:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/equality-case-census-for-binary-length-six-three-symbol-mds-code--dd85fab75c15/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/equality-case-census-for-binary-length-six-three-symbol-mds-code--dd85fab75c15/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/equality-case-census-for-binary-length-six-three-symbol-mds-code--dd85fab75c15/verify.py"
+      ],
+      "rationale": "The exact parameter is cyclic 3-symbol distance d_3>=5 for unrestricted binary words of length six, no linearity assumption. Agreement on any four consecutive bit coordinates forces two equal consecutive length-three windows and d_3≤4, so projection injectivity gives |C|≤2^4=16. An independent adjacency computation on all 64 words found 1,632 d_3-compatible unordered pairs; independent Bron–Kerbosch exhaustive maximal-clique enumeration reported exactly 100,772 maximal cliques with size distribution 8:10712,9:33216,10:23936,11:19200,12:10688,13:2304,14:640,16:76. The 76 maximal size16 cliques are all possible labeled equality cases; no larger clique exists by the projection bound and enumeration. From these exact codebooks, 64 XOR translations plus D_6 (six rotations, six reflections) give 768 distance-preserving transformations with maximum-code orbit sizes 4,4,12,24,32, and exactly 44 affine translates of 4-flats; the 32 nonlinear maxima comprise the unique 32-element orbit. Full metric-isometry group is NOT claimed. The two algorithms were independently constructed from inspected definitions and cross-check the finite census; the finite result is exhaustive because all vertices and all maximal cliques are enumerated, not sampled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding–Zhang–Ge general Singleton theorem dominates the optimum 16 but not the count 76, five subgroup orbit sizes, or affine/nonlinear split."
+        ],
+        "reasoning": "Prior broad MDS bounds and linear constructions cover sharp size but are not a classification of unrestricted optimal code sets; matching parameters alone does not imply equality-case counts.",
+        "searches": [
+          "arXiv:1609.09236",
+          "DOI:10.1109/TIT.2016.2522434",
+          "Resultary: binary b symbol three symbol length 6 MDS 76 codes affine nonlinear"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.09236 full relevant theorem",
+        "DOI:10.1109/TIT.2016.2522434 abstract",
+        "DOI:10.1109/TIT.2022.3223729 bibliographic scope",
+        "Resultary: binary b symbol three symbol length 6 MDS 76 codes affine nonlinear"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general b-symbol Singleton projection bound allows 16 words, but does not constrain all maximizers enough to derive 76 labels or the split 44 affine /32 nonlinear."
+        ],
+        "reasoning": "The finite classification is a substantive residual claim not contained in a size inequality; proof uses exhaustive exact compatibility graph, not an unsupported inference from optimal bound.",
+        "searches": [
+          "arXiv:1609.09236 Theorem 2.4",
+          "DOI:10.1109/TIT.2016.2522434",
+          "DOI:10.1109/TIT.2022.3223729"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic three-symbol metric is b=3 read-channel Hamming distance, so b-symbol Singleton gives bound 16; classification counts all unrestricted equality codebooks."
+        ],
+        "reasoning": "Checked cyclic read-channel and 3-symbol/MDS aliases, including affine/nonlinear equality and dihedral-isometry forms; similar binary n6 code results had different metrics.",
+        "searches": [
+          "arXiv:1609.09236 MDS b-symbol Singleton n=6 d_b=5 b=3",
+          "Resultary: binary b symbol three symbol length 6 MDS 76 codes affine nonlinear",
+          "DOI:10.1109/TIT.2022.3223729"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full finite enumeration: 64 vertices, 1,632 metric edges, 100,772 maximal cliques, exactly 76 size16, five orbits."
+        ],
+        "reasoning": "The finite graph census is complete by exhaustive clique enumeration, not an inferred literature table. No existing 76-code equality table found in searched sources; obscure unindexed tabulation remains possible.",
+        "searches": [
+          "Resultary: binary b symbol three symbol length 6 MDS 76 codes affine nonlinear",
+          "search: cyclic three symbol (6,16,5) codes classification complete nonlinear"
+        ]
+      },
+      "rationale": "Ding–Zhang–Ge establish the b-symbol Singleton bound and analyze especially linear code constructions; the sharp number 16 itself is prior work and not original. The assigned extra assertions quantify over all nonlinear codebooks and classify orbit structure, not supplied by the cited general size bound. Searches for aliases via b-symbol read vectors, cyclic b-symbol MDS codes, small n6 binary equality and finite tables, and the Resultary catalogue identified no exact 76 codebook orbit census. Best-of-knowledge PASS, with unindexed table/finite catalogue risk.",
+      "residual_risks": [
+        "The full metric isometry group may be larger than the specifically verified translation-dihedral 768 group; theorem does not claim completeness of full isometry group.",
+        "An unindexed finite b-symbol MDS equality table could reproduce the 76 codes.",
+        "Foundational 2016 cyclic-code paper not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Singleton upper bound includes this parameter but inspected theorem gives no unrestricted 76-element equality census or orbit decomposition.",
+          "evidence": "General q^{n−d_b+b} bound specializes to 2^4=16.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.09236",
+          "material_read": "Open arXiv full PDF; abstract, definitions, Theorem 2.4 Singleton bound and context on linear constructions, with relevant page image inspected",
+          "method": "Open-access arXiv PDF text and screenshot",
+          "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+          "trigger": "Same b-symbol distance, q=2,n=6,b=3,d_b=5 and potential dominating general MDS theorem"
+        },
+        {
+          "assessment": "Original metric and cyclic constructions overlap background, but not enough access to rule out every equality table in full text.",
+          "evidence": "Cyclic b-symbol read-channel encoding and decoding framework.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2016.2522434",
+          "material_read": "CaltechAUTHORS public repository metadata, title and abstract/scope only; not the full publisher PDF",
+          "method": "Lawful repository bibliographic/abstract comparison",
+          "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+          "trigger": "Original b-symbol read-channel framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1609.09236 full relevant theorem",
+        "DOI:10.1109/TIT.2016.2522434 abstract",
+        "DOI:10.1109/TIT.2022.3223729 bibliographic scope",
+        "Resultary: binary b symbol three symbol length 6 MDS 76 codes affine nonlinear"
+      ],
+      "rationale": "The length-six cyclic three-symbol equality problem has a standard Singleton optimum, but the unrestricted codebooks are not classified by the size bound or by linear MDS constructions. Exact 76-code census, five translation-dihedral orbits, and the separate 44 affine versus 32 genuinely nonlinear equality cases are natural sharpness and symmetry data for the first small nontrivial cyclic read-channel parameter; researchers constructing or classifying non-linear b-symbol MDS codes can reuse this exact classification. Finite dimension is scientifically motivated by the sharp Singleton equality and nonlinear orbit phenomenon.",
+      "residual_risks": [
+        "The full metric isometry group may be larger than the specifically verified translation-dihedral 768 group; theorem does not claim completeness of full isometry group.",
+        "An unindexed finite b-symbol MDS equality table could reproduce the 76 codes.",
+        "Foundational 2016 cyclic-code paper not read in full."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed q=2,n=6,b=3,d3=5; 768 transformations form a verified subgroup, not necessarily all metric isometries.",
+    "Finite exhaustive enumeration proves this exact finite classification only."
+  ],
+  "schema_version": 1
+}
