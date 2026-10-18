@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof has two logically distinct parts. First, Fu–Li's ball formulation and separate convexity reduce the regular-octagon supremum exactly to extreme-point pairs for every \(p\ge1\). The bundled `verify.py` then checks the finite geometry in exact \(\mathbb Q(\sqrt2)\) arithmetic: all eight vertices have unit norm, all sixty-four ordered pairs reduce to the three shifted-norm patterns used in the proof, and the shared endpoint is \(4-2\sqrt2\).
+## correctness
 
-Second, the continuum inequalities in \(p\) are analytic. Jensen convexity applied to the two unequal numbers \(1\) and \(\sqrt2-1\) proves
-\[
-1+(\sqrt2-1)^p\ge2^{1-p/2}
-\]
-for \(p\ge1\), strictly for \(p>1\). For \(1<p<2\), the strict gap from the unrestricted Yang–Wang formula is the sharp dimension-two norm comparison between \(\ell_p^2\) and \(\ell_q^2\), where \(q=p/(p-1)\). These universal steps are proved symbolically in `RESULT.md`; the checker is not used as a substitute for them.
+PASS
 
-The literature comparison used the complete 2017 unrestricted-octagon PDF and the complete 2022 Fu–Li article. The full text of the 2017 defining modified-constant article was unavailable from the lawful sources checked; its official abstract and metadata and the later Fu–Li reconstruction were used, with the residual source-access risk retained in `REVIEW.md` and `AUDIT.json`.
+For X8 with N(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt2), p>=1 and a=sqrt2-1, Fu--Li ball reduction and separate convexity reduce to 8² ordered vertex pairs. Independent enumeration yields only shifted-norm patterns (2,0), (2,2a), (sqrt2,sqrt2). The three normalized values are 1,1+a^p,2^(1-p/2); Jensen on 1,a, using 1+a=sqrt2, proves 1+a^p>=2^(1-p/2) (strict p>1). For 1<p<2 comparison with the published unrestricted 2^(2-p)(1+a^q)^(p-1), q=p/(p-1)>p, is strictly larger by norm equivalence with unequal nonzero entries. At p=2 both equal 4-2sqrt2; for p>=2 published unrestricted upper bound and vertex witness sandwich to equality. No claim for p<1. Exact octagon finite orbits are exhaustively reconstructed (not extrapolated from numerical sampling); exponent inequality follows analytically.
+
+## originality
+
+PASS
+
+Yang--Wang 2017 published unrestricted regular-octagon exponent-p profile, not the equal-unit-sphere modified constant. The p>=2 modified value is actually implied by that theorem and the elementary equality witness and must not be credited as new. Fu--Li defines and analyzes the modified invariant abstractly, classical Lp examples, but available textual metadata does not exhibit the sub-Hilbert regular-octagon computation. A different prior quadratic mixing-parameter profile in Resultary does not vary p. Full 2017 defining modified paper and Fu-Li article were not newly inspected in full; bibliographic risk explicitly retained rather than automatic O failure.
+
+## value
+
+PASS
+
+Provides the exact equal-radius constrained profile for a natural polygonal Banach-space benchmark, and pinpoints that the restriction is binding precisely 1<p<2. The exact threshold and geometry explain a meaningful structural distinction from published unrestricted constants, not just an arbitrary substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
