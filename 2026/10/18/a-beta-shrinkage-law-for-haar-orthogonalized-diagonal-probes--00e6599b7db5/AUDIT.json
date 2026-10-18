@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the Haar rank-k projection and uses P^2=P to identify the normalized off-diagonal spherical row, B=P_ii~Beta(k/2,(n-k)/2), a beta-gamma product to isolate an independent shrink factor, and an independent-Gaussian conditioning argument for the baseline Student law. Moment and tail claims follow by explicit gamma integrals and bounded dominated convergence. Boundary cases k=1 (Cauchy, undefined expectation), k=2 (infinite MSE), k=n (exact), and zero offdiagonal row are handled; 15138 reproducible finite consistency assertions are supplementary, not proofs of infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dharangutte–Musco give iid Hutchinson norm concentration; XDiag uses leave-one-out low-rank residuals, not the QR direct ratio.",
+        "No inspected full paper states a universal marginal Haar-vs-iid tail ordering for all real matrices."
+      ],
+      "reasoning": "Stronger concentration and more advanced XDiag estimators are not dominance statements about the direct Haar-normalized ratio at fixed k; their different estimators and/or vector norm objectives prevent direct implication.",
+      "searches": [
+        "Gaussian Hutchinson diagonal estimator orthogonal probes variance exact covariance sampling without replacement",
+        "Samplewise stochastic dominance orthonormalized QR versus iid Gaussian probes in numerical matrix diagonal estimation, tail reduction and second moment (n-k)/(n-1)",
+        "web: orthogonal Gaussian vectors diagonal estimator matrix stochastic estimator normalized",
+        "arxiv:2208.03268v1",
+        "arxiv:2301.07825v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.10684v1, Section 5 and numerical discussion (full text)",
+      "arxiv:2202.02887v1, Lemma 21 (full text)",
+      "arxiv:2208.03268v1, iid Hutchinson diagonal results (full text)",
+      "arxiv:2301.07825v1, Section 2.4 and XDiag definitions (full text)",
+      "Targeted published mathematical research searches for scientific synonyms and implications",
+      "Classical Haar-projection, Gaussian-sphere and beta-gamma probability identities used in the self-contained derivation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior iid normalized Gaussian error is h_i Z/sqrt(chi_k^2); it has no n-dependent beta factor.",
+        "Proposed Haar estimator has exactly h_i sqrt(Beta((n-k)/2,(k-1)/2)) Z/sqrt(chi_k^2).",
+        "Haar full-frame endpoint k=n is exact, whereas k iid Gaussian probes still have random error for nonzero offdiagonal rows."
+      ],
+      "reasoning": "Neither the iid Student law nor an independent-Gaussian normwise concentration theorem implies the deterministic rank-k Haar projection geometry or beta distribution. XDiag analyzes another estimator. The contrast at k=n and strict tail ordering for 2<=k<n rule out statement equivalence without additional theorems.",
+      "searches": [
+        "Exact beta-Student t product law for self-normalized diagonal estimator using Haar orthonormal Gaussian QR probes; comparison to iid normalized Gaussian diagonal estimator",
+        "Samplewise stochastic dominance orthonormalized QR versus iid Gaussian probes in numerical matrix diagonal estimation, tail reduction and second moment (n-k)/(n-1)",
+        "Hallman Section 5.3 Lemma 21 arxiv:2202.02887v1",
+        "Baston Section 5 arxiv:2201.10684v1",
+        "XDiag Section 2.4 arxiv:2301.07825v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hallman–Ipsen–Saibaba Section 5.3 Lemma 21 identifies only iid Student t normalized diagonal error.",
+        "Targeted published-research searches for the normalized Haar projection beta factor and strict all-threshold iid comparison found no matching theorem among the records inspected; related Haar moments for stochastic subspace descent concern a different numerical objective."
+      ],
+      "reasoning": "Equivalent formulations include random projection ratios P_ij/P_ii, Stiefel QR, beta-gamma mixtures, and normalized BKS diagonal probing. Primary texts contain the iid Student distribution but no distributional QR multiplier. A stand-alone classical Haar-projector ratio lemma may imply the distribution and is retained as residual risk, not presumed absent.",
+      "searches": [
+        "Orthogonalized random probes versus independent Gaussian vectors for diagonal estimation of matrices, exact coordinatewise mean-squared error and phase transition under Haar Stiefel sampling",
+        "Normalized diagonal matrix estimator with QR-orthogonalized Gaussian probes: exact Beta shrinkage times Student t error distribution, orthogonal Stiefel columns",
+        "Haar random orthogonal projector off-diagonal to diagonal ratio P_ij/P_ii distribution beta Student t independent factors",
+        "web: 'Haar' 'diagonal estimation' matrix 'variance' orthogonal",
+        "arxiv:2202.02887v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-research searches for the normalized Haar projection beta factor and strict all-threshold iid comparison found no matching theorem among the records inspected; related Haar moments for stochastic subspace descent concern a different numerical objective.",
+        "The gamma and beta marginal laws used in the proof are classical, not newly tabulated experimental results."
+      ],
+      "reasoning": "Numerical stochastic diagonal and Haar projection queries did not locate a same-parameter tabulation giving the beta factor together with all-tail comparisons. Search absence is only a priority indicator, not a uniqueness proof; classical tables of Haar ratios are a possible source.",
+      "searches": [
+        "Finite dimensional law of P_ij/P_ii for Haar random rank-k orthogonal projector normalized matrix diagonal estimator",
+        "Normalized Hutchinson diagonal estimation QR Gaussian sketch exact independent beta shrinkage, sharp moment cutoff",
+        "web: random orthogonalized Gaussian probes stochastic diagonal estimator exact distribution",
+        "Gaussian Hutchinson diagonal estimator orthogonal probes variance exact covariance sampling without replacement"
+      ]
+    },
+    "rationale": "Independent Gaussian Student t law is expressly credited to the 2022 primary literature; the new claim is the exact independent beta multiplicative factor produced by QR-Haar geometry, its strict every-threshold marginal dominance and sharp moment/tail coefficients. Reviewed full relevant primary articles and actual semantic scientific queries comparing implications, not titles alone; no checked theorem entails this all-threshold QR-vs-iid claim. Classical Haar projector ratio theory remains a specific independent-priority risk.",
+    "residual_risks": [
+      "A classical random-projection leverage / multivariate beta identity under another name could imply the beta-mixture law without using diagonal-estimation terminology; absence from returned records does not resolve that risk.",
+      "Marginal dominance does not entail a multivariate or maximum-coordinate improvement; the result explicitly avoids that stronger unsupported implication.",
+      "Priority and equivalence have not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS independent-probe self-normalized estimator and its basic Gaussian distribution representation, NOT the QR-Haar projection estimator or a beta shrink factor.",
+        "evidence": [
+          "Section 2.3 Eq. (9) defines the elementwise self-normalized estimator; Section 5 Eqs. (16)-(17) rotates iid Gaussian sample rows; Section 8.2.1 discusses unbounded Gaussian variance at small samples."
+        ],
+        "identifier_or_url": "arxiv:2201.10684v1; https://ar5iv.labs.arxiv.org/html/2201.10684",
+        "material_read": "Complete accessible ar5iv article including equations (9),(13), Section 5, proof surrounding equations (16)-(17), Section 8 discussion and references",
+        "method": "Opened complete article HTML, examined Gaussian estimator definition, rotation argument, small-sample variance and comparisons",
+        "title": "Stochastic diagonal estimation: probabilistic bounds and an improved algorithm",
+        "trigger": "Closest early treatment of self-normalized Gaussian diagonal estimation and its exact small-sample limitations"
+      },
+      {
+        "assessment": "ESTABLISHES prior Student t law exactly; its test vectors are independent, not a Haar Stiefel frame, and it does not give beta factor or strict orthogonal-vs-iid tail dominance.",
+        "evidence": [
+          "Section 5.3 Lemma 21 gives absolute diagonal error distributed as offdiagonal-row norm times Student t divided by square root of sample size, specifically under independent Gaussian vector sampling."
+        ],
+        "identifier_or_url": "arxiv:2202.02887v1; https://ar5iv.labs.arxiv.org/html/2202.02887",
+        "material_read": "Complete accessible ar5iv text, especially Section 5.3, Lemma 21 and its full derivation around equations (26)-(28), survey and references",
+        "method": "Opened full HTML, inspected Lemma 21 and normalization proof, checked analytic assumptions for the independent-probe comparator",
+        "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+        "trigger": "Exact Student t law for independent Gaussian normalized diagonal probes"
+      },
+      {
+        "assessment": "Studies iid Hutchinson probes and high-probability vector-norm accuracy, not the exact normalized Haar-QR coordinate law. Distinct estimator and probability criterion.",
+        "evidence": [
+          "Main results are concentration bounds for Hutchinson diagonal estimation with iid random probes; no normalized random-projection denominator appears in the claimed comparison."
+        ],
+        "identifier_or_url": "arxiv:2208.03268v1; https://ar5iv.labs.arxiv.org/html/2208.03268",
+        "material_read": "Full available ar5iv research manuscript, including the estimator definitions, concentration results and proof framework",
+        "method": "Opened research full text and compared Hutchinson iid probe distribution and full-diagonal norm bound",
+        "title": "A Tight Analysis of Hutchinson's Diagonal Estimator",
+        "trigger": "Potentially stronger diagonal concentration guarantee subsuming a tail improvement"
+      },
+      {
+        "assessment": "BKS numerator/denominator is acknowledged; XDiag uses leave-one-out low-rank projection and residual corrections, requiring different matrix operations. Its guarantees do not state the Haar-QR direct-ratio law.",
+        "evidence": [
+          "Section 2.4 Eq. (15) records BKS estimator; subsequent XDiag formula averages leave-one-out projector-based corrections. This differs from using P=orth(G)orth(G)^T in the same normalized BKS estimator."
+        ],
+        "identifier_or_url": "arxiv:2301.07825v1; https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Full accessible ar5iv work including Section 2.4, XDiag formula (15) and proofs and supplementary implementation",
+        "method": "Inspected primary full text algorithm definitions, equations (15), XDiag expression and theoretical sections",
+        "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+        "trigger": "XDiag is a plausible algorithmic improvement that may dominate naive normalized diagonal estimators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00e6599b-7db5-401a-a64f-d3409ad84624",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies an exact all-positive-threshold improvement in the standard fixed-budget normalized diagonal-probing problem, quantifies universal mean-square suppression (n-k)/(n-1) and exact tail coefficients, and detects an unchanged sharp small-sample moment obstruction. This supplies motivated uncertainty calibration and a principled distinction between query count and orthogonalization work, not merely a textbook inequality or arbitrary special case. Its per-coordinate limitation and overhead are explicitly disclosed.",
+    "status": "PASS"
+  }
+}
