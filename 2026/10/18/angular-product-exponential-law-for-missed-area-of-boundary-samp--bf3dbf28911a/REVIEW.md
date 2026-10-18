@@ -1,0 +1,15 @@
+# Scientific review: angular product-exponential missed-area law
+
+## Correctness — PASS
+The finite-sample decomposition is established on the event that each side has at least one sample, an event whose complement has exponentially small probability. The signed corner area is a positive triangle area: half the product of the two nearest endpoint gaps and the sine of the interior angle. Rescaled endpoint gaps converge jointly, through explicit joint survival probabilities of disjoint endpoint arcs, to independent unit exponentials. Uniform exponential upper tails, Hölder's inequality, and the exponentially rare side-empty event establish all fixed integer moment convergence. Product-exponential moment identities give the stated transforms, mean, and variance. Strict Jensen concavity in exterior angles establishes the equality classification. The seeded checker corroborated 300 finite-sample polygonal area identities, three large-sample scaled mean comparisons, and two independent product-exponential moment checks.
+
+## Originality — PASS, with residual bibliographic risk
+The closest article, Reitzner–Schütt–Werner (2019 preprint; 2023 journal), studies the same uniform-boundary model but states asymptotic results for the **expectation** of missed volume, rather than the full planar distribution and its moment convergence. The published article's relevant introduction, Theorems 1.1–1.2 and proof framing were inspected; text searches for a limiting distribution or Laplace formula did not reveal a corresponding result. Prior exact planar expected-area formulas do not imply the full fluctuation law. Published studies of interior-uniform random polygons use a different sampling measure. Indexed nearby results on random polygon perimeter deficits or Hausdorff errors use different observables. An equivalent unindexed derivation remains a risk; mathematical-record search coverage is imperfect.
+
+## Mathematical value — PASS
+The theorem supplies the complete non-Gaussian stochastic fluctuation law of a classical geometric approximation error for every fixed convex polygon, not merely its scale or expectation. The product-exponential structure makes arbitrary moments and the Laplace transform explicit, establishes universality under changes of edge lengths that preserve angles, and identifies a sharp extremal geometry for the normalized leading mean. These properties support comparison of sample-area approximation uncertainty among polygonal shapes without imposing symmetry.
+
+## Literature and limits
+Closest primary text: M. Reitzner, C. Schütt, E. M. Werner, *The Convex Hull of Random Points on the Boundary of a Simple Polytope*, arXiv:1911.05917 (2019-11-14), DOI:10.1007/s00454-022-00460-2. Comparison source: P. Groeneboom, *Convex hulls of uniform samples from a convex polygon*, arXiv:1109.3118 (2011), interior rather than boundary sampling. The limit fixes the polygon as the sample count grows, does not give a finite-sample law or a convergence rate, and has not undergone independent review.
+
+Self-review: passed. Independent audit: not yet performed.
