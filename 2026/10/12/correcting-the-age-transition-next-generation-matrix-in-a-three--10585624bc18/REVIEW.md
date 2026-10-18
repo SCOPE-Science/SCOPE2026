@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's displayed \(\mathcal F-\mathcal V\) decomposition was reconstructed directly from the primary full text. In the \(I_a\) equation it produces two copies of \(\alpha_yI_y\), and in the \(I_e\) equation it produces two copies of \(\alpha_aI_a\), whereas model (1) contains one copy of each. Moving aging entirely into the transition matrix gives the stated next-generation matrix. Its youth-adult determinant identity matches the direct disease-free Jacobian exactly. The bundled exact-rational certificate verifies a fully positive parameter set for which the corrected threshold is below one while the printed threshold is above one.
+PASS
 
-## Originality
+Read the *actual full author-posted primary PDF* and visually checked original model (1) on journal page 3495, F and V on page 3496, printed A_11,A_13,A_31,A_33 and R0 on page 3497, and direct local Jacobian and stability proof on pages 3497–3499. In original F, the Ia production row includes α_y I_y and Ie includes α_a I_a, while in V the same transfers remain with negative sign; therefore the displayed F−V contains 2α_y I_y and 2α_a I_a, but actual model (1) has one of each. The valid new-infection 3x3 F and triangular transition V give K by ordinary multiplication, with ρ(K)=max(ρ(B),β33/η5). Independent exact symbolic sympy arithmetic reconstructs the specified rational B=[[601/1000,6/5],[3/2000,1/1000]], det(I−B)=396801/1000000>0, while printed B[1,0]=1003/2000 and det(I−Bprinted)=−203199/1000000. Actual J youth-adult trace negative, det positive; elder eigenvalue negative. This is a concrete genuine model misclassification, not a statement about the paper’s fitted data.
 
-PASS. The rule that progression among infected compartments is not a new infection is standard next-generation theory and is not claimed as new. The source-specific contribution is the exact diagnosis that the published split does not reconstruct the model, the corrected matrix, and the threshold-reversal witness. Exact DOI/title searches, formula searches, aging/progression aliases, and correction/erratum searches found no published repair. The foundational next-generation paper was inspected in full at the relevant definition and progression example.
+## originality
 
-## Value
+PASS
 
-PASS. The article uses \(\mathcal R_0\) to formulate persistence and endemic-existence conclusions and to conduct sensitivity analysis. The defect is consequential because the exact witness places a locally stable disease-free equilibrium in the source's printed \(\mathcal R_0>1\) regime. This is a qualitative threshold failure, not a rounding or normalization issue.
+General F/V next-generation construction and treatment of stage progression as transition, not new infection, are standard (van den Driessche–Watmough). But primary original specific model and published printed matrix visibly violate that reconstruction and display the wrong age-transfer factor A31; the explicit rational threshold reversal is source-specific rather than a generic reproduction-number theorem. No published correction was located under exact DOI/title and terms; unindexed erratum remains possible.
 
-## Closest literature and limitations
+## value
 
-Van den Driessche and Watmough provide the general new-infection/transition decomposition and explicitly classify progression as a transition rather than a new infection. They also discuss alternative decompositions, but those alternatives still represent the original vector field. The motivating source's displayed split fails that identity.
+PASS
 
-The result does not refit the Chinese HIV/AIDS data, recompute the full sensitivity analysis, or assert that the source's fitted baseline switches threshold side after correction. An unindexed author correction remains a residual literature risk.
+Correcting a reproduction-number construction matters because it can reverse stability interpretation of the published exact mathematical model, shown with strictly positive rational parameters. Unlike a notation-only issue, the error materially misclassifies a threshold used by later analysis. The result has strictly mathematical scope, not medical/clinical prediction.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

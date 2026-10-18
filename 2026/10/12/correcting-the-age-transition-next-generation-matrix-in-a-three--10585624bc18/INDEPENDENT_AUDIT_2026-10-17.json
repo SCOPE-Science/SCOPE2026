@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:47:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Author-hosted primary full PDF https://www.math.miami.edu/~ruan/MyPapers/Zhao_Wu_Ruan-DCDS_B.2020.pdf, pp. 3495–3499",
+        "Git RESULT.md 64aff9afe0ceaace4add6735d8a028af57cc5675 and verify.py 59ed0635626f9b4c33b49f168fd2e6546f0595b2",
+        "Independent sympy F,V exact rational calculation scope09_independent_checks_1229.py"
+      ],
+      "rationale": "Read the *actual full author-posted primary PDF* and visually checked original model (1) on journal page 3495, F and V on page 3496, printed A_11,A_13,A_31,A_33 and R0 on page 3497, and direct local Jacobian and stability proof on pages 3497–3499. In original F, the Ia production row includes α_y I_y and Ie includes α_a I_a, while in V the same transfers remain with negative sign; therefore the displayed F−V contains 2α_y I_y and 2α_a I_a, but actual model (1) has one of each. The valid new-infection 3x3 F and triangular transition V give K by ordinary multiplication, with ρ(K)=max(ρ(B),β33/η5). Independent exact symbolic sympy arithmetic reconstructs the specified rational B=[[601/1000,6/5],[3/2000,1/1000]], det(I−B)=396801/1000000>0, while printed B[1,0]=1003/2000 and det(I−Bprinted)=−203199/1000000. Actual J youth-adult trace negative, det positive; elder eigenvalue negative. This is a concrete genuine model misclassification, not a statement about the paper’s fitted data.",
+      "residual_risks": [
+        "Correction is strictly to printed nine-dimensional ODE and its threshold. It does not re-evaluate every global dynamical assertion or measured epidemiology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General NGM theorem tells how to place progression in V; source-specific F,V and exact witness are not contained in it."
+        ],
+        "reasoning": "Existing general theorem supplies methodology but does not explicitly correct this model’s printed matrices; the paper’s own direct Jacobian supports the counterexample.",
+        "searches": [
+          "van den Driessche–Watmough 2002 general infected-stage theorem",
+          "Zhao–Wu–Ruan full PDF §3.2–3.4"
+        ]
+      },
+      "checked_sources": [
+        "Full Zhao–Wu–Ruan 2020 author-hosted PDF, model §2 and mathematical analysis §3",
+        "van den Driessche–Watmough 2002 basic NGM paper",
+        "Resultary query Zhao Wu Ruan three age class HIV model next generation matrix age transitions R0 correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original threshold can say >1 even while model (1) is locally stable at explicit positive rational rates, so printed R0 is neither correct nor order-equivalent in general."
+        ],
+        "reasoning": "Generic decomposition theory alone does not imply the concrete threshold-reversal witness or the repair of A31; the corrected conclusion survives as a motivated source-specific mathematical correction.",
+        "searches": [
+          "Zhao–Wu–Ruan full primary pp.3495–3499",
+          "van den Driessche–Watmough original NGM definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model (1) has single α_y,α_a aging transfers; its printed F and V double-count these transfers and printed A31 has wrong α_a rather than α_y factor."
+        ],
+        "reasoning": "Corrected R0 is the next-generation number for the same nine-equation model, not a merely equivalent algebraic expression of the printed number.",
+        "searches": [
+          "Zhao Wu Ruan three age class HIV model next generation matrix age transitions R0 correction",
+          "web: Zhao Wu Ruan 2020 three-age HIV/AIDS R0 equations F V aging α_y; author-hosted DOI 10.3934/dcdsb.2020070 full PDF",
+          "DOI:10.3934/dcdsb.2020070, full author-hosted PDF",
+          "van den Driessche–Watmough DOI 10.1016/S0025-5564(02)00108-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit shared-exposed-class multistrain NGM and rank-one delay models, mathematically different published systems; no matching Zhao/Wu/Ruan erratum was found."
+        ],
+        "reasoning": "Those examples do not constitute an exact corrected table for this three-age-class model; search failure alone is not uniqueness evidence.",
+        "searches": [
+          "Zhao Wu Ruan three age class HIV model next generation matrix age transitions R0 correction",
+          "Resultary records of other corrected epidemic thresholds",
+          "Original Zhao–Wu–Ruan paper DOI exact-title correction/erratum search"
+        ]
+      },
+      "rationale": "General F/V next-generation construction and treatment of stage progression as transition, not new infection, are standard (van den Driessche–Watmough). But primary original specific model and published printed matrix visibly violate that reconstruction and display the wrong age-transfer factor A31; the explicit rational threshold reversal is source-specific rather than a generic reproduction-number theorem. No published correction was located under exact DOI/title and terms; unindexed erratum remains possible.",
+      "residual_risks": [
+        "A corrigendum or erratum not indexed by DOI search may exist; the original source authors may have independently recognized the typo elsewhere.",
+        "The source itself derives the correct local Jacobian, limiting novelty of a general stability claim; the explicit wrong-R0 reversal remains nontrivial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified the double-counting is really in the original published F,V and its printed A31 uses wrong transfer factor; original direct Jacobian supports corrected threshold",
+          "evidence": "Source p3496 F third/fifth rows include α_y,α_a in new infections while V retains minus α transfers; p3497 A31 formula and p3499 determinant β21(β12+α_y)",
+          "identifier_or_url": "DOI:10.3934/dcdsb.2020070; https://www.math.miami.edu/~ruan/MyPapers/Zhao_Wu_Ruan-DCDS_B.2020.pdf",
+          "material_read": "Complete 31-page author-posted PDF located; materially read equations (1) on PDF p5/journal3495, F,V p6/3496, A31 and R0 p7/3497, local Jacobian pp7–8 and M-matrix argument p9/3499; checked original diagram and model definitions",
+          "method": "public lawful author-hosted full PDF text and visual page screenshots",
+          "title": "Dynamic analysis and optimal control of a three-age-class HIV/AIDS epidemic model in China",
+          "trigger": "Exact same published model alleged to contain error"
+        },
+        {
+          "assessment": "Progression is counted in V, consistent with corrected F−V construction",
+          "evidence": "Next-generation K=FV^-1 definition and correct epidemic-stage categorization",
+          "identifier_or_url": "DOI:10.1016/S0025-5564(02)00108-6",
+          "material_read": "Accessible definition of appearance of new infections and transition/progression example, and threshold theorem as referenced by primary and package",
+          "method": "source text/primary cited theorem and derivation",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+          "trigger": "Foundational method against which a correction is compared"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhao–Wu–Ruan 2020 full author-hosted PDF DOI 10.3934/dcdsb.2020070, model pp3495–3499",
+        "van den Driessche–Watmough 2002 DOI 10.1016/S0025-5564(02)00108-6",
+        "Frozen Git RESULT.md 64aff9afe0ceaace4add6735d8a028af57cc5675"
+      ],
+      "rationale": "Correcting a reproduction-number construction matters because it can reverse stability interpretation of the published exact mathematical model, shown with strictly positive rational parameters. Unlike a notation-only issue, the error materially misclassifies a threshold used by later analysis. The result has strictly mathematical scope, not medical/clinical prediction.",
+      "residual_risks": [
+        "No evidence that the fitted baseline changes its threshold side, nor any claim about actual transmission policy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The printed next-generation decomposition in Zhao–Wu–Ruan (2020) doubles within-infected aging transfers and yields an incorrect R0; for model (1) the correct K=F V^-1 has 2x2 youth-adult block and elder scalar, and an explicit positive-parameter counterexample reverses the disease-free threshold.",
+  "limitations": [
+    "Correction is strictly to printed nine-dimensional ODE and its threshold. It does not re-evaluate every global dynamical assertion or measured epidemiology.",
+    "A corrigendum or erratum not indexed by DOI search may exist; the original source authors may have independently recognized the typo elsewhere.",
+    "The source itself derives the correct local Jacobian, limiting novelty of a general stability claim; the explicit wrong-R0 reversal remains nontrivial.",
+    "No evidence that the fitted baseline changes its threshold side, nor any claim about actual transmission policy."
+  ],
+  "schema_version": 1
+}
