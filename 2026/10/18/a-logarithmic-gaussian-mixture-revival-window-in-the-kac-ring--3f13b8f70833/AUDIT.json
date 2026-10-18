@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact parity-complement identity and cyclic interval overlap give finite moments. A separated-block Lindeberg argument proves the growing-window CLT; Fourier factorization over widely separated signs independently establishes the limiting independence of global parity. These steps yield the Gaussian mixture and thresholds. A standard-library script checked all weighted disorder configurations through N=12 and representative large-ring moments; finite tests are auxiliary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hiura, arXiv:2109.06434v2, Sec. 2.2 states \"we first fix a time interval [0,T] and then take the limit\" and that recurrence does not matter.",
+        "Gottwald--Oliver (2009), Sec. 5, derives a finite-variance envelope, including Eq. (27) for times approaching half recurrence.",
+        "Chandrasekaran--Jain (2012), available abstract describes entropy and recurrence of statistical fluctuations but gives no theorem statement about logarithmic mixture limits."
+      ],
+      "reasoning": "A general dependency-graph central limit theorem can imply the centered moving-product fluctuations, but cannot alone produce asymptotic independence from the full product parity or specify the physical logarithmic window. The compared complete primary texts do not cover these joint conclusions; the 2012 full-text uncertainty remains a genuine risk.",
+      "searches": [
+        "\"Kac ring\" \"central limit\" \"recurrence\"",
+        "\"Macroscopic dynamical fluctuations in Kac ring model\" fixed time",
+        "Kac ring finite size recurrence probability limit distribution",
+        "\"Kac’s ring: Entropy and Poincaré recurrence\""
+      ]
+    },
+    "checked_sources": [
+      "Gottwald and Oliver, SIAM Review 51 (2009), 613--635, doi:10.1137/070705799",
+      "Hiura, J. Stat. Phys. 186 (2022), arxiv:2109.06434",
+      "Chandrasekaran and Jain, Physica A 391 (2012), doi:10.1016/j.physa.2012.02.010 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: Gottwald--Oliver 2009 gives precise parity recurrence and a variance envelope exact for aligned spins.",
+        "Known: Hiura 2021 derives a fixed-horizon quenched CLT; it explicitly does not address recurrence-time scaling.",
+        "Partially accessible: Chandrasekaran--Jain 2012 focuses on recurring fluctuations and entropy, so potential equivalence is unresolved."
+      ],
+      "reasoning": "The prior exact variance permits recognition of the fluctuation scale but does not logically entail the distribution or independence from the global parity. The fixed-horizon CLT is not uniform through times of order N. The 2012 paper could materially overlap; its inaccessible complete argument is not assigned a NOT_COVERING conclusion.",
+      "searches": [
+        "Gottwald Oliver Kac ring variance near recurrence Gaussian mixture limit",
+        "\"Kac’s ring: Entropy and Poincaré recurrence\" full text",
+        "\"Macroscopic dynamical fluctuations in Kac ring model\" recurrence fixed horizon",
+        "Kac ring perfect recurrence statistical fluctuations full distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottwald--Oliver (2009), Secs. 3--5, discusses the same static-sign model and half-recurrence; Eq. (27) gives a variance bound exact for aligned spins.",
+        "Hiura (2021), Secs. 2.2 and 3.2, obtains Gaussian fluctuations in another time regime."
+      ],
+      "reasoning": "The exact complement/parity identity is the same physical object as a cyclic moving-product average. Searches under both phrasings did not reveal a published theorem for a logarithmic shift and independent global parity. The classical moment identities alone do not determine the non-Gaussian mixture.",
+      "searches": [
+        "\"Kac ring\" \"Gaussian mixture\" recurrence",
+        "\"Kac ring\" \"logarithmic\" \"revival\" fluctuations",
+        "\"Kac ring\" \"central limit theorem\" \"recurrence time\" magnetization",
+        "Bernoulli moving-product sliding windows parity asymptotic Gaussian Kac recurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 2009 paper displays recurrence simulations and exact first/second-moment calculations, not a table or distributional limit for the critical window.",
+        "The 2021 paper studies path generating functions over fixed time intervals and does not tabulate near-half-recurrence mixture profiles."
+      ],
+      "reasoning": "No exact database, table or higher-coverage result for the stated non-Gaussian crossover was found. This negative search is supporting evidence only and cannot certify uniqueness.",
+      "searches": [
+        "\"Kac ring\" \"logarithmic\" \"recurrence\" magnetization fluctuations",
+        "\"Kac ring\" \"Gaussian mixture\" recurrence",
+        "Kac ring asymptotic t=N-k limiting law",
+        "Kac ring finite size distribution near half recurrence"
+      ]
+    },
+    "rationale": "Full-text comparison with Gottwald--Oliver 2009 establishes that first/second moments and the half-recurrence variance identity are prior results, whereas the new claim is the triangular-window Gaussian-mixture law with asymptotic parity independence. Hiura 2021 Section 2.2 explicitly restricts the N-limit to fixed time horizons, excluding the near-N regime. An earlier 2012 fluctuation-recurrence paper is material but not fully accessible; its abstract does not state the new distributional result.",
+    "residual_risks": [
+      "Chandrasekaran--Jain 2012 addresses recurring statistical fluctuations; full text could contain equivalent distributional information.",
+      "A general cyclic-sign-product CLT under other terminology could imply part of the result; targeted searches did not locate the joint parity/logarithmic-window formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the variance identity and recurrent geometry, but not the Gaussian-mixture logarithmic-window limit in the examined complete sections.",
+        "evidence": [
+          "Section 5, Eqs. (24)--(27): interval-overlap covariance and variance.",
+          "Sec. 5 Ex. 10: variance near N; Remark 2: bound exact for aligned initial spins."
+        ],
+        "identifier_or_url": "doi:10.1137/070705799; https://www.aquila.infn.it/ciuchi/didattica/MS/Notes/02_Foundations/references/kac-ring.pdf",
+        "material_read": "Full-text manuscript: model and equations in Secs. 3--4, Sec. 5 variance derivation through Eq. (27), Exercise 10, discussion of near-N revival and Sec. 6 asymptotics.",
+        "method": "Accessible manuscript PDF text and page inspection",
+        "title": "Boltzmann's Dilemma: An Introduction to Statistical Mechanics via the Kac Ring",
+        "trigger": "Exact same Kac ring and finite-size recurrence variance"
+      },
+      {
+        "assessment": "The main path fluctuation theorem fixes observation horizon before N tends to infinity, explicitly excluding recurrence-time scaling.",
+        "evidence": [
+          "Sec. 2.2, below Eq. (2.8), explicitly fixes T and says recurrence does not matter.",
+          "Sec. 3.2, Eqs. (3.7)--(3.10), gives the fixed-time quenched Ornstein--Uhlenbeck CLT."
+        ],
+        "identifier_or_url": "arxiv:2109.06434v2; https://arxiv.org/html/2109.06434v2",
+        "material_read": "Full HTML: Introduction, Sec. 2 model/fixed-time limit, Sec. 3 large deviations and CLT, Sec. 3.3 annealed setup.",
+        "method": "Open-access arXiv HTML full text",
+        "title": "Macroscopic dynamical fluctuations in Kac ring model",
+        "trigger": "Potentially broader Kac-ring central limit theorem"
+      },
+      {
+        "assessment": "Unresolved: cannot infer lack of a logarithmic distributional theorem from an abstract; remains residual originality risk.",
+        "evidence": [
+          "Abstract: studies entropy and a perfect recurrence of statistical fluctuations near order-N times.",
+          "No theorem statement, proof or scaling law was available from the accessible material."
+        ],
+        "identifier_or_url": "doi:10.1016/j.physa.2012.02.010",
+        "material_read": "Title, authors, publisher metadata and abstract only; no full scientific text.",
+        "method": "ArXiv and lawful open-access searches; publisher abstract; complete scientific text not obtained",
+        "title": "Kac's ring: Entropy and Poincaré recurrence",
+        "trigger": "Title and abstract explicitly mention recurrence of statistical fluctuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f13b8f7-0833-4725-b506-ab2604208187",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the full distributional transition in the only logarithmic time layer immediately preceding Kac-ring half recurrence, distinguishing a centered Gaussian background from two parity-conditioned revival peaks. This sharp non-Gaussian profile is physically motivated by the irreversibility-versus-recurrence tension and improves the classical moment-level picture, with a reproducible benchmark for simulation.",
+    "status": "PASS"
+  }
+}
