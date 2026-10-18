@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked by reconstructing the classification of subalgebras from the quotient \(L_r(q)/Z(L_r(q))\), verifying the closure condition in each possible quotient dimension, and independently deriving the condition for a pair of subalgebras to have subalgebra sum. The central obstruction was reduced to agreement of two linear functionals on an intersection subspace, which gives the exact weight \(q^{-\dim(U\cap T)}\) in \(J_r(q)\).
+# Independent mathematical audit
 
-The Gaussian finite sum was checked by fixing \(H=U\cap T\), passing to the quotient by \(H\), and using the exact count of a subspace disjoint from a fixed subspace. The large-field limit was checked from the leading degrees and leading coefficients of the Gaussian-binomial sums; no finite experiment is used to justify the infinite statement.
+## correctness
 
-`artifacts/check_formula.py` gives an independent finite regression test. It enumerates vector subspaces in reduced row-echelon form, tests Lie closure from \([x,y]=z\), tests pair permutability directly, and compares those brute-force counts with the closed formula. The recorded output in `artifacts/CHECK.txt` covers \((q,r)=(2,0),(3,0),(2,1),(3,1),(2,2)\) and terminates with `CHECK_OK`.
+PASS
 
-The finite checker is not an exhaustive proof over all prime powers or all \(r\). The symbolic proof is the evidence for those quantifiers. The cases \(r=0\) and \(r=1\) are prior special cases and were used as consistency checks rather than claimed as new.
+For L_r=h_3(F_q)⊕F_q^r with Z=span(z,c_1,…,c_r) and 2-dimensional symplectic quotient V, every Lie subalgebra A is classified by P=π(A)≤V, C=A∩Z, and a graph map P→Z/C; for dim(P)=2 closure forces z∈C, while dim(P)≤1 is automatic. Counting the three strata gives N_r=G_(r+1)+(q+1)A_(r+1)+B_r. Nonpermuting ordered pairs require two different one-dimensional quotient lines and z∉C+D. Writing C,D as graphs over subspaces U,T≤F_q^r, the functional compatibility on U∩T leaves q^{2r+2−dim(U∩T)} choices for a fixed ordered pair of distinct quotient lines, giving bad=q^{2r+3}(q+1)J_r with J_r=Σ_{U,T}q^{−dim(U∩T)}; the Gaussian-binomial h,a,b formula counts all such pairs without overcount. Dominant Gaussian degrees give, for even r, one leading N and J term so bad/N²→1; for odd r, N leading coefficient 2 and J coefficient 3 so bad/N²→3/4, giving sd→0 and 1/4 respectively. Independent Gaussian finite sums for q=2,3,5,7,11 and r=0..4 matched specializations and bounded probabilities; separate direct complete subspace/bracket enumeration over F2 yielded (r,N,bad)=(0,12,24),(1,43,336),(2,198,7584), matching formulas. Large-q numerical limits are corroboration; the parity law follows from polynomial leading-degree analysis.
+
+## originality
+
+PASS
+
+Best-of-knowledge original after mathematical claim-versus-prior comparison: Comparison of hypotheses and implications shows the all-r intersection sum and parity of r are not formal corollaries of either base/fixed-one-stabilization result or the variable-rank one-center Heisenberg result. Any group-side analogous theorem remains a bounded originality risk. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.
+
+## value
+
+PASS
+
+Extending known r=0 and r=1 lattice-pair counts to every central dimension is a natural full one-parameter classification of a fixed nonabelian bracket under central stabilization. The exact Gaussian intersection enumerator and the persistent even/odd large-field regime are genuinely structural, not a renamed parameter or finite extrapolation; a researcher studying modular pairs in nilpotent Lie algebras could need the precise all-r formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
