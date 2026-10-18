@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Gaussian regression yields exact posterior means for each feasible first and second observation; conditioning on the initial standardized reading converts the contingent decision to max(rho^2 Z^2,rho a^2). Exhaustion of all three first sensors proves globally optimal adaptive selection, including randomized policies. Direct Gaussian integration and differentiation prove strict separation, the unique amplitude threshold and the sharp constant uniformly for all positive noise and goal coefficient. Independent symbolic algebra and high-precision integral/parameter checks passed; finite experiments are used only as checks of an analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The later Gq-optimality formula includes the exact quadratic fixed-design variance calculations as a specialization.",
+        "The 2024 Acta Numerica survey identifies adaptive sequential OED frameworks in general terms, rather than this exact three-sensor amplitude-and-noise-independent policy comparison.",
+        "Chamon–Pappas–Ribeiro concerns linear Kalman-state covariance objectives, not a bilinear goal with outcome-contingent sensors."
+      ],
+      "reasoning": "Broader covariance and OED frameworks do cover the nonadaptive subproblem and the possibility of sequential selection; those components are not counted as new. None of the inspected results was found to imply the exact optimal contingent decision rule, strict gap for every positive coefficient, and unique maximum ratio \\(1+2\\phi(1)\\) without the present calculation.",
+      "searches": [
+        "Bayesian sensor placement quadratic goal marginal greedy zero approximation Gaussian",
+        "\"goal-oriented\" adaptive sensor nonlinear Gaussian posterior variance adaptive gap",
+        "doi:10.1017/S0962492924000023",
+        "arxiv:2411.07532"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.06627v1",
+      "arxiv:2405.07412v1",
+      "arxiv:2411.07532v1",
+      "arxiv:1912.03799",
+      "doi:10.1017/S0962492924000023 (abstract/overview)",
+      "arxiv:2102.07612 (abstract only)",
+      "Published mathematical-record index: source/alias/threshold targeted queries",
+      "Related published mathematical findings on sensor selection"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu et al. consider static linear goals and EIG/design optimization; linear goals do not create the contingent bilinear payoff in the example.",
+        "Koval–Nicholson use posterior parameter uncertainty/design criteria, not the exact three-coordinate bilinear-plus-linear goal.",
+        "Neuberger et al. evaluate nonadaptive quadratic-goal posterior variance and compare fixed sensors; the present optimum allows the second coordinate to depend on the first observed datum.",
+        "Chamon et al. study approximate supermodularity for Kalman trace or spectral-error criteria; their statements do not decide the nonlinear goal here."
+      ],
+      "reasoning": "The fixed-design gain is explicitly treated as already implied by broader Gaussian quadratic formulas. The assessed claim is only the global two-stage adaptive selection and the sharp parametric adaptivity gap; none of the compared theorems was shown to dominate that claim.",
+      "searches": [
+        "arxiv:2102.06627",
+        "arxiv:2405.07412",
+        "arxiv:2411.07532",
+        "arxiv:1912.03799"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu–Chen–Ghattas (2021) gives static linear prediction designs.",
+        "Neuberger–Alexanderian–van Bloemen Waanders (2024), read through criterion and numerical design sections, gives static nonlinear-quadratic goal criteria, without optimizing outcomes-dependent second sensor choice.",
+        "Standard Gaussian regression formulas support, but do not themselves state, the sharp global adaptive/fixed design ratio."
+      ],
+      "reasoning": "Compared the same covariance reduction objective and not just matching keywords. Static fixed subset objectives are a strict subclass of adaptive contingent policies; optimizing the latter requires conditioning on the first response and integrating a maximum of competing conditional variances. The exact noise-uniform extremal constant was not encountered in the inspected sources.",
+      "searches": [
+        "adaptive goal-oriented Bayesian quadratic quantity of interest sensor selection finite step variance exact gap",
+        "Gaussian bilinear goal x1 x2 + a x3 adaptive coordinate observation choosing second sensor threshold normal absolute value",
+        "Gaussian polynomial goal sensor placement hypergraph Bayesian",
+        "arxiv:2102.06627",
+        "arxiv:2411.07532"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned related optimization/uncertainty results but no exact ratio or matching three-sensor theorem.",
+        "Scholarly-text and title searches did not identify an existing table or record giving the sharp constant for this particular Bayes-risk experiment."
+      ],
+      "reasoning": "The real-valued exact threshold is deduced from a full dynamic-programming comparison, not guessed from a numerical table; database absence only limits the risk assessment and is not proof of uniqueness.",
+      "searches": [
+        "sharp adaptive versus nonadaptive two-stage Gaussian quadratic goal sensor design 1+sqrt(2/pi) exp(-1/2) ratio",
+        "1.4839 adaptive sensing Gaussian",
+        "noisy Gaussian products adaptive sensing nonlinear goal posterior variance square normal threshold",
+        "arxiv:2102.07612"
+      ]
+    },
+    "rationale": "The source literature on goal-oriented linear selection (Wu–Chen–Ghattas 2021) and nonadaptive quadratic posterior-variance criteria (Neuberger–Alexanderian–van Bloemen Waanders 2024) does not state an optimum over contingent two-stage Gaussian coordinate policies, the threshold based on the first reading, or its noise-independent sharp \\(1+2\\phi(1)\\) ratio. The Gaussian conditioning and static-pair computations are acknowledged as consequences of known methods, not claimed new. Searches of a published mathematical-record index, related mathematical research, and targeted scholarly literature revealed no equivalent exact adaptive three-sensor theorem. An unindexed identical special-case calculation remains possible; independent priority validation has not been performed.",
+    "residual_risks": [
+      "Unindexed or unpublished independent derivations of this small exact Gaussian policy example may exist.",
+      "The 2024 general experimental-design survey and adaptive sampling article were not inspected in full; no whole-document exclusion is claimed.",
+      "A Gaussian quadratic posterior-variance identity is known and already implies the nonadaptive calculations; no novelty is asserted for that component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING adaptive nonlinear-goal sharp comparison; fixed linear-goal policies only",
+        "evidence": "arXiv first public date 2021-02-12; linear goals and static design development.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.06627",
+        "material_read": "arXiv abstract, first-submission metadata, full open-access article introduction and formulation and optimization sections",
+        "method": "HTML text reading and mathematical comparison of observation policy and criterion",
+        "title": "An efficient method for goal-oriented linear Bayesian optimal experimental design: Application to optimal sensor placement",
+        "trigger": "Earliest eligible motivating static linear-goal OED methodology"
+      },
+      {
+        "assessment": "NOT_COVERING the exact adaptive nonlinear prediction-goal example",
+        "evidence": "The sensor selection criterion is directed at parameter posterior uncertainty with approximation-error modeling.",
+        "identifier_or_url": "https://arxiv.org/abs/2405.07412",
+        "material_read": "arXiv abstract and full open-access HTML discussion of design criteria and sensors",
+        "method": "Textual and mathematical criterion comparison",
+        "title": "Non-intrusive optimal experimental design for large-scale nonlinear Bayesian inverse problems using a Bayesian approximation error approach",
+        "trigger": "Nonlinear inverse and sensor-placement methodology"
+      },
+      {
+        "assessment": "COVERS the fixed quadratic-goal variance subcalculation, but NOT_COVERING the asserted exact globally optimal two-stage adaptive policy or its sharp ratio",
+        "evidence": "The general Gq criterion is evaluated on fixed sensor design sets; the assessed policy is outcome-contingent.",
+        "identifier_or_url": "https://arxiv.org/abs/2411.07532",
+        "material_read": "Full open-access HTML introduction, quadratic Gaussian posterior variance theorem, criterion formula, and greedy design sections",
+        "method": "Comparison of assumptions, static Gaussian quadratic formulas, and whether adaptive policies are included",
+        "title": "Goal oriented optimal design of infinite-dimensional Bayesian inverse problems using quadratic approximations",
+        "trigger": "Closest quadratic prediction-goal posterior variance approach, though first published after the dated source"
+      },
+      {
+        "assessment": "NOT_COVERING nonlinear scalar-goal adaptive posterior-variance maximization",
+        "evidence": "The paper studies Kalman filter sensor sets and covariance trace/eigenvalue approximations.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.03799",
+        "material_read": "Opening paper pages and methodology for Kalman state-estimation covariance criteria",
+        "method": "Law/criterion implication comparison",
+        "title": "Approximate Supermodularity of Kalman Filter Sensor Selection",
+        "trigger": "Known approximate-greedy guarantees in a related Gaussian sensor-selection problem"
+      },
+      {
+        "assessment": "GENERAL_CONTEXT; residual risk due to incomplete full-text inspection",
+        "evidence": "Overview explicitly describes non-myopic sequential policies, but offers no exact three-sensor constant in examined material.",
+        "identifier_or_url": "https://doi.org/10.1017/S0962492924000023",
+        "material_read": "Abstract, accessible journal overview and references; full mathematical article not fully inspected",
+        "method": "Abstract/overview scan; no negative full-text coverage conclusion asserted",
+        "title": "Optimal experimental design: Formulations and computations",
+        "trigger": "Potential broad coverage of adaptive and sequential experimental design"
+      },
+      {
+        "assessment": "ACCESS_LIMITED general adaptive goal design, but no decisive matching result seen",
+        "evidence": "The abstract concerns response-distribution fields and calibration/global optimization.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.07612",
+        "material_read": "Abstract only",
+        "method": "Metadata and abstract-level scope comparison; full text not assessed",
+        "title": "Goal-oriented adaptive sampling under random field modelling of response probability distributions",
+        "trigger": "Potentially related adaptive goal-oriented sampling source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89ed9bd4-e039-4bc7-820c-1f9f1fa6ced9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the complete minimal three-coordinate, two-reading sequential experiment problem for a natural prediction combining a product interaction and a linear background contribution. It isolates a precise, noise-independent 48.394 percent upper improvement in variance REDUCTION (not posterior risk) unavailable to any fixed pair; moreover the optimally informative initial reading has zero immediate gain, giving a substantive structural counterexample to myopic greedy design. Full parametric optimal policies, limiting boundaries, and sharpness are explicitly justified; the family is not an arbitrary coefficient slice, because the amplitude balances independent competing measurement purposes.",
+    "status": "PASS"
+  }
+}
