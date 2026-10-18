@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the displayed definitions. With \(t=\log(eR_\Omega/r)\), \(s=\log t\), and \(a=(\beta-1)/N'\), the substitution \(u=t^{-a}v(s)\) makes both principal weighted terms carry the same radial measure \(ds\). The resulting defect is exactly
-\[
-\omega_{N-1}\int\bigl(|av-v'|^N-a^N|v|^N\bigr)\,ds.
-\]
-For the dilated compact cutoff \(v_L(s)=\phi((s-S)/L)\), the integrated linear Taylor term vanishes and the remaining terms are bounded by \(C/L\). The candidate \(X_2^q\) remainder equals \(\omega_{N-1}\int |v_L|^N(1+s)^{-q}ds\) and is at least a constant times \(L^{1-q}\) on the plateau, so the ratio tends to zero exactly when \(q<2\).
+# Independent mathematical audit
 
-The focal source was inspected in full text at Theorem 1.4 and Section 6.2. Its exponential-to-remainder Young factorization is independent of the sign of \(1-\beta\); the published restriction to \(\beta<1\) enters only when the proof appeals to remainder-optimality propositions. Replacing that appeal by the analytic cutoff obstruction above yields the stated \(\beta>1\) consequence.
+## correctness
 
-No numerical experiment, timeout, search failure, or finite enumeration is used as evidence for the infinite theorem. The proof does not establish a positive endpoint remainder at \(q=2\), nor does it determine the sharp exponential coefficient.
+PASS
+
+Set a=(beta-1)(N-1)/N, t=log(e R/r), s=log t and u=t^{-a} phi((s-S)/L). Direct radial change of variables gives the exact defect integral omega*int(|a v-v_prime|^N-a^N|v|^N) ds and D_q=omega*int|v|^N (1+s)^(-q) ds. The first variation integrates to zero, convex Taylor remainder is O(L^-1), and a plateau contributes D_q>=c_q L^(1-q). Thus I/D_q=O(L^(q-2))->0 for all q<2. Independently checked the exponential consequence: after rescaling u by c L^(1/N) so I<=1, on s in [S+L,S+2L] the exponential argument is alpha c L^(1/(N-1)) e^s (1+s)^(-theta); for theta<1/(N-1) this dominates the radial volume-decay factor e^(-N e^s). Hence the exponential integral diverges. Exact parameter cancellation -N(a+1)+beta(N-1)=-1 checked for arbitrary real beta>1.
+
+## originality
+
+PASS
+
+The materially inspected complete Ghosh arXiv manuscript Theorem 1.4 explicitly asserts optimality only beta<1 (introduction and Section 6.2), and its Propositions 5.2,5.3 give the needed subquadratic obstruction only for 0<beta<1 or beta<0. The reconstructed beta>1 cutoff closes that gap. Resultary searches found the same submitted target, but no independently stronger covering record. Best-of-knowledge PASS with indexing and alternate-embedding risks.
+
+## value
+
+PASS
+
+The exact missing positive-weight range is part of a natural sharp log-weighted critical Sobolev embedding; determines a sharp nested-logarithm exponent, not merely a routine cutoff renaming. The explicit q<2 remainder obstruction and failure of any smaller exponential correction settle a meaningful analytic boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

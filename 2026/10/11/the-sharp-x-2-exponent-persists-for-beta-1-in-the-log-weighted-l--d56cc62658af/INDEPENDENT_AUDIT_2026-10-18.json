@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:52:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set a=(beta-1)(N-1)/N, t=log(e R/r), s=log t and u=t^{-a} phi((s-S)/L). Direct radial change of variables gives the exact defect integral omega*int(|a v-v_prime|^N-a^N|v|^N) ds and D_q=omega*int|v|^N (1+s)^(-q) ds. The first variation integrates to zero, convex Taylor remainder is O(L^-1), and a plateau contributes D_q>=c_q L^(1-q). Thus I/D_q=O(L^(q-2))->0 for all q<2. Independently checked the exponential consequence: after rescaling u by c L^(1/N) so I<=1, on s in [S+L,S+2L] the exponential argument is alpha c L^(1/(N-1)) e^s (1+s)^(-theta); for theta<1/(N-1) this dominates the radial volume-decay factor e^(-N e^s). Hence the exponential integral diverges. Exact parameter cancellation -N(a+1)+beta(N-1)=-1 checked for arbitrary real beta>1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original generalized weighted Hardy coefficient applies beta!=1 but exponent optimality is explicitly restricted; Adimurthi-Ghosh-Mallick arXiv:2604.06853 uses a log-weighted gradient norm, not this exact Hardy defect."
+        ],
+        "reasoning": "The general positive embedding is weaker than its claimed sharpness. The other log-weighted formulation changes the energy functional and cannot imply the precise X2^q remainder obstruction.",
+        "searches": [
+          "Resultary: log weighted Leray-Trudinger beta>1 exponent optimality",
+          "Ghosh arXiv:2610.03668 complete section 5-6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03668v1",
+        "arXiv:2604.06853v1 (partial abstract)",
+        "arXiv:2208.05430 (classical Leray setting, bibliographic only)",
+        "Resultary queries beta>1 weighted remainder and Leray-Trudinger endpoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.4 positive integrability for beta>1 + sharp negative threshold for beta<1; no stated beta>1 negative counterpart; cutoff yields genuinely new beta>1 obstruction."
+        ],
+        "reasoning": "Existing results show integrability at threshold but cannot entail failure for smaller theta without an additional obstruction; the constructed annuli supply that missing implication.",
+        "searches": [
+          "Ghosh arXiv:2610.03668 Theorem 1.4 Eq 6.16-6.17",
+          "Adimurthi Ghosh Mallick arXiv:2604.06853"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh Theorem 1.4 states optimality for beta in (-infty,1) only; Section 6.2 lines 749-757 invokes Proposition 5.2 or 5.3 exclusively in that domain."
+        ],
+        "reasoning": "The beta>1 exponent is the same numerical value, but parameter hypotheses differ: no extension follows from beta<1 by replacing beta or reflecting t, because the source has distinct weighted defects and test-function boundary behavior.",
+        "searches": [
+          "Resultary: beta>1 Leray-Trudinger Hardy defect q<2",
+          "arXiv:2610.03668 Theorem 1.4, Section 6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact beta>1 q<2 remainder/equivalent weighted Hardy table was found in inspected sources; source tables and sharpness propositions concern beta<1."
+        ],
+        "reasoning": "This is a universal infinite-dimensional analytic optimality assertion, not a finite database value; an older equivalent endpoint lemma remains possible.",
+        "searches": [
+          "Resultary: X2 q 2 log weighted beta >1",
+          "arXiv:2610.03668 Proposition 5.2,5.3"
+        ]
+      },
+      "rationale": "The materially inspected complete Ghosh arXiv manuscript Theorem 1.4 explicitly asserts optimality only beta<1 (introduction and Section 6.2), and its Propositions 5.2,5.3 give the needed subquadratic obstruction only for 0<beta<1 or beta<0. The reconstructed beta>1 cutoff closes that gap. Resultary searches found the same submitted target, but no independently stronger covering record. Best-of-knowledge PASS with indexing and alternate-embedding risks.",
+      "residual_risks": [
+        "Recent 2026 focal preprint and bibliographic indexing lag; unindexed equivalent beta>1 cutoff possible.",
+        "The related 2604.06853 manuscript was not read in full.",
+        "Best exponential coefficient alpha not determined; q=2 positive remainder is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_beta_gt_one_optimality",
+          "evidence": "Theorem 1.4 states best exponent beta<1; lines 749-755 of Section 6.2 explicitly restrict proof to beta<1 and cite only negative-beta or subunit-beta remainder obstructions.",
+          "identifier_or_url": "arXiv:2610.03668v1",
+          "material_read": "Full arXiv HTML article; introduction Theorem 1.4 and Sections 5, 6.2, particularly equations 6.12-6.17 and proof of optimality",
+          "method": "read arXiv full-text HTML in web retrieval",
+          "title": "On improved Hardy-type inequalities in Log-Weighted Sobolev Spaces",
+          "trigger": "Same log weighted defect and exact theta, beta>1"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_MATERIAL_RISK",
+          "evidence": "Different log-weighted gradient norm; entire original text not claimed excluded.",
+          "identifier_or_url": "arXiv:2604.06853v1",
+          "material_read": "Bibliographic metadata, abstract and available summary only, not full text",
+          "method": "arXiv listing and paper references",
+          "title": "Leray-Trudinger Type Exponential Integrability in Log-Weighted Sobolev Spaces",
+          "trigger": "Same beta regime and Leray-Trudinger phrase"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact missing positive-weight range is part of a natural sharp log-weighted critical Sobolev embedding; determines a sharp nested-logarithm exponent, not merely a routine cutoff renaming. The explicit q<2 remainder obstruction and failure of any smaller exponential correction settle a meaningful analytic boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No positive q=2 remainder, best exponential alpha or endpoint alpha classification is asserted.",
+    "Authoritative focal complete arXiv primary has been read; related arXiv:2604.06853 not materially read in full."
+  ],
+  "schema_version": 1
+}
