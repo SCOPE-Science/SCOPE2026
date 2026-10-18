@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's reproduction number is linear in \(\beta\) and in \(\Lambda/\mu\), while its numerical tables impose
-\[
-\frac{\Lambda}{\mu}=N_0=59{,}310{,}000.
-\]
-Exact substitution gives mass-action reproduction numbers \(59{,}310{,}000\) times the values obtained from a frequency-dependent incidence. The latter are \(0.6114991225\ldots\) and \(6.1149912253\ldots\), matching the reported \(0.61\) and \(6.11\). The initial infection-force calculation independently reproduces the same missing population scale.
+PASS
 
-## Originality
+Primary PDF equation (2.1) uses beta S(E+A+epsilon V), no population denominator; exposed equation and next-generation R0 are linear in beta Λ/μ. Its Tables 3/4 set Λ=μ N(0) with N(0)=59,310,000, beta=.034/.34, yet print R0=.61/6.11. Let D=1/(p+q+μ)+p/[(p+q+μ)(γ_A+μ)]+qε/[(p+q+μ)(κ+γ_V+μ+δ)]; printed R0=β N0 D, normalized R0=β D. Independent exact rational calculation using all printed parameters gave for beta .034: freq 0.6114991225346483, mass 36268012.95752999; beta .34: freq 6.1149912253464835, mass 362680129.5752999. Initial infectious weighted count yields per susceptible force 8,563,683.19/day versus .1443885/day. Primary model/table screenshots and arithmetic agree. Neither model implementation nor fitted trajectory reproducibility is inferred from missing code.
 
-PASS. Population-normalized incidence is standard and is not claimed as new. The accepted result is the exact source-specific incompatibility among the printed model, fitted \(\beta\), and reported \(\mathcal R_0\), together with the identification of the factor as precisely \(N_0\). DOI, value, normalization, correction, and erratum searches found no published correction. Broader normalized-incidence literature does not imply this article-specific arithmetic diagnosis.
+## originality
 
-## Value
+PASS
 
-PASS. The factor is approximately \(5.9\times10^7\), not a small rounding discrepancy. It determines whether the printed fitted example has a reproduction number near six or hundreds of millions, and it changes the initial infection time scale by the same factor. This directly affects reproducibility of the fitted numerical example and interpretation of its transmission coefficient.
+The discovered prior published Resultary finding "A critical-threshold Lyapunov identity closes the waning-immunity SARS-CoV-2 disease-free theorem" (Oct 4, 2026) studies exactly the same printed seven-class equations and R0, but proves a Lyapunov stability endpoint, not a comparison with numerical tables or an incidence-scale correction. General normalized incidence and different epidemic-paper error reports do not supply this DOI-specific arithmetic contradiction; exact source and old theorem were read before concluding no covering implication. Search absence alone is not novelty proof.
 
-## Closest literature and limitations
+## value
 
-A full-text COVID-19 comparator uses the explicit frequency-dependent form \(\beta(t)(\text{infectious population})S/N\), illustrating the standard normalization convention. It does not identify the motivating source's mismatch.
+PASS
 
-The available article does not expose its simulation code, so the result cannot determine whether the intended repair was a population denominator or a rescaled mass-action coefficient.
+A factor 59,310,000 is an enormous dimensionally significant discrepancy in a calibrated model, changing its R0 from order one to hundreds of millions and its initial force of infection by the same factor. The check is not novel algebra but an independently useful, fully reproducible source-specific correction separating two possible incidence conventions; failure to flag it would mislead quantitative interpretation and published numeric reproducibility.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

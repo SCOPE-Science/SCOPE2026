@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:52:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Primary PDF equation (2.1) uses beta S(E+A+epsilon V), no population denominator; exposed equation and next-generation R0 are linear in beta Λ/μ. Its Tables 3/4 set Λ=μ N(0) with N(0)=59,310,000, beta=.034/.34, yet print R0=.61/6.11. Let D=1/(p+q+μ)+p/[(p+q+μ)(γ_A+μ)]+qε/[(p+q+μ)(κ+γ_V+μ+δ)]; printed R0=β N0 D, normalized R0=β D. Independent exact rational calculation using all printed parameters gave for beta .034: freq 0.6114991225346483, mass 36268012.95752999; beta .34: freq 6.1149912253464835, mass 362680129.5752999. Initial infectious weighted count yields per susceptible force 8,563,683.19/day versus .1443885/day. Primary model/table screenshots and arithmetic agree. Neither model implementation nor fitted trajectory reproducibility is inferred from missing code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theorem gives full closed-threshold DFE stability R0<=1 for source mass-action equations, but explicitly does not validate empirical fit.",
+          "Its result uses formal R0, not table-scale beta inconsistency."
+        ],
+        "reasoning": "Even a stronger dynamical stability theorem does not logically imply the fitted-parameter numerical mismatch; the new claim is arithmetic between printed equations and the source data.",
+        "searches": [
+          "Same-model prior Resultary 2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a",
+          "AIMS Mathematics original Tables 3/4",
+          "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-871.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a",
+        "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta",
+        "Same-model prior Resultary 2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution establishes identity R0_mass=N0 R0_freq with exact finite rational parameter values.",
+          "Same-model published Lyapunov statement neither discusses table values nor changes incidence convention."
+        ],
+        "reasoning": "The diagnosis follows from simultaneous printed equations and tables but was not previously stated as a theorem in the inspected source/prior finding. Distinguish logical mathematical deduction from novelty of the recorded numerical inconsistency.",
+        "searches": [
+          "DOI:10.3934/math.2022871 eqs (2.1) and R0, Tables 3-5",
+          "Resultary same-model threshold theorem",
+          "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both the source and the prior Lyapunov finding use printed mass-action term βS(E+A+εV) and next-generation R0.",
+          "The prior finding does not evaluate the fitted beta values or identify a missing N0 factor."
+        ],
+        "reasoning": "Exact same model was located and inspected, but an improved stability theorem is not an equivalent parameter-normalization diagnosis. Normalized frequency-dependent incidence is a different state model when N varies.",
+        "searches": [
+          "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta",
+          "DOI:10.3934/math.2022871 Tables 3-4 and equation (2.1)",
+          "Resultary: A critical-threshold Lyapunov identity closes the waning-immunity SARS-CoV-2 disease-free theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 lists β=0.034 and R0=0.61; Table 4 β=0.34 and R0=6.11. Both list Λ=μN(0).",
+          "Direct βΛ/μ substitution instead yields values N0 times larger."
+        ],
+        "reasoning": "The exact table is the evidence of contradiction, not earlier reporting of this mismatch; no inspected correction/erratum exists in indexed searches.",
+        "searches": [
+          "DOI:10.3934/math.2022871 Table 3 and Table 4",
+          "same-model prior Resultary RESULT.md",
+          "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta"
+        ]
+      },
+      "rationale": "The discovered prior published Resultary finding \"A critical-threshold Lyapunov identity closes the waning-immunity SARS-CoV-2 disease-free theorem\" (Oct 4, 2026) studies exactly the same printed seven-class equations and R0, but proves a Lyapunov stability endpoint, not a comparison with numerical tables or an incidence-scale correction. General normalized incidence and different epidemic-paper error reports do not supply this DOI-specific arithmetic contradiction; exact source and old theorem were read before concluding no covering implication. Search absence alone is not novelty proof.",
+      "residual_risks": [
+        "An unindexed erratum or source implementation may explain the intended convention; no accessible simulation code was examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms printed unnormalized infection force, reproduction formula and incompatible beta/R0 values.",
+          "evidence": [
+            "Page 2 model (2.1); page 7 next-generation R0; page 12 Tables 3,4 with beta .034/.34 and R0 .61/6.11; Table 5 initial counts."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-871.pdf",
+          "material_read": "Accessible full 22-page publisher PDF; actual pages 2,7,12 viewed as page images; equations (2.1), R0 and Tables 3/4/5 inspected, additional numerical-section context.",
+          "method": "Read published source text and visually inspected mathematical PDF pages and table labels.",
+          "title": "Mathematical study of transmission dynamics of SARS-CoV-2 with waning immunity",
+          "trigger": "Exact originating equations, next-generation formula, numerical model and tables"
+        },
+        {
+          "assessment": "Proves critical-threshold stability, not incompatibility of printed fitted transmission coefficients with R0 or missing N normalization.",
+          "evidence": [
+            "Uses formal R0=βS*/ζ1(1+p/ζ2+qε/ζ3) and explicitly excludes validation of empirical fit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a",
+          "material_read": "Full RESULT.md and SLOGAN.txt fetched, inspected all result statement and proof, including prior work and limitations.",
+          "method": "Read complete frozen published finding through its Git source.",
+          "title": "A critical-threshold Lyapunov identity closes the waning-immunity SARS-CoV-2 disease-free theorem",
+          "trigger": "Same exact model and stronger prior result may cover claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A factor 59,310,000 is an enormous dimensionally significant discrepancy in a calibrated model, changing its R0 from order one to hundreds of millions and its initial force of infection by the same factor. The check is not novel algebra but an independently useful, fully reproducible source-specific correction separating two possible incidence conventions; failure to flag it would mislead quantitative interpretation and published numeric reproducibility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-871.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a",
+    "Resultary: Printed COVID SARS-CoV-2 model Egbelowo Munyakazi Hoang 2022 DOI 10.3934/math.2022871 R0 missing population denominator beta",
+    "Same-model prior Resultary 2026/10/4/SCOPE-a-critical-threshold-lyapunov-identity-closes-the-waning-immunit--eaceb068161a",
+    "Frozen package 2026/10/13/a-missing-population-normalization-separates-the-printed-sars-co--5e6aa51570b0 at 40d46a820f74fdf355c691812bdc426ec204bde7",
+    "Independent arithmetic/finite-check work: /mnt/data/scope07_independent_checks.py (private, not public proof)."
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Shows inconsistency of displayed count-valued equations, betas and R0, not actual undisclosed numerical implementation.",
+    "Frequency incidence and beta rescaling are equivalent at disease-free scale, not dynamically identical under variable total population.",
+    "Does not refit South African data or revalidate source local/global stability under a modified incidence."
+  ]
+}
