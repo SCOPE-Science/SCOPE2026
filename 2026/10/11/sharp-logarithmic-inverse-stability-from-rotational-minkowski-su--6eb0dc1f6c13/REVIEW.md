@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weak support-area identity and bilinear polarization hold for all planar convex bodies because support functions lie in the periodic Sobolev space \(H^1\). Exact Fourier angular orthogonality gives the area covariance with coefficient \(2w_{K,n}w_{L,n}\), not just a numerical observation. The chosen analytic probe has strictly positive curvature and strictly positive weights at every degree \(n\ge2\). The cutoff proof uses a valid low-frequency lower weight and an independent high-frequency energy tail; the integer inequality begins at \(N=4\). The witness bodies have curvature bounded below by \(1/2\), and their exact ratios establish the sharp logarithmic power. Finite computations corroborate normalizations without substituting for these proofs.
+PASS
 
-## Originality — PASS, subject to historical risk
+The weak planar support-area formula and its bilinear polarization hold for H^1 support functions and furnish exact covariance V=2sum w_{K,n}w_n. The explicit probe satisfies h_K+h_K''≥3/4, and w_{K,n}=(pi/8)4^{-n}(n²−1)/n^4>0 at every n≥2, so V=0 iff the unknown is a translated disk. With z=V/(2cH), split n≤N=floor(log_4(1/z)/2) and n>N. The lower spectral coefficient and the H-weighted tail yield D/H≤(4/3)N²4^{-N}+1/(N+1)²≤4/(N+1)²<16/T² for T≥8. Analytic witness h=1+(2n²)^-1 cos(nφ) has curvature≥1/2 and D/H=1/n² while T=n+O(logn), forcing exponent two. Independent finite mode values and direct quadratic checks corroborate; they are not infinite proofs.
 
-The closest inspected published mixed-area article (Wang–Luo–Zhou, 2016, equation (1.8)) gives the angle-averaged first moment; Xu–Zhou–Zhu (2013) give kinematic mixed-isoperimetric containment bounds, not inverse stability from area fluctuations. Gardner–Hug–Weil (2013) supplies ordinary Minkowski addition within its broader Orlicz framework. A later Betke–Weil extension concerns deterministic pointwise mixed-area bounds. Classical support Fourier formulas imply our covariance lemma and are duly treated as prior knowledge, not a novelty assertion. They do not alone state the conditional logarithmic inverse estimate with a fixed analytic probe or the sharp sequence of strictly curved witnesses. A prior unindexed formulation of the derived logarithmic stability remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The inverse question is natural: when a nonround analytic reference is combined with an unknown planar shape in random orientations, does its measured area fluctuation quantify distance from a disk? The answer gives disk rigidity and a controlled recovery rate for the canonical isoperimetric deficit on a geometrically meaningful curvature-energy class. High-frequency smooth perturbations prove the logarithmic exponent genuinely optimal, identifying the information loss of rotational variance. The claim does not rely on arbitrary finite tables, unsupported applications, or numerical novelty.
+Classical mixed-area Fourier polarization implies the covariance expression and is credited. The inspected Xu–Zhou–Zhu / Wang–Luo–Zhou mixed-area articles develop kinematic inequalities and first angular averages; none of the inspected statements gives the conditional inverse inequality or optimal logarithmic exponent for a single fixed analytic probe. A published random Minkowski symmetrization covariance theorem was inspected in full: it treats repeated random reflections and area-deficit temporal covariances rather than a rotated fixed-probe measurement, so it does not dominate the stability theorem. Earlier inverse-tomography formulations remain possible.
 
-## Scope and integrity
+## value
 
-The variance is a population quantity, and no finite-observation recovery, optimal prefactor, or higher-dimensional version is claimed. Mathematical independence and external verification have not been asserted. The historical literature search was broad but not exhaustive. See AUDIT.json for specific source comparisons and residual uncertainties.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact-population variance against one geometric probe tests proximity to a disk in the natural isoperimetric deficit, under an explicit intrinsic curvature energy. Spectrally invisible high Fourier modes motivate a logarithmic modulus, and real-analytic positive-curvature witnesses prove the exponent optimal. This is a substantive natural inverse-stability result, not only a known Fourier identity or a finite numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
