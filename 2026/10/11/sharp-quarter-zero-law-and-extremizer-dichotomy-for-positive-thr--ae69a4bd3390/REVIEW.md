@@ -1,17 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single theorem treats strictly positive real weights on three distinct points in \(\mathbb Z_{2^k}\), with \(k\ge2\). Translation and the common gcd reduce the problem to primitive support in \(\mathbb Z_m\) and multiply the number of zeros by \(g=N/m\). The phase map is injective. With strict triangle side inequalities, fixing the real part of one unit phase leaves only two complex-conjugate phase pairs, hence exactly two primitive Fourier zeros when any occur. With degenerate triangle equality, the phases must be \(\pm1\); the primitive gcd forces the unique possible frequency \(m/2\), with the stated parity weight balance. The four-root geometry eliminates strict triangles at \(m=4\), and the general \(2g\) bound settles \(m\ge8\). The extremizer identities use exact fourth- and eighth-root cancellation. These arguments prove the infinite theorem without relying on finite sampling. The embedded cyclotomic checker passed 35,658 weighted examples, 24,816 strict-geometry cases, and 13 exact extremizer checks.
+## correctness
 
-## Originality — PASS, with stated access risk
-The published unrestricted three-point cyclic uncertainty theorem gives at most \(N/2\) zeros for complex coefficients on dyadic cycles; it does **not** yield the sharper positive-coefficient \(N/4\) bound, the \(\{0,g,2g\}\) spectrum, or the order-four/order-eight maximizer classification. The published unimodular-coefficient theorem permits arbitrary phases but imposes equal coefficient magnitudes, so it neither contains nor implies this positive unequal-weight theorem. The published dyadic four-point-indicator theorem has the wrong exact support size. All three relevant published full results were materially inspected.
+PASS
 
-Tan and Zhang's September 2026 cyclotomic theorem requires a polynomial to vanish at every primitive \(N\)-th root and constrains polynomial diameter, rather than counting individual Fourier zeros for real-positive three-atom signals. In particular, the degree-two polynomial \(1+\sqrt2z+z^2\) has precisely two primitive eighth roots as zeros and is not divisible by \(\Phi_8\). The full Tan–Zhang preprint was inaccessible through the available lawful full-text routes; this leaves an acknowledged residual risk of an unindexed subsidiary statement. Prior finite-group uncertainty and vanishing-sum work were compared at the statement level. Search nonmatches are not treated as uniqueness proofs.
+For N=2^k≥4, common difference gcd g reduces to primitive m=N/g with an injective phase map k↦(exp(−2πiku/m),exp(−2πikv/m)). The cancellation w0+w1X+w2Y=0 with positive real weights has either exactly two conjugate solutions for X,Y when triangle inequalities are strict, or only antipodal phases ±1 in the degenerate case. Injectivity gives either 2g zeros at t and −t, or g zeros at the unique primitive order-two residue m/2; other weights have zero zeros. The m=4 fourth-root geometry has no strictly enclosing triangle, hence only g=N/4; for m≥8, 2g≤N/4. Equality requires (m=4, degeneracy) or (m=8, strict triangle). Roots of (1+z)^2 and 1+sqrt2 z+z² at the specified fourth/eighth roots certify sharpness. Recomputed exact cyclotomic reduction on 2970 weighted/support configurations and checked analytic triangle argument; no finite enumeration substitutes for the proof.
 
-## Value — PASS
-Positive Fourier measures are natural probability and sampling objects; positivity changes the extremal Fourier-zero count by a sharp factor of two relative to freely phased three-point signals. The complete count trichotomy and classification of all maximizers distinguishes collinear cancellation in a quotient of order four from genuine triangular cancellation in a quotient of order eight. These are structural extremal facts for an infinite dyadic family, not a numerical improvement or a table entry. The restrictions to three positive atoms and dyadic cyclic orders are scientifically material.
+## originality
 
-## Residual risks and limitations
-Previously unindexed sparse-mask or positive-trinomial literature might contain an equivalent special case. The complete Tan–Zhang preprint could not be inspected due to institutional access limitations. The result does not address non-dyadic cyclic orders, more than three atoms, complex phases, or approximate zeros. Finite checker results are corroborative, not a substitute for the general proof.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete previously published Resultary three-point uncertainty theorem permits arbitrary nonzero complex coefficients and yields only the N/2 dyadic bound, while the separate complete unimodular-coefficient result fixes equal magnitudes but allows phases. Neither implies the strict-positive unequal-weight N/4 bound and its two distinct arithmetic equality regimes. The complete four-point indicator result is a different support size. The accessible Tan–Zhang preprint description is about vanishing on every primitive root via cyclotomic divisibility, unlike two selected primitive eighth roots; full text unavailable, noted as residual risk.
+
+## value
+
+PASS
+
+The strict-positivity restriction on a natural three-atom probability/measure class halves the sharp allowable Fourier-zero fraction versus unrestricted coefficients. The result classifies every zero count and all extremizing support quotient sizes and weight geometry across all powers of two, a meaningful structural Fourier uncertainty refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

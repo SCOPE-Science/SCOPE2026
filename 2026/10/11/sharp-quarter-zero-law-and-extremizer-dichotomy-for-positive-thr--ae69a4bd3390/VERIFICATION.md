@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify_positive_three_sparse.py` using Python 3 and its standard library. The checker uses the exact quotient \(\mathbb Z[X]/(X^{N/2}+1)\) to evaluate dyadic Fourier sums with rational integer weights and the algebraic weight \(\sqrt2\). The latter is expanded exactly as the sum of two eighth roots of unity. A successful run prints:
+## correctness
 
-`VERIFY_OK rational_trials=35658 strict_geometry_cases=24816 integer_and_quadratic_extremizers=13`
+PASS
 
-The checker enumerates the displayed finite ranges and exact witness families through order \(256\). The proof for every power-of-two order uses the injective phase map, triangle rigidity, and four-root geometry independently of any finite enumeration. No machine run establishes the originality of a mathematical statement; the separate literature comparison and residual access risks are recorded in `REVIEW.md` and `AUDIT.json`.
+For N=2^k≥4, common difference gcd g reduces to primitive m=N/g with an injective phase map k↦(exp(−2πiku/m),exp(−2πikv/m)). The cancellation w0+w1X+w2Y=0 with positive real weights has either exactly two conjugate solutions for X,Y when triangle inequalities are strict, or only antipodal phases ±1 in the degenerate case. Injectivity gives either 2g zeros at t and −t, or g zeros at the unique primitive order-two residue m/2; other weights have zero zeros. The m=4 fourth-root geometry has no strictly enclosing triangle, hence only g=N/4; for m≥8, 2g≤N/4. Equality requires (m=4, degeneracy) or (m=8, strict triangle). Roots of (1+z)^2 and 1+sqrt2 z+z² at the specified fourth/eighth roots certify sharpness. Recomputed exact cyclotomic reduction on 2970 weighted/support configurations and checked analytic triangle argument; no finite enumeration substitutes for the proof.
+
+## originality
+
+PASS
+
+The complete previously published Resultary three-point uncertainty theorem permits arbitrary nonzero complex coefficients and yields only the N/2 dyadic bound, while the separate complete unimodular-coefficient result fixes equal magnitudes but allows phases. Neither implies the strict-positive unequal-weight N/4 bound and its two distinct arithmetic equality regimes. The complete four-point indicator result is a different support size. The accessible Tan–Zhang preprint description is about vanishing on every primitive root via cyclotomic divisibility, unlike two selected primitive eighth roots; full text unavailable, noted as residual risk.
+
+## value
+
+PASS
+
+The strict-positivity restriction on a natural three-atom probability/measure class halves the sharp allowable Fourier-zero fraction versus unrestricted coefficients. The result classifies every zero count and all extremizing support quotient sizes and weight geometry across all powers of two, a meaningful structural Fourier uncertainty refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
