@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is quantified only for two-map strongly separated self-similar systems with contraction ratios \(\rho\) and \(\rho^2\). The Eulerian graph for cyclic Golden-Mean words is balanced and strongly connected: incoming and outgoing degree are both two exactly when the first and last vertex bits are zero, and otherwise both are one; zero-padding connects every vertex to and from the all-zero vertex. The resulting universal cycle has distinct cyclic length-\(n\) factors. The cyclic code \(0\mapsto0\), \(1\mapsto10\) is uniquely parseable because the binary cycle contains no adjacent ones. Its boundary count is exactly \(F_{n+1}\). Distinct parsed rotations cannot share original-symbol prefix weight \(n\) or more, because that would repeat a length-\(n\) binary factor. Strong separation supplies the Euclidean lower gap. Finally, \(\rho^s+\rho^{2s}=1\) gives \(\rho^s=\varphi^{-1}\), and Binet's formula gives the positive limiting constant.
+## correctness
 
-Risk: none of the finite checker output is used to certify the infinite graph argument. The checker is only a replay on small spans.
+PASS
 
-## Originality
-PASS. The closest source, arXiv:2609.16296v1, proves positivity of critical periodic content for homogeneous self-similar systems but explicitly leaves the inhomogeneous endpoint open in Question 5.1. Its inhomogeneous construction gives subcritical exponents and therefore does not imply the claim. Exact and semantic searches for the \(\rho,\rho^2\) family, Golden-Mean reformulation, commensurable contraction ratios, weighted symbolic metrics, and restricted de Bruijn cycles did not locate a covering endpoint theorem. Moreno's restricted-language de Bruijn work supplies the nearest combinatorial precedent but not the dynamical conclusion.
+The cyclic golden-mean overlap digraph on admissible length-n words has equal indegree/outdegree (two when its length n−1 vertex begins/ends with 0, otherwise one) and is strongly connected via the all-zero word. An Eulerian cycle contains each admissible length-n cyclic factor once. Parsing 0→0,1→10 produces primitive periodic original-symbol words; the number of codeword boundaries equals the number of zeros = Fibonacci F_{n+1}. Distinct orbit starts cannot share n binary expansion bits, so common prefix weight ≤n−1 in the {1,2}-weighted symbolic metric and separation≥rho^{n−1}. SSC gives Euclidean factor delta_F. Since rho^s=1/phi, Binet implies liminf period*gap^s≥delta_F^s phi²/sqrt(5)>0, and Kong–Wang–Yu Theorem 2.3 implies positive critical periodic content. Independently implemented exhaustive admissible-word/Eulerian/parsed-orbit checks for n=2..8, reproducing orbit sizes 2,3,5,8,13,21,34; this finite check is supplementary to the all-n Eulerian argument.
 
-Residual risk: an unindexed or later-posted independent special-case solution may exist.
+## originality
 
-## Value
-PASS. This is a natural structural special case of a current explicit open problem, not an arbitrary parameter computation. The pair \(\rho,\rho^2\) converts the inhomogeneous metric to weights \(1,2\), whose variable-length coding is exactly the Golden-Mean shift. The construction reaches the critical exponent and gives an explicit positive normalized-gap constant, providing a reusable mechanism for studying other commensurable families.
+PASS
 
-## Closest literature and limitations
-The primary 2026 paper is the direct scientific target; it supplies the periodic-content criterion, the symbolic metric, the bi-Lipschitz coding lemma, and the open inhomogeneous Question 5.1. Restricted-language de Bruijn literature supplies relevant combinatorial context. The present theorem does not claim arbitrary commensurable or incommensurable contraction vectors.
+Kong–Wang–Yu explicitly prove homogeneous positivity, subcritical inhomogeneous estimates and pose endpoint positivity for inhomogeneous SSC systems as Question 5.1. Restricted-language de Bruijn cycles are classical (Moreno), but do not by themselves entail this weighted coding, critical Fibonacci normalization and self-similar periodic separation. Resultary query returned this exact current record with no separate covering critical endpoint theorem; independent newer special-case work remains a risk.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The contraction pair rho,rho² is the first natural commensurable inhomogeneous case of a recent explicit structural problem. It identifies an exact golden-mean coding mechanism and a positive critical normalized gap, not merely a finite computational example or arbitrary slice. The proof may be adaptable to more intricate commensurable alphabets without purporting to settle them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
