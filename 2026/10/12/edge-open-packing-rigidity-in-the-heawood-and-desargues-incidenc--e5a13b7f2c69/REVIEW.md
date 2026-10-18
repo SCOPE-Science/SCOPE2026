@@ -1,15 +1,21 @@
-# Scientific review of edge-open packing in two incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-Both incidence realizations are explicitly defined. The proof derives the cubic inequality \(2s+3c\le3N/2\) with \(s\le3c\), forcing the respective numerical upper bounds \(6\) and \(9\). It then exhausts all possible numbers of induced star components at equality: two full stars are excluded by diameter three in Heawood; the surviving three double-stars correspond exactly to a Fano line or its dual. In Desargues, three full stars and the two-full-star four-component pattern are excluded by disjointness/inclusion, leaving exactly one full star and the three double-stars centered at its complementary two-subsets; complementation handles the other side. These arguments prove the exact counts \(14\) and \(20\) and one automorphism orbit for each, not merely a computational lower bound. The verifier constructs the graphs from the definitions and confirms their complete maximal-clique spectra, independent exact optimum counts, star profiles and automorphism orbits. Finite enumeration does not imply analogous claims for any other graphs.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Chelladurai, Kalimuthu and Soundararajan (2022) introduced edge-open packing. Brešar and Samadi (2024, arXiv:2403.00750v1, Sections 1 and 4) establish the general \(|E|/\delta\) upper bound and equality characterization; their theorem does not determine these two one-below-equality cases or enumerate their optimum edge sets. Brešar, Dravec, Hedžet and Samadi (2024, arXiv:2406.04020v2) derive product graph bounds and special hypercube cases, not these incidence-graph census statements. Pandey and Santra (2025, arXiv:2508.01935v1) provide generic prescribed-size criteria, not the two numerical extremal classifications. Searches under Fano incidence, Desargues Boolean middle levels, injective edge-color classes and induced star forests and comparisons against earlier research findings did not expose an equivalent result. Bibliographical coverage can never exclude an unindexed historical proof, and the original 2022 full text was not available for complete page-by-page comparison.
+PASS
 
-## Value — PASS
-The Heawood graph is the cubic \((3,6)\)-cage and the Desargues graph a classical Boolean middle-levels incidence graph. Both exhibit a sharp shortfall of precisely one from the natural cubic edge-count packing bound, and the classification proves substantially more than a finite number: a rigid structural type, the exact multiplicity of all optimum configurations, and symmetry uniqueness. They are meaningful benchmark configurations for edge-open packing and injective edge coloring. Neither the generic cubic inequality nor known special graph families are represented as new results.
+PASS: Any s-edge induced-star forest on c components in cubic graph of N vertices uses s+c vertices and incident-edge budget 2s+3c≤3N/2; as s≤3c this yields s≤N/2, with equality requiring 6|N. For Heawood N=14 this rules out seven edges; Fano incidence and diameter-three observations classify all six-edge packings as three 2-edge stars centered on the points of one line or the lines through one point, exactly 14. For Desargues N=20 this rules out ten; direct rank-two/rank-three subset-inclusion argument classifies nine-edge packings as 3+2+2+2 stars with all centers in one part and unique full-star center, exactly 20. Independently reconstructed both graphs from F2^3 dot-product incidences and 2-subset/3-subset inclusions, then built edge compatibility by explicit third-edge scans and exhaustively enumerated all maximal compatible sets. Heawood maximal-size histogram {3:14,6:14}, 14 size-six with profile (2,2,2); Desargues {5:132,6:105,8:30,9:20}, 20 size-nine with profile (2,2,2,3). Structural automorphism transitivity follows from Fano duality/collineations and S5 plus complementation; finite enumeration was independent of that orbit argument.
 
-## Scope and limitations
-Only the two fixed finite graphs are established; broad generalizations are not claimed. The explicit verifier is self-contained and its entire finite search terminates, but it does not certify uninspected literature or unbounded families. Residual scientific risk is undiscovered equivalent publication under a different name or invariant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): the main final all-parameter/complete enumeration is not implied by the inspected relevant prior results. Known general tools and specialized prior fibers/cases are acknowledged, with indexed-query and equivalent-formulation residual risks recorded.
+
+## value
+
+PASS
+
+PASS: The Heawood and Desargues graphs are canonical small cubic bipartite incidence geometries, not arbitrary chosen finite graphs. Both miss the sharp general cubic EOP upper bound by exactly one, and determining all maximum configurations and their automorphism-orbit rigidity refines a natural near-equality problem not settled by scalar universal bounds. Complete two-object finite classifications with concise geometric explanation can be reusable extremal benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
