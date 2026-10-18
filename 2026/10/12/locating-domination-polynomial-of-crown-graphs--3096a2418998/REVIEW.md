@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs every open-neighborhood trace from the omitted matching indices. Same-side collisions are equivalent to two doubly omitted indices, and the only additional failures are the two explicit domination boundary cases. The generating function follows from the three non-double-omission states per index, one optional double omission, and subtraction of the disjoint boundary failures. The lower bound and minimum-count formula follow from exact set identities. The standalone checker exhaustively verifies all subsets for \(5\le n\le7\).
+## correctness
 
-## Originality
-PASS. The closest full-text source on twin-free locating domination proves general bounds and a bipartite upper-bound consequence but does not specialize to crown graphs or enumerate all locating-dominating sets. A later exact paper on regular graphs treats different degree/order regimes. published-finding corpus and web searches covered crown graphs and the aliases complete bipartite minus a perfect matching, Kronecker/canonical double cover, tensor product with \(K_2\), and bipartite Kneser graph; no implication of the stated classification or polynomial was located. Residual risk remains from unindexed or differently phrased literature.
+PASS
 
-## Value
-PASS. Crown graphs are a standard twin-free bipartite family close to the conjectured half-order extremal scale. A complete all-set classification and bivariate polynomial reveal the full distribution, not just one minimum value, and the proof isolates the exact role of the deleted matching.
+For the deleted matching graph K_{n,n}−M_n, two omitted same-side vertices have equal selected-neighborhood traces iff both their matched partners are omitted; this is exactly |I∩J|>1, with separate one-selected-neighbor domination obstructions. The index-state generating function (xy+x+y)^n plus one double omission term minus explicitly disjoint boundary obstructions yields the bivariate displayed polynomial. Minimum n−1 follows from |I∪J|+|I∩J|≤n+1 with feasible p=3..n−2; counts n(2^(n−1)−2n), total (n+3)3^(n−1)−2n(n+1). Independently tested every labeled subset for n=4..7, obtaining totals 149,588,2103,7178 and minima 4,4,5,6; n=4 boundary correctly excluded from n−1 claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared both defining graph aliases K_{n,n}−perfect matching and Kronecker double cover K_n×K_2 with the original twin-free locating-domination bounds. Bounded exact searches and the Resultary crown-graph entries return restrained and Roman domination (different set conditions), not the locating polynomial. No identical bivariate enumeration found in inspected primary work; residual ambiguous crown terminology.
+
+## value
+
+PASS
+
+Crown graphs are a canonical twin-free bipartite test family. An exact bivariate all-set locating-domination enumerator and complete minimizer census contain structural information lost by a mere domination-number bound and support enumeration/probabilistic investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
