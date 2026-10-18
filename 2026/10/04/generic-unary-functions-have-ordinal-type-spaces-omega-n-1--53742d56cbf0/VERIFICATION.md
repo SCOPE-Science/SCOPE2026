@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` is the primary verification. The bundled checker tests the two local term-diagram operations on which the Cantor--Bendixson induction rests.
+## correctness
 
-For every canonical mixed diagram on at most five variables obtained from fixed-point finite components and free infinite components, and for observation depths through six, it records all equalities among the terms \(f^a(x_i)\) visible up to that depth. It then closes each free component into a cycle strictly after the observation horizon and confirms that the visible equality diagram is unchanged while the number of infinite components drops by exactly one.
+PASS
 
-Separately, for one-variable eventually periodic diagrams with tail lengths and cycle lengths through six, it constructs the finite conjunction consisting of the first repeated equality together with all earlier inequalities and checks that this finite data uniquely fixes all later equalities in a bounded replay.
+From Jeřábek's quantifier elimination for the model completion EC_{one unary f}, a complete n-type is exactly a coherent congruence diagram among the iterates f^m(x_i). A finite functional-graph component necessarily becomes periodic; every infinite component has one eventually merged forward ray. For X_k={p:rho(p)>=k}, finite equality data isolating complete periodic components and the finite mergers of distinct rays show a type with exactly k infinite components is relatively isolated in X_k. Conversely every type with rho>k has arbitrarily late ray closure into a directed cycle that preserves any specified finite diagram, produces a distinct type and decreases rho by exactly one. Thus X_k'=X_{k+1} through k=n, the top-rank n type is the unique complete diagram with all f^a(x_i) distinct, and the next derivative is empty. Combined with Jeřábek's countability of S_n, Stone compact metrizability and classical finite-height scattered compacta classification, this gives S_n approximately omega^n+1. The bundled bounded term-diagram checks only test the local mechanism and do not establish the infinite claim.
 
-Replay command:
+## originality
 
-`python3 artifacts/verify.py`
+PASS
 
-Recorded output:
+Jeřábek proves QE, completeness, total transcendence and only countability of each S_n, but the published text inspected does not compute the exact Cantor--Bendixson derivative filtration or pointwise forward-component rank. The new exact ordinal homeomorphism is not implied by mere omega stability/countability; older differently named Morley-rank computations remain a clear risk.
 
-```text
-prefix_closure_checks 4186
-one_variable_eventual_periodic_checks 14665
-VERIFY_OK
-```
+## value
 
-These are finite consistency checks only. They do not replace the infinite proof that every first new equality beyond a stabilized prefix either closes one ray or merges two rays, nor the induction identifying all Cantor--Bendixson derivatives.
+PASS
+
+A complete classification of the Stone topology S_n in every finite arity of a canonical totally transcendental generic theory is a natural structural invariant. It determines not just countability but the exact ordinal compactum and rank of every individual type by a concrete functional-graph statistic, useful in stability/model-theoretic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
