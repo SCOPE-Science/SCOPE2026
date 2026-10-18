@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:12:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For Cr_n (n>=3), the open neighborhood of a_i is B minus b_i and of b_i is A minus a_i. For each side, the label sum must be at least 2, because at least one +1 occurs and its complementary neighborhood tests side_sum-1>=1; conversely a side sum >=2 implies all its neighborhoods meet the bound. Parity of a length-n ±1 sum upgrades 2 to 2 for even n and 3 for odd n. Therefore h=(n+epsilon_n)/2 plus vertices per part is necessary and sufficient. Independent choices of the two parts yield E_n(u,v)=P_n(u)P_n(v) where P_n(z)=sum_{k=h}^n binom(n,k)z^k; W_n(t)=(sum binom(n,k)t^{2k-n})^2, gamma_st=2epsilon_n and min layer binom(n,h)^2, total counts by binomial symmetry. My independent brute-force open-neighborhood classification for n=3,4,5,6 reproduced totals 1,25,36,484 and minimum multiplicities 1,16,25,225; the parity algebra proves arbitrary n. No n<3 connected-crown claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelinka, Czechoslovak Mathematical Journal 51 (2001), Proposition 4, gives gamma_st(K_m,n)=2/3/4 according to parities, with no deleted matching.",
+          "Liang arXiv:1205.0343 Sections 1-2 defines complete multipartite graphs with all cross edges and derives domination numbers, not a full function count on crowns."
+        ],
+        "reasoning": "The deleted matching makes Cr_n outside the complete multipartite hypothesis and forces the stronger per-side sum ≥2; neither prior scalar theorem implies the complete crown bivariate polynomial.",
+        "searches": [
+          "signed total domination crown graph K_n,n minus perfect matching weight enumerator",
+          "DOI:10.1023/A:1013782511179",
+          "arXiv:1205.0343"
+        ]
+      },
+      "checked_sources": [
+        "Signed total domination number of a graph (https://dml.cz/bitstream/handle/10338.dmlcz/127643/CzechMathJ_51-2001-2_1.pdf)",
+        "Signed and Minus Domination in Complete Multipartite Graphs (arXiv:1205.0343v1)",
+        "Published mathematical-record semantic search: signed total domination crown graph K_n,n minus perfect matching weight enumerator",
+        "Pinned package RESULT.md and finite verifier at commit 40d46a820f74fdf355c691812bdc426ec204bde7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zelinka Proposition 4 implies gamma_st(K_n,n)=4 (n even), 2 (n odd) but not the crown values 4/6 or multiplicities.",
+          "Liang's theorems apply to complete multipartite graphs; Cr_n is not of that form when n>=3."
+        ],
+        "reasoning": "No cited result has hypotheses already covering the crown deleted-matching neighborhood pattern, so the exact weight-product is not a direct corollary.",
+        "searches": [
+          "signed total domination crown graph K_n,n minus perfect matching weight enumerator",
+          "DOI:10.1023/A:1013782511179",
+          "arXiv:1205.0343"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighborhood inequalities on deleted perfect-matching bipartite graphs reduce exactly to the opposing side sum minus that vertex label.",
+          "The resulting pairwise-independent binomial-tail product is a weight enumerator, not just a minimum gamma parameter."
+        ],
+        "reasoning": "Relabeling deleted matchings yields the same crown graph but does not identify a stronger prior enumerator; generic binomial theorem is credited as arithmetic.",
+        "searches": [
+          "signed total domination crown graph K_n,n minus perfect matching weight enumerator",
+          "DOI:10.1023/A:1013782511179",
+          "arXiv:1205.0343"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent enumeration on n=3..6 produced all bivariate coefficients from two truncated binomial tails.",
+          "Related published records: weight enumerator of minus domination on complete multipartite graphs; restrained domination of crown graphs; none uses this signed total domination constraint with full coefficient distribution."
+        ],
+        "reasoning": "The combinatorial quantities computed here are natural enumerators but not a known database table identified in the queried literature. A missed older formula remains a residual possibility.",
+        "searches": [
+          "signed total domination crown graph K_n,n minus perfect matching weight enumerator",
+          "DOI:10.1023/A:1013782511179",
+          "arXiv:1205.0343"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Zelinka (2001) proves signed-total-domination numbers for complete bipartite graphs, not crown graphs or all feasible-function weight distributions. Liang (2012/2016) classifies scalar domination numbers of complete multipartite graphs. Cr_n is not complete multipartite for n>=3, because between its two given classes each vertex has a distinct non-neighbor; the neighborhood sum loses a coordinate. Published-record matches for signed total domination of complete multipartite and other crown domination variants concern different invariants. The full crown weight enumerator and parity-sensitive deletion are not mechanically implied by the known scalar minima.",
+      "residual_risks": [
+        "An unindexed signed-total-domination enumeration under matching-deletion or bipartite graph terminology could be equivalent.",
+        "The proof is elementary; value rests on completeness of the full natural distribution and parity deletion comparison, not depth of the counting method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING crown graphs or all-function weight distribution",
+          "evidence": "Proposition 4 gives only min weight on complete bipartite K_m,n under full neighborhoods.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/127643/CzechMathJ_51-2001-2_1.pdf",
+          "material_read": "Complete digitized 6-page PDF; especially Proposition 4 and proof on journal pp 227–228, and the remaining regular/graph examples",
+          "method": "Read full primary PDF text and checked page 227 image",
+          "title": "Signed total domination number of a graph",
+          "trigger": "Original 2001 definition and closest complete-bipartite baseline"
+        },
+        {
+          "assessment": "INAPPLICABLE to Cr_n for n>=3",
+          "evidence": "Every cross-part edge is present for complete multipartite graphs, while crowns delete an index-dependent matching; paper focuses on scalar γ.",
+          "identifier_or_url": "arXiv:1205.0343v1",
+          "material_read": "Full 10-page arXiv PDF, definitions and theorems, with page-image inspection",
+          "method": "Read primary full PDF and the specific complete multipartite hypothesis",
+          "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+          "trigger": "Plausible broader complete multipartite signed-total domination classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS with appropriately modest scope: The family of all signed total dominating labelings of a standard naturally defined near-complete bipartite graph is a natural enumerative invariant, not an arbitrary small numeric slice. The exact bivariate count yields every weight coefficient, minimum-layer multiplicity, total number and a parity-sensitive classification of which labelings are destroyed by deleting a perfect matching. The derivation is elementary, so no deep technique or generalization beyond crowns is claimed; the whole feasible-function distribution is more informative than the previously known scalar parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Connected crown graphs n>=3 only; not arbitrary K_m,n minus matching or general bipartite graphs.",
+    "Exhaustive finite tests supplement rather than prove the all-n formula."
+  ]
+}
