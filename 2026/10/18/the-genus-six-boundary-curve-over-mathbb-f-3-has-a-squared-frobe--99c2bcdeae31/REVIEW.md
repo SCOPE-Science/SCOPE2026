@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The precise base field, smooth normalization, separable Artin–Schreier cover and four rational simple poles are established. A translation-orbit argument proves the infinite count identity for \(3\nmid n\). Two exact finite-field point-count methods reproduce the critical extension-degree-three and degree-six counts. Integer Newton identities plus the genus-six functional equation recover the entire numerator, and exact convolution verifies its factorization. The quartic's rational irreducibility and the elliptic trace are checked. Standard finite-field isogeny theory then proves the decomposition. Critical mathematics and every computational input are documented in RESULT.md and verify.py.
+
+**Originality — PASS with explicit residual risk.** Tafazolian's originating paper [1] classifies the curve's geometry and automorphisms but does not determine the arithmetic zeta polynomial. Giulietti–Korchmáros [2] treat a genus-two family, and Weil-polynomial databases [3] list isogeny classes but do not identify this explicit genus-six Jacobian. Searches for the equation, zeta polynomial, its aliases, the factorization and analogous group cases in published-finding corpus and the indexed literature did not identify a covering claim. An unindexed arithmetic table or independent point-count computation remains a possible overlap; search nonretrieval alone is not presented as novelty proof.
+
+**Mathematical value — PASS.** The \(c=1\) model is the natural smallest-field arithmetic specialization of the exceptional genus-six, characteristic-three automorphism-boundary family singled out by a new geometric classification. Its complete Hasse–Weil numerator determines point counts over every finite extension and exhibits a nontrivial repeated elliptic–surface decomposition of its Jacobian. The translation symmetry provides an exact infinite family of point-count identities, so this is more than a small finite example or a routine normalization check. The arithmetic classification does not claim a statement for the full parameter family.
+
+Residual risk: possible unindexed equivalent arithmetic computation, no explicit isogeny map, and only one coefficient specialization.
+
+Self-review: passed. Independent audit: not yet performed.
