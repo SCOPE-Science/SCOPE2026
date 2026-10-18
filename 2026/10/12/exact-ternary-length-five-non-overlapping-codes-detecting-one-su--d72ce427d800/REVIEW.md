@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding fixes an unambiguous finite universe: all \(3^5=243\) ternary words, four proper prefix/suffix lengths, and pairwise Hamming distance at least two. The complete checker independently builds compatibility by direct two-word overlap tests and by intersections of prefix/suffix languages; these agree for every pair. The canonical 48-word graph has exactly four size-nine maximum cliques in both Bron–Kerbosch and a separate all-cliques traversal; the singleton/singleton 24-word graph has maximum five. First/last-symbol support reduction proves global coverage, and an independently enumerated global 144-vertex graph gives exactly 24 size-nine cliques. The full symmetry action verifies two orbits of size twelve with different pair-distance distributions. Finite proof only; no infinite-size extrapolation.
+## correctness
 
-## Originality — PASS, with residual risk
-The inspected full Blackburn preprint defines the broader non-overlapping framework but does not settle the distance-constrained ternary length-five equality layer. The inspected full open-access 2024 Stanovnik–Moškon–Mraz article gives the **unrestricted** optimum \(17\) and its \(12\) maximum codes, which do not imply a maximum or census for the stricter distance-two subfamily; their 2025 article concerns distinct balance and run-length restrictions. The full published exact length-five result was read: it derives the unrestricted maximum and count for all alphabet sizes, not the Hamming-constrained nine-word optimum and its 24 equality cases. Searches under cross-bifix-free, mutually uncorrelated, non-overlap, and substitution detection did not locate an equivalent exact nine/24/two-orbit statement. An abstract on Hamming-restricted partial-overlap-free codes is relevant but insufficient to resolve whole-document coverage; a reliable full text was unavailable, which is expressly retained as a residual risk. A failed search alone does not establish novelty; the comparison is based on difference of constraints and implications in inspected sources.
+PASS
 
-## Value — PASS
-The constraint joins frame synchronization with guaranteed detection of any one substituted symbol, a natural combined requirement in synchronization and DNA-style channel design. The unrestricted ternary length-five capacity is \(17\), whereas imposing one-substitution detection reduces the sharp size to \(9\); the complete equality census reveals two genuinely different optimal geometries, rather than supplying one arbitrary construction. This small canonical benchmark is a nontrivial joint-distance classification; the result is not claimed to be a general theorem.
+Independently reconstructed all 3^5=243 words, discarded self-overlap at all proper prefix/suffix lengths, obtaining 144 eligible words and 3324 undirected compatibility edges requiring both cross-nonoverlap directions and Hamming distance≥2. Exhaustive independent bitset Bron–Kerbosch maximal-clique recursion yielded exact histogram {3:12,4:108,5:2436,6:7764,7:4356,8:1020,9:24}, so nine is global upper bound and attained exactly 24 times. Explicit action of S3 and full reversal partitions maxima into two disjoint 12-element orbits with verified Hamming spectra (21,10,5,0),(22,8,6,0). This is complete finite exhaustive proof for fixed alphabet/length, not extrapolation to other blocklengths. All graph vertices, edges and recursion invariants were checked, not only a saved terminal VERIFY_OK.
 
-## Remaining scientific limits
-The proof is a complete, reproducible 243-word finite census. A plausibly relevant later Hamming-constrained overlap-free paper was accessible only in preview/abstract form, and an unindexed historical enumeration remains possible. No external independent audit or certification was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Blackburn establishes general non-overlapping constructions and unrestricted ternary length-five optimum 17 is published, but a larger unconstrained optimum does not imply the distance-two-constrained nine optimum or its equality census. No identified stronger bound/classification covers the joint constraint. The 2025 Wang–Fang–Feng partial-overlap paper is a significant unresolved full-text comparison risk; the authorized retrieval returned a different 2019 inversion-sequence PDF despite supplied DOI, so no false full-text inspection is claimed. Best-of-knowledge originality can survive this access mismatch.
+
+## value
+
+PASS
+
+Joint synchronization via proper prefix/suffix exclusion and one-symbol substitution detection is a natural coding-theory problem; the sharp complete small-parameter classification and two inequivalent optimal distance signatures are reusable exact benchmark data, not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
