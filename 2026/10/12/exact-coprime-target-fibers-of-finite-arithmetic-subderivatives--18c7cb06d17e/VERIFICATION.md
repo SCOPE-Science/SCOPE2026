@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and has no finite cutoff. Its critical steps are:
+# Independent mathematical audit
 
-1. For an \(S\)-coprime target, any exponent \(\nu_p(n)\ge2\) with \(p\in S\) would force \(p\mid D_S(n)\), so all active \(S\)-exponents equal one.
-2. Writing the active subset as \(T\) and \(n=mP_T\) gives the exact identity \(D_S(n)=mH(T)\).
-3. Divisibility \(H(T)\mid y\) is both necessary and sufficient because \(H(T)\mid y\) together with \(\gcd(y,P_S)=1\) makes \(m=y/H(T)\) coprime to \(P_S\).
-4. Distinct subsets have distinct intersections with \(S\), hence yield distinct preimages.
-5. Singleton subsets prove the universal lower bound and exact minimum; the admissible-subset least common multiple proves the exact maximum.
+## correctness
 
-The included `verify.py` recomputes \(D_S\) directly from valuations and compares predicted and actual fibers for 135 coprime targets across four finite prime sets. For exhaustive checks it uses the rigorous bound \(n\le y\max(S)\), since any positive value satisfies \(D_S(n)\ge n/\max(S)\). It also verifies
-\[
-D_{\{2,3,5\}}^{-1}(217)=\{210,310,434,651,1085\}.
-\]
-The computation is regression evidence only. No finite experiment is used to justify the general theorem.
+PASS
+
+For p in S an active exponent >=2 leaves a factor p in every integer summand (n/q)*nu_q(n), contradicting target coprime to P_S. Thus exponents in S are 0 or 1; support T nonempty, n=mP_T with gcd(m,P_S)=1, and D_S(n)=m H(T). This proves necessity H(T)|y and formula; sufficiency follows since H(T)|y with y S-coprime forces y/H(T) S-coprime, so each selected T yields its own distinct support. Singleton T have H=1 and give |S| for every y; at y=1 all |T|>=2 have H>1. Max is #admissible T attained by lcm H(T), which remains S-coprime. Independently enumerated all possible n up to y max(S) for y up to 54 over four S sets; exact predicted fibers agreed and 217 example checked. Proof covers unbounded primes/targets; tests supplementary.
+
+## originality
+
+PASS
+
+The exact coprime-target finite-S inverse fiber and extremal branching do not follow from the earlier general Leibniz-additivity definitions or singleton-prime arithmetic partial derivative inverse classification: finite sums have coupled support interactions, resolved here via coprimality. Best knowledge; potential newer finite-S inverse statements are a residual risk.
+
+## value
+
+PASS
+
+Inverse fibers of finite arithmetic subderivatives are an explicitly motivated natural question extending singleton derivative fibers; this theorem gives complete structure on the canonical S-coprime target stratum, exact min/max branching and constructive witnesses for every S, not a sampled table or arbitrary tiny invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
