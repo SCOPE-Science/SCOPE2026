@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The analytic proof is self-contained once the exact circumradius/ball-segment identity and half-distance moment formula from arXiv:2608.29975v1 are taken as premises.
+# Independent mathematical audit
 
-`artifacts/verify.py` performs the following reproducibility checks:
+## correctness
 
-1. It evaluates the rational formula for \(a_d\) and verifies \(a_2=1/7\) and \(a_3=144/455\).
-2. It verifies \(C_3a_3=432/25025\) using \(C_3=3/55\).
-3. It verifies the three-dimensional extreme-value coefficient
-\[
-\frac{a_3}{C_3}+\frac12=\frac{1147}{182}.
-\]
-4. It numerically evaluates the exact ball-segment cross-section integral for \(d=2,3,4\) and checks that, after subtracting the second-order approximation, the relative residual scales as \(R^{-4}\).
+PASS
 
-The numerical integral is a finite consistency check, not a proof of the asymptotic statement. The proof of the universal fixed-\(d\) expansion is the uniform Taylor expansion and exact beta-integral computation given in `RESULT.md`.
+For three independent volume-uniform points of the unit d-ball and fixed d>=2, start with the published exact 3/kappa_d expected ball-segment volume identity. Uniformly for 0<=|s|<=ell<=1, the difference of square roots equals (ell²-s²)/(2R) * [1+(ell²+s²)/(4R²)+O(R^-4)]; integrate its (d-1)st power. Beta ratio I1/I0=2(d+1)ell²/(2d+1). From published half-distance moments, E L^(2d+1)/E L^(2d-1) = ((3d-1)/(3d+1))*3d/(4d+1), yielding a_d=3d(d²-1)(3d-1)/(2(2d+1)(3d+1)(4d+1)). Independently verified rational d2 through d12; d2=1/7 is prior-known and expressly non-novel, d3=144/455, C3=3/55, second tail coeff 432/25025. For maxima, k log(1-P) contains geometry k^-2/(d-1); at d3 binomial correction k^-1 also contributes 1/2, total 1147/182. Remainder uniformly integrable because ell<=1 and fixed d.
 
-Scientific limits: no uniformity in \(d\), no statement for more than three defining random points, and no statement for non-ball sampling domains.
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Second-order circumradius tails for three random points in a Euclidean ball. Risks and partial readings disclosed.
+
+## value
+
+PASS
+
+The coefficient explicitly resolves the first term concealed in a recent sharp all-dimensional O(R^-2)-relative remainder and quantitatively controls finite-sample convergence to the Fréchet extreme-value limit. For d>=4 the geometric correction dominates binomial error, whereas for d=3 both contribute. This is a natural quantitative refinement of the circumradius law, beyond recomputing the already-known planar coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
