@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The condition κ=k is parametrized bijectively a.e. by (t,s) in (0,1)^2 with a=(k+t−s)/(k+t+s), b=2/(k+t+s), Jacobian 4/(k+t+s)^3. The next index is 1 for k≥12, and while subsequent digits equal 2 their coordinates form the arithmetic progression (c−jb,c−(j+1)b). The first failure occurs at j=ceil((k+s−3t−6)/4). Three explicitly evaluated rational triangle integrals, divided by the exact cylinder area 1/[k(k+1)(k+2)], give all conditional probabilities. Exact Fraction replay on 8,160 parameter-grid cases agrees. Computations support, but do not replace, the all-k integral proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Augustin et al., Math. Proc. Camb. Phil. Soc. 131 (2001), describes limiting distributions of fixed finite-length Farey spacings.",
+        "Korolev, arXiv:2502.19881v2, describes polygon areas for colored Farey denominator gaps, including short index-word regions; the accessible summary mentions area identities for T(k,1), k≥5.",
+        "Artiles–Best–Bordignon, arXiv:2610.07347v1, proves the mixing limit for fixed sets as time tends to infinity."
+      ],
+      "reasoning": "Neither a fixed spacing-window distribution nor strong mixing directly determines a sequence of events with k-dependent itinerary length L≈k/4. Korolev has the closest general polygon machinery, but no specifically dominating closed formula or simultaneous k,L phase result was found in accessible material. Its full-text access limitation is a substantive residual risk, not a claim of full inspection.",
+      "searches": [
+        "The h-spacing distribution between Farey points Augustin Boca Cobeli Zaharescu 2001",
+        "A distribution related to Farey sequences I Korolev 2025 polygon lemma",
+        "BCZ map excursion length after digit k starts index sequence k,1,2,2,... parabolic residence length k/4 four residue classes 1/6 1/2"
+      ]
+    },
+    "checked_sources": [
+      "Artiles–Best–Bordignon arXiv:2610.07347v1 (relevant HTML sections)",
+      "Korolev arXiv:2502.19881v2 (abstract and indexed summary only)",
+      "Augustin–Boca–Cobeli–Zaharescu 2001 (publisher abstract only)",
+      "Hall–Shiu 2003 (abstract only)",
+      "Published mathematical-record search on BCZ index, equivalent itinerary and parabolic excursion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 mixing theorem asserts m(A∩T^(−n)B)→m(A)m(B) for fixed A,B; it provides no uniformity as A varies with k.",
+        "The new conditional law has L proportional to k with explicit finite-k rational probabilities; it is stronger than convergence of a fixed finite itinerary cylinder frequency.",
+        "Korolev’s colored-denominator polygon framework is formally related but addresses differently conditioned counting problems."
+      ],
+      "reasoning": "Fixed-test-set mixing does not imply any quantitative cusp itinerary conditional law; single-index marginals do not fix conditional run lengths; generic cylinder polygon construction would require a nonuniform word-length evaluation. An inaccessible comprehensive treatment may still dominate the result and is disclosed.",
+      "searches": [
+        "Primary full HTML arXiv:2610.07347v1, Sections 1–2, 4–5 and theorem statements",
+        "Primary abstract arXiv:2502.19881v2 and available indexed description",
+        "Hall Shiu index of a Farey sequence 2003 marginal distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The paper arXiv:2610.07347v1 defines κ(a,b)=floor((1+a)/b) and proves strong mixing, not a conditional digit-run table.",
+        "Published Farey index descriptions use κ as the middle-denominator index; the event is equivalently a growing two-digit cylinder ending at the first non-2."
+      ],
+      "reasoning": "The four-phase claim concerns a random length L_k on a cylinder whose initial digit k increases. Synonyms include Farey index, BCZ itinerary, parabolic 2-string and cusp residence time. No equivalent four-residue rational conditional probabilities were identified.",
+      "searches": [
+        "BCZ Boca Cobeli Zaharescu cusp digit index Farey κ k transition κ 1 followed by long 2 run, four phase rational conditional law",
+        "Farey index itineraries high digit k zero entropy mixing map conditional long parabolic digit-two residence length k/4",
+        "BCZ index sequence k 1 2^r Farey cusp run length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest research record matches returned concerned different systems (finite-cutoff countable Markov maps and Sturmian/Dyck shifts), not the BCZ digit-run event.",
+        "Hall–Shiu, Michigan Math. J. 51 (2003), supplies the univariate Farey index distribution, not the exact conditional 2-run length table."
+      ],
+      "reasoning": "No exact probability table with the four cases or a source giving the same event as an explicit evaluated finite-k invariant was retrieved. The elementary BCZ cylinder area formula by itself is not the evaluated table; deeper source coverage remains a recorded risk.",
+      "searches": [
+        "BCZ map return word κ=k, κ(T)=1, κ(T²) .. κ(T^(k/4))=2",
+        "BCZ cuspidal shrinking target digit k large followed by 2-run length distribution four-phase",
+        "Farey index extreme digit cusp excursion deterministic run of digit 2 floor(k/4) asymptotic conditional distribution"
+      ]
+    },
+    "rationale": "The specific exact moving-length conditional distribution and residue-four phase law have no identified equivalent or stronger statement in the searches performed. The source mixing theorem addresses fixed-set long-time correlations, not the jointly growing initial digit and itinerary length; the Farey-index sources treat one-point laws, fixed h-spacing windows, or modular coloring. Parameterized polygon constructions create residual derivability risk, explicitly recorded. Lack of a direct search hit is not used by itself as a novelty proof.",
+    "residual_risks": [
+      "The 89-page Korolev 2025 full text was inaccessible; its generic polygon tables may implicitly supply this finite-k conditional law. A comparison of the actual relevant lemmas would reduce this risk.",
+      "The 2001 Farey h-spacing paper full text was not accessible in this run; a long-word cylinder formula could cover parts of the calculation.",
+      "Search results do not establish mathematical uniqueness; an equivalent formula could use different Farey terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The proved strong mixing statement does not evaluate digit itineraries with length scaling with a large initial digit.",
+        "evidence": [
+          "Formula T(a,b)=(b,floor((1+a)/b)b−a), uniform m; Theorem 1.1, section 1; proof method uses return-discrepancy rather than index-run distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.07347v1",
+        "material_read": "Introduction and Theorems 1.1–1.2; preliminary BCZ, Haar and suspension definitions; portions of Sections 4–5 treating lattice counts and discrepancy",
+        "method": "Accessible full-text HTML, actual relevant sections examined",
+        "title": "Mixing of the BCZ map",
+        "trigger": "Same dynamical map and motivating mixing theorem"
+      },
+      {
+        "assessment": "Polygon area machinery plausibly applies, but accessible descriptions do not assert the four-phase moving-length conditional law; substantive risk remains.",
+        "evidence": [
+          "ArXiv first posted 2025-02-27; 89 pages, primary 11B57; colored-denominator gap distributions and polygon areas."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.19881",
+        "material_read": "ArXiv abstract, version metadata, and publicly indexed detailed summary; 89-page full PDF not read",
+        "method": "Abstract and publicly indexed detailed summary; the complete 89-page paper was unavailable for substantive inspection.",
+        "title": "A distribution related to Farey sequences—I",
+        "trigger": "Highly relevant Farey-index polygon cylinders"
+      },
+      {
+        "assessment": "Fixed h Farey spacing distributions; potential generic-cylinder overlap risk disclosed.",
+        "evidence": [
+          "Math. Proc. Camb. Phil. Soc. 131 (2001), 23–38, publisher abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0305004101005187",
+        "material_read": "Publisher abstract and publication data, not full text",
+        "method": "Primary publisher abstract inspection",
+        "title": "The h-spacing distribution between Farey points",
+        "trigger": "Possibly broader h-tuple distribution"
+      },
+      {
+        "assessment": "The univariate index distribution cannot determine the conditional length law.",
+        "evidence": [
+          "Hall and Shiu (2003) state exact formulae and asymptotics for index value distribution and second moment."
+        ],
+        "identifier_or_url": "https://doi.org/10.1307/MMJ/1049832901",
+        "material_read": "Abstract and bibliographic statement, not full text",
+        "method": "Publisher/university bibliographic abstract inspection",
+        "title": "The index of a Farey sequence",
+        "trigger": "Same digit observable marginal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8262382a-a731-4ae0-a45d-4e090ead7d22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Strong mixing for the BCZ map is recently proved but does not describe cusp excursions. A rare initial Farey index of size k forces a deterministic digit 1 and a parabolic 2-string of length asymptotic to k/4. The exact, nonconstant four-residue conditional probabilities describe natural arithmetic clustering on a moving window—information not available from a one-point index marginal or mixing limit. This precise law is suitable for conditioning and extreme-excursion calculations; no downstream theorem is assumed.",
+    "status": "PASS"
+  }
+}
