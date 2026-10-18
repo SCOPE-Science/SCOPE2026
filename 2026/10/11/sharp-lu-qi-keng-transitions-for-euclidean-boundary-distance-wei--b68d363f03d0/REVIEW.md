@@ -1,15 +1,21 @@
-# Review: Euclidean boundary-distance Bergman kernel zeros
+# Independent mathematical audit
 
-## Correctness — PASS
-The orthogonal Taylor monomial norm is an exact beta integral. Summation of the odd binomial terms yields the closed form with the correct area normalization. A Cayley map and principal logarithm exhaust all potential zeros and impose a strict integer bound; differentiation proves simplicity. The threshold values are treated as boundary, not interior, zeros. Executed arithmetic tests agree with the closed form but do not replace the all-parameter proof.
+## correctness
 
-## Originality — PASS, with access limitations
-The September 2026 paper of Marinescu–Xing establishes real-analytic parameter dependence for Euclidean distance powers; the available abstract does not assert complete zeros. The complete public preprint of Zeytuncu (2011) constructs nonzero-kernel counterexamples for weights comparable to one, a distinct condition excluding positive powers of the Euclidean distance. Perälä (2018) established finiteness of radial-kernel zeros and constructed specially modified weights with any prescribed count. That does not imply this exact continuous-parameter zero classification. Searches for alternative Beta-moment, hypergeometric, Cayley and tangent-squared formulations did not reveal a covering theorem. However, the main 2026 manuscript and full Perälä article were not readable in full; an unindexed exact equivalent remains a substantive residual risk.
+PASS
 
-## Value — PASS
-This is a complete classification for the natural Euclidean-distance weight family: the sharp zero-free range \(-1<t\le2\), exact number of scalar kernel zeros, their rigidity on the negative axis, and their precise entry thresholds. These facts are neither routine restatements of parameter analyticity nor a recomputation of a known table; they give structural zero geometry for the canonical kernel itself.
+Under unnormalized planar area and t>−1, ||z^n||²=2π B(2n+2,t+1); angular Parseval establishes complete orthogonal monomials. Their reciprocal moments yield K_t(s)=(t+1)[(1−x)^−a−(1+x)^−a]/(4πx), a=t+2>1 and x²=s, with K_t(0)=(t+1)(t+2)/(2π). For |x|<1, the Cayley q=(1+x)/(1−x) lies in Re q>0 so |Im Log q|<π/2; the zero equation a Log q=2πik demands 0<|k|<a/4. Inverting yields x=i tan(πk/a), s=−tan²(πk/a); ±k denote one scalar root. Differentiating the odd numerator gives F′=2ac/(1−x²)≠0 at every nonzero zero, establishing simplicity and completeness. Strict j<a/4 excludes s=−1 at t=4j−2 and yields N(t)=ceil((t+2)/4)−1; zero-free iff t≤2 within t>−1. No branch ambiguity or fixed-section/root-count conflation.
 
-## Scientific limits
-The proof does not apply to general domains or arbitrary radial weights. The zero count concerns the scalar product variable, not every fixed kernel section. Numerical evidence is supplementary. Literature completeness and all independent review remain open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after full-text primary review: Perälä 2017/2018 §§1–3 proves finite radial-kernel section zeros and constructs special iterated-associated weights with arbitrarily many, not the full exact real-t Euclidean-distance power zeros. Marinescu–Xing 2026 Theorem 1.3 proves real-analytic dependence of distance-weight kernels over general domains, not location, multiplicity or transition of zeros. Zeytuncu treats other radial comparable weights. Resultary higher-dimensional complex-ball integer-t classification excludes disk d=1 and real t. None has an implication establishing this all-t disk phase diagram; possible older hypergeometric zero classifications remain residual risk.
+
+## value
+
+PASS
+
+PASS: exact entire parameter transition between zero-free and vanishing Bergman kernels for natural geometric distance weights, with multiplicities and explicit zero locations, provides a genuine sharp phase diagram; not just a known positivity check or arbitrary finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
