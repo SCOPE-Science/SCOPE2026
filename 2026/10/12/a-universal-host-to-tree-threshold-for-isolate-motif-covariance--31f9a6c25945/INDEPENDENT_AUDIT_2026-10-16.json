@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T08:13:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on a vertex being isolated leaves exactly B=binom(n-1,2) eligible edges, and an exterior motif placement occurs conditionally with probability (m)_e/(B)_e. Summing n-s exterior vertices gives E[UX]=(n-s) M_H q(m)_e/(B)_e with E[X]=M_H(m)_e/(N)_e and E[U]=nq, yielding exact factor Cov=EU EX[(n-s)/n (N)_e/(B)_e-1]. A motif has no isolated vertices, e<=m<=B, so interior placements cannot coexist with isolation; outside that edge-count range U or X is zero. For trees e=s-1, log[(N)_{s-1}/(B)_{s-1}]->2/alpha as n/s->alpha>1; h(x)=log(1-x)+2x has one interior root, sign negative below alpha*=1.2550009749... and positive above, excluding equality alpha*. In G(n,p), disjoint exterior-edge factors yield -s EX (1-p)^(n-1)<0 for 0<p<1. Independently exhaustively computed 36 edge-count strata across small n and path, triangle and star motifs with exact rational moments; finite enumerations corroborate the all-size counting argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sah, Local limit theorems for subgraph counts (2022), doi:10.1112/jlms.12523 §1.1 and §4.1/Thm4.2 explicitly fix H while varying n; conclusions concern local central limit laws.",
+          "Janson 1994 develops powerful general functional-statistic decompositions; direct moment formulas may be reducible to them."
+        ],
+        "reasoning": "A general mixed moment theory could yield the elementary finite formula, but fixed-H asymptotic local limits do not logically entail the all-growing-tree sharp sign switch. A prior exact identity cannot be excluded without complete broad monograph inspection.",
+        "searches": [
+          "fixed edge G(n,m) covariance number isolated vertices copies growing tree threshold 1.255",
+          "https://doi.org/10.1112/jlms.12523"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/03c9b9eb77cf90ef629832f7003fb841ad490d19/2026/10/12/a-universal-host-to-tree-threshold-for-isolate-motif-covariance--31f9a6c25945/RESULT.md",
+        "https://doi.org/10.1112/jlms.12523",
+        "https://arxiv.org/abs/cond-mat/0302375",
+        "Janson, Orthogonal Decompositions and Functional Limit Theorems for Random Graph Statistics, Memoirs AMS 534 (1994)",
+        "fixed edge G(n,m) covariance number isolated vertices copies growing tree threshold 1.255",
+        "\"covariance\" \"isolated vertices\" \"copies\" \"tree\" \"G(n,m)\""
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sah, Local limit theorems for subgraph counts (2022), doi:10.1112/jlms.12523 fixed H/locally Gaussian statistic, no simultaneous isolate covariance threshold;",
+          "Itzkovitz et al. (2003), arXiv:cond-mat/0302375 estimates subgraph expectations in sparse network models."
+        ],
+        "reasoning": "Neither cited prior claim compares E[UX] and EU*EX for s growing linearly with n and arbitrary edge count m. The new sign transition is not an immediate corollary of their stated theorem hypotheses.",
+        "searches": [
+          "\"covariance\" \"isolated vertices\" \"copies\" \"tree\" \"G(n,m)\"",
+          "Sah 2022 local limit theorems subgraph counts G(n,m) fixed graph primary theorem arxiv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sah, Local limit theorems for subgraph counts (2022), doi:10.1112/jlms.12523 Theorems 1.1, 1.2 and 4.2 work with fixed connected motifs and local limit laws; the assigned claim takes s->infinity and covariance with U.",
+          "Direct exact identity depends on motif via (s,e) only, and the tree limit is (1-1/alpha)e^(2/alpha)-1."
+        ],
+        "reasoning": "Aliases including mixed isolate-count/subgraph-count covariance and conditional hypergeometric moments were queried. No indexed theorem giving the 1.255 growing-tree sign transition was verified.",
+        "searches": [
+          "fixed edge G(n,m) covariance number isolated vertices copies growing tree threshold 1.255",
+          "\"covariance\" \"isolated vertices\" \"copies\" \"tree\" \"G(n,m)\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned spanning-tree ratios and other invariants, no table with alpha*=1.255... for isolate–tree covariance.",
+          "Exact threshold is a unique nonzero root of log(1-x)+2x, not a fixed finite n or graph enumeration entry."
+        ],
+        "reasoning": "No covering formula/table was identified; negative search results are uncertainty evidence only, not mathematical novelty proof.",
+        "searches": [
+          "fixed edge G(n,m) covariance number isolated vertices copies growing tree threshold 1.255",
+          "Itzkovitz Milo Kashtan Ziv Alon 2003 subgraphs random networks primary arxiv"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: general exact joint moment is elementary and potentially implicit in general graph-statistic methods, but the tree-shape-independent growing-motif host-to-tree critical ratio and independence from m are not supplied by checked fixed-motif limit theorems.",
+      "residual_risks": [
+        "General Janson 1994 orthogonal-decomposition text not fully inspected; might imply exact finite covariance as special case.",
+        "No sign conclusion claimed at alpha=alpha*, for induced motifs, or when s is fixed rather than growing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary claim fully reviewed as mathematics, not adopted as authority",
+          "evidence": "Frozen RESULT.md blob 59dfc421f3ae693b2ecb4c4bf05d84c7f285eb73 and tree 1d95b74c73bca33bdfd5c16bf9dcb992b7ef4d32",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/03c9b9eb77cf90ef629832f7003fb841ad490d19/2026/10/12/a-universal-host-to-tree-threshold-for-isolate-motif-covariance--31f9a6c25945/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, hypotheses, proof, prior work, boundary cases and limitations",
+          "method": "GitHub fetch_file at frozen commit plus inspected tree and verifier source",
+          "title": "Frozen assigned RESULT.md",
+          "trigger": "Exact object and final theorem of audit assignment"
+        },
+        {
+          "assessment": "Fixed-H local central limit theorems, not growing-H isolate covariance sign transitions",
+          "evidence": "§1: fixed connected graph H; §4.1: p=m/binom(n,2) bounded away from 0,1 and fixed H.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12523",
+          "material_read": "Accessible full HTML Introduction, §1.1 Theorems 1.1–1.2 and §4.1 Theorem 4.2 statement and context",
+          "method": "Publisher lawful full HTML",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "Primary graph-statistic study explicitly covering G(n,m)"
+        },
+        {
+          "assessment": "Expected subgraph counts are not sufficient to classify joint isolate covariance sign",
+          "evidence": "Introduction/abstract scaling for subgraphs in directed random networks.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0302375",
+          "material_read": "Open-access abstract and stated expectation/scaling claims only",
+          "method": "arXiv publication abstract, not full PDF",
+          "title": "Subgraphs in random networks",
+          "trigger": "Subgraph abundance in random network ensembles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal phase boundary independent of growing tree shape and graph edge-count density is a motivated exact correlation sign law, where G(n,m) behaves opposite G(n,p) in one parameter region. This is a structural finite formula plus nontrivial asymptotic sign classification, not a routine table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Non-induced motifs have no isolated vertices, and e<=m<=binom(n-1,2); equality at alpha* unresolved.",
+    "Possible implicit broader joint-moment formula in Janson or unindexed random-graph literature."
+  ]
+}
