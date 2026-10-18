@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "A self-contained conditional covariance decomposition yields c_(n+1)=c_n-1/4 and c_2=0 after independent verification of the leaf-depth recurrence. Bounded one-dependent Eulerian descents yield leaf CLT. Splitting leaves into early (at most m) and late independent-from-F_m counts gives mixing against full F_infinity via L1 martingale approximation; martingale L2 convergence handles the path limit. The actual checker passed 2530 exact rational assertions. Finitary calculations not used as proof of mixing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lundblad–Wagner (2026) full paper §5 uses multivariate generating functions for leaves/total and external path length but analyzes average-depth differences at coarser scales",
+        "Gałązka–Wdowicka full paper generalizes total path length to weighted parents but does not provide Gaussian leaf mixing",
+        "Dobrow–Fill abstract states non-Gaussian path limit only"
+      ],
+      "reasoning": "A multivariate generating function has potential broader finite-moment coverage, so numeric covariance priority is not asserted separately. No inspected broader theorem includes the joint normalized mixing limit. Dobrow–Fill full text unavailable, leaving a specific risk.",
+      "searches": [
+        "recursive trees external path length number of leaves joint limit mixed moments path length asymptotically independent",
+        "\"Cov(T_n,L_n)\" random recursive tree leaves total path length negative (n-2)/4",
+        "recursive tree leaf number Eulerian statistic joint asymptotic mixing normal independent nonGaussian path length",
+        "random recursive tree total path length leaf count covariance stable convergence limit",
+        "doi:10.4230/LIPIcs.AofA.2026.2",
+        "doi:10.1017/S0963548399003855"
+      ]
+    },
+    "checked_sources": [
+      "Gałązka and Wdowicka, arXiv:2610.00614, full HTML, introduction and results 2, 4–8, 2026-09-30",
+      "Bryc, Minda, Sethuraman, arXiv:0809.4741, full HTML, introduction, leaf chain and CLT sections",
+      "Lundblad and Wagner, DOI 10.4230/LIPIcs.AofA.2026.2, full 20-page OA PDF, title/abstract, generating function, §5 and appendix",
+      "Dobrow and Fill, DOI 10.1017/S0963548399003855, accessible abstract only; original PDF gated by browser protection",
+      "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f, full RESULT.md",
+      "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba, full RESULT.md",
+      "Relevant prior local ledger claims in accessible g000060 prefix (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two published-finding corpus full texts compute Cov(root outdegree, leaf count) and Cov(root outdegree, total path length), respectively, but neither contains Cov(total path length, leaf count)",
+        "Lundblad–Wagner obtain fluctuations of external versus all-vertex average depths; their formulas only bound certain leaf/path mixed moments at order o(n²)",
+        "Bryc et al. and Dobrow–Fill marginal limit laws do not logically imply joint independence"
+      ],
+      "reasoning": "Neither separate marginal convergence nor correlations mediated by a third statistic imply joint independence. The new theorem proves an independent-input-history mixing property using the leaf labels, not the generating function or path martingale alone.",
+      "searches": [
+        "random recursive tree leaf count total path length exact covariance joint asymptotic independence Gaussian non Gaussian tree profile",
+        "recursive trees external path length number of leaves joint limit mixed moments path length asymptotically independent",
+        "\"Cov(T_n,L_n)\" random recursive tree leaves total path length negative (n-2)/4",
+        "recursive tree leaf number Eulerian statistic joint asymptotic mixing normal independent nonGaussian path length",
+        "random recursive tree total path length leaf count covariance stable convergence limit",
+        "full RESULT.md of two closest published-finding corpus 2026-10-04 findings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00614 states total-depth martingale limits but no joint leaf statistics",
+        "arXiv:0809.4741 proves marginal leaf-process CLTs; dependence on total path length not treated",
+        "2026/10/4 published root-degree/leaf finding has a different root-degree statistic"
+      ],
+      "reasoning": "Equivalent formulations considered include stable/mixing convergence of Eulerian leaf counts, independence of a Gaussian leaf count and non-Gaussian depth limit, and an exact finite-sample mixed covariance; the inspected papers provide only constituent marginals or different pairs.",
+      "searches": [
+        "random recursive tree leaf count total path length exact covariance joint asymptotic independence Gaussian non Gaussian tree profile",
+        "recursive trees external path length number of leaves joint limit mixed moments path length asymptotically independent",
+        "\"Cov(T_n,L_n)\" random recursive tree leaves total path length negative (n-2)/4",
+        "arxiv:2610.00614",
+        "arxiv:0809.4741"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest hit on root degree versus leaves ID 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "published-finding corpus nearest hit on root degree versus total path length ID 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "Own accessible ledger includes weighted bivariate recursive-tree vertex depths and a different two-back recursive-tree height/leaves model, not the present normal/non-Gaussian path/leaf pair"
+      ],
+      "reasoning": "Searches and full published record checks did not locate this exact mixed covariance and mixing limit in a database or ready-made table; nonmatches cannot establish uniqueness.",
+      "searches": [
+        "random recursive tree leaf count total path length exact covariance joint asymptotic independence Gaussian non Gaussian tree profile",
+        "recursive trees external path length number of leaves joint limit mixed moments path length asymptotically independent",
+        "\"Cov(T_n,L_n)\" random recursive tree leaves total path length negative (n-2)/4",
+        "recursive tree leaf number Eulerian statistic joint asymptotic mixing normal independent nonGaussian path length",
+        "own ledger claims leaf number and total path length 2026-10_week2"
+      ]
+    },
+    "rationale": "Compared mathematical implications for marginal total path length, marginal Eulerian leaves, mixed leaf/path enumerators, and published root-degree covariances. A multivariate generating function may encode the exact finite covariance, but no inspected source supplies the claimed asymptotic mixing of Gaussian leaves against the full recursive-tree history alongside the non-Gaussian path limit; no equivalent accessible historical claim was recovered. One plausible older source was not available in full and remains a genuine priority risk.",
+    "residual_risks": [
+      "Dobrow–Fill (1999) full text inaccessible; a preexisting joint leaf/path theorem cannot be excluded from its abstract.",
+      "The multivariate generating functions of Lundblad–Wagner can imply exact mixed finite moments after further differentiation; numerical covariance alone is not asserted to have independent priority.",
+      "Earlier general mixing theorems for Eulerian tree statistics and path-martingale limits, including unindexed results, may imply the joint theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Total-depth results generalized to weighted parents; no joint leaf-count mixing or covariance",
+        "evidence": [
+          "arXiv:2610.00614 §§1,2,5–8; primary MSC 60C05, public 2026-09-30"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+        "material_read": "Full accessible HTML: abstract, introduction, result statements and proof sections on depth and martingale limits; searched leaves",
+        "method": "primary full-text mathematical implication comparison",
+        "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+        "trigger": "Same uniform recursive tree and limiting martingale"
+      },
+      {
+        "assessment": "Marginal leaf counts and central limits, not total path length or mixing relative to infinite parent input",
+        "evidence": [
+          "arXiv:0809.4741, eq. 1.1, introduction and CLT discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0809.4741",
+        "material_read": "Full accessible HTML: introduction, leaf Markov chain, model identification and results on limit laws",
+        "method": "primary full-text implication comparison",
+        "title": "Large deviations for the leaves in some random trees",
+        "trigger": "Same uniform recursive-tree leaf count and CLT"
+      },
+      {
+        "assessment": "Its multi-parameter generating functions may imply finite covariance, but its stated asymptotics do not include independent Gaussian leaf-number fluctuations at sqrt-n scale",
+        "evidence": [
+          "AofA 2026 article 2, §§1,5, Lemma 14, Corollary 7"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+        "material_read": "All 20 pages of OA PDF accessible for searched text; inspected abstract, main theorem, Section 5, multivariate GF and appendix, and visual pages 1 and 13",
+        "method": "full open-access PDF text and page inspection",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Joint study of path length and leaf path length with leaf enumerators"
+      },
+      {
+        "assessment": "Available abstract gives marginal path limit and moments; cannot establish full-document noncoverage",
+        "evidence": [
+          "Dobrow–Fill, CPC 8 (1999) 317–333, Cambridge abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Cambridge and Sciweavers abstracts only; linked original PDF protected by browser check and not read",
+        "method": "abstract and primary bibliographic page, explicit access limitation",
+        "title": "Total path length for random recursive trees",
+        "trigger": "Foundational non-Gaussian path length limit possibly stronger coverage"
+      },
+      {
+        "assessment": "Root outdegree/leaf count, not total path length/leaf count",
+        "evidence": [
+          "Published RESULT.md equations (1)–(7) give root-degree/leaf formulas"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "material_read": "Entire published RESULT.md fetched from public repository",
+        "method": "compare statistics, hypotheses and claims",
+        "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+        "trigger": "Closest published two-statistic recursive-tree covariance"
+      },
+      {
+        "assessment": "Root attachment indicators and root outdegree versus total path length, not leaf number nor joint mixing",
+        "evidence": [
+          "Published RESULT.md equations (1)–(7) give root-attachment/path formulas"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "material_read": "Entire published RESULT.md fetched from public repository",
+        "method": "compare statistic and logical implication",
+        "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+        "trigger": "Closest published total path length covariance in same recursive tree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57e8450f-a564-43b6-8c90-71f60df6cb53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair leaf count and total search cost is an intrinsic algorithmic/tree-geometry comparison with different fluctuation scales. Exact negative finite covariance alongside mixing against the full infinite history explains multiscale decoupling stronger than vanishing correlation, not implied by either of the known marginal limit theorems. Uniform attachment is a natural canonical model and the finite formula identifies the sharp covariance and correlation scale. General weighted cases and quantitative mixing rates are outside the claim.",
+    "status": "PASS"
+  }
+}
