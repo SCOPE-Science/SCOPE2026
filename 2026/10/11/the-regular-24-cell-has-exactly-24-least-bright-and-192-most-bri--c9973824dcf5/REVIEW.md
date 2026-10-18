@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's 24 regular-octahedral facets each have volume \(\sqrt2/3\) and normals \((\pm e_i\pm e_j)/\sqrt2\). Cauchy's polytope projection formula yields the claimed exact brightness sum. The maximum is a sharp Cauchy--Schwarz estimate on \((3,2,1,0)\). The minimum uses a cone-generator decomposition: the linear functional divided by generator norm is strictly greater than \(3\) on the two middle generators, and equality in the remaining triangle inequality requires a single extremal generator. Counts of the signed permutations are \(192\) at the top and \(24\) at the bottom. The accompanying exact-rational checker independently verifies the facet normalization and discrete equality data; the infinite-direction classification rests on the analytic proof, not on a finite sample.
+PASS
 
-## Originality
+PASS. From explicitly verified 24 vertices and 24 halfspaces |x_i|+|x_j|≤1, each of 24 supporting facets has six vertices forming a regular octahedron of 3-volume √2/3 (also independently stated in Novaga–Song Lemma 2.3). Cauchy’s four-dimensional facet projection formula gives b(u)=1/3 Σ_{i<j}(|u_i+u_j|+|u_i−u_j|)=2/3(3a1+2a2+a3) for ordered absolute coordinates. Cauchy–Schwarz gives sharp maximum 2√14/3, equality only a∝(3,2,1,0), with 4!·2³=192 signed directions. For minimum, decompose ordered cone in rays g1=(1,0,0,0),g2=(1,1,0,0),g3=(1,1,1,0),g4=(1,1,1,1); L(g_j)/||g_j|| equals (3,5/√2,2√3,3), and triangle equality forces only g1 or g4. Hence min=2 with exactly 8+16=24 directions. Independently enumerated all facets and vertex counts; no sampling used as substitute for analytic extrema. Directions are oriented u and −u counted separately.
 
-PASS. An's recent 24-cell spherical-design paper analyzes duality and facet incidence, not directional shadow-volume extrema. Novaga--Song's recent isoperimetric work provides the full 24-cell facet geometry and root-normal moments but studies surface area and affine stability, not the full 3D hyperplane projection-volume profile. Comparisons with root-zonotope support functions, projection-body radii, other maximal-projection theorems, and published records revealed no covering statement. The ordinary Cauchy formula and root-facet structure are explicitly credited as prior ingredients; the sharp classification is the contribution.
+## originality
 
-Residual risk: an equivalent result may already be encoded in older \(D_4\) root-zonotope or Coxeter-orbit literature without explicit projection-volume terminology.
+PASS
 
-## Value
+PASS. The original Novaga–Song 24-cell paper gives D4 halfspaces, common octahedral facet area, global isoperimetric minimality among parallelohedra and stability; it does not classify 3D hyperplane shadows of the fixed body, and `brightness` is absent from full text. An’s full original Section 9.2 classifies regular self-polar design data, not directional projection volume. Cauchy’s formula is classical, but those ingredients do not themselves state either sharp endpoint or complete equality orbit counts. Resultary searches for D4 projection body/root-zonotope aliases did not locate another equal theorem; residual historical classical-zonotope risk remains.
 
-PASS. Projection brightness is a natural complete directional observable for convex bodies. The regular 24-cell is the newly established unique four-dimensional translative-tile isoperimetric minimizer, so its exact brightness anisotropy is a motivated geometric benchmark. The exact two endpoint configurations expose a nontrivial geometric coincidence: all 24 original vertices, and no other directions, minimize 3D shadow volume; there are exactly 192 maximizing directions. This is a complete sharp invariant rather than an arbitrary isolated computation.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+PASS. The regular 24-cell is canonical in dimension four; its full hyperplane-shadow volume profile, exact anisotropy ratio and complete 24/192 extremizer orbits give a motivated exact invariant and symmetry classification, not an arbitrary coordinate example. The equality locus is geometrically meaningful: minimum occurs precisely at original vertices.
 
-The principal geometric sources are An, arXiv:2609.02439v1, Section 9.2, and Novaga--Song, arXiv:2610.01653v1, Lemma 2.3 and Lemma 8.1; the projection formula is classical. Other recent maximum-projection work treats cross-polytopes rather than exact 24-cell brightness. The result neither solves isoperimetry for new classes nor gives stability estimates or affine-generalized shadow extrema.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

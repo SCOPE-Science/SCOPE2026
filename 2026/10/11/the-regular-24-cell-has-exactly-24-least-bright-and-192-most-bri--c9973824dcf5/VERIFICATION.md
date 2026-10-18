@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The fundamental input, checked directly in the cited primary article, is that the standard regular 24-cell has 24 facets with equal 3-volume \(\sqrt2/3\) and unit normals \((\varepsilon e_i+\eta e_j)/\sqrt2\), with \(i<j\) and \(\varepsilon,\eta\in\{-1,1\}\).
+# Independent mathematical audit
 
-Cauchy's projection formula gives
-\[
-b(u)=\frac{1}{3}\sum_{i<j}\left(|u_i+u_j|+|u_i-u_j|\right).
-\]
-The identity \(|x+y|+|x-y|=2\max(|x|,|y|)\) yields the sorted-coordinate formula exactly.
+## correctness
 
-For a unit vector with sorted absolute coordinates \(a_1\ge a_2\ge a_3\ge a_4\ge0\), the sharp upper bound follows from
-\[
-3a_1+2a_2+a_3\le\sqrt{14}\|a\|.
-\]
-Equality fixes \(a=(3,2,1,0)/\sqrt{14}\).
+PASS
 
-The four nonnegative fundamental-cone generators \(g_j\) satisfy
-\[
-L(g_j)/\|g_j\|\in\{3,5/\sqrt2,2\sqrt3,3\}.
-\]
-The triangle inequality gives \(L(a)\ge3\|a\|\), with equality only along the first or fourth generator ray. The full signed-permutation counts are 24 and 192.
+PASS. From explicitly verified 24 vertices and 24 halfspaces |x_i|+|x_j|≤1, each of 24 supporting facets has six vertices forming a regular octahedron of 3-volume √2/3 (also independently stated in Novaga–Song Lemma 2.3). Cauchy’s four-dimensional facet projection formula gives b(u)=1/3 Σ_{i<j}(|u_i+u_j|+|u_i−u_j|)=2/3(3a1+2a2+a3) for ordered absolute coordinates. Cauchy–Schwarz gives sharp maximum 2√14/3, equality only a∝(3,2,1,0), with 4!·2³=192 signed directions. For minimum, decompose ordered cone in rays g1=(1,0,0,0),g2=(1,1,0,0),g3=(1,1,1,0),g4=(1,1,1,1); L(g_j)/||g_j|| equals (3,5/√2,2√3,3), and triangle equality forces only g1 or g4. Hence min=2 with exactly 8+16=24 directions. Independently enumerated all facets and vertex counts; no sampling used as substitute for analytic extrema. Directions are oriented u and −u counted separately.
 
-Run the standalone exact checker with `python verify.py`. It uses the Python standard library only and reports `VERIFY_OK` after checking all 24 root-facet inequalities and octahedral facet structure, as well as the closed-form extremal values and enumeration. The code does not attempt to prove the global inequalities by sampling; the preceding analytic arguments establish them for every unit direction.
+## originality
 
-A separate numerical convex-hull volume cross-check of the explicit projected vertices agreed with the analytic formula at representative unit directions, including generic directions. Floating-point tests are limited corroboration and not used to justify exhaustive coverage.
+PASS
+
+PASS. The original Novaga–Song 24-cell paper gives D4 halfspaces, common octahedral facet area, global isoperimetric minimality among parallelohedra and stability; it does not classify 3D hyperplane shadows of the fixed body, and `brightness` is absent from full text. An’s full original Section 9.2 classifies regular self-polar design data, not directional projection volume. Cauchy’s formula is classical, but those ingredients do not themselves state either sharp endpoint or complete equality orbit counts. Resultary searches for D4 projection body/root-zonotope aliases did not locate another equal theorem; residual historical classical-zonotope risk remains.
+
+## value
+
+PASS
+
+PASS. The regular 24-cell is canonical in dimension four; its full hyperplane-shadow volume profile, exact anisotropy ratio and complete 24/192 extremizer orbits give a motivated exact invariant and symmetry classification, not an arbitrary coordinate example. The equality locus is geometrically meaningful: minimum occurs precisely at original vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
