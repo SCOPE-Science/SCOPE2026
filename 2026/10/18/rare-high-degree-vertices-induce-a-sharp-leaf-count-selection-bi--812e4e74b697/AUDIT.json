@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The Prüfer-code occupancy representation is an exact bijection. The k_n transition entails k_n→∞, n/k_n!→eλ and k_n²/n→0. Joint rare occupancy probabilities give λ^r factorial moments. Conditional on r specified rare boxes, the exact remaining-box occupancy formula yields leaf-mean bias (r/e)k_n. The nonstandard crucial step—a summable bound |Cov(L_n,(H_n)_{underline r})| ≤ C r(k_n+2)(n/k_n!)^r—is proved using bounded derivatives of b(1−1/b)^t and multinomial falling-factorial moment identities. Dominated finite inclusion-exclusion gives the coefficient λe^(−λ−1). The standalone checker reproduced 45 exact-rational validations including all small Prüfer codes; these are supporting checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "S. Janson, arXiv:1112.0510v1, Section 18.4 Theorem 18.23 and Example 18.24; Section 20.2 formulas (20.5)-(20.8)",
+        "R. Carr, W.M.Y. Goh, E. Schmutz, DOI:10.1002/rsa.3240050104, available abstract and bibliographic record (full text unavailable)",
+        "Fixed-degree covariance CLTs concern a different scale; a result only asserting asymptotic independence after sqrt(n) normalization would not determine a k_n-sized conditional-mean correction."
+      ],
+      "reasoning": "Inspected broad random allocation and conditioned Galton–Watson treatment and the directly relevant maximum-degree historical abstract. The published surveyed statements are max-degree marginals, fixed-degree Gaussian limits, and occupancy laws, rather than the mixed critical-threshold selection bias. Full 1994 text absence remains a residual rather than a proven noncoverage.",
+      "searches": [
+        "Kolchin random allocations joint rare high occupancy threshold event number of empty urns conditional mean",
+        "multinomial urn occupancy empty box count conditional at least one high occupancy critical tail regression",
+        "Poisson limit high occupancy indicators with finite random occupancy empty cells covariance maximum event",
+        "arXiv:1112.0510v1: Sections 10, 18.4 and 20.2",
+        "DOI:10.1002/rsa.3240050104"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1112.0510v1 Sections 18.4 and 20.2",
+      "DOI:10.1002/rsa.3240050104 (abstract only)",
+      "published-finding corpus exact/alias searches listed in four named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson Example 18.24: maximum occupancy concentrated at k_n−1 or k_n, with limiting probability exp(−x/e); Remark 18.25 discusses a Poisson count of extreme occupancies. Janson Section 20.2: fixed-degree count CLT and its covariance nσ_kl²+o(n).",
+        "R. Carr, W.M.Y. Goh, E. Schmutz, DOI:10.1002/rsa.3240050104, available abstract and bibliographic record (full text unavailable)"
+      ],
+      "reasoning": "The new conclusion is lim Cov(L_n,1_{Delta_n≥k_n+1})/k_n=λ exp(−λ−1), plus explicit conditional expectation shifts. Neither a marginal limiting maximum-degree distribution nor Gaussian CLTs of fixed-degree counts imply the sub-sqrt(n) conditional mean difference. The previous available own-ledger claim on a fixed vertex degree and total leaves controls a fixed label, not a global rare maximum over all n labels; its implication does not cover the new mixed event. No independence or uniqueness is inferred from allocation.",
+      "searches": [
+        "Cayley labeled trees number of leaves conditional maximum degree at least k leaves expectation shift rare hubs Poisson high degrees",
+        "uniform labeled Cayley trees number of leaves and maximum degree rare high degree covariance conditional mean shift",
+        "arXiv:1112.0510v1 Theorem 18.23, Example 18.24 and Section 20.2",
+        "DOI:10.1002/rsa.3240050104"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S. Janson, arXiv:1112.0510v1, Section 18.4 Theorem 18.23 and Example 18.24; Section 20.2 formulas (20.5)-(20.8)",
+        "The event {maximum degree≥k_n+1} is equivalent by the Prüfer bijection to {some occupancy≥k_n}. An exact mixed coefficient on either formulation would cover the claim."
+      ],
+      "reasoning": "Searched both the Cayley tree and uniform balls-in-bins formulations, including the equivalent empty-box count versus maximum load event. The Janson maximum event is marginal; the Gaussian degree-count theorem keeps degrees fixed, so neither yields k_n^{-1}Cov(leaves, rare max event).",
+      "searches": [
+        "Cayley labeled trees number of leaves conditional maximum degree at least k leaves expectation shift rare hubs Poisson high degrees",
+        "fixed occupancy balls into bins empty boxes and maximum load indicator asymptotic covariance k threshold",
+        "arXiv:1112.0510v1 Sections 18.4, 20.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest search hit 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4 treats pairwise-independent uniform allocations, not iid Prüfer code and rare maximum-conditioned leaf count.",
+        "Closest 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73 treats mode probabilities, not high-load event mixed moments."
+      ],
+      "reasoning": "No exact table or published-search record yielded the asymptotic coefficient. Finite identities could of course be enumerated from the Prüfer bijection; the new statement is an infinite critical-window mixed asymptotic, not an isolated table entry. Search nonretrieval alone is not proof of novelty.",
+      "searches": [
+        "fixed occupancy balls into bins empty boxes and maximum load indicator asymptotic covariance k threshold",
+        "Kolchin random allocations joint rare high occupancy threshold event number of empty urns conditional mean",
+        "published-finding corpus published semantic search: fixed occupancy balls into bins empty boxes and maximum load indicator asymptotic covariance k threshold"
+      ]
+    },
+    "rationale": "The exact new scope is the logarithmic-threshold normalized covariance and conditional leaf-mean split. Janson 2011 provides the same maximum-degree critical regime (Theorem 18.23, Example 18.24), and fixed-degree Gaussian limits (Section 20.2), but neither gives a mixed mean correction on the smaller k_n scale. Carr et al. 1994 address labeled-tree maximum-degree distributions; their full text is unavailable and remains a genuine historical priority risk. published-finding corpus queries for the exact conditional shift, occupancy aliases, and related fixed-degree profile found different statements, not a stronger result implying this coefficient.",
+    "residual_risks": [
+      "The complete 1994 Carr–Goh–Schmutz article was inaccessible; only the marginal maximum-degree abstract and bibliographic references were inspected. An implicit stronger mixed occupancy/leaf result cannot be excluded.",
+      "A broader occupancy extremal theorem or unpublished source might imply the coefficient without matching the claim wording; independent historical priority review is still needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL-AND-FIXED-DEGREE-ONLY for inspected results; does not state a critical moving-degree mixed conditional leaf mean",
+        "evidence": "Sections 18.4 and 20.2: max degree two-point limit, Poisson count of maximum-class vertices, Gaussian limits of fixed-degree counts; no k_n-normalized leaf/high-hub covariance in those statements.",
+        "identifier_or_url": "arXiv:1112.0510v1; https://arxiv.org/html/1112.0510v1",
+        "material_read": "Introduction and Section 18.4 Theorem 18.23, Example 18.24, Remark 18.25; Section 20.2 including equations (20.5)–(20.8); targeted document searches for mixed conditional maximum/leaf terms",
+        "method": "Read lawful open-access full HTML in the relevant sections, compared theorem hypotheses and conclusions",
+        "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+        "trigger": "Same uniform labeled-tree maximum threshold, Poisson rare counts, and degree-count fluctuations"
+      },
+      {
+        "assessment": "INACCESSIBLE-POTENTIAL-COVERAGE, not asserted NOT_COVERING",
+        "evidence": "Abstract says the paper sharpens marginal maximum-degree distributions for labeled trees. No accessible statement resolves whether it also gives mixed conditional leaf means.",
+        "identifier_or_url": "DOI:10.1002/rsa.3240050104; https://onlinelibrary.wiley.com/doi/abs/10.1002/rsa.3240050104",
+        "material_read": "Publisher abstract, bibliographic metadata and article reference list; full research text unavailable after open-access search and institutional retrieval attempt",
+        "method": "Read available publisher description, checked for lawful preprint or OA full text",
+        "title": "The maximum degree in a random tree and related problems",
+        "trigger": "Same labeled tree and same maximum-degree parameter; potentially stronger historical coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "812e4e74-b697-4c00-9474-7ecbee536034",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of leaves and maximum degree are standard, independently motivated global descriptors of a uniform labeled tree. The sharp degree transition is a natural, non-arbitrary threshold; the new positive k_n-order difference in conditional expected leaves diverges but is invisible at ordinary sqrt(n) CLT scale. Its exact λ exp(−λ−1) coefficient gives meaningful second-scale dependence information and is not merely a normalization check, fixed-label special case, or finite table recomputation. Generality beyond Cayley trees is not claimed.",
+    "status": "PASS"
+  }
+}
