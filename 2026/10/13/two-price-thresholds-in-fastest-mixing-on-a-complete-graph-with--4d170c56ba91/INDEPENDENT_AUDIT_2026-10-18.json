@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:13:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Concavity of λ₂ in conductances and S_s×S_r averaging guarantee an orbit-constant global optimum. The exact spectrum is 0, sa+rb (mult s−1), sb+rc (mult r−1), (s+r)b; hence λ₂=min(sa+rb,sb+rc,(s+r)b). The normalized gap-one reciprocal budget reduces to F_t(b)=sr b+[t(s−1)/2](1−rb)_++[(r−1)/2](1−sb)_+ on b≥1/(s+r). Its piecewise slopes change sign at τ1=s(r+1)/(r(s−1)) and, when s>r, τ2=2s/(s−1). Minimizers b=1/n,1/r for s≤r or b=1/n,1/s,1/r for s>r give all printed rates/gaps. Slopes vanish across stated boundary intervals, explaining nonunique orbit-constant transition optimizers. Independent exact rational Laplacian eigenchecks and breakpoint/LP checks validated s,r≤6 across price branches. No arbitrary-optimum uniqueness is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. (2006) examines general continuous-time price-weighted mixing and example classes, not this exact priced two-class complete graph calculation.",
+          "Boyd et al., arXiv:0709.0955, studies discrete-time SLEM with symmetry, a different spectral objective.",
+          "Shakeri et al., arXiv:1510.06785, optimizes constrained interlayer connections with fixed layers."
+        ],
+        "reasoning": "The three-spectral-block identity and piecewise-linear threshold comparisons are not directly stated by the known broad frameworks, though the symmetry-averaging method is old.",
+        "searches": [
+          "Sun Boyd Xiao Diaconis The Fastest Mixing Markov Process on a Graph SIAM Review 2006",
+          "Boyd Diaconis Parrilo Xiao Fastest Mixing Markov Chain on Graphs with Symmetries 2009",
+          "fastest mixing continuous time Markov process complete graph two vertex groups expensive internal clique edge cost spectral gap optimum transitions"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/S0036144504443821",
+        "https://arxiv.org/abs/0709.0955",
+        "https://arxiv.org/abs/1510.06785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orbit-invariant weighted Laplacian eigenvalues (sa+rb,sb+rc,nb) and objective F_t(b) with breakpoints 1/n,1/s,1/r.",
+          "For s>r and τ1<t<τ2, c=0 while a>0; this direction of edge deletion is not implied by fixed-layer interconnection results."
+        ],
+        "reasoning": "A general SDP existence theorem plus symmetry suggests a tractable reduction but does not establish two thresholds or explicit rates without additional spectral/LP work. No stronger prior theorem was inspected that specializes directly to the displayed formulas.",
+        "searches": [
+          "fastest mixing continuous time Markov process complete graph two vertex groups expensive internal clique edge cost spectral gap optimum transitions",
+          "Sun et al 2006 examples optimal edge prices general SDP",
+          "Shakeri 2015 interconnection phase transition algebraic connectivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Continuous-time mixing rate is second eigenvalue of combinatorial weighted Laplacian, not discrete-time SLEM.",
+          "Sun et al. 2006 gives general edge-price SDP/duality formulation; invariant design has three edge orbits."
+        ],
+        "reasoning": "Mapping to algebraic-connectivity maximization reveals standard mathematical ingredients but a general computational SDP is not the explicit optimal-support phase diagram.",
+        "searches": [
+          "fastest mixing continuous time Markov process complete graph two vertex groups expensive internal clique edge cost spectral gap optimum transitions",
+          "weighted Laplacian algebraic connectivity complete graph one expensive clique edge rates",
+          "Sun Boyd Xiao Diaconis fastest mixing Markov process semidefinite budget edge prices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun et al. 2006 full primary paper examples concern a particular graph, paths and cycles rather than a tabulated K_n with price-t clique threshold family.",
+          "Resultary first 12 semantic hits centered on graph spectral topics but not the specified price-clique allocation."
+        ],
+        "reasoning": "This is a continuous all-t/s/r optimization spectrum; limited finite tables would be numerical examples, not an exact complete parameter phase diagram.",
+        "searches": [
+          "fastest mixing continuous time Markov process complete graph two vertex groups expensive internal clique edge cost spectral gap optimum transitions",
+          "fastest mixing priced complete graph two clique edge prices exact threshold table 2006"
+        ]
+      },
+      "rationale": "The continuous-time spectral-gap budget SDP and group-invariant reduction are classical (Sun et al. 2006, Boyd et al. 2009); they receive no novelty credit. The closed two-price threshold law and counterintuitive middle phase deleting cheap B-internal edges while retaining expensive A-internal ones require the specific 3-variable eigenspace/LP analysis, not the statement of a general SDP. Interconnected-network spectral transitions optimize a different edge set. No matching earlier exact priced-clique theorem was located; residual specialized-prior risk remains.",
+      "residual_risks": [
+        "An unindexed explicit priced-complete-graph or two-population fastest-mixing optimizer might predate this piecewise LP analysis.",
+        "Only invariant optima classified: arbitrary nonsymmetric global optimizers may be nonunique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convex optimization/duality prior art, not explicit s,r,t threshold classification in inspected examples.",
+          "evidence": "Sun, Boyd, Xiao, Diaconis, SIAM Review 48 (2006), 681–699.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+          "material_read": "Complete openly accessible paper; read problem formulation, SDP/dual and examples, including a rendered opening page.",
+          "method": "Compared objective/budget and worked examples against priced-clique parameterized graph.",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Direct continuous-time objective, general prices, possible dominating theorem."
+        },
+        {
+          "assessment": "Symmetry-reduction standard, but discrete-time criterion and different family; does not state current rates.",
+          "evidence": "Boyd, Diaconis, Parrilo, Xiao (2009), arXiv:0709.0955.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Open full PDF; inspected symmetry/representation portions and original discrete-time SLEM setup.",
+          "method": "Direct mathematical objective comparison and rendered PDF page.",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Prior symmetry-reduction theorem."
+        },
+        {
+          "assessment": "Internal layers fixed and interconnections constrained; no direct equivalence to costly-clique complete-graph pricing.",
+          "evidence": "Shakeri et al. (2015), arXiv:1510.06785.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+          "material_read": "Open PDF, focused abstract/problem setup and first main definitions.",
+          "method": "Compare allowed variable edges and graph layers to all-edge price budget.",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Potential graph threshold and cross-edge allocation antecedent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact optimizer is a natural solution of the fastest-mixing allocation problem; the two thresholds show a nontrivial topological design transition, including an unintuitive support change that generic SDP numerical solvability does not explain. The formulas apply uniformly to all integer block sizes and positive price t, so this is a structural optimization classification rather than a chosen example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1137/S0036144504443821",
+    "https://arxiv.org/abs/0709.0955",
+    "https://arxiv.org/abs/1510.06785"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Continuous-time symmetric combinatorial Laplacian, nonnegative rates and exact price budget one, s,r≥2.",
+    "No discrete-time SLEM classification and no arbitrary-optimizer uniqueness."
+  ],
+  "residual_risks": [
+    "An unindexed explicit priced-complete-graph or two-population fastest-mixing optimizer might predate this piecewise LP analysis.",
+    "Only invariant optima classified: arbitrary nonsymmetric global optimizers may be nonunique."
+  ],
+  "schema_version": 1
+}

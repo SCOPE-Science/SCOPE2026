@@ -1,19 +1,21 @@
-# Scientific review — two-price complete-graph mixing theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result states existence and uniqueness only **within the three-orbit invariant class** off threshold prices; no arbitrary non-invariant optimizer uniqueness is claimed. Group averaging applies to the concave continuous-time spectral gap under an invariant linear budget. Orthogonal Laplacian decomposition gives the four exact eigenvalues and converts the problem to minimizing a one-variable convex piecewise-linear price function. Its complete breakpoint and slope comparison, with exact scaling, establishes the formulas for every integer pair \(s,r\ge2\) and every \(t>0\), including threshold equality. The zero-eigenvalue space is excluded correctly; the optimal cross rate is strictly positive. Exact rational checks reconstruct direct Laplacian eigenvector identities, prices and endpoint comparisons in 955 parameter cases. Enumeration is corroboration, not proof.
+PASS
 
-## Originality — PASS, with explicit risk
+Concavity of λ₂ in conductances and S_s×S_r averaging guarantee an orbit-constant global optimum. The exact spectrum is 0, sa+rb (mult s−1), sb+rc (mult r−1), (s+r)b; hence λ₂=min(sa+rb,sb+rc,(s+r)b). The normalized gap-one reciprocal budget reduces to F_t(b)=sr b+[t(s−1)/2](1−rb)_++[(r−1)/2](1−sb)_+ on b≥1/(s+r). Its piecewise slopes change sign at τ1=s(r+1)/(r(s−1)) and, when s>r, τ2=2s/(s−1). Minimizers b=1/n,1/r for s≤r or b=1/n,1/s,1/r for s>r give all printed rates/gaps. Slopes vanish across stated boundary intervals, explaining nonunique orbit-constant transition optimizers. Independent exact rational Laplacian eigenchecks and breakpoint/LP checks validated s,r≤6 across price branches. No arbitrary-optimum uniqueness is claimed.
 
-Sun–Boyd–Xiao–Diaconis (DOI 10.1137/S0036144504443821) established the general continuous-time fastest-mixing semidefinite optimization framework. Boyd–Diaconis–Parrilo–Xiao (arxiv:0709.0955) developed graph-symmetry reduction for a distinct discrete-time SLEM problem. Shakeri and colleagues (arxiv:1510.06785) study interlayer edge optimization with fixed internal graphs. Their inspected full texts do not supply the exact all-price three-class complete-graph thresholds and cheap-edge-deletion phase. The precise contribution is the explicit \(\tau_1\), \(\tau_2\), optimal gaps and rate regimes, not these general methods. Semantic published-record searches found superficially similar clique structures with different graph invariants, not implications of this claim. Priority uncertainty from unindexed or differently formulated historical results remains.
+## originality
 
-## Value — PASS
+PASS
 
-The all-size phase classification answers a natural resource-allocation problem. Its intermediate phase for \(s>r\) forces all cheaper internal links in the smaller group to zero while preserving more expensive links in the larger group. This structural reversal is mathematically meaningful and supplies exact comparative statics and budgets, rather than simply recomputing known examples.
+The continuous-time spectral-gap budget SDP and group-invariant reduction are classical (Sun et al. 2006, Boyd et al. 2009); they receive no novelty credit. The closed two-price threshold law and counterintuitive middle phase deleting cheap B-internal edges while retaining expensive A-internal ones require the specific 3-variable eigenspace/LP analysis, not the statement of a general SDP. Interconnected-network spectral transitions optimize a different edge set. No matching earlier exact priced-clique theorem was located; residual specialized-prior risk remains.
 
-## Limitations and closest sources
+## value
 
-The optimizer classification is for permutation-invariant rates; the maximum spectral-gap value is global. The result does not characterize all non-invariant optima, other spectral criteria, robustness, or discrete-time fastest mixing. The closest source is the general continuous-time SDP of Sun et al.; related sources above do not assert the present formulas. An exact historical specialization outside the inspected sources could limit novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact optimizer is a natural solution of the fastest-mixing allocation problem; the two thresholds show a nontrivial topological design transition, including an unintuitive support change that generic SDP numerical solvability does not explain. The formulas apply uniformly to all integer block sizes and positive price t, so this is a structural optimization classification rather than a chosen example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
