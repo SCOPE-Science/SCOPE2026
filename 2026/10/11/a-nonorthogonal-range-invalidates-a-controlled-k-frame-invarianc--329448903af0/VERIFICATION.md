@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,89 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Set
-\[
-T=
-\begin{pmatrix}
-1&1\\
-0&0
-\end{pmatrix},
-\qquad
-K=
-\begin{pmatrix}
-0&-1\\
-0&1
-\end{pmatrix}.
-\]
-Exact multiplication gives
-\[
-T^2=T,\qquad TK=KT=0.
-\]
-Thus \(T\) has closed range and \(R(TK)=\{0\}\).
+# Independent mathematical audit
 
-The adjoint is
-\[
-K^*=
-\begin{pmatrix}
-0&0\\
--1&1
-\end{pmatrix}.
-\]
-For
-\[
-\psi=(-1,1)
-\]
-and
-\[
-x=(x_1,x_2),
-\]
-one has
-\[
-|\langle x,\psi\rangle|^2
-=
-|-x_1+x_2|^2
-=
-\|K^*x\|^2.
-\]
-Hence \(\{\psi\}\) is a Parseval \(K\)-frame.
+## correctness
 
-But
-\[
-T\psi=0.
-\]
-For
-\[
-e_1\in R(T),
-\]
-\[
-K^*e_1=(0,-1),
-\]
-so the required lower \(K\)-frame inequality fails.
+PASS
 
-The exact Moore--Penrose inverse is
-\[
-T^\dagger=
-\begin{pmatrix}
-1/2&0\\
-1/2&0
-\end{pmatrix},
-\]
-hence
-\[
-TT^\dagger=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}.
-\]
-Therefore
-\[
-(TT^\dagger)^*K^*e_1=0
-\ne
-K^*e_1.
-\]
-This is the precise projection error in the theorem proof.
+PASS: In C² take T=[[1,1],[0,0]], K=I−T=[[0,−1],[0,1]], C=I, ψ=(−1,1). Exact multiplication gives T²=T, TK=KT=0, R(T)=span{e1} closed, R(TK)={0} complemented. For all x, |<x,ψ>|²=||K*x||²; ψ is Parseval K-frame. Yet Tψ=0 while K*e1=(0,−1) !=0 for e1∈R(T). Therefore transformed family has no positive lower K-frame bound. Published proof uses TT†=P_R(T) as identity on K*C^(1/2)f without membership; K*(R(T))⊂R(T) repairs that step. Independent exact matrix proof.
 
-The preprint theorem and the published theorem were inspected in their full text at the complete proof. No numerical approximation or finite experimental search is used as mathematical evidence.
+## originality
+
+PASS
+
+PASS best-of-knowledge: source Thm 3.5 retains erroneous closed-range claim and invalid projection. Related general K-g-fusion transport and an isometry-theorem counterexample concern different hypothesis packages; not an implication of the closed-range oblique-idempotent construction.
+
+## value
+
+PASS
+
+PASS: Genuine sharp logical obstruction to a published structural invariance theorem; exhibits why commuting oblique idempotents do not make their adjoint range invariant. The 2D exact zero-image counterexample is directly useful and identifies a precise natural sufficient repair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
