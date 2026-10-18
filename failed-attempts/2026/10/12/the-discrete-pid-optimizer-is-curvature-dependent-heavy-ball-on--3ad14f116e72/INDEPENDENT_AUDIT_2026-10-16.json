@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:12:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned immutable RESULT.md at 7276e886ed6ed49439d05d36a501e9b2e0169de0, blob eb37a4623fddd225a70cac789971ff2fd5f6a24c",
+        "Earlier full published RESULT.md at https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-quadratic-stability-and-hidden-momentum-factorization-of-t--7b863d0a1163/RESULT.md",
+        "New independent_checks.py: PID_FOUR_STATE_FACTORIZATION_AND_PRIOR_EQUIVALENCE_OK"
+      ],
+      "rationale": "The printed three-state PID recurrence gives V_t+K_d D_t=x_t-x_{t-1} after a completed update, so each SPD Hessian eigenmode satisfies u_{t+1}=(1-r lambda+beta(lambda))u_t-beta(lambda)u_{t-1}, beta(lambda)=alpha+K_d(1-alpha)lambda. Strict Jury inequalities imply exactly K_d L<1 and 0<r L<2[1+alpha+K_d(1-alpha)L]. The modal characteristic root product beta gives the sharp radius floor sqrt(beta), attained at r lambda=1+beta. Full four-state determinant factorization from the previously published independent theorem independently confirms the eliminated recurrence, with passive factors z(z-alpha). Source verification code was actually read, and an independently written exact polynomial-factorization check succeeded.",
+      "residual_risks": [
+        "The parameter-only reduced recurrence begins after the initial source update; the unrestricted auxiliary-state transient has passive eigenvalues 0 and alpha.",
+        "The theorem does not cover the source-associated implementation or stochastic deep-network training."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 2026-10-04 published result derives a complete four-state factorization and sharp stable learning-rate and optimal-radius interval, which strictly covers the assigned second-order result.",
+          "Earlier q_lambda stability ceiling kappa L<1 immediately entails instability after scaling H to cH when kappa cL>=1."
+        ],
+        "reasoning": "A stronger published theorem dominates every nontrivial claim of the assignment. The stated loss-scale consequence is a single substitution into the known ceiling.",
+        "searches": [
+          "Resultary published SCOPE-20261004-7b863d0a1163, theorem and proof",
+          "CVPR 2018 PID paper DOI:10.1109/CVPR.2018.00889"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261004-7b863d0a1163 full RESULT.md and METADATA.json dated 2026-10-04",
+        "DOI:10.1109/CVPR.2018.00889",
+        "Current assigned Git source RESULT.md and source verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior iff conditions kappa L<1 and 0<eta L<2(1+beta+(1-beta)kappa L) become word for word the current conditions after parameter renaming.",
+          "Prior full rate-optimal plateau contains current particular tuning eta lambda=1+q_lambda; the loss-scale condition is obtained by L -> cL."
+        ],
+        "reasoning": "The old theorem logically implies the entire new statement. No mathematically independent, motivated remainder survives; both O and V fail.",
+        "searches": [
+          "SCOPE-20261004-7b863d0a1163 RESULT.md modal Jury and sharp rate plateau",
+          "Current 2026/10/12 RESULT.md parameter conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem (published 2026-10-04) has the identical printed 2018 recurrence, heavy-ball momentum q_lambda=beta+(1-beta)kappa lambda, full polynomial z(z-beta)[z²-(1+q_lambda-eta lambda)z+q_lambda], and identical iff stability region.",
+          "Map earlier beta -> current alpha, eta -> current r, kappa -> current K_d; earlier q_lambda -> current beta(lambda)."
+        ],
+        "reasoning": "This is a direct notational equivalence of full mathematical statements, not just a similar paper title. The earlier result also states the exact modal rate floor and a stronger entire learning-rate plateau; originality fails.",
+        "searches": [
+          "Resultary semantic search: discrete PID optimizer deep learning quadratic heavy ball curvature derivative gain stability loss scaling Jury Hessian eigenmode",
+          "Published SCOPE-20261004-7b863d0a1163 full RESULT.md and METADATA.json"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published, explicitly dated exact theorem is indexed at SCOPE-20261004-7b863d0a1163, not merely a finite table."
+        ],
+        "reasoning": "The issue is theorem coverage rather than a numerical database lookup; the exact previously published formula supplies decisive stronger evidence.",
+        "searches": [
+          "Resultary semantic search for original PID stability exact formula",
+          "Resultary/2026 2026/10/4 record metadata and full RESULT.md"
+        ]
+      },
+      "rationale": "Decisive published SCOPE/Resultary theorem dated 2026-10-04 covers the same printed 2018 PID recurrence and all the claimed sharp stability/rate results. The assigned result dated 2026-10-12 is not original despite a correct proof. No disclaimer or extra certificate can repair its published-coverage failure.",
+      "residual_risks": [
+        "The date and math of the earlier published result are direct Git evidence, leaving no material novelty ambiguity.",
+        "Loss rescaling is only the known ceiling under a scalar substitution; no surviving substantive claim is identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact equivalence and stronger complete factorization / rate-optimal interval",
+          "evidence": "Git blob 6a2e8e2b1a158fd698e49d18f83d3552d7a6bd07, published metadata record SCOPE-20261004-7b863d0a1163",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-quadratic-stability-and-hidden-momentum-factorization-of-t--7b863d0a1163/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, assumptions, full state matrix/factorization, Jury proof, rate discriminant, relationship and limitations",
+          "method": "GitHub read-only fetch_file from published Resultary repository; metadata publication date 2026-10-04",
+          "title": "Exact quadratic stability and hidden-momentum factorization of the 2018 PID optimizer",
+          "trigger": "Resultary semantic match with same optimizer, same 2018 recurrence"
+        },
+        {
+          "assessment": "Defines original optimizer motivation; decisive scientific coverage instead comes from fully read earlier 2026 mathematical theorem",
+          "evidence": "DOI:10.1109/CVPR.2018.00889",
+          "identifier_or_url": "https://openaccess.thecvf.com/content_cvpr_2018/papers/An_A_PID_Controller_CVPR_2018_paper.pdf",
+          "material_read": "The primary abstract and accessible method description identifying the PID optimizer; the 2018 full PDF was located, but its entire text was not re-read during this run",
+          "method": "Publisher/author archival description and cross-comparison with the complete 2026-10-04 prior theorem",
+          "title": "A PID Controller Approach for Stochastic Optimization of Deep Networks",
+          "trigger": "Original printed optimizer, same updates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-20261004-7b863d0a1163 full theorem and rate plateau",
+        "Current 2026/10/12 RESULT.md"
+      ],
+      "rationale": "Every substantive structural formula, sharp gain ceiling, best attainable modal spectral radius, and heavy-ball interpretation is an exact restatement of the earlier published SCOPE-20261004-7b863d0a1163 theorem. The only added explicit observation, loss scaling H -> cH, is a routine one-line substitution into that theorem, without a separate motivated mathematical gap. This package is a known-theorem recomputation, not a new independently useful fact.",
+      "residual_risks": [
+        "Correctness and pedagogical usefulness do not confer new scientific value to a duplicate finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is from decisive prior coverage (not OAuth, transport, or access); preserve the entire original package at its designated failed path if an authorized importer later acts.",
+    "No original research-file repair is possible by disclaimer or another numerical verifier."
+  ],
+  "schema_version": 1
+}
