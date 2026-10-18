@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Tufo's Theorem 3.1 identifies the fourfold as the blow-up of \(\mathbf P^2\times\mathbf P^2\) along a general Enriques surface, and Corollary 3.2 records a free middle rank of \(13\) together with one \(2\)-torsion summand. The source passage was inspected in full.
+# Independent mathematical audit
 
-For the blow-up, the exceptional degree-four classes are \(j_*p^*H^2(S,\mathbf Z)\). The Gysin identity \(j^*j_*(1)=c_1(N_{E/Y})=-\xi\) gives the negative Enriques pairing on this summand, and degree reasons make it orthogonal to \(\pi^*H^4(\mathbf P^2\times\mathbf P^2,\mathbf Z)\).
+## correctness
 
-The ambient Gram matrix in the basis \((h_1^2,h_2^2,h_1h_2)\) is
-\[
-\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}=U\oplus\langle1\rangle.
-\]
-Dolgachev's Enriques-lattice calculation gives \(H^2(S,\mathbf Z)/\operatorname{tors}\cong U\oplus E_8(-1)\). Therefore the free middle matrix is isometric to \(U^{\oplus2}\oplus E_8\oplus\langle1\rangle\).
+PASS
 
-`verify.py` reconstructs that exact integer Gram matrix and checks rank \(13\), determinant \(1\), odd parity, and inertia \((11,2)\). Its stored output ends in `VERIFY_OK`.
+For Y=Bl_S(P²×P²) along smooth Enriques S, the integral codimension-2 blowup formula splits H⁴(Y) as pullback H⁴(X) plus Gysin H²(S). Projection formula makes summands orthogonal; Gysin self-intersection makes exceptional form −Num(S). The ambient Gram matrix in (h1²,h2²,h1h2) is U⊕〈1〉; the Enriques free form is U⊕E8(−1). Thus free middle form is U²⊕E8(+1)⊕〈1〉, rank13, determinant1, odd, signature (11,2). The indefinite odd unimodular lattice classification identifies I_{11,2}. Independently computed displayed exact E8 Gram rank/determinant/signature. Torsion Z/2 in H⁴ is deliberately excluded; no cohomology-ring or diffeomorphism claim.
 
-The finite replay does not prove the blow-up formula or the classification theorem; those are used explicitly in the written proof. No claim is made about the torsion linking form or the full cohomology ring.
+## originality
+
+PASS
+
+Tufo’s Theorem 3.1/Corollary 3.2 states blowup and additive H⁴ including 2-torsion, not the integral cup-product isometry class. Dolgachev states Num(Enriques)=U⊕E8(−1), not this Fano fourfold invariant. A general blowup formula permits deduction once the new variety and its center are identified; the resulting exact lattice classification is an explicit new specialization of standard tools, not a new universal lattice theorem. No Resultary exact overlap found.
+
+## value
+
+PASS
+
+The free middle cup-product lattice is a canonical topological invariant of a newly constructed Fano fourfold. Despite use of familiar blowup/Gysin methods, the exact isometry class and parity/signature refinement the known additive cohomology and permit comparison of Enriques-host fourfold topology; no broader claimed theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
