@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact mean/centered decomposition follows from the complete-graph projector identity \(C=c(I-J/N)\). An explicit contraction neighborhood bounds the centered trajectory geometrically. Summing its forcing through variation of constants proves the infinite-horizon cubic coefficient and the explicit fifth-order remainder, including the negative-multiplier case. The two-agent cancellation is algebraic, and the three-agent sign witness follows from a nonzero leading coefficient and the fifth-order bound. `verify.py` checks independent finite arithmetic examples, not an infinite assertion.
+PASS
 
-## Originality — PASS, limited to the explicit nonlinear consensus-selection law
+For W=(J-I)/(N-1), N>=2, write C=I-W=c(I-J/N), c=N/(N-1), and m mean, z centered. The actual cubic update is m_{t+1}=m_t+b s3(z_t), z_{t+1}=lambda z_t+b(z_t^3-s3(z_t)1), b=gamma a c^3 and lambda=1-gamma c in (-1,1). With theta=(1+|lambda|)/2 and delta²<=(theta-|lambda|)/(2b), ||z_t||∞<=delta theta^t, so mean increments are summable. Variation of constants and ||q(z)||<=2||z||^3 bound sum_t ||z_t-lambda^t z0||∞ by 2b delta³/[(1-theta³)(1-|lambda|)]. Difference of cubes bounds the sum of the mean correction by 6b²delta^5/[(1-|lambda|)(1-theta³)]. Leading coefficient b s3(z0)/(1-lambda³). N=2 centered coordinates oppose and mean is exactly conserved; N>=3 witness (2h,-h,-h,0...) has signed h^3 shift. Independently checked centered updates, coefficient, and rigorous remainder in four numerical settings. Only small disagreement, fixed finite N; finite numerics not proof of infinite-time limit.
 
-Kumar–Yao arXiv:2608.09724v1, Section III, derive the one-step cubic mean increment, which is acknowledged as prior; they then analyze the zero-cubic-sum invariant regime. Their theorem does not evaluate the long-run mean shift from general nonbalanced small disagreement or give the sharp leading third-moment coefficient and effective fifth-order bound. Cannon–Bondurant–Whyte–Scheel arXiv:2302.04214 studies bias-driven drifting parties under a different kinetic lattice update. That paper supplies no implication for this finite-N all-to-all cubic coefficient. A generic center-manifold or perturbation result could reproduce a Taylor expansion after calculating these specific coefficients; generic methods are not claimed as original, and unindexed model-specific calculations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies an explicit value of the *selected equilibrium along a one-dimensional continuum of consensuses*, not merely qualitative convergence or the already-known per-step drift. The effect is structurally tied to asymmetry of disagreement: the sign and magnitude are determined to leading order by initial cubic skewness; the exact two-agent cancellation and constructive three-agent shift show the smallest dimension where consensus is biased. The quantitative remainder rigorously controls when the prediction is valid. This addresses network-level consensus selection outside the balanced trajectory class emphasized by the motivating analysis, without claiming a general theory of opinion dynamics.
+The 2026 Kumar–Yao paper introduces exactly the nonlinear cubic map and its one-step mean increment; these inputs receive no novelty credit. The further infinite-time consensus location, explicit centered third-moment leading coefficient and effective fifth-order error under local contraction are the assessed additional results. The highly relevant original paper full text could not be obtained: publicly accessible abstract and bibliography only, and authorized institutional retrieval encountered disconnected VPN. This creates material overlap risk (possible appendices), not automatic scientific failure. The inspected different 2023 biased-compromise kinetic model concerns a different nonlinear averaging rule.
 
-## Scope, comparison, and risks
+## value
 
-The result covers near-consensus data only, fixed parameters with \(|\lambda|<1\), and a complete graph. Other nonlinear mechanisms can have different coefficients, and the theorem says nothing about global attraction or finite-population random perturbations. Model-specific prior calculations not located in the accessible search remain a possible originality risk. The second primary text differs in its fundamental state space and update rule. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even a symmetric doubly stochastic influence matrix can select a final consensus distinct from the initial mean because of nonlinear skewness. The exact cubic selection rule and controlled fifth-order residual isolate the sign and magnitude of the drift in an explicit open local stability region. This is a motivated invariant of the original deterministic opinion model, not merely the routine one-step mean identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

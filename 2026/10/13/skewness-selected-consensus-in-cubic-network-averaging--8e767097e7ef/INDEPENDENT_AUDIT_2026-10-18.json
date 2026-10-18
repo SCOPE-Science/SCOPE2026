@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W=(J-I)/(N-1), N>=2, write C=I-W=c(I-J/N), c=N/(N-1), and m mean, z centered. The actual cubic update is m_{t+1}=m_t+b s3(z_t), z_{t+1}=lambda z_t+b(z_t^3-s3(z_t)1), b=gamma a c^3 and lambda=1-gamma c in (-1,1). With theta=(1+|lambda|)/2 and delta²<=(theta-|lambda|)/(2b), ||z_t||∞<=delta theta^t, so mean increments are summable. Variation of constants and ||q(z)||<=2||z||^3 bound sum_t ||z_t-lambda^t z0||∞ by 2b delta³/[(1-theta³)(1-|lambda|)]. Difference of cubes bounds the sum of the mean correction by 6b²delta^5/[(1-|lambda|)(1-theta³)]. Leading coefficient b s3(z0)/(1-lambda³). N=2 centered coordinates oppose and mean is exactly conserved; N>=3 witness (2h,-h,-h,0...) has signed h^3 shift. Independently checked centered updates, coefficient, and rigorous remainder in four numerical settings. Only small disagreement, fixed finite N; finite numerics not proof of infinite-time limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic center manifold expansions plausibly yield a cubic coefficient, but the original one-step identity by itself does not give the summed limit nor effective domain/error."
+        ],
+        "reasoning": "Broader theory may subsume parts, but no identified published theorem directly implies the complete same-model effective bound; explicit source-access risk retained.",
+        "searches": [
+          "arXiv:2608.09724",
+          "arXiv:2302.04214"
+        ]
+      },
+      "checked_sources": [
+        "Kumar and Yao, Analysis and Consensus Control of Emergent Dynamic Polarization in Minimally-Nonlinear Opinion Dynamics, arXiv:2608.09724v1, abstract available, original full text inaccessible",
+        "Cannon et al., Shifting consensus in a biased compromise model, arXiv:2302.04214, different model",
+        "Resultary: nonlinear cubic consensus social network averaging skewness third moment drift complete graph Kumar Yao",
+        "Frozen RESULT.md and verify.py read; independent symbolic contraction/remainder derivation and four numerical spot checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known mean increment only states drift at each step; the reviewed theorem additionally controls the infinite-time sum with lambda-resummed cubic coefficient and explicit remainder."
+        ],
+        "reasoning": "Prior general statements inspected do not mathematically imply the final exact effective estimate without an additional contraction/variation-of-constants calculation. The uninspected same-paper full text prevents a definitive entire-document conclusion.",
+        "searches": [
+          "arXiv:2608.09724",
+          "arXiv:2302.04214"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model one-step formula m_{t+1}-m_t=b s3(z_t) is not the claimed limiting m_infty-m_0 coefficient with an explicit order-five bound."
+        ],
+        "reasoning": "Equivalent formulations include third-order Taylor coefficient of the stable consensus projection and a local center-stable manifold phase map; these standard labels motivated the search; no same-model bound identified.",
+        "searches": [
+          "arXiv:2608.09724",
+          "arXiv:2302.04214",
+          "Resultary: nonlinear cubic consensus social network averaging skewness third moment drift complete graph Kumar Yao"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top matches concerned unrelated skewness/kurtosis, not a table of consensus drift constants for the identical map."
+        ],
+        "reasoning": "No relevant exact database/table is naturally expected for this continuous local asymptotic invariant; a model-specific theorem or appendix is the main remaining risk.",
+        "searches": [
+          "Resultary: cubic network averaging consensus skewness third moment exact coefficient",
+          "arXiv:2608.09724"
+        ]
+      },
+      "rationale": "The 2026 Kumar–Yao paper introduces exactly the nonlinear cubic map and its one-step mean increment; these inputs receive no novelty credit. The further infinite-time consensus location, explicit centered third-moment leading coefficient and effective fifth-order error under local contraction are the assessed additional results. The highly relevant original paper full text could not be obtained: publicly accessible abstract and bibliography only, and authorized institutional retrieval encountered disconnected VPN. This creates material overlap risk (possible appendices), not automatic scientific failure. The inspected different 2023 biased-compromise kinetic model concerns a different nonlinear averaging rule.",
+      "residual_risks": [
+        "Original 2026 Kumar–Yao full text was inaccessible due to disconnected institutional VPN; a theorem, appendix or omitted section may contain the same infinite-time asymptotic.",
+        "Generic analytic center-manifold/normal-form theory could imply the cubic coefficient as an easy special case; no exact previously published same-model effective fifth-order statement identified.",
+        "The bound is local and finite-dimensional, cannot be extrapolated to global basins, stochastic interactions or lambda approaching ±1 uniformly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive full-document NOT_COVERING comparison cannot be asserted. Best-of-knowledge separate final-consensus coefficient accepted with explicit residual risk",
+          "evidence": "The one-step cubic mean increment is already attributed to the original source; lack of full text prevents checking an appendix for the final selection formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.09724",
+          "material_read": "Public abstract and citation details only; full paper unobtainable despite lawful access efforts",
+          "method": "arXiv/OA full-text attempts unavailable; authorized institutional request returned VPN disconnected",
+          "title": "Analysis and Consensus Control of Emergent Dynamic Polarization in Minimally-Nonlinear Opinion Dynamics",
+          "trigger": "Exact same cubic network update; highest-priority source for overlap"
+        },
+        {
+          "assessment": "Different model; cannot imply specific quantitative cubic drift remainder",
+          "evidence": "A kinetic lattice/bounded-confidence compromise mechanism is not the same update matrix and scalar cubic map.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.04214",
+          "material_read": "Abstract and model description comparing bounded-confidence bias to cubic deterministic complete graph",
+          "method": "Open abstract and topical comparison",
+          "title": "Shifting consensus in a biased compromise model",
+          "trigger": "Related nonlinear consensus drift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even a symmetric doubly stochastic influence matrix can select a final consensus distinct from the initial mean because of nonlinear skewness. The exact cubic selection rule and controlled fifth-order residual isolate the sign and magnitude of the drift in an explicit open local stability region. This is a motivated invariant of the original deterministic opinion model, not merely the routine one-step mean identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kumar and Yao, Analysis and Consensus Control of Emergent Dynamic Polarization in Minimally-Nonlinear Opinion Dynamics, arXiv:2608.09724v1, abstract available, original full text inaccessible",
+    "Cannon et al., Shifting consensus in a biased compromise model, arXiv:2302.04214, different model",
+    "Resultary: nonlinear cubic consensus social network averaging skewness third moment drift complete graph Kumar Yao",
+    "Frozen RESULT.md and verify.py read; independent symbolic contraction/remainder derivation and four numerical spot checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original 2026 Kumar–Yao full text was inaccessible due to disconnected institutional VPN; a theorem, appendix or omitted section may contain the same infinite-time asymptotic.",
+    "Generic analytic center-manifold/normal-form theory could imply the cubic coefficient as an easy special case; no exact previously published same-model effective fifth-order statement identified.",
+    "The bound is local and finite-dimensional, cannot be extrapolated to global basins, stochastic interactions or lambda approaching ±1 uniformly."
+  ],
+  "residual_risks": [
+    "Original 2026 Kumar–Yao full text was inaccessible due to disconnected institutional VPN; a theorem, appendix or omitted section may contain the same infinite-time asymptotic.",
+    "Generic analytic center-manifold/normal-form theory could imply the cubic coefficient as an easy special case; no exact previously published same-model effective fifth-order statement identified.",
+    "The bound is local and finite-dimensional, cannot be extrapolated to global basins, stochastic interactions or lambda approaching ±1 uniformly."
+  ],
+  "schema_version": 1
+}
