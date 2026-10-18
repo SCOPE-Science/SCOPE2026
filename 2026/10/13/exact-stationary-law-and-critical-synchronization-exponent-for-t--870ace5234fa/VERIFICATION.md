@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the included exact-arithmetic checker with `python checker.py` (Python 3 standard library). The checker builds the count transition kernel independently of the stationary-factorial recurrence, solves the stationary linear equations over rational numbers and verifies all stationary inclusion probabilities, full-state flux and pairwise covariance at sizes 2 through 8 and at four survival probabilities. Output: `PASS exact finite stationary identities: 280 assertions`.
+## correctness
 
-The stationary factorial-moment recursion, generating-polynomial inversion, critical-loss logarithmic Riemann sum and strict derivative inequality are analytic arguments in `RESULT.md` and hold for the stated infinite domains. The finite exact calculations do not imply the infinite-domain claims by themselves. No independent audit has been performed.
+PASS
+
+Conditioned on K held coupons, predeletion size grows by Bernoulli((n-K)/n), then binomial thinning with q. Factorial moment recursion m_r[1-(1-r/n)q^r]=(r(n-r+1)/n)q^r m_{r-1} solves the product, and exchangeability yields every inclusion probability and full law. Pair covariance algebra is strictly negative. For q_n=1-c/n, Stirling and improper Riemann sum with bounds j/n<=d_nj<=(1+c)j/n yield I(c); differentiating I(c)-log(1+c) and bounding its integrand proves strict positivity for all c>0, not just numerics. Independent rational full stationary transition kernels for n=2..5 and q=1/3,1/2,3/4 confirmed every inclusion probability and pair covariance.
+
+## originality
+
+PASS
+
+The source same process supplies one-coupon recurrence and critical scaling; Long gives standard stationary entry flux but its large-n theorem holds fixed p. Neither implies n-dependent p=c/n large-deviation exponent or full stationary multi-coupon joint moments. Clumsy collector changes only drawn coupon and is not equivalent. Relevant classical immigration-thinning prior remains an admitted risk.
+
+## value
+
+PASS
+
+A complete stationary dependence structure and strict exponential correction to false independence heuristic for a natural stochastic collector; directly needed for full synchronization rarity and rare event estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
