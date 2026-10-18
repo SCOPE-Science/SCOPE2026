@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:58:01.997312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exactly specified continuous-time LQ problem x'=x+u on [0,1] with state weight 3 and terminal adjoint zero, control differences satisfy tilde e=-3K*K e with Volterra Kf(t)=int_0^t e^(t-s)f(s)ds. A=K*K positive compact self-adjoint. Direct calculation K(1-t)=t and K*t=1-t gives eigenvalue 1; boundary eigenproblem f''+(1/mu-1)f=0, f'(0)+f(0)=f(1)=0 excludes mu>1 and gives subleading mu_j=(1+k_j^2)^-1, tan k_j=k_j, k1>pi, mu_j->0. Therefore norm(I-omega(I+3A))=max(|1-omega|,|1-4omega|). All-error L2 contraction iff 0<omega<1/2, unique minimax omega=2/5 factor 3/5; leading mode -3 unrelaxed and -1 at half relaxation, with orthogonal component contracting at norm 1/2 and consecutive averaging canceling neutral two-cycle. Independent dense quadrature gave K*K(1-t) agreement ~1e-6, plus exact rational endpoint/minimax checks. No claims about discretized implementation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharp–Burrage–Simpson, J. R. Soc. Interface 18 (2021), DOI 10.1098/rsif.2021.0241, examine fixed-point accelerations.",
+          "Liu–Frank, arXiv:1912.07028, obtain sufficient convergence from regularization; Armengou-Riera et al., DOI 10.1002/oca.70072, address discretized Krylov variants."
+        ],
+        "reasoning": "Broader FBSM methods do not mathematically entail the exact 2012 continuous scalar operator spectrum, norm, or mode-specific two-cycle without calculating the particular K*K eigenstructure.",
+        "searches": [
+          "Sharp Burrage Simpson 2021 acceleration FBSM fixed point",
+          "Liu Frank regularized forward backward sweep convergence 2021",
+          "Armengou Riera 2026 CG GMRES forward backward sweep"
+        ]
+      },
+      "checked_sources": [
+        "McAsey–Mou–Han DOI:10.1007/s10589-011-9454-7 primary Remark 4.1",
+        "Sharp–Burrage–Simpson DOI:10.1098/rsif.2021.0241",
+        "Liu–Frank arXiv:1912.07028",
+        "Armengou-Riera et al. DOI:10.1002/oca.70072",
+        "Resultary semantic FBSM exact resonance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2012 McAsey–Mou–Han Remark 4.1 reports failure of unrelaxed sweep and alternating iterates, paired averages approximate optimum.",
+          "Reviewed proof isolates unstable multiplier -3 versus neutral -1 only for precisely specified omega=1/2 update."
+        ],
+        "reasoning": "An observation of alternation does not imply exact norm formula or minimax optimum; an arbitrary undocumented implementation is expressly not claimed. The half-relaxed two-cycle is proved for the mathematical map displayed, not attributed to source's particular code.",
+        "searches": [
+          "McAsey Mou Han 2012 Remark 4.1 alternating iterates averaging",
+          "Liu Frank regularized sweep sharp convergence interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The LQ sweep is an affine fixed-point iteration with error R_omega=I-omega(I+3K*K); fixed-point relaxation equals preconditioned Richardson on this specific operator.",
+          "The original 2012 source reports alternating controls on the same LQ example, without identifying spectral thresholds."
+        ],
+        "reasoning": "General Richardson minimax over a known spectral interval yields omega=2/(1+4)=2/5 once endpoints 1 and 4 are proved; it does not give the nonstandard boundary-value eigenspectrum nor show top eigenvalue 1 in this specific example.",
+        "searches": [
+          "McAsey Mou Han optimal control forward backward sweep modified linear quadratic eigenmode 1-t",
+          "Richardson iteration compact Volterra K star K relaxation spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the target finding plus unrelated fixed-point iteration and spectral topics, but no pre-existing same-operator table.",
+          "No public exact eigenspectrum table for this particular test case was identified in primary source."
+        ],
+        "reasoning": "This is a Hilbert-space operator result rather than a finite database invariant; standard Sturm–Liouville roots are familiar but their identification with this FBSM is the contribution. Database search negative alone is no priority proof.",
+        "searches": [
+          "Resultary semantic forward-backward sweep McAsey Mou Han linear quadratic relaxation exact spectrum 2/5 1-t",
+          "forward backward sweep LQ convergence eigenvalues tan k=k"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.",
+      "residual_risks": [
+        "General fixed-point relaxation formulas are prior mathematical knowledge; originality restricted to exact spectral identification in this concrete canonical example.",
+        "Unindexed thesis/lecture notes or full broader FBSM papers could contain equivalent specific eigenmode analysis; their full texts were not all read here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS qualitative divergence/alternation, not exact relaxation norm or mode formula",
+          "evidence": "Remark 4.1 reports alternating controls and averaging; no all-omega L2 spectral characterization stated.",
+          "identifier_or_url": "DOI:10.1007/s10589-011-9454-7; https://www.researchgate.net/publication/257549034_Convergence_of_the_forward-backward_sweep_method_in_optimal_control",
+          "material_read": "Public author-hosted full text mathematical method and Remark 4.1 specifying modified scalar LQ example and alternating iterates; checked discussion of averaging",
+          "method": "Read primary long full-text page and located Remark 4.1 via text search",
+          "title": "Convergence of the forward-backward sweep method in optimal control",
+          "trigger": "Same example cited Remark 4.1"
+        },
+        {
+          "assessment": "Shows general acceleration context, not a demonstrated implication of the precise 2012 constants",
+          "evidence": "Sharp, Burrage & Simpson study iterative acceleration methods for forward-backward sweep.",
+          "identifier_or_url": "DOI:10.1098/rsif.2021.0241",
+          "material_read": "Abstract and indexed method descriptions only this run; complete primary text not inspected",
+          "method": "Metadata/abstract comparison, residual coverage risk retained",
+          "title": "Implementation and acceleration of optimal control for systems biology",
+          "trigger": "Related broader fixed-point acceleration"
+        },
+        {
+          "assessment": "Potential broader convergence conditions but no established source-specific exact spectrum",
+          "evidence": "Regularization of sweep differs from this exactly parameterized constant convex relaxation.",
+          "identifier_or_url": "arXiv:1912.07028; DOI:10.1016/j.cam.2020.113133",
+          "material_read": "Abstract and public indexed claims on sufficiently strong regularization; full mathematics not read this run",
+          "method": "Abstract-level comparison only",
+          "title": "Symplectic Runge–Kutta discretization of a regularized forward–backward sweep iteration for optimal control problems",
+          "trigger": "Related regularized convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp analytic resolution of the divergence/alternation boundary in a canonical documented counterexample to forward–backward sweep; explicitly identifies a bad eigenmode, stabilizing relaxation interval, optimal fixed relaxation, and why paired averaging works. This is a motivated exact numerical-analysis benchmark, not a generic Richardson parameter restatement absent the nontrivial source-specific spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No inference about finite-step discretization, adaptive iteration, or what relaxation earlier researchers actually implemented.",
+    "The proof is for the exact continuous L2 map, not for a numerical mesh."
+  ],
+  "schema_version": 1
+}
