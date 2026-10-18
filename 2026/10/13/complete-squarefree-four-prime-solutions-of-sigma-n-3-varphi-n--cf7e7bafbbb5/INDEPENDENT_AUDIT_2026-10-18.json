@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:11:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For squarefree n=pqrs with p<q<r<s, the ratio sigma/phi is the strictly decreasing product ∏(p+1)/(p-1). Since p=2 forces >3, while p≥5 gives at most R(5)R(7)R(11)R(13)=14/5, necessarily p=3. R(q)R(r)R(s)=3/2 rules out q=5 and q≥13, leaving q=7 or 11. The q=7 equation is (r-17)(s-17)=288, the q=11 equation (r-9)(s-9)=80; ordered positive divisor pairs and primality leave exactly n=24969,12441,10659. Independent exact divisor enumeration rechecked all candidate factors and witness equations. This is unrestricted over n, not an inference from a search cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 abstract and Theorem 3 concern at most three distinct factors; Theorem 1 assumes the prime list is fixed, so cannot directly exhaust arbitrary fourth primes."
+        ],
+        "reasoning": "A stronger theorem at fixed prime support does not dominate a complete free fourth-prime support classification.",
+        "searches": [
+          "https://www.kevinbroughan.nz/papers/sopFour.pdf Theorem 1 Theorem 3",
+          "On the Ratio of the Sum of Divisors and Euler Totient Function I 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://www.kevinbroughan.nz/papers/sopFour.pdf",
+        "https://oeis.org/A068391",
+        "https://oeis.org/A061367"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broughan–Zhou gives generic algorithms for exponents of an already-specified finite prime support; no q=7/11 and r,s factor-pair closure is asserted for unrestricted four-support case."
+        ],
+        "reasoning": "The known factorization values and support-≤3 results do not imply unrestricted support-four uniqueness without monotone prime bounds and the two exact divisor equations.",
+        "searches": [
+          "https://www.kevinbroughan.nz/papers/sopFour.pdf",
+          "OEIS A068391 ratio 3 sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation for four distinct primes is ∏R(p_i)=3. Database A068391 lists witness numbers, not an infinite exclusion theorem."
+        ],
+        "reasoning": "Factor-ratio and R3 aliases checked; 2014 paper fixes ≤3 prime factors and general finite exponent procedure only after support is fixed.",
+        "searches": [
+          "sigma(n)=3 phi(n) squarefree four distinct primes 10659 12441 24969 classification",
+          "On the Ratio of the Sum of Divisors and Euler Totient Function II 2014",
+          "OEIS A068391"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS sequence explicitly contains all three displayed integers, and the broader sequence of divisor/totient congruences is not a certificate of completeness."
+        ],
+        "reasoning": "Exact witnesses are old; theorem is novel only insofar as it proves no more four-prime squarefree witnesses, with unbounded prime factors.",
+        "searches": [
+          "https://oeis.org/A068391",
+          "https://oeis.org/A061367",
+          "10659 12441 24969 sigma=3phi"
+        ]
+      },
+      "rationale": "OEIS A068391 publishes the three witness values for sigma(n)=3phi(n), so the integers themselves are known. Broughan–Zhou 2014 studies at most three distinct prime factors (Theorem 3) and an exponent algorithm when the prime support is fixed (Theorem 1), neither of which gives unconditional four-prime support classification. Broughan–Delbourgo 2013 addresses especially ratio two. The unrestricted exclusion of every further squarefree four-prime value is not supplied by these sources. Equivalent elementary treatments remain possible.",
+      "residual_risks": [
+        "An elementary unindexed proof of exact support-four exhaustiveness could predate this note.",
+        "Database presence of the witnesses prevents claiming their discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports ≤3 prime factors and fixed-prime-list algorithm; does not settle four distinct arbitrary primes",
+          "evidence": [
+            "Abstract p1 says at most three; Theorem 1 fixes pi, and search found no 10659 theorem."
+          ],
+          "identifier_or_url": "https://www.kevinbroughan.nz/papers/sopFour.pdf",
+          "material_read": "Complete 23-page publisher-author lawful PDF, including abstract, Theorems 1 and 3, Section 4 ratio classes, reference lists; screenshot title page",
+          "method": "full PDF parsed text and page image",
+          "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function II",
+          "trigger": "Exact sigma/phi ratio, potentially stronger finite-prime classification"
+        },
+        {
+          "assessment": "Contains values, no all-height four-prime proof",
+          "evidence": [
+            "Values 10659,12441,24969 present in database."
+          ],
+          "identifier_or_url": "https://oeis.org/A068391",
+          "material_read": "Full current sequence page, entries, definitions and comments",
+          "method": "public mathematical database full entry",
+          "title": "OEIS A068391, numbers with sigma(n)=3 phi(n)",
+          "trigger": "Exact numerical database matching the three witnesses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completes the natural next support-size layer of an established multiplicative ratio equation beyond the published ≤3-prime study. It replaces the first numerical witnesses with an all-height theorem and explicit finite prime factor branches; useful precise arithmetic classification, not mere table reproduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement for nonsquarefree integers or prime support of five or more.",
+    "The three witness numbers are database-known; only the unrestricted exhaustive four-prime proof is asserted as the contribution."
+  ],
+  "schema_version": 1
+}
