@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:52:48.496951Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 06b14f487274ab07badb7b0966211ddf94219050",
+        "Frozen verify.py Git blob 1ce2b205d5777f53c3f8661c17fab5f2acf8fbe4",
+        "Independent exact formulas and Python math.erf sign check at eight radii",
+        "Sun--Hu--Sun DOI:10.1186/s13660-024-03081-w central Gamma/normal inequality and examples c=0.5,1,2"
+      ],
+      "rationale": "For 0<c<=1, D(c)=2e^-1 sinh(c)-(2Phi(c)-1), with Dprime=2(e^-1 cosh(c)-phi(c)) and log derivative of ratio e^-1 cosh(c)/phi(c) equal tanh(c)+c>0. At c=0 ratio sqrt(2pi)/e<1, while at c=1 ratio>1, so exactly one local minimum in this interval. D0=0 and D1=2barPhi(1)-e^-2>0 by Mills lower bound: exactly one positive zero below 1. For c>=1, D(c)=2barPhi(c)-e^-1-c; ratio e^-1-c/(2phi(c)) increases with log derivative c-1>0, starting below 1 and diverging. D1>0 and upper Mills bound gives eventual D<0 and D→0 from below, hence exactly one second crossing and no more. The independent direct CDF numerical evaluation at radii 0.1,0.25,0.5,1,1.5,1.932,2,3 confirmed relevant signs. The source bisection script, root brackets and intermediate formulas were inspected; global uniqueness is proved analytically, not by grid.",
+      "residual_risks": [
+        "Numerical root values rely on floating evaluations with conservative published brackets; the root count and sign pattern are analytic.",
+        "The all-radius result is shape-one Gamma only, not uniform over all Gamma laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 is a family-wide radius-1 statement and does not cover every radius.",
+          "Earlier variation-comparison paper studies one-standard-deviation inequalities across infinitely divisible families and lacks a retrieved all-radius exponential crossing theorem."
+        ],
+        "reasoning": "A stronger parameter family at one radius cannot logically imply the source claim across all positive radii; the source needs two piecewise support regimes and monotone derivative-ratio proofs.",
+        "searches": [
+          "https://link.springer.com/article/10.1186/s13660-024-03081-w",
+          "arXiv:2304.11459 variation comparison infinitely divisible normal",
+          "Resultary published semantic search (20 ranked hits): Gamma(1) exponential standard Gaussian normal central probability mass standardized two crossover radius 0.496 1.933"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1186/s13660-024-03081-w",
+        "https://arxiv.org/abs/2304.11459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary displays P(|Exp(1)-1|<=0.5)>Gaussian and P(|Exp(1)-1|<=2)<Gaussian; positivity at c=1 is theorem.",
+          "The new proof supplies monotonicity of derivative ratios and controls both tails, which is not asserted by these inequalities."
+        ],
+        "reasoning": "Crossing-existence between sample points is an intermediate-value consequence, but exact count two and all-radius signs are not; this is the genuinely assessed refinement.",
+        "searches": [
+          "Sun Hu Sun 2024 Theorem 1.2, c=0.5 and c=2 examples",
+          "arXiv:2304.11459 mean/variance comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun--Hu--Sun Theorem 1.2 establishes P(|Gamma-standardized|<=1)>P(|G|<=1) for any Gamma law.",
+          "Their displayed radius-0.5 positive and radius-2 negative examples for shape one supply sign witnesses, not uniqueness of two zeros."
+        ],
+        "reasoning": "Equivalent terminology includes absolute-value peakedness comparison and sign changes of standardized exponential/normal central CDFs. The reviewed primary paper gives only finite sign observations for arbitrary radii.",
+        "searches": [
+          "Resultary published semantic search (20 ranked hits): Gamma(1) exponential standard Gaussian normal central probability mass standardized two crossover radius 0.496 1.933",
+          "Sun Hu Sun Gamma normalized exponential Gaussian central mass peakedness crossings radius",
+          "DOI:10.1186/s13660-024-03081-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two particular comparisons at c=1/2 and 2 occur in published source.",
+          "The exact two equations defining c± and full continuous sign diagram are not included as a table in reviewed source."
+        ],
+        "reasoning": "The claim is an analytic count of zeros and sign distribution, not a numerical table lookup; knowing two sample radii alone cannot rule out further roots.",
+        "searches": [
+          "Resultary published semantic search (20 ranked hits): Gamma(1) exponential standard Gaussian normal central probability mass standardized two crossover radius 0.496 1.933",
+          "0.4961685495956 1.9329872875286 exponential Gaussian central crossing",
+          "Sun Hu Sun displayed c=0.5 2 probability examples"
+        ]
+      },
+      "rationale": "The primary Gamma paper compares standardized Gamma central mass to Gaussian at radius one and provides isolated shape-one values at radius 0.5 and 2, but does not state or prove the exact two-crossing all-radius sign partition with two unique roots. The simple special shape is motivated by those explicit counterexamples, rather than arbitrary narrowing.",
+      "residual_risks": [
+        "An elementary older peakedness/likelihood-ratio comparison theorem may already imply the two root count under unrelated terminology; searches cannot certify global historical uniqueness.",
+        "The proof is intentionally only for Gamma shape one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides qualitative global Gamma radius-1 comparison and two shape-one sample radii, but not entire two-crossing diagram",
+          "evidence": [
+            "Theorem 1.2 P(|standardized Gamma|<=1)>Phi(1)-Phi(-1); displayed 0.5 positive and 2 negative examples"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-024-03081-w",
+          "material_read": "Full open journal HTML including abstract, Theorems 1.1–1.2, displayed examples at 0.5, 1, 2, discussion of varying kappa",
+          "method": "Read open primary scientific article in HTML",
+          "title": "The infimum values of two probability functions for the Gamma distribution",
+          "trigger": "Same exponential Gamma(1) vs normal central mass at multiple radii"
+        },
+        {
+          "assessment": "No claim of complete all-radius shape-one crossing established from material read; remaining overlap risk",
+          "evidence": [
+            "Study focuses on within-one-standard-deviation comparisons"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11459",
+          "material_read": "Public preprint abstract and described main one-standard-deviation framework; full text not inspected in this run",
+          "method": "Read source abstract and bibliographic scope only",
+          "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+          "trigger": "Potential dominating peakedness/variation comparison theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun--Hu--Sun 2024 Theorem 1.2 and radius-0.5/2 counterexamples",
+        "Explicit monotone likelihood/density ratios and two analytic root equations"
+      ],
+      "rationale": "The primary published family inequality at one standard deviation explicitly warns that the ordering reverses at other radii for the exponential member. Determining the complete sharp two-threshold sign diagram, uniqueness and actual transition radii for that canonical boundary distribution is a natural, precise all-radius refinement, useful as a fully characterized counterexample to overgeneralized peakedness ordering. Although calculus is elementary after reducing to two support regimes, the result is a motivated complete sharp classification rather than an arbitrary fixed-radius arithmetic check.",
+      "residual_risks": [
+        "Moderate value: the special exponential model has elementary CDFs, and it does not extend to arbitrary Gamma shape."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For X~Exp(1), Z=X-1, and G standard normal, D(c)=P(|Z|<=c)-P(|G|<=c) has exactly two positive zeros c_- approximately 0.4961685495956 and c_+ approximately 1.9329872875286; signs are negative for (0,c_-), positive for (c_-,c_+) and negative for (c_+,infinity).",
+  "limitations": [
+    "Best-of-knowledge originality, with explicit source inspections, mathematical comparisons and residual risks; no independent external attestation or formal mechanized proof claimed.",
+    "The science is privately assessed but publication is withheld because unchanged package metadata contain internal operational provenance identifiers; no GitHub write, research import or publication."
+  ],
+  "schema_version": 1
+}

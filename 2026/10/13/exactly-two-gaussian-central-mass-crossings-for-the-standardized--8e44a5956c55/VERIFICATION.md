@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(0<c\le1\),
-\[
-D(c)=\frac{2}{e}\sinh c-\bigl(2\Phi(c)-1\bigr),
-\qquad
-D'(c)=2\left(e^{-1}\cosh c-\phi(c)\right).
-\]
-The ratio
-\[
-R_-(c)=\frac{e^{-1}\cosh c}{\phi(c)}
-\]
-has
-\[
-(\log R_-)'=c+\tanh c>0.
-\]
-Since \(R_-(0)<1<R_-(1)\), the derivative changes sign once. Together with \(D(0)=0\) and \(D(1)>0\), this gives exactly one positive root below one.
+# Independent mathematical audit
 
-For \(c\ge1\),
-\[
-D(c)=2\overline\Phi(c)-e^{-1-c},
-\qquad
-D'(c)=e^{-1-c}-2\phi(c).
-\]
-The ratio
-\[
-R_+(c)=\frac{e^{-1-c}}{2\phi(c)}
-\]
-has
-\[
-(\log R_+)'=c-1>0
-\]
-for \(c>1\). It starts below one and tends to infinity, so the derivative changes sign once. The Mills upper bound gives \(D(c)<0\) for all sufficiently large \(c\), while \(D(1)>0\), hence there is exactly one root above one and no later recrossing.
+## correctness
 
-The standalone script `verify.py` uses standard-library arithmetic to bisect the two roots, verify the stated narrow brackets, and replay representative signs. These computations are not used to prove uniqueness.
+PASS
 
-Expected successful terminal line:
-`VERIFY_OK c_minus=0.496168549596 c_plus=1.932987287529 D1=0.181975224626`.
+For 0<c<=1, D(c)=2e^-1 sinh(c)-(2Phi(c)-1), with Dprime=2(e^-1 cosh(c)-phi(c)) and log derivative of ratio e^-1 cosh(c)/phi(c) equal tanh(c)+c>0. At c=0 ratio sqrt(2pi)/e<1, while at c=1 ratio>1, so exactly one local minimum in this interval. D0=0 and D1=2barPhi(1)-e^-2>0 by Mills lower bound: exactly one positive zero below 1. For c>=1, D(c)=2barPhi(c)-e^-1-c; ratio e^-1-c/(2phi(c)) increases with log derivative c-1>0, starting below 1 and diverging. D1>0 and upper Mills bound gives eventual D<0 and D→0 from below, hence exactly one second crossing and no more. The independent direct CDF numerical evaluation at radii 0.1,0.25,0.5,1,1.5,1.932,2,3 confirmed relevant signs. The source bisection script, root brackets and intermediate formulas were inspected; global uniqueness is proved analytically, not by grid.
+
+## originality
+
+PASS
+
+The primary Gamma paper compares standardized Gamma central mass to Gaussian at radius one and provides isolated shape-one values at radius 0.5 and 2, but does not state or prove the exact two-crossing all-radius sign partition with two unique roots. The simple special shape is motivated by those explicit counterexamples, rather than arbitrary narrowing.
+
+## value
+
+PASS
+
+The primary published family inequality at one standard deviation explicitly warns that the ordering reverses at other radii for the exponential member. Determining the complete sharp two-threshold sign diagram, uniqueness and actual transition radii for that canonical boundary distribution is a natural, precise all-radius refinement, useful as a fully characterized counterexample to overgeneralized peakedness ordering. Although calculus is elementary after reducing to two support regimes, the result is a motivated complete sharp classification rather than an arbitrary fixed-radius arithmetic check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
