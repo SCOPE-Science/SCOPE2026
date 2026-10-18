@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The dependency-free script `artifacts/verify.py` implements the isotropic and idempotent profiles and **independently** enumerates all admissible generator images of both extraspecial groups of order \(p^3\) for \(p=3,5\). It tests the group relations and idempotency on generators, obtaining \(38\) and \(11\) idempotents at \(p=3\), and \(152\) and \(27\) at \(p=5\), for exponent \(p\) and exponent \(p^2\) respectively.
 
-It separately enumerates ordered pairs of independent orthogonal vectors in \(\mathbf F_p^4\) and divides by \(|\operatorname{GL}_2(\mathbf F_p)|\) to enumerate all isotropic planes and those in the power-map hyperplane, for \(p=3,5\). At \(p=3\) these values are \(40\) and \(4\); the full and hyperplane isotropic-line values are \(40\) and \(13\). The checked group-theoretic rank profiles for \(n=2,p=3\) are \((1,3240,29160)\) and \((1,1053,2916)\).
+# Independent mathematical audit
 
-The recorded direct output ends in `VERIFY_OK`.
+## correctness
 
-These finite tests are a replay, not an infinite proof. The all-primes/all-ranks argument is the central-lift and symplectic-hyperplane classification in `RESULT.md`. Characteristic \(2\) and nonprime field-center analogues are outside the claim.
+PASS
+
+In odd extraspecial p-groups, if idempotent f has nonabelian image then ker f meets the characteristic center trivially; normality implies ker f=1, so f=id. Each proper image is elementary abelian and disjoint from Z. Its image S in symplectic W=G/Z must be isotropic and, for exponent-p² groups, lie in the kernel of the nonzero linear p-power form ℓ. Each such r-space has p^r complements H to Z and p^{r(2n-r)} projections W→S inducing retractions, giving c_r=p^{r(2n-r+1)} times its permitted-isotropic-space count. Symplectic I(n,r) and hyperplane B(n,r)=I(n−1,r−1)+p^rI(n−1,r) yield the two spectra and rank-one gap p^{4n−1}. Independent n=1 count checks give (38,11) for p3 and (152,27) for p5. Finite examples do not establish the all-n counting theorem.
+
+## originality
+
+PASS
+
+The full 2019 Anil Kumar–Pradhan article analyzes endomorphism semigroups of extraspecial p-groups and already gives total endomorphism formulas and symplectic isotropic-subspace counts. We credit those inputs. The audited claim restricts to composition-idempotents, classifies all proper group retracts and counts individual rank fibers and subgroup lifts for both odd extraspecial types, including a rank-one type obstruction. No directly covering idempotent spectrum was located in the inspected source.
+
+## value
+
+PASS
+
+Idempotent endomorphisms are canonical retract projections of finite groups. Their exact rank distributions and image subgroup multiplicities in both odd extraspecial types give an interpretable invariant of the endomorphism monoid and distinguish groups with equal order; worthwhile as a natural uniform complete classification rather than a single sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

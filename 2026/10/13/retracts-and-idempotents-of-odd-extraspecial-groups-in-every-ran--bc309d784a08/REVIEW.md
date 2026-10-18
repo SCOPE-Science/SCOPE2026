@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument proves that proper idempotents kill the center, then classifies their elementary abelian retract images by isotropic quotient subspaces and the linear power obstruction. Every allowed subspace yields exactly \(p^r\) complementary lifts and \(p^{r(2n-r)}\) linear projections. The isotropic formulas give the rank counts. Independently enumerated endomorphisms of both groups of order \(p^3\) and isotropic subspaces in four-dimensional symplectic spaces agree with the proof.
+PASS
 
-## Originality
+In odd extraspecial p-groups, if idempotent f has nonabelian image then ker f meets the characteristic center trivially; normality implies ker f=1, so f=id. Each proper image is elementary abelian and disjoint from Z. Its image S in symplectic W=G/Z must be isotropic and, for exponent-p² groups, lie in the kernel of the nonzero linear p-power form ℓ. Each such r-space has p^r complements H to Z and p^{r(2n-r)} projections W→S inducing retractions, giving c_r=p^{r(2n-r+1)} times its permitted-isotropic-space count. Symplectic I(n,r) and hyperplane B(n,r)=I(n−1,r−1)+p^rI(n−1,r) yield the two spectra and rank-one gap p^{4n−1}. Independent n=1 count checks give (38,11) for p3 and (152,27) for p5. Finite examples do not establish the all-n counting theorem.
 
-PASS. Anil Kumar–Pradhan classify and count all endomorphisms and enumerate isotropic subspaces, which are explicitly acknowledged as prior results. Their full-text main theorems and counting section do not impose idempotency, describe retracts, or give the rank-by-rank idempotent spectrum. Searches for retractions, splitting endomorphisms, idempotent monoids, symplectic projection formulations, and exact numerical fingerprints found no covering statement. A hidden equivalent statement under semidirect-product terminology remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The idempotent elements of an endomorphism monoid encode its retract subgroups. This complete classification reveals a uniform and explicit distinction between extraspecial groups of the same order but different exponent, in all ranks and odd characteristics, rather than merely recounting the known endomorphisms.
+The full 2019 Anil Kumar–Pradhan article analyzes endomorphism semigroups of extraspecial p-groups and already gives total endomorphism formulas and symplectic isotropic-subspace counts. We credit those inputs. The audited claim restricts to composition-idempotents, classifies all proper group retracts and counts individual rank fibers and subgroup lifts for both odd extraspecial types, including a rank-one type obstruction. No directly covering idempotent spectrum was located in the inspected source.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Idempotent endomorphisms are canonical retract projections of finite groups. Their exact rank distributions and image subgroup multiplicities in both odd extraspecial types give an interpretable invariant of the endomorphism monoid and distinguish groups with equal order; worthwhile as a natural uniform complete classification rather than a single sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
