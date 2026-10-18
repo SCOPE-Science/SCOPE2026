@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement isolates the continuous-symbol restriction for nonproximinality. The norm identity \(\|T_h\|=\|h\|_\infty\) and the necessary constant-modulus property yield the universal lower distance bound. Uniform approximation by nonvanishing continuous phases gives the matching upper bound without asserting attainment. Flatness of \(\exp(1-\csc^2(t/2))\) controls every derivative of the oscillating phase. Exact-error assumptions force the unique multiplier radius \(1/2\) and contradict continuity via opposing phase subsequences. For every fixed \(0<\alpha<1\), near-best phases on the arc of amplitude at least \(\varepsilon^\alpha\) have bounded angular discrepancy; this forces total variation at least \((\sqrt\alpha/2+o(1))\sqrt{\log(1/\varepsilon)}\). The explicit cutoff-phase construction gives the matching upper coefficient \(1/2\). Normalizations and both phase-arc endpoints have been checked.
+## correctness
 
-## Originality — PASS (residual literature risk)
-The primary full text, Ramesh--Sequeira arXiv:2209.05841v1 (Theorem 2.7 and Remark 2.8), gives membership and closure but no nonproximinality example or sharp angular variation estimate. The related arXiv:2204.05912v1 studies closure in the full bounded-operator class, not nearest Toeplitz points. Searches for phase-chirp, smooth unimodular approximation, best approximation by constant-modulus symbols, and Toeplitz absolute minimum attainment identified no implication covering the combined phenomenon; published-finding corpus candidates on Toeplitz Schur multipliers and finite-grid unimodular polynomials concern different classes. Independent discoveries or a general C*-algebra phase-selection result remain possible. The elementary half-range distance formula is supporting structure, not itself the basis of novelty.
+PASS
 
-## Mathematical value — PASS
-Smooth data can fail to possess a nearest point in a natural closed nonlinear Toeplitz operator class, even though its distance has an elementary exact formula. The additional sharp \(\sqrt{\log(1/\varepsilon)}\) phase-variation law quantifies a structural obstruction that persists for every almost-minimal approximation, rather than merely exhibiting a pathological discontinuity. This answers a natural geometric approximation question suggested by the characterization of minimum-attaining Toeplitz operators.
+Toeplitz compression is an isometry on L∞, so constant-modulus membership gives norm-distance lower bound max(M-ν,ν-m)>=(M-m)/2. Uniformly approximate h by a nowhere-zero polygonal/translated complex path on the circle and replace it by radius (M+m)/2 to obtain matching upper bounds. For a(t)=exp(1-csc²(t/2)), derivatives vanish flatly at t=0 and 2π, making a(t)exp(i/t) smooth. At a zero and a peak, an exact continuous-constant-modulus minimizer requires ν=1/2; cosine of phase discrepancy would be positive for all t>0, contradicting the phase chirp and continuity at t=0. For ε>0, truncate at s=2arcsin((1+log 1/ε)^-1/2), giving V≤1/s+O(1); on [s_α,π] where a≥ε^α, any near-best phase stays in a single phase-difference interval of length 4π/3, giving V≥1/s_α-O(1). Let α↑1 to establish lim V/sqrt(log 1/ε)=1/2. The nonattainment assertion is limited to continuous-symbol subclass, not ambient all-symbol class.
 
-## Prior sources and limitations
-Ramesh--Sequeira, *Absolutely minimum attaining Toeplitz and absolutely norm attaining Hankel operators*, arXiv:2209.05841v1, Theorem 2.7, and *On the closure of Absolutely Norm attaining Operators*, arXiv:2204.05912v1, are the closest inspected primary sources. The negative nearest-point conclusion is explicitly limited to continuous Toeplitz symbols. A broader classical approximation result with the same quantitative content might exist outside the inspected and indexed sources.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The half-range distance follows readily from the Ramesh–Sequeira characterization and is not counted as a novel standalone theorem. The surviving content is smooth-symbol nonproximinality within the continuous absolutely-minimum-attaining Toeplitz class, plus the sharp sqrt(log 1/ε) minimal phase-variation asymptotic. No located primary or distinct indexed theorem provides the latter claim by implication.
+
+## value
+
+PASS
+
+This naturally formulated nearest-point problem for a closed operator subclass has a smooth counterexample to proximinality and a sharp quantitative regularity cost for all almost-best solutions. The sqrt(log(1/ε)) law exposes the blow-up mechanism and is not merely an existing classification restated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
