@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "On connected graph supports, tr(L+J)^{-1}-1 is strictly convex in independent edge weights because distinct edges have independent off-diagonal Laplacian entries and the Hessian is strictly positive on every nonzero feasible difference. The unique unrestricted optimizer inherits translation/reflection symmetry. Fourier diagonalization yields the exact scalar derivative and a single interior root. The verified periodized Green function G_m(c)=m/[sqrt(c(c+4))] coth[m asinh(sqrt(c)/2)] and derivative reduce the root equation to an m^2 balance. At tau=z m^{-2/3}, the stationary equation normalized by m^2 converges to 1/12-S_n/(4 z^{3/2}); strict bracketing yields the unique z_n. Substitution produces m^2/12+(z_n/4)m^{4/3}+o(m^{4/3}), with equal-budget leading term m^2/6. The standalone verifier passed 1296 checks on independently assembled Laplacians, Fourier and Green identities, and representative finite/asymptotic instances; these tests are supporting checks, not proofs of uniform asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh et al 2006/2008: general convex design, uniqueness and symmetry principles; numerical 8-by-8 meshes but no proof of the fixed-width anisotropic limit.",
+        "Tovar et al arXiv:2610.03627v1: general conductance-cost marginal conditions and architecture, no specialized rectangular-torus asymptotic."
+      ],
+      "reasoning": "General strict convexity and symmetry reduce the finite problem but do not supply an explicit Fourier stationary equation, the singular balance or constants. Generic KKT conditions would only imply this claimed asymptotic after additional nontrivial analysis, which is supplied here.",
+      "searches": [
+        "Ghosh Boyd Saberi minimizing effective resistance graph convex optimization symmetry wheel mesh full paper 2006 2008",
+        "Tovar et al 2610.03627 weighted resistance optimal network convexity 2026",
+        "\"anisotropic tori C_m square C_n Kirchhoff index budget trace pseudoinverse resistance-optimal two coupling spectral sum high-aspect limit m to infinity\"",
+        "\"Kirchhoff index optimization two-direction weighted rectangular discrete torus C_m x C_n trace Laplacian pseudoinverse\""
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi MTNS conference paper 2006",
+      "Ghosh–Boyd–Saberi SIAM Review extended article 2008",
+      "Bamieh–Jovanović–Mitra–Patterson arXiv:1112.4011v1",
+      "Tovar et al arXiv:2610.03627v1",
+      "Public research-finding index searches using torus, anisotropy, Kirchhoff index, graph coherence, and optimal conductance aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The optimization framework of Ghosh et al provides concavity/convexity and supports reduction to two classes, but their statements contain no long-thin torus asymptotic at optimized edge weights.",
+        "Bamieh et al Fourier formulas at fixed gain do not choose a budget-constrained anisotropy parameter; their dimensional scaling therefore does not imply the optimized m^{-2/3} law.",
+        "The known network-design examples on wheels and tree-based graphs have different cycle structures and cannot imply the exact product-torus spectrum."
+      ],
+      "reasoning": "A general algorithm solving a convex problem is not itself a published closed-form/asymptotic classification of this family. The proposed contribution is the explicit solved limiting singular design, not generic convexity or Fourier diagonalization. No inspected exact implication subsumes it.",
+      "searches": [
+        "Ghosh et al MTNS2006 Sections 2-4 optimization and examples; extended paper sections 5.2 and 7",
+        "Bamieh et al arXiv:1112.4011v1 Fourier coherence and bounded feedback effort",
+        "\"Kirchhoff index optimization two-direction weighted rectangular discrete torus C_m x C_n trace Laplacian pseudoinverse\"",
+        "\"Kirchhoff index Cartesian product cycles optimal edge conductance resource allocation ratio\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MTNS 2006 conference paper: general minimization of all-pairs effective resistance, not the singular two-orientation torus limit.",
+        "Bamieh et al, arXiv:1112.4011v1: fixed local feedback with Fourier coherence modes, not budget-optimized directional conductances.",
+        "Queries returned no identified statement of the m^{-2/3} anisotropy constant or two-term budget optimum."
+      ],
+      "reasoning": "Kirchhoff index equals vertex count times the pseudoinverse trace, and stochastic network coherence is proportional to the same trace; both aliases were considered. A source proving the exact asymptotic under either equivalent objective would cover the result; none of the materially examined papers does.",
+      "searches": [
+        "\"rectangular torus lattice C_m Cartesian C_n optimally allocate horizontal vertical edge conductances under budget minimize Kirchhoff index total effective resistance anisotropic asymptotics\"",
+        "\"optimal weight allocation anisotropic rectangular torus network coherence trace Laplacian pseudoinverse conductance\"",
+        "\"fixed-width cylinder periodic grid optimize horizontal vertical coupling coherence long cycle asymptotic two thirds scaling\"",
+        "Web literature: \"anisotropic Kirchhoff index torus optimal weights\"",
+        "Web literature: \"rectangular torus coherence optimal weights\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result \"The integral face–winding obstruction in toroidal total two-cut complexes\" concerns homology on the same toroidal graph, not resistance design.",
+        "Published result \"Exact finite-volume rung kernel and boundary–bulk split for weighted ladder spanning trees\" concerns edge-inclusion determinantal kernels rather than optimal resistance.",
+        "Published result \"Closed-form optimal coordinate sampling for inverse-positive SPD quadratics\" concerns randomized quadratic algorithms, a different objective."
+      ],
+      "reasoning": "Searches of specific graph family and objective, including close public result titles and known table/data aliases, found no reported table or formula implying the all-size optimized two-orientation ratio or the fixed-n constant; search failure itself is not a novelty proof.",
+      "searches": [
+        "Published research index: \"rectangular torus lattice C_m Cartesian C_n optimally allocate horizontal vertical edge conductances under budget minimize Kirchhoff index total effective resistance anisotropic asymptotics\"",
+        "Published research index: \"optimal weight allocation anisotropic rectangular torus network coherence trace Laplacian pseudoinverse conductance\"",
+        "Web query: \"Kirchhoff index Cartesian product cycles optimal edge conductance resource allocation ratio\""
+      ]
+    },
+    "rationale": "The claim isolates a network-specific singularly perturbed optimum not implied by established general convexity or fixed-feedback Fourier coherence: a unique unrestricted toroidal allocation, exact scalar equation, sharp fixed-width m^{-2/3} conductance ratio with explicit z_n, two-term optimized trace, and exact factor-two gain over equal edge weights. Inspected original full papers do not state this joint family-dependent result. Published-finding searches of close aliases did not identify equivalent or stronger coverage. Residual risk is incomplete indexing or uninspected specialist literature, not a claim of proven uniqueness in global literature.",
+    "residual_risks": [
+      "Equivalent specialist result may be unindexed or use a different asymptotic terminology.",
+      "The general convexity result is previously established; originality is only attributed to the explicit torus-specific finite/asymptotic classification.",
+      "No claim of an independent external literature certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS framework; does not state the fixed-width anisotropic torus theorem.",
+        "evidence": "Defines all-pairs effective-resistance optimization with a total weight resource and provides general design formulations and examples.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Full paper text, including formulation, convexity/duality, optimization principle, and examples.",
+        "method": "Full available author-hosted PDF examined, rather than search snippets.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Original general resistance-budget optimal design (earliest verified 2006 conference source)."
+      },
+      {
+        "assessment": "Not covering the sharp long-by-fixed periodic torus allocation constant or two-term trace asymptotic.",
+        "evidence": "Examined examples on wheels and numerical square grids; general convexity arguments are distinguished from the new spectral balance.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Extended full article text including symmetry examples, wheel design, trees and numerically optimized meshes.",
+        "method": "Full available author-hosted PDF and relevant sections inspected.",
+        "title": "Minimizing Effective Resistance of a Graph (extended journal article)",
+        "trigger": "Possible stronger coverage by expanded version of the foundational result."
+      },
+      {
+        "assessment": "Fixed local-feedback setting; no optimal two-orientation total-budget design or two-thirds exponent.",
+        "evidence": "Relates mean-square network coherence to inverse Fourier modes and studies limitations of local feedback.",
+        "identifier_or_url": "https://arxiv.org/pdf/1112.4011",
+        "material_read": "Full source with Fourier-mode covariance analysis and bounded effort discussion examined.",
+        "method": "Accessible arXiv full PDF text and relevant displayed equations read.",
+        "title": "Coherence in Large-Scale Networks: Dimension-Dependent Limitations of Local Feedback",
+        "trigger": "Same trace/coherence objective on regular discrete tori and dimension-dependent spectral scaling."
+      },
+      {
+        "assessment": "Provides different general marginal/structural perspective but not the claimed toroidal singular constant.",
+        "evidence": "Addresses generic cost-dependent network architectures and convexity; no identified rectangular-torus asymptotic.",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.03627",
+        "material_read": "Accessible arXiv PDF abstract, introduction and optimization sections examined; relevant terminology searches.",
+        "method": "Primary arXiv PDF examined, including searching for torus/cylinder/anisotropy specializations.",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Recent general network-design work might dominate the result even when outside the source-age cohort."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5dd06153-66f2-4154-b20b-d2fc111bb1c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-width long-torus design is a motivated model of anisotropic physical or consensus networks with fixed total coupling resources. It exhibits a non-obvious optimal weak coupling that vanishes at an exact fractional exponent 2/3 with an explicit cross-section-dependent constant, while preserving connectivity and asymptotically halving the pseudoinverse-trace cost of equal edge resources. The theorem covers all finite rectangular tori and gives an exact two-term asymptotic; neither trivial symmetrization nor generic convexity alone supplies the singular scaling. This is a reusable structural network-allocation law rather than an isolated numerical table.",
+    "status": "PASS"
+  }
+}
