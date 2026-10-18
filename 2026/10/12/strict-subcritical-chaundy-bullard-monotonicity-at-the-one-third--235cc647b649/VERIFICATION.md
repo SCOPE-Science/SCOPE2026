@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces
-\[
-q_k(p)-q_{k+1}(p)
-\]
-to a positive binomial mass times \((1-p)R_k(p)\), where
-\[
-R_k(p)=\frac{9k^2p^2-15k^2p+4k^2+9kp^2-17kp+6k+2p^2-4p+2}{2(k+1)(2k+1)}.
-\]
-The two decisive symbolic identities are
-\[
-R_k'(p)=\frac{(3k+1)(6kp-5k+4p-4)}{2(k+1)(2k+1)}<0
-\]
-for \(0<p\le1/3\), and
-\[
-R_k(1/3)=\frac{2(3k+2)}{9(k+1)(2k+1)}>0.
-\]
-Thus the infinite claim does not depend on numerical enumeration.
+# Independent mathematical audit
 
-The bundled `verify.py` performs three independent exact checks: it computes adjacent binomial tails with `fractions.Fraction`, checks the closed difference formula for a deterministic grid of rational \(p\) and integer \(k\), and verifies the finite three-size block reduction for multiple parameters. It also confirms the endpoint and derivative formulas algebraically by rational evaluation.
+## correctness
 
-Expected successful terminal line:
-`VERIFY_OK exact_tail_pairs=180 block_checks=72`.
+PASS
 
-The finite grid is a reproducibility check only; it is not an exhaustive proof of the real-parameter theorem.
+Coupling Bin(3k,p) and independent Bin(3,p), cancelling internal tail terms, gives q_k-q_(k+1)=P(X=k)(1-p)R_k(p). The exact degree-two rational R_k has derivative (3k+1)(6kp-5k+4p-4)/(2(k+1)(2k+1)) <0 on (0,1/3] and R_k(1/3)=2(3k+2)/(9(k+1)(2k+1))>0. Within sizes 3j-2,3j-1,3j the threshold j is fixed and the upper-tail probability strictly increases; therefore every size is dominated by 3. Boundary p=0 is deliberately excluded. Independent rational recurrence checks 57 adjacent pairs; symbolic proof carries the continuum.
+
+## originality
+
+PASS
+
+The starting 2023 paper explicitly frames the subcritical binomial-tail generalization as unknown; classical Chaundy–Bullard covers p=1/3 only for this a=3 case, and arbitrary-stake isolated reciprocal p does not imply all subcritical p. A 2022 centered-tail result does not reach thresholds above the mean. Resultary nearby two-trial phase threshold is a different increment. Best-of-knowledge after direct source comparison.
+
+## value
+
+PASS
+
+Closes a specifically posed subcritical continuum of the generalized Chaundy–Bullard binomial-tail problem, with strict order for every k and a unique equal-stake optimum, exceeding classical single-p endpoint. The restricted scope is mathematically meaningful even though general unequal-stake optimization is still open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

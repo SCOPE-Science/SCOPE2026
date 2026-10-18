@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The adjacent-tail difference is reconstructed exactly by coupling \(\operatorname{Bin}(3k,p)\) with an independent \(\operatorname{Bin}(3,p)\) increment. Only three boundary masses survive. Their exact ratios give a closed quadratic factor \(R_k(p)\). Its derivative is strictly negative on \(0<p\le1/3\), while its value at \(1/3\) is positive, proving strict positivity of every adjacent difference. A separate exact block argument reduces all average sizes to the multiples of three. The verifier uses exact rational arithmetic only as a regression check.
+## correctness
 
-## Originality
-PASS. The closest source explicitly states the subcritical generalized Chaundy–Bullard inequality as unknown and proves only the endpoint classical theorem plus isolated arbitrary-stake one-third points. A later centered-tail theorem does not imply the claim for \(p<1/3\), because the threshold then lies strictly above the mean. Targeted searches for exact family, Newton–Pepys, Chaundy–Bullard, and one-third aliases found no covering result. The main residual risk is an older equivalent statement under different notation.
+PASS
 
-## Value
-PASS. The theorem settles the complete equal-stake candidate problem on the first unresolved reciprocal threshold slice and strengthens maximum-at-one to strict monotonicity. It directly addresses the binomial-tail question highlighted by the source while preserving the scientifically important distinction from the still-open arbitrary-stake problem.
+Coupling Bin(3k,p) and independent Bin(3,p), cancelling internal tail terms, gives q_k-q_(k+1)=P(X=k)(1-p)R_k(p). The exact degree-two rational R_k has derivative (3k+1)(6kp-5k+4p-4)/(2(k+1)(2k+1)) <0 on (0,1/3] and R_k(1/3)=2(3k+2)/(9(k+1)(2k+1))>0. Within sizes 3j-2,3j-1,3j the threshold j is fixed and the upper-tail probability strictly increases; therefore every size is dominated by 3. Boundary p=0 is deliberately excluded. Independent rational recurrence checks 57 adjacent pairs; symbolic proof carries the continuum.
 
-## Closest literature and limitations
-Fokkink, Meester, and Pelekis, arXiv:2002.06804 / DOI:10.30757/ALEA.v20-07, is the direct source. Fokkink, Papavassiliou, and Pelekis, DOI:10.37190/0208-4147.00050, supplies a later centered-tail comparison but does not cover the subcritical thresholds here. The theorem is restricted to equal-stake averages at \(t=1/3\); it does not prove Csóka's conjecture for arbitrary convex stakes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The starting 2023 paper explicitly frames the subcritical binomial-tail generalization as unknown; classical Chaundy–Bullard covers p=1/3 only for this a=3 case, and arbitrary-stake isolated reciprocal p does not imply all subcritical p. A 2022 centered-tail result does not reach thresholds above the mean. Resultary nearby two-trial phase threshold is a different increment. Best-of-knowledge after direct source comparison.
+
+## value
+
+PASS
+
+Closes a specifically posed subcritical continuum of the generalized Chaundy–Bullard binomial-tail problem, with strict order for every k and a unique equal-stake optimum, exceeding classical single-p endpoint. The restricted scope is mathematically meaningful even though general unequal-stake optimization is still open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
