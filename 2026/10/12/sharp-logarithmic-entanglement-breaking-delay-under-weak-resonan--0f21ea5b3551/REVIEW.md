@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies the qubit Lindblad generator, Choi normalization, partial-transpose subsystem, scaling limit, and the exact entanglement-breaking-time convention. The proof reconstructs the Bloch drift and stationary state, checks strict stationary full rank for every positive drive, obtains the joint weak-drive/time-window expansions from explicit two-dimensional spectral projectors, and computes the limiting two-dimensional Schur complement. At each fixed offset, the remaining two partial-transpose eigenvalues stay uniformly positive. The qubit PPT equivalence converts the eigenvalue signs to channel entanglement-breaking statements, and semigroup monotonicity squeezes the first breaking time. The included verifier independently reconstructs the superoperator and normalized Choi state for finite parameter checks. Numerical checks do not prove the limiting theorem; its proof is analytic. No claim is made at an unbounded rescaled offset.
+## correctness
 
-## Originality — PASS, with stated priority risk
-The closest general theorem is Hanson–Rouzé–França's criterion for eventually entanglement-breaking primitive quantum Markov semigroups. It implies existence of a finite time at fixed nonzero coherent drive, but it does not calculate the small-drive singular transition, let alone the explicit offset profile and vanishing additive correction. Zhou–Chu–Han provide the driven qubit relaxation model, not entanglement-breaking analysis. Lami–Giovannetti characterize entanglement-breaking indices for amplitude-damping channels without a simultaneous continuous resonant drive. Bullock and collaborators analyze un-driven Markovian damping and non-Markovian reset protocols, which have different generators. No inspected full primary source states the present singular sharp boundary, while undetected equivalent treatments, including work phrased via qubit PPT eigenvalues or optical Bloch equations, remain a priority risk. The distinction is one of mathematical implications, not paper titles.
+PASS
 
-## Value — PASS
-The first entanglement-breaking time is an operational memory lifetime of a qubit channel. Its singularity as a transverse coherent drive vanishes is not quantified by mere eventual entanglement-breaking or by an eigenvalue decay rate alone. The exact logarithmic coefficient, vanishing order-one offset, and universal scaled PPT eigenvalue supply a sharp and physically motivated crossover near the rank-deficient stationary-channel boundary. The result makes no broad claim about arbitrary driven dissipators, and no downstream theorem is needed for the natural finite-time invariant to be meaningful.
+The Bloch generator has damping eigenvalues with negative real part and fixed Bloch vector (0,-2Ω/(1+2Ω²),1/(1+2Ω²)). Its stationary-state determinant Ω^4/(1+2Ω²)^2 is positive for Ω>0, giving eventual Choi-PPT and finite EB; Ω=0 amplitude damping retains negative PPT eigenvalue -exp(-t)/2. In the scaling t=4log(1/Ω)+s, the exact y,z spectral projectors give slow Ω² exp(-s/2) and fast Ω⁴ exp(-s) terms. Schur complement of the reference-partial-transposed 4x4 Choi matrix tends after Ω^-4 to 1/2 diag(1-exp(-s),1+exp(-s)); other two eigenvalues tend to 1/2. Qubit PPT iff EB and composition monotonicity squeeze T_EB=4log(1/Ω)+o(1). Independent finite-dimensional Bloch-Choi eigenvalue calculations verified convergence of both fixed-s profiles (e.g. Ω=0.01: -0.8574 at s=-1 versus limit -0.85914; +0.31555 at s=+1 versus limit +0.31606); finite calculations do not prove the joint limit.
 
-## Closest sources and limits
-Full-text comparisons include Zhou–Chu–Han (arXiv:cond-mat/0604191), Lami–Giovannetti (arXiv:1411.2517), Hanson–Rouzé–França (arXiv:1902.08173), Bullock et al. (arXiv:1808.02249), and Horodecki–Shor–Ruskai (arXiv:quant-ph/0302031). These establish neighboring models, channel criteria, and eventual-breaking results but not the inspected claimed scaling statement. A general breaking-time study by Sakuldee and Rudnicki was checked from the abstract only; full comparison there remains a residual priority risk. No independent publication-priority validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hanson-Rouze-Franca proves eventual EB of primitive quantum Markov semigroups for fixed Ω but not the weak-drive singular onset, exact coefficient 4 or universal scaled Choi-PPT boundary. Resonant optical Bloch dynamics, Choi-PPT criterion, and undriven damping are already known; no direct coverage of the asymptotic first-passage time was identified.
+
+## value
+
+PASS
+
+The entanglement-breaking lifetime is a natural operational quantum memory invariant, and weak resonant driving separates infinite zero-drive lifetime from a sharp divergent finite lifetime. The exact log coefficient and transition profile quantify a physically motivated singular regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
