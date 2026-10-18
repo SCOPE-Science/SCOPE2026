@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `artifacts/verify.cpp` performs an exhaustive finite check for \(0\le n\le6\).
+# Independent mathematical audit
 
-It uses one ternary state for every unordered pair of labels: incomparable, forward, or backward. A state is accepted exactly when the induced strict relation is transitive. This independently recovers the classical labeled partial-order counts
-\[
-1,1,3,19,219,4231,130023.
-\]
+## correctness
 
-For each accepted upper order \(Q\), a coordinatewise zeta transform counts accepted lower orders \(P\subseteq Q\). Summing these counts produces
-\[
-1,1,5,79,3221,301831,60305525.
-\]
+PASS
 
-The program then computes Stirling numbers of the second kind by recurrence and verifies the repeated-coordinate transform
-\[
-b_n=\sum_{k=0}^n {n\brace k}a_k,
-\]
-obtaining
-\[
-1,1,6,95,3731,336092,65049621.
-\]
+Lipparini established strong amalgamation/Fraisse limit and ultrahomogeneity for the exact two-reflexive-partial-order language with relation inclusion. Coordinate labeling of injective tuples gives P⊆Q on [n], any such pair embeds by universality, and equal labeled restrictions imply an automorphism by ultrahomogeneity; differing restrictions cannot belong to the same orbit. For noninjective tuples the equality-kernel partition has k blocks and a labeled injective orbit, proving b_n=Σ_{k=0}^n S(n,k)a_k. Independent Python transitivity-oriented enumeration of all labeled posets P⊆Q reproduces 1,5,79,3221,301831 through n=5, using direct pair-subset tests unrelated to the zeta implementation. Bundled verify.cpp and output inspected; it states an exhaustive n=6 3^15-zeta computation recovering 60,305,525; that specific n=6 value was not independently executed here, so independently established finite coverage stops at n=5. The formula for all n has a separate conceptual proof.
 
-The captured output ends with `VERIFY_OK`.
+## originality
 
-This computation checks the finite census and the transform. It does not independently re-prove Lipparini's Fraïssé-limit theorem or independently audit the literature-originality assessment.
+PASS
+
+Structural two-order Fraisse amalgamation and classical single-poset enumerations are prior. The accepted claim is the full injective oligomorphic orbit profile identified with all inclusion intervals of the labeled-poset lattice, its n<=6 exact count, and repeated-tuple Stirling transform. Actual targeted searches of published semantic records and literature found random-poset reduct profiles, not the nested-pair interval profile; best-of-knowledge rather than priority certificate.
+
+## value
+
+PASS
+
+The class of all nested finite posets is a natural Fraisse class; its oligomorphic orbit growth is a standard model-theoretic invariant. Identifying orbits with labeled poset inclusion intervals and giving a reproducible exact n≤6 census and equality-type transform produces a motivated exact profile distinct from ordinary one-poset counts; no general closed formula or asymptotic is required for this useful finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
