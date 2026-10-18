@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For each finite positive time and at stationarity, the Lyapunov equation integrates to a positive Laplace Gram kernel. The strict 2x2 total-positivity determinant obstructs every three-distinct-rate triple, while strict Cauchy--Schwarz obstructs every two-group 2+2 off-diagonal tetrad. Explicit singleton-factor construction proves sufficiency and uniqueness-zero diagonals on the allowed patterns. Four-entry perturbation bounds turn the positive defects into rigorous positive Frobenius lower bounds. Defects have positive order-t^4 coefficients, model entries have order t, and midpoint rank-one construction has O(t^3) error; hence the distance is Θ(t^3). Symbolic rational and series verification and a reproducible 4002-check standalone script corroborate specific computations; finite tests are not treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonnabel--Lambert--Bach construct dynamical tangent-space projection algorithms for positive-diagonal plus low-rank Riccati-like approximants, including the matrix differential equation in Section 5. They do not present a closed-form exact-representability boundary for rank-one-forced diagonal Lyapunov Gramians.",
+        "Bertsimas--Copenhaver--Mazumder consider general global low-rank factor-analysis optimization and Heywood cases, without a Lyapunov/exponential-kernel rate-pattern theorem or t-cubed distance.",
+        "Saunderson et al. treat general diagonal-and-low-rank decompositions and correlation/ellipsoid geometry, not this parameterized family or its short-time distance."
+      ],
+      "reasoning": "The earlier mathematical problems are broader at the algorithm/optimization level, but a general problem formulation or solver is not a theorem implying the exact class-membership dichotomy and sharp local-distance exponent for this structured input. Standard Cauchy--Schwarz and tetrad algebra are explicitly treated as prior background, not independently claimed.",
+      "searches": [
+        "arXiv:2407.03373 PDF Sections 1, 3, 5 and Appendix",
+        "JMLR:18:15-613 PDF Sections 1-3",
+        "arXiv:1204.1220 PDF Sections 1-2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.03373 v1 metadata: public 2024-07-01",
+      "Bonnabel--Lambert--Bach 2024 author-accessible article PDF, pp. 1669-1688",
+      "Bertsimas--Copenhaver--Mazumder, JMLR 18 (2017), open-access article",
+      "Saunderson--Chandrasekaran--Parrilo--Willsky, arXiv:1204.1220, open-access article",
+      "Shapiro (1982) accessible abstract/bibliographic information only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Lyapunov solution is the Gram matrix of exponentials and can be written entrywise as a Cauchy-Laplace kernel, a standard fact. A closed form for its entries alone does not determine which factor-analysis uniqueness variances stay nonnegative.",
+        "For the three-rate stationary matrix with rates 1, 2, 3, exact algebra forces the middle uniqueness variance to -1/60; a second, independent construction covers two repeated rate groups.",
+        "The leading positive defects are order t^4, while the Gramian entries are order t. Together with a midpoint rank-one upper approximation, this yields the nonzero order t^3 distance."
+      ],
+      "reasoning": "Prior factor-analysis and Riccati-projection results establish the model and motivations. Their statements do not logically imply the particular necessary-and-sufficient rate partition or the two-sided cubic distance without the kernel positivity and asymptotic arguments given here. A complete earlier specialized source remains a possible priority threat.",
+      "searches": [
+        "arXiv:2407.03373 Section 5",
+        "JMLR:18:15-613 Section 1",
+        "arXiv:1204.1220 Section 1",
+        "Shapiro:Psychometrika:47:1982:187-199 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-factor tetrad identity and nonnegative-uniqueness constraints are classical; JMLR 18(2017), Section 1 describes the latent-factor covariance and Heywood negative uniqueness.",
+        "The specialized off-diagonal triple defect is strictly positive for all 3-rate diagonal Lyapunov Gramians by an explicit Laplace-kernel 2x2 minor; the full rate-pattern classification includes repeated-rate tetrads.",
+        "Bonnabel et al. (2024), Section 3 addresses tangent projections for low-rank plus strictly positive diagonal matrices rather than exact membership of the diagonal Lyapunov solution."
+      ],
+      "reasoning": "Reexpressing the claim in standard factor-analysis language produces known necessary tetrad and uniqueness inequalities, not a known complete classification of the exponential Gram kernel. The nontrivial missing comparison is supplied by strict Laplace-kernel minors, the rank-group multiplicity cases, and matched cubic bounds. Generic equivalence of the mathematical tasks does not establish that these exact specialized results appeared earlier.",
+      "searches": [
+        "arXiv:2407.03373",
+        "JMLR:18:15-613",
+        "arXiv:1204.1220"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2017 and 2012 full-text general factor-analysis sources do not tabulate the exact diagonal Lyapunov Gramian membership cases; searches of available full texts for Lyapunov/Gramian/Cauchy gave no direct matching theorem.",
+        "The 2024 source gives low-rank-plus-diagonal approximation methods and numerical examples rather than a table of representable damping-rate multiplicities."
+      ],
+      "reasoning": "A static numerical example or a universal factor-analysis decision procedure would not itself supply the all-time classification or the sharp t-cubed separation. No matching fixed table was identified; search absence is treated as risk-aware evidence, not novelty proof.",
+      "searches": [
+        "arXiv:2407.03373",
+        "JMLR:18:15-613",
+        "arXiv:1204.1220",
+        "Shapiro:Psychometrika:47:1982:187-199"
+      ]
+    },
+    "rationale": "Comparative assessment separates classical one-factor tetrads, Heywood phenomena, strict kernel inequalities and low-rank-plus-diagonal numerical projection from the combined all-damping-pattern Gramian classification and sharp cubic separation. The motivating paper and two general-factor-analysis full texts were materially read in their relevant sections and did not contain the combined theorem. Bounded record searches returned no claim that mathematically implies it. Risk remains from unindexed specialized publications and the inaccessible complete Shapiro text; this is not independent publication-priority certification.",
+    "residual_risks": [
+      "Complete 1982 Shapiro text was not accessible; avoid drawing any whole-paper noncoverage conclusion from its abstract.",
+      "General one-factor tetrad and Heywood facts are much older than the motivating 2024 paper; a specialized published Lyapunov/Cauchy-Gramian result may have escaped the bounded search.",
+      "Comparative review is not independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies tangent projections and algorithms, and strictly positive uniqueness diagonals; the diagonal-Lyapunov exact rate-multiplicity classification and t-cubed distance are not presented in the inspected statements.",
+        "evidence": [
+          "Definition of factor-analysis low-rank-plus-diagonal model at journal p.1669.",
+          "Projection problem and distinction from closest-static-approximation at p.1670.",
+          "Section 5 Riccati dynamics and Sections 3-4 projected evolution; concluding error-assessment perspectives."
+        ],
+        "identifier_or_url": "arXiv:2407.03373; https://www.di.ens.fr/~fbach/low-rank-simax.pdf",
+        "material_read": "Author-accessible 20-page journal-version full text; inspected pp. 1669-1671, Section 3, Section 5 and Section 6, plus relevant Appendix material and references.",
+        "method": "Full-text article section reading and within-document searches for Gramian, Lyapunov, factor analysis and exact classification.",
+        "title": "Low-Rank Plus Diagonal Approximations for Riccati-Like Matrix Differential Equations",
+        "trigger": "The central 2024 motivating numerical Riccati/low-rank-plus-diagonal covariance method, with same model class."
+      },
+      {
+        "assessment": "The nonnegative diagonal uniqueness constraint and Heywood negative uniqueness are prior art; no diagonal Lyapunov family, strict exponential kernel classification, or cubic distance theorem was located in the article.",
+        "evidence": [
+          "One-factor latent-variable model and uniqueness-variance interpretation at pp.1-2.",
+          "Heywood negative uniqueness discussion at p.2.",
+          "General factor-analysis optimization scope, no Lyapunov occurrences found."
+        ],
+        "identifier_or_url": "JMLR 18 (2017), 15-613; https://www.jmlr.org/papers/volume18/15-613/15-613.pdf",
+        "material_read": "Open-access 53-page text; title/abstract, introduction and factor-analysis problem formulation, related-work overview and methodological statements.",
+        "method": "Relevant primary-text sections, with targeted full-text searches for Cauchy and Lyapunov.",
+        "title": "Certifiably Optimal Low Rank Factor Analysis",
+        "trigger": "General rank-constrained factor-analysis optimization and known negative-uniqueness (“Heywood”) cases could dominate the proposed claim."
+      },
+      {
+        "assessment": "Provides general diagonal/low-rank decomposition geometry but no specialized Lyapunov exponential-kernel multiplicity partition or two-sided short-time distance law in inspected material.",
+        "evidence": [
+          "Introductory discussion of classical factor-analysis feasibility and minimum-trace factor analysis, pp.1-2.",
+          "General ellipsoid-fitting and elliptope scope; no Lyapunov occurrences found."
+        ],
+        "identifier_or_url": "arXiv:1204.1220; https://arxiv.org/pdf/1204.1220",
+        "material_read": "Open-access 20-page full text; abstract, Sections 1-2, geometric and factor-analysis framing and related-work discussion.",
+        "method": "Relevant primary-text reading and search for Lyapunov and one-factor specialization.",
+        "title": "Diagonal and Low-Rank Matrix Decompositions, Correlation Matrices, and Ellipsoid Fitting",
+        "trigger": "Strong general structural results for diagonal-low-rank decomposability might imply a special-case classification."
+      },
+      {
+        "assessment": "Unresolved possible overlap in old specialized factor analysis. No claim of full-text noncoverage is made.",
+        "evidence": [
+          "Reference in Bonnabel et al. (2024) bibliography; bibliographic descriptions about rank-reducibility."
+        ],
+        "identifier_or_url": "A. Shapiro, Psychometrika 47 (1982), 187-199",
+        "material_read": "Citation and accessible abstract/bibliographic description only; complete original text was not obtained.",
+        "method": "Title/abstract source comparison; not a full-text inspection.",
+        "title": "Rank-reducibility of a symmetric matrix and sampling theory of minimum trace factor analysis",
+        "trigger": "Classical minimum-trace factor-analysis rank-reducibility might yield stronger characterization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10f94e78-e67e-48dc-a65f-ac0b7d548386",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One-factor-plus-diagonal positive covariance approximations are motivated by linear-storage filtering and factor analysis. The theorem completely classifies which nontrivial rank-one-driven diagonal Lyapunov covariance trajectories are exactly feasible, and proves that generic positive-definite trajectories lie a quantified positive distance outside the model. The Θ(t^3) order is a matched two-sided benchmark for near-initial-time approximation errors, whereas mere negative uniqueness testing lacks this quantitative and dimensional structural classification. This is a meaningful benchmark for approximability of stable covariance evolution, not a claim about computational speed or general Riccati convergence.",
+    "status": "PASS"
+  }
+}
