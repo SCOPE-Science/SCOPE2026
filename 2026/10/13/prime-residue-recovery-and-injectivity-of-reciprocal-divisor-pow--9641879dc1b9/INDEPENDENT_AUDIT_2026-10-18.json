@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:12:32.347284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "When tau(n) is a power of 2, each prime exponent is 2^s-1; sigma_k(p^{2^s-1})=product_{j=0}^{s-1}(p^{k2^j}+1). For even k with t=v2(k), any odd prime ell dividing a factor has v2(ord_ell(p))=t+j+1 and hence v2(ell-1)≥t+1. Therefore every protected odd q with v2(q-1)≤t avoids sigma_k(n) and has valuation k v_q(n) in the reduced denominator. For n,m in F_k, denominator equality recovers their entire odd parts. The remaining factor 2^a is uniquely recoverable since sum_{j=0}^a2^{-kj} strictly increases, including a=0. As 1≤R_k(n)<2 for k≥2, fractional-part injectivity follows. All n=1 and even n included. Read the frozen exact verifier and independently checked bounded cases for five k; finite checks are only corroborating.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant discusses density/gaps of sigma_{-r} ranges.",
+          "A global injectivity assertion appears as a conjecture in OEIS, not a theorem."
+        ],
+        "reasoning": "Neither results about range density nor the unproved global conjecture logically establish that the specified restricted map is injective.",
+        "searches": [
+          "Defant arXiv:1506.05432v1",
+          "reciprocal divisor sums sigma_k(n)/n^k reduced denominator valuation injective power of two divisor count primes congruence"
+        ]
+      },
+      "checked_sources": [
+        "Defant, On the Density of Ranges of Generalized Divisor Functions (2015), arXiv:1506.05432, https://arxiv.org/html/1506.05432v1",
+        "OEIS A001157, Sun comment dated 2015-10-15, https://oeis.org/A001157",
+        "OEIS A017667 and A017668 divisor-square reciprocal numerator and denominator tables, https://oeis.org/A017668",
+        "Actual frozen Git RESULT.md and VERIFY.py, original snapshot",
+        "Resultary semantic search: reciprocal divisor sums sigma_k(n)/n^k reduced denominator valuation injective power of two divisor count primes congruence",
+        "GitHub code search SCOPE2026: reciprocal divisor injective (zero results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published range-density results permit repeated function values.",
+          "Sun conjecture is not established prior coverage.",
+          "The new exact denominator valuation requires the 2-primary prime-exponent factorization and order argument."
+        ],
+        "reasoning": "The established source statements do not entail the full recovered odd-prime exponents plus 2-adic uniqueness. The original conjecture is stronger in scope but unsettled.",
+        "searches": [
+          "Defant arXiv:1506.05432v1",
+          "OEIS A001157",
+          "OEIS A017668"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_k(n)=sigma_{-k}(n)=sigma_k(n)/n^k.",
+          "Reduced denominator valuations may be described as non-cancellation for protected odd primes."
+        ],
+        "reasoning": "Searched both reciprocal-sum and generalized-divisor-sum notations; the prime support/2-adic residue criterion was not found as a previous equivalent statement.",
+        "searches": [
+          "reciprocal divisor sums sigma_k(n)/n^k reduced denominator valuation injective power of two divisor count primes congruence",
+          "OEIS A001157"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS entries list exact small-n numerator/denominator values for k=2, but no all-even-k residue theorem."
+        ],
+        "reasoning": "Tables are useful independent spot-checks; no finite table covers the infinite class or generalized k, so they do not imply the statement.",
+        "searches": [
+          "OEIS A017667",
+          "OEIS A017668",
+          "OEIS A001157"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit protected-prime valuation and restricted-domain injectivity for every even k. Defant 2015 covers density and gaps of a range, not one-to-one fibers; Sun OEIS A001157 records an unproved unrestricted distinct-fractional-part conjecture; OEIS A017667/A017668 contain reduced tables but do not establish this all-even-k family. The modular-order calculation is classical and receives no independent novelty credit.",
+      "residual_risks": [
+        "The underlying multiplicative-order lemma is elementary and could appear in older generalized divisor-sum literature.",
+        "A published result on denominator uniqueness for a larger collection of arithmetic functions might imply this special case; targeted searches found no such theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING inspected statements: characterizes range topology/density and gap sizes, not collision-free subdomains or prime-residue denominator valuations.",
+          "evidence": "Range closure and density theorems concern which values occur, not whether two arguments in a residue-defined infinite family give equal values.",
+          "identifier_or_url": "https://arxiv.org/html/1506.05432v1",
+          "material_read": "Accessible HTML introduction, statements and relevant range-density/gap theorems (including Section 2); not simply the search snippet.",
+          "method": "arXiv HTML full-text and theorem-level inspection",
+          "title": "On the Density of Ranges of Generalized Divisor Functions",
+          "trigger": "Same generalized reciprocal divisor-power sums and possible stronger coverage."
+        },
+        {
+          "assessment": "Relevant conjecture, not a proved dominating theorem.",
+          "evidence": "Sun asks that fractional parts of sigma_k(n)/n^k be distinct for every n, a broader conjecture than the proved restricted subfamily.",
+          "identifier_or_url": "https://oeis.org/A001157",
+          "material_read": "Sequence entry, references, and Zhi-Wei Sun comment dated October 15, 2015.",
+          "method": "OEIS entry read",
+          "title": "OEIS A001157, Sum of squares of divisors of n",
+          "trigger": "Explicit global injectivity conjecture for fractional reciprocal sums."
+        },
+        {
+          "assessment": "Finite-value table does not prove the simultaneous formula v_q(B_k(n))=k v_q(n) over all even k and infinitely many n.",
+          "evidence": "Tabulated reduced denominators for k=2; no general protected-prime injectivity theorem identified.",
+          "identifier_or_url": "https://oeis.org/A017668",
+          "material_read": "Entry description, formulas and linked references.",
+          "method": "OEIS entry read",
+          "title": "OEIS A017668, denominators of reciprocal divisor-square sums",
+          "trigger": "Possible exact known denominator table for k=2."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result proves a meaningful infinite subclass of a named unresolved injectivity conjecture with no bound on prime support or Mersenne-type exponents, and a stronger exact denominator-reconstruction law. The chosen restriction is motivated precisely by disjoint numerator/denominator prime residue classes, not an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Defant, On the Density of Ranges of Generalized Divisor Functions (2015), arXiv:1506.05432, https://arxiv.org/html/1506.05432v1",
+    "OEIS A001157, Sun comment dated 2015-10-15, https://oeis.org/A001157",
+    "OEIS A017667 and A017668 divisor-square reciprocal numerator and denominator tables, https://oeis.org/A017668",
+    "Actual frozen Git RESULT.md and VERIFY.py, original snapshot",
+    "Resultary semantic search: reciprocal divisor sums sigma_k(n)/n^k reduced denominator valuation injective power of two divisor count primes congruence",
+    "GitHub code search SCOPE2026: reciprocal divisor injective (zero results)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only even k≥2 and prime-power exponents 2^s−1 are covered; the odd-prime support must satisfy v2(q−1)≤v2(k).",
+    "The unrestricted Sun distinct-fractional-parts conjecture is not solved and maximality of F_k is not asserted."
+  ],
+  "residual_risks": [
+    "The underlying multiplicative-order lemma is elementary and could appear in older generalized divisor-sum literature.",
+    "A published result on denominator uniqueness for a larger collection of arithmetic functions might imply this special case; targeted searches found no such theorem."
+  ],
+  "schema_version": 1
+}

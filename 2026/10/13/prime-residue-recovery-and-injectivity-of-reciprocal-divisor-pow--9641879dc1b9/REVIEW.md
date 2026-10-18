@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact factorization of every local \(\sigma_k\) component with exponent \(2^s-1\) forces odd numerator primes to have multiplicative order with \(2\)-adic valuation at least \(t+1\). For a protected odd prime, the denominator valuation follows directly from no cancellation. Equality of reduced fractions recovers the odd part, and strict growth of the \(2\)-primary factor recovers the remaining exponent. The proof treats \(n=1\), odd \(n\), and even \(n\), with no finite range hypothesis. The embedded checker independently reconstructs finite values through \(30000\), not an infinite certificate.
+## correctness
 
-**Originality (PASS, with residual risk).** The closest primary material is Defant (2015), which analyzes density and gaps of the range of \(\sigma_{-r}\), not collisions, and Sun's 2015 conjecture, which states global pairwise distinctness rather than a proved restricted theorem. The denominator sequence A017668 gives values for \(k=2\) but no theorem of prime-support recovery. Semantic searches of published mathematical findings found no dominating implication. The general modular-order lemma and reduced-denominator argument are accessible to elementary methods, and an unindexed earlier proof remains possible; search absence alone cannot certify novelty.
+PASS
 
-**Value (PASS).** The subject is a specific long-standing injectivity problem for reciprocal divisor sums. An exact recoverability theorem simultaneously handles unbounded prime support, arbitrarily high admissible local exponents, all even \(k\), and the unprotected factor \(2\); it establishes an infinite class of the proposed pairwise distinctness, rather than a mere finite table or pointwise substitution. It does not resolve injectivity for arbitrary integers.
+When tau(n) is a power of 2, each prime exponent is 2^s-1; sigma_k(p^{2^s-1})=product_{j=0}^{s-1}(p^{k2^j}+1). For even k with t=v2(k), any odd prime ell dividing a factor has v2(ord_ell(p))=t+j+1 and hence v2(ell-1)≥t+1. Therefore every protected odd q with v2(q-1)≤t avoids sigma_k(n) and has valuation k v_q(n) in the reduced denominator. For n,m in F_k, denominator equality recovers their entire odd parts. The remaining factor 2^a is uniquely recoverable since sum_{j=0}^a2^{-kj} strictly increases, including a=0. As 1≤R_k(n)<2 for k≥2, fractional-part injectivity follows. All n=1 and even n included. Read the frozen exact verifier and independently checked bounded cases for five k; finite checks are only corroborating.
 
-Primary literature and databases: Defant, arXiv:1506.05432 (full text); OEIS A001157, A017667, A017668 (full entries); MathOverflow 315770 (original proposer explains the conjecture in a related question). A related result on Jordan totient-product collisions concerns a different function. No independent external validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit protected-prime valuation and restricted-domain injectivity for every even k. Defant 2015 covers density and gaps of a range, not one-to-one fibers; Sun OEIS A001157 records an unproved unrestricted distinct-fractional-part conjecture; OEIS A017667/A017668 contain reduced tables but do not establish this all-even-k family. The modular-order calculation is classical and receives no independent novelty credit.
+
+## value
+
+PASS
+
+The result proves a meaningful infinite subclass of a named unresolved injectivity conjecture with no bound on prime support or Mersenne-type exponents, and a stronger exact denominator-reconstruction law. The chosen restriction is motivated precisely by disjoint numerator/denominator prime residue classes, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
