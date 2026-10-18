@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive n and all k>=2, every additive relation between two sums in the separated-run representation is coordinatewise, because the lowest nonzero discrepancy has magnitude less than the gap to the next run. Thus every k-AP corresponds to a tuple of interval k-APs. Oriented intervals contribute exactly B_i and constant sequences contribute prod L_i; reversal halves the remainder. Maximum-length and no-three-term/Fibonacci consequences follow algebraically. An independent direct checker passed 8192 finite pairs plus extremal and Fibonacci checks; its finite scope is not relied on as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuca 2018 uses Sierpinski patterns for Ulam-type sequences, not a universal Pascal-row AP count.",
+        "Rolnick 2014 covers ternary-digit 3-free sets."
+      ],
+      "reasoning": "The plausible broader additive-combinatorial sources give structural results for different sets and do not imply the explicit Pascal-binomial family census.",
+      "searches": [
+        "Lucas theorem support of odd binomial coefficients as union of binary digit blocks; three term progressions counts",
+        "Pascal triangle mod 2 odd position set is progression-free exactly if index has no consecutive 1 bits; maximal progression lengths 2^longest one run",
+        "Borys Kuca Structures in Additive Sequences 2018 Pascal triangle parity odd coefficients arithmetic progressions Freiman",
+        "arxiv:1804.09594v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1409.3820v1, Meštrović (full HTML material)",
+      "arxiv:1408.1940v1, Rolnick (full HTML material)",
+      "arxiv:1804.09594v1, Kuca (full HTML material)",
+      "Semantic research-record searches on statement, aliases, exact formula and related source names (9 queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Lucas theorem establishes E_n and cardinality, while the newly proved additive rigidity supplies progression enumeration.",
+        "Rolnick concerns ternary Stanley sets and their avoidance property."
+      ],
+      "reasoning": "Neither count of odd entries nor digitwise 3AP avoidance in a different base implies the full formula without new combinatorial reasoning. The derived threshold and maximum counts are part of the same single theorem, not separately asserted as new findings.",
+      "searches": [
+        "longest arithmetic progression of indices of odd binomial coefficients in Pascal row n equals 2 to longest consecutive block of ones in n binary expansion; exact count of maximum-length progressions",
+        "David Rolnick On the classification of Stanley sequences 1408.1940 arithmetic progression ternary digits Pascal modulo two",
+        "arxiv:1408.1940v1",
+        "arxiv:1409.3820v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lucas digits describe a product set but do not state the progression-count identity.",
+        "The fully inspected 2014 survey counts odd entries only."
+      ],
+      "reasoning": "Searches considered 3AP-free support, longest binary-one run, Freiman product decomposition and progression count under alternative wording; no exact equivalence identified.",
+      "searches": [
+        "longest arithmetic progression of indices of odd binomial coefficients in Pascal row n equals 2 to longest consecutive block of ones in n binary expansion; exact count of maximum-length progressions",
+        "Pascal triangle mod two row odd positions arithmetic progression free iff no adjacent set bits; count longest arithmetic progressions by binary run sizes",
+        "Freiman 2-isomorphism for Lucas binomial parity support with cartesian product of intervals at separated runs; exact progression lengths and counts",
+        "arxiv:1409.3820v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Meštrović Section 6.1 records the old odd-coefficient count, not k-term AP frequencies.",
+        "Searches on exact formulas and parameter aliases did not return a table with these counts."
+      ],
+      "reasoning": "No exact indexed sequence or table identified covering the count for every n,k; this is a search limitation and not a proof of uniqueness.",
+      "searches": [
+        "Arithmetic progression counting polynomial for support of Pascal triangle modulo 2, product over maximal binary runs n with lengths t_i and number of k term arithmetic progressions ∏(L_i(2h_i+1)−(k−1)h_i(h_i+1)) minus 2^popcount divided by 2",
+        "Romeo Mestrovic Lucas theorem 1409.3820 odd binomial coefficients Pascal rows complete k term arithmetic progression number binary runs formula",
+        "arxiv:1409.3820v1"
+      ]
+    },
+    "rationale": "No searched antecedent contains a full count of all k-term arithmetic progressions in each odd-binomial Pascal row or a stronger covering classification. Meštrović supplies the Lucas digit support and size but not the additive factorization; Rolnick treats 3-free ternary Stanley sequences; Kuca treats greedy additive sequences with Sierpinski links. The new coordinate rigidity plus full all-length product formula is a different statement. Exact duplicate discovery remains incomplete in principle.",
+    "residual_risks": [
+      "Older unindexed work on arithmetic progressions in Lucas parity supports may give an equivalent expression.",
+      "A direct consequence could occur in a source not found by these searches; novelty has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives Lucas support and Glaisher/Fine odd-coefficient count, but not an arithmetic-progression census or a binary-run additive factorization.",
+        "evidence": [
+          "Section 6.1, lines 863-875: row count a_2(n)=2^{popcount(n)}; arXiv:1409.3820v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1409.3820v1",
+        "material_read": "Full HTML text with focused inspection of section 6.1 on parity patterns and Lucas applications.",
+        "method": "Read the original open HTML and search for arithmetic progression claims.",
+        "title": "Lucas' theorem: its generalizations, extensions and applications (1878--2014)",
+        "trigger": "Exact object: parity support in each Pascal row."
+      },
+      {
+        "assessment": "Its statement concerns ternary-digit Stanley sets and their 3-free property; neither the objects nor claims count progressions in fixed parity-binomial rows.",
+        "evidence": [
+          "Section 3, especially lines 397-461, ternary digit constraints and 3-free proof; arXiv:1408.1940v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1408.1940v1",
+        "material_read": "Full HTML available; inspected the constructions and digitwise avoidance argument in section 3.",
+        "method": "Compare the sets and conclusions of theorems to odd Pascal-row supports.",
+        "title": "On the classification of Stanley sequences",
+        "trigger": "Potentially dominating digitwise three-term-progression theorem."
+      },
+      {
+        "assessment": "Sierpinski/Pascal parity is used to study greedy additive sequences; its homomorphisms concern Ulam-type sets, not exact progression counts in odd-binomial row supports.",
+        "evidence": [
+          "Lines 300-307 connect polynomial parity to Sierpinski triangle; lines 408-490 give Freiman homomorphism for greedy additive sets; arXiv:1804.09594v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1804.09594v1",
+        "material_read": "Full HTML with inspection of statements and proofs in sections 3-5 including Lemma 3.7 and section 4.",
+        "method": "Find Pascal/Sierpinski/Freiman occurrences; compare their objects and quantified outcomes.",
+        "title": "Structures in Additive Sequences",
+        "trigger": "Sierpinski-triangle and Freiman homomorphism in additive-sequence context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50ffd955-89d7-4121-93d3-84c5d6a2e1b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural additive pattern statistic of odd binomial support receives a closed all-n/all-k count, an extremal spectrum formula and a sharp 3AP-free characterization. The separation of binary runs gives a structural additive-isomorphism theorem, going beyond mere evaluation of Lucas parity or substitution of a known table. This is mathematically motivated by Pascal/Sierpinski arithmetic patterns and does not rely on a speculative application.",
+    "status": "PASS"
+  }
+}
