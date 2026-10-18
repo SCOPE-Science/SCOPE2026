@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:14:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At any strictly positive equilibrium of source reduced equation (18), a_i=beta0+gamma_i>0, w_i=c_i*beta0/a_i=N_i*/N0>0 sum to 1, and r=-N0*beta_prime(N0)/beta0. Re-derived A=-diag(a_i)+b1^T with b_i=w_i(a_i-r*gamma_i), hence det(lambda I-A)=prod_i(lambda+a_i) * sum_i w_i(lambda+r*gamma_i)/(lambda+a_i). For r>0 each summand has positive real part on Re(lambda)>=0 since gamma_i>0; no right-half-plane eigenvalue. For r=0 lambda=0 root; r<0 secular factor is negative at lambda=0 and tends to 1 on positive real axis, giving positive real eigenvalue. Independent rational symbolic check produced spectrum {-2,(-18+8sqrt(3))/5,(-18-8sqrt(3))/5} for supplied mixed-sign 3-state example, which escapes source extra sufficient hypothesis. Applies only finite n positive equilibria and A1-A3; gamma_i strictly positive as in source, no claim about nonhyperbolic nonlinear dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 epigenetic-regulation model involves broader feedback control dynamics; 2017 reduced finite n has explicitly stated extra sign constraint"
+        ],
+        "reasoning": "A generic stable Metzler matrix result might cover cases with nonnegative b_i, but the present example has mixed signs b=(2/5,0,-2/5), outside entrywise-positive rank-one simplifications.",
+        "searches": [
+          "Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian",
+          "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)",
+          "doi:10.1073/pnas.1324267111, Lei–Levin–Nie 2014 stem-cell control (background)"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)",
+        "doi:10.1073/pnas.1324267111, Lei–Levin–Nie 2014 stem-cell control (background)",
+        "Resultary query Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4(ii) gives beta_prime<0 with additional same-sign hypothesis; exact mixed-sign stable witness demonstrates strict logical extension"
+        ],
+        "reasoning": "The later theorem removes a genuine hypothesis, rather than renaming source variables or restating its two-state special case.",
+        "searches": [
+          "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)",
+          "Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Situ–Lei 2017 two-state equivalence, general-state same-sign sufficient theorem; same reduced equation (18) and positive equilibria"
+        ],
+        "reasoning": "The n=2 result is a special case of the audited theorem, not its all-finite-state equivalent; generic feedback negative spectral facts need the source rank-one structure and positive weights.",
+        "searches": [
+          "Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian",
+          "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite-state database supports a general C1 sign-of-feedback stability equivalence; 3-state strictness example is a witness, not a table lookup"
+        ],
+        "reasoning": "The target is a universal Jacobian spectrum location criterion, not a finite-census or database value.",
+        "searches": [
+          "Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian",
+          "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)"
+        ]
+      },
+      "rationale": "Primary source proves beta_prime<0 equivalent to Hurwitz for two states, but for finite general n Theorem 3.4(ii) adds a same-sign row condition. The present secular positive-real argument genuinely removes that condition in any dimension; no identified earlier published result does so for this exact source-reduced model.",
+      "residual_risks": [
+        "Only local linear stability at strictly positive equilibria of finite-dimensional reduced A1-A3 model; zero derivative is nonhyperbolic, not claimed nonlinear instability.",
+        "A possibly unindexed general rank-one rational-function stability theorem might imply the result although no direct source-specific application was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING unrestricted all-finite-state iff for negative feedback; source has additional sufficient sign assumption",
+          "evidence": [
+            "Source proves equivalence for two states; general n Theorem 3.4 has nonincreasing-feedback necessity plus same-sign sufficient hypothesis."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2017/5%266/PDF/1551-0018_2017_5-6_1379.pdf",
+          "material_read": "Full 19-page publisher PDF: model equations (18), assumptions, equilibrium, Theorems 3.2–3.5 and proof of sufficient same-sign criterion",
+          "method": "read full source PDF relevant mathematical sections and compare exact formulas",
+          "title": "A mathematical model of stem cell regeneration with epigenetic state transitions",
+          "trigger": "Same ODE after A1-A3 and cited theorem 3.4"
+        },
+        {
+          "assessment": "Not direct implication identified; broader model does not supply this exact rank-one spectral sign theorem",
+          "evidence": [
+            "Focuses population control and epigenetic regulation, not exact local all-n criterion under source A1-A3."
+          ],
+          "identifier_or_url": "doi:10.1073/pnas.1324267111",
+          "material_read": "Source context and abstract/model description; no claim of entire proof inspection",
+          "method": "review publication description and related-work relation",
+          "title": "Mathematical model of adult stem cell regeneration with cross-talk between genetic and epigenetic regulation",
+          "trigger": "Potential dominating stem-cell feedback theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Eliminating a restrictive published stability hypothesis and giving a sharp necessary-and-sufficient local criterion uniformly in the number of epigenetic states is mathematically substantive. The mixed-sign stable example shows the old condition misses a real regime, not simply an algebraic restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/mbe.2017071, Situ–Lei 2017, model equation (18), Theorems 3.2–3.5, Jacobian (publisher PDF)",
+    "doi:10.1073/pnas.1324267111, Lei–Levin–Nie 2014 stem-cell control (background)",
+    "Resultary query Situ Lei stem cell model 2017 theorem 3.4 finite epigenetic states strictly decreasing feedback stability rank one Jacobian"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only local linear stability at strictly positive equilibria of finite-dimensional reduced A1-A3 model; zero derivative is nonhyperbolic, not claimed nonlinear instability.",
+    "A possibly unindexed general rank-one rational-function stability theorem might imply the result although no direct source-specific application was located.",
+    "Audit axes are best-of-knowledge scientific assessments; do not imply formal proof, external attestation, or publication readiness."
+  ],
+  "schema_version": 1
+}

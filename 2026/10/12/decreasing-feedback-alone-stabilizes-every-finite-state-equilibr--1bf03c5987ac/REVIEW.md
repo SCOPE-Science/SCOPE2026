@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At a positive equilibrium the source's equilibrium formula makes the normalized state fractions \(w_i\) positive with \(\sum_iw_i=1\). Rewriting the printed rank-one Jacobian with
-\[
-r=-\frac{N_0\beta'(N_0)}{\beta(N_0)}
-\]
-reduces its secular factor to
-\[
-\sum_iw_i\frac{\lambda+r\gamma_i}{\lambda+\beta(N_0)+\gamma_i}.
-\]
-For \(r>0\), every summand has strictly positive real part whenever \(\operatorname{Re}\lambda\ge0\), so the Jacobian is Hurwitz. The cases \(r=0\) and \(r<0\) respectively produce a zero root and a positive real root. An exact three-state replay independently verifies a mixed-sign example.
+PASS
 
-## Originality
+At any strictly positive equilibrium of source reduced equation (18), a_i=beta0+gamma_i>0, w_i=c_i*beta0/a_i=N_i*/N0>0 sum to 1, and r=-N0*beta_prime(N0)/beta0. Re-derived A=-diag(a_i)+b1^T with b_i=w_i(a_i-r*gamma_i), hence det(lambda I-A)=prod_i(lambda+a_i) * sum_i w_i(lambda+r*gamma_i)/(lambda+a_i). For r>0 each summand has positive real part on Re(lambda)>=0 since gamma_i>0; no right-half-plane eigenvalue. For r=0 lambda=0 root; r<0 secular factor is negative at lambda=0 and tends to 1 on positive real axis, giving positive real eigenvalue. Independent rational symbolic check produced spectrum {-2,(-18+8sqrt(3))/5,(-18-8sqrt(3))/5} for supplied mixed-sign 3-state example, which escapes source extra sufficient hypothesis. Applies only finite n positive equilibria and A1-A3; gamma_i strictly positive as in source, no claim about nonhyperbolic nonlinear dynamics.
 
-PASS. Rank-one determinant formulas are standard. The accepted content is the source-specific theorem that the extra same-sign condition in the published finite-\(n\) stability result is unnecessary, giving the exact criterion \(\beta'(N_0)<0\) for every finite number of states. Searches by DOI, theorem number, feedback sign, mixed-sign aliases, and rank-one terminology found no equivalent published refinement. The earlier stem-cell control and Markov state-transition literature does not imply this Jacobian result.
+## originality
 
-## Value
+PASS
 
-PASS. The removed hypothesis is restrictive precisely in heterogeneous systems, because different state-specific removal rates can make the source's row-feedback quantities have different signs. The theorem converts the paper's conditional multi-state stability statement into a complete finite-state local classification and supplies an explicit three-state case newly covered by the sharper result.
+Primary source proves beta_prime<0 equivalent to Hurwitz for two states, but for finite general n Theorem 3.4(ii) adds a same-sign row condition. The present secular positive-real argument genuinely removes that condition in any dimension; no identified earlier published result does so for this exact source-reduced model.
 
-## Closest literature and limitations
+## value
 
-The earlier Lei–Levin–Nie framework studies feedback control and robust stem-cell regeneration, while Gupta and coauthors model phenotypic equilibrium through stochastic state conversion. Neither contains the rank-one local-stability classification of the later reduced ODE.
+PASS
 
-The result is local and applies after assumptions (A1)–(A3). It does not establish global attraction or cover the mother-state-dependent transition matrix before the reduction.
+Eliminating a restrictive published stability hypothesis and giving a sharp necessary-and-sufficient local criterion uniformly in the number of epigenetic states is mathematically substantive. The mixed-sign stable example shows the old condition misses a real regime, not simply an algebraic restatement.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
