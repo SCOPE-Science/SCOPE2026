@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The population OU covariance is \(A e^{-a|t|}/(2a)\), the nuisance covariance is \((B/2)q(|t|)\), and independence fixes the covariance sum. Differentiating \(C_a(t)=[r e^{-at}+a q(t)]/(r+a)\) gives \(r e^{-at}[q(t)e^{at}-1-(r+a)t]/(r+a)^2\); direct symbolic simplification returned zero for the difference. Strict convexity and the first derivative at the origin establish an **infinite-domain** sign classification; the finite numerical examples below are supplemental only.
+## correctness
 
-For the independent three-rate example \(r=0.4\), with rate/mass pairs \((0.7,0.2)\), \((1.5,0.3)\), \((5,0.5)\), solving \(\sum_j p_j e^{(a-\beta_j)t}-1-(a+r)t=0\) yields unique positive lags approximately \(15.8422975046\) for \(a=1\), \(2.6440311110\) for \(a=2\), and \(0.7138126494\) for \(a=4\). Independent evaluations on either side give the expected opposite signs. These calculations can be reproduced with bisection and standard exponential evaluations.
+PASS
 
-To verify the edge coefficient, translate the nuisance rate distribution by its spectral infimum, integrate its Laplace transform by parts, and use the exact assumed edge-mass asymptotic to obtain \(K\Gamma(\kappa+1)t^{-\kappa}\). The fixed-lag root identity then gives both the leading \((\kappa+1)\log t/t\) term and its constant. The proof does not claim quantitative finite-sample detection or effective error estimates beyond its asymptotic \(o(1/t)\) remainder.
+At frozen RESULT.md blob d83a9b64f6809c0ca339b2c03f451ecd0482b7ce, independence and stationary OU covariance yield C_a(t)=(r e^{-at}+a q(t))/(r+a), r=A/B. Direct quotient differentiation gives sign F_a(t)=e^{at}q(t)-1-(a+r)t. If a<=b=inf supp ν>0, F_a<0. If a>b, F_a(0)=0, F_a'(0)=-(r+Eβ)<0, F_a''(t)=∫(a−β)^2e^{(a−β)t}ν(dβ)>0, and positive spectral mass β<a forces growth, proving exactly one positive crossing. At crossing ∂_a F=t²(a+r)>0 gives decreasing t_*(a); endpoint limits and the inverse t→0 law follow from q(t)=1−Eβ t+o(t). Laplace–Stieltjes integration by parts and ν([b,b+h])~Kh^κ give q(t)~KΓ(κ+1)e^{-bt}t^{-κ}; substituting the exact root yields the long-lag (κ+1)log(t)/t correction and the stated constant. The finite 3-rate numbers in source are examples, not proof. Checked fixed A,B,ν, positive t, κ=0 atom, and κ>0 edge.
 
-An independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-positive-mixture global unique reversal and conditional sharp spectral-edge law, distinguishing mere covariance identities and shared-noise early-warning studies from theorem implication. Highly relevant Ditlevsen full text was inaccessible, documented without turning lack of access into scientific FAIL. Failed Resultary service and no-result search are not novelty proofs.
+
+## value
+
+PASS
+
+A population-level sharp sampling-lag reversal criterion and monotone unique boundary for a full spectral-measure class are mathematically motivated by ambiguous early-warning trends; the Tauberian edge constant identifies which nuisance spectral feature controls long-lag inversion. The exact formulas, rather than only qualitative masking, may guide future modal covariance calculations. Does not claim finite-sample detectability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

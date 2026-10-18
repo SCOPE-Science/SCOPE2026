@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact population covariance is the variance-weighted sum of the OU target and nuisance covariance. Differentiation gives the stated positive-prefactor sign equation; if the target damping is at or below the nuisance spectral infimum it is uniformly negative. Above the infimum the sign equation starts with strictly negative slope, is strictly convex, and grows exponentially, hence crosses once. Implicit differentiation proves the strict monotone phase curve. A finite nuisance first moment justifies the short-lag expansion. Integration by parts and dominated convergence prove the Laplace edge asymptotic and its logarithmic coefficient. This argument covers both atomic and continuous edge mass and all positive lags. The symbolic derivative and three-rate numerical cross-check agree; neither experiment is used as infinite proof.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+At frozen RESULT.md blob d83a9b64f6809c0ca339b2c03f451ecd0482b7ce, independence and stationary OU covariance yield C_a(t)=(r e^{-at}+a q(t))/(r+a), r=A/B. Direct quotient differentiation gives sign F_a(t)=e^{at}q(t)-1-(a+r)t. If a<=b=inf supp ν>0, F_a<0. If a>b, F_a(0)=0, F_a'(0)=-(r+Eβ)<0, F_a''(t)=∫(a−β)^2e^{(a−β)t}ν(dβ)>0, and positive spectral mass β<a forces growth, proving exactly one positive crossing. At crossing ∂_a F=t²(a+r)>0 gives decreasing t_*(a); endpoint limits and the inverse t→0 law follow from q(t)=1−Eβ t+o(t). Laplace–Stieltjes integration by parts and ν([b,b+h])~Kh^κ give q(t)~KΓ(κ+1)e^{-bt}t^{-κ}; substituting the exact root yields the long-lag (κ+1)log(t)/t correction and the stated constant. The finite 3-rate numbers in source are examples, not proof. Checked fixed A,B,ν, positive t, κ=0 atom, and κ>0 edge.
 
-The closest 2026 work (Ditlevsen and Ditlevsen, arXiv:2609.01164v1) contains the underlying two-component covariance identity and asymptotic warning behavior but no global necessary-and-sufficient reversal condition, no monotone phase boundary for arbitrary nuisance mixtures, and no spectral-edge boundary layer. The 2023/2024 Morr–Boers–Ashwin paper (arXiv:2311.18597v2) uses *correlated* stochastic forcing to obtain deceptive signals and does not dominate the present independent-noise sign classification. A 2018 neuronal model conference abstract concerns slow-eigenvalue masking without the quantitative claims. Other terminology from completely monotone covariance or relaxation-spectrum literature might conceal an equivalent theorem; the searches cannot exclude that possibility.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem comes from the practical ambiguity of autocorrelation as a critical-slowing warning in multiscale observations. A single rigorous classification across any number, including a continuum, of nuisance relaxation rates identifies the precise damping threshold for a **false-direction** trend and proves there can be no multiple reversals. The sharp edge-dependent coefficient distinguishes isolated slow nuisance modes from continuous rate spectra; this is more than restating the weighted-covariance formula. The theorem makes no unsupported claims about finite samples, nonlinear tipping or exact forecast skill.
+Best-of-knowledge PASS for the all-positive-mixture global unique reversal and conditional sharp spectral-edge law, distinguishing mere covariance identities and shared-noise early-warning studies from theorem implication. Highly relevant Ditlevsen full text was inaccessible, documented without turning lack of access into scientific FAIL. Failed Resultary service and no-result search are not novelty proofs.
 
-## Closest literature and limits
+## value
 
-The original two-component mixture identity is a necessary starting point, not itself a theorem about the global sign phase diagram. The 2023 coupled-noise obstruction is a different mechanism. The analysis depends on independent stationary components, fixed amplitudes, positive completely monotone nuisance covariance, and a finite nuisance mean. The long-lag refinement additionally assumes a regular edge mass law.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A population-level sharp sampling-lag reversal criterion and monotone unique boundary for a full spectral-measure class are mathematically motivated by ambiguous early-warning trends; the Tauberian edge constant identifies which nuisance spectral feature controls long-lag inversion. The exact formulas, rather than only qualitative masking, may guide future modal covariance calculations. Does not claim finite-sample detectability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
