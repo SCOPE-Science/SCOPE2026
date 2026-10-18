@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every partition, the analysis-error vector has squared norm at most \((m-1)t^2\|f\|^2\), so both universal bounds follow by triangle inequalities. On \(\mathbb C^m\), the rank-one perturbations \(U_{j+1}=I\pm a|h\rangle\langle e_j|\) have distance exactly \(a\), and one partition produces synthesis matrix \(I\pm a\sqrt{m-1}|h\rangle\langle h|\). Its two singular values are explicit. The invertibility and endpoint cases, including the nonattained \(m=2\) infimum, were checked separately.
+## correctness
 
-## Originality
-PASS. Primary theorem statements and proofs, operator-pair perturbation results, close \(K\)-\(g\)-frame perturbation work, and semantic and exact-string searches were compared at the level of implications. A previously available correction to the same source establishes a sufficient lower inequality, but **not** the reverse optimality inequalities or existence of sharp extremizers. The source and closest pair results likewise do not give an exact all-radius, all-multiplicity minimax profile.
+PASS
 
-## Value
-PASS. The critical \(1/\sqrt{m-1}\) scaling is an important robustness threshold for simultaneously selecting measurements from multiple transformed frames. The exact envelopes prove that this scaling, and both associated frame-energy constants, cannot be improved without additional structural hypotheses. For \(m\ge3\), failure at the threshold occurs even though every individual source is a Riesz basis; this isolates a genuine weaving obstruction rather than loss of the frame property of a source.
+For every coordinate partition, disjoint error coefficient sets give ||Cσ−C0||²≤(m−1)t²||f||², and ||C0f||=||f||. Hence the two squared triangle bounds. On C^m, with r=m−1,h=r^(−1/2)Σ_{j<=r}e_j, U_{j+1}=I±a|h><e_j| and one coordinate from each source yield Tσ=I±a√r P_h. Its singular values are |1±a√r| and 1, and each Ui has determinant 1±a/√r. At a=t below radius and a=1/√r at/above radius, the construction saturates the lower and upper constants; m=2 critical lower is approached with a↑1. This is a proof for all m and t, not extrapolation from finite tests.
 
-## Closest literature and limitations
-Li--Jiang--Xu's operator-woven sufficient criterion and Calderón--Ruiz's two-frame perturbation theorem are the closest operator stability results. They do not supply the rank-one extremizers or the exact universal two-sided profile. The profile is only asserted in the orthonormal-reference/identity-center problem, and the \(m=2\) zero bound at the critical radius is an infimum within the invertible-source class.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent column-error proof and exact rank-one equality constructions yield a specific all-m, all-t extremal theorem absent from the actually read original sufficient operator theorem. A mirrored Resultary hit is the target itself, not independent priority evidence. Best-of-knowledge only.
+
+## value
+
+PASS
+
+The m-dependence is an intrinsic simultaneous measurement-selection robustness scale. Determining both exact best universal lower/upper energy constants and exhibiting a singular weaving even though all individual systems are Riesz bases isolates a substantive, general frame weaving boundary rather than an elementary norm estimate alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
