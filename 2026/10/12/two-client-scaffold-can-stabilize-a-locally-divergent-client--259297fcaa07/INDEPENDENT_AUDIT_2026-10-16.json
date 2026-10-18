@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:06:06.833769Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Immutable RESULT.md blob f2580b4d42c64f409635587ec897c0b6304fbc1e",
+        "Source SCAFFOLD Karimireddy et al. Algorithm 1 defines Option II precisely",
+        "Independent exact direct-round and Jury derivation in independent_math_checks.py including separate K=1 boundary"
+      ],
+      "rationale": "Under deterministic full-participation two-client scalar quadratic Option II, write z_i=1-eta a_i, p_i=z_i^K,s_i=(1/K)sum_{j=0}^{K-1}z_i^j and d=(c1-c2)/2. Summing exactly the client local steps and applying the Option-II control update yields A11=(p1+p2)/2, A12=K eta(s1-s2)/2, A21=(p2-p1)/(2K eta), A22=1-(s1+s2)/2. For |z_i|<1 all K>=2 give 0<s_i<1 and |p_i|<1; the three expanded Jury expressions are positive. At K=1 the source writes 0<s_i<1 incorrectly (s_i=1 exactly), but the exact round matrix is triangular with eigenvalues 0 and (z1+z2)/2, still strictly Schur stable. This closes a minor strict-inequality oversight WITHOUT changing the final mathematical claim. Independent exact fractions reproduce K=3, z=(-6/5,9/10), A=[[-999/2000,-147/200],[819/2000,41/120]], det=1629/12500 and negative discriminant, so its spectral radius sqrt(det)<1 though first local factor |-6/5|>1. Tested all three Jury inequalities on 175 sampled exact rational pairs and K=1,2,3,4,7,11,25.",
+      "residual_risks": [
+        "Source proof strict inequality 0<s_i<1 is false for K=1; correct proof treats K=1 separately, and the theorem survives unchanged.",
+        "Only 2 scalar same-minimizer clients, deterministic full participation, eta_g=1 and Option II; no claim for stochastic or multidimensional generalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Theorem IV sufficient rates assume step-size relations; they do not preclude a stable SCAFFOLD round when one isolated local solver has |z_i|>1.",
+          "A source-identified stochastic multi-rate comparison classifies algorithms at a higher abstraction but did not yield the exact counterexample."
+        ],
+        "reasoning": "General convergence bounds under smoothness/similarity are not exact all-K eigenvalue equivalences; sufficient bounds do not imply the false necessity being refuted.",
+        "searches": [
+          "Karimireddy et al 2020 SCAFFOLD Theorem IV quadratic Hessian similarity",
+          "Zhang et al 2022 stochastic multi-rate control distributed optimization SCAFFOLD",
+          "Luo et al 2025 Revisiting LocalSGD and SCAFFOLD"
+        ]
+      },
+      "checked_sources": [
+        "Karimireddy et al SCAFFOLD PMLR119 (2020), arXiv:1910.06378, Algorithm1/Theorem IV/AppendixF full primary text",
+        "Zhang et al 2022 stochastic multi-rate control framework bibliographic results",
+        "Luo et al 2025 Revisiting LocalSGD/SCAFFOLD publisher summary",
+        "Resultary SCAFFOLD deterministic two scalar clients Option II local divergent stability quadratic spectral radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source quadratic convergence bound does not by parameter substitution give the broad local-contractive-to-Schur implication, nor the unstable local step example.",
+          "A locally divergent isolated map may be stabilized by global feedback through evolving control difference; this is not a corollary of the source convergence-rate sufficient assumptions."
+        ],
+        "reasoning": "The exact Option-II two-state derivation plus Jury criterion is needed; a single local solver instability is not logically equivalent to entire SCAFFOLD instability.",
+        "searches": [
+          "Karimireddy 2020 Algorithm 1 and Theorem IV full text",
+          "SCAFFOLD Appendix F two-quadratic illustration",
+          "Resultary SCAFFOLD deterministic two scalar clients Option II local divergent stability quadratic spectral radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arXiv source Algorithm 1 has the same Option-II update, but inspected Theorem IV and Appendix F do not present the same 2x2 round transfer matrix.",
+          "Resultary returns a two-client scalar SPAM first-moment frontier for a different optimization algorithm, not SCAFFOLD."
+        ],
+        "reasoning": "The identical observable is the spectral radius of the deterministic full SCAFFOLD round under Option II, not generic federated convergence or the single-client local-solver radius.",
+        "searches": [
+          "SCAFFOLD deterministic two scalar clients Option II local divergent stability quadratic spectral radius",
+          "SCAFFOLD Option II exact spectral radius two clients quadratics unstable client stable rounds",
+          "Karimireddy arXiv 1910.06378 Option II stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact rational matrix determinant 1629/12500 in relevant inspected original Algorithm1/AppendixF or search results."
+        ],
+        "reasoning": "The explicit witness is one exact reproducible counterexample, but value and originality principally concern the structural all-K guarantee and stabilization mechanism.",
+        "searches": [
+          "SCAFFOLD two client K=3 eta=1 a1=2.2 a2=0.1 matrix",
+          "arXiv 1910.06378 quadratic numerical examples",
+          "Resultary SCAFFOLD deterministic two scalar clients Option II local divergent stability quadratic spectral radius"
+        ]
+      },
+      "rationale": "The original full SCAFFOLD primary text was inspected through Algorithm 1, the quadratic similarity theory and Appendix F; its rate bounds and modified illustrative quadratic update do not state the exact two-state Option-II matrix with the all-K local-contractive Jury domain or its explicit stable round with an individually divergent client. Later multi-rate or similarity convergence theory concerns different guarantees. A published same-object dominating stability criterion was not identified. The original algorithm, control variates, and quadratic rate bounds are prior art.",
+      "residual_risks": [
+        "A hidden exact two-client Option-II calculation in other literature is possible; full later papers were not independently scanned.",
+        "The original SCAFFOLD algorithm and its client drift corrections are established; only the exact stability phenomenon is assessed as additional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_ALGORITHM_PRIOR_RATE_THEORY_DISTINCT_EXACT_TWO_STATE_CLAIM",
+          "evidence": "Option II matches source algorithm, but Theorem IV sufficient convergence conditions and Appendix F illustrative modified updates do not state this precise all-K spectral example.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.06378",
+          "material_read": "Full lawful arXiv primary text: Algorithm 1, main quadratic Theorem IV, and Appendix F two-quadratic experiment, with specific PDF pages inspected",
+          "method": "Direct full-primary-paper arXiv text and relevant page images",
+          "title": "SCAFFOLD: Stochastic Controlled Averaging for Federated Learning",
+          "trigger": "Original algorithm and exact Option-II control update, possible dominating quadratic analysis"
+        },
+        {
+          "assessment": "PARTIAL_ONLY_NO_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": "The source studies generic multi-rate distributed algorithms; possible implicit spectral specializations remain a bounded risk.",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/zhang22w.html",
+          "material_read": "Index and bibliographic summary, not an independently retrieved full-paper text in this execution",
+          "method": "Source metadata and targeted literature search",
+          "title": "A Stochastic Multi-Rate Control Framework For Modeling Distributed Optimization Algorithms",
+          "trigger": "Potential broader control-state linear dynamics interpretation of SCAFFOLD"
+        },
+        {
+          "assessment": "PARTIAL_ONLY_RATE_RESULTS",
+          "evidence": "The accessible result is about rates and similarity assumptions, not identified exact two-client matrix; no full-paper noncoverage is claimed.",
+          "identifier_or_url": "https://proceedings.mlr.press/v258/luo25c.html",
+          "material_read": "Published abstract/bibliographic record only in this execution",
+          "method": "Metadata and focused literature comparison",
+          "title": "Revisiting LocalSGD and SCAFFOLD: Improved Rates and Missing Analysis",
+          "trigger": "Potential later stronger SCAFFOLD guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Karimireddy et al 2020 original SCAFFOLD algorithm and quadratic convergence theory",
+        "Exact state matrix and rational local-instability witness",
+        "Related multi-rate control framework literature"
+      ],
+      "rationale": "Federated optimization theory often measures local step instability and step restrictions. Showing analytically that feedback through SCAFFOLD Option-II controls stabilizes an otherwise divergent client challenges a natural but false necessity intuition. The exact two-client round state and all-K Jury sufficient region offer a reproducible stability benchmark usable when evaluating distributed optimization step-size claims; it does not purport to solve the general stochastic optimization problem.",
+      "residual_risks": [
+        "Restricted deterministic scalar setting; sufficient all-K region not complete stability frontier.",
+        "One source proof inequality at K=1 needs a routine boundary correction but does not invalidate the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source proof strict inequality 0<s_i<1 is false for K=1; correct proof treats K=1 separately, and the theorem survives unchanged.",
+    "Only 2 scalar same-minimizer clients, deterministic full participation, eta_g=1 and Option II; no claim for stochastic or multidimensional generalization.",
+    "A hidden exact two-client Option-II calculation in other literature is possible; full later papers were not independently scanned.",
+    "The original SCAFFOLD algorithm and its client drift corrections are established; only the exact stability phenomenon is assessed as additional.",
+    "Restricted deterministic scalar setting; sufficient all-K region not complete stability frontier.",
+    "One source proof inequality at K=1 needs a routine boundary correction but does not invalidate the claim.",
+    "Scientific review of directly fetched Git blobs completed; recursive source tree identity unverified and publication readiness withheld."
+  ],
+  "schema_version": 1
+}
