@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three equiangular unit rows satisfy \(U^\mathsf T U=3I/2\) and have an all-ones left nullvector, so every fixed right-hand side has the same scalar residual \(\delta\) after least-squares centering. The affine row-action maps have cross terms that cancel after either IID sampling or uniform permutation averaging. Exact six-permutation matrix moments yield \(c_R\), \(d_R\); the IID one-step moment yields \(c_I\), \(d_I\). The positive change of variables \(t=\eta/(2-\eta)\) verifies sign uniqueness of the one-epoch quartic and positivity of the stationary denominator. The stationary threshold is the sole positive root of a strictly increasing cubic, and the epoch-count ordering follows from a monotone ratio of geometric factors. The rational \(\eta=6/5\) witness is checked directly. The embedded script recomputes exact symbolic moments and finite enumerations; it is not a substitute for the analytic proof. The scope excludes independent rowwise perturbations resampled at each visit.
+PASS
 
-## Originality — PASS, with residual risk
+For the equiangular unit-row frame U, U^T U=3I/2 and the fixed least-squares residual is delta*(1,1,1); centering gives A_i=I-eta u_i u_i^T and affine eta*delta*u_i. The one-step IID mean-square map q||e||^2+eta^2 delta^2, q=1-eta+eta^2/2, iterates to c_I=q^3 and d_I=eta^2 delta^2(1+q+q^2). Independent explicit symbolic multiplication of all six RR affine permutation maps confirmed E[M^T M]=c_R I and E[M^T v]=0, with c_R=1-3eta+3eta^2-eta^3+eta^6/32 and d_R=eta^4 delta^2(eta^2+6eta+12)/16. Symbolic factorization confirms c_R-c_I=-3eta^2(2-eta)^4/32. Positive-coordinate polynomial transforms and Descartes rule give unique quartic eta1=1.1803110213; monotone cubic eta_inf=1.2126391135 gives stationary sign threshold. The real-epoch geometric ratio decreases, establishing exactly one transient reversal window eta1<eta<eta_inf from e0=0; at eta=6/5 first RR worse then eventually better. General starts only enjoy universal RR dominance at eta<=eta1. The finite path examples are not relied on for all eta or k.
 
-Gan–Wu (arXiv:2608.22259) studies noisy randomized row methods with IID sampling and general upper bounds, not the exact reshuffling-vs-IID error-ordering transitions. Han–Xie (arXiv:2410.01140) gives RRK convergence under consistency and hence has no nonzero affine fixed-residual forcing. Recht–Ré (arXiv:1202.4184) analyzes noncommutative sampling and noisy stochastic gradient variants, but its displayed comparison uses independent row noises, not the fixed all-ones inconsistency residual here. Ferreira–Acebrón–Monteiro (2024 survey) describes fresh shuffles without a closed exact noisy two-threshold classification, and Epperly–Goldshlager–Webber (arXiv:2411.19877) changes the estimator to tail averaging. A preprint on power-spectral analysis of shuffled stochastic gradients (arXiv:2206.00632) was located but its full text could not be read in this inspection, leaving an explicit residual possibility of a reparameterized antecedent. The original contribution claimed is the paired sharp threshold classification and finite-to-stationary reversal for this entire fixed-right-hand-side frame, not the general finite-population matrix-product formula.
+## originality
 
-## Value — PASS
+PASS
 
-The frame is a natural smallest noncommuting overdetermined row system, with exact least-squares residual mode and normal-matrix condition number one. Distinct roots of the noise-injection and stationary equations show that comparing a single pass and comparing limiting error floors are genuinely different optimization decisions; in between them the relative ranking reverses in time, without poor conditioning or nonuniform row selection. The conclusion is narrowly scoped but fully classifies this baseline and identifies a concrete boundary for transferring sampling claims between noisy and homogeneous methods.
+Primary RRK analysis under consistency and generalized noisy Kaczmarz convergence-to-neighborhood estimates do not state the fixed-residual six-permutation affine moment comparison, two distinct thresholds, or finite-epoch unique crossover. The independent-correlation vs per-visit-noise assumption matters: existing upper bounds do not give the new exact comparative signs. Published Resultary semantic search did not identify equivalent statements, but the negative search is not a novelty proof.
 
-## Limitations and literature risk
+## value
 
-The threshold and first-to-later-epoch reversal are not universal outside this model. Literature searches cannot prove historical uniqueness; older matrix-product or shuffled-gradient calculations might contain an equivalent reparameterization. Verification does not constitute independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact sampling-law comparison on a minimal perfectly conditioned but inconsistent tight-frame example. It distinguishes the immediate noise-injection threshold from the stationary error threshold and proves a genuine short-to-long horizon policy reversal; a source with condition number one removes ill-conditioning as an alternative explanation. The result is useful within these precise fixed-residual, constant-step, epoch-terminal bounds without implying a general RR advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
