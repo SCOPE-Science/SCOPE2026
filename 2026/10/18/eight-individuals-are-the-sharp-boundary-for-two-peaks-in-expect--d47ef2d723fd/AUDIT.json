@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each abundance multiset, expected number of exactly-once represented species equals sum over i of \\(a_i\\binom{N-a_i}{m-1}/\\binom Nm\\). Positive integer partitions list all unordered profiles; a recursive nonincreasing generator and independent enumeration of all compositions agree on the counts 1,2,3,5,7,11,15,22 for totals 1..8. An independent direct enumeration of all labeled individual subsets computes all 66 rational sequences identically. Exact rational peak counts yield zero profiles with two strict peaks for \\(N\\le7\\) and precisely (5,2,1) for \\(N=8\\), at \\(m=2\\) and \\(m=6\\), values \\(1,17/14,33/28,8/7,65/56,33/28,9/8,1\\). The checker is self-contained and its exact census.csv output is reproducible. Symbolic adjacent-ratio proof handles equal abundances; hypergeometric simplification to a concave quadratic handles all census abundances at most two. Proof makes no inference from finite enumeration to \\(N\\ge9\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Colwell et al. 2012, author-accessible complete 19-page PDF https://www.robertkcolwell.org/publications/6855.pdf ; examined frequency-count and finite-population methods and discussion.",
+        "Chao and Jost 2012 DOI 10.1890/11-1952.1; examined accessible full-HTML theoretical and application sections for completeness/singleton context.",
+        "published-finding corpus 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac, covariance of discoveries, not expected frequency-class count in finite sampling."
+      ],
+      "reasoning": "The rarefaction formulas and the definition of sampled singleton counts are covered broadly, but general curves/estimators do not automatically imply the exact minimum number of individuals for two strict peaks, or identify every first-layer witness. No broader inspected theorem supplies those conclusions.",
+      "searches": [
+        "Colwell Chao Gotelli Lin Mao Chazdon Longino 2012 models estimators linking individual sample based rarefaction pdf full text",
+        "singletons nonmonotonic rarefaction curves multiple peaks",
+        "sample singletons unimodal rarefaction",
+        "Hypergeometric rarefaction frequency-of-frequencies f1 nonunimodal bimodal expected singleton counts, sharp population size."
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1365-2656.2009.01525.x",
+      "doi:10.1093/jpe/rtr044",
+      "doi:10.1890/11-1952.1",
+      "published-finding corpus 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+      "published-finding corpus 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+      "published-finding corpus 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0 studies richness/diversity covariance, not this sequence.",
+        "Previously established abundance-balancing one-sign-switch relation compares F_a(m)-F_b(m) under a transfer; without an independently known reference-curve shape, this does not bound peaks of F_a(m).",
+        "Coddington et al. 2009 studies observed data and simulated singleton accumulation, without supplying the finite uniqueness conclusion in inspected text."
+      ],
+      "reasoning": "A cross-profile curve difference, richness covariance, or one parameter-index sign-switch can be true while a fixed singleton-expectation curve changes direction more than once. Thus the nearest statements neither imply the exact first two-peak size nor the unique shape; conversely this claim does not subsume their conclusions.",
+      "searches": [
+        "Expected number of singleton species f1 under hypergeometric rarefaction as sampling depth increases: can curve have multiple strict local maxima? sharp minimum species abundance census.",
+        "Ecological sample richness frequency singletons bimodal sample size versus abundance allocation.",
+        "Single sample singleton count expected value with without replacement monotonicity counterexample sample size."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coddington et al. 2009 DOI 10.1111/j.1365-2656.2009.01525.x; survey singleton counts and relative sampling effort.",
+        "Colwell et al. 2012 DOI 10.1093/jpe/rtr044; f_k frequency counts and finite hypergeometric rarefaction.",
+        "published-finding corpus 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813, covariance of richness with class-r frequencies in uniform occupancy."
+      ],
+      "reasoning": "The theorem is a finite-population hypergeometric sample-size shape/classification statement. A change in the frequency-class index r or a richness/frequency covariance sign need not determine the number of peaks as sampling depth m varies in one fixed abundance profile. No inspected equivalent statement was found.",
+      "searches": [
+        "\"expected singletons\" \"sample size\" bimodal \"peaks\" rarefaction",
+        "expected frequency singleton species rarefaction curve unimodal non unimodal",
+        "unimodality number of colors appearing exactly once hypergeometric sampling urn without replacement",
+        "Rarefaction expected singletons unimodality frequency-of-frequencies multiple peaks exact finite abundance profiles, Good Turing."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The embedded census.csv enumerates 66 positive-integer partitions and their exact rational curves through N=8; this is the new finite certificate, not a previously published database.",
+        "published-finding corpus 2026/10/4/SCOPE-shape-parameter-obstruction-and-exact-mode-for-negative-multinom--f93c5b21e396 concerns a different negative-multinomial shape mode, not this finite hypergeometric curve."
+      ],
+      "reasoning": "Searches for exact witness parameters and the two-peak shape revealed no already-tabulated complete first layer or natural equivalent finite catalog. An absent result is not by itself a uniqueness proof: completeness of the NEW finite domain is established separately by partitions and direct subset verification.",
+      "searches": [
+        "double peaked rarefaction singleton count species expected frequency",
+        "Eight individual finite community abundances (5,2,1) expected singleton species rarefaction two strict local maxima at sample sizes 2 and 6 uniqueness minimum.",
+        "Two distinct peaks expected number of sample singletons, exact ecological sampling from abundance multiset, (5,2,1)."
+      ]
+    },
+    "rationale": "The elementary hypergeometric count is standard and expressly not claimed as new. The specific first possible two-peak community (eight individuals), uniqueness at its first layer, and the structural constraints were compared with available ecological rarefaction treatments and relevant occupancy, covariance and curve-comparison research records. Those sources concern different objects (richness expectation, completeness, empirical singleton trajectories, cross-profile differences or covariance), not the complete within-profile two-strict-maxima question. The comparison supports best-knowledge originality subject to disclosed risk of an equivalent older urn/occupancy theorem.",
+    "residual_risks": [
+      "An equivalent statement could be hidden under an older urn-model/occupancy/multiple-mode terminology and not indexed by title or excerpt.",
+      "Examined primary texts were compared by relevant sections and page images; a source being accessible does not guarantee every appendix has been disproved as covering.",
+      "Self-review is not independent peer review or publication certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical and simulated undersampling/singleton patterns are materially relevant but not a theorem classifying the sharp double-peak threshold.",
+        "evidence": [
+          "First published 2009-03-31; DOI 10.1111/j.1365-2656.2009.01525.x; publisher full HTML https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.1365-2656.2009.01525.x"
+        ],
+        "identifier_or_url": "doi:10.1111/j.1365-2656.2009.01525.x",
+        "material_read": "Accessible full HTML: publication date, abstract and summary, observational sampling methods and discussion of simulated profiles, including discussion near the plotted singleton trajectories.",
+        "method": "Read relevant primary-article sections and compared whether object is expectation of f1(m) under exact N-individual hypergeometric sampling and whether a finite two-peak minimum is presented.",
+        "title": "Undersampling bias: the null hypothesis for singleton species in tropical arthropod surveys",
+        "trigger": "Direct ecological motivation: singleton prevalence and sampling intensity"
+      },
+      {
+        "assessment": "Contains core sampling machinery and related estimators; inspected material does not cover smallest-population two-strict-peak classification. Other uninspected passages/appendices create residual risk.",
+        "evidence": [
+          "Author-hosted PDF https://www.robertkcolwell.org/publications/6855.pdf; DOI 10.1093/jpe/rtr044"
+        ],
+        "identifier_or_url": "doi:10.1093/jpe/rtr044",
+        "material_read": "Author-hosted complete 19-page PDF; examined pages 1, 4 and 14 visually, the exact finite-population frequency-count methodology, and general discussion.",
+        "method": "Read primary methods/full-article page images, including definitions of f_k and the distinction between sampling with and without replacement.",
+        "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+        "trigger": "Same hypergeometric rarefaction and frequency-of-frequency quantities."
+      },
+      {
+        "assessment": "Addresses different target quantities; no covering sharp N=8 first-layer theorem found in examined source sections.",
+        "evidence": [
+          "Publisher DOI 10.1890/11-1952.1; https://esajournals.onlinelibrary.wiley.com/doi/10.1890/11-1952.1"
+        ],
+        "identifier_or_url": "doi:10.1890/11-1952.1",
+        "material_read": "Accessible publisher full HTML theoretical framework, formulas, methods and applications sections.",
+        "method": "Compared its coverage-standardization and expected sample-completeness objects with absolute singleton-count mean versus depth and exact first-layer classification.",
+        "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+        "trigger": "Rare-frequency counts and species accumulation curves could yield a stronger result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d47ef2d7-23fd-4601-9e43-b6bdfb888bcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Singleton species counts are ecological indicators of sampling incompleteness, and their expected frequency as sample depth grows is a natural object in rarefaction. The minimal two-peak boundary, uniqueness at N=8, and exact witness provide a sharp interpretable limitation to a single-peaked expectation. The all-census no-double-peak conditions for equal abundances and censuses with abundances <=2 explain the structural role of multiple abundance scales. Mathematical value resides in the complete natural smallest case plus structural boundaries, not software reproducibility, the standard probability formula, or assumed empirical commonness.",
+    "status": "PASS"
+  }
+}
