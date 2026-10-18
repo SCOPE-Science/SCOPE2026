@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker implements the definitions directly from adjacency, without using the proof classification.
+# Independent mathematical audit
 
-For the five-vertex graph it exhausts all \(3^5\) labelings, verifies
-\[
-\gamma_I^s(G)=3,
-\]
-and verifies that the unique minimum labeling on \((\ell,x,y,p,q)\) is
-\[
-(0,2,1,0,0).
-\]
-It also checks that transferring one unit from \(x\) to \(\ell\) gives \((1,1,1,0,0)\), which is Italian dominating but not secure Italian dominating.
+## correctness
 
-For smallest-order verification, the program enumerates every labeled simple graph on one through four vertices, retains every graph with at least one degree-one vertex, computes all minimum SIDFs, and verifies that each such graph has a minimum function assigning label \(1\) to every leaf.
+PASS
 
-Recorded output:
+For the graph with edges lx,xy,xp,xq,yp,yq the function (l,x,y,p,q)=(0,2,1,0,0) has weight 3, and transfers x->l or y->p,q each leave an Italian dominating function. Exhaustive case splitting for weights <=2 proves the lower bound; a weight-three classification by (2,1) and (1,1,1) label types proves unique optimum. Transferring x->l produces (1,1,1,0,0), which is Italian but not secure Italian, disproving precisely the erroneous assertion of the published proof. Independent exact enumeration of every simple labeled graph on n=1..4 with degree-one vertices finds an optimal secure Italian labeling with all leaves 1, so order five is minimal among all graphs with leaves.
 
-```text
-VERIFY_OK
-target_order = 5
-target_edges = [(0, 1), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4)]
-target_gamma_secure_italian = 3
-target_minimum_functions = 1
-target_unique_minimum = (0, 2, 1, 0, 0)
-transferred_leaf_function_is_italian = True
-transferred_leaf_function_is_secure = False
-smaller_leaf_graphs_by_order = [(1, 0), (2, 1), (3, 6), (4, 49)]
-smaller_leaf_graphs_checked = 56
-smaller_graph_labelings_checked = 4140
-smaller_counterexamples = 0
-```
+## originality
 
-The finite enumeration proves smallest order because it is exhaustive over all simple graphs of lower order, not a sample. The five-vertex correctness and uniqueness claim also has an independent symbolic proof in RESULT.md.
+PASS
+
+The full primary universal leaf-normalization lemma is directly contradicted by an independently verified smallest graph; no indexed earlier correction/counterexample was identified.
+
+## value
+
+PASS
+
+A minimal explicit counterexample exposing a false foundational optimization lemma is a substantive mathematical correction. The distinction between an Italian-preserving transfer and a security-preserving transfer matters to published normalization techniques and subsequent proofs; minimality at order 5 is completely resolved, not a random tiny graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

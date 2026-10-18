@@ -1,12 +1,21 @@
-# Review of A smallest counterexample to the leaf-normalization lemma for secure Italian domination
+# Independent mathematical audit
 
-## Correctness
-PASS. The proposed labeling has weight \(3\) and satisfies every Italian and security condition by explicit moving-neighbor checks. All weight-two patterns are excluded directly. The weight-three equality cases are split into \((2,1)\) and \((1,1,1)\) types and leave exactly one secure labeling. The published normalization transfer is checked explicitly: it produces an Italian dominating function but not a secure Italian dominating function. A standalone exhaustive program independently confirms the unique optimum and checks every smaller simple graph with at least one leaf.
+## correctness
 
-## Originality
-PASS. The foundational primary source was inspected at the exact lemma and proof step. It states the contrary universal leaf-normalization claim. Searches for secure Italian domination and its secure Roman \(\{2\}\) alias, together with pendant/leaf, diamond, counterexample, erratum, and correction formulations, did not locate a prior correction or this witness. The later secure \(w\)-domination framework and 2024 survey preserve the same transfer notion and do not expose an equivalent correction in the inspected material. The closest indexed findings concern ordinary secure domination or unrelated secure variants and do not imply this counterexample.
+PASS
 
-## Value
-PASS. The counterexample targets a structural lemma in the paper that introduced the invariant, not a peripheral numerical example. The lemma is explicitly used to normalize leaves in a rooted-product hardness proof and in later tree arguments. Showing that the stated transfer can preserve Italian domination while losing security identifies a concrete proof gap. Minimality at five vertices makes the obstruction sharply interpretable while avoiding any unsupported claim about downstream theorem truth values.
+For the graph with edges lx,xy,xp,xq,yp,yq the function (l,x,y,p,q)=(0,2,1,0,0) has weight 3, and transfers x->l or y->p,q each leave an Italian dominating function. Exhaustive case splitting for weights <=2 proves the lower bound; a weight-three classification by (2,1) and (1,1,1) label types proves unique optimum. Transferring x->l produces (1,1,1,0,0), which is Italian but not secure Italian, disproving precisely the erroneous assertion of the published proof. Independent exact enumeration of every simple labeled graph on n=1..4 with degree-one vertices finds an optimal secure Italian labeling with all leaves 1, so order five is minimal among all graphs with leaves.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full primary universal leaf-normalization lemma is directly contradicted by an independently verified smallest graph; no indexed earlier correction/counterexample was identified.
+
+## value
+
+PASS
+
+A minimal explicit counterexample exposing a false foundational optimization lemma is a substantive mathematical correction. The distinction between an Italian-preserving transfer and a security-preserving transfer matters to published normalization techniques and subsequent proofs; minimality at order 5 is completely resolved, not a random tiny graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:09:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 72e836bf74a67a7bc0d7b827b90774af4411c269",
+        "Dettlaff–Lemańska–Rodríguez-Velázquez 2020 Lemma 1 and its precise SIDF definition",
+        "Independent_checks.py SECURE_ITALIAN_LEAF_COUNTEREXAMPLE_AND_ALL_SMALLER_GRAPHS_OK"
+      ],
+      "rationale": "For the graph with edges lx,xy,xp,xq,yp,yq the function (l,x,y,p,q)=(0,2,1,0,0) has weight 3, and transfers x->l or y->p,q each leave an Italian dominating function. Exhaustive case splitting for weights <=2 proves the lower bound; a weight-three classification by (2,1) and (1,1,1) label types proves unique optimum. Transferring x->l produces (1,1,1,0,0), which is Italian but not secure Italian, disproving precisely the erroneous assertion of the published proof. Independent exact enumeration of every simple labeled graph on n=1..4 with degree-one vertices finds an optimal secure Italian labeling with all leaves 1, so order five is minimal among all graphs with leaves.",
+      "residual_risks": [
+        "The five-vertex witness refutes only Lemma 1, not automatically the later theorems that cite it.",
+        "Exhaustive smaller-order classification is complete for simple labeled graphs with leaves, not for other domination rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The founding paper Lemma 1 asserts every graph with leaves has an optimal SIDF labeling every leaf 1; its proof claims a transferred leaf-labeled function remains secure.",
+          "The candidate explicitly exhibits an Italian-preserving transfer that is not secure."
+        ],
+        "reasoning": "General framework/survey papers define related invariants and may rely on the lemma, but do not imply that this universally quantified false assertion is correct or supply the exhibited smallest counterexample.",
+        "searches": [
+          "Dettlaff Lemańska Rodríguez-Velázquez DOI:10.1007/s10878-020-00658-1 Theorem 2 and Lemma 1",
+          "Secure (2,0,0) domination Symmetry 2020",
+          "Secure Roman {2} survey Mathematics 2024"
+        ]
+      },
+      "checked_sources": [
+        "Founding journal open-access article DOI 10.1007/s10878-020-00658-1 (full Lemma1 and definition)",
+        "DOI:10.3390/sym12121948 secure w-domination framework",
+        "DOI:10.3390/math12172771 secure Roman {2} survey metadata",
+        "Resultary semantic secure Italian leaf search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original lemma: existence of an optimum labeling each leaf 1.",
+          "Unique target optimum has leaf 0, and transferred labeling (1,1,1,0,0) fails security despite remaining Italian."
+        ],
+        "reasoning": "The published general statement is falsified by the witness, not logically implied or covered by previous findings; downstream theorems need separate analysis and are not declared false.",
+        "searches": [
+          "Full founding journal article DOI 10.1007/s10878-020-00658-1 Lemma1 proof",
+          "Published Theorem2 immediately below Lemma1",
+          "Exact transfer x -> leaf in five-vertex graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The founding article defines security by one-unit transfer preserving Italian domination; the candidate uses exactly that condition.",
+          "Secure w-domination/secure Roman {2} are closely related naming frameworks, whereas ordinary secure domination is inequivalent."
+        ],
+        "reasoning": "Original and candidate statements are directly contradictory under identical definitions; alias searches for secure Roman {2} and secure w-domination did not reveal a previously published correction.",
+        "searches": [
+          "Secure Italian domination in graphs Lemma 1 leaves labeling weight 1",
+          "Secure Roman {2} domination leaf normalization counterexample",
+          "Secure (2,0,0)-domination leaf moving neighbor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned secure Italian complete split graph and unrelated domination optimizers, not this five-vertex falsifying witness.",
+          "An independent all-graphs n<5 exhaustive search establishes the minimality rather than merely scanning a precomputed table."
+        ],
+        "reasoning": "No indexed erratum or earlier witness was identified; this negative search is not treated as a novelty proof.",
+        "searches": [
+          "Resultary: secure Italian domination leaf normalization lemma counterexample degree one minimum labels",
+          "Search: diamond pendant leaf unique secure Italian optimum correction erratum"
+        ]
+      },
+      "rationale": "The full primary universal leaf-normalization lemma is directly contradicted by an independently verified smallest graph; no indexed earlier correction/counterexample was identified.",
+      "residual_risks": [
+        "A nonindexed erratum or earlier equivalent witness might exist.",
+        "Falsifying Lemma 1 does not imply invalidity of all theorems that cite it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly contradicted; original lemma is not prior coverage of a counterexample",
+          "evidence": "Lemma 1 claims f(v)=1 for all leaves of some minimum SIDF and claims transferring from a 2-support to a 0-leaf preserves security; explicit target refutes that step.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-020-00658-1",
+          "material_read": "Open-access complete HTML at Section 1 SIDF definition, Section 2 Lemma 1 (including entire proof) and Theorem 2 immediate dependence; read the exact transfer condition.",
+          "method": "Public full primary journal HTML",
+          "title": "Secure Italian domination in graphs",
+          "trigger": "Identical definition and explicit universal Lemma 1"
+        },
+        {
+          "assessment": "Related framework only; no demonstrated matching counterexample",
+          "evidence": "Secure (2,0,0)-domination terminology",
+          "identifier_or_url": "https://doi.org/10.3390/sym12121948",
+          "material_read": "Publisher indexed description and secure-w framework, not full article text in this run",
+          "method": "Public indexed primary bibliographic material",
+          "title": "From (Secure) w-Domination in Graphs to Protection of Lexicographic Product Graphs",
+          "trigger": "Possible alias secure (2,0,0)-domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Founding DOI 10.1007/s10878-020-00658-1 Lemma1 and immediate Theorem2 reliance",
+        "Independent exhaustive graph census and unique optimizer"
+      ],
+      "rationale": "A minimal explicit counterexample exposing a false foundational optimization lemma is a substantive mathematical correction. The distinction between an Italian-preserving transfer and a security-preserving transfer matters to published normalization techniques and subsequent proofs; minimality at order 5 is completely resolved, not a random tiny graph.",
+      "residual_risks": [
+        "No downstream theorem is declared false without a separate counterexample."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is not an exhaustive historical-priority certification.",
+    "Finite checker tests only stated sampled cases; unrestricted C relies on reconstructed analytic proof.",
+    "Public transport not ready because privacy sanitization/complete recursive Git-tree validation remains missing.",
+    "A nonindexed erratum or earlier equivalent witness might exist.",
+    "Falsifying Lemma 1 does not imply invalidity of all theorems that cite it."
+  ],
+  "schema_version": 1
+}
