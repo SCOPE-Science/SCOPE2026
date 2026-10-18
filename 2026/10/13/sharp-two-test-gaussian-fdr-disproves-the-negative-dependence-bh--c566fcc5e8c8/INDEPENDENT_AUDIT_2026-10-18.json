@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact BH two-test rejection partition gives FDR=P(U<=alpha/2,V>alpha)+0.5 P(U<=alpha,V<=alpha)=alpha/2+0.5[P(alpha/2<U<=alpha,V<=alpha)-P(U<=alpha/2,V<=alpha)] <=3alpha/4 for U uniform. Set mu=-Phi^-1(alpha/2)-Phi^-1(alpha)>0, with Y1=-Z,Y2=Z+mu at rho=-1; V<=alpha iff U>=alpha/2, making the FDR exactly 3alpha/4. The corresponding rho>-1 positive-definite normal laws converge almost surely in threshold indicators, so the supremum holds for nonsingular rho<0. At alpha=1/20 and rho=-99999999/100000000, coupling with boundary normal yields P(alternative threshold changes)<epsilon+2*10^-8/epsilon^2=29/5000 for epsilon=1/200; hence FDR>=317/10000. The originating conjecture in Chi et al Section 7 is FDR<=tilde_s_2(alpha)/2; Eq.(26) bounded by e<3 and pi>2 gives <30307/1088000. Exact independent rational arithmetic verified strict gap; neither numerical integration nor singular covariance is used as the final counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical harmonic bound for K=2,K0=1 is 3alpha/4, so this upper envelope is pre-existing.",
+          "2026 Lei paper targets two-sided p-values and unrestricted correlation, not negative-one-sided Gaussian with one null and one alternative."
+        ],
+        "reasoning": "The sharp Gaussian attainability and a concrete violation of the 2024 conjecture are not implied by arbitrary-dependence upper bounds or the differing two-sided constructions.",
+        "searches": [
+          "Benjamini Yekutieli 2001 arbitrary-dependence harmonic FDR bound",
+          "Chi Ramdas Wang full HTML Section 5 Theorem 19 and Remark 20",
+          "Lei 2026 two-sided Gaussian FDR counterexamples"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2212.09706v4",
+        "https://doi.org/10.1214/aos/1013699998",
+        "https://gsbpreserve.stanford.edu/view/69419/no-universal-multiplicative-fdr-bound-for-the-benjamini-hochberg-procedure-with-correlated-two-sided-gaussian-tests",
+        "Resultary semantic search for Sharp two-test Gaussian FDR disproves the negative-dependence BH conjecture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chi et al explicitly state the proposed Gaussian negative-dependence BH upper bound as an open problem, not a theorem; their gaussian definition allows shifted means.",
+          "BY general bound implies only FDR<=3alpha/4, not Gaussian attainability or a violation of a stricter proposed bound."
+        ],
+        "reasoning": "The exact FDR event partition and limiting antithetic Gaussian model produce new counterexample evidence; none of the compared true-null-only or two-sided results implies the specific one-sided null/nonnull claim.",
+        "searches": [
+          "Chi Ramdas Wang Section 7 open conjecture and Eq.(26)",
+          "BY 2001 bound via Chi et al discussion",
+          "two-sided Gaussian papers 2026 and Resultary other Simes results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For K=2,K0=1 the conjecture is FDR <= (1/2)*tilde_s_2(alpha), with tilde_s definition in Eq.(26).",
+          "The counterexample uses shifted Gaussian nonnull and one-sided Gaussian null, not two-sided transforms nor the global-null Simes inequality."
+        ],
+        "reasoning": "Antithetic near-fully-negative Gaussian dependence of null and alternative is the appropriate equivalent formulation; a folklore two-sided-Gaussian conjecture is a different statement.",
+        "searches": [
+          "Resultary: BH Gaussian negative dependence FDR two tests one false null near perfect negative correlation Chi Ramdas Wang conjecture counterexample",
+          "Chi Ramdas Wang 2212.09706v4 Section 7 Gaussian BH open problem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chi et al Table 1 gives approximately tilde_s_K(.05)=.0556, so half is approximately .0278.",
+          "Explicit analytic witness yields FDR >=317/10000=.0317, strictly above rigorous conjectured upper <30307/1088000."
+        ],
+        "reasoning": "This is a continuum optimization and rigorous witness; exact fractions and original conjecture equation were checked, not inferred from a table or random simulation.",
+        "searches": [
+          "Resultary Gaussian negative dependence two-test BH exact FDR counterexample",
+          "arXiv 2212.09706v4 Table 1 tilde_s_2(0.05)"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for negative resolution of the precisely named one-sided shifted-Gaussian BH conjecture. The classic universal 3alpha/4 upper bound is credited prior work and is not claimed new. The additional fact is near-attainability *inside* nonsingular negative Gaussian null/nonnull models and the explicit conjecture violation.",
+      "residual_risks": [
+        "Priority overlap with an unindexed antithetic one-sided Gaussian FDR counterexample remains possible.",
+        "Do not confuse this conjecture with the distinct two-sided Gaussian BH conjecture, for which current literature includes counterexamples.",
+        "The proof only concerns exactly two tests, one true and one false null, 0<alpha<1/2 and strictly negative nonsingular correlation; sharp supremum not an interior maximizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONJECTURE_STILL_STATED_AS_OPEN_IN_SOURCE",
+          "evidence": "Equation (26) defines tilde_s_K; Section 7 proposes E[F/R] <= K0/K tilde_s_K under negative Gaussian dependence; this is contradicted by the explicit one-null/one-alternative model.",
+          "identifier_or_url": "https://arxiv.org/html/2212.09706v4",
+          "material_read": "Full arXiv HTML: Gaussian dependence definition, Section 3 equation (26), Section 5 FDR theorem/remark, Section 7 explicitly labeled open BH problem and appendices context",
+          "method": "primary complete HTML, inspected relevant sections and named theorems",
+          "title": "Multiple testing under negative dependence",
+          "trigger": "Exact originating Gaussian BH conjecture and definition"
+        },
+        {
+          "assessment": "UPPER_BOUND_ONLY",
+          "evidence": "General BY harmonic bound for K=2,K0=1 is 3alpha/4; it gives no Gaussian attainability, so the universal two-test envelope receives no novelty credit.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1013699998",
+          "material_read": "General harmonic correction examined through primary Chi et al discussion and bibliographic record, not original full paper",
+          "method": "cited-theorem comparison",
+          "title": "The control of the false discovery rate in multiple testing under dependency",
+          "trigger": "Classical stronger arbitrary-dependence upper bound"
+        },
+        {
+          "assessment": "DIFFERENT_TWO_SIDED_DOMAIN",
+          "evidence": "Study is for two-sided Gaussian p-values and unrestricted correlations with growing dimension; not an implication for K=2 shifted one-sided negatively correlated null/nonnull pair.",
+          "identifier_or_url": "https://gsbpreserve.stanford.edu/view/69419/no-universal-multiplicative-fdr-bound-for-the-benjamini-hochberg-procedure-with-correlated-two-sided-gaussian-tests",
+          "material_read": "Dated 2026-07-16 public abstract describing two-sided p-values and unrestricted correlations; complete paper not read",
+          "method": "public abstract comparison",
+          "title": "No Universal Multiplicative FDR Bound for the Benjamini-Hochberg Procedure with Correlated Two-Sided Gaussian Tests",
+          "trigger": "Recent plausible counterexample literature (2026)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete rigorously verified counterexample to an explicitly stated statistical open problem is valuable, especially with exact worst-case sharpness and an entirely nonsingular Gaussian witness; it identifies how a shifted nonnull can align with a BH step boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git tree 225264ed5b954301a76c63f212efab2cff09da42",
+    "frozen RESULT.md blob 878b83bfea2266f5b5588d9625a92b83a828eb30",
+    "https://arxiv.org/html/2212.09706v4",
+    "https://doi.org/10.1214/aos/1013699998",
+    "https://gsbpreserve.stanford.edu/view/69419/no-universal-multiplicative-fdr-bound-for-the-benjamini-hochberg-procedure-with-correlated-two-sided-gaussian-tests",
+    "Resultary semantic search for Sharp two-test Gaussian FDR disproves the negative-dependence BH conjecture",
+    "/mnt/data/run222/independent_checks.py",
+    "/mnt/data/run222/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not imply a higher-dimensional, all-null or two-sided bound or failure; explicit model has near-singular but strictly PD covariance.",
+    "All fixed-rational inequalities verified; general FDR event and limit proofs analytic.",
+    "No claim of formal independent theorem certification; computation is corroborative and literature priority remains best-of-knowledge.",
+    "Public file provenance requires authorized confidentiality sanitization; scientific acceptance does not imply publication readiness."
+  ],
+  "residual_risks": [
+    "Priority overlap with an unindexed antithetic one-sided Gaussian FDR counterexample remains possible.",
+    "Do not confuse this conjecture with the distinct two-sided Gaussian BH conjecture, for which current literature includes counterexamples.",
+    "The proof only concerns exactly two tests, one true and one false null, 0<alpha<1/2 and strictly negative nonsingular correlation; sharp supremum not an interior maximizer."
+  ],
+  "schema_version": 1
+}
