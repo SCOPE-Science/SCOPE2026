@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T10:18:41.047725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the 27 tetrahedra from Bagchi–Datta 5-path deletion and Spreer three nine-cycle difference orbits; both definitions coincide. Full f=(9,36,54,27), graph-cycle presentation 28 columns and 54 triangle relations has Smith diagonal 1 repeated 27 times, H1=Z. The integer winding W=sum(nearest residues)/9 is a genuine 1-cocycle: vanishes on all 54 faces, is +1 on all 30 missing triangles with cyclic orientation, so they are primitive integral generators; four orbit counts 9,9,9,3 and minimal simple length 3 follow. Independently computed the complete finite Smith form and all 84 triples; the result holds only for this fixed complex, not all triangulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spreer identifies K^3_9 as minimal and tight; Bagchi defines tightness via inclusion-injective homology over a field."
+        ],
+        "reasoning": "Field-level nontriviality of an induced empty-triangle cycle follows under appropriate tightness, but this does not determine integral primitivity or exact cyclic gap orbits. Integral winding is independently needed.",
+        "searches": [
+          "Spreer 2011/028 Section 2.1 tightness",
+          "Bagchi tightness criterion arXiv:1406.4299 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package RESULT.md blob 690ec4c682d2b557f3ba5a0c9cde4dc45d40dda5",
+        "Frozen verify.py blob 9ff30db50a81caae24523713ec08b70f2ffcf3a9",
+        "Git tree c71ad584d2572f981e234b2f90ff29795d28b5d8",
+        "https://arxiv.org/pdf/math/0610825",
+        "https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2011/2011-028.pdf",
+        "https://arxiv.org/pdf/1406.4299",
+        "Independent full Smith normal form and 84 triple/winding check, /mnt/data/audit_independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness implies the model is canonical; tightness implies some field-homological inclusion properties, but integral W=1 for all missing triangles is not recorded in these inspected sections."
+        ],
+        "reasoning": "The whole claim is not shown to be a corollary of either classification or tightness alone. Integral primitivity and exact 9,9,9,3 orbits required the explicit new calculation; moderate folklore and unindexed-result risk retained.",
+        "searches": [
+          "Spreer cyclic classification 2011/028",
+          "Bagchi–Datta 2006 uniqueness theorem",
+          "Walkup DOI:10.1007/BF02392331 bibliographic identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Path-deletion K^3_9 and three cyclic difference cycles agree as tetrahedral complexes; H1=Z and winding W are compatible with twisted S²-bundle over S¹."
+        ],
+        "reasoning": "Checked the path-deletion, difference-cycle and twisted sphere-bundle aliases; no inspected theorem identifies all 30 primitive empty 3-cycles or all four orbit classes, although object/topology aliases are covered.",
+        "searches": [
+          "Bagchi–Datta arXiv:math/0610825 Example 1",
+          "Spreer Stuttgart preprint 2011/028 Section 2.1",
+          "Resultary semantic query: Walkup missing triangle primitive H1 winding (failed)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three listed difference cycles determine 27 tetrahedra; exact inspection does not list 30 empty-triangle primitive carriers by orbit."
+        ],
+        "reasoning": "Input facet descriptions are prior published data, not novel; the claim adds an integral carrier classification and orbit census derived from that data.",
+        "searches": [
+          "Spreer 2011/028 difference-cycle list",
+          "Bagchi–Datta Example 1, K^3_9"
+        ]
+      },
+      "rationale": "The exact geometry/topology/labels, minimality and tightness are classical; new claim is the complete primitive integral missing-triangle spectrum with four cyclic gap orbits and explicit winding identification. Bagchi–Datta Example 1 and theorem 2 and Spreer Section 2.1 were read in the primary PDFs. Tightness strongly explains field-valued nontriviality of missing-triangle classes but does not alone fix their integer multiplier or four orbit-count profile. This finite computation is a modest refinement; an older unindexed census remains a risk. Resultary query did not complete.",
+      "residual_risks": [
+        "Tightness and cyclic combinatorics make aspects quite elementary; an older integral missing-triangle census may exist unindexed.",
+        "Resultary semantic queries [five topics, 2026-10-12] returned search_internal_error; search_completed=false (not evidence of absence)",
+        "No claim about other triangulations or geometric edge lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS object/label/topological type, not the full missing-triangle primitive class census",
+          "evidence": "Example 1: delete interior vertices of 5-paths on 9-cycle, twisted S²-bundle over S¹; theorem 2 unique non-sphere 9-vertex manifold.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610825",
+          "material_read": "Introduction, Theorem 2, Example 1 path-deletion construction, combinatorial preliminaries",
+          "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+          "title": "Uniqueness of Walkup’s 9-vertex 3-dimensional Klein bottle",
+          "trigger": "Exact complex and historical uniqueness"
+        },
+        {
+          "assessment": "COVERS facet orbits and tightness; not proven to dominate integral primitive winding + orbit census",
+          "evidence": "Difference cycles (1:1:2:5),(1:1:5:2),(1:2:1:5); says minimal and tight.",
+          "identifier_or_url": "https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2011/2011-028.pdf",
+          "material_read": "Definition 1.1 and Section 2, enumerated n=9 twisted S²-bundle, PDF page 6 and surrounding classification",
+          "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+          "title": "Combinatorial 3-manifolds with cyclic automorphism group",
+          "trigger": "Exact cyclic representation, tightness and possible stronger implication"
+        },
+        {
+          "assessment": "GENERAL CONTEXT for induced-homology injection; does not compute integral winding or orbit multiplicities",
+          "evidence": "Tightness is injection H_*(Y;F)->H_*(X;F) for every induced Y.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.4299",
+          "material_read": "Abstract and induced-subcomplex definitions and statements on PDF pages 1-3",
+          "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+          "title": "A tightness criterion for homology manifolds with or without boundary",
+          "trigger": "Stronger field-injectivity implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique minimal nine-vertex non-sphere triangulation and its nontrivial S1-direction make the complete shortest integral carrier list a motivated, finite, topologically invariant datum for this labelled cyclic model. The primitive multiplier and four cyclic symmetry orbits distinguish integral systolic representatives, beyond restating homology Z or tightness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen package RESULT.md blob 690ec4c682d2b557f3ba5a0c9cde4dc45d40dda5",
+    "Frozen verify.py blob 9ff30db50a81caae24523713ec08b70f2ffcf3a9",
+    "Git tree c71ad584d2572f981e234b2f90ff29795d28b5d8",
+    "https://arxiv.org/pdf/math/0610825",
+    "https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2011/2011-028.pdf",
+    "https://arxiv.org/pdf/1406.4299",
+    "Independent full Smith normal form and 84 triple/winding check, /mnt/data/audit_independent_checks.py"
+  ],
+  "disposition": "passed",
+  "limitations": "Exact K9 1-skeleton simple cycle minimum only; no geodesic metric or longer cycle classification.",
+  "residual_risks": [
+    "Tightness and cyclic combinatorics make aspects quite elementary; an older integral missing-triangle census may exist unindexed.",
+    "Resultary semantic queries [five topics, 2026-10-12] returned search_internal_error; search_completed=false (not evidence of absence)",
+    "No claim about other triangulations or geometric edge lengths."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS object/label/topological type, not the full missing-triangle primitive class census",
+      "evidence": "Example 1: delete interior vertices of 5-paths on 9-cycle, twisted S²-bundle over S¹; theorem 2 unique non-sphere 9-vertex manifold.",
+      "identifier_or_url": "https://arxiv.org/pdf/math/0610825",
+      "material_read": "Introduction, Theorem 2, Example 1 path-deletion construction, combinatorial preliminaries",
+      "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+      "title": "Uniqueness of Walkup’s 9-vertex 3-dimensional Klein bottle",
+      "trigger": "Exact complex and historical uniqueness"
+    },
+    {
+      "assessment": "COVERS facet orbits and tightness; not proven to dominate integral primitive winding + orbit census",
+      "evidence": "Difference cycles (1:1:2:5),(1:1:5:2),(1:2:1:5); says minimal and tight.",
+      "identifier_or_url": "https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2011/2011-028.pdf",
+      "material_read": "Definition 1.1 and Section 2, enumerated n=9 twisted S²-bundle, PDF page 6 and surrounding classification",
+      "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+      "title": "Combinatorial 3-manifolds with cyclic automorphism group",
+      "trigger": "Exact cyclic representation, tightness and possible stronger implication"
+    },
+    {
+      "assessment": "GENERAL CONTEXT for induced-homology injection; does not compute integral winding or orbit multiplicities",
+      "evidence": "Tightness is injection H_*(Y;F)->H_*(X;F) for every induced Y.",
+      "identifier_or_url": "https://arxiv.org/pdf/1406.4299",
+      "material_read": "Abstract and induced-subcomplex definitions and statements on PDF pages 1-3",
+      "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+      "title": "A tightness criterion for homology manifolds with or without boundary",
+      "trigger": "Stronger field-injectivity implications"
+    }
+  ]
+}

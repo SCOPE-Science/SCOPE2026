@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the first homology to an exact integer presentation with Smith diagonal \(1\) repeated \(27\) times and constructs an explicit winding homomorphism. The embedded verifier reconstructs the complex in two independent ways and exhaustively checks all triples and all winding values. The scientific risk is limited to the interpretation of the canonical published labeling, which the two reconstructions cross-check.
+## correctness
 
-## Originality
-**PASS.** Exact-object, alias, empty/missing-triangle, integral-homology, cyclic-orbit, systole, and tightness searches were compared at statement/implication level. Bagchi--Datta establish uniqueness and the path-deletion model; Spreer gives the exact cyclic presentation and tightness. Neither inspected full text states that every missing triangle is a primitive integral generator, gives the four gap orbits, or derives the winding isomorphism. Tightness is acknowledged as broader field-level context, so novelty is not claimed for nontriviality alone. Residual risk: an unindexed older computation may exist.
+PASS
 
-## Value
-**PASS.** The result gives the complete minimum-length integral homology representatives in the unique nine-vertex non-sphere combinatorial 3-manifold. The four symmetry orbits connect the exact cyclic triangulation to the \(S^1\)-direction of its topology, which is a natural structural question for this canonical minimal object.
+Rebuilt the 27 tetrahedra from Bagchi–Datta 5-path deletion and Spreer three nine-cycle difference orbits; both definitions coincide. Full f=(9,36,54,27), graph-cycle presentation 28 columns and 54 triangle relations has Smith diagonal 1 repeated 27 times, H1=Z. The integer winding W=sum(nearest residues)/9 is a genuine 1-cocycle: vanishes on all 54 faces, is +1 on all 30 missing triangles with cyclic orientation, so they are primitive integral generators; four orbit counts 9,9,9,3 and minimal simple length 3 follow. Independently computed the complete finite Smith form and all 84 triples; the result holds only for this fixed complex, not all triangulations.
 
-## Closest literature and limitations
-Closest are Bagchi--Datta's uniqueness theorem and Spreer's cyclic classification/tightness statement. The result is specific to this triangulation and simple edge cycles and does not classify longer representatives or all triangulations of the same manifold.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact geometry/topology/labels, minimality and tightness are classical; new claim is the complete primitive integral missing-triangle spectrum with four cyclic gap orbits and explicit winding identification. Bagchi–Datta Example 1 and theorem 2 and Spreer Section 2.1 were read in the primary PDFs. Tightness strongly explains field-valued nontriviality of missing-triangle classes but does not alone fix their integer multiplier or four orbit-count profile. This finite computation is a modest refinement; an older unindexed census remains a risk. Resultary query did not complete.
+
+## value
+
+PASS
+
+The unique minimal nine-vertex non-sphere triangulation and its nontrivial S1-direction make the complete shortest integral carrier list a motivated, finite, topologically invariant datum for this labelled cyclic model. The primitive multiplier and four cyclic symmetry orbits distinguish integral systolic representatives, beyond restating homology Z or tightness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` constructs the nine-vertex complex both from the path-deletion definition and from the three difference cycles and asserts equality. It then checks the face vector, forms an exact integral first-homology presentation after collapsing a spanning tree, and computes its Smith normal form. The diagonal has twenty-seven unit entries and one free generator, so the integral first homology is infinite cyclic.
+# Independent mathematical audit
 
-The script exhausts all eighty-four triples. It verifies that exactly thirty are missing triangles, with the four cyclic gap types and orbit sizes in the claim. It checks the signed least-residue winding sum on every face triangle and every missing triangle, and confirms invariance under all nine cyclic translations.
+## correctness
 
-Replay command: `python verify.py`
+PASS
 
-Expected terminal line: `VERIFY_OK f=9,36,54,27 H1=Z empty3=30 gap_orbits=1:4:4x9,2:3:4x9,2:4:3x9,3:3:3x3 winding=1_all_missing shift_action=+1`
+Rebuilt the 27 tetrahedra from Bagchi–Datta 5-path deletion and Spreer three nine-cycle difference orbits; both definitions coincide. Full f=(9,36,54,27), graph-cycle presentation 28 columns and 54 triangle relations has Smith diagonal 1 repeated 27 times, H1=Z. The integer winding W=sum(nearest residues)/9 is a genuine 1-cocycle: vanishes on all 54 faces, is +1 on all 30 missing triangles with cyclic orientation, so they are primitive integral generators; four orbit counts 9,9,9,3 and minimal simple length 3 follow. Independently computed the complete finite Smith form and all 84 triples; the result holds only for this fixed complex, not all triangulations.
 
-Limits: this exact computation certifies the finite complex and the stated integral homology claim. It does not search longer cycle representatives or other triangulations.
+## originality
+
+PASS
+
+The exact geometry/topology/labels, minimality and tightness are classical; new claim is the complete primitive integral missing-triangle spectrum with four cyclic gap orbits and explicit winding identification. Bagchi–Datta Example 1 and theorem 2 and Spreer Section 2.1 were read in the primary PDFs. Tightness strongly explains field-valued nontriviality of missing-triangle classes but does not alone fix their integer multiplier or four orbit-count profile. This finite computation is a modest refinement; an older unindexed census remains a risk. Resultary query did not complete.
+
+## value
+
+PASS
+
+The unique minimal nine-vertex non-sphere triangulation and its nontrivial S1-direction make the complete shortest integral carrier list a motivated, finite, topologically invariant datum for this labelled cyclic model. The primitive multiplier and four cyclic symmetry orbits distinguish integral systolic representatives, beyond restating homology Z or tightness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
