@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Normalize an arbitrary defining pair to norms \(1\) and \(r\le1\). The James definition supplies one sign whose unit-radius chord has norm at most \(J(X)\); convex interpolation gives the corresponding radius-\(r\) chord bound \(1+r(J(X)-1)\). The exact identity
-\[
-(1+c^2)(1+r^2)-(1+cr)^2=(c-r)^2
-\]
-then proves the universal estimate. The affine-regular-hexagon James value \(3/2\) is independently proved by a complete dihedral four-edge reduction, and an explicit unequal-norm pair gives Takahashi quotient \(5/4\).
+## correctness
 
-## Originality
-PASS. The 2021 defining source was inspected through the classical and generalized definitions, generalized-James comparison, and Day--James examples; it does not state the unrestricted quadratic James envelope. A very close 2026 paper proves the same quadratic expression only for a direct isosceles-restricted Takahashi constant and explicitly distinguishes that construction from the unrestricted profile. Classical Takahashi--Kato literature located by search concerns the ordinary von Neumann--Jordan constant \(C_{\mathrm{NJ}}\), not the minimum endpoint. published-finding corpus and the own ledgers were searched under exact notation, formula aliases, unrestricted/Takahashi language, and the hexagonal value.
+PASS
 
-## Value
-PASS. The theorem is a universal structural link between the James constant and Takahashi's minimum von Neumann--Jordan endpoint. It yields a quantitative nonsquareness deficit and is provably sharp on a canonical affine-regular hexagonal plane. The optimizing scalar ratio is intrinsic, \(r=J(X)-1\), and the hexagon shows the envelope is not merely a loose comparison.
+For ||x||=1, ||y||=r<=1, convexity and the James-unit-vector condition select a sign with ||x±y||<=1+r(J-1). The exact square identity (1+(J-1)^2)(1+r^2)-(1+r(J-1))^2=(r-(J-1))^2 gives the global inequality. On N(s,t)=max(|s|,|t|,|s-t|), the dihedral isometries reduce all unit pairs to four hexagonal edge classes and prove J=3/2. Explicit vectors p=(1,0), q=(-1/4,-1/2) have ||p||=1,||q||=1/2,||p±q||=5/4; therefore quotient=5/4. Independently checked this witness using Fraction; inspected exact edge-class expressions and verify.py. Finite rational grid is corroboration, not a proof of continuum exhaustiveness; the analytical edge reductions prove that.
 
-## Closest literature and limitations
-Liu, Din and Li, *AIMS Mathematics* 6 (2021), 6309--6321, recall the classical \(C_{-\infty}(X)\) and study a parameterized extension. A 2026 *Axioms* paper proves an analogous James envelope for a different direct isosceles-restricted scale and gives an exact reparametrization of the unrestricted profile. The accepted theorem does not classify all equality spaces and proves envelope sharpness at \(J=3/2\), not at every possible James value.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared unrestricted min quotient with both classical von Neumann-Jordan quadratic mean and isosceles-restricted variants. Kato--Maligranda--Takahashi (2001) proves weaker C_NJ comparison; 2026 isosceles-orthogonal paper has a formally identical envelope for a different constrained invariant and does not imply the unrestricted theorem. No decisive covering theorem located in the inspected evidence; this is bounded best-of-knowledge, not absolute priority proof.
+
+## value
+
+PASS
+
+A sharp functional relation between two standard Banach-space geometric invariants is directly useful when the James constant is known and the unrestricted minimum-type constant is not; the affine-regular hexagon realizes its optimal coefficient at a natural intermediate James value. Exact edge witness and equality at J=3/2 make the bound substantive rather than a normalization check, though its proof is short and does not give a pointwise optimal envelope at all J.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
