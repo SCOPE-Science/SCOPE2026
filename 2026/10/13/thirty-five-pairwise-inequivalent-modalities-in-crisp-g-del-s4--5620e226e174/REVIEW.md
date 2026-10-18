@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS.  The claim is only the lower bound \(35\leq N_{\mathsf{GS4^c}}\).  Eight explicit finite birelational models separate the \(35\) listed modality words.  The included verifier checks both relations are preorders, checks local linearity and forward/backward/downward confluence, checks the atomic valuation is persistent, evaluates the published birelational clauses exactly, and verifies all \(595\) unordered pairs have a separating model.  A second set-based implementation reproduced the result.  No finite experiment is being promoted to an exhaustive upper bound.
+## correctness
 
-## Originality
-PASS.  The closest source, arXiv:2609.00736, proves finiteness of full \(\mathsf{GS4^c}\)-modalities and provides an upper normal-form count of \(105\), but the inspected statement does not imply the present lower bound and does not provide these separating models.  Searches for the exact count, the number \(35\), crisp Gödel-S4 modality counts, and equivalent formulations produced no covering result.  The earlier GS4 semantics and finite-model papers provide semantic background rather than the claimed quantitative separation.
+PASS
 
-## Value
-PASS.  The number of inequivalent modality words is the invariant explicitly studied by the motivating paper.  A certified lower bound of \(35\) narrows its quantitative classification problem to \([35,105]\), rules out more than three dozen smaller possibilities at once, and supplies small reusable separating models for any later exact classification.  This is not an arbitrary finite slice: the finite structures certify a universal inequivalence statement.
+For crisp Godel S4 finite birelational frames, eight explicit models have 1–3 worlds, both relations reflexive/transitive, intuitionistic preorder locally linear, modal relation forward/backward/downward confluent, and atomic upset valuations. Independently implemented set-based semantics for intuitionistic negation, birelational box and diamond were run on the exact 35 stated operator words. For each word the eight truth sets form its fingerprint; all 35 fingerprints are distinct, so all 595 unordered pairs have at least one genuine separating finite model. The proof needs only sound valid finite countermodels and does not infer completeness of any finite model census. Primary 2021 Balbiani–Dieguez–Fernandez-Duque Def II.4 and Lemma II.6 validate the confluence/semantic conventions. Result: at least 35 equivalence classes, not exactly 35. Original Pacheco upper reduction to 105 is only attributed from source package and abstract due primary full-text access restriction.
 
-## Closest literature and limitations
-The closest literature is Pacheco's modality-classification paper together with the earlier crisp Gödel-S4 semantics and finite-model work.  The exact number remains open here; no claim beyond the certified lower bound is made.  Literature searching cannot eliminate every possible inaccessible source, so a residual bibliographic risk remains, but no inspected source or database hit covers the statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating Pacheco 2026 preprint explicitly studies full crisp Godel S4 modality finiteness; accessible abstract establishes finiteness but does not give a numeric exact or 35 lower bound. The assigned package reports Theorem18 reduction to <=105; because complete primary text was unavailable we do NOT assert the entire paper lacks stronger results. The older 2021 complete GS4 frame semantics and finite model property do not automatically give 35 distinct words. Resultary modality queries located other logics and Gödel-frame topics, not exact 35. Best-of-knowledge PASS with significant risk of uninspected Pacheco full text, not a blanket no-coverage claim.
+
+## value
+
+PASS
+
+The exact count of full unary modality classes is the central natural invariant posed by the motivating article; 35 explicit small separations sharpen a 105 candidate upper bound into a meaningful interval and provide reusable concrete witness structures. The lower certificate is finite but complete for its exact 35-pairwise-inequivalence claim; the larger classification remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
