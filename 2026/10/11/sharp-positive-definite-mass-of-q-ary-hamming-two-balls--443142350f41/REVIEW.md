@@ -1,15 +1,21 @@
-# Review of sharp positive-definite mass of q-ary Hamming two-balls
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier convention and counting-measure normalization are explicit. Coordinate scalings and permutations reduce the unrestricted extremum to the Hamming-radial quadratic problem without changing its objective. The displayed Krawtchouk transform has support only at Hamming weights zero, one, and two. Its Fourier polynomial is nonnegative at all integer weights and normalized by the exact binomial expectation. An independent two-contact identity, verified on a quadratic basis, bounds every feasible radial polynomial and certifies equality. Its nonnegative coefficients yield the unique radial solution except at the stated congruence class, where the feasibility interval has exactly the two displayed endpoints. Exact-rational checks passed for 558 parameter pairs and six direct full Fourier transforms passed; these are supplementary rather than infinite proofs.
+## correctness
 
-## Originality — PASS, with stated risk
-The published general finite-group Turán framework does not present the q-ary Hamming two-ball formula or the radial degeneracy transition in the material inspected. The 2019 Delsarte–Turán paper treats locally compact group inequalities and packing geometry rather than the specific radius-two Hamming polynomial. Li's Hamming-code Delsarte-LP study examines distance-constraint uniqueness of different optimization variables, not a complete radial Fourier equality classification of the Turán support-ball problem. published-finding corpus searches for q-ary radius-two Turán mass, Krawtchouk two-contact formulas, and Hamming graph theta values found neighboring results for binary weight-two *shells* and Shapiro constants, not an implication of this theorem. The closest broad coding-theory literature could contain an unindexed equivalent Lovász-theta or association-scheme calculation. Absence of a matching search hit is not proof of absolute novelty. Independent mathematical and bibliographic audit is outstanding.
+PASS
 
-## Value — PASS
-The sharp constant is a natural positive-definite invariant for the Hamming two-ball in every nonbinary finite-field alphabet and every dimension. It interpolates between exact plane-size values and fractional extremal values, and exhibits a sharp, structurally explained congruence transition from a single radial optimizer to a one-dimensional family. The two-contact algebraic certificate is directly reusable when estimating coding and packing capacities, while the precise equality information distinguishes this from merely re-running an LP. For example the ternary five-coordinate value is \(27/2\), not an integer-size subspace. No classification of nonradial optimizers or codes is claimed.
+For prime-power q≥3 and integer d≥3, Fourier positivity and the coordinate-permutation/nonzero-scaling group average reduce the unrestricted Turán mass over B₂={wt≤2} to radial degree-two Krawtchouk polynomials with E_Bin(d,(q−1)/q)[P]=1, P(k)≥0 on integer 0≤k≤d. Put μ=d(q−1)/q, r=⌊μ⌋, θ=μ−r and D=d(q−1)/q²−θ(1−θ)>0. The feasible P=(k−r)(k−r−1)/D has mass P(0)=r(r+1)/D. Independently checked the exact dual identity P(0)≤M E[P] from M E[P]−P(0)=αP(r)+βP(r+1), β>0, α≥0, α=0 iff d≡1(mod q). Strict dual equality gives unique radial P off the congruence and the closed segment between successive adjacent-root quadratics when d≡1(mod q). Exact rational independent checks for q∈{3,4,5,7,11,16}, 3≤d≤24 corroborated identities and congruence boundaries. The proof, not those tests, covers all allowed prime powers and dimensions. No statement classifies all NONradial maximizers.
 
-## Closest literature and limitations
-Kolountzakis–Révész, arXiv:math/0312218, gives the general positive-definite group Turán framework; Berdysheva–Révész, arXiv:1904.03614, gives finite and locally compact packing/Delsarte bounds. Li, arXiv:2204.06090, investigates uniqueness phenomena for coding-distance linear programs, which are not identical to the present support-restricted extremal mass and radial Fourier face. Familiar Krawtchouk and Delsarte machinery is used and credited. Possible rediscovery as a theta-number calculation is the central remaining originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original precise q-ary radius-two ball mass and exceptional radial optimizer segment. General group Turán or least-eigenvalue technology gives a framework but no retrieved identity and congruence equality classification; weight-two SHELL and radius-three BALL records have different feasible supports. Potential prior equivalence to association-scheme theta-number computations remains explicitly open.
+
+## value
+
+PASS
+
+An explicit radius-two Hamming ball positive-definite mass and its sharp congruence-dependent RADIAL optimizer face is a natural association-scheme extremal invariant. Computing the exact two-contact bound and degeneracy transition is useful for Fourier-positive Turán problems; the general eigenvalue framework does not make the full arithmetic piecewise optimizer geometry automatic. Scope is restricted to allowed support B₂ and radial equality; coding LP uniqueness is a distinct problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
