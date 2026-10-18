@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each fixed finite horizon the actual mean rates define a constant, interior equilibrium. The weighted Jacobian-flux telescope gives an exact derivative of quadratic energy, and cumulative edge inventory adds an exact derivative converting the weighted instantaneous flux into terminal throughput. Algebra yields identity (1) without any periodicity or averaging hypotheses. Strict curvature of \\(W(y)=(1-y^2)^{-1/2}\\), separate treatment of the branch \\(s\\leq -2\\), and an explicitly positive quadratic expansion at \\(y=b\\) force a uniform dissipation lower bound on the entire compact rate box. The bounded storage term proves the \\(O(T^{-1})\\) inequality for every measurable rate control, all initial states, all horizons. A one-site constant-rate orbit proves the transient-order sharpness. The package verifier passed 3170 exact-rational checks for dimensions 1–3; finite checks are supplementary, not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Al-Radhawi–Margaliot–Sontag, Royal Society Open Science 8 (2021) 210878, §§2–5: optimize weighted throughput along periodic orbits subject to periodic endpoint constraints; the one-site example uses the classical bilinear vacancy.",
+        "Massas–Margaliot, arXiv:2608.15214v1 abstract: periodic forcing of feedforward stable filters and static nonlinearities, not the interacting quadratic-exclusion chain.",
+        "Zhou, arXiv:2610.10602v1 Theorem 3.5: global no-GOE for jointly periodic controls and the attracting periodic trajectory."
+      ],
+      "reasoning": "Generic optimal-control and dissipativity principles can motivate the method but the inspected results do not quantify an all-initial-state finite-horizon error against the actual horizon mean rates with a control-uniform quadratic penalty for the nonlinear exclusion chain. The finite spatial resource-allocation turnpike is about a different, steady allocation problem.",
+      "searches": [
+        "transport controlled ribosome flow exact finite-time dissipation balance weighted occupancy storage quadratic turnaround",
+        "Maximizing average throughput in oscillatory biochemical synthesis systems: an optimal control approach",
+        "On the Cost of Entrainment in Protein Translation",
+        "Gain of Entrainment in Nonlinear Cascades",
+        "arXiv:2607.25043"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10602v1 (full arXiv HTML inspected, §§2–3, 7)",
+      "arXiv:2607.25435v1 (public full-text manuscript inspected, §§III–IV, discussion)",
+      "Al-Radhawi et al. (2021), doi:10.1098/rsos.210878 (open-access full article read)",
+      "arXiv:2608.15214v1 (primary abstract compared, full-text gap documented)",
+      "arXiv:2607.25043v1 (title and abstract topic compared, different steady spatial resource-allocation setting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou (2026) periodic dissipation follows from averaging its quadratic-energy derivative with zero endpoint difference, §3; the source does not retain the inventory storage or prove a horizon-uniform squared-state budget.",
+        "Massas–Margaliot (July 2026) §IV uses periodicity to identify common time-averaged edge currents and to cancel the energy boundary term; its vacancy law is \\(1-x\\).",
+        "The 2021 full text formulates a periodic optimal-control problem with equal initial/end states, rather than bounding finite-horizon output for arbitrary initial occupancy."
+      ],
+      "reasoning": "The known curvature and edge-dissipation estimates supply critical premises but do not logically state or dominate the full nonperiodic claim. One must derive an extra inventory coboundary to isolate terminal flux on arbitrary intervals and prove a positive quadratic coefficient uniform over all horizon-mean equilibria; those additions ensure the stronger quantified conclusion. Direct attribution of inherited lemmas avoids treating a special case or renaming as original.",
+      "searches": [
+        "arXiv:2610.10602v1 equations (3.9)–(3.23)",
+        "arXiv:2607.25435v1 Proposition 7 and Lemma 5",
+        "arXiv:2608.15214v1",
+        "Maximizing average throughput in oscillatory biochemical synthesis systems 2021 PMC full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.10602v1 Theorem 3.2 defines the same edge errors and periodic average dissipation; §7 explicitly leaves noncommon-period and more general recurrent inputs open.",
+        "arXiv:2607.25435v1 Theorem 1 and Proposition 7 prove a periodic classical linear-vacancy result and use the same kind of quadratic energy, but their statement imposes a periodic solution."
+      ],
+      "reasoning": "Aliases searched include aperiodic/no gain, turnover/coboundary storage, horizon-average transport, uniform turnpike and quadratic state-deviation. The final claim includes all measurable inputs and initial transients, a positive L² error term and optimal order inverse horizon. Published periodic GOE identities alone are not a theorem with those new quantifiers, although the same telescoping method is acknowledged as a close predecessor.",
+      "searches": [
+        "arbitrary bounded nonperiodic ribosome flow nonlinear hindrance finite horizon throughput no-gain quadratic state deviation storage functional \\(O(T^{-1})\\)",
+        "aperiodic noncommon periodic almost periodic generalized ribosome flow model no gain entrainment time average control rates quadratic hindrance",
+        "gain of entrainment ribosome flow time-average throughput common curvature periodic almost periodic mean rates",
+        "arXiv:2610.10602v1 §3 and §7",
+        "arXiv:2607.25435v1 §IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The object is a continuous-time input-output inequality over an uncountable space of measurable controls, not a finite tabulated invariant.",
+        "The exact-rational examples in verify.py certify only pointwise identities; none are represented as a literature database."
+      ],
+      "reasoning": "Exact tables, finite computational classifications and isolated numerical examples do not subsume a quantified theorem for every rate trajectory, horizon and finite network dimension. A targeted search for an identical numerical invariant is therefore inapplicable; instead, priority checks compare analytical statements and their assumptions.",
+      "searches": [
+        "RFM \\(g(x)=x^2\\) W convex quantitative turnpike L2 distance steady equilibrium average output baseline",
+        "arbitrary bounded nonperiodic ribosome flow nonlinear hindrance finite horizon throughput no-gain quadratic state deviation storage functional \\(O(T^{-1})\\)",
+        "ribosome flow nonperiodic arbitrary forcing finite horizon no gain entrainment storage dissipation equality"
+      ]
+    },
+    "rationale": "The exact weighted edge-dissipation ingredients, curvature no-gain mechanism, and periodic equality rigidity are prior work of Zhou (arXiv:2610.10602v1). Zhou §7 expressly poses extension beyond common periodic forcing as future work. The assessed contribution is the unaveraged terminal-flux/inventory storage identity, coercive quadratic penalty uniform in arbitrary horizon means, arbitrary measurable controls and initial states, and sharp transient order. It is not a claim to originate energy-storage or dissipativity methods. The nearest classical RFM proof (arXiv:2607.25435v1) is for linear vacancy and periodic orbits. The 2021 periodic-optimization article and the 2026 nonlinear cascade abstract do not provide a published statement dominating all new quantifiers. A prior equivalent nonperiodic dissipativity reformulation remains a genuine priority risk.",
+    "residual_risks": [
+      "Earlier dissipativity or nonperiodic optimal-control literature may contain a theorem equivalent after a nontrivial change of notation.",
+      "The full text of the nonlinear-cascade preprint was not materially inspected, so a general-purpose coboundary result cannot be completely excluded.",
+      "The numerical coefficient \\(c\\) is proved positive by compactness but not explicitly optimized."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_SOURCE_NOT_COVERING_FULL_NEW_CLAIM",
+        "evidence": [
+          "Theorem 3.2 is an identity for GOE along a periodic solution and drops the quadratic storage boundary term.",
+          "Theorem 3.5 proves periodic no-GOE and rigidity.",
+          "Section 7 expressly calls for extending to non-common periodic and more general recurrent rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10602v1",
+        "material_read": "Introduction, complete dynamical setup and Theorem 2.2, the full weighted identity and curvature proof in §§3.1–3.3, and the precise future directions in §7.",
+        "method": "Inspected lawful open arXiv full HTML article and compared precise theorem quantifiers and proof cancellations.",
+        "title": "Gain of Entrainment in Ribosome Flow Models with Nonlinear Steric Hindrance: Global Rigidity and Dimension-Induced Gain",
+        "trigger": "Same nonlinear quadratic vacancy model and identical edge error and curvature structure."
+      },
+      {
+        "assessment": "NOT_COVERING_QUADRATIC_APERIODIC_BUDGET",
+        "evidence": [
+          "Theorem 1 explicitly assumes positive continuous T-periodic controls.",
+          "Theorem concerns vacancy factor \\(1-x\\); the key energy derivative is integrated using V(T)=V(0).",
+          "There is no all-initial-state nonperiodic quadratic-turnpike inequality in the inspected full proof."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/410932973_On_the_Cost_of_Entrainment_in_Protein_Translation",
+        "material_read": "Main Theorem 1, §§III–IV including full centered edge algebra, Lemma 5, Proposition 7, nonnegativity and rigidity proofs, and discussion.",
+        "method": "Inspected publicly accessible full-text scientific manuscript representation and compared the control class, hindrance law and the point where periodicity cancels storage.",
+        "title": "On the Cost of Entrainment in Protein Translation",
+        "trigger": "Earlier exactly weighted quadratic dissipation on classical ribosome flow chains; strongest potentially dominating classical predecessor."
+      },
+      {
+        "assessment": "NOT_COVERING_FULL_NEW_CLAIM",
+        "evidence": [
+          "Periodic optimal-control problem is restricted to trajectories with matching endpoint states.",
+          "Applications have bilinear/classical vacancy structure and lack the general quadratic-hindrance nonperiodic L² stability budget."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8456142/",
+        "material_read": "Full open-access article sections on periodic problem formulation and admissible controls, §3 Pontryagin formulation, §4 one-site and two-site classical RFM applications, and §6 discussion.",
+        "method": "Read full open-access primary scientific article in its PMC HTML representation.",
+        "title": "Maximizing average throughput in oscillatory biochemical synthesis systems: an optimal control approach",
+        "trigger": "Earlier optimal throughput and generalized occupancy model with measurable input rates."
+      },
+      {
+        "assessment": "RELATED_OBJECT_WITH_FULL_TEXT_RISK",
+        "evidence": [
+          "Abstract explicitly concerns gain against a periodic input in a feedforward cascade; this differs from the coupled density chain with arbitrary measurable inputs.",
+          "The full source could contain more general auxiliary lemmas, which have not been excluded."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.15214",
+        "material_read": "Original arXiv abstract only; complete manuscript not materially inspected.",
+        "method": "Compared the source abstract description of its feedforward filter–static-nonlinearity cascade with the new interacting exclusion chain.",
+        "title": "Gain of Entrainment in Nonlinear Cascades",
+        "trigger": "Potentially broader nonlinear entrainment decomposition and Bregman storage methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0876e964-2df1-4854-aaa1-818f000c9ea3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating article §7 identifies non-common periodicity and general recurrence as a concrete mathematical gap. The result extends that question to arbitrary measurable bounded controls, provides a finite-time bound valid without attraction, adds a nontrivial uniform L² turnpike deficit that yields near-optimal-state rigidity, and proves by an exact scalar orbit that \\(O(T^{-1})\\) is the best possible initial-transient order. This is a natural transport/throughput invariant with a rigorous operational interpretation, not a routine normalization test or unmotivated finite slice. The fixed quadratic class, though specialized, is an explicitly central natural model in the motivating article.",
+    "status": "PASS"
+  }
+}
