@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T07:13:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/octahedral-puncture-blocks-local-vertex-elimination-in-the-16-ve--d02c91120812/RESULT.md",
+        "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/octahedral-puncture-blocks-local-vertex-elimination-in-the-16-ve--d02c91120812/verify.py"
+      ],
+      "rationale": "The complete 90-tetrahedra Björner–Lutz list is available in Lutz 1999 thesis, printed p.17, Theorem 1.5, and the package verify.py reproduces its labelled 90 facet tuples. Inspection of the verifier’s actual Python assertions shows f=(16,106,180,90), all vertex incidence counts with unique degree-8 vertex 16, eight opposite triangles giving an octahedral sphere on {9,10,11,13,14,15}, and precisely missing pairs (9,13),(10,14),(11,15). Those edges all belong to tetrahedra of the deletion. Pure combinatorial argument: an octahedron’s 1-skeleton K_{2,2,2} has clique number3, so every tetrahedron on the six vertices uses at least one opposite pair. As this pair already lies in the unchanged deletion and is absent from the boundary link, any replacement 3-ball intersects deletion beyond the link, impossible by the stated local-replacement definition. Deletion of an open vertex star from the published closed triangulated homology sphere is a homology 3-ball with octahedral boundary and unchanged binary icosahedral pi1 by excision/Mayer–Vietoris and van Kampen. Source topological identification credited, not recomputed. The executable finite verifier itself is not a proof of the external topological identification.",
+      "residual_risks": [
+        "The Poincaré homology-sphere homeomorphism and fundamental group come from published construction, not independently recertified group presentation.",
+        "Local deletion fixed throughout; does not establish global 16-vertex minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1999 thesis establishes 16-vertex complex and conjectures minimality, without proving local vertex-16 impossibility.",
+          "Later surveys catalog small triangulations but do not provide the specific opposite-diagonal obstruction in inspected named source."
+        ],
+        "reasoning": "A global minimal-vertex theorem (not established in source) would imply non-removability only under a stronger all-moves meaning; it is not a source of the actual local edge-overlap proof.",
+        "searches": [
+          "16 vertex Poincare sphere Björner Lutz octahedral link vertex elimination",
+          "Poincare 16 vertex minimum vertex triangulation obstruction bistellar moves",
+          "Bjorner Lutz 2000 sphere bistellar construction no local vertex elimination"
+        ]
+      },
+      "checked_sources": [
+        "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+        "https://infoshako.sk.tsukuba.ac.jp/~hachi/math/library/poincare.dat",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/octahedral-puncture-blocks-local-vertex-elimination-in-the-16-ve--d02c91120812/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/octahedral-puncture-blocks-local-vertex-elimination-in-the-16-ve--d02c91120812/verify.py",
+        "https://doi.org/10.1080/10586458.2000.10504652"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1999 thesis p.17 Theorem 1.5 has face vector (16,106,180,90), full facets and notes three vertex-link equivalence classes; no listed octahedral puncture consequence.",
+          "Current lemma that every four-link-vertex tetrahedron contains an outside diagonal is a new necessary obstruction for local star replacement."
+        ],
+        "reasoning": "Construction + list makes this computable but does not furnish or announce the local obstruction without specific six-vertex graph analysis.",
+        "searches": [
+          "16 vertex Poincare sphere Björner Lutz octahedral link vertex elimination",
+          "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+          "Björner Lutz 2000 16 vertex Poincare triangulation facet list"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lutz original 90-facet list and the theorem construct the complex; they do not state a vertex 16 stellar weld criterion.",
+          "Local star-replacement criterion is equivalent to filling octahedron with no interior edge already used in deletion, a no-overlap constraint."
+        ],
+        "reasoning": "The result is an obstruction to removing one vertex while leaving deletion unchanged, not a restatement of the sphere triangulation itself.",
+        "searches": [
+          "16 vertex Poincare sphere Björner Lutz octahedral link vertex elimination",
+          "Björner Lutz Poincare sphere vertex 16 stellar move stellar weld octahedron",
+          "Lutz 16 vertex sphere octahedron diagonal tetrahedron link"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published facet table encodes all triangles and degrees implicitly but does not explicitly give the vertex-16 minimum-incidence and exact local-filling obstruction.",
+          "Current package code computes all 15 tetrahedron candidates."
+        ],
+        "reasoning": "Providing raw underlying simplex data is not already a published statement of the motivated obstruction; the inference is exact and replayable.",
+        "searches": [
+          "16 vertex Poincare sphere Björner Lutz octahedral link vertex elimination",
+          "PoincareHomologyThreeSphere Sage facet list vertices link 16",
+          "Lutz 1999 ninety tetrahedra vertex incidence degrees"
+        ]
+      },
+      "rationale": "Original primary Theorem 1.5 of Lutz (1999, printed p.17) explicitly supplies the 90 facets, f-vector and link-equivalence observations but does not state the unique minimum tetra-incidence at vertex 16, its octahedral opposite pairs all occurring in deletion, or this exact local non-refill consequence. This exact new one-step obstruction follows by meaningful but nontrivial combinatorial extraction from known data. Search in named triangulation and vertex-elimination formulations identified the current public Resultary record, not a distinct theorem subsuming the proposed local obstruction.",
+      "residual_risks": [
+        "An unindexed local simplification note could record the same observation on this triangulation; lack of a search match is not novelty proof.",
+        "The 2000 publisher article was not separately read in full; the complete earlier facet chapter was."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_STATE_LOCAL_OBSTRUCTION",
+          "evidence": [
+            "Theorem 1.5 gives f=(16,106,180,90) and full 90-facet list; discusses three link-equivalence classes but no octahedral pair overlap or local replacement obstruction."
+          ],
+          "identifier_or_url": "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+          "material_read": "Chapter 1 §1.5, Theorem 1.5, entire printed page 17 including all 90 facets, f-vector, discussion of vertex-link equivalence; following page 18 figure/minimality conjecture. Both rendered PDF pages 22 and 23 inspected.",
+          "method": "Full primary relevant chapter text + rendered page inspection",
+          "title": "Triangulated Manifolds with Few Vertices and Vertex-Transitive Group Actions",
+          "trigger": "Earliest complete primary exact labelled 16-vertex construction, possible direct coverage."
+        },
+        {
+          "assessment": "CONSTRUCTION_BACKGROUND_WITH_ACCESS_LIMIT",
+          "evidence": [
+            "Björner–Lutz construction supplies the complex and topology; no verified publisher-text statement of the local obstruction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10586458.2000.10504652",
+          "material_read": "Article metadata/abstract, and same explicit facet data in earlier Lutz primary dissertation; full publisher article not claimed inspected.",
+          "method": "Source chronology and primary equivalent-facet triangulation cross-check",
+          "title": "Simplicial Manifolds, Bistellar Flips and a 16-Vertex Triangulation of the Poincaré Homology 3-Sphere",
+          "trigger": "Formal primary published construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/octahedral-puncture-blocks-local-vertex-elimination-in-the-16-ve--d02c91120812/RESULT.md"
+      ],
+      "rationale": "Vertex removability and minimal local retriangulation are substantive natural obstacles in the 16-vertex combinatorial triangulation of a homology sphere. The distinguished minimal-degree vertex is the most plausible simplification target, so a precise octahedral-diagonal no-go result is an independently useful combinatorial boundary. It does not claim global minimum or a full census.",
+      "residual_risks": [
+        "Does not exclude bistellar sequences changing other simplices or temporary new vertices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single fixed-deletion local vertex elimination only; topology of Poincare sphere taken from primary source.",
+    "Unindexed local simplification notes not exhaustively excluded."
+  ],
+  "schema_version": 1
+}
