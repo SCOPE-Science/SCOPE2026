@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces skew forcing to avoidance of nonempty skew-stalled white subsets, then classifies those subsets exactly. The degree-two page vertices force the two membership equivalences that leave only the two bipartition classes and their union. This establishes both necessity and sufficiency for every \(n\ge1\). The packaged exhaustive simulator independently checks all subsets through order \(18\), as well as the polynomial coefficients, minimum sets, and failed number.
+# Independent mathematical audit
 
-## Originality
-PASS. Targeted searches covered book, square-book, n-page, Cartesian-product, matching, and failed-skew aliases. DeAlba's primary skew-zero-forcing paper was inspected in full-text form around its bipartite matching theorems and Cartesian-product examples. It does not treat book graphs; its strongest relevant matching equivalence has a hypothesis that fails because every \(B_n\) has multiple perfect matchings. Same-object sources located for book graphs concern other invariants. The closest current/prior records concern positive semidefinite forcing on books, skew forcing on chain graphs, failed skew forcing on threshold graphs, or maximal matchings on books; none implies the accepted all-set theorem.
+## correctness
 
-Residual risk remains that an unindexed source under another book-graph alias contains the same specialization. That risk is bibliographic rather than a gap in the proof.
+PASS
 
-## Value
-PASS. The book graph is a standard named family, and the result is a natural complete classification rather than a selected parameter value. It collapses the skew forcing condition to meeting both bipartition classes and simultaneously yields the exact generating polynomial, all minimum sets, and the failed skew number.
+A white set W is skew-stalled when no vertex has exactly one white neighbor. Each page vertex x_i has neighbors a,y_i, so stalled implies (a in W) iff (y_i in W); similarly each y_i forces (b in W) iff (x_i in W). The remaining hubs obey the constraint for all n>=1, leaving exactly empty set, U, V, and all vertices as skew-stalled. Failed initial S iff its white complement contains U or V, i.e. iff S misses a full bipartition class. Thus the nonempty-on-each-side polynomial factors, with min/failed counts. An independent implementation simulated arbitrary permitted unique-white-neighbor forces and all subsets of B_n for n=1..5 and checked the stalled-set classification and polynomial. The general n result follows from degree-two equivalences, not finite search. The C4 boundary n=1 is included.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+DeAlba arXiv:1404.1618 gives the rule, matching-based sufficient conditions, and other Cartesian-product families. Its maximum matching theorem assumes all maximum matchings are uniquely restricted; B_n has n+1 perfect matchings and fails that hypothesis, so it does not imply the all-set book classification. Published chain-graph twin-class factorization does not imply this book formula: the book graphs have nonnested bipartition neighborhoods. The result claims book-specific all-set structure only.
+
+## value
+
+PASS
+
+The exact polynomial and all-set forcing criterion classify a natural classical quadrilateral-book family and simultaneously give minimum forcing sets and maximum failed configurations. The stalled-set structure is a compact structural lemma, not mere recomputation of one known minimum. Value is family-specific, not a claim of a general zero forcing theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
