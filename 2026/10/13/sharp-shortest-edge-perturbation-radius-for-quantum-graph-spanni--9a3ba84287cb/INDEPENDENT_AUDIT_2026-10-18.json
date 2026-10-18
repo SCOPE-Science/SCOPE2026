@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:07:51.672053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the known Friedlander determinant formula and weighted matrix-tree theorem, Q_G=mean(x_e) Σ_{spanning trees T} Π_{e not in T} x_e, with x_e=L_e/ℓ≥1 and β=m−n+1. It equals τ at x=1 and grows coordinatewise. Fix one actual shortest edge; maximizing a cap u occurs with that edge at 1 and all others at u. Contributions Q−τ cannot decrease when a missing edge of maximal length u is added: old complements gain a factor u, the mean increases, and new trees contribute nonnegative errors. Thus K_n is the universal maximizer. Cayley τ(K_n)=n^(n−2) and each edge appears in 2n^(n−3) trees give F_n(u); F_n(1)=τ, F_n strictly increasing, and the half-integer root is exact. Strict length cap avoids a tie. The tree n=2 exception, fixed-graph p_G refinement and ρ_n~n^(−n) follow as stated. Independent enumeration checked exact cotree extremality in 153 graph/shortest-edge cases with n=3,4; all-order proof is monotonicity plus edge addition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known exact determinant expression is a premise; the later perturbation work explicitly analyzes a single edge and suggests, but does not prove, the ∼n^(−n) all-graph scale."
+        ],
+        "reasoning": "A more general determinant formula does not directly imply the maximizing graph, optimal window or p_G equality characterization without new extremal reasoning.",
+        "searches": [
+          "Harrison–Weyand arXiv:2209.01284v2 Eq. (40), Theorem 2",
+          "Harrison–Weyand arXiv:2406.17965v3 §§5, Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Harrison and Weyand, arXiv:2209.01284v2, Theorem 2 and equation (40)",
+        "Harrison and Weyand, arXiv:2406.17965v3, Sections 5.2–5.3",
+        "Friedlander (2006), determinant theorem acknowledged as known premise",
+        "Kirchhoff weighted matrix-tree theorem, Cayley complete-graph tree count",
+        "Resultary published records: semantic quantum-graph determinant and tree-count searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2025 follow-up says a wider n^(−n) window \"could be expected\", and suggests further work; no all-edge complete-graph comparison is supplied."
+        ],
+        "reasoning": "Only by adding a monotonicity/edge-completion argument to the known cotree identity and exact complete-graph edge counts does the sharp result follow; it is not already proved by the weaker sufficient estimate.",
+        "searches": [
+          "arXiv:2209.01284v2 Theorem 2, proof discussion",
+          "arXiv:2406.17965v3 §§5.2–5.3 conjectural window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original recovery statistic T_Γ is algebraically identical to this Q_Γ under shortest-edge normalization, but its proved δ/ℓ bound is smaller and nonsharp."
+        ],
+        "reasoning": "The comparison uses the same observable, not merely a related title, and distinguishes original sufficient radius from claimed exact extremal root.",
+        "searches": [
+          "Resultary: quantum graph zeta spectral determinant spanning tree count nearest integer sharp edge length perturbation complete graph Friedlander Harrison Weyand",
+          "arXiv:2209.01284v2 Theorem 2",
+          "arXiv:2406.17965v3 §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published examples show complete-graph one-edge perturbations, not a table of exact universal n-vertex root cutoffs with a global optimality proof."
+        ],
+        "reasoning": "The sought threshold is all-dimensional and continuous in u; finite tables or first-order expansions are not equivalent to the exact worst-case theorem.",
+        "searches": [
+          "Resultary quantum graph determinant/spanning-tree semantic query",
+          "Harrison–Weyand arXiv:2406.17965v3 complete-graph examples"
+        ]
+      },
+      "rationale": "Harrison–Weyand arXiv:2209.01284v2 Theorem 2 establishes a substantially smaller sufficient window and the determinant identity used here. Their arXiv:2406.17965v3 Sections 5.2–5.3 treats one-edge perturbations and explicitly only expects a window of order ℓ n^(−n) for complete graphs; it does not give the exact simultaneous-edge all-simple-graphs radius. The reviewed extremal add-edge comparison and precise tree-inclusion refinement close this stated gap. A differently indexed sharp bound remains possible.",
+      "residual_risks": [
+        "The formula depends on combinatorial degree product, edge count and actual shortest edge; it does not show the abstract spectrum alone determines all those inputs.",
+        "Only simple connected graphs and Kirchhoff–Neumann conditions are covered.",
+        "An older equivalent extremal rounded-determinant radius in other graph polynomial terminology could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_EXACT_DETERMINANT_AND_WEAKER_RADIUS",
+          "evidence": "Theorem 2 gives δ<ℓ/[V^V 2^(E+V) sqrt(2EV)], explicitly acknowledged suboptimal.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01284",
+          "material_read": "Full accessible primary arXiv transcription, Theorem 2, Sections 5–7, determinant equation (40)",
+          "method": "Read primary article HTML with proof and theorem text",
+          "title": "Can One Hear the Spanning Trees of a Quantum Graph?",
+          "trigger": "Same determinant-rounding observable and earlier sufficient bound"
+        },
+        {
+          "assessment": "RELATED_SINGLE_EDGE_NOT_COVERING_SHARP_MULTI_EDGE",
+          "evidence": "Its §5.3 expects a complete-graph window scale ℓ n^(−n) and explicitly suggests further all-graph research; no exact simultaneous cap theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.17965",
+          "material_read": "Full primary accessible arXiv transcription, §§3–5 including §5.3, Appendix A context",
+          "method": "Read primary article sections and formulae",
+          "title": "Spectral Determinants of Almost Equilateral Quantum Graphs",
+          "trigger": "Direct sequel on perturbation radius, potentially dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source studies recovery of a global combinatorial invariant by integer rounding a metric-graph spectral statistic and explicitly calls the previous sufficient spread overly restrictive. The exact largest all-graph radius, extremizing topology and topology-dependent sharp cutoff are mathematically motivated new extremal information, not a mere normalization experiment. All original Kirchhoff/Friedlander identities remain attributed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The formula depends on combinatorial degree product, edge count and actual shortest edge; it does not show the abstract spectrum alone determines all those inputs.",
+    "Only simple connected graphs and Kirchhoff–Neumann conditions are covered.",
+    "An older equivalent extremal rounded-determinant radius in other graph polynomial terminology could be unindexed.",
+    "All publication operations withheld; no unchanged private provenance is approved for public publication."
+  ],
+  "schema_version": 1
+}

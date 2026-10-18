@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Friedlander's connected Kirchhoff metric-graph determinant identity, as stated in Harrison--Weyand [1, Eq. (40)], and the weighted matrix-tree theorem yield the exact cotree polynomial in RESULT.md. Its summands are monotone in every length ratio. Adding a long edge raises the normalized average and adds a long factor to the complement weight of each existing spanning tree, while newly admitted spanning trees add nonnegative error. This establishes complete-graph extremality, and Cayley's count plus edge symmetry gives the displayed sharp polynomial. All boundary quantifiers are handled: the shortest edge is attained, the upper length cap is strict, ties at half integers are excluded, and \(n=2\) is separated. The exact-rational verifier independently checks the finite combinatorial identities, but does not certify the universal proof by enumeration.
+PASS
 
-## Originality
+From the known Friedlander determinant formula and weighted matrix-tree theorem, Q_G=mean(x_e) Σ_{spanning trees T} Π_{e not in T} x_e, with x_e=L_e/ℓ≥1 and β=m−n+1. It equals τ at x=1 and grows coordinatewise. Fix one actual shortest edge; maximizing a cap u occurs with that edge at 1 and all others at u. Contributions Q−τ cannot decrease when a missing edge of maximal length u is added: old complements gain a factor u, the mean increases, and new trees contribute nonnegative errors. Thus K_n is the universal maximizer. Cayley τ(K_n)=n^(n−2) and each edge appears in 2n^(n−3) trees give F_n(u); F_n(1)=τ, F_n strictly increasing, and the half-integer root is exact. Strict length cap avoids a tie. The tree n=2 exception, fixed-graph p_G refinement and ρ_n~n^(−n) follow as stated. Independent enumeration checked exact cotree extremality in 153 graph/shortest-edge cases with n=3,4; all-order proof is monotonicity plus edge addition.
 
-PASS relative to the inspected sources and searches, with residual indexing risk. Harrison--Weyand [1] has the general determinant identity and a much smaller sufficient radius, not a sharp extremal radius. The follow-up [2] treats one-edge perturbations of selected graphs and explicitly describes the \(n^{-n}\) scale as an expectation; it does not establish the simultaneous-edge, all-graph sharp theorem or fixed-topology tree-inclusion threshold. The comparison is mathematical: their identities are inputs, but their stated perturbation estimates do not imply the exact universal optimum without the cotree monotonicity and edge-addition argument. Searches for synonymous determinant-rounding, graph-cotree, and complete-graph-extremal formulations in published records found no theorem covering the claim.
+## originality
 
-## Value
+PASS
 
-PASS. Both sources identify the original length-spread hypothesis as excessively restrictive, and [2] explicitly motivates an improved all-graph window. The result supplies the **largest permissible universal perturbation radius** with its extremal graph and demonstrates the predicted \(n^{-n}\) order, while quantifying the stronger topology-specific radius through uniform spanning-tree edge-inclusion counts. This is a motivated sharp structural cutoff, not a re-tabulation of known eigenvalues or a normalization-only counterexample: every sharpness example actually has a distinguished shortest edge and nonuniform lengths.
+Harrison–Weyand arXiv:2209.01284v2 Theorem 2 establishes a substantially smaller sufficient window and the determinant identity used here. Their arXiv:2406.17965v3 Sections 5.2–5.3 treats one-edge perturbations and explicitly only expects a window of order ℓ n^(−n) for complete graphs; it does not give the exact simultaneous-edge all-simple-graphs radius. The reviewed extremal add-edge comparison and precise tree-inclusion refinement close this stated gap. A differently indexed sharp bound remains possible.
 
-## Closest sources and limitations
+## value
 
-Primary: Harrison--Weyand, arXiv:2209.01284, Theorem 2 and Eq. (40). Closest follow-up: Harrison--Weyand, arXiv:2406.17965, Section 5 and Appendix A. Known determinant and matrix-tree identities are not asserted to be new. Only connected simple graphs, positive lengths, and standard Kirchhoff matching are covered, with the baseline equal to the actual minimum length; the observable also uses combinatorial degree information. Alternative unindexed equivalent sharp bounds remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source studies recovery of a global combinatorial invariant by integer rounding a metric-graph spectral statistic and explicitly calls the previous sufficient spread overly restrictive. The exact largest all-graph radius, extremizing topology and topology-dependent sharp cutoff are mathematically motivated new extremal information, not a mere normalization experiment. All original Kirchhoff/Friedlander identities remain attributed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
