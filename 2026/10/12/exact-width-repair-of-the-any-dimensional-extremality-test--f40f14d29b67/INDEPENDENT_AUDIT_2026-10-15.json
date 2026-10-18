@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:06:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/exact-width-repair-of-the-any-dimensional-extremality-test--f40f14d29b67/RESULT.md"
+      ],
+      "rationale": "For one-sign maximality H=A(F_p2)[p+1] is a subgroup with |H| dividing both the actual group order and the Hasse upper endpoint (p+1)^(2g). If |H| exceeded interval width W_g(p)=(p+1)^(2g)-(p-1)^(2g), the two multiples would coincide; nonmaximal cases thus have |H|<=W. Divide by lower bound (p-1)^(2g), clip at 1, and power the conditional bound for k independent samples. The minimality branch is symmetric using p-1. Expansion gives W_g(p)=4g p^(2g-1)+2sum_{r=1}^{g-1} C(2g,2r+1)p^(2g-2r-1) for g>=2, strictly larger than the proof's substituted 4g p^(2g-1). The original arXiv:2610.01924v1 Theorem 4.1 p20 was read and its displayed inequality directly shows the incorrect smaller constant. No claim smaller bound intrinsically impossible by a different structural theorem.",
+      "residual_risks": [
+        "Corrected width bound is not claimed sharp; additional geometric restrictions could validate a smaller false-positive constant by a different argument.",
+        "Original Algorithm 2 tests union of signs; present bound intentionally handles one sign at a time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasse interval already provides the exact width, but source theorem applies smaller constant without justification"
+        ],
+        "reasoning": "Published interval dominates the numerical width input, while new argument explicitly repairs the one-sign probability inference; elliptic curve g=1 has no correction term.",
+        "searches": [
+          "arXiv:2610.01924 Lemma2.1",
+          "arXiv:1107.1140",
+          "Resultary semantic search: Santos Lorenzon Reijnders Theorem 4.1 abelian varieties maximality false positive 4gp^(2g-1) exact Hasse interval width",
+          "web primary search: Corte-Real Santos Lorenzon Reijnders arxiv 2610.01924 Theorem 4.1 extremality abelian varieties width"
+        ]
+      },
+      "checked_sources": [
+        "Corte-Real Santos, Lorenzon, Reijnders, Supersingularity and Superspeciality Verification of Abelian Surfaces, arXiv:2610.01924v1, Theorem 4.1 p20 and Lemma 2.1",
+        "Sutherland, Identifying supersingular elliptic curves, arXiv:1107.1140"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original stated O(1/p) may be true; source provided proof fails to justify its smaller intermediate estimate"
+        ],
+        "reasoning": "New exact finite-p one-sign bound is an independently valid consequence of original Hasse-Weil bounds, not presented as a refutation of asymptotic theorem.",
+        "searches": [
+          "Corte-Real Santos et al., Theorem4.1/ Lemma2.1",
+          "Resultary semantic search: Santos Lorenzon Reijnders Theorem 4.1 abelian varieties maximality false positive 4gp^(2g-1) exact Hasse interval width",
+          "web primary search: Corte-Real Santos Lorenzon Reijnders arxiv 2610.01924 Theorem 4.1 extremality abelian varieties width"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact width W=(p+1)^(2g)-(p-1)^(2g), not leading term 4gp^(2g-1)"
+        ],
+        "reasoning": "The correction replaces an invalid width substitution; it is not equivalent to the displayed finite-p estimate in source.",
+        "searches": [
+          "arXiv:2610.01924v1 Theorem4.1 p20",
+          "Resultary semantic search: Santos Lorenzon Reijnders Theorem 4.1 abelian varieties maximality false positive 4gp^(2g-1) exact Hasse interval width",
+          "web primary search: Corte-Real Santos Lorenzon Reijnders arxiv 2610.01924 Theorem 4.1 extremality abelian varieties width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source formula uses 4g p^(2g-1); g=2 true width is 8p^3+8p"
+        ],
+        "reasoning": "No table is needed: symbolic width comparison directly locates the published proof issue.",
+        "searches": [
+          "arXiv:2610.01924 p20",
+          "width 8p^3+8p search",
+          "Resultary semantic search: Santos Lorenzon Reijnders Theorem 4.1 abelian varieties maximality false positive 4gp^(2g-1) exact Hasse interval width",
+          "web primary search: Corte-Real Santos Lorenzon Reijnders arxiv 2610.01924 Theorem 4.1 extremality abelian varieties width"
+        ]
+      },
+      "rationale": "Direct reading of the 42-page original source (arXiv:2610.01924v1, Lemma 2.1 and Theorem 4.1 p20) establishes the stronger exact Hasse interval and the erroneous simplification to 4g p^(2g-1). The new result's point is a correction and explicit valid finite-p branchwise bound, not a new asymptotic order or a restatement of the cited interval. Sutherland's elliptic-curve g=1 argument has exact width 4p and cannot supply the g>=2 correction. Searches found no subsequent published correction; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Corrected width bound is not claimed sharp; additional geometric restrictions could validate a smaller false-positive constant by a different argument.",
+        "Original Algorithm 2 tests union of signs; present bound intentionally handles one sign at a time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof explicitly uses |H|<4g p^(2g-1) as a width implication; exact width exceeds it for g>=2",
+          "evidence": "Theorem 4.1, p20: probability <=4g p^(2g-1)/(p-1)^(2g) under nonmaximality, citing Lemma 2.1; the substituted width is too small",
+          "identifier_or_url": "arXiv:2610.01924v1",
+          "material_read": "full 42-page PDF accessible; closely relevant Lemma 2.1, Section 4.1 Theorem 4.1 proof page 20 read and screenshot inspected",
+          "method": "web PDF  and page20 screenshot ",
+          "title": "Supersingularity and Superspeciality Verification of Abelian Surfaces",
+          "trigger": "original Theorem 4.1 uses too-small width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corte-Real Santos, Lorenzon, Reijnders, Supersingularity and Superspeciality Verification of Abelian Surfaces, arXiv:2610.01924v1, Theorem 4.1 p20 and Lemma 2.1",
+        "Sutherland, Identifying supersingular elliptic curves, arXiv:1107.1140"
+      ],
+      "rationale": "A valid false-acceptance estimate is essential to the arbitrary-dimensional Monte Carlo extremality test used for cryptographic verification. Repairing an invalid width substitution while preserving the correct O(1/p) estimate is a substantive proof correction and an explicit usable guarantee, despite elementary binomial algebra. The result carefully avoids asserting a counterexample to the asymptotic theorem.",
+      "residual_risks": [
+        "Corrected width bound is not claimed sharp; additional geometric restrictions could validate a smaller false-positive constant by a different argument.",
+        "Original Algorithm 2 tests union of signs; present bound intentionally handles one sign at a time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Corte-Real Santos, Lorenzon, Reijnders, Supersingularity and Superspeciality Verification of Abelian Surfaces, arXiv:2610.01924v1, Theorem 4.1 p20 and Lemma 2.1",
+    "Sutherland, Identifying supersingular elliptic curves, arXiv:1107.1140"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Corrected width bound is not claimed sharp; additional geometric restrictions could validate a smaller false-positive constant by a different argument.",
+    "Original Algorithm 2 tests union of signs; present bound intentionally handles one sign at a time."
+  ],
+  "residual_risks": [
+    "Corrected width bound is not claimed sharp; additional geometric restrictions could validate a smaller false-positive constant by a different argument.",
+    "Original Algorithm 2 tests union of signs; present bound intentionally handles one sign at a time."
+  ],
+  "schema_version": 1
+}
