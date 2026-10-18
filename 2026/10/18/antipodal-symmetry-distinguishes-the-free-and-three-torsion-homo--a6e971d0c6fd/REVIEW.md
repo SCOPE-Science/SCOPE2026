@@ -1,0 +1,15 @@
+# Scientific review: antipodal torsion action of the icosahedral matching complex
+
+## Correctness — PASS
+The signed integral simplicial chains are reconstructed exhaustively from thirty graph edges, with \(5888\) augmented faces. An explicit sequence of \(2911\) exact unit cancellations leaves one degree-four cell mapping into \(65\) degree-three cells with boundary-column gcd \(3\). This proves the asserted integral homology, without interpreting modular ranks as integer invariant factors. Independent antipodal even/odd subcomplex ranks in characteristic three give fourth homology dimensions \(0\) and \(1\); equivariant universal coefficients transfer the negative involution action to order-three integral torsion. A separate calculation in characteristic five establishes the rational split \(40+24\). Enumeration of all \(120\) automorphisms and the order-\(60\) commutator subgroup establishes the complete torsion character. The standalone verifier reconstructs all finite objects and checks every named invariant.
+
+## Originality — PASS, with stated residual risk
+The closest same-object public finding establishes only the underlying integral homotopy type. Full-text comparison finds no automorphism action in its result or proof. The archival Engström paper concerns connectivity of claw-free independence complexes. Shareshian–Wachs concern matching complexes of complete graphs and chessboard complexes; the outerplanar matching-complex paper is nonequivariant. The abstract Moore-space decomposition does not select an antipodal sign, and none of those results implies the two rational parity multiplicities. Searches used the aliases matching complex, line-graph independence complex, Moore-space torsion, icosahedral and antipodal action. Equivalent unindexed calculations remain possible.
+
+## Mathematical value — PASS
+This is the full automorphism action on the unique integral torsion class in a natural torsion-bearing matching complex of a canonical planar graph, together with the central symmetry split on rational homology. The negative torsion action is not a normalization convention: it obstructs a nonzero globally invariant torsion class, distinguishes the two possible involution actions on the Moore-space homology, and exhibits different free and torsion behavior under the same geometric symmetry. The precise invariant is dictated by the exceptional torsion class and the graph's canonical antipode, not an arbitrary graph slice. The result does not claim a whole-family classification or the full free integral module.
+
+## Related literature and limits
+Engström, arXiv:math/0512420 (2005); Shareshian–Wachs, arXiv:math/0409054 (2004); Bayer–Jelić Milutinović–Vega, arXiv:2411.04601 (2024); *Three-torsion in the icosahedral matching complex: a planar counterexample* (2026-10-11, public result ID `28565ad1ea1a`). The last is the closest object-level result; it was read in full. An equivalent symmetry calculation outside accessible indexed sources is the main originality limitation. Finite computation and self-review are not independent scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.

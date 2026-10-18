@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exhaustively generated the thirty-edge icosahedral matching complex (face counts 30,315,1400,2535,1482,125); checked signed boundary compositions. Exactly 2911 integral unit-pivot eliminations leave 65 degree-three cells and one degree-four cell with a nonzero integer boundary column of gcd three. Therefore reduced integral H3 is \\(\\mathbb Z^{64}\\oplus\\mathbb Z/3\\) and all other reduced integral homology vanishes. The 120 automorphisms and the 60-element commutator subgroup are fully enumerated. Over F3 the antipodal even/odd H4 dimensions are 0/1 (chain dimensions 741 each, boundary ranks 686/55 and 670/70), so natural universal coefficients force inversion to negate torsion. Over F5 exact H3 eigenspace dimensions are 40/24 and equal the rational ones; the full torsion representation factors through the quotient C2, nontrivial on inversion. The included standalone exact verifier was executed successfully on its supplied path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shareshian–Wachs, arXiv:math/0409054, Section 4, treats matching complexes of complete graphs M_n and separately chessboard complexes; no calculation for the icosahedral graph.",
+        "Engström, arXiv:math/0512420, concerns connectivity of claw-free independence complexes, not natural automorphism representations.",
+        "Bayer–Jelić Milutinović–Vega, arXiv:2411.04601v2, Theorem 2 covers outerplanar graphs and nonequivariant sphere wedges, inapplicable to this nonouterplanar icosahedron."
+      ],
+      "reasoning": "General torsion existence for complete-graph or chessboard matching complexes does not transfer this particular antipodal sign, even though the icosahedral matching complex is a subcomplex of the complete-graph matching complex. The line-graph claw-free theorem bounds connectivity, with no equivariant torsion information. The outerplanar theorem neither includes the icosahedron (thirty edges versus an outerplanar twelve-vertex edge bound of twenty-one) nor computes group actions.",
+      "searches": [
+        "Search query: symmetry action on torsion of matching complexes of planar graphs A5 icosahedron",
+        "Search query: graph configuration spaces of platonic solids symmetric graphs integral homology",
+        "Web query: graph matching complex homology torsion Bouc 1992 icosahedron graph",
+        "arXiv:math/0409054, section 4: Torsion in the matching complex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0512420",
+      "arxiv:math/0409054",
+      "arxiv:2411.04601v2",
+      "public-result:28565ad1ea1a",
+      "Icosahedral triangulation documentation (background group order only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest same-object proof determines a nonequivariant homotopy equivalence and Smith factor 3 but does not make the equivalence equivariant.",
+        "The sign of automorphism action on a cyclic group of order three is not determined by the group abstractly; both homomorphisms from A5×C2 to Aut(Z/3)≅C2 exist.",
+        "New exact chain calculation yields H4(F3) antipodal even/odd dimensions 0/1 and H3(F5) antipodal even/odd dimensions 40/24; the UCT makes the torsion sign unavoidable."
+      ],
+      "reasoning": "The old homotopy type and group structure alone permit either inversion sign on the Moore-space torsion. The new result distinguishes the two by computing the induced map, not by renaming a previously determined class or taking an automatic corollary. None of the compared sources forces the displayed 40/24 rational eigensplit.",
+      "searches": [
+        "Search query: \"icosahedral graph\" \"matching complex\" \"antipodal\" Bockstein mod 3",
+        "Search query: \"Moore space\" \"icosahedral\" \"matching complex\" rotation inversion",
+        "Source comparison: public result 28565ad1ea1a RESULT.md, Proof and Relationship to prior work; arXiv:2411.04601v2 Sections 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matching and line-graph independence complexes coincide by definition; Bayer–Jelić Milutinović–Vega, arXiv:2411.04601v2, Proposition 4.",
+        "Closest exact-object public result: public-result:28565ad1ea1a ; inspected complete RESULT.md and verifier texts.",
+        "Same-object report establishes the nonequivariant Moore summand but has no antipodal action on integral torsion or rational parity split."
+      ],
+      "reasoning": "The corresponding line-graph independence-complex formulation is equivalent, not a new object; it was included in targeted searches. The same-object result gives ordinary homotopy type only. Any degree ±1 endomorphism of the Moore-space bottom cell extends across the degree-three attaching map (using the same degree upstairs), so an abstract Moore summand does not specify the actual involution sign. The new result determines the natural group action by an independent chain calculation.",
+      "searches": [
+        "Search query: \"line graph of the icosahedron\" independence complex integral torsion automorphisms",
+        "Search query: \"icosahedral graph\" \"matching complex\" \"antipodal\" Bockstein mod 3",
+        "Web queries: \"icosahedron\" \"matching complex\" \"antipodal\" homology; \"independence complex\" \"line graph of the icosahedron\" \"torsion\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-object result ID 28565ad1ea1a has integral homotopy type wedge of 64 three-spheres and a mod-three Moore space, no torsion action.",
+        "Inspected its RESULT.md, REVIEW.md and verify_morse.py and verify_modular.py; no antipodal/inversion/eigenspace action statement or code calculation.",
+        "Other closest search records concern the icosahedral neighborhood complex, a dodecahedral scale-three Rips complex, and a different octahedral matching complex."
+      ],
+      "reasoning": "The closest exact-object result supplies the integral homology as background, but there is no matching database entry for the order-three torsion character, or even the 40/24 antipodal split. Records for different graph complexes cannot determine the action on this object.",
+      "searches": [
+        "Search query: \"icosahedron\" \"matching\" \"torsion\" \"involution\" action H3 Z/3",
+        "Search query: \"Moore space\" \"icosahedral\" \"matching complex\" rotation inversion",
+        "Search query: icosahedral matching complex 3 torsion antipodal automorphism action Z/3 sign icosahedral group",
+        "Public result ID: 28565ad1ea1a",
+        "Search query: icosahedral matching complex antipodal inversion acts by negation on Z/3 torsion, rational eigenspaces dimension 40 and 24",
+        "Search query: icosahedral line graph independence complex inversion minus sign three torsion universal coefficient H4 F3 and 40 24 rational"
+      ]
+    },
+    "rationale": "The closest same-object full public result establishes the nonequivariant wedge-plus-Moore homotopy type, not the antipodal action. An abstract Moore space allows both signs and its homotopy type does not imply the natural 40/24 rational eigenspace split. Targeted archival and current database/literature searches across matching, line-graph independence, Moore-torsion and inversion aliases produced no covering claim; full scientific statements of the closest exact-object and foundational primary results were materially inspected. Unindexed equivalents remain possible.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent equivariant calculations may exist.",
+      "The complete 47-page foundational torsion paper was read in relevant sections, not exhaustively in unrelated chessboard sections.",
+      "The same-object public result has no claim about automorphisms in its inspected main documents or verifier sources, but external unpublished supplements cannot be ruled out.",
+      "Search rank-ordering and absence of an exact match do not establish exhaustive bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves nonequivariant wedge-plus-Moore homotopy type but does not compute any automorphism action. Does not cover torsion sign or antipodal eigendimensions.",
+        "evidence": [
+          "RESULT.md Finding and Proof determine only ordinary homotopy type and a Smith factor of three.",
+          "Neither verifier nor review contains an automorphism action on the order-three class."
+        ],
+        "identifier_or_url": "public-result:28565ad1ea1a",
+        "material_read": "Complete public RESULT.md, REVIEW.md, and the two standalone finite verifiers verify_morse.py and verify_modular.py.",
+        "method": "Fetched full text of the scientific statement, proof, relationship and limitations; checked supplied verifier sources for antipodal, inversion and symmetry computations.",
+        "title": "Three-torsion in the icosahedral matching complex: a planar counterexample",
+        "trigger": "Same graph and same matching complex with order-three torsion; most likely exact-object coverage."
+      },
+      {
+        "assessment": "Connectivity of claw-free graph independence complexes and families, not icosahedral matching torsion action.",
+        "evidence": [
+          "arxiv:math/0512420, main theorems, especially Section 3 Theorem 3.2; no graph-specific equivariant order-three torsion calculation."
+        ],
+        "identifier_or_url": "arxiv:math/0512420",
+        "material_read": "Full eight-page available arXiv PDF, including title page, Section 2 connectivity tools, Sections 3–4 and references.",
+        "method": "PDF full-text reading and first-page visual check; confirmed arXiv initial submission date 2005-12-17 and primary MSC 57M15.",
+        "title": "Independence complexes of claw-free graphs",
+        "trigger": "Archival topology foundation, primary MSC 57M15; matching complexes are line-graph independence complexes."
+      },
+      {
+        "assessment": "Nonequivariant outerplanar result and a planar conjecture, with no icosahedral torsion group action.",
+        "evidence": [
+          "Theorem 2 concerns outerplanar matching-complex sphere wedges; Conjecture 11 concerns all planar matching complexes but no representation."
+        ],
+        "identifier_or_url": "arxiv:2411.04601v2",
+        "material_read": "Full available arXiv HTML (Introduction, Main Result, Conclusion, References).",
+        "method": "Read Theorem 2, Proposition 4 and Conjecture 11 along with proof and references.",
+        "title": "Matching Complexes of Outerplanar Graphs",
+        "trigger": "Matching-complex homotopy literature; planar torsion question motivated by its conjecture."
+      },
+      {
+        "assessment": "Results concern matching complexes of complete graphs and chessboard complexes. No explicit icosahedral action was found in inspected material. Other sections remain a bibliographic limitation.",
+        "evidence": [
+          "Section 1 defines M_n as the complete graph matching complex; Section 4 Theorem 1.6 concerns M_n torsion."
+        ],
+        "identifier_or_url": "arxiv:math/0409054",
+        "material_read": "Forty-seven-page paper: abstract, contents, introduction, Section 4 relevant statements and proof, and in-document keyword search; other sections were not fully read.",
+        "method": "Opened full PDF and inspected first page, Section 4 and scope of definitions.",
+        "title": "Torsion in the Matching Complex and Chessboard Complex",
+        "trigger": "Foundational published torsion results using some representation-theoretic methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6e971d0-c6fd-424a-8d6f-8df05b644f69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The uniquely occurring order-three torsion of this canonical planar icosahedral matching complex is a naturally motivated invariant after the established non-sphere-wedge result. Its action under the canonical antipode is genuinely undetermined by the underlying Moore-space summand, and the negative result gives the full torsion character and a nonexistence of globally invariant order-three class. The associated 40/24 rational parity split reveals distinct free/torsion symmetry behavior; both are natural equivariant homology data with potential use in quotient and symmetry-sensitive topology. The claim is not a generic substitution, a normalization convention, or a recomputation of an ordinary Betti number.",
+    "status": "PASS"
+  }
+}
