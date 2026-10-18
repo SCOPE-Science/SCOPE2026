@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Extraspeciality makes \(G/Z(G)\) a finite symplectic vector space. The noncommuting neighborhood of a noncentral element depends exactly on the orthogonal hyperplane of its projective quotient point, so the fibers over projective points are maximal false-twin classes of size \(p(p-1)\). Omitting two vertices from one class defeats both resolution and pointwise determination. Conversely, retaining all but at most one vertex in every class resolves distinct omitted vertices by either a landmark in one of their classes or a landmark over a point lying in the symmetric difference of their polar hyperplanes; the same retained vertices force every twin class, and then every omitted vertex, to be fixed by a pointwise-stabilizing automorphism. The factorized enumerator follows independently in each class. The packaged checker confirms the geometric separation and actual Heisenberg-group boundary cases, including exhaustive resolution for \(D_8\).
+PASS
 
-## Originality
+For extraspecial |G|=p^{1+2n}, the commutator on G/Z(G) is a nondegenerate alternating F_p form. The p(p−1) lifts over nonzero vectors in each projective point form a maximal independent false-twin class, and distinct projective points have distinct orthogonal hyperplanes. There are v=(p^{2n}−1)/(p−1) such classes. Twin transpositions force ≥s−1 selected elements/class in either resolving or determining sets. Conversely, with this many selected, an omitted pair in different classes is separated by a landmark in one class if nonorthogonal, or by a landmark over a hyperplane symmetric-difference point if orthogonal. A graph automorphism fixing all selected vertices must fix each twin class, and its at most one omitted vertex, hence determining. The complete enumerator is (sx^{s−1}+x^s)^v, beta=Det=v(s−1), bases=s^v. Independently exhausted all 64 vertex subsets for order-eight extraspecial graph, obtaining 8x³+12x⁴+6x⁵+x⁶.
 
-PASS. The original noncommuting-graph literature studies graph recognition and group structure; Chin's extraspecial work studies maximum pairwise noncommuting sets. The strongest direct metric comparison inspected is Tolue's twin noncommuting graph paper: its metric section gives general bounds and small-dimension classifications, including \(D_8,Q_8\), but not an all-rank extraspecial formula, a complete resolving-set characterization, a resolving polynomial, or determining sets. Semantic searches also found extraspecial noncommuting-graph domination and projective cyclic-subgroup commutativity results, but their conclusions do not imply the accepted theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The result is a natural complete classification rather than a single parameter computation. It shows that two different graph-symmetry notions, metric resolution and pointwise determination, have exactly the same feasible-set family on every extraspecial noncommuting graph, and it gives the full generating polynomial and basis count. The projective commutator geometry explains the equality and supplies a reusable mechanism for testing how much of this behavior survives in broader class-two groups.
+Tolue's published full text studies twin noncommuting graphs and determines beta=3 for D8,Q8 as a small boundary. It does not state an all-rank extraspecial beta/Det coincidence or resolving/determining polynomials. Resultary's all-extraspecial domination theorem has different invariants and cannot imply the resolving polynomial by domination alone.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The noncommuting graph is a natural intrinsic construction of extraspecial groups; exact metric-dimension and symmetry base invariants in all ranks and primes, together with complete set-enumerators, are mathematically useful structural data. The symplectic quotient bridges group and projective polar geometry, so the result is more than a small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
