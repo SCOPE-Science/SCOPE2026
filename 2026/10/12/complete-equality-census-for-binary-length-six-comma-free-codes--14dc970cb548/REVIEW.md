@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primitive-necklace argument gives a proof-level upper bound of \(9\), and the embedded verifier supplies a complete finite equality census. The search ranges over one representative from each of all nine primitive necklaces, and every accepted code is checked again directly from the overlap definition. The complement/reversal action is rebuilt on the full census, not inferred from sample codes.
+## correctness
 
-## Originality
-PASS. Jiggs' historical table already contains the optimum \(W_6(2)=9\), so that value is not claimed as new. The inspected foundational, exact-value, maximal-code, and modern computational sources do not state the exact \(1{{,}}972\)-code census or the \(493\)-orbit decomposition. Exact-count and alias searches found no implication-equivalent database entry. The unavailable Niho (1973) correspondence is retained as a real residual risk.
+PASS
 
-## Value
-PASS. Equality classification is mathematically substantive here because attaining the necklace bound still requires a nontrivial compatibility choice across nine cyclic classes. The census quantifies that choice completely and the symmetry result shows every extremizer is asymmetric under the natural nonidentity complement/reversal operations. This adds structural information not supplied by the known optimum value.
+Any comma-free binary word of length 6 must be primitive and no two representatives of one rotation class can coexist. Möbius inversion counts 54 primitive words and exactly nine primitive necklaces, bounding code size by nine. Independently enumerated all nine-necklace transversals with monotone pruning of already-forbidden overlaps; the verifier checked all ordered pairs and shifts for each chosen candidate, counted 1972 size-nine codebooks and exhibited the claimed lexicographic first. All 1972 codes remain compatible under complement and reversal; the generated four-element orbits comprise exactly 493 size-four classes. Completeness follows from the nine independent primitive-necklace choices, not a guessed partial enumeration.
 
-## Closest literature and limitations
-The closest exact-parameter source is Jiggs (1963), which tabulates \(W_6(2)=9\). Golomb, Gordon, and Welch (1958) provide the cyclic-class bound. The result is limited to fixed binary length \(6\) and the explicitly stated order-four symmetry group. The full Niho (1973) correspondence was not accessible, so an unobserved historical overlap remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
+
+## value
+
+PASS
+
+The natural first nontrivial binary comma-free maximum with nine primitive necklaces admits a complete equality census, independent of the long-known maximum nine. Exact 1972 count and free action of complement/reversal on all maximizers supply a reproducible classification of optimal synchronization codebooks; its finite scope is a limitation, not intrinsic lack of value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

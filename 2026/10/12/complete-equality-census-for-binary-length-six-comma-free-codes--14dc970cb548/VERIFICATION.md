@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` uses only the Python standard library. It reconstructs all \(64\) binary words of length \(6\), identifies exactly \(54\) primitive words and the resulting nine cyclic necklaces, and uses the one-representative-per-necklace lemma to certify the upper bound \(9\).
+# Independent mathematical audit
 
-It then performs a complete depth-first enumeration of transversals of those nine necklaces. A branch is pruned only after the current partial code already contains a forbidden shifted overlap; this predicate is monotone under extension. Every terminal candidate is rechecked directly from the comma-free definition. The replay finds exactly \(1{{,}}972\) maxima.
+## correctness
 
-Finally, the program applies identity, global bit complement, reversal, and complemented reversal to every enumerated maximum. It verifies closure, obtains exactly \(493\) orbits, checks that each orbit has size \(4\), and confirms zero fixed maxima for each nonidentity transformation.
+PASS
 
-Expected replay summary:
+Any comma-free binary word of length 6 must be primitive and no two representatives of one rotation class can coexist. Möbius inversion counts 54 primitive words and exactly nine primitive necklaces, bounding code size by nine. Independently enumerated all nine-necklace transversals with monotone pruning of already-forbidden overlaps; the verifier checked all ordered pairs and shifts for each chosen candidate, counted 1972 size-nine codebooks and exhibited the claimed lexicographic first. All 1972 codes remain compatible under complement and reversal; the generated four-element orbits comprise exactly 493 size-four classes. Completeness follows from the nine independent primitive-necklace choices, not a guessed partial enumeration.
 
-`VERIFY_OK`
+## originality
 
-`primitive_words=54 necklaces=9 upper_bound=9 dfs_nodes=7699`
+PASS
 
-`maximum=9 labeled_maxima=1972 symmetry_group=4 orbits=493 orbit_sizes=4x493`
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
 
-`fixed_nonidentity=0,0,0`
+## value
 
-`weight_multiset=1,2,2,3,3,3,4,4,5`
+PASS
 
-`canonical=000001,000101,000111,100001,100101,100111,101001,101011,101111`
+The natural first nontrivial binary comma-free maximum with nine primitive necklaces admits a complete equality census, independent of the long-known maximum nine. Exact 1972 count and free action of complement/reversal on all maximizers supply a reproducible classification of optimal synchronization codebooks; its finite scope is a limitation, not intrinsic lack of value.
 
-`census_sha256=1bb055dda90b39482eff5bc235fcb28d39ddbb2485e9e2d7e17633d56a1dd61e`
-
-Limits: this is a finite proof for the stated length and alphabet. It does not establish claims at other lengths or alphabet sizes, and it does not treat transformations beyond the explicitly verified order-four group.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
