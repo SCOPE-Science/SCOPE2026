@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independence forces the selected original vertices to form a clique of the original triangle-free graph; domination and independence force **all** subdivision choices. Every unselected original vertex fails domination exactly when its original neighborhood equals the selected clique. This yields precisely three disjoint set types: empty clique, qualifying singleton, or original edge. Substituting their sizes proves the bivariate polynomial, total count, and optimal-set multiplicity without using a finite search as an infinite proof.
+PASS
 
-The verifier independently reconstructs central-graph adjacency, tests every subset on each of the \(88\) connected triangle-free unlabeled graphs up to order seven, and matches the full bivariate coefficients and minimum counts. It also verifies the two six-vertex tree examples. No hypothesis boundary is silently extrapolated to graphs with triangles or disconnected inputs.
+For a maximal independent set D in C(G), S=D∩V(G) must be a clique in G, hence |S|≤2 for triangle-free G. Every subdivision w_uv is forced in D iff both endpoints are outside S. An unchosen original v is undominated exactly when N_G(v)=S. Connectedness makes S=∅ allowed; |S|=1 exactly when chosen v has no degree-one neighbor; |S|=2 every original edge is allowed by triangle-freeness. This proves bijective exhaustive decomposition, the polynomial x^m+y∑_{ell(v)=0}x^{m+1-d(v)}+y²∑_{uv∈E}x^{m+3-d(u)-d(v)}, and total 1+m+#eligible vertices. Degree-sum coefficients and minimum multiplicities follow by exponent comparison; the known minimum m+3-D* is correctly credited. Independent direct central graph adjacency and subset enumeration matched full bivariate coefficients on 5 connected triangle-free examples of 3–6 original vertices. The all-graph proof is structural, not inferred from these samples.
 
-## Originality — PASS
+## originality
 
-The principal prior result is Cabrera-Martínez et al. (2026), Theorems 2.1–2.2. It already determines the scalar \(i(\mathsf C(G))\) for triangle-free originals and its proof uses original cliques and forced subdivisions. The new claim is **not** that scalar; it is the classification and enumeration of **every** maximal independent set, the two-variable coefficient formula, and the linear exact census. The 2014 original polynomial paper defines the counting invariant and treats standard graphs without the central transform. The closest published database results treat higher central iterates (scalar independent domination) and first central iterates (total domination), neither of which entails this all-set count.
+PASS
 
-The source inspections and searches cover central graph, maximal independent set, independent domination polynomial, leaf-neighbor tests, edge degree-sums and similar graph operator terminology. A residual risk is that the exact all-set parametrization could be considered implicit in the 2026 minimum-number proof, or appear in poorly indexed earlier maximal-independent-set literature; no published statement of the bivariate census was located.
+Recent primary Cabrera et al. Theorem 2.1/2.2 and Resultary higher-iterate work give only minimum independent-domination numbers, not a bijection for every maximal independent set nor the y-marked full size polynomial. The complete 2014 independent domination polynomial source defines the polynomial and computes standard input graphs but contains no central-graph all-set formula. Original contribution restricted to complete first-central-graph census, joint original-vertex statistic, degree-sum profile and multiplicities; scalar minimum is prior art. The original source proof contains ingredients but not the full counted quantifier.
 
-## Value — PASS
+## value
 
-The output is a complete structural and polynomial enumeration for all connected triangle-free graphs, not an arbitrary small-sample invariant. Every independent dominating set of the central graph can be generated from at most \(n+m+1\) original empty/singleton/edge choices; the polynomial records the full edge degree-sum histogram, exact optimum multiplicities, and structural distinctions not visible from degree sequences alone. This directly extends the active study from a minimum number to a finite all-solutions theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Independent domination in central graphs is a natural graph invariant already singled out by a very recent optimization theorem. This result strengthens one minimum into a complete linear-sized parametrization of all maximal independent sets and a closed two-variable polynomial recovering edge degree-sums, useful for graph comparison and further enumerative work. The finite class is all connected triangle-free input graphs rather than an arbitrary size slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

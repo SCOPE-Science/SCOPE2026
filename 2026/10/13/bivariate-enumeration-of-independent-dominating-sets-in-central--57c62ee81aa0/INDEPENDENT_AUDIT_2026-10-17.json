@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:54:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a maximal independent set D in C(G), S=D∩V(G) must be a clique in G, hence |S|≤2 for triangle-free G. Every subdivision w_uv is forced in D iff both endpoints are outside S. An unchosen original v is undominated exactly when N_G(v)=S. Connectedness makes S=∅ allowed; |S|=1 exactly when chosen v has no degree-one neighbor; |S|=2 every original edge is allowed by triangle-freeness. This proves bijective exhaustive decomposition, the polynomial x^m+y∑_{ell(v)=0}x^{m+1-d(v)}+y²∑_{uv∈E}x^{m+3-d(u)-d(v)}, and total 1+m+#eligible vertices. Degree-sum coefficients and minimum multiplicities follow by exponent comparison; the known minimum m+3-D* is correctly credited. Independent direct central graph adjacency and subset enumeration matched full bivariate coefficients on 5 connected triangle-free examples of 3–6 original vertices. The all-graph proof is structural, not inferred from these samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2609.16357 Theorem 2.1 applies to arbitrary G but scalar i(C(G)); higher iterate Resultary concerns k≥3"
+        ],
+        "reasoning": "Broader graph class for scalar i does not dominate a bivariate all-set enumerator for triangle-free graphs. First iterate and higher iterate are mathematically distinct.",
+        "searches": [
+          "maximal independent sets independent dominating polynomial central graph triangle-free graph degree-sum bivariate enumeration [Resultary semantic 2026-10-17]"
+        ]
+      },
+      "checked_sources": [
+        "assigned pinned RESULT.md (blob b5ce449d690bcb50806c2ca46e875ed9e6d860fc)",
+        "Cabrera et al. arxiv:2609.16357v1 complete manuscript",
+        "Shivaswamy–Soner–Alwardi 2014 complete OA PDF",
+        "Resultary 2026/9/17 higher central iterates RESULT.md",
+        "Independent exact enumeration of 5 triangle-free connected input graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cabrera et al. known scalar i(C(G))=m+3-max_edge(d(u)+d(v))",
+          "Current y² coefficient equals full edge degree-sum histogram and total count 1+m+#v ell(v)=0"
+        ],
+        "reasoning": "The minimum size is recoverable from current polynomial but the converse is false: two graphs can share minimum yet differ in counts and edge-degree distributions; known scalar cannot imply enumerator without further counting.",
+        "searches": [
+          "maximal independent sets independent dominating polynomial central graph triangle-free graph degree-sum bivariate enumeration [Resultary semantic 2026-10-17]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cabrera et al. arXiv:2609.16357v1 Theorems 2.1/2.2 full proof; Shivaswamy et al. 2014 PDF Sections 2–3",
+          "Resultary higher central iterates 2026/9/17 full RESULT.md"
+        ],
+        "reasoning": "Existing minimum i(C(G)) is an optimization over cliques, not an all-maximal-independent-set generating function. Subdivision/all-original marking makes current bivariate enumeration strictly finer.",
+        "searches": [
+          "maximal independent sets independent dominating polynomial central graph triangle-free graph degree-sum bivariate enumeration [Resultary semantic 2026-10-17]",
+          "independent dominating polynomial central graph triangle-free maximal independent sets [web 2026-10-17]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shivaswamy et al. 2014 computes complete graph, complete bipartite, spiders, bistar, friendship graph and firefly graph, not central graphs"
+        ],
+        "reasoning": "No exact central-graph census/table was located in the directly inspected 2014 full paper. Some of its input spider examples are not central graphs of arbitrary triangle-free G; no implication to this formula.",
+        "searches": [
+          "maximal independent sets independent dominating polynomial central graph triangle-free graph degree-sum bivariate enumeration [Resultary semantic 2026-10-17]",
+          "Shivaswamy Soner Alwardi Independent Dominating Polynomial in Graphs 2014 full OA PDF"
+        ]
+      },
+      "rationale": "Recent primary Cabrera et al. Theorem 2.1/2.2 and Resultary higher-iterate work give only minimum independent-domination numbers, not a bijection for every maximal independent set nor the y-marked full size polynomial. The complete 2014 independent domination polynomial source defines the polynomial and computes standard input graphs but contains no central-graph all-set formula. Original contribution restricted to complete first-central-graph census, joint original-vertex statistic, degree-sum profile and multiplicities; scalar minimum is prior art. The original source proof contains ingredients but not the full counted quantifier.",
+      "residual_risks": [
+        "Cabrera et al. source already explains forced subdivision selection in its minimum proof; some downstream counting is elementary from those ingredients, but universal all-set enumerator is not stated and is intrinsically natural.",
+        "Poorly indexed maximal independent set or central graph enumeration may predate this formula.",
+        "The bivariate statistic uses marked original versus subdivision vertices (intrinsic for original n≥4)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems optimize minimum cardinality; no general all-set polynomial or original-vertex counting classification stated",
+          "evidence": "arxiv:2609.16357v1, web turn343346view0, turn678029view3",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16357",
+          "material_read": "Full 13-page preprint mathematical body including Theorem 2.1 original-clique forcing, Theorem 2.2 triangle-free minimum, subsequent second-iterate results",
+          "method": "PDF textual theorem/proof comparison and page screenshot",
+          "title": "Independent domination in central graphs",
+          "trigger": "same exact construction, theorem possibly stronger than submitted"
+        },
+        {
+          "assessment": "Defines independent domination polynomial, treats complete graphs, complete bipartite, star/spider etc; no central graph construction/all-set theorem",
+          "evidence": "web turn622356view0 and turn108964view0,turn108964view1",
+          "identifier_or_url": "https://arcjournals.org/arc_download.php?id=7207",
+          "material_read": "Full seven-page PDF including Definition 2.1, Theorems 2.6–2.15, examples and conclusions",
+          "method": "OA PDF text through web and screenshots pp 758,760",
+          "title": "Independent Dominating Polynomial in Graphs",
+          "trigger": "prior original polynomial method and plausible graph-family formulas"
+        },
+        {
+          "assessment": "Higher iterate scalar invariant does not cover the first-iterate complete bivariate maximal-independent-set census",
+          "evidence": "Resultary 2026/9/17 full result",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+          "material_read": "Complete RESULT.md proof of scalar i(C^k(G)) for k≥3 and source second-iterate formula",
+          "method": "GitHub connector fetched published complete RESULT.md",
+          "title": "Independent domination of higher iterated central graphs",
+          "trigger": "related published SCOPE result on same graph operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent domination in central graphs is a natural graph invariant already singled out by a very recent optimization theorem. This result strengthens one minimum into a complete linear-sized parametrization of all maximal independent sets and a closed two-variable polynomial recovering edge degree-sums, useful for graph comparison and further enumerative work. The finite class is all connected triangle-free input graphs rather than an arbitrary size slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Cabrera et al. source already explains forced subdivision selection in its minimum proof; some downstream counting is elementary from those ingredients, but universal all-set enumerator is not stated and is intrinsically natural.",
+    "Poorly indexed maximal independent set or central graph enumeration may predate this formula.",
+    "The bivariate statistic uses marked original versus subdivision vertices (intrinsic for original n≥4).",
+    "Public-facing METADATA.json contains confidential operational-provenance field scope_run_id, and complete privacy-safe guarded replacement is not prepared; publication is not_ready.",
+    "Historical ledger gaps/defects are preserved without revalidation; this review is new."
+  ],
+  "schema_version": 1
+}
