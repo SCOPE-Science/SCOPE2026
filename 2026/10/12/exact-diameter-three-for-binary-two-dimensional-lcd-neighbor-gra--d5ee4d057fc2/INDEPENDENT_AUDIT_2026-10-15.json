@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:01:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary dot product q(z)=B(z,z)=B(z,w) and T(z)=z+q(z)w, the Gram determinant of span(c,z) is q(c)q(z)+B(c,z)=B(c,T(z)). For each LCD 2-plane C, if T(z) not in C^perp and z not in C, some c in C yields a one-line-intersecting LCD plane containing z. To connect arbitrary C,D it suffices to choose z outside C,D,T^{-1}(C^perp),T^{-1}(D^perp). For even n, T invertible (T(w)=w when n even), so each preimage dimension n-2 and total excluded ≤2^{n-1}+7<2^n. For odd n, T has kernel span(w), image w^perp, each preimage is proper dimension ≤n-1 (because LCD C cannot lie entirely in span w, and T(C) relation), and union of two proper subspaces has ≤3·2^{n-2} points; plus7<2^n for odd n≥5. Thus diameter ≤3. Explicit disjoint planes C=<e1,e2>, D=<e1+e2+e3,e3+e4> are LCD and no span(c,d) for nonzero c,d is LCD, ruling out common neighbors. Perpendicular complement preserves distances for k=n-2. Independently enumerated exact graph diameter 3 for n=4 (20 vertices) and n=5 (80 vertices); infinite theorem uses counting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LCD paper Corollary 4.1 and Theorem 4.2 (PDF p17) assert binary regularity and connectivity; conference presentation gives odd-q diameter min(k,n-k) only."
+        ],
+        "reasoning": "Regularity/connectedness are weaker than exact diameter; odd-q conclusion on different characteristic cannot imply binary n≥4 diameter3.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.07580",
+          "https://cargo.wlu.ca/5thPythagorean/talks/Carlos_Vela.pdf"
+        ]
+      },
+      "checked_sources": [
+        "de la Cruz et al. 2026 authorized full arXiv text pages1–32",
+        "Resultary prior edge-regularity theorem summary",
+        "binary LCD graph exact result and verifier source",
+        "independent n4,n5 enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit k=2 disjoint C,D with all mixed Gram determinants zero force distance>=3, whereas published result supplies no upper bound 3."
+        ],
+        "reasoning": "Prior connectedness/regularity has no logical implication of a uniform three-step path bound or matching lower-bound witness; substantive new proof needed.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.07580",
+          "Resultary semantic: binary linear complementary dual LCD code neighbor graph diameter 3 dimension 2 characteristic two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper Definition/§4 uses LCD neighbors intersecting in codimension one; this coincides with one-dimensional intersection for k=2."
+        ],
+        "reasoning": "Graph and adjacency match exactly, but the primary results provide regularity and connectivity, not distance diameter. Orthogonal complement gives codimension-two dual equivalence explicitly.",
+        "searches": [
+          "Resultary semantic: binary linear complementary dual LCD code neighbor graph diameter 3 dimension 2 characteristic two",
+          "https://arxiv.org/pdf/2609.07580"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary prior computes common-neighbor count for edges: 2^k+2^{n-k}-4, not nonadjacent pair distances. Published Harada-Tanaka low-dimensional binary LCD code tabulations concern equivalence types."
+        ],
+        "reasoning": "A table of LCD code classes or an edge-local triangle count does not determine whole graph diameter; no exact binary diameter table located in inspected material.",
+        "searches": [
+          "Resultary semantic: binary linear complementary dual LCD code neighbor graph diameter 3 dimension 2 characteristic two",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-regularity-and-exact-triangle-multiplicity-in-binary-lcd-ne--159df54d52bf"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: The exact 2026 LCD neighbor graph primary paper (all 32 pages lawfully accessed) proves regularity and connectedness for binary q=2 (Corollary 4.1/Theorem 4.2) and treats odd-characteristic structural graphs, but does not state a binary k=2 diameter or 3-step path bound. Earlier Resultary edge-regularity theorem gives common neighbors for adjacent vertices only, which cannot force a distance for disjoint vertices. The odd-field diameter min{k,n-k}=2 does not extend to char2; inspected binary witness demonstrates deviation.",
+      "residual_risks": [
+        "Potential alternate preprint conference slide or revised version beyond arXiv v1 may contain binary metric results; v1 full text inspected.",
+        "The source package does not claim general k in [3,n-3]."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECTLY COVERING BINARY DIAMETER 3",
+          "evidence": "Theorem4.2 connectedness and Corollary4.1 regularity; no sharp binary k2 diameter statement in read material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07580",
+          "material_read": "lawfully accessed complete 32-page arXiv v1 via institutional Oxford extraction in page ranges 1–12,13–24,25–32; read abstract, main-results list, Sec3/4 particularly Corollary4.1 and Theorem4.2 p17, and conclusion",
+          "method": "authorized original arXiv PDF full-text extraction; no publisher bypass",
+          "title": "The Neighbor Graph of Linear Complementary Dual (LCD) Codes",
+          "trigger": "same binary LCD graph and adjacency, plausible stronger prior"
+        },
+        {
+          "assessment": "ADJACENT ONLY",
+          "evidence": "Local count 2^k+2^{n-k}-4 for an edge does not imply global diameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-regularity-and-exact-triangle-multiplicity-in-binary-lcd-ne--159df54d52bf",
+          "material_read": "Resultary published title and substantive theorem summary about adjacent-vertex neighborhoods",
+          "method": "semantic database hit, not full primary text",
+          "title": "Edge-regularity and exact triangle multiplicity in binary LCD neighbor graphs",
+          "trigger": "same graph; potentially dominating local common-neighbor formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: It resolves the first nontrivial dimension of a natural coding-theoretic neighbor graph, quantitatively strengthening connectedness and exposing a sharp characteristic-two global-metric obstruction, with explicit general-n construction and duality. This is not a trivial rewriting of regularity or finite small-case data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dimension two and codimension two only; no assertion for intermediate dimensions.",
+    "Independent complete recursive Git tree hash reconstruction was not exposed by the read-only file connector."
+  ],
+  "schema_version": 1
+}

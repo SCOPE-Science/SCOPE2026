@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the LCD condition for a plane \(\langle c,z\rangle\) to the exact Gram determinant identity
-\[
-\det\operatorname{Gram}(c,z)=q(c)q(z)+B(c,z)=B(c,T(z)).
-\]
-For the upper bound, the forbidden-vector sets are linear preimages under \(T\); their dimensions give a strict counting margin for every \(n\ge4\). For the lower bound, the displayed LCD planes are disjoint and every span of one nonzero vector from each is degenerate, which excludes a common LCD neighbor. Orthogonal complementation preserves adjacency. The finite checker independently reconstructs the small graphs for \(n=4,5,6\) and obtains diameter \(3\) each time.
+## correctness
 
-## Originality
-**PASS.** The closest primary source defines the same LCD neighbor graph and proves binary connectedness but contains no binary diameter statement. Its conference slides state the diameter formula \(\min\{k,n-k\}\) only for odd \(q\). The dimension-two binary classification literature tabulates equivalence classes but does not study neighbor-graph distance. Focused published-finding corpus searches for the exact binary dimension-two diameter and equivalent formulations returned no covering finding. A previously checked same-object result gives edge-regularity and triangle counts, which neither state nor imply the global diameter.
+PASS
 
-Residual risk: the earliest 2025 repository presentation is publicly listed with a downloadable file but its file contents were not accessible through the available retrieval route. Later full-text versions of the joint work were inspected and explicitly restrict the diameter formula to odd fields, which substantially reduces but does not eliminate the possibility that an earlier slide deck mentioned the binary dimension-two special case.
+For binary dot product q(z)=B(z,z)=B(z,w) and T(z)=z+q(z)w, the Gram determinant of span(c,z) is q(c)q(z)+B(c,z)=B(c,T(z)). For each LCD 2-plane C, if T(z) not in C^perp and z not in C, some c in C yields a one-line-intersecting LCD plane containing z. To connect arbitrary C,D it suffices to choose z outside C,D,T^{-1}(C^perp),T^{-1}(D^perp). For even n, T invertible (T(w)=w when n even), so each preimage dimension n-2 and total excluded ≤2^{n-1}+7<2^n. For odd n, T has kernel span(w), image w^perp, each preimage is proper dimension ≤n-1 (because LCD C cannot lie entirely in span w, and T(C) relation), and union of two proper subspaces has ≤3·2^{n-2} points; plus7<2^n for odd n≥5. Thus diameter ≤3. Explicit disjoint planes C=<e1,e2>, D=<e1+e2+e3,e3+e4> are LCD and no span(c,d) for nonzero c,d is LCD, ruling out common neighbors. Perpendicular complement preserves distances for k=n-2. Independently enumerated exact graph diameter 3 for n=4 (20 vertices) and n=5 (80 vertices); infinite theorem uses counting proof.
 
-## Value
-**PASS.** Diameter is the basic global metric invariant of the newly introduced LCD neighbor graph. Dimension two is the first nontrivial binary case, and the answer exhibits a structural characteristic-two defect: the induced LCD graph needs one more step than the ambient Grassmann graph and than the stated odd-field formula. The proof isolates the exact obstruction and supplies a uniform path construction rather than a table lookup.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: The exact 2026 LCD neighbor graph primary paper (all 32 pages lawfully accessed) proves regularity and connectedness for binary q=2 (Corollary 4.1/Theorem 4.2) and treats odd-characteristic structural graphs, but does not state a binary k=2 diameter or 3-step path bound. Earlier Resultary edge-regularity theorem gives common neighbors for adjacent vertices only, which cannot force a distance for disjoint vertices. The odd-field diameter min{k,n-k}=2 does not extend to char2; inspected binary witness demonstrates deviation.
+
+## value
+
+PASS
+
+PASS: It resolves the first nontrivial dimension of a natural coding-theoretic neighbor graph, quantitatively strengthening connectedness and exposing a sharp characteristic-two global-metric obstruction, with explicit general-n construction and duality. This is not a trivial rewriting of regularity or finite small-case data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
