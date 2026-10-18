@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the standard barbell \(B_n\), any dominating set must meet each clique and any set meeting both cliques dominates. If each side contributes at least two selected vertices, every selected vertex has a selected clique-neighbor, so no isolate exists. If one side is a singleton, its selected vertex is isolated except precisely when it is the bridge endpoint and the opposite bridge endpoint is also selected. These cases are exhaustive and give the bivariate formula by subtracting the non-isolate dominating cases. The minimality argument then forces one selected vertex on each side, and the bridge pair is the unique forbidden pair. The packaged verifier independently checks all subsets for \(2\le n\le7\).
+## correctness
 
-## Originality
-PASS with residual literature risk. The same-object paper of Bhangale and Pawar proves only the scalar barbell value \(\gamma_0(B_n)=2\) and identifies minimum cross-clique pairs; that statement does not determine counts in higher cardinalities or \(\Gamma_0(B_n)\). The later paper introducing the isolated-domination polynomial was inspected in full-text form: it defines the polynomial, treats several standard families, and contains no occurrence of “barbell”. Its bi-star theorem concerns a different tree. published-finding corpus searches under barbell, isolate/isolated domination, polynomial/enumerator, all-set, and upper-parameter formulations returned no result implying the present formula. Previously catalogued scientific claims were also compared for overlap.
+PASS
 
-## Value
-PASS. Isolate domination was introduced as a parameter with both lower and upper minimal-set numbers, and an explicit all-set polynomial was later proposed to refine it. Barbell graphs already have a published scalar isolate-domination result, making the missing all-set profile a natural rather than arbitrary refinement. The formula exposes a sharp structural phenomenon: the polynomial has degree \(n+1\), while every minimal isolate dominating set has size exactly \(2\), so \(\Gamma_0(B_n)=2\) despite the existence of much larger feasible sets.
+Every dominating set must meet both cliques; conversely any such set dominates. An induced isolate requires a singleton side, with the unique bridge endpoint nonisolated only if the opposite bridge endpoint was also selected. Subtract sets with both sides of size>=2 and bridge-adjacent singleton cases from P_n(x)P_n(y): I=P(x)P(y)-Q(x)Q(y)-xy[(1+x)^(n-1)+(1+y)^(n-1)-1], P=(1+t)^n-1,Q=P-nt. Setting x=y and evaluating at 1 yields stated polynomial and totals. A minimal isolate dominating set cannot have >1 selected vertex on either side; exactly n^2-1 cross pairs excluding the bridge survive. Independent exhaustive subset checks for n=2..6 reproduced all bivariate coefficients and minima; this is corroboration of all-n combinatorial proof.
 
-The closest prior literature and the remaining limitations are described in `RESULT.md` and `AUDIT.json`. The finite verifier confirms coefficients and minimal-set counts only through order \(14\); the infinite statement rests on the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-cardinality and bivariate enumerators, not for lower isolate domination gamma0=2 already stated by Bhangale–Pawar. The earlier isolated-domination polynomial framework gives other named graphs, including a *bi-star tree*, not the two-clique bridge barbell. Resultary barbell zero-forcing polynomial is a different invariant.
+
+## value
+
+PASS
+
+The barbell B_n is a natural dense-clique/one-bridge test family, and its all-set bivariate generating function distinguishes clique occupancy and yields both total counts and extremal minimal-set behavior. It goes beyond the known scalar domination number and is an exact reusable graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
