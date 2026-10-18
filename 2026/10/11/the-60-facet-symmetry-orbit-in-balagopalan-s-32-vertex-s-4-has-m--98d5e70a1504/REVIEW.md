@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published formulas reconstruct the 60-facet orbit exactly. The bundled verifier checks its full face closure, verifies each of 270 elementary collapses at the moment it is made, and computes exact mod-two boundary ranks \(31\) and \(179\). This proves the claimed Betti vector \((1,0,91)\) for the collapsed two-complex and hence for the original orbit subcomplex. A direct unreduced boundary calculation agrees.
+## correctness
 
-## Originality
-PASS. Exact-object and alias searches were run in published-finding corpus and public indexes, including formulations using the 32-vertex antipodal \(S^4\), the small \(C_2\times S_6\) facet orbit, the 60 facets, the double cover of \(\mathbb{RP}^4_{16}\), and the number 91. The thesis and later journal article were inspected at the complete facet formulas. They specify the orbit decomposition but not this homology or collapse statement. Relevant current and prior ledger claims were also compared for implication-level overlap and concern different complexes or invariants. Residual risk remains that an unindexed historical computation exists.
+PASS
 
-## Value
-PASS. The subcomplex is canonically selected as a full automorphism orbit, so its homology is a natural invariant of the published symmetric decomposition rather than an arbitrary finite restriction. The result quantifies a substantial topological contribution of the smaller orbit and supplies an explicit collapse reduction that can support further structural study.
+The finite construction takes exactly the first two 30-facet families in the explicit Balagopalan 32-vertex antipodal S⁴ definition, in two C₂×S₆-related orbits. Independently reconstruct all four facet families and verify their counts (30,30,120,120), full complex f=(32,240,660,750,300), and small 60-facet closure f=(32,210,480,270,60). A separate exact GF(2) chain-rank calculation directly on the full small complex yields ranks ∂1=31,∂2=179,∂3=210,∂4=60; hence unreduced β=(1,0,91,0,0) and reduced H₂ of rank 91. The packaged deterministic 270-collapse route agrees but is not needed to trust raw boundary ranks. This proves only mod-two homology, not a homotopy wedge or integral torsion claim.
 
-## Closest literature and limitations
-The closest literature is Balagopalan’s construction itself, which proves the ambient complex is an antipodal 4-sphere and records the two facet orbits, and the later journal treatment connecting the quotient to the 16-vertex triangulation of \(\mathbb{RP}^4\). Neither determines the homology of the 60-facet orbit closure. The present result is only mod-two homology; it does not claim an integral, fundamental-group, or homotopy classification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact statement comparison: The construction and object itself are known; the homology of its proper orbit complex is the distinct claimed invariant. The original strong ambient topology result does not imply the 91 second Betti number for the small orbit. The claim uses published input data but proves an independent exact invariant of a canonical subcomplex. Residual risks explicitly preserved.
+
+## value
+
+PASS
+
+Balagopalan's minimal antipodal S⁴ triangulation has a distinguished 60-facet symmetry orbit arising canonically from the construction. Its orbit-generated subcomplex is a mathematically motivated invariant; f-vector and unexpected 91 mod-two H₂ generators give precise new structural information useful for comparing symmetry-stratified triangulations. Does not require resolving integral homotopy or a full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
