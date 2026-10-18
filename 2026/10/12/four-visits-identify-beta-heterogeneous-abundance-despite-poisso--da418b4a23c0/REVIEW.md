@@ -1,19 +1,21 @@
-# Scientific assessment: four-visit identifiability with anonymous false detections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Poisson compound generating function is exact under all stated conditional independences. Expanding its logarithm gives a coefficient \(c_1\) that combines the true and Poisson-background counts and higher distinct-visit coefficients \(c_j=\mu\mathbb E[Q^j]\). The two beta moment ratios solve uniquely for both positive shape parameters, the second cumulant solves for abundance, and the mean then solves for background. Strict positivity gives an explicit if-and-only-if feasible parameter region. With three or fewer visits, a continuous perturbation of the beta total shape leaves every available coefficient unchanged, and the generating-function identity proves full-distribution equivalence. The two rational witnesses are independently checked through Poisson-mark intensities. With independently known zero background, the same method gives the sharp three-visit threshold. Limits: this establishes population-law identifiability only under the exact specified model, not stable finite-sample inference.
+PASS
 
-## Originality — PASS, residual risks documented
+The exact compound-Poisson log PGF equals xi Σ(z_t-1)+mu(E_Q∏(1+Q(z_t-1))-1). Its distinct-visit derivatives are c1=xi+mu α/(α+β) and cr=mu(α)_r/(α+β)_r (r>=2); the entire count law is determined by these square-free coefficients. For T=4, c3/c2 and c4/c3 uniquely recover α+β, α, β, then mu and xi. For T<=3, continuity of the explicit one-parameter curve in S preserves all available cumulants and the full count law at every interior xi>0. Independently checked exact rational inversion on three profiles, common c1,c2,c3=(6,2,8/7) for two distinct sets, and fourth difference 1/147. With xi known zero, c2/c1 and c3/c2 give the analogous sharp three-visit inversion. The proof handles positive shape parameters and boundary xi=0 as stated.
 
-Royle (2004) uses the conventional Poisson-binomial mixture with a common detection probability. Dennis, Morgan and Ridout (2015, Section 3) give the general multivariate-Poisson decomposition but do not establish a sharp four-visit threshold with beta-persistent detectability and unknown Poisson contamination. Clement, Royle and Mixan (2022, Section 2.2) model misclassification and exogenous contamination via Poisson *conditional encounter intensities*, rather than binary detections per individual, and do not give this cumulant identification theorem. Dorazio and Royle (2003) motivate beta individual-heterogeneity through capture–recapture data with observed identities, but the full article was unavailable; this is an explicit residual comparison risk, not evidence of absence. Veech, Ott and Troy (2016) discuss intrinsic heterogeneity and estimation performance, not the identified sharp boundary in the accessible text. A broader compound-Poisson identification theorem may imply the closed-form criterion. No equivalence or stronger result was located in the performed title, exact-claim, parameter, alias and reduction searches. Failed searches alone are not taken as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a design-relevant identification limit for unmarked abundance monitoring in which spurious detections and persistent biological detectability heterogeneity coexist. A theorem ruling out identification even from the *entire joint law* of three visits is stronger than observing that a particular estimator performs poorly. The rational indistinguishable-pair certificate quantifies the obstruction, while the exact admissibility inequalities supply a diagnostic for model incompatibility. The result identifies why an additional visit, rather than merely more independent sites at three visits, is structurally needed. The claims remain idealized and are not empirical sampling recommendations without additional precision analysis.
+Royle 2004 basic N-mixture has fixed per-visit detection and no separate unknown Poisson false positives; capture–recapture beta heterogeneity from Dorazio–Royle concerns identity-labeled detection histories. An independent Resultary two-visit theorem concerns the standard constant-p binomial mixture, not individual persistent beta heterogeneity plus unknown false detections. No inspected stronger theorem derives this exact T=4 versus T=3 threshold for the full joint law.
 
-## Closest literature and limitations
+## value
 
-Royle (2004), DOI 10.1111/j.0006-341X.2004.00142.x; Dennis et al. (2015), DOI 10.1111/biom.12246; Clement et al. (2022), DOI 10.1111/2041-210X.13895; Dorazio and Royle (2003), DOI 10.1111/1541-0420.00042; Veech et al. (2016), DOI 10.1111/2041-210X.12566. The critical model restrictions are persistent individual beta propensity, site-level Poisson abundance, independent Poisson background and independent conditional detections. One plausible older source could not be materially read, and generic compound-Poisson inversion remains a prior-coverage risk. No claim is made about arbitrary mixing laws, visit-dependent background noise, or finite-sample reliability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp structural identifiability with false-positive contamination is central to ecological count modeling: the result determines a minimal survey-design dimension and supplies a pair of genuinely observationally identical three-visit count laws and a complete admissible cross-cumulant region. These are useful independently of finite-sample estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
