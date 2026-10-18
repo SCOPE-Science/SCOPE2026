@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs both hypotheses of Enomoto's Theorem 5.5. Reflexive-rigidity follows from the second-syzygy property and hereditary global dimension. Fullness of \(I_{\mathrm{ref}}(A)\) is proved separately: a nonprojective simple has nonzero \(\operatorname{Ext}^1_A(S,A)\), since vanishing would split its length-one projective resolution.
+## correctness
 
-## Originality
-PASS. The primary source states the criterion and checks a single hereditary path algebra, but does not state the uniform hereditary theorem. Focused searches for the conclusion, its reflexive-minimal/reflexive-rigid formulation, and the all-simple \(I_{\mathrm{ref}}\) formulation found no covering result. Earlier reflexive-module literature predates the new reflexive-equivalence framework.
+PASS
 
-## Value
-PASS. Finite-dimensional hereditary algebras form a central class in representation theory. Showing that the new reflexive equivalence collapses exactly to ordinary Morita equivalence throughout this class gives a clean structural boundary and converts a local example from the motivating paper into a class theorem.
+Reflexive modules are second syzygies (Enomoto), and every second syzygy is projective for gl.dim A<=1, so ref A=proj A. For any simple right S, if projective it embeds as a direct summand of regular A and Hom(S,A)≠0. If nonprojective its minimal resolution 0→P1→P0→S→0 has nonzero projective P1; assuming Ext^1(S,A)=0 makes Hom(P0,A)→Hom(P1,A) surjective. Extending coordinates of a split embedding P1→A^m gives h:P0→A^m with hj equal to that embedding and a retraction P0→P1, which splits the resolution, contradiction. Hence each simple index belongs to I_ref(A), satisfying both hypotheses of Enomoto Theorem 5.5. Passage to basic Morita representative preserves heredity. This proves for all finite-dimensional hereditary k-algebras over arbitrary fields; no finite examples used as infinite proof.
 
-## Closest literature and limitations
-The closest source is H. Enomoto, *Reflexive equivalence and reflexive-minimal algebras*, hexagon:2610.00024v1, especially Example 3.15 and Theorem 5.5. Hanihara's work on Auslander-type conditions and Ringel's work on simple reflexive modules address related module structure but do not cover the new equivalence conclusion. The argument here is finite-dimensional over a field and uses projective dimension at most one for the all-simple \(I_{\mathrm{ref}}\) step.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 full Enomoto paper supplies the general criterion and one hereditary three-vertex example, but the relevant inspected theorem and examples do not assert the uniform all-hereditary conclusion. The nonprojective-simple splitting lemma supplies the missing input. Resultary searches on reflexive equivalence and full I_ref turned up no broader direct coverage; short-corollary priority risk is recorded.
+
+## value
+
+PASS
+
+Hereditary finite-dimensional algebras constitute a central representation-theoretic class. Proving the newly introduced reflexive equivalence collapses to ordinary Morita equivalence on the entire class is a natural, useful rigidity boundary beyond a single small example; it does not claim the same for gl.dim=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

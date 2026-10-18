@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is verified by symbolic proof rather than computation.
+# Independent mathematical audit
 
-1. The primary source was checked in full text for the definition of \(I_{\mathrm{ref}}(A)\), Example 3.15, Theorem 5.5, and the statement that every reflexive module is a second syzygy.
-2. For a hereditary algebra, every second syzygy is projective, so \(\operatorname{ref} A=\operatorname{proj} A\).
-3. For a simple projective \(S\), \(\operatorname{Hom}_A(S,A)\ne0\).
-4. For a simple nonprojective \(S\), use \(0\to P_1\to P_0\to S\to0\). If \(\operatorname{Ext}^1_A(S,A)=0\), every map \(P_1\to A\) extends to \(P_0\). Extending the coordinate maps of a split embedding \(P_1\to A^m\) produces a retraction \(P_0\to P_1\), so the sequence splits and \(S\) is projective, contradiction.
-5. Therefore every simple index lies in \(I_{\mathrm{ref}}(A)\). Theorem 5.5 then forces any reflexively equivalent algebra to be Morita equivalent.
+## correctness
 
-No finite experiment, database absence, or computational log is used as a correctness premise. The literature searches are used only for originality comparison.
+PASS
+
+Reflexive modules are second syzygies (Enomoto), and every second syzygy is projective for gl.dim A<=1, so ref A=proj A. For any simple right S, if projective it embeds as a direct summand of regular A and Hom(S,A)≠0. If nonprojective its minimal resolution 0→P1→P0→S→0 has nonzero projective P1; assuming Ext^1(S,A)=0 makes Hom(P0,A)→Hom(P1,A) surjective. Extending coordinates of a split embedding P1→A^m gives h:P0→A^m with hj equal to that embedding and a retraction P0→P1, which splits the resolution, contradiction. Hence each simple index belongs to I_ref(A), satisfying both hypotheses of Enomoto Theorem 5.5. Passage to basic Morita representative preserves heredity. This proves for all finite-dimensional hereditary k-algebras over arbitrary fields; no finite examples used as infinite proof.
+
+## originality
+
+PASS
+
+The 2026 full Enomoto paper supplies the general criterion and one hereditary three-vertex example, but the relevant inspected theorem and examples do not assert the uniform all-hereditary conclusion. The nonprojective-simple splitting lemma supplies the missing input. Resultary searches on reflexive equivalence and full I_ref turned up no broader direct coverage; short-corollary priority risk is recorded.
+
+## value
+
+PASS
+
+Hereditary finite-dimensional algebras constitute a central representation-theoretic class. Proving the newly introduced reflexive equivalence collapses to ordinary Morita equivalence on the entire class is a natural, useful rigidity boundary beyond a single small example; it does not claim the same for gl.dim=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
