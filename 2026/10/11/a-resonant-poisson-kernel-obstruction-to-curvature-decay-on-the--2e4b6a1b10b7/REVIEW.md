@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each \(0\le r<1\), the proposed density is a smooth positive normalized Poisson kernel composed with the \(2n\)-fold angular map. Its frequency-\(2n\) Fourier coefficient has modulus \(r\), and direct integration gives \(C_\mu=4\pi^2(1+r^2)/(1-r^2)\). Substitution into the inspected exact curvature formula gives \(3n^2/(1+r^2)\), so the limiting curvature is \(3n^2/2\) while \(C_\mu\to\infty\). The endpoint is not treated as an admissible smooth density. The source's proof of the disputed clause was checked and uses the denominator inequality in the wrong direction.
+## correctness
 
-## Originality
-**PASS, with a stated residual literature risk.** Claim-level searches covered Wasserstein-circle curvature, equal-frequency Fourier planes, Poisson kernels, resonant densities, the exact profile, the source identifier, and the disputed corollary. The focal paper's full curvature section was inspected and states the opposite universal decay claim rather than this family. The closest broader Wasserstein-curvature source treats a wider framework; the focal paper describes its circle examples as different-frequency cases, not the equal-frequency plane considered here. No searched research record stated the counterexample or exact profile. A non-exhaustive comparison with that broader preprint remains a residual risk.
+PASS
 
-## Value
-**PASS.** The finding corrects a mathematically substantive universal conclusion attached to a fresh curvature theorem, using the canonical Poisson kernel at exactly the resonant Fourier frequency. It explains the mechanism of failure: growth of \(C_\mu\) can be canceled by simultaneous decay of \(1-|\widehat\mu(2n)|^2\). The result is a natural structural boundary, not an arbitrary numerical example.
+The classical normalized Poisson-kernel Fourier series has coefficient at mode \(2n\) of modulus \(r\). Its reciprocal integrates exactly to \(C_\mu=4\pi^2(1+r^2)/(1-r^2)\), since the cosine averages to zero. Substitution into the source-stated \(\overline K=12\pi^2n^2/[C_\mu(1-|\widehat\mu(2n)|^2)]\) cancels \(1-r^2\) and yields \(3n^2/(1+r^2)\). The limit is \(3n^2/2>0\) while \(C_\mu\to\infty\). At \(r=0\) the value is \(3n^2\), matching the stated uniform-measure normalization. Thus the calculation rigorously contradicts a universal decay clause under that exact formula; the source premise was not independently verified in full text due to access.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.00625 itself, whose exact curvature formula is used and whose degeneration clause is contradicted. Sturm's 2026 general curvature preprint is broader but was not found to state this equal-frequency Poisson profile. The result leaves the principal nonflatness theorem and the sharp upper curvature bound intact.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This is a pointed source-specific Poisson-kernel obstruction: the product of the two curvature denominator factors remains bounded even though reciprocal-density integral diverges. Primary preprint access was limited to public metadata/abstract, while earlier Sturm Wasserstein-curvature work has broader geometry and no confirmed same example. No negative full-document inference is made.
+
+## value
+
+PASS
+
+The explicit smooth counterexample identifies a missing factor in a published curvature-limit argument while preserving the principal nonflatness and sharp upper-bound theorems. It delineates an important boundary of geometric degeneration claims using a canonical harmonic family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
