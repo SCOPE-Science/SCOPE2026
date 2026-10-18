@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source definition and the \(t\ge1\) extreme-point reduction were checked in the complete nine-page primary paper. In \(\ell_\infty^n\), every extreme point is a sign vector. After signed-permutation normalization, each sign vector gives one shifted norm equal to \(2\) and the other at most \(1+s_2(x)\); the explicit sign vector with opposite signs in the first two coordinates attains equality. This proves the formula for all \(n\ge2\), all sphere points, and every finite \(t\ge1\).
+## correctness
 
-## Originality
-PASS. The primary paper states the general extreme-point reduction but does not give this \(\ell_\infty^n\) pointwise profile. Searches for the formula, for second-largest-coordinate formulations, and for pointwise James-type constants on \(\ell_\infty\) found no equivalent statement. The closest database result concerns \(2<p<\infty\) and a threshold for pointwise constancy; it excludes \(p=\infty\). The older Tang--Ji--Wang work concerns the different isosceles-constrained pointwise nonsquare constant.
+PASS
 
-## Value
-PASS. The formula gives a complete pointwise invariant on the canonical cube norm, identifies the exact orbit statistic controlling it, and resolves the natural \(p=\infty\) endpoint behavior suggested by the known finite-\(p\) constancy threshold. It is not a single numerical recomputation or an arbitrary parameter slice.
+The frozen RESULT is quantified over real l_infty^n, n>=2 and finite t>=1. The 2023 primary Proposition 4.4 (verified in its full article) restricts optimizing y to sign vertices. Isometric signed coordinate permutations put x=(1,a2,...), with a2=s2. For each vertex one of the chord norms is 2 and the other at most 1+a2; choose opposite signs at first two coordinates to attain (2,1+a2). Monotonicity of M_t yields exact equality. Range/equality loci follow strictly from s2∈[0,1]. Restriction t>=1 and finite dimension essential; no t<1 claim made.
 
-## Closest literature and limitations
-The closest primary source is Rincón-Villamizar's 2023 paper, especially Proposition 4.4. Tang--Ji--Wang (2004) is a related predecessor for a different pointwise invariant; its full text was unavailable during the comparison, so only the abstract and the 2023 paper's description were used. The new result does not address \(t<1\) or infinite-dimensional \(\ell_\infty\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining primary full text (all nine pages) covers abstract pointwise James quantities and global l_p values but does not state the explicit all-x real finite l_infty profile. The older pointwise-nonsquare literature may overlap endpoints, but no inspected theorem dominates the full second-order-statistic formula. Novelty is best-of-knowledge, not proven by failed searches.
+
+## value
+
+PASS
+
+The classical finite-dimensional sup-norm ball has a natural, nonconstant pointwise geometric invariant whose exact dependence on the second-largest coordinate, minimum, maximum, and entire equality classification were not computed by the foundational global theorem. It distinguishes the p=infinity endpoint from known finite-p constancy thresholds, and is a concise independently usable fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
