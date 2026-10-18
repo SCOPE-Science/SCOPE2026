@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The required nonzero difference classes up to sign number D=2ab+a+b, each pair of marks covers at most one, and extreme vectors (a,b) and (a,-b) force all four corners. Inspected the actual frozen C++17 verify.cpp with 64-bit masks (D<=60), strictly increasing subset indices, and pruning only if uncovered classes exceed k*r+binom(r,2), which is a sound upper bound on future new pairs; it exhausts all k from the elementary pair lower bound until the first feasible set and asserts each of the 15 minima. Independently enumerated all corner-containing subsets for seven small rectangles through (3,3), obtaining minima 4,5,6,7,7,8,9. Independently inspected all 15 explicit witnesses and the check_witnesses.py exact full ordered-difference set checker; not separately rerun the hardest (5,5) exclusion in this execution. The finite proof is the exhaustive algorithm completeness argument together with exact bounded computation, not extrapolation from the seven smaller cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saarela–Vanhatalo provide asymptotic constructions and pair-count bound, not exact optimal counts for 15 spans; planar additive basis A+A is a different coverage invariant."
+        ],
+        "reasoning": "Neither general bound plus construction nor a sumset minimum entails the claimed optimal difference basis at all 15 parameter points.",
+        "searches": [
+          "Saarela–Vanhatalo complete arXiv:2408.16335",
+          "Kohonen–Koivunen–Rajamäki Planar Additive Bases for Rectangles JIS 21 (2018) cited comparison"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob e6e66003f3545b4da361520b82da5f2e73ac71fe",
+        "frozen verify.cpp blob 0b997b8fd6dc751cb5d9d4a4e728778cf1bb0bc6",
+        "frozen witnesses.json blob 74833cf47356d3c4eeb5a80d7ee21437ce6ca26a",
+        "frozen check_witnesses.py blob d20d1bcedde5d3485ca56dfc8a9b1f9a48f8876e",
+        "Saarela–Vanhatalo arXiv:2408.16335 full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corner-forcing plus pair counting gives only initial lower bounds, not the optimal exact minima (notably R(5,5)=15); verified enumerator excludes smaller sets."
+        ],
+        "reasoning": "Previously published inequalities and additive tables do not by themselves prove the 15-cell exact classification.",
+        "searches": [
+          "Saarela–Vanhatalo pair-count bound D and general constructions",
+          "Kohonen et al 2018 additive bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source M_2(n,m) indexes grid dimensions n x m, so the submitted R(a,b)=M_2(a+1,b+1), not M_2(a,b); coarray is signed A-A difference."
+        ],
+        "reasoning": "The exact parameter shift and two-dimensional difference/sumset distinction were explicitly accounted for. The semantic database request failed on transport; that is a search limitation, not a novelty claim.",
+        "searches": [
+          "Saarela–Vanhatalo arXiv:2408.16335 Section 4",
+          "Resultary: two-dimensional complete sparse rulers rectangular difference coarrays exact small grid minimum marks (transport UNAVAILABLE)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected primary mathematical paper does not list this full exact table. One published-search endpoint was unavailable for this record; full historical engineering tables were not established."
+        ],
+        "reasoning": "This check is best-of-knowledge and explicitly incomplete; the claimed finite minima were evaluated through proof/certificates, not inferred from a failed database query.",
+        "searches": [
+          "Saarela–Vanhatalo Section 4 full text for M_2 exact examples",
+          "Resultary rectangular difference-coarray semantic query returned UNAVAILABLE",
+          "Frozen witnesses.json all 15 proposed counts"
+        ]
+      },
+      "rationale": "This classifies the uncolored two-dimensional complete difference-coarray minimum for all 15 spans 1<=a<=b<=5, including 15 marks on a 6x6 grid. The initiating Saarela–Vanhatalo paper gives general lower bounds and asymptotic constructions, not this exact finite difference-cover table; additive A+A bases are not interchangeable with A-A. Accessible engineering literature is not an exhaustive priority census.",
+      "residual_risks": [
+        "A historical planar sparse sensor array paper might tabulate the same difference-coarray minima; one Resultary lookup experienced connection failure.",
+        "The costly (5,5) lower exclusion was evaluated via line-by-line inspection of source complete enumeration and witnesses rather than independent full execution in this run; provenance and checksum of the compiler environment were not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the full 15-cell exact minimum table",
+          "evidence": "M_2(n,m) defined on n-by-m grid; source derives general pair-count bound and asymptotic constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16335",
+          "material_read": "Full publicly accessible 2024 preprint, particularly Section 4 definition of M_2, bounds and construction discussion",
+          "method": "Read arXiv paper/PDF including source Section 4",
+          "title": "A Connection Between Unbordered Partial Words and Sparse Rulers",
+          "trigger": "Same rectangular difference-base invariant and strongest plausible mathematical source"
+        },
+        {
+          "assessment": "INAPPLICABLE to an immediate A-A implication",
+          "evidence": "Source concerns A+A; no mathematical equivalence to minimum signed A-A ruler without further argument.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Rajamaki/raj.pdf",
+          "material_read": "Title/known additive-basis definition from source bibliography; full paper not independently examined in this run",
+          "method": "Bibliographic comparison only",
+          "title": "Planar Additive Bases for Rectangles",
+          "trigger": "Potential exact rectangular database under coarray synonym"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural 2D ruler optimization problem receives exact finite thresholds over the entire rectangle through the 6x6 grid, with independent upper-witness certificates and complete exhaustion logic. Such small exact optimal configurations give meaningful sharp benchmarks for sparse array coarrays.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob e6e66003f3545b4da361520b82da5f2e73ac71fe",
+    "frozen verify.cpp blob 0b997b8fd6dc751cb5d9d4a4e728778cf1bb0bc6",
+    "frozen witnesses.json blob 74833cf47356d3c4eeb5a80d7ee21437ce6ca26a",
+    "frozen check_witnesses.py blob d20d1bcedde5d3485ca56dfc8a9b1f9a48f8876e",
+    "Saarela–Vanhatalo arXiv:2408.16335 full text"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A historical planar sparse sensor array paper might tabulate the same difference-coarray minima; one Resultary lookup experienced connection failure.",
+    "The costly (5,5) lower exclusion was evaluated via line-by-line inspection of source complete enumeration and witnesses rather than independent full execution in this run; provenance and checksum of the compiler environment were not certified.",
+    "Not publication-ready because operational provenance was found in metadata and full source-tree/neutral-content guards were not independently verified.",
+    "Best-of-knowledge mathematical judgment, not certification, formal proof, or external attestation."
+  ],
+  "residual_risks": [
+    "A historical planar sparse sensor array paper might tabulate the same difference-coarray minima; one Resultary lookup experienced connection failure.",
+    "The costly (5,5) lower exclusion was evaluated via line-by-line inspection of source complete enumeration and witnesses rather than independent full execution in this run; provenance and checksum of the compiler environment were not certified."
+  ],
+  "schema_version": 1
+}
