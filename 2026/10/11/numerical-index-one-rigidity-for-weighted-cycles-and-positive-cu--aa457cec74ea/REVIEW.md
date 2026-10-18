@@ -1,15 +1,21 @@
-# Scientific review — numerical-index-one rigidity for weighted cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional McGregor extreme-point criterion is verified in McGregor (1971) as restated and reproved in Pal–Roy–Sain (2026, Theorem 1.1 / Corollary 2.12). An elementary isometry sends edge Lipschitz slopes to the positive-normal cube hyperplane; finite-dimensional transposition preserves numerical indices. For dominant edge weight, projection gives an exact \(\ell_\infty\)-isometry. For every genuine cycle, the unit-ball vertices are precisely the cube-section intersections with at least all but one saturated coordinates, and every signed coordinate functional is exposed by an explicit vector. An alternating-sum lemma produces a missing saturated coordinate for all nonuniform weights, including repeated maxima. Equal weights give the parity dichotomy. The full argument applies to all positive real weights and all integer dimensions at least four. The exact rational checker confirmed 1,053 vectors in dimensions four through six, testing 42,302 vertices; this is supporting finite evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS
-The motivating 2023 complete three-point calculation covers weighted triangles but not these higher-dimensional cycle spaces. The publicly available unit-edge parity theorem and unit-length graph-bipartiteness theorem establish cases at one fixed weighting, not a positive-weight classification. Full texts of these results were compared by scope and statement. The 2018 general polyhedral numerical-index paper gives a finite-extreme-point method and specific example families, not the positive-normal hyperplane dichotomy; its full arXiv HTML was inspected. A 2024 graph-metric isometry paper does not compute numerical indices. No matching general weighted classification appeared in targeted published-result searches, but this cannot certify uniqueness across all literature.
+PASS
 
-## Value — PASS
-The weighted family is the canonical parameterization of positive-normal central cube sections and of Lipschitz-free spaces over metric cycles. The statement classifies the maximal numerical-index locus for an entire continuous parameter family and identifies an unexpected rigid isolated isometry type within the genuine even-cycle region. It distinguishes graph combinatorics from metric weights in an operator-theoretic invariant, going strictly beyond a single numerical example or a routine relabeling.
+The weighted cycle Lipschitz increments identify Lip₀(C_m(w)) isometrically with Y_w={u∈ℝ^m:∑w_i u_i=0}, sup norm, even when a long edge is redundant; finite duality preserves numerical index. If 2w_i≥W, eliminating u_i identifies Y_w isometrically with ℓ∞^(m−1). Otherwise the dual unit ball is conv of ±restricted coordinate functionals, each exposed by q_i=1, q_j=−w_i/(W−w_i), so McGregor tests cube-hyperplane vertices for a coordinate inside (−1,1). A cube-section vertex has at most one free coordinate. If all weights equal, parity gives precisely even m. For unequal positive weights in genuine-cycle region take maximal a, alternately sign all other weights equal a to residual 0 or a, then sequentially choose opposite sign for each remaining c<a so |r−c|<a; hence a free maximal-weight coordinate |u_i|<1 yields strict index<1. This handles ties, arbitrary positive reals and thresholds, without assuming finite enumeration proves the universal lemma. Independently checked the exact rational vertex predicate on all 1053 weight vectors m=4..6 each coefficient 1..3, 42302 vertices total; finite diagnostic only.
 
-## Limitations and remaining originality risk
-The theorem does not compute numerical indices strictly below one, treats real spaces only, and covers cycles on at least four vertices. Literature outside the inspected articles and publicly available special cases may contain an equivalent characterization under different terminology. The original 1971 article was available through a bibliographic abstract; the required theorem was independently read in its full modern proof. Numerical-index values for previously known unweighted cycles are not presented as novel.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty survives comparison with unit-edge graph bipartiteness, equal-unit-weight cycle parity, 3-point metric formulas, general numerical-index geometry, and separately published one-edge special case. The all-positive-weight central hyperplane theorem implies the contemporaneous one-weight result, not conversely. McGregor gives a general method but does not state the signed-sum classification for all positive weights. No found earlier source covers the complete all-real-weight m>=4 phase diagram. Residual historical polyhedral/transportation aliases remain explicit.
+
+## value
+
+PASS
+
+A complete exact parameter classification of maximal numerical index for the natural positive-normal hyperplane sections of cubes (equivalently arbitrary weighted cycle metrics) captures a robust parity/metric redundancy phenomenon. It settles a genuine family not mechanically decided by the unweighted theorem, with a useful signed-sum structural lemma; no downstream paper-sized corollary is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
