@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:18:47.877082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd a>=9 and A={a,a+2,a+4,a+6}, representations N=aT+2j have disjoint unique layers t=T−2k,J=j+ka, k>=0, with Q(t,J) digit-multiset counts. Direct partition counting (with 0/3-padding induction) gives Q(t,J)>=3 iff t>=3 and 3<=J<=3t−3; Q>=2 iff t>=2 and 2<=J<=3t−2. Analyze j=0,1,2 separately, and j>=3 via first Q>=3 within k=0: M0=a(2+ceil((a+2)/3)), M1=a(2+ceil((a+3)/3))+2, M2=M0+4, Mj=a max(3,ceil((j+3)/3))+2j. Higher layers cannot change these first thresholds because onset in k>=1 is strictly delayed. Mj<M2 for all j>=3, and M0=M2−4. Thus unique maximizing j=1 iff a≡1 mod3, else j=2; adding a denomination a injects representation sets so g2=max Mj−a exactly. Independently computed capped denumerants and all predicted Apéry thresholds for odd a=9..101; no finite experiment used to prove the all-odd-a theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis older formula is for F2; 2026 odd-block theorem uses h+1 or h+2 denominations beginning 2h+1; a>=9 entails h>=4 hence >=5 generators."
+        ],
+        "reasoning": "Changing both the representation count target and number of generators changes the denumerant; neither known expression algebraically implies fixed four-generator g2.",
+        "searches": [
+          "Cardiff ORCA thesis 98161 Chapter 6",
+          "arXiv:2608.14053 Theorems 1.2–1.3",
+          "Komatsu Ying 2023 Symmetry 15:1328"
+        ]
+      },
+      "checked_sources": [
+        "p Frobenius arithmetic progression four odd consecutive denominations three representations threshold Apéry",
+        "Mohammed 2017 Generalised Frobenius numbers Cardiff chapter 6 F2 four-term arithmetic sequence",
+        "Komatsu Ying 2023 p-numerical semigroup triple arithmetic progressions",
+        "Komatsu Hyun Song 2026 arXiv:2608.14053 consecutive odd block p-Frobenius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic g_p=max p-Apéry−a is already known; main novelty is a full explicit expression for the p=2 Apéry layer and its unique extremal residue in fixed four-odd-coin family."
+        ],
+        "reasoning": "The generalized Apéry maximum transfer is not new and is credited. Neither an F2 formula nor the varying-length odd progression theorem yields the stated M_j formula.",
+        "searches": [
+          "arXiv:2608.14053 Section 2 p-Apéry formula",
+          "Cardiff 2017 four-term F2 formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant g2(A) is the largest integer with fewer than 3 coefficient-vector representations, sometimes named F3. The 2017 formula concerns F2 (fewer than 2)."
+        ],
+        "reasoning": "Checking the shifted notation prevents mistaking a one-layer predecessor for the new three-representation cutoff.",
+        "searches": [
+          "p Frobenius arithmetic progression four odd consecutive denominations three representations threshold Apéry",
+          "F3 four consecutive odd denominations at most two representations",
+          "arXiv:2608.14053"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent dynamic programming for odd a 9 through 101 matches exact formula and residue thresholds; OEIS classical four-consecutive-integer Frobenius arrays count a different problem."
+        ],
+        "reasoning": "No claim that absence of an exact database entry proves originality. Object and invariant differ from the checked standard tables.",
+        "searches": [
+          "p Frobenius arithmetic progression four odd consecutive denominations three representations threshold Apéry",
+          "four consecutive odd numbers p-Frobenius 3 representations table"
+        ]
+      },
+      "rationale": "The Cardiff Mohammed thesis studies threshold for at least TWO representations (often F2) for four-term arithmetic progressions, not the at least THREE (g2 or F3) level here. Komatsu–Ying 2023 handles three generators. Komatsu–Hyun–Song 2026 covers odd blocks whose lengths increase with first denomination: for a>=9 its parameter h>=4 gives at least five coins, not the fixed four-coin family. A general p-Apéry-max identity is prior and explicitly credited; the new result is the next fixed-four-coin Apéry layer and unique extremal residue, not this generic identity. Cardiff thesis full text was not inspected end to end in this run; risk named.",
+      "residual_risks": [
+        "Cardiff Chapter 6 was not read end-to-end in this run and unindexed F3 four-coin work could exist.",
+        "2026 HTML mathematics had partially omitted display extraction; parameter length was unambiguous in inspected prose.",
+        "No formula asserted for a even, a=5,7, other steps, or thresholds beyond three representations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Documented adjacent earlier two-representation formula; whole-thesis absence not asserted",
+          "evidence": [
+            "Chapter 6 F2 four-term arithmetic progression relation in available extracts."
+          ],
+          "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/98161/1/Final%20Thesis.pdf",
+          "material_read": "University repository PDF bibliographic context and Chapter 6 text excerpts; complete chapter not verified in this execution",
+          "method": "Used available PDF text segments, full page review not completed because remote retrieval timed out",
+          "title": "Generalised Frobenius numbers: geometry of upper bounds, Frobenius graphs and exact formulas for arithmetic sequences",
+          "trigger": "Highly relevant preceding exact four-generator F2 theorem"
+        },
+        {
+          "assessment": "Title and material concern three generators, not full fixed four-coin next layer",
+          "evidence": [
+            "2023 Symmetry 15:1328 concerns triples."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15071328",
+          "material_read": "Accessible publication abstract and bibliography, not entire full publisher text due HTTP throttling",
+          "method": "Publisher page/source snippets only",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Generalized Frobenius arithmetic-progressions context"
+        },
+        {
+          "assessment": "Theorems treat h+1 or h+2 terms beginning 2h+1; when first term>=9 they contain at least five generators",
+          "evidence": [
+            "Theorem 1.2/1.3, definitions A_h^- and A_h^+, generic p-Apéry maximum identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.14053",
+          "material_read": "Full accessible HTML text including definitions of parameter-linked blocks, main theorem statements and proof structure; display-math extraction partially omitted",
+          "method": "Read OA full HTML and analyzed linked parameter lengths",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "Closest current primary all-p odd progression theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes an exact hitherto unresolved next-layer representation threshold and complete residue-level Apéry structure for a natural coprime arithmetic-progression coin family, with a unique maximizing residue. This can serve exact denumerant/semigroup computations; it is not a sweeping general p-Frobenius theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md and actual checker, commit 08119bf33b93101414034e23c1f90b0d9c5f9592",
+    "p Frobenius arithmetic progression four odd consecutive denominations three representations threshold Apéry",
+    "Mohammed 2017 Generalised Frobenius numbers Cardiff chapter 6 F2 four-term arithmetic sequence",
+    "Komatsu Ying 2023 p-numerical semigroup triple arithmetic progressions",
+    "Komatsu Hyun Song 2026 arXiv:2608.14053 consecutive odd block p-Frobenius"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to odd a>=9 and exactly four coins with step 2.",
+    "Finite checks to a=101 are corroboration only; all-a proof is algebraic.",
+    "Cardiff Chapter 6 was not read end-to-end in this run and unindexed F3 four-coin work could exist.",
+    "2026 HTML mathematics had partially omitted display extraction; parameter length was unambiguous in inspected prose.",
+    "No formula asserted for a even, a=5,7, other steps, or thresholds beyond three representations."
+  ],
+  "schema_version": 1
+}
