@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The checker reconstructs the condition \(\mu(F)\le3\) independently in two ways. The first enumerates cuts, piece permutations, and a split between permuted pieces exactly as in the definition. The second checks whether a permutation of two, three, or four pieces forms a square whose midpoint is a piece boundary. These predicates agree on every ternary word of length at most \(8\).
+## correctness
 
-The complete avoiding-language census is then obtained independently by full enumeration of all \(3^n\) words and by incremental extension, where only newly created suffix factors need testing. The engines agree on the complete sets at every length \(1\) through \(8\), including the \(18\) maximizers and the empty length-\(8\) layer.
+PASS
 
-The symmetry computation independently applies all six alphabet permutations and reversal to the maximum layer and verifies three orbits of size \(6\).
+The 3-cut tangram property is equivalent to containing an image of one of the four minimal doubled-variable patterns S3={AA,ABACBC,ABCACB,ABCBAC}; cf. Ochem–Pierron 2025 §2. Independently expanded all nonerasing ternary substitutions of these patterns through length8, searched all 3^n labeled words for n<=8, and recovered counts 3,6,12,18,30,24,18,0. The 18 length7 survivors split into three symbol-permutation/reversal orbits of six with representatives 0102010,0102101,0121012. The original verifier also uses direct cut and independent incremental suffix enumeration; no accepted length8 word implies no longer accepted word, since any longer contains an initial length8 factor. All conclusions finite and exhaustive.
 
-No sampling, timeout inference, or finite-to-infinite extrapolation is used. Independent audit has not been performed.
+## originality
+
+PASS
+
+Crucial more recent primary literature: Ochem–Pierron 2025 Theorem 2 ALREADY establishes t(3)=t(4)=4, contrary to the older source-package motivation saying t(3) remained undetermined. Their six-page paper lists S3 but does not give the sharp finite ternary cutoff n8, 18 maximizers or three symmetry classes. Dębski et al. 2024/25 only show sufficiently long ternary words hit cut<=3 and all length8 ternary words have a tangram of unspecified cut. Hence the standalone exact cutoff and census survive as potentially original narrow result, not an open infinite-alphabet problem.
+
+## value
+
+PASS
+
+The minimum unavoidable length and complete extremal family for the first nontrivial tangram cut threshold are motivated finite pattern-avoidance invariants. Despite later t(3)=4 being known, the precise maximal ternary length and orbit profile are not mechanical deductions of the existence/nonexistence of infinite ternary avoiding words. Scope is explicitly finite, not the already-solved infinite t(3) issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
