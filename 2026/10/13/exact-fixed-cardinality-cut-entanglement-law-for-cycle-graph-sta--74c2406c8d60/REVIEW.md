@@ -1,19 +1,21 @@
-# Scientific review: exact fixed-cardinality cut-entanglement law for cycle graph states
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the full bivariate polynomial counting cuts by both cardinality and binary cut-matrix rank for every unweighted cycle of length at least three. The proof reduces graph-state entanglement to that rank, decomposes every cut with a noncrossing edge into alternating paths, and proves each path's half-rank is the ceiling of half its edge-run length. The four-state transfer counts such cuts exactly. The only exceptional binary configurations are the two even-cycle alternating cuts; their cut matrices have rank one below maximum, and their doubled transfer traces are explicitly corrected. The characteristic polynomial and analytic dominant eigenvalue give the mean, variance, and unrestricted-cut Gaussian limit. Boundaries at odd/even sizes and at empty/full subsets are addressed. The included independently implemented exact binary-matrix verifier checks every size and entanglement value for \(3\le n\le15\). A finite check is not an infinite proof.
+PASS
 
-## Originality — PASS with residual literature risk
+For each simple unweighted cycle C_n (n>=3), graph-state bipartite entropy in bits is the F_2 rank of the S-by-S^c cut-adjacency matrix. If not every edge crosses the cut, maximal crossing-edge runs are disjoint alternating paths; an L-edge path contributes exactly ceil(L/2) to cut rank. A four-state parity transfer T(z,t) records membership cardinality z and rank t, with one unique closed walk whenever a noncrossing edge exists. On even n=2m, the two all-alternating membership patterns have matrix I+P over F2 with rank m-1, while the cyclic transfer trace spuriously contributes four weight z^m t^m; replacement gives E_n(z,t)=tr(T^n)+1_(even n)*2 z^(n/2)t^(n/2-1)(1-2t). The univariate eigenvalues 0,1,(1±sqrt(1+8t))/2 and dominant-eigenvalue expansion derive the exact odd/even means, variance 2n/27+O(n²2^-n), and CLT for UNCONDITIONED uniform subsets. Independently enumerated all 2^n vertex subsets for each n=3..15 and computed binary cut ranks; the direct generating function matched the transfer/run formula, including C12 balanced histogram (12,96,306,386,124). This finite corroboration is not the all-n proof.
 
-The closest 2025 source defines the fixed-subsystem-size cut-rank distribution and evaluates cycle examples only up to 12 vertices. Its finite tables cannot imply the all-size bivariate polynomial or Gaussian limit without further argument. The general average-cut-rank literature gives different, weaker statistics. Standard graph-state Schmidt-rank equivalence is credited. A closely related published cycle *rank* enumerator deals instead with varying antisymmetric adjacency weights and counts graphical-group characters; its rank variables cannot recover conditional vertex-subset cut ranks, despite a similar run-counting idea. The 2026 circuit-block paper treats particular graph-state cuts rather than uniformly ranging over every fixed-size subset. No equivalent theorem was located after searches for graph-state cycle cut-rank histograms, aliases and generating polynomials. This does not prove global novelty; implicit transfer-matrix specializations in unindexed graph-polynomial literature remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-All fixed-cardinality entanglement histograms, including the balanced-cut heterogeneity statistic explicitly studied in recent literature, follow from one fixed-size matrix and an essential even-cycle correction. This replaces separate exponentially sized cut enumerations with an exact polynomial-time-in-size computation for an infinite family of graph-state resources. The formula also quantifies unrestricted random-cut fluctuations by an explicit variance constant and Gaussian limit, without asserting any operational speedup or arbitrary-graph generalization. It answers a motivated classification question rather than producing an arbitrary finite case or merely recomputing the 2025 tables.
+Sakib’s complete 2025 ResearchGate-hosted manuscript defines the same conditional entropy statistic and provides exact cut-rank histograms for graphs of size at most 12, including cycle C12; it does not prove an all-n bivariate transfer enumerator. Nguyen–Oum’s full primary paper covers unconditional average cut-rank on general graphs and structural results, but a first moment does not determine conditional fixed-k distributions. Hein et al. establish the graph-state rank/Schmidt correspondence, which is credited. The particularly relevant published Resultary cycle graphical-group theorem was opened in full: its 3-state transfer enumerates ranks of full antisymmetric edge-weighted matrices over F_q, yielding partial analogous run methods and potentially some unconditioned rank expressions, but no binary bipartition cut rank marked jointly by |S|. Thus the full bivariate claim is not dominated, with acknowledged analogue and possible prior recurrences.
 
-## Scope and residual risks
+## value
 
-The statement is for simple unweighted cycle graph states and exact bipartite entanglement; noisy preparations, other graphs, and balanced-cut central limit behavior are outside scope. Existing equivalent formulas may be expressed through another graph-polynomial convention. The scientific review is not an independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact joint cut-cardinality / entanglement law for every cycle C_n computes all conditional entropy histograms, their Shannon heterogeneity and unrestricted asymptotic fluctuations, extending a specific finite graph-state invariant introduced and measured in 2025. The four-state transfer and parity-cycle correction answer a motivated exact counting question. It does not demonstrate enhanced circuit performance or a balanced-cut CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
