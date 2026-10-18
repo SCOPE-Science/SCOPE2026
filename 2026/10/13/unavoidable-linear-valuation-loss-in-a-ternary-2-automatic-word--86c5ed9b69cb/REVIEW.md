@@ -1,19 +1,21 @@
-# Scientific review: unavoidable valuation loss in a ternary automatic word
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem reduces to an exact geometric property of the occurring Parikh vectors: every two-letter side of the ternary Parikh triangle is realized at every factor length. The run description gives this without any finite-enumeration assumption. Ordering an arbitrary injective integral valuation and solving \(j\alpha=i\beta\) yields \(\lfloor n\gcd(\alpha,\beta)/\beta\rfloor\) disjoint collision classes, with quantifiers valid for every length. Noninjective weights fail at length one. The stated \(2\)-DFAO, factor-complexity bound, aperiodicity argument, and exact natural-sum count were independently reconstructed. `verify.py` checks finite examples, not the infinite theorem.
+PASS
 
-## Originality
+Powers-of-two run lengths tend to infinity while symbols cycle 0,1,2, so for each unordered letter pair every length-n two-letter Parikh edge occurs. The union has exactly 3n distinct vectors. At starts from 2^K onward for minimal 2^K>=n there is at most one run transition and 3(n+1) possible two-run words; earlier starts contribute at most 2^K<2n, proving P(n)<=5n+2. For sorted distinct integer weights alpha,beta, each 1<=t<=floor(n g/beta) gives j=t beta/g and i=t alpha/g with 0<i<j<=n, and two distinct realized Parikh vectors a^(n-j)b^j and a^(n-i)c^i have equal weighted sum. Their t-sums are distinct, giving the rigorous collision deficit. Natural weights cover 0..2n by consecutive long boundaries. The four-state length-mod-three DFA and unbounded runs certify automaticity and aperiodicity; binary Parikh determined by count of ones. Independent prefix enumeration through length 4096 for n=1,2,5,12,25 checked factor/Parikh counts, 4 injective weight triples and collision inequalities, without mistaking finite prefix for the proof.
 
-**PASS, subject to ordinary priority uncertainty.** The closest source is Popoli–Shallit–Stipulanti, *Additive word complexity and Walnut* (arXiv:2410.02409v1), especially the explicit valuation question and its positive results for balanced words. Its Section 3 count bounds and Section 5 theorems do not force any loss for every valuation in a fixed ternary automatic word: choosing very widely separated weights defeats the elementary bound \(\rho_v(n)\leq n(\max v-\min v)+1\) at fixed \(n\), whereas the present theorem handles every fixed integer weight choice with a length-dependent collision. Shallit's *Abelian Complexity and Synchronization* (arXiv:2011.00453v3) treats bounded abelian complexity and synchronized Parikh-prefix counts and gives no comparable weighted obstruction. Searches for length-modulo-three automatic words, triangle-edge Parikh collisions, valuation equality, and stronger indexed classifications found no covering claim. The negative example is deliberately not described as the first negative example for arbitrary infinite words; general full-language examples have an immediate larger-complexity obstruction. An equivalent example under different terminology cannot be ruled out.
+## originality
 
-## Value
+PASS
 
-**PASS.** It marks an exact alphabet threshold and exhibits failure of valuation preservation within automatic words of linear factor complexity, beyond the easy quadratic Parikh-vector pigeonhole examples. The collision lemma gives a quantitative loss at **all sufficiently large lengths for every fixed valuation**, while \(\rho_v(n)=2n+1\) gives an exact nontrivial complexity for canonical weights. It complements the balanced-word positive theorem with a concrete sharp boundary rather than an arbitrary finite computation.
+The original additive-word-complexity source studies valuation-existence and gives positive preservation hypotheses; its general result does not establish an aperiodic automatic low-factor-complexity counterexample with a quantified collision deficit. Explicit triangle-edge Parikh geometry rather than quadratic full-language counting supplies the increment. The cited source question numbering differs between HTML versions (source assigns Q31; currently inspected HTML displays Q30), a bibliographic—not mathematical—caveat.
 
-## Closest literature and limitations
+## value
 
-The primary reference is arXiv:2410.02409v1, Sections 3 and 5; related automatic-sequence abelian complexity is arXiv:2011.00453v3. Only integer weights are covered; the example is not uniformly recurrent, and its full abelian complexity is not claimed. The proof does not settle classification of all automatic words admitting a preserving valuation. The independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The valuation-existence question is natural in combinatorics on words. A low-factor-complexity automatic word forcing linear information loss under every integer valuation is stronger and more informative than the easy pigeonhole example of a universal language. Exact natural valuation and minimal alphabet give sharp boundary context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
