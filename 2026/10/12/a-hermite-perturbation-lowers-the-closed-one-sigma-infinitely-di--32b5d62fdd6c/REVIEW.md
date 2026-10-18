@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The compound-Poisson representation proves infinite divisibility. Exact Poisson cumulants give mean \(2\) and variance \(4-\varepsilon\). For \(0<\varepsilon<2\), the standard deviation lies strictly between \(1\) and \(2\), so the closed one-sigma lattice event is exactly \(\{1,2,3\}\). Enumerating the independent-Poisson pairs producing those three totals gives the displayed formula, whose limit is \(e^{-1}\).
+## correctness
 
-## Originality
-PASS. The closest source defines the same global functional, gives the weaker closed upper bound \(0.46576\ldots\) from symmetric Poisson laws, gives \(e^{-1}\) only for the strict functional, and leaves the exact global constants open. Full-text inspection did not find a Hermite/two-jump perturbation. Candidate-specific published-record searches, Hermite/stuttering-Poisson alias searches, and exact-expression searches found no covering statement. The principal residual risk is an older equivalent observation under classical Hermite or lattice-concentration terminology.
+PASS
 
-## Value
-PASS. The result closes the published gap between the best displayed upper bounds for the closed and strict one-sigma global functionals, lowering the closed bound from about \(0.46576\) to \(e^{-1}\approx0.367879\). The perturbation also identifies a concrete lattice-boundary mechanism relevant to the still-open exact-value problem.
+The source RESULT.md gives independent N~Pois(epsilon), M~Pois(1-epsilon/2) and X=N+2M for 0<epsilon<2, hence a nonnegative two-atom Levy measure, mean 2 and variance 4-epsilon. The radius lies strictly between 1 and 2, so the CLOSED one-sigma interval contains exactly integer totals 1,2,3. Independently expanding Poisson coefficients gives exp(-1-epsilon/2)(1+3epsilon/2+epsilon^3/6), which tends to e^-1 and bounds the global infinitely divisible infimum. Independently re-evaluated epsilon=0.01 numerically. No lower bound/equality is proved.
 
-## Closest literature and limitations
-Zhang, Hu, and Sun, arXiv:2310.03471v2, is the direct source. Its Theorems 4.2 and 4.3 give the strict Poisson bound \(e^{-1}\) and the closed symmetric-Poisson bound \(0.46576\ldots\), respectively. The present result is only an improved upper bound; it does not prove equality or a matching lower bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact CLOSED standard-deviation event to Zhang-Hu-Sun Theorems 4.2/4.3 and their Poisson/symmetric-Poisson calculations: their published closed bound is about 0.46576; e^-1 appears in their STRICT-interval bound but does not imply a closed bound. The new positive one-jump perturbation removes lattice endpoints. Classical Hermite family is not new; the targeted boundary construction appears absent in material inspected. Best-of-knowledge PASS with possible earlier equivalent lattice perturbation.
+
+## value
+
+PASS
+
+The strict-versus-closed lattice discontinuity is a substantive obstacle in an explicitly posed infinitely divisible concentration infimum. An explicit upper bound e^-1 improves a published bound without claiming its optimality; the precise new inequality is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
