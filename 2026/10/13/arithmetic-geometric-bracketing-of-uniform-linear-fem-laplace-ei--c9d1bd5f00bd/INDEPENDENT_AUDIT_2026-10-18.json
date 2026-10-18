@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:13:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At uniform h=1/N, sine diagonalization yields exact λ=(kπ)^2, lumped λL=4N²sin²(kπ/2N), consistent λC=12N²sin²(kπ/2N)/(3−2sin²(kπ/2N)). For 1≤k≤⌊N/2⌋, independently checked exact polynomial identities for sine lower/upper Taylor barriers, g(y)=y(3−y)/(3−2y) monotonic, endpoint cubic negative on 0<z≤5/8, and H_z(yplus)>0. These analytically prove √(λLλC)<λ<(λL+λC)/2 for the entire stipulated domain. Sympy series verified upper error +(kπ)^6/(360N^4)−(kπ)^8/(6048N^6)+O(N^-8), lower error −(kπ)^6/(1440N^4)−(kπ)^8/(6048N^6)+O(N^-8), hence bracket width (kπ)^6/(288N^4)+O(N^-8), for fixed k. Finite checking is corroboration not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu et al. lower bound is one-sided; Luo–Lin–Xie combine different conforming/nonconforming spaces; Fried–Leong uses optimal mass interpolation correction."
+        ],
+        "reasoning": "Prior methods can offer broader eigensolver performance but do not, on their accessed statements, entail the strict geometric lower AND arithmetic upper inequalities for all specified mesh modes.",
+        "searches": [
+          "Hu Huang Shen 2004 lumped mass eigenvalue lower approximation",
+          "Luo Lin Xie arXiv:1109.5977",
+          "Fried Chavez finite element superaccurate eigenvalues 2004"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 91eca48feade298a4740ee71047e186f83695be2 and verify.py eb5709a67e4e788d06df601ab3aff7674252abbe",
+        "Hu–Huang–Shen 2004 JCM 22:545–556",
+        "Fried–Leong 2005 DOI:10.1016/j.jsv.2005.03.027 (abstract only, Oxford VPN disconnected)",
+        "Luo–Lin–Xie arXiv:1109.5977",
+        "Resultary semantic search geometric mean arithmetic mean lumped consistent mass finite element 1D eigenvalue fourth order Laplacian strict bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof compares sine-eigenvalue algebra rather than altered mass-matrix Rayleigh quotients; θ cutoff kπ/N≤π/2 explicitly needed for arithmetic upper sign."
+        ],
+        "reasoning": "No demonstrated published implication yields both raw scalar means with these signs; inaccessible close article could change the priority judgment.",
+        "searches": [
+          "Fried–Leong DOI 10.1016/j.jsv.2005.03.027",
+          "Hu–Huang–Shen 2004",
+          "arXiv:1109.5977"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fried–Leong discusses Rayleigh quotient correction with modified/blended mass matrices, whereas this assertion uses geometric/arithmetic means of independently computed P1 consistent/lumped eigenvalues."
+        ],
+        "reasoning": "Rayleigh correction is not algebraically interchangeable with taking the prescribed two scalar means; no inspected equivalent bracket theorem.",
+        "searches": [
+          "geometric mean arithmetic mean lumped consistent mass finite element 1D eigenvalue fourth order Laplacian strict bounds",
+          "\"geometric mean\" \"lumped mass\" eigenvalues finite element",
+          "Fried–Leong 2005 DOI:10.1016/j.jsv.2005.03.027"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact spectral coefficient table states the simultaneous strict inequalities and fourth-order midpoint cancellation; algebraic λL,λC are classical and explicitly credited."
+        ],
+        "reasoning": "This is a continuously parametrized all-N inequality, not a finite database census. Recorded negative search is a risk, not a novelty proof.",
+        "searches": [
+          "geometric mean arithmetic mean lumped consistent mass finite element 1D eigenvalue fourth order Laplacian strict bounds",
+          "\"uniform\" \"consistent\" \"lumped\" \"geometric mean\" eigenvalue table",
+          "Resultary semantic finding index search"
+        ]
+      },
+      "rationale": "The same fixed-mode, lower-half, geometric/arithmetic postprocessing theorem is not established by inspected antecedents. Hu–Huang–Shen gives lumped lower spectral approximation; Fried–Leong develops optimal blended mass/Rayleigh quotient correction (a different operator/algorithm); Luo–Lin–Xie obtain bounds from conforming/nonconforming discretizations. Novelty is asserted only for the two standard spectra and strict scalar mean inequalities, with real residual overlap risk from inaccessible superaccuracy texts.",
+      "residual_risks": [
+        "Fried–Leong full paper and earlier Fried–Chavez superaccuracy paper could overlap; authorized retrieval unavailable due Oxford VPN disconnected, no assertion of whole-document noncoverage.",
+        "Higher-half modes, nonuniform meshes and variable coefficients lie outside theorem.",
+        "The fourth-order expansions assume fixed k as N tends to infinity.",
+        "Git file blob checks were available, but complete per-record tree enumeration was not provided by available connector."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap risk open; cannot assert whole-paper NOT_COVERING.",
+          "evidence": "Described method is Rayleigh quotient correction following mass interpolation, not inspected exact two-mean theorem.",
+          "identifier_or_url": "DOI:10.1016/j.jsv.2005.03.027",
+          "material_read": "Accessible abstract and bibliographic descriptions of correction; full paper could not be obtained.",
+          "method": "Public abstract/metadata; authorized Oxford request returned vpn_disconnected, job ff31cac737f55d3263120e5d3aee4e81; no bypass.",
+          "title": "Superaccurate finite element eigenvalues via a Rayleigh quotient correction",
+          "trigger": "same eigenproblem, consistent/lumped mass and superaccuracy"
+        },
+        {
+          "assessment": "Provides antecedent lumping comparison, exact two-mean result not established by material read.",
+          "evidence": "Reports lower eigenvalue approximations for mass lumping.",
+          "identifier_or_url": "J. Comput. Math. 22 (2004) 545–556",
+          "material_read": "Available abstract/metadata and theorem descriptions (not certified full text).",
+          "method": "Public journal listing and indexing.",
+          "title": "The Lower Approximation of Eigenvalue by Lumped Mass Finite Element Method",
+          "trigger": "one-sided spectral bound"
+        },
+        {
+          "assessment": "Different constructions; cannot exclude full-text indirect implications.",
+          "evidence": "Uses conforming and nonconforming FEM to bound Laplace eigenvalues.",
+          "identifier_or_url": "arXiv:1109.5977",
+          "material_read": "Accessible source summary and abstract, not a full paper noncoverage assertion.",
+          "method": "arXiv metadata/abstract.",
+          "title": "Computing the lower and upper bounds of Laplace eigenvalue problem: by combining conforming and nonconforming finite element methods",
+          "trigger": "competing certified spectral bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strict, analytic two-sided fourth-order eigenvalue enclosure from two standard matrices, without tuning or nonconforming spaces, is a natural useful spectral discretization result. The cancellation of all sixth-order error in width and the sharp cutoff to the low spectral half make it more than an arbitrary reparameterization; it is modest and sharply delimited, not a general-mesh result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 91eca48feade298a4740ee71047e186f83695be2 and verify.py eb5709a67e4e788d06df601ab3aff7674252abbe",
+    "Hu–Huang–Shen 2004 JCM 22:545–556",
+    "Fried–Leong 2005 DOI:10.1016/j.jsv.2005.03.027 (abstract only, Oxford VPN disconnected)",
+    "Luo–Lin–Xie arXiv:1109.5977",
+    "Resultary semantic search geometric mean arithmetic mean lumped consistent mass finite element 1D eigenvalue fourth order Laplacian strict bounds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fried–Leong full paper and earlier Fried–Chavez superaccuracy paper could overlap; authorized retrieval unavailable due Oxford VPN disconnected, no assertion of whole-document noncoverage.",
+    "Higher-half modes, nonuniform meshes and variable coefficients lie outside theorem.",
+    "The fourth-order expansions assume fixed k as N tends to infinity.",
+    "Git file blob checks were available, but complete per-record tree enumeration was not provided by available connector."
+  ],
+  "schema_version": 1
+}
