@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For rank \(r\), the right-zero-product condition \(AB=0\) gives a linear space of dimension \(n(n-r)\), as does \(BA=0\). Their intersection consists exactly of maps \(V/\operatorname{im}A\to\ker A\), of dimension \((n-r)^2\). Inclusion-exclusion, followed by deletion of the zero matrix and deletion of \(A\) precisely when \(A^2=0\), gives the claimed degree. The square-zero multiplicity follows from choosing \(\operatorname{im}A\subseteq\ker A\) and an isomorphism \(V/\ker A\to\operatorname{im}A\). Small finite graphs were reconstructed independently.
+PASS
 
-## Originality
+For rank r, L_A={B:AB=0} and R_A={B:BA=0} are linear spaces of size q^{n(n-r)}; L_A∩R_A≅Hom(V/im A,ker A) has q^{(n-r)^2} elements. All nonzero matrices in their union are singular vertices. Inclusion–exclusion, removal of zero, and removal of the original vertex A when A²=0 give deg=2q^{n(n-r)}−q^{(n-r)^2}−1−1_{A²=0}. For t=n−r the degree center f(t) strictly increases with gaps >1, so it determines rank and square-zero status. Standard rank enumeration and flag count S_{n,r}=[n r]_q[n−r r]_q|GL_r(q)| give exact multiplicities (S=0 for 2r>n). Independent full adjacency enumeration of all 343 vertices of M3(F2) corroborated all strata.
 
-**PASS.** A separately checked prior result on the same graph is restricted to \(2\times2\) matrices and zero forcing; its complete two-dimensional structure is deliberately excluded by the hypothesis \(n\ge3\). Searches for rank-based degree formulas, degree distributions, square-zero strata, aliases, and matrix-ring zero-divisor graph structure did not locate the stated all-rank distribution. The 2009 source emphasizes connectivity and diameter, while the accessible modern survey covers the matrix-graph literature without an all-dimension degree-stratification formula. The 2016 paper completely describes the \(2\times2\) structure, which again lies outside the new dimensional scope.
+## originality
 
-A residual risk remains because the full 2009 paper was not available through the lawful accessible sources consulted. Its abstract and indexed metadata were inspected, and the later survey and dedicated literature were checked; this access limitation is not treated as negative evidence.
+PASS
 
-## Value
+The elementary annihilator dimensions and Gaussian coefficients are prior mathematics, and the M2(F_q) graph is well studied. The reviewed claim is the all-rank exact simple undirected degree-stratification for M_n(F_q), n>=3, with square-zero self-loop correction and complete multiplicity profile. Available primary texts and Resultary findings addressed mainly n=2, adjacency spectrum, and other graph invariants; no decisive stronger result was located. A plausible 2016 automorphism study was not available in full and remains a named priority risk.
 
-**PASS.** Degree is a basic graph invariant, and here it exactly recovers two intrinsic algebraic features of every vertex: rank and square-zero type. The result gives the entire degree distribution for every \(n\ge3\) and every finite field, so it supplies a structural bridge useful for automorphism and isomorphism questions rather than an arbitrary finite computation or a parameter substitution.
+## value
 
-## Closest literature and limitations
+PASS
 
-Božić--Petrović is the foundational source checked for matrix-ring zero-divisor graphs. Ashrafi--Tadayyonfar gives a complete two-dimensional structure, and Masalkar--Khairnar--Lande--Kadam studies the two-dimensional adjacency spectrum. Those statements do not imply the higher-dimensional degree stratification proved here. The theorem does not determine the full automorphism group or spectrum.
+Degree is a canonical graph invariant; the sharp ±1 split reveals matrix square-zero status in addition to rank, and explicit multiplicities determine the entire graph degree distribution for every n>=3, q. The result has content about which algebraic labels must be preserved by every graph automorphism, not merely a recalculation of M2 ranks, and supplies symbolic inputs for further graph symmetry and spectral analysis.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
