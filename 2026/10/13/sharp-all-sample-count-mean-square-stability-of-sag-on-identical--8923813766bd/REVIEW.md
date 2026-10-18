@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem specifies before-update gradient-memory replacement, independent uniform sampling, arbitrary deterministic tables, strictly positive eigenvalues, and all \(n\ge2\). The scalar conditional moments give an exact energy identity; a direct principal-minor calculation makes the energy positive through the equality boundary; summability and memory recursion yield sufficiency. At equality the energy cannot vanish from a nonzero state; above equality the 4-by-4 moment determinant changes sign and a spanning set of deterministic initial states rules out universal decay. The symbolic companion checker is confirmatory rather than a substitute for these analytic arguments.
+## correctness
 
-**Originality — PASS (with residual risk).** The 2012 original SAG preprint, its 2013 extension and 2016 mathematical-programming formulation give conservative general sufficient stepsizes, not the exact universal all-initialization criterion for identical SPD Hessians. The 2019/2022 Morin–Giselsson bias/cocoercivity treatment gives other general sufficient regions, not the all-\(n\) sharp identity. Targeted literature searches for SAG, memory-table stability, equivalence with gradient descent and second-moment thresholds showed no stronger direct implication. One cannot exclude an earlier linear-switching or Markov-jump-system formulation under different terminology; this is a live originality risk, not a proof of novelty.
+PASS
 
-**Value — PASS.** Memory in SAG is random and stale even when component Hessians coincide, so recovering the full-gradient sharp stability ceiling simultaneously for every table length is not immediate from deterministic descent or generic SAG guarantees. The exact positive energy and the sharp instability determinant identify a structural cancellation across table sizes and give a useful stress test for finite-sum convergence analyses. This is a focused boundary theorem rather than a claim about general nonlinear problems.
+Orthogonal diagonalization reduces arbitrary SPD dimension to scalar mode s=eta lambda. For each n>=2 a positive definite quadratic memory-and-iterate energy V satisfies exactly E[Vnext|state]-V=(s-2)x^2 for 0<s<=2. Its summed drift implies E[x_k^2] summable and memory convergence for s<2; at s=2 conservation of positive energy prevents convergence from nonzero states. For s>2 the exact 4x4 second-moment matrix has det(I-T)=-2s(s-2)/n^3<0 and therefore an eigenvalue >1; deterministic initial moment vectors span the four-dimensional moment coordinates, proving that convergence for every initialization is impossible. Independent enumeration of per-index conditional energy changes verifies 15 rational cases. No a.s. divergence or geometric rate is asserted.
 
-**Limitations.** Identical SPD component Hessians and uniform independent with-replacement index sampling are essential assumptions. No all-initialization stability result is asserted for heterogeneous or nonquadratic finite sums. An equivalent obscure earlier linear-system result remains possible; no external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The SAG algorithm and known general conservative sufficient stepsizes were already established by Schmidt–Le Roux–Bach. Their general-convex and strongly convex results do not imply an all-n exact necessary-and-sufficient eta lambda_max(H)<2 threshold for identical SPD quadratic components with arbitrary initialized memory. Similar Resultary results concern STORM, SVRG and other schemes rather than the same SAG recurrence.
+
+## value
+
+PASS
+
+SAG is a canonical finite-sum memory method; knowing its exact all-initialization mean-square stability boundary even in the identical-components benchmark sharply separates a memory algorithm from conservative general worst-case step bounds. The positive Lyapunov energy is a reusable structural certificate for that natural benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

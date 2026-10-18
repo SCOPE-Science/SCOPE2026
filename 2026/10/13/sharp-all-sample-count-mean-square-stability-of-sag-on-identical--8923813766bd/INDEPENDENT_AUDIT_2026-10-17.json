@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:16:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal diagonalization reduces arbitrary SPD dimension to scalar mode s=eta lambda. For each n>=2 a positive definite quadratic memory-and-iterate energy V satisfies exactly E[Vnext|state]-V=(s-2)x^2 for 0<s<=2. Its summed drift implies E[x_k^2] summable and memory convergence for s<2; at s=2 conservation of positive energy prevents convergence from nonzero states. For s>2 the exact 4x4 second-moment matrix has det(I-T)=-2s(s-2)/n^3<0 and therefore an eigenvalue >1; deterministic initial moment vectors span the four-dimensional moment coordinates, proving that convergence for every initialization is impossible. Independent enumeration of per-index conditional energy changes verifies 15 rational cases. No a.s. divergence or geometric rate is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General heterogeneous finite-sum methods have conservative convergence criteria; the specialized sharp necessity and endpoint behavior are not supplied."
+        ],
+        "reasoning": "A general sufficient rate condition below 2/L does not imply necessity or equality at 2/L in the identical-H case.",
+        "searches": [
+          "Schmidt–Le Roux–Bach Math. Programming DOI:10.1007/s10107-016-1030-6",
+          "Morin–Giselsson DOI:10.1007/s11075-022-01280-4"
+        ]
+      },
+      "checked_sources": [
+        "https://www.di.ens.fr/~fbach/sag_mathprog.pdf",
+        "https://arxiv.org/abs/1202.6258",
+        "https://doi.org/10.1007/s11075-022-01280-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SAG theorem supplies convergence using conservative eta=1/(16L), not eta<2/L iff from every stored-memory state."
+        ],
+        "reasoning": "The new endpoint uses a positive drift certificate and moment determinant obstruction, mathematically stronger than restricting conservative sufficient inequalities.",
+        "searches": [
+          "arXiv:1309.2388v1",
+          "DOI:10.1007/s10107-016-1030-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original SAG fixed-memory update is identical, but original sufficient conditions allow much smaller alpha and particular zero/bias initialization."
+        ],
+        "reasoning": "The same recurrence appears in prior work; no previously located theorem gives the exact uniform all-initialization stability iff threshold.",
+        "searches": [
+          "Resultary: Stochastic Average Gradient SAG identical quadratic Hessian all sample n mean-square stability exact stepsize 2",
+          "arXiv:1202.6258",
+          "arXiv:1309.2388"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an exact n-independent analytic stability interval, not a finite tabulated value."
+        ],
+        "reasoning": "No exact parameter table was found that subsumes the all-real-Hessian eigenmode statement; literature overlap in linear random systems remains a risk.",
+        "searches": [
+          "Resultary: Stochastic Average Gradient SAG identical quadratic Hessian all sample n mean-square stability exact stepsize 2",
+          "published SAG theory equations on step sizes"
+        ]
+      },
+      "rationale": "The SAG algorithm and known general conservative sufficient stepsizes were already established by Schmidt–Le Roux–Bach. Their general-convex and strongly convex results do not imply an all-n exact necessary-and-sufficient eta lambda_max(H)<2 threshold for identical SPD quadratic components with arbitrary initialized memory. Similar Resultary results concern STORM, SVRG and other schemes rather than the same SAG recurrence.",
+      "residual_risks": [
+        "An older random switched-linear-system theorem may imply the identical Hessian stability criterion.",
+        "Necessary side is failure of universal mean-square convergence, not almost-sure divergence for every initialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original bounds and initialization do not prove sharp all-initialization identical quadratic threshold",
+          "evidence": [
+            "SAG Math. Programming primary PDF, main theorem using stepsize 1/(16L)"
+          ],
+          "identifier_or_url": "https://www.di.ens.fr/~fbach/sag_mathprog.pdf",
+          "material_read": "Complete thirty-page author-hosted primary PDF accessible as text; inspected update definitions, main convergence theorem/stepsize assumptions and discussion",
+          "method": "Read relevant algorithm definitions and principal theorem, with attempted page-image view; not every proof appendix page",
+          "title": "Minimizing finite sums with the stochastic average gradient",
+          "trigger": "Original SAG and most plausible dominant general convergence theorem"
+        },
+        {
+          "assessment": "General sufficient biased-method framework; risk of implicit specialization remains",
+          "evidence": [
+            "Morin–Giselsson, Numerical Algorithms 91 (2022)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01280-4",
+          "material_read": "Abstract and search-visible theorem descriptions, not full article text",
+          "method": "Relevant literature search, without claiming uninspected full text",
+          "title": "Cocoercivity, smoothness and bias in variance-reduced stochastic gradient methods",
+          "trigger": "General exact stepsize could dominate special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "SAG is a canonical finite-sum memory method; knowing its exact all-initialization mean-square stability boundary even in the identical-components benchmark sharply separates a memory algorithm from conservative general worst-case step bounds. The positive Lyapunov energy is a reusable structural certificate for that natural benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only identical SPD quadratic summands, iid uniform with-replacement index sampling, arbitrary deterministic initial memory.",
+    "No sharp geometric convergence factor or heterogeneous-H extension."
+  ]
+}
