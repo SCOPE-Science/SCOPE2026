@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For a fixed tree the sole nonzero peak/trough indicator interactions occur at distances zero, one and two. Same-site exclusion and two exact beta integrals yield H_1 and H_2. A weighted Cayley forest polynomial gives the conditioned multinomial-plus-Bernoulli degrees for one edge and one 2-edge path, with respective incidences 2/n and 3/n^2. Summing ordered pairs gives the exact finite formula. Binomial/multinomial Poisson convergence yields the displayed constant. Its negative sign is certified by a rational interval for the Poisson(1) distribution truncated to 0..10 and a total-variation tail bound 21T. check.py passed 373 exact assertions, including complete tree enumeration through n=6 and finite rank permutations where indicated. This proves only averaged conditional covariance, not unconditional covariance or concentration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Majumdar--Martin arxiv:cond-mat/0609735 Section II discusses local moments for one minima statistic on fixed lattices; its Section IV uses regular fixed-branching Cayley trees.",
+        "Burdzy--Pal arxiv:1606.08025 Section 6 investigates single/twin peaks in fixed-tree labelings.",
+        "Diaz-Lopez et al. arxiv:1708.08493 Section 2 gives an enumeration algorithm for prescribed peak sets on a fixed graph."
+      ],
+      "reasoning": "Broad variance and graph-labeling frameworks could be specialized by additional calculations, but no inspected theorem gives this specific mixed quenched covariance, conditioned finite-tree degree law, or its certified negative linear coefficient. A generic exhaustive enumeration algorithm does not settle the limiting sign without the separate nontrivial calculation.",
+      "searches": [
+        "local maxima minima random graphs covariance graph local extrema general theorem",
+        "independent vertex fitness local extrema graph joint maxima minima covariance distance two spanning trees",
+        "The Statistics of the Number of Minima in a Random Energy Landscape arxiv cond-mat 0609735",
+        "Twin peaks Burdzy Pal arxiv 1606.08025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0609735",
+      "DOI:10.1155/IJMMS.2005.3867",
+      "arxiv:1606.08025",
+      "arxiv:1708.08493",
+      "Published research result on endpoint degree versus distance in uniform labeled trees (separate observable, compared by statement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Clark, DOI:10.1155/IJMMS.2005.3867, page 3868, defines extrema at rooted paths of three vertices and later computes separate first and second moments of that statistic.",
+        "Majumdar--Martin, arxiv:cond-mat/0609735, Sections I--II and VI, analyzes minima count and asymptotic extremes on fixed lattices.",
+        "Burdzy--Pal, arxiv:1606.08025, Section 6, addresses locations and counts conditional on few peaks, not minima/peak mixed covariance.",
+        "Diaz-Lopez et al., arxiv:1708.08493, Introduction and Section 2, count labelings of a fixed graph by peak set but do not average mixed covariance over uniform labeled trees."
+      ],
+      "reasoning": "The present constant is a quenched average of a *cross*-covariance, not the variance or mean of either single statistic. Regular branching is not the same probability space as a uniformly random Cayley labeled tree; rooted 3-path turning points are not all-neighbor extrema. Known conditioned degree distributions help derive the claim but do not alone determine the signed local integrals or the limiting constant.",
+      "searches": [
+        "\"Local extrema in random trees\" \"maxima\" \"minima\" covariance Lane Clark pdf",
+        "\"joint\" \"local maxima\" \"local minima\" \"random trees\" covariance",
+        "\"Peaks on Graphs\" random labelings expected peak counts",
+        "exact forest conditioned degrees uniform labeled Cayley tree mixed multinomial Bernoulli local extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:cond-mat/0609735 Section I equates continuous i.i.d. site energies with uniformly ranked labels.",
+        "arxiv:1606.08025 Section 3 defines a peak as a strict neighborwise maximum, including leaves.",
+        "arxiv:1708.08493 Section 1 also uses graph peaks but excludes degree-one vertices, unlike the present extrema."
+      ],
+      "reasoning": "Equivalent rank-label and continuous-i.i.d. formulations were compared explicitly. Neither the single-peak conditioning statements nor the peak-set enumeration statements identify the averaged conditional covariance of both peaks and troughs over uniformly random labeled trees.",
+      "searches": [
+        "local maxima minima random labelled Cayley trees peaks valleys joint distribution covariance",
+        "peaks on Cayley trees labeled trees peak vertices larger than adjacent random tree number peaks covariance valleys",
+        "quenched peak trough count covariance local extrema random labeled Cayley tree expected conditional covariance negative constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or published coefficient was identified in the stated searches.",
+        "Comparison with the identifiable published degree-distance result on random Cayley trees finds a marginal endpoint-degree regression, not a mixed vertex-extrema covariance table."
+      ],
+      "reasoning": "Failure to find the decimal constant is weak evidence by itself, so the judgment rests on comparing exact mathematical statements rather than on a number lookup. A larger database could contain an equivalent formula expressed as a generating-function coefficient.",
+      "searches": [
+        "\"0.039341675\" random tree peak trough covariance",
+        "\"quenched covariance\" \"local minima\" \"local maxima\" trees",
+        "\"Cayley tree\" \"maxima\" \"minima\" \"covariance\"",
+        "random labeled tree random energy landscape local minimum maximum cross correlations"
+      ]
+    },
+    "rationale": "The stated claim is a negative linear limit of the *tree-averaged conditional* maximum/minimum count covariance on uniformly random labeled trees, together with its exact finite-size degree-pair formula and a path contrast. Searches covered aliases such as peaks, troughs, local extrema, landscapes, random labeling, and conditioned spanning-tree degrees. Majumdar--Martin (2006) computes minima statistics for fixed geometry; Clark (2005) uses internal rooted path extrema, a different statistic; Burdzy--Pal (2016) conditions on one or two peaks; Diaz-Lopez et al. (2017) enumerate fixed-graph peak sets and use a distinct degree-one convention. The inspected statements do not directly imply the uniformly random tree-averaged mixed covariance or its negative asymptotic coefficient. This remains a same-model and non-exhaustive priority assessment: implicit consequences of general enumerators are possible.",
+    "residual_risks": [
+      "General peak-set enumeration or random-graph landscape generating functions may contain the result implicitly even if not stated in inspected sections.",
+      "Public literature search and full-text examination were selective rather than an exhaustive search across all historic probability and combinatorics publications.",
+      "Historical priority has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_RELEVANCE_NOT_DIRECT_COVERAGE",
+        "evidence": "Sections I--II define i.i.d. continuous energy and one-statistic local minimum moments; their Cayley tree denotes regular branching geometry rather than a random labeled uniform tree; no mixed peak/trough covariance in inspected results.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0609735",
+        "material_read": "Abstract, Sections I--II, beginning of one-dimensional Section III, discussion and conclusions in Section VI, together with Cayley-tree model specification and section headings",
+        "method": "lawful open arXiv PDF; extracted relevant lines and visually examined pages 2 and 4",
+        "title": "The Statistics of the Number of Minima in a Random Energy Landscape",
+        "trigger": "Nearest classic study of minima on random energy landscapes and trees"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE",
+        "evidence": "The statistic counts internal high/low vertices on oriented three-vertex paths in a tree rooted at a prescribed label; it does not count vertices that dominate every neighbor.",
+        "identifier_or_url": "https://doi.org/10.1155/IJMMS.2005.3867",
+        "material_read": "Author-hosted article transcription, introductory definitions of rooted length-three path extrema and stated mean/variance theorem, plus portions of joint path enumeration",
+        "method": "open full-text transcription on publicly accessible research record; checked the exact mathematical definition",
+        "title": "Local extrema in random trees",
+        "trigger": "Direct title match with local extrema on random labeled trees"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_MIXED_COVARIANCE",
+        "evidence": "Conditions random labelings on one/two peaks in a fixed tree; does not state an averaged all-peak/all-trough covariance on a random uniform labeled tree.",
+        "identifier_or_url": "https://arxiv.org/pdf/1606.08025",
+        "material_read": "Abstract, Section 3 definitions, Section 6 tree results including centroid and conditional one/two-peak arguments",
+        "method": "arXiv full-text extraction with visual inspection of the definition on page 4",
+        "title": "Twin peaks",
+        "trigger": "Tree-labeling maxima research with a definition including leaves"
+      },
+      {
+        "assessment": "POTENTIAL_INDIRECT_COVERAGE_BUT_NO_DIRECT_IMPLICATION",
+        "evidence": "Prescribed peak-set enumeration on fixed graphs; excludes peaks of degree one and does not state any trough count, cross-covariance or Cayley-tree averaged coefficient.",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.08493",
+        "material_read": "Abstract and Sections 1--2, definitions and constructive algorithm, plus search of entire extracted text for covariance and variance",
+        "method": "open arXiv PDF, first page visually examined, theorem definitions compared",
+        "title": "Counting peaks on graphs",
+        "trigger": "General enumeration of peak sets on arbitrary graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "607fdf42-55c8-488f-9f15-6e7dc3eaf773",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Local maxima and minima are the natural paired critical-point counts in independent random energy landscapes. Their dependence is locally competitive (same vertex, distance-two) and cooperative (adjacency); determining the sign after averaging a random tree geometry is not a separate-marginal or routine fixed-degree count. The exact signed locality formula, forest-conditioned degree law and rigorously negative asymptotic coefficient solve a meaningful quenched-dependence question. Positive covariance for paths of order >=5 makes the topology dependence explicit. The quantity is a complete well-defined observable of random labeled trees, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
