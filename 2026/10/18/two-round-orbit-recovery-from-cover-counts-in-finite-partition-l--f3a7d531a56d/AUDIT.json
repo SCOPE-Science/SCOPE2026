@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof treats every \\(n\\ge1\\). First-round in/out degrees are \\(F(P)=\\sum_i(2^{s_i-1}-1)\\) and \\(\\binom{k}{2}\\). Merging block sizes \\(a,b\\) gives \\(2(F(Q)-F(P))-1=(2^a-1)(2^b-1)\\). The exact two-adic valuations for \\(a<b\\) and \\(a=b\\ge2\\), together with a magnitude comparison and a separate \\((1,1)\\) case, show that this code uniquely determines the unordered pair. The second round sees every merged-pair type, and occurrences of a block size \\(r\\) in the pair multiset total \\(m_r(k-1)\\); \\(k=1\\) is unique. Symmetric-group transitivity proves orbit equality and stabilization. Distinct types \\((1,1,3,3,3,3)\\) and \\((2,2,2,2,2,4)\\) at size \\(14\\) share first-round degree pair \\((15,12)\\); adjoining singleton blocks yields counterexamples for every \\(n\\ge14\\). Integer partitions for \\(n\\le13\\) were exhaustively checked with a recursive enumerator. Direct full-graph and weighted-quotient programs corroborate, but do not replace, the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ehrenborg–Readdy, arXiv:1009.3976, §§1–5, addresses Möbius functions and restricted partition filters, not algorithmic orbit-recovery depth.",
+        "Ehrenborg–Hedmark, arXiv:1606.01443, abstract, §2 and later section titles, addresses equivariant homology and type filters rather than an implication covering two rounds of colour refinement."
+      ],
+      "reasoning": "Broader structural results on partition-lattice topology or on graph refinability do not provide the specific local-degree reconstruction argument or uniform round bound. The examined papers give general objects/methods but no theorem that implies the claimed refinement depth under the directed-cover signature.",
+      "searches": [
+        "Web: partition lattice Hasse diagram Weisfeiler-Leman color refinement automorphism group block sizes",
+        "published-finding corpus: partition lattice ordered Hasse graph 2-variable counting logic automorphism orbit block-size type after two rounds",
+        "Web: finite model theory counting logic finite partition lattices covers orbit refinement"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.3976v1 (Ehrenborg–Readdy)",
+      "arXiv:1502.01255v1/v3 (Arvind–Köbler–Rattan–Verbitsky)",
+      "arXiv:1606.01443v1 (Ehrenborg–Hedmark)",
+      "Published semantic published-finding corpus-search records on block-size covariance and degree-profile reconstruction; no implication to the present cover theorem was found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arvind et al. arXiv:1502.01255, pp. 1–4 define colour refinement and refinability, and §8 treats a graph-class hierarchy; their theorem does not specialize to immediate-merge partition lattices.",
+        "Ehrenborg–Hedmark arXiv:1606.01443, §2 states type and symmetric-group action, while their main theorems are topological/representation-theoretic.",
+        "Ehrenborg–Readdy arXiv:1009.3976, Introduction and Theorems 3.1/4.5, analyze Möbius functions rather than two-step equitable partitions."
+      ],
+      "reasoning": "The present conclusion requires the new explicit identity 2(F(Q)-F(P))-1=(2^a-1)(2^b-1), the pairwise-product injectivity lemma, and the multiset inversion. The prior statements do not imply those steps or the uniform round bound, and the partition-orbit formula is expressly attributed as classical.",
+      "searches": [
+        "Web: Arvind Köbler Rattan Verbitsky graph isomorphism color refinement compactness arxiv 2015",
+        "Web: Ehrenborg Readdy finite partition lattice ordered set partitions Möbius arxiv 2010",
+        "Web: Filters in the partition lattice 1606.01443 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arvind et al., arXiv:1502.01255, pp. 1–4 and Section 8, explicitly describe refinement/orbit partitions but no partition-lattice cover family.",
+        "Ehrenborg–Hedmark, arXiv:1606.01443, §2, describes the directed cover relation and partition type; it studies homology, not refinement."
+      ],
+      "reasoning": "Two-way one-dimensional counting refinement is the bounded-round orbit-colour formulation for the directed cover signature. Searches for both Hasse and immediate-merge formulations found no identical theorem. A theorem for the full strict order relation cannot automatically be reinterpreted as a two-round cover-relation theorem, since the immediate relation and transitive closure yield different neighbourhood operators.",
+      "searches": [
+        "published-finding corpus: partition lattice cover relation Hasse diagram 1-WL color refinement two rounds recover block size multiplicities using merge degrees and split counts",
+        "published-finding corpus: two round orbit refining partition lattices strict cover relation merging split blocks C2",
+        "Web: counting logic one dimensional Weisfeiler Leman partition lattice cover graph refinement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The integer partition function and symmetric-group type classes are classical, already natural in arXiv:1009.3976 and arXiv:1606.01443.",
+        "The closest semantic published-finding corpus records concerned block-size covariance (2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad) and finite-field-factor degree reconstruction (2026/10/4/SCOPE-degree-distributions-reconstruct-finite-field-factors-in-product--3dd944f1d801), rather than cover refinement."
+      ],
+      "reasoning": "No database exact-value lookup was substituted for an originality check. The novelty claim is not the known table p(n), multinomial orbit sizes, or a recomputation thereof; it is the two-round combinatorial reconstruction theorem and the sharp first-round collision threshold.",
+      "searches": [
+        "published-finding corpus: finite partition lattice merging blocks 2^a-1 2^b-1 split degree Weisfeiler Leman orbit recovery",
+        "published-finding corpus: distinct pair products (2^a - 1)(2^b - 1) Mersenne block sizes reconstruction graph",
+        "Web: partition lattice Hasse diagram degree vertex block sizes chromatic automorphisms"
+      ]
+    },
+    "rationale": "No equivalent theorem was found in indexed research-record searches, accessible earlier claim comparisons, or the inspected primary sources. The closest primary literature supplies cover relations and partition-type actions or the general notion of refinability, without the two-round Hasse recovery and sharp n=14 obstruction. The classical orbit counts and type classification are not presented as new. Publication priority remains provisional.",
+    "residual_risks": [
+      "A specialized historical study of equitable partitions of partition-lattice cover graphs could establish overlapping results under different terminology.",
+      "The selected literature comparisons are bounded and do not certify exhaustive publication priority.",
+      "The present statement is specific to the directed cover signature; stronger claims for other signatures are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct relevance to notation and the cover structure, but stated results concern homology, Specht modules and filters; no two-round colour-refinement orbit theorem was located.",
+        "evidence": [
+          "§2 describes a cover by adding/merging two parts, and defines type and relabelling action.",
+          "Introduction explicitly describes the main result as the homology/representation of restricted partition filters."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.01443v1",
+        "material_read": "Abstract, Introduction, §2 (integer and set partitions) and the section-outline/main theorem descriptions; full-text term checks for colour refinement, Weisfeiler and degree.",
+        "method": "Read lawful open full-text HTML and inspect relevant sections/term locations.",
+        "title": "Filters in the Partition Lattice",
+        "trigger": "Directly studies finite set-partition posets, cover relations, type maps and symmetric-group action."
+      },
+      {
+        "assessment": "The paper establishes results about Möbius functions of partition filters; it does not assert orbit recovery by counting refinement.",
+        "evidence": [
+          "§2 introduces merging-part cover relations and partition types.",
+          "Theorem 4.5 evaluates a Möbius function; concluding remarks ask topological and enumerative questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.3976",
+        "material_read": "PDF pp. 1–3, §2, Theorems 3.1 and 4.5, concluding remarks; searched full document for the cover relation, Hasse and colour refinement.",
+        "method": "Read arXiv open-access full-text PDF as text and inspected a rendered page.",
+        "title": "The Möbius function of partitions with restricted block size",
+        "trigger": "Primary archived source about partition lattices and block-size types."
+      },
+      {
+        "assessment": "This supplies the orbit-colouring formalism but no statement about finite partition-lattice immediate-merge covers or an explicit two-round bound.",
+        "evidence": [
+          "§2 defines the refinement recurrence.",
+          "§8 defines refinable graphs by equality of colour and automorphism orbits, and the appendices treat Johnson graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+        "material_read": "PDF pp. 1–4; sections on refinability and graph-class hierarchy; Appendix on Johnson graph individualization, with searches for partition lattice and Hasse.",
+        "method": "Read arXiv full-text PDF and inspected the definitions on a rendered page.",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Primary formal source for orbit partitions, refinability and colour refinement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3a7d531-a56d-4dc0-b3fb-cd2cac6d52a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact, uniformly sharp two-round depth and the \\(n=14\\) first-round transition give structural logical invariants for a natural family with Bell-number-size vertex sets. The local coarsening-degree identity and injective two-adic encoding explain recovery of the entire global block-size profile. This is not simply classical type-orbit enumeration. The depth is independent of \\(n\\) and distinguishes the immediate-cover signature from the full-order presentation. The statement is deliberately restricted to the directed cover relation and includes publication-priority limitations.",
+    "status": "PASS"
+  }
+}
