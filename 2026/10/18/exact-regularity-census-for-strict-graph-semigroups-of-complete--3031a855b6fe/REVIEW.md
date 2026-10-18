@@ -1,0 +1,15 @@
+# Review of the multipartite strict-semigroup census
+
+## Correctness
+**PASS.** The nontrivial step is the exact inner-inverse criterion: any inner inverse selects independent endpoints of every fiber edge, and conversely a common-part transversal extends to a strict inner inverse because any matching supplies sufficient vertices outside the part containing the image. The matching multiplicity formula uses ordered part-wise vertex choices divided by type-permutation factorials. Two-term inclusion-exclusion counts matchings with a common incident part, and idempotents are counted by selecting their fixed image endpoints. The regularity classification follows from the possible edge-type patterns in three versus at least four parts; the fixed-block asymptotic follows from counting forbidden within-part edges and dominance of top rank. All claims concern finite multipartite graphs with at least three nonempty parts. Fifteen exhaustive small-profile comparisons passed, and four additional direct tests enumerated inner inverses.
+
+## Originality
+**PASS, qualified by bibliographic risk.** The crucial general matching/transversal criterion is **prior work**, Margolis–Rhodes arXiv:2609.39370, Theorem 7.1. Its graph-wide necessary-and-sufficient criterion is not presented as new here. The manuscript also recognizes Margolis–Rhodes arXiv:2005.02606, Example 2.11, on strict singular maps of equal-size complete bipartite graphs. The new statement is the evaluated **all-part-profile, rank-refined exact census of regular, total and idempotent strict elements**, its complete multipartite regularity trichotomy outside the prior bipartite setting, and its explicit asymptotic constant and exponent. Full relevant primary text, targeted literature searches, and accessible historical claim statements showed no covering formula. Residual risk: an equivalent census may exist in unindexed transformation-semigroup literature. A failed search alone would not prove novelty.
+
+## Value
+**PASS.** The cited work explicitly poses graph regularity as a structural classification problem. The complete multipartite family gives a natural sharp three-part/four-part transition with an exceptional nonbipartite regular graph \(K_{2,2,2}\). Exact rank coefficients permit comparison of semigroup sizes and idempotent frequencies for arbitrary part sizes. Fixed part size at increasing number of parts gives a proved \(r^{-(n-1)}\) decay with explicit constant, which is distinct from mere numerical examples or a one-off finite count.
+
+## Limitations and closest work
+The result relies on the published definition of the edge-fiber strict subsemigroup; it does not count the full graph monoid or the different strict convention including graph automorphisms. The general criterion and the equal-size bipartite formula remain prior results. Independent literature auditing could uncover an earlier equivalent multipartite enumeration. The asymptotic does not address growing part sizes.
+
+Self-review: passed. Independent audit: not yet performed.
