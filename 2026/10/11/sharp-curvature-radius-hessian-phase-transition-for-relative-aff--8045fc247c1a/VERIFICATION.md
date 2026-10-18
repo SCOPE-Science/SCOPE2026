@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the curvature-radius Hessian
+# Independent mathematical audit
 
-Run `python verify.py` with the standard Python library. The program numerically evaluates the full relative affine area along exactly area-preserving harmonic support paths for disk radii \(0.4\), \(2/3\), and \(0.85\) with unit reference ball radius, and Fourier modes \(k=2,3,6\). It compares finite-difference deficits to analytic eigen-coefficients and checks the predicted ordering over Fourier degrees \(2\) to \(19\). Its success message is `RELATIVE_AFFINE_HESSIAN_FINITE_CHECKS_OK`.
+## correctness
 
-The theorem for all positive radii and arbitrary Fourier series is established by Taylor expansion and Parseval as written in `RESULT.md`; quadrature provides finite reproducibility evidence, not an infinite-dimensional certificate. No numerical or analytic check establishes claim novelty over all unindexed sources, and no independent audit has been performed.
+PASS
+
+Starting from the verified support-function identities ρ=h+h″, ds=ρdθ, area=(1/2)∫hρ and f_R(ρ)=ρ^(2/3)(1-ρ/R)^(1/3), the first area constraint gives ∫u=0 and second gives r∫v=-(1/2)∫u(u+u″). The O(ε²) area deficit is Q=(1/2)∫[(f_R′(r)/r)u(u+u″)-f_R″(r)(u+u″)²]. Independent symbolic differentiation verifies f′/f=(2R-3r)/(3r(R-r)) and f″/f=-2R²/(9r²(R-r)²). Fourier diagonalization on modes k≥2 gives C_k=(-f″-f′/[r(k²-1)])/2, with k=1 translations, k=0 removed by fixed area. Its coefficient is increasing with k for r<2R/3 (sharp k=2), degenerate exactly at 2R/3, and decreasing toward an unattained high-frequency infimum for r>2R/3. The proposed support path h=(r+εcos kθ)/sqrt(1-(k²-1)ε²/(2r²)) has exactly fixed area and 0<ρ<R for sufficiently small ε, so all sharpness assertions are realizable; no finite-amplitude inequality is claimed.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: the arXiv 2025 source of R-ball floating bodies establishes the curvature-integral functional, and Artstein-Avidan–Chor identify r=2R/3 as an unconstrained extremal disk radius. Neither inspected relevant primary theorem is a fixed-area, all-radii Fourier Hessian eigenvalue classification, nor does the known unconstrained radius alone imply the change from degree two to an unattained high-frequency infimum. Resultary semantic search found the assigned claim but no distinct exact prior covering the sharp Hessian; priority risks from unindexed local variation literature are retained.
+
+## value
+
+PASS
+
+PASS: the full spectral Hessian identifies precisely which local perturbation is least penalized under a geometrically natural area constraint and proves a genuine transition at r=2R/3, with an infinite-dimensional nonattainment regime. That is a motivated sharp local stability invariant useful independently of a global inequality; nonattained high-frequency sharpness requires degree-dependent small amplitude and is correctly distinguished.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
